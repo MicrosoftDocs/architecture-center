@@ -47,35 +47,37 @@ In Azure, the equivalent of AWS organizational units (OUs) is management groups.
 
 Important facts about management groups and subscriptions:
 
-- A single directory supports as many as 10,000 management groups. 
+- A single Microsoft Entra tenant supports as many as 10,000 management groups.
 
-- A management group tree supports as many as six levels of depth. 
+- A management group tree supports up to six levels of depth, not counting the root management group level or the subscription level.
 
 - Each management group and subscription can have only one parent. 
 
 - Each management group can have multiple children. 
 
-- All subscriptions and management groups are within a single hierarchy in each directory. 
+- All subscriptions and management groups are within a single hierarchy in each Microsoft Entra tenant.
 
 - The number of subscriptions per management group is unlimited. 
 
-The root management group is the top-level management group that's associated with each directory. All management groups and subscriptions roll up to the root management group. This design enables you to implement global policies and Azure role assignments at the directory level.
+The root management group is the top-level management group that's associated with each Microsoft Entra tenant. All management groups and subscriptions roll up to the root management group. This design enables you to implement global policies and Azure role assignments at the tenant level.
 
 ## Service control policies vs. Azure Policy
 
-The primary goal of service control policies (SCP) in AWS is to limit the maximum effective permissions within an AWS account. In Azure, maximum permissions are defined in Microsoft Entra and can be applied at the tenant, subscription, or resource-group level. Azure Policy has a wide range of use cases, a few of which align with typical SCP usage patterns. You can use both SCPs and Azure policies to enforce compliance with enterprise standards, like tagging or the use of specific SKUs. Both SCPs and Azure policies can block deployment of resources that don't meet compliance requirements. Azure policies can be more proactive than SCPs and can trigger remediations to bring resources into compliance. Azure policies can also assess both existing resources and future deployments.
+The primary goal of service control policies (SCPs) in AWS is to centrally define the maximum available permissions for IAM users and roles across member accounts in an AWS Organization. SCPs are attached to the organization root, organizational units (OUs), or individual member accounts, and don't apply to the management account. SCPs never grant permissions by themselves; they act as guardrails that filter what identity-based or resource-based policies can ultimately allow.
+
+In Azure, permission boundaries are implemented through Azure RBAC assignments and Azure Policy, which can be applied at the management group, subscription, resource group, or individual resource scope.
 
 ## Comparison of the structure and ownership of AWS accounts with Azure subscriptions
 
-An Azure account represents a billing relationship, and Azure subscriptions help you organize access to Azure resources. Account Administrator, Service Administrator, and Co-Administrator are the three classic subscription administrator roles in Azure:
+An Azure account represents a billing relationship, and Azure subscriptions help you organize access to Azure resources. Access to an Azure subscription is managed through two complementary systems:
 
-- **Account Administrator**. The subscription owner and the billing owner for the resources used in the subscription. The account administrator can only be changed by transferring ownership of the subscription. Only one Account administrator is assigned per Azure Account.
+- **Billing roles**, which manage the billing relationship and are defined by your billing account type (Microsoft Customer Agreement, Enterprise Agreement, or Microsoft Online Services Program). The primary billing role is the billing account administrator (historically called Account Administrator), who can create and cancel subscriptions, update payment methods, and transfer billing ownership.
+- **Azure role-based access control (Azure RBAC)**, which manages access to Azure resources. Microsoft recommends Azure RBAC for all resource access management. Common built-in roles include Owner, Contributor, and Reader, which can be assigned at the management group, subscription, resource group, or resource scope.
 
-- **Service Administrator**. This user has rights to create and manage resources in the subscription but isn't responsible for billing. By default, for a new subscription, the Account Administrator is also the Service Administrator. The account administrator can assign a separate user to the Service Administrator for managing the technical and operational aspects of a subscription. Only one Service Administrator is assigned per subscription.
+> [!IMPORTANT]
+> The classic subscription administrator roles (Service Administrator and Co-Administrator) were retired on August 31, 2024, along with Azure Service Manager and Azure classic resources. If any subscription still has active classic administrator assignments, convert them to Azure RBAC immediately. For more information, see [Azure classic subscription administrators](https://learn.microsoft.com/azure/role-based-access-control/classic-administrators).
 
-- **Co-administrator**. There can be multiple co-administrators assigned to a subscription. Co-administrators have the same access privileges as the Service Administrator, but they can't change the Service Administrator.
-
-Under the subscription level, user roles and individual permissions can also be assigned to specific resources, similarly to how permissions are granted to IAM users and groups in AWS. In Azure, all user accounts are associated with either a Microsoft account or an organizational account (an account managed through Microsoft Entra ID).
+Under the subscription level, user roles and individual permissions can also be assigned to specific resources, similarly to how permissions are granted to IAM users and groups in AWS. In Azure, user accounts are either personal Microsoft accounts (such as Outlook.com, Hotmail, or Xbox identities) or work or school accounts managed through Microsoft Entra ID.
 
 Like AWS accounts, subscriptions have default service quotas and limits. For a full list of these limits, see [Azure subscription and service limits, quotas, and constraints](/azure/azure-subscription-service-limits). These limits can be increased up to the maximum by [filing a support request in the management portal](/archive/blogs/girishp/increasing-core-quota-limits-in-azure).
 
