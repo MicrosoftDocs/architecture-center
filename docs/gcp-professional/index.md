@@ -47,23 +47,19 @@ Azure levels of management scope
 
 Azure services can be purchased using several pricing options, depending on your organization's size and needs. For more information, see the [pricing overview](https://azure.microsoft.com/pricing) page.
 
-[Azure subscriptions](/azure/virtual-machines/linux/infrastructure-example) are a grouping of resources with an assigned owner responsible for billing and permissions management.
+[Azure subscriptions](/azure/cost-management-billing/manage/cloud-subscription) are a grouping of resources with an assigned owner responsible for billing and permissions management.
 
 A Google Cloud *project* is conceptually similar to the Azure subscription, in terms of billing, quotas, and limits. However, from a functional perspective, a Google Cloud project is more like a resource group in Azure. It's a logical unit that cloud resources are deployed to.
 
-There is no maximum number of Azure subscriptions that you can create. Each Azure subscription is linked to a single Microsoft Entra tenant (an *account*, in Google Cloud terms). A Microsoft Entra tenant can contain an unlimited number of subscriptions, whereas Google Cloud has a default soft limit of 30 projects per account. This project limit can be increased through a support request.
+There is no maximum number of Azure subscriptions that you can create. Each Azure subscription is linked to a single Microsoft Entra tenant (an *account*, in Google Cloud terms). A Microsoft Entra tenant can contain an unlimited number of subscriptions, whereas Google Cloud has a default soft limit that varies per account and can be increased through a request.
 
-Subscriptions are assigned three types of administrator accounts:
+Access management to Azure resources is accomplished through Azure role-based access control ([Azure RBAC](/azure/role-based-access-control/rbac-and-directory-admin-roles)), which includes over 100 built-in roles. You can also create your own custom roles.
 
-- **Account Administrator**. The subscription owner and the account billed for the resources used in the subscription. The account administrator can only be changed by transferring ownership of the subscription.
-- **Service Administrator**. This account has rights to create and manage resources in the subscription but isn't responsible for billing. By default, the account administrator and service administrator are assigned to the same account. The account administrator can assign a separate user to the service administrator account for managing the technical and operational aspects of a subscription. Only one service administrator is assigned per subscription.
-- **Co-administrator**. There can be multiple co-administrator accounts assigned to a subscription. Co-administrators cannot change the service administrator, but otherwise have full control over subscription resources and users.
-
-For fine-grained access management to Azure resources, you can use Azure role-based access control ([Azure RBAC](/azure/role-based-access-control/rbac-and-directory-admin-roles)), which includes over 70 built-in roles. You can also create your own custom roles.
+Subscriptions contain an aditional role, Account Administrator, which represents the subscription owner and the account billed for the resources used in the subscription. The account administrator can only be changed by transferring ownership of the subscription. 
 
 Beneath the subscription level, you can assign user roles and individual permissions to specific resources. In Azure, all user accounts are associated with either a Microsoft Account or Organizational Account (an account managed through Microsoft Entra ID).
 
-Subscriptions have default service quotas and limits. For a full list of these limits, see [Azure subscription and service limits, quotas, and constraints](/azure/azure-subscription-service-limits). These limits can be increased up to the maximum by [filing a support request in the management portal](/archive/blogs/girishp/increasing-core-quota-limits-in-azure).
+Subscriptions have default service quotas and limits. For a full list of these limits, see [Azure subscription and service limits, quotas, and constraints](/azure/azure-subscription-service-limits). These limits can be increased up to the maximum by [filing a support request in the management portal](/azure/azure-resource-manager/troubleshooting/error-resource-quota?tabs=azure-cli#solution).
 
 ### See also
 
@@ -74,11 +70,11 @@ Subscriptions have default service quotas and limits. For a full list of these l
 
 The term "resource" in Azure means any compute instance, storage object, networking device, or other entity you can create or configure within the platform.
 
-Azure resources are deployed and managed using one of two models: [Azure Resource Manager](/azure/azure-resource-manager/resource-group-overview), or the older Azure [classic deployment model](/azure/azure-resource-manager/resource-manager-deployment-model). Any new resources are created using the Resource Manager model.
+Azure resources are deployed and managed using [Azure Resource Manager](/azure/azure-resource-manager/resource-group-overview).
 
 ### Resource groups
 
-Azure additionally has an entity called "resource groups" that organize resources such as VMs, storage, and virtual networking devices. An Azure resource is always associated with one resource group. A resource created in one resource group can be moved to another group but can only be in one resource group at a time. For more information, see [Move Azure resources across resource groups, subscriptions, or regions](/azure/azure-resource-manager/management/move-resources-overview). Resource groups are the fundamental grouping used by Azure Resource Manager.
+Azure additionally has an entity called [resource groups](/azure/azure-resource-manager/resource-group-overview#resource-groups) that organize resources such as VMs, storage, and virtual networking devices. An Azure resource is always associated with one resource group. A resource created in one resource group can be moved to another group but can only be in one resource group at a time. For more information, see [Move Azure resources across resource groups, subscriptions, or regions](/azure/azure-resource-manager/management/move-resources-overview). Resource groups are the fundamental grouping used by Azure Resource Manager.
 
 Resources can also be organized using [tags](/azure/azure-resource-manager/resource-group-using-tags). Tags are key-value pairs that allow you to group resources across your subscription irrespective of resource group membership.
 
@@ -87,19 +83,15 @@ Resources can also be organized using [tags](/azure/azure-resource-manager/resou
 Azure offers several ways to manage your resources:
 
 - [Web interface](/azure/azure-resource-manager/resource-group-portal). The Azure portal provides a full web-based management interface for Azure resources.
-- [REST API](/rest/api). The Azure Resource Manager REST API provides programmatic access to most of the features available in the Azure portal.
-- [Command Line](/azure/azure-resource-manager/cli-azure-resource-manager). The Azure CLI provides a command-line interface capable of creating and managing Azure resources. The Azure CLI is available for [Windows, Linux, and macOS](/cli/azure).
+- [REST API](/rest/api/?view=Azure). The Azure Resource Manager REST API provides programmatic access to most of the features available in the Azure portal.
+- [Command Line](/cli/azure/install-azure-cli?view=azure-cli-latest). The Azure CLI provides a command-line interface capable of creating and managing Azure resources. The Azure CLI is available for [Windows, Linux, and macOS](/cli/azure).
 - [PowerShell](/azure/azure-resource-manager/powershell-azure-resource-manager). The Azure modules for PowerShell allow you to execute automated management tasks using a script. PowerShell is available for [Windows, Linux, and macOS](/powershell/scripting/install/installing-powershell).
 - [Templates](/azure/azure-resource-manager/resource-group-authoring-templates). Azure Resource Manager templates provide JSON template-based resource management capabilities.
 - [SDK](https://azure.microsoft.com/downloads). The SDKs are a collection of libraries that allows users to programmatically manage and interact with Azure services.
 
 In each of these interfaces, the resource group is central to how Azure resources get created, deployed, or modified.
 
-In addition, many third-party management tools like [Hashicorp's Terraform](https://www.terraform.io/docs/providers/azurerm) and [Netflix Spinnaker](https://www.spinnaker.io/), are also available on Azure.
-
-### See also
-
-- [Azure resource group guidelines](/azure/azure-resource-manager/resource-group-overview#resource-groups)
+In addition, many third-party management tools like [Hashicorp's Terraform](https://www.terraform.io/docs/providers/azurerm) and [Spinnaker](https://www.spinnaker.io/), are also available on Azure.
 
 ## Regions and Availability Zones
 
@@ -107,28 +99,16 @@ Failures can vary in the scope of their impact. Some hardware failures, such as 
 
 One of the main ways to make an application resilient is through redundancy. However, you need to plan for this redundancy when you design the application. Also, the level of redundancy that you need depends on your business requirements. Not every application needs redundancy across regions to guard against a regional outage. In general, a tradeoff exists between greater redundancy and reliability versus higher cost and complexity.
 
-In Google Cloud, a region has two or more Availability Zones. An Availability Zone corresponds with a physically isolated datacenter in the geographic region. Azure has numerous features for providing application redundancy at every level of potential failure, including **availability sets** , **availability zones** , and **paired regions**.
+In Google Cloud, a region has two or more Availability Zones. An Availability Zone corresponds with a physically isolated datacenter in the geographic region. Azure has numerous features for providing application redundancy at every level of potential failure, including **availability zones** , and **paired regions**.
 
 The following table summarizes each option.
 
-| | **Availability Set** | **Availability Zone** | **Paired region** |
-| --- | --- | --- | --- |
-| **Scope of failure** | Rack | Datacenter | Region |
-| **Request routing** | Load Balancer | Cross-zone Load Balancer | Traffic Manager |
-| **Network latency** | Very low | Low | Mid to high |
-| **Virtual networking** | VNet | VNet | Cross-region VNet peering |
-
-### **Availability sets**
-
-To protect against localized hardware failures, such as a disk or network switch failing, deploy two or more VMs in an availability set. An availability set consists of two or more *fault domains* that share a common power source and network switch. VMs in an availability set are distributed across the fault domains, so if a hardware failure affects one fault domain, network traffic can still be routed the VMs in the other fault domains. For more information about Availability Sets, see [Manage the availability of Windows virtual machines in Azure](/azure/virtual-machines/windows/manage-availability).
-
-When VM instances are added to availability sets, they are also assigned an [update domain](/azure/virtual-machines/linux/manage-availability). An update domain is a group of VMs that are set for planned maintenance events at the same time. Distributing VMs across multiple update domains ensures that planned update and patching events affect only a subset of these VMs at any given time.
-
-Availability sets should be organized by the instance's role in your application to ensure one instance in each role is operational. For example, in a three-tier web application, create separate availability sets for the front-end, application, and data tiers.
-
-![Diagram that contains availability sets for a web tier with Web Instances, an app tier with App Instances, and a data cluster with Database Instances.](./images/availability_set.png)
-
-Availability sets
+| | **Availability Zone** | **Paired region** |
+| --- | --- | --- |
+| **Scope of failure** | Datacenter | Region |
+| **Request routing** | Cross-zone Load Balancer | Traffic Manager |
+| **Network latency** | Low | Mid to high |
+| **Virtual networking** | VNet | Cross-region VNet peering |
 
 ### Availability Zones
 
@@ -152,13 +132,14 @@ Azure [geo-redundant storage](/azure/storage/common/storage-redundancy-grs) is a
 
 Region Pairs in Azure
 
+### Reliability guides by service
+
+To explore reliability recommendations in detail for each different Azure service, you can use the [Service Reliability Guides](/azure/reliability/overview-reliability-guidance)
+
 ### See also
 
-- [Regions for virtual machines in Azure](/azure/virtual-machines/linux/regions)
-- [Availability options for virtual machines in Azure](/azure/virtual-machines/linux/availability)
 - [High availability for Azure applications](../example-scenario/infrastructure/multi-tier-app-disaster-recovery.yml)
 - [Failure and disaster recovery for Azure applications](/azure/architecture/framework/resiliency/backup-and-recovery)
-- [Planned maintenance for Linux virtual machines in Azure](/azure/virtual-machines/linux/maintenance-and-updates)
 
 ## Services
 
