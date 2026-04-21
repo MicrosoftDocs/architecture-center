@@ -192,11 +192,6 @@ items:
       - name: Asynchronous messaging
         href: guide/technology-choices/messaging.md
         displayName: queue comparison, event-driven, Service Bus, Event Hubs, Event Grid
-    - name: Development tools
-      items:
-      - name: Compare Java application hosting options
-        displayName: choose
-        href: guide/technology-choices/service-for-java-comparison.yml
   - name: Best practices for cloud applications
     items:
     - name: Overview
