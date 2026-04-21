@@ -135,7 +135,7 @@ AKS hybrid uses predefined settings and configurations to deploy one or more Kub
 
 ### Scenario
 
-This approach is ideal if you want a simplified and streamlined way to get a Microsoft-supported cluster on compatible devices, such as Azure Local or Windows Server. Operations and configuration complexity are reduced at the expense of flexibility when compared to the bare-metal Kubernetes option.
+This approach is ideal if you want a simplified and streamlined way to get a Microsoft-supported cluster on compatible devices, such as Azure Local. Operations and configuration complexity are reduced at the expense of flexibility when compared to the bare-metal Kubernetes option.
 
 Azure Local also extends Azure governance into sovereign environments, enabling Kubernetes-based applications to run within Government, Defense, or regulated industry data boundaries while maintaining Azure-aligned policy and lifecycle control. For more information, see [Azure Local overview](/azure/azure-local/).
 
