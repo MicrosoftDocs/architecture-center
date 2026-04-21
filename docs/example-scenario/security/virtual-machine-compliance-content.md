@@ -141,7 +141,7 @@ Beyond application-level customizations, golden images should establish a hardwa
 - **Boot Integrity Monitoring:** Measures the entire boot chain and surfaces telemetry to Microsoft Defender for Cloud.
 
 > [!NOTE]
-> Not all VM sizes and OS images support Trusted Launch. Verify compatibility during the [image validation step](#validate-golden-images-with-automated-tests).
+> Not all VM sizes and OS images support Trusted Launch. Verify compatibility during the [image validation step](#validate-golden-images-by-using-automated-tests).
 
 #### Track image tattoos
 
