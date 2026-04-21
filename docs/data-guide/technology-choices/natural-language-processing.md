@@ -103,24 +103,11 @@ Prebuilt features require no model training and are ready to use:
 
 - **[Text analytics for health](/azure/ai-services/language-service/text-analytics-for-health/overview):** Extracts and labels relevant health information from unstructured clinical text, including medical entities, relations, and assertions.
 
-- **[Entity linking](/azure/ai-services/language-service/entity-linking/overview):** Disambiguates entities found in unstructured text by linking them to a structured knowledge base.
-
-> [!IMPORTANT]
-> Entity linking retires from Azure Language on September 1, 2028. We recommend that you migrate to NER or an alternative solution before that date.
-
 ### Train custom models
 
 You can use customizable features to train models on your data to handle domain-specific natural language processing tasks:
 
 - **[Custom named entity recognition (CNER)](/azure/ai-services/language-service/custom-named-entity-recognition/overview):** Build custom models to extract domain-specific entity categories from unstructured text. Use CNER when prebuilt NER categories don't cover your domain vocabulary.
-
-- **[Custom text classification](/azure/ai-services/language-service/custom-text-classification/overview):** Build custom models to classify documents into categories that you define. These models support single-label and multiple-label classification scenarios.
-
-- **[Conversational language understanding (CLU)](/azure/ai-services/language-service/conversational-language-understanding/overview):** Build custom models to predict user intent and extract information from conversational inputs. CLU is the recommended replacement for Language Understanding (LUIS), which was retired October 1, 2025.
-
-- **[Question answering](/azure/ai-services/language-service/question-answering/overview):** Build a knowledge base that identifies the most suitable answer for user inputs, typically used in chatbots and conversational applications that require precise, curated responses.
-
-- **[Orchestration workflow](/azure/ai-services/language-service/orchestration-workflow/overview):** Connect CLU and question answering projects into a unified conversational pipeline that routes user inputs to the appropriate project based on intent.
 
 ### Azure Language MCP server and agents
 
@@ -150,7 +137,6 @@ The Azure Language MCP server supports multiple deployment options:
   - PII detection
   - CNER
   - Text analytics for health
-  - CLU
   - Summarization (preview)
 
 ## Evaluate Apache Spark with Spark NLP
@@ -294,13 +280,9 @@ The following tables summarize the key differences in capabilities between Spark
 | Normalizer | Yes | Yes |
 | Text matcher | Yes | No |
 | TF-IDF | Yes | No |
-| Regular expression matcher | Yes | Limited <sup>[2](#note2)</sup> |
-| Date matcher | Yes | Limited <sup>[3](#note3)</sup> |
+| Regular expression matcher | Yes | Limited |
+| Date matcher | Yes | Limited |
 | Chunker | Yes | No |
-
-<sup>2.</sup> <span id="note2">Regular expression matching is embedded in the CLU feature rather than available as a standalone annotator.</span>
-
-<sup>3.</sup> <span id="note3">CLU supports date matching through DateTime recognizers rather than as a dedicated annotator.</span>
 
 ### High-level natural language processing capabilities
 
@@ -310,17 +292,17 @@ The following tables summarize the key differences in capabilities between Spark
 | Summarization | Yes | Yes |
 | Question answering | Yes | Yes |
 | Sentiment detection | Yes | Yes |
-| Emotion detection | Yes | Limited <sup>[4](#note4)</sup> |
-| Token classification | Yes | Limited <sup>[5](#note5)</sup> |
-| Text classification | Yes | Limited <sup>[5](#note5)</sup> |
+| Emotion detection | Yes | Limited <sup>[2](#note2)</sup> |
+| Token classification | Yes | Limited <sup>[3](#note3)</sup> |
+| Text classification | Yes | Limited <sup>[3](#note3)</sup> |
 | Text representation | Yes | No |
-| NER | Yes | Yes (prebuilt). CNER is available through custom models. <sup>[5](#note5)</sup> |
+| NER | Yes | Yes (prebuilt). CNER is available through custom models. <sup>[3](#note3)</sup> |
 | Language detection | Yes | Yes |
 | Supports languages other than English | Yes. See [Spark NLP supported languages](https://sparknlp.org/models). | Yes. See [Azure Language supported languages](/azure/ai-services/language-service/concepts/language-support). |
 
-<sup>4.</sup> <span id="note4">Azure Language supports opinion mining, which identifies sentiments linked to specific aspects of text but doesn't provide dedicated emotion detection (like joy, anger, or sadness classification).</span>
+<sup>2.</sup> <span id="note2">Azure Language supports opinion mining, which identifies sentiments linked to specific aspects of text but doesn't provide dedicated emotion detection (like joy, anger, or sadness classification).</span>
 
-<sup>5.</sup> <span id="note5">Available through custom models. You train CNER, custom text classification, or custom entity recognition models on your own labeled data.</span>
+<sup>3.</sup> <span id="note3">Available through custom models. You train CNER or custom entity recognition models on your own labeled data.</span>
 
 ## Contributors
 
