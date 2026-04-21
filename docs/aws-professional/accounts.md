@@ -49,7 +49,7 @@ Important facts about management groups and subscriptions:
 
 - A single Microsoft Entra tenant supports as many as 10,000 management groups.
 
-- A management group tree supports up to six levels of depth, not counting the root management group level or the subscription level.
+- A management group hierarchy supports up to six management group levels below the root management group.
 
 - Each management group and subscription can have only one parent. 
 
