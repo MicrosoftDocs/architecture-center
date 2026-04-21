@@ -87,6 +87,8 @@ For containerized workloads, an alternative can replace the APIM plus App Servic
 
 In these alternatives, ingress can route by host or path, terminate TLS, and expose internal-only services. Specific capabilities such as request limits and allow or deny rules depend on the selected ingress implementation. In all cases, keep the gatekeeper boundaries: apply validation and policy enforcement at ingress, and keep backend services reachable only through that gatekeeper path.
 
+Each layer in this path emits logs and metrics that you should centralize. WAF diagnostic logs record matched and blocked rules per request. APIM emits gateway logs that capture request duration, response codes, and policy outcomes. Backend services emit application-level telemetry. Collect all of this in [Azure Monitor](/azure/azure-monitor/overview) and route it to a [Log Analytics workspace](/azure/azure-monitor/logs/log-analytics-overview) for unified querying. Use [Microsoft Defender for Cloud](/azure/defender-for-cloud/defender-for-cloud-introduction) to surface security recommendations across the gatekeeper components, and configure alerts on anomalous WAF block rates or APIM error spikes to detect threats before they reach private backends.
+
 ## Next steps
 
 The following guidance might be relevant when implementing this pattern:
