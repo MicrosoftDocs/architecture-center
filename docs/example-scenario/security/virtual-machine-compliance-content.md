@@ -260,7 +260,7 @@ Generally, you should use Azure Policy to manage control-plane compliance activi
 
 Use Azure machine configuration to audit configuration changes that you make during image customization. When drift occurs, the Azure Policy dashboard lists the affected VM as noncompliant. Azure Policy can use image tattooing information to track when you use outdated images or operating systems.
 
-Audit pet servers for each application. You can improve the visibility of these servers by using Azure policies with an audit effect. Adjust the audit process according to your company's acceptable level of risk and internal risk management processes.
+Audit pet servers for each application. You can improve the visibility of these servers by using Azure policies that have the [audit effect](/azure/governance/policy/concepts/effect-audit). Adjust the audit process according to your company's acceptable level of risk and internal risk management processes.
 
 Each DevOps team can track its applications' compliance levels in the Azure Policy dashboard and take appropriate corrective actions. When you assign these policies to a management group or a subscription, include a URL to a company-wide wiki in the assignment description. You can also use a short URL like `aka.ms/policy-21`. In the wiki, list the steps that DevOps teams should follow to make their VMs compliant.
 
