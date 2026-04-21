@@ -156,6 +156,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "docs/analytics/architecture/fabric-deployment-patterns.yml",
+      "redirect_url": "/azure/architecture/data-guide/technology-choices/fabric-deployment-patterns",
+      "redirect_document_id": true
+    },
+    {
       "source_path": "docs/aws-professional/services.md",
       "redirect_url": "/azure/architecture/aws-professional/",
       "redirect_document_id": true
@@ -7826,6 +7831,11 @@
     {
       "source_path": "docs/guide/storage/storage-start-here.md",
       "redirect_url": "/azure/architecture/storage/storage-get-started",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/guide/multitenant/service/cache-redis.md",
+      "redirect_url": "/azure/architecture/guide/multitenant/service/managed-redis",
       "redirect_document_id": false
     }
   ]

@@ -109,7 +109,7 @@ Cluster operators configure and manage the cluster infrastructure. They often us
 
 ### Security team
 
-The security team develops and enforces security standards. Some teams might create and select Azure Policy definitions that are enforced across the subscriptions and resource groups that contain the clusters. Security teams monitor security problems and work with other teams to prioritize security throughout the DevSecOps process.
+The security team develops and enforces security standards. Some teams might create and select Azure Policy definitions that you enforce across the subscriptions and resource groups that contain the clusters. Security teams monitor security problems and work with other teams to prioritize security throughout the DevSecOps process.
 
 ## DevSecOps life cycle stages
 
@@ -143,7 +143,7 @@ Build a secure AKS-hosted platform to incorporate security into the system at ev
 
 ### Develop phase
 
-*Shifting left* is a key tenent of the DevSecOps mindset. This process begins before you commit code into a repository and deploy it via a pipeline. To address security problems earlier in the development life cycle, adopt secure coding best practices and use integrated development environment (IDE) tools and plugins for code analysis during the development phase.
+*Shifting left* is a key tenet of the DevSecOps mindset. This process begins before you commit code into a repository and deploy it via a pipeline. To address security problems earlier in the development life cycle, adopt secure coding best practices and use integrated development environment (IDE) tools and plugins for code analysis during the development phase.
 
 #### Best practice: Enforce secure coding standards
 
@@ -151,7 +151,7 @@ Build a secure AKS-hosted platform to incorporate security into the system at ev
 
 - Review secure coding practices for your specific programming language runtimes, like [Java](https://www.oracle.com/java/technologies/javase/seccodeguide.html) and .NET.
 
-- Enforce logging standards to protect sensitive information from being leaked into application logs. Most popular logging frameworks, like log4j and log4net, provide filters and plugins to mask sensitive information, like account numbers or personal data.
+- Enforce logging standards to protect sensitive information from leaking into application logs. Most popular logging frameworks, like Apache Log4j and Apache log4net, provide filters and plugins to mask sensitive information, like account numbers or personal data.
 
 #### Best practice: Use IDE tools and plugins to automate security checks
 
@@ -173,9 +173,9 @@ Most popular integrated development environments (IDEs), like Visual Studio, Vis
 
   - Establish a peer review process and require a minimum number of approvals before you can merge changes to a main branch. Configure and enforce these controls by using GitHub. Use GitHub to designate groups of authorized approvers if necessary for gated environments.
 
-- Use [pre-commit hooks](https://github.com/pre-commit/pre-commit-hooks) to check for sensitive information in your application source code and block commits when they detect security problems.
+- Use [precommit hooks](https://github.com/pre-commit/pre-commit-hooks) to check for sensitive information in your application source code and block commits when they detect security problems.
 
-  - Use GitHub-provided, built-in pre-commit hooks. Easily configure them for specific projects. For example, some pre-built hooks scan for secrets, private keys, and credentials and block a commit if they find these problems.
+  - Use GitHub-provided, built-in precommit hooks. Easily configure them for specific projects. For example, some prebuilt hooks scan for secrets, private keys, and credentials and block a commit if they find these problems.
 
 - Establish RBAC within your version control system.
 
@@ -233,7 +233,7 @@ During the build phase, developers work with site reliability engineers and secu
 
 #### Best practice: Generate a SBOM for your container images
 
-- An software bill of materials (SBOM) provides a complete inventory of the components, libraries, and dependencies that make up your container images. Use SBOM generation tools like [Microsoft sbom-tool](https://github.com/microsoft/sbom-tool) or [Syft](https://github.com/anchore/syft) during the CI build to produce an SPDX or CycloneDX manifest.
+- A software bill of materials (SBOM) provides a complete inventory of the components, libraries, and dependencies that make up your container images. Use SBOM generation tools like [Microsoft sbom-tool](https://github.com/microsoft/sbom-tool) or [Syft](https://github.com/anchore/syft) during the CI build to produce an SPDX or CycloneDX manifest.
 
 - Attach an SBOM to your container images stored in [Container Registry](/azure/security/container-secure-supply-chain/articles/attach-sbom) to enable downstream vulnerability scanning and license compliance tracking across the supply chain.
 
@@ -327,7 +327,7 @@ During this phase, perform operation monitoring and security monitoring tasks to
 
 - Secure traffic between workload pods by using network policies in AKS.
 
-  - Use [Azure CNI Powered by Cilium](/azure/aks/azure-cni-powered-by-cilium) as the network policy engine. Cilium uses an eBPF-based dataplane and supports Kubernetes-native policies, layer-7 policy, and FQDN filtering.
+  - Use [Azure CNI Powered by Cilium](/azure/aks/azure-cni-powered-by-cilium) as the network policy engine. Cilium uses an eBPF-based data plane and supports Kubernetes-native policies, layer-7 policy, and FQDN filtering.
 
 #### Best practice: Use Azure Monitor for continuous monitoring and alerting
 
@@ -343,7 +343,7 @@ During this phase, perform operation monitoring and security monitoring tasks to
 
 - Defender for Cloud provides active threat monitoring for AKS at the node level (VM threats) and cluster workloads.
 
-- Use Defender for DevOps to gain comprehensive visibility across all CI/CD pipelines. It provides security and operator teams with a centralized dashboard. This functionality is especially useful when you use multipipeline platforms like Azure DevOps and GitHub or run pipelines across public clouds.
+- Use Defender for DevOps to gain comprehensive visibility across all CI/CD pipelines. It provides security and operator teams with a centralized dashboard. You benefit especially from this centralized visibility when you use multiple-pipeline platforms like Azure DevOps and GitHub or run pipelines across public clouds.
 
 - Defender for Key Vault detects unusual and suspicious attempts to access key vault accounts and can send alerts to administrators based on configuration.
 
@@ -355,17 +355,17 @@ During this phase, perform operation monitoring and security monitoring tasks to
 
 #### Best practice: Enable audit logging to monitor activity on your production clusters
 
-- Use Activity logs to monitor actions on AKS resources to view all activity and their status. Determine what operations were performed on the resources and by whom.
+- Use activity logs to monitor actions on AKS resources to view all activity and their status. Determine who performed what operations on the resources.
 
-- Enable [DNS query logging](/azure/aks/coredns-custom) by applying documented configuration in your CoreDNS custom ConfigMap.
+- Enable [Domain Name System (DNS) query logging](/azure/aks/coredns-custom) by applying documented configuration in your CoreDNS custom ConfigMap.
 
 - Monitor attempts to access deactivated credentials.
 
-  - Integrate user authentication for AKS with Microsoft Entra ID. Create Diagnostic Settings for Microsoft Entra ID, [sending](    /entra/identity/monitoring-health/howto-integrate-activity-logs-with-azure-monitor-logs) the audit and sign-in logs to an Azure Log Analytics workspace. Configure desired alerts (such as when a deactivated account attempts to sign in) within an Azure Log Analytics workspace.
+  - Integrate user authentication for AKS with Microsoft Entra ID. Create diagnostic settings for Microsoft Entra ID and [send](/entra/identity/monitoring-health/howto-integrate-activity-logs-with-azure-monitor-logs) the audit and sign-in logs to a Log Analytics workspace. Within the Log Analytics workspace, configure alerts for security events, such as sign-in attempts from deactivated accounts.
 
-#### Best Practice – Enable diagnostics on your Azure Resources
+#### Best practice: Enable diagnostics on your Azure resources
 
-- By enabling Azure diagnostics across all of your workload's resources, you have access to platform logs that provide detailed diagnostic and auditing information for your Azure resources. These logs can be ingested into Log Analytics or a SIEM solution like Microsoft Sentinel for security monitoring and alerting.
+- Enable Azure diagnostics across all of your workload's resources to access platform logs that provide detailed diagnostic and auditing information. You can ingest these logs into Log Analytics or a SIEM solution like Microsoft Sentinel for security monitoring and alerting.
 
 ## Contributors
 
@@ -392,9 +392,9 @@ Other contributors:
 - [Secure DevOps](https://www.microsoft.com/securityengineering/devsecops)
 - [Security in DevOps (DevSecOps)](/devops/operate/security-in-devops)
 - [GitHub Advanced Security](https://docs.github.com/enterprise-cloud@latest/get-started/learning-about-github/about-github-advanced-security)
-- [GitOps](/azure/architecture/example-scenario/gitops-aks/gitops-blueprint-aks)
 
 ## Related resources
 
+- [GitOps](../../example-scenario/gitops-aks/gitops-blueprint-aks.yml)
 - [DevSecOps for IaC](../../solution-ideas/articles/devsecops-infrastructure-as-code.yml)
 - [Shift left](https://devops.com/devops-shift-left-avoid-failure)
