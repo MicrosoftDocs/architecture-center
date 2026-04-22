@@ -115,7 +115,7 @@ The security team develops and enforces security standards. Some teams might cre
 
 Each phase of the software development life cycle (SDLC) implements security controls. This implementation is a key piece of a DevSecOps strategy and of the shift-left approach.
 
-:::image type="complex" alt-text="Architecture diagram shows the flow from the developer to the user and where DevSecOps can be employed, DevSecOps on AKS." source="./media/devsecops-stages.svg" lightbox="./media/devsecops-stages.svg":::
+:::image type="complex" alt-text="A diagram that shows a continuous DevOps life cycle that integrates security throughout all stages." source="./media/devsecops-stages.svg" lightbox="./media/devsecops-stages.svg":::
 At the center is a hub labeled security, which connects to each phase of the cycle. Five stages surround this central point arranged in a loop: plan, develop, build, release, and operate. Each stage includes examples of security practices that apply to that phase. Threat modeling, security policies, and Azure Well-Architected Framework practices occur during planning. Secure coding standards and integrated development environment (IDE) security plugins occur during development. Static application security testing (SAST), software composition analysis (SCA), and secrets scanning occurs during build, dynamic application security testing (DAST), penetration testing, and workflow approvals occur during release, and logging, alerting, SIEM, and network monitoring occur during operation. Arrows connect the stages in sequence to show a continuous flow, and connections link each stage back to the central security function.
 :::image-end:::
 
