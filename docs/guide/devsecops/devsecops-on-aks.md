@@ -1,15 +1,13 @@
 ---
 title: DevSecOps on Azure Kubernetes Service (AKS)
-description: Learn how DevSecOps helps you incorporate security best practices from the start of software development.
+description: Learn how DevSecOps helps you incorporate security best practices from the start of software development and throughout the deployment life cycle.
 author: akhan-msft
 ms.author: adnankhan
-ms.date: 04/02/2026
+ms.date: 04/22/2026
 ms.reviewer: ssumner
 ms.topic: concept-article
 ms.subservice: architecture-guide
-ms.custom:
-  - e2e-hybrid
-  - kr2b-contr-experiment
+ms.custom: e2e-hybrid, kr2b-contr-experiment
 ---
 
 # DevSecOps on Azure Kubernetes Service (AKS)
@@ -18,11 +16,11 @@ DevSecOps, also called *Secure DevOps*, builds on the practice of DevOps by inco
 
 - Make your applications and systems more secure, provide visibility into security threats, and prevent vulnerabilities from reaching deployed environments.
 
-- Increase security awareness with your development and operation teams.
+- Increase security awareness among your development and operation teams.
 
-- Incorporate automated security processes into your software development life cycle.
+- Incorporate automated security processes into your software development life cycle (SDLC).
 
-- Reduce remediation costs when you find security problems early in development and design stages.
+- Reduce remediation costs by finding security problems early in development and design stages.
 
 When you apply DevSecOps to Azure Kubernetes Service (AKS), each organization role has specific security considerations:
 
@@ -38,7 +36,7 @@ Before you read this article, review [Build and deploy apps on AKS by using DevO
 
 ## Process flow
 
-:::image type="complex" alt-text="Architecture diagram shows the flow from the developer to the user and where DevSecOps can be employed, DevSecOps on AKS." source="./media/devsecops-azure-aks.svg" lightbox="./media/devsecops-azure-aks.svg":::
+:::image type="complex" alt-text="Architecture diagram that shows how to implement DevSecOps practices in an AKS environment." source="./media/devsecops-azure-aks.svg" lightbox="./media/devsecops-azure-aks.svg" border="false":::
 The flow starts with a developer that connects to Microsoft Entra ID and works in development tools like Visual Studio and Visual Studio Code. The developer pushes code to GitHub, which serves as the central source control system. From GitHub, the process continues into GitHub Actions, where automated steps run. Other connections show pull requests, approval gates for deployments, and security checks that feed into this stage. GitHub Advanced Security and Microsoft Defender for DevOps connect to GitHub. The pipeline then connects to Azure Container Registry, which sits between the build process and the deployment target. Governance and security controls, including Microsoft Defender and Azure Policy, connect above and alongside this stage. From the registry, the flow moves into AKS, shown within a separate area on the right that represents the runtime environment. Around the Kubernetes environment, several connected components branch out. These components include Azure Policy and Azure Key Vault above, Log Analytics and Microsoft Sentinel to the right, and tools like network policy, Azure Monitor for containers, and Zed Attack Proxy (ZAP) below.
 :::image-end:::
 
@@ -87,7 +85,7 @@ The flow starts with a developer that connects to Microsoft Entra ID and works i
 
 1. Open-source tools such as [Zed Attack Proxy (ZAP)](https://www.zaproxy.org/) can do penetration testing for web applications and services.
 
-1. Defender for DevOps, a service available in Defender for Cloud, empowers security teams to manage DevOps security across multipipeline environments including GitHub and Azure DevOps.
+1. Defender for DevOps, a service available in Defender for Cloud, empowers security teams to manage DevOps security across multipipeline environments, including GitHub and Azure DevOps.
 
 ## Team members overview and responsibilities
 
@@ -95,13 +93,13 @@ Consider managing DevSecOps complexity on Kubernetes-based solution deployments 
 
 ### Developers
 
-Developers write the application code and commit it to the designated repository. They also author and run scripts for automated testing to ensure that their code works as intended and integrates with the rest of the application. Developers define and script the building of container images as part of the automation pipeline.
+Developers write the application code and commit it to the designated repository. They author and run scripts for automated testing to ensure that their code works as intended and integrates with the rest of the application. Developers also define and script the building of container images as part of the automation pipeline.
 
 ### Application operators (site reliability engineers)
 
 Building applications on the cloud by using containers and Kubernetes can simplify application development, deployment, and scalability. But these development approaches also create increasingly distributed environments that complicate administration.
 
-Site reliability engineers build solutions to automate the oversight of large software systems. They serve as a bridge between development and cluster operator teams and help establish and monitor service-level objectives (SLOs) and error budgets. Site reliability engineers help manage application deployments and write Kubernetes manifest (YAML) files.
+Site reliability engineers build solutions to automate the oversight of large software systems. They serve as a bridge between development and cluster operator teams. They help establish and monitor service-level objectives (SLOs) and error budgets. Site reliability engineers also help manage application deployments and write Kubernetes manifest (YAML) files.
 
 ### Cluster operators
 
@@ -113,9 +111,9 @@ The security team develops and enforces security standards. Some teams might cre
 
 ## DevSecOps life cycle stages
 
-Each phase of the software development life cycle (SDLC) implements security controls. This implementation is a key piece of a DevSecOps strategy and of the shift-left approach.
+Each phase of the SDLC implements security controls. These security controls are central to DevSecOps and shift-left practices.
 
-:::image type="complex" alt-text="A diagram that shows a continuous DevOps life cycle that integrates security throughout all stages." source="./media/devsecops-stages.svg" lightbox="./media/devsecops-stages.svg":::
+:::image type="complex" alt-text="A diagram that shows a continuous DevOps life cycle that integrates security throughout all stages." source="./media/devsecops-stages.svg" lightbox="./media/devsecops-stages.svg" border="false":::
 At the center is a hub labeled security, which connects to each phase of the cycle. Five stages surround this central point arranged in a loop: plan, develop, build, release, and operate. Each stage includes examples of security practices that apply to that phase. Threat modeling, security policies, and Azure Well-Architected Framework practices occur during planning. Secure coding standards and integrated development environment (IDE) security plugins occur during development. Static application security testing (SAST), software composition analysis (SCA), and secrets scanning occurs during build, dynamic application security testing (DAST), penetration testing, and workflow approvals occur during release, and logging, alerting, SIEM, and network monitoring occur during operation. Arrows connect the stages in sequence to show a continuous flow, and connections link each stage back to the central security function.
 :::image-end:::
 
@@ -123,7 +121,7 @@ At the center is a hub labeled security, which connects to each phase of the cyc
 
 ### Plan phase
 
-The plan phase usually has the least amount of automation, but it has important security implications that significantly affect later DevOps life cycle stages. This phase involves collaboration between security, development, and operations teams. To ensure that you account for or mitigate security requirements and security problems, include security stakeholders in this phase.
+The plan phase usually has the least amount of automation, but it has important security implications that affect later DevOps life cycle stages. This phase involves collaboration between security, development, and operations teams. To ensure that you account for or mitigate security requirements and security problems, include security stakeholders in this phase.
 
 #### Best practice: Design a secure application platform
 
@@ -135,7 +133,7 @@ Build a secure AKS-hosted platform to incorporate security into the system at ev
 
 - We recommend the [STRIDE threat model](/azure/security/develop/threat-modeling-tool-threats#stride-model). This methodology starts with a data flow diagram and categorizes threats by using the STRIDE mnemonic: Spoofing, Tampering, Info Disclosure, Repudiation, Denial of Service, and Elevation of Privilege. Teams use these categories to identify, mitigate, and validate risks. A [modeling tool](https://www.microsoft.com/securityengineering/sdl/threatmodeling) helps notate and visualize system components, data flows, and security boundaries.
 
-  Building threat modeling into your SDLC adds process overhead and requires maintaining updated threat models. However, it addresses security early in development, which reduces the cost of fixing problems discovered later.
+  Building threat modeling into your SDLC adds process overhead and requires you to maintain updated threat models. However, it addresses security early in development, which reduces the cost of fixing problems discovered later.
 
 #### Best practice: Apply the Azure Well-Architected Framework
 
@@ -149,7 +147,7 @@ Build a secure AKS-hosted platform to incorporate security into the system at ev
 
 #### Best practice: Enforce secure coding standards
 
-- Use established secure coding best practices and checklists to help protect your code from common vulnerabilities like injection and insecure design. The [Open Worldwide Application Security Project (OWASP)](https://owasp.org/www-project-secure-coding-practices-quick-reference-guide/) foundation publishes industry standard secure coding recommendations that you should adopt when you write code. These guidelines are especially important when you develop public-facing web applications or services.
+- Use established secure coding best practices and checklists to help protect your code from common vulnerabilities like injection and insecure design. The [Open Worldwide Application Security Project (OWASP) foundation](https://owasp.org/www-project-secure-coding-practices-quick-reference-guide/) publishes industry standard secure coding recommendations that you should adopt when you write code. These guidelines are especially important when you develop public-facing web applications or services.
 
 - Review secure coding practices for your specific programming language runtimes, like [Java](https://www.oracle.com/java/technologies/javase/seccodeguide.html) and .NET.
 
@@ -157,23 +155,23 @@ Build a secure AKS-hosted platform to incorporate security into the system at ev
 
 #### Best practice: Use IDE tools and plugins to automate security checks
 
-Most popular integrated development environments (IDEs), like Visual Studio, Visual Studio Code, IntelliJ IDEA, and Eclipse, support extensions that you can use to get immediate feedback and recommendations for potential security problems that you introduce while you write application code.
+Most popular IDEs, like Visual Studio, VS Code, IntelliJ IDEA, and Eclipse, support extensions that you can use to get immediate feedback and recommendations for potential security problems that you introduce while you write application code.
 
 - [SonarQube for IDE](https://www.sonarsource.com/products/sonarqube/ide/) is an IDE plugin for most popular languages and developer environments. SonarQube for IDE provides feedback and automatically scans your code for common programming errors and potential security problems.
 
-- Other free and commercial plugins focus on security-specific items, like the OWASP top 10 common vulnerabilities. The [Snyk](https://snyk.io/platform/ide-plugins/) plugin, for example, also scans your application source and external dependencies and alerts you if it finds vulnerabilities.
+- Other free and commercial plugins focus on security-specific items, like the OWASP top 10 common vulnerabilities. The [Snyk](https://snyk.io/platform/ide-plugins/) plugin also scans your application source and external dependencies and alerts you if it finds vulnerabilities.
 
-- The [Static Analysis Results Interchange Format (SARIF)](https://github.com/microsoft/sarif-vscode-extension) plugin for Visual Studio and Visual Studio Code lets you easily view vulnerabilities from popular Static Application Security Testing (SAST) tools versus interpreting results from raw JSON output files.
+- The [Static Analysis Results Interchange Format (SARIF)](https://github.com/microsoft/sarif-vscode-extension) plugin for Visual Studio and VS Code lets you easily view vulnerabilities from popular Static Application Security Testing (SAST) tools versus interpreting results from raw JSON output files.
 
 #### Best practice: Establish controls on your source code repositories
 
 - Establish a branching methodology for consistency across your enterprise. Methodologies like [Release flow](/devops/develop/how-microsoft-develops-devops) and [GitHub flow](https://docs.github.com/get-started/quickstart/github-flow) have structured guidelines about how to use branches to support team and parallel development. These methodologies can help teams establish standards and controls for code commits and merges into your CI/CD workflow.
 
-  Certain branches, such as main, are long-lasting branches that preserve the integrity of your application's source code. Establish merge policies for these branches before you commit or merge changes. Some best practices include:
+  Certain branches, such as main, are long-lasting branches that preserve the integrity of your application's source code. Establish merge policies for these branches before you commit or merge changes. For example, you can:
 
   - Prevent other developers from committing code directly into your main branch.
 
-  - Establish a peer review process and require a minimum number of approvals before you can merge changes to a main branch. Configure and enforce these controls by using GitHub. Use GitHub to designate groups of authorized approvers if necessary for gated environments.
+  - Establish a peer review process and require a minimum number of approvals before you merge changes to a main branch. Configure and enforce these controls by using GitHub. Use GitHub to designate groups of authorized approvers if necessary for gated environments.
 
 - Use [precommit hooks](https://github.com/pre-commit/pre-commit-hooks) to check for sensitive information in your application source code and block commits when they detect security problems.
 
@@ -183,7 +181,7 @@ Most popular integrated development environments (IDEs), like Visual Studio, Vis
 
   - Create well-defined roles by using the principle of least privilege. A CI/CD pipeline functions as your supply chain for production deployments.
 
-  - Apply established user or group [roles](https://docs.github.com/enterprise-cloud@latest/admin/user-management/managing-users-in-your-enterprise/roles-in-an-enterprise) within your organization. To group individuals based on their specific role and function in your CI/CD workflows, create roles like Admin, Developer, Security admin, and Operator.
+  - Apply established user or group [roles](https://docs.github.com/enterprise-cloud@latest/admin/user-management/managing-users-in-your-enterprise/roles-in-an-enterprise) within your organization. To group individuals based on their specific role and function in your CI/CD workflows, create roles like Admin, Developer, Security Admin, and Operator.
 
 - Enable [auditing](https://docs.github.com/enterprise-cloud@latest/admin/monitoring-activity-in-your-enterprise/reviewing-audit-logs-for-your-enterprise/about-the-audit-log-for-your-enterprise) of your workflows to add transparency and traceability for configuration and other changes to your CI/CD pipelines.
 
@@ -215,7 +213,7 @@ During the build phase, developers work with site reliability engineers and secu
 
   - Enable [Copilot Autofix](https://docs.github.com/enterprise-cloud@latest/code-security/code-scanning/managing-code-scanning-alerts/responsible-use-autofix-code-scanning) to receive AI-generated fix suggestions for code scanning alerts. Copilot Autofix proposes remediation directly in pull requests, which helps developers resolve security findings quickly.
 
-- Use tools like [kube-score](https://kube-score.com/) to analyze your Kubernetes deployment objects. kube-score does static code analysis of your Kubernetes object definitions. It outputs a list of recommendations to make your application more secure and resilient.
+- Use tools like [kube-score](https://kube-score.com/) to analyze your Kubernetes deployment objects. This tool does static code analysis of your Kubernetes object definitions. It outputs a list of recommendations to make your application more secure and resilient.
 
 #### Best practice: Use secret scanning to detect accidentally committed secrets
 
@@ -223,7 +221,7 @@ During the build phase, developers work with site reliability engineers and secu
 
 - GitHub periodically runs a full git history scan of existing content in repositories and sends alert notifications.
 
-  - For Azure DevOps, [Microsoft Defender for Cloud](/azure/defender-for-cloud/detect-credential-leaks) uses secret scanning to detect credentials, secrets, certificates, and other sensitive content in your source code and build output.
+  - For Azure DevOps, [Defender for Cloud](/azure/defender-for-cloud/detect-credential-leaks) uses secret scanning to detect credentials, secrets, certificates, and other sensitive content in your source code and build output.
 
   - You can run secret scanning as part of the Microsoft Security DevOps for Azure DevOps extension.
 
@@ -247,17 +245,17 @@ During the build phase, developers work with site reliability engineers and secu
 
 #### Best practice: Scan your workload images in container registries to identify known vulnerabilities
 
-- [Defender for Containers](/azure/defender-for-cloud/defender-for-containers-introduction#hardening) scans the containers in Container Registry and Amazon AWS Elastic Container Registry (ECR) to notify you of known vulnerabilities in your images.
+- [Defender for Containers](/azure/defender-for-cloud/defender-for-containers-introduction#hardening) scans the containers in Container Registry and Amazon Elastic Container Registry (ECR) to notify you of known vulnerabilities in your images.
 
-- You can enable [Azure Policy](/azure/container-registry/container-registry-azure-policy) to do a vulnerability assessment on all images stored in Container Registry and provide detailed information about each finding.
+- You can enable [Azure Policy](/azure/container-registry/container-registry-azure-policy) to do a vulnerability assessment on images stored in Container Registry and provide detailed information about each finding.
 
 #### Best practice: Build new images on base image updates automatically
 
-- [Container Registry Tasks](/azure/container-registry/container-registry-tasks-base-images) dynamically discovers base image dependencies when it builds a container image. When it detects an update to an application image's base image, you can configure a build task to automatically rebuild all application images that reference that base image.
+- [Container Registry Tasks](/azure/container-registry/container-registry-tasks-base-images) dynamically discovers base image dependencies when it builds a container image. When it detects an update to an application image's base image, you can configure a build task to automatically rebuild application images that reference that base image.
 
-#### Best practice: Use Container Registry, Key Vault, and notation to digitally sign your container images and configure AKS cluster to only allow validated images
+#### Best practice: Use Container Registry, Key Vault, and notation to digitally sign your container images and configure the AKS cluster to allow only validated images
 
-- Key Vault stores signing keys that the [notation](/azure/container-registry/container-registry-tutorial-sign-build-push) tool uses. The notation Key Vault plugin (azure-kv) accesses these keys to [sign](/azure/container-registry/container-registry-tutorial-sign-build-push) and verify container images and other artifacts. You can attach these signatures to Container Registry images by using Azure CLI commands.
+- Key Vault stores signing keys that the [notation](/azure/container-registry/container-registry-tutorial-sign-build-push) tool uses. The notation Key Vault plugin (azure-kv) accesses these keys to [sign](/azure/container-registry/container-registry-tutorial-sign-build-push) and verify container images and other artifacts. You can attach these signatures to Container Registry images by using the Azure CLI commands.
 
 - Signed containers ensure that deployments come from a trusted source and that artifacts aren't tampered with after creation. The signed artifact ensures integrity and authenticity before the user pulls an artifact into any environment, which helps avoid attacks.
 
