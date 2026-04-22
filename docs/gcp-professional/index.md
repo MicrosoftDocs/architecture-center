@@ -47,7 +47,7 @@ Azure levels of management scope
 
 Azure services can be purchased using several pricing options, depending on your organization's size and needs. For more information, see the [pricing overview](https://azure.microsoft.com/pricing) page.
 
-[Azure subscriptions](/azure/cost-management-billing/manage/cloud-subscription) are a grouping of resources with an assigned owner responsible for billing and permissions management.
+[Azure subscriptions](/azure/cost-management-billing/manage/cloud-subscription) are groupings of resources with an assigned owner responsible for billing and permissions management.
 
 A Google Cloud *project* is conceptually similar to the Azure subscription, in terms of billing, quotas, and limits. However, from a functional perspective, a Google Cloud project is more like a resource group in Azure. It's a logical unit that cloud resources are deployed to.
 
