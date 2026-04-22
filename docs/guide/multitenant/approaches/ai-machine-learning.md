@@ -105,13 +105,13 @@ Consider the following requirements when you plan your AI and machine learning c
 
 - **Determine compute SKUs for training and inference.** You might use different SKUs for training and for inference. Select SKUs that meet your requirements for performance and cost, and that are available in the regions you use. For more information, see [Compute recommendations for AI workloads on Azure infrastructure (IaaS)](/azure/cloud-adoption-framework/scenarios/ai/infrastructure/compute).
 
-- **Monitor your usage.** By observing the usage of your compute resources, you can determine whether you should decrease or increase their capacity by deploying different SKUs, or scale the compute resources as your requirements change. For more information, see [Monitor Machine Learning](/azure/machine-learning/monitor-azure-machine-learning).
+- **Monitor your usage.** By observing the usage of your compute resources, you can determine whether you should decrease or increase their capacity by deploying different SKUs, or scale the compute resources as your requirements change. For more information, see [Monitor Machine Learning](/azure/machine-learning/monitor-azure-machine-learning) and [Monitor model deployments](/azure/foundry/foundry-models/how-to/monitor-models).
 
 - **Optimize your compute clustering environment.** When you use compute clusters, monitor cluster usage or configure [autoscaling](/python/api/azureml-core/azureml.core.compute.amlcompute.scalesettings) to scale down compute nodes.  
 
 - **Share your compute resources.** Consider whether you can optimize the cost of your compute resources by sharing them across multiple tenants.
 
-- **Consider your budget.** Understand whether you have a fixed budget and monitor your consumption accordingly. You can [set up budgets](/azure/machine-learning/concept-plan-manage-cost#create-budgets) to prevent overspending and to allocate quotas based on tenant priority.
+- **Consider your budget.** Understand whether you have a fixed budget and monitor your consumption accordingly. You can [set up budgets for Azure Machine Learning](/azure/machine-learning/concept-plan-manage-cost#create-budgets) to prevent overspending and to allocate quotas based on tenant priority. For more information on managing costs within Microsoft Foundry, see [Plan and manage costs for Microsoft Foundry](/azure/foundry/concepts/manage-costs).
 
 ## Approaches and patterns to consider
 
