@@ -222,8 +222,8 @@ To measure whether the system meets these requirements, you can use the followin
 
 | KPI | Description |
 | ----------- | ----------- |
-| RPS |  Requests per second for an event hub  |
-| LOAD |  Number of loads or requests sent to the event hub during performance testing |
+| RPS | Requests per second for an event hub |
+| LOAD | Number of loads or requests sent to the event hub during performance testing |
 | IR | Number of function invocations or ingestion rate |
 | RT | Average time for Azure Functions run time |
 | AMU | Average memory usage for Azure Functions |
@@ -263,11 +263,6 @@ The following image shows a sample of the Azure Monitor dashboard. It shows the 
 
 :::image type="content" source="images/load-testing-azure-monitor-dashboard.png" alt-text="Screenshot that shows samples of the Azure Monitor dashboard." border="false" lightbox="images/load-testing-azure-monitor-dashboard.png#lightbox":::
 
-### Conclusion
-
-In this article, you learned how to design KPIs and develop a dashboard for Load Testing. You also learned how to use custom plugins in JMeter to perform load testing on Azure Functions integrated with Event Hubs. You can use the same approach to perform load testing on other Azure services. You can also set up a CI/CD pipeline for your load testing scripts by using Azure DevOps.
-
-For more information, see [Load Testing](/azure/load-testing/).
 ## Contributors
 
 *Microsoft maintains this article. The following contributors wrote this article.*
@@ -281,13 +276,13 @@ Principal authors:
 
 ## Next steps
 
-- [Load Testing](/azure/load-testing/)
+- [Load Testing](/azure/app-testing/load-testing/overview-what-is-azure-load-testing)
 - [Sample code for a custom JMeter plugin](https://github.com/Azure-Samples/load-testing-jmeter-plugins)
 - [How to develop a new custom plugin](https://jmeter.apache.org/usermanual/jmeter_tutorial.html)
-- [Customize a load test with Apache JMeter plugins and Load Testing](/azure/load-testing/how-to-use-jmeter-plugins)
+- [Customize a load test with Apache JMeter plugins and Load Testing](/azure/app-testing/load-testing/how-to-use-jmeter-plugins)
 - [What is Application Insights](/azure/azure-monitor/app/app-insights-overview)
-- [Load testing your Azure App Service applications](/azure/load-testing/concept-load-test-app-service)
-- [Quickstart: Create and run a load test with Load Testing](/azure/load-testing/quickstart-create-and-run-load-test)
-- [Load test a website by using a JMeter script in Load Testing](/azure/load-testing/how-to-create-and-run-load-test-with-jmeter-script)
-- [Quickstart: Automate an existing load test with CI/CD](/azure/load-testing/quickstart-add-load-test-cicd)
-- [Tutorial: Run a load test to identify performance bottlenecks in a web app](/azure/load-testing/tutorial-identify-bottlenecks-azure-portal)
+- [Load testing your Azure App Service applications](/azure/app-testing/load-testing/concept-load-test-app-service)
+- [Quickstart: Create and run a load test with Load Testing](/azure/app-testing/load-testing/quickstart-create-and-run-load-test)
+- [Load test a website by using a JMeter script in Load Testing](/azure/app-testing/load-testing/how-to-create-and-run-load-test-with-jmeter-script)
+- [Quickstart: Automate an existing load test with CI/CD](/azure/app-testing/load-testing/quickstart-add-load-test-cicd)
+- [Tutorial: Run a load test to identify performance bottlenecks in a web app](/azure/app-testing/load-testing/tutorial-identify-bottlenecks-azure-portal)
