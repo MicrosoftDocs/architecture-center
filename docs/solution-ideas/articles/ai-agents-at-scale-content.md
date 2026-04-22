@@ -25,7 +25,7 @@ The following workflow corresponds to the architecture diagram. Each step maps t
 
 ## Components
 
-- [Azure AI Foundry](/azure/ai-studio/what-is-ai-studio) is an end-to-end platform for building, deploying, and managing AI applications. In this solution, it hosts Azure OpenAI models and provides a unified environment for agent development, model orchestration, and evaluation.
+- [Microsoft Foundry](/azure/foundry/what-is-foundry) is an end-to-end platform for building, deploying, and managing AI applications. In this solution, it hosts Azure OpenAI models and provides a unified environment for agent development, model orchestration, and evaluation.
 
 - [Azure AI Search](/azure/search/search-what-is-azure-search) is a cloud search service with built-in AI capabilities for vector search and semantic ranking. In this solution, it acts as the semantic cache that stores sample agent utterances and uses vector similarity to identify candidate agents for user queries.
 
