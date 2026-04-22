@@ -46,7 +46,7 @@ The following data flow corresponds to the previous diagram:
 
 ### Components
 
-- [VM Image Builder][VM Image Builder] is a managed service for customizing system images. It builds and distributes the images that DevOps teams use. In this architecture, VM Image Builder captures monthly base images from Marketplace, applies hardening and agent deployments, records image tattooing data, and publishes the finalized golden images to Compute Gallery.
+- [VM Image Builder][VM Image Builder] is a managed service for customizing system images. It builds images that DevOps teams use. In this architecture, VM Image Builder captures monthly base images from Marketplace, applies hardening changes, and installs agents. The image build in this process is the golden image.
 
 - [Compute Gallery][Compute Gallery] is an Azure service for storing and organizing custom VM images. It centralizes image management and controls access for internal teams and any external tenants that you authorize. In this architecture, Compute Gallery stores the golden images that DevOps teams must use. Azure Policy enforces that DevOps teams provision VMs only from images in this gallery.
 
@@ -58,7 +58,7 @@ The following data flow corresponds to the previous diagram:
 
 - You can use a non-Microsoft tool to manage compliance. You usually need to install an agent on the target VM and might need to pay a licensing fee.
 
-- You can use [custom script extensions][Custom Script Extensions] to install software on VMs or configure VMs after deployment. Each VM or virtual machine scale set supports only one custom script extension. Custom script extensions prevent DevOps teams from customizing their applications.
+- You can use [custom script extensions][Custom Script Extensions] to install software on VMs or configure VMs after deployment. Each VM or virtual machine scale set supports only one custom script extension.
 
 ## Scenario details
 
@@ -72,7 +72,7 @@ This solution uses VM Image Builder, Compute Gallery, and Azure Policy to manage
 
 ### Potential use cases
 
-Use this solution if your organization uses Azure [landing zones][Azure landing zone overview] and you need to:
+Use this solution if your organization uses VMs and you need to:
 
 - Supply golden images to DevOps teams.
 
@@ -262,7 +262,7 @@ Use Azure machine configuration to audit configuration changes that you make dur
 
 Audit pet servers for each application. You can improve the visibility of these servers by using Azure policies that have the [audit effect](/azure/governance/policy/concepts/effect-audit). Adjust the audit process according to your company's acceptable level of risk and internal risk management processes.
 
-Each DevOps team can track its applications' compliance levels in the Azure Policy dashboard and take appropriate corrective actions. When you assign these policies to a management group or a subscription, include a URL to a company-wide wiki in the assignment description. You can also use a short URL like `aka.ms/policy-21`. In the wiki, list the steps that DevOps teams should follow to make their VMs compliant.
+Each DevOps team can track its applications' compliance levels in the Azure Policy dashboard and take appropriate corrective actions. When you assign these policies to a management group or a subscription, include a URL to company-wide documentation about the policy in the assignment description. Your documentation should list the steps that DevOps teams should follow to make their VMs compliant.
 
 IT risk managers and security officers can also use the Azure Policy dashboard to manage company risks according to their company's acceptable level of risk.
 
@@ -352,4 +352,3 @@ Principal author:
 [Scaling for Compute Gallery]: /azure/virtual-machines/azure-compute-gallery#image-versioning
 [Store and share images in a Compute Gallery]: /azure/virtual-machines/shared-image-galleries
 [Store and share images in a Compute Gallery - Limits]: /azure/virtual-machines/azure-compute-gallery#limits
-[Azure landing zone overview]: /azure/cloud-adoption-framework/ready/landing-zone/
