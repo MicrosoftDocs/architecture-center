@@ -159,7 +159,6 @@ To create a sample JMeter test script:
 
 1. Save and close the file.
 
-    > [!IMPORTANT]
    > [!IMPORTANT]
    > Don't include any personal data in the sampler name in the JMeter script. The sampler names appear in the Load Testing test results dashboard. A sample of a liquid template along with the JMeter script file is available to download at [Azure samples](https://github.com/Azure-Samples/load-testing-jmeter-plugins/tree/main/samples/eventhubplugin).
 
