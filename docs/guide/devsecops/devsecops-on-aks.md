@@ -243,7 +243,7 @@ During the build phase, developers work with site reliability engineers and secu
 
 - Proactively monitor cloud resource configurations throughout the development life cycle.
 
-- [Microsoft Defender for DevOps](/azure/defender-for-cloud/iac-vulnerabilities) supports both GitHub and Azure DevOps repositories.
+- [Microsoft Defender for DevOps](/azure/defender-for-cloud/defender-for-devops-introduction) supports both GitHub and Azure DevOps repositories and can scan IaC templates to identify [IaC vulnerabilities](/azure/defender-for-cloud/iac-vulnerabilities).
 
 #### Best practice: Scan your workload images in container registries to identify known vulnerabilities
 
