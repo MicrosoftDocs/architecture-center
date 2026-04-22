@@ -137,11 +137,11 @@ Build a secure AKS-hosted platform to incorporate security into the system at ev
 
   Building threat modeling into your SDLC adds process overhead and requires maintaining updated threat models. However, it addresses security early in development, which reduces the cost of fixing problems discovered later.
 
-#### Best practice: Apply the Azure Well-Architect Framework
+#### Best practice: Apply the Azure Well-Architected Framework
 
-- Apply [Security](/azure/well-architected/security/checklist) best practices that provide guidance identity management, application security, infrastructure protection, data security, and DevOps as it applies to cloud-native environments.
+- Apply [Security](/azure/well-architected/security/checklist) best practices that provide guidance for identity management, application security, infrastructure protection, data security, and DevOps as it applies to cloud-native environments.
 
-- Apply [WAF operational](/azure/well-architected/operational-excellence/checklist) best practices as it applies to DevSecOps and monitoring of your production environments.
+- Apply [Operational Excellence](/azure/well-architected/operational-excellence/checklist) best practices as it applies to DevSecOps and monitoring of your production environments.
 
 ### Develop phase
 
