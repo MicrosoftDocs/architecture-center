@@ -192,11 +192,6 @@ items:
       - name: Asynchronous messaging
         href: guide/technology-choices/messaging.md
         displayName: queue comparison, event-driven, Service Bus, Event Hubs, Event Grid
-    - name: Development tools
-      items:
-      - name: Compare Java application hosting options
-        displayName: choose
-        href: guide/technology-choices/service-for-java-comparison.yml
   - name: Best practices for cloud applications
     items:
     - name: Overview
@@ -1226,7 +1221,7 @@ items:
         href: ai-ml/architecture/secure-compute-for-research.yml
       - name: Computer forensics
         href: example-scenario/forensics/index.yml
-      - name: Certificate lifecycle management on Azure
+      - name: Certificate life cycle management on Azure
         href: example-scenario/certificate-lifecycle/index.yml
     - name: Solution ideas
       items:
