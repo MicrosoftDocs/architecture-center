@@ -38,8 +38,8 @@ Before you read this article, review [Build and deploy apps on AKS by using DevO
 
 ## Process flow
 
-:::image type="complex" alt-text="Architecture diagram shows the flow from the developer to the end user and where DevSecOps can be employed, DevSecOps on AKS." source="./media/devsecops-azure-aks.svg" lightbox="./media/devsecops-azure-aks.svg":::
-
+:::image type="complex" alt-text="Architecture diagram shows the flow from the developer to the user and where DevSecOps can be employed, DevSecOps on AKS." source="./media/devsecops-azure-aks.svg" lightbox="./media/devsecops-azure-aks.svg":::
+The flow starts with a developer that connects to Microsoft Entra ID and works in development tools like Visual Studio and Visual Studio Code. The developer pushes code to GitHub, which serves as the central source control system. From GitHub, the process continues into GitHub Actions, where automated steps run. Other connections show pull requests, approval gates for deployments, and security checks that feed into this stage. GitHub Advanced Security and Microsoft Defender for DevOps connect to GitHub. The pipeline then connects to Azure Container Registry, which sits between the build process and the deployment target. Governance and security controls, including Microsoft Defender and Azure Policy, connect above and alongside this stage. From the registry, the flow moves into AKS, shown within a separate area on the right that represents the runtime environment. Around the Kubernetes environment, several connected components branch out. These components include Azure Policy and Azure Key Vault above, Log Analytics and Microsoft Sentinel to the right, and tools like network policy, Azure Monitor for containers, and Zed Attack Proxy (ZAP) below.
 :::image-end:::
 
 *Download a [Visio file](https://arch-center.azureedge.net/devsecops-azure-aks.vsdx) of this architecture.*
@@ -49,7 +49,7 @@ Before you read this article, review [Build and deploy apps on AKS by using DevO
 
 1. [Microsoft Entra ID](/entra/fundamentals/whatis) is configured as the identity provider for GitHub. Configure multifactor authentication (MFA) to help provide extra authentication security.
 
-1. Developers use [Visual Studio Code](https://code.visualstudio.com) or [Visual Studio](https://visualstudio.microsoft.com/vs/) with [security extensions](#best-practice--use-ide-tools-and-plugins-to-automate-security-checks) enabled to proactively analyze their code for security vulnerabilities.
+1. Developers use [Visual Studio Code](https://code.visualstudio.com) or [Visual Studio](https://visualstudio.microsoft.com/vs/) with [security extensions](#best-practice-use-ide-tools-and-plugins-to-automate-security-checks) enabled to proactively analyze their code for security vulnerabilities.
 
 1. Developers commit application code to a corporate owned and governed GitHub Enterprise repository.
 
@@ -115,7 +115,9 @@ The security team develops and enforces security standards. Some teams might cre
 
 Each phase of the software development life cycle (SDLC) implements security controls. This implementation is a key piece of a DevSecOps strategy and of the shift-left approach.
 
-:::image type="content" alt-text="Architecture diagram shows the flow from the developer to the user and where DevSecOps can be employed, DevSecOps on AKS." source="./media/devsecops-stages.png" lightbox="./media/devsecops-stages.png":::
+:::image type="complex" alt-text="Architecture diagram shows the flow from the developer to the user and where DevSecOps can be employed, DevSecOps on AKS." source="./media/devsecops-stages.svg" lightbox="./media/devsecops-stages.svg":::
+At the center is a hub labeled security, which connects to each phase of the cycle. Five stages surround this central point arranged in a loop: plan, develop, build, release, and operate. Each stage includes examples of security practices that apply to that phase. Threat modeling, security policies, and Azure Well-Architected Framework practices occur during planning. Secure coding standards and integrated development environment (IDE) security plugins occur during development. Static application security testing (SAST), software composition analysis (SCA), and secrets scanning occurs during build, dynamic application security testing (DAST), penetration testing, and workflow approvals occur during release, and logging, alerting, SIEM, and network monitoring occur during operation. Arrows connect the stages in sequence to show a continuous flow, and connections link each stage back to the central security function.
+:::image-end:::
 
 *Download a [Visio file](https://arch-center.azureedge.net/devsecops-stages.vsdx) of this architecture.*
 
@@ -271,7 +273,7 @@ During the deployment phase, developers, application operators, and cluster oper
 
 - Use [environments](https://docs.github.com/actions/deployment/targeting-different-environments/using-environments-for-deployment) for deployment to configure protection rules and secrets.
 
-- You can take advantage of the [approvals](https://docs.github.com/actions/managing-workflow-runs/reviewing-deployments) and [gates](/azure/devops/pipelines/release/deploy-using-approvals?view=azure-devops) feature to control the workflow of the deployment pipeline. For example, you can require manual approvals from a security or operations team before you deploy to a production environment.
+- You can take advantage of the [approvals](https://docs.github.com/actions/managing-workflow-runs/reviewing-deployments) and [gates](/azure/devops/pipelines/release/deploy-using-approvals) feature to control the workflow of the deployment pipeline. For example, you can require manual approvals from a security or operations team before you deploy to a production environment.
 
 #### Best practice: Secure deployment credentials
 
