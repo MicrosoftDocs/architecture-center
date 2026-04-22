@@ -402,7 +402,7 @@ Principal author:
 
 ## Next steps
 
-- [What is Azure AI Foundry?](/azure/ai-studio/what-is-ai-studio)
+- [What is Microsoft Foundry?](/azure/foundry/what-is-foundry)
 - [What is Azure AI Search?](/azure/search/search-what-is-azure-search)
 - [What is Azure OpenAI Service?](/azure/ai-services/openai/overview)
 - [AI agent orchestration patterns](/azure/architecture/ai-ml/guide/ai-agent-design-patterns)
