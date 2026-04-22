@@ -2,7 +2,7 @@
 title: DevSecOps on Azure Kubernetes Service (AKS)
 description: Learn how DevSecOps helps you incorporate security best practices from the start of software development.
 author: akhan-msft
-ms.author: adnankhan 
+ms.author: adnankhan
 ms.date: 04/02/2026
 ms.reviewer: ssumner
 ms.topic: concept-article
@@ -137,11 +137,11 @@ Build a secure AKS-hosted platform to incorporate security into the system at ev
 
   Building threat modeling into your SDLC adds process overhead and requires maintaining updated threat models. However, it addresses security early in development, which reduces the cost of fixing problems discovered later.
 
-#### Best practice: Apply the Azure Well-Architect Framework
+#### Best practice: Apply the Azure Well-Architected Framework
 
-- Apply [Security](/azure/well-architected/security/checklist) best practices that provide guidance identity management, application security, infrastructure protection, data security, and DevOps as it applies to cloud-native environments.
+- Apply [Security](/azure/well-architected/security/checklist) best practices that provide guidance for identity management, application security, infrastructure protection, data security, and DevOps as it applies to cloud-native environments.
 
-- Apply [WAF operational](/azure/well-architected/operational-excellence/checklist) best practices as it applies to DevSecOps and monitoring of your production environments.
+- Apply [Operational Excellence](/azure/well-architected/operational-excellence/checklist) best practices as it applies to DevSecOps and monitoring of your production environments.
 
 ### Develop phase
 
@@ -243,7 +243,7 @@ During the build phase, developers work with site reliability engineers and secu
 
 - Proactively monitor cloud resource configurations throughout the development life cycle.
 
-- [Microsoft Defender for DevOps](/azure/defender-for-cloud/iac-vulnerabilities) supports both GitHub and Azure DevOps repositories.
+- [Microsoft Defender for DevOps](/azure/defender-for-cloud/defender-for-devops-introduction) supports both GitHub and Azure DevOps repositories and can scan IaC templates to identify [IaC vulnerabilities](/azure/defender-for-cloud/iac-vulnerabilities).
 
 #### Best practice: Scan your workload images in container registries to identify known vulnerabilities
 
