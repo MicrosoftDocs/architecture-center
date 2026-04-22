@@ -55,7 +55,7 @@ There is no maximum number of Azure subscriptions that you can create. Each Azur
 
 Access management to Azure resources is accomplished through Azure role-based access control ([Azure RBAC](/azure/role-based-access-control/rbac-and-directory-admin-roles)), which includes over 100 built-in roles. You can also create your own custom roles.
 
-Subscriptions contain an aditional role, Account Administrator, which represents the subscription owner and the account billed for the resources used in the subscription. The account administrator can only be changed by transferring ownership of the subscription. 
+Subscriptions contain an additional role, Account Administrator, which represents the subscription owner and the account billed for the resources used in the subscription. The account administrator can only be changed by transferring ownership of the subscription. 
 
 Beneath the subscription level, you can assign user roles and individual permissions to specific resources. In Azure, all user accounts are associated with either a Microsoft Account or Organizational Account (an account managed through Microsoft Entra ID).
 
@@ -91,7 +91,7 @@ Azure offers several ways to manage your resources:
 
 In each of these interfaces, the resource group is central to how Azure resources get created, deployed, or modified.
 
-In addition, many third-party management tools like [Hashicorp's Terraform](https://www.terraform.io/docs/providers/azurerm) and [Spinnaker](https://www.spinnaker.io/), are also available on Azure.
+In addition, many third-party management tools, like [Hashicorp's Terraform](https://www.terraform.io/docs/providers/azurerm) and [Spinnaker](https://www.spinnaker.io/), are also available on Azure.
 
 ## Regions and Availability Zones
 
@@ -134,7 +134,7 @@ Region Pairs in Azure
 
 ### Reliability guides by service
 
-To explore reliability recommendations in detail for each different Azure service, you can use the [Service Reliability Guides](/azure/reliability/overview-reliability-guidance)
+To explore reliability recommendations in detail for each different Azure service, you can use the [Service Reliability Guides](/azure/reliability/overview-reliability-guidance).
 
 ### See also
 
