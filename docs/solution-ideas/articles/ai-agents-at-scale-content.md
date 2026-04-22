@@ -17,7 +17,7 @@ The following diagram shows the high-level architecture for the dynamic AI agent
 The following workflow corresponds to the architecture diagram. Each step maps to a component described in detail in the [Components](#components) section.
 
 1. A user submits a query through the client application.
-2. The **AI Agent Service** receives the request and uses the **Orchestrator** to find the right agents to invoke, but before calling the agent, it uses the **Agent Selector** component.
+2. The **AI Agent Service** receives the request and passes it to the **Orchestrator**, which delegates to the **Agent Selector** component to identify the most relevant agents to invoke.
 3. The **Agent Selector** queries the **Semantic Cache** (Azure AI Search). Azure AI Search identifies candidate agents based on vector similarity with sample utterances stored in the cache. The Agent Selector scores and filters candidates. If a single agent meets the confidence threshold, it's invoked directly. Otherwise, an LLM selects from the shortlisted agents.
 4. The **Agent Factory** instantiates the selected agent based on its registered implementation (code module, YAML template, or other representation), returning a ready-to-use agent instance to the orchestration layer.
 5. The selected **Agent** processes the request using **Azure OpenAI** models hosted in **Azure AI Foundry** or external tools, and the response flows back through the orchestration layer to the user.
