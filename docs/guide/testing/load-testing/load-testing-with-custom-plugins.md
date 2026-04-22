@@ -160,7 +160,8 @@ To create a sample JMeter test script:
 1. Save and close the file.
 
     > [!IMPORTANT]
-    > Don't include any personal data in the sampler name in the JMeter script. The sampler names appear in the Load Testing test results dashboard. A sample of a liquid template along with the JMeter script file is available to download at [Azure samples](https://github.com/Azure-Samples/load-testing-jmeter-plugins/tree/main/samples/eventhubplugin).
+   > [!IMPORTANT]
+   > Don't include any personal data in the sampler name in the JMeter script. The sampler names appear in the Load Testing test results dashboard. A sample of a liquid template along with the JMeter script file is available to download at [Azure samples](https://github.com/Azure-Samples/load-testing-jmeter-plugins/tree/main/samples/eventhubplugin).
 
 #### Update the custom plugin from Event Hubs to IoT Hub
 
@@ -193,7 +194,7 @@ client.close();
 
 ### Run the load test by using the new plugin
 
-When Load Testing starts your load test, it first deploys the JMeter script along with all the other files onto test engine instances. Before running the test, go to the parameter tab to define and set any required parameters. For more information, see [Customize a load test with Apache JMeter plugins and Load Testing](/azure/load-testing/how-to-use-jmeter-plugins).
+When Load Testing starts your load test, it first deploys the JMeter script along with all the other files onto test engine instances. Before running the test, go to the parameter tab to define and set any required parameters. For more information, see [Customize a load test with Apache JMeter plugins and Load Testing](/azure/app-testing/load-testing/how-to-use-jmeter-plugins).
 
 ### Set up performance testing for the environment
 
@@ -268,7 +269,6 @@ The following image shows a sample of the Azure Monitor dashboard. It shows the 
 In this article, you learned how to design KPIs and develop a dashboard for Load Testing. You also learned how to use custom plugins in JMeter to perform load testing on Azure Functions integrated with Event Hubs. You can use the same approach to perform load testing on other Azure services. You can also set up a CI/CD pipeline for your load testing scripts by using Azure DevOps.
 
 For more information, see [Load Testing](/azure/load-testing/).
-
 ## Contributors
 
 *Microsoft maintains this article. The following contributors wrote this article.*
