@@ -60,15 +60,7 @@ As with any design decision, consider any tradeoffs against the goals of the oth
 
 The gatekeeper pattern is often implemented as a layered request path where each layer has a specific responsibility and limited trust scope:
 
-```text
-Client
-       ↓
-Application Gateway (WAF)
-       ↓
-API Management (APIM)
-       ↓
-Backend services (private)
-```
+![Diagram showing the layered gatekeeper pattern with Client → Application Gateway (WAF) → API Management (APIM) → Backend services (private)](./_images/gatekeeper-example.png)
 
 In this design, [Azure Application Gateway with Web Application Firewall](/azure/web-application-firewall/ag/ag-overview) is the outer gatekeeper. It inspects internet-facing traffic and applies security controls before traffic reaches the API tier. [Azure API Management](/azure/api-management/api-management-key-concepts) is the inner gatekeeper. It applies API-specific controls and forwards only approved traffic to private backends.
 
