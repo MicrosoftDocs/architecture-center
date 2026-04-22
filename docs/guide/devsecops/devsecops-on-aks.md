@@ -2,7 +2,7 @@
 title: DevSecOps on Azure Kubernetes Service (AKS)
 description: Learn how DevSecOps helps you incorporate security best practices from the start of software development.
 author: akhan-msft
-ms.author: adnankhan 
+ms.author: adnankhan
 ms.date: 04/02/2026
 ms.reviewer: ssumner
 ms.topic: concept-article
