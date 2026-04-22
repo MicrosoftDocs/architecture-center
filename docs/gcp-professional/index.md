@@ -34,7 +34,7 @@ While the capabilities of both platforms are similar, the resources that provide
 
 ## Managing accounts and subscription
 
-Azure has a hierarchy of Management group and subscriptions and resource groups to manage resources effectively. This is similar to the Folders and Project hierarchy for resources in Google Cloud.
+Azure has a hierarchy of management groups and subscriptions and resource groups to manage resources effectively. This is similar to the Folders and Project hierarchy for resources in Google Cloud.
 
 ![Diagram shows a tree structure with management groups as the root, then subscriptions, then resource groups as leaf nodes.](./images/subscription_hierarchy.png)
 
@@ -83,7 +83,7 @@ Resources can also be organized using [tags](/azure/azure-resource-manager/resou
 Azure offers several ways to manage your resources:
 
 - [Web interface](/azure/azure-resource-manager/resource-group-portal). The Azure portal provides a full web-based management interface for Azure resources.
-- [REST API](/rest/api/?view=Azure). The Azure Resource Manager REST API provides programmatic access to most of the features available in the Azure portal.
+- [REST API](/rest/api/resources). The Azure Resource Manager REST API provides programmatic access to most of the features available in the Azure portal.
 - [Command Line](/cli/azure/install-azure-cli?view=azure-cli-latest). The Azure CLI provides a command-line interface capable of creating and managing Azure resources. The Azure CLI is available for [Windows, Linux, and macOS](/cli/azure).
 - [PowerShell](/azure/azure-resource-manager/powershell-azure-resource-manager). The Azure modules for PowerShell allow you to execute automated management tasks using a script. PowerShell is available for [Windows, Linux, and macOS](/powershell/scripting/install/installing-powershell).
 - [Templates](/azure/azure-resource-manager/resource-group-authoring-templates). Azure Resource Manager templates provide JSON template-based resource management capabilities.
