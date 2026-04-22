@@ -338,7 +338,7 @@ Consider enabling [AKS cost analysis](/azure/aks/cost-analysis) for granular clu
 
 - [Azure Well-Architected Framework review for Azure Kubernetes Service (AKS)](/azure/architecture/framework/services/compute/azure-kubernetes-service/azure-kubernetes-service)
 - [Baseline architecture for an Azure Kubernetes Service (AKS) cluster](../aks/baseline-aks.yml)
-- [CI/CD pipeline for container-based workloads](/azure/architecture/guide/aks/aks-cicd-github-actions-and-gitops)
+- [CI/CD baseline architecture with Azure Pipelines](/azure/devops/pipelines/architectures/devops-pipelines-baseline-architecture)
 - [AKS Microsoft Entra integration](/azure/aks/azure-ad-rbac)
 - [Azure Front Door documentation](/azure/frontdoor)
 - [Azure Cosmos DB documentation](/azure/cosmos-db)

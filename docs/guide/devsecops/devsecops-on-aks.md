@@ -32,8 +32,6 @@ When you apply DevSecOps to Azure Kubernetes Service (AKS), each organization ro
 
 This article organizes guidance by DevOps life cycle stage and provides recommendations for security controls and best practices. It covers common processes and tools for continuous integration and continuous delivery (CI/CD) pipelines, with a focus on built-in tools.
 
-Before you read this article, review [Build and deploy apps on AKS by using DevOps and GitOps](/azure/architecture/guide/aks/aks-cicd-github-actions-and-gitops).
-
 ## Process flow
 
 :::image type="complex" alt-text="Architecture diagram that shows how to implement DevSecOps practices in an AKS environment." source="./media/devsecops-azure-aks.svg" lightbox="./media/devsecops-azure-aks.svg" border="false":::
@@ -277,7 +275,7 @@ During the deployment phase, developers, application operators, and cluster oper
 
 - [OpenID Connect (OIDC)](https://docs.github.com/actions/deployment/security-hardening-your-deployments/configuring-openid-connect-in-azure) lets your GitHub Action workflows access resources in Azure without needing to store the Azure credentials as long-lived GitHub secrets.
 
-- Use a pull-based approach to CI/CD with [GitOps](/azure/architecture/guide/aks/aks-cicd-github-actions-and-gitops) to shift security credentials to your Kubernetes cluster. This approach reduces the security and risk surface by removing credentials from your external CI tooling. You can also reduce allowed inbound connections and limit admin-level access to your Kubernetes clusters.
+- Use a pull-based approach to CI/CD with GitOps to shift security credentials to your Kubernetes cluster. This approach reduces the security and risk surface by removing credentials from your external CI tooling. You can also reduce allowed inbound connections and limit admin-level access to your Kubernetes clusters.
 
 #### Best practice: Run DAST to find vulnerabilities in your running application
 
