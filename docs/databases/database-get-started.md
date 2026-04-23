@@ -107,7 +107,7 @@ The following production-ready architectures demonstrate end-to-end database sol
 
 **Big data**
 
-- [Microsoft Fabric deployment patterns](../analytics/architecture/fabric-deployment-patterns.yml)
+- [Microsoft Fabric deployment patterns](../data-guide/technology-choices/fabric-deployment-patterns.md)
 
 ### Database solution ideas
 

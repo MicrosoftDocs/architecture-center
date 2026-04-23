@@ -20,7 +20,6 @@ The term *compute* refers to the hosting model for the computing resources that 
 | :------ | :------ |
 | [Choose an Azure compute service](compute-decision-tree.md) | Decide which compute service best suits your application. |
 | [Choose an Azure compute option for microservices](../../microservices/design/compute-options.md) | Learn about two compute options for microservices: service orchestrator and serverless architecture. |
-| [Compare Java application hosting options on Azure](service-for-java-comparison.yml) | Explore recommended strategies for hosting Java applications on Azure, including platform types and supportability. |
 | [Choose between traditional web apps and single-page applications (SPAs)](/dotnet/architecture/modern-web-apps-azure/choose-between-traditional-web-and-single-page-apps) | Learn how to choose between traditional web apps and SPAs. |
 
 ## Choose a container option
