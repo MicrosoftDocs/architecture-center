@@ -18,8 +18,8 @@ The following workflow corresponds to the preceding diagram.
 
 1. A hub-spoke network topology has a hub virtual network that peers to each resource virtual network, also called a *spoke*. All traffic goes through Azure Firewall for traffic inspection.
 
-1. An Azure Blob Storage account denies public internet access. It only allows connections from other virtual networks. A [resource instance rule](/azure/storage/common/storage-network-security#grant-access-from-azure-resource-instances) allows a chosen Azure IoT Hub service to connect via a managed identity. The Blob Storage account only supports Azure role-based access control (Azure RBAC) for data plane access.
-1. The application gateway has custom Domain Name System (DNS) and terminates Transport Layer Security (TLS) traffic. It resides within a virtual network. This virtual network peers with the virtual network that the Blob Storage account's private link uses. A forced tunnel via the hub virtual network establishes the connection.
+1. An Azure Blob Storage account denies public internet access. It only allows connections from other virtual networks. A [resource instance rule](/azure/storage/common/storage-network-security#grant-access-from-azure-resource-instances) allows a chosen Azure IoT Hub service to connect through a managed identity. The Blob Storage account only supports Azure role-based access control (Azure RBAC) for data plane access.
+1. The application gateway has custom Domain Name System (DNS) and terminates Transport Layer Security (TLS) traffic. It resides within a virtual network. This virtual network peers with the virtual network that the Blob Storage account's private link uses. A forced tunnel through the hub virtual network establishes the connection.
 1. The IoT client device that uses the IoT Hub SDK requests a shared access signature (SAS) URI for file uploads to IoT Hub. The IoT client device sends the request through the public internet.
 1. IoT Hub handles this request for the device. It connects directly to the Blob Storage account via managed identity authentication, which has *Storage Blob Data Contributor* permissions for user-delegation key requests.
 
@@ -27,7 +27,7 @@ The following workflow corresponds to the preceding diagram.
 
 1. IoT Hub sends the public Blob Storage account URI and SAS token to the IoT client device, along with a correlation ID.
 1. The IoT client device has logic to replace the public Blob Storage URI with a custom domain, for example a [device twin](/azure/iot-hub/iot-hub-devguide-device-twins). The IoT device uses a standard Blob Storage SDK to upload the file through the custom Blob Storage DNS.
-1. Application Gateway receives the HTTP POST from the client device and sends it to the Blob Storage account via Azure Private Link.
+1. Application Gateway receives the HTTP POST from the client device and sends it to the Blob Storage account through Azure Private Link.
 1. When the file upload is finished, the IoT client device uses the Azure IoT SDK to notify IoT Hub.
 
    The IoT client device updates the file upload status so that IoT Hub can trigger a file upload notification to back-end services, if the notification is configured. The client device also releases resources that are associated with the file upload in IoT Hub.
@@ -42,16 +42,17 @@ The following workflow corresponds to the preceding diagram.
 - [Storage](https://azure.microsoft.com/products/category/storage) offers a durable, highly available, and massively scalable cloud storage solution. It includes object, file, disk, queue, and table storage capabilities. In this architecture, devices use Blob Storage to upload files to the cloud via short-lived SAS tokens that IoT Hub provides through user delegation.
 - [Private DNS zones](/azure/dns/private-dns-overview) provide a reliable, enhanced-security DNS service to manage and resolve domain names in a virtual network without the need for a custom DNS solution. In this architecture, a private DNS zone provides a private DNS entry for Blob Storage so that the Storage blob endpoint translates to its private IP endpoint within the network.
 - [Virtual Network](https://azure.microsoft.com/products/virtual-network/) is the fundamental building block for your private network in Azure. This service enables many types of Azure resources, such as Azure virtual machines, to communicate with each other, the internet, and on-premises networks with enhanced security. This architecture uses Virtual Network to build a private network topology, which avoids internet public endpoints for Azure-based services.
+- [Azure Key Vault](/azure/key-vault/general/overview) stores the TLS certificate that Application Gateway presents on the custom-domain listener. In this architecture, Key Vault is fronted by a [Private Endpoint](/azure/key-vault/general/private-link-service) and uses Azure RBAC for access, which avoids public network access with an IP exception.
 
 ## Scenario details
 
-For regular deployments, an Azure IoT client device needs to communicate directly to a Storage account to upload a file. Disabling internet traffic on the Storage account blocks any client IoT client devices from uploading files. The IoT Hub file upload functionality acts only as a user delegation for generating a SAS token that has read-write permissions on a blob. The file upload itself doesn't pass through IoT Hub. An IoT client device uses the normal Blob Storage SDK for the actual upload.
+For regular deployments, an Azure IoT client device needs to communicate directly to a Storage account to upload a file. Disabling internet traffic on the Storage account blocks IoT client devices from uploading files. The IoT Hub file upload functionality acts only as a user delegation for generating a SAS token that has read-write permissions on a blob. The file upload itself doesn't pass through IoT Hub. An IoT client device uses the normal Blob Storage SDK for the actual upload.
 
 In this scenario, communication between IoT Hub and the Storage account still goes through the public endpoint. This exception is possible through Storage networking configurations for resource instances. You can disable public internet access to the Storage account and allow Azure services and specific instances of resources to connect through the Azure backbone. This network perimeter is paired with a Microsoft Entra ID-based identity perimeter that uses Azure RBAC to restrict data plane access.
 
 This architecture assigns a managed identity to IoT Hub. The managed identity is assigned the role of *Storage Blob Data Contributor* to the specified Storage account. With this permission, IoT Hub can request a user-delegation key to construct a short-lived SAS token. The IoT client device receives the SAS token for the file-upload process.
 
-Application Gateway acts as the entry point for requests that go to the private endpoint of the Storage account, which is configured as the only back end. Application Gateway uses a public IP address. A custom DNS provider can be configured to map the public IP address to an *A* record or *CNAME* record.
+Application Gateway acts as the entry point for requests that go to the private endpoint of the Storage account, which is configured as the only back end. Application Gateway uses a public IP address. You can configure a custom DNS provider to map the public IP address to an *A* record or *CNAME* record.
 
 If you have internal security requirements to use private endpoints for many Azure PaaS services, you can implement this scenario to provide shorter validation cycles to deploy your IoT solutions in production.
 
@@ -67,7 +68,18 @@ If you don't require the hub-spoke network topology that has Azure Firewall traf
 
 The benefits of a simplified architecture include reduced complexity and cost. If you don't have specific business or enterprise requirements for a hub-spoke topology, use the simplified architecture to eliminate public internet endpoints from the Storage account. This approach also helps ensure that IoT applications that use the IoT Hub file upload functionality work correctly.
 
-For a sample that deploys a similar architecture, see [Set up IoT Hub file upload to Storage through a private endpoint](https://github.com/Azure-Samples/azure-edge-extensions-iothub-fileupload-privatelink). This sample deploys a simulated IoT client device and uses device twins to replace the custom domain name for the Storage account.
+## Recommendations
+
+Use the following current-baseline configurations when you build this pattern:
+
+- Enforce TLS 1.2 or later on IoT Hub and on the Application Gateway listener. IoT Hub retired TLS 1.0, TLS 1.1, and legacy cipher suites on August 31, 2025. For more information, see [TLS support in IoT Hub](/azure/iot-hub/iot-hub-tls-support).
+- On IoT client devices, trust [DigiCert Global Root G2](/azure/iot-hub/migrate-tls-certificate) and include Microsoft RSA Root CA 2017 to align with the current IoT Hub certificate chain.
+- IoT hubs that you create in November 2025 or later use the Azure Device Registry generation. Existing hubs remain on the legacy generation and you can't upgrade them in place. This pattern applies to both generations, but device SDK and identity flows differ on the Azure Device Registry generation. For more information, see the [IoT Hub FAQ](/azure/iot-hub/iot-hub-faq).
+- Front the public listener with [Azure Web Application Firewall v2](/azure/web-application-firewall/ag/ag-overview) and use the managed OWASP Core Rule Set.
+- To eliminate the public IP on Application Gateway, expose the front end over [Application Gateway Private Link](/azure/application-gateway/private-link) to peered or consumer virtual networks.
+- If you use Key Vault to issue or store the Application Gateway certificate, front Key Vault with a [Private Endpoint](/azure/key-vault/general/private-link-service) and grant access through Azure RBAC instead of through public network access with an IP exception.
+
+This solution uses Azure IoT Hub and standard device SDKs. It isn't an IoT Edge or Azure IoT Operations pattern. For Arc-enabled edge scenarios, evaluate [Azure IoT Operations](/azure/iot-operations/overview-iot-operations).
 
 ## Contributors
 
