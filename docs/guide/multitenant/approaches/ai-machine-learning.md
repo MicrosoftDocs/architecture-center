@@ -135,7 +135,7 @@ Many managed machine learning services don't require model training or data, so 
 - [Automated ML (AutoML) in Azure Machine Learning](/azure/machine-learning/concept-automated-ml)
 - [Face API](/azure/ai-services/computer-vision/how-to/add-faces)
 - [Document Intelligence custom models](/azure/ai-services/document-intelligence/train/custom-model)
-[Customize a model with fine-tuning](/azure/foundry/openai/how-to/fine-tuning)
+- [Customize a model with fine-tuning](/azure/foundry/openai/how-to/fine-tuning)
 
 When you work with these services, it's important to consider the [isolation requirements](#tenant-isolation) for your tenants' data.
 
