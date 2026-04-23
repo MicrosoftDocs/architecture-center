@@ -1,6 +1,6 @@
 ---
 title: DevSecOps on Azure Kubernetes Service (AKS)
-description: Learn how DevSecOps helps you incorporate security best practices from the start of software development and throughout the deployment life cycle.
+description: Learn how DevSecOps helps you incorporate security best practices from the start of software development and throughout the software deployment life cycle (SDLC).
 author: akhan-msft
 ms.author: adnankhan
 ms.date: 04/22/2026
@@ -43,9 +43,9 @@ The flow starts with a developer that connects to Microsoft Entra ID and works i
 > [!NOTE]
 > This article references AKS and GitHub, but you can apply these recommendations to any container orchestration or CI/CD platform. The implementation details might vary, but most concepts and practices for each stage still apply.
 
-1. [Microsoft Entra ID](/entra/fundamentals/whatis) is configured as the identity provider for GitHub. Configure multifactor authentication (MFA) to help provide extra authentication security.
+1. [Microsoft Entra ID](/entra/fundamentals/what-is-entra) is configured as the identity provider for GitHub. Configure multifactor authentication (MFA) to help provide extra authentication security.
 
-1. Developers use [Visual Studio Code](https://code.visualstudio.com) or [Visual Studio](https://visualstudio.microsoft.com/vs/) with [security extensions](#best-practice-use-ide-tools-and-plugins-to-automate-security-checks) enabled to proactively analyze their code for security vulnerabilities.
+1. Developers use [Visual Studio Code](https://code.visualstudio.com/) or [Visual Studio](https://visualstudio.microsoft.com/vs/) with [security extensions](#best-practice-use-ide-tools-and-plugins-to-automate-security-checks) enabled to proactively analyze their code for security vulnerabilities.
 
 1. Developers commit application code to a corporate owned and governed GitHub Enterprise repository.
 
@@ -69,7 +69,7 @@ The flow starts with a developer that connects to Microsoft Entra ID and works i
    
 1. You can apply [Azure Policy](/azure/governance/policy/overview) to Container Registry and AKS to enforce policy compliance. Azure Policy includes built-in security policies for both Container Registry and AKS.
 
-1. [Key Vault](/azure/key-vault/key-vault-overview) securely injects secrets and credentials into an application at runtime without exposing them to developers.
+1. [Key Vault](/azure/key-vault/general/overview) securely injects secrets and credentials into an application at runtime without exposing them to developers.
 
 1. The AKS network policy engine is configured to help secure traffic between application pods by using Kubernetes network policies. We recommend [Azure CNI Powered by Cilium](/azure/aks/azure-cni-powered-by-cilium) as the network policy engine. It provides extended Berkeley Packet Filter (eBPF)-based enforcement, layer-7 policy, and fully qualified domain name (FQDN) filtering.
 
@@ -95,9 +95,9 @@ Developers write the application code and commit it to the designated repository
 
 ### Application operators (site reliability engineers)
 
-Building applications on the cloud by using containers and Kubernetes can simplify application development, deployment, and scalability. But these development approaches also create increasingly distributed environments that complicate administration.
+Building applications by using containers and Kubernetes can simplify application development, deployment, and scalability. But these development approaches also create increasingly distributed environments that complicate administration.
 
-Site reliability engineers build solutions to automate the oversight of large software systems. They serve as a bridge between development and cluster operator teams. They help establish and monitor service-level objectives (SLOs) and error budgets. Site reliability engineers also help manage application deployments and write Kubernetes manifest (YAML) files.
+Site reliability engineers build solutions that automate how teams oversee large software systems. They serve as a bridge between development and cluster operator teams. They help establish and monitor service-level objectives (SLOs) and error budgets. Site reliability engineers also help manage application deployments and write Kubernetes manifest (YAML) files.
 
 ### Cluster operators
 
@@ -127,7 +127,7 @@ Build a secure AKS-hosted platform to incorporate security into the system at ev
 
 #### Best practice: Build threat modeling into your process
 
-- Threat modeling is usually a manual activity that involves security and development teams. You can model and find threats within a system to address vulnerabilities before you do code development or make changes. Teams conduct threat modeling in response to significant software changes, solution architectural changes, or security incidents.
+- Threat modeling is usually a manual activity that involves security and development teams. You can model and find threats in a system to address vulnerabilities before you develop code or make changes. Teams conduct threat modeling in response to significant software changes, solution architectural changes, or security incidents.
 
 - We recommend the [STRIDE threat model](/azure/security/develop/threat-modeling-tool-threats#stride-model). This methodology starts with a data flow diagram and categorizes threats by using the STRIDE mnemonic: Spoofing, Tampering, Info Disclosure, Repudiation, Denial of Service, and Elevation of Privilege. Teams use these categories to identify, mitigate, and validate risks. A [modeling tool](https://www.microsoft.com/securityengineering/sdl/threatmodeling) helps notate and visualize system components, data flows, and security boundaries.
 
@@ -179,13 +179,13 @@ Most popular IDEs, like Visual Studio, VS Code, IntelliJ IDEA, and Eclipse, supp
 
   - Create well-defined roles by using the principle of least privilege. A CI/CD pipeline functions as your supply chain for production deployments.
 
-  - Apply established user or group [roles](https://docs.github.com/enterprise-cloud@latest/admin/user-management/managing-users-in-your-enterprise/roles-in-an-enterprise) within your organization. To group individuals based on their specific role and function in your CI/CD workflows, create roles like Admin, Developer, Security Admin, and Operator.
+  - Apply established user or group [roles](https://docs.github.com/enterprise-cloud@latest/admin/managing-accounts-and-repositories/managing-roles-in-your-enterprise/abilities-of-roles) within your organization. To group individuals based on their specific role and function in your CI/CD workflows, create roles like Admin, Developer, Security Admin, and Operator.
 
-- Enable [auditing](https://docs.github.com/enterprise-cloud@latest/admin/monitoring-activity-in-your-enterprise/reviewing-audit-logs-for-your-enterprise/about-the-audit-log-for-your-enterprise) of your workflows to add transparency and traceability for configuration and other changes to your CI/CD pipelines.
+- Enable [auditing](https://docs.github.com/enterprise-cloud@latest/admin/concepts/security-and-compliance/audit-log-for-an-enterprise) of your workflows to add transparency and traceability for configuration and other changes to your CI/CD pipelines.
 
 #### Best practice: Secure your container images
 
-- Use lightweight images that have a minimal OS footprint to reduce the overall surface-attack area. Consider minimal images like Alpine or even distroless images that contain only your application and its associated runtime.
+- Use lightweight images that have a minimal OS footprint to reduce the overall attack surface. Consider minimal images like Alpine or distroless images that contain only your application and its associated runtime.
 
 - Use only trusted base images when you build your containers. Retrieve these base images from a private registry that you frequently scan for vulnerabilities.
 
@@ -203,31 +203,31 @@ During the build phase, developers work with site reliability engineers and secu
 
 - Use GitHub Advanced Security scanning capabilities for code scanning and CodeQL.
 
-  - [Code scanning](https://docs.github.com/enterprise-cloud@latest/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/about-code-scanning) is a feature that analyzes code in a GitHub repository to find security vulnerabilities and coding errors. It displays the problems in GitHub Enterprise Cloud.
+  - [Code scanning](https://docs.github.com/enterprise-cloud@latest/code-security/concepts/code-scanning/about-code-scanning) is a feature that analyzes code in a GitHub repository to find security vulnerabilities and coding errors. It displays the problems in GitHub Enterprise Cloud.
   
   - If code scanning finds a potential vulnerability or error in your code, GitHub displays an alert in the repository.
 
-  - You can configure branch rules for [required status checks](https://docs.github.com/repositories/configuring-branches-and-merges-in-your-repository/defining-the-mergeability-of-pull-requests/troubleshooting-required-status-checks). For example, you can require that feature branches are up to date with the base branch before you merge new code. This requirement ensures that you test your branch with the latest code.
+  - You can configure branch rules for [required status checks](https://docs.github.com/pull-requests/collaborating-with-pull-requests/collaborating-on-repositories-with-code-quality-features/troubleshooting-required-status-checks). For example, you can require that feature branches are up to date with the base branch before you merge new code. This requirement ensures that you test your branch with the latest code.
 
-  - Enable [Copilot Autofix](https://docs.github.com/enterprise-cloud@latest/code-security/code-scanning/managing-code-scanning-alerts/responsible-use-autofix-code-scanning) to receive AI-generated fix suggestions for code scanning alerts. Copilot Autofix proposes remediation directly in pull requests, which helps developers resolve security findings quickly.
+  - Enable [Copilot Autofix](https://docs.github.com/enterprise-cloud@latest/code-security/responsible-use/responsible-use-autofix-code-scanning) to receive AI-generated fix suggestions for code scanning alerts. Copilot Autofix proposes remediation directly in pull requests, which helps developers resolve security findings quickly.
 
 - Use tools like [kube-score](https://kube-score.com/) to analyze your Kubernetes deployment objects. This tool does static code analysis of your Kubernetes object definitions. It outputs a list of recommendations to make your application more secure and resilient.
 
 #### Best practice: Use secret scanning to detect accidentally committed secrets
 
-- When you enable [secret scanning](https://docs.github.com/enterprise-cloud@latest/code-security/secret-scanning/about-secret-scanning#about-secret-scanning-for-advanced-security) for a repository, GitHub scans the code for patterns that match secrets that many service providers use.
+- When you enable [secret scanning](https://docs.github.com/enterprise-cloud@latest/code-security/concepts/secret-security/about-secret-scanning#about-secret-scanning-for-advanced-security) for a repository, GitHub scans the code for patterns that match secrets that many service providers use.
 
 - GitHub periodically runs a full git history scan of existing content in repositories and sends alert notifications.
 
-  - For Azure DevOps, [Defender for Cloud](/azure/defender-for-cloud/detect-credential-leaks) uses secret scanning to detect credentials, secrets, certificates, and other sensitive content in your source code and build output.
+  - For Azure DevOps, [Defender for Cloud](/azure/defender-for-cloud/defender-for-devops-introduction) uses secret scanning to detect credentials, secrets, certificates, and other sensitive content in your source code and build output.
 
   - You can run secret scanning as part of the Microsoft Security DevOps for Azure DevOps extension.
 
 #### Best practice: Use SCA tools to track open-source components in the codebase and detect vulnerabilities in dependencies
 
-- [Dependency review](https://docs.github.com/code-security/supply-chain-security/understanding-your-software-supply-chain/about-dependency-review) lets you catch insecure dependencies before you introduce them to your environment. It also provides information about the license, dependents, and age of dependencies. It displays dependency changes through a rich diff on the **Files Changed** tab of a pull request.
+- [Dependency review](https://docs.github.com/code-security/concepts/supply-chain-security/about-dependency-review) lets you catch insecure dependencies before you introduce them to your environment. It also provides information about the license, dependents, and age of dependencies. It displays dependency changes through a rich diff on the **Files changed** tab of a pull request.
 
-- [Dependabot](https://docs.github.com/enterprise-cloud@latest/code-security/dependabot/dependabot-alerts/about-dependabot-alerts) performs a scan to detect insecure dependencies and sends Dependabot alerts when a new advisory is added to the GitHub Advisory Database or when dependency graph for a repository changes.
+- [Dependabot](https://docs.github.com/enterprise-cloud@latest/code-security/concepts/supply-chain-security/about-dependabot-alerts) performs a scan to detect insecure dependencies and sends Dependabot alerts when a new advisory is added to the GitHub Advisory Database or when the dependency graph for a repository changes.
 
 #### Best practice: Generate a SBOM for your container images
 
@@ -265,15 +265,15 @@ During the deployment phase, developers, application operators, and cluster oper
 
 #### Best practice: Control the access and workflow of the deployment pipeline
 
-- You can [protect](https://docs.github.com/repositories/configuring-branches-and-merges-in-your-repository/defining-the-mergeability-of-pull-requests/about-protected-branches) important branches by setting branch protection rules. These rules define whether collaborators can delete or force push to the branch. They also set requirements for pushes to the branch, such as passing status checks or a linear commit history.
+- You can [protect](https://docs.github.com/repositories/configuring-branches-and-merges-in-your-repository/managing-protected-branches/about-protected-branches) important branches by setting branch protection rules. These rules define whether collaborators can delete or force push to the branch. They also set requirements for pushes to the branch, such as passing status checks or a linear commit history.
 
-- Use [environments](https://docs.github.com/actions/deployment/targeting-different-environments/using-environments-for-deployment) for deployment to configure protection rules and secrets.
+- Use [environments](https://docs.github.com/actions/how-tos/deploy/configure-and-manage-deployments/manage-environments) for deployment to configure protection rules and secrets.
 
-- You can take advantage of the [approvals](https://docs.github.com/actions/managing-workflow-runs/reviewing-deployments) and [gates](/azure/devops/pipelines/release/deploy-using-approvals) feature to control the workflow of the deployment pipeline. For example, you can require manual approvals from a security or operations team before you deploy to a production environment.
+- You can take advantage of the [approvals](https://docs.github.com/actions/how-tos/deploy/configure-and-manage-deployments/review-deployments) and [gates](/azure/devops/pipelines/release/deploy-using-approvals) feature to control the workflow of the deployment pipeline. For example, you can require manual approvals from a security or operations team before you deploy to a production environment.
 
 #### Best practice: Secure deployment credentials
 
-- [OpenID Connect (OIDC)](https://docs.github.com/actions/deployment/security-hardening-your-deployments/configuring-openid-connect-in-azure) lets your GitHub Action workflows access resources in Azure without needing to store the Azure credentials as long-lived GitHub secrets.
+- [OpenID Connect (OIDC)](https://docs.github.com/actions/how-tos/secure-your-work/security-harden-deployments/oidc-in-azure) lets your GitHub Action workflows access resources in Azure without needing to store the Azure credentials as long-lived GitHub secrets.
 
 - Use a pull-based approach to CI/CD with GitOps to shift security credentials to your Kubernetes cluster. This approach reduces the security and risk surface by removing credentials from your external CI tooling. You can also reduce allowed inbound connections and limit admin-level access to your Kubernetes clusters.
 
@@ -301,21 +301,21 @@ During this phase, perform operation monitoring and security monitoring tasks to
 
   - Use the container recommendations in Defender for Cloud (under **Compute and apps**) to perform baseline scans for your AKS clusters. Defender for Cloud displays any configuration problems or vulnerabilities in its dashboard.
 
-  - Use Defender for Cloud and follow its network protection recommendations to help [secure](/azure/defender-for-cloud/protect-network-resources) the network resources that your AKS clusters use.
+  - Use Defender for Cloud and follow its network protection recommendations to help [secure your AKS cluster's network resources](/azure/defender-for-cloud/protect-network-resources).
 
 - Conduct a vulnerability assessment for images stored in Container Registry.
 
-  - Implement continuous scans for running images in Container Registry by enabling [Defender for Containers](/azure/defender-for-cloud/defender-for-containers-vulnerability-assessment-azure).
+  - Implement continuous scans for running images in Container Registry by enabling [Defender for Containers](/azure/defender-for-cloud/agentless-vulnerability-assessment-azure).
 
 #### Best practice: Keep your Kubernetes clusters updated
 
 - Kubernetes releases new versions frequently. Maintain a life cycle management strategy to keep your clusters supported and up-to-date. AKS provides tools to manage cluster upgrades. Use the AKS planned maintenance features to control when maintenance windows and upgrades occur.
 
-- [Upgrade](/azure/architecture/operator-guides/aks/aks-upgrade-practices) AKS worker nodes frequently. Azure releases weekly OS and runtime updates. Apply these updates automatically through unattended mode or manually through the Azure CLI for greater control.
+- [Upgrade](/azure/architecture/operator-guides/aks/aks-upgrade-practices) AKS worker nodes frequently. Azure releases weekly OS and runtime updates. Apply these updates automatically through unattended mode or manually through the Azure CLI for more control.
 
 #### Best practice: Use Azure Policy to secure and govern your AKS clusters
 
-- After you install the [Azure Policy add-on for AKS](/azure/aks/use-azure-policy), you can apply individual policy definitions or groups of policy definitions called initiatives or policy sets to your cluster.
+- After you install the [Azure Policy add-on for AKS](/azure/aks/use-azure-policy), you can apply individual policy definitions or groups of policy definitions, called *initiatives* or *policy sets*, to your cluster.
 
 - Use [built-in Azure policies](/azure/aks/policy-reference) for common scenarios like preventing privileged containers from running or restricting external IP addresses to an allow list. You can also create custom policies for specific use cases.
 
@@ -335,7 +335,7 @@ During this phase, perform operation monitoring and security monitoring tasks to
 
   - Onboard your AKS instances to Azure Monitor and configure diagnostic settings for your cluster.
 
-    - For more information, see [Azure security baseline for AKS](/security/benchmark/azure/baselines/aks-security-baseline).
+    - For more information, see [Azure security baseline for AKS](/security/benchmark/azure/baselines/azure-kubernetes-service-aks-security-baseline).
 
 #### Best practice: Use Defender for Cloud for active threat monitoring
 
@@ -349,7 +349,7 @@ During this phase, perform operation monitoring and security monitoring tasks to
 
 #### Best practice: Enable centralized log monitoring and use SIEM products to monitor for real-time security threats
 
-- Connect AKS diagnostics logs to Microsoft Sentinel for centralized security monitoring based on patterns and rules. Microsoft Sentinel enables this access by way of [data connectors](/azure/sentinel/data-connectors-reference#azure-kubernetes-service-aks).
+- Connect AKS diagnostics logs to Microsoft Sentinel for centralized security monitoring based on patterns and rules. Microsoft Sentinel enables this access via [data connectors](/azure/sentinel/data-connectors-reference#azure-kubernetes-service-aks).
 
 #### Best practice: Enable audit logging to monitor activity on your production clusters
 
@@ -359,7 +359,7 @@ During this phase, perform operation monitoring and security monitoring tasks to
 
 - Monitor attempts to access deactivated credentials.
 
-  - Integrate user authentication for AKS with Microsoft Entra ID. Create diagnostic settings for Microsoft Entra ID and [send](/entra/identity/monitoring-health/howto-integrate-activity-logs-with-azure-monitor-logs) the audit and sign-in logs to a Log Analytics workspace. Within the Log Analytics workspace, configure alerts for security events, such as sign-in attempts from deactivated accounts.
+  - Integrate user authentication for AKS with Microsoft Entra ID. Create diagnostic settings for Microsoft Entra ID and [send the audit and sign-in logs to a Log Analytics workspace](/entra/identity/monitoring-health/howto-integrate-activity-logs-with-azure-monitor-logs). Within the Log Analytics workspace, configure alerts for security events, such as sign-in attempts from deactivated accounts.
 
 #### Best practice: Enable diagnostics on your Azure resources
 
