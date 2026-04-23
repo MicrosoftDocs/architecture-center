@@ -1207,7 +1207,7 @@ items:
   - name: Security
     items:
     - name: Get started
-      href: guide/security/security-start-here.yml
+      href: security/security-get-started.md
     - name: Guides
       items:
       - name: Virtual Network security options
