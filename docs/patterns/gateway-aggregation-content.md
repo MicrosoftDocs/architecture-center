@@ -18,14 +18,16 @@ In the following diagram, the application sends a request to the gateway (1). Th
 
 ![Solution diagram for the Gateway Aggregation pattern](./_images/gateway-aggregation.png)
 
-## Issues and considerations
+## Problems and considerations
+
+Consider the following points as you decide how to implement this pattern:
 
 - The gateway should not introduce service coupling across the backend services.
 - The gateway should be located near the backend services to reduce latency as much as possible.
 - The gateway service might introduce a single point of failure. Ensure the gateway is properly designed to meet your application's availability requirements.
 - The gateway might introduce a bottleneck. Ensure the gateway has adequate performance to handle load and can be scaled to meet your anticipated growth.
 - Perform load testing against the gateway to ensure you don't introduce cascading failures for services.
-- Implement a resilient design, using techniques such as [bulkheads][bulkhead], [circuit breaking][circuit-breaker], [retry][retry], and timeouts.
+- Implement a resilient design, using techniques such as [bulkheads](./bulkhead.md), [circuit breaking](./circuit-breaker.md), [retry](./retry.yml), and timeouts.
 - If one or more service calls takes too long, it might be acceptable to time out and return a partial set of data. Consider how your application will handle this scenario.
 - Use asynchronous I/O to ensure that a delay at the backend doesn't cause performance issues in the application.
 - Implement distributed tracing using correlation IDs to track each individual call.
@@ -51,72 +53,45 @@ An architect should evaluate how the Gateway Aggregation pattern can be used in 
 
 | Pillar | How this pattern supports pillar goals |
 | :----- | :------------------------------------- |
-| [Reliability](/azure/well-architected/reliability/checklist) design decisions help your workload become **resilient** to malfunction and to ensure that it **recovers** to a fully functioning state after a failure occurs. | This topology enables you to, among other things, shift transient fault handling from a distributed implementation across clients to a centralized implementation.<br/><br/> - [RE:07 Transient faults](/azure/well-architected/reliability/handle-transient-faults) |
+| [Reliability](/azure/well-architected/reliability/checklist) design decisions help your workload become **resilient** to malfunction and ensure that it **recovers** to a fully functioning state after a failure occurs. | This topology enables you to, among other things, shift transient fault handling from a distributed implementation across clients to a centralized implementation.<br/><br/> - [RE:07 Transient faults](/azure/well-architected/reliability/handle-transient-faults) |
 | [Security](/azure/well-architected/security/checklist) design decisions help ensure the **confidentiality**, **integrity**, and **availability** of your workload's data and systems. | This topology often reduces the number of touch points a client has with a system, which reduces the public surface area and authentication points. The aggregated backends can stay fully network-isolated from clients.<br/><br/> - [SE:04 Segmentation](/azure/well-architected/security/segmentation)<br/> - [SE:08 Hardening](/azure/well-architected/security/harden-resources) |
 | [Operational Excellence](/azure/well-architected/operational-excellence/checklist) helps deliver **workload quality** through **standardized processes** and team cohesion. | This pattern enables backend logic to evolve independently from clients, allowing you to change the chained service implementations, or even data sources, without needing to change client touchpoints.<br/><br/> - [OE:04 Tools and processes](/azure/well-architected/operational-excellence/tools-processes) |
-| [Performance Efficiency](/azure/well-architected/performance-efficiency/checklist) helps your workload **efficiently meet demands** through optimizations in scaling, data, code. | This design can incur less latency than a design in which the client establishes multiple connections. Caching in aggregation implementations minimizes calls to backend systems.<br/><br/> - [PE:03 Selecting services](/azure/well-architected/performance-efficiency/select-services)<br/> - [PE:08 Data performance](/azure/well-architected/performance-efficiency/optimize-data-performance) |
+| [Performance Efficiency](/azure/well-architected/performance-efficiency/checklist) helps your workload **efficiently meet demands** through optimizations in scaling, data, and code. | This design can incur less latency than a design in which the client establishes multiple connections. Caching in aggregation implementations minimizes calls to backend systems.<br/><br/> - [PE:03 Selecting services](/azure/well-architected/performance-efficiency/select-services)<br/> - [PE:08 Data performance](/azure/well-architected/performance-efficiency/optimize-data-performance) |
 
 As with any design decision, consider any tradeoffs against the goals of the other pillars that might be introduced with this pattern.
 
 ## Example
 
-The following example illustrates how to create a simple gateway aggregation NGINX service using Lua.
+Consider a microservices-based application that provides an order summary experience for a customer. When a user opens an order page, the application must retrieve data from multiple backend services, such as an order service, a shipment service, and a customer profile service.  
+In a microservices architecture, these services are implemented and deployed independently. Without aggregation, the client must call each service directly, increasing latency and complexity.  
+To address this problem, the application introduces a gateway aggregation layer within the workload. The client sends a single request, and the system retrieves and combines data from multiple backend services before returning a unified response.  
+In this example, the application is deployed using [Azure Container Apps](/azure/container-apps/overview). External traffic is routed through [Azure Application Gateway](/azure/application-gateway/overview), which provides a secure entry point with capabilities such as TLS termination and [Web Application Firewall (WAF)](/azure/web-application-firewall/ag/ag-overview) protection.  
+The request is then forwarded to a [Container Apps environment](/azure/container-apps/environment), which provides a managed ingress layer responsible for routing HTTP traffic to the appropriate services. 
+The aggregation logic is implemented as a dedicated aggregation service, deployed as a container app. Backend services are also deployed as container apps and are exposed using internal ingress, making them accessible only within the environment.  
 
-```lua
-worker_processes  4;
+The request flow is as follows:
 
-events {
-  worker_connections 1024;
-}
+1. The client sends a request to the public endpoint exposed by Application Gateway.
+1. Application Gateway forwards the request to the Container Apps environment.
+1. The ingress layer routes the request to the aggregation service.
+1. The aggregation service calls the required backend services.
+1. The aggregation service combines the responses into a single payload.
+1. The aggregated response is returned to the client.
 
-http {
-  server {
-    listen 80;
+By introducing this aggregation layer, the solution reduces client-to-service round trips and simplifies client interactions.  
 
-    location = /batch {
-      content_by_lua '
-        ngx.req.read_body()
+In this architecture, the gateway is responsible for edge concerns such as security and routing, while aggregation logic is implemented within the application layer. This separation improves maintainability and supports more complex orchestration scenarios.
 
-        -- read json body content
-        local cjson = require "cjson"
-        local batch = cjson.decode(ngx.req.get_body_data())["batch"]
+For monitoring, collect telemetry across the full request path so you can correlate gateway behavior with aggregation and backend latency. Use [Azure Monitor](/azure/azure-monitor/overview) as the central observability platform, review [Application Gateway diagnostics and access logs](/azure/application-gateway/monitor-application-gateway), and enable [monitoring for Azure Container Apps](/azure/container-apps/log-monitoring) to capture application logs and metrics from the aggregation and backend services. Route logs to a [Log Analytics workspace](/azure/azure-monitor/logs/log-analytics-overview) for unified querying, alerting, and troubleshooting.
 
-        -- create capture_multi table
-        local requests = {}
-        for i, item in ipairs(batch) do
-          table.insert(requests, {item.relative_url, { method = ngx.HTTP_GET}})
-        end
+## Next steps
 
-        -- execute batch requests in parallel
-        local results = {}
-        local resps = { ngx.location.capture_multi(requests) }
-        for i, res in ipairs(resps) do
-          table.insert(results, {status = res.status, body = cjson.decode(res.body), header = res.header})
-        end
-
-        ngx.say(cjson.encode({results = results}))
-      ';
-    }
-
-    location = /service1 {
-      default_type application/json;
-      echo '{"attr1":"val1"}';
-    }
-
-    location = /service2 {
-      default_type application/json;
-      echo '{"attr2":"val2"}';
-    }
-  }
-}
-```
+- [Azure Container Apps documentation](/azure/container-apps/)
+- [Scale applications in Azure Container Apps](/azure/container-apps/scale-app)
+- [Application Gateway configuration overview](/azure/application-gateway/configuration-overview)
 
 ## Related resources
 
 - [Backends for Frontends pattern](./backends-for-frontends.md)
 - [Gateway Offloading pattern](./gateway-offloading.yml)
 - [Gateway Routing pattern](./gateway-routing.yml)
-
-[bulkhead]: ./bulkhead.md
-[circuit-breaker]: ./circuit-breaker.md
-[retry]: ./retry.yml
