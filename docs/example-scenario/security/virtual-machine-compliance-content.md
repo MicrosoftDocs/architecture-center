@@ -342,7 +342,7 @@ Principal author:
 [Introduction to cloud infrastructure: Describe Azure management and governance]: /training/paths/describe-azure-management-governance/
 [Custom Script Extensions]: /azure/virtual-machines/extensions/custom-script-windows
 [Deployment Stamps pattern]: ../../patterns/deployment-stamp.yml
-[Design resilient applications for Azure]: /azure/architecture/framework/resiliency/principles
+[Design resilient applications for Azure]: /azure/well-architected/reliability/principles
 [DevSecOps on AKS]: ../../guide/devsecops/devsecops-on-aks.md
 [DevTest and DevOps for IaaS solutions]: ../../solution-ideas/articles/dev-test-iaas.yml
 [Geode pattern]: ../../patterns/geodes.yml
