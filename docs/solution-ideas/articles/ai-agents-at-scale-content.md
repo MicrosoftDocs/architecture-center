@@ -18,7 +18,7 @@ The following workflow corresponds to the architecture diagram. Each step maps t
 
 1. A user submits a query through the client application.
 2. The **AI Agent Service** receives the request and passes it to the **Orchestrator**, which delegates to the **Agent Selector** component to identify the most relevant agents to invoke.
-3. The **Agent Selector** queries the **Semantic Cache** (Azure AI Search). Azure AI Search identifies candidate agents based on vector similarity with sample utterances stored in the cache. The Agent Selector scores and filters candidates. If a single agent meets the confidence threshold, it's invoked directly. Otherwise, an LLM selects from the shortlisted agents.
+3. The **Agent Selector** queries the **Semantic Cache** (Azure AI Search) to find candidate agents by comparing the query against stored sample utterances using vector similarity. It scores and filters the results. If one agent exceeds the confidence threshold, it's invoked directly. Otherwise, an LLM chooses from the shortlisted candidates.
 4. The **Agent Factory** instantiates the selected agent based on its registered implementation (code module, YAML template, or other representation), returning a ready-to-use agent instance to the orchestration layer.
 5. The selected **Agent** processes the request using **Azure OpenAI** models hosted in **Azure AI Foundry** or external tools, and the response flows back through the orchestration layer to the user.
 6. The agents, if required, call third-party APIs or MCP servers via the NAT gateway when a public endpoint is needed.
@@ -71,7 +71,7 @@ Accurate functionality of this solution depends on a well-constructed semantic c
 
 #### Dynamic inclusion of agents
 
-Imagine your organization has several domain-specific agents and you want to create a unified conversational AI that enables clients to interact with any of these agents, without needing to know which agent is handling which task. In some cases, multiple agents may be involved in a single conversation to address multi-intent requests. For example: "Help me book a conference room on the Yosemite floor, and notify parking services that I'll need five spots for a customer meeting on the 26th." This scenario would engage both the ConferenceBookingAgent and the ParkingServiceAgent. Managing agent selection is straightforward when the number of agents or tools is small (fewer than 20), and a [function calling](https://learn.microsoft.com/semantic-kernel/concepts/ai-services/chat-completion/function-calling/?pivots=programming-language-python) pattern is typically effective. However, as the number of agents increases, determining which agent or function to invoke in a conversation becomes a significant challenge.
+Imagine your organization has several domain-specific agents and you want to create a unified conversational AI that enables clients to interact with any of these agents, without needing to know which agent is handling which task. In some cases, multiple agents may be involved in a single conversation to address multi-intent requests. For example: "Help me book a conference room on the Yosemite floor, and notify parking services that I'll need five spots for a customer meeting on the 26th." This scenario would engage both the ConferenceBookingAgent and the ParkingServiceAgent. Managing agent selection is straightforward when the number of agents or tools is small (fewer than 20), and a [function calling](/semantic-kernel/concepts/ai-services/chat-completion/function-calling/) pattern is typically effective. However, as the number of agents increases, determining which agent or function to invoke in a conversation becomes a significant challenge.
 
 ### Cost optimization
 
@@ -122,7 +122,7 @@ User Query → Alias Mapping → Semantic Search (Azure AI Search) → Agent Sco
 
 A well-designed orchestration layer is essential for coordinating interactions among multiple AI agents. As both the number of agents and the complexity of user scenarios grow, the orchestration system must enable agents to work together effectively, complete tasks accurately, and preserve conversational context. The choice of orchestration pattern depends on various factors such as the nature of user queries, the degree of agent collaboration required, and the overall system goals.
 
-You can choose from various orchestration patterns to address specific solution needs. For detailed guidance on selecting and implementing these patterns, see [AI agent orchestration patterns](https://learn.microsoft.com/azure/architecture/ai-ml/guide/ai-agent-design-patterns).
+You can choose from various orchestration patterns to address specific solution needs. For detailed guidance on selecting and implementing these patterns, see [AI agent orchestration patterns](/azure/architecture/ai-ml/guide/ai-agent-design-patterns).
 
 For scenarios that require a minimal degree of collaboration or conversation between agents, consider using the Agents as Tools pattern. In this approach, a principal agent acts as the main coordinator, invoking other agents as "tools" to fulfill specific tasks. The principal agent interprets user intent and determines which agents to call using the function calling capabilities of large language models.
 
@@ -287,7 +287,7 @@ This structured approach enables robust validation, benchmarking, and integratio
 
 
 
-For the full list of evaluators, refer to the [AI Foundry Evaluator Reference](https://learn.microsoft.com/azure/ai-foundry/how-to/develop/evaluate-sdk).
+For the full list of evaluators, refer to the [Microsoft Foundry Evaluator Reference](/azure/foundry/concepts/built-in-evaluators).
 
 
 ### Observability
