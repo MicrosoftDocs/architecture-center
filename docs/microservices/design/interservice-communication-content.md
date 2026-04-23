@@ -54,7 +54,7 @@ However, there are also some challenges to using asynchronous messaging effectiv
 
 - **Complexity**. Handling asynchronous messaging isn't a trivial task. For example, you must handle duplicated messages, either by de-duplicating or by making operations idempotent. It's also hard to implement request-response semantics using asynchronous messaging. To send a response, you need another queue, plus a way to correlate request and response messages.
 
-- **Throughput**. If messages require *queue semantics*, the queue can become a bottleneck in the system. Each message requires at least one queue operation and one dequeue operation. Moreover, queue semantics generally require some kind of locking inside the messaging infrastructure. If the queue is a managed service, there might be additional latency, because the queue is external to the cluster's virtual network. You can mitigate these issues by batching messages, but that complicates the code. If the messages don't require queue semantics, you might be able to use an *event stream* instead of a queue. For more information, see [Event-driven architecture style](../../guide/architecture-styles/event-driven.md).
+- **Throughput**. If messages require *queue semantics*, the queue can become a bottleneck in the system. Each message requires at least one queue operation and one dequeue operation. Moreover, queue semantics generally require some kind of locking inside the messaging infrastructure. If the queue is a managed service, there might be additional latency, because the queue is external to the cluster's virtual network. You can mitigate these issues by batching messages, but that complicates the code. If the messages don't require queue semantics, you might be able to use an *eventstream* instead of a queue. For more information, see [Event-driven architecture style](../../guide/architecture-styles/event-driven.md).
 
 ## Drone Delivery: Choosing the messaging patterns
 
@@ -85,7 +85,7 @@ Notice that delivery status events are derived from drone location events. For e
 A *service mesh* is a software layer that handles service-to-service communication. Service meshes are designed to address many of the concerns listed in the previous section, and to move responsibility for these concerns away from the microservices themselves and into a shared layer. The service mesh acts as a proxy that intercepts network communication between microservices in the cluster. Currently, the service mesh concept applies mainly to container orchestrators, rather than serverless architectures.
 
 > [!NOTE]
-> Service mesh is an example of the [Ambassador pattern](../../patterns/ambassador.yml) &mdash; a helper service that sends network requests on behalf of the application.
+> Service mesh is an example of the [Ambassador pattern](../../patterns/ambassador.md) &mdash; a helper service that sends network requests on behalf of the application.
 
 Right now, the main options for a service mesh in Kubernetes are [Linkerd](https://linkerd.io/) and [Istio](https://istio.io/). Both of these technologies are evolving rapidly. However, some features that both Linkerd and Istio have in common include:
 
@@ -113,7 +113,7 @@ There are two cases to consider:
 
 - A  *nontransient* failure is any failure that's unlikely to go away by itself. Nontransient failures include normal error conditions, such as invalid input. They also include unhandled exceptions in application code or a process crashing. If this type of error occurs, the entire business transaction must be marked as a failure. It might be necessary to undo other steps in the same transaction that already succeeded.
 
-After a nontransient failure, the current transaction might be in a *partially failed* state, where one or more steps already completed successfully. For example, if the Drone service already scheduled a drone, the drone must be canceled. In that case, the application needs to undo the steps that succeeded, by using a [Compensating Transaction](../../patterns/compensating-transaction.yml). In some cases, this action must be done by an external system or even by a manual process. In your design, remember that compensating measures are also subject to failure.
+After a nontransient failure, the current transaction might be in a *partially failed* state, where one or more steps already completed successfully. For example, if the Drone service already scheduled a drone, the drone must be canceled. In that case, the application needs to undo the steps that succeeded, by using a [Compensating Transaction](../../patterns/compensating-transaction.md). In some cases, this action must be done by an external system or even by a manual process. In your design, remember that compensating measures are also subject to failure.
 
 If the logic for compensating transactions is complex, consider creating a separate service that is responsible for this process. In the Drone Delivery application, the Scheduler service puts failed operations onto a dedicated queue. A separate microservice, called the Supervisor, reads from this queue and calls a cancellation API on the services that need to compensate. This is a variation of the [Scheduler Agent Supervisor pattern](../../patterns/scheduler-agent-supervisor.yml). The Supervisor service might take other actions as well, such as notify the user by text or email, or send an alert to an operations dashboard.
 
@@ -135,6 +135,7 @@ For microservices that talk directly to each other, it's important to create wel
 ## Related resources
 
 - [Design a microservices architecture](index.md)
+- [Design patterns for microservices](patterns.md)
 - [Using domain analysis to model microservices](../model/domain-analysis.md)
 - [Using tactical DDD to design microservices](../model/tactical-domain-driven-design.md)
 - [Identify microservice boundaries](../model/microservice-boundaries.yml)

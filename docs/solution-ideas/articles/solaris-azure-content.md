@@ -38,7 +38,7 @@ Running applications in an emulator on Azure has several benefits, such as reduc
 
 - [Azure Virtual Network interface cards](/azure/virtual-network/virtual-network-network-interface) enable an Azure VM to communicate with internet, Azure, and on-premises resources. As shown in this architecture, you can add additional network interface cards to the same Azure VM, which allows the Solaris child VMs to have their own dedicated network interface devices and IP addresses.
 
-- [Azure Managed Disks](/azure/virtual-machines/managed-disks-overview) are block-level storage volumes managed by Azure that are used with Azure VMs. The available types of disks are Ultra Disks, Premium SSDs, Standard SSDs, and Standard HDDs. For this architecture, we recommend either Premium SSDs or Ultra Disks.
+- [Azure managed disks](/azure/virtual-machines/managed-disks-overview) are block-level storage volumes managed by Azure that are used with Azure VMs. The available types of disks are Ultra Disks, Premium SSDs, Standard SSDs, and Standard HDDs. For this architecture, we recommend either Premium SSDs or Ultra Disks.
 
 - [Azure Files](/azure/well-architected/service-guides/azure-files) storage accounts offer fully managed file shares in the cloud that are accessible via the industry standard Server Message Block (SMB) protocol. Azure file shares can be mounted concurrently by cloud and on-premises deployments of Windows, Linux, and macOS. In this architecture, Azure Files is used as the storage for tape files for regulatory and compliance purposes.
 
