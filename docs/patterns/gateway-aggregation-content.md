@@ -69,6 +69,8 @@ In this example, the application is deployed using [Azure Container Apps](/azure
 The request is then forwarded to a [Container Apps environment](/azure/container-apps/environment), which provides a managed ingress layer responsible for routing HTTP traffic to the appropriate services. 
 The aggregation logic is implemented as a dedicated aggregation service, deployed as a container app. Backend services are also deployed as container apps and are exposed using internal ingress, making them accessible only within the environment.  
 
+![Diagram showing client request flow through Application Gateway to a Container Apps environment with an Aggregator service that calls Order, Shipment, and Customer profile backend services](./_images/gateway-aggregation-example.png)
+
 The request flow is as follows:
 
 1. The client sends a request to the public endpoint exposed by Application Gateway.
