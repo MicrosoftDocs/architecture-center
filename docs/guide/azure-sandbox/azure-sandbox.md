@@ -12,12 +12,12 @@ ms.subservice: architecture-guide
 
 Azure Sandbox is a Terraform-based project designed to simplify the deployment of sandbox environments in Azure. It provides a modular and reusable framework for implementing foundational infrastructure, which can accelerate the development of innovative new solutions in Azure.
 
-The Azure Sandbox is composed of modular components that you can deploy individually or together, depending on your needs. Because a fully provisioned environment might be costly, you can manage expenses by stopping or deallocating virtual machines (VMs) when they're not in use or by deploying only the following modules that are essential for your scenario. Costs vary depending on your Azure subscription type and region.
+The Azure Sandbox is composed of modular components that you can deploy individually or together, depending on your needs. Because a fully provisioned environment might be costly, you can manage expenses by stopping or deallocating virtual machines (VMs) when they're not in use or by deploying only the modules that are essential for your scenario. Costs vary depending on your Azure subscription type and region.
   
 ## Architecture
 
 :::image type="complex" border="false" source="images/create-azure-sandbox.svg" alt-text="Diagram that shows the Azure Sandbox environment." lightbox="images/create-azure-sandbox.svg":::
-   The diagram contains multiple sections arranged vertically. The top section shows an Azure subscription boundary. Inside that is a rectangle that encloses most of the image elements that reads rg-sandbox-01. Automation account and Log Analytics workspace are included in this section. There are two rectangles within the subscription and three smaller rectangles near the bottom. The left rectangle labeled vnet-shared-01 (10.1.0.0/16) contains Azure Bastion host, Azure Firewall, adds1, and vault icons. The right rectangle is labeled vnet-app-01 (10.2.0.0/16) and contains jumpwin1, jumplinux1, mssqlwin1, blob, file, sqlServer, and mysqlServer icons. A bidirectional arrow labeled Peering connects the left and right rectangles. A line labeled Public IP address connects Bastion host to the cloud icon. A line labeled Public IP address connects Azure Firewall to the cloud icon. A line labeled Point-to-site VPN connects vwan-xx (10.3.0./16) to the cloud icon. A bidirectional arrow connects Key vault and the vault icon. A bidirectional arrow connects adds1 and vwan-xx (10.3.0./16). At the bottom are three rectangles that contain icons labeled vhub-xx (10.4.0.0/16), testdb (SQL), and testdb (My). Peering arrows connect these boxes to the vnet-app-01 (10.2.0.0/16) section. A bidirectional arrow connects the snet-privatelink-01 (10.2.2.0/24) section to Storage account.
+   The diagram contains multiple sections arranged vertically. The top section shows an Azure subscription boundary. Inside that is a rectangle that encloses most of the image elements that reads rg-sandbox-01. A Log Analytics workspace is included in this section. There are two rectangles within the subscription and three smaller rectangles near the bottom. The left rectangle labeled vnet-shared-01 (10.1.0.0/16) contains Azure Bastion host, Azure Firewall, adds1, and vault icons. The right rectangle is labeled vnet-app-01 (10.2.0.0/16) and contains jumpwin1, jumplinux1, mssqlwin1, blob, file, sqlServer, and mysqlServer icons. A bidirectional arrow labeled Peering connects the left and right rectangles. A line labeled Public IP address connects Bastion host to the cloud icon. A line labeled Public IP address connects Azure Firewall to the cloud icon. A line labeled Point-to-site VPN connects vwan-xx (10.3.0.0/16) to the cloud icon. A bidirectional arrow connects Key vault and the vault icon. A bidirectional arrow connects adds1 and vwan-xx (10.3.0.0/16). At the bottom are three rectangles that contain icons labeled vhub-xx (10.4.0.0/16), testdb (SQL), and testdb (My). Peering arrows connect these boxes to the vnet-app-01 (10.2.0.0/16) section. A bidirectional arrow connects the snet-privatelink-01 (10.2.2.0/24) section to Storage account.
 :::image-end:::
 
 *Download a [Visio file](https://arch-center.azureedge.net/create-an-azure-sandbox.vsdx) of this architecture.*
@@ -48,7 +48,7 @@ You can deploy each of the following sandbox configurations or only the configur
 
 - [SQL Server on Azure Virtual Machines](/azure/azure-sql/virtual-machines/windows/sql-server-on-azure-vm-iaas-what-is-overview) is a Windows VM that runs SQL Server with full administrative control. In this architecture, it supports testing of legacy applications and custom SQL configurations that require specific database engine features.
 
-- [Windows Server jump box](/samples/azure/azure-quickstart-templates/vmss-windows-jumpbox) is a domain-joined Windows VM that provides administrative tools, including Remote Server Administration Tools (RSAT), Azure Storage Explorer, and SQL Server Management Studio. In this architecture, it provides a secure management platform for administering sandbox resources and demonstrates traditional Windows administration patterns.
+- [Windows Server jump box](/samples/azure/azure-quickstart-templates/vmss-windows-jumpbox) is a domain-joined Windows VM that provides administrative tools, including Remote Server Administration Tools (RSAT) and SQL Server Management Studio. In this architecture, it provides a secure management platform for administering sandbox resources and demonstrates traditional Windows administration patterns.
 
 ## Deploy the sandbox
 
@@ -124,8 +124,6 @@ For example, you can use the following capabilities and configurations that the 
 
   - Visual Studio Code preinstalled with Remote-SSH into a Linux jump box
 
-  - Storage Explorer and AzCopy preinstalled
-
   - SQL Server Management Studio preinstalled
 
   - MySQL Workbench preinstalled
@@ -183,7 +181,7 @@ Also, consider the [Secure Futures Initiative](https://www.microsoft.com/microso
 
   - Ensure that cryptographic protocols and algorithms, such as TLS 1.2 or higher and SHA-256 or higher, are up-to-date.
 
-  - Consider using host encryption or Azure Disk Encryption for encryption of data in transit. For managed disks attached to VMs, data is encrypted at rest by default.
+  - Consider using host encryption for encryption of data at rest on the compute host. For managed disks attached to VMs, data is encrypted at rest by default.
 
 - Avoid the use of public IP addresses. Use Azure Bastion for secure remote access to VMs.
 
@@ -191,7 +189,7 @@ Also, consider the [Secure Futures Initiative](https://www.microsoft.com/microso
 
 - Disable public network access to Azure services like Key Vault, Azure Storage, and SQL Database.
 
-- Disable [default outbound access](/azure/virtual-network/ip-services/default-outbound-access) and use [Azure Firewall threat intelligence-based filtering](/azure/firewall/threat-intel).
+- Configure an explicit outbound path for sandbox resources, for example by routing egress through Azure Firewall or by using NAT as appropriate for your scenario. If you use Azure Firewall for outbound traffic, enable [Azure Firewall threat intelligence-based filtering](/azure/firewall/threat-intel).
 
 ### Secure operations
 
