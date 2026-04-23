@@ -46,7 +46,7 @@ az role assignment create --assignee $ASSIGNEE --scope $AZURE_CONTAINER_REGISTRY
 
 ### ABAC-enabled registries
 
-If your Azure Container Registry uses [Azure attribute-based access control (ABAC) repository permissions](/azure/container-registry/container-registry-rbac-abac-repository-permissions), the classic `AcrPull` role is not honored. The `az aks --attach-acr` integration is also not supported for ABAC-enabled registries. Instead, you must manually assign the `Container Registry Repository Reader` role to the kubelet managed identity. For more information, see [Azure ABAC repository permissions](/azure/container-registry/container-registry-rbac-abac-repository-permissions).
+If your Azure Container Registry uses [Azure attribute-based access control (ABAC) repository permissions](/azure/container-registry/container-registry-rbac-abac-repository-permissions), the classic `AcrPull` role is not honored. The `az aks create --attach-acr` and `az aks update --attach-acr` integrations are also not supported for ABAC-enabled registries. Instead, you must manually assign the `Container Registry Repository Reader` role to the kubelet managed identity. For more information, see [Azure ABAC repository permissions](/azure/container-registry/container-registry-rbac-abac-repository-permissions).
 
 If your registry was recently migrated to ABAC-enabled mode and image pulls begin to fail, verify that the kubelet identity has been assigned an ABAC-compatible role.
 
