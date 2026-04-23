@@ -12,7 +12,7 @@ This example shows a basic deployment using a single virtual machine with the re
 
 - Any workloads running on the virtual machine aren't exposed externally, and are only accessible from within the same, or a peered, virtual network, such as in a hub and spoke configuration.
 - Management access to the virtual machine is shown using Azure Bastion via Remote Desktop Protocol (RDP), and is not directly permitted from the public internet.
-- Outbound external internet access is provided through the use of the NAT Gateway and its associated Public IP address.
+- Outbound external internet access is provided through the use of the Network Address Translation (NAT) Gateway and its associated Public IP address.
 
 ### Components
 
@@ -49,7 +49,7 @@ By default, the OS disk is a managed disk stored in [Azure Disk Storage](/azure/
 
 Depending on the chosen SKU, the VM may also have a temporary disk stored on a physical drive on the host machine (the `D:` drive on Windows). The temp disk isn't persisted to Azure Storage and can be deleted during reboots and other VM lifecycle events. Use the temp disk only for scratch data that doesn't need to survive a reboot, such as application-specific temporary files or swap space.
 
-Windows needs a page file for virtual memory management. On SCSI-based VM sizes (v5 and older), marketplace images place the page file on the temp disk by default. On NVMe-based VM sizes (v6 and newer), the page file defaults to the OS disk because the NVMe temp disks require initialization after each boot. For ephemeral OS disk VMs, the page file is also on the OS disk.
+Windows needs a page file for virtual memory management. On Small Computer System Interface (SCSI)-based VM sizes (v5 and older), marketplace images place the page file on the temp disk by default. On Non-Volatile Memory Express (NVMe)-based VM sizes (v6 and newer), the page file defaults to the OS disk because the NVMe temp disks require initialization after each boot. For ephemeral OS disk VMs, the page file is also on the OS disk.
 
 When possible, install applications on a data disk, not the OS disk. Some legacy applications might need to install components on the C: drive; in that case, you can [resize the OS disk](/azure/virtual-machines/windows/expand-os-disk) using PowerShell.
 
@@ -104,7 +104,7 @@ The networking components include the following resources:
 
 - [Azure Load Balancer](/azure/well-architected/service-guides/azure-load-balancer) would be useful to provide load balancing between multiple virtual machines or a VM scale set. It can also be used as alternative to a NAT Gateway to allow access to a workload from the internet while also supporting outbound access.
 
-- [Application Gateway](/azure/well-architected/service-guides/azure-application-gateway) would provide load balancing functionality to the Azure Load Balancer, but for HTTP/HTTPS workloads within an Azure region.
+- [Application Gateway](/azure/well-architected/service-guides/azure-application-gateway) would provide load balancing functionality to the Azure Load Balancer for HTTP/HTTPS workloads within an Azure region.
 
 - For a more enterprise-level deployment, see **Azure Virtual Machines baseline architecture in an Azure landing zone** under [Next Steps](#next-steps) below.
 
@@ -132,7 +132,7 @@ As this architecure is only a simple example using a single virtual machine, it 
 
 For an increased "blast radius," the workload should be deployed in multiple regions and leverage the [Azure Landing Zone](/azure/cloud-adoption-framework/ready/landing-zone/) guidance. This could be in an Active-Passive configuration, with failover to the secondary region if the primary region become unavailable, or an Active-Active architecture where both regions serve traffic to consumers. For an example, see **Multi-tier web application built for HA/DR** under [Next Steps](#next-steps) below.
 
-The example in that article uses [Azure Site Recovery (ASR)](/azure/site-recovery/site-recovery-overview) to replicate the disks of individual virtual machines to a secondary region, where ASR can be used to failover those virtual machines to the secondary region with a low RPO/RTO.
+The example in that article uses [Azure Site Recovery (ASR)](/azure/site-recovery/site-recovery-overview) to replicate the disks of individual virtual machines to a secondary region, where ASR can be used to failover those virtual machines to the secondary region with a low Recovery Point Objective (RPO)/Recovery Time Objective (RTO).
 
 Be sure to evaluate your architecture to meet your HA/DR requirements across all components, not just the virtual machines. Include networking, identity, data, etc in all of these decisions.
 
@@ -163,7 +163,7 @@ There are various options for VM sizes depending on the usage and workload. The 
 
 For predictable workloads, use [Azure Reservations](/azure/cost-management-billing/reservations/save-compute-costs-reservations) and [Azure savings plan for compute](https://azure.microsoft.com/pricing/offers/savings-plan-compute/#benefits-and-features) with a one-year or three-year contract and receive significant savings off pay-as-you-go prices. For workloads with no predictable time of completion or resource consumption, consider the **Pay as you go** option.
 
-Use [Azure Spot VMs](/azure/virtual-machines/windows/spot-vms) to run workloads the can be interrupted and do not require completion within a predetermined timeframe or an SLA. Azure deploys Spot VMs if there is available capacity and evicts when it needs the capacity back. Costs associated with Spot virtual machines are significantly lower. Consider Spot VMs for these workloads:
+Use [Azure Spot VMs](/azure/virtual-machines/spot-vms) to run workloads that can be interrupted and do not require completion within a predetermined timeframe or an SLA. Azure deploys Spot VMs if there is available capacity and evicts when it needs the capacity back. Costs associated with Spot virtual machines are significantly lower. Consider Spot VMs for these workloads:
 
 - High-performance computing scenarios, batch processing jobs, or visual rendering applications.
 - Test environments, including continuous integration and continuous delivery workloads.
