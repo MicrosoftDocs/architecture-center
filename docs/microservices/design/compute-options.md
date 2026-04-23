@@ -1,6 +1,6 @@
 ---
 title: Choose a Compute Option for Microservices
-description: Choose an Azure compute platform for a microservices architecture. Compare options based on inter-service communication, independent scaling, and deployability.
+description: Choose an Azure compute platform for a microservices architecture. Compare options based on interservice communication, independent scaling, and deployability.
 author: francisnazareth
 ms.author: fnazaret
 ms.date: 04/17/2026
@@ -10,13 +10,13 @@ ms.subservice: architecture-guide
 
 # Choose an Azure compute option for microservices
 
-This article helps you choose an Azure compute platform for a workload built on a microservices architecture. A microservices architecture consists of small, independently deployable services that communicate over the network. Your compute platform needs to support independent scaling, independent deployment, and reliable inter-service communication across many services.
+This article helps you choose an Azure compute platform for a workload built on a microservices architecture. A microservices architecture consists of small, independently deployable services that communicate over the network. Your compute platform needs to support independent scaling, independent deployment, and reliable interservice communication across many services.
 
 For decision factors that apply to any workload, like team skills, networking, and portability, see [Choose an Azure compute service](../../guide/technology-choices/compute-decision-tree.md). This article focuses on the factors that matter specifically for microservices.
 
 ## Azure compute platforms for microservices
 
-The following Azure platforms support microservices workloads. They differ in how much orchestration, inter-service communication, and scaling behavior that they provide.
+The following Azure platforms support microservices workloads. They differ in how much orchestration, interservice communication, and scaling behavior that they provide.
 
 ### Azure Kubernetes Service (AKS)
 
@@ -38,13 +38,13 @@ Container Apps doesn't expose Kubernetes APIs. If your deployment tooling or ser
 
 [Azure Functions](/azure/well-architected/service-guides/azure-functions) is a serverless, event-driven compute service suited for microservices that respond to triggers like HTTP requests, queue messages, or timers. Functions scales each function app independently and can scale to zero. For microservices, deploy each service as its own function app.
 
-Functions doesn't provide platform-level service discovery or inter-service communication. Implement those capabilities in application code or through external services like [Azure API Management](/azure/api-management/api-management-key-concepts).
+Functions doesn't provide platform-level service discovery or interservice communication. Implement those capabilities in application code or through external services like [Azure API Management](/azure/api-management/api-management-key-concepts).
 
 Functions supports [multiple programming languages](/azure/azure-functions/supported-languages#language-support-details). You can also [run the Functions programming model on Container Apps](/azure/container-apps/functions-overview), which combines Functions triggers and bindings with Container Apps networking and scaling features.
 
 ### Azure App Service
 
-[Azure App Service](/azure/well-architected/service-guides/app-service-web-apps) suits HTTP-based microservices like web APIs. App Service supports deploying as code or as a single container. It provides built-in autoscaling, [deployment slots](/azure/app-service/deploy-staging-slots) for blue-green deployments and percentage-based traffic routing, and integration with continuous integration and continuous delivery (CI/CD) pipelines. App Service doesn't provide service discovery, so it suits microservices that communicate through external messaging or an API gateway rather than relying on platform-level inter-service communication.
+[Azure App Service](/azure/well-architected/service-guides/app-service-web-apps) suits HTTP-based microservices like web APIs. App Service supports deploying as code or as a single container. It provides built-in autoscaling, [deployment slots](/azure/app-service/deploy-staging-slots) for blue-green deployments and percentage-based traffic routing, and integration with continuous integration and continuous delivery (CI/CD) pipelines. App Service doesn't provide service discovery, so it suits microservices that communicate through external messaging or an API gateway rather than relying on platform-level interservice communication.
 
 ### Azure Red Hat OpenShift
 
@@ -57,7 +57,7 @@ The following table compares how each platform supports the capabilities that ma
 | Capability | AKS | Container Apps | Functions | App Service |
 | :--------- | :-- | :------------- | :-------- | :---------- |
 | Service discovery | Kubernetes Domain Name System (DNS), service mesh | [Built-in](/azure/container-apps/connect-apps), [Dapr](/azure/container-apps/dapr-overview) | None (app-level) | None (app-level) |
-| Inter-service communication | Service mesh ([Istio](/azure/aks/istio-about)) | [Dapr](/azure/container-apps/dapr-overview), [environment-level](/azure/container-apps/networking) | None (app-level) | None (app-level) |
+| Interservice communication | Service mesh ([Istio](/azure/aks/istio-about)) | [Dapr](/azure/container-apps/dapr-overview), [environment-level](/azure/container-apps/networking) | None (app-level) | None (app-level) |
 | Publisher-subscriber messaging | App-level (like Azure Service Bus, Azure Event Hubs) | [Dapr pub/sub](/azure/container-apps/dapr-overview) | [Bindings](/azure/azure-functions/functions-triggers-bindings) | App-level |
 | Independent scaling | Per-deployment (HPA, [KEDA](/azure/aks/keda-about)) | Per-app ([KEDA](/azure/container-apps/scale-app)) | Per-function app ([per-function on Flex](/azure/azure-functions/flex-consumption-plan)) | Per-App Service plan |
 | Scale to zero | Partial ([user node pools only](/azure/aks/scale-cluster)) | Yes | Yes (Consumption or Flex Consumption plans) | No |
@@ -86,15 +86,15 @@ The following table compares how each platform supports the capabilities that ma
 
 - **Use Functions** for event-driven microservices that have sporadic or sudden-spike traffic patterns that benefit from scale-to-zero billing and trigger-based execution.
 
-- **Use App Service** for straightforward HTTP-based services that don't need platform-level service discovery or inter-service communication features.
+- **Use App Service** for straightforward HTTP-based services that don't need platform-level service discovery or interservice communication features.
 
 Your microservices workload doesn't need to run on a single platform. For example, you can run core services on AKS or Container Apps while Functions handles event-driven workloads. Evaluate each service in your composition against its own traffic pattern, scaling requirements, and communication needs. Choose the platform that fits that service instead of forcing the service to fit the platform.
 
 ## Key decision factors
 
-The comparison table shows what each platform supports. Thes following sections help you weigh those capabilities based on which microservices concerns matter most to your workload.
+The comparison table shows what each platform supports. The following sections help you weigh those capabilities based on which microservices concerns matter most to your workload.
 
-### Inter-service communication 
+### Interservice communication 
 
 Microservices depend on reliable service-to-service communication with capabilities like service discovery, retries, and mTLS.
 
@@ -108,7 +108,7 @@ Each microservice in a composition has different load characteristics.
 
 If your services have highly variable or sudden-spike traffic, Container Apps and Functions scale per service and can scale idle services to zero. This approach avoids unused capacity charges. For Functions, each function app is the scaling unit, so deploy each microservice as its own function app. AKS provides per-deployment scaling. You manage shared node pools that remain provisioned, and user node pools can scale to zero.
 
-Scale-to-zero platforms introduce cold start latency when an idle service receives its first request. In a microservices architecture, a single user request can traverse multiple services. If several services in the call chain are cold, the latency compounds. For synchronous inter-service calls that require low latency, use the platform's cold start mitigation features or pay the cost to keep minimum instances active to avoid cold starts.
+Scale-to-zero platforms introduce cold start latency when an idle service receives its first request. In a microservices architecture, a single user request can traverse multiple services. If several services in the call chain are cold, the latency compounds. For synchronous interservice calls that require low latency, use the platform's cold start mitigation features or pay the cost to keep minimum instances active to avoid cold starts.
 
 If your services have steady, predictable load, AKS or App Service can reduce costs because you pay for reserved capacity instead of consumption-based billing.
 
@@ -150,7 +150,7 @@ In a microservices architecture, the primary reliability risk is cascading failu
 
 - Functions retries failed executions based on the trigger type.
 
-Regardless of platform, implement [circuit breakers](../../patterns/circuit-breaker.md), retry policies with backoff, and timeouts in your inter-service communication to prevent a single service failure from becoming a system-wide outage.
+Regardless of platform, implement [circuit breakers](../../patterns/circuit-breaker.md), retry policies with backoff, and timeouts in your interservice communication to prevent a single service failure from becoming a system-wide outage.
 
 Deploy each service across [availability zones](/azure/reliability/availability-zones-overview) to protect against datacenter-level failures. In a mixed-platform composition, verify that all platforms in use support zone redundancy for your deployment region.
 
@@ -160,7 +160,7 @@ For platform-specific reliability guidance, see the reliability sections of the 
 
 Security provides assurances against deliberate attacks and the misuse of your valuable data and systems. For more information, see [Design review checklist for Security](/azure/well-architected/security/checklist).
 
-Microservices increase the attack surface because every service-to-service call crosses a network boundary. Treat all inter-service traffic as untrusted and encrypt it through mTLS. AKS supports mTLS through service meshes like [Istio](/azure/aks/istio-about). Container Apps provides mTLS through [Dapr](/azure/container-apps/dapr-overview) or [environment-level configuration](/azure/container-apps/networking). Functions and App Service don't provide platform-level mTLS. If those platforms host services in your composition, enforce transport security through application-layer HTTPS, API gateway policies, or virtual network isolation.
+Microservices increase the attack surface because every service-to-service call crosses a network boundary. Treat all interservice traffic as untrusted and encrypt it through mTLS. AKS supports mTLS through service meshes like [Istio](/azure/aks/istio-about). Container Apps provides mTLS through [Dapr](/azure/container-apps/dapr-overview) or [environment-level configuration](/azure/container-apps/networking). Functions and App Service don't provide platform-level mTLS. If those platforms host services in your composition, enforce transport security through application-layer HTTPS, API gateway policies, or virtual network isolation.
 
 In a composition of many services, each service should authenticate to only the resources that it requires. Assign per-service identities rather than sharing a single identity across the workload. For platform-specific mechanisms, see the [per-service identity](#compare-platforms-for-microservices) row in the comparison table.
 
@@ -176,7 +176,7 @@ For platform-specific cost guidance, see the cost optimization sections of the W
 
 ## Reference architectures
 
-Narrow your options to one or two platforms by applying the comparison criteria in this article. Run a proof of concept by deploying a representative subset of your services and testing inter-service communication, scaling behavior, and deployment workflows against your requirements. Confirm that the platform meets your team's operational expectations before you commit to production. The following architectures provide production-ready starting points:
+Narrow your options to one or two platforms by applying the comparison criteria in this article. Run a proof of concept by deploying a representative subset of your services and testing interservice communication, scaling behavior, and deployment workflows against your requirements. Confirm that the platform meets your team's operational expectations before you commit to production. The following architectures provide production-ready starting points:
 
 - **AKS:** [Baseline architecture for an AKS cluster](../../reference-architectures/containers/aks/baseline-aks.yml)
 - **Container Apps:** [Microservices with Container Apps and Dapr](../../example-scenario/serverless/microservices-with-container-apps-dapr.yml)
@@ -186,7 +186,7 @@ Narrow your options to one or two platforms by applying the comparison criteria 
 ## Next step
 
 > [!div class="nextstepaction"]
-> [Design inter-service communication for microservices](./interservice-communication.yml)
+> [Design interservice communication for microservices](./interservice-communication.yml)
 
 ## Related resources
 
