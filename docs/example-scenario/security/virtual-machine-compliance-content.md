@@ -343,7 +343,7 @@ Principal author:
 [Custom Script Extensions]: /azure/virtual-machines/extensions/custom-script-windows
 [Deployment Stamps pattern]: ../../patterns/deployment-stamp.yml
 [Design resilient applications for Azure]: /azure/well-architected/reliability/principles
-[DevSecOps on AKS]: ../../guide/devsecops/devsecops-on-aks.yml
+[DevSecOps on AKS]: ../../guide/devsecops/devsecops-on-aks.md
 [DevTest and DevOps for IaaS solutions]: ../../solution-ideas/articles/dev-test-iaas.yml
 [Geode pattern]: ../../patterns/geodes.yml
 [Find a Marketplace image version]: /azure/virtual-machines/windows/cli-ps-findimage#view-purchase-plan-properties

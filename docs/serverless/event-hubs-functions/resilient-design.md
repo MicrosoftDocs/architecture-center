@@ -4,7 +4,7 @@ description: Learn how to develop resilient and scalable code that runs on Azure
 author: dbarkol
 ms.author: dabarkol
 ms.topic: concept-article
-ms.date: 07/03/2024
+ms.date: 04/22/2026
 ms.subservice: architecture-guide
 ---
 
@@ -110,7 +110,7 @@ In the end, there isn't a perfect solution and the consequences and tradeoffs of
 
 Principal author:
 
- - [David Barkol](https://www.linkedin.com/in/davidbarkol/) | Principal Solution Specialist GBB
+ - [David Barkol](https://www.linkedin.com/in/davidbarkol/) | AI Apps GBB
  
 *To see non-public LinkedIn profiles, sign in to LinkedIn.*
 
