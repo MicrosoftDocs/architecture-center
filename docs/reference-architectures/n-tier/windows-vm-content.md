@@ -55,7 +55,7 @@ When possible, install applications on a data disk, not the OS disk. Some legacy
 
 We recommend creating one or more [data disks](/azure/virtual-machines/windows/disks-types) for application data. Data disks are persistent managed disks backed by Azure Storage.
 
-When you add a new disk to a VM, it's unformatted. Login to the VM to format the disk as described [here](/azure/virtual-machines/windows/attach-managed-disk-portal). Adding a new data disk can also be done via [Powershell](/azure/virtual-machines/windows/attach-disk-ps).
+When you add a new disk to a VM, it's unformatted. Log in to the VM to format the disk as described [here](/azure/virtual-machines/windows/attach-managed-disk-portal). Adding a new data disk can also be done via [PowerShell](/azure/virtual-machines/windows/attach-disk-ps).
 
 #### Network
 
@@ -82,7 +82,7 @@ The networking components include the following resources:
 - **Azure NAT Gateway.** [Network Address Translation (NAT) gateways](/azure/nat-gateway) allow all instances in a private subnet to connect outbound to the internet while remaining fully private. Only packets that arrive as response packets to an outbound connection can pass through a NAT gateway. Unsolicited inbound connections from the internet aren't permitted.
 
 > [!NOTE]
-> To improve default security, implicit outbound internet access is being deprecated for all new virtual networks. Outbound internet connectivity will need to be explicitly configured through the use of other resources such as NAT Gateways, Azure Standard Load Balancers, or firewalls. See [Default outbound access in Azure](/azure/virtual-network/ip-services/default-outbound-access?tabs=portal) for details
+> To improve default security, implicit outbound internet access is being deprecated for all new virtual networks. Outbound internet connectivity will need to be explicitly configured through the use of other resources such as NAT Gateways, Azure Standard Load Balancers, or firewalls. See [Default outbound access in Azure](/azure/virtual-network/ip-services/default-outbound-access?tabs=portal) for details.
 
 - **Azure Bastion.** [Azure Bastion](/azure/bastion/) is a fully managed platform as a service solution that provides secure access to VMs via private IP addresses. With this configuration, VMs don't need a public IP address that exposes them to the internet, which increases their security posture. Azure Bastion provides secure Remote Desktop Protocol (RDP) or Secure Shell (SSH) connectivity to your VMs directly over Transport Layer Security (TLS) through various methods, including the Azure portal or native SSH or RDP clients.
 
@@ -92,7 +92,7 @@ The networking components include the following resources:
 
 **Availability**. Your VM might be affected by [planned maintenance](/azure/virtual-machines/maintenance-and-updates) or [unplanned downtime](/azure/virtual-machines/windows/manage-availability). You can use [VM reboot logs](https://azure.microsoft.com/blog/viewing-vm-reboot-logs) to determine whether a VM reboot was caused by planned maintenance. For higher availability, deploy multiple VMs across [availability zones](/azure/virtual-machines/availability#availability-zones) within a region. This provides a higher [service-level agreement (SLA)](https://aka.ms/csla). Where availability zones are not supported, [availability sets](/azure/virtual-machines/availability#availability-sets) can help provide protection against host failures or host updates. However availability zones are the recommended option where possible.
 
-**Backups** To protect against accidental data loss, use the [Azure Backup](/azure/backup/) service to back up your VMs to storage. Depending on the region, you can use geo-redundant or zone-redundant storage for backups. Azure Backup provides application-consistent backups. For performance-sensitive workloads, consider the [agentless multi-disk crash consistent backup](/azure/backup/backup-azure-vms-agentless-multi-disk-crash-consistent-overview) feature that enables VM backups without using the Volume Shadow Copy Service (VSS), reducing performance impact.
+**Backups**. To protect against accidental data loss, use the [Azure Backup](/azure/backup/) service to back up your VMs to storage. Depending on the region, you can use geo-redundant or zone-redundant storage for backups. Azure Backup provides application-consistent backups. For performance-sensitive workloads, consider the [agentless multi-disk crash consistent backup](/azure/backup/backup-azure-vms-agentless-multi-disk-crash-consistent-overview) feature that enables VM backups without using the Volume Shadow Copy Service (VSS), reducing performance impact.
 
 **Stopping a VM**. Azure makes a distinction between "stopped" and "deallocated" states. You are charged when the VM status is stopped, but not when the VM is deallocated. In the Azure portal, the **Stop** button deallocates the VM. If you shut down through the OS while logged in, the VM is stopped but **not** deallocated, so you will still be charged.
 
@@ -104,13 +104,13 @@ The networking components include the following resources:
 
 - [Azure Load Balancer](/azure/well-architected/service-guides/azure-load-balancer) would be useful to provide load balancing between multiple virtual machines or a VM scale set. It can also be used as alternative to a NAT Gateway to allow access to a workload from the internet while also supporting outbound access.
 
-- [Application Gateway](/azure/well-architected/service-guides/azure-application-gateway) would provide load balancing functionality to the Azure Load Balancer for HTTP/HTTPS workloads within an Azure region.
+- [Application Gateway](/azure/well-architected/service-guides/azure-application-gateway) is an alternative Layer 7 load-balancing option for HTTP/HTTPS traffic, typically deployed in front of multiple virtual machines or a VM scale set within an Azure region.
 
 - For a more enterprise-level deployment, see **Azure Virtual Machines baseline architecture in an Azure landing zone** under [Next Steps](#next-steps) below.
 
-## Scenario Details
+## Scenario details
 
-In the diagam above,  this scenario would be useful for providing a non-critical workload that is useful for internal-only users.
+In the diagram above, this scenario would be useful for providing a non-critical workload that is useful for internal-only users.
 
 ### Potential Use Cases
 
@@ -124,13 +124,13 @@ These considerations implement the pillars of the Azure Well-Architected Framewo
 
 Reliability ensures your application can meet the commitments you make to your customers. For more information, see [Design review checklist for Reliability](/azure/well-architected/reliability/checklist).
 
-As this architecure is only a simple example using a single virtual machine, it has a minimal level of reliability. Any issue with the virtual machine itself or the host where it is running will cause an outage, resulting in any hosted workloads being unavailable. For any workload that needs higher availability, multiple virtual machines should be deployed that contain the same workload, with those instances behind an appropriate load balancing solution. If these are within the same region, those VMs should be deployed across availability zones (where supported), and added to the backend of an Azure Standard Load Balancer or an Application Gateway if the workload is HTTP/HTTPS-based. This allows for the workload to still be available if a single virtual machine in the backend were to be down.
+As this architecture is only a simple example using a single virtual machine, it has a minimal level of reliability. Any issue with the virtual machine itself or the host where it is running will cause an outage, resulting in any hosted workloads being unavailable. For any workload that needs higher availability, multiple virtual machines should be deployed that contain the same workload, with those instances behind an appropriate load balancing solution. If these are within the same region, those VMs should be deployed across availability zones (where supported), and added to the backend of an Azure Standard Load Balancer or an Application Gateway if the workload is HTTP/HTTPS-based. This allows for the workload to still be available if a single virtual machine in the backend were to be down.
 
 [Virtual machine scale sets](/azure/virtual-machine-scale-sets/overview) are another option to help simplify management of multi-node workloads that need the ability to automatically scale the number of instances in or out depending on any of several metrics such as CPU and/or memory consumption.
 
 #### High Availability/Disaster Recovery (HA/DR)
 
-For an increased "blast radius," the workload should be deployed in multiple regions and leverage the [Azure Landing Zone](/azure/cloud-adoption-framework/ready/landing-zone/) guidance. This could be in an Active-Passive configuration, with failover to the secondary region if the primary region become unavailable, or an Active-Active architecture where both regions serve traffic to consumers. For an example, see **Multi-tier web application built for HA/DR** under [Next Steps](#next-steps) below.
+To reduce blast radius and improve resiliency, the workload should be deployed in multiple regions and leverage the [Azure Landing Zone](/azure/cloud-adoption-framework/ready/landing-zone/) guidance. This could be in an Active-Passive configuration, with failover to the secondary region if the primary region becomes unavailable, or an Active-Active architecture where both regions serve traffic to consumers. For an example, see **Multi-tier web application built for HA/DR** under [Next Steps](#next-steps) below.
 
 The example in that article uses [Azure Site Recovery (ASR)](/azure/site-recovery/site-recovery-overview) to replicate the disks of individual virtual machines to a secondary region, where ASR can be used to failover those virtual machines to the secondary region with a low Recovery Point Objective (RPO)/Recovery Time Objective (RTO).
 
@@ -177,7 +177,7 @@ For more information, see the cost section in [Microsoft Azure Well-Architected 
 
 Operational Excellence covers the operations processes that deploy an application and keep it running in production. For more information, see [Design review checklist for Operational Excellence](/azure/well-architected/operational-excellence/checklist).
 
-Use Infrastructure-as-Code (IaC) templates to provision Azure resources and their dependencies. These could be written using [Bicep](/azure/azure-resource-manager/bicep/), [Azure Resource Manager templates (ARM templates)][arm-template], or [Terraform](/azure/developer/terraform/), depending on your preference and established tool choices. These templates allow a Continuous Integration/Continuous Deployment (CI/CD) process as part of an [automated deployment](/devops/deliver/iac-github-actions) methodology for deploying and configuring resources. This approach enables versioning of architectures and ensure consistency between environments, as well as enforcing reproducibility, security, and compliance.
+Use Infrastructure-as-Code (IaC) templates to provision Azure resources and their dependencies. These could be written using [Bicep](/azure/azure-resource-manager/bicep/), [Azure Resource Manager templates (ARM templates)][arm-template], or [Terraform](/azure/developer/terraform/), depending on your preference and established tool choices. These templates allow a Continuous Integration/Continuous Deployment (CI/CD) process as part of an [automated deployment](/devops/deliver/iac-github-actions) methodology for deploying and configuring resources. This approach enables versioning of architectures and ensures consistency between environments, as well as enforcing reproducibility, security, and compliance.
 
 To assist in monitoring and diagnosing issues, ensure that diagnostics logs are enabled on your resources and are made available to [Azure Monitor](https://azure.microsoft.com/services/monitor/) to help with analysis and optimization of your resources. These logs can be used to implement alerting and notifications of critical events, and in some cases allow automated remediation or logging a ticket in your IT Service Management (ITSM) system.
 
@@ -203,7 +203,7 @@ Be sure to consider these points when developing your architecture:
 
 Principal author:
 
-[Donnie Trumpower](https://www.linkedin.com/in/dtrumpower) | Senior Cloud & AI Solutions Architect
+- [Donnie Trumpower](https://www.linkedin.com/in/dtrumpower) | Senior Cloud & AI Solutions Architect
 
 ## Next steps
 
