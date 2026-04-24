@@ -92,22 +92,6 @@ A hybrid datacenter configuration make sense for organizations that are developi
 
 For example, applications on-premises can communicate with a modern data platform on Azure and begin taking advantage of big data analytics or machine learning. If you need a cost-effective storage solution, you can replicate mainframe data, store it on Azure, and keep the data in sync. Azure can also add the scale needed to support online transaction processing (OLTP), batch, and data ingestion systems.
 
-### Reliability
-
-Reliability ensures your application can meet the commitments you make to your customers. For more information, see [Design review checklist for Reliability](/azure/well-architected/reliability/checklist).
-
-Azure [service-level agreements (SLAs)](/azure/reliability/concept-service-level-agreements) describe the uptime commitments for each service, but SLAs are only one input into your reliability planning. The SLAs for various components can vary. For example, Azure Logic Apps has an SLA of at least 99.9 percent. Configuration settings, deployment topology, and your own application design also affect the reliability of the overall solution.
-
-### Cost Optimization
-
-Cost Optimization is about looking at ways to reduce unnecessary expenses and improve operational efficiencies. For more information, see [Design review checklist for Cost Optimization](/azure/well-architected/cost-optimization/checklist).
-
-This article outlines a wide range of Azure Services to demonstrate the various possibilities and you probably won't use them all for MQ integration.
-
-- Use the [Azure pricing calculator](https://azure.microsoft.com/pricing/calculator/) to estimate costs for the Azure resources.
-
-- Use the [BizTalk pricing](https://azure.microsoft.com/pricing/details/biztalk-services/) to understand the pricing for the HIS solution.
-
 ### Operational Excellence
 
 Operational Excellence covers the operations processes that deploy an application and keep it running in production. For more information, see [Design review checklist for Operational Excellence](/azure/well-architected/operational-excellence/checklist).
