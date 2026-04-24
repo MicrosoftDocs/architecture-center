@@ -41,7 +41,7 @@ When you create a nonprivate cluster that resolves to the API server's fully qua
 
 There are several ways to connect to an AKS private cluster. Planning access is a day-zero activity that's based on the needs and limitations of your scenario. You can connect to your private cluster by using the following components and services:
 
-- **A jump box deployed into a subnet as your operations workstation:** This setup can be [stand-alone, persistent virtual machines (VMs)](/azure/virtual-machines/managed-disks-overview) in an [availability set](/azure/virtual-machines/availability-set-overview) or [Azure Virtual Machine Scale Sets](/azure/virtual-machine-scale-sets/overview).
+- **A jump box deployed into a subnet as your operations workstation:** This setup can be [standalone, persistent virtual machines (VMs)](/azure/virtual-machines/managed-disks-overview) in an [availability set](/azure/virtual-machines/availability-set-overview) or [Azure Virtual Machine Scale Sets](/azure/virtual-machine-scale-sets/overview).
 
 - **Azure Container Instances and an [OpenSSH-compatible client](https://docs.linuxserver.io/images/docker-openssh-server):** Deploy a container instance that runs a Secure Shell (SSH) server, and then use your OpenSSH-compatible client to access the container. This container serves as a jump box within your network to reach your private cluster.
 
