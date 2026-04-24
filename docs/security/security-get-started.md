@@ -12,13 +12,13 @@ ai-usage: ai-assisted
 
 # Get started with security architecture design
 
-Security is one of the most important aspects of any architecture. Good security provides confidentiality, integrity, and availability assurances against deliberate attacks and abuse of your valuable data and systems.
+Security is one of the most important aspects of any architecture. Strong security provides confidentiality, integrity, and availability assurances against deliberate attacks and abuse of your valuable data and systems.
 
 Azure provides many security tools and capabilities, including the following key services:
 
 - [Microsoft Defender for Cloud](/azure/defender-for-cloud/defender-for-cloud-introduction) provides cloud security posture management (CSPM) and cloud workload protection (CWPP). It assesses your resources for security compliance, provides a secure score to track your posture, and offers threat protection across Azure, on-premises, and multicloud workloads.
 
-- [Microsoft Entra ID](/entra/fundamentals/whatis) is the Microsoft cloud-based identity and access management service. It provides single sign-on, multifactor authentication, and conditional access to guard against identity-based attacks.
+- [Microsoft Entra ID](/entra/fundamentals/what-is-entra) is the Microsoft cloud-based identity and access management service. It provides single sign-on, multifactor authentication, and conditional access to guard against identity-based attacks.
 
 - [Azure Front Door](/azure/frontdoor/front-door-overview) is a global entry point for web applications that includes a built-in web application firewall (WAF) to protect against common exploits and vulnerabilities, DDoS protection, and Transport Layer Security (TLS) termination at the edge.
 
@@ -36,8 +36,8 @@ For more information about Azure security tools and capabilities, see [End-to-en
 
 ## Architecture
 
-:::image type="complex" source="images/security-get-started-diagram.png" alt-text="Diagram that shows a baseline security implementation on Azure." border="false":::
-
+:::image type="complex" source="images/security-get-started-diagram.svg" alt-text="Diagram that shows a baseline security implementation on Azure." border="false" lightbox="images/security-get-started-diagram.svg":::
+On the left, users (User, Admin, and Developer) connect to Azure. The center shows a security hub virtual network that contains Azure Firewall Premium in its own subnet, a VPN Gateway in a VPN Gateway subnet, Azure Bastion in an Azure Bastion subnet, and Azure DDoS Protection. This hub connects to a workload spoke virtual network on the right, which contains a three-tier application architecture: an Application Gateway subnet with AppGw (WAF), a front-end tier subnet with two VMs protected by ASGs and an NSG, an app tier subnet with two VMs protected by ASGs and an NSG, and a data tier subnet with two VMs protected by ASGa and an NSG. Dotted lines in the spoke indicate access to the requested VM through the security layers. Below the hub-and-spoke architecture, the Azure storage services section contains Azure Blob Storage and Azure Files. To the right, common (PaaS) services section includes Microsoft Entra ID, Microsoft Defender for Cloud, RBAC, Azure Monitor, and Azure Key Vault. At the bottom, an on-premises datacenter section shows a router, admin users, AD DS, Microsoft Entra Connect, and an on-premises app. Arrows throughout the diagram illustrate traffic flows and secure connectivity paths between all components.
 :::image-end:::
 
 *Download a [Visio file]() of this architecture.*
