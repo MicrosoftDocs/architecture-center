@@ -139,14 +139,6 @@ This architecture is ideal for OLTP workloads that have the following characteri
 
 These considerations implement the pillars of the Azure Well-Architected Framework, which is a set of guiding tenets that you can use to improve the quality of a workload. For more information, see [Well-Architected Framework](/azure/well-architected/).
 
-### Reliability
-
-Reliability helps ensure that your application can meet the commitments that you make to your customers. For more information, see [Design review checklist for Reliability](/azure/well-architected/reliability/checklist).
-
-- You can deploy this OLTP architecture in multiple regions. It can also have a geo-replicated data layer.
-
-- The Azure database support zone-redundant deployments by distributing replicas across multiple availability zones within a region to ensure high availability. In the event of a failure or planned maintenance, the service automatically performs a seamless failover to a healthy replica with minimal disruption.
-
 ### Security
 
 Security provides assurances against deliberate attacks and the misuse of your valuable data and systems. For more information, see [Design review checklist for Security](/azure/well-architected/security/checklist).
@@ -156,12 +148,6 @@ Security provides assurances against deliberate attacks and the misuse of your v
 - Microsoft Entra ID can authenticate resources and control access by using Azure role-based access control.
 
 - Database services in Azure support various security options like data encryption at rest.
-
-### Cost Optimization
-
-Cost Optimization focuses on ways to reduce unnecessary expenses and improve operational efficiencies. For more information, see [Design review checklist for Cost Optimization](/azure/well-architected/cost-optimization/checklist).
-
-Use the [Azure pricing calculator](https://azure.microsoft.com/pricing/calculator) to estimate costs for your implementation.
 
 ## Contributors
 
