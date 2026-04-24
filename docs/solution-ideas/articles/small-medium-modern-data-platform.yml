@@ -2,9 +2,9 @@
 metadata:
   title: Modern Data Platform Architecture for SMBs
   description: Use Microsoft Fabric and Azure Databricks to build a modern data platform architecture designed for small and medium businesses.
-  author: bonitarui
-  ms.author: njogendran
-  ms.date: 01/21/2025
+  author: njogendran
+  ms.author: bonitarui
+  ms.date: 04/24/2026
   ms.topic: solution-idea
   ms.subservice: solution-idea
   ms.custom:
@@ -20,6 +20,8 @@ products:
   - fabric
   - dynamics-365
   - azure-data-factory
+  - real-time-intelligence 
+  - microsoft-purview
 name: Build a modern data platform architecture for SMBs by using Microsoft Fabric and Azure Databricks
 summary: Use Microsoft Fabric and Azure Databricks to build a modern data platform architecture designed for small and medium businesses.
 thumbnailUrl: /azure/architecture/browse/thumbs/small-medium-businesses-simplified-architecture.png
