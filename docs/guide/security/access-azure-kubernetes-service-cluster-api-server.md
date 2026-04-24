@@ -95,7 +95,7 @@ When you connect to a private AKS cluster, use Azure Bastion to access a jump bo
 1. The traffic reaches the API server of the private AKS cluster. The user can then manage pods, nodes, and applications.
 
 > [!NOTE]
-> The FQDN of your private cluster can be resolved from outside of your virtual network if you don't directly [disable public FQDN on an existing cluster](/azure/aks/private-clusters#disable-a-public-fqdn).
+> The FQDN of your private cluster can be resolved from outside of your virtual network if you don't directly [turn off public FQDN on an existing cluster](/azure/aks/private-clusters#disable-a-public-fqdn).
 
 ### Troubleshoot connection problems
 
@@ -108,10 +108,10 @@ If you can't connect to your private cluster:
 
 - Check the virtual network link to the private DNS zone. Virtual network links provide a way for VMs that are inside virtual networks to connect to a private DNS zone and resolve the DNS records inside the zone. If you can't connect to your private AKS cluster or can't resolve the FQDN of the private cluster, check whether your virtual network has a virtual network link to your private DNS zone. The name of the private DNS zone should have the `privatelink.<region>.azmk8s.io` format.
 
-  For more information about how to troubleshoot virtual network links, see the following resources:
+  For more information about how to troubleshoot virtual network links, see the following articles:
 
   - [Virtual network peering](/azure/aks/private-clusters#virtual-network-peering)
-  
+
   - [What is a virtual network link?](/azure/dns/private-dns-virtual-network-links)
 
   > [!NOTE]
@@ -162,7 +162,7 @@ You can use native client tunneling to connect directly to AKS private clusters 
    kubectl get nodes
    ```
 
-For more information, see [Connect to AKS private cluster by using Azure Bastion](/azure/bastion/bastion-connect-to-aks-private-cluster).
+For more information, see [Connect to AKS private cluster by using Azure Bastion (preview)](/azure/bastion/bastion-connect-to-aks-private-cluster).
 
 > [!NOTE]
 > Azure Bastion native client tunneling isn't supported for AKS Automatic clusters or for clusters that have network resource group (NRG) lockdown.
