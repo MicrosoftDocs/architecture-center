@@ -10,7 +10,7 @@ This article describes how small and medium businesses (SMBs) can build a modern
 
 The interoperability between Azure Databricks and Fabric provides a robust solution that minimizes data fragmentation while enhancing analytical capabilities.
 
-Fabric provides an open and governed data lake, called OneLake, as the underlying SaaS storage. OneLake uses the Delta Parquet format, which is the same format that Azure Databricks uses. To access your Azure Databricks data from OneLake, you can use [OneLake shortcuts](/fabric/onelake/onelake-shortcuts) in Fabric or [mirror the Azure Databricks Unity Catalog](/fabric/database/mirrored-database/azure-databricks) in Fabric. This integration allows you to augment your Azure Databricks analytics systems with generative AI on top of OneLake.
+Fabric provides an open and governed data lake, called OneLake, as the underlying SaaS storage. OneLake uses the Delta Parquet format, which is the same format that Azure Databricks uses. To access your Azure Databricks data from OneLake, you can use [mirror the Azure Databricks Unity Catalog](/fabric/database/mirrored-database/azure-databricks) in Fabric to integrate data without replication or data movement. This integration allows you to augment your Azure Databricks analytics systems with generative AI on top of OneLake.
 
 You can also use the direct lake mode in Power BI on your Azure Databricks data in OneLake. Direct lake mode simplifies the serving layer and improves report performance. OneLake supports APIs for Azure Data Lake Storage and stores all tabular data in Delta Parquet format.
 
@@ -42,7 +42,7 @@ As a result, Azure Databricks notebooks can use OneLake endpoints to access the 
 
    - Gold, which stores aggregated data that's useful for business analytics.
 
-1. **Golden data or a data warehouse:** For the golden data or a data warehouse, continue to use Azure Databricks SQL or create a mirroring the Azure Databricks Unity Catalog in Fabric. Easily create dashboards based on serverless analysis of data in Fabric lakehouses without any setup required by using the Power BI semantic models that are automatically created for all Fabric lakehouses. Fabric Data Warehouse can also be used as the golden layer if analytical requirements require faster compute.
+1. **Golden data or a data warehouse:** For the golden data or a data warehouse, continue to use Azure Databricks SQL or create a mirroring the Azure Databricks Unity Catalog in Fabric. To enable reporting and analytics on Fabric Lakehouses, create a semantic model explicitly (as Fabric no longer creates default models automatically) and build Power BI dashboards leveraging Direct Lake or DirectQuery for high performance. Fabric Data Warehouse can also be used as the golden layer if analytical requirements require faster compute.
 
 Tools that are used for governance, collaboration, security, performance, and cost monitoring include:
 
@@ -174,9 +174,7 @@ Tools that are used for governance, collaboration, security, performance, and co
 
   - Azure Databricks, integrated with Power BI, enables seamless data processing and visualization. For more information, see [Connect Power BI to Azure Databricks](/azure/databricks/partners/bi/power-bi).
 
-  - By mirroring Azure Databricks Unity Catalog in Fabric, you can access data that's managed by Azure Databricks Unity Catalog directly from the Fabric workload. For more information, see [Mirroring Azure Databricks Unity Catalog](/fabric/database/mirrored-database/azure-databricks).
-
-  - Create a shortcut from the Data Lake Storage with Delta Lake into a Fabric One Lake. For more information, see [Integrate Databricks Unity Catalog with OneLake](/fabric/onelake/onelake-unity-catalog). You can query this data from Power BI by using Direct Lake mode without copying data into the Power BI Service. For more information, see [Direct Lake Mode](/fabric/get-started/direct-lake-overview).
+  - By mirroring Azure Databricks Unity Catalog in Fabric, you can access data that's managed by Azure Databricks Unity Catalog directly from the Fabric workload. For more information, see [Mirroring Azure Databricks Unity Catalog](/fabric/database/mirrored-database/azure-databricks). You can query this data from Power BI by using Direct Lake mode without copying data into the Power BI Service. For more information, see [Direct Lake Mode](/fabric/get-started/direct-lake-overview).
 
 ## Scenario details
 
@@ -202,8 +200,8 @@ Fabric is an open, unified, and governed SaaS foundation that you can use to:
 
 Principal authors:
 
-- [Bonita Rui](https://www.linkedin.com/in/bonita-rui-63b8a7133/) | Cloud Solution Architect
 - [Naren Jogendran](https://www.linkedin.com/in/naren-jogendran-46614972/) | Cloud Solution Architect
+- [Bonita Rui](https://www.linkedin.com/in/bonita-rui-63b8a7133/) | Cloud Solution Architect
 
 *To see non-public LinkedIn profiles, sign in to LinkedIn.*
 
