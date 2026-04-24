@@ -7844,13 +7844,13 @@
       "redirect_document_id": false
     },
     {
-<<<<<<< HEAD
       "source_path": "docs/guide/multitenant/service/cache-redis.md",
       "redirect_url": "/azure/architecture/guide/multitenant/service/managed-redis",
-=======
+      "redirect_document_id": false
+    },
+    {
       "source_path": "docs/guide/security/access-azure-kubernetes-service-cluster-api-server.yml",
       "redirect_url": "/azure/architecture/security/access-azure-kubernetes-service-cluster-api-server",
->>>>>>> 66e126c2c22c86a723f0f0b8db1df9081bc60929
       "redirect_document_id": false
     }
   ]
