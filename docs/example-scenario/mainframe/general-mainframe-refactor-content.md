@@ -104,7 +104,7 @@ This example features the following Azure components. Several of these component
 
 - [Azure Storage](/azure/storage/common/storage-introduction) is a cloud-based service that provides scalable, secure cloud storage for all your data, applications, and workloads. In this architecture, Storage provides the necessary storage infrastructure for various data types and applications.
 
-  - [Azure Disk Storage](/azure/virtual-machines/managed-disks-overview) is a high-performance, durable block storage service for business-critical applications. Azure Managed Disks are block-level storage volumes that Azure manages on Azure VMs. The available types of disks are Ultra Disk Storage, Premium SSD, and Azure Standard SSD. This architecture uses either Premium SSDs or Ultra Disk Storage.
+  - [Azure Disk Storage](/azure/virtual-machines/managed-disks-overview) is a high-performance, durable block storage service for business-critical applications. Azure managed disks are block-level storage volumes that Azure manages on Azure VMs. The available types of disks are Ultra Disk Storage, Premium SSD, and Azure Standard SSD. This architecture uses either Premium SSDs or Ultra Disk Storage.
 
   - [Azure Files](/azure/well-architected/service-guides/azure-files) is a fully managed cloud-based file storage service that provides file shares in the cloud. These file shares are accessible via the industry-standard Server Message Block (SMB) protocol. In this architecture, Azure Files provides managed file shares for cloud and on-premises deployments. Cloud and on-premises Windows, Linux, and macOS deployments can mount Azure Files file shares concurrently.
 
@@ -204,7 +204,7 @@ Principal author:
 - For more information, contact [legacy2azure@microsoft.com](mailto:legacy2azure@microsoft.com).
 - [What is ExpressRoute?](/azure/expressroute/expressroute-introduction)
 - [What is Virtual Network?](/azure/virtual-network/virtual-networks-overview)
-- [Introduction to Azure Managed Disks](/azure/virtual-machines/managed-disks-overview)
+- [Introduction to Azure managed disks](/azure/virtual-machines/managed-disks-overview)
 - [What is Private Link?](/azure/private-link/private-link-overview)
 - [What is SQL Database?](/azure/azure-sql/database/sql-database-paas-overview)
 - [What is Azure Files?](/azure/storage/files/storage-files-introduction)

@@ -315,15 +315,13 @@ In this reference implementation, [Microsoft Entra Workload ID on AKS](/azure/ak
 
 ## Select a networking model
 
-[!INCLUDE [kubenet retirement](~/reusable-content/ce-skilling/azure/includes/aks/includes/preview/retirement/kubenet-retirement-callout.md)]
+AKS provides Container Networking Interface (CNI) plugins in two networking models: **overlay** and **flat**. Both models support network policies for in-cluster traffic control.
 
-AKS supports multiple networking models, including kubenet, CNI, and Azure CNI Overlay. The CNI models are the more advanced models, and provide high performance. When they communicate between pods, the performance of CNI is similar to the performance of VMs in a virtual network. CNI also provides enhanced security control because it enables the use of Azure network policy. We recommend a CNI-based networking model.
+With a flat networking plugin, such as Azure CNI Pod Subnet, every pod gets an IP address from the virtual network subnet. Resources in the same network or peered networks can access pods directly by their IP address without network address translation (NAT). Use a flat networking model when your workload requires pods to be directly routable from the virtual network.
 
-In the nonoverlay CNI model, every pod gets an IP address from the subnet address space. Resources within the same network (or peered resources) can access the pods directly through their IP address. Network address translation (NAT) isn't needed to route that traffic.
+This reference implementation uses Azure CNI Overlay, which is an overlay networking plugin. It allocates virtual network IP addresses only to nodes and assigns pod IPs from a separate CIDR range. Because Azure CNI Overlay consumes far fewer virtual network IP addresses than flat models, we recommend it for most deployments.
 
-In this reference implementation, we use Azure CNI Overlay. It only allocates IP addresses from the node pool subnet for the nodes and uses an optimized overlay layer for pod IPs. Because Azure CNI Overlay uses fewer virtual network IP addresses than many other approaches, we recommend it for IP address-constrained deployments.
-
-For more information about the models, see [Configure Azure CNI Overlay networking in AKS](/azure/aks/azure-cni-overlay#choosing-a-network-model-to-use) and [Best practices for network connectivity and security in AKS](/azure/aks/operator-best-practices-network#choose-the-appropriate-network-model).
+For more information about the models, see [AKS CNI networking overview](/azure/aks/concepts-network-cni-overview) and [Best practices for network connectivity and security in AKS](/azure/aks/operator-best-practices-network#choose-the-appropriate-network-model).
 
 ## Deploy ingress resources
 
@@ -480,7 +478,7 @@ In the reference implementation, we use Azure Bastion to tunnel to the AKS API s
 
 - **Operators use insecure devices.** A jump-box VM can provide stronger security hardening if your client devices aren't trusted.
 - **Operators connect through unstable networks.** A jump-box VM can provide a more stable connection to the cluster, especially for long-running or batch management operations.
-- **Operators use advanced diagnostic tooling.** Some types of diagnostic tooling, like packet capture, might not work well with tunnelling approahces.
+- **Operators use advanced diagnostic tooling.** Some types of diagnostic tooling, like packet capture, might not work well with tunnelling approaches.
 
 ## Add secret management
 
@@ -670,7 +668,7 @@ Also, expect a small amount of extra network latency in node communication betwe
 
 ### Test with simulations and forced failovers
 
-Test your solution's reliability through forced failover testing with simulated outages. Simulations can include stopping a node, bringing down all AKS resources in a particular zone to simulate a zonal failure, or invoking an external dependency failure. You can also use Azure Chaos Studio to simulate various types of outages in Azure and on the cluster.
+Test your solution's reliability through forced failover testing with simulated outages. Simulations can include stopping a node, bringing down all AKS resources in a particular zone to simulate a zone failure, or invoking an external dependency failure. You can also use Azure Chaos Studio to simulate various types of outages in Azure and on the cluster.
 
 For more information, see [Chaos Studio](/azure/chaos-studio/chaos-studio-overview).
 
@@ -895,7 +893,7 @@ You can also set policies that govern how the changes are deployed.
 The following example diagram shows how to automate cluster configuration with GitOps and Flux.
 
 :::image type="complex" border="false" source="images/gitops-flow.svg" alt-text="Diagram that shows the GitOps flow." lightbox="images/gitops-flow.svg":::
-  The diagram illustrates the GitOps workflow with four numbered steps from left to right. At the far left, a developer icon with a laptop appears as Step 1, where the user pushes IaC changes to a Git repository. Step 2 shows the Git repository connecting via an arrow labeled git clone --mirror to a Flux icon inside the AKS cluster boundary. Step 3 shows an arrow labeled kubectl apply that points from from the Flux icon to the Kubernetes API server icon within the cluster. Step 4 displays a red circle with a diagonal line between the developer and the Kubernetes API server with a crossed‑out kubectl label.
+  The diagram illustrates the GitOps workflow with four numbered steps from left to right. At the far left, a developer icon with a laptop appears as Step 1, where the user pushes IaC changes to a Git repository. Step 2 shows the Git repository connecting via an arrow labeled git clone --mirror to a Flux icon inside the AKS cluster boundary. Step 3 shows an arrow labeled kubectl apply that points from the Flux icon to the Kubernetes API server icon within the cluster. Step 4 displays a red circle with a diagonal line between the developer and the Kubernetes API server with a crossed‑out kubectl label.
 :::image-end:::
 
 *Download a [Visio file](https://arch-center.azureedge.net/secure-baseline-aks-gitops-flow.vsdx) of this architecture.*
@@ -983,7 +981,6 @@ For more information, see [AKS pricing](https://azure.microsoft.com/pricing/deta
 ## Next steps
 
 - [AKS roadmap on GitHub](https://github.com/orgs/Azure/projects/685)
-- [AKS landing zone accelerator](/azure/cloud-adoption-framework/scenarios/app-platform/aks/landing-zone-accelerator)
 
 ## Related resources
 

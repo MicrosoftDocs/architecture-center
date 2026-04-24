@@ -6,6 +6,21 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "docs/solution-ideas/articles/project-15-iot-sustainability.yml",
+      "redirect_url": "/azure/architecture/browse/?azure_categories=iot",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/guide/networking/global-web-applications/mission-critical-app-service.yml",
+      "redirect_url": "/azure/architecture/web-apps/guides/enterprise-app-patterns/overview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/example-scenario/mainframe/deploy-ibm-power-workloads.yml",
+      "redirect_url": "/azure/architecture/example-scenario/mainframe/migrate-ibm-i-series-to-azure-with-skytap",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "docs/example-scenario/hybrid/public-multi-access-edge-compute-deployment.yml",
       "redirect_url": "https://www.microsoft.com/industry/telecommunications/",
       "redirect_document_id": false
@@ -139,6 +154,11 @@
       "source_path": "docs/example-scenario/ai/predict-hospital-readmissions-machine-learning.yml",
       "redirect_url": "/industry/healthcare/index",
       "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/analytics/architecture/fabric-deployment-patterns.yml",
+      "redirect_url": "/azure/architecture/data-guide/technology-choices/fabric-deployment-patterns",
+      "redirect_document_id": true
     },
     {
       "source_path": "docs/aws-professional/services.md",
@@ -2178,8 +2198,8 @@
     },
     {
       "source_path": "docs/example-scenario/mainframe/mainframe-modernization-model9.yml",
-      "redirect_url": "/azure/architecture/example-scenario/mainframe/mainframe-modernization-bmc-ami-cloud",
-      "redirect_document_id": true
+      "redirect_url": "/azure/architecture/example-scenario/mainframe/modernize-mainframe-data-to-azure",
+      "redirect_document_id": false
     },
     {
       "source_path": "docs/solution-ideas/articles/example-scenario/ai/intelligent-apps-image-processing.md",
@@ -3544,6 +3564,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "docs/guide/technology-choices/service-for-java-comparison.yml",
+      "redirect_url": "/azure/architecture/guide/technology-choices/compute-decision-tree",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "docs/reference-architectures/apis/protect-apis.yml",
       "redirect_url": "/azure/architecture/web-apps/api-management/architectures/protect-apis",
       "redirect_document_id": true
@@ -3557,6 +3582,11 @@
       "source_path": "docs/reference-architectures/app-service-web-app/app-monitoring.yml",
       "redirect_url": "/azure/architecture/web-apps/guides/monitoring/app-monitoring",
       "redirect_document_id": true
+    },
+    {
+      "source_path": "docs/example-scenario/mainframe/migrate-unisys-dorado-mainframe-apps-with-astadia-micro-focus.yml",
+      "redirect_url": "/azure/architecture/example-scenario/mainframe/general-mainframe-refactor",
+      "redirect_document_id": false
     },
     {
       "source_path": "docs/reference-architectures/reliable-web-app/dotnet/pattern-overview.yml",
@@ -6814,8 +6844,19 @@
     },
     {
       "source_path": "docs/example-scenario/analytics/azure-synapse-analytics-integrate-mongodb-atlas.yml",
-      "redirect_url": "/azure/architecture/databases/architecture/azure-synapse-analytics-integrate-mongodb-atlas",
+      "redirect_url": "/azure/architecture/example-scenario/analytics/sync-mongodb-atlas-fabric-analytics",
       "redirect_document_id": true
+    },
+    {
+      "source_path": "docs/example-scenario/analytics/sync-mongodb-atlas-azure-synapse-analytics.yml",
+      "redirect_url": "/azure/architecture/example-scenario/analytics/sync-mongodb-atlas-fabric-analytics",
+      "redirect_document_id": false
+    },
+    
+    {
+      "source_path": "docs/databases/architecture/azure-synapse-analytics-integrate-mongodb-atlas.yml",
+      "redirect_url": "/azure/architecture/example-scenario/analytics/sync-mongodb-atlas-fabric-analytics",
+      "redirect_document_id": false
     },
     {
       "source_path": "docs/solution-ideas/articles/next-order-forecasting.yml",
@@ -7658,6 +7699,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "docs/high-availability/reference-architecture-traffic-manager-application-gateway.yml",
+      "redirect_url": "/azure/architecture/high-availability/traffic-manager-application-gateway",
+      "redirect_document_id": true
+    },
+    {
       "source_path": "docs/guide/technology-choices/data-store-decision-tree.md",
       "redirect_url": "/azure/architecture/guide/technology-choices/data-stores-getting-started",
       "redirect_document_id": false
@@ -7674,7 +7720,27 @@
     },
     {
       "source_path": "docs/example-scenario/mainframe/rehost-mainframe-ntt-data-unikix.yml",
-      "redirect_url": "/azure/architecture/example-scenario/mainframe/mainframe-rehost-architecture-azure",
+      "redirect_url": "/azure/architecture/example-scenario/mainframe/general-mainframe-refactor",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/example-scenario/mainframe/mainframe-rehost-architecture-azure.yml",
+      "redirect_url": "/azure/architecture/example-scenario/mainframe/general-mainframe-refactor",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/example-scenario/mainframe/micro-focus-server.yml",
+      "redirect_url": "/azure/architecture/example-scenario/mainframe/avanade-amt-zos-migration",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/example-scenario/mainframe/luminex-mainframe-file-tape-transfer.yml",
+      "redirect_url": "/azure/architecture/example-scenario/mainframe/move-archive-data-mainframes",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/example-scenario/mainframe/mainframe-modernization-bmc-ami-cloud.yml",
+      "redirect_url": "/azure/architecture/example-scenario/mainframe/modernize-mainframe-data-to-azure",
       "redirect_document_id": false
     },
     {
@@ -7723,6 +7789,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "docs/topics/high-performance-computing.md",
+      "redirect_url": "/azure/architecture/guide/compute/high-performance-computing",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "docs/microservices/model/tactical-ddd.yml",
       "redirect_url": "/azure/architecture/microservices/model/tactical-domain-driven-design",
       "redirect_document_id": false
@@ -7733,9 +7804,50 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "docs/databases/index.yml",
+      "redirect_url": "/azure/architecture/databases/database-get-started",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "docs/solution-ideas/articles/analytics-get-started.md",
+      "redirect_url": "/azure/architecture/analytics/analytics-get-started",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/example-scenario/web/design-api-developer-experiences-management-github.yml",
+      "redirect_url": "/azure/architecture/web-apps/api-management/architectures/protect-apis",
+      "redirect_document_id": false      
+    },
+    {
+      "source_path": "docs/solution-ideas/articles/container-get-started.md",
+      "redirect_url": "/azure/architecture/containers/container-get-started",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "docs/example-scenario/startups/core-startup-stack.yml",
       "redirect_url": "/azure/architecture/guide/startups/startup-architecture",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/guide/virtual-desktop/start-here.md",
+      "redirect_url": "/azure/architecture/virtual-desktop/virtual-desktop-get-started",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/guide/virtual-desktop/windows-365-azure-network-connection.md",
+      "redirect_url": "/azure/architecture/virtual-desktop/windows-365-azure-network-connection",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "docs/guide/storage/storage-start-here.md",
+      "redirect_url": "/azure/architecture/storage/storage-get-started",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/guide/multitenant/service/cache-redis.md",
+      "redirect_url": "/azure/architecture/guide/multitenant/service/managed-redis",
       "redirect_document_id": false
     }
   ]
 }
+

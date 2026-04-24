@@ -147,6 +147,9 @@ conceptualContent:
         - text: Choose a data analytics technology
           itemType: quickstart
           url: ./data-guide/technology-choices/analysis-visualizations-reporting.md
+        - text: Choose a Microsoft Fabric deployment pattern
+          itemType: quickstart
+          url: ./data-guide/technology-choices/fabric-deployment-patterns.md
         - text: Analytics end-to-end with Microsoft Fabric 
           itemType: architecture
           url: ./example-scenario/dataplate2e/data-platform-end-to-end.yml
@@ -176,7 +179,7 @@ conceptualContent:
           url: /azure/architecture/virtual-machines/baseline
         - text: Understand multi-region compute balancing
           itemType: concept
-          url: /azure/architecture/high-availability/reference-architecture-traffic-manager-application-gateway
+          url: /azure/architecture/high-availability/traffic-manager-application-gateway
         - text: Build workloads on spot virtual machines
           itemType: concept
           url: /azure/architecture/guide/spot/spot-eviction

@@ -49,7 +49,7 @@ Use immutable storage if tenants must maintain data or records because of legal 
 
 ### Server-side copy
 
-In a multitenant system, you might need to move data from one storage account to another. For example, if you move a tenant between deployment stamps or rebalance a [sharded](../../../patterns/sharding.yml) set of storage accounts, you need to copy or move a specific tenant's data. When you have large volumes of data, use [server-side copy APIs](https://azure.microsoft.com/updates/new-copy-apis-for-efficient-data-copy) to decrease migration time.
+In a multitenant system, you might need to move data from one storage account to another. For example, if you move a tenant between deployment stamps or rebalance a [sharded](../../../patterns/sharding.md) set of storage accounts, you need to copy or move a specific tenant's data. When you have large volumes of data, use [server-side copy APIs](https://azure.microsoft.com/updates/new-copy-apis-for-efficient-data-copy) to decrease migration time.
 
 The [AzCopy tool](/azure/storage/common/storage-use-azcopy-v10) is an application that you can run from your computer or a virtual machine to manage the copy process. AzCopy is compatible with the server-side copy feature, and it provides a scriptable command-line interface that you can run from your solutions. You can also use AzCopy to upload and download large volumes of data.
 

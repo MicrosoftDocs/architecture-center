@@ -29,6 +29,8 @@ In addition to the services themselves, other components appear in a typical mic
 
 - **Management or orchestration:** This management component handles microservices orchestration. It schedules and deploys services across nodes, detects failures, recovers from failures, and enables autoscaling based on demand. A container orchestration platform like Kubernetes typically provides this functionality. In cloud-native environments, solutions such as Azure Container Apps provide managed orchestration and built-in scaling. These tools reduce deployment complexity and operational overhead.
 
+  For help evaluating these platforms, see [Choose an Azure compute option for microservices](../../microservices/design/compute-options.md).
+
 - **API gateway:** The API gateway serves as the entry point for clients. Clients send requests to the API gateway instead of calling services directly. The gateway forwards those requests to the appropriate back-end services. It also handles cross-cutting concerns such as authentication, logging, and load balancing. In cloud-native microservices architectures, lightweight service proxies like Envoy and Nginx support internal service-to-service communication. This type of internal traffic, known as east-west traffic, enables advanced routing and traffic control.
 
 - **Message-oriented middleware:** Messaging platforms like Apache Kafka and Azure Service Bus enable asynchronous communication in microservices by promoting loose coupling and supporting high scalability. They form the foundation of event-driven architectures. This approach allows services to react to events in real time and communicate through asynchronous messaging.
@@ -139,7 +141,7 @@ The following articles present a structured approach for designing, building, an
 1. [Use tactical DDD to design microservices](../../microservices/model/tactical-domain-driven-design.md).
 1. [Identify microservice boundaries](../../microservices/model/microservice-boundaries.yml).
 
-**Design the services:** Microservices require a decentralized and agile approach to designing and building applications. For more information, see [Design a microservices architecture](../../microservices/design/index.md).
+**Design the services:** Microservices require a decentralized and agile approach to designing and building applications. For more information, see [Design a microservices architecture](../../microservices/design/index.md) and [Design patterns for microservices](../../microservices/design/patterns.md).
 
 **Operate in production:** Because microservices architectures are distributed, you must have robust operations for deployment and monitoring.
 

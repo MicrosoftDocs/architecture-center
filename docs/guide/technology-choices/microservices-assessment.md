@@ -150,6 +150,8 @@ Consider the following factors when you evaluate your infrastructure readiness:
 
 - Whether the deployment infrastructure supports self-healing of services
 
+For help selecting a compute platform, see [Choose an Azure compute option for microservices](../../microservices/design/compute-options.md).
+
 ## Assess release cycles
 
 Microservices can adapt to change and take advantage of agile development to shorten release cycles and bring value to customers faster. Consider the following factors when you evaluate your release cycles:
@@ -205,7 +207,7 @@ Consider the following factors:
 
 - Whether you use the [Materialized View pattern](/azure/architecture/patterns/materialized-view) to address the chatty behavior of microservices.
 
-- Whether you plan to implement Retry, Circuit Breaker, Exponential Backoff, or Jitter patterns for reliable communication. A common way to handle these features is to use the [Ambassador pattern](../../patterns/ambassador.yml).
+- Whether you plan to implement Retry, Circuit Breaker, Exponential Backoff, or Jitter patterns for reliable communication. A common way to handle these features is to use the [Ambassador pattern](../../patterns/ambassador.md).
 
 - Whether you have defined domain events to facilitate communication between microservices.
 

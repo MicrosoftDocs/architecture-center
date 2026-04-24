@@ -70,7 +70,7 @@ H. A printer subsystem manages on-premises printers.
 
 - [Virtual network interfaces](/azure/virtual-network/virtual-network-network-interface) let VMs communicate with the internet, Azure, and on-premises resources. You can add several network interface cards to one VM so that child VMs can have their own dedicated network interface devices and IP addresses.
 
-- [Azure Managed Disks](/azure/virtual-machines/disks-types) are block-level storage volumes that Azure manages on Virtual Machines. The types of disks are Ultra Disk Storage, Premium SSD, and Standard SSD. This architecture works best with Premium SSD or Ultra Disk Storage.
+- [Azure managed disks](/azure/virtual-machines/disks-types) are block-level storage volumes that Azure manages on Virtual Machines. The types of disks are Ultra Disk Storage, Premium SSD, and Standard SSD. This architecture works best with Premium SSD or Ultra Disk Storage.
 
 - [Azure Files](/azure/well-architected/service-guides/azure-files) offers fully managed file shares in your Azure Storage account that are accessible from the cloud or on-premises. Windows, Linux, and macOS deployments can mount Azure file shares concurrently and access files via the industry standard Server Message Block (SMB) protocol.
 
@@ -153,7 +153,7 @@ Performance Efficiency is the ability of your workload to meet the demands place
 
 - SQL Database has hyperscale or business-critical tiers for high input/output operations per second (IOPS) and high uptime SLAs. For pricing information, see [SQL Database pricing](https://azure.microsoft.com/pricing/details/azure-sql-database/single/).
 
-- Use Premium SSD or Ultra Disk Storage for the best performance. For pricing information, see [Managed Disks pricing](https://azure.microsoft.com/pricing/details/managed-disks/).
+- Use Premium SSD or Ultra Disk Storage for the best performance. For pricing information, see [managed disks pricing](https://azure.microsoft.com/pricing/details/managed-disks/).
 
 ## Contributors
 

@@ -40,7 +40,7 @@ Sharing a single resource inherently carries the risk of noisy neighbor problems
 
 - **Apply resource governance.** Consider applying policies that prevent a single tenant from overwhelming the system and reducing the capacity available to other tenants. This step might take the form of quota enforcement through the [Throttling pattern](../../patterns/throttling.yml) or the [Rate Limiting pattern](../../patterns/rate-limiting-pattern.yml).
 
-- **Provision more infrastructure.** This process might include scaling up by upgrading some of your solution components. Or it might include scaling out by provisioning extra shards if you follow the [Sharding pattern](../../patterns/sharding.yml), or stamps if you follow the [Deployment Stamps pattern](../../patterns/deployment-stamp.yml).
+- **Provision more infrastructure.** This process might include scaling up by upgrading some of your solution components. Or it might include scaling out by provisioning extra shards if you follow the [Sharding pattern](../../patterns/sharding.md), or stamps if you follow the [Deployment Stamps pattern](../../patterns/deployment-stamp.yml).
 
 - **Enable tenants to purchase pre-provisioned or reserved capacity.** This approach gives tenants greater confidence that your solution can reliably handle their workloads.
 
