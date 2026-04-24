@@ -1,12 +1,12 @@
 ---
-title: Get started with security architecture design
+title: Get Started with Security Architecture Design
 description: Get an overview of Azure security technologies and cloud desktop design, including architecture guidance, solution ideas, and reference architectures.
 ms.author: anaharris
 author: anaharris-ms
 ms.update-cycle: 1095-days
 ms.topic: concept-article
-ms.subservice: architecture-guide
-ms.date: 04/14/2026
+ms.subservice: category-get-started
+ms.date: 04/25/2026
 ai-usage: ai-assisted
 ---
 
@@ -17,12 +17,19 @@ Security is one of the most important aspects of any architecture. Good security
 Azure provides a wide range of security tools and capabilities. The following list describes some of the key security services available on Azure:
 
 - [Microsoft Defender for Cloud](/azure/defender-for-cloud/defender-for-cloud-introduction). Provides cloud security posture management (CSPM) and cloud workload protection (CWPP). It assesses your resources for security compliance, provides a secure score to track your posture, and offers threat protection across Azure, on-premises, and multicloud workloads.
+
 - [Microsoft Entra ID](/entra/fundamentals/whatis). The Microsoft cloud-based identity and access management service. It provides single sign-on, multifactor authentication, and conditional access to guard against identity-based attacks.
+
 - [Azure Front Door](/azure/frontdoor/front-door-overview). A global entry point for web applications that includes a built-in web application firewall (WAF) to protect against common exploits and vulnerabilities, DDoS protection, and TLS termination at the edge.
+
 - [Azure Firewall](/azure/firewall/overview). A cloud-native network firewall that supports threat intelligence-based filtering, intrusion detection and prevention (IDPS) in the Premium tier, TLS inspection, and FQDN-based rules.
+
 - [Azure Key Vault](/azure/key-vault/general/overview). Provides centralized secrets management, key management, and certificate management. The Premium tier offers HSM-protected keys validated to FIPS 140-3 Level 3.
+
 - [Azure Private Link](/azure/private-link/private-link-overview). Enables you to access Azure PaaS services over a private endpoint in your virtual network, keeping traffic on the Microsoft backbone network and eliminating exposure to the public internet.
+
 - [Azure Application Gateway](/azure/application-gateway/overview). A regional web traffic load balancer with an integrated web application firewall (WAF v2) that protects against OWASP top-10 vulnerabilities, bot mitigation, and custom rules.
+
 - [Azure Policy](/azure/governance/policy/overview). Enables you to enforce organizational standards, assess compliance at scale, and apply guardrails that prevent noncompliant resource configurations.
 
 For more information about Azure security tools and capabilities, see [End-to-end security in Azure](/azure/security/fundamentals/end-to-end).
@@ -34,8 +41,6 @@ For more information about Azure security tools and capabilities, see [End-to-en
 *Download a [Visio file]() of this architecture.*
 
 The previous diagram demonstrates a typical baseline security implementation. The architecture shows how Azure security services work together to protect workloads across identity, networking, data, and application layers. For real-world solutions that you can build in Azure, see [Security architectures](#example-solutions).
-
-## Explore security architectures and guides
 
 ## Learn about security on Azure
 
@@ -116,7 +121,7 @@ To stay current with key security services, see the following articles:
 - [What's new in Azure Firewall](https://azure.microsoft.com/updates?filters=%5B%22Azure+Firewall%22%5D)
 - [What's new in Azure Application Gateway](/azure/application-gateway/whats-new)
 
-### Other resources
+## Other resources
 
 Security is a broad category and covers a range of solutions. The following resources can help you discover more about Azure.
 
@@ -135,7 +140,7 @@ These architecture solutions demonstrate security patterns and implementations o
 
 - [Microsoft Cybersecurity Reference Architectures](/security/adoption/mcra): Diagrams that describe how Microsoft security capabilities integrate with Microsoft platforms and third-party platforms, using Zero Trust principles.
 
-## Hybrid and multicloud
+### Hybrid and multicloud
 
 Most organizations need a hybrid approach to security because their workloads, identities, and data span on-premises datacenters, Azure, and other cloud platforms. Security policies, threat detection, and compliance controls must extend across all of these environments to avoid gaps that attackers can exploit. Organizations typically [extend on-premises security solutions to the cloud](/azure/cloud-adoption-framework/scenarios/hybrid/enterprise-scale-landing-zone) and use [Azure Arc](/azure/azure-arc/overview) to project non-Azure resources into the Azure control plane for centralized governance. To connect environments, organizations must [choose a hybrid network architecture](/azure/architecture/reference-architectures/hybrid-networking/).
 
@@ -158,9 +163,13 @@ Review the following key hybrid and multicloud security scenarios:
 Identity is the primary security perimeter in cloud environments. In Azure, identity and access management (IAM) centers on Microsoft Entra ID as the cloud-based identity provider, with Conditional Access serving as the Zero Trust policy engine. The following architectures and guides address IAM design patterns for Azure and multicloud environments.
 
 - [Integrate on-premises Active Directory domains with Microsoft Entra ID](/azure/architecture/reference-architectures/identity/azure-ad). A reference architecture for integrating on-premises Active Directory with Microsoft Entra ID to provide cloud-based identity authentication, including Microsoft Entra Connect Sync, application proxy, and Conditional Access.
+
 - [Identity architecture design](/azure/architecture/identity/identity-start-here). A hub page for identity architecture in Azure that covers learning paths, design options, implementation guidance, and baseline identity implementations.
+
 - [Create an AD DS resource forest in Azure](/azure/architecture/reference-architectures/identity/adds-forest). A reference architecture for creating a separate Active Directory domain in Azure that is trusted by domains in an on-premises Active Directory forest.
+
 - [Deploy AD DS in an Azure virtual network](/azure/architecture/example-scenario/identity/adds-extend-domain). A reference architecture for extending an on-premises Active Directory domain to Azure to provide distributed authentication services.
+
 - [Extend on-premises AD FS to Azure](/azure/architecture/reference-architectures/identity/adfs). A reference architecture for implementing Active Directory Federation Services (AD FS) authorization in Azure as part of a secure hybrid network.
 
 ### Threat protection
@@ -172,9 +181,13 @@ The following architectures and guides address threat protection patterns on Azu
 - [Multilayered protection for Azure virtual machine access](/azure/architecture/solution-ideas/articles/multilayered-protection-azure-vm). A defense-in-depth solution that combines Microsoft Entra Privileged Identity Management (PIM), just-in-time (JIT) VM access in Microsoft Defender for Cloud, Azure Bastion, and Azure RBAC custom roles to minimize the attack surface for virtual machine management.
 
 - [Build the first layer of defense with Azure Security services](/azure/architecture/solution-ideas/articles/azure-security-build-first-layer-defense). A solution idea that maps Azure security services to resources and threat types using the MITRE ATT&CK framework, organized by network, infrastructure, application, data, and identity layers.
+
 - [Map threats to your IT environment](/azure/architecture/solution-ideas/articles/map-threats-it-environment). Guidance for diagramming your IT environment and creating a threat map using the MITRE ATT&CK framework, covering on-premises, Azure, and Microsoft 365 environments.
+
 - [Integrate Azure and Microsoft Defender XDR security services](/azure/architecture/solution-ideas/articles/microsoft-365-defender-security-integrate-azure). A solution idea that demonstrates how to integrate Microsoft Sentinel, Microsoft Defender for Cloud, and Microsoft Defender XDR for unified security monitoring and threat response across on-premises and cloud environments.
+
 - [Microsoft Sentinel automated responses](/azure/architecture/solution-ideas/articles/microsoft-sentinel-automated-response). A solution idea that uses Microsoft Sentinel playbooks and Azure Logic Apps to automate threat response, including blocking compromised users and isolating endpoints.
+
 - [Apply Zero Trust principles to virtual machines in Azure](/security/zero-trust/azure-infrastructure-virtual-machines). Step-by-step guidance for applying Zero Trust principles to Azure virtual machines, including logical isolation, RBAC, secure boot, encryption, secure access with Azure Bastion, and advanced threat detection with Microsoft Defender for Servers.
 
 - [Azure threat protection](/azure/security/fundamentals/threat-detection). A comprehensive overview of Azure threat protection services, including Microsoft Defender for Cloud, Microsoft Sentinel, Microsoft Entra ID Protection, Microsoft Defender for Cloud Apps, and Azure Firewall.
