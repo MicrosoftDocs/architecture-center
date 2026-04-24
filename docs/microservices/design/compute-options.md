@@ -122,7 +122,7 @@ A single user request can traverse many services. If you need correlated traces 
 
 Ensure that each service in the composition exposes per-service metrics like request rate, error rate, and latency. These metrics help you identify which service degrades without correlating logs across the full call chain.
 
-### State management 
+### State management
 
 In a microservices architecture, each service typically owns its data and externalizes state to a dedicated database or cache. This pattern keeps services independently deployable, and all four platforms support it equally because the data store is a separate Azure resource.
 
