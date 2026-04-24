@@ -133,16 +133,6 @@ When you use Azure Data Factory to extract data, take steps to [tune the perform
 
 These considerations implement the pillars of the Azure Well-Architected Framework, which is a set of guiding tenets that you can use to improve the quality of a workload. For more information, see [Microsoft Azure Well-Architected Framework](/azure/well-architected/).
 
-### Reliability
-
-Reliability helps ensure that your application can meet the commitments that you make to your customers. For more information, see [Design review checklist for Reliability](/azure/well-architected/reliability/checklist).
-
-- Infrastructure management, including [availability](/azure/azure-sql/database/business-continuity-high-availability-disaster-recover-hadr-overview), is automated in Azure databases.
-
-- For information about Microsoft Service for DRDA failover protection, see [Pooling and failover](/host-integration-server/core/planning-and-architecting-solutions-using-microsoft-service-for-drda#pooling-and-failover).
-
-- You can cluster the on-premises data gateway and IR to provide higher availability guarantees.
-
 ### Security
 
 Security provides assurances against deliberate attacks and the misuse of your valuable data and systems. For more information, see [Design review checklist for Security](/azure/well-architected/security/checklist).
@@ -154,14 +144,6 @@ Security provides assurances against deliberate attacks and the misuse of your v
 - Use managed identities for component-to-component dataflows.
 
 - For information about the types of client connections that Microsoft Service for DRDA supports, see [Plan and architect solutions by using Microsoft Service for DRDA](/host-integration-server/core/planning-and-architecting-solutions-using-microsoft-service-for-drda). Client connections affect the nature of transactions, pooling, failover, authentication, and encryption on your network.
-
-### Cost Optimization
-
-Cost Optimization focuses on ways to reduce unnecessary expenses and improve operational efficiencies. For more information, see [Design review checklist for Cost Optimization](/azure/well-architected/cost-optimization/checklist).
-
-- Pricing models vary between component services. Review the pricing models of the available component services to ensure that they fit your budget.
-
-- Use the [Azure pricing calculator](https://azure.microsoft.com/pricing/calculator/) to estimate the cost of implementing this solution.
 
 ### Operational Excellence
 
