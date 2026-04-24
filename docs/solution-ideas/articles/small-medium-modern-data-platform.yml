@@ -20,7 +20,6 @@ products:
   - fabric
   - dynamics-365
   - azure-data-factory
-  - real-time-intelligence 
   - microsoft-purview
 name: Build a modern data platform architecture for SMBs by using Microsoft Fabric and Azure Databricks
 summary: Use Microsoft Fabric and Azure Databricks to build a modern data platform architecture designed for small and medium businesses.
