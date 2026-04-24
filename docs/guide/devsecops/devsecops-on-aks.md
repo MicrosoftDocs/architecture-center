@@ -7,7 +7,9 @@ ms.date: 04/22/2026
 ms.reviewer: ssumner
 ms.topic: concept-article
 ms.subservice: architecture-guide
-ms.custom: e2e-hybrid, kr2b-contr-experiment
+ms.custom:
+  - e2e-hybrid
+  - kr2b-contr-experiment
 ---
 
 # DevSecOps on Azure Kubernetes Service (AKS)
@@ -62,11 +64,11 @@ The flow starts with a developer that connects to Microsoft Entra ID and works i
 1. Microsoft Defender scans Container Registry, the AKS cluster, and Azure Key Vault for security vulnerabilities.
 
    1. [Microsoft Defender for Containers](/azure/defender-for-cloud/defender-for-containers-introduction) scans the container image for known security vulnerabilities when GitHub Actions uploads it to Container Registry.
-   
+
    1. Defender for Containers can also scan your AKS environment and provide runtime threat protection for your AKS clusters.
 
    1. [Microsoft Defender for Key Vault](/azure/defender-for-cloud/defender-for-key-vault-introduction) detects unusual and suspicious attempts to access key vault accounts.
-   
+
 1. You can apply [Azure Policy](/azure/governance/policy/overview) to Container Registry and AKS to enforce policy compliance. Azure Policy includes built-in security policies for both Container Registry and AKS.
 
 1. [Key Vault](/azure/key-vault/general/overview) securely injects secrets and credentials into an application at runtime without exposing them to developers.
@@ -77,7 +79,7 @@ The flow starts with a developer that connects to Microsoft Entra ID and works i
 
    1. Azure Monitor collects performance metrics via Managed Prometheus and application and cluster logs via container log collection.
 
-   1. A Log Analytics workspace pulls in diagnostic and application logs to run log queries.
+   1. A Log Analytics workspace stores the diagnostic and application logs to run log queries.
 
 1. Use Microsoft Sentinel as the centralized security information and event management (SIEM) to correlate AKS telemetry with signals from Microsoft Defender for Cloud, Microsoft Entra ID, and network resources. Microsoft Sentinel provides detection, investigation, and automated response to security incidents across the entire AKS environment.
 
@@ -123,15 +125,15 @@ The plan phase usually has the least amount of automation, but it has important 
 
 #### Best practice: Design a secure application platform
 
-Build a secure AKS-hosted platform to incorporate security into the system at every layer, starting with the platform itself. The platform can include components internal to the cluster, such as runtime security and policy agents, and components external to AKS, such as network firewalls and container registries.
+To build a secure AKS-hosted workload you must incorporate security into the system at every layer, starting with the platform itself. The platform can include components internal to the cluster, such as runtime security and policy agents, and components external to AKS, such as network firewalls and container registries.
 
 #### Best practice: Build threat modeling into your process
 
-- Threat modeling is usually a manual activity that involves security and development teams. You can model and find threats in a system to address vulnerabilities before you develop code or make changes. Teams conduct threat modeling in response to significant software changes, solution architectural changes, or security incidents.
+Threat modeling is usually a manual activity that involves security and development teams. You can model and find threats in a system to address vulnerabilities before you develop code or make changes. Teams conduct threat modeling in response to significant software changes, solution architectural changes, or security incidents.
 
-- We recommend the [STRIDE threat model](/azure/security/develop/threat-modeling-tool-threats#stride-model). This methodology starts with a data flow diagram and categorizes threats by using the STRIDE mnemonic: Spoofing, Tampering, Info Disclosure, Repudiation, Denial of Service, and Elevation of Privilege. Teams use these categories to identify, mitigate, and validate risks. A [modeling tool](https://www.microsoft.com/securityengineering/sdl/threatmodeling) helps notate and visualize system components, data flows, and security boundaries.
+We recommend the [STRIDE threat model](/azure/security/develop/threat-modeling-tool-threats#stride-model). This methodology starts with a data flow diagram and categorizes threats by using the STRIDE mnemonic: Spoofing, Tampering, Repudiation, Info Disclosure, Denial of Service, and Elevation of Privilege. Teams use these categories to identify, mitigate, and validate risks. A [modeling tool](https://www.microsoft.com/securityengineering/sdl/threatmodeling) helps notate and visualize system components, data flows, and security boundaries.
 
-  Building threat modeling into your SDLC adds process overhead and requires you to maintain updated threat models. However, it addresses security early in development, which reduces the cost of fixing problems discovered later.
+Building threat modeling into your SDLC adds process overhead and requires you to maintain updated threat models. However, it addresses security early in development, which reduces the cost of fixing problems discovered later.
 
 #### Best practice: Apply the Azure Well-Architected Framework
 
@@ -193,7 +195,7 @@ Most popular IDEs, like Visual Studio, VS Code, IntelliJ IDEA, and Eclipse, supp
 
 - Prevent root user access or context for an image. By default, containers run as root.
 
-   For containers that need enhanced security, consider using an [AppArmor](/azure/aks/secure-container-access?pivots=apparmor#configure-an-apparmor-profile) or [seccomp](/azure/aks/secure-container-access?pivots=seccomp#configure-a-custom-seccomp-profile) profile within your Kubernetes cluster to further help enforce security for your running containers.
+  For containers that need enhanced security, consider using an [AppArmor](/azure/aks/secure-container-access?pivots=apparmor#configure-an-apparmor-profile) or [seccomp](/azure/aks/secure-container-access?pivots=seccomp#configure-a-custom-seccomp-profile) profile within your Kubernetes cluster to further help enforce security for your running containers.
 
 ### Build phase
 
@@ -204,7 +206,7 @@ During the build phase, developers work with site reliability engineers and secu
 - Use GitHub Advanced Security scanning capabilities for code scanning and CodeQL.
 
   - [Code scanning](https://docs.github.com/enterprise-cloud@latest/code-security/concepts/code-scanning/about-code-scanning) is a feature that analyzes code in a GitHub repository to find security vulnerabilities and coding errors. It displays the problems in GitHub Enterprise Cloud.
-  
+
   - If code scanning finds a potential vulnerability or error in your code, GitHub displays an alert in the repository.
 
   - You can configure branch rules for [required status checks](https://docs.github.com/pull-requests/collaborating-with-pull-requests/collaborating-on-repositories-with-code-quality-features/troubleshooting-required-status-checks). For example, you can require that feature branches are up to date with the base branch before you merge new code. This requirement ensures that you test your branch with the latest code.
@@ -269,7 +271,7 @@ During the deployment phase, developers, application operators, and cluster oper
 
 - Use [environments](https://docs.github.com/actions/how-tos/deploy/configure-and-manage-deployments/manage-environments) for deployment to configure protection rules and secrets.
 
-- You can take advantage of the [approvals](https://docs.github.com/actions/how-tos/deploy/configure-and-manage-deployments/review-deployments) and [gates](/azure/devops/pipelines/release/deploy-using-approvals) feature to control the workflow of the deployment pipeline. For example, you can require manual approvals from a security or operations team before you deploy to a production environment.
+- Use [approvals](https://docs.github.com/actions/how-tos/deploy/configure-and-manage-deployments/review-deployments) and [gates](/azure/devops/pipelines/release/deploy-using-approvals) feature to control the workflow of the deployment pipeline. For example, you can require manual approvals from a security or operations team before you deploy to a production environment.
 
 #### Best practice: Secure deployment credentials
 
@@ -287,7 +289,7 @@ During the deployment phase, developers, application operators, and cluster oper
 
 - Use [Defender for Containers](/azure/defender-for-cloud/kubernetes-workload-protections) to enable the Azure Policy add-on for Kubernetes.
 
-- Configure Azure Policy to restrict container image deployments to trusted registries.
+- Configure Azure Policy for Kubernetes to restrict container image deployments to trusted registries.
 
 ### Operate phase
 
@@ -335,7 +337,7 @@ During this phase, perform operation monitoring and security monitoring tasks to
 
   - Onboard your AKS instances to Azure Monitor and configure diagnostic settings for your cluster.
 
-    - For more information, see [Azure security baseline for AKS](/security/benchmark/azure/baselines/azure-kubernetes-service-aks-security-baseline).
+    For more information, see [Azure security baseline for AKS](/security/benchmark/azure/baselines/azure-kubernetes-service-aks-security-baseline).
 
 #### Best practice: Use Defender for Cloud for active threat monitoring
 
@@ -359,7 +361,7 @@ During this phase, perform operation monitoring and security monitoring tasks to
 
 - Monitor attempts to access deactivated credentials.
 
-  - Integrate user authentication for AKS with Microsoft Entra ID. Create diagnostic settings for Microsoft Entra ID and [send the audit and sign-in logs to a Log Analytics workspace](/entra/identity/monitoring-health/howto-integrate-activity-logs-with-azure-monitor-logs). Within the Log Analytics workspace, configure alerts for security events, such as sign-in attempts from deactivated accounts.
+  Integrate user authentication for AKS with Microsoft Entra ID. Create diagnostic settings for Microsoft Entra ID and [send the audit and sign-in logs to a Log Analytics workspace](/entra/identity/monitoring-health/howto-integrate-activity-logs-with-azure-monitor-logs). Within the Log Analytics workspace, configure alerts for security events, such as sign-in attempts from deactivated accounts.
 
 #### Best practice: Enable diagnostics on your Azure resources
 
