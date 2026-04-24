@@ -6,11 +6,11 @@ Provisioning a virtual machine (VM) in Azure requires additional components besi
 
 *Download a [Visio file](https://arch-center.azureedge.net/linux-vm-single-vm-diagram.vsdx) of this architecture.*
 
-### Workflow
+## Workflow
 This example shows a basic deployment using a single virtual machine with the required components. The virtual machine can run workloads, is manageable, and can communicate with the public internet. It is designed to avoid direct exposure to external threats.
 
 - Any workloads running on the virtual machine aren't exposed externally, and are only accessible from within the same, or a peered, virtual network, such as in a hub and spoke configuration.
-- Management access to the virtual machine is shown using Azure Bastion via Secure Sockets Host (SSH), and is not directly permitted from the public internet.
+- Management access to the virtual machine is shown using Azure Bastion via Secure Shell (SSH), and is not directly permitted from the public internet.
 - Outbound external internet access is provided through the use of the Network Address Translation (NAT) Gateway and its associated Public IP address.
 
 
@@ -38,7 +38,7 @@ For information about choosing a published VM image, see [Find Linux VM images](
 
 #### Disks
 
-For best disk I/O performance, we recommend [Premium SSDs](/azure/virtual-machines/linux/premium-storage), which stores data on solid-state drives (SSDs). Cost is based on the capacity of the provisioned disk. IOPS and throughput (that is, data transfer rate) also depend on disk size, so when you provision a disk, consider all three factors (capacity, IOPS, and throughput). Premium SSDs feature free bursting which, combined with an understanding of workload patterns, offers an effective SKU selection and cost optimization strategy for IaaS infrastructure. This enables high performance without excessive over-provisioning and minimizing the cost of unused capacity.
+For best disk I/O performance, we recommend [Premium SSDs](/azure/virtual-machines/linux/premium-storage), which store data on solid-state drives (SSDs). Cost is based on the capacity of the provisioned disk. IOPS and throughput (that is, data transfer rate) also depend on disk size, so when you provision a disk, consider all three factors (capacity, IOPS, and throughput). Premium SSDs feature free bursting which, combined with an understanding of workload patterns, offers an effective SKU selection and cost optimization strategy for IaaS infrastructure. This enables high performance without excessive over-provisioning and minimizing the cost of unused capacity.
 
 > [!NOTE]
 > Currently, Premium SSD v2 and Ultra disks can only be used for data disks. They are not supported for OS disks.
@@ -98,8 +98,8 @@ The networking components include the following resources:
 
 - **Azure Network Address Translation (NAT) Gateway.** [Network Address Translation (NAT) gateways](/azure/nat-gateway) allow all instances in a private subnet to connect outbound to the internet while remaining fully private. Only packets that arrive as response packets to an outbound connection can pass through a NAT gateway. Unsolicited inbound connections from the internet aren't permitted. 
 
-> [!NOTE]
-> To improve default security, implicit outbound internet access is being deprecated for all new virtual networks. Outbound internet connectivity will need to be explicitly configured through the use of other resources such as NAT Gateways, Azure Standard Load Balancers, or firewalls. See [Default outbound access in Azure](https://learn.microsoft.com/en-us/azure/virtual-network/ip-services/default-outbound-access?tabs=portal) for details
+  > [!NOTE]
+> To improve default security, implicit outbound internet access is being deprecated for all new virtual networks. Outbound internet connectivity will need to be explicitly configured through the use of other resources such as NAT Gateways, Azure Standard Load Balancers, or firewalls. See [Default outbound access in Azure](/azure/virtual-network/ip-services/default-outbound-access?tabs=portal) for details.
 
 - **Azure Bastion.** [Azure Bastion](/azure/bastion/) is a fully managed platform as a service solution that provides secure access to VMs via private IP addresses. With this configuration, VMs don't need a public IP address that exposes them to the internet, which increases their security posture. Azure Bastion provides secure Remote Desktop Protocol (RDP) or SSH connectivity to your VMs directly over Transport Layer Security (TLS) through various methods, including the Azure portal or native SSH or RDP clients.
 
@@ -109,9 +109,9 @@ The networking components include the following resources:
 
 **Diagnostics**. Enable monitoring and diagnostics, including basic health metrics, diagnostics infrastructure logs, and [boot diagnostics](https://azure.microsoft.com/blog/boot-diagnostics-for-virtual-machines-v2/). Boot diagnostics can help you diagnose boot failure if your VM gets into a non-bootable state. Create an Azure Storage account to store the logs. A standard locally redundant storage (LRS) account is sufficient for diagnostic logs. For more information, see [Enable monitoring and diagnostics](/azure/monitoring-and-diagnostics/insights-how-to-use-diagnostics).
 
-**Availability**. Your VM might be affected by [planned maintenance](/azure/virtual-machines/maintenance-and-updates) or [unplanned downtime](/azure/virtual-machines/linux/manage-availability). You can use [VM reboot logs](https://azure.microsoft.com/blog/viewing-vm-reboot-logs) to determine whether a VM reboot was caused by planned maintenance. For higher availability, deploy multiple VMs across [availability zones](/azure/virtual-machines/availability#availability-zones) within a region. This provides a higher [service-level agreement (SLA)](https://aka.ms/csla). Where availability zones are not supported, [availability sets](/azure/virtual-machines/availability#availability-sets) can help provide protection against host failures or host updates. However availability zones are the recommended option where possible.
+**Availability**. Your VM might be affected by [planned maintenance](/azure/virtual-machines/maintenance-and-updates) or [unplanned downtime](/azure/virtual-machines/linux/manage-availability). You can use [VM reboot logs](https://azure.microsoft.com/blog/viewing-vm-reboot-logs) to determine whether a VM reboot was caused by planned maintenance. For higher availability, deploy multiple VMs across [availability zones](/azure/virtual-machines/availability#availability-zones) within a region. This provides a higher [service-level agreement (SLA)](https://aka.ms/csla). Where availability zones are not supported, [availability sets](/azure/virtual-machines/availability#availability-sets) can help provide protection against host failures or host updates. However, availability zones are the recommended option where possible.
 
-**Backups** To protect against accidental data loss, use the [Azure Backup](/azure/backup/) service to back up your VMs to storage. Depending on the region, you can use geo-redundant or zone-redundant storage for backups. Azure Backup provides application-consistent backups. For performance-sensitive workloads or specialized Linux distributions that don't support traditional backup agents, use the [agentless multi-disk crash consistent backup](/azure/backup/backup-azure-vms-agentless-multi-disk-crash-consistent-overview) feature that enables automated backup protection without affecting application performance.
+**Backups**. To protect against accidental data loss, use the [Azure Backup](/azure/backup/) service to back up your VMs to storage. Depending on the region, you can use geo-redundant or zone-redundant storage for backups. Azure Backup provides application-consistent backups. For performance-sensitive workloads or specialized Linux distributions that don't support traditional backup agents, use the [agentless multi-disk crash consistent backup](/azure/backup/backup-azure-vms-agentless-multi-disk-crash-consistent-overview) feature that enables automated backup protection without affecting application performance.
 
 **Stopping a VM**. Azure makes a distinction between "stopped" and "deallocated" states. You are charged when the VM status is stopped, but not when the VM is deallocated. In the Azure portal, the **Stop** button deallocates the VM. If you shut down through the OS while logged in, the VM is stopped but **not** deallocated, so you will still be charged.
 
@@ -127,9 +127,9 @@ The networking components include the following resources:
 
 - For a more enterprise-level deployment, see **Azure Virtual Machines baseline architecture in an Azure landing zone** under [Next Steps](#next-steps) below.
 
-## Scenario Details
+## Scenario details
 
-In the diagam above,  this scenario would be useful for providing a non-critical workload that is useful for internal-only users.
+In the diagram above, this scenario would be useful for providing a non-critical workload that is useful for internal-only users.
 
 ### Potential Use Cases
 
@@ -143,13 +143,13 @@ These considerations implement the pillars of the Azure Well-Architected Framewo
 
 Reliability ensures your application can meet the commitments you make to your customers. For more information, see [Design review checklist for Reliability](/azure/well-architected/reliability/checklist).
 
-As this architecure is only a simple example using a single virtual machine, it has a minimal level of reliability. Any issue with the virtual machine itself or the host where it is running will cause an outage, resulting in any hosted workloads being unavailable. For any workload that needs higher availability, multiple virtual machines should be deployed that contain the same workload, with those instances behind an appropriate load balancing solution. If these are within the same region, those VMs should be deployed across availability zones (where supported), and added to the backend of an Azure Standard Load Balancer or an Application Gateway if the workload is HTTP/HTTPS-based. This allows for the workload to still be available if a single virtual machine in the backend were to be down.
+As this architecture is only a simple example using a single virtual machine, it has a minimal level of reliability. Any issue with the virtual machine itself or the host where it is running will cause an outage, resulting in any hosted workloads being unavailable. For any workload that needs higher availability, multiple virtual machines should be deployed that contain the same workload, with those instances behind an appropriate load balancing solution. If these are within the same region, those VMs should be deployed across availability zones (where supported), and added to the backend of an Azure Standard Load Balancer or an Application Gateway if the workload is HTTP/HTTPS-based. This allows for the workload to still be available if a single virtual machine in the backend were to be down.
 
 [Virtual machine scale sets](/azure/virtual-machine-scale-sets/overview) are another option to help simplify management of multi-node workloads that need the ability to automatically scale the number of instances in or out depending on any of several metrics such as CPU and/or memory consumption.
 
 #### High Availability/Disaster Recovery (HA/DR)
 
-For an increased "blast radius," the workload should be deployed in multiple regions and leverage the [Azure Landing Zone](/azure/cloud-adoption-framework/ready/landing-zone/) guidance. This could be in an Active-Passive configuration, with failover to the secondary region if the primary region become unavailable, or an Active-Active architecture where both regions serve traffic to consumers. For an example, see **Multi-tier web application built for HA/DR** under [Next Steps](#next-steps) below.
+For a reduced "blast radius," the workload should be deployed in multiple regions and leverage the [Azure Landing Zone](/azure/cloud-adoption-framework/ready/landing-zone/) guidance. This could be in an Active-Passive configuration, with failover to the secondary region if the primary region becomes unavailable, or an Active-Active architecture where both regions serve traffic to consumers. For an example, see **Multi-tier web application built for HA/DR** under [Next Steps](#next-steps) below.
 
 The example in that article uses [Azure Site Recovery (ASR)](/azure/site-recovery/site-recovery-overview) to replicate the disks of individual virtual machines to a secondary region, where ASR can be used to failover those virtual machines to the secondary region with a low Recovery Point Objective (RPO)/Recovery Time Objective (RTO).
 
@@ -196,7 +196,7 @@ For more information, see the cost section in [Microsoft Azure Well-Architected 
 
 Operational Excellence covers the operations processes that deploy an application and keep it running in production. For more information, see [Design review checklist for Operational Excellence](/azure/well-architected/operational-excellence/checklist).
 
-Use Infrastructure-as-Code (IaC) templates to provision Azure resources and their dependencies. These could be written using [Bicep](/azure/azure-resource-manager/bicep/), [Azure Resource Manager templates (ARM templates)][arm-template], or [Terraform](/azure/developer/terraform/), depending on your preference and established tool choices. These templates allow a Continuous Integration/Continuous Deployment (CI/CD) process as part of an [automated deployment](/devops/deliver/iac-github-actions) methodology for deploying and configuring resources. This approach enables versioning of architectures and ensure consistency between environments, as well as enforcing reproducibility, security, and compliance.
+Use Infrastructure-as-Code (IaC) templates to provision Azure resources and their dependencies. These could be written using [Bicep](/azure/azure-resource-manager/bicep/), [Azure Resource Manager templates (ARM templates)][arm-template], or [Terraform](/azure/developer/terraform/), depending on your preference and established tool choices. These templates allow a Continuous Integration/Continuous Deployment (CI/CD) process as part of an [automated deployment](/devops/deliver/iac-github-actions) methodology for deploying and configuring resources. This approach enables versioning of architectures and ensures consistency between environments, as well as enforcing reproducibility, security, and compliance.
 
 To assist in monitoring and diagnosing issues, ensure that diagnostics logs are enabled on your resources and are made available to [Azure Monitor](https://azure.microsoft.com/services/monitor/) to help with analysis and optimization of your resources. These logs can be used to implement alerting and notifications of critical events, and in some cases allow automated remediation or logging a ticket in your IT Service Management (ITSM) system.
 
@@ -217,12 +217,12 @@ Be sure to consider these points when developing your architecture:
 - Design network architecture to minimize unnecessary hops.
 - Use Azure Monitor, VM Insights, and other tools to continuously analyze metrics and create updated performance baselines. Use the performance information to determine where to implement changes, and then test against those baselines.
 
-### Contributors
+## Contributors
 *This article is maintained by Microsoft. It was originally written by the following contributors.*
 
 Principal author:
 
-[Donnie Trumpower](https://www.linkedin.com/in/dtrumpower) | Senior Cloud & AI Solutions Architect
+- [Donnie Trumpower](https://www.linkedin.com/in/dtrumpower) | Senior Cloud & AI Solutions Architect
 
 ## Next steps
 
