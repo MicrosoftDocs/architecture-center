@@ -124,14 +124,6 @@ On-premises file replication and synchronization are essential for various use c
 
 These considerations implement the pillars of the Azure Well-Architected Framework, which is a set of guiding tenets that you can use to improve the quality of a workload. For more information, see [Well-Architected Framework](/azure/well-architected/).
 
-### Reliability
-
-Reliability helps ensure that your application can meet the commitments that you make to your customers. For more information, see [Design review checklist for Reliability](/azure/well-architected/reliability/checklist).
-
-- You can deploy this OLTP architecture in multiple regions. It can also have a geo-replicated data layer.
-
-- The Azure database services support zone redundancy and can fail over to a secondary node if an outage occurs or to allow for maintenance activities.
-
 ### Security
 
 Security provides assurances against deliberate attacks and the misuse of your valuable data and systems. For more information, see [Design review checklist for Security](/azure/well-architected/security/checklist).
@@ -143,12 +135,6 @@ Security provides assurances against deliberate attacks and the misuse of your v
 - Database services in Azure support various security options like data encryption at rest.
 
 - For general guidance about how to design more secure solutions, see [Security quick links](/azure/architecture/framework/security/overview).
-
-### Cost Optimization
-
-Cost Optimization focuses on ways to reduce unnecessary expenses and improve operational efficiencies. For more information, see [Design review checklist for Cost Optimization](/azure/well-architected/cost-optimization/checklist).
-
-Use the [Azure pricing calculator](https://azure.microsoft.com/pricing/calculator) to estimate costs for your implementation.
 
 ### Operational Excellence
 
