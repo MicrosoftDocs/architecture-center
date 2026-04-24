@@ -767,7 +767,7 @@ items:
           items:
           - name: Access an AKS API server
             displayName: Azure Kubernetes Service
-            href: guide/security/access-azure-kubernetes-service-cluster-api-server.yml
+            href: guide/security/access-azure-kubernetes-service-cluster-api-server.md
           - name: AKS day-2 operations guide
             items:
             - name: Introduction

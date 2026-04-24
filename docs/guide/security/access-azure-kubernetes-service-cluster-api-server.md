@@ -1,3 +1,17 @@
+---
+title: Access an Azure Kubernetes Service (AKS) API Server
+description: Learn more about how to connect to an Azure Kubernetes Service (AKS) cluster's API server. Possibilities include Azure Bastion, Azure ExpressRoute, and Cloud Shell.
+author: samcogan
+ms.author: samcogan
+ms.date: 04/28/2026
+ms.topic: concept-article
+ms.subservice: architecture-guide
+ms.custom: arb-containers
+
+---
+
+# Access an Azure Kubernetes Service (AKS) API server
+
 This article outlines options for how to connect to the API server of your Azure Kubernetes Service (AKS) cluster. In a standard AKS cluster, the API server is exposed over the internet. In a private AKS cluster, you can only connect to the internet from a device that has network access to the private cluster.
 
 Planning API server access is a day-zero activity, and how you access the server depends on your deployment scenario.
