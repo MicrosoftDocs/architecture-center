@@ -3584,6 +3584,11 @@
       "redirect_document_id": true
     },
     {
+      "source_path": "docs/example-scenario/mainframe/migrate-unisys-dorado-mainframe-apps-with-astadia-micro-focus.yml",
+      "redirect_url": "/azure/architecture/example-scenario/mainframe/general-mainframe-refactor",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "docs/reference-architectures/reliable-web-app/dotnet/pattern-overview.yml",
       "redirect_url": "/azure/architecture/web-apps/guides/reliable-web-app/pattern-overview",
       "redirect_document_id": true
