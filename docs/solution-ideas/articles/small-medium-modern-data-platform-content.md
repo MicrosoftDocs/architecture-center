@@ -42,7 +42,7 @@ As a result, Azure Databricks notebooks can use OneLake endpoints to access the 
 
    - Gold, which stores aggregated data that's useful for business analytics.
 
-1. **Golden data or a data warehouse:** For the golden data or a data warehouse, continue to use Azure Databricks SQL or create a mirroring the Azure Databricks Unity Catalog in Fabric. To enable reporting and analytics on Fabric Lakehouses, create a semantic model explicitly (as Fabric no longer creates default models automatically) and build Power BI dashboards leveraging Direct Lake or DirectQuery for high performance. Fabric Data Warehouse can also be used as the golden layer if analytical requirements require faster compute.
+1. **Golden data or a data warehouse:** For the golden data or a data warehouse, continue to use Azure Databricks SQL or create a mirroring the Azure Databricks Unity Catalog in Fabric. To enable reporting and analytics on Fabric Lakehouse, create a semantic model explicitly and build Power BI dashboards by using Direct Lake or DirectQuery for high performance. For more information, see [Semantic models in Microsoft Fabric](/fabric/fundamentals/semantic-models).
 
 Tools that are used for governance, collaboration, security, performance, and cost monitoring include:
 
