@@ -39,6 +39,8 @@ The following workflow corresponds to the architecture diagram. Each step maps t
 
 - [Azure Log Analytics](/azure/azure-monitor/logs/log-analytics-overview) is a tool for editing and running log queries against data in Azure Monitor Logs. In this solution, it stores execution logs and enables KQL queries to correlate agent behavior and identify conversation-level anomalies.
 
+- [Azure NAT Gateway](/azure/nat-gateway/nat-overview) is a fully managed network address translation service that provides outbound internet connectivity for virtual networks. In this solution, it provides a static outbound IP for agents that call third-party APIs or MCP servers that require a public endpoint.
+
 ## Scenario details
 
 This solution addresses the complexities of building and scaling multi-agent AI systems where the number of agents can grow to hundreds. It provides a flexible orchestration framework that dynamically selects the right agents for each conversation without requiring predefined workflows.
@@ -351,13 +353,10 @@ This is particularly useful for diagnosing latency spikes, identifying network b
 
 ![Observability data flow for agentic systems](../media/ai-agents-at-scale-observability-flow.png)
 
-1. **Instrumentation**: Agents and services are instrumented with OpenTelemetry to emit logs, traces, and metrics.
-2. **Export**: Data flows to **Azure Application Insights** via OpenTelemetry SDKs.
-3. **Storage and querying**:
-   - Logs: Log Analytics (KQL for cross-agent queries)
-   - Traces: Transaction Search and distributed trace view
-   - Metrics: Azure Metrics Explorer
-4. **Visualization and alerting**: Azure Monitor dashboards track real-time performance, with rule-based alerts triggering incident response workflows.
+1. Emit telemetry via OTLP (Instrumentation): Orchestrator, agents, device control, and other services are instrumented using OpenTelemetry SDKs. They emit logs, traces, and metrics via OTLP.
+2. Collect, process & export (Ingestion): Telemetry is sent to the OpenTelemetry Collector, where it flows through receiver, processor, and exporter stages, then is exported to Azure Application Insights.
+3. Route to stores (Storage & Query): Application Insights routes data into dedicated stores — Logs to Log Analytics for KQL querying, Traces for distributed tracing via Trace ID and Span ID, and Metrics to the metrics store for system and business monitoring.
+4. Visualize & alert (Visualization & Alerting): Dashboards, alerts, and workbooks provide real-time visibility and trigger incident response workflows.
 
 A single trace ID flows through the entire conversation lifecycle, from the initial request to the orchestrator, through agent invocations, function tool calls, and external API services. Each component creates child spans under the parent trace, allowing you to reconstruct the complete execution path and identify where latency or errors occurred across agents and auxiliary services.
 
