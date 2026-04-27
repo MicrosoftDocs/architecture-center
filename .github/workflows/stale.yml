@@ -32,7 +32,7 @@ jobs:
 
             Resources:
 
-            - [Get Help](https://learn.microsoft.com/help/platform/help-options) *(if 404, sign in)* 
+            - [Get Help](https://learn.microsoft.com/help/platform/help-options) *(if 404, sign in)*
             - [Resolve Merge Conflicts](https://learn.microsoft.com/help/contribute/resolve-merge-conflicts) *(if 404, sign in)*
             - [Microsoft Learn Support Teams Channel](https://teams.microsoft.com/l/channel/19%3a7ecffca1166a4a3986fed528cf0870ee%40thread.skype/General?groupId=de9ddba4-2574-4830-87ed-41668c07a1ca&tenantId=72f988bf-86f1-41af-91ab-2d7cd011db47)
 
