@@ -100,7 +100,7 @@ This architecture outlines the process of migrating mainframe file data to cloud
 
 ### Alternatives
 
-Besides native services like Host Integration Server and LogicApp IBM Host connector, Open-source file conversion libraries can be used to convert EBCDIC mainframe files to ASCII or Unicode. This method, however, needs more orchestration and management than Azure's native solutions.
+Besides native services like Host Integration Server and Logic Apps IBM Host connector, open-source file conversion libraries can be used to convert EBCDIC mainframe files to ASCII or Unicode. This method, however, needs more orchestration and management than Azure's native solutions.
 
 ## Scenario details
 

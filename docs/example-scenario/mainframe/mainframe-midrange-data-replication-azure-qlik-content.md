@@ -109,7 +109,7 @@ This solution might be appropriate for:
 
 - Data replication from various on-premises data stores to Azure for consolidation and analysis.
 
-- Organizations implementing phased migrations and require bi-directional data replication to ensure data consistency.
+- Organizations implementing phased migrations that require bi-directional data replication to ensure data consistency.
 
 ## Considerations
 
