@@ -19,7 +19,7 @@ The following workflow corresponds to the preceding diagram.
 1. A hub-spoke network topology has a hub virtual network that peers to each resource virtual network, also called a *spoke*. All traffic goes through Azure Firewall for traffic inspection.
 
 1. An Azure Blob Storage account denies public internet access. It allows access through private endpoints or virtual network rules for the private application path. A [resource instance rule](/azure/storage/common/storage-network-security#grant-access-from-azure-resource-instances) also allows a chosen Azure IoT Hub service to connect through a managed identity. The Blob Storage account only supports Azure role-based access control (Azure RBAC) for data plane access.
-1. The application gateway uses a custom domain name that's configured in DNS and terminates Transport Layer Security (TLS) traffic. It resides within a virtual network. This virtual network peers with the virtual network that hosts the Blob Storage account's private endpoint. A forced tunnel through the hub virtual network establishes the connection.
+1. The application gateway uses a custom domain name that's configured in DNS and terminates Transport Layer Security (TLS) traffic. Enforce TLS 1.2 or later on the Application Gateway listener. It resides within a virtual network. This virtual network peers with the virtual network that hosts the Blob Storage account's private endpoint. A forced tunnel through the hub virtual network establishes the connection.
 1. The IoT client device that uses the IoT Hub SDK requests a shared access signature (SAS) URI for file uploads to IoT Hub. The IoT client device sends the request through the public internet.
 1. IoT Hub handles this request for the device. It connects directly to the Blob Storage account via managed identity authentication, which has *Storage Blob Data Contributor* permissions for user-delegation key requests.
 
@@ -34,7 +34,7 @@ The following workflow corresponds to the preceding diagram.
 
 ### Components
 
-- [Application Gateway](https://azure.microsoft.com/products/application-gateway) is a platform as a service (PaaS)-managed solution that you can use to build highly secure, scalable, and highly available front ends. In this architecture, Application Gateway handles the incoming internet HTTPS traffic, applies TLS termination, negotiates TLS with the Blob Storage account, and forwards traffic through a private network to the Blob Storage account.
+- [Application Gateway](https://azure.microsoft.com/products/application-gateway) is a platform as a service (PaaS)-managed solution that you can use to build highly secure, scalable, and highly available front ends. In this architecture, Application Gateway handles the incoming internet HTTPS traffic, applies TLS termination, negotiates TLS with the Blob Storage account, and forwards traffic through a private network to the Blob Storage account. Use the [WAF v2 SKU](/azure/web-application-firewall/ag/ag-overview) for the public listener, and configure the managed OWASP Core Rule Set in the associated WAF policy.
 
 - [Azure Firewall](https://azure.microsoft.com/products/azure-firewall) provides protection for your Azure Virtual Network resources. In this architecture, Azure Firewall filters and routes traffic between the perimeter network and spoke networks.
 - [IoT Hub](https://azure.microsoft.com/products/iot-hub/) is a PaaS-managed solution that acts as a central message hub for bidirectional communication between an IoT application and the devices that it manages. In this architecture, IoT Hub is the central endpoint that IoT client devices connect to for control and data plane operations.
@@ -42,7 +42,7 @@ The following workflow corresponds to the preceding diagram.
 - [Storage](https://azure.microsoft.com/products/category/storage) offers a durable, highly available, and massively scalable cloud storage solution. It includes object, file, disk, queue, and table storage capabilities. In this architecture, devices use Blob Storage to upload files to the cloud via short-lived SAS tokens that IoT Hub provides through user delegation.
 - [Private DNS zones](/azure/dns/private-dns-overview) provide a reliable, enhanced-security DNS service to manage and resolve domain names in a virtual network without the need for a custom DNS solution. In this architecture, a private DNS zone provides a private DNS entry for Blob Storage so that the Storage blob endpoint translates to its private IP endpoint within the network.
 - [Virtual Network](https://azure.microsoft.com/products/virtual-network/) is the fundamental building block for your private network in Azure. This service enables many types of Azure resources, such as Azure virtual machines, to communicate with each other, the internet, and on-premises networks with enhanced security. This architecture uses Virtual Network to build a private network topology, which avoids internet public endpoints for Azure-based services.
-- [Azure Key Vault](/azure/key-vault/general/overview) stores the TLS certificate that Application Gateway presents on the custom-domain listener. In this architecture, Key Vault is fronted by a [Private Endpoint](/azure/key-vault/general/private-link-service) and uses Azure RBAC for access, which avoids public network access with an IP exception.
+- [Azure Key Vault](/azure/key-vault/general/overview) provides secure storage for secrets, keys, and certificates. In this architecture, Key Vault stores the TLS certificate, such as a wildcard or custom-domain certificate, that Application Gateway presents on the custom-domain listener. Key Vault is fronted by a [Private Endpoint](/azure/key-vault/general/private-link-service) and uses Azure RBAC for access, which avoids public network access with an IP exception.
 
 ## Scenario details
 
@@ -56,6 +56,8 @@ Application Gateway acts as the entry point for requests that go to the private 
 
 If you have internal security requirements to use private endpoints for many Azure PaaS services, you can implement this scenario to provide shorter validation cycles to deploy your IoT solutions in production.
 
+This solution uses Azure IoT Hub and standard device SDKs. It isn't an IoT Edge or Azure IoT Operations pattern. For Arc-enabled edge scenarios, evaluate [Azure IoT Operations](/azure/iot-operations/overview-iot-operations).
+
 ### Potential use cases
 
 This architecture can apply to any scenario that uses devices that need to communicate with a Storage account that isn't exposed publicly.
@@ -68,18 +70,7 @@ If you don't require the hub-spoke network topology that has Azure Firewall traf
 
 The benefits of a simplified architecture include reduced complexity and cost. If you don't have specific business or enterprise requirements for a hub-spoke topology, use the simplified architecture to eliminate public internet endpoints from the Storage account. This approach also helps ensure that IoT applications that use the IoT Hub file upload functionality work correctly.
 
-## Recommendations
-
-Use the following current-baseline configurations when you build this pattern:
-
-- Enforce TLS 1.2 or later on IoT Hub and on the Application Gateway listener. IoT Hub retired TLS 1.0, TLS 1.1, and legacy cipher suites on August 31, 2025. For more information, see [TLS support in IoT Hub](/azure/iot-hub/iot-hub-tls-support).
-- On IoT client devices, trust [DigiCert Global Root G2](/azure/iot-hub/migrate-tls-certificate) and include Microsoft RSA Root CA 2017 to align with the current IoT Hub certificate chain.
-- IoT hubs that you create in November 2025 or later use the Azure Device Registry generation. Existing hubs remain on the legacy generation and you can't upgrade them in place. This pattern applies to both generations, but device SDK and identity flows differ on the Azure Device Registry generation. For more information, see the [IoT Hub FAQ](/azure/iot-hub/iot-hub-faq).
-- Use [Azure Application Gateway WAF v2](/azure/web-application-firewall/ag/ag-overview) for the public listener, and configure the managed OWASP Core Rule Set in the associated WAF policy.
-- To eliminate the public IP on Application Gateway, expose the front end over [Application Gateway Private Link](/azure/application-gateway/private-link) to peered or consumer virtual networks.
-- If you use Key Vault to issue or store the Application Gateway certificate, front Key Vault with a [Private Endpoint](/azure/key-vault/general/private-link-service) and grant access through Azure RBAC instead of through public network access with an IP exception.
-
-This solution uses Azure IoT Hub and standard device SDKs. It isn't an IoT Edge or Azure IoT Operations pattern. For Arc-enabled edge scenarios, evaluate [Azure IoT Operations](/azure/iot-operations/overview-iot-operations).
+To eliminate the public IP on Application Gateway, you can expose the front end over [Application Gateway Private Link](/azure/application-gateway/private-link) to peered or consumer virtual networks.
 
 ## Contributors
 
