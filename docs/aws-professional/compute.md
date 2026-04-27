@@ -29,6 +29,7 @@ Virtual machines (VMs) and servers allow users to deploy, manage, and maintain O
 
 | AWS service | Azure service | Description |
 | ----------- | ------------- | ----------- |
+| [Amazon Lightsail](https://aws.amazon.com/lightsail/) | [Azure Virtual Machines](https://learn.microsoft.com/azure/virtual-machines/sizes-b-series-burstable) (B-series) / [Azure App Service](https://learn.microsoft.com/azure/app-service/overview) | Amazon Lightsail provides simplified, predictably-priced VMs with pre-configured application stacks. Azure doesn't have a dedicated equivalent, but similar outcomes can be achieved with Azure App Service (for web apps) or Azure Virtual Machines using B-series burstable sizes and Marketplace images. |
 | [Amazon EC2 Instance Types](https://aws.amazon.com/ec2/instance-types) | [Azure Virtual Machines](https://azure.microsoft.com/services/virtual-machines) | AWS and Azure on-demand VMs bill per seconds used. Although AWS instance types and Azure VM sizes have similar categories, the exact RAM, CPU, and storage capabilities differ. For more information about Azure VM sizes, see [Azure VM sizes](/azure/virtual-machines/sizes).|
 | [AWS Parallel Cluster](https://aws.amazon.com/hpc/parallelcluster) | [Azure CycleCloud](https://azure.microsoft.com/features/azure-cyclecloud) | Create, manage, operate, and optimize HPC and large compute clusters of any scale. |
 
@@ -43,6 +44,15 @@ Autoscaling lets you automatically change the number of VM instances. You set de
 | [AWS Auto Scaling](https://aws.amazon.com/autoscaling) | [Virtual machine scale sets](/azure/virtual-machine-scale-sets/overview), [App Service autoscale](/azure/app-service/web-sites-scale)| In Azure, virtual machine scale sets let you deploy and manage identical sets of VMs. The number of sets can autoscale. App Service autoscale lets you autoscale Azure App Service applications.|
 
 [View all the autoscaling architectures](/azure/architecture/browse/?expanded=azure&products=azure-vm-scalesets)
+
+### Resource optimization recommendations
+
+Resource optimization services analyze usage telemetry and configuration to recommend right-sizing, idle-resource detection, and cost-saving actions.
+
+| AWS service | Azure service | Description |
+| --- | --- | --- |
+| [AWS Compute Optimizer](https://aws.amazon.com/compute-optimizer/) | [Azure Advisor](https://learn.microsoft.com/azure/advisor/advisor-overview) (Cost category) | Both services analyze usage metrics to recommend right-sizing for compute resources. AWS Compute Optimizer focuses on EC2, Auto Scaling groups, EBS volumes, Lambda functions, ECS services on Fargate, and RDS. Azure Advisor provides cost, performance, reliability, security, and operational recommendations across VMs, VM scale sets, and most Azure services. |
+| [AWS Trusted Advisor](https://aws.amazon.com/premiumsupport/technology/trusted-advisor/) | [Azure Advisor](https://learn.microsoft.com/azure/advisor/advisor-overview) | Trusted Advisor provides checks across cost optimization, security, performance, fault tolerance, and service limits. Azure Advisor covers the same pillars in a single integrated experience. |
 
 ### Batch processing
 
@@ -60,9 +70,9 @@ Several services provide different types of data storage for VM disks.
 
 | AWS service | Azure service | Description |
 | ----------- | ------------- | ----------- |
-|Disk volumes on [Amazon Elastic Block Store (EBS)](https://aws.amazon.com/ebs)| Data disks in [Azure Blob Storage](https://azure.microsoft.com/services/storage/blobs).|[Data disks](/azure/virtual-machines/linux/managed-disks-overview) in blob storage provide durable data storage for Azure VMs. This storage is similar to AWS EC2 instance disk volumes on EBS.|
-|[Amazon EC2 instance store](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/InstanceStorage.html)|[Azure temporary storage](/archive/blogs/mast/understanding-the-temporary-drive-on-windows-azure-virtual-machines)|Azure temporary storage provides VMs with similar low-latency temporary read-write storage to EC2 instance storage, also called ephemeral storage.|
-|[Amazon EBS Provisioned IOPS Volume](https://aws.amazon.com/ebs/provisioned-iops)|[Azure premium storage](/azure/virtual-machines/premium-storage-performance)|Azure supports higher performance disk I/O with premium storage. This storage is similar to AWS Provisioned IOPS storage options.|
+| [Amazon Elastic Block Store (EBS)](https://aws.amazon.com/ebs) | [Azure Managed Disks](https://learn.microsoft.com/azure/virtual-machines/managed-disks-overview) | Azure Managed Disks provide persistent block-level storage for Azure VMs, similar to EBS for EC2. Available tiers include Standard HDD, Standard SSD, Premium SSD, Premium SSD v2, and Ultra Disk, comparable to EBS volume types (gp2, gp3, io1, io2, st1, sc1). |
+| [Amazon EC2 instance store](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/InstanceStorage.html) | [Azure VM local/temporary disks](https://learn.microsoft.com/azure/virtual-machines/enable-nvme-temp-faqs) | Azure VMs whose size includes a local disk (typically SKUs with a 'd' in their name, such as the Ddsv5 or Ddsv6 series) provide local NVMe or SSD storage for low-latency temporary data, similar to EC2 instance store. Local storage is non-persistent and is lost when the VM is deallocated or relocated. |
+| [Amazon EBS Provisioned IOPS](https://aws.amazon.com/ebs/provisioned-iops) (io1/io2, io2 Block Express, gp3) | [Premium SSD, Premium SSD v2, and Ultra Disk](https://learn.microsoft.com/azure/virtual-machines/disks-types) | Azure offers several high-performance managed disk tiers. Premium SSD v2 allows IOPS and throughput to be configured independently from capacity (comparable to EBS gp3). Ultra Disk provides sub-millisecond latency and up to 400,000 IOPS per disk for the most demanding workloads (comparable to EBS io2 Block Express). |
 |[Amazon Elastic File System (EFS)](https://aws.amazon.com/efs)|[Azure Files](/azure/storage/files/storage-files-introduction)|Azure Files provides VMs with similar functionality to Amazon EFS.|
 
 [View all the storage architectures](/azure/architecture/browse/?expanded=azure&azure_categories=storage)
@@ -77,7 +87,7 @@ Several AWS and Azure services provide containerized application deployment and 
 | [AWS Fargate](https://aws.amazon.com/fargate) | [Azure Container Instances](/azure/container-instances/container-instances-overview), [Azure Container Apps](https://azure.microsoft.com/products/container-apps/) | Fargate is a serverless compute engine that provides compute capacity for Amazon ECS tasks and Amazon EKS pods. [Azure Container Instances](/azure/container-instances/container-instances-overview) provides on-demand serverless container compute and integrates with AKS through [virtual nodes](/azure/aks/virtual-nodes). Azure Container Apps also provides serverless infrastructure management with higher-level orchestration features. |
 | [Amazon Elastic Container Registry (Amazon ECR)](https://aws.amazon.com/ecr) | [Azure Container Registry](https://azure.microsoft.com/services/container-registry) | Container registries store Docker formatted images and create all types of container deployments in the cloud. |
 | [Amazon Elastic Kubernetes Service (EKS)](https://aws.amazon.com/eks) | [Azure Kubernetes Service (AKS)](https://azure.microsoft.com/services/kubernetes-service) | EKS and AKS let you orchestrate Docker containerized application deployments with Kubernetes. AKS simplifies monitoring and cluster management through auto upgrades and a built-in operations console. See [Container runtime configuration](/azure/aks/concepts-clusters-workloads#container-runtime-configuration) for specifics on the hosting environment.|
-| [AWS App Mesh](https://aws.amazon.com/app-mesh) | [Istio add-on for AKS](/azure/aks/istio-about)| The Istio add-on for AKS provides a fully-supported integration of the open-source Istio service mesh. |
+| [AWS App Mesh](https://aws.amazon.com/app-mesh) (scheduled for end of support on September 30, 2026) / [Amazon ECS Service Connect](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/service-connect.html) / [Amazon VPC Lattice](https://aws.amazon.com/vpc/lattice/) | [Istio add-on for AKS](https://learn.microsoft.com/azure/aks/istio-about) | A service mesh provides traffic management, observability, and security for microservices communication. The Istio add-on for AKS provides a fully supported integration of the open-source Istio service mesh. AWS App Mesh is no longer accepting new customers and is scheduled for retirement on September 30, 2026; AWS recommends ECS Service Connect, VPC Lattice, or direct ALB routing as replacements. |
 
 #### Example container architectures
 
@@ -89,13 +99,36 @@ Several AWS and Azure services provide containerized application deployment and 
 
 [View all the container architectures](/azure/architecture/browse/?azure_categories=containers)
 
+### Platform as a Service (PaaS) for web apps and APIs
+
+PaaS services let you deploy web apps, APIs, and mobile back ends without managing the underlying infrastructure.
+
+| AWS service | Azure service | Description |
+| --- | --- | --- |
+| [AWS Elastic Beanstalk](https://aws.amazon.com/elasticbeanstalk/) | [Azure App Service](https://learn.microsoft.com/azure/app-service/overview) | Both services provide fully managed hosting for web apps and APIs written in common runtimes (.NET, Java, Node.js, Python, PHP, Ruby). They handle capacity provisioning, load balancing, autoscaling, and health monitoring. |
+| [AWS App Runner](https://aws.amazon.com/apprunner/) | [Azure App Service (Linux container)](https://learn.microsoft.com/azure/app-service/configure-custom-container) / [Azure Container Apps](https://learn.microsoft.com/azure/container-apps/) | AWS App Runner automatically deploys containerized web apps and APIs from a source repository or container image. Azure provides equivalent capability through App Service for Linux containers or Azure Container Apps for a container-first serverless experience. |
+| [AWS Amplify Hosting](https://aws.amazon.com/amplify/hosting/) | [Azure Static Web Apps](https://learn.microsoft.com/azure/static-web-apps/overview) | Managed hosting for modern front-end web apps with built-in CI/CD from Git, global distribution, and serverless API integration. |
+
+### Hybrid and edge compute
+
+Services that extend cloud infrastructure and management to on-premises, edge, and customer-owned locations.
+
+| AWS service | Azure service | Description |
+| --- | --- | --- |
+| [AWS Outposts](https://aws.amazon.com/outposts/) (rack and servers) | [Azure Local](https://learn.microsoft.com/azure/azure-local/) (formerly Azure Stack HCI) | Both deliver cloud-managed, on-premises infrastructure for low-latency workloads and data-residency requirements. Azure Local provides a validated HCI platform managed through the Azure portal. |
+| [AWS Systems Manager](https://aws.amazon.com/systems-manager/) for non-AWS resources | [Azure Arc](https://learn.microsoft.com/azure/azure-arc/) | Azure Arc extends Azure management and services (policy, monitoring, RBAC, GitOps) to servers, Kubernetes clusters, and data services running anywhere — on-premises, multicloud, or edge. |
+| [AWS Wavelength](https://aws.amazon.com/wavelength/) | [Azure Private MEC](https://learn.microsoft.com/azure/private-multi-access-edge-compute-mec/) / Azure public MEC | Edge compute for 5G and ultra-low-latency mobile workloads, delivered in partnership with telecom carriers. |
+| [AWS Local Zones](https://aws.amazon.com/about-aws/global-infrastructure/localzones/) | [Azure Edge Zones](https://learn.microsoft.com/azure/extended-zones/overview) | Extensions of cloud regions that place compute and storage closer to end users in metropolitan areas for latency-sensitive workloads. |
+
 ### Serverless computing
 
 Serverless computing lets you integrate systems and run backend processes without provisioning or managing servers.
 
 | AWS service | Azure service | Description |
 | ----------- | ------------- | ----------- |
-| [AWS Lambda](https://aws.amazon.com/lambda) | [Azure Functions](https://azure.microsoft.com/services/functions), [WebJobs](/azure/app-service/web-sites-create-web-jobs) in Azure App Service| Azure Functions is the primary equivalent of AWS Lambda in providing serverless, on-demand code. AWS Lambda functionality also overlaps with Azure WebJobs, which let you schedule or continuously run background tasks.|
+| [AWS Lambda](https://aws.amazon.com/lambda) | [Azure Functions](https://learn.microsoft.com/azure/azure-functions/functions-overview) | Both provide serverless, event-driven code execution with pay-per-execution pricing and automatic scaling. |
+| [AWS Step Functions](https://aws.amazon.com/step-functions/) | [Azure Durable Functions](https://learn.microsoft.com/azure/azure-functions/durable/durable-functions-overview) / [Azure Logic Apps](https://learn.microsoft.com/azure/logic-apps/logic-apps-overview) | Durable Functions extend Azure Functions with stateful workflows written in code. Logic Apps provides a low-code visual designer for workflow orchestration across SaaS and on-premises services. |
+| [AWS EventBridge](https://aws.amazon.com/eventbridge/) | [Azure Event Grid](https://learn.microsoft.com/azure/event-grid/overview) | Managed event routing for event-driven architectures. |
 
 #### Example serverless architectures
 
