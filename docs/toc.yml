@@ -1106,7 +1106,7 @@ items:
         href: guide/iot/scale-iot-solution-azure.md
       - name: Move IoT Hub solutions to production
         displayName: Internet of Things
-        href: example-scenario/iot/iot-move-to-production.yml
+        href: example-scenario/iot/iot-move-to-production.md
       - name: Multitenant IoT Hub-based solutions
         displayName: Internet of Things
         href: guide/multitenant/approaches/iot.md
