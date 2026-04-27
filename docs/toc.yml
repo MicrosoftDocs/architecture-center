@@ -941,8 +941,12 @@ items:
           href: solution-ideas/articles/secure-sql-managed-instance-managed-hardware-security-module.yml
       - name: NoSQL
         items:
-        - name: Minimal storage – change feed replication
+        - name: Minimal storage - change feed replication
           href: databases/idea/minimal-storage-change-feed-replicate-data.yml
+      - name: Mainframe
+        items:
+        - name: Replicate and sync mainframe data
+          href: reference-architectures/migration/sync-mainframe-data-with-azure.yml
   - name: DevOps
     items:
     - name: Get started
