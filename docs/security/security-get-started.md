@@ -12,15 +12,15 @@ ai-usage: ai-assisted
 
 # Get started with security architecture design
 
-Security is one of the most important aspects of any architecture. Strong security provides confidentiality, integrity, and availability assurances against deliberate attacks and abuse of your valuable data and systems.
+Security is one of the most important aspects of any architecture. Effective security measures protect the confidentiality, integrity, and availability of your data and systems from deliberate attacks and abuse.
 
 Azure provides many security tools and capabilities, including the following key services:
 
-- [Microsoft Defender for Cloud](/azure/defender-for-cloud/defender-for-cloud-introduction) provides cloud security posture management (CSPM) and cloud workload protection (CWPP). It assesses your resources for security compliance, provides a secure score to track your posture, and offers threat protection across Azure, on-premises, and multicloud workloads.
+- [Microsoft Defender for Cloud](/azure/defender-for-cloud/defender-for-cloud-introduction) provides cloud security posture management (CSPM) and cloud workload protection (CWP). It assesses your resources for security compliance, provides a secure score to track your posture, and offers threat protection across Azure, on-premises, and multicloud workloads.
 
-- [Microsoft Entra ID](/entra/fundamentals/what-is-entra) is the Microsoft cloud-based identity and access management service. It provides single sign-on, multifactor authentication, and conditional access to guard against identity-based attacks.
+- [Microsoft Entra ID](/entra/fundamentals/what-is-entra) is the Microsoft cloud-based identity and access management service. It provides single sign-on (SSO), multifactor authentication, and conditional access to guard against identity-based attacks.
 
-- [Azure Front Door](/azure/frontdoor/front-door-overview) is a global entry point for web applications that includes a built-in web application firewall (WAF) to protect against common exploits and vulnerabilities, DDoS protection, and Transport Layer Security (TLS) termination at the edge.
+- [Azure Front Door](/azure/frontdoor/front-door-overview) is a global entry point for web applications. It provides a built-in web application firewall (WAF) to protect against common exploits and vulnerabilities, DDoS protection, and Transport Layer Security (TLS) termination at the edge.
 
 - [Azure Firewall](/azure/firewall/overview) is a cloud-native network firewall that supports threat intelligence-based filtering, intrusion detection and prevention (IDPS) in the Premium tier, TLS inspection, and fully qualified domain name (FQDN)-based rules.
 
@@ -28,7 +28,7 @@ Azure provides many security tools and capabilities, including the following key
 
 - [Azure Private Link](/azure/private-link/private-link-overview) enables you to access Azure platform as a service (PaaS) solutions over a private endpoint in your virtual network. This approach keeps traffic on the Microsoft backbone network and eliminates exposure to the public internet.
 
-- [Azure Application Gateway](/azure/application-gateway/overview) is a regional web traffic load balancer with an integrated WAF that protects against Open Worldwide Application Security Project (OWASP) top-10 vulnerabilities, bot mitigation, and custom rules.
+- [Azure Application Gateway](/azure/application-gateway/overview) is a regional web traffic load balancer that includes a WAF that protects against the Open Worldwide Application Security Project (OWASP) Top 10 vulnerabilities, bot mitigation, and custom rules.
 
 - [Azure Policy](/azure/governance/policy/overview) enables you to enforce organizational standards, assess compliance at scale, and apply guardrails that prevent noncompliant resource configurations.
 
@@ -37,10 +37,10 @@ For more information about Azure security tools and capabilities, see [End-to-en
 ## Architecture
 
 :::image type="complex" source="images/security-get-started-diagram.svg" alt-text="Diagram that shows a baseline security implementation on Azure." border="false" lightbox="images/security-get-started-diagram.svg":::
-On the left, users (User, Admin, and Developer) connect to Azure. The center shows a security hub virtual network that contains Azure Firewall Premium in its own subnet, a VPN Gateway in a VPN Gateway subnet, Azure Bastion in an Azure Bastion subnet, and Azure DDoS Protection. This hub connects to a workload spoke virtual network on the right, which contains a three-tier application architecture: an Application Gateway subnet with AppGw (WAF), a front-end tier subnet with two VMs protected by ASGs and an NSG, an app tier subnet with two VMs protected by ASGs and an NSG, and a data tier subnet with two VMs protected by ASGa and an NSG. Dotted lines in the spoke indicate access to the requested VM through the security layers. Below the hub-and-spoke architecture, the Azure storage services section contains Azure Blob Storage and Azure Files. To the right, common (PaaS) services section includes Microsoft Entra ID, Microsoft Defender for Cloud, RBAC, Azure Monitor, and Azure Key Vault. At the bottom, an on-premises datacenter section shows a router, admin users, AD DS, Microsoft Entra Connect, and an on-premises app. Arrows throughout the diagram illustrate traffic flows and secure connectivity paths between all components.
+On the left, users (User, Admin, and Developer) connect to Azure. The center shows a security hub virtual network that contains Azure Firewall Premium in its own subnet, a VPN Gateway in a VPN Gateway subnet, Azure Bastion in an Azure Bastion subnet, and Azure DDoS Protection. This hub connects to a workload spoke virtual network on the right, which contains a three-tier application architecture. The application architecture consists of an Application Gateway subnet with AppGw (WAF), a front-end tier subnet with two VMs protected by ASGs and an NSG, an app tier subnet with two VMs protected by ASGs and an NSG, and a data tier subnet with two VMs protected by ASGa and an NSG. Dotted lines in the spoke indicate access to the requested VM through the security layers. Below the hub-and-spoke architecture, the Azure storage services section contains Azure Blob Storage and Azure Files. To the right, common PaaS services section includes Microsoft Entra ID, Microsoft Defender for Cloud, RBAC, Azure Monitor, and Azure Key Vault. At the bottom, an on-premises datacenter section shows a router, admin users, AD DS, Microsoft Entra Connect, and an on-premises app. Arrows throughout the diagram illustrate traffic flows and secure connectivity paths between all components.
 :::image-end:::
 
-*Download a [Visio file]() of this architecture.*
+*Download a [Visio file](https://arch-center.azureedge.net/security-get-started-diagram.vsdx) of this architecture.*
 
 The previous diagram demonstrates a typical baseline security implementation. The architecture shows how Azure security services work together to protect workloads across identity, networking, data, and application layers. For real-world solutions that you can build in Azure, see [Example solutions](#example-solutions).
 
@@ -82,7 +82,7 @@ Microsoft Learn offers role-based certification paths for security professionals
 
 ## Organizational readiness
 
-Organizations that start their cloud adoption can use the [Cloud Adoption Framework for Azure](/azure/cloud-adoption-framework/) to access proven guidance that accelerates cloud adoption. The Cloud Adoption Framework [Secure methodology](/azure/cloud-adoption-framework/secure/overview) provides a structured approach for securing your Azure cloud estate, covering security across strategy, planning, readiness, adoption, governance, and operations. For cloud-scale security guidance, see [Cloud-scale analytics](/azure/cloud-adoption-framework/scenarios/cloud-scale-analytics).
+Organizations that start their cloud adoption can use the [Cloud Adoption Framework for Azure](/azure/cloud-adoption-framework/) to access proven guidance that accelerates cloud adoption. The Cloud Adoption Framework [Secure methodology](/azure/cloud-adoption-framework/secure/overview) provides a structured approach for securing your Azure cloud estate. It provides security guidance across strategy, planning, readiness, adoption, governance, and operations.
 
 Azure governance establishes the tooling needed to support cloud governance, compliance auditing, and automated guardrails. For more information, see [Azure governance design area guidance](/azure/cloud-adoption-framework/ready/landing-zone/design-area/governance).
 
@@ -121,7 +121,7 @@ To stay current with key security services, see the following articles:
 - [What's new for Azure Key Vault](/azure/key-vault/general/whats-new)
 - [What's new in Microsoft Sentinel](/azure/sentinel/whats-new)
 - [What's new in Azure Firewall](https://azure.microsoft.com/updates?filters=%5B%22Azure+Firewall%22%5D)
-- [What's new in Azure Application Gateway](/azure/application-gateway/whats-new)
+- [What's new in Azure Application Gateway](/azure/application-gateway/overview#whats-new)
 
 ## Other resources
 
