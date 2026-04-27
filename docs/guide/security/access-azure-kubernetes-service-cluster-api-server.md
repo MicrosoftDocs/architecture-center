@@ -46,9 +46,9 @@ There are several ways to connect to an AKS private cluster. Planning access is 
 
 - **Azure Container Instances and an [OpenSSH-compatible client](https://docs.linuxserver.io/images/docker-openssh-server):** Deploy a container instance that runs a Secure Shell (SSH) server, and then use your OpenSSH-compatible client to access the container. This container serves as a jump box within your network to reach your private cluster.
 
-- **[Azure Bastion](/azure/bastion/bastion-overview):** Use Azure Bastion to establish more secure, browser-based remote access to your VMs or jump boxes within your Azure virtual network. This access lets you more safely connect to private endpoints like your AKS API server. Azure Bastion also provides a native client tunneling feature (preview) that allows direct connection to AKS private clusters without requiring a jump box.
+- **[Azure Bastion](/azure/bastion/bastion-overview):** Use Azure Bastion to establish more secure, browser-based remote access to your VMs or jump boxes within your Azure virtual network. With this access, you can more safely connect to private endpoints like your AKS API server. Azure Bastion also provides a native client tunneling feature (preview) that allows direct connection to AKS private clusters without requiring a jump box.
 
-- **[Virtual private network (VPN)](/azure/vpn-gateway/vpn-gateway-about-vpngateways):** Create a secure VPN connection that extends your on-premises or remote network into your virtual network. This connection lets you access your private cluster like you're locally connected.
+- **[Virtual private network (VPN)](/azure/vpn-gateway/vpn-gateway-about-vpngateways):** Create a secure VPN connection that extends your on-premises or remote network into your virtual network. With this connection, you can access your private cluster as if you were connected locally.
 
 - **[Azure ExpressRoute](/azure/expressroute/expressroute-introduction):** Use ExpressRoute to build a dedicated, private connection between your on-premises network and Azure. This connection helps ensure more secure and reliable access to your private cluster without using the public internet.
 
@@ -120,7 +120,7 @@ If you can't connect to your private cluster:
 
 ### Azure Bastion native client tunneling
 
-You can use native client tunneling to connect directly to AKS private clusters without a jump box. This approach provides persistent, long-running access and lets you use your own native client tooling locally.
+You can use native client tunneling to connect directly to AKS private clusters without a jump box. This approach supports persistent, long-running access and keeps your native client tooling working from your local machine.
 
  > [!IMPORTANT]
  > This feature is in preview. AKS preview features are available on a self-service, opt-in basis. Microsoft provides previews *as-is* and *as available*, and they aren't included in service-level agreements (SLAs) or limited warranty. Customer support provides partial, best-effort coverage for AKS previews, so these features aren't suitable for production. For more information, see the following support articles:
@@ -241,7 +241,7 @@ You can also use Microsoft Copilot in Azure to run `kubectl` commands. For more 
 
 ## Connect Cloud Shell to a subnet
 
-When you deploy Cloud Shell into a virtual network that you control, you can interact with resources inside that network. Deploying Cloud Shell into a subnet that you manage enables connectivity to the API server of an AKS private cluster. This deployment lets you connect to the private cluster. For more information, see [Deploy Cloud Shell into an Azure virtual network](/azure/cloud-shell/private-vnet).
+When you deploy Cloud Shell into a virtual network that you control, you can interact with resources inside that network. Deploying Cloud Shell into a subnet that you manage enables connectivity to the API server of an AKS private cluster. With this deployment, you can connect directly to the private cluster. For more information, see [Deploy Cloud Shell into an Azure virtual network](/azure/cloud-shell/private-vnet).
 
 > [!NOTE]
 > Cloud Shell deployed into a virtual network isn't supported for AKS Automatic clusters or clusters that have NRG lockdown.
