@@ -1267,12 +1267,12 @@ items:
           href: example-scenario/file-storage/sql-server-azure-netapp-files.yml
       - name: Hybrid file services
         href: hybrid/hybrid-file-services.yml
-      - name: Mainframe
-        items:
-        - name: Mainframe file replication on Azure
-          href: solution-ideas/articles/mainframe-azure-file-replication.yml
-        - name: Move mainframe archive data to Azure
-          href: example-scenario/mainframe/move-archive-data-mainframes.yml
+      - name: Move mainframe archive data to Azure
+        href: example-scenario/mainframe/move-archive-data-mainframes.yml
+    - name: Solution Ideas
+      items:
+      - name: Mainframe file replication on Azure
+        href: solution-ideas/articles/mainframe-azure-file-replication.yml
   - name: Virtual Desktop
     items:
     - name: Get started

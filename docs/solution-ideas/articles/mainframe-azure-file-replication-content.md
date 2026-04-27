@@ -120,36 +120,6 @@ On-premises file replication and synchronization are essential for various use c
 
 - Microsoft Fabric enables T‑SQL–based, read‑only analytics and reporting on large mainframe datasets migrated to OneLake or ADLS Gen2 via its SQL Analytics Endpoint.
 
-## Considerations
-
-These considerations implement the pillars of the Azure Well-Architected Framework, which is a set of guiding tenets that you can use to improve the quality of a workload. For more information, see [Well-Architected Framework](/azure/well-architected/).
-
-### Security
-
-Security provides assurances against deliberate attacks and the misuse of your valuable data and systems. For more information, see [Design review checklist for Security](/azure/well-architected/security/checklist).
-
-- ExpressRoute creates a private connection to Azure from an on-premises environment. You can also use site-to-site VPN.
-
-- Microsoft Entra ID can authenticate resources and control access by using Azure role-based access control.
-
-- Database services in Azure support various security options like data encryption at rest.
-
-- For general guidance about how to design more secure solutions, see [Security quick links](/azure/architecture/framework/security/overview).
-
-### Operational Excellence
-
-Operational Excellence covers the operations processes that deploy an application and keep it running in production. For more information, see [Design review checklist for Operational Excellence](/azure/well-architected/operational-excellence/checklist).
-
-This scenario uses Azure Monitor and Application Insights to monitor the health of the Azure resources. You can set alerts for proactive management.
-
-### Performance Efficiency
-
-Performance Efficiency refers to your workload's ability to scale to meet user demands efficiently. For more information, see [Design review checklist for Performance Efficiency](/azure/well-architected/performance-efficiency/checklist).
-
-- This architecture uses Azure PaaS services like App Service, which has autoscaling capabilities.
-
-- For more information, see [Autoscaling](../../best-practices/auto-scaling.md).
-
 ## Contributors
 
 *Microsoft maintains this article. The following contributors wrote this article.*
