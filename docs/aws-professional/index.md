@@ -27,7 +27,7 @@ Use the table of contents to select the technology areas that are relevant to yo
 
 AWS and Azure build on a core set of AI, compute, storage, database, and networking services. In many cases, the platforms provide similar products and services. For example, both AWS and Azure can use Linux distributions and open-source software technologies. Both platforms support building highly available solutions on Windows or Linux hosts.
 
-The capabilities of both platforms are similar, but the resources that provide those capabilities are often organized differently. Azure and AWS built their capabilities independently over time, so the platforms have important implementation and design differences. For example, AWS relies heavily on its accounts to serve as a logical boundary for tasks like applying permissions or tracking spend. Azure uses subscriptions, which are similar to AWS accounts. Azure also uses resource groups to logically group and manage resources at a more granular level.
+The capabilities of both platforms are similar, but the resources that provide those capabilities are often organized differently. Azure and AWS built their capabilities independently over time, so the platforms have important implementation and design differences. For example, AWS relies heavily on its accounts to serve as a logical boundary for tasks like applying permissions or tracking spend. Azure uses subscriptions, which are similar to AWS accounts. 
 
 The services that each platform provide don't always clearly correspond. Sometimes, only one of the platforms provides a particular service. 
 
