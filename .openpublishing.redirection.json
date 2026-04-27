@@ -7825,7 +7825,7 @@
     },
     {
       "source_path": "docs/guide/security/security-start-here.yml",
-      "redirect_url": "/azure/architecture/guide/security-get-started",
+      "redirect_url": "/azure/architecture/security/security-get-started",
       "redirect_document_id": false
     },
     {
@@ -7846,11 +7846,6 @@
     {
       "source_path": "docs/guide/multitenant/service/cache-redis.md",
       "redirect_url": "/azure/architecture/guide/multitenant/service/managed-redis",
-      "redirect_document_id": false
-    },
-    {
-      "source_path": "docs/guide/security/access-azure-kubernetes-service-cluster-api-server.yml",
-      "redirect_url": "/azure/architecture/security/access-azure-kubernetes-service-cluster-api-server",
       "redirect_document_id": false
     }
   ]
