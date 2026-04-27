@@ -101,6 +101,10 @@ Tools that are used for governance, collaboration, security, performance, and co
   - [Real-Time Intelligence](/fabric/real-time-intelligence/overview) is a data processing capability that enables organizations to ingest, process, and analyze data in real time. Real-Time Intelligence processes streaming data from various sources. In this architecture, it provides real-time insights and enables automated actions based on data patterns.
 
   - [OneLake shortcuts](/fabric/onelake/onelake-shortcuts) create an in-place link between OneLake and other data sources. In this architecture, they simplify data access and management, and provide a unified view of data across the organization.
+ 
+  - [Fabric Copilot](/fabric/fundamentals/copilot-fabric-overview) is an AI-powered assistant integrated across Microsoft Fabric workloads that leverages large language models (LLMs) to help users interact with data using natural language. It simplifies tasks like generating SQL, DAX, transformations and creating reports or dashboards. Copilot supports conversational context, can create visualizations and assists in building analytics pipelines, making it easier for organizations to accelerate data insights and optimize workflows without deep coding expertise
+ 
+  - [Fabric Data Agent](/fabric/data-science/concept-data-agent)  is an intelligent, LLM-based service within Fabric that lets organizations query and analyze data across multiple sources,such as Lakehouses, Warehouses, semantic models, KQL databases and mirrored databases through a single interface. It enables complex multi-step queries, applies custom logic via example queries, agent & data source instructions and can be published for use in Microsoft 365 Copilot, teams etc., providing business users with secure, governed access to enterprise data in natural language.
 
 - [Power BI](/power-bi/fundamentals/power-bi-overview) is a business analytics service that provides interactive visualizations and business intelligence capabilities. In this architecture, Power BI visualizes data from Fabric and Databricks by using Direct Lake mode for improved performance.
 
