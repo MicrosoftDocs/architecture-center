@@ -900,8 +900,6 @@ items:
           href: databases/architecture/azure-synapse-analytics-integrate-mongodb-atlas.yml
       - name: Mainframe
         items:
-        - name: Replicate and sync mainframe data
-          href: reference-architectures/migration/sync-mainframe-data-with-azure.yml
         - name: Mainframe data replication with Connect
           href: example-scenario/mainframe/mainframe-replication-precisely-connect.yml
         - name: Mainframe data replication with Qlik
