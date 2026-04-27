@@ -690,8 +690,6 @@ items:
           href: solution-ideas/articles/sap-s4-hana-on-hli-with-ha-and-dr.yml
         - name: Automate SAP workloads by using SUSE on Azure
           href: solution-ideas/articles/sap-workload-automation-suse.yml
-        - name: IBM z/OS online transaction processing
-          href: example-scenario/mainframe/ibm-zos-online-transaction-processing-azure.yml
   - name: Containers
     items:
     - name: Get started
