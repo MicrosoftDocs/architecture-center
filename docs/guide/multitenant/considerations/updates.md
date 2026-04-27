@@ -112,7 +112,7 @@ In all cases, ensure that you have sufficient reporting and visibility. You need
 
 ### Deployment Stamps pattern
 
-Many multitenant applications are a good fit for the [Deployment Stamps pattern](../../../patterns/deployment-stamp.yml). In this pattern, you deploy multiple copies of your application and other components. Depending on your isolation requirements, you might deploy a stamp for each tenant or shared stamps that run multiple tenants' workloads.
+Many multitenant applications are a good fit for the [Deployment Stamps pattern](../../../patterns/deployment-stamp.md). In this pattern, you deploy multiple copies of your application and other components. Depending on your isolation requirements, you might deploy a stamp for each tenant or shared stamps that run multiple tenants' workloads.
 
 Stamps are a great way to provide isolation between tenants. They also provide you with flexibility for your update process because you can roll out updates progressively across stamps without affecting others.
 
