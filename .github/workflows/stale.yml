@@ -1,4 +1,4 @@
-name: Mark pull requests
+name: Handle stale pull requests
 
 on:
   schedule:
