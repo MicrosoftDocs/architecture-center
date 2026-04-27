@@ -32,7 +32,7 @@ The following dataflow corresponds to the architecture diagram:
 
      Copybooks define the data structure of COBOL, PL/I, and assembly language files. HIS converts these files to ASCII based on the copybook layouts.
 
-   - Mainframe file data conversion can be achieved by using the Azure Logic Apps connector for IBM host files.
+   - Mainframe file data conversion can be achieved by using the Azure Logic Apps IBM Host File connector.
 
    - Before you transfer data to Azure data stores, you might need to transform the data or use it for analytics. Azure Data Factory can manage these extract-transform-load (ETL) and extract-load-transform (ELT) activities and store the data directly in Azure Data Lake Storage. Alternatively, you can use Fabric Data Factory and OneLake store.
 

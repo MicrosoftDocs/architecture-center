@@ -155,7 +155,7 @@ Operational Excellence covers the operations processes that deploy an applicatio
 
 You can combine Application Insights and Log Analytics features to monitor the health of Azure resources. You can set alerts so that you can manage problems proactively.
 
-Fabric enables operational excellence by unifying governance, observability, and resilient engineering patterns. This unification occurs across OneLake, Fabric Data Warehouse, Fabric Data Engineer, Fabric Real-Time Intelligence, and other workloads.
+Fabric enables operational excellence by unifying governance, observability, and resilient engineering patterns. This unification occurs across OneLake, Fabric Data Warehouse, Fabric Data Engineering, Fabric Real-Time Intelligence, and other workloads.
 
 ### Performance Efficiency
 

@@ -7,7 +7,7 @@ Online transaction processing (OLTP) systems are the face of your business becau
 The following diagram shows an architecture of an OLTP system that runs on a z/OS mainframe before migration to Azure:
 
 :::image type="complex" source="media/ibm-zos-online-transaction-processing-on-zos.svg" alt-text="Diagram of an OLTP architecture on z/OS." lightbox="media/ibm-zos-online-transaction-processing-on-zos.svg" border="false":::
-   The diagram shows the architecture of an OLTP application that runs on a z/OS mainframe. An on-premises user accesses the system via a web interface and connects through various communication protocols such as HTTPS, SNA LU 6.2, and Telnet 3270. The system is divided into several layers that are depicted as numbered boxes. Arrows connect the boxes to show how different components interact within the mainframe environment. Box number one includes the communication protocols. Double-sided arrows connect box one with the on-premises user and the TN3270 terminal. Box number two includes transaction managers, including CICS and IMS. Double-sided arrows connect boxes one and two. The application layer includes boxes numbered four and five for front-end and business logic components. Double-sided arrows connect boxes three and four. One arrow points from the application layer to box six, which contains other services. Box number five is the data layer, which contains databases, like DB2 and IMS DB, and VSAM files. A double-sided arrow connects the data layer and the application layer. One arrow points from the data layer to box six. Box number six includes other services, such as security, management, monitoring, and reporting services.
+   The diagram shows the architecture of an OLTP application that runs on a z/OS mainframe. An on-premises user accesses the system via a web interface and connects through various communication protocols such as HTTPS, SNA LU 6.2, and Telnet 3270. The system is divided into several layers that are depicted as numbered boxes. Arrows connect the boxes to show how different components interact within the mainframe environment. Box number one includes the communication protocols. Double-sided arrows connect box one with the on-premises user and the TN3270 terminal. Box number two includes transaction managers, including CICS and IMS. Double-sided arrows connect boxes one and two. The application layer includes boxes numbered four and five for front-end and business logic components. Double-sided arrows connect boxes three and four. One arrow points from the application layer to box six, which contains other services. Box number five is the data layer, which contains databases, like Db2 and IMS DB, and VSAM files. A double-sided arrow connects the data layer and the application layer. One arrow points from the data layer to box six. Box number six includes other services, such as security, management, monitoring, and reporting services.
 :::image-end:::
 
 ### Workflow
@@ -22,7 +22,7 @@ The following workflow corresponds to the preceding diagram:
 
 1. The transaction managers use the business logic written in common business-oriented language (COBOL) or Programming Language One (PL/I) to implement the transactions.
 
-1. Application code uses the storage capabilities of the data layer, such as DB2, IMS DB, or VSAM.
+1. Application code uses the storage capabilities of the data layer, such as Db2, IMS DB, or VSAM.
 
 1. In addition to transaction processing, other services provide authentication, security, management, monitoring, and reporting. These services interact with all other services in the system.
 
@@ -99,7 +99,7 @@ This architecture addresses scalable and secure cloud storage as well as managed
 
 - [Azure Database for PostgreSQL](/azure/well-architected/service-guides/postgresql) is a fully managed, intelligent, and scalable PostgreSQL that has native connectivity with Azure services. In this architecture, it hosts relational data migrated from mainframe databases with advanced indexing and analytics capabilities.
 
-- [Azure SQL](/azure/azure-sql/) is a family of cloud-based SQL database services. In this architecture, it hosts relational data migrated from mainframe databases like DB2 and IMS DB:
+- [Azure SQL](/azure/azure-sql/) is a family of cloud-based SQL database services. In this architecture, it hosts relational data migrated from mainframe databases like Db2 and IMS DB:
 
   - [SQL Database](/azure/well-architected/service-guides/azure-sql-database-well-architected-framework) is a fully managed relational database service. In this architecture, it supports modernized workloads with elastic scaling for variable mainframe transaction loads.
 
@@ -109,7 +109,7 @@ This architecture addresses scalable and secure cloud storage as well as managed
 
   - [In-Memory OLTP](/sql/relational-databases/in-memory-oltp/overview-and-usage-scenarios) is a high-performance feature that accelerates transaction processing in SQL Database and SQL Managed Instance. In this architecture, it provides the high-performance transaction processing capabilities that mainframe OLTP workloads require.
 
-- [Storage](/azure/well-architected/service-guides/storage-accounts/reliability) is a set of massively scalable and more secure cloud services for data, apps, and workloads that provides foundational cloud storage services. In this architecture, it supports [Azure Files](/azure/well-architected/service-guides/azure-files), [Azure Table Storage](/azure/storage/tables/table-storage-overview), and [Azure Queue Storage](https://azure.microsoft.com/services/storage/queues) for various mainframe data migration scenarios.
+- [Storage](/azure/well-architected/service-guides/azure-blob-storage) is a set of massively scalable and more secure cloud services for data, apps, and workloads that provides foundational cloud storage services. In this architecture, it supports [Azure Files](/azure/well-architected/service-guides/azure-files), [Azure Table Storage](/azure/storage/tables/table-storage-overview), and [Azure Queue Storage](/azure/storage/queues/storage-queues-introduction) for various mainframe data migration scenarios.
 
 #### Monitoring
 
