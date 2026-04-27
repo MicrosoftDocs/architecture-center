@@ -634,8 +634,6 @@ items:
           href: example-scenario/mainframe/general-mainframe-refactor.yml
         - name: IBM z/OS migration with Avanade AMT
           href: example-scenario/mainframe/avanade-amt-zos-migration.yml
-        - name: Integrate IBM MQs with Azure
-          href: example-scenario/mainframe/integrate-ibm-message-queues-azure.yml
         - name: Migrate AIX workloads with Skytap
           href: example-scenario/mainframe/migrate-aix-workloads-to-azure-with-skytap.yml
         - name: Migrate HP-UX workloads
@@ -1106,6 +1104,10 @@ items:
         href: example-scenario/integration/queues-events.yml
       - name: Real-time monitoring and observable systems for media
         href: example-scenario/monitoring/monitoring-observable-systems-media.yml
+    - name: Solution ideas
+      items:
+      - name: Integrate IBM MQs with Azure
+        href: example-scenario/mainframe/integrate-ibm-message-queues-azure.yml
   - name: Internet of Things
     items:
     - name: Guides
