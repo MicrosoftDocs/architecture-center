@@ -11,7 +11,7 @@ ms.custom: arb-containers
 
 # Access an Azure Kubernetes Service (AKS) API server
 
-This article outlines options for how to connect to the API server of your Azure Kubernetes Service (AKS) cluster. In a standard AKS cluster, the API server is exposed over the internet. In a private AKS cluster, you can only connect to the internet from a device that has network access to the private cluster.
+This article outlines options for how to connect to the API server of your Azure Kubernetes Service (AKS) cluster. In a standard AKS cluster, the API server is exposed over the internet. In a private AKS cluster, you can only connect to the API server from a device that has network access to the private cluster.
 
 Planning API server access is a day-zero activity, and how you access the server depends on your deployment scenario.
 
