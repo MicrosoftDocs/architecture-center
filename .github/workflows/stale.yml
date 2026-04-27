@@ -1,45 +1,38 @@
-name: Mark stale issues and pull requests
+name: Mark pull requests
 
 on:
   schedule:
-  - cron: "0 */24 * * *"
+    - cron: '0 0 * * *'
 
 permissions:
-  issues: write
   pull-requests: write
 
 jobs:
   stale:
     runs-on: ubuntu-latest
-
     steps:
-    - uses: actions/stale@v3
+    - uses: actions/stale@v10
       with:
-        repo-token: ${{ secrets.GITHUB_TOKEN }}
-        
-        # Stale configuration
-        days-before-pr-stale: 14
+        days-before-pr-stale: 35
         stale-pr-label: inactive
         stale-pr-message: >
-          This pull request has been inactive for 14 days.
-          If you are finished with your changes, don't forget to sign off. See the [contributor guide](https://review.learn.microsoft.com/en-us/help/contribute/contribute-how-to-write-pull-request-automation) for instructions.
-          
-          Other resources:
-          
-          - [Get Help](https://review.learn.microsoft.com/help/contribute/help-options?branch=main)
-          
-          - [Docs Support Teams Channel](https://teams.microsoft.com/l/channel/19%3a7ecffca1166a4a3986fed528cf0870ee%40thread.skype/General?groupId=de9ddba4-2574-4830-87ed-41668c07a1ca&tenantId=72f988bf-86f1-41af-91ab-2d7cd011db47)
-          
-          - [Resolve Merge Conflict](https://review.learn.microsoft.com/help/contribute/resolve-merge-conflicts?branch=main)
-          
+          This pull request has been inactive for 35 days.
 
-        
+          If you're finished with your changes and have responded to all provided feedback, indicate this by adding a comment to this PR.
+
+          This PR will be closed in 15 days if no further activity occurs.
+
+          Resources:
+
+          - [Get Help](https://learn.microsoft.com/help/platform/help-options) *(if 404, sign in)*
+          - [Resolve Merge Conflicts](https://learn.microsoft.com/help/contribute/resolve-merge-conflicts) *(if 404, sign in)*
+          - [Microsoft Learn Support Teams Channel](https://teams.microsoft.com/l/channel/19%3a7ecffca1166a4a3986fed528cf0870ee%40thread.skype/General?groupId=de9ddba4-2574-4830-87ed-41668c07a1ca&tenantId=72f988bf-86f1-41af-91ab-2d7cd011db47)
+
         # Auto-close configuration
-        days-before-pr-close: 9999
+        days-before-pr-close: 15
         close-pr-label: auto-close
         exempt-pr-labels: keep-open
         close-pr-message: > 
-          This pull request (PR) has been inactive for a long time. At this time, we are closing the PR.  
-          If you want to continue working on your change, reopen the PR. Thank you! 
+          This pull request (PR) has been inactive for a long time. At this time, we are closing the PR.
 
-
+          If you want to continue working on your change, reopen the PR.
