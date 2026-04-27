@@ -244,11 +244,13 @@ The code for the evaluation framework can be referenced from [Evaluation Framewo
 
 ##### Pipeline flow
 
-- **Preprocessing**: Transform golden datasets to evaluation-friendly format.
-- **Experiment Execution**: Simulate agent interactions, generate outputs.
-- **Data Transformation**: Reformat simulator outputs for evaluation.
-- **Evaluation**: Run selected evaluators.
-- **Reporting**: View results on AI Foundry dashboard or generate HTML reports.
+- **Load evaluation data from Data store**: Load version controlled golden dataset to be evaluated. 
+- **Data Transformation**: Prepare the datasets for agentic system inference 
+- **Agent Response**: Get the response from agent for the golden dataset.
+- **Data prep for Evaluation**: combine the dataset with ground truth and prepare for evaluation. 
+- **Evaluator (metrics)**: identify the right metrics to be used for the evaluating the agentic system. 
+- **Evaluation Results**: Run the evaluations and get the evaluation output (metrics). 
+- **Reporting**: Push the evaluation report to AI foundry and analyze it in the Foundry Dashboard. 
 
 ##### Experimentation and evaluation of agentic systems
 
