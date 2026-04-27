@@ -397,7 +397,10 @@ Principal author:
 - [Munish Malhotra](https://www.linkedin.com/in/munish-malhotra) | Senior Software Engineer
 - [Brijraj Singh](https://www.linkedin.com/in/brijraajsingh/) | Principal Software Engineering Manager
 - [Kshitij Sharma](https://www.linkedin.com/in/ikshitijsharma/) | Senior Software Engineer
+- [Vidhya Shankar Venkatesan](https://www.linkedin.com/in/vikesh-singh-baghel-28601322/) | Principal Software Engineer
 - [Sushant Bhalla](https://www.linkedin.com/in/sushaanttb/) | Senior Software Engineer
+- [Vikesh Bagel](https://www.linkedin.com/in/vikesh-singh-baghel-28601322/) | Principal Data Scientist
+
 
 *To see non-public LinkedIn profiles, sign in to LinkedIn.*
 
