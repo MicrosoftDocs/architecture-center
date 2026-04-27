@@ -1,5 +1,5 @@
 ---
-title: Move an IoT Hub-Based Solution from Test to Production
+title: Move an IoT Hub-Based Solution to a Production Environment
 description: Learn best practices for moving an IoT Hub-based solution to production, including deployment stamps, transient fault handling, and zero-touch provisioning.
 author: dominicbetts
 ms.author: dobett
@@ -9,9 +9,9 @@ ms.subservice: architecture-guide
 ms.custom: arb-iot
 ---
 
-# Move an IoT Hub-based solution from test to production
+# Move an IoT Hub-based solution to a production environment
 
-This article provides key considerations that help you transition an Azure IoT Hub-based solution to a production environment.
+This article provides key considerations that help you transition an Azure IoT Hub-based solution from a test environment to a production environment.
 
 ## Use deployment stamps
 
@@ -94,7 +94,7 @@ The device provisioning service also simplifies device transitions between test 
 
 1. The solution developer links the test and production IoT clouds to the provisioning service.
 
-1. If the IoT hub isn't provisioned, the device implements the device provisioning service protocol to find the IoT hub. The device is initially provisioned to the test environment.
+1. If IoT Hub isn't provisioned, the device implements the device provisioning service protocol to find the hub. The device is initially provisioned to the test environment.
 
 1. The device is registered with the test environment, so it connects to that environment and testing occurs.
 
@@ -104,9 +104,9 @@ The device provisioning service also simplifies device transitions between test 
 
 For more information, see [Overview of the IoT Hub device provisioning service](/azure/iot-dps/about-iot-dps#provisioning-process).
 
-## Prepare for upcoming identity and life cycle management capabilities
+## Prepare for identity and life cycle management capabilities
 
-IoT Hub evolves to support device life cycle and credential management capabilities through Azure Device Registry integration and Microsoft-backed operational certificate issuance.
+IoT Hub supports device life cycle and credential management capabilities through Azure Device Registry integration and Microsoft-supported operational certificate issuance.
 
 Migration of existing IoT Hub deployments into these new identity and certificate life cycle management models isn't supported in preview. However, you can prepare for adoption by implementing the following architectural practices:
 
