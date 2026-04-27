@@ -1,3 +1,5 @@
+[!INCLUDE [header_file](../../../includes/sol-idea-header.md)]
+
 Online transaction processing (OLTP) systems are the face of your business because they interact directly with customers. By migrating to a dynamically adaptable infrastructure, your business can create and launch products quickly so that customers can use your products sooner.
 
 ## Architecture
@@ -134,20 +136,6 @@ This architecture is ideal for OLTP workloads that have the following characteri
 - Their usage varies greatly over time, so they benefit from flexible scaling and usage-based pricing.
 
 - Complex monolithic Mainframe business logic can be modernized to RESTful APIs and scaled with traffic management and load balancing services.
-
-## Considerations
-
-These considerations implement the pillars of the Azure Well-Architected Framework, which is a set of guiding tenets that you can use to improve the quality of a workload. For more information, see [Well-Architected Framework](/azure/well-architected/).
-
-### Security
-
-Security provides assurances against deliberate attacks and the misuse of your valuable data and systems. For more information, see [Design review checklist for Security](/azure/well-architected/security/checklist).
-
-- ExpressRoute creates a private connection to Azure from an on-premises environment. You can also use site-to-site VPN.
-
-- Microsoft Entra ID can authenticate resources and control access by using Azure role-based access control.
-
-- Database services in Azure support various security options like data encryption at rest.
 
 ## Contributors
 
