@@ -126,4 +126,4 @@ Principal author:
 
 ## Related resources
 
-- [External Configuration Store pattern](external-configuration-store.yml)
+- [External Configuration Store pattern](external-configuration-store.md)

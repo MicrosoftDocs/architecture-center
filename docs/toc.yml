@@ -438,7 +438,7 @@ items:
     displayName: Event store, append-only, audit trail
     href: patterns/event-sourcing.md
   - name: External Configuration Store
-    href: patterns/external-configuration-store.yml
+    href: patterns/external-configuration-store.md
   - name: Federated Identity
     displayName: Single sign-on, SSO
     href: patterns/federated-identity.yml

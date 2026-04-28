@@ -1,3 +1,15 @@
+---
+title: External Configuration Store Pattern
+description: Examine the External Configuration Store pattern, which moves configuration information out of the application deployment package to a centralized location.
+ms.author: pnp
+author: claytonsiemens77
+ms.date: 09/14/2021
+ms.topic: design-pattern
+ms.subservice: cloud-fundamentals
+---
+
+# External Configuration Store pattern
+
 Move configuration information out of the application deployment package to a centralized location. This can provide opportunities for easier management and control of configuration data, and for sharing configuration data across applications and application instances.
 
 ## Context and problem
