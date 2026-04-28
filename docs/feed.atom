@@ -2,12 +2,20 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id/>
     <title>Azure Architecture Center</title>
-    <updated>2026-04-20T17:58:06.138Z</updated>
+    <updated>2026-04-27T18:04:32.805Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <subtitle>Updated articles for Azure Architecture Center</subtitle>
     <rights>https://learn.microsoft.com/legal/termsofuse</rights>
     <category term="new"/>
     <category term="updated"/>
+    <entry>
+        <title type="html"><![CDATA[DevSecOps on Azure Kubernetes Service (AKS)]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/guide/devsecops/devsecops-on-aks</id>
+        <link href="https://learn.microsoft.com/azure/architecture/guide/devsecops/devsecops-on-aks"/>
+        <updated>2026-04-24T15:18:58.000Z</updated>
+        <summary type="html"><![CDATA[Learn how DevSecOps helps you incorporate security best practices from the start of software development and throughout the software deployment life cycle (SDLC).]]></summary>
+        <category label="new" term="new"/>
+    </entry>
     <entry>
         <title type="html"><![CDATA[Compensating Transaction Pattern]]></title>
         <id>https://learn.microsoft.com/azure/architecture/patterns/compensating-transaction</id>
@@ -81,6 +89,22 @@
         <category label="new" term="new"/>
     </entry>
     <entry>
+        <title type="html"><![CDATA[Choose a Compute Option for Microservices]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/microservices/design/compute-options</id>
+        <link href="https://learn.microsoft.com/azure/architecture/microservices/design/compute-options"/>
+        <updated>2026-04-24T14:53:20.000Z</updated>
+        <summary type="html"><![CDATA[Choose an Azure compute platform for a microservices architecture. Compare options based on interservice communication, independent scaling, and deployability.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Certificate Life Cycle Management on Azure]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/example-scenario/certificate-lifecycle/index</id>
+        <link href="https://learn.microsoft.com/azure/architecture/example-scenario/certificate-lifecycle/index"/>
+        <updated>2026-04-22T15:17:47.000Z</updated>
+        <summary type="html"><![CDATA[Learn how to create an infrastructure and workflow to automate the renewal process for certificates issued by a nonintegrated certification authority (CA).]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
         <title type="html"><![CDATA[Event Sourcing Pattern]]></title>
         <id>https://learn.microsoft.com/azure/architecture/patterns/event-sourcing</id>
         <link href="https://learn.microsoft.com/azure/architecture/patterns/event-sourcing"/>
@@ -126,6 +150,46 @@
         <link href="https://learn.microsoft.com/azure/architecture/solution-ideas/articles/analytics-service-bus"/>
         <updated>2026-04-02T16:10:14.000Z</updated>
         <summary type="html"><![CDATA[Learn how to use Microsoft Fabric with Azure Service Bus for near real-time solutions at enterprise scale in production environments.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Azure Sandbox]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/guide/azure-sandbox/azure-sandbox</id>
+        <link href="https://learn.microsoft.com/azure/architecture/guide/azure-sandbox/azure-sandbox"/>
+        <updated>2026-04-24T15:22:01.000Z</updated>
+        <summary type="html"><![CDATA[Accelerate your Azure project by using a fully functional sandbox environment that includes virtual networks, virtual machines, and databases.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Manage Virtual Machine Compliance]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/example-scenario/security/virtual-machine-compliance</id>
+        <link href="https://learn.microsoft.com/azure/architecture/example-scenario/security/virtual-machine-compliance"/>
+        <updated>2026-04-22T15:26:18.000Z</updated>
+        <summary type="html"><![CDATA[Manage virtual machine compliance without disrupting DevOps practices. Use Azure VM Image Builder and Azure Compute Gallery to minimize risk from system images.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Azure Load Testing with Custom Plugins for Event Hubs and IoT Hub to Simulate Device Behaviors]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/guide/testing/load-testing/load-testing-with-custom-plugins</id>
+        <link href="https://learn.microsoft.com/azure/architecture/guide/testing/load-testing/load-testing-with-custom-plugins"/>
+        <updated>2026-04-22T13:38:29.000Z</updated>
+        <summary type="html"><![CDATA[Learn how to design KPIs and develop a dashboard for Azure Load Testing with custom JMeter plugins to simulate device behaviors.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Choose a Natural Language Processing Technology]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/data-guide/technology-choices/natural-language-processing</id>
+        <link href="https://learn.microsoft.com/azure/architecture/data-guide/technology-choices/natural-language-processing"/>
+        <updated>2026-04-21T15:54:45.000Z</updated>
+        <summary type="html"><![CDATA[Choose a natural language processing technology for sentiment analysis, topic and language detection, key phrase extraction, and document categorization.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[What Is a Data Lake?]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/data-guide/scenarios/data-lake</id>
+        <link href="https://learn.microsoft.com/azure/architecture/data-guide/scenarios/data-lake"/>
+        <updated>2026-04-20T19:51:24.000Z</updated>
+        <summary type="html"><![CDATA[Learn about the advantages of using data lake storage repositories, which can store terabytes and petabytes of data in its native, raw format.]]></summary>
         <category label="updated" term="updated"/>
     </entry>
     <entry>
@@ -913,11 +977,11 @@
         <category label="updated" term="updated"/>
     </entry>
     <entry>
-        <title type="html"><![CDATA[Natural Language Processing Technology]]></title>
+        <title type="html"><![CDATA[Choose a Natural Language Processing Technology]]></title>
         <id>https://learn.microsoft.com/azure/architecture/data-guide/technology-choices/natural-language-processing</id>
         <link href="https://learn.microsoft.com/azure/architecture/data-guide/technology-choices/natural-language-processing"/>
         <updated>2026-02-18T21:44:24.000Z</updated>
-        <summary type="html"><![CDATA[Choose a natural language processing service for sentiment analysis, topic and language detection, key phrase extraction, and document categorization.]]></summary>
+        <summary type="html"><![CDATA[Choose a natural language processing technology for sentiment analysis, topic and language detection, key phrase extraction, and document categorization.]]></summary>
         <category label="updated" term="updated"/>
     </entry>
     <entry>
