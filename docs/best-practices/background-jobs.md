@@ -263,7 +263,7 @@ It can be challenging to coordinate tasks, but three common patterns can guide y
 
 - **Manage how the steps run for a task.** A background job composed of several steps that call remote services or access remote resources needs orchestration logic to sequence the steps, handle timeouts, and track progress. For more information, see [Scheduler Agent Supervisor pattern](../patterns/scheduler-agent-supervisor.yml).
 
-- **Manage recovery for task steps that fail.** A background job that spans multiple steps (which together define an eventually consistent operation) might need to undo completed work if a later step fails. For more information, see the [Compensating Transaction pattern](../patterns/compensating-transaction.yml).
+- **Manage recovery for task steps that fail.** A background job that spans multiple steps (which together define an eventually consistent operation) might need to undo completed work if a later step fails. For more information, see the [Compensating Transaction pattern](../patterns/compensating-transaction.md).
 
 ## Reliability considerations
 
@@ -335,6 +335,6 @@ Background tasks must keep pace with the rate at which work arrives. If tasks fa
 - [Priority Queue pattern](../patterns/priority-queue.yml)
 - [Pipes and Filters pattern](../patterns/pipes-and-filters.yml)
 - [Scheduler Agent Supervisor pattern](../patterns/scheduler-agent-supervisor.yml)
-- [Compensating Transaction pattern](../patterns/compensating-transaction.yml)
+- [Compensating Transaction pattern](../patterns/compensating-transaction.md)
 - [Leader Election pattern](../patterns/leader-election.yml)
 - [Competing Consumers pattern](../patterns/competing-consumers.md)

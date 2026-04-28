@@ -156,6 +156,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "docs/analytics/architecture/fabric-deployment-patterns.yml",
+      "redirect_url": "/azure/architecture/data-guide/technology-choices/fabric-deployment-patterns",
+      "redirect_document_id": true
+    },
+    {
       "source_path": "docs/aws-professional/services.md",
       "redirect_url": "/azure/architecture/aws-professional/",
       "redirect_document_id": true
@@ -3559,6 +3564,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "docs/guide/technology-choices/service-for-java-comparison.yml",
+      "redirect_url": "/azure/architecture/guide/technology-choices/compute-decision-tree",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "docs/reference-architectures/apis/protect-apis.yml",
       "redirect_url": "/azure/architecture/web-apps/api-management/architectures/protect-apis",
       "redirect_document_id": true
@@ -3572,6 +3582,11 @@
       "source_path": "docs/reference-architectures/app-service-web-app/app-monitoring.yml",
       "redirect_url": "/azure/architecture/web-apps/guides/monitoring/app-monitoring",
       "redirect_document_id": true
+    },
+    {
+      "source_path": "docs/example-scenario/mainframe/migrate-unisys-dorado-mainframe-apps-with-astadia-micro-focus.yml",
+      "redirect_url": "/azure/architecture/example-scenario/mainframe/general-mainframe-refactor",
+      "redirect_document_id": false
     },
     {
       "source_path": "docs/reference-architectures/reliable-web-app/dotnet/pattern-overview.yml",
