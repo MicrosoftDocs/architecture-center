@@ -49,7 +49,7 @@ The architecture uses the following components. Some shared services are optiona
 
 **Private DNS service.** [Azure Private DNS](/azure/dns/private-dns-overview) provides a reliable and secure DNS service for your virtual network. Azure Private DNS manages and resolves domain names in the virtual network without the need to configure a custom DNS solution.
 
-**Load balancers.** To distribute traffic to VMs in the SAP application tier subnet to increase availability, use [Azure Standard Load Balancer](/azure/load-balancer/load-balancer-standard-availability-zones). Because Standard LB is the only SKU available, we will refer to it as the Load Balancer from here onward. A Load Balancer provides a layer of security by default and it can be used as an internal facing or external facing LB in the SAP solution infrastructure.  VMs that are behind the Load Balancer don't have outbound internet connectivity. To enable outbound internet on the VMs, you need to update your [Load Balancer configuration](/azure/virtual-machines/workloads/sap/high-availability-guide-standard-load-balancer-outbound-connections). You can also use [Azure NAT Gateway](/azure/nat-gateway/nat-overview) to get outbound connectivity. For SAP web-based application HA, use the built-in [SAP Web Dispatcher](https://help.sap.com/doc/saphelp_nw74/7.4.16/en-us/48/8fe37933114e6fe10000000a421937/frameset.htm) or another commercially available load balancer. Base your selection on:
+**Load balancers.** To distribute traffic to VMs in the SAP application tier subnet to increase availability, use [Azure Load Balancer](/azure/load-balancer/load-balancer-standard-availability-zones). A load balancer provides a layer of security and it can be used as an internal facing or external facing entry point in the SAP solution infrastructure. VMs that are behind the load balancer don't have outbound internet connectivity. To enable outbound internet on the VMs, you need to update your [Load Balancer configuration](/azure/virtual-machines/workloads/sap/high-availability-guide-standard-load-balancer-outbound-connections). You can also use [Azure NAT Gateway](/azure/nat-gateway/nat-overview) to get outbound connectivity. For SAP web-based application HA, use the built-in [SAP Web Dispatcher](https://help.sap.com/doc/saphelp_nw74/7.4.16/en-us/48/8fe37933114e6fe10000000a421937/frameset.htm) or another commercially available load balancer. Base your selection on:
 
 - Your traffic type, such as HTTP or SAP graphical user interface (GUI) traffic.
 - The network features that you need, such as Secure Sockets Layer (SSL) termination.
@@ -195,7 +195,7 @@ For the backup data store, we recommend that you use Azure [cool and archive acc
 
 [Ultra Disk Storage](/azure/virtual-machines/linux/disks-enable-ultra-ssd) and Azure NetApp Files [Ultra tier](/azure/azure-netapp-files/azure-netapp-files-service-levels) significantly reduce disk latency and enhance the performance of critical applications and SAP database servers.
 
-[Premium SSD v2](https://learn.microsoft.com/en-us/azure/virtual-machines/disks-types#premium-ssd-v2) is designed for performance-critical workloads like SAP. For more information about this storage solution's benefits and limitations, see [Deploy a Premium SSD v2](/azure/virtual-machines/disks-deploy-premium-v2).
+[Premium SSD v2](/azure/virtual-machines/disks-types#premium-ssd-v2) is designed for performance-critical workloads like SAP. For more information about this storage solution's benefits and limitations, see [Deploy a Premium SSD v2](/azure/virtual-machines/disks-deploy-premium-v2).
 
 ## Performance considerations
 
@@ -228,6 +228,7 @@ We also recommend that you consider performance when you deploy resources with [
 Azure NetApp Files has unique performance features that enable real-time tuning to meet the needs of the most demanding SAP environments. For performance considerations when you use Azure NetApp Files, see [Sizing for HANA database on Azure NetApp Files](/azure/virtual-machines/workloads/sap/sap-hana-scale-out-standby-netapp-files-suse#sizing-for-hana-database-on-azure-netapp-files).
 
 ## Scalability considerations
+
 The various layers of the SAP application stack has different scaling patterns.
 
 ### Application layer scaling
@@ -338,7 +339,7 @@ Before deploying SAP systems across availability zones, assess:
 For comprehensive considerations, see [SAP HA availability zones guide](/azure/sap/workloads/high-availability-zones).
 
 > [!NOTE]
-> Availability Zones provide high availability within a single Azure region by protecting workloads from localized datacenter and zone-level failures through physical separation and low‑latency connectivity, but they remain exposed to region‑wide, correlated risks such as major natural disasters or prolonged regional outages. Regional disaster recovery, by contrast, places workloads in geographically separate Azure regions, reducing shared risk and enabling business continuity when an entire region is unavailable. For mission‑critical systems, Azure guidance positions these as complementary layers: use Availability Zones to maintain uptime during routine failures, and multi‑region DR to ensure survivability during large‑scale disasters
+> Availability Zones provide high availability within a single Azure region by protecting workloads from localized datacenter and zone-level failures through physical separation and low‑latency connectivity, but they remain exposed to region‑wide, correlated risks such as major natural disasters or prolonged regional outages. Regional disaster recovery, by contrast, places workloads in geographically separate Azure regions, reducing shared risk and enabling business continuity when an entire region is unavailable. For mission‑critical systems, Azure guidance positions these as complementary layers: use Availability Zones to maintain uptime during routine failures, and multi‑region DR to ensure survivability during large‑scale disasters.
 
 #### Active/passive deployment example
 
@@ -439,6 +440,7 @@ Use a centralized identity management system to control access to resources at a
 To maximize the availability and performance of applications and services on Azure, use [Azure Monitor](/azure/azure-monitor/overview). Azure Monitor is a comprehensive solution for collecting, analyzing, and acting on telemetry from your cloud and on-premises environments. Azure Monitor shows how applications are performing and proactively identifies problems that affect them and the resources that they depend on. For SAP applications that run on SAP HANA and other major database solutions, see [Azure Monitor for SAP solutions](/azure/sap/monitor/about-azure-monitor-sap-solutions) to learn how Azure Monitor for SAP can help you manage SAP services availability and performance.
 
 ## Security considerations
+
 This section discusses the available security mechanisms to protect your SAP data.
 
 ### Application security
