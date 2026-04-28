@@ -70,7 +70,7 @@ The following workflow sections describe two configurations: a public internet w
 
 ### Components
 
-- DNS is a system that maps domain names to IP addresses, which enables clients to locate and connect to services. For a public internet workflow in this architecture, you must configure a public Azure DNS zone with the proper CNAME of the Azure Front Door endpoint FQDN. On the private (enterprise) side, configure the local DNS provider (AD DS DNS or a partner solution) to point each application FQDN to the private IP address of Application Gateway.
+- DNS is a system that maps domain names to IP addresses, which enables clients to locate and connect to services. For a public internet workflow in this architecture, you must configure a public DNS zone with the proper CNAME of the Azure Front Door endpoint FQDN. On the private (enterprise) side, configure the local DNS provider (AD DS DNS or a partner solution) to point each application FQDN to the private IP address of Application Gateway.
 
 - [Azure DNS Private Resolver](/azure/dns/dns-private-resolver-overview) is a fully managed service that enables DNS resolution between on-premises environments and Azure without deploying custom DNS servers. In this architecture, DNS Private Resolver enables resolution of on-premises customers, so enterprise users can use this split-brain DNS solution to access applications without traversing the public internet.
 
@@ -87,7 +87,7 @@ The following workflow sections describe two configurations: a public internet w
   
 ### Alternatives
 
-As an alternative solution, you can remove Azure Front Door Standard or Premium and instead point the public Azure DNS record to the public IP address of Application Gateway. Based on this architecture's requirements, you must [cache and optimize traffic](/azure/frontdoor/front-door-caching) at the entry point into Azure. As a result, you can't use the alternative solution for this scenario. For more information, see [Cost Optimization](#cost-optimization).
+As an alternative solution, you can remove Azure Front Door Standard or Premium and instead point the public DNS record to the public IP address of Application Gateway. Based on this architecture's requirements, you must [cache and optimize traffic](/azure/frontdoor/front-door-caching) at the entry point into Azure. As a result, you can't use the alternative solution for this scenario. For more information, see [Cost Optimization](#cost-optimization).
 
 :::image type="complex" border="false" source="./media/split-brain-dns-host-public-alt.svg" alt-text="Diagram of the alternate split-brain DNS hosting architecture." lightbox="./media/split-brain-dns-host-public-alt.svg":::
    A double-sided arrow points from app.contoso.com to the internet. Another double-sided arrow points from the internet to the Azure DNS zone for contoso.com. An arrow labeled 207.x.x.x (pip‑appgw) points to the Application Gateway public IP endpoint associated with the AppGW subnet. An arrow points from the Application Gateway public IP endpoint to the app in the app subnet.
