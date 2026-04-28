@@ -169,7 +169,7 @@ Integrate these security principles into your split-brain DNS architecture to cr
 
 Cost Optimization focuses on ways to reduce unnecessary expenses and improve operational efficiencies. For more information, see [Design review checklist for Cost Optimization](/azure/well-architected/cost-optimization/checklist).
 
-- **Back-end compute:** Many factors, such as SKU selection, replica count, and region, drive the cost of running back-end compute services. Ensure that you consider all elements of a [compute resource](../../guide/technology-choices/compute-decision-tree.md#choose-a-candidate-service) before you select the best option for your workload.
+- **Back-end compute:** Many factors, such as SKU selection, replica count, and region, drive the cost of running back-end compute services. Ensure that you consider all elements of a [compute resource](../../guide/technology-choices/compute-decision-tree.md) before you select the best option for your workload.
   
 - **Application Gateway:** Application Gateway costs depend on the number of instances, the size of instances, and the amount of processed data. You can optimize cost by using [autoscaling](/azure/application-gateway/application-gateway-autoscaling-zone-redundant) to adjust the number of instances based on traffic demand. You can also deploy [zone-redundant SKUs](/azure/application-gateway/application-gateway-autoscaling-zone-redundant#autoscaling-and-high-availability) across availability zones to reduce the need for extra instances for high availability.
 
