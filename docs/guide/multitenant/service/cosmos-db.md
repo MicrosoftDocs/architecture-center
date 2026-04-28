@@ -268,6 +268,7 @@ Principal authors:
 - [Paul Burpo](https://www.linkedin.com/in/paul-burpo) | Principal Customer Engineer, FastTrack for Azure
 - [Deborah Chen](https://www.linkedin.com/in/deborah-chen-62212437) | Principal Program Manager
 - [John Downs](https://www.linkedin.com/in/john-downs/) | Principal Software Engineer, Azure Patterns & Practices
+[Sergiy Smyrnov](https://www.linkedin.com/in/sergiy-smyrnov-a2248728/) | Principal Program Manager, Azure Cosmos DB
 
 Other contributors:
 
