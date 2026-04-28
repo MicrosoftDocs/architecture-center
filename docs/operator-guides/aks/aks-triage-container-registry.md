@@ -3,7 +3,7 @@ title: AKS triage—Container registry connectivity
 description: Learn about verifying the connection to a container registry. This step is part of the triage practice for Azure Kubernetes Service (AKS) clusters.
 author: samcogan
 ms.author: samcogan
-ms.date: 04/16/2026
+ms.date: 04/28/2026
 ms.topic: concept-article
 ms.subservice: architecture-guide
 ms.custom:
@@ -110,7 +110,7 @@ Principal authors:
 - [Paolo Salvatori](https://www.linkedin.com/in/paolo-salvatori) | Principal Customer Engineer
 - [Francis Simy Nazareth](https://www.linkedin.com/in/francis-simy-nazereth-971440a) | Senior Technical Specialist
 
-Other Contributors:
+Other contributors:
 
 - [Sam Cogan](https://www.linkedin.com/in/samcogan82/) | Senior Cloud Solution Architect
 
