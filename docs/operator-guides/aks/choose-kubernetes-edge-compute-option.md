@@ -3,7 +3,7 @@ title: Choose a Kubernetes at the Edge Compute Option
 description: Learn about trade-offs and considerations for various Kubernetes options available for extending compute on the edge.
 author: prabhkaur1977
 ms.author: prkau
-ms.date: 04/10/2026
+ms.date: 04/28/2026
 ms.topic: concept-article
 ms.subservice: architecture-guide
 ms.custom:
@@ -113,7 +113,7 @@ This approach is ideal if you have existing (Linux) IoT workloads or you're upgr
 
 - In addition to Kubernetes, Azure Stack Edge also comes with the IoT runtime, which means that workloads might also be deployed to your Azure Stack Edge clusters via Azure IoT Edge.
 
-- Azure Stack Edge Pro GPU 2-node devices now support 2-node HA Kubernetes clusters (master failover).
+- Azure Stack Edge Pro GPU 2-node devices can support 2-node HA Kubernetes clusters (master failover).
 
 ### Considerations
 
