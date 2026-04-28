@@ -62,7 +62,7 @@ The following resources provide foundational knowledge for security implementati
 
 **Data protection:** The following learning path covers encryption, key management, and application security:
 
-- [Secure your cloud applications in Azure](/training/paths/secure-your-cloud-apps)
+- [Secure your cloud applications in Azure](/training/modules/microsoft-cloud-app-security/)
 
 **Threat protection:** The following learning path covers threat detection, investigation, and response:
 
