@@ -207,4 +207,4 @@ Learn about a specific scenario where deploying a gateway between an intelligent
 - [API Management landing zone](https://github.com/Azure/apim-landing-zone-accelerator/blob/main/scenarios/workload-genai/README.md) GitHub repository covering generative AI scenarios
 - [API Management gateway toolkit](https://github.com/Azure-Samples/apim-genai-gateway-toolkit)
 - [OpenAI API Simulator](https://github.com/microsoft/aoai-api-simulator/)
-- [AI Hub Gateway Landing Zone (Citadel)](https://github.com/Azure-Samples/ai-hub-gateway-solution-accelerator)
+- [AI Hub Gateway landing zone](https://github.com/Azure-Samples/ai-hub-gateway-solution-accelerator)
