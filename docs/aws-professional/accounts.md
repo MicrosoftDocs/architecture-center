@@ -3,7 +3,7 @@ title: Compare AWS and Azure Accounts
 description: Learn the differences between Azure and AWS accounts and subscriptions. Understand the types of administrator accounts in Azure.
 author: juanosorioms
 ms.author: jcosorio
-ms.date: 04/21/2026
+ms.date: 04/28/2026
 ms.topic: concept-article
 ms.subservice: architecture-guide
 ms.collection: 
@@ -93,8 +93,7 @@ Other contributor:
 
 - [Adam Cerini](https://www.linkedin.com/in/adamcerini) | 
 Director, Partner Technology Strategist
-
-- [Juan Carlos Osorio](https://www.linkedin.com/in/juan-carlos-osorio-6252bba7/) | Sr. CSA AI & Apps 
+- [Juan Carlos Osorio](https://www.linkedin.com/in/juan-carlos-osorio-6252bba7/) | Senior CSA AI & Apps 
 
 *To see non-public LinkedIn profiles, sign in to LinkedIn.*
 
