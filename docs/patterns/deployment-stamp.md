@@ -72,7 +72,7 @@ Consider the following points as you decide how to implement this pattern:
 
 - **Traffic routing:** As described earlier in this article, routing traffic to the correct stamp for a given request can require an extra component that resolves tenants to stamps. This component might also need to be highly available.
 
-- **Observability across stamps:** As the number of stamps increases, it becomes harder to understand overall health and detect incidents quickly. Use [Azure Monitor](/azure/azure-monitor/overview) to collect and correlate metrics, logs, traces, and alerts across all stamps. Use this data to identify unhealthy stamps and diagnose problems.
+- **Observability across stamps:** As the number of stamps increases, it becomes harder to understand overall health and detect incidents quickly. Use [Azure Monitor](/azure/azure-monitor/fundamentals/overview) to collect and correlate metrics, logs, traces, and alerts across all stamps. Use this data to identify unhealthy stamps and diagnose problems.
 
 - **Regional failure impact:** Stamps run independently, but they aren't inherently redundant across regions. If a region that hosts one or more stamps becomes unavailable, the tenants on those stamps lose access until the region recovers or you migrate the tenants to stamps in another region. To plan for this scenario, document your recovery procedures, set tenant expectations, and consider whether critical tenants need geo-redundant stamp placement.
 
@@ -132,13 +132,13 @@ If the user travels to California and accesses the system, the system routes the
 
 ### Deployment
 
-Consider describing your infrastructure as code, such as by using [Bicep](/azure/azure-resource-manager/bicep/overview), [JSON Azure Resource Manager templates (ARM templates)](/azure/azure-resource-manager/template-deployment-overview), [Terraform](/azure/developer/terraform/overview), and scripts. This approach ensures that the deployment of each stamp is predictable and repeatable. It also reduces the likelihood of human errors such as accidental mismatches in configuration between stamps.
+Consider describing your infrastructure as code, such as by using [Bicep](/azure/azure-resource-manager/bicep/overview), [JSON Azure Resource Manager templates (ARM templates)](/azure/azure-resource-manager/templates/overview), [Terraform](/azure/developer/terraform/overview), and scripts. This approach ensures that the deployment of each stamp is predictable and repeatable. It also reduces the likelihood of human errors such as accidental mismatches in configuration between stamps.
 
-You can deploy updates automatically to all stamps in parallel. Technologies like [Bicep](/azure/azure-resource-manager/bicep/overview) or ARM templates can coordinate the deployment of your infrastructure and applications. Alternatively, you might decide to gradually roll out updates to some stamps first, and then progressively to others. Consider using a release management tool like [Azure Pipelines](/azure/devops/pipelines/?view=azure-devops) or [GitHub Actions](https://docs.github.com/actions) to orchestrate deployments to each stamp.
+You can deploy updates automatically to all stamps in parallel. Technologies like [Bicep](/azure/azure-resource-manager/bicep/overview) or ARM templates can coordinate the deployment of your infrastructure and applications. Alternatively, you might decide to gradually roll out updates to some stamps first, and then progressively to others. Consider using a release management tool like [Azure Pipelines](/azure/devops/pipelines) or [GitHub Actions](https://docs.github.com/actions) to orchestrate deployments to each stamp.
 
 Carefully consider the topology of the Azure subscriptions and resource groups for your deployments:
 
-- Typically, a subscription contains all resources for a single solution, so consider using a single subscription for all stamps. However, [some Azure services impose subscription-wide quotas](/azure/azure-subscription-service-limits). If you use this pattern to allow for a high degree of scale-out, you might need to deploy stamps across different subscriptions.
+- Typically, a subscription contains all resources for a single solution, so consider using a single subscription for all stamps. However, [some Azure services impose subscription-wide quotas](/azure/azure-resource-manager/management/azure-subscription-service-limits). If you use this pattern to allow for a high degree of scale-out, you might need to deploy stamps across different subscriptions.
 
 - Resource groups generally contain components that share the same life cycle. If you plan to deploy updates to all stamps at once, you can use a single resource group that contains all components for all stamps. Use resource naming conventions and tags to identify the components that belong to each stamp. Alternatively, if you plan to deploy updates to each stamp independently, you can deploy each stamp into its own resource group.
 
