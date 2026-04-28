@@ -29,17 +29,17 @@ If you move a single instance of your IoT Hub-based solution to production inste
 
 - **Complex deployment requirements:** You might need to deploy updates to your service in a controlled manner and deploy updates to different stamps at different times.
 
-- **Update frequency:** You might have customers that can tolerate frequent system updates, while other customers might want infrequent updates to your service.
+- **Update frequency:** You might have customers that can tolerate frequent system updates, while other customers might want infrequent service updates.
 
-- **Geographical or geopolitical restrictions:** To reduce latency or to comply with data sovereignty requirements, you can deploy some of your customers into specific regions.
+- **Geographical or geopolitical restrictions:** To reduce latency or comply with data sovereignty requirements, you can deploy some of your customers into specific regions.
 
-To avoid these problems, consider grouping your service into multiple stamps. Stamps operate independently of each other so that you can deploy and update them independently. A single geographical region might contain a single stamp or multiple stamps to enable horizontal scale-out within the region. Each stamp contains a subset of your customers.
+To avoid these problems, consider grouping your service into multiple stamps. Stamps operate independently of each other, so you can deploy and update them independently. A single geographical region might contain a single stamp or multiple stamps to enable horizontal scale-out within the region. Each stamp contains a subset of your customers.
 
 For more information, see [Deployment Stamps pattern](/azure/architecture/patterns/deployment-stamp).
 
-## Use back-off when a transient fault occurs
+## Use exponential back-off when a transient fault occurs
 
-You must design all applications that communicate with remote services and resources to handle transient faults. This capability is especially crucial in cloud environments where connectivity increases the likelihood that you encounter these faults. The following list provides examples of transient faults:
+You must design all applications that communicate with remote services and resources to handle transient faults. This capability is especially crucial in cloud environments, where connectivity increases the likelihood of transient faults. The following list provides examples of transient faults:
 
 - Momentary loss of network connectivity to components and services
 - Temporary unavailability of a service
@@ -72,7 +72,7 @@ For more information, see [Transient fault handling](/azure/architecture/best-pr
 
 ## Use zero-touch provisioning
 
-Provisioning enrolls a device into IoT Hub. Provisioning registers a device with IoT Hub and specifies the attestation mechanism that it uses. You can use the [IoT Hub device provisioning service](/azure/iot-dps/) or provision directly via IoT Hub registry manager APIs. The device provisioning service provides the advantage of late binding, which allows you to remove and reprovision field devices to IoT Hub without changing the device software.
+Provisioning enrolls a device into IoT Hub. Provisioning registers a device with IoT Hub and specifies the attestation mechanism that it uses. You can use the [IoT Hub device provisioning service](/azure/iot-dps/) or provision directly via IoT Hub registry manager APIs. The device provisioning service provides the advantage of late binding, so you can remove and reprovision field devices to IoT Hub without changing the device software.
 
 For production deployments that support large device fleets, use the IoT Hub device provisioning service as a foundational onboarding pattern. The device provisioning service provides secure, zero-touch provisioning and late binding of devices to IoT Hub instances. You can reprovision devices across environments or scale horizontally without firmware updates. When you incorporate the device provisioning service from the beginning, your solution can:
 
@@ -94,9 +94,9 @@ The device provisioning service also simplifies device transitions between test 
 
 1. The solution developer links the test and production IoT clouds to the provisioning service.
 
-1. If IoT Hub isn't provisioned, the device implements the device provisioning service protocol to find the hub. The device is initially provisioned to the test environment.
+1. If IoT Hub isn't provisioned, the device implements the device provisioning service protocol to find the hub. The device provisioning service initially provisions the device to the test environment.
 
-1. The device is registered with the test environment, so it connects to that environment and testing occurs.
+1. After the device registers with the test environment, it connects to that environment and testing occurs.
 
 1. The developer reprovisions the device to the production environment and removes it from the test hub. The test hub rejects the device the next time that it reconnects.
 
@@ -106,13 +106,16 @@ For more information, see [Overview of the IoT Hub device provisioning service](
 
 ## Prepare for identity and life cycle management capabilities
 
-IoT Hub supports device life cycle and credential management capabilities through Azure Device Registry integration and Microsoft-supported operational certificate issuance.
+IoT Hub supports device life cycle and credential management capabilities through Azure Device Registry integration and operational certificate issuance that Microsoft supports.
 
 Migration of existing IoT Hub deployments into these new identity and certificate life cycle management models isn't supported in preview. However, you can prepare for adoption by implementing the following architectural practices:
 
 - Use the device provisioning service for device onboarding instead of direct hub registry enrollment.
+
 - Colocate IoT Hub and device provisioning service resources within the same Azure region.
+
 - Separate onboarding credentials from runtime authentication when possible.
+
 - Avoid embedding IoT Hub-specific connection metadata in device firmware.
 
 These practices align device onboarding flows with Device Registry-based identity projection and certificate life cycle workflows. They can reduce future onboarding or reprovisioning requirements when you adopt these capabilities.
