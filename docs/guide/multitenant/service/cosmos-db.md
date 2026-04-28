@@ -171,7 +171,7 @@ We recommend the partition-key-per-tenant and database-account-per-tenant isolat
 
 You can provision dedicated containers that each have their own RU/s for each tenant and place them in an Azure Cosmos DB database account. Each database account can only contain a limited number of containers, so you might need multiple accounts to hold data for all tenants. You need to keep track of which database account contains data for each customer, which adds complexity to your application.
 
-Azure Cosmos DB also limits the [supported throughput for metadata operations on an account](/azure/cosmos-db/concepts-limits#resource-limits). Metadata operations include reading the list of databases or containers in an account and reading and updating container settings. Most customers don't run a high volume of metadata operations. We don't recommend running high volumes of metadata operations because they might not scale effectively when you have a large number of containers in the same account.
+Azure Cosmos DB also limits the [throughput for metadata operations and number of databases or containers for each account](/azure/cosmos-db/concepts-limits#resource-limits). Metadata operations include reading the list of databases or containers in an account and reading and updating container settings. Because of these limits, we don't recommend this model. If a single account has several tenants, the volume of metadata operations increases and might not scale effectively. This model might also require you to manage multiple accounts to balance many tenants, which increases the complexity of your multitenant solution.
 
 You can use the container-per-tenant model to achieve performance isolation for each tenant by setting up dedicated RU/s at the container level. You can also enhance security by using Azure RBAC. But the container-per-tenant model doesn't support customer-managed keys. Customer-managed keys are only available at the database-account level.
 
@@ -187,7 +187,11 @@ You can use the database-per-tenant model to achieve performance isolation for e
 
 If you need performance isolation or customer-managed keys, consider using the database-account-per-tenant model and fleet pools to optimize cost for each tenant. If you don't need these features, consider using the partition-key-per-tenant model.
 
+Like the container-per-tenant model, we don't recommend this model because of the Azure Cosmos DB limits on [throughput for metadata operations and number of databases or containers for each account](/azure/cosmos-db/concepts-limits#resource-limits).
+
 ## Azure Cosmos DB features that support multitenancy
+
+Use the following Azure Cosmos DB features in your multitenant solution.
 
 ### Partitioning
 
