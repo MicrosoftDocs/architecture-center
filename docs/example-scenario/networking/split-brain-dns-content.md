@@ -76,9 +76,6 @@ The following workflow sections describe two configurations: a public internet w
 
 - [Azure Front Door](/azure/well-architected/service-guides/azure-front-door) is a global load balancer and WAF that provides fast and secure web application delivery to global customers. In this architecture, Azure Front Door Standard or Premium routes external customers to the Application Gateway instance and provides caching and optimization options to enhance customer experience.
 
-  > [!NOTE]
-  > Azure Front Door (classic) is being retired on March 31, 2027. If you use Azure Front Door (classic), [migrate to Azure Front Door Standard or Premium](/azure/frontdoor/tier-migration) before the retirement date. For new deployments, use Azure Front Door Standard or Premium.
-
 - [Application Gateway](/azure/well-architected/service-guides/azure-application-gateway) is a regional load balancer and WAF that provides high availability, scalability, and security for web applications. In this architecture, Application Gateway routes external and internal customer requests to the back-end compute and protects the web application from common web attacks.
 
   Both Azure Front Door and Application Gateway provide WAF capabilities, but the private workflow in this solution doesn't use Azure Front Door. As a result, both architectures use the Application Gateway WAF functionality.
