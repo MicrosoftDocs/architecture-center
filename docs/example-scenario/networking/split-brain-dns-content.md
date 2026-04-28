@@ -5,7 +5,7 @@ The following architecture demonstrates an approach to differentiate how traffic
 ## Architecture
 
 :::image type="complex" border="false" source="./media/split-brain-dns.svg" alt-text="Diagram of the application hosting architecture." lightbox="./media/split-brain-dns.svg":::
-   In the diagram, a double-sided arrow points from app.contoso.com to the internet. Another double-sided arrow points from the internet to the Azure DNS zone for contoso.com. An arrow labeled 207.x.x (pip‑appgw) points from Azure Front Door to the public endpoint. Another arrow points from the public endpoint to the app in the app subnet. In the on‑premises section, an arrow points from app.contoso.com to Active Directory Domain Services (AD DS). Dotted arrows point from AD DS to the Azure ExpressRoute circuit and the site-to-site VPN connection. These lines converge before they reach the AppGW subnet and the public endpoint.
+   In the diagram, a double-sided arrow points from app.contoso.com to the internet. Another double-sided arrow points from the internet to the Azure DNS zone for contoso.com. An arrow labeled 207.x.x.x (pip‑appgw) points from Azure Front Door to the public endpoint. Another arrow points from the public endpoint to the app in the app subnet. In the on‑premises section, an arrow points from app.contoso.com to Active Directory Domain Services (AD DS). Dotted arrows point from AD DS to the Azure ExpressRoute circuit and the site-to-site VPN connection. These lines converge before they reach the AppGW subnet and the public endpoint.
 :::image-end:::
 
 *Download a [Visio file](https://arch-center.azureedge.net/split-brain-dns.vsdx) of this architecture.*
@@ -141,7 +141,7 @@ Adhere to these principles to ensure a robust and reliable system that can withs
 
 Security provides assurances against deliberate attacks and the misuse of your valuable data and systems. For more information, see [Design review checklist for Security](/azure/well-architected/security/checklist).
 
-- **Use the Zero Trust approach.** In the split-brain DNS setup, apply the [Zero Trust](/azure/security/fundamentals/zero-trust) approach. Explicitly verify the identity of a customer, whether they originate from the internet or a corporate network. This approach ensures that only trusted entities do authorized actions.
+- **Use the Zero Trust approach.** In the split-brain DNS setup, apply the [Zero Trust](/azure/security/fundamentals/zero-trust) approach. Explicitly verify the identity of a customer, whether they originate from the internet or a corporate network. This approach ensures that only trusted entities can perform authorized actions.
 
 - **Implement identity and access controls effectively.** Implement Microsoft Entra ID for robust identity management. Use Microsoft Entra Conditional Access policies to enforce strict access controls based on customer context, device health, and location.
 
