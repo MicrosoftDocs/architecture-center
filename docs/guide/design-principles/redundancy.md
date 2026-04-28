@@ -48,7 +48,7 @@ To learn more about how to design your solution to use availability zones and re
 
 If you use an IaaS database solution, choose one that supports replication and failover, such as [SQL Server Always On availability groups][sql-always-on].
 
-**Partition for availability**. Database partitioning is often used to improve scalability, but it can also improve availability. If one shard goes down, the other shards can still be reached. A failure in one shard will only disrupt a subset of the total transactions.
+**Partition for availability**. Database partitioning is often used to improve scalability, but it can also improve availability. If one [shard](../../patterns/sharding.md) goes down, the other shards can still be reached. A failure in one shard will only disrupt a subset of the total transactions.
 
 **Test and validate your redundant components**. Reliability benefits in many ways from simplicity and adding redundancy can increase complexity. To ensure that adding redundancy actually leads to higher availability, you should validate the following factors:
 

@@ -57,7 +57,7 @@ The following dataflow corresponds to the previous diagram:
 
 ## Scenario details
 
-DevSecOps for IaC is conceptually similar to [DevSecOps for application code on Azure Kubernetes Service (AKS)](../../guide/devsecops/devsecops-on-aks.yml). However, you need a different set of pipelines and tools to manage and automate continuous integration and continuous delivery for IaC.
+DevSecOps for IaC is conceptually similar to [DevSecOps for application code on Azure Kubernetes Service (AKS)](../../guide/devsecops/devsecops-on-aks.md). However, you need a different set of pipelines and tools to manage and automate continuous integration and continuous delivery for IaC.
 
 When you adopt IaC, it's important to create automation tests as you develop the code. These tests reduce the complexity of testing IaC when your workload scales. You can use local infrastructure configuration states like Terraform states and plans for [test-driven development](/azure/cloud-adoption-framework/ready/considerations/test-driven-development). These configuration states emulate the actual deployments. You can run integration tests for IaC on actual infrastructure deployments by using the [Azure Resource Graph REST API](/rest/api/azure-resourcegraph/).
 

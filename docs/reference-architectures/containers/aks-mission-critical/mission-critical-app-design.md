@@ -85,7 +85,7 @@ The key characteristics of asynchronous messaging include:
 
 - End-to-end tracing requires complex orchestration.
 
-We recommend that you use well-known design patterns, such as the [Queue-Based Load Leveling pattern](/azure/architecture/patterns/queue-based-load-leveling) and [Competing Consumers pattern](/azure/architecture/patterns/competing-consumers). These patterns distribute the load from the producer to the consumers and enable asynchronous processing by consumers. For example, the worker lets the API accept the request and quickly return to the caller, and the worker processes a database write operation separately.
+We recommend that you use well-known design patterns, such as the [Queue-Based Load Leveling pattern](/azure/architecture/patterns/queue-based-load-leveling) and [Competing Consumers pattern](../../../patterns/competing-consumers.md). These patterns distribute the load from the producer to the consumers and enable asynchronous processing by consumers. For example, the worker lets the API accept the request and quickly return to the caller, and the worker processes a database write operation separately.
 
 Event Hubs brokers messages between the API and worker.
 

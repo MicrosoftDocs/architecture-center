@@ -6,6 +6,9 @@ Many factors can affect the reliability of an application, such as the ability t
 
 Mission-critical workloads typically target an SLO of 99.99% or higher, which corresponds to a permitted annual downtime of 52 minutes and 35 seconds. All encompassed design decisions are therefore intended to accomplish this target SLO.
 
+> [!IMPORTANT]
+> When you define your reliability targets, don't treat the SLA percentages of the underlying services as a direct measure of your workload's reliability. SLAs are contractual commitments with specific definitions, conditions, and exclusions that might not align with your workload's definition of availability. [Learn how to read a service-level agreement](/azure/reliability/concept-service-level-agreements) so that you can use SLAs as engineering inputs rather than as reliability assurances.
+
 - **Redundancy in layers**
 
   - Deploy to *multiple regions in an active-active model*. The application is distributed across two or more Azure regions that handle active user traffic.

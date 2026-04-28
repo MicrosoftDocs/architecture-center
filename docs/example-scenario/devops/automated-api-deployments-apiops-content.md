@@ -82,7 +82,7 @@ Cost Optimization focuses on ways to reduce unnecessary expenses and improve ope
 
 - Azure DevOps licensing costs should be considered for teams implementing APIOps. All users participating in the APIOps process must have an appropriate Azure DevOps license. For details, see [Azure DevOps pricing](https://azure.microsoft.com/pricing/details/devops/azure-devops-services/).
   
-  For pricing and licensing details when using GitHub, see [GitHub pricing](https://github.com/pricing) and [GitHub Enterprise licensing](https://docs.github.com/enterprise-cloud@latest/admin/overview/about-github-enterprise-licensing).
+  For pricing and licensing details when using GitHub, see [GitHub pricing](https://github.com/pricing) and [GitHub Enterprise licensing](https://docs.github.com/enterprise-cloud@latest/billing/reference/github-license-users).
 
 ### Operational Excellence
 

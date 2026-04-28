@@ -39,7 +39,7 @@ Before you address specific technical concerns, establish a strong architectural
 
 ## Cloud design patterns
 
-With principles in place, [cloud design patterns](../patterns/index.md) give you reusable solutions for recurring problems in distributed systems. Many of the best practices in this section rely on one or more of these patterns. For example, the transient fault handling guidance builds on the [Retry pattern](../patterns/retry.yml) and [Circuit Breaker pattern](../patterns/circuit-breaker.md), the caching guidance relates to the [Cache-Aside pattern](../patterns/cache-aside.yml), and the background jobs guidance uses patterns like [Competing Consumers](../patterns/competing-consumers.yml) and [Queue-Based Load Leveling](../patterns/queue-based-load-leveling.yml). Review the full catalog to identify patterns that address the architectural challenges in your workload.
+With principles in place, [cloud design patterns](../patterns/index.md) give you reusable solutions for recurring problems in distributed systems. Many of the best practices in this section rely on one or more of these patterns. For example, the transient fault handling guidance builds on the [Retry pattern](../patterns/retry.yml) and [Circuit Breaker pattern](../patterns/circuit-breaker.md), the caching guidance relates to the [Cache-Aside pattern](../patterns/cache-aside.yml), and the background jobs guidance uses patterns like [Competing Consumers](../patterns/competing-consumers.md) and [Queue-Based Load Leveling](../patterns/queue-based-load-leveling.yml). Review the full catalog to identify patterns that address the architectural challenges in your workload.
 
 ## Performance antipatterns
 

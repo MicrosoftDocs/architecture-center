@@ -89,7 +89,7 @@ Producers can post a large number of messages for multiple consumers to process.
 Diagram that shows an application instance on the left. It sends messages into a single message queue in the center. From this queue, three arrows point to three separate consumer instances on the right that represent a pool of consumers that process messages in parallel.
 :::image-end:::
 
-The [Competing Consumers pattern](../../patterns/competing-consumers.yml) processes multiple messages concurrently to optimize throughput, improve scalability and availability, and balance the workload.
+The [Competing Consumers pattern](../../patterns/competing-consumers.md) processes multiple messages concurrently to optimize throughput, improve scalability and availability, and balance the workload.
 
 ### Load leveling
 
@@ -318,7 +318,7 @@ On the left, resource group events point to a subscription that filters events b
 
 Consider the following patterns when you implement asynchronous messaging:
 
-- [Competing Consumers pattern](../../patterns/competing-consumers.yml): Multiple consumers might need to compete to read messages from a queue. This pattern explains how to process multiple messages concurrently to optimize throughput, improve scalability and availability, and balance the workload.
+- [Competing Consumers pattern](../../patterns/competing-consumers.md): Multiple consumers might need to compete to read messages from a queue. This pattern explains how to process multiple messages concurrently to optimize throughput, improve scalability and availability, and balance the workload.
 
 - [Priority Queue pattern](../../patterns/priority-queue.yml): When business logic requires prioritized message processing, this pattern describes how consumers process higher-priority messages before lower-priority messages.
 
@@ -328,7 +328,7 @@ Consider the following patterns when you implement asynchronous messaging:
 
 - [Scheduler Agent Supervisor pattern](../../patterns/scheduler-agent-supervisor.yml): Workflows often require messaging to coordinate distributed services. This pattern demonstrates how messaging coordinates distributed actions and helps systems recover from failures by retrying failed operations.
 
-- [Choreography pattern](../../patterns/choreography.yml): This pattern shows how services can use messaging to control the workflow of a business transaction.
+- [Choreography pattern](../../patterns/choreography.md): This pattern shows how services can use messaging to control the workflow of a business transaction.
 
 - [Claim-Check pattern](../../patterns/claim-check.yml): This pattern shows how to divide a large message into a claim check and a payload.
 

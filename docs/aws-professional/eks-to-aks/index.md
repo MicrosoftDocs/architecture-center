@@ -3,7 +3,7 @@ title: AKS for Amazon EKS Professionals
 description: Learn about the AKS managed solution, configurations, best practices, and similarities and differences compared to Amazon EKS.
 author: francisnazareth
 ms.author: fnazaret
-ms.date: 01/28/2025
+ms.date: 04/08/2026
 ms.topic: concept-article
 ms.subservice: architecture-guide
 ms.collection: 
@@ -15,7 +15,7 @@ ms.custom:
 
 # AKS for Amazon EKS professionals
 
-This series of articles helps professionals who are familiar with Amazon Elastic Kubernetes Service (EKS) understand [Azure Kubernetes Service (AKS)](/azure/aks/intro-kubernetes). The series highlights key similarities and differences between these two managed Kubernetes solutions.
+This series of articles helps professionals who are familiar with Amazon Elastic Kubernetes Service (EKS) understand [Azure Kubernetes Service (AKS)](/azure/aks/what-is-aks). The series highlights key similarities and differences between these two managed Kubernetes solutions.
 
 The articles compare AKS with Amazon EKS in the following Kubernetes design areas:
 
@@ -26,9 +26,8 @@ The articles compare AKS with Amazon EKS in the following Kubernetes design area
 - [Cost optimization and management](cost-management.md)
 - [Agent node and node pool management](node-pools.md)
 - [Cluster governance](governance.md)
-- [Workload migration](migrate.md)
 
-These articles provide recommended architectures and practices to improve AKS deployment security, compliance, management, and observability. Specifically, the [Migrate EKS to AKS](migrate.md) article provides strategies to migrate typical stateless and stateful workloads. For basic AKS implementation, see [Baseline architecture for an AKS cluster](/azure/architecture/reference-architectures/containers/aks/secure-baseline-aks) and [Cloud Adoption Framework guidance for adopting AKS in an Azure landing zone](/azure/cloud-adoption-framework/scenarios/app-platform/aks/landing-zone-accelerator).
+For greenfield AKS implementations, see [Baseline architecture for an AKS cluster](../../reference-architectures/containers/aks/baseline-aks.yml).
 
 AKS isn't the only way to run containers in Azure, and Amazon EKS is only one of the container options for Amazon Web Services (AWS). These articles don't compare Azure services like Azure Container Apps, Azure Container Instances, and Azure App Service with AWS services like Amazon Elastic Container Service or AWS Fargate.
 
@@ -39,17 +38,17 @@ For more information about other Azure services that can host containerized work
 - [Compare Container Apps with other Azure container options](/azure/container-apps/compare-options)
 - [General architectural considerations to choose an Azure container service](../../guide/container-service-general-considerations.md)
 
-The following articles compare Azure and AWS core platform components and capabilities:
+## Migration resources
 
-- [Azure and AWS accounts and subscriptions](../accounts.md)
-- [Compute services on Azure and AWS](../compute.md)
-- [Relational database technologies on Azure and AWS](../databases.md)
-- [Messaging services on Azure and AWS](../messaging.md)
-- [Networking on Azure and AWS](../networking.md)
-- [Regions and zones on Azure and AWS](../regions-zones.md)
-- [Resource management on Azure and AWS](../resources.md)
-- [Multicloud identity with Azure and AWS](../security-identity.md)
-- [Storage on Azure and AWS](../storage.md)
+The following resources help you plan and carry out a migration from Amazon EKS to AKS:
+
+- [Migrate from Amazon EKS to AKS](migrate.md): Strategies to migrate typical stateless and stateful workloads from EKS to AKS, including container image migration, Kubernetes manifest adaptation, and data migration.
+
+- [Migrate compute from AWS to Azure](/azure/migration/migrate-compute-from-aws): A catalog of compute migration scenarios, including EKS-to-AKS scenarios. Examples of such scenarios include:
+
+  - [Migrate an AWS event-driven workload to AKS](/azure/aks/eks-edw-overview): A step-by-step scenario for migrating an EKS event-driven workload that uses KEDA and Karpenter to AKS.
+
+  - [Migrate an EKS web application to AKS](/azure/aks/eks-web-overview): A step-by-step scenario for migrating an EKS web application with AWS WAF to AKS with Azure Web Application Firewall.
 
 ## Contributors
 
@@ -70,15 +69,4 @@ Other contributors:
 
 ## Next steps
 
-- [Baseline architecture for an AKS cluster](../../reference-architectures/containers/aks/secure-baseline-aks.yml)
-- [Cloud Adoption Framework guidance for adopting AKS in Azure landing zones](/azure/cloud-adoption-framework/scenarios/app-platform/aks/landing-zone-accelerator)
-
-## Related resources
-
-- [Kubernetes identity and access management](workload-identity.md)
-- [Kubernetes monitoring and logging](monitoring.md)
-- [Secure network access to Kubernetes](private-clusters.md)
-- [Storage options for a Kubernetes cluster](storage.md)
-- [Cost management for Kubernetes](cost-management.md)
-- [Kubernetes node and node pool management](node-pools.md)
-- [Cluster governance](governance.md)
+- [Baseline architecture for an AKS cluster](../../reference-architectures/containers/aks/baseline-aks.yml)

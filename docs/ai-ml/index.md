@@ -62,7 +62,6 @@ For more information, see [Deep learning overview](https://azure.microsoft.com/r
 - [Foundry](/azure/ai-foundry/what-is-foundry) is a development platform as a service (PaaS) that provides access to agent hosting and a catalog of language models, including the following options:
 
    - GPT-5.2 (OpenAI)
-   - Sora2 (OpenAI)
    - Claude (Anthropic)
    - Phi (Microsoft)
    - Grok (xAI)

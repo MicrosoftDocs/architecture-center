@@ -86,7 +86,7 @@ You can use a [WAF policy](/azure/web-application-firewall/ag/create-waf-policy-
 
 - [Virtual network interfaces](/azure/virtual-network/virtual-network-network-interface) help establish communication between Azure VMs and the internet, Azure, and on-premises resources. You can add several network interface cards to one Azure VM so that child VMs can have their own dedicated network interface devices and IP addresses.
 
-- [Azure Managed Disks](/azure/virtual-machines/managed-disks-overview) are block-level storage volumes that Azure manages on Azure VMs. The disk types include Azure Ultra Disk Storage, Azure Premium SSD, and Azure Standard SSD.
+- [Azure managed disks](/azure/virtual-machines/managed-disks-overview) are block-level storage volumes that Azure manages on Azure VMs. The disk types include Azure Ultra Disk Storage, Azure Premium SSD, and Azure Standard SSD.
 
 - [Blob Storage](/azure/well-architected/service-guides/azure-blob-storage) is a Microsoft object storage solution for the cloud. Blob Storage is optimized for storing massive amounts of unstructured data. Unstructured data is data that doesn't adhere to a particular data model or definition, such as text data or binary data.
 
@@ -185,7 +185,7 @@ These availability and reliability considerations don't fully pertain to multite
 
 - Enable [zone redundancy in Container Registry](/azure/container-registry/zone-redundancy) for intra-region resiliency and high availability.
 - Use [pod topology spread constraints](https://kubernetes.io/docs/concepts/workloads/pods/pod-topology-spread-constraints) to control how you spread pods across your AKS cluster among failure domains, such as regions, availability zones, and nodes.
-- Consider using an uptime service-level agreement (SLA) for AKS clusters that host mission-critical workloads. An [uptime SLA](/azure/aks/uptime-sla) is an optional feature to enable a financially backed, higher SLA for a cluster. An uptime SLA guarantees 99.95% availability of the Kubernetes API server endpoint for clusters that use availability zones. It guarantees 99.90% availability for clusters that don't use availability zones. AKS uses control plane node replicas across update and fault domains to help meet SLA requirements.
+- Consider using an uptime service-level agreement (SLA) for AKS clusters that host mission-critical workloads. An [uptime SLA](/azure/aks/uptime-sla) is an optional feature to enable a financially backed, higher SLA for a cluster. An uptime SLA commits to 99.95% availability of the Kubernetes API server endpoint for clusters that use availability zones. It commits to 99.90% availability for clusters that don't use availability zones. AKS uses control plane node replicas across update and fault domains to help meet SLA requirements.
 
 #### Disaster recovery and business continuity
 

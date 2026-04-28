@@ -78,7 +78,7 @@ Azure Load Balancer also supports multiple-system identifier (multi-SID) SAP clu
 
 **Application security groups.** To define fine-grained network security policies that are based on workloads and centered on applications, use [application security groups](/azure/virtual-network/security-overview#application-security-groups) instead of explicit IP addresses. You can group VMs by name and secure applications by filtering traffic from trusted segments of your network.
 
-**Azure Storage.** Storage provides data persistence for a VM in the form of a virtual hard disk. We recommend that you use [Azure Managed Disks](/azure/virtual-machines/managed-disks-overview).
+**Azure Storage.** Storage provides data persistence for a VM in the form of a virtual hard disk. We recommend that you use [Azure managed disks](/azure/virtual-machines/managed-disks-overview).
 
 ## Recommendations
 
@@ -183,7 +183,7 @@ Azure storage is a software defined storage solution for all cloud workloads.  M
 - Azure Standard HDD storage
 - Azure Standard SSD storage (except specific use cases per SAP note 2015553)
 
-Because application servers don't host any business data, you can also use the smaller P4 and P6 premium disks to help manage costs. For SAP applications, we strongly recommend that you use Azure SSD v1, SSD v2, or Ultra Disks. To understand how the storage type affects the VM availability SLA, see [SLAs for online services](https://www.microsoft.com/licensing/docs/view/Service-Level-Agreements-SLA-for-Online-Services?lang=1). For HA scenarios, [Azure shared disk](/azure/virtual-machines/disks-shared) features are available on Azure Premium SSD and Azure Ultra Disk Storage. For more information, see [Azure Managed Disks](/azure/storage/storage-managed-disks-overview) and [Azure Managed Disk types](/azure/virtual-machines/disks-types).
+Because application servers don't host any business data, you can also use the smaller P4 and P6 premium disks to help manage costs. For SAP applications, we strongly recommend that you use Azure SSD v1, SSD v2, or Ultra Disks. To understand how the storage type affects the VM availability SLA, see [SLAs for online services](https://www.microsoft.com/licensing/docs/view/Service-Level-Agreements-SLA-for-Online-Services?lang=1). For HA scenarios, [Azure shared disk](/azure/virtual-machines/disks-shared) features are available on Azure Premium SSD and Azure Ultra Disk Storage. For more information, see [Azure managed disks](/azure/storage/storage-managed-disks-overview) and [Azure managed disk types](/azure/virtual-machines/disks-types).
 
 You can use Azure shared disks with Windows Server, SLES 15 SP1 and later, or SLES for SAP. When you use an Azure shared disk in Linux clusters, the Azure shared disk serves as a fencing block device to isolate a failed node. It provides a quorum vote in a cluster network partitioning scenario. This shared disk doesn't have a file system and doesn't support simultaneous writes from multiple cluster member VMs.
 
@@ -214,7 +214,7 @@ For more information about SAP HANA performance requirements, see [SAP note 1943
 
 To achieve high input/output operations per second (IOPS) and disk bandwidth throughput, follow the common practices for storage volume [performance optimization](/azure/virtual-machines/premium-storage-performance). For example, combining multiple disks to create a striped disk volume can improve your input/output (I/O) performance. Enabling the read cache on storage content that changes infrequently can also speed up your data retrieval. For more information, see [SAP HANA Azure virtual machine storage configurations](/azure/sap/workloads/hana-vm-operations-storage).
 
-Premium SSD v2 is designed for performance-critical workloads like SAP. Premium SSD v2 is SAP certified and lets you independently size capacity/IOPS/throughput. For more information about its benefits, limitations, and optimal use scenarios, see [Azure Managed Disk types](/azure/virtual-machines/disks-types#premium-ssd-v2).
+Premium SSD v2 is designed for performance-critical workloads like SAP. Premium SSD v2 is SAP certified and lets you independently size capacity/IOPS/throughput. For more information about its benefits, limitations, and optimal use scenarios, see [Azure managed disk types](/azure/virtual-machines/disks-types#premium-ssd-v2).
 
 [Ultra Disk Storage](/azure/virtual-machines/disks-enable-ultra-ssd) is a storage solution that meets intensive IOPS and the transfer bandwidth demands of applications such as SAP HANA. You can dynamically change the performance of Ultra Disks and independently configure metrics like IOPS and MBps without rebooting your VM. We recommend that you use Ultra Disk Storage instead of Write Accelerator when possible.
 
