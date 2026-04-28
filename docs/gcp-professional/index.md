@@ -3,7 +3,7 @@ title: Azure for Google Cloud professionals
 description: Learn the basics of Microsoft Azure accounts, platform, and services, and key similarities and differences between the Google Cloud and Azure platforms.
 author: juanlldc
 ms.author: juanll
-ms.date: 4/22/2026
+ms.date: 4/28/2026
 ms.topic: concept-article
 ms.subservice: cloud-fundamentals
 ms.collection: 
@@ -84,7 +84,7 @@ Azure offers several ways to manage your resources:
 
 - [Web interface](/azure/azure-resource-manager/resource-group-portal). The Azure portal provides a full web-based management interface for Azure resources.
 - [REST API](/rest/api/resources). The Azure Resource Manager REST API provides programmatic access to most of the features available in the Azure portal.
-- [Command Line](/cli/azure/install-azure-cli?view=azure-cli-latest). The Azure CLI provides a command-line interface capable of creating and managing Azure resources. The Azure CLI is available for [Windows, Linux, and macOS](/cli/azure).
+- [Command Line](/cli/azure/install-azure-cli?view=azure-cli-latest&preserve-view=true). The Azure CLI provides a command-line interface capable of creating and managing Azure resources. The Azure CLI is available for [Windows, Linux, and macOS](/cli/azure).
 - [PowerShell](/azure/azure-resource-manager/powershell-azure-resource-manager). The Azure modules for PowerShell allow you to execute automated management tasks using a script. PowerShell is available for [Windows, Linux, and macOS](/powershell/scripting/install/installing-powershell).
 - [Templates](/azure/azure-resource-manager/resource-group-authoring-templates). Azure Resource Manager templates provide JSON template-based resource management capabilities.
 - [SDK](https://azure.microsoft.com/downloads). The SDKs are a collection of libraries that allows users to programmatically manage and interact with Azure services.
@@ -99,7 +99,7 @@ Failures can vary in the scope of their impact. Localized hardware failures or c
 
 One of the main ways to make an application resilient is through redundancy. However, you need to plan for this redundancy when you design the application. Also, the level of redundancy that you need depends on your business requirements. Not every application needs redundancy across regions to guard against a regional outage. In general, a tradeoff exists between greater redundancy and reliability versus higher cost and complexity.
 
-In Google Cloud, a region has two or more Availability Zones. An Availability Zone corresponds with a physically isolated datacenter in the geographic region. Azure has numerous features for providing application redundancy at every level of potential failure, including **availability zones** , and **paired regions**.
+In Google Cloud, a region has two or more Availability Zones. An Availability Zone corresponds with a physically isolated datacenter in the geographic region. Azure has numerous features for providing application redundancy at every level of potential failure, including **availability zones** and **paired regions**.
 
 The following table summarizes each option.
 
