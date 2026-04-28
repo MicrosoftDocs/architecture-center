@@ -3,7 +3,7 @@ title: Move an IoT Hub-Based Solution to a Production Environment
 description: Learn best practices for moving an IoT Hub-based solution to production, including deployment stamps, transient fault handling, and zero-touch provisioning.
 author: dominicbetts
 ms.author: dobett
-ms.date: 04/21/2026
+ms.date: 04/28/2026
 ms.topic: concept-article
 ms.subservice: architecture-guide
 ms.custom: arb-iot
