@@ -3,7 +3,7 @@ title: Related Resources for Multitenancy
 description: This article provides a set of links and resources for architects and developers of multitenant solutions.
 author: johndowns
 ms.author: pnp
-ms.date: 04/17/2025
+ms.date: 04/28/2026
 ms.topic: concept-article
 ms.subservice: architecture-guide
 ms.custom:
@@ -121,8 +121,6 @@ Use the following resources to help you build multitenant architectures on Azure
 
 - [Build a multitenant daemon with the Microsoft identity platform endpoint](https://github.com/Azure-Samples/ms-identity-aspnet-daemon-webapp): This sample application shows how to use the [Microsoft identity platform](/entra/identity-platform/v2-overview) endpoint to access the data of Microsoft business customers in a long-running, non-interactive process. It uses the OAuth2 client credentials grant to acquire an access token, which it then uses to call the Microsoft Graph and access organizational data.
 
-- [Authenticate and authorize multitenant apps using Microsoft Entra ID](/training/modules/cna-set-up-azure-ad-use-scale): Learn how Microsoft Entra ID enables you to improve the functionality of cloud-native apps in multitenant scenarios.
-
 - [Define and implement permissions, roles, and scopes with Microsoft Entra ID in SaaS solutions](https://techcommunity.microsoft.com/t5/fasttrack-for-azure/define-and-implement-permissions-roles-and-scopes-with-azure/ba-p/3810264): This article covers three main concepts related to Microsoft Entra authentication and authorization, which SaaS providers can use. It covers Application Roles functionality, Delegated & Application permissions, and Scopes functionality.
   
 ### Analytics
@@ -147,8 +145,6 @@ Use the following resources to help you build multitenant architectures on Azure
 
 - [Three tenancy models for Kubernetes](https://kubernetes.io/blog/2021/04/15/three-tenancy-models-for-kubernetes/): Kubernetes clusters are typically used by several teams in an organization. This article explains three tenancy models for Kubernetes.
 
-- [Understand Kubernetes multitenancy](https://cloudian.com/guides/kubernetes-storage/understanding-kubernetes-multi-tenancy/): Kubernetes isn't a multitenant system out of the box. It requires custom configuration. This article explains Kubernetes multitenancy types.
-
 - [Kubernetes multitenancy best practices guide](https://loft.sh/blog/kubernetes-multi-tenancy-a-best-practices-guide/): Kubernetes multitenancy is a topic that organizations are increasingly interested in as their Kubernetes usage spreads out. However, because Kubernetes isn't explicitly a multitenant system, it can be challenging to design a multitenant Kubernetes implementation. This article describes these challenges, how to overcome them, and some useful tools for Kubernetes multitenancy.
 
 - [Capsule: Kubernetes multitenancy made simple](https://capsule.clastix.io/): Capsule helps to implement a multitenancy and policy-based environment in your Kubernetes cluster. It isn't a platform as a service (PaaS) offering, but instead is a microservices-based ecosystem with a minimalist design approach, using only upstream Kubernetes.
@@ -162,8 +158,8 @@ Use the following resources to help you build multitenant architectures on Azure
 Principal authors:
 
 - [John Downs](https://www.linkedin.com/in/john-downs/) | Principal Software Engineer, Azure Patterns & Practices
-- [Paolo Salvatori](https://www.linkedin.com/in/paolo-salvatori) | Principal Customer Engineer, FastTrack for Azure
-- [Arsen Vladimirskiy](https://www.linkedin.com/in/arsenv) | Principal Customer Engineer, FastTrack for Azure
-- [LaBrina Loving](https://www.linkedin.com/in/chixcancode) | Principal Customer Engineering Manager, FastTrack for Azure
+- [Paolo Salvatori](https://www.linkedin.com/in/paolo-salvatori)
+- [Arsen Vladimirskiy](https://www.linkedin.com/in/arsenv) | Principal Customer Engineer
+- [LaBrina Loving](https://www.linkedin.com/in/chixcancode) | Principal Customer Engineering Manager
 
 *To see nonpublic LinkedIn profiles, sign in to LinkedIn.*
