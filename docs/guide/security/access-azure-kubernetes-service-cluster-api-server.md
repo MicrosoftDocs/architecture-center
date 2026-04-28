@@ -150,7 +150,7 @@ You can use native client tunneling to connect directly to AKS private clusters 
    az aks bastion --name <AKSClusterName> --resource-group <AKSClusterResourceGroup> --admin --bastion <BastionResourceId>
    ```
 
-1. Update your `KUBECONFIG` to point to the Azure Bastion tunnel:
+1. Update your kubeconfig file to point to the Azure Bastion tunnel:
 
    ```bash
    export BASTION_PORT=$(ps aux | sed -n 's/.*--port \([0-9]*\).*/\1/p' | head -1)
@@ -163,7 +163,7 @@ You can use native client tunneling to connect directly to AKS private clusters 
    kubectl get nodes
    ```
 
-For more information, see [Connect to AKS private clusters by using Azure Bastion (preview)](/azure/bastion/bastion-connect-to-aks-private-cluster).
+For more information, see [Connect to AKS private clusters by using Azure Bastion](/azure/bastion/bastion-connect-to-aks-private-cluster).
 
 > [!NOTE]
 > Azure Bastion native client tunneling isn't supported for AKS Automatic clusters or for clusters that have network resource group (NRG) lockdown.
