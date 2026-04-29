@@ -308,6 +308,6 @@ Other contributors:
 
 ## Related resources
 
-- [Baseline architecture for an AKS cluster](../../reference-architectures/containers/aks/baseline-aks.yml)
-- [Advanced AKS microservices architecture](../../reference-architectures/containers/aks-microservices/aks-microservices-advanced.yml)
-- [AKS architecture design](../../reference-architectures/containers/aks-start-here.md)
+- [Baseline architecture for an AKS cluster](../reference-architectures/containers/aks/baseline-aks.yml)
+- [Advanced AKS microservices architecture](../reference-architectures/containers/aks-microservices/aks-microservices-advanced.yml)
+- [AKS architecture design](../reference-architectures/containers/aks-start-here.md)
