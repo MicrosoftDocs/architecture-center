@@ -430,7 +430,7 @@ items:
     href: patterns/cqrs.md
   - name: Deployment Stamps
     displayName: Scale units, cell-based architecture
-    href: patterns/deployment-stamp.yml
+    href: patterns/deployment-stamp.md
   - name: Edge Workload Configuration
     displayName: IoT, device configuration
     href: patterns/edge-workload-configuration.md

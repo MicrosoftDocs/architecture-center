@@ -88,7 +88,7 @@ Several design patterns from the Azure Architecture Center are relevant to multi
 
 ### Deployment Stamps pattern
 
-For more information about how to use the [Deployment Stamps pattern](../../../patterns/deployment-stamp.yml) to support a multitenant solution, see [Overview](overview.md#deployment-stamps-pattern).
+For more information about how to use the [Deployment Stamps pattern](../../../patterns/deployment-stamp.md) to support a multitenant solution, see [Overview](overview.md#deployment-stamps-pattern).
 
 > [!TIP]
 > In multitenant solutions, it's a good practice to create deployment stamps. This recommendation applies even when you use a multitenant database or sharded databases within a stamp. By modeling your solution as a stamp, you can easily redeploy it as new business opportunities arise.
