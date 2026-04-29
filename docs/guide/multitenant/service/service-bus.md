@@ -3,7 +3,7 @@ title: Azure Service Bus Considerations for Multitenancy
 description: Explore Azure Service Bus isolation models, authentication, and features for multitenant architectures. Learn best practices for tenant data separation.
 author: PlagueHO
 ms.author: dascottr
-ms.date: 04/29/2026
+ms.date: 05/02/2025
 ms.topic: concept-article
 ms.subservice: architecture-guide
 ms.custom: arb-saas
