@@ -55,7 +55,7 @@ When possible, install applications on a data disk, not the OS disk. Some legacy
 
 We recommend creating one or more [data disks](/azure/virtual-machines/windows/disks-types) for application data. Data disks are persistent managed disks backed by Azure Storage.
 
-When you add a new disk to a VM, it's unformatted. Log in to the VM to format the disk as described [here](/azure/virtual-machines/windows/attach-managed-disk-portal). Adding a new data disk can also be done via [PowerShell](/azure/virtual-machines/windows/attach-disk-ps).
+When you add a new disk to a VM, it's unformatted. Log in to the VM to [format the disk](/azure/virtual-machines/windows/attach-managed-disk-portal). Adding a new data disk can also be done via [PowerShell](/azure/virtual-machines/windows/attach-disk-ps).
 
 #### Network
 
@@ -102,17 +102,17 @@ The networking components include the following resources:
 
 - [Virtual machine scale sets](/azure/virtual-machine-scale-sets/overview) - workloads that are critical to business operations should never depend on a single virtual machine. Scale sets provide the ability to spread workloads across nodes and can scale out in times of higher traffic or scale in when traffic is minimal to help minimize costs.
 
-- [Azure Load Balancer](/azure/well-architected/service-guides/azure-load-balancer) would be useful to provide load balancing between multiple virtual machines or a VM scale set. It can also be used as alternative to a NAT Gateway to allow access to a workload from the internet while also supporting outbound access.
+- [Azure Load Balancer](/azure/well-architected/service-guides/azure-load-balancer) would be useful to provide load balancing between multiple virtual machines or a virtual machine scale set. It can also be used as alternative to a NAT Gateway to allow access to a workload from the internet while also supporting outbound access.
 
-- [Application Gateway](/azure/well-architected/service-guides/azure-application-gateway) is an alternative Layer 7 load-balancing option for HTTP/HTTPS traffic, typically deployed in front of multiple virtual machines or a VM scale set within an Azure region.
+- [Application Gateway](/azure/well-architected/service-guides/azure-application-gateway) is an alternative Layer 7 load-balancing option for HTTP/HTTPS traffic, typically deployed in front of multiple virtual machines or a virtual machine scale set within an Azure region.
 
-- For a more enterprise-level deployment, see **Azure Virtual Machines baseline architecture in an Azure landing zone** under [Next Steps](#next-steps) below.
+- For a more enterprise-level deployment, see [Azure Virtual Machines baseline architecture in an Azure landing zone](/azure/architecture/virtual-machines/baseline-landing-zone).
 
 ## Scenario details
 
 In the diagram above, this scenario would be useful for providing a non-critical workload that is useful for internal-only users.
 
-### Potential Use Cases
+### Potential use cases
 
 A single VM deployment could be used to host a simple application that does not need to be exposed to the internet and can withstand some downtime. For example, this may be a basic internal reporting application.
 
@@ -132,9 +132,9 @@ As this architecture is only a simple example using a single virtual machine, it
 
 To reduce blast radius and improve resiliency, the workload should be deployed in multiple regions and leverage the [Azure Landing Zone](/azure/cloud-adoption-framework/ready/landing-zone/) guidance. This could be in an Active-Passive configuration, with failover to the secondary region if the primary region becomes unavailable, or an Active-Active architecture where both regions serve traffic to consumers. For an example, see **Multi-tier web application built for HA/DR** under [Next Steps](#next-steps) below.
 
-The example in that article uses [Azure Site Recovery (ASR)](/azure/site-recovery/site-recovery-overview) to replicate the disks of individual virtual machines to a secondary region, where ASR can be used to failover those virtual machines to the secondary region with a low Recovery Point Objective (RPO)/Recovery Time Objective (RTO).
+The example in that article uses [Azure Site Recovery](/azure/site-recovery/site-recovery-overview) to replicate the disks of individual virtual machines to a secondary region, where Site Recovery can be used to fail over those virtual machines to the secondary region with a low Recovery Point Objective (RPO)/Recovery Time Objective (RTO).
 
-Be sure to evaluate your architecture to meet your HA/DR requirements across all components, not just the virtual machines. Include networking, identity, data, etc in all of these decisions.
+Be sure to evaluate your architecture to meet your HA/DR requirements across all components, not just the virtual machines. In all of these decisions, include networking, identity, and data among your considerations.
 
 ### Security
 
@@ -190,7 +190,7 @@ Some key goals include minimizing latency, ensuring scalable architectures, opti
 As mentioned above, the decisions made regarding workload architecture, VM SKU and disk configurations can have a large impact on how your workload performs. Making the correct choices could prevent having to re-architect the solution in the future, adding flexibility and saving costs.
 
 Be sure to consider these points when developing your architecture:
-- Use VM scale sets if the workload will have a dynamic load. For example, scale out in times of large amounts of traffic and then scale back in when the traffic reduces. This will ensure adequate processing power while still keeping costs under control.
+- Use virtual machine scale sets if the workload will have a dynamic load. For example, scale out in times of large amounts of traffic and then scale back in when the traffic reduces. This will ensure adequate processing power while still keeping costs under control.
 - Choose the appropriate VM and disk SKUs to meet required IOPS during processing. Configure caching to further improve performance.
 - If your workload is unusually latency-sensitive, use [Proximity Placement Groups (PPGs)](/azure/virtual-machines/co-location) to ensure that multiple VMs are located physically close to each other to achieve better performance. PPGs can also be used in conjunction with availability sets to combine low latency with high availability within a single physical datacenter.
 - Where possible, enable accelerated networking to minimize latency between components.
@@ -204,6 +204,8 @@ Be sure to consider these points when developing your architecture:
 Principal author:
 
 - [Donnie Trumpower](https://www.linkedin.com/in/dtrumpower) | Senior Cloud & AI Solutions Architect
+
+*To see nonpublic LinkedIn profiles, sign in to LinkedIn.*
 
 ## Next steps
 
