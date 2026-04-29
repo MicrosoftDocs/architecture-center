@@ -20,9 +20,9 @@ The following data flow corresponds to the previous diagram:
 
    - **[Blob trigger](/azure/azure-functions/functions-bindings-storage-blob-trigger):** Configure a blob trigger to initiate intelligent transcription when an audio file is uploaded to the blob container.
 
-1. The Azure function triggers an Azure App Service app that runs the following steps in sequence. It calls [Azure Speech batch transcription](/azure/ai-services/speech-service/batch-transcription) to transcribe the audio files and optionally saves the raw transcription file in Blob Storage for future reference. The App Service app passes the raw data to Azure Language to [detect and redact personal data](/azure/ai-services/language-service/personally-identifiable-information/how-to/redact-conversation-pii) in the transcript.
+1. The Azure function triggers a custom application that runs the following steps in sequence. It calls [Azure Speech batch transcription](/azure/ai-services/speech-service/batch-transcription) to transcribe the audio files and optionally saves the raw transcription file in Blob Storage for future reference. The app passes the raw data to Azure Language to [detect and redact personal data](/azure/ai-services/language-service/personally-identifiable-information/how-to/redact-conversation-pii) in the transcript.
 
-1. The App Service app sends the redacted data to Azure OpenAI text processing models such as GPT-5 models to perform various post-call analytics, including identifying call intent and sentiment, extracting entities, or summarizing the conversation to evaluate the call's effectiveness. The solution stores the processed output in Azure Storage for visualization or consumption by downstream applications or other datastores used for reporting.
+1. The web app sends the redacted data to Azure OpenAI text processing models such as GPT-5 models to perform various post-call analytics, including identifying call intent and sentiment, extracting entities, or summarizing the conversation to evaluate the call's effectiveness. The solution stores the processed output in Azure Storage for visualization or consumption by downstream applications or other datastores used for reporting.
 
 1. [Power BI](/power-bi/fundamentals/power-bi-overview) visualizes the post-call analytics based on the criteria that the business defines. You can also store this output in a customer relationship management (CRM) system, so agents have contextual information about why the customer called and can quickly solve potential problems. This automated process saves agents time and effort.
 
@@ -88,7 +88,7 @@ Reliability helps ensure that your application can meet the commitments that you
 
 - Design high-availability applications with Storage accounts by reviewing the [configuration options](/azure/storage/common/geo-redundant-design).
 
-- Ensure resiliency of the compute services and data stores in this scenario by using failure mode for services such as Azure Functions and Storage. For more information, see [Reliability guides by service](/azure/reliability/overview-reliability-guidance).
+- Ensure resiliency of the compute services and data stores in this scenario by testing failure modes for core services such as Azure Functions and Storage. For more information, see [Reliability guides by service](/azure/reliability/overview-reliability-guidance).
 
 ### Security
 
