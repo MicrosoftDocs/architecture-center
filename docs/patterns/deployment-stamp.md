@@ -11,7 +11,7 @@ ms.subservice: cloud-fundamentals
 # Deployment Stamps pattern
 
 <!-- cSpell:ignore myapi backplane Salvatori -->
-The Deployment Stamps pattern provisions, manages, and monitors a group of resources to host and operate multiple workloads or tenants. Each individual copy is called a *stamp*, or sometimes a *service unit*, *scale unit*, or *cell*. In a multitenant environment, each stamp serves a predefined number of tenants. You can deploy multiple stamps to scale the solution almost linearly and serve an increasing number of tenants. This approach can improve the scalability of your solution, enable you to deploy instances across multiple regions, and separate your customer data.
+The Deployment Stamps pattern provisions, manages, and monitors a group of resources to host and operate multiple workloads or tenants. Each individual copy is called a *stamp*, or sometimes a *service unit*, *scale unit*, or *cell*. In a multitenant environment, each stamp serves a predefined number of tenants. You deploy multiple stamps to scale the solution almost linearly and serve an increasing number of tenants. This approach can improve the scalability of your solution, enable you to deploy instances across multiple regions, and separate your customer data.
 
 > [!NOTE]
 > For more information, see [Architect multitenant solutions on Azure](../guide/multitenant/overview.md).
@@ -58,7 +58,7 @@ Deployment stamps relate to but differ from [geodes](geodes.yml). In a deploymen
 
 Consider the following points as you decide how to implement this pattern:
 
-- **Deployment process:** When you deploy multiple stamps, automate and fully repeat your deployment processes. Consider using [Bicep](/azure/azure-resource-manager/bicep/overview), [JSON Azure Resource Manager templates (ARM templates)](/azure/azure-resource-manager/templates/overview), or [Terraform](/azure/developer/terraform/overview) modules to declaratively define your stamps and keep the definitions consistent.
+- **Deployment process:** When you deploy multiple stamps, automate and fully repeat your deployment processes. Use [Bicep](/azure/azure-resource-manager/bicep/overview) or [Terraform](/azure/developer/terraform/overview) modules to declaratively define your stamps and keep the definitions consistent.
 
 - **Cross-stamp operations:** When you deploy your solution independently across multiple stamps, it can be hard to determine how many customers you have across all your stamps. You might need to query each stamp and aggregate the results. Alternatively, you can have all stamps publish data into a centralized data warehouse for consolidated reporting.
 
@@ -104,7 +104,7 @@ This pattern might not be suitable when:
 
 - You only need to scale some components and not others. For example, consider whether you can scale your solution by [sharding the data store](sharding.md) instead of deploying a new copy of all the solution components.
 
-- Your solution consists solely of static content, such as a front-end JavaScript application. Store this content in a [storage account](/azure/storage/blobs/storage-blob-static-website) and use [Azure Content Delivery Network](/azure/architecture/best-practices/cdn).
+- Your solution consists solely of static content, such as a front-end JavaScript application. Deliver this content by a [Content Delivery Network](/azure/architecture/best-practices/cdn).
 
 ## Workload design
 
@@ -132,9 +132,9 @@ If the user travels to California and accesses the system, the system routes the
 
 ### Deployment
 
-Consider describing your infrastructure as code, such as by using [Bicep](/azure/azure-resource-manager/bicep/overview), [JSON ARM templates](/azure/azure-resource-manager/templates/overview), [Terraform](/azure/developer/terraform/overview), and scripts. This approach ensures that the deployment of each stamp is predictable and repeatable. It also reduces the likelihood of human errors such as accidental mismatches in configuration between stamps.
+Describe your infrastructure as code, by using [Bicep](/azure/azure-resource-manager/bicep/overview) or [Terraform](/azure/developer/terraform/overview). This approach ensures that the deployment of each stamp is predictable and repeatable. It also reduces the likelihood of human errors such as accidental mismatches in configuration between stamps.
 
-You can deploy updates automatically to all stamps in parallel. Technologies like [Bicep](/azure/azure-resource-manager/bicep/overview) or ARM templates can coordinate the deployment of your infrastructure and applications. Alternatively, you might decide to gradually roll out updates to some stamps first, and then progressively to other stamps. Consider using a release management tool like [Azure Pipelines](/azure/devops/pipelines/get-started/what-is-azure-pipelines) or [GitHub Actions](https://docs.github.com/actions) to orchestrate deployments to each stamp.
+You can deploy updates automatically to all stamps in parallel. Technologies like [Bicep](/azure/azure-resource-manager/bicep/overview) can coordinate the deployment of your infrastructure and applications. Alternatively, you might decide to gradually roll out updates to some stamps first, and then progressively to other stamps. Consider using a release management tool like [Azure Pipelines](/azure/devops/pipelines/get-started/what-is-azure-pipelines) or [GitHub Actions](https://docs.github.com/actions) to orchestrate deployments to each stamp.
 
 Carefully consider the topology of the Azure subscriptions and resource groups for your deployments:
 
