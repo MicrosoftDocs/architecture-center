@@ -1,4 +1,17 @@
-This article outlines options for how to connect to the API server of your Azure Kubernetes Service (AKS) cluster. In a standard AKS cluster, the API server is exposed over the internet. In a private AKS cluster, you can only connect to the internet from a device that has network access to the private cluster.
+---
+title: Access an Azure Kubernetes Service (AKS) API Server
+description: Learn how to connect to an Azure Kubernetes Service (AKS) cluster's API server. Connection options include Azure Bastion, Azure ExpressRoute, and Azure Cloud Shell.
+author: samcogan
+ms.author: samcogan
+ms.date: 04/27/2026
+ms.topic: concept-article
+ms.subservice: architecture-guide
+ms.custom: arb-containers
+---
+
+# Access an Azure Kubernetes Service (AKS) API server
+
+This article outlines options for how to connect to the API server of your Azure Kubernetes Service (AKS) cluster. In a standard AKS cluster, the API server is exposed over the internet. In a private AKS cluster, you can only connect to the API server from a device that has network access to the private cluster.
 
 Planning API server access is a day-zero activity, and how you access the server depends on your deployment scenario.
 
@@ -7,7 +20,6 @@ Planning API server access is a day-zero activity, and how you access the server
 To manage an AKS cluster, you interact with its API server. It's essential to limit API server access to only the necessary users. You can provide granular access by integrating the AKS cluster with Microsoft Entra ID. Administrators can manage access by using Azure role-based access control (Azure RBAC). They can also place users and identities in Microsoft Entra groups and assign appropriate roles and permissions. Microsoft Entra authentication is enabled in AKS clusters via OpenID Connect. For more information, see the following resources:
 
 - [Enable Azure managed identity authentication for Kubernetes clusters with kubelogin](/azure/aks/managed-aad)
-
 - [Integrate Microsoft Entra ID for the cluster](/azure/architecture/reference-architectures/containers/aks/baseline-aks#integrate-microsoft-entra-id-for-the-cluster)
 
 > [!NOTE]
@@ -17,32 +29,32 @@ To manage an AKS cluster, you interact with its API server. It's essential to li
 
 ## Access an AKS cluster over the internet
 
-When you create a non-private cluster that resolves to the API server's fully qualified domain name (FQDN), it's assigned a public IP address by default. You can connect to your cluster by using the Azure portal or a shell such as Azure CLI, PowerShell, or command prompt.
+When you create a nonprivate cluster that resolves to the API server's fully qualified domain name (FQDN), it's assigned a public IP address by default. You can connect to your cluster by using the Azure portal or a shell such as the Azure CLI, PowerShell, or command prompt.
 
 > [!NOTE]
 > You can use the Kubernetes command-line client `kubectl` to [connect to a cluster](/azure/aks/learn/quick-kubernetes-deploy-cli#connect-to-the-cluster) over the internet.
 
-## Cloud Shell
+## Azure Cloud Shell
 
-[Azure Cloud Shell](/azure/cloud-shell/overview) is a shell built into the Azure portal. You can manage and connect to Azure resources from Cloud Shell like you can from PowerShell or Azure CLI.
+[Azure Cloud Shell](/azure/cloud-shell/overview) is a shell built into the Azure portal. You can manage and connect to Azure resources from Cloud Shell like you can from PowerShell or the Azure CLI.
 
 ## Access an AKS private cluster
 
 There are several ways to connect to an AKS private cluster. Planning access is a day-zero activity that's based on the needs and limitations of your scenario. You can connect to your private cluster by using the following components and services:
 
-- **A jump box deployed into a subnet as your operations workstation:** This setup can be [stand-alone, persistent virtual machines (VMs)](/azure/virtual-machines/managed-disks-overview) in an [availability set](/azure/virtual-machines/availability-set-overview) or [Azure Virtual Machine Scale Sets](/azure/virtual-machine-scale-sets/overview).
+- **A jump box deployed into a subnet as your operations workstation:** This setup can be [standalone, persistent virtual machines (VMs)](/azure/virtual-machines/managed-disks-overview) in an [availability set](/azure/virtual-machines/availability-set-overview) or [Azure Virtual Machine Scale Sets](/azure/virtual-machine-scale-sets/overview).
 
 - **Azure Container Instances and an [OpenSSH-compatible client](https://docs.linuxserver.io/images/docker-openssh-server):** Deploy a container instance that runs a Secure Shell (SSH) server, and then use your OpenSSH-compatible client to access the container. This container serves as a jump box within your network to reach your private cluster.
 
-- **[Azure Bastion](/azure/bastion/bastion-overview):** Use Azure Bastion to establish more secure, browser-based remote access to your VMs or jump boxes within your Azure Virtual Network. This access lets you more safely connect to private endpoints like your AKS API server.
+- **[Azure Bastion](/azure/bastion/bastion-overview):** Use Azure Bastion to establish more secure, browser-based remote access to your VMs or jump boxes within your Azure virtual network. With this access, you can more safely connect to private endpoints like your AKS API server. Azure Bastion also provides a native client tunneling feature (preview) that allows direct connection to AKS private clusters without requiring a jump box.
 
-- **[Virtual private network (VPN)](/azure/vpn-gateway/vpn-gateway-about-vpngateways):** Create a secure VPN connection that extends your on-premises or remote network into your virtual network. This connection allows you to access your private cluster like you're locally connected.
+- **[Virtual private network (VPN)](/azure/vpn-gateway/vpn-gateway-about-vpngateways):** Create a secure VPN connection that extends your on-premises or remote network into your virtual network. With this connection, you can access your private cluster as if you were connected locally.
 
 - **[Azure ExpressRoute](/azure/expressroute/expressroute-introduction):** Use ExpressRoute to build a dedicated, private connection between your on-premises network and Azure. This connection helps ensure more secure and reliable access to your private cluster without using the public internet.
 
-- **Azure CLI [az aks command invoke](/azure/aks/command-invoke#limitations) command:** Perform commands directly on your AKS cluster by using the Azure CLI with the `az aks command invoke` command. This command interacts with the cluster without exposing more network endpoints.
+- **The Azure CLI [az aks command invoke](/azure/aks/access-private-cluster) command:** Perform commands directly on your AKS cluster by using the Azure CLI with the `az aks command invoke` command. This command interacts with the cluster without exposing more network endpoints. You can also use the equivalent **Run command** feature in the Azure portal for browser-based command execution.
 
-- **[Cloud Shell](/azure/cloud-shell/private-vnet) instance that's deployed into a subnet that's connected to the API server for the cluster:** Deploy Cloud Shell in a subnet that's linked to your cluster’s API server. This approach provides a more secure, managed command-line environment to manage your private cluster.
+- **[Cloud Shell](/azure/cloud-shell/private-vnet) instance that's deployed into a subnet that's connected to the API server for the cluster:** Deploy Cloud Shell in a subnet that's linked to your cluster's API server. This approach provides a more secure, managed command-line environment to manage your private cluster.
 
 - **[Azure Virtual Desktop](/azure/virtual-desktop/overview):** Access Azure Virtual Desktop to use Windows or Linux desktops as jump boxes to more securely manage your private cluster from almost anywhere.
 
@@ -51,9 +63,11 @@ There are several ways to connect to an AKS private cluster. Planning access is 
 
 ## Azure Bastion
 
-Azure Bastion is a platform as a service offering that enables secure Remote Desktop Protocol (RDP) or SSH connections to a VM within your virtual network that doesn't require a public IP address on the VM. When you connect to a private AKS cluster, use Azure Bastion to access a jump box in the hub virtual network.
+Azure Bastion is a platform as a service (PaaS) offering that enables secure Remote Desktop Protocol (RDP) or SSH connections to a VM within your virtual network that doesn't require a public IP address on the VM. Two primary approaches to using Azure Bastion with private AKS clusters are to connect through a jump box or use native client tunneling to connect directly without a jump box.
 
- Alternatively, you can use SSH, RDP, and Remote Desktop Services to remotely control jump boxes. The AKS cluster resides in a spoke network, which separates it from the jump box. Virtual network peering connects the hub and spoke networks. The jump box can resolve the AKS API server's FQDN by using Azure Private Endpoint, a private DNS zone, and a DNS A record. This setup helps ensure that the API server's FQDN is only resolvable within the virtual network. This configuration provides a trusted connection to the private AKS cluster.
+### Azure Bastion with a jump box
+
+When you connect to a private AKS cluster, use Azure Bastion to access a jump box in the hub virtual network. Alternatively, you can use SSH, RDP, or Remote Desktop Services to remotely control the jump box. The AKS cluster resides in a spoke network, which keeps it separate from the jump box. Virtual network peering connects the hub and spoke networks. The jump box can resolve the AKS API server's FQDN by using an Azure private endpoint, a private Domain Name System (DNS) zone, and a DNS A record. This setup ensures that the API server's FQDN resolves only inside the virtual network. This configuration provides a trusted connection to the private AKS cluster.
 
 > [!NOTE]
 > For continuous access to your private AKS cluster, the availability and redundancy of your jump boxes are crucial. To help ensure this reliability, place your jump boxes in availability sets and use Virtual Machine Scale Sets that have few VM instances. For more information, see the following resources:
@@ -67,7 +81,7 @@ Azure Bastion is a platform as a service offering that enables secure Remote Des
 
 *Download a [Visio file](https://arch-center.azureedge.net/US-1956833-access-azure-kubernetes-service-cluster-api-server-architecture.vsdx) of this architecture.*
 
-### Dataflow
+### Data flow
 
 1. A user attempts to connect to a jump box by using Azure Bastion and an HTML5 browser with Transport Layer Security encryption.
 
@@ -82,7 +96,7 @@ Azure Bastion is a platform as a service offering that enables secure Remote Des
 1. The traffic reaches the API server of the private AKS cluster. The user can then manage pods, nodes, and applications.
 
 > [!NOTE]
-> The FQDN of your private cluster can be resolved from outside of your virtual network if you don't directly [disable public FQDN on an existing cluster](/azure/aks/private-clusters#disable-a-public-fqdn).
+> The FQDN of your private cluster can be resolved from outside of your virtual network if you don't directly [turn off public FQDN on an existing cluster](/azure/aks/private-clusters#disable-a-public-fqdn).
 
 ### Troubleshoot connection problems
 
@@ -95,14 +109,64 @@ If you can't connect to your private cluster:
 
 - Check the virtual network link to the private DNS zone. Virtual network links provide a way for VMs that are inside virtual networks to connect to a private DNS zone and resolve the DNS records inside the zone. If you can't connect to your private AKS cluster or can't resolve the FQDN of the private cluster, check whether your virtual network has a virtual network link to your private DNS zone. The name of the private DNS zone should have the `privatelink.<region>.azmk8s.io` format.
 
-  For more information about how to troubleshoot virtual network links, see the following resources:
+  For more information about how to troubleshoot virtual network links, see the following articles:
 
   - [Virtual network peering](/azure/aks/private-clusters#virtual-network-peering)
-  
+
   - [What is a virtual network link?](/azure/dns/private-dns-virtual-network-links)
 
   > [!NOTE]
   > When you create a private AKS cluster, a private DNS zone is created that has a virtual network link to the virtual network that hosts the private AKS cluster.
+
+### Azure Bastion native client tunneling
+
+You can use native client tunneling to connect directly to AKS private clusters without a jump box. This approach supports persistent, long-running access and keeps your native client tooling working from your local machine.
+
+ > [!IMPORTANT]
+ > This feature is in preview. AKS preview features are available on a self-service, opt-in basis. Microsoft provides previews *as-is* and *as available*, and they aren't included in service-level agreements (SLAs) or limited warranty. Customer support provides partial, best-effort coverage for AKS previews, so these features aren't suitable for production. For more information, see the following support articles:
+ >
+ > - [AKS support policies](/azure/aks/support-policies)
+ > - [Azure support FAQ](/azure/aks/faq)
+
+#### Requirements
+
+- Deloy Azure Bastion by using the Standard or Premium SKU.
+
+- Enable native client support in the Azure Bastion configuration settings.
+
+- Ensure that you have the Reader role on the AKS cluster, the Azure Bastion resource, and the virtual network.
+
+#### Connection workflow
+
+1. Retrieve credentials to your AKS private cluster:
+
+   ```bash
+   az aks get-credentials --admin --name <AKSClusterName> --resource-group <ResourceGroupName>
+   ```
+
+1. Open the tunnel to your target AKS cluster:
+
+   ```bash
+   az aks bastion --name <AKSClusterName> --resource-group <AKSClusterResourceGroup> --admin --bastion <BastionResourceId>
+   ```
+
+1. Update your kubeconfig file to point to the Azure Bastion tunnel:
+
+   ```bash
+   export BASTION_PORT=$(ps aux | sed -n 's/.*--port \([0-9]*\).*/\1/p' | head -1)
+   sed -i "s|server: https://.*|server: https://localhost:${BASTION_PORT}|" $KUBECONFIG
+   ```
+
+1. Interact with your AKS cluster:
+
+   ```bash
+   kubectl get nodes
+   ```
+
+For more information, see [Connect to AKS private clusters by using Azure Bastion](/azure/bastion/bastion-connect-to-aks-private-cluster).
+
+> [!NOTE]
+> Azure Bastion native client tunneling isn't supported for AKS Automatic clusters or for clusters that have network resource group (NRG) lockdown.
 
 ## Improve security
 
@@ -114,17 +178,17 @@ PAWs are hardened devices that provide high security for operators by blocking c
 
 A VPN connection provides hybrid connectivity from your on-premises environment to Azure. This connectivity enables access to a private AKS cluster. The API server of the private cluster isn't reachable outside of your virtual networks. With a VPN, you can connect to your virtual network in Azure over an encrypted tunnel, access your jump box, and then connect to the private cluster's API server.
 
-:::image type="complex" border="false" source="./images/access-azure-kubernetes-service-cluster-api-server-vpn-architecture.svg" alt-text="Architecture diagram that shows traffic flow from a user to a private AKS cluster. The route includes a VPN gateway, an Internet Protocol Security tunnel, and a jump box." lightbox="./images/access-azure-kubernetes-service-cluster-api-server-vpn-architecture.svg":::
+:::image type="complex" border="false" source="./images/access-azure-kubernetes-service-cluster-api-server-vpn-architecture.svg" alt-text="Architecture diagram that shows traffic flow from a user to a private AKS cluster. The route includes a VPN gateway, an Internet Protocol Security (IPsec) tunnel, and a jump box." lightbox="./images/access-azure-kubernetes-service-cluster-api-server-vpn-architecture.svg":::
    Architecture diagram that shows traffic flow from a user to a private AKS cluster. The route includes a VPN gateway, an IPsec tunnel, and a jump box. First, a user initiates RDP or SSH traffic to the jump box from an on-premises workstation. The jump box traffic leaves the customer edge routers and VPN appliance and traverses the internet by using an encrypted IPsec tunnel. After it reaches Azure, the traffic arrives at the virtual network gateway, which is both the ingress and egress point of the Azure virtual network infrastructure. The traffic then reaches the jump box, where the user attempts to connect to the AKS private cluster. The hub virtual network has a virtual network link to the AKS private DNS zone to resolve the FQDN of the private cluster. Virtual network peering facilitates communication between both the hub and spoke virtual networks. To reach the private AKS cluster, the traffic enters the Azure backbone where a private endpoint establishes a private, isolated connection to the cluster. Finally, the traffic reaches the API server of the private AKS cluster, which allows the user to manage pods, nodes, and applications.
 :::image-end:::
 
 *Download a [Visio file](https://arch-center.azureedge.net/US-1956833-access-azure-kubernetes-service-cluster-api-server-architecture.vsdx) of this architecture.*
 
-### Dataflow
+### Data flow
 
 1. A user initiates RDP or SSH traffic to the jump box from an on-premises workstation.
 
-1. The jump box traffic leaves the customer edge routers and VPN appliance. The traffic uses an encrypted Internet Protocol Security tunnel to traverse the internet.
+1. The jump box traffic leaves the customer edge routers and VPN appliance. The traffic uses an encrypted Internet Protocol Security (IPsec) tunnel to traverse the internet.
 
 1. The jump box traffic reaches the virtual network gateway in Azure, which is both the ingress and egress point of the Azure virtual network infrastructure.
 
@@ -138,7 +202,7 @@ A VPN connection provides hybrid connectivity from your on-premises environment 
 
 ## ExpressRoute
 
-ExpressRoute provides connectivity to your AKS private cluster from an on-premises environment. ExpressRoute uses Border Gateway Protocol to exchange routes between your on-premises network and Azure. This connection creates a secure path between infrastructure as a service resources and on-premises workstations. ExpressRoute provides a dedicated, isolated connection that has consistent bandwidth and latency, which makes it ideal for enterprise environments.
+ExpressRoute provides connectivity to your AKS private cluster from an on-premises environment. ExpressRoute uses Border Gateway Protocol (BGP) to exchange routes between your on-premises network and Azure. This connection creates a secure path between infrastructure as a service (IaaS) resources and on-premises workstations. ExpressRoute provides a dedicated, isolated connection that has consistent bandwidth and latency, which makes it ideal for enterprise environments.
 
 :::image type="complex" border="false" source="./images/access-azure-kubernetes-service-cluster-expressroute-architecture.svg" alt-text="Architecture diagram that shows the traffic route from a user to a private AKS cluster. The route includes ExpressRoute and a jump box." lightbox="./images/access-azure-kubernetes-service-cluster-expressroute-architecture.svg":::
   Architecture diagram that shows the traffic route from a user to a private AKS cluster. The route includes ExpressRoute and a jump box. First, a user initiates RDP or SSH traffic to the jump box from an on-premises workstation. The jump box traffic leaves the customer edge routers and travels on a fiber connection to the meet-me location where the ExpressRoute circuit resides. The traffic reaches the Microsoft Enterprise Edge (MSEE) devices and then enters the Azure fabric. The jump box traffic reaches the ExpressRoute gateway, which serves as both the ingress and egress point for the Azure virtual network infrastructure. The traffic then reaches the jump box where an attempt to connect to the AKS private cluster is made. The hub virtual network has a virtual network link to the AKS private DNS zone to resolve the FQDN of the private cluster. Both the hub and spoke virtual networks communicate via virtual network peering. To reach the private AKS cluster, the traffic enters the Azure backbone where a private endpoint establishes a private, isolated connection to the cluster. Finally, the traffic reaches the API server of the private AKS cluster, which allows the user to manage pods, nodes, and applications.  
@@ -146,7 +210,7 @@ ExpressRoute provides connectivity to your AKS private cluster from an on-premis
 
 *Download a [Visio file](https://arch-center.azureedge.net/US-1956833-access-azure-kubernetes-service-cluster-api-server-architecture.vsdx) of this architecture.*
 
-### Dataflow
+### Data flow
 
 1. A user initiates RDP or SSH traffic to the jump box from an on-premises workstation.
 
@@ -169,11 +233,18 @@ ExpressRoute provides connectivity to your AKS private cluster from an on-premis
 
 With an AKS private cluster, you can connect from a VM that has access to the API server. Use the Azure CLI `aks command invoke` command to run commands like `kubectl` or `helm` remotely via the Azure API. This approach creates a transient pod in the cluster, which lasts only during the command. The `aks command invoke` command serves as an alternative connection method if you lack a VPN, ExpressRoute, or peered virtual network. Ensure that your cluster and node pool have sufficient resources to create the transient pod.
 
-For more information, see [Use command invoke to access a private AKS cluster](/azure/aks/command-invoke).
+### The portal Run command feature
+
+The Azure portal provides a **Run command** feature that uses the same underlying `command invoke` functionality. You can use this browser-based interface to run commands on your private cluster without the Azure CLI. The pod that the Run command creates includes `kubectl` and `helm` for cluster operations, along with `jq`, `xargs`, `grep`, and `awk` for Bash support.
+
+You can also use Microsoft Copilot in Azure to run `kubectl` commands. For more information, see [Work with AKS clusters efficiently by using Copilot in Azure](/azure/copilot/work-aks-clusters#run-cluster-commands).
 
 ## Connect Cloud Shell to a subnet
 
-When you deploy Cloud Shell into a virtual network that you control, you can interact with resources inside that network. Deploying Cloud Shell into a subnet that you manage enables connectivity to the API server of an AKS private cluster. This deployment allows you to connect to the private cluster. For more information, see [Deploy Cloud Shell into an Azure virtual network](/azure/cloud-shell/private-vnet).
+When you deploy Cloud Shell into a virtual network that you control, you can interact with resources inside that network. Deploying Cloud Shell into a subnet that you manage enables connectivity to the API server of an AKS private cluster. With this deployment, you can connect directly to the private cluster. For more information, see [Deploy Cloud Shell into an Azure virtual network](/azure/cloud-shell/private-vnet).
+
+> [!NOTE]
+> Cloud Shell deployed into a virtual network isn't supported for AKS Automatic clusters or clusters that have NRG lockdown.
 
 ## Use SSH and Visual Studio Code for testing
 
@@ -200,11 +271,11 @@ If you can't connect to your VM over SSH to manage your private cluster:
 
 - Cloud Shell is a built-in command-line shell in the Azure portal that you can use to connect to an AKS cluster.
 
-- For more secure access, use Azure Bastion and a private endpoint.
+- For more secure access, use Azure Bastion with either a jump box or native client tunneling.
 
 - VPNs and ExpressRoute provide hybrid connectivity to your private AKS cluster.
 
-- If no external connectivity solution is available, you can use `aks command invoke` remotely.
+- If no external connectivity solution is available, you can use `aks command invoke` remotely or the portal Run command feature.
 
 - You can deploy Cloud Shell directly into a virtual network that you manage to access the private cluster.
 
@@ -223,6 +294,7 @@ Principal authors:
 Other contributors:
 
 - [Shubham Agnihotri](https://www.linkedin.com/in/shubham-agnihotri8) | Consultant
+- [Sam Cogan](https://www.linkedin.com/in/samcogan82/) | Senior Cloud Solution Architect
 
 *To see nonpublic LinkedIn profiles, sign in to LinkedIn.*
 
