@@ -163,7 +163,7 @@ Use [Microsoft Defender for Cloud](/azure/defender-for-cloud/defender-for-cloud-
 
 **Patch management**. If enabled, Defender for Cloud checks whether any security and critical updates are missing.
 
-**Antimalware**. If enabled, Defender for Cloud checks whether antimalware software is installed. You can also use Defender for Cloud to install antimalware software from inside the Azure portal.
+**Anti-malware**. If enabled, Defender for Cloud checks whether anti-malware software is installed. You can also use Defender for Cloud to install anti-malware software from inside the Azure portal.
 
 **Access control**. Use [Azure role-based access control (Azure RBAC)](/azure/role-based-access-control/overview) to control access to Azure resources. Azure RBAC lets you assign authorization roles to members of your DevOps team. For example, the Reader role can view Azure resources but not create, manage, or delete them. Some permissions are specific to an Azure resource type. For example, the Virtual Machine Contributor role can restart or deallocate a VM, reset the administrator password, and create a new VM. Other [built-in roles](/azure/role-based-access-control/built-in-roles) that might be useful for this architecture include [DevTest Labs User](/azure/role-based-access-control/built-in-roles#devtest-labs-user) and [Network Contributor](/azure/role-based-access-control/built-in-roles#network-contributor).
 
