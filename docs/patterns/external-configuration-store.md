@@ -30,7 +30,9 @@ The backing store that you choose for configuration information should have an i
 
 Many built-in configuration systems read the data when the application starts and then cache the data in memory to provide fast access and minimize the impact on application performance. Depending on the type of backing store that you use and the latency of this store, you might want to implement a caching mechanism within the external configuration store. For more information, see [Caching guidance](/azure/architecture/best-practices/caching). The following diagram shows an overview of the External Configuration Store pattern with an optional local cache.
 
-![An overview of the External Configuration Store pattern with optional local cache](./_images/external-configuration-store-overview.png)
+:::image type="complex" source="./_images/external-configuration-store-overview.svg" border="false" lightbox="./_images/external-configuration-store-overview.svg" alt-text="A diagram that shows an overview of the External Configuration Store pattern with an optional local cache.":::
+    On the left side of the diagram, three circles arranged vertically represent application instances. These application instances connect via arrows to a central rectangle labeled external configuration store. The arrows indicate that applications can read from and write to the configuration store. A bidirectional arrow connects the external configuration store to an icon labeled local cache. This arrow shows that the configuration store can cache data locally. On the right side of the diagram, the external configuration store connects to two backing storage options. A solid bidirectional arrow connects the external configuration store to a cloud icon labeled cloud storage, the primary storage option. A dashed arrow labeled alternative option points from the External configuration store to a database icon labeled database. This database represents an alternative backing store implementation.
+:::image-end:::
 
 ## Problems and considerations
 
@@ -104,7 +106,9 @@ For workloads that run in Azure Kubernetes Service (AKS), the [App Configuration
 
 For network isolation, use [private endpoints for App Configuration](/azure/azure-app-configuration/concept-private-endpoint) so that client traffic remains on private IP address connectivity through Azure Private Link. After you set up private access, you can [turn off public access](/azure/azure-app-configuration/howto-disable-public-access) to reduce exposure of the public endpoint. In geo-replicated deployments, a single private endpoint can reach all replicas, but for higher regional resilience, you can provision private endpoints for each replica region and set up the domain name system (DNS) accordingly.
 
-![Diagram that shows App Configuration at the center, connected to Azure Functions, Azure Container Apps Environment, AKS, Azure Virtual Machine, and App Service.](./_images/external-configuration-store.png)
+:::image type="complex" source="./_images/external-configuration-store.svg" border="false" lightbox="./_images/external-configuration-store.svg" alt-text="A diagram that shows an example External Configuration Store pattern implementation with App Configuration as the central hub that connects to multiple Azure services and storage systems.":::
+    At the top of the diagram, an arrow points from an Azure function to App Configuration. On the left side of the diagram, an arrow connects the Azure Container Apps environment and AKS and points to App Configuration. On the right side of the diagram, an arrow connects an Azure virtual machine (VM) and Azure App Service to App Configuration. An arrow points from App Configuration to Key Vault at the bottom of the diagram. The architecture demonstrates how App Configuration serves as a centralized configuration management service that multiple Azure compute services can access to retrieve application settings, while keeping sensitive secrets in Key Vault and referencing them through App Configuration.
+:::image-end:::
 
 #### Client libraries
 
@@ -131,7 +135,7 @@ In an application that Azure hosts, you can use Azure Storage to store configura
 
 When you implement this pattern, you need to abstract Blob Storage and expose your settings within your applications. You also need to check for updates at runtime and decide how to respond to those updates.
 
-The following example shows how you can use a simple configuration store and Blob Storage to store and expose configuration information. A `BlobSettingsStore` class can abstract Blob Storage for holding configuration information. It implements a simple `ISettingsStore` interface.
+The following example shows how you can use a simple configuration store and Blob Storage to store and expose configuration information. A `BlobSettingsStore` class abstracts Blob Storage for holding configuration information. It implements a simple `ISettingsStore` interface.
 
 ```csharp
 public interface ISettingsStore
