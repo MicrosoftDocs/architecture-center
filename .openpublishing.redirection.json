@@ -23,7 +23,7 @@
     {
       "source_path": "docs/guide/security/access-azure-kubernetes-service-cluster-api-server.yml",
       "redirect_url": "/azure/architecture/security/access-azure-kubernetes-service-cluster-api-server",
-      "redirect_document_id": false
+      "redirect_document_id": true
     },
     {
       "source_path": "docs/example-scenario/hybrid/public-multi-access-edge-compute-deployment.yml",
