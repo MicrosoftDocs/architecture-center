@@ -175,7 +175,7 @@ This approach might seem intuitive, but it introduces a high level of complexity
 
   - Other DNS servers, such as modern BIND (version 9.4 or higher) and Infoblox, prefer the servers that have the lowest latency. To measure response times, they send a fraction of the DNS requests to all target servers configured in their forwarding rules. As a result, some on-premises name resolutions might be forwarded to a different Azure region, which can return a different IP address and make on-premises name resolution not deterministic.
 
-  - Some DNS servers, such as dnsmasq, support parallel queries to multiple servers (through the `--all-servers` option) and uses the answer that arrives first. This behavior is also configurable.
+  - Some DNS servers, such as dnsmasq, support parallel queries to multiple servers (through the `--all-servers` option) and use the answer that arrives first. This behavior is also configurable.
 
 A DNS server moves to the next server in the list of forwarding targets only if the upstream DNS server isn't reachable. It doesn't move on when the upstream server returns NXDOMAIN (the requested domain doesn't exist) or SERVFAIL (an error occurred during the resolution process).
 
