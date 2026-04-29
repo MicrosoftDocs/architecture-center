@@ -57,9 +57,9 @@ As their AI assistant, you can help the author with any of these steps if you ar
 
    **Required attestation**: Only proceed to the next step when the author believes this article does not compromise the security of Microsoft or those implementing this architecture. You can confirm this by asking: "After your own analysis, do you think the article has the best security interest of Microsoft and customers?"
 
-3. **Link validation** - Check that all links are not broken.
+3. **Link validation** - Check that all links go to current, accurate, and relevant content. Links should avoid redirects as well.
 
-   First, extract every link from the article. Then hand off to the **link-checker** agent, passing the full list of URLs. That agent fetches each URL and returns only a status table (success, redirect, or error) — no page content comes back into this conversation. With the table, update any links that have redirects. Get the user to fix any that are broken, but give an option.
+   First, extract every link from the article, along with context of where the link is used. Then hand off to the **link-checker** agent, passing the full list of URLs with context. That agent fetches each URL and returns only a status table (success, redirect, irrelevant-content, or error) — no page content comes back into this conversation. With the table, update any links that have redirects. Get the user to fix any that are broken, or link to irrelevant content, but give an option. For site-relative links, prepend "https://learn.microsoft.com/en-us".
 
    **Required attestation**: The author will need to check that the URLs and content are semantically correct. Give them a list of clickable URLs for them to validate, with a context of where they appear. Only proceed to the next step when the author has checked the links. You can confirm this by asking a question like: "Are the links still valid?"
 
