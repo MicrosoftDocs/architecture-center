@@ -18,7 +18,7 @@ Azure provides many security tools and capabilities, including the following key
 
 - [Microsoft Defender for Cloud](/azure/defender-for-cloud/defender-for-cloud-introduction) provides cloud security posture management (CSPM) and cloud workload protection (CWP). It assesses your resources for security compliance, provides a secure score to track your posture, and offers threat protection across Azure, on-premises, and multicloud workloads.
 
-- [Microsoft Entra ID](/entra/fundamentals/what-is-entra) is the Microsoft cloud-based identity and access management service. It provides single sign-on (SSO), multifactor authentication, and conditional access to guard against identity-based attacks.
+- [Microsoft Entra ID](/entra/fundamentals/what-is-entra) is the Microsoft cloud-based identity and access management (IAM) service. It provides single sign-on (SSO), multifactor authentication (MFA), and conditional access to guard against identity-based attacks.
 
 - [Azure Front Door](/azure/frontdoor/front-door-overview) is a global entry point for web applications. It provides a built-in web application firewall (WAF) to protect against common exploits and vulnerabilities, DDoS protection, and Transport Layer Security (TLS) termination at the edge.
 
@@ -37,7 +37,7 @@ For more information about Azure security tools and capabilities, see [End-to-en
 ## Architecture
 
 :::image type="complex" source="images/security-get-started-diagram.svg" alt-text="Diagram that shows a baseline security implementation on Azure." border="false" lightbox="images/security-get-started-diagram.svg":::
-On the left, users (User, Admin, and Developer) connect to Azure. The center shows a security hub virtual network that contains Azure Firewall Premium in its own subnet, a VPN Gateway in a VPN Gateway subnet, Azure Bastion in an Azure Bastion subnet, and Azure DDoS Protection. This hub connects to a workload spoke virtual network on the right, which contains a three-tier application architecture. The application architecture consists of an Application Gateway subnet with AppGw (WAF), a front-end tier subnet with two VMs protected by ASGs and an NSG, an app tier subnet with two VMs protected by ASGs and an NSG, and a data tier subnet with two VMs protected by ASGs and an NSG. Dotted lines in the spoke indicate access to the requested VM through the security layers. Below the hub-and-spoke architecture, the Azure storage services section contains Azure Blob Storage and Azure Files. To the right, common PaaS services section includes Microsoft Entra ID, Microsoft Defender for Cloud, RBAC, Azure Monitor, and Azure Key Vault. At the bottom, an on-premises datacenter section shows a router, admin users, AD DS, Microsoft Entra Connect, and an on-premises app. Arrows throughout the diagram illustrate traffic flows and secure connectivity paths between all components.
+On the left, users (User, Admin, and Developer) connect to Azure. The center shows a security hub virtual network that contains Azure Firewall Premium in its own subnet, a VPN gateway in an Azure VPN Gateway subnet, Azure Bastion in an Azure Bastion subnet, and Azure DDoS Protection. This hub connects to a workload spoke virtual network on the right, which contains a three-tier application architecture. The application architecture consists of an Application Gateway subnet with AppGw (WAF), a front-end tier subnet with two virtual machines (VMs) protected by application security groups (ASGs) and a network security group (NSG), an app tier subnet with two VMs protected by ASGs and an NSG, and a data tier subnet with two VMs protected by ASGs and an NSG. Dotted lines in the spoke indicate access to the requested VM through the security layers. Below the hub-and-spoke architecture, the Azure storage services section contains Azure Blob Storage and Azure Files. To the right, the common PaaS services section includes Microsoft Entra ID, Microsoft Defender for Cloud, role-based access control (RBAC), Azure Monitor, and Azure Key Vault. At the bottom, an on-premises datacenter section shows a router, admin users, Active Directory Domain Services (AD DS), Microsoft Entra Connect, and an on-premises app. Arrows throughout the diagram illustrate traffic flows and secure connectivity paths between all components.
 :::image-end:::
 
 *Download a [Visio file](https://arch-center.azureedge.net/security-get-started-diagram.vsdx) of this architecture.*
@@ -62,7 +62,7 @@ The following resources provide foundational knowledge for security implementati
 
 **Data protection:** The following learning path covers encryption, key management, and application security:
 
-- [Secure your cloud applications in Azure](/training/paths/secure-your-cloud-apps)
+- [Secure your cloud applications in Azure](/training/modules/microsoft-cloud-app-security/)
 
 **Threat protection:** The following learning path covers threat detection, investigation, and response:
 
@@ -162,7 +162,7 @@ Review the following key hybrid and multicloud security scenarios:
 
 ### Identity and access management
 
-Identity is the primary security perimeter in cloud environments. In Azure, identity and access management (IAM) centers on Microsoft Entra ID as the cloud-based identity provider. Microsoft Entra Conditional Access serves as the Zero Trust policy engine. The following architectures and guides address IAM design patterns for Azure and multicloud environments:
+Identity is the primary security perimeter in cloud environments. In Azure, IAM centers on Microsoft Entra ID as the cloud-based identity provider. Microsoft Entra Conditional Access serves as the Zero Trust policy engine. The following architectures and guides address IAM design patterns for Azure and multicloud environments:
 
 - [Integrate on-premises Active Directory domains with Microsoft Entra ID](/azure/architecture/reference-architectures/identity/azure-ad): A reference architecture that integrates on-premises Active Directory with Microsoft Entra ID to provide cloud-based identity authentication, including Microsoft Entra Connect Sync, Microsoft Entra application proxy, and Microsoft Entra Conditional Access.
 
@@ -202,11 +202,11 @@ To help you get started quickly, the following articles compare Azure security o
 
 - [Compare AWS and Azure identity management solutions](/azure/architecture/aws-professional/security-identity): A detailed comparison of AWS and Azure identity services, including core identity, authentication, access control, privileged access management, and application identity patterns.
 
-- [AWS to Azure services comparison - Security, identity, and access](/azure/architecture/aws-professional/#security): A comparison of AWS and Azure security services, including identity and access management, encryption, firewalls, threat detection, security information and event management (SIEM), and DDoS protection.
+- [AWS to Azure services comparison - Security, identity, and access](/azure/architecture/aws-professional/#security): A comparison of AWS and Azure security services, including IAM, encryption, firewalls, threat detection, security information and event management (SIEM), and DDoS protection.
 
 - [Google Cloud to Azure services comparison - Security and identity](/azure/architecture/gcp-professional/services#security-and-identity): A comparison of Google Cloud and Azure security services. It covers authentication, encryption, key management, threat detection, SIEM, container security, and data loss prevention (DLP).
 
-- [Microsoft Entra identity management and access management for AWS](/azure/architecture/reference-architectures/aws/aws-azure-ad-security): Guidance to deploy Microsoft Entra identity and access solutions for AWS, including single sign-on (SSO), multifactor authentication (MFA), Microsoft Entra Conditional Access, and Microsoft Entra Privileged Identity Management (PIM) for AWS accounts.
+- [Microsoft Entra identity management and access management for AWS](/azure/architecture/reference-architectures/aws/aws-azure-ad-security): Guidance to deploy Microsoft Entra IAM solutions for AWS, including SSO, MFA, Microsoft Entra Conditional Access, and Microsoft Entra PIM for AWS accounts.
 
 ### Migration guidance
 
