@@ -3,7 +3,7 @@ This article describes a batch processing architecture that extracts insights fr
 ## Architecture
 
 :::image type="complex" border="false" source="_images/call-center-analytics.svg" alt-text="Diagram that shows the call-center AI architecture." lightbox="_images/call-center-analytics.svg":::
-   The architecture diagram shows the post‑call analytics workflow. In step 1, a caller connects to a call-center agent through a person‑to‑person conversation line, and both connect to a telephony server. An arrow labeled file upload points from the telephony server to Azure Blob Storage to store recorded audio files. In step 2, Azure Speech batch transcription reads the audio files from Blob Storage and writes the transcription results back into storage. In step 3, language enrichment processes the transcripts. In step 4, the Azure App Service app sends the enriched transcripts to Azure OpenAI for analysis. In step 5, the processed analytics data flows from Blob Storage to three destinations in the interact and visualize section: Power BI for insights visualization, a web app, and a customer relationship management (CRM) system that displays call summaries, call reasons, and detailed call history.
+   The architecture diagram shows the post-call analytics workflow. In step 1, a caller connects to a call-center agent through a person-to-person conversation line, and both connect to a telephony server. An arrow labeled file upload points from the telephony server to Azure Blob Storage to store recorded audio files. In step 2, Azure Speech batch transcription reads the audio files from Blob Storage and writes the transcription results back into storage. In step 3, language enrichment processes the transcripts. In step 4, the Azure App Service app sends the enriched transcripts to Azure OpenAI for analysis. In step 5, the processed analytics data flows from Blob Storage to three destinations in the interact and visualize section: Power BI for insights visualization, a web app, and a customer relationship management (CRM) system that displays call summaries, call reasons, and detailed call history.
 :::image-end:::
 
 *Download a [PowerPoint file](https://arch-center.azureedge.net/call-center-analytics.pptx) of this architecture.*
@@ -36,7 +36,7 @@ The following data flow corresponds to the previous diagram:
 
 - [Language](/azure/ai-services/language-service/overview) is a service that consolidates the Azure natural language processing services into a unified API. In this architecture, Language detects and redacts personal data from call transcripts.
 
-- [Language Studio](/azure/ai-services/language-service/language-studio) is a UI-based tool for exploring, building, tagging, training, and deploying custom language models. In this architecture, Language Studio customizes language processing features for your specific call-center domain.
+- [Language Studio](https://language.cognitive.azure.com/) is a UI-based tool for exploring, building, tagging, training, and deploying custom language models. In this architecture, Language Studio customizes language processing features for your specific call-center domain.
 
 - [Power BI](/power-bi/fundamentals/power-bi-overview) is a software as a service (SaaS) that provides visual and interactive insights for business analytics. The service includes transformation capabilities and connects to other data sources. In this architecture, Power BI visualizes post-call analytics based on business requirements.
 
@@ -56,15 +56,15 @@ You can choose the following workflows, depending on your scenario.
 
 - Use the speech analytics feature in [Azure Content Understanding](/azure/ai-services/content-understanding/audio/overview) to orchestrate the batch post-call analytics process.
 
-- Use [GPT audio](/azure/foundry/foundry-models/concepts/models-sold-directly-by-azure#audio-models) [speech‑to‑text models](/azure/foundry/foundry-models/concepts/models-sold-directly-by-azure#speech-to-text-models) to generate audio transcripts and store them in Blob Storage for call analytics.
+- Use [GPT audio](/azure/foundry/foundry-models/concepts/models-sold-directly-by-azure#audio-models) [speech-to-text models](/azure/foundry/foundry-models/concepts/models-sold-directly-by-azure#speech-to-text-models) to generate audio transcripts and store them in Blob Storage for call analytics.
 
 - Use the [ingestion client](/azure/ai-services/speech-service/ingestion-client) to deploy the post-call analytics solution to Azure. This solution uses Speech and Language services as the intelligence layer, without the generative AI capabilities that Azure OpenAI models provide.
   
 - For virtual agents, use:
   
-  - The [Voice Live API](/azure/ai-services/speech-service/voice-live) for speech-to-speech conversations through [telephony integration without a public switched telephone network (PSTN)](/azure/ai-services/speech-service/voice-live-telephony). The Voice Live API supports [different generative AI models](/azure/ai-services/speech-service/voice-live#supported-models-and-regions), including [Azure OpenAI realtime models](/azure/foundry/openai/how-to/realtime-audio). If you choose a nonmultimodal model such as GPT‑4o, Azure speech to text automatically becomes the audio input. You can store the audio and transcription of the conversation in Blob Storage to analyze and gather insights for your business. The Voice Live API doesn't support session initiation protocol (SIP), but it works with external SIP trunking solutions.
+  - The [Voice Live API](/azure/ai-services/speech-service/voice-live) for speech-to-speech conversations through [telephony integration without a public switched telephone network (PSTN)](/azure/ai-services/speech-service/voice-live-telephony). The Voice Live API supports [different generative AI models](/azure/ai-services/speech-service/voice-live#supported-models-and-regions), including [Azure OpenAI realtime models](/azure/foundry/openai/how-to/realtime-audio). If you choose a nonmultimodal model such as GPT-4o, Azure speech to text automatically becomes the audio input. You can store the audio and transcription of the conversation in Blob Storage to analyze and gather insights for your business. The Voice Live API doesn't support session initiation protocol (SIP), but it works with external SIP trunking solutions.
 
-  - Use [GPT-realtime models](/azure/foundry/openai/how-to/realtime-audio) to achieve low-latency speech-to-speech conversations. You can also use the GPT Realtime API via [webRTC](/azure/foundry/openai/how-to/realtime-audio-webrtc), [WebSockets](/azure/foundry/openai/how-to/realtime-audio-websockets), or [SIP](/azure/foundry/openai/how-to/realtime-audio-sip) to send audio input and receive audio responses in real time and store them with the transcription for analytics.
+  - Use [GPT-realtime models](/azure/foundry/openai/how-to/realtime-audio) to achieve low-latency speech-to-speech conversations. You can also use the GPT Realtime API via [WebRTC](/azure/foundry/openai/how-to/realtime-audio-webrtc), [WebSockets](/azure/foundry/openai/how-to/realtime-audio-websockets), or [SIP](/azure/foundry/openai/how-to/realtime-audio-sip) to send audio input and receive audio responses in real time and store them with the transcription for analytics.
 
 ## Scenario details
 
