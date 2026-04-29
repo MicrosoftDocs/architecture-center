@@ -7836,7 +7836,7 @@
     {
       "source_path": "docs/guide/security/security-start-here.yml",
       "redirect_url": "/azure/architecture/security/security-get-started",
-      "redirect_document_id": false
+      "redirect_document_id": true
     },
     {
       "source_path": "docs/guide/virtual-desktop/start-here.md",
