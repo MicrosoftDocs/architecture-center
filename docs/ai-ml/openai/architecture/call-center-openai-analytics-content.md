@@ -2,8 +2,8 @@ This article describes a batch processing architecture that extracts insights fr
 
 ## Architecture
 
-:::image type="complex" border="false" source="_images/call-center-analytics.svg" alt-text="Diagram that shows the call center AI architecture." lightbox="_images/call-center-analytics.svg":::
-   The architecture diagram shows the post‑call analytics workflow. In step 1, a caller connects to a call center agent through a person‑to‑person conversation line, and both connect to a telephony server. An arrow labeled file upload points from the telephony server to Azure Blob Storage to store recorded audio files. In step 2, Azure Speech batch transcription reads the audio files from Blob Storage and writes the transcription results back into storage. In step 3, language enrichment processes the transcripts. In step 4, the Azure App Service app sends the enriched transcripts to Azure OpenAI for analysis. In step 5, the processed analytics data flows from Blob Storage to three destinations in the interact and visualize section: Power BI for insights visualization, a web app, and a customer relationship management (CRM) system that displays call summaries, call reasons, and detailed call history.
+:::image type="complex" border="false" source="_images/call-center-analytics.svg" alt-text="Diagram that shows the call-center AI architecture." lightbox="_images/call-center-analytics.svg":::
+   The architecture diagram shows the post‑call analytics workflow. In step 1, a caller connects to a call-center agent through a person‑to‑person conversation line, and both connect to a telephony server. An arrow labeled file upload points from the telephony server to Azure Blob Storage to store recorded audio files. In step 2, Azure Speech batch transcription reads the audio files from Blob Storage and writes the transcription results back into storage. In step 3, language enrichment processes the transcripts. In step 4, the Azure App Service app sends the enriched transcripts to Azure OpenAI for analysis. In step 5, the processed analytics data flows from Blob Storage to three destinations in the interact and visualize section: Power BI for insights visualization, a web app, and a customer relationship management (CRM) system that displays call summaries, call reasons, and detailed call history.
 :::image-end:::
 
 *Download a [PowerPoint file](https://arch-center.azureedge.net/call-center-analytics.pptx) of this architecture.*
@@ -36,7 +36,7 @@ The following data flow corresponds to the previous diagram:
 
 - [Language](/azure/ai-services/language-service/overview) is a service that consolidates the Azure natural language processing services into a unified API. In this architecture, Language detects and redacts personal data from call transcripts.
 
-- [Language Studio](/azure/ai-services/language-service/language-studio) is a UI-based tool for exploring, building, tagging, training, and deploying custom language models. In this architecture, Language Studio customizes language processing features for your specific call center domain.
+- [Language Studio](/azure/ai-services/language-service/language-studio) is a UI-based tool for exploring, building, tagging, training, and deploying custom language models. In this architecture, Language Studio customizes language processing features for your specific call-center domain.
 
 - [Power BI](/power-bi/fundamentals/power-bi-overview) is a software as a service (SaaS) that provides visual and interactive insights for business analytics. The service includes transformation capabilities and connects to other data sources. In this architecture, Power BI visualizes post-call analytics based on business requirements.
 
@@ -68,7 +68,7 @@ You can choose the following workflows, depending on your scenario.
 
 ## Scenario details
 
-This solution uses the Batch Transcription API in Speech to convert call-center audio into written text. Language redacts sensitive information in the conversation transcription. Azure OpenAI extracts insights from customer conversations to improve call center efficiency and customer satisfaction.
+This solution uses the Batch Transcription API in Speech to convert call-center audio into written text. Language redacts sensitive information in the conversation transcription. Azure OpenAI extracts insights from customer conversations to improve call-center efficiency and customer satisfaction.
 
 Use this solution to process transcribed text, recognize and remove sensitive information, and extract insights like call reason, resolution status, sentiment, and product or service trends based on query volume or customer complaints. Scale the services and pipeline to accommodate any volume of recorded data.
 
