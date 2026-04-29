@@ -44,7 +44,7 @@ To avoid these problems, consider grouping resources into *scale units* and prov
 The diagram shows five stacked rows. Each row represents one deployment stamp. Every row has a label on the upper left that names the stamp and its Azure region, a label on the upper right that lists the tenants that the stamp serves, and two components below the labels, Azure App Service on the left and a SQL database on the right. From top to bottom, the stamps are Stamp 1 in West US 2, which serves tenants A, B, and C; Stamp 2 in West US 2, which serves tenant D; Stamp 3 in East US, which serves tenants E, F, and G; Stamp 4 in West Europe, which serves tenants H, I, and J; and Stamp 5 in Australia East, which serves tenants K, L, and M. The five stamps share the same internal composition but differ in region and in the set of tenants assigned to them, and the West US 2 region contains two separate stamps while each of the other regions contains one stamp.
 :::image-end:::
 
-Deployment stamps can apply whether your solution uses infrastructure as a service (IaaS) or platform as a service (PaaS) components, or a mixture of both. IaaS workloads typically require more intervention to scale, so this pattern can help IaaS-heavy workloads scale out.
+Deployment stamps can apply whether your solution uses infrastructure as a service (IaaS) or platform as a service (PaaS) components, or a combination of both. IaaS workloads typically require more intervention to scale, so this pattern can help IaaS-heavy workloads scale out.
 
 You can use stamps to implement [deployment rings](/azure/architecture/guide/multitenant/considerations/updates#deployment-rings). If different customers want service updates at different frequencies, group them onto different stamps and deploy updates to each stamp at a different cadence.
 
@@ -52,7 +52,7 @@ Stamps run independently, so they implicitly *shard* your data. A single stamp c
 
 Deploying identical copies of the same components is complex, so good DevOps practices are critical. Describe your infrastructure as code so that the deployment of each stamp is predictable and repeatable.
 
-Deployment stamps relate to but differ from [geodes](geodes.yml). In a deployment stamp architecture, each independent instance of your system serves a subset of your customers and users. In a geode architecture, every instance can serve requests from any user, but this approach is typically more complex to design and build. You can also mix the two patterns within one solution. The [traffic routing approach](#traffic-routing) described later in this article is an example of such a hybrid scenario.
+Deployment stamps relate to but differ from [geodes](geodes.yml). In a deployment stamp architecture, each independent instance of your system serves a subset of your customers and users. In a geode architecture, every instance can serve requests from any user, but this approach is typically more complex to design and build. You can also combine the two patterns within one solution. The [traffic routing approach](#traffic-routing) described later in this article is an example of such a hybrid scenario.
 
 ## Problems and considerations
 
@@ -70,7 +70,7 @@ Consider the following points as you decide how to implement this pattern:
 
 - **Moving between stamps:** Each stamp runs independently, so moving tenants between stamps can be difficult. Your application needs custom logic to transmit a customer's information to a different stamp and then remove the tenant's information from the original stamp. This process might require a backplane to communicate between stamps, which further increases the complexity of your solution.
 
-- **Traffic routing:** As described earlier in this article, routing traffic to the correct stamp for a given request can require an extra component that resolves tenants to stamps. This component might also need to be highly available.
+- **Traffic routing:** As described previously in this article, routing traffic to the correct stamp for a given request can require an extra component that resolves tenants to stamps. This component might also need to be highly available.
 
 - **Observability across stamps:** As the number of stamps increases, it becomes harder to understand overall health and detect incidents quickly. Use [Azure Monitor](/azure/azure-monitor/fundamentals/overview) to collect and correlate metrics, logs, traces, and alerts across all stamps. Use this data to identify unhealthy stamps and diagnose problems.
 
@@ -104,7 +104,7 @@ This pattern might not be suitable when:
 
 - You only need to scale some components and not others. For example, consider whether you can scale your solution by [sharding the data store](sharding.md) instead of deploying a new copy of all the solution components.
 
-- Your solution consists solely of static content, such as a front-end JavaScript application. Store this content in a [storage account](/azure/storage/blobs/storage-blob-static-website) and use [Azure Content Delivery Network](/azure/storage/blobs/storage-blob-static-website).
+- Your solution consists solely of static content, such as a front-end JavaScript application. Store this content in a [storage account](/azure/storage/blobs/storage-blob-static-website) and use [Azure Content Delivery Network](/azure/architecture/best-practices/cdn).
 
 ## Workload design
 
@@ -134,17 +134,17 @@ If the user travels to California and accesses the system, the system routes the
 
 Consider describing your infrastructure as code, such as by using [Bicep](/azure/azure-resource-manager/bicep/overview), [JSON Azure Resource Manager templates (ARM templates)](/azure/azure-resource-manager/templates/overview), [Terraform](/azure/developer/terraform/overview), and scripts. This approach ensures that the deployment of each stamp is predictable and repeatable. It also reduces the likelihood of human errors such as accidental mismatches in configuration between stamps.
 
-You can deploy updates automatically to all stamps in parallel. Technologies like [Bicep](/azure/azure-resource-manager/bicep/overview) or ARM templates can coordinate the deployment of your infrastructure and applications. Alternatively, you might decide to gradually roll out updates to some stamps first, and then progressively to others. Consider using a release management tool like [Azure Pipelines](/azure/devops/pipelines) or [GitHub Actions](https://docs.github.com/actions) to orchestrate deployments to each stamp.
+You can deploy updates automatically to all stamps in parallel. Technologies like [Bicep](/azure/azure-resource-manager/bicep/overview) or ARM templates can coordinate the deployment of your infrastructure and applications. Alternatively, you might decide to gradually roll out updates to some stamps first, and then progressively to other stamps. Consider using a release management tool like [Azure Pipelines](/azure/devops/pipelines/get-started/what-is-azure-pipelines) or [GitHub Actions](https://docs.github.com/actions) to orchestrate deployments to each stamp.
 
 Carefully consider the topology of the Azure subscriptions and resource groups for your deployments:
 
 - Typically, a subscription contains all resources for a single solution, so consider using a single subscription for all stamps. However, [some Azure services impose subscription-wide quotas](/azure/azure-resource-manager/management/azure-subscription-service-limits). If you use this pattern to allow for a high degree of scale-out, you might need to deploy stamps across different subscriptions.
 
-- Resource groups generally contain components that share the same life cycle. If you plan to deploy updates to all stamps at once, you can use a single resource group that contains all components for all stamps. Use resource naming conventions and tags to identify the components that belong to each stamp. Alternatively, if you plan to deploy updates to each stamp independently, you can deploy each stamp into its own resource group.
+- Resource groups generally contain components that share the same life cycle. If you plan to deploy updates to all stamps at the same time, you can use a single resource group that contains all components for all stamps. Use resource naming conventions and tags to identify the components that belong to each stamp. Alternatively, if you plan to deploy updates to each stamp independently, you can deploy each stamp into its own resource group.
 
 ### Capacity planning
 
-Use load and performance testing to determine the approximate load that a given stamp can accommodate. Load metrics might be based on the number of customers or tenants that a single stamp can accommodate, or on metrics that the services in the stamp emit. Instrument each stamp so that you can measure when it approaches its capacity, and make sure you can deploy new stamps quickly to respond to demand.
+Use load and performance testing to determine the approximate load that a given stamp can accommodate. Load metrics might be based on the number of customers or tenants that a single stamp can accommodate, or on metrics that the services in the stamp emit. Instrument each stamp so that you can measure when it approaches its capacity, and make sure that you can deploy new stamps quickly to respond to demand.
 
 ### Traffic routing
 
@@ -154,19 +154,19 @@ The Deployment Stamps pattern works well when you address each stamp independent
 - `unit2.aus.myapi.contoso.com` routes traffic to stamp `unit2` within an Australian region.
 - `unit1.eu.myapi.contoso.com` routes traffic to stamp `unit1` within a European region.
 
-In Azure, you can host these records in [Azure DNS](/azure/dns/dns-overview) and use a consistent subdomain convention per region and stamp. This approach maintains predictable routing and operations.
+In Azure, you can host these records in [Azure DNS](/azure/dns/dns-overview) and use a consistent subdomain convention for each region and stamp. This approach maintains predictable routing and operations.
 
 Clients are responsible for connecting to the correct stamp.
 
 If your solution requires a single ingress point for all traffic, you can use a traffic routing service to resolve the stamp for a given request, customer, or tenant. The traffic routing service either directs the client to the relevant URL for the stamp (for example, by returning an HTTP 302 response status code), or it acts as a reverse proxy and forwards the traffic to the relevant stamp without the client being aware.
 
-A centralized traffic routing service can be a complex component to design, especially when a solution runs across multiple regions. Consider deploying the traffic routing service into multiple regions, potentially including every region that hosts stamps, and synchronize the data store that maps tenants to stamps. The traffic routing component might itself be an instance of the [Geode pattern](geodes.yml).
+A centralized traffic routing service can be a complex component to design, especially when a solution runs across multiple regions. Consider deploying the traffic routing service into multiple regions, potentially including every region that hosts stamps, and sync the data store that maps tenants to stamps. The traffic routing component might itself be an instance of the [Geode pattern](geodes.yml).
 
-For example, you can deploy [Azure API Management](/azure/api-management/) to act as the traffic routing service. API Management determines the appropriate stamp for a request by looking up data in an [Azure Cosmos DB](/azure/cosmos-db) collection that stores the mapping between tenants and stamps. API Management then [dynamically sets the back-end URL](/azure/api-management/set-backend-service-policy) to the relevant stamp's API service.
+For example, you can deploy [API Management](/azure/api-management/api-management-key-concepts) to act as the traffic routing service. API Management determines the appropriate stamp for a request by looking up data in an [Azure Cosmos DB](/azure/cosmos-db/overview) collection that stores the mapping between tenants and stamps. API Management then [dynamically sets the back-end URL](/azure/api-management/set-backend-service-policy) to the relevant stamp's API service.
 
-To geo-distribute requests and provide geo-redundancy for the traffic routing service, [deploy API Management across multiple regions](/azure/api-management/api-management-howto-deploy-multi-region) and use [Azure Front Door](/azure/frontdoor/) to direct traffic to the closest API Management gateway. In this topology, Azure Front Door uses [origin groups](/azure/frontdoor/origin), [health probes](/azure/frontdoor/health-probes), and an appropriate [routing method](/azure/frontdoor/routing-methods) to route requests away from unhealthy API Management regional gateways. API Management then routes to the appropriate stamp by using the tenant-to-stamp mapping and its back-end configuration (or back-end pools), including failover rules between stamp endpoints as needed. If your application isn't exposed over HTTP or HTTPS, you can use a [cross-region Azure load balancer](/azure/load-balancer/cross-region-overview) to distribute incoming calls to regional Azure load balancers. Use the [global distribution feature of Azure Cosmos DB](/azure/cosmos-db/distribute-data-globally) to keep the mapping information updated across each region.
+To geo-distribute requests and provide geo-redundancy for the traffic routing service, [deploy API Management across multiple regions](/azure/api-management/api-management-howto-deploy-multi-region) and use [Azure Front Door](/azure/frontdoor/front-door-overview) to direct traffic to the closest API Management gateway. In this topology, Azure Front Door uses [origin groups](/azure/frontdoor/origin), [health probes](/azure/frontdoor/health-probes), and an appropriate [routing method](/azure/frontdoor/routing-methods) to route requests away from unhealthy API Management regional gateways. API Management then routes to the appropriate stamp by using the tenant-to-stamp mapping and its back-end configuration (or back-end pools), including failover rules between stamp endpoints as needed. If your application isn't exposed over HTTP or HTTPS, you can use a [cross-region Azure load balancer](/azure/load-balancer/cross-region-overview) to distribute incoming calls to regional Azure load balancers. Use the [global distribution feature of Azure Cosmos DB](/azure/cosmos-db/distribute-data-globally) to keep the mapping information updated across each region.
 
-If your solution includes a traffic routing service, consider whether it acts as a [gateway](gateway-routing.yml) and can therefore perform [gateway offloading](gateway-offloading.yml) for the other services, such as token validation, throttling, and authorization.
+If your solution includes a traffic routing service, consider whether it acts as a [gateway](gateway-routing.yml) and can perform [gateway offloading](gateway-offloading.yml) for the other services, such as token validation, throttling, and authorization.
 
 ## Next steps
 
