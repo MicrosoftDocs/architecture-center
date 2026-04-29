@@ -33,7 +33,7 @@ Azure VMs might need to access on-premises systems like database or monitoring a
 
 1. One of the on-premises DNS servers resolves the DNS query.
 
-The previous model in this article uses the IP address of the inbound endpoint as the custom DNS server. This model is the *centralized DNS architecture* in the [DNS Private Resolver architecture](/azure/dns/private-resolver-architecture). DNS Private Resolver also provides external DNS resolution by linking DNS forwarding rulesets to virtual networks, which is the [distributed DNS architecture](/azure/dns/private-resolver-architecture#distributed-dns-architecture). If you link the forwarding ruleset to the hub virtual network, set up Azure Firewall to use Azure DNS as its DNS server. The IP address `168.63.129.16` represents Azure DNS in Azure.
+The previous model in this article uses the IP address of the inbound endpoint as the custom DNS server. This model is the *centralized DNS architecture* in the [private resolver architecture](/azure/dns/private-resolver-architecture). DNS Private Resolver also provides external DNS resolution by linking DNS forwarding rulesets to virtual networks, which is the [distributed DNS architecture](/azure/dns/private-resolver-architecture#distributed-dns-architecture). If you link the forwarding ruleset to the hub virtual network, set up Azure Firewall to use Azure DNS as its DNS server. The IP address `168.63.129.16` represents Azure DNS in Azure.
 
 #### On-premises to Azure
 
@@ -211,7 +211,7 @@ For simplicity, we recommend global private DNS zones in multiregion environment
 
 ## Considerations
 
-These considerations implement the pillars of the Azure Well-Architected Framework, which is a set of guiding tenets that you can use to improve the quality of a workload. For more information, see [Microsoft Azure Well-Architected Framework](/azure/well-architected/).
+These considerations implement the pillars of the Azure Well-Architected Framework, which is a set of guiding tenets that you can use to improve the quality of a workload. For more information, see [Well-Architected Framework](/azure/well-architected/).
 
 ### Reliability
 
