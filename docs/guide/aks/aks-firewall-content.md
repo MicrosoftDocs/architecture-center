@@ -37,7 +37,7 @@ An Azure Bastion host provides improved-security SSH connectivity to the jump bo
 
 AKS doesn't provide a built-in solution for securing ingress and egress traffic between the cluster and external networks.
 
-For this reason, the architecture presented in this article includes an [Azure Firewall](/azure/firewall/overview) that controls inbound and outbound traffic by using [destination network address translation (DNAT) rules, network rules, and application rules](/azure/firewall/rule-processing). The firewall also protects workloads by using [threat intelligence-based filtering](/azure/firewall/threat-intel). The Azure Firewall and Bastion are deployed to a hub virtual network that is peered with the virtual network hosting the private AKS cluster. A route table and user-defined routes direct outbound traffic from the AKS cluster to the Azure Firewall.
+For this reason, the architecture presented in this article includes an [Azure Firewall](/azure/firewall/overview) that controls inbound traffic with [destination network address translation (DNAT) rules and outbound traffic with network and application rules](/azure/firewall/rule-processing). Outbound flows from the cluster are source network address translated (SNAT) to one of the firewall's public IP addresses, which becomes the cluster's egress identity for partner allowlisting. The firewall also protects workloads by using [threat intelligence-based filtering](/azure/firewall/threat-intel). The Azure Firewall and Bastion are deployed to a hub virtual network that is peered with the virtual network hosting the private AKS cluster. A route table and user-defined routes direct outbound traffic from the AKS cluster to the Azure Firewall.
 
 > [!NOTE]
 >
@@ -58,7 +58,7 @@ A Log Analytics workspace is used to collect the diagnostics logs and metrics fr
 
 ### Components
 
-- [Azure Firewall](/azure/well-architected/service-guides/azure-firewall) is a cloud-native, intelligent network firewall security service that provides threat protection for cloud workloads that run in Azure. In this architecture, Azure Firewall provides both east-west and north-south traffic inspection. It controls inbound and outbound traffic by using DNAT rules, network rules, and application rules and protects workloads by using threat intelligence-based filtering in the hub virtual network.
+- [Azure Firewall](/azure/well-architected/service-guides/azure-firewall) is a cloud-native, intelligent network firewall security service that provides threat protection for cloud workloads that run in Azure. In this architecture, Azure Firewall provides both east-west and north-south traffic inspection. It uses DNAT rules to publish inbound flows to private workloads, network and application rules to filter outbound flows, and SNAT to translate egress traffic to its public IPs. It also protects workloads by using threat intelligence-based filtering in the hub virtual network.
 
 - [Container Registry](/azure/container-registry/container-registry-intro) is a managed, private Docker registry service that's based on the open-source Docker Registry 2.0. In this architecture, Container Registry is used to build, store, and manage container images and artifacts like Helm charts that are deployed to the AKS cluster, with support for geo-replication for disaster recovery scenarios.
 
