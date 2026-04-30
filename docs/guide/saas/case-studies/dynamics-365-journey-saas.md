@@ -90,7 +90,7 @@ Dynamics 365 operates at hyperscale. There are hundreds of thousands of customer
 
 In the cloud, it's critical to move from *scaling up* to *scaling out* wherever possible. If additional demand can be met by adding more nodes (scaling out) instead of making existing nodes more powerful (scaling up), and that relationship is close to linear, then an approach based on scale-out provides the potential to drive even higher scale. Dynamics 365 uses a scale-out model at the application tier. Integrated monitoring detects increases in load for specific tenants and adds more nodes to meet the demand.
 
-In conjunction with your tenant model and scale-out architecture, you can follow the [Deployment Stamps pattern](../../../patterns/deployment-stamp.yml), with each stamp supporting a set of customers. When a stamp approaches its maximum capacity, you can provision a new stamp and start to deploy new customers there. By using stamps, you can support continued customer growth, and you can expand your regional presence to new geographies.
+In conjunction with your tenant model and scale-out architecture, you can follow the [Deployment Stamps pattern](../../../patterns/deployment-stamp.md), with each stamp supporting a set of customers. When a stamp approaches its maximum capacity, you can provision a new stamp and start to deploy new customers there. By using stamps, you can support continued customer growth, and you can expand your regional presence to new geographies.
 
 :::image type="content" alt-text="Diagram of deployment stamps deployed across multiple regions, with different numbers and sizes of customers on each stamp." source="./images/dynamics-365-journey-saas/deployment-stamps.svg" border="false" :::
 

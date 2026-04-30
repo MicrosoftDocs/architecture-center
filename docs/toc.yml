@@ -430,7 +430,7 @@ items:
     href: patterns/cqrs.md
   - name: Deployment Stamps
     displayName: Scale units, cell-based architecture
-    href: patterns/deployment-stamp.yml
+    href: patterns/deployment-stamp.md
   - name: Edge Workload Configuration
     displayName: IoT, device configuration
     href: patterns/edge-workload-configuration.md
@@ -753,7 +753,7 @@ items:
           items:
           - name: Access an AKS API server
             displayName: Azure Kubernetes Service
-            href: guide/security/access-azure-kubernetes-service-cluster-api-server.md
+            href: /security/access-azure-kubernetes-service-cluster-api-server.md
           - name: AKS day-2 operations guide
             items:
             - name: Introduction
@@ -1205,7 +1205,7 @@ items:
   - name: Security
     items:
     - name: Get started
-      href: guide/security/security-start-here.yml
+      href: security/security-get-started.md
     - name: Guides
       items:
       - name: Virtual Network security options
