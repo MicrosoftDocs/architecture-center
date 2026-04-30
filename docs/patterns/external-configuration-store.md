@@ -3,14 +3,14 @@ title: External Configuration Store Pattern
 description: Review the External Configuration Store pattern, which moves configuration information out of the application deployment package to a centralized location.
 ms.author: pnp
 author: claytonsiemens77
-ms.date: 09/14/2021
+ms.date: 04/30/2026
 ms.topic: design-pattern
 ms.subservice: cloud-fundamentals
 ---
 
 # External Configuration Store pattern
 
-Move configuration information out of the application deployment package to a centralized location. This approach provides easier management and control of configuration data. It also lets you share configuration data across applications and application instances.
+Move configuration information out of the application deployment package to a centralized location. This approach provides easier management and control of configuration data. Use the External Configuration Store pattern to share configuration data across applications and application instances.
 
 ## Context and problem
 
@@ -50,13 +50,13 @@ Consider the following points as you decide how to implement this pattern:
 
 - Consider how the configuration store interface behaves when settings contain errors or don't exist in the backing store. You might need to restore default settings and log errors. Also consider the case sensitivity of configuration setting keys or names, how to store and handle binary data, and how to handle null or empty values.
 
-- Consider how to protect the configuration data and give access to only the appropriate users and applications. The configuration store interface typically provides this feature, but you also need to ensure that users and applications can't directly access the data in the backing store without the appropriate permission. Ensure strict separation between the permissions required to read and to write configuration data. Also consider whether you need to encrypt some or all of the configuration settings and how to implement this encryption in the configuration store interface.
+- Consider how to protect the configuration data and give access to only the appropriate users and applications. The configuration store interface typically provides this feature, but you also need to ensure that users and applications can't directly access the data in the backing store without the appropriate permissions. Ensure strict separation between the permissions required to read and write configuration data. Also consider whether you need to encrypt some or all of the configuration settings and how to implement this encryption in the configuration store interface.
 
-   In addition to access control, turn on audit logging to record who reads or modifies configuration values and when these actions occur. Apply the same audit requirements to any local fallback copies of configuration data.
+   You should also turn on audit logging to record who reads or modifies configuration values and when these actions occur. Apply the same audit requirements to any local fallback copies of configuration data.
 
-- Separate non-sensitive configuration values from secrets. Keep routine settings, such as feature flags and endpoints, in the configuration settings. Store secrets, such as connection strings, API keys, certificates, and passwords, in a dedicated secret-management system that provides encryption and controlled access.
+- Separate nonsensitive configuration values from secrets. Keep routine settings, such as feature flags and endpoints, in the configuration settings. Store secrets, such as connection strings, API keys, certificates, and passwords, in a dedicated secret-management system that provides encryption and controlled access.
 
-- Centrally stored configurations, which change application behavior during runtime, are crucial. Deploy, update, and manage them by using the same mechanisms that you use to deploy application code. For example, you must carry out changes that can affect more than one application by using a full tested-and-staged deployment approach to ensure that the change suits all applications that use this configuration. If an administrator edits a setting to update one application, it might adversely affect other applications that use the same setting. Products like Azure App Configuration help mitigate this risk through built-in capabilities, such as revision history, point-in-time restore, immutable snapshots, and progressive rollout patterns.
+- Centrally stored configurations, which change application behavior during runtime, are crucial. Deploy, update, and manage them by using the same mechanisms that you use to deploy application code. For example, you must carry out changes that can affect more than one application by using a fully tested-and-staged deployment approach to ensure that the change suits all applications that use this configuration. If an administrator edits a setting to update one application, it might adversely affect other applications that use the same setting. Products like Azure App Configuration help mitigate this risk through built-in capabilities, such as revision history, point-in-time recovery (PITR), immutable snapshots, and progressive rollout patterns.
 
 - If an application caches configuration information, you need to alert the application when the configuration changes. You might implement an expiration policy for cached configuration data so that this information automatically refreshes periodically. The application sees the changes and implements them.
 
@@ -98,13 +98,13 @@ Most applications can use [App Configuration](/azure/azure-app-configuration/ove
 
 Use [snapshot references](/azure/azure-app-configuration/concept-snapshot-references) to let applications switch between snapshots at runtime without code changes or redeployment. You can export configuration values so that a copy ships with your application as a backup to use if the service is unreachable when the application starts.
 
-In App Configuration, [keys](/azure/azure-app-configuration/concept-key-value#keys) and [values](/azure/azure-app-configuration/concept-key-value#values) are Unicode strings, and each key-value pair has optional metadata, such as [label-based variants](/azure/azure-app-configuration/concept-key-value#version-key-values) and [content type](/azure/azure-app-configuration/concept-key-value#use-content-type). Use content type to describe how your application should interpret a value, such as in JSON or in a built-in App Configuration type. App Configuration also keeps a [revision history with point-in-time restore](/azure/azure-app-configuration/concept-point-time-snapshot), which helps you review and recover previous key-value pairs.
+In App Configuration, [keys](/azure/azure-app-configuration/concept-key-value#keys) and [values](/azure/azure-app-configuration/concept-key-value#values) are Unicode strings, and each key-value pair has optional metadata, such as [label-based variants](/azure/azure-app-configuration/concept-key-value#version-key-values) and [content type](/azure/azure-app-configuration/concept-key-value#use-content-type). Use content type to describe how your application should interpret a value, such as in JSON or in a built-in App Configuration type. App Configuration also keeps a [revision history with PITR](/azure/azure-app-configuration/concept-point-time-snapshot), which helps you review and recover previous key-value pairs.
 
 For resiliency, provision your store in a region that supports [availability zones](/azure/azure-app-configuration/howto-best-practices?tabs=dotnet#building-applications-with-high-resiliency) and turn on [geo-replication](/azure/azure-app-configuration/concept-geo-replication) so that you can configure your applications to read from the nearest replica and switch between replica endpoints during regional outages. Use [Azure Key Vault references](/azure/azure-app-configuration/use-key-vault-references-dotnet-core) to keep secrets in Key Vault and reference them from App Configuration, rather than storing credentials directly in the configuration store. Use [managed identity and Azure role-based access control (Azure RBAC)](/azure/azure-app-configuration/concept-enable-rbac) instead of connection strings to authenticate applications to App Configuration.
 
 For workloads that run in Azure Kubernetes Service (AKS), the [App Configuration Kubernetes Provider](/azure/azure-app-configuration/quickstart-azure-kubernetes-service) can generate ConfigMaps and Secrets directly from your store without requiring code changes in your workload containers. You can also use App Configuration to manage [feature flags](/azure/azure-app-configuration/concept-feature-management), including targeted rollout and variant-based experimentation, in your [safe deployment practices](/azure/well-architected/operational-excellence/safe-deployments).
 
-For network isolation, use [private endpoints for App Configuration](/azure/azure-app-configuration/concept-private-endpoint) so that client traffic remains on private IP address connectivity through Azure Private Link. After you set up private access, you can [turn off public access](/azure/azure-app-configuration/howto-disable-public-access) to reduce exposure of the public endpoint. In geo-replicated deployments, a single private endpoint can reach all replicas, but for higher regional resilience, you can provision private endpoints for each replica region and set up the domain name system (DNS) accordingly.
+For network isolation, use [private endpoints for App Configuration](/azure/azure-app-configuration/concept-private-endpoint) so that client traffic remains on private IP addresses through Azure Private Link. After you set up private access, you can [turn off public access](/azure/azure-app-configuration/howto-disable-public-access) to reduce public endpoint exposure. In geo-replicated deployments, a single private endpoint can reach all replicas, but for higher regional resilience, you can provision private endpoints for each replica region and set up the domain name system (DNS) accordingly.
 
 :::image type="complex" source="./_images/external-configuration-store.svg" border="false" lightbox="./_images/external-configuration-store.svg" alt-text="A diagram that shows an example External Configuration Store pattern implementation with App Configuration as the central hub that connects to multiple Azure services and storage systems.":::
     At the top of the diagram, an arrow points from an Azure function to App Configuration. On the left side of the diagram, an arrow connects the Azure Container Apps environment and AKS and points to App Configuration. On the right side of the diagram, an arrow connects an Azure virtual machine (VM) and Azure App Service to App Configuration. An arrow points from App Configuration to Key Vault at the bottom of the diagram. The architecture demonstrates how App Configuration serves as a centralized configuration management service that multiple Azure compute services can access to retrieve application settings, while keeping sensitive secrets in Key Vault and referencing them through App Configuration.
@@ -174,6 +174,6 @@ static void Main(string[] args)
 - [Caching guidance](/azure/architecture/best-practices/caching)
 - [App Configuration best practices](/azure/azure-app-configuration/howto-best-practices)
 
-## Related resources
+## Related resource
 
 - [Cache-Aside pattern](./cache-aside.yml)
