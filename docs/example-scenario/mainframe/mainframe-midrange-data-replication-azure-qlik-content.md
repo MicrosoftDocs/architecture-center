@@ -1,4 +1,4 @@
-This solution uses an on-premises instance of Qlik to replicate on-premises data sources to Azure in real time.
+This solution uses an on-premises instance of Qlik Software to replicate on-premises data sources to Azure in real time.
 
 > [!NOTE]
 > Pronounce "Qlik" like "click."
@@ -182,7 +182,7 @@ Other contributors:
 
 ## Next steps
 
-- [Qlik Talend Data Integration](https://help.qlik.com/en-US/cloud-services/Subsystems/Hub/Content/Sense_Hub/DataIntegration/Introduction/Getting-started-QTC.htm)
+- [Qlik Data Integration](https://www.qlik.com/us/data-integration/data-integration-tool)
 - [Unleash new Azure analytics initiatives (PDF data sheet)](https://pages.qlik.com/rs/049-DKK-796/images/MSFT081021_TG_Azure-Mainframe-Data_Datasheet-US_V2.pdf)
 - [What is ExpressRoute?](/azure/expressroute/expressroute-introduction)
 - [Event Hubs: A real-time data streaming platform with native Apache Kafka support](/azure/event-hubs/event-hubs-about)
