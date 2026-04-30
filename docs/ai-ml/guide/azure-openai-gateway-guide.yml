@@ -4,7 +4,7 @@ metadata:
   description: Understand how implementing a gateway helps manage access to Azure OpenAI and other language models more securely and efficiently.
   author: davihern
   ms.author: davihern
-  ms.date: 02/22/2026
+  ms.date: 04/30/2026
   ms.topic: concept-article
   ms.collection: ce-skilling-ai-copilot  
   ms.subservice: architecture-guide
