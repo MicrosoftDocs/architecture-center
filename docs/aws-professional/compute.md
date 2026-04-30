@@ -1,8 +1,8 @@
 ---
 title: Compare AWS and Azure compute services
 description: Compare the compute services in Azure and AWS. Explore the differences in virtual machines, containers, and serverless technologies.
-author: splitfinity81
-ms.author: yubaijna
+author: juanosorioms
+ms.author: jcosorio
 ms.date: 04/30/2026
 ms.topic: concept-article
 ms.subservice: architecture-guide
@@ -171,6 +171,7 @@ Other contributors:
 - [Assess AWS instances](/azure/migrate/tutorial-assess-aws)
 - [Migrate AWS VMs](/azure/migrate/tutorial-migrate-aws-virtual-machines)
 - [Migrate AWS to managed disks](/azure/virtual-machines/windows/on-prem-to-azure)
+
 ### Container and Kubernetes architectures
 
 - [Baseline architecture for an Azure Kubernetes Service (AKS) cluster](/azure/architecture/reference-architectures/containers/aks/baseline-aks)
