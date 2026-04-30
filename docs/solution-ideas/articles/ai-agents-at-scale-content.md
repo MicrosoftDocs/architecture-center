@@ -11,6 +11,7 @@ This approach suits scenarios that involve numerous agents participating in open
 The following diagram shows the high-level architecture for the dynamic AI agents at scale solution. User queries enter through the orchestration layer, which coordinates agent selection using a semantic cache backed by Azure AI Search. The selected agents execute their tasks using Azure OpenAI models hosted in Azure AI Foundry, with supporting services for memory, observability, and evaluation.
 
 ![Architecture diagram for dynamic AI agents at scale](../media/ai-agents-at-scale-architecture.png)
+*Download a [Visio file](https://arch-center.azureedge.net/<file-name>.vsdx) of this architecture.*
 
 ## Workflow
 
@@ -93,8 +94,6 @@ There are multiple ways to orchestrate multi-agent conversations. The primary ch
 
 Regular evaluation at multiple levels is essential in agent-based solutions. Assess performance at the individual agent level, within the orchestration layer, and across the overall system. At a system or multi-agent level, each introduction or update of an agent is evaluated for its impact on agent selection, orchestration, and the behavior of other agents. Ongoing evaluation ensures that new agents don't degrade existing agent performance. For more information, see [Evaluation framework](#evaluation-framework).
 
-![Evaluation core](../media/ai-agents-at-scale-evaluation-core.png)
-
 ### Agent selection
 
 The Agent Selector identifies and chooses the most appropriate agents for user inquiries from a large pool of candidates. It uses Azure AI Search with vector similarity as a semantic cache to narrow the list of agents, then applies a large language model (LLM) to select from this refined group. This approach ensures context-aware agent selection and produces responses or actions aligned with the user's query.
@@ -140,7 +139,7 @@ Multi-turn interactions require the orchestration layer to maintain continuity b
 
 A basic approach to augment the request with prior context is to store the relevant conversation history in a low-latency cache, such as Azure Cache for Redis, indexed by conversation ID along with a configurable time-to-live (TTL) value to control retention. You can adjust the TTL based on business needs, such as using a rolling TTL for ongoing conversations.
 
-For more advanced agent memory strategies, see [Agent Memory](https://learn.microsoft.com/agent-framework/user-guide/agents/agent-memory).
+For more advanced agent memory strategies, see [Agent Memory](/agent-framework/user-guide/agents/agent-memory).
 
 #### Adaptive orchestration: direct agent invocation vs. orchestrator path
 
@@ -156,11 +155,11 @@ When you design a dynamic large-scale multi-agent system, there are different im
 
 #### In-code
 
-Agents are defined programmatically in the application code with the help of frameworks like [Microsoft Agent Framework](https://learn.microsoft.com/agent-framework/overview/agent-framework-overview) and [LangChain](https://www.langchain.com/).
+Agents are defined programmatically in the application code with the help of frameworks like [Microsoft Agent Framework](/agent-framework/overview/agent-framework-overview) and [LangChain](https://www.langchain.com/).
 
 **Advantages:**
 
-- Maximum control over agent logic and behaviour.
+- Maximum control over agent logic and behavior.
 - Direct integration with existing application infrastructure.
 - Efficient runtime performance through direct code execution.
 - Rich debugging and testing capabilities.
@@ -233,7 +232,7 @@ The code for the evaluation framework can be referenced from [Evaluation Framewo
 ##### Features
 
 - **AI Foundry SDK**: Framework integrated with [Azure AI Evaluation SDK](https://pypi.org/project/azure-ai-evaluation/).
-- **Built-in and custom evaluators**: Utilizes both built-in evaluators from AI Foundry ([see full list](https://learn.microsoft.com/azure/ai-foundry/concepts/evaluation-evaluators/general-purpose-evaluators)) and custom evaluators.
+- **Built-in and custom evaluators**: Utilizes both built-in evaluators from AI Foundry ([see full list](/azure/ai-foundry/concepts/evaluation-evaluators/general-purpose-evaluators)) and custom evaluators.
 - **Config-driven architecture**: YAML config to customize pipelines, add evaluators, and more.
 - **Customizable pipelines**: Beyond evaluations, the framework enables adding your own modules for data preprocessing, model inferencing, and reporting.
 
@@ -244,13 +243,13 @@ The code for the evaluation framework can be referenced from [Evaluation Framewo
 
 ##### Pipeline flow
 
-- **Load evaluation data from Data store**: Load version controlled golden dataset to be evaluated. 
-- **Data Transformation**: Prepare the datasets for agentic system inference 
-- **Agent Response**: Get the response from agent for the golden dataset.
-- **Data prep for Evaluation**: combine the dataset with ground truth and prepare for evaluation. 
-- **Evaluator (metrics)**: identify the right metrics to be used for the evaluating the agentic system. 
-- **Evaluation Results**: Run the evaluations and get the evaluation output (metrics). 
-- **Reporting**: Push the evaluation report to AI foundry and analyze it in the Foundry Dashboard. 
+1. **Load evaluation data from Data store**: Load version controlled golden dataset to be evaluated. 
+1. **Data Transformation**: Prepare the datasets for agentic system inference 
+1. **Agent Response**: Get the response from agent for the golden dataset.
+1. **Data prep for Evaluation**: combine the dataset with ground truth and prepare for evaluation. 
+1. **Evaluator (metrics)**: identify the right metrics to be used for the evaluating the agentic system. 
+1. **Evaluation Results**: Run the evaluations and get the evaluation output (metrics). 
+1. **Reporting**: Push the evaluation report to AI Foundry and analyze it in the Foundry Dashboard. 
 
 ##### Experimentation and evaluation of agentic systems
 
@@ -355,7 +354,7 @@ This is particularly useful for diagnosing latency spikes, identifying network b
 
 ![Observability data flow for agentic systems](../media/ai-agents-at-scale-observability-flow.png)
 
-1. Emit telemetry via OTLP (Instrumentation): Orchestrator, agents, device control, and other services are instrumented using OpenTelemetry SDKs. They emit logs, traces, and metrics via OTLP.
+1. Emit telemetry via OTLP (Instrumentation): Orchestrator, agents, device control, and other services are instrumented using OpenTelemetry SDKs. They emit logs, traces, and metrics via OpenTelemetry Protocol (OTLP).
 2. Collect, process & export (Ingestion): Telemetry is sent to the OpenTelemetry Collector, where it flows through receiver, processor, and exporter stages, then is exported to Azure Application Insights.
 3. Route to stores (Storage & Query): Application Insights routes data into dedicated stores — Logs to Log Analytics for KQL querying, Traces for distributed tracing via Trace ID and Span ID, and Metrics to the metrics store for system and business monitoring.
 4. Visualize & alert (Visualization & Alerting): Dashboards, alerts, and workbooks provide real-time visibility and trigger incident response workflows.
