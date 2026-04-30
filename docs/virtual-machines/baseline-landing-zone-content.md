@@ -95,7 +95,7 @@ The workload team and platform teams share two main responsibilities: management
 
 - **The deployment region**: It's important to specify the regions where the workload will be deployed. The platform team can use this information to ensure that the spoke-and-hub virtual networks are provisioned in the same region. Networks across different regions can lead to latency issues due to traffic crossing regional boundaries and can also incur extra bandwidth costs.
 
-- **The workload characteristics and design choices**: Communicate your design choices, components, and characteristics to your platform team. For instance, if you expect your workload to generate a high number of concurrent connections to the internet (*chatty*), the platform team should ensure that there are sufficient ports available to prevent exhaustion. They can add IP addresses to the centralized firewall to support the traffic or set up a Network Address Translation (NAT) gateway to route the traffic through an alternate path.
+- **The workload characteristics and design choices**: Communicate your design choices, components, and characteristics to your platform team. For instance, if you expect your workload to generate a high number of concurrent connections to the internet (*chatty*), the platform team should ensure that there are sufficient source network address translation (SNAT) ports available to prevent exhaustion. They can add public IP addresses to the centralized firewall to expand the SNAT port pool, or attach an Azure NAT Gateway to scale SNAT capacity further.
 
     Conversely, if you expect your workload to generate minimal network traffic (*background noise*), the platform team should use resources efficiently across the organization.
 
