@@ -37,7 +37,7 @@ Virtual machines (VMs) and servers allow users to deploy, manage, and maintain O
 
 ### Autoscaling
 
-Autoscaling lets you automatically change the number of VM instances. You set defined metrics and thresholds that determine when to add or remove instances.
+Autoscaling lets you automatically change the number of compute instances or resources based on defined metrics and thresholds.
 
 | AWS service | Azure service | Description |
 | ----------- | ------------- | ----------- |
