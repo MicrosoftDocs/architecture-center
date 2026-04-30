@@ -78,13 +78,13 @@ Imagine your organization has several domain-specific agents and you want to cre
 
 ### Cost optimization
 
-Function calling has these limitations:
+As the number of agents grows, token consumption becomes a primary cost driver. Sending all agent definitions to an LLM on every request increases token usage linearly with agent count. This architecture addresses that challenge through several mechanisms:
 
-1. Doesn't scale well with a larger number of functions. The maximum limit is 19.
-2. Token count increases as the number of functions increases.
-3. As token count rises, both cost and latency increase.
-
-Return on investment is a concern for all agentic systems. Token count is a significant factor in agentic system costs. As the number of agents in the system grows, the context window increases to retain more knowledge about all the agents and functions, and the cost keeps growing.
+- **Semantic cache narrows candidate agents before LLM invocation.** Azure AI Search performs vector similarity matching against stored utterances and returns only a shortlist of relevant agents. The LLM receives definitions for a small subset of agents rather than the full catalogue, which limits per-request token consumption regardless of total agent count.
+- **Direct invocation bypasses the orchestrator LLM.** When a single agent exceeds the confidence threshold during semantic cache evaluation, the system invokes that agent directly without an additional LLM call. This path eliminates the token and compute cost of orchestrator reasoning for unambiguous queries.
+- **TTL-based conversation memory controls storage costs.** Configurable time-to-live values on the Redis cache ensure that stale conversation data expires automatically. Adjust TTL based on conversation patterns to balance context retention against cache storage costs.
+- **Tiered model selection reduces per-call cost.** Use lower-cost models for agent routing and selection decisions. Reserve higher-capability models for complex agent responses where output quality justifies the expense.
+- **Telemetry sampling limits observability overhead.** Apply intelligent sampling strategies for OpenTelemetry data to control ingestion and retention costs in Application Insights while preserving diagnostic value for anomaly detection.
 
 ### Orchestration patterns
 
