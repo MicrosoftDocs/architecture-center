@@ -20,7 +20,7 @@ The following workflow corresponds to the architecture diagram. Each step maps t
 1. A user submits a query through the client application.
 2. The **AI Agent Service** receives the request and passes it to the **Orchestrator**, which delegates to the **Agent Selector** component to identify the most relevant agents to invoke.
 3. The **Agent Selector** queries the **Semantic Cache** (Azure AI Search) to find candidate agents by comparing the query against stored sample utterances using vector similarity. It scores and filters the results. If one agent exceeds the confidence threshold, it's invoked directly. Otherwise, an LLM chooses from the shortlisted candidates.
-4. The **Agent Factory** instantiates the selected agent based on its registered implementation (code module, YAML template, or other representation), returning a ready-to-use agent instance to the orchestration layer.
+4. The **Agent Factory** instantiates the selected agent based on its registered implementation (code module, YAML template, or other representation), returning a ready-to-use agent instance.
 5. The selected **Agent** processes the request using **Azure OpenAI** models hosted in **Azure AI Foundry** or external tools, and the response flows back through the orchestration layer to the user.
 6. The agents, if required, call third-party APIs or MCP servers via the NAT gateway when a public endpoint is needed.
 
@@ -93,6 +93,7 @@ There are multiple ways to orchestrate multi-agent conversations. The primary ch
 ### Evaluating as system evolves
 
 Regular evaluation at multiple levels is essential in agent-based solutions. Assess performance at the individual agent level, within the orchestration layer, and across the overall system. At a system or multi-agent level, each introduction or update of an agent is evaluated for its impact on agent selection, orchestration, and the behavior of other agents. Ongoing evaluation ensures that new agents don't degrade existing agent performance. For more information, see [Evaluation framework](#evaluation-framework).
+
 
 ### Agent selection
 
