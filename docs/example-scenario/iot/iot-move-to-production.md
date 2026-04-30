@@ -3,7 +3,7 @@ title: Move an IoT Hub-Based Solution to a Production Environment
 description: Learn best practices for moving an IoT Hub-based solution to production, including deployment stamps, transient fault handling, and zero-touch provisioning.
 author: dominicbetts
 ms.author: dobett
-ms.date: 04/28/2026
+ms.date: 04/30/2026
 ms.topic: concept-article
 ms.subservice: architecture-guide
 ms.custom: arb-iot
@@ -88,7 +88,7 @@ For more information, see [Best practices for large-scale IoT device deployments
 
 The device provisioning service also simplifies device transitions between test and production environments. The following example shows how to use the device provisioning service to implement a test-to-production environment transition workflow.
 
-:::image type="complex" border="false" source="./media/late-binding-with-device-provisioning-service.png" alt-text="A diagram that shows how to use the device provisioning service to implement a test-to-production environment transition workflow." lightbox="./media/late-binding-with-device-provisioning-service.png":::
+:::image type="complex" border="false" source="./media/late-binding-with-device-provisioning-service.svg" alt-text="A diagram that shows how to use the device provisioning service to implement a test-to-production environment transition workflow." lightbox="./media/late-binding-with-device-provisioning-service.svg":::
    The diagram consists of icons that represent IoT Hub device provisioning service, a test hub, a production hub, and a provisioned endpoint. An arrow points from a box labeled operator process to the IoT Hub device provisioning service icon. Another arrow that represents device provisioning requests points from the endpoint to the IoT Hub device provisioning service icon. Arrows point from the IoT Hub device provisioning service icon to the test hub and to the production hub. Arrows also point from the endpoint to the test hub and to the production hub.
 :::image-end:::
 
