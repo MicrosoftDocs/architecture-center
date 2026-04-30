@@ -8,7 +8,7 @@ By using Azure services such as Azure AI Content Understanding and Azure Functio
 
 *Download a [Visio file][visio-download] of this solution idea.*
 
-### Dataflow
+### Data flow
 
 This scenario covers the back-end components of a web or mobile application. Data flows through the scenario as follows:
 
@@ -73,17 +73,17 @@ Security provides assurances against deliberate attacks and the misuse of your v
 - Validate uploaded images before invoking the vision service. Enforce content-type and size limits at the upload boundary, scan for malware, and store uploads in a container that public users can't read directly.
 - This architecture is only suitable for images that you decide are appropriate to be processed by a cloud solution, local/offline image processing isn't supported.
 
-#### Cost optimization
+#### Cost Optimization
 
-Cost optimization focuses on ways to reduce unnecessary expenses and improve operational efficiencies. For more information, see [Design review checklist for Cost Optimization](/azure/well-architected/cost-optimization/checklist).
+Cost Optimization focuses on ways to reduce unnecessary expenses and improve operational efficiencies. For more information, see [Design review checklist for Cost Optimization](/azure/well-architected/cost-optimization/checklist).
 
 - Limit the analyzer schema in Content Understanding to the fields that the application actually consumes. Each additional field increases token usage and per-call cost. Review [Microsoft Foundry pricing](https://azure.microsoft.com/pricing/details/ai-foundry/) for the current rates.
 - For Azure Functions, use the [Flex Consumption plan](/azure/azure-functions/flex-consumption-plan) for spiky event-driven workloads. It scales to zero and bills per second on active instances.
 - For Azure Cosmos DB, evaluate [serverless](/azure/cosmos-db/serverless) or [autoscale throughput](/azure/cosmos-db/provision-throughput-autoscale) when traffic is uneven. Serverless suits low-traffic and dev/test workloads; autoscale suits production with variable load.
 
-#### Operational excellence
+#### Operational Excellence
 
-Operational excellence covers the operations processes that deploy an application and keep it running in production. For more information, see [Design review checklist for Operational Excellence](/azure/well-architected/operational-excellence/checklist).
+Operational Excellence covers the operations processes that deploy an application and keep it running in production. For more information, see [Design review checklist for Operational Excellence](/azure/well-architected/operational-excellence/checklist).
 
 - Send Azure Functions, Event Grid, and Microsoft Foundry diagnostics to a shared Log Analytics workspace and use [Application Insights](/azure/azure-monitor/app/app-insights-overview) for distributed tracing across the upload-to-result flow.
 - Configure an Event Grid [dead-letter destination](/azure/event-grid/manage-event-delivery#set-dead-letter-location) so that events the function can't process land in a separate blob container for replay.
