@@ -10,7 +10,7 @@ ms.subservice: cloud-fundamentals
 
 # External Configuration Store pattern
 
-Move configuration information out of the application deployment package to a centralized location. This approach provides easier management and control of configuration data. Use the External Configuration Store pattern to share configuration data across applications and application instances.
+Move configuration information out of the application deployment package to a centralized location. This approach provides easier management and control of configuration data, and to share configuration data across applications and application instances.
 
 ## Context and problem
 
@@ -18,7 +18,7 @@ Most application runtime environments include configuration information in files
 
 Local configuration files also limit the configuration to a single application. In some scenarios, you might want to share configuration settings across multiple applications. Examples include database connection strings, UI theme information, and the URLs of queues and storage that a related set of applications uses.
 
-Managing changes to local configurations across multiple running instances of the application is challenging, especially in a cloud-hosted scenario. This challenge can result in instances that use different configuration settings while you deploy the update.
+Managing changes to local configurations across multiple running instances of the application is challenging. This challenge can result in instances that use different configuration settings while you deploy the update.
 
 Updates to applications and components might also require changes to configuration schemas. Many configuration systems don't support different versions of configuration information.
 
