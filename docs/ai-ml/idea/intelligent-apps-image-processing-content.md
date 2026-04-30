@@ -128,6 +128,6 @@ For guided learning paths, see:
 - [Get started with multimodal vision chat apps using Azure OpenAI](/azure/developer/ai/get-started-app-chat-vision?tabs=github-codespaces)
 
 <!-- links -->
-[architecture]: _images/architecture-intelligent-apps-image-processing.png
+[architecture]: _images/architecture-intelligent-apps-image-processing.svg
 [serverless]: /training/paths/create-serverless-applications/
 [visio-download]: https://arch-center.azureedge.net/architecture-image-classification-on-azure.vsdx
