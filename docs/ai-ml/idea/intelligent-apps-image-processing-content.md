@@ -2,14 +2,6 @@
 
 By using Azure services such as Azure AI Content Understanding and Azure Functions, you can add image classification and metadata extraction to a web or mobile application without managing servers or training your own models. This solution idea targets image classification and tagging. If you have other AI needs, see the broader [Azure AI services](/azure/ai-services/what-are-ai-services) and [Microsoft Foundry](/azure/ai-foundry/what-is-azure-ai-foundry) catalogs.
 
-> [!IMPORTANT]
-> Microsoft announced the retirement of two services that earlier versions of this architecture used. Both retire on **September 25, 2028**.
->
-> - [Azure AI Vision Image Analysis 4.0](/azure/ai-services/computer-vision/migration-options) is deprecated. New workloads shouldn't take a dependency on it.
-> - [Azure AI Custom Vision](/azure/ai-services/custom-vision-service/overview) is also retiring.
->
-> The architecture in this article uses [Azure AI Content Understanding](/azure/ai-services/content-understanding/overview), which is Microsoft's recommended replacement for managed image classification and tagging. The [Alternatives](#alternatives) section lists other replacement paths and the scenarios that suit them.
-
 ## Architecture
 
 ![Diagram of an architecture used for image classification tasks.][architecture]
@@ -30,19 +22,19 @@ This scenario covers the back-end components of a web or mobile application. Dat
 
 - [Azure AI Content Understanding](/azure/ai-services/content-understanding/overview) is a Microsoft Foundry capability that uses generative AI to extract user-defined structured output from documents, images, video, and audio. In this architecture, it analyzes each uploaded image against an [analyzer schema](/azure/ai-services/content-understanding/concepts/analyzer-templates) that defines the categories, attributes, and labels you want returned (for example, product type, color, defect class). The output is JSON that maps directly to your application's data model.
 
-- [Azure Functions](/azure/well-architected/service-guides/azure-functions) is a serverless compute platform. In this architecture, Azure Functions provides the back-end API and the event-processing layer for uploaded images. The function orchestrates the workflow: it calls Content Understanding, processes the response, and writes the result to the database. Use the [Flex Consumption plan](/azure/azure-functions/flex-consumption-plan) for event-driven workloads that need virtual network integration, instance memory choice, and faster scaling than the original Consumption plan.
+- [Azure Functions](/azure/well-architected/service-guides/azure-functions) is a serverless compute platform. In this architecture, Azure Functions provides the back-end API and the event-processing layer for uploaded images. The function orchestrates the workflow. It calls Content Understanding, processes the response, and writes the result to the database. This architecture uses the [Flex Consumption plan](/azure/azure-functions/flex-consumption-plan) to support virtual network integration, instance memory choice, and fast scaling.
 
 - [Azure Event Grid](/azure/well-architected/service-guides/event-grid/reliability) is a managed event-routing service that uses a publish-subscribe model. In this architecture, an Event Grid system topic on the storage account emits a `Microsoft.Storage.BlobCreated` event when a new image is uploaded and delivers it to the function.
 
 - [Azure Blob Storage](/azure/well-architected/service-guides/azure-blob-storage) is an object store for unstructured data. In this architecture, it stores all uploaded images and any static assets that the web application serves. Blob Storage is the source of truth for incoming images.
 
-- [Azure Cosmos DB for NoSQL](/azure/well-architected/service-guides/cosmos-db) is a fully managed NoSQL database. In this architecture, it stores the metadata for each image, including the structured output that Content Understanding returns.
+- [Azure Cosmos DB for NoSQL](/azure/well-architected/service-guides/cosmos-db) is a managed NoSQL database. In this architecture, it stores the metadata for each image, including the structured output that Content Understanding returns.
 
 ### Alternatives
 
 - [Azure Machine Learning AutoML for Images](/azure/machine-learning/concept-automated-ml#computer-vision) trains custom image classification and object detection models from your labeled data using classic machine learning techniques. Choose AutoML when you have a labeled dataset and need a deterministic, deployable model for narrow domains (for example, manufacturing defect detection or medical imaging) where generative approaches don't fit. AutoML is the path that Microsoft recommends for customers migrating from Custom Vision when they want to keep a classic ML model.
 
-- [Microsoft Foundry vision models](/azure/ai-foundry/concepts/foundry-models-overview) let you call or fine-tune multimodal models (including GPT-4.1, GPT-4o, and Phi-4 multimodal) directly. Choose this path when you need fine-grained control over the prompt and model, want to fine-tune on your own data, or need visual question answering and image-grounded chat instead of structured extraction.
+- [Microsoft Foundry vision-enabled models](/azure/foundry/openai/how-to/gpt-with-vision) let you call or fine-tune multimodal models (GPT-4.1, GPT-4o, and Phi-4 multimodal) directly. Choose this path when you need fine-grained control over the prompt and model, want to fine-tune on your own data, or need visual question answering and image-grounded chat instead of structured extraction.
 
 - [Azure AI Search](/azure/search/search-what-is-azure-search) indexes the metadata so that users can query and filter images by tag, caption, or other attributes. The [AI enrichment skillset](/azure/search/cognitive-search-concept-intro) can call vision and generative AI services and write the results directly to a search index without a separate function.
 
@@ -79,13 +71,14 @@ Security provides assurances against deliberate attacks and the misuse of your v
 - Use [managed identities](/azure/active-directory/managed-identities-azure-resources/overview) for the function app to authenticate to Blob Storage, Azure Cosmos DB, and the Microsoft Foundry resource that hosts Content Understanding. Avoid storing connection strings or API keys in app settings.
 - Restrict the Foundry resource and Cosmos DB to [private endpoints](/azure/private-link/private-endpoint-overview) and disable public network access when the workload runs inside a virtual network. The [Flex Consumption plan](/azure/azure-functions/flex-consumption-plan) supports virtual network integration.
 - Validate uploaded images before invoking the vision service. Enforce content-type and size limits at the upload boundary, scan for malware, and store uploads in a container that public users can't read directly.
+- This architecture is only suitable for images that you decide are appropriate to be processed by a cloud solution, local/offline image processing isn't supported.
 
 #### Cost optimization
 
 Cost optimization focuses on ways to reduce unnecessary expenses and improve operational efficiencies. For more information, see [Design review checklist for Cost Optimization](/azure/well-architected/cost-optimization/checklist).
 
 - Limit the analyzer schema in Content Understanding to the fields that the application actually consumes. Each additional field increases token usage and per-call cost. Review [Microsoft Foundry pricing](https://azure.microsoft.com/pricing/details/ai-foundry/) for the current rates.
-- For Azure Functions, prefer the [Flex Consumption plan](/azure/azure-functions/flex-consumption-plan) for spiky event-driven workloads. It scales to zero and bills per second on active instances.
+- For Azure Functions, use the [Flex Consumption plan](/azure/azure-functions/flex-consumption-plan) for spiky event-driven workloads. It scales to zero and bills per second on active instances.
 - For Azure Cosmos DB, evaluate [serverless](/azure/cosmos-db/serverless) or [autoscale throughput](/azure/cosmos-db/provision-throughput-autoscale) when traffic is uneven. Serverless suits low-traffic and dev/test workloads; autoscale suits production with variable load.
 
 #### Operational excellence
@@ -97,8 +90,6 @@ Operational excellence covers the operations processes that deploy an applicatio
 - Version Content Understanding analyzer schemas as code and deploy them through the same pipeline that deploys the function. Treat schema changes as breaking changes for downstream consumers.
 
 ## Next steps
-
-Product documentation:
 
 - [What is Azure AI Content Understanding?](/azure/ai-services/content-understanding/overview)
 - [Microsoft Foundry models overview](/azure/ai-foundry/concepts/foundry-models-overview)
