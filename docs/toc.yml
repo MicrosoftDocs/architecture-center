@@ -431,9 +431,6 @@ items:
   - name: Deployment Stamps
     displayName: Scale units, cell-based architecture
     href: patterns/deployment-stamp.md
-  - name: Edge Workload Configuration
-    displayName: IoT, device configuration
-    href: patterns/edge-workload-configuration.md
   - name: Event Sourcing
     displayName: Event store, append-only, audit trail
     href: patterns/event-sourcing.md

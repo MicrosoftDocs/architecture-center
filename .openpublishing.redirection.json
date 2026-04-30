@@ -3794,6 +3794,11 @@
       "redirect_document_id": true
     },
     {
+      "source_path": "docs/patterns/edge-workload-configuration.md",
+      "redirect_url": "/azure/architecture/patterns/external-configuration-store",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "docs/solution-ideas/articles/machine-learning-model-deployment-aks.yml",
       "redirect_url": "/azure/architecture/ai-ml/idea/machine-learning-model-deployment-aks",
       "redirect_document_id": true
