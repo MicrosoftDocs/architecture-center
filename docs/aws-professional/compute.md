@@ -2,8 +2,8 @@
 title: Compare AWS and Azure compute services
 description: Compare the compute services in Azure and AWS. Explore the differences in virtual machines, containers, and serverless technologies.
 author: splitfinity81
-ms.author: jcosorio
-ms.date: 04/30/2026
+ms.author: yubaijna
+ms.date: 06/24/2022
 ms.topic: concept-article
 ms.subservice: architecture-guide
 ms.collection:
@@ -145,6 +145,10 @@ Serverless computing lets you integrate systems and run backend processes withou
 Principal author:
 
 - [Kobi Levi](https://www.linkedin.com/in/kobi-levi) | Cloud Solution Architect
+
+Other contributors:
+
+- [Juan Carlos Osorio](https://www.linkedin.com/in/juan-carlos-osorio-6252bba7/) | Cloud Solution Architect
 
 ## Next steps
 
