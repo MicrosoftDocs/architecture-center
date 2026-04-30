@@ -30,7 +30,7 @@ The following workflow corresponds to the architecture diagram. Each step maps t
 
 - [Azure AI Search](/azure/search/search-what-is-azure-search) is a cloud search service with built-in AI capabilities for vector search and semantic ranking. In this solution, it acts as the semantic cache that stores sample agent utterances and uses vector similarity to identify candidate agents for user queries.
 
-- [Azure OpenAI Service](/azure/ai-services/openai/overview) provides REST API access to OpenAI's language models including GPT-4, GPT-3.5-Turbo, and embeddings. In this solution, agents use these models to process requests, generate responses, and select appropriate agents from shortlisted candidates.
+- [Azure OpenAI Service](/azure/ai-services/openai/overview) provides REST API access to OpenAI's language models and embeddings. In this solution, agents use these models to process requests, generate responses, and select appropriate agents from shortlisted candidates.
 
 - [Azure Cache for Redis](/azure/azure-cache-for-redis/cache-overview) is a fully managed, in-memory cache that enables high-throughput and low-latency data access. In this solution, it stores conversation context and chat history to support multi-turn interactions with minimal latency.
 
@@ -80,7 +80,7 @@ Imagine your organization has several domain-specific agents and you want to cre
 
 As the number of agents grows, token consumption becomes a primary cost driver. Sending all agent definitions to an LLM on every request increases token usage linearly with agent count. This architecture addresses that challenge through several mechanisms:
 
-- **Semantic cache narrows candidate agents before LLM invocation.** Azure AI Search performs vector similarity matching against stored utterances and returns only a shortlist of relevant agents. The LLM receives definitions for a small subset of agents rather than the full catalogue, which limits per-request token consumption regardless of total agent count.
+- **Semantic cache narrows candidate agents before LLM invocation.** Azure AI Search performs vector similarity matching against stored utterances and returns only a shortlist of relevant agents. The LLM receives definitions for a small subset of agents rather than the full catalog, which limits per-request token consumption regardless of total agent count.
 - **Direct invocation bypasses the orchestrator LLM.** When a single agent exceeds the confidence threshold during semantic cache evaluation, the system invokes that agent directly without an additional LLM call. This path eliminates the token and compute cost of orchestrator reasoning for unambiguous queries.
 - **TTL-based conversation memory controls storage costs.** Configurable time-to-live values on the Redis cache ensure that stale conversation data expires automatically. Adjust TTL based on conversation patterns to balance context retention against cache storage costs.
 - **Tiered model selection reduces per-call cost.** Use lower-cost models for agent routing and selection decisions. Reserve higher-capability models for complex agent responses where output quality justifies the expense.
@@ -138,7 +138,7 @@ For scenarios that require a minimal degree of collaboration or conversation bet
 
 Multi-turn interactions require the orchestration layer to maintain continuity by providing relevant context from previous requests to the participating agents. The orchestration system should determine when to summarize, prune, or persist the conversation state to optimize performance and relevance.
 
-A basic approach to augment the request with prior context is to store the relevant conversation history in a low-latency cache, such as Azure Cache for Redis, indexed by conversation ID along with a configurable time-to-live (TTL) value to control retention. You can adjust the TTL based on business needs, such as using a rolling TTL for ongoing conversations.
+A basic approach to augment the request with prior context is to store the relevant conversation history in a low-latency cache, such as Azure Managed Redis, indexed by conversation ID along with a configurable time-to-live (TTL) value to control retention. You can adjust the TTL based on business needs, such as using a rolling TTL for ongoing conversations.
 
 For more advanced agent memory strategies, see [Agent Memory](/agent-framework/user-guide/agents/agent-memory).
 
