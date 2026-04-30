@@ -164,7 +164,7 @@ When considering how an API gateway benefits your architecture, use the [Design 
 
 ## Implementation options
 
-Foundry provides the ability to [enable an AI Gateway](/azure/foundry/configuration/enable-ai-api-management-gateway-portal), which is backed by Azure API Management and natively integrated into the Foundry portal to deliver a seamless experience. Alternatively, organizations can implement their own gateway using a standalone Azure API Management instance or a custom-built gateway solution.
+Foundry provides the ability to [enable an AI Gateway](/azure/foundry/configuration/enable-ai-api-management-gateway-portal), which is backed by Azure API Management and natively integrated into the Foundry portal. This gateway is designed to support ingress to a single Foundry resource and not used to span multiple resources. Workload teams can also implement their own gateway using a standalone Azure API Management instance or a custom-built gateway solution.
 
 ### Use Azure API Management
 
