@@ -37,7 +37,7 @@ To avoid these problems, consider grouping your service into multiple stamps. St
 
 For more information, see [Deployment Stamps pattern](/azure/architecture/patterns/deployment-stamp).
 
-## Use exponential back-off when a transient fault occurs
+## Use a back-off approach when a transient fault occurs
 
 You must design all applications that communicate with remote services and resources to handle transient faults. This capability is especially crucial in cloud environments, where connectivity increases the likelihood of transient faults. The following list provides examples of transient faults:
 
