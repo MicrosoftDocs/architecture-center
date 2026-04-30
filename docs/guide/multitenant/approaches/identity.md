@@ -3,7 +3,7 @@ title: Architectural Approaches for Identity in Multitenant Solutions
 description: This article covers identity management strategies for multitenant solutions, including authentication, authorization, federation, and security considerations.
 author: johndowns
 ms.author: pnp
-ms.date: 05/16/2025
+ms.date: 04/30/2026
 ms.topic: concept-article
 ms.subservice: architecture-guide
 ms.custom: arb-saas
@@ -38,11 +38,11 @@ Also consider providing federation as a feature that only applies to customers a
 
 ### Single sign-on
 
-Single sign-on enables users to switch between applications seamlessly without being prompted to reauthenticate at each point.
+Single sign-on enables users to switch between applications without being prompted to reauthenticate at each point.
 
 When users visit an application, the application directs them to an IdP. If the IdP detects an existing session, it issues a new token without requiring the users to interact with the sign-in process. A federated identity model supports single sign-on by enabling users to use a single identity across multiple applications.
 
-In a multitenant solution, you might enable another form of single sign-on. If users are authorized to access data across multiple tenants, you might need to provide a seamless experience when the users change their context from one tenant to another. Consider whether your solution needs to support seamless transitions between tenants. If so, consider whether your IdP should reissue tokens with specific tenant claims. For example, when a user signs in to the Azure portal, they can switch between different Microsoft Entra ID directories. This transition triggers reauthentication and generates a new token from the newly selected Microsoft Entra ID instance.
+In a multitenant solution, you might enable another form of single sign-on. If users are authorized to access data across multiple tenants, you might need to let them change their context from one tenant to another without reauthenticating. Consider whether your solution needs to support transitions between tenants without prompting users to sign in again. If so, consider whether your IdP should reissue tokens with specific tenant claims. For example, when a user signs in to the Azure portal, they can switch between different Microsoft Entra ID directories. This transition triggers reauthentication and generates a new token from the newly selected Microsoft Entra ID instance.
 
 ### Sign-in risk evaluation
 
@@ -53,6 +53,8 @@ Consider whether your tenants might have different risk policies that need to be
 If you need to support different risk policies for each tenant, your authentication system needs to know which tenant the user is signing in to so that it can apply the correct policies.
 
 If your IdP includes these capabilities, consider using the IdP's native sign-in risk evaluation features. These features can be complex and error-prone to implement yourself.
+
+Some tenants require their users to continue to use a specific multifactor authentication (MFA) provider for compliance or user-experience reasons. Microsoft Entra ID supports [external authentication methods](/entra/identity/authentication/concept-authentication-external-method), which let tenants use a non-Microsoft MFA provider while Microsoft Entra ID remains the identity control plane and continues to evaluate Conditional Access policies and sign-in risk on every sign-in. Consider whether your solution should support tenants that bring their own MFA provider.
 
 Alternatively, if you federate to the tenants' IdPs, their risky sign-in mitigation policies can be applied, which allows them to control enforcement policies and controls. For example, requiring two MFA challenges, one from the user's home IdP and another from your own, can make the sign-in process more difficult. Ensure that you understand how federation interacts with each of your tenant's IdPs and the policies that they have in place.
 
@@ -100,7 +102,7 @@ Microsoft Entra ID and External ID are managed identity platforms that you can u
 
 Many multitenant solutions operate as SaaS. Your choice to use Microsoft Entra ID or External ID depends partly on how you define your tenants or customer base.
 
-- If your tenants or customers are organizations, they might already use Microsoft Entra ID for services like Microsoft 365, Microsoft Teams, or for their own Azure environments. You can create a [multitenant application](/entra/identity-platform/single-and-multi-tenant-apps) in your own Microsoft Entra ID directory to make your solution available to other Microsoft Entra ID directories. You can also list your solution in the [Microsoft Marketplace](https://marketplace.microsoft.com) and make it easily accessible to organizations that use Microsoft Entra ID.
+- If your tenants or customers are organizations, they might already use Microsoft Entra ID for services like Microsoft 365, Microsoft Teams, or for their own Azure environments. You can create a [multitenant application](/entra/identity-platform/single-and-multi-tenant-apps) in your own Microsoft Entra ID directory to make your solution available to other Microsoft Entra ID directories. You can also list your solution in [Microsoft commercial marketplace](/partner-center/marketplace-offers/plan-saas-offer) so that organizations that use Microsoft Entra ID can discover and acquire it.
 
 - If your tenants or customers don't use Microsoft Entra ID, or if they're individuals instead of organizations, consider using External ID. External ID provides features to control how users sign up and sign in. For example, you can restrict access to your solution to only the users that you invite, or you can enable self-service sign-up. You can use [custom branding](/entra/external-id/customers/how-to-customize-branding-customers). To enable your own staff to sign in, you can [invite users from your Microsoft Entra ID tenant as guests into the External ID via guest access](/entra/external-id/b2b-quickstart-add-guest-users-portal). External ID also enables [federation with other IdPs](/entra/external-id/customers/concept-authentication-methods-customers).
 
@@ -137,7 +139,7 @@ Tracking the tenant context of a user or token is applicable to any [tenancy mod
 
 ### Conflating role and resource authorization
 
-It's important to choose an authorization model that fits your solution. Role-based security is simple to implement, but resource-based authorization provides more fine-grained control. Evaluate your tenants' requirements and determine if they need to authorize some users to only access specific parts of your solution.
+It's important to choose an authorization model that fits your solution. Role-based security is straightforward to implement, but resource-based authorization provides more fine-grained control. Evaluate your tenants' requirements and determine if they need to authorize some users to only access specific parts of your solution.
 
 ### Failing to write audit logs
 
