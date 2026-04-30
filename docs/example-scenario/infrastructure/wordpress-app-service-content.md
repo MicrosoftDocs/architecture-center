@@ -37,7 +37,7 @@ The following data flow corresponds to the previous diagram:
 
 - [Azure Front Door](/azure/well-architected/service-guides/azure-front-door) is a content delivery network and global load balancer. In this architecture, Azure Front Door serves as the application entry point for web users.
 
-- [Azure Virtual Network](/azure/well-architected/service-guides/virtual-network) is a network service that enables Azure resources to communicate with each other while providing segmentation and isolation. In this architecture, App Service and back-end components are only reachable through private connections in the virtual network.
+- [Azure Virtual Network](/azure/well-architected/service-guides/virtual-network) is a network service that enables Azure resources to communicate with each other, the internet, and on-premises networks while providing segmentation and isolation. In this architecture, App Service and back-end components are only reachable through private connections in the virtual network.
 
 - [Blob Storage](/azure/well-architected/service-guides/azure-blob-storage) is an object storage service optimized for large amounts of unstructured data. In this architecture, Blob Storage hosts all static content for the WordPress application.
 
