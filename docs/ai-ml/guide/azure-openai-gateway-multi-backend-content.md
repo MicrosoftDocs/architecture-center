@@ -1,6 +1,6 @@
 # Use a gateway in front of multiple Azure OpenAI deployments or instances
 
-Workload architectures that use a hosted model platform (for example, Microsoft Foundry) can be as simple as one or more client applications calling a single model endpoint directly. Some workloads, however, require multiple clients, multiple model deployments, or multiple model-host instances—and in those cases a gateway can act as a programmable routing layer in front of your model backends
+Workload architectures that use a hosted model platform (for example, Microsoft Foundry) can be as simple as one or more client applications calling a single model endpoint directly. Some workloads, however, require multiple clients, multiple model deployments, or multiple model-host instances. In those cases, a gateway can act as a programmable routing layer in front of your model backends.
 
 Multiple instances or model deployments solve specific requirements in a workload architecture. They can be classified in four key topologies.
 
