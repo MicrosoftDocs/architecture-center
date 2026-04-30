@@ -39,7 +39,7 @@ The following diagram shows this same architecture after it's been migrated to A
 1. The front end of the application layer uses Azure services like Azure App Service to implement application screens and to interact with users. The screens are migrated versions of the mainframe screens.
 1. COBOL and PL/I code in the back end of the application layer implement the business logic. The code can use services and features like Azure Functions, WebJobs, and Azure Container Apps. Applications can run in an Azure Kubernetes Service (AKS) container.
 
-1. An in-memory data store accelerates high-throughput OLTP applications. Examples include In-Memory OLTP, which is a feature of Azure SQL Database and Azure SQL Managed Instance, and Azure Managed Redis.
+1. Azure Managed Redis provides in-memory caching to accelerate high-throughput OLTP transactions. In-Memory OLTP, a feature of Azure SQL Database and Azure SQL Managed Instance, provides additional transaction-processing acceleration.
 1. The data layer can include:
 
    - Files, tables, and blobs implemented by using Azure Storage.
