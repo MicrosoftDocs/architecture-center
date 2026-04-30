@@ -92,7 +92,7 @@ Some specific scenarios have more guidance available that directly addresses an 
 
 The decision to add a gateway and what technology to use is made as part of the [Application design](/azure/well-architected/ai/application-design#evaluate-the-use-of-api-gateways) described in the Azure Well-Architected Framework's [AI workloads on Azure](/azure/well-architected/ai/get-started) guidance. As an architect, you need to decide to include or exclude this component.
 
-When you introduce a new component into your architecture, you need to evaluate the newly introduced tradeoffs. When you inject an API gateway between your clients and the Foundry data plane to address any of [key challenges](#key-challenges), you introduce new considerations into your architecture. Carefully evaluate whether the workload impact across these architectural considerations justifies the added value or utility of the gateway.
+When you introduce a new component into your architecture, you need to evaluate the newly introduced tradeoffs. When you inject an API gateway between your clients and the Foundry data plane to address any of the [key challenges](#key-challenges), you introduce new considerations into your architecture. Carefully evaluate whether the workload impact across these architectural considerations justifies the added value or utility of the gateway.
 
 ### Reliability
 
@@ -113,11 +113,11 @@ When considering how an API gateway benefits your architecture, use the [Design 
 
 - The gateway can act as a network boundary transition between client network space and private Foundry network space. Even though the gateway makes a previously internet-facing Foundry endpoint private by using Azure Private Link, it now becomes the new point of entry and must be adequately secured.
 
-- A gateway is in a unique position to see raw request data and formulated responses from the language model, which could include confidential data from either source. Data compliance and regulatory scope is now extended to this other component.
+- A gateway is in a unique position to see raw request data and formulated responses from the language model, which could include confidential data from either source. Data compliance and regulatory scope are now extended to this other component.
 
 - A gateway can extend the scope of client authorization and authentication beyond Microsoft Entra ID and API key authentication, and potentially across multiple identity providers (IdP).
 
-- Data sovereignty must be factored in your implementation in multi-region implementations. Ensure that your gateway compute and routing logic adhere to sovereignty requirements placed on your workload.
+- Data sovereignty must be factored into your multi-region implementations. Ensure that your gateway compute and routing logic adhere to sovereignty requirements placed on your workload.
 
 > [!IMPORTANT]
 > Don't implement a gateway if doing so would leave your workload unable to protect the confidentiality, integrity, or availability of itself or its users' data.
@@ -126,7 +126,7 @@ When considering how an API gateway benefits your architecture, use the [Design 
 
 Cost optimization is about looking at ways to reduce unnecessary expenses and improve operational efficiencies. For more information, see [Design review checklist for Cost Optimization](/azure/well-architected/cost-optimization/checklist).
 
-All implemented API gateways have runtime costs that need to be budgeted and accounted for. Those costs usually increase with added features to address the reliability, security, and performance of the gateway itself along with operational costs introduced with added APIOps management. These added costs need to be measured against the new value delivered from the system with the gateway. You want to reach a point where the new capabilities introduced by using a gateway outweigh the cost to implement and maintain the gateway. Depending on your workload's relationship to its users, you might be able to chargeback usage.
+All implemented API gateways have runtime costs that need to be budgeted and accounted for. Those costs usually increase with added features to address the reliability, security, and performance of the gateway itself along with operational costs introduced with added APIOps management. These added costs need to be measured against the new value delivered from the system with the gateway. You want to reach a point where the new capabilities introduced by using a gateway outweigh the cost to implement and maintain the gateway. Depending on your workload's relationship to its users, you might be able to charge back usage.
 
 To help manage costs when developing and testing a gateway, consider using a simulated endpoint for Foundry models. For example, use the solution in the [Azure OpenAI API simulator](https://github.com/microsoft/aoai-api-simulator/) GitHub repository.
 
@@ -148,7 +148,7 @@ When considering how an API gateway benefits your architecture, use the [Design 
 
 When considering how an API gateway benefits your architecture, use the [Design review checklist for Performance Efficiency](/azure/well-architected/performance-efficiency/checklist) to evaluate your design. You need to address the following performance efficiency considerations:
 
-- The gateway service can introduce a throughput bottleneck. Ensure the gateway has adequate performance to handle full concurrent load and can easily scale in line with your growth expectations. Ensure elasticity in the solution so that the gateway can reduce supply, or scale down, when demand is low, such as with business day usage.
+- The gateway service can introduce a throughput bottleneck. Ensure that the gateway has adequate performance to handle full concurrent load and can easily scale in line with your growth expectations. Ensure elasticity in the solution so that the gateway can reduce supply, or scale down, when demand is low, such as with business day usage.
 
 - The gateway service must run processes for each request, and it introduces added latency for each API invocation. Optimize your routing logic to keep requests fast and reliable.
 
