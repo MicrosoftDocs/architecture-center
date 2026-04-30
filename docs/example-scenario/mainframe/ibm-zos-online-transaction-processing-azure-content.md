@@ -12,7 +12,6 @@ The following diagram shows an architecture of an OLTP system that runs on a z/O
 
 ### Workflow
 
-The following workflow corresponds to the preceding diagram:
 
 1. Users connect to the mainframe by using standard mainframe protocols like TN3270 and HTTPS.
 
