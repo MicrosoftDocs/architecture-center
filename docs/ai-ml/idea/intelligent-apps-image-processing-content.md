@@ -1,6 +1,6 @@
 [!INCLUDE [header_file](../../../includes/sol-idea-header.md)]
 
-By using Azure services such as Azure AI Content Understanding and Azure Functions, you can add image classification and metadata extraction to a web or mobile application without managing servers or training your own models. This solution idea targets image classification and tagging. If you have other AI needs, see the broader [Azure AI services](/azure/ai-services/what-are-ai-services) and [Microsoft Foundry](/azure/ai-foundry/what-is-azure-ai-foundry) catalogs.
+By using Azure services such as Azure AI Content Understanding and Azure Functions, you can add image classification and metadata extraction to a web or mobile application without managing servers or training your own models. This solution idea targets image classification and tagging. If you have other AI needs, see the broader [Foundry Tools](/azure/ai-services/what-are-ai-services) and [Microsoft Foundry](/azure/ai-foundry/what-is-azure-ai-foundry) catalogs.
 
 ## Architecture
 
@@ -14,13 +14,13 @@ This scenario covers the back-end components of a web or mobile application. Dat
 
 1. New files (image uploads) added to Blob Storage trigger an event in Azure Event Grid. The upload is orchestrated by a web or mobile application, or images are uploaded directly to Blob Storage.
 2. Event Grid sends a notification that triggers an Azure function.
-3. The function calls Azure AI Content Understanding to analyze the newly uploaded image against a defined analyzer schema. Content Understanding accesses the image through a time-limited SAS URL, or equivalent temporary access token, that the function passes in the request and scopes to least-privilege read access for only the target blob.
+3. The function calls Content Understanding to analyze the newly uploaded image against a defined analyzer schema. Content Understanding accesses the image through a time-limited SAS URL, or equivalent temporary access token, that the function passes in the request and scopes to least-privilege read access for only the target blob.
 4. The function persists the structured output that Content Understanding returns, along with image metadata, in Azure Cosmos DB for NoSQL.
 5. The web or mobile front end consumes the results. This dataflow returns the classification output and metadata; it doesn't return the original image bytes.
 
 ### Components
 
-- [Azure AI Content Understanding](/azure/ai-services/content-understanding/overview) is a Microsoft Foundry capability that uses generative AI to extract user-defined structured output from documents, images, video, and audio. In this architecture, it analyzes each uploaded image against an [analyzer schema](/azure/ai-services/content-understanding/concepts/analyzer-templates) that defines the categories, attributes, and labels you want returned (for example, product type, color, defect class). The output is JSON that maps directly to your application's data model.
+- [Content Understanding](/azure/ai-services/content-understanding/overview) is a Microsoft Foundry capability that uses generative AI to extract user-defined structured output from documents, images, video, and audio. In this architecture, it analyzes each uploaded image against an [analyzer schema](/azure/ai-services/content-understanding/concepts/analyzer-templates) that defines the categories, attributes, and labels you want returned (for example, product type, color, defect class). The output is JSON that maps directly to your application's data model.
 
 - [Azure Functions](/azure/well-architected/service-guides/azure-functions) is a serverless compute platform. In this architecture, Azure Functions provides the back-end API and the event-processing layer for uploaded images. The function orchestrates the workflow. It calls Content Understanding, processes the response, and writes the result to the database. This architecture uses the [Flex Consumption plan](/azure/azure-functions/flex-consumption-plan) to support virtual network integration, instance memory choice, and fast scaling.
 
@@ -40,13 +40,13 @@ This scenario covers the back-end components of a web or mobile application. Dat
 
 - [Azure Logic Apps](/azure/logic-apps/logic-apps-overview) is a fit when you don't need real-time reaction to uploads. A workflow that runs on a [recurrence or sliding-window trigger](/azure/logic-apps/concepts-schedule-automated-recurring-tasks-workflows) can poll for new blobs and call Content Understanding in batch.
 
-- [Azure AI Document Intelligence](/azure/ai-services/document-intelligence/overview) extracts images that are embedded in documents through the [layout model](/azure/ai-services/document-intelligence/concept-layout#figures), so you can run downstream classification on those embedded figures. Use [custom classification models](/azure/ai-services/document-intelligence/train/custom-classifier) when input files contain multiple document types and you need to identify each one before further processing.
+- [Azure Document Intelligence](/azure/ai-services/document-intelligence/overview) extracts images that are embedded in documents through the [layout model](/azure/ai-services/document-intelligence/concept-layout#figures), so you can run downstream classification on those embedded figures. Use [custom classification models](/azure/ai-services/document-intelligence/train/custom-classifier) when input files contain multiple document types and you need to identify each one before further processing.
 
 ## Scenario details
 
 This scenario applies to businesses that process images at scale and want to attach structured metadata such as tags, captions, or category labels to each image without training and operating their own models.
 
-Typical applications include classifying images on a fashion site, analyzing photos for insurance claims, and extracting context from game screenshots. Building this in-house traditionally requires expertise in computer vision, training data, and model lifecycle management. The architecture in this article replaces that work with managed Azure AI services.
+Typical applications include classifying images on a fashion site, analyzing photos for insurance claims, and extracting context from game screenshots. Building this in-house traditionally requires expertise in computer vision, training data, and model lifecycle management. The architecture in this article replaces that work with managed Azure services.
 
 ### Potential use cases
 
@@ -106,9 +106,9 @@ Other contributors:
 
 ## Next steps
 
-- [What is Azure AI Content Understanding?](/azure/ai-services/content-understanding/overview)
+- [What is Content Understanding?](/azure/ai-services/content-understanding/overview)
 - [Microsoft Foundry models overview](/azure/ai-foundry/concepts/foundry-models-overview)
-- [Azure AI Vision Image Analysis migration options](/azure/ai-services/computer-vision/migration-options)
+- [Azure Vision Image Analysis migration options](/azure/ai-services/computer-vision/migration-options)
 - [AI enrichment in Azure AI Search](/azure/search/cognitive-search-concept-intro)
 - [Introduction to Azure Functions](/azure/azure-functions/functions-overview)
 - [Azure Functions Flex Consumption plan](/azure/azure-functions/flex-consumption-plan)
@@ -118,7 +118,6 @@ Other contributors:
 
 For guided learning paths, see:
 
-- [Build a serverless web app in Azure][serverless]
 - [Develop a vision-enabled generative AI application](/training/modules/develop-generative-ai-vision-apps/)
 - [Train custom image classification models with AutoML](/training/modules/find-best-classification-model-automated-machine-learning/)
 
