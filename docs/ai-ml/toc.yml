@@ -111,7 +111,7 @@ items:
           displayName: API, AI gateway, proxy, LLM gateway
           href: guide/azure-openai-gateway-guide.yml
         - name: A gateway for multiple models
-          href: guide/azure-openai-gateway-multi-backend.yml
+          href: guide/azure-openai-gateway-multi-backend.md
         - name: Provide custom authentication to models through a gateway
           href: guide/azure-openai-gateway-custom-authentication.yml
         - name: Implement advanced model monitoring through a gateway

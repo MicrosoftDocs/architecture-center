@@ -179,7 +179,7 @@ The following new and updated articles have recently been published in the Azure
 - [Caching guidance](./best-practices/caching.yml) ([#1133f877df](https://github.com/MicrosoftDocs/architecture-center/commit/1133f877df))
 - [Multitenancy and Azure OpenAI](./guide/multitenant/service/openai.md) ([#10b2e229d0](https://github.com/MicrosoftDocs/architecture-center/commit/10b2e229d0))
 - [Baseline Architecture for an AKS Cluster](./reference-architectures/containers/aks/baseline-aks.yml) ([#25e94b78b3](https://github.com/MicrosoftDocs/architecture-center/commit/25e94b78b3))
-- [Use a gateway in front of multiple Azure OpenAI deployments or instances](./ai-ml/guide/azure-openai-gateway-multi-backend.yml) ([#08556e5f37](https://github.com/MicrosoftDocs/architecture-center/commit/08556e5f37))
+- [Use a gateway in front of multiple Azure OpenAI deployments or instances](./ai-ml/guide/azure-openai-gateway-multi-backend.md) ([#08556e5f37](https://github.com/MicrosoftDocs/architecture-center/commit/08556e5f37))
 - [Generative AI Operations for Organizations with MLOps Investments](./ai-ml/guide/genaiops-for-mlops.md) ([#08556e5f37](https://github.com/MicrosoftDocs/architecture-center/commit/08556e5f37))
 - [Develop a RAG Solution—Information-Retrieval Phase](./ai-ml/guide/rag/rag-information-retrieval.md) ([#08556e5f37](https://github.com/MicrosoftDocs/architecture-center/commit/08556e5f37))
 - [SDWAN integration with Azure hub-and-spoke network topologies](./networking/guide/sdwan-integration-in-hub-and-spoke-network-topologies.yml) ([#08556e5f37](https://github.com/MicrosoftDocs/architecture-center/commit/08556e5f37))

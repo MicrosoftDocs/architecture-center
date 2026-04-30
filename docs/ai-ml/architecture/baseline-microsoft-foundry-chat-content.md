@@ -241,7 +241,7 @@ For enterprise chat scenarios, deploy both a [data zone provisioned](/azure/foun
 
 Foundry doesn't support advanced load balancing or failover mechanisms, like round-robin routing or [circuit breaking](/azure/api-management/backends#circuit-breaker), for model deployments. If you require granular redundancy and failover control within a region, host your model access logic outside the managed service. For example, you can build a custom gateway by using Azure API Management. This approach lets you implement custom routing, health checks, and failover strategies. But it also increases operational complexity and shifts responsibility for the reliability of that component to your team.
 
-You can also expose gateway-fronted models as custom API-based tools for your agent. For more information, see [Use a gateway in front of multiple Azure OpenAI deployments or instances](../guide/azure-openai-gateway-multi-backend.yml).
+You can also expose gateway-fronted models as custom API-based tools for your agent. For more information, see [Use a gateway in front of multiple Azure OpenAI deployments or instances](../guide/azure-openai-gateway-multi-backend.md).
 
 #### Reliability in AI Search for enterprise knowledge
 
