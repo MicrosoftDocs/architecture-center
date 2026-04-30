@@ -155,7 +155,9 @@ Other contributors:
 
 - [Quickstart: Create a Linux virtual machine in the Azure portal](/azure/virtual-machines/linux/quick-create-portal)
 - [Create a Node.js web app in Azure](/azure/app-service/app-service-web-get-started-nodejs)
-- [Getting started with Azure Functions](/azure/azure-functions/functions-create-first-azure-function)
+- [Getting started with Azure Functions](/azure/azure-functions/functions-get-started)
+- [Quickstart: Create an Azure Kubernetes Service (AKS) Automatic cluster](/azure/aks/automatic/quick-automatic-managed-network)
+- [Quickstart: Deploy your first container app with Azure Container Apps](/azure/container-apps/quickstart-portal)
 - [Azure Kubernetes Service (AKS) architecture design](/azure/architecture/reference-architectures/containers/aks-start-here)
 
 ## Related resources
