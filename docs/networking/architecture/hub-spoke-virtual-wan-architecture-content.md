@@ -127,7 +127,7 @@ You can create a virtual hub as a secured virtual hub or convert an existing hub
 
 The Azure Firewall in a secured virtual hub is shared by every spoke virtual network and branch site connected to that hub. Plan for how network address translation affects workload design:
 
-- **Outbound flows from any spoke or branch leave the hub sourced from one of the firewall's public IP addresses.** This is source network address translation (SNAT). Azure Firewall randomly selects which attached public IP to use for each outbound flow, so partner allowlists must cover the entire set of IP addresses attached to the secured hub firewall. Use a [public IP address prefix](/azure/virtual-network/ip-services/public-ip-address-prefix) to express that set as a contiguous range.
+- **Outbound flows from any spoke or branch leave the hub sourced from one of the firewall's public IP addresses.** This is source network address translation (SNAT). Azure Firewall SNATs each outbound flow to one of the attached public IP addresses, and the selection is not deterministic, so partner allowlists must cover the entire set of IP addresses attached to the secured hub firewall. Use a [public IP address prefix](/azure/virtual-network/ip-services/public-ip-address-prefix) to express that set as a contiguous range.
 
   The number of attached public IP addresses also sets the SNAT port budget for every connected workload; plan for the aggregate concurrent outbound connection rate across all spokes and branches because exhaustion affects every workload that egresses through the hub.
 
