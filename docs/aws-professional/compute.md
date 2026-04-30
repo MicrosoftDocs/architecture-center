@@ -31,7 +31,7 @@ Virtual machines (VMs) and servers allow users to deploy, manage, and maintain O
 | ----------- | ------------- | ----------- |
 | [Amazon Lightsail](https://aws.amazon.com/lightsail/) | [Azure Virtual Machines](/azure/virtual-machines/sizes-b-series-burstable) (B-series) / [Azure App Service](/azure/app-service/overview) | Amazon Lightsail provides simplified, predictably-priced VMs with pre-configured application stacks. Azure doesn't have a dedicated equivalent, but similar outcomes can be achieved with Azure App Service (for web apps) or Azure Virtual Machines using B-series burstable sizes and Marketplace images. |
 | [Amazon EC2 Instance Types](https://aws.amazon.com/ec2/instance-types) | [Azure Virtual Machines](https://azure.microsoft.com/services/virtual-machines) | AWS and Azure on-demand VMs bill per seconds used. Although AWS instance types and Azure VM sizes have similar categories, the exact RAM, CPU, and storage capabilities differ. For more information about Azure VM sizes, see [Azure VM sizes](/azure/virtual-machines/sizes).|
-| [AWS Parallel Cluster](https://aws.amazon.com/hpc/parallelcluster) | [Azure CycleCloud](https://azure.microsoft.com/features/azure-cyclecloud) | Create, manage, operate, and optimize HPC and large compute clusters of any scale. |
+| [AWS ParallelCluster](https://aws.amazon.com/hpc/parallelcluster) | [Azure CycleCloud](https://azure.microsoft.com/features/azure-cyclecloud) | Create, manage, operate, and optimize high-performance computing (HPC) and large compute clusters of any scale. |
 
 [View all the virtual machines architectures](/azure/architecture/browse/?expanded=azure&products=azure-virtual-machines)
 
