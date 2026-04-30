@@ -3,7 +3,7 @@ title: Compare AWS and Azure compute services
 description: Compare the compute services in Azure and AWS. Explore the differences in virtual machines, containers, and serverless technologies.
 author: splitfinity81
 ms.author: yubaijna
-ms.date: 06/24/2022
+ms.date: 04/30/2026
 ms.topic: concept-article
 ms.subservice: architecture-guide
 ms.collection:
