@@ -37,7 +37,7 @@ The following data flow corresponds to the previous diagram:
 
 - [Azure DDoS Protection](/azure/ddos-protection/ddos-protection-overview) is a network security service that provides enhanced distributed denial-of-service (DDoS) mitigation features. DDoS Protection has two tiers: [DDoS Network Protection and DDoS IP Protection](/azure/ddos-protection/ddos-protection-sku-comparison). In this architecture, DDoS Protection defends against DDoS attacks when you combine it with application-design best practices and enable it on the perimeter network.
 
-- [Azure Front Door](/azure/well-architected/service-guides/azure-front-door) is a cloud content delivery network and global load balancer. This architecture requires the [Azure Front Door Premium tier](/azure/frontdoor/standard-premium/tier-comparison) because it uses Azure Private Link to connect to the origin through a [Private Link service](/azure/private-link/private-link-service-overview) that exposes the internal load balancer. In this architecture, Azure Front Door is the public entry point into the WordPress deployment.
+- [Azure Front Door](/azure/well-architected/service-guides/azure-front-door) is a cloud content delivery network and global load balancer. This architecture requires the [Azure Front Door Premium tier](/azure/frontdoor/front-door-cdn-comparison) because it uses Azure Private Link to connect to the origin through a [Private Link service](/azure/private-link/private-link-service-overview) that exposes the internal load balancer. In this architecture, Azure Front Door is the public entry point into the WordPress deployment.
 
 - [Azure NetApp Files](/azure/well-architected/service-guides/azure-netapp-files) is a managed, performance-intensive, and latency-sensitive storage solution. In this architecture, Azure NetApp Files hosts the WordPress content so that all pods can access the shared data through high-performance file storage.
 
@@ -66,7 +66,6 @@ This example scenario works best for large, storage-intensive installations of W
 ### Potential use cases
 
 - High-traffic blogs that use WordPress as their content management system
-
 - Business or e-commerce websites that use WordPress
 
 ## Considerations
@@ -133,7 +132,7 @@ Consider the following recommendations when you deploy this solution:
 
 - Store your Kubernetes manifests, Helm charts, and infrastructure as code (IaC) templates in a version control system. Use a continuous integration and continuous deployment (CI/CD) pipeline to deploy changes to your AKS cluster to reduce manual errors and ensure repeatable deployments.
 
-- Use [AKS node image upgrades](/azure/aks/node-image-upgrade) and regular Kubernetes version upgrades to remain current with security patches and bug fixes.
+- Use [AKS node image upgrades](/azure/aks/upgrade-node-image) and regular Kubernetes version upgrades to remain current with security patches and bug fixes.
 
 - Use [Azure Policy for AKS](/azure/aks/policy-reference) to enforce organizational standards across your clusters, such as requiring private registries or restricting privileged containers.
 
