@@ -89,6 +89,21 @@ Operational Excellence covers the operations processes that deploy an applicatio
 - Configure an Event Grid [dead-letter destination](/azure/event-grid/manage-event-delivery#set-dead-letter-location) so that events the function can't process land in a separate blob container for replay.
 - Version Content Understanding analyzer schemas as code and deploy them through the same pipeline that deploys the function. Treat schema changes as breaking changes for downstream consumers.
 
+## Contributors
+
+*Microsoft maintains this article. The following contributors wrote this article.*
+
+Principal authors:
+
+- [Ananya Ghosh Chowdhury](https://www.linkedin.com/in/ananyaghoshchowdhury/) | Principal Cloud Solution Architect
+
+Other contributors:
+
+- [Delyn Choong](https://www.linkedin.com/in/delynchoong/) | Senior Cloud Solutions Architect – Data & AI
+- [Abhishek Singh](https://www.linkedin.com/in/abhisheksinghkholiya/) | Tech Support Engineer
+
+*To see nonpublic LinkedIn profiles, sign in to LinkedIn.*
+
 ## Next steps
 
 - [What is Azure AI Content Understanding?](/azure/ai-services/content-understanding/overview)
