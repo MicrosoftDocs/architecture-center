@@ -1,3 +1,13 @@
+---
+title: Use a Gateway in Front of Multiple Azure OpenAI Deployments or Instances
+description: Learn how to add a gateway in front of multiple Azure OpenAI model deployments or instances.
+author: claytonsiemens77
+ms.author: pnp
+ms.date: <Date of initial publish or last full technical review, in mm/dd/yyyy format>
+ms.topic: concept-article
+ms.subservice: architecture-guide
+---
+
 # Use a gateway in front of multiple Azure OpenAI deployments or instances
 
 Workload architectures that use a hosted model platform (for example, Microsoft Foundry) can be as simple as one or more client applications calling a single model endpoint directly. Some workloads, however, require multiple clients, multiple model deployments, or multiple model-host instances. In those cases, a gateway can act as a programmable routing layer in front of your model backends.
