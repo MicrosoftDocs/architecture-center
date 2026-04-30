@@ -33,11 +33,11 @@ The following data flow corresponds to the previous diagram:
 
 - [Azure Database for MySQL flexible server](/azure/well-architected/service-guides/azure-database-for-mysql) is a managed relational database service based on the open-source MySQL database engine. In this architecture, it stores WordPress data.
 
-- [Azure DDoS Protection](/azure/ddos-protection/ddos-protection-overview) is a network security service that provides enhanced distributed denial-of-service (DDoS) mitigation features. In this architecture, DDoS Protection helps safeguard the public IP address from DDoS attacks.
+- [Azure DDoS Protection](/azure/ddos-protection/ddos-protection-overview) is a network security service that provides enhanced distributed denial-of-service (DDoS) mitigation features. In this architecture, DDoS Protection helps defend the public IP address from DDoS attacks.
 
 - [Azure Front Door](/azure/well-architected/service-guides/azure-front-door) is a content delivery network and global load balancer. In this architecture, Azure Front Door serves as the application entry point for web users.
 
-- [Azure Virtual Network](/azure/well-architected/service-guides/virtual-network) is a network service that isolates deployed resources. In this architecture, App Service and back-end components are reachable only through private connections in the virtual network.
+- [Azure Virtual Network](/azure/well-architected/service-guides/virtual-network) is a network service that isolates deployed resources. In this architecture, App Service and back-end components are only reachable through private connections in the virtual network.
 
 - [Blob Storage](/azure/well-architected/service-guides/azure-blob-storage) is an object storage service optimized for large amounts of unstructured data. In this architecture, Blob Storage hosts all static content for the WordPress application.
 
@@ -47,7 +47,7 @@ The following data flow corresponds to the previous diagram:
 
 ### Alternatives
 
-Use [Azure Managed Redis](/azure/redis/overview) to host a key-value cache for WordPress performance optimization plug-ins. The cache can be shared across App Service web apps.
+Use [Azure Managed Redis](/azure/redis/overview) to host a key-value cache for WordPress performance optimization plugins. The cache can be shared across App Service web apps.
 
 ## Scenario details
 

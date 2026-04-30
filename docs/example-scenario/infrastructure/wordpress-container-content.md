@@ -21,7 +21,7 @@ The following data flow corresponds to the previous diagram:
 
 1. The internal load balancer distributes ingress traffic to an ingress controller within AKS. You can use the [managed NGINX ingress controller with the application routing add-on](/azure/aks/app-routing) or [Application Gateway for Containers](/azure/application-gateway/for-containers/overview) as the ingress controller.
 
-1. Azure Key Vault stores secrets such as database passwords, Transport Layer Security (TLS) certificates, and their private keys.
+1. Azure Key Vault stores secrets such as database passwords and Transport Layer Security (TLS) certificates, including their private keys.
 
 1. The WordPress application uses a private endpoint to access an Azure Database for MySQL flexible server instance. The WordPress application retrieves dynamic information from this managed database service.
 
@@ -31,7 +31,7 @@ The following data flow corresponds to the previous diagram:
 
 - [AKS](/azure/well-architected/service-guides/azure-kubernetes-service) is a managed Kubernetes service for deploying, managing, and scaling containerized applications. In this architecture, AKS hosts the WordPress containers and provides the orchestration platform for high availability and scalability.
 
-- [Azure Managed Redis](/azure/redis/overview) is a managed in-memory data store and caching service. In this architecture, all pods share an Azure Managed Redis cache. WordPress performance optimization plug-ins use this cache to reduce response times.
+- [Azure Managed Redis](/azure/redis/overview) is a managed in-memory data store and caching service. In this architecture, all pods share an Azure Managed Redis cache. WordPress performance optimization plugins use this cache to reduce response times.
 
 - [Azure Database for MySQL flexible server](/azure/well-architected/service-guides/azure-database-for-mysql) is a managed relational database service based on the open-source MySQL database engine. In this architecture, this database stores WordPress data.
 
