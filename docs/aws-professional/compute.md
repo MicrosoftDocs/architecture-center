@@ -171,4 +171,20 @@ Other contributors:
 - [Assess AWS instances](/azure/migrate/tutorial-assess-aws)
 - [Migrate AWS VMs](/azure/migrate/tutorial-migrate-aws-virtual-machines)
 - [Migrate AWS to managed disks](/azure/virtual-machines/windows/on-prem-to-azure)
-- [Migrate an AWS Windows virtual machine](/azure/virtual-machines/windows/aws-to-azure)
+### Container and Kubernetes architectures
+
+- [Baseline architecture for an Azure Kubernetes Service (AKS) cluster](/azure/architecture/reference-architectures/containers/aks/baseline-aks)
+- [Microservices architecture on Azure Kubernetes Service](../reference-architectures/containers/aks-microservices/aks-microservices.yml)
+- [CI/CD pipeline for container-based workloads](/azure/architecture/guide/aks/aks-cicd-github-actions-and-gitops)
+
+### Virtual machines and web applications
+
+- [Run a Linux virtual machine on Azure](../reference-architectures/n-tier/linux-vm.yml)
+- [Basic web application](../web-apps/app-service/architectures/basic-web-app.yml)
+- [Baseline App Service web application with zone redundancy](../web-apps/app-service/architectures/baseline-zone-redundant.yml)
+
+### AWS to Azure migration
+
+- [Discover AWS instances for migration](/azure/migrate/tutorial-discover-aws)
+- [Assess AWS instances for migration to Azure](/azure/migrate/tutorial-assess-aws)
+- [Migrate AWS VMs to Azure](/azure/migrate/tutorial-migrate-aws-virtual-machines)
