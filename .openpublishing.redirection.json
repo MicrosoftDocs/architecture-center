@@ -21,6 +21,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "docs/guide/security/access-azure-kubernetes-service-cluster-api-server.yml",
+      "redirect_url": "/azure/architecture/security/access-azure-kubernetes-service-cluster-api-server",
+      "redirect_document_id": true
+    },
+    {
       "source_path": "docs/example-scenario/hybrid/public-multi-access-edge-compute-deployment.yml",
       "redirect_url": "https://www.microsoft.com/industry/telecommunications/",
       "redirect_document_id": false
@@ -7832,6 +7837,11 @@
       "source_path": "docs/example-scenario/startups/core-startup-stack.yml",
       "redirect_url": "/azure/architecture/guide/startups/startup-architecture",
       "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/guide/security/security-start-here.yml",
+      "redirect_url": "/azure/architecture/security/security-get-started",
+      "redirect_document_id": true
     },
     {
       "source_path": "docs/guide/virtual-desktop/start-here.md",
