@@ -129,4 +129,4 @@ For guided learning paths, see:
 <!-- links -->
 [architecture]: _images/architecture-intelligent-apps-image-processing.svg
 [serverless]: /training/paths/create-serverless-applications/
-[visio-download]: https://arch-center.azureedge.net/architecture-image-classification-on-azure.vsdx
+[visio-download]: https://arch-center.azureedge.net/architecture-intelligent-apps-image-processing.vsdx
