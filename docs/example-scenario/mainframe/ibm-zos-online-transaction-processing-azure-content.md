@@ -12,7 +12,6 @@ The following diagram shows an architecture of an OLTP system that runs on a z/O
    The diagram shows the architecture of an OLTP application that runs on a z/OS mainframe. An on-premises user accesses the system via a web interface and connects through various communication protocols such as HTTPS, SNA LU 6.2, and Telnet 3270. The system is divided into several layers that are depicted as numbered boxes. Arrows connect the boxes to show how different components interact within the mainframe environment. Box number one includes the communication protocols. Double-sided arrows connect box one with the on-premises user and the TN3270 terminal. Box number two includes transaction managers, including CICS and IMS. Double-sided arrows connect boxes one and two. The application layer includes boxes numbered four and five for front-end and business logic components. Double-sided arrows connect boxes three and four. One arrow points from the application layer to box six, which contains other services. Box number five is the data layer, which contains databases, like Db2 and IMS DB, and VSAM files. A double-sided arrow connects the data layer and the application layer. One arrow points from the data layer to box six. Box number six includes other services, such as security, management, monitoring, and reporting services.
 :::image-end:::
 
-### Workflow
 
 
 1. Users connect to the mainframe by using standard mainframe protocols like TN3270 and HTTPS.
