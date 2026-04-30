@@ -1,6 +1,6 @@
 [!INCLUDE [header_file](../../../includes/sol-idea-header.md)]
 
-Online transaction processing (OLTP) systems are the face of your business because they interact directly with customers. By migrating to a dynamically adaptable infrastructure, your business can create and launch products quickly so that customers can use your products sooner.
+Online transaction processing (OLTP) systems are the face of your business because they interact directly with customers. By migrating z/OS mainframe OLTP workloads to Azure platform as a service (PaaS) services like Azure App Service, Azure Kubernetes Service (AKS), Azure Functions, and Azure SQL, your business gains a dynamically adaptable infrastructure that enables faster product launches and reduces operational costs.
 
 ## Architecture
 
