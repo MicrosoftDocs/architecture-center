@@ -79,7 +79,7 @@ Several services provide different types of data storage for VM disks.
 
 ### Containers and container orchestrators
 
-Several AWS and Azure services provide containerized application deployment and orchestration.
+Both AWS and Azure services provide containerized application deployment and orchestration.
 
 | AWS service | Azure service | Description |
 | ----------- | ------------- | ----------- |
