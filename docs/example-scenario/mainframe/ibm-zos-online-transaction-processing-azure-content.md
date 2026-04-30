@@ -49,6 +49,10 @@ The following diagram shows this same architecture after it's been migrated to A
    These stores hold data migrated from the mainframe for the application layer to use.
 
 1. Azure-native services like Application Insights and Azure Monitor proactively monitor the health of the system. You can integrate Azure Monitor Logs by using an Azure dashboard.
+1. The data layer can store migrated mainframe data in Azure Storage (Azure Files, Azure Table Storage), Azure SQL family databases, Azure Database for PostgreSQL, Azure Database for MySQL, or Azure Cosmos DB.
+
+
+1. Application Insights and Azure Monitor provide application and infrastructure monitoring. Azure Monitor Logs feeds Log Analytics dashboards and alerts for operational visibility.
 
 ### Components
 
