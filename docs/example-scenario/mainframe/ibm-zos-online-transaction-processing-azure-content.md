@@ -4,6 +4,8 @@ Online transaction processing (OLTP) systems are the face of your business becau
 
 ## Architecture
 
+### Before Azure migration 
+
 The following diagram shows an architecture of an OLTP system that runs on a z/OS mainframe before migration to Azure:
 
 :::image type="complex" source="media/ibm-zos-online-transaction-processing-on-zos.svg" alt-text="Diagram of an OLTP architecture on z/OS." lightbox="media/ibm-zos-online-transaction-processing-on-zos.svg" border="false":::
