@@ -104,8 +104,6 @@ This architecture addresses scalable and secure cloud storage as well as managed
 
 - [Azure SQL](/azure/azure-sql/) is a family of cloud-based SQL database services. In this architecture, it hosts relational data migrated from mainframe databases like DB2 and IMS DB:
 
-  - [Azure SQL Edge](/azure/azure-sql-edge/overview) is a specialized version of the SQL Server database engine that's optimized for IoT and edge deployments. In this architecture, it processes data close to edge devices in scenarios where mainframe applications have been distributed to edge locations.
-
   - [SQL Database](/azure/well-architected/service-guides/azure-sql-database-well-architected-framework) is a fully managed relational database service. In this architecture, it supports modernized workloads with elastic scaling for variable mainframe transaction loads.
 
   - [SQL Managed Instance](/azure/well-architected/service-guides/azure-sql-managed-instance/reliability) is a fully managed, cloud-based deployment option that provides near 100% SQL Server compatibility. In this architecture, it hosts migrated mainframe databases with minimal code changes and built-in high availability.

@@ -67,8 +67,6 @@ Azure and Fabric provide managed services that enable scalable cloud storage and
 
 - [Azure SQL](/azure/azure-sql/) is a family of cloud-based SQL database services that support migration, modernization, and development. This family includes the following offerings:
 
-  - [Azure SQL Edge](/azure/azure-sql-edge/overview) is a lightweight SQL engine optimized for IoT and edge deployments. In this architecture, it processes and stores data close to devices in disconnected or latency-sensitive environments.
-
   - [Azure SQL Managed Instance](/azure/well-architected/service-guides/azure-sql-managed-instance/reliability) is a fully managed SQL Server instance with near 100% compatibility with on-premises SQL Server. In this architecture, it hosts migrated databases that benefit from simplified management and built-in high availability.
   
   - [SQL Database](/azure/well-architected/service-guides/azure-sql-database-well-architected-framework) is a fully managed relational database optimized for scalability and performance. In this architecture, it supports modernized workloads with elastic compute and built-in intelligence.
