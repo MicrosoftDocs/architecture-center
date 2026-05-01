@@ -1,6 +1,6 @@
 Correctly setting and designing your Domain Name System (DNS) landscape is a critical phase of your Azure landing zone implementation. DNS must operate across your entire infrastructure to support hybrid name resolution flows. On-premises systems must be able to resolve domains hosted in Azure, and Azure resources must be able to access domains located on-premises. DNS also plays a critical role in Azure Private Link, which enforces Azure platform as a service (PaaS) network security.
 
-This reference architecture describes how to design a hybrid DNS solution that resolves domains for workloads hosted in Microsoft Azure, on-premises, or in other clouds.
+This architecture describes how to design a hybrid DNS solution that resolves domains for workloads hosted in Microsoft Azure, on-premises, or in other clouds.
 
 ## Architecture
 
@@ -59,7 +59,7 @@ On-premises systems might need name resolution for workloads that you deploy in 
 
   - The on-premises gateway represents either a VPN termination device or a router that connects to ExpressRoute and provides private connectivity to the Azure environment.
 
-- The connectivity subscription represents an Azure subscription that you use for resources that provide connectivity to workloads hosted on Azure.
+- The connectivity subscription represents an Azure subscription that you use for resources that provide network connectivity to workloads hosted on Azure.
 
   - [Azure Virtual Network](/azure/well-architected/service-guides/virtual-network) is the fundamental building block for private networks in Azure. In this architecture, virtual networks connect Azure resources like VMs, support communication with the internet and on-premises networks, and use subnets to organize resources.
 
