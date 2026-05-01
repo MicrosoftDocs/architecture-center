@@ -47,6 +47,9 @@ You can adapt the files for your deployment. The azResourceStateCheck.bicep modu
 
 The key parts of this architecture are the azResourceStateCheck.bicep module, which deploys the deployment script resource, and the associated deployment script Invoke-AzResourceStateCheck.ps1, a PowerShell file. The module uses the deployment script to check the value of a resource property. In this example, the resource is a Virtual WAN hub.
 
+> [!NOTE]
+> Bicep includes an experimental feature called [`waitUntil`](https://github.com/Azure/bicep/blob/main/docs/experimental-features.md#waituntil). If this feature reaches general availability, it could provide an alternative to this deployment script approach for some scenarios. Until then, use the deployment script pattern in this article for production deployments.
+
 Because this environment is all deployed from a single file that uses Bicep modules, we can use **dependsOn** to make one module depend explicitly on another. In this example, **dependsOn** makes the vwanvhcs.bicep module depend on the azResourceStateCheck.bicep module.
 
 The following excerpt from orchestration.bicep shows the use of **dependsOn**:

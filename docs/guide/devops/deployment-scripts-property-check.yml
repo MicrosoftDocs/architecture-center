@@ -4,7 +4,7 @@ metadata:
   description: Use Bicep and a deployment script to pause a deployment in order to wait for a resource property to return a specific value.
   author: jtracey93
   ms.author: jatracey
-  ms.date: 09/13/2024
+  ms.date: 05/01/2026
   ms.topic: concept-article
   ms.subservice: architecture-guide
   ms.custom:
