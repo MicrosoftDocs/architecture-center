@@ -14,9 +14,9 @@ ms.custom: arb-saas
 
 Many multitenant solutions on Azure use the open-source relational database management system Azure Database for PostgreSQL. This article describes the features of Azure Database for PostgreSQL that are useful when you work with multitenant systems. The article also includes links to guidance and examples for how to use Azure Database for PostgreSQL in a multitenant solution.
 
-## Deployment modes
+## Deployment options
 
-The following deployment modes are available for Azure Database for PostgreSQL and are suitable for use with multitenant applications:
+The following options are available for Azure Database for PostgreSQL and are suitable for use with multitenant applications:
 
 - [Azure Database for PostgreSQL](/azure/postgresql) is a good choice for most multitenant deployments that don't require the high scalability that Azure Cosmos DB for PostgreSQL provides.
 
