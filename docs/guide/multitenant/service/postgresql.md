@@ -32,7 +32,7 @@ The following options are available for Azure Database for PostgreSQL and are su
 When you use Azure Database for PostgreSQL to build a multitenant application, the following features can enhance your solution.
 
 > [!NOTE]
-> Some features are only available in specific [deployment modes](#deployment-modes). The following guidance describes which features are available.
+> Some features are only available in specific [deployment options](#deployment-options). The following guidance describes which features are available.
 
 ### Row-level security
 
