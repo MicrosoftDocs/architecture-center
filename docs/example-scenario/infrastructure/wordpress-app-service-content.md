@@ -13,6 +13,8 @@ This article describes a solution for small to medium-sized WordPress installati
 
 This scenario covers a scalable installation of [WordPress that runs on Azure App Service](/azure/app-service/quickstart-wordpress).
 
+The following data flow corresponds to the previous diagram:
+
 - Users access the front-end website through Azure Front Door with Azure Web Application Firewall enabled.
 - Azure Front Door distributes requests across the App Service web apps that WordPress runs on. Azure Front Door retrieves any data that isn't cached from the WordPress web apps.
 - The WordPress application uses a service endpoint to access a flexible server instance of Azure Database for MySQL. The WordPress application retrieves dynamic information from the database.

@@ -11,6 +11,8 @@ This article describes how to achieve Trusted Internet Connections (TIC) 3.0 com
 
 ### Dataflow
 
+The following data flow corresponds to the previous diagram:
+
 1. Firewall
    - The firewall can be any layer 3 or layer 7 firewall. 
      - Azure Firewall and some third-party firewalls, also known as Network Virtual Appliances (NVAs), are layer 3 firewalls. 

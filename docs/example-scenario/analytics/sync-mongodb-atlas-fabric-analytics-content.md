@@ -14,7 +14,7 @@ The following diagram shows how a reference mirroring application deployed in Az
 
 ### Dataflow
 
-The following dataflow corresponds to the previous diagram:
+The following data flow corresponds to the previous diagram:
 
 1. Create an [open mirrored database](/fabric/mirroring/open-mirroring-tutorial) in Fabric via REST API or the Fabric portal.
 

@@ -12,6 +12,8 @@ This article uses an example workload to demonstrate how to create a single [sea
 
 ### Dataflow
 
+The following data flow corresponds to the previous diagram:
+
 1. Documents are stored in Blob Storage, possibly together with a limited amount of metadata (for example, the document's author).
 2. Additional metadata is stored in Table Storage, which can store significantly more information for each document.
 3. An indexer reads the contents of each file, together with any blob metadata, and stores the data in the search index.

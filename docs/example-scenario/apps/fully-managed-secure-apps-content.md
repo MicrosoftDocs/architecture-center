@@ -12,7 +12,7 @@ This diagram begins with an employee that accesses the Azure virtual network fro
 
 ### Dataflow
 
-The following dataflow corresponds to the previous diagram:
+The following data flow corresponds to the previous diagram:
 
 1. HTTP and HTTPS requests reach the application gateway.
 

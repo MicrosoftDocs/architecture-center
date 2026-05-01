@@ -16,7 +16,7 @@ This scenario covers the back-end components of a web or mobile application. Dat
 2. Event Grid sends a notification that triggers an Azure function.
 3. The function calls Content Understanding to analyze the newly uploaded image against a defined analyzer schema. Content Understanding accesses the image through a time-limited SAS URL, or equivalent temporary access token, that the function passes in the request and scopes to least-privilege read access for only the target blob.
 4. The function persists the structured output that Content Understanding returns, along with image metadata, in Azure Cosmos DB for NoSQL.
-5. The web or mobile front end consumes the results. This dataflow returns the classification output and metadata; it doesn't return the original image bytes.
+5. The web or mobile front end consumes the results. This data flow returns the classification output and metadata; it doesn't return the original image bytes.
 
 ### Components
 

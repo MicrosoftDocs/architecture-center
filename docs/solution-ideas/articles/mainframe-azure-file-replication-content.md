@@ -14,7 +14,7 @@ This article describes several ways to transfer files to Azure, convert and tran
 
 ### Dataflow
 
-The following dataflow corresponds to the architecture diagram:
+The following data flow corresponds to the previous diagram:
 
 1. Transfer files to Azure:
 

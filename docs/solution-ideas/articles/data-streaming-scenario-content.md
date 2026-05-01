@@ -12,6 +12,8 @@ This article presents a solution for using Azure Kubernetes Service (AKS) to qui
 
 ### Dataflow
 
+The following data flow corresponds to the previous diagram:
+
 1. Sensors generate data and stream it to Azure API Management.
 1. An AKS cluster runs microservices that are deployed as containers behind a service mesh. The containers are built by using a DevOps process. The container images are stored in Azure Container Registry.
 1. An ingest service in AKS stores data in Azure Cosmos DB.

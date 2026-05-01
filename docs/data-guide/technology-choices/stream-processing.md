@@ -20,7 +20,7 @@ Streaming data often has the following characteristics:
 
 - **Imperfect data integrity:** Temporary errors at the source might result in missing data elements. The continuous nature of the stream can introduce data inconsistency. So stream processing and analytics systems typically include logic for data validation to mitigate these errors.
 
-- **Continuous dataflow:** A data stream has no beginning or end, so you have to constantly collect data. For example, server activity logs accumulate as long as the server runs.
+- **Continuous data flow:** A data stream has no beginning or end, so you have to constantly collect data. For example, server activity logs accumulate as long as the server runs.
 
 - **Diverse data formats:** You might stream data in multiple formats, such as JSON, Avro, and CSV. And it might include various data types, such as strings, numbers, dates, and binary types. Stream-processing systems must handle these data variations.
 
@@ -32,7 +32,7 @@ To help you choose the right technology, this section outlines common options in
 
 ### High-level stream processing flow
 
-:::image type="complex" source="../images/stream-processing.svg" alt-text="A diagram that shows the dataflow for a stream processing solution." lightbox="../images/stream-processing.svg" border="false":::
+:::image type="complex" source="../images/stream-processing.svg" alt-text="A diagram that shows the data flow for a stream processing solution." lightbox="../images/stream-processing.svg" border="false":::
 Left to right, the diagram shows a four-stage numbered streaming data pipeline: 1 Stream producers, 2 Stream ingestion, 3 Stream processing, 4 Streaming sinks. At the far left a tall box contains Mobile apps above Customer-facing apps. To its right three stacked producer boxes: the top box labeled Device endpoint metrics contains IoT Hub left of IoT Edge; the middle box labeled CDC generated from databases contains Azure Cosmos DB left of SQL Database; the bottom box labeled metrics and events from custom applications contains AKS left of Functions. Right-pointing arrows from each producer box converge on the ingestion box, which lists (top row left to right) Event Hubs and Event Grid, and (bottom row) HDInsight Kafka left of Confluent Kafka. A single arrow leads to the processing box showing (top row) Stream Analytics, Eventstream, Functions, and below them an inset Spark Structured Streaming box containing Fabric left of Azure Databricks. Another arrow points to the sinks box listing Azure Data Explorer above Blob Storage, Azure Cosmos DB above One Lake, and Eventhouse at the bottom.
 :::image-end:::
 
@@ -48,7 +48,7 @@ Stream producers provide the following benefits:
 
 - **Optimize throughput with batching and compression.** Producers can batch messages and apply compression to minimize data size during transmission. These capabilities enhance efficiency.
 - **Ensure reliable transmission with error handling and retries.** Producers can manage network disruptions or broker failures through automatic retries to ensure dependable data delivery.
-- **Guarantee data integrity with idempotence.** You can configure producers to support *exactly once delivery*, which prevents duplicate messages and ensures a consistent dataflow.
+- **Guarantee data integrity with idempotence.** You can configure producers to support *exactly once delivery*, which prevents duplicate messages and ensures a consistent data flow.
 
 #### Components
 

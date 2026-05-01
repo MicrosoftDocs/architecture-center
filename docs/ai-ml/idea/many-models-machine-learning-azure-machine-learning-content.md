@@ -10,7 +10,7 @@ This article describes an architecture for many models that uses Azure Machine L
 
 ### Dataflow
 
-The following dataflow corresponds to the previous diagram:
+The following data flow corresponds to the previous diagram:
 
 1. **Data ingestion:**
 

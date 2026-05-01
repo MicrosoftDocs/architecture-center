@@ -84,7 +84,7 @@ When you work with large datasets, it can take a long time to run the type of qu
 
 One drawback to this approach is that it introduces latency. If processing takes a few hours, a query might return results that are several hours old. Ideally, you should get some results in real time, potentially with a loss of accuracy, and combine these results with the results from batch analytics.
 
-The **Lambda architecture** addresses this problem by creating two paths for dataflow. All data that comes into the system goes through the following two paths:
+The **Lambda architecture** addresses this problem by creating two paths for data flow. All data that comes into the system goes through the following two paths:
 
 - A **batch layer** (cold path) stores all the incoming data in its raw form and performs batch processing on the data. The result of this processing is stored as a batch view.
 
@@ -93,7 +93,7 @@ The **Lambda architecture** addresses this problem by creating two paths for dat
 The batch layer feeds into a **serving layer** that indexes the batch view for efficient querying. The speed layer updates the serving layer with incremental updates based on the most recent data.
 
 :::image type="complex" source="_images/lambda.png" border="false" lightbox="_images/lambda.png" alt-text="Diagram that shows the Lambda architecture.":::
-The dataflow source is a unified log of event data. The data goes to either the speed layer or the batch layer. From the speed layer, a solid line points to the analytics client and a dotted line points to the serving layer. From the batch layer, the data goes to the serving layer and then the analytics client. The speed layer is labeled as a hot path. The batch layer and serving layer are labeled as a cold path.
+The data flow source is a unified log of event data. The data goes to either the speed layer or the batch layer. From the speed layer, a solid line points to the analytics client and a dotted line points to the serving layer. From the batch layer, the data goes to the serving layer and then the analytics client. The speed layer is labeled as a hot path. The batch layer and serving layer are labeled as a cold path.
 :::image-end:::
 
 Data that flows into the hot path must be processed quickly because of latency requirements that the speed layer imposes. Quick processing ensures that data is ready for immediate use but can introduce inaccuracy. For example, consider an IoT scenario where numerous temperature sensors send telemetry data. The speed layer might process a sliding time window of the incoming data.
@@ -115,7 +115,7 @@ A drawback to the Lambda architecture is its complexity. Processing logic appear
 The **Kappa architecture** is an alternative to the Lambda architecture. It has the same basic goals as the Lambda architecture, but all data flows through a single path via a stream processing system.
 
 :::image type="complex" source="_images/kappa.png" border="false" lightbox="_images/kappa.png" alt-text="Diagram that shows the Kappa architecture.":::
-The dataflow source is a unified log of event data. The data goes to either the speed layer or long-term storage. The line from the source data to the long-term storage reads "mirror events to long-term storage." The long-term storage points to the speed layer. This line reads "recompute log events from storage if needed." The speed layer points to the analytics client and is outlined in green.
+The data flow source is a unified log of event data. The data goes to either the speed layer or long-term storage. The line from the source data to the long-term storage reads "mirror events to long-term storage." The long-term storage points to the speed layer. This line reads "recompute log events from storage if needed." The speed layer points to the analytics client and is outlined in green.
 :::image-end:::
 
 Similar to the Lambda architecture's batch layer, the event data is immutable and all of it is collected, instead of a subset of data. The data is ingested as a stream of events into a distributed, fault-tolerant unified log. These events are ordered, and the current state of an event is changed only by a new event being appended. Similar to the Lambda architecture's speed layer, all event processing is performed on the input stream and persisted as a real-time view.
@@ -134,7 +134,7 @@ A data warehouse is a centralized repository that stores structured and semi-str
 
 The **Lakehouse architecture** combines the best elements of data lakes and data warehouses. The pattern aims to provide a unified platform that supports both structured and unstructured data, which enables efficient data management and analytics. These systems typically use low-cost cloud storage in open formats, such as Parquet or Optimized Row Columnar, to store both raw and processed data.
 
-:::image type="content" source="../../_images/lakehouse-dataflow.png" border="false" lightbox="../../_images/lakehouse-dataflow.png" alt-text="A diagram that shows a dataflow from the source to the transform and store phase and then to the consume and visualization phase.":::
+:::image type="content" source="../../_images/lakehouse-data-flow.png" border="false" lightbox="../../_images/lakehouse-data-flow.png" alt-text="A diagram that shows a data flow from the source to the transform and store phase and then to the consume and visualization phase.":::
 
 Common use cases for a lakehouse architecture include:
 
@@ -154,7 +154,7 @@ The number of connected devices grows every day, and so does the amount of data 
 Event-driven architectures are central to IoT solutions. The following diagram shows a logical architecture for IoT. The diagram emphasizes the event-streaming components of the architecture.
 
 :::image type="complex" source="../../guide/architecture-styles/images/iot.svg" border="false" lightbox="../../guide/architecture-styles/images/iot.svg" alt-text="Diagram that shows the IoT architecture.":::
-The dataflow starts with devices on the left, connected to a field gateway, which then connects to a cloud gateway. The cloud gateway connects to various tasks via stream processing. The tasks include cold storage, hot path analytics, notifications, and machine learning. Batch analytics points to cold storage. Stream processing points to the application back end, which points to command and control, the provisioning API, and the device registry. The provisioning API points to the device registry. Command and control points to the original field gateway and to other devices, not the original devices in the dataflow.
+The data floww starts with devices on the left, connected to a field gateway, which then connects to a cloud gateway. The cloud gateway connects to various tasks via stream processing. The tasks include cold storage, hot path analytics, notifications, and machine learning. Batch analytics points to cold storage. Stream processing points to the application back end, which points to command and control, the provisioning API, and the device registry. The provisioning API points to the device registry. Command and control points to the original field gateway and to other devices, not the original devices in the data flow.
 :::image-end:::
 
 The **cloud gateway** ingests device events at the cloud boundary via a reliable, low-latency messaging system.

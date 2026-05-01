@@ -24,6 +24,8 @@ As a result, Azure Databricks notebooks can use OneLake endpoints to access the 
 
 ### Dataflow
 
+The following data flow corresponds to the previous diagram:
+
 1. **Azure Data Factory:** Use existing Azure Data Factory pipelines to ingest structured and unstructured data from source systems and land it in the existing data lake.
 
 1. **Microsoft Dynamics 365:** You can use Microsoft Dynamics 365 data sources to build centralized BI dashboards on augmented datasets by using Azure Synapse Link or Microsoft Fabric Link. Bring the fused, processed data back into Microsoft Dynamics 365 and Power BI for further analysis.

@@ -15,7 +15,7 @@ The diagram shows a left-to-right data processing workflow that uses Microsoft A
 
 ### Dataflow
 
-The following dataflow corresponds to the previous diagram:
+The following data flow corresponds to the previous diagram:
 
 1. Data Factory extracts data from the source datastore (SAP HANA) to a container in Azure Files by using the Copy Data activity. This container is referred to as the *source data container*. The data is in CSV format. To use the SAP HANA connector, Microsoft recommends deploying a self-hosted integration runtime. For more information, see [Copy data from SAP HANA by using Data Factory or Azure Synapse Analytics](/azure/data-factory/connector-sap-hana).
 

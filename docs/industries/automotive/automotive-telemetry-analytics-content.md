@@ -4,13 +4,13 @@ The guidance in this article is for telemetry scenarios and batch test drive dat
 
 ## Architecture
 
-:::image type="content" source="images/analytics-dataflow.svg" alt-text="Diagram that shows the analytics dataflow for streaming automotive data and files." border="false" lightbox="images/analytics-dataflow.svg":::
+:::image type="content" source="images/analytics-data-flow.svg" alt-text="Diagram that shows the analytics data flow for streaming automotive data and files." border="false" lightbox="images/analytics-data-flow.svg":::
 
 *Download a [PowerPoint file](https://arch-center.azureedge.net/next-generation-telemetry-analytics-automotive.pptx) with all the diagrams in this article.*
 
 ### Dataflow
 
-The following dataflow corresponds to the preceding diagram:
+The following data flow corresponds to the previous diagram:
 
 1. The data capture device is connected to the vehicle networks and collects high-resolution vehicle signal data and video. (**1a**) The device publishes real-time telemetry messages or (**1b**) requests the upload of recorded data files to the Azure Event Grid MQTT broker functionality by using an MQTT client. This functionality uses a Claim-Check pattern.
 
