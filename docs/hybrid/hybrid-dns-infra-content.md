@@ -187,7 +187,7 @@ You can apply the following recommendations to most scenarios. Follow these reco
 
 ### Extend AD DS to Azure (optional)
 
-If your organization uses Active Directory integrated DNS zones for name resolution, extend your Active Directory domain to Azure. This approach requires an extra set of Active Directory domain controllers that run in an Azure virtual network, preferably in the identity subscription described earlier.
+If your organization uses Active Directory-integrated DNS zones for name resolution, extend your Active Directory domain to Azure. This approach requires an extra set of Active Directory domain controllers that run in an Azure virtual network, preferably in the identity subscription described earlier.
 
 ### Set up split-brain DNS
 
