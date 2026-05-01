@@ -54,15 +54,12 @@ The [Sharding pattern](../../../patterns/sharding.md) enables you to scale your 
 
 Solutions that need a high level of scale can use Azure Cosmos DB for PostgreSQL. This deployment mode enables horizontal sharding of tenants across multiple servers or nodes. Use *distributed tables* in multitenant databases to ensure that all data for a tenant is stored on the same node. This approach improves query performance.
 
-> [!NOTE]
-> In October 2022, Azure Database for PostgreSQL Hyperscale (Citus) was rebranded as Azure Cosmos DB for PostgreSQL and [moved into the Azure Cosmos DB family of products](/azure/postgresql/hyperscale/moved).
-
 For more information, see the following articles:
 
 - [Design a multitenant database by using Azure Cosmos DB for PostgreSQL](/azure/cosmos-db/postgresql/tutorial-design-database-multi-tenant)
 - [Distributed tables](/azure/cosmos-db/postgresql/concepts-nodes#type-1-distributed-tables)
 - [Choose distribution columns](/azure/cosmos-db/postgresql/howto-choose-distribution-column)
-- [Use Citus for multitenant applications](https://docs.citusdata.com/en/v10.2/use_cases/multi_tenant.html)
+- [Use Citus for multitenant applications](https://docs.citusdata.com/en/stable/use_cases/multi_tenant.html)
 
 ### Elastic clusters
 
