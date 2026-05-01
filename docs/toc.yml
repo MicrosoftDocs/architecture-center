@@ -435,7 +435,7 @@ items:
     displayName: Event store, append-only, audit trail
     href: patterns/event-sourcing.md
   - name: External Configuration Store
-    href: patterns/external-configuration-store.yml
+    href: patterns/external-configuration-store.md
   - name: Federated Identity
     displayName: Single sign-on, SSO
     href: patterns/federated-identity.yml
@@ -1103,7 +1103,7 @@ items:
         href: guide/iot/scale-iot-solution-azure.md
       - name: Move IoT Hub solutions to production
         displayName: Internet of Things
-        href: example-scenario/iot/iot-move-to-production.yml
+        href: example-scenario/iot/iot-move-to-production.md
       - name: Multitenant IoT Hub-based solutions
         displayName: Internet of Things
         href: guide/multitenant/approaches/iot.md

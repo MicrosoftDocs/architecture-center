@@ -301,6 +301,6 @@ Other contributors:
 
 ## Related resources
 
-- [Move an IoT solution from test to production](../../example-scenario/iot/iot-move-to-production.yml)
+- [Move an IoT solution from test to production](../../example-scenario/iot/iot-move-to-production.md)
 - [Transient fault handling](../../best-practices/transient-faults.md)
 
