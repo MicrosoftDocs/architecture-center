@@ -70,9 +70,6 @@ In multitenant solutions, elastic clusters enable tenant data sharding across mu
 - **Row-based sharding**: You can distribute tables by tenant ID to ensure that tenant data colocates on specific nodes. This approach can improve query performance for tenant-specific queries but requires that queries include the distribution column.
 - **Schema-based sharding**: You can isolate tenants by using a separate schema per tenant. This approach is ideal for ISVs deploying applications that can't undergo query modifications to support row-based sharding. Schema-based sharding is well-suited for workloads that have between 1 and 10,000 tenants.
 
-> [!NOTE]
-> Elastic clusters are in preview and available only in Azure Database for PostgreSQL flexible server.
-
 For more information, see the following articles:
 
 - [Elastic clusters in Azure Database for PostgreSQL flexible server](/azure/postgresql/flexible-server/concepts-elastic-clusters)
