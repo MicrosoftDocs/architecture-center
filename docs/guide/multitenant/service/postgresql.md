@@ -20,9 +20,12 @@ The following deployment modes are available for Azure Database for PostgreSQL a
 
 - [Azure Database for PostgreSQL flexible server](/azure/postgresql) is a good choice for most multitenant deployments that don't require the high scalability that Azure Cosmos DB for PostgreSQL provides.
 
-- [Azure Database for PostgreSQL flexible server with elastic clusters (preview)](/azure/postgresql/flexible-server/concepts-elastic-clusters) provides horizontal scaling within a managed service. It's suitable for multitenant applications that need to scale from a few tenants to high numbers of tenants. This feature is in preview and isn't recommended for production use. However, you can begin to evaluate it for future implementation.
+- [Azure Database for PostgreSQL elastic clusters](/azure/postgresql/elastic-clusters/concepts-elastic-clusters) provides horizontal scaling within a managed service. It's suitable for multitenant applications that need to scale from a few tenants to high numbers of tenants.
 
 - [Azure Cosmos DB for PostgreSQL](/azure/cosmos-db/postgresql/) is an Azure-managed database service designed for solutions that require a high level of scale, like multitenant applications. This service is part of the Azure Cosmos DB family of products.
+
+  > [!IMPORTANT]
+  > Azure Cosmos DB for PostgreSQL is on a retirement path and no longer recommended for new projects.
 
 ## Azure Database for PostgreSQL features that support multitenancy
 
@@ -54,15 +57,12 @@ The [Sharding pattern](../../../patterns/sharding.md) enables you to scale your 
 
 Solutions that need a high level of scale can use Azure Cosmos DB for PostgreSQL. This deployment mode enables horizontal sharding of tenants across multiple servers or nodes. Use *distributed tables* in multitenant databases to ensure that all data for a tenant is stored on the same node. This approach improves query performance.
 
-> [!NOTE]
-> In October 2022, Azure Database for PostgreSQL Hyperscale (Citus) was rebranded as Azure Cosmos DB for PostgreSQL and [moved into the Azure Cosmos DB family of products](/azure/postgresql/hyperscale/moved).
-
 For more information, see the following articles:
 
 - [Design a multitenant database by using Azure Cosmos DB for PostgreSQL](/azure/cosmos-db/postgresql/tutorial-design-database-multi-tenant)
 - [Distributed tables](/azure/cosmos-db/postgresql/concepts-nodes#type-1-distributed-tables)
 - [Choose distribution columns](/azure/cosmos-db/postgresql/howto-choose-distribution-column)
-- [Use Citus for multitenant applications](https://docs.citusdata.com/en/v10.2/use_cases/multi_tenant.html)
+- [Use Citus for multitenant applications](https://docs.citusdata.com/en/stable/use_cases/multi_tenant.html)
 
 ### Elastic clusters
 
@@ -72,9 +72,6 @@ In multitenant solutions, elastic clusters enable tenant data sharding across mu
 
 - **Row-based sharding**: You can distribute tables by tenant ID to ensure that tenant data colocates on specific nodes. This approach can improve query performance for tenant-specific queries but requires that queries include the distribution column.
 - **Schema-based sharding**: You can isolate tenants by using a separate schema per tenant. This approach is ideal for ISVs deploying applications that can't undergo query modifications to support row-based sharding. Schema-based sharding is well-suited for workloads that have between 1 and 10,000 tenants.
-
-> [!NOTE]
-> Elastic clusters are in preview and available only in Azure Database for PostgreSQL flexible server.
 
 For more information, see the following articles:
 

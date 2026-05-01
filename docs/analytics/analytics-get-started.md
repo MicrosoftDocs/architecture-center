@@ -92,13 +92,9 @@ The following resources provide foundational knowledge for analytics implementat
 
 ## Organizational readiness
 
-Organizations that are beginning their cloud adoption can use the [Cloud Adoption Framework](/azure/cloud-adoption-framework/) for proven guidance designed to accelerate cloud adoption. For cloud-scale analytics guidance, see [Cloud-scale analytics](/azure/cloud-adoption-framework/scenarios/cloud-scale-analytics).
+Organizations that are beginning their cloud adoption can use the [Cloud Adoption Framework for Azure](/azure/cloud-adoption-framework/) for proven guidance designed to accelerate cloud adoption. For unified data platform and data strategy guidance, see [Executive strategy for unifying your data](/azure/cloud-adoption-framework/data/executive-strategy-unify-data-platform).
 
 To help assure the quality of your analytics solution on Azure, we recommend following the [Azure Well-Architected Framework](/azure/well-architected/). It provides prescriptive guidance for organizations seeking architectural excellence and discusses how to design, provision, and monitor cost-optimized Azure solutions.
-
-
-For data workload guidance aligned to the Well-Architected Framework pillars, see [Azure Well-Architected Framework for data workloads](/azure/cloud-adoption-framework/scenarios/cloud-scale-analytics/well-architected-framework).
-
 
 ## Path to production
 
