@@ -1,6 +1,6 @@
 This article describes how to modify and harden a [medallion lakehouse](/azure/databricks/lakehouse/medallion) when you adopt your system across an enterprise. This architecture follows a typical adoption pattern described in the [baseline architecture](azure-data-factory-on-azure-landing-zones-baseline.yml). This architecture is hardened to meet extra nonfunctional requirements (NFRs), provide extra capabilities, and shift responsibilities to a domain-based federated model.
 
-This architecture incorporates best practices and guidance from the [Microsoft Cloud Adoption Framework for Azure](/azure/cloud-adoption-framework/) and focuses on the implementation of [data domains](/azure/cloud-adoption-framework/scenarios/cloud-scale-analytics/architectures/data-domains) and the adoption of [data products](/azure/cloud-adoption-framework/scenarios/cloud-scale-analytics/architectures/data-landing-zone-data-products).
+This architecture incorporates best practices and guidance from the [Microsoft Cloud Adoption Framework for Azure](/azure/cloud-adoption-framework/) and focuses on the implementation of [data domains](/azure/cloud-adoption-framework/data/operational-standards-data-processing-standards-unify-data-platform) and the adoption of [data products](/azure/cloud-adoption-framework/data/architecture-fabric-data-lake-unify-data-platform#unified-data-platform-architecture).
 
 > [!NOTE]
 > The guidance in this article focuses on key differences of this architecture compared to the [baseline architecture](azure-data-factory-on-azure-landing-zones-baseline.yml).
@@ -37,14 +37,14 @@ There are several key requirements to modify and harden a medallion lakehouse:
 
 You can modify the [baseline architecture](azure-data-factory-on-azure-landing-zones-baseline.yml) to meet these requirements without creating a new architecture.
 
-- A [domain design](/azure/cloud-adoption-framework/scenarios/cloud-scale-analytics/architectures/data-domains#domain-modeling-recommendations) that's backed by an enterprise-managed foundation works well for this scenario. A domain design supports the requirements for extending the platform across the enterprise, the self-service functionality, and the business strategic objective. The foundation is defined as:
+- A [domain design](/azure/cloud-adoption-framework/data/operational-standards-data-product-consumption-unify-data-platform) that's backed by an enterprise-managed foundation works well for this scenario. A domain design supports the requirements for extending the platform across the enterprise, the self-service functionality, and the business strategic objective. The foundation is defined as:
 
   - Identity and access controls.
   - The underlying networking, boundary controls, and security baseline.
   - The governance, audit, and monitoring functionality.
   - Functions to ingest and initially process data into the platform.
 
-- The domain design is anchored around a given business department's ownership of their data and the originating source system. A new [operating model](/azure/cloud-adoption-framework/scenarios/cloud-scale-analytics/organize-roles-teams) enables business groups to optionally build their own stack of model-and-serve components that they control and maintain going forward. Domains operate within guardrails according to enterprise requirements and are enabled to perform well-defined and controlled experiments. The data science capability is delivered through:
+- The domain design is anchored around a given business department's ownership of their data and the originating source system. A new [operating model](/azure/cloud-adoption-framework/data/organizational-readiness-unify-data-platform) enables business groups to optionally build their own stack of model-and-serve components that they control and maintain going forward. Domains operate within guardrails according to enterprise requirements and are enabled to perform well-defined and controlled experiments. The data science capability is delivered through:
 
   - [Power BI](/power-bi/connect-data/service-tutorial-build-machine-learning-model) for low code and for simple or medium complexity use cases across tabular data. This model is an ideal starting point for data citizens.
 
@@ -60,9 +60,9 @@ You can modify the [baseline architecture](azure-data-factory-on-azure-landing-z
 
 - Streaming data patterns can be complicated to implement and manage, especially in failure case scenarios. Ensure that business requirements are tested for acceptable latency and that source system and network infrastructure can support streaming requirements before implementation.
 
-- Any decision to move toward a domain model must be made in collaboration with business stakeholders. It's critical that stakeholders understand and accept the increased [responsibilities of domain ownership](/azure/cloud-adoption-framework/scenarios/cloud-scale-analytics/organize-roles-responsibilities).
+- Any decision to move toward a domain model must be made in collaboration with business stakeholders. It's critical that stakeholders understand and accept the increased responsibilities of domain ownership.
 
-- The stakeholders' data maturity, available skilling across the software development life cycle (SDLC), governance framework, standards, and automation maturity all influence how far the initial operating model leans into [domain enablement](/azure/cloud-adoption-framework/scenarios/cloud-scale-analytics/architectures/self-serve-data-platforms). These factors can also indicate your current position in the cloud-scale analytics [adoption lifecycle](/azure/cloud-adoption-framework/scenarios/cloud-scale-analytics/architectures/data-mesh-checklist) and highlight the steps needed to advance further.
+- The stakeholders' data maturity, available skilling across the software development life cycle (SDLC), governance framework, standards, and automation maturity all influence how far the initial operating model leans into domain enablement. These factors can also indicate your organization's current readiness for domain enablement and highlight the capabilities needed to advance further.
 
 ## Architecture
 
@@ -74,9 +74,9 @@ You can modify the [baseline architecture](azure-data-factory-on-azure-landing-z
 
 The following workflow corresponds to the preceding diagram:
 
-1. The ingested data and Delta Lake are [source aligned](/azure/cloud-adoption-framework/scenarios/cloud-scale-analytics/architectures/data-domains#source-system-aligned-domains) and remain the responsibility of the central technical team. This decision reflects the level of technical expertise required for Spark development and supports a consistent, standardized implementation approach that takes enterprise reusability into consideration.
+1. The ingested data and Delta Lake are source aligned and remain the responsibility of the central technical team. This decision reflects the level of technical expertise required for Spark development and supports a consistent, standardized implementation approach that takes enterprise reusability into consideration.
 
-    - [Data contracts](/azure/cloud-adoption-framework/scenarios/cloud-scale-analytics/architectures/data-contracts#data-contracts-1) govern the data feeds from source systems. Data contracts can be used to drive a [metadata-driven](/azure/cloud-adoption-framework/scenarios/cloud-scale-analytics/architectures/data-contracts#:~:text=metadata%2Ddriven%20ingestion%20frameworks) extract, transform, load (ETL) framework and make the data available to users as part of the [governance capability](/purview/how-to-browse-catalog).
+    - Data contracts govern the data feeds from source systems. Data contracts can be used to drive a metadata-driven extract, transform, load (ETL) framework and make the data available to users as part of the [governance capability](/purview/how-to-browse-catalog).
 
     - The directory structure of the bronze layer (or the *raw layer*) in Delta Lake reflects how [data is consumed](/azure/storage/blobs/data-lake-storage-best-practices#directory-structure). The source system orders the data. This organization methodology enables a unified security implementation based on the business ownership of source systems.
 
@@ -216,8 +216,7 @@ Compared to the baseline architecture, this architecture:
 ## Next steps
 
 - [Azure landing zone](/azure/cloud-adoption-framework/ready/landing-zone/)
-- [Microsoft Cloud Adoption Framework](/azure/cloud-adoption-framework/)
-- [Data domain guidance](/azure/cloud-adoption-framework/scenarios/cloud-scale-analytics/architectures/data-domains)
+- [Executive strategy for unifying your data](/azure/cloud-adoption-framework/data/executive-strategy-unify-data-platform)
 
 ## Related resources
 
