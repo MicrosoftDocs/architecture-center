@@ -9,7 +9,7 @@ This article describes how to achieve Trusted Internet Connections (TIC) 3.0 com
 
 *Download a [Visio file](https://arch-center.azureedge.net/TIC_3.0-AzureReferenceArchitecture.vsdx)  of this architecture.*
 
-### Dataflow
+### Data flow
 
 1. Firewall
    - The firewall can be any layer 3 or layer 7 firewall. 

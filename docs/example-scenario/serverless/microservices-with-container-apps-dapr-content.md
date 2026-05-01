@@ -10,7 +10,7 @@ This article describes a solution for running an order management system that ha
 
 *Download a [PowerPoint file](https://arch-center.azureedge.net/microservices-with-container-apps-dapr.pptx) of this architecture.*
 
-### Dataflow
+### Data flow
 
 This solution describes a fictitious Red Dog order management system and its supporting Azure infrastructure. The architecture is composed of a single Container Apps environment that hosts 10 .NET Core microservice applications. The solution uses the Dapr SDK to integrate with Azure resources via publish-subscribe, state, and binding building blocks. The services also use KEDA scale rules to allow for scaling based on event triggers and scale-to-zero scenarios.
 

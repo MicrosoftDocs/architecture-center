@@ -10,7 +10,7 @@ Jupyter is a trademark of its respective company. No endorsement is implied by t
 
 *Download a [Visio file](https://arch-center.azureedge.net/iot-azure-data-explorer.vsdx) of this architecture.*
 
-### Dataflow
+### Data flow
 
 1. Azure Event Hubs, Azure IoT Hub, or Kafka ingest a wide range of fast-flowing streaming data such as logs, business events, and user activities.
 

@@ -10,7 +10,7 @@ This article presents a solution for using Azure Kubernetes Service (AKS) to qui
 
 *Download a [Visio file](https://arch-center.azureedge.net/data-streaming-scenario.vsdx) of this architecture.*
 
-### Dataflow
+### Data flow
 
 1. Sensors generate data and stream it to Azure API Management.
 1. An AKS cluster runs microservices that are deployed as containers behind a service mesh. The containers are built by using a DevOps process. The container images are stored in Azure Container Registry.

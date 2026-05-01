@@ -35,7 +35,7 @@ Azure Pipelines orchestrates deployment activities to AKS as part of a repeatabl
 
 *Download a [Visio file](https://arch-center.azureedge.net/azure-devops-ci-cd-aks-architecture.vsdx) of this architecture.*
 
-### Dataflow
+### Data flow
 
 The following dataflow corresponds to the previous diagram:
 

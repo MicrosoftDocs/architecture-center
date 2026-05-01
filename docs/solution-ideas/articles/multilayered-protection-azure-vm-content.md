@@ -48,7 +48,7 @@ The defense in depth strategy and the solution in this article apply to many sce
 
 *Download a [Visio file][Visio version of architecture diagram] of this architecture.*
 
-## Dataflow
+## Data flow
 
 1. **Authentication and access decisions**: The user is authenticated against Microsoft Entra ID to access the Azure portal, Azure REST APIs, Azure PowerShell, or the Azure CLI. If authentication succeeds, a Microsoft Entra Conditional Access policy takes effect. That policy verifies whether the user meets certain criteria. Examples include using a managed device or signing in from a known location. If the user fulfills the criteria, Conditional Access grants the user access to Azure through the Azure portal or another interface.
 
