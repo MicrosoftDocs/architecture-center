@@ -10,7 +10,7 @@ This example workload describes a greenfield solution for creating a scalable da
 
 ### Data flow
 
-The following data flow corresponds to the previous diagram:
+The following data flow corresponds to the previous diagram.
 
 This design reflects the Lambda architecture, which separates data processing into two layers:
 
