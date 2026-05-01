@@ -32,7 +32,7 @@ The following workflow corresponds to the architecture diagram. Each step maps t
 
 - [Azure OpenAI Service](/azure/ai-services/openai/overview) provides REST API access to OpenAI's language models and embeddings. In this solution, agents use these models to process requests, generate responses, and select appropriate agents from shortlisted candidates.
 
-- [Azure Cache for Redis](/azure/azure-cache-for-redis/cache-overview) is a fully managed, in-memory cache that enables high-throughput and low-latency data access. In this solution, it stores conversation context and chat history to support multi-turn interactions with minimal latency.
+- [Azure Managed Redis](/azure/redis/overview) is a fully managed, in-memory data store based on Redis Enterprise that enables high-throughput and low-latency data access. In this solution, it stores conversation context and chat history to support multi-turn interactions with minimal latency.
 
 - [Azure Application Insights](/azure/azure-monitor/app/app-insights-overview) is an application performance management service that provides monitoring and diagnostics for cloud applications. In this solution, it collects telemetry from all components via OpenTelemetry, enabling end-to-end observability of agent interactions, performance metrics, and system health.
 
@@ -82,7 +82,7 @@ As the number of agents grows, token consumption becomes a primary cost driver. 
 
 - **Semantic cache narrows candidate agents before LLM invocation.** Azure AI Search performs vector similarity matching against stored utterances and returns only a shortlist of relevant agents. The LLM receives definitions for a small subset of agents rather than the full catalog, which limits per-request token consumption regardless of total agent count.
 - **Direct invocation bypasses the orchestrator LLM.** When a single agent exceeds the confidence threshold during semantic cache evaluation, the system invokes that agent directly without an additional LLM call. This path eliminates the token and compute cost of orchestrator reasoning for unambiguous queries.
-- **TTL-based conversation memory controls storage costs.** Configurable time-to-live values on the Redis cache ensure that stale conversation data expires automatically. Adjust TTL based on conversation patterns to balance context retention against cache storage costs.
+- **TTL-based conversation memory controls storage costs.** Configurable time-to-live values on Azure Managed Redis ensure that stale conversation data expires automatically. Adjust TTL based on conversation patterns to balance context retention against cache storage costs.
 - **Tiered model selection reduces per-call cost.** Use lower-cost models for agent routing and selection decisions. Reserve higher-capability models for complex agent responses where output quality justifies the expense.
 - **Telemetry sampling limits observability overhead.** Apply intelligent sampling strategies for OpenTelemetry data to control ingestion and retention costs in Application Insights while preserving diagnostic value for anomaly detection.
 
