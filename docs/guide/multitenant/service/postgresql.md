@@ -20,7 +20,7 @@ The following deployment modes are available for Azure Database for PostgreSQL a
 
 - [Azure Database for PostgreSQL](/azure/postgresql) is a good choice for most multitenant deployments that don't require the high scalability that Azure Cosmos DB for PostgreSQL provides.
 
-- [Azure Database for PostgreSQL elastic clusters](/azure/postgresql/elastic-clusters/concepts-elastic-clusters) provides horizontal scaling within a managed service. It's suitable for multitenant applications that need to scale from a few tenants to high numbers of tenants.
+- Azure Database for PostgreSQL [elastic clusters](/azure/postgresql/elastic-clusters/concepts-elastic-clusters) provides horizontal scaling within a managed service. It's suitable for multitenant applications that need to scale from a few tenants to high numbers of tenants.
 
 - [Azure Cosmos DB for PostgreSQL](/azure/cosmos-db/postgresql/) is an Azure-managed database service designed for solutions that require a high level of scale, like multitenant applications. This service is part of the Azure Cosmos DB family of products.
 
