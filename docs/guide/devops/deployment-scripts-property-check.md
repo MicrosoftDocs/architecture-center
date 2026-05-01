@@ -1,3 +1,15 @@
+---
+title: Use Deployment Scripts to Check Resource Properties
+description: Use Bicep and a deployment script to pause a deployment in order to wait for a resource property to return a specific value.
+author: jtracey93
+ms.author: jatracey
+ms.date: 05/01/2026
+ms.topic: concept-article
+ms.subservice: architecture-guide
+---
+
+# Use deployment scripts to check resource properties
+
 This article describes how to use Bicep and a deployment script to pause a deployment in order to wait for a resource property to return a specific value. You can use this technique to ensure that a deployment succeeds when the resource that's being deployed reports to Resource Manager that it's ready but the underlying resources aren't. When this happens, the resource that's being deployed isn't yet ready to interact with the remainder of the deployment, so a pause is required.
 
 This article uses an Azure Virtual WAN scenario to illustrate the technique. The resource check and pause is implemented in these files:

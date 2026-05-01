@@ -948,7 +948,7 @@ items:
         displayName: Azure Kubernetes Service
         href: guide/devsecops/devsecops-on-aks.md
       - name: Use deployment scripts to check resource properties
-        href: guide/devops/deployment-scripts-property-check.yml
+        href: guide/devops/deployment-scripts-property-check.md
     - name: Architectures
       items:
       - name: Automate API deployments with APIOps
