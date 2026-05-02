@@ -73,7 +73,7 @@ Consider how the growth of your solution affects your use of AI and machine lear
 
 **Inference:** The resources that you need for inference are often proportional to the number of requests that access the models for inference. As the number of tenants increases, the number of requests is also likely to increase.
 
-It's a good practice to use Azure services that scale well. AI and machine learning workloads often run in containers, so Azure Kubernetes Service (AKS) and Azure Container Instances are common choices for these workloads. AKS is often a good choice for its high scale and dynamic scaling of your compute resources based on demand. You can use Container Instances for small workloads. It's relatively simple to configure but doesn't scale as easily as AKS.
+It's a good practice to use Azure services that scale well. AI and machine learning workloads often run in containers, so Azure Kubernetes Service (AKS) and Azure Container Instances are common choices for these workloads. AKS is often a good choice because it provides high scale and because it dynamically scales your compute resources based on demand. You can use Container Instances for small workloads. It's relatively simple to configure but doesn't scale as easily as AKS.
 
 ### Performance
 
@@ -132,7 +132,7 @@ It's a good practice to use prebuilt AI and machine learning services when possi
 
 Azure has several services that provide AI and machine learning technology across a range of domains. These domains include language understanding, speech recognition, knowledge, document and form recognition, and computer vision. Azure delivers prebuilt AI and machine learning services through [Foundry](https://azure.microsoft.com/products/ai-foundry), which is a unified AI application service. This service gives users access to various models, including [Azure OpenAI](https://azure.microsoft.com/products/ai-foundry/models/openai/). Azure also provides a set of standalone AI services, including [Azure AI Search](/azure/search/search-what-is-azure-search), [Foundry IQ](/azure/foundry/agents/concepts/what-is-foundry-iq), and [Azure Document Intelligence](https://azure.microsoft.com/products/ai-foundry/tools/document-intelligence). Many of these services provide a simple interface for integration of sophisticated AI functionalities. As managed services, they provide service-level agreements (SLAs) and require little configuration or ongoing management. You don't need to develop or test your own models to use these services.
 
-Many managed machine learning services don't require model training or data, so there's usually no tenant data isolation concerns. However, some managed AI and machine learning services do provide a model customization capability:
+Many managed machine learning services don't require model training or data, so there are usually no tenant data isolation concerns. However, some managed AI and machine learning services do provide a model customization capability:
 
 - [Azure custom voice](/azure/ai-services/speech-service/custom-neural-voice)
 - [Automated ML (AutoML) in Machine Learning](/azure/machine-learning/concept-automated-ml)
@@ -158,7 +158,7 @@ If your solution requires custom models or operates in a domain that a managed m
 
 - Apply auditability and governance throughout the life cycle of your machine learning models. Use built-in tracking and lineage (which is the tracking of data and model relationships) for all your machine learning artifacts.
 
-When you work in a multitenant solution, consider the [isolation requirements of your tenants](#tenant-isolation) during both the training and inference stages. You also need to determine your model training and deployment process. Machine learning provides a pipeline to train models and deploy them to an environment for inference. Models then generate predictions or insights based on new data. In a multitenant context, consider whether models should be deployed to shared compute resources or if each tenant has dedicated resources. Design your model deployment pipelines based on your [isolation model](../considerations/tenancy-models.md) and your [tenant deployment process](deployment-configuration.md).
+When you work in a multitenant solution, consider the [isolation requirements of your tenants](#tenant-isolation) during both the training and inference stages. You also need to determine your model training and deployment process. Machine learning provides a pipeline to train models and deploy them to an environment for inference. Models then generate predictions or insights based on new data. In a multitenant context, consider whether models should be deployed to shared compute resources or each tenant should have dedicated resources. Design your model deployment pipelines based on your [isolation model](../considerations/tenancy-models.md) and your [tenant deployment process](deployment-configuration.md).
 
 When you use open-source models, you might need to retrain these models by using transfer learning or tuning. Consider how to manage different models and training data for each tenant, along with the versions of each model.
 
@@ -176,7 +176,7 @@ Consider using these platforms for AI and machine learning when you need to scal
 
 ## Machine learning operational model
 
-When you adopt AI and machine learning, including generative AI practices, it's a good practice to continually improve and assess your organizational capabilities in managing them. The introduction of MLOps and GenAIOps objectively provides a framework to continually expand capabilities of your AI and machine learning practices in your organization. For more information, see [MLOps maturity model](../../../ai-ml/guide/mlops-maturity-model.md) and [GenAIOps maturity model](/azure/machine-learning/prompt-flow/concept-llmops-maturity).
+When you adopt AI and machine learning, including generative AI practices, it's a good practice to continually improve and assess your organizational capabilities for managing them. The introduction of MLOps and GenAIOps objectively provides a framework to continually expand capabilities of your AI and machine learning practices in your organization. For more information, see [MLOps maturity model](../../../ai-ml/guide/mlops-maturity-model.md) and [GenAIOps maturity model](/azure/machine-learning/prompt-flow/concept-llmops-maturity).
 
 ## Antipatterns to avoid
 
