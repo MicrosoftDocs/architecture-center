@@ -176,7 +176,7 @@ For relational databases, these antipatterns include:
 
 There are some features that can be useful for multitenancy. However, these features aren't available in all database services. Consider whether you need the following features when you decide on the service to use for your scenario:
 
-- **Row-level security** can provide security isolation for specific tenants' data in a shared multitenant database. This feature is available in some databases, like SQL Database and Azure Database for PostgreSQL flexible server.
+- **Row-level security** can provide security isolation for specific tenants' data in a shared multitenant database. This feature is available in some databases, like SQL Database and Azure Database for PostgreSQL.
 
     When you use row-level security, you need to ensure that the user's identity and tenant identity are propagated through the application and into the data store with each query. This approach can be complex to design, implement, test, and maintain. Many multitenant solutions don't use row-level security because of those complexities.
 
