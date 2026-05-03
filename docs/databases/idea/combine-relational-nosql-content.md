@@ -29,7 +29,7 @@ Diagram of an e-commerce polyglot persistence architecture. Users access the sys
 
 ### Components
 
-- [Azure API Management](/azure/well-architected/service-guides/azure-api-management) is a management platform for APIs. In this architecture, it provides a unified entry point that routes client requests to the appropriate domain microservices.
+- [Azure API Management](/azure/well-architected/service-guides/azure-api-management) is a management platform and gateway for APIs that routes client requests to APIs, performs rate limiting and caching, and handles authentication. In this architecture, it provides a unified entry point that routes client requests to the appropriate domain microservices.
 
 - [Azure Cosmos DB](/azure/well-architected/service-guides/cosmos-db) is a globally distributed, multi-model database that enables your applications to elastically and independently scale throughput and storage. In this architecture, it stores data for workloads that require flexible schemas, low-latency access, horizontal scalability, or global distribution. Examples include user profiles, session state, product catalogs, and shopping carts.
 
