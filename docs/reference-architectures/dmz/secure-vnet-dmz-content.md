@@ -65,7 +65,7 @@ We recommend creating the following resource groups:
 
 ### Networking recommendations
 
-In this architecture, all inbound and outbound traffic between the on-premises network, the internet, and the spoke virtual networks passes through Azure Firewall. Every flow that crosses the perimeter is network address translated by the firewall, so the firewall's IP addresses, not the workload's, are what external systems and on-premises systems observe. Plan for the following behavior:
+In this architecture, all inbound and outbound traffic between the on-premises network, the internet, and the spoke virtual networks passes through Azure Firewall. Every flow that crosses the perimeter undergoes network address translation at the firewall, so the firewall's IP addresses, not the workload's, are what external systems and on-premises systems observe. Plan for the following behavior:
 
 - **Published workloads are reachable at the firewall's public IP address, not at the workload's IP address.** You publish a backend with a [destination network address translation (DNAT)](/azure/firewall/tutorial-firewall-dnat) rule on the firewall. The destination address is the firewall's public IP address; the translated address is a private IP address within the virtual network.
 
