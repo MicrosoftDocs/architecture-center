@@ -299,6 +299,7 @@ For traffic from SAP GUI clients that connect to an SAP server via DIAG protocol
 You can achieve HA by load balancing traffic within a pool of application servers.
 
 ### Database tier
+Production HANA databases hold critical business data.  The HANA servers should be configured with high availability to protect its content and service availability.
 
 #### HANA replication configuration
 
