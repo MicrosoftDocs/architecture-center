@@ -76,7 +76,7 @@ Using a gateway in this topology enables client-based usage tracking. Unless cli
 
 - If the gateway is designed to use pass-through credentials, make sure clients can't bypass the gateway or any model restrictions based on the client.
 
-- Co-locate the gateway in the same region as the model host, and, where feasible, restrict back end network paths so the model endpoints are reachable only through the gateway. Isolating the subscription from the back ends can help drive an [APIOps](https://github.com/Azure/apiops) approach through separations of concern.
+- Co-locate the gateway in the same region as the model host, and, where feasible, restrict back-end network paths so the model endpoints are reachable only through the gateway. Isolating the subscription from the back ends can help drive an [APIOps](https://github.com/Azure/apiops) approach through separations of concern.
 
 - Deploy the gateway into a virtual network that contains a subnet for the instance's Azure Private Link private endpoint. Apply network security group (NSG) rules to that subnet to allow only the gateway access to that private endpoint. All other data plane access to the model-host instances should be disallowed.
 
@@ -102,9 +102,9 @@ The platform might support provisioned throughput units, which represent reserve
 
 To authenticate the gateway itself, use a managed identity. When the gateway runs on API Management or another Azure service, assign it a managed identity and grant that identity the appropriate Azure RBAC role on each instance that it needs to access. This approach avoids passing client API keys to back-end services, enables least-privilege access, and simplifies credential management and rotation.
 
-The gateway should honor throttling behavior and Retry-After headers. API Management provides built-in circuit breaker capabilities that can automatically respect Retry-After values returned for HTTP 429 responses.
+The gateway should honor throttling behavior and `Retry-After` headers. API Management provides built-in circuit breaker capabilities that can automatically respect `Retry-After` values returned for HTTP 429 responses.
 
-API Management also provides an llm-token-limit policy that enables you to enforce token-per-minute quotas per client or subscription at the gateway level. Using these built-in policies can reduce the need for custom retry, throttling, and protection logic in gateway code while helping prevent back-end throttling.
+API Management also provides an llm-token-limit policy that enables you to enforce token-per-minute quotas per client or subscription at the gateway level. Using these built-in policies can reduce the need for custom retry, throttling, and protection logic in gateway code and help prevent back-end throttling.
 
 ### Topology details for multiple instances in a single region and a single subscription
 
@@ -146,13 +146,13 @@ When a gateway is involved, it's in a unique position to capture details about a
 
 #### Tips for the multiple instances in a single region and single subscription topology
 
-- Ensure that the gateway is using the `Retry-After` information available in HTTP responses from the back-end service when you implement failover scenarios at the gateway. Use that authoritative information to control your circuit-breaker implementation. Don't continuously hit an endpoint that returns a `429 Too Many Requests`. Instead, break the circuit for that model instance.
+- Ensure that the gateway is using the `Retry-After` information available in HTTP responses from the back-end service when you implement failover scenarios at the gateway. Use that authoritative information to control your circuit-breaker implementation. Don't continuously hit an endpoint that returns `429 Too Many Requests`. Instead, break the circuit for that model instance.
 
 - Attempting to predict throttling events before they happen by tracking model consumption through prior requests is possible in the gateway, but doing so is fraught with edge cases. In most cases, it's best not to try to predict, but to use HTTP response codes to drive future routing decisions.
 
 - When you use a round-robin strategy or fail over to a different endpoint, including provisioned spilling over into standard deployments, always make sure those endpoints are using the same model at the same version. For example, don't fail over from version *X* to version *X+1* or load balance between them. This version change can cause unexpected behavior in the clients.
 
-- Load balancing and failover logic can be implemented in API Management policies. You might be able to implement a more sophisticated approach by using a code-based gateway solution, but API Management is sufficient for this use case.
+- You can implement load balancing and failover logic in API Management policies. You might be able to implement a more sophisticated approach by using a code-based gateway solution, but API Management is sufficient for this use case.
 
 - Deploy the gateway in the same region as the model instance.
 
