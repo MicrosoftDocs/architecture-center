@@ -105,7 +105,7 @@ This architecture refers to the following networking services that you can use i
 
 #### Compute components
 
-- [Azure Functions](/azure/well-architected/service-guides/azure-functions-security) is a cloud service that you can use to run small pieces of code, known as functions, without the need to manage or configure the underlying application infrastructure. You can use Azure Functions to automate tasks, process data, integrate systems, and build scalable applications. The cloud infrastructure provides the up-to-date servers that you need to keep your application running at scale. In this architecture, Azure Functions can consume messages from Event Hubs to perform custom processing of change data.
+- [Azure Functions](/azure/well-architected/service-guides/azure-functions) is a cloud service that you can use to run small pieces of code, known as functions, without the need to manage or configure the underlying application infrastructure. You can use Azure Functions to automate tasks, process data, integrate systems, and build scalable applications. The cloud infrastructure provides the up-to-date servers that you need to keep your application running at scale. In this architecture, Azure Functions can consume messages from Event Hubs to perform custom processing of change data.
 
 - [Azure VMs](/azure/well-architected/service-guides/virtual-machines) are on-demand, scalable computing resources. An Azure VM provides the flexibility of virtualization and eliminates the maintenance demands of physical hardware. Azure VMs operate on Windows and Linux systems. In this architecture, Azure VMs host the RDRS OPM and can run custom solutions for processing Event Hubs messages or bulk-load processing.
 

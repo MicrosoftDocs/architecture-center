@@ -47,7 +47,7 @@ This article describes how to achieve Trusted Internet Connections (TIC) 3.0 com
 
   - [Microsoft Entra ID](/entra/fundamentals/whatis) is an identity and access service that provides identity features, single sign-on, and multifactor authentication across Azure workloads. In this architecture, it secures access to Azure resources and generates identity logs for compliance monitoring.
 
-  - [Event Hubs Standard](/azure/well-architected/service-guides/event-hubs) is a big data streaming platform and event ingestion service. In this architecture, it receives logs from Log Analytics and streams them to CISA TALON for centralized analysis.
+  - [Event Hubs Standard](/azure/well-architected/service-guides/azure-event-hubs) is a big data streaming platform and event ingestion service. In this architecture, it receives logs from Log Analytics and streams them to CISA TALON for centralized analysis.
 
   - CISA TALON is a centralized log aggregation service operated by CISA that ingests telemetry data from cloud environments for cybersecurity monitoring and compliance. In this architecture, TALON authenticates by using a CISA-supplied certificate and collects logs from Event Hubs. It pulls the logs into the CLAW system to support TIC 3.0 compliance and centralized visibility.
 
