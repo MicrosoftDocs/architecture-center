@@ -389,7 +389,7 @@ Although this consideration isn't specific to multiple back ends, each region's 
 
 ## Gateway implementations
 
-Azure doesn't provide a complete turnkey solution or reference architecture for building a gateway that's focused on routing traffic across multiple back ends. However, API Management is preferred because the service provides a PaaS-based solution that uses built in features such as back-end pools, circuit-breaking policies, and custom policies if needed. To evaluate what's available in that service for your workload's multi-backend needs, see [Overview of generative AI gateway capabilities in Azure API Management](/azure/api-management/genai-gateway-capabilities) .
+Azure doesn't provide a complete turnkey solution or reference architecture for building a gateway that's focused on routing traffic across multiple back ends. However, API Management is preferred because the service provides a PaaS-based solution that uses built in features such as back-end pools, circuit-breaking policies, and custom policies if needed. To evaluate what's available in that service for your workload's multi-backend needs, see [Overview of generative AI gateway capabilities in Azure API Management](/azure/api-management/genai-gateway-capabilities).
 
 Whether you use API Management or build a custom solution, as mentioned in the [introduction article](./azure-openai-gateway-guide.yml#implementation-options), your workload team must build and operate the gateway. The following examples cover some of the previously mentioned use cases. Consider referring to these samples when you build your own proof of concept with API Management or custom code.
 
