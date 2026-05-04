@@ -3,7 +3,7 @@ title: Use a Gateway in Front of Multiple Azure OpenAI Deployments or Instances
 description: Learn how to add a gateway in front of multiple Azure OpenAI model deployments or instances.
 author: claytonsiemens77
 ms.author: pnp
-ms.date: <Date of initial publish or last full technical review, in mm/dd/yyyy format>
+ms.date: 05/04/2026
 ms.topic: concept-article
 ms.subservice: architecture-guide
 ---
@@ -27,7 +27,7 @@ These topologies don't automatically require a gateway. The decision depends on 
 ## Multiple model deployments in a single instance
 
 :::image type="complex" source="_images/multiple-models-single-instance-before.svg" alt-text="Architecture diagram of a scenario with clients connecting to more than one model deployment in the model host." lightbox="_images/multiple-models-single-instance-before.svg":::
-   A diagram showing two clients labeled A and B directly interfacing with an instance in a resource group named rg-foundry-eastus. The instance has four model deployments. Client A has a solid lines pointing to two foundry models. Client B has a solid line pointing to a foundry model and a dashed line pointing to another foundry model deployment.
+   A diagram showing two clients labeled A and B directly interfacing with an instance in a resource group named rg-foundry-eastus. The instance has four model deployments. Client A has two solid lines pointing to two foundry models. Client B has a solid line pointing to a foundry model and a dashed line pointing to another foundry model deployment.
 :::image-end:::
 
 ### Topology details for multiple model deployments
@@ -92,7 +92,7 @@ Some workloads use chat-based interactions through chat completions and assistan
 
 ### Provisioned capacity and priority processing
 
-The platform might support provisioned throughput units, which represent reserved model capacity for predictable throughput. Some workloads might combine provisioned capacity with standard capacity to absorb bursts. Priority processing features can reduce request latency within a single deployment, but they don't increase overall quota and shouldn't be considered a replacement for multi-backend or multi-instance designs that address high availability, resilience, or multi-tenant isolation.
+The platform might support provisioned throughput units, which represent reserved model capacity for predictable throughput. Some workloads might combine provisioned capacity with standard capacity to absorb bursts. Priority processing features can reduce request latency within a single deployment. However, they don't increase overall quota and shouldn't be considered a replacement for multi-backend or multi-instance designs that address high availability, resilience, or multitenant isolation.
 
 ## Multiple instances in a single region and a single subscription
 
@@ -142,7 +142,7 @@ Using a gateway with multiple instances in a single region and subscription lets
 
 One option a workload team has when provisioning is deciding whether the billing and throughput model is provisioned or standard. A cost optimization strategy to avoid waste through unused provisioned capacity is to slightly underprovision the provisioned instance and also deploy a standard instance alongside it. The goal with this topology is to have clients first consume all available pre-allocated throughput and then "burst" over to the standard deployment for overages. This form of planned failover benefits for the reason mentioned in the opening paragraph of this section: keeping this complexity out of client code.
 
-When a gateway is involved, it's in a unique position to capture details about all of the model deployments clients are interacting with. Although every instance can capture its own telemetry, doing so within the gateway lets the workload team publish telemetry and error responses across all consumed models to a single store, which makes unified dashboarding and alerting easier.
+When a gateway is involved, it's in a unique position to capture details about all of the model deployments clients are interacting with. Although every instance can capture its own telemetry, doing so within the gateway lets the workload team publish telemetry and error responses across all consumed models to a single store. This configuration makes unified dashboarding and alerting easier.
 
 #### Tips for the multiple instances in a single region and single subscription topology
 
@@ -274,7 +274,7 @@ Because this topology introduces a single point of failure (the gateway), the ut
 
 ##### Active-passive variant
 
-This model can also be used to provide an active-passive approach to specifically handle regional failure of only the model host. In this mode, traffic normally flows from the gateway to the instance in the same region as the API Management service. That instance handles all expected traffic flow when there's not a regional failure. It can be provisioned or standard, depending on your preferred billing model. In the case of a regional failure of just that service, the gateway can redirect traffic to another region that has the model already deployed in a standard deployment.
+This model can also be used to provide an active-passive approach to specifically handle regional failure of only the model host. In this mode, traffic normally flows from the gateway to the instance in the same region as the API Management service. That instance handles all expected traffic flow when there's not a regional failure. It can be provisioned or standard, depending on your preferred billing model. If there's a regional failure of just that service, the gateway can redirect traffic to another region that has the model already deployed in a standard deployment.
 
 #### Use API Management (multi-region deployment)
 
@@ -287,7 +287,7 @@ API Management supports deploying an [instance to multiple Azure regions](/azure
 Policies such as routing and request handling logic are replicated to each individual gateway. All policy logic must have conditional logic in the policy to ensure that you're calling instances in the same region as the current gateway. For more information, see [Route API calls to regional back-end services](/azure/api-management/api-management-howto-deploy-multi-region#-route-api-calls-to-regional-backend-services). The gateway component then requires network line of sight only to instances in its own region, usually through private endpoints.
 
 > [!NOTE]
-> This topology doesn't have a global point of failure from a traffic handling perspective, but the architecture has a partial single point of failure in that the API Management control plane is only in a single region. Evaluate whether the control plane limitation might violate your business or mission-critical standards.
+> This topology doesn't have a global point of failure from a traffic handling perspective. However, the architecture has a partial single point of failure in that the API Management control plane is only in a single region. Evaluate whether the control plane limitation might violate your business or mission-critical standards.
 
 API Management offers out-of-the-box global fully qualified domain name (FQDN) routing based on lowest latency. Use this built-in performance-based functionality for active-active gateway deployments. This built-in functionality helps address performance and handles a regional gateway outage. The built-in global router also supports disaster recovery testing because you can simulate regions down to disabling individual gateways. Make sure clients respect the Time to Live (TTL) on the FQDN and have appropriate retry logic to handle a recent DNS failover.
 
@@ -316,7 +316,7 @@ The previous section addresses the availability of the gateway by providing an a
 #### Use a custom-coded gateway
 
 :::image type="complex" source="_images/multiple-regions-custom-active-active-and-active-passive-after.svg" alt-text="Architecture diagram of a client connecting to model-host instances in both West US and East US through a global load balancer. Custom gateways in each region can communicate with instances in the other region." lightbox="_images/multiple-regions-custom-active-active-and-active-passive-after.svg":::
-   An architecture diagram that shows a client connecting to two gateway compute instances, each labelled with the Azure Container Apps icon, after first passing through Azure Front Door or through DNS and Traffic Manager. The two gateway instances are each in their own resource groups called rg-gateway-westus and rg-gateway-eastus in the West US and East US region respectively. Each gateway has an arrow that points to an active private endpoint in the same region and a dashed arrow that points to a passive private endpoint in the other region. There are only two private endpoints, so each active endpoint is the other gateway's passive endpoint. Each private endpoint points to an active Foundry model in an instance in its own region. The private endpoint also points to a passive Foundry model in its own region.
+   An architecture diagram that shows a client connecting to two gateway compute instances, each labeled with the Azure Container Apps icon, after first passing through Azure Front Door or through DNS and Traffic Manager. The two gateway instances are each in their own resource groups called rg-gateway-westus and rg-gateway-eastus in the West US and East US region respectively. Each gateway has an arrow that points to an active private endpoint in the same region and a dashed arrow that points to a passive private endpoint in the other region. There are only two private endpoints, so each active endpoint is the other gateway's passive endpoint. Each private endpoint points to an active Foundry model in an instance in its own region. The private endpoint also points to a passive Foundry model in its own region.
 :::image-end:::
 
 If your per-gateway routing rules are too complex for your team to consider reasonable as API Management policies, you need to deploy and manage your own solution. This architecture must be a multi-region deployment of your gateway, with one highly available scale unit per region. You need to front those deployments with [Azure Front Door](/azure/frontdoor/) or [Azure Traffic Manager](/azure/traffic-manager/traffic-manager-overview), typically by using latency-based routing and appropriate health checks for gateway availability.
@@ -325,7 +325,7 @@ Use Azure Front Door if you require a web application firewall and public intern
 
 Place per-region resources that are used in your custom gateway in per-region resource groups. Doing so reduces the likelihood of a blast radius of a related regional outage affecting your ability to access the resource provider for your gateway resources in that region.
 
-You can also consider fronting your gateway logic implementation with API Management to get the other benefits of API Management, such as TLS, authentication, health check, or round-robin load balancing. Doing so shifts common API concerns out of custom code in your gateway and lets your gateway specifically address model instance and deployment routing.
+You can also consider fronting your gateway logic implementation with API Management to get the other benefits of API Management. These benefits include TLS, authentication, health check, and round-robin load balancing. This configuration shifts common API concerns out of custom code in your gateway and lets your gateway specifically address model instance and deployment routing.
 
 For data residency compliance, make sure each geopolitical boundary has its own isolated deployment of this architecture and that clients can only reach their authorized endpoint.
 
@@ -345,13 +345,13 @@ No matter which topology your workload needs, there are a few cross-cutting reco
 
 ### Stateful interactions
 
-When clients use stateful features, such as the Assistants API, you need to configure your gateway to pin a client to a specific back end during that interaction. You can accomplish this configuration by storing instance data in a cookie. In these scenarios, consider returning an API response like a `429` to a pinned client instead of redirecting it to a different back-end instance. Doing so allows the client to explicitly handle sudden inavailability rather than hiding it and being routed to a model instance that has no history.
+When clients use stateful features, such as the Assistants API, you need to configure your gateway to pin a client to a specific back end during that interaction. You can accomplish this configuration by storing instance data in a cookie. In these scenarios, consider returning an API response like a `429` to a pinned client instead of redirecting it to a different back-end instance. Doing so allows the client to explicitly handle sudden unavailability rather than hiding it and being routed to a model instance that has no history.
 
 ### Gateway health checks
 
 There are two health check perspectives to consider, regardless of topology.
 
-If your gateway is built around round-robining or strictly performing service-availability failover, you should have a way to take a back-end instance (or model) out of availability status. Many AI services don't provide a dedicated health check endpoint to preemptively determine whether instances are available to handle requests. You can send synthetic transactions through, but doing so consumes model capacity. Unless you have another reliable signal source for instance and model availability, your gateway should proabably assume that the back-end instance is available and handle `429`, `500`, and `503` HTTP status codes as a signal to circuit-break for future requests on that instance or model for a period of time. For throttling situations, always honor the data in the `Retry-After` header found in API responses for `429` response codes in your circuit breaking logic. If you're using API Management, evaluate using the [built-in circuit breaker](/azure/api-management/backends?tabs=bicep#circuit-breaker-preview) functionality.
+If your gateway is built around round-robining or strictly performing service-availability failover, you should have a way to take a back-end instance (or model) out of availability status. Many AI services don't provide a dedicated health check endpoint to preemptively determine whether instances are available to handle requests. You can send synthetic transactions through, but doing so consumes model capacity. Unless you have another reliable signal source for instance and model availability, your gateway should probably assume that the back-end instance is available and handle `429`, `500`, and `503` HTTP status codes as a signal to circuit-break for future requests on that instance or model for a period of time. For throttling situations, always honor the data in the `Retry-After` header found in API responses for `429` response codes in your circuit breaking logic. If you're using API Management, evaluate using the [built-in circuit breaker](/azure/api-management/backends?tabs=bicep#circuit-breaker-preview) functionality.
 
 Your clients or your workload operations team might want to have a health check exposed on your gateway for their own routing or introspection purposes. If you use API Management, the default `/status-0123456789abcdef` might not be detailed enough because it mostly addresses the API Management gateway instance, not your back ends. Consider adding a dedicated health check API that can return meaningful data to clients or observability systems on the availability of the gateway or specific routes in the gateway.
 
@@ -389,7 +389,7 @@ Although this consideration isn't specific to multiple back ends, each region's 
 
 ## Gateway implementations
 
-Azure doesn't provide a complete turnkey solution or reference architecture for building a gateway that's focused on routing traffic across multiple back ends. However, API Management is preferred because the service provides a PaaS-based solution that uses built in features such as back-end pools, circuit-breaking policies, and custom policies if needed. See [Overview of generative AI gateway capabilities in Azure API Management](/azure/api-management/genai-gateway-capabilities) to evaluate what's available in that service for your workload's multi-backend needs.
+Azure doesn't provide a complete turnkey solution or reference architecture for building a gateway that's focused on routing traffic across multiple back ends. However, API Management is preferred because the service provides a PaaS-based solution that uses built in features such as back-end pools, circuit-breaking policies, and custom policies if needed. To evaluate what's available in that service for your workload's multi-backend needs, see [Overview of generative AI gateway capabilities in Azure API Management](/azure/api-management/genai-gateway-capabilities) .
 
 Whether you use API Management or build a custom solution, as mentioned in the [introduction article](./azure-openai-gateway-guide.yml#implementation-options), your workload team must build and operate the gateway. The following examples cover some of the previously mentioned use cases. Consider referring to these samples when you build your own proof of concept with API Management or custom code.
 
