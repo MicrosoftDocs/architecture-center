@@ -1,8 +1,8 @@
 ---
 title: Azure for AWS Professionals
 description: Learn about the basics of the Microsoft Azure platform, accounts, and services. Discover key similarities and differences between the AWS and Azure platforms.
-author: splitfinity81
-ms.author: yubaijna
+author: lima8azure
+ms.author: lima8
 ms.date: 04/27/2026
 ms.topic: concept-article
 ms.subservice: architecture-guide
@@ -27,7 +27,7 @@ Use the table of contents to select the technology areas that are relevant to yo
 
 AWS and Azure build on a core set of AI, compute, storage, database, and networking services. In many cases, the platforms provide similar products and services. For example, both AWS and Azure can use Linux distributions and open-source software technologies. Both platforms support building highly available solutions on Windows or Linux hosts.
 
-The capabilities of both platforms are similar, but the resources that provide those capabilities are often organized differently. Azure and AWS built their capabilities independently over time, so the platforms have important implementation and design differences. For example, AWS relies heavily on its accounts to serve as a logical boundary for tasks like applying permissions or tracking spend. Azure uses subscriptions, which are similar to AWS accounts. .
+The capabilities of both platforms are similar, but the resources that provide those capabilities are often organized differently. Azure and AWS built their capabilities independently over time, so the platforms have important implementation and design differences. For example, AWS relies heavily on its accounts to serve as a logical boundary for tasks like applying permissions or tracking spend. Azure uses subscriptions, which are similar to AWS accounts.
 
 The services that each platform provide don't always clearly correspond. Sometimes, only one of the platforms provides a particular service. 
 
@@ -79,7 +79,7 @@ The preceding list doesn't include all services. The following tables describe s
 | :---------- | :------------ | :---------- |
 | [AWS IoT Core](https://aws.amazon.com/iot-core) | [Azure IoT Hub](https://azure.microsoft.com/services/iot-hub) | This service provides a cloud gateway for managing bidirectional communication more securely and at scale with billions of IoT devices. |
 | [AWS IoT Greengrass](https://aws.amazon.com/greengrass) | [Azure IoT Edge](https://azure.microsoft.com/services/iot-edge) | Use this service to deploy cloud intelligence directly onto IoT devices and cater to on-premises scenarios. |
-| [Amazon Data Firehose](https://aws.amazon.com/firehose/) and [Kinesis Data Streams](https://aws.amazon.com/kinesis/data-streams) | [Azure Event Hubs](https://azure.microsoft.com/services/event-hubs) <br/><br/>[Azure Stream Analytics](https://azure.microsoft.com/products/stream-analytics) <br/><br/>[Fabric Real-Time Intelligence ](https://www.microsoft.com/en-us/microsoft-fabric/features/real-time-intelligence) | These services facilitate the mass ingestion of events or messages, typically from devices and sensors. The data can then be processed in real-time microbatches or be written to storage for further analysis. Both Kinesis Data Streams and Stream Analytics have real-time data processing capabilities.|
+| [Amazon Data Firehose](https://aws.amazon.com/firehose/) and [Kinesis Data Streams](https://aws.amazon.com/kinesis/data-streams) | [Azure Event Hubs](https://azure.microsoft.com/services/event-hubs) <br/><br/>[Azure Stream Analytics](https://azure.microsoft.com/products/stream-analytics) <br/><br/>[Fabric Real-Time Intelligence ](https://www.microsoft.com/microsoft-fabric/features/real-time-intelligence) | These services facilitate the mass ingestion of events or messages, typically from devices and sensors. The data can then be processed in real-time microbatches or be written to storage for further analysis. Both Kinesis Data Streams and Stream Analytics have real-time data processing capabilities.|
 | [AWS IoT TwinMaker](https://aws.amazon.com/iot-twinmaker) | [Azure Digital Twins](https://azure.microsoft.com/services/digital-twins) | Use these services to create digital representations of real-world places, things, business processes, and people. Gain insights, drive the creation of better products and new customer experiences, and optimize operations and costs. |
 | [AWS IoT Device Management](https://aws.amazon.com/iot-device-management/)<br/><br/>[AWS IoT FleetWise](https://aws.amazon.com/iot-fleetwise/) | [Azure IoT Central](https://azure.microsoft.com/products/iot-central/) | Use these services to connect and manage IoT devices at scale. Use Azure IoT Central for general use cases and vehicle-based use cases. AWS provides IoT FleetWise specifically for vehicles.  |
 | [AWS IoT ExpressLink](https://aws.amazon.com/iot-expresslink/) | [Azure Sphere](/azure-sphere/product-overview/what-is-azure-sphere) | These services provide device modules and software that you can use to build custom internet-connected devices. |
