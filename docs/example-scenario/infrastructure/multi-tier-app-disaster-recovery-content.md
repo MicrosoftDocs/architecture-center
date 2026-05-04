@@ -139,7 +139,7 @@ Principal author:
 <!-- links -->
 
 [security]: /azure/security
-[docs-availability-zones]: /azure/well-architected/service-guides/azure-load-balancer/reliability
+[docs-availability-zones]: /azure/well-architected/service-guides/azure-load-balancer
 [docs-load-balancer]: /azure/well-architected/service-guides/azure-load-balancer
 [docs-nsg]: /azure/virtual-network/security-overview
 [docs-sql-always-on]: /sql/database-engine/availability-groups/windows/overview-of-always-on-availability-groups-sql-server

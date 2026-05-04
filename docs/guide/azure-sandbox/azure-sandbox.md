@@ -38,7 +38,7 @@ You can deploy each of the following sandbox configurations or only the configur
 
 - [Azure Firewall](/azure/well-architected/service-guides/azure-firewall) is a cloud-native firewall service that provides threat intelligence. In this architecture, it controls traffic between virtual networks and the internet, which enforces network segmentation and security policies across the sandbox environment.
 
-- [Azure SQL Database](/azure/well-architected/service-guides/azure-sql-database-well-architected-framework) is a fully managed relational database service. In this architecture, it demonstrates modern cloud-native database patterns and is accessed via private endpoints to simulate secure enterprise architectures.
+- [Azure SQL Database](/azure/well-architected/service-guides/azure-sql-database) is a fully managed relational database service. In this architecture, it demonstrates modern cloud-native database patterns and is accessed via private endpoints to simulate secure enterprise architectures.
 
 - [Azure Virtual WAN](/azure/virtual-wan/virtual-wan-about) is a networking service that provides secure remote connectivity. In this architecture, it provides point-to-site VPN access for developers and administrators who need full network connectivity to sandbox resources from remote locations.
 

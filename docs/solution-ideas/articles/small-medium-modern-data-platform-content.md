@@ -74,7 +74,7 @@ Tools that are used for governance, collaboration, security, performance, and co
 
 - [Azure Data Factory](/azure/data-factory/introduction) is a cloud-based data integration service that orchestrates and automates data movement and transformation. In this architecture, Azure Data Factory creates, schedules, and orchestrates data pipelines that move and transform data across various data stores and services.
 
-- [Azure Event Hubs](/azure/well-architected/service-guides/event-hubs) is a real-time data ingestion service that can process millions of events per second from any source. In this architecture, Event Hubs captures and streams large volumes of data from various sources to enable real-time analytics and event-driven processing.
+- [Azure Event Hubs](/azure/well-architected/service-guides/azure-event-hubs) is a real-time data ingestion service that can process millions of events per second from any source. In this architecture, Event Hubs captures and streams large volumes of data from various sources to enable real-time analytics and event-driven processing.
 
 - [Azure IoT Hub](/azure/well-architected/service-guides/iot-hub) is a managed service that improves security and reliable communication between Internet of Things (IoT) devices and the cloud. In this architecture, IoT Hub facilitates the ingestion, processing, and analysis of telemetry data from IoT devices to provide real-time insights and enable remote monitoring.
 
@@ -84,7 +84,7 @@ Tools that are used for governance, collaboration, security, performance, and co
 
   - [Microsoft Fabric Link](/power-apps/maker/data-platform/azure-synapse-link-view-in-fabric) is a data integration feature that connects Dynamics applications to Fabric. In this architecture, it replicates data from Dataverse to Fabric in near real time.
 
-- [Azure Databricks](/azure/well-architected/service-guides/azure-databricks-security) is an Apache Spark-based analytics platform for big data processing, machine learning, and data engineering. In this architecture, it performs data cleansing, transformation, and analysis by using medallion architecture layers.
+- [Azure Databricks](/azure/well-architected/service-guides/azure-databricks) is an Apache Spark-based analytics platform for big data processing, machine learning, and data engineering. In this architecture, it performs data cleansing, transformation, and analysis by using medallion architecture layers.
 
   - [Delta Lake](/azure/databricks/delta/) is an open-source storage layer that brings atomicity, consistency, isolation, and durability (ACID) transactions to Apache Spark and big data workloads. In this architecture, Delta Lake enhances data reliability and performance within the data lake.
 
