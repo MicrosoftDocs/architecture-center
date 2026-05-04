@@ -274,9 +274,9 @@ Assume a week of data:
 
 Initial SLIs:
 
-- Availability = (123,204 / 123,456) = 99.8%
-- Requests served within 500 ms: 90%
-- Requests served within 1,000 ms: 98%
+- Availability = (123,204 / 123,456) = 99.8%.
+- Requests are served within 500 ms for 90% of calls.
+- Requests are served within 1,000 ms for 98% of calls.
 
 Compare log data to SLO targets to assess compliance.
 
@@ -336,4 +336,3 @@ Other contributor:
 - [Design to scale out](../../guide/design-principles/scale-out.md)
 - [Choose an Azure compute service for your application](../../guide/technology-choices/compute-decision-tree.md)
 - [Baseline web application with zone redundancy](../../web-apps/app-service/architectures/baseline-zone-redundant.yml)
-
