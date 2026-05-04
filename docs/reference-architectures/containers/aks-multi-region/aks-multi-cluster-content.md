@@ -35,7 +35,7 @@ You can also optionally use a fleet for workload deployment coordination, which 
 
 This architecture uses two cloud design patterns:
 - [Geodes (geographical nodes)](../../../patterns/geodes.yml), where any region can service any request.
-- [Deployment Stamps](../../../patterns/deployment-stamp.yml), where multiple independent copies of an application or application component are deployed from a single source, such as a deployment template.
+- [Deployment Stamps](../../../patterns/deployment-stamp.md), where multiple independent copies of an application or application component are deployed from a single source, such as a deployment template.
 
 ### Geode pattern considerations
 

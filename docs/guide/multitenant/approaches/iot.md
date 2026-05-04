@@ -112,7 +112,7 @@ Azure IoT Central is an aPaaS offering, so some architectural decisions are outs
 
 - Azure IoT Central deployments use both control-plane and data-plane operations, and these operations combine declarative documents with imperative code.
 
-- The [maximum node limit](/azure/iot-central/core/howto-create-organizations#limits) and maximum tree depth in an Azure IoT Central-based multitenant pattern might require service providers to have multiple Azure IoT Central instances. In that case, consider the [Deployment Stamps pattern](../../../patterns/deployment-stamp.yml).
+- The [maximum node limit](/azure/iot-central/core/howto-create-organizations#limits) and maximum tree depth in an Azure IoT Central-based multitenant pattern might require service providers to have multiple Azure IoT Central instances. In that case, consider the [Deployment Stamps pattern](../../../patterns/deployment-stamp.md).
 
 - Azure IoT Central imposes [API call limits](/azure/iot-central/core/howto-query-with-rest-api#limits), which might affect large implementations.
 
@@ -148,7 +148,7 @@ The following table lists common patterns for multitenant IoT solutions. Each pa
 
 - The **tenancy model** that the pattern references, as described in [Multitenancy models](../considerations/tenancy-models.md)
 
-- The **deployment pattern**, which refers to a basic deployment with minimal deployment considerations, a [geode pattern](../../../patterns/geodes.yml), or a [deployment stamps pattern](../../../patterns/deployment-stamp.yml)
+- The **deployment pattern**, which refers to a basic deployment with minimal deployment considerations, a [geode pattern](../../../patterns/geodes.yml), or a [deployment stamps pattern](../../../patterns/deployment-stamp.md)
 
 | Pattern | Deployment target | Tenancy model | Deployment pattern |
 |---|---|---|---|
@@ -208,7 +208,7 @@ Because this model uses a shared multitenant data tier, you must implement row-l
 
 A common scalability approach is to [horizontally partition your solution](../considerations/tenancy-models.md#horizontally-partitioned-deployments). This approach uses a combination of shared components and tenant-specific components.
 
-Within an IoT solution, many components support horizontal partitioning. The horizontally partitioned subsystems are typically arranged by using a [deployment stamps pattern](../../../patterns/deployment-stamp.yml) that integrates with the greater solution.
+Within an IoT solution, many components support horizontal partitioning. The horizontally partitioned subsystems are typically arranged by using a [deployment stamps pattern](../../../patterns/deployment-stamp.md) that integrates with the greater solution.
 
 #### Example horizontal SaaS
 

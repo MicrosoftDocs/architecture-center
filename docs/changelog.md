@@ -2,7 +2,7 @@
 title: What's New in Azure Architecture Center
 description: New and updated articles in Azure Architecture Center
 author: claytonsiemens77
-ms.date: 04/20/2026
+ms.date: 04/27/2026
 ms.topic: whats-new
 ms.author: pnp
 ---
@@ -22,6 +22,7 @@ The following new and updated articles have recently been published in the Azure
 
 ### New articles
 
+- [DevSecOps on Azure Kubernetes Service (AKS)](./guide/devsecops/devsecops-on-aks.md)
 - [Compensating Transaction Pattern](./patterns/compensating-transaction.md)
 - [Choose a Microsoft Fabric Deployment Pattern](./data-guide/technology-choices/fabric-deployment-patterns.md)
 - [Azure Managed Redis Considerations for Multitenancy](./guide/multitenant/service/managed-redis.md)
@@ -34,12 +35,19 @@ The following new and updated articles have recently been published in the Azure
 
 ### Updated articles
 
+- [Choose a Compute Option for Microservices](./microservices/design/compute-options.md) ([#f49969249a](https://github.com/MicrosoftDocs/architecture-center/commit/f49969249a))
+- [Certificate Life Cycle Management on Azure](./example-scenario/certificate-lifecycle/index.yml) ([#14780ebb63](https://github.com/MicrosoftDocs/architecture-center/commit/14780ebb63))
 - [Event Sourcing Pattern](./patterns/event-sourcing.md) ([#98b54d03c5](https://github.com/MicrosoftDocs/architecture-center/commit/98b54d03c5))
 - [Basic Enterprise Integration on Azure](./reference-architectures/enterprise-integration/basic-enterprise-integration.yml) ([#0080b7d526](https://github.com/MicrosoftDocs/architecture-center/commit/0080b7d526))
 - [Hub-Spoke Network Topology in Azure](./networking/architecture/hub-spoke.yml) ([#3276a5fb52](https://github.com/MicrosoftDocs/architecture-center/commit/3276a5fb52))
 - [Deploy Highly Available NVAs](./networking/guide/network-virtual-appliance-high-availability.md) ([#11e7e0144a](https://github.com/MicrosoftDocs/architecture-center/commit/11e7e0144a))
 - [Multitier Web Application Built for High Availability and Disaster Recovery](./example-scenario/infrastructure/multi-tier-app-disaster-recovery.yml) ([#dbd7c4c7af](https://github.com/MicrosoftDocs/architecture-center/commit/dbd7c4c7af))
 - [Real-Time Analytics with Azure Service Bus and Microsoft Fabric](./solution-ideas/articles/analytics-service-bus.yml) ([#756841f2f9](https://github.com/MicrosoftDocs/architecture-center/commit/756841f2f9))
+- [Azure Sandbox](./guide/azure-sandbox/azure-sandbox.md) ([#8081f8a148](https://github.com/MicrosoftDocs/architecture-center/commit/8081f8a148))
+- [Manage Virtual Machine Compliance](./example-scenario/security/virtual-machine-compliance.yml) ([#da459c6ece](https://github.com/MicrosoftDocs/architecture-center/commit/da459c6ece))
+- [Azure Load Testing with Custom Plugins for Event Hubs and IoT Hub to Simulate Device Behaviors](./guide/testing/load-testing/load-testing-with-custom-plugins.md) ([#ba36dd602b](https://github.com/MicrosoftDocs/architecture-center/commit/ba36dd602b))
+- [Choose a Natural Language Processing Technology](./data-guide/technology-choices/natural-language-processing.md) ([#0668aa4608](https://github.com/MicrosoftDocs/architecture-center/commit/0668aa4608))
+- [What Is a Data Lake?](./data-guide/scenarios/data-lake.md) ([#a8f1b8cf8a](https://github.com/MicrosoftDocs/architecture-center/commit/a8f1b8cf8a))
 - [Asynchronous Request-Reply Pattern](./patterns/asynchronous-request-reply.md) ([#d68d9c0623](https://github.com/MicrosoftDocs/architecture-center/commit/d68d9c0623))
 - [Windows 365 Azure Network Connection](./virtual-desktop/windows-365-azure-network-connection.md) ([#d8eae64191](https://github.com/MicrosoftDocs/architecture-center/commit/d8eae64191))
 - [Technology Choices for Azure Solutions](./guide/technology-choices/technology-choices-overview.md) ([#6c8fbab22c](https://github.com/MicrosoftDocs/architecture-center/commit/6c8fbab22c))
@@ -154,7 +162,7 @@ The following new and updated articles have recently been published in the Azure
 - [Azure AI Video Processing Guide](./data-guide/ai-services/image-video-processing.md) ([#75c2c315fe](https://github.com/MicrosoftDocs/architecture-center/commit/75c2c315fe))
 - [Choose an Azure Speech Recognition and Generation Technology](./data-guide/ai-services/speech-recognition-generation.md) ([#75c2c315fe](https://github.com/MicrosoftDocs/architecture-center/commit/75c2c315fe))
 - [Choose an Azure AI Targeted Language Processing Technology](./data-guide/ai-services/targeted-language-processing.md) ([#75c2c315fe](https://github.com/MicrosoftDocs/architecture-center/commit/75c2c315fe))
-- [Natural Language Processing Technology](./data-guide/technology-choices/natural-language-processing.md) ([#75c2c315fe](https://github.com/MicrosoftDocs/architecture-center/commit/75c2c315fe))
+- [Choose a Natural Language Processing Technology](./data-guide/technology-choices/natural-language-processing.md) ([#75c2c315fe](https://github.com/MicrosoftDocs/architecture-center/commit/75c2c315fe))
 - [Modernize Mainframe and Midrange Data](./example-scenario/mainframe/modernize-mainframe-data-to-azure.yml) ([#fdda686f6e](https://github.com/MicrosoftDocs/architecture-center/commit/fdda686f6e))
 - [Data analytics for automotive test fleets](./industries/automotive/automotive-telemetry-analytics.yml) ([#fdda686f6e](https://github.com/MicrosoftDocs/architecture-center/commit/fdda686f6e))
 - [Choose an Azure Service for Vector Search](./guide/technology-choices/vector-search.md) ([#f6aec4437d](https://github.com/MicrosoftDocs/architecture-center/commit/f6aec4437d))

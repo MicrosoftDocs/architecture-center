@@ -127,7 +127,7 @@ Regardless of the platform that you use to host your API, consider using [Azure 
 
 - A centralized point for all [authentication](/azure/api-management/api-management-access-restriction-policies), which might include determining the tenant identifier from a token claim or other request metadata.
 
-- [Routing requests to different API back ends](/azure/api-management/set-backend-service-policy), which might be based on the request's tenant identifier. This routing can be helpful when you host multiple [deployment stamps](../../../patterns/deployment-stamp.yml) with their own independent API applications, but you need to have a single API URL for all requests.
+- [Routing requests to different API back ends](/azure/api-management/set-backend-service-policy), which might be based on the request's tenant identifier. This routing can be helpful when you host multiple [deployment stamps](../../../patterns/deployment-stamp.md) with their own independent API applications, but you need to have a single API URL for all requests.
 
 ## Networking and multitenancy
 
@@ -158,7 +158,7 @@ However, in some multitenant solutions, the number of outbound connections to di
 
 - Use [service endpoints](/azure/virtual-network/virtual-network-service-endpoints-overview) when you connect to Azure services to bypass load balancer limits.
 
-Even with these controls in place, you might approach limits with a large number of tenants, so you should plan to scale to extra App Service plans or [deployment stamps](../../../patterns/deployment-stamp.yml).
+Even with these controls in place, you might approach limits with a large number of tenants, so you should plan to scale to extra App Service plans or [deployment stamps](../../../patterns/deployment-stamp.md).
 
 ## Contributors
 

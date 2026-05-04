@@ -430,15 +430,12 @@ items:
     href: patterns/cqrs.md
   - name: Deployment Stamps
     displayName: Scale units, cell-based architecture
-    href: patterns/deployment-stamp.yml
-  - name: Edge Workload Configuration
-    displayName: IoT, device configuration
-    href: patterns/edge-workload-configuration.md
+    href: patterns/deployment-stamp.md
   - name: Event Sourcing
     displayName: Event store, append-only, audit trail
     href: patterns/event-sourcing.md
   - name: External Configuration Store
-    href: patterns/external-configuration-store.yml
+    href: patterns/external-configuration-store.md
   - name: Federated Identity
     displayName: Single sign-on, SSO
     href: patterns/federated-identity.yml
@@ -753,7 +750,7 @@ items:
           items:
           - name: Access an AKS API server
             displayName: Azure Kubernetes Service
-            href: guide/security/access-azure-kubernetes-service-cluster-api-server.yml
+            href: /security/access-azure-kubernetes-service-cluster-api-server.md
           - name: AKS day-2 operations guide
             items:
             - name: Introduction
@@ -1106,7 +1103,7 @@ items:
         href: guide/iot/scale-iot-solution-azure.md
       - name: Move IoT Hub solutions to production
         displayName: Internet of Things
-        href: example-scenario/iot/iot-move-to-production.yml
+        href: example-scenario/iot/iot-move-to-production.md
       - name: Multitenant IoT Hub-based solutions
         displayName: Internet of Things
         href: guide/multitenant/approaches/iot.md
@@ -1205,7 +1202,7 @@ items:
   - name: Security
     items:
     - name: Get started
-      href: guide/security/security-start-here.yml
+      href: security/security-get-started.md
     - name: Guides
       items:
       - name: Virtual Network security options

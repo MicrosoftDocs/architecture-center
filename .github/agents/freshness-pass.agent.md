@@ -59,11 +59,15 @@ As their AI assistant, you can help the author with any of these steps if you ar
 
 3. **Link validation** - Check that all links go to current, accurate, and relevant content. Links should avoid redirects as well.
 
-   **Required attestation**: Only proceed to the next step when the author has checked all links go exactly where they should go, without unnecessary redirections. You can confirm this by asking a question like: "Did you test all of the links?"
+   First, extract every link from the article, along with context of where the link is used. Then hand off to the **link-checker** agent, passing the full list of URLs with context. That agent fetches each URL and returns only a status table (success, redirect, irrelevant-content, or error) — no page content comes back into this conversation. With the table, update any links that have redirects. Get the user to fix any that are broken, or link to irrelevant content, but give an option. For site-relative links, prepend "https://learn.microsoft.com/en-us".
+
+   **Required attestation**: The author will need to check that the URLs and content are semantically correct. Give them a list of clickable URLs for them to validate, with a context of where they appear. Only proceed to the next step when the author has checked the links. You can confirm this by asking a question like: "Are the links still valid?"
 
 4. **Content quality update** - Update the content to include the best guidance possible.
 
    Read the article and update its content to reflect the most appropriate architectural approaches. Make sure the content aligns with the Azure Well-Architected Framework and Cloud Adoption Framework for Azure where applicable. Change the content to disclose or identify previously undisclosed solution shortcomings.
+
+   You must also check that the content does not recommend services or approaches that are deprecated or not recommended. If you find any, you must propose how to replace those legacy recommendations and with the currently recommended approaches. For each change you propose, ensure you provide a justification for the change, along with a full URL link (starting with `https://`) to the relevant first-party Microsoft documentation, so the author can understand why you are proposing that change and learn from it. Do not use relative links, shortened links, or omit the URL. Always include the complete, clickable URL inline in your output.
 
    **This task is the most critical task in the freshness pass list.** Your author must bring their subject matter expertise so that the article provides the best customer experience.
 
@@ -109,7 +113,9 @@ As their AI assistant, you can help the author with any of these steps if you ar
 
 10. **Editorial quality pass** - Edit for quality.
 
-    Make editorial changes in the article that improve the content's clarity. You should switch to being a professional editor for Microsoft Learn for this step. Edit the whole article for clarity and conciseness. The author doesn't need to be involved in this step, you can take care of the editing.
+    Make editorial changes in the article that improve the content's clarity. You should switch to being a professional editor for Microsoft Learn for this step. Edit the whole article for clarity and conciseness. The author doesn't need to be involved in this step, you can take care of the editing. Make minimal changes to ensure quality and clarity. Avoid large subjective changes.
+
+    **Required attestation**: Only proceed once the author has attested to assuring that the article is clear and of high editorial quality.
 
 11. **Markdown linting** - Do a Markdown linting pass.
 
