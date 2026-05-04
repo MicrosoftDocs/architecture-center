@@ -9,7 +9,7 @@ This article describes a container-based architecture for hosting a large, stora
 *Download a [Visio file](https://arch-center.azureedge.net/azure-wordpress-container.vsdx) of this architecture.*
 
 > [!NOTE]
-> You can extend this solution with recommendations that apply to any WordPress hosting method. For general WordPress deployment guidance, see [WordPress on Azure](../../guide/infrastructure/wordpress-overview.yml).
+> You can extend this solution by implementing recommendations that apply to any WordPress hosting method. For general WordPress deployment guidance, see [WordPress on Azure](../../guide/infrastructure/wordpress-overview.yml).
 
 ### Data flow
 
@@ -86,7 +86,7 @@ Consider the following recommendations when you deploy this solution:
 
 - Replicate Azure NetApp Files storage between paired regions to increase availability. For more information, see [Azure NetApp Files replication](/azure/azure-netapp-files/replication).
 
-- Follow [high availability options](/azure/mysql/flexible-server/concepts-high-availability) that meet your needs to increase Azure Database for MySQL availability.
+- Implement [high availability options](/azure/mysql/flexible-server/concepts-high-availability) that meet your needs to increase Azure Database for MySQL availability.
 
 - The architecture supports multiregion deployment, data replication, and autoscaling. Health probes ensure that only healthy pods receive traffic.
 
@@ -120,7 +120,7 @@ Review the following cost considerations when you deploy this solution:
 
 - **Static versus dynamic content:** Monitor your database storage performance and capacity to determine whether a lower-cost SKU supports your site. The database stores dynamic content, and the content delivery network caches static content.
 
-- **AKS cluster optimization:** Follow general tips for AKS, such as guidance about virtual machine size and Azure reservations, to optimize your AKS cluster costs. For more information, see [AKS Cost Optimization](/azure/well-architected/service-guides/azure-kubernetes-service#cost-optimization).
+- **AKS cluster optimization:** Follow general guidance for AKS, such as guidance about virtual machine size and Azure reservations, to optimize your AKS cluster costs. For more information, see [AKS Cost Optimization](/azure/well-architected/service-guides/azure-kubernetes-service#cost-optimization).
 
 ### Operational Excellence
 

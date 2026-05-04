@@ -3,7 +3,7 @@ This article describes an architecture for small to medium-sized WordPress insta
 ## Architecture
 
 :::image type="complex" border="false" source="media/wordpress-app-service.svg" alt-text="Architecture diagram of WordPress on App Service. Azure Front Door routes traffic to web apps. Azure Database for MySQL stores dynamic content." lightbox="media/wordpress-app-service.svg":::
-   On the left, an arrow points from the internet to Azure Front Door with Azure Web Application Firewall. An arrow labeled static web content points from Azure Blob Storage in the storage account section to Azure Front Door with Azure Web Application Firewall. An arrow points from Azure Front Door with Azure Web Application Firewall and splits into three arrows that point to the App Service plan and web app instances. The arrows converge back into one arrow and point to the private endpoint. An arrow points from the private endpoint to Azure Database for MySQL flexible server (primary). An arrow points from the primary server to premium storage. A dashed arrow labeled locally redundant synchronous replication of data and logs points from the primary server's premium storage to the standby server's premium storage. An arrow points from Azure Database for MySQL flexible server standby to its premium storage. At the top, a dashed arrow labeled linked points from the private DNS zone to the virtual network.
+   On the left, an arrow points from the internet to Azure Front Door with Azure Web Application Firewall. A dashed arrow labeled static web content points from Azure Blob Storage in the storage account section to Azure Front Door with Azure Web Application Firewall. An arrow points from Azure Front Door with Azure Web Application Firewall and splits into three arrows that point to the App Service plan and web app instances. The arrows converge back into one arrow and point to the private endpoint. An arrow points from the private endpoint to Azure Database for MySQL flexible server (primary). An arrow points from the primary server to premium storage. A dashed arrow labeled locally redundant synchronous replication of data and logs points from the primary server's premium storage to the standby server's premium storage. An arrow points from Azure Database for MySQL flexible server (standby) to its premium storage. At the top, a dashed arrow labeled linked points from the private DNS zone to the virtual network.
 :::image-end:::
 
 *Download a [Visio file](https://arch-center.azureedge.net/azure-wordpress-app-service.vsdx) of this architecture.*
@@ -110,11 +110,11 @@ Review the following cost considerations when you deploy this solution:
 
 - **Hosted data:** Consider the data that you host in Blob Storage. Storage pricing depends on used capacity.
 
-- **Write percentage:** Consider how much new data that you write to your website and host in Storage. Determine whether you need new data. For multiregion deployments, the new data that you write to your website correlates with the data that replicates across your regions.
+- **Write percentage:** Consider how much new data you write to your website and host in Storage. Determine whether you need new data. For multiregion deployments, the new data that you write to your website correlates with the data that replicates across your regions.
 
 - **Static versus dynamic content:** Monitor your database storage performance and capacity to determine whether a lower-cost SKU supports your site. The database stores dynamic content, and Azure Front Door caches static content.
 
-- **App Service optimization:** For more information about how to optimize App Service costs, see [Cost optimization](/azure/well-architected/service-guides/app-service-web-apps#cost-optimization).
+- **App Service optimization:** For more information about how to optimize App Service costs, see [Cost Optimization](/azure/well-architected/service-guides/app-service-web-apps#cost-optimization).
 
 ### Operational Excellence
 
