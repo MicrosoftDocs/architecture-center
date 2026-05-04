@@ -21,6 +21,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "docs/guide/security/access-azure-kubernetes-service-cluster-api-server.yml",
+      "redirect_url": "/azure/architecture/security/access-azure-kubernetes-service-cluster-api-server",
+      "redirect_document_id": true
+    },
+    {
       "source_path": "docs/example-scenario/hybrid/public-multi-access-edge-compute-deployment.yml",
       "redirect_url": "https://www.microsoft.com/industry/telecommunications/",
       "redirect_document_id": false
@@ -154,6 +159,11 @@
       "source_path": "docs/example-scenario/ai/predict-hospital-readmissions-machine-learning.yml",
       "redirect_url": "/industry/healthcare/index",
       "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/analytics/architecture/fabric-deployment-patterns.yml",
+      "redirect_url": "/azure/architecture/data-guide/technology-choices/fabric-deployment-patterns",
+      "redirect_document_id": true
     },
     {
       "source_path": "docs/aws-professional/services.md",
@@ -603,7 +613,7 @@
     },
     {
       "source_path": "docs/topics/high-performance-computing/index.md",
-      "redirect_url": "/azure/architecture/topics/high-performance-computing",
+      "redirect_url": "/azure/architecture/guide/compute/high-performance-computing",
       "redirect_document_id": true
     },
     {
@@ -3329,7 +3339,7 @@
       "redirect_document_id": true
     },
     {
-    "source_path": "docs/example-scenario/hybrid/aks-network.yml",
+      "source_path": "docs/example-scenario/hybrid/aks-network.yml",
       "redirect_url": "/azure/aks/aksarc/aks-hci-network-system-requirements",
       "redirect_document_id": false
     },
@@ -3559,6 +3569,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "docs/guide/technology-choices/service-for-java-comparison.yml",
+      "redirect_url": "/azure/architecture/guide/technology-choices/compute-decision-tree",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "docs/reference-architectures/apis/protect-apis.yml",
       "redirect_url": "/azure/architecture/web-apps/api-management/architectures/protect-apis",
       "redirect_document_id": true
@@ -3572,6 +3587,11 @@
       "source_path": "docs/reference-architectures/app-service-web-app/app-monitoring.yml",
       "redirect_url": "/azure/architecture/web-apps/guides/monitoring/app-monitoring",
       "redirect_document_id": true
+    },
+    {
+      "source_path": "docs/example-scenario/mainframe/migrate-unisys-dorado-mainframe-apps-with-astadia-micro-focus.yml",
+      "redirect_url": "/azure/architecture/example-scenario/mainframe/general-mainframe-refactor",
+      "redirect_document_id": false
     },
     {
       "source_path": "docs/reference-architectures/reliable-web-app/dotnet/pattern-overview.yml",
@@ -3774,6 +3794,11 @@
       "redirect_document_id": true
     },
     {
+      "source_path": "docs/patterns/edge-workload-configuration.md",
+      "redirect_url": "/azure/architecture/patterns/external-configuration-store",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "docs/solution-ideas/articles/machine-learning-model-deployment-aks.yml",
       "redirect_url": "/azure/architecture/ai-ml/idea/machine-learning-model-deployment-aks",
       "redirect_document_id": true
@@ -3906,7 +3931,7 @@
     {
       "source_path": "docs/guide/multitenant/approaches/ai-ml.md",
       "redirect_url": "/azure/architecture/guide/multitenant/approaches/ai-machine-learning",
-      "redirect_document_id": false  
+      "redirect_document_id": false
     },
     {
       "source_path": "docs/solution-ideas/articles/application-integration-using-event-grid.yml",
@@ -4018,7 +4043,7 @@
       "redirect_url": "/azure/architecture/ai-ml/idea/multi-modal-content-processing",
       "redirect_document_id": false
     },
-    {  
+    {
       "source_path": "docs//data-guide/big-data/baseball-ml-workload.yml",
       "redirect_url": "/azure/architecture/ai-ml/",
       "redirect_document_id": false
@@ -4536,7 +4561,7 @@
     {
       "source_path": "docs/reference-architectures/sap/hana-large-instances.yml",
       "redirect_url": "/azure/azure-large-instances/what-is-azure-large-instances",
-      "redirect_document_id": false  
+      "redirect_document_id": false
     },
     {
       "source_path": "docs/data-guide/scenarios/time-series.yml",
@@ -5659,37 +5684,37 @@
     },
     {
       "source_path": "docs/guide/hpc/hpc-deployments.md",
-      "redirect_url": "/azure/architecture/topics/high-performance-computing",
+      "redirect_url": "/azure/architecture/guide/compute/high-performance-computing",
       "redirect_document_id": false
     },
     {
       "source_path": "docs/guide/hpc/hpc-ads-cfd.yml",
-      "redirect_url": "/azure/architecture/topics/high-performance-computing",
+      "redirect_url": "/azure/architecture/guide/compute/high-performance-computing",
       "redirect_document_id": false
     },
     {
       "source_path": "docs/guide/hpc/hpc-autodesk-revit.yml",
-      "redirect_url": "/azure/architecture/topics/high-performance-computing",
+      "redirect_url": "/azure/architecture/guide/compute/high-performance-computing",
       "redirect_document_id": false
     },
     {
       "source_path": "docs/guide/hpc/altair-edem.yml",
-      "redirect_url": "/azure/architecture/topics/high-performance-computing",
+      "redirect_url": "/azure/architecture/guide/compute/high-performance-computing",
       "redirect_document_id": false
     },
     {
       "source_path": "docs/guide/hpc/nanofluidx.yml",
-      "redirect_url": "/azure/architecture/topics/high-performance-computing",
+      "redirect_url": "/azure/architecture/guide/compute/high-performance-computing",
       "redirect_document_id": false
     },
     {
       "source_path": "docs/guide/hpc/altair-radioss.yml",
-      "redirect_url": "/azure/architecture/topics/high-performance-computing",
+      "redirect_url": "/azure/architecture/guide/compute/high-performance-computing",
       "redirect_document_id": false
     },
     {
       "source_path": "docs/guide/hpc/ultrafluidx.yml",
-      "redirect_url": "/azure/architecture/topics/high-performance-computing",
+      "redirect_url": "/azure/architecture/guide/compute/high-performance-computing",
       "redirect_document_id": false
     },
     {
@@ -5699,7 +5724,7 @@
     },
     {
       "source_path": "docs/guide/hpc/ansys-cfx.yml",
-      "redirect_url": "/azure/architecture/topics/high-performance-computing",
+      "redirect_url": "/azure/architecture/guide/compute/high-performance-computing",
       "redirect_document_id": false
     },
     {
@@ -5714,17 +5739,17 @@
     },
     {
       "source_path": "docs/guide/hpc/ansys-fluent.yml",
-      "redirect_url": "/azure/architecture/topics/high-performance-computing",
+      "redirect_url": "/azure/architecture/guide/compute/high-performance-computing",
       "redirect_document_id": false
     },
     {
       "source_path": "docs/guide/hpc/ansys-hfss.yml",
-      "redirect_url": "/azure/architecture/topics/high-performance-computing",
+      "redirect_url": "/azure/architecture/guide/compute/high-performance-computing",
       "redirect_document_id": false
     },
     {
       "source_path": "docs/guide/hpc/ls-dyna.yml",
-      "redirect_url": "/azure/architecture/topics/high-performance-computing",
+      "redirect_url": "/azure/architecture/guide/compute/high-performance-computing",
       "redirect_document_id": false
     },
     {
@@ -5734,17 +5759,17 @@
     },
     {
       "source_path": "docs/guide/hpc/ansys-rocky.yml",
-      "redirect_url": "/azure/architecture/topics/high-performance-computing",
+      "redirect_url": "/azure/architecture/guide/compute/high-performance-computing",
       "redirect_document_id": false
     },
     {
       "source_path": "docs/guide/hpc/ansys-speos.yml",
-      "redirect_url": "/azure/architecture/topics/high-performance-computing",
+      "redirect_url": "/azure/architecture/guide/compute/high-performance-computing",
       "redirect_document_id": false
     },
     {
       "source_path": "docs/guide/hpc/civil-3d.yml",
-      "redirect_url": "/azure/architecture/topics/high-performance-computing",
+      "redirect_url": "/azure/architecture/guide/compute/high-performance-computing",
       "redirect_document_id": false
     },
     {
@@ -5754,32 +5779,32 @@
     },
     {
       "source_path": "docs/guide/hpc/autodesk-inventor.yml",
-      "redirect_url": "/azure/architecture/topics/high-performance-computing",
+      "redirect_url": "/azure/architecture/guide/compute/high-performance-computing",
       "redirect_document_id": false
     },
     {
       "source_path": "docs/guide/hpc/autodesk-maya.yml",
-      "redirect_url": "/azure/architecture/topics/high-performance-computing",
+      "redirect_url": "/azure/architecture/guide/compute/high-performance-computing",
       "redirect_document_id": false
     },
     {
       "source_path": "docs/guide/hpc/hpc-autodesk-vred.md",
-      "redirect_url": "/azure/architecture/topics/high-performance-computing",
+      "redirect_url": "/azure/architecture/guide/compute/high-performance-computing",
       "redirect_document_id": false
     },
     {
       "source_path": "docs/guide/hpc/autodesk-vred-core.yml",
-      "redirect_url": "/azure/architecture/topics/high-performance-computing",
+      "redirect_url": "/azure/architecture/guide/compute/high-performance-computing",
       "redirect_document_id": false
     },
     {
       "source_path": "docs/guide/hpc/hpc-avl-fire-m.yml",
-      "redirect_url": "/azure/architecture/topics/high-performance-computing",
+      "redirect_url": "/azure/architecture/guide/compute/high-performance-computing",
       "redirect_document_id": false
     },
     {
       "source_path": "docs/guide/hpc/barracuda-virtual-reactor.yml",
-      "redirect_url": "/azure/architecture/topics/high-performance-computing",
+      "redirect_url": "/azure/architecture/guide/compute/high-performance-computing",
       "redirect_document_id": false
     },
     {
@@ -5792,9 +5817,9 @@
       "redirect_url": "/azure/?product=mixed-reality",
       "redirect_document_id": false
     },
-    {   
+    {
       "source_path": "docs/guide/hpc/cp2k.yml",
-      "redirect_url": "/azure/architecture/topics/high-performance-computing",
+      "redirect_url": "/azure/architecture/guide/compute/high-performance-computing",
       "redirect_document_id": false
     },
     {
@@ -5804,142 +5829,142 @@
     },
     {
       "source_path": "docs/guide/hpc/devito-virtual-machine.yml",
-      "redirect_url": "/azure/architecture/topics/high-performance-computing",
+      "redirect_url": "/azure/architecture/guide/compute/high-performance-computing",
       "redirect_document_id": false
     },
     {
       "source_path": "docs/guide/hpc/engys-elements.yml",
-      "redirect_url": "/azure/architecture/topics/high-performance-computing",
+      "redirect_url": "/azure/architecture/guide/compute/high-performance-computing",
       "redirect_document_id": false
     },
     {
       "source_path": "docs/guide/hpc/engys-helyx.yml",
-      "redirect_url": "/azure/architecture/topics/high-performance-computing",
+      "redirect_url": "/azure/architecture/guide/compute/high-performance-computing",
       "redirect_document_id": false
     },
     {
       "source_path": "docs/guide/hpc/epilysis.yml",
-      "redirect_url": "/azure/architecture/topics/high-performance-computing",
+      "redirect_url": "/azure/architecture/guide/compute/high-performance-computing",
       "redirect_document_id": false
     },
     {
       "source_path": "docs/guide/hpc/gromacs.yml",
-      "redirect_url": "/azure/architecture/topics/high-performance-computing",
+      "redirect_url": "/azure/architecture/guide/compute/high-performance-computing",
       "redirect_document_id": false
     },
     {
       "source_path": "docs/guide/hpc/indica-labs-halo-ai.yml",
-      "redirect_url": "/azure/architecture/topics/high-performance-computing",
+      "redirect_url": "/azure/architecture/guide/compute/high-performance-computing",
       "redirect_document_id": false
     },
     {
       "source_path": "docs/guide/hpc/hpc-lammps.yml",
-      "redirect_url": "/azure/architecture/topics/high-performance-computing",
+      "redirect_url": "/azure/architecture/guide/compute/high-performance-computing",
       "redirect_document_id": false
     },
     {
       "source_path": "docs/guide/hpc/luxion-keyshot.yml",
-      "redirect_url": "/azure/architecture/topics/high-performance-computing",
+      "redirect_url": "/azure/architecture/guide/compute/high-performance-computing",
       "redirect_document_id": false
     },
     {
       "source_path": "docs/guide/hpc/m-star.yml",
-      "redirect_url": "/azure/architecture/topics/high-performance-computing",
+      "redirect_url": "/azure/architecture/guide/compute/high-performance-computing",
       "redirect_document_id": false
     },
     {
       "source_path": "docs/guide/hpc/hpc-namd.yml",
-      "redirect_url": "/azure/architecture/topics/high-performance-computing",
+      "redirect_url": "/azure/architecture/guide/compute/high-performance-computing",
       "redirect_document_id": false
     },
     {
       "source_path": "docs/guide/hpc/openfoam.yml",
-      "redirect_url": "/azure/architecture/topics/high-performance-computing",
+      "redirect_url": "/azure/architecture/guide/compute/high-performance-computing",
       "redirect_document_id": false
     },
     {
       "source_path": "docs/guide/hpc/openradioss.yml",
-      "redirect_url": "/azure/architecture/topics/high-performance-computing",
+      "redirect_url": "/azure/architecture/guide/compute/high-performance-computing",
       "redirect_document_id": false
     },
     {
       "source_path": "docs/guide/hpc/pscad.yml",
-      "redirect_url": "/azure/architecture/topics/high-performance-computing",
+      "redirect_url": "/azure/architecture/guide/compute/high-performance-computing",
       "redirect_document_id": false
     },
     {
       "source_path": "docs/guide/hpc/quantum-espresso.yml",
-      "redirect_url": "/azure/architecture/topics/high-performance-computing",
+      "redirect_url": "/azure/architecture/guide/compute/high-performance-computing",
       "redirect_document_id": false
     },
     {
       "source_path": "docs/guide/hpc/remcom-xfdtd.yml",
-      "redirect_url": "/azure/architecture/topics/high-performance-computing",
+      "redirect_url": "/azure/architecture/guide/compute/high-performance-computing",
       "redirect_document_id": false
     },
     {
       "source_path": "docs/guide/hpc/samadii-dem.yml",
-      "redirect_url": "/azure/architecture/topics/high-performance-computing",
+      "redirect_url": "/azure/architecture/guide/compute/high-performance-computing",
       "redirect_document_id": false
     },
     {
       "source_path": "docs/guide/hpc/samadii-em.yml",
-      "redirect_url": "/azure/architecture/topics/high-performance-computing",
+      "redirect_url": "/azure/architecture/guide/compute/high-performance-computing",
       "redirect_document_id": false
     },
     {
       "source_path": "docs/guide/hpc/plasma.yml",
-      "redirect_url": "/azure/architecture/topics/high-performance-computing",
+      "redirect_url": "/azure/architecture/guide/compute/high-performance-computing",
       "redirect_document_id": false
     },
     {
       "source_path": "docs/guide/hpc/samadii-sciv.yml",
-      "redirect_url": "/azure/architecture/topics/high-performance-computing",
+      "redirect_url": "/azure/architecture/guide/compute/high-performance-computing",
       "redirect_document_id": false
     },
     {
       "source_path": "docs/guide/hpc/hpc-sandi-hifun.yml",
-      "redirect_url": "/azure/architecture/topics/high-performance-computing",
+      "redirect_url": "/azure/architecture/guide/compute/high-performance-computing",
       "redirect_document_id": false
     },
     {
       "source_path": "docs/guide/hpc/siemens-nx.yml",
-      "redirect_url": "/azure/architecture/topics/high-performance-computing",
+      "redirect_url": "/azure/architecture/guide/compute/high-performance-computing",
       "redirect_document_id": false
     },
     {
       "source_path": "docs/guide/hpc/siemens-tecnomatix.yml",
-      "redirect_url": "/azure/architecture/topics/high-performance-computing",
+      "redirect_url": "/azure/architecture/guide/compute/high-performance-computing",
       "redirect_document_id": false
     },
     {
       "source_path": "docs/guide/hpc/tnavigator.yml",
-      "redirect_url": "/azure/architecture/topics/high-performance-computing",
+      "redirect_url": "/azure/architecture/guide/compute/high-performance-computing",
       "redirect_document_id": false
     },
     {
       "source_path": "docs/guide/hpc/turbostream.yml",
-      "redirect_url": "/azure/architecture/topics/high-performance-computing",
+      "redirect_url": "/azure/architecture/guide/compute/high-performance-computing",
       "redirect_document_id": false
     },
     {
       "source_path": "docs/guide/hpc/visiopharm.yml",
-      "redirect_url": "/azure/architecture/topics/high-performance-computing",
+      "redirect_url": "/azure/architecture/guide/compute/high-performance-computing",
       "redirect_document_id": false
     },
     {
       "source_path": "docs/guide/hpc/weather-research-forecasting.yml",
-      "redirect_url": "/azure/architecture/topics/high-performance-computing",
+      "redirect_url": "/azure/architecture/guide/compute/high-performance-computing",
       "redirect_document_id": false
     },
     {
       "source_path": "docs/guide/hpc/tuflow-hpc.yml",
-      "redirect_url": "/azure/architecture/topics/high-performance-computing",
+      "redirect_url": "/azure/architecture/guide/compute/high-performance-computing",
       "redirect_document_id": false
     },
     {
       "source_path": "docs/guide/hpc/hpc-altair-acusolve.yml",
-      "redirect_url": "/azure/architecture/topics/high-performance-computing",
+      "redirect_url": "/azure/architecture/guide/compute/high-performance-computing",
       "redirect_document_id": false
     },
     {
@@ -5974,7 +5999,7 @@
     },
     {
       "source_path": "docs/example-scenario/infrastructure/image-modeling.yml",
-      "redirect_url": "/azure/architecture/topics/high-performance-computing",
+      "redirect_url": "/azure/architecture/guide/compute/high-performance-computing",
       "redirect_document_id": false
     },
     {
@@ -6054,7 +6079,7 @@
     },
     {
       "source_path": "docs/example-scenario/infrastructure/hpc-cfd.yml",
-      "redirect_url": "/azure/architecture/topics/high-performance-computing",
+      "redirect_url": "/azure/architecture/guide/compute/high-performance-computing",
       "redirect_document_id": false
     },
     {
@@ -6837,7 +6862,6 @@
       "redirect_url": "/azure/architecture/example-scenario/analytics/sync-mongodb-atlas-fabric-analytics",
       "redirect_document_id": false
     },
-    
     {
       "source_path": "docs/databases/architecture/azure-synapse-analytics-integrate-mongodb-atlas.yml",
       "redirect_url": "/azure/architecture/example-scenario/analytics/sync-mongodb-atlas-fabric-analytics",
@@ -6910,17 +6934,17 @@
     },
     {
       "source_path": "docs/example-scenario/infrastructure/reservoir-simulation.yml",
-      "redirect_url": "/azure/architecture/topics/high-performance-computing",
+      "redirect_url": "/azure/architecture/guide/compute/high-performance-computing",
       "redirect_document_id": false
     },
     {
       "source_path": "docs/solution-ideas/articles/azure-batch-rendering.yml",
-      "redirect_url": "/azure/architecture/topics/high-performance-computing",
+      "redirect_url": "/azure/architecture/guide/compute/high-performance-computing",
       "redirect_document_id": false
     },
     {
       "source_path": "docs/solution-ideas/articles/hpc-risk-analysis.yml",
-      "redirect_url": "/azure/architecture/topics/high-performance-computing",
+      "redirect_url": "/azure/architecture/guide/compute/high-performance-computing",
       "redirect_document_id": false
     },
     {
@@ -6930,7 +6954,7 @@
     },
     {
       "source_path": "docs/solution-ideas/articles/hybrid-hpc-in-azure-with-hpc-pack.yml",
-      "redirect_url": "/azure/architecture/topics/high-performance-computing",
+      "redirect_url": "/azure/architecture/guide/compute/high-performance-computing",
       "redirect_document_id": false
     },
     {
@@ -7543,7 +7567,7 @@
       "redirect_url": "/fabric/onelake/security/get-started-security",
       "redirect_document_id": false
     },
-    {  
+    {
       "source_path": "docs/ai-ml/guide/network-security-mlops.yml",
       "redirect_url": "/azure/machine-learning/how-to-secure-workspace-vnet",
       "redirect_document_id": false
@@ -7597,7 +7621,7 @@
       "source_path": "docs/example-scenario/apps/saas-starter-web-app.yml",
       "redirect_url": "/azure/architecture/guide/saas-multitenant-solution-architecture",
       "redirect_document_id": false
-    },  
+    },
     {
       "source_path": "docs/reference-architectures/containers/aks-pci/aks-pci-data.yml",
       "redirect_url": "/azure/aks/pci-data",
@@ -7623,7 +7647,7 @@
       "redirect_url": "/azure/data-factory/secure-your-azure-data-factory#backup-and-recovery",
       "redirect_document_id": false
     },
-    {      
+    {
       "source_path": "docs/reference-architectures/containers/aks-pci/aks-pci-monitor.yml",
       "redirect_url": "/azure/aks/pci-monitor",
       "redirect_document_id": false
@@ -7746,7 +7770,7 @@
     {
       "source_path": "docs/example-scenario/mainframe/refactor-mainframe-applications-astadia.yml",
       "redirect_url": "/azure/architecture/example-scenario/mainframe/general-mainframe-refactor",
-      "redirect_document_id": false      
+      "redirect_document_id": false
     },
     {
       "source_path": "docs/example-scenario/azure-virtual-desktop/azure-virtual-desktop.yml",
@@ -7761,14 +7785,14 @@
     {
       "source_path": "docs/example-scenario/mainframe/ibm-system-i-azure-infinite-i.yml",
       "redirect_url": "/azure/architecture/example-scenario/mainframe/general-mainframe-refactor",
-      "redirect_document_id": false      
+      "redirect_document_id": false
     },
     {
       "source_path": "docs/patterns/async-request-reply.yml",
       "redirect_url": "/azure/architecture/patterns/asynchronous-request-reply",
       "redirect_document_id": true
     },
-    {      
+    {
       "source_path": "docs/example-scenario/mainframe/refactor-mainframe-applications-advanced.yml",
       "redirect_url": "/azure/architecture/example-scenario/mainframe/general-mainframe-refactor",
       "redirect_document_id": false
@@ -7783,7 +7807,7 @@
       "redirect_url": "/azure/architecture/microservices/model/tactical-domain-driven-design",
       "redirect_document_id": false
     },
-    {      
+    {
       "source_path": "docs/solution-ideas/articles/analytics-start-here.yml",
       "redirect_url": "/azure/architecture/solution-ideas/articles/analytics-get-started",
       "redirect_document_id": false
@@ -7801,7 +7825,7 @@
     {
       "source_path": "docs/example-scenario/web/design-api-developer-experiences-management-github.yml",
       "redirect_url": "/azure/architecture/web-apps/api-management/architectures/protect-apis",
-      "redirect_document_id": false      
+      "redirect_document_id": false
     },
     {
       "source_path": "docs/solution-ideas/articles/container-get-started.md",
@@ -7812,6 +7836,11 @@
       "source_path": "docs/example-scenario/startups/core-startup-stack.yml",
       "redirect_url": "/azure/architecture/guide/startups/startup-architecture",
       "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/guide/security/security-start-here.yml",
+      "redirect_url": "/azure/architecture/security/security-get-started",
+      "redirect_document_id": true
     },
     {
       "source_path": "docs/guide/virtual-desktop/start-here.md",
@@ -7835,4 +7864,3 @@
     }
   ]
 }
-

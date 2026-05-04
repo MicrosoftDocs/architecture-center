@@ -253,7 +253,7 @@ The laboratory environment represents a simplified version of the architecture d
 
 Select **Deploy to Azure** to deploy only the SOC resource group in a production environment.
 
-[![Deploy to Azure](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/1-CONTRIBUTION-GUIDE/images/deploytoazure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fforensics%2Fmain%2F.armtemplate%2Fcoc-soc.json)
+[![Deploy to Azure](../../_images/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fforensics%2Fmain%2F.armtemplate%2Fcoc-soc.json)
 
 > [!NOTE]
 > If you deploy the solution in a production environment, make sure that the system-assigned managed identity of the Automation account has Contributor permissions in the production resource group of the target VM. The Contributor role creates snapshots.

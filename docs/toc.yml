@@ -192,11 +192,6 @@ items:
       - name: Asynchronous messaging
         href: guide/technology-choices/messaging.md
         displayName: queue comparison, event-driven, Service Bus, Event Hubs, Event Grid
-    - name: Development tools
-      items:
-      - name: Compare Java application hosting options
-        displayName: choose
-        href: guide/technology-choices/service-for-java-comparison.yml
   - name: Best practices for cloud applications
     items:
     - name: Overview
@@ -424,7 +419,7 @@ items:
     href: patterns/claim-check.yml
   - name: Compensating Transaction
     displayName: rollback, undo, eventual consistency
-    href: patterns/compensating-transaction.yml
+    href: patterns/compensating-transaction.md
   - name: Competing Consumers
     displayName: Worker pool, parallel message processing
     href: patterns/competing-consumers.md
@@ -435,15 +430,12 @@ items:
     href: patterns/cqrs.md
   - name: Deployment Stamps
     displayName: Scale units, cell-based architecture
-    href: patterns/deployment-stamp.yml
-  - name: Edge Workload Configuration
-    displayName: IoT, device configuration
-    href: patterns/edge-workload-configuration.md
+    href: patterns/deployment-stamp.md
   - name: Event Sourcing
     displayName: Event store, append-only, audit trail
     href: patterns/event-sourcing.md
   - name: External Configuration Store
-    href: patterns/external-configuration-store.yml
+    href: patterns/external-configuration-store.md
   - name: Federated Identity
     displayName: Single sign-on, SSO
     href: patterns/federated-identity.yml
@@ -533,6 +525,9 @@ items:
         - name: Batch processing
           displayName: choose
           href: data-guide/technology-choices/batch-processing.md
+        - name: Choose a Microsoft Fabric deployment pattern
+          displayName: choose, fabric
+          href: data-guide/technology-choices/fabric-deployment-patterns.md
         - name: Choose an analytical data store in Microsoft Fabric
           href: data-guide/technology-choices/fabric-analytical-data-stores.md
       - name: Disaster recovery for Azure data platform
@@ -660,8 +655,6 @@ items:
           href: mainframe/virtualization-of-unisys-clearpath-forward-os-2200-enterprise-server-on-azure.yml
         - name: Unisys ClearPath MCP virtualization on Azure
           href: example-scenario/mainframe/unisys-clearpath-forward-mainframe-rehost.yml
-        - name: Unisys Dorado migration
-          href: example-scenario/mainframe/migrate-unisys-dorado-mainframe-apps-with-astadia-micro-focus.yml
         - name: Unisys mainframe migration with Avanade AMT
           href: reference-architectures/migration/unisys-mainframe-migration.yml
     - name: SAP
@@ -757,7 +750,7 @@ items:
           items:
           - name: Access an AKS API server
             displayName: Azure Kubernetes Service
-            href: guide/security/access-azure-kubernetes-service-cluster-api-server.yml
+            href: /security/access-azure-kubernetes-service-cluster-api-server.md
           - name: AKS day-2 operations guide
             items:
             - name: Introduction
@@ -925,7 +918,7 @@ items:
       - name: Big data
         items:
         - name: Microsoft Fabric deployment patterns
-          href: analytics/architecture/fabric-deployment-patterns.yml
+          href: data-guide/technology-choices/fabric-deployment-patterns.md
     - name: Solution ideas
       items:
       - name: Relational
@@ -953,7 +946,7 @@ items:
         href: guide/azure-sandbox/azure-sandbox.md
       - name: DevSecOps on AKS
         displayName: Azure Kubernetes Service
-        href: guide/devsecops/devsecops-on-aks.yml
+        href: guide/devsecops/devsecops-on-aks.md
       - name: Use deployment scripts to check resource properties
         href: guide/devops/deployment-scripts-property-check.yml
     - name: Architectures
@@ -1110,7 +1103,7 @@ items:
         href: guide/iot/scale-iot-solution-azure.md
       - name: Move IoT Hub solutions to production
         displayName: Internet of Things
-        href: example-scenario/iot/iot-move-to-production.yml
+        href: example-scenario/iot/iot-move-to-production.md
       - name: Multitenant IoT Hub-based solutions
         displayName: Internet of Things
         href: guide/multitenant/approaches/iot.md
@@ -1209,7 +1202,7 @@ items:
   - name: Security
     items:
     - name: Get started
-      href: guide/security/security-start-here.yml
+      href: security/security-get-started.md
     - name: Guides
       items:
       - name: Virtual Network security options
@@ -1223,7 +1216,7 @@ items:
         href: ai-ml/architecture/secure-compute-for-research.yml
       - name: Computer forensics
         href: example-scenario/forensics/index.yml
-      - name: Certificate lifecycle management on Azure
+      - name: Certificate life cycle management on Azure
         href: example-scenario/certificate-lifecycle/index.yml
     - name: Solution ideas
       items:

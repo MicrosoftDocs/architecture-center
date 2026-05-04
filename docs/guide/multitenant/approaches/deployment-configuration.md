@@ -96,11 +96,11 @@ Several design patterns from the Azure Architecture Center and the broader commu
 
 ### Deployment Stamps pattern
 
-Use the [Deployment Stamps pattern](../../../patterns/deployment-stamp.yml) to deploy dedicated infrastructure for a tenant or group of tenants. A single stamp might contain multiple tenants, or it might be dedicated to a single tenant. You can deploy a single stamp or coordinate a deployment across multiple stamps. If you deploy dedicated stamps for each tenant, consider deploying entire stamps programmatically.
+Use the [Deployment Stamps pattern](../../../patterns/deployment-stamp.md) to deploy dedicated infrastructure for a tenant or group of tenants. A single stamp might contain multiple tenants, or it might be dedicated to a single tenant. You can deploy a single stamp or coordinate a deployment across multiple stamps. If you deploy dedicated stamps for each tenant, consider deploying entire stamps programmatically.
 
 ### Deployment rings
 
-Use [deployment rings](/azure/devops/migrate/phase-rollout-with-rings) to roll out updates to different groups of infrastructure at different times. This approach often complements the [Deployment Stamps pattern](../../../patterns/deployment-stamp.yml). Assign groups of stamps to distinct rings based on tenant preferences, workload types, and other considerations. For more information, see [Deployment rings](../considerations/updates.md#deployment-rings).
+Use [deployment rings](/azure/devops/migrate/phase-rollout-with-rings) to roll out updates to different groups of infrastructure at different times. This approach often complements the [Deployment Stamps pattern](../../../patterns/deployment-stamp.md). Assign groups of stamps to distinct rings based on tenant preferences, workload types, and other considerations. For more information, see [Deployment rings](../considerations/updates.md#deployment-rings).
 
 ### Feature flags
 

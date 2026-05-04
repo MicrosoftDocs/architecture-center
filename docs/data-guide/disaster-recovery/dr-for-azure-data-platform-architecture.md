@@ -253,7 +253,8 @@ The following tables present a breakdown of each Azure service and component use
     - Notes:
         - GRS is recommended to uplift redundancy, providing a copy of the data in the paired region.
 
-- **Azure Database for PostgreSQL flexible server**
+- **Azure Database for PostgreSQL**
+
     - Component recovery responsibility: Microsoft
     - Workload/configuration recovery responsibility: Contoso
     - Contoso SKU selection: Standard
