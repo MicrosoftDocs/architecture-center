@@ -39,7 +39,7 @@ This initial use case includes the following scenarios:
 
 - The solution must support the following target service-level agreements (SLAs):
 
-  - Target uptime of about 99.5%, or about one day and 20 hours of downtime within a year.
+  - Target uptime of 99.5%, or about one day and 20 hours of downtime within a year.
 
   - Recovery point objective of three days.
 
