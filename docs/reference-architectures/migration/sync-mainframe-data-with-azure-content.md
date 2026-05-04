@@ -75,9 +75,9 @@ This section describes other tools that you can use during data modernization, s
 
 #### Data storage
 
-- [Azure SQL Database](/azure/well-architected/service-guides/azure-sql-database-well-architected-framework) is part of the [Azure SQL](/azure/azure-sql/azure-sql-iaas-vs-paas-what-is-overview?view=azuresql) family and is built for the cloud. This service provides the benefits of a fully managed and evergreen platform as a service (PaaS). SQL Database also provides AI-powered, automated features that optimize performance and durability. Serverless compute and [hyperscale storage options](/azure/azure-sql/database/service-tier-hyperscale?view=azuresql) automatically scale resources on demand.
+- [Azure SQL Database](/azure/well-architected/service-guides/azure-sql-database) is part of the [Azure SQL](/azure/azure-sql/azure-sql-iaas-vs-paas-what-is-overview?view=azuresql) family and is built for the cloud. This service provides the benefits of a fully managed and evergreen platform as a service (PaaS). SQL Database also provides AI-powered, automated features that optimize performance and durability. Serverless compute and [hyperscale storage options](/azure/azure-sql/database/service-tier-hyperscale?view=azuresql) automatically scale resources on demand.
 
-- [Azure SQL Managed Instance](/azure/well-architected/service-guides/azure-sql-managed-instance/reliability) is part of the Azure SQL service portfolio. This intelligent and scalable cloud database service combines the broadest SQL Server engine compatibility with all the benefits of a fully managed and evergreen PaaS. Use SQL Managed Instance to modernize existing apps at scale.
+- [Azure SQL Managed Instance](/azure/well-architected/service-guides/azure-sql-managed-instance) is part of the Azure SQL service portfolio. This intelligent and scalable cloud database service combines the broadest SQL Server engine compatibility with all the benefits of a fully managed and evergreen PaaS. Use SQL Managed Instance to modernize existing apps at scale.
 
 - [SQL Server on Azure Virtual Machines](/azure/azure-sql/virtual-machines/windows/sql-server-on-azure-vm-iaas-what-is-overview?view=azuresql) provides a way to lift and shift SQL Server workloads to the cloud with complete code compatibility. As part of the Azure SQL family, SQL Server on Azure Virtual Machines provides the combined performance, security, and analytics of SQL Server with the flexibility and hybrid connectivity of Azure. Use SQL Server on Azure Virtual Machines to migrate existing apps or build new apps. You can also access the latest SQL Server updates and releases, including SQL Server 2019.
 
@@ -87,7 +87,7 @@ This section describes other tools that you can use during data modernization, s
 
 - [Data Lake Storage](/azure/storage/blobs/data-lake-storage-introduction) is a storage repository that holds a large amount of data in its native, raw format. Data lake stores are optimized for scaling to terabytes and petabytes of data. The data typically comes from multiple, heterogeneous sources and can be structured, semi-structured, or unstructured. [Data Lake Storage Gen2](/azure/databricks/connect/storage/azure-storage) combines Data Lake Storage Gen1 capabilities with Blob Storage. This next-generation data lake solution provides file system semantics, file-level security, and scale. It also provides the tiered storage, high availability, and disaster recovery capabilities of Blob Storage.
 
-- [Azure Database for MySQL](/azure/well-architected/service-guides/azure-db-mysql-cost-optimization) is a fully managed relational database service that's based on the [community edition of the open-source MySQL database engine](https://www.mysql.com/products/community/).
+- [Azure Database for MySQL](/azure/well-architected/service-guides/azure-database-for-mysql) is a fully managed relational database service that's based on the [community edition of the open-source MySQL database engine](https://www.mysql.com/products/community/).
 
 #### Other tools
 

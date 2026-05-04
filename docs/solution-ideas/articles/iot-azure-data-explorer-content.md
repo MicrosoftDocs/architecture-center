@@ -67,7 +67,7 @@ This solution idea uses the following Azure components.
 
 - [Azure IoT Hub](/azure/well-architected/service-guides/iot-hub) enables bi-directional communication between IoT devices and the Azure cloud. In this architecture, it serves as the central messaging hub for device telemetry and command-and-control operations.
 
-- [Event Hubs](/azure/well-architected/service-guides/event-hubs) is a fully managed, real-time data ingestion service. In this architecture, it ingests telemetry from IoT devices and streams it into the analytics pipeline.
+- [Event Hubs](/azure/well-architected/service-guides/azure-event-hubs) is a fully managed, real-time data ingestion service. In this architecture, it ingests telemetry from IoT devices and streams it into the analytics pipeline.
 
 - [Kafka on HDInsight](/azure/hdinsight/kafka/apache-kafka-introduction) is an enterprise-grade, cost-effective service for running Apache Kafka on Azure. In this architecture, it provides an alternative streaming backbone for ingesting and distributing IoT data.
 
