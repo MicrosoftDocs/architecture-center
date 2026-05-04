@@ -39,7 +39,7 @@ The following data flow corresponds to the previous diagram:
 
 ### Alternatives
 
-[Azure Data Factory](/azure/data-factory/introduction) provides tools to build extract, transform, and load (ETL) workflows and to track and retry jobs from a graphical user interface (GUI). Data Factory has a minimum lag of about 5 minutes from the time of ingestion to persistence. If your monitoring system can tolerate this lag, consider this alternative.
+[Azure Data Factory](/azure/data-factory/introduction) provides tools to build extract, transform, and load (ETL) workflows and to track and retry jobs from a graphical user interface (GUI). Data Factory has a minimum lag of about five minutes from the time of ingestion to persistence. If your monitoring system can tolerate this lag, consider this alternative.
 
 ## Scenario details
 

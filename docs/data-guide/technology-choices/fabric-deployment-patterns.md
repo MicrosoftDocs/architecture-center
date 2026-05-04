@@ -417,7 +417,7 @@ Performance Efficiency refers to your workload's ability to scale to meet user d
 
 - **Isolate performance-sensitive workloads on a dedicated capacity.** In patterns 1 and 2, all workloads compete for the same CUs. An expensive query or data pipeline can degrade interactive query performance for other users. In patterns 3 and 4, you can isolate performance-sensitive workloads on a dedicated capacity with a guaranteed CU allocation.
 
-- **Configure Spark pools for data engineering workloads.** For data engineering workloads, use [custom Spark pools](/fabric/data-engineering/create-custom-spark-pools) to control minimum and maximum node counts and support autoscaling. Managed virtual networks disable starter pools, or prewarmed shared clusters, which increases session start time from seconds to between 3 and 5 minutes.
+- **Configure Spark pools for data engineering workloads.** For data engineering workloads, use [custom Spark pools](/fabric/data-engineering/create-custom-spark-pools) to control minimum and maximum node counts and support autoscaling. Managed virtual networks disable starter pools, or prewarmed shared clusters, which increases session start time from seconds to between three and five minutes.
 
 - **Place capacities close to data producers and consumers.** In pattern 3, you can use capacities in regions close to data producers or consumers, which reduces cross-region latency. [OneLake shortcuts](/fabric/onelake/onelake-shortcuts) can reference data in other regions, but cross-region reads incur latency and egress costs.
 

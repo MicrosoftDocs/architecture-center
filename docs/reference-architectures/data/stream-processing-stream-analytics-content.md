@@ -130,7 +130,7 @@ This query joins records on a set of fields that uniquely identify matching reco
 
 In Stream Analytics, joins are *temporal*, meaning records are joined within a particular window of time. Otherwise, the job might need to wait indefinitely for a match. The [DATEDIFF](/stream-analytics-query/join-azure-stream-analytics) function specifies how far two matching records can be separated in time for a match.
 
-The last step in the job computes the average tip per mile, grouped by a hopping window of 5 minutes.
+The last step in the job computes the average tip per mile, grouped by a hopping window of five minutes.
 
 ```sql
 SELECT System.Timestamp AS WindowTime,
@@ -140,7 +140,7 @@ SELECT System.Timestamp AS WindowTime,
   GROUP BY HoppingWindow(Duration(minute, 5), Hop(minute, 1))
 ```
 
-Stream Analytics provides several [windowing functions](/azure/stream-analytics/stream-analytics-window-functions). A hopping window moves forward in time by a fixed period, in this case 1 minute per hop. The result is to calculate a moving average over the past 5 minutes.
+Stream Analytics provides several [windowing functions](/azure/stream-analytics/stream-analytics-window-functions). A hopping window moves forward in time by a fixed period, in this case 1 minute per hop. The result is to calculate a moving average over the past five minutes.
 
 In the architecture shown here, only the results of the Stream Analytics job are saved to Azure Cosmos DB. For a big data scenario, consider also using [Event Hubs Capture](/azure/event-hubs/event-hubs-capture-overview) to save the raw event data into Azure Blob storage. Keeping the raw data will allow you to run batch queries over your historical data at later time, in order to derive new insights from the data.
 

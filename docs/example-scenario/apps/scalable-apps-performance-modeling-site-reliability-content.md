@@ -254,11 +254,11 @@ Define SLO measurement periods to capture activity, not idleness. The window can
 
 Consider the following sample aspirational SLOs:
 
-- 95% of READ requests respond within one second.
-- 95% of CREATE and UPDATE requests respond within three seconds.
-- 99% of all requests respond within five seconds with no failures.
-- 99.9% of all requests succeed without error.
-- Less than 1% of requests during peak hour error out.
+- READ requests respond within one second for 95% of calls.
+- CREATE and UPDATE requests respond within three seconds for 95% of calls.
+- All requests respond within five seconds with no failures for 99% of calls.
+- All requests succeed without error for 99.9% of calls.
+- During peak hour, fewer than 1% of requests result in errors.
 
 Tailor SLOs to your application requirements.
 
@@ -268,15 +268,15 @@ Assume a week of data:
 
 - Requests: 123,456
 - Successful requests: 123,204
-- 90th percentile latency: 497 ms
-- 95th percentile latency: 870 ms
-- 99th percentile latency: 1,024 ms
+- Latency at 90th percentile: 497 ms
+- Latency at 95th percentile: 870 ms
+- Latency at 99th percentile: 1,024 ms
 
 Initial SLIs:
 
 - Availability = (123,204 / 123,456) = 99.8%
-- 90% of requests served within 500 ms
-- 98% of requests served within 1,000 ms
+- Requests served within 500 ms: 90%
+- Requests served within 1,000 ms: 98%
 
 Compare log data to SLO targets to assess compliance.
 
