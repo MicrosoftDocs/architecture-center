@@ -18,9 +18,9 @@ But if you have stricter network segmentation requirements, you can restrict acc
 
 The following workflow corresponds to the previous diagram:
 
-1. A hub-spoke network topology has a hub virtual network that peers to each resource virtual network, also called a *spoke*. All traffic goes through Azure Firewall for traffic inspection.
+1. A hub-spoke network topology has a hub virtual network that peers to each resource virtual network, also called a *spoke*. Spoke-to-spoke and virtual network egress traffic goes through Azure Firewall for traffic inspection.
 
-1. An Azure Blob Storage account denies public internet access. It allows access through private endpoints or virtual network rules for the private application path. A [resource instance rule](/azure/storage/common/storage-network-security#grant-access-from-azure-resource-instances) also allows an Azure IoT Hub service that you choose to connect through a managed identity. The Blob Storage account only supports Azure role-based access control (Azure RBAC) for data plane access.
+1. An Azure Blob Storage account denies public internet access. It allows access through private endpoints or virtual network rules for the private application path. A [resource instance rule](/azure/storage/common/storage-network-security#grant-access-from-azure-resource-instances) also allows an Azure IoT Hub service that you choose to connect through a managed identity. In this architecture, IoT Hub uses Microsoft Entra ID and Azure role-based access control (Azure RBAC) to request a user-delegation key from Blob Storage.
 
 1. The application gateway uses a custom domain name configured in the domain name system (DNS) and terminates Transport Layer Security (TLS) traffic. The gateway requires a TLS 1.2 or newer connection. Application Gateway resides within a virtual network. This virtual network peers with the virtual network that hosts the Blob Storage account's private endpoint. A forced tunnel through the hub virtual network establishes the connection.
 
@@ -52,11 +52,11 @@ The following workflow corresponds to the previous diagram:
 
 - [Storage](/azure/storage/common/storage-introduction) is a cloud storage solution that provides durable, highly available, and scalable cloud storage for modern data storage scenarios. It includes object, file, disk, queue, and table storage capabilities. In this architecture, devices use Blob Storage to upload files to the cloud via short-lived SAS tokens that IoT Hub provides through user delegation.
 
-- [Private DNS zones](/azure/dns/private-dns-overview) is a feature that provides reliable, enhanced-security DNS services to manage and resolve domain names in a virtual network without the need for a custom DNS solution. In this architecture, a private DNS zone provides a private DNS entry for Blob Storage so that the Storage blob endpoint translates to its private IP endpoint within the network.
+- [Private DNS zones](/azure/dns/private-dns-overview) are a feature that provides reliable, enhanced-security DNS services to manage and resolve domain names in a virtual network without the need for a custom DNS solution. In this architecture, a private DNS zone provides a private DNS entry for Blob Storage so that the Storage blob endpoint translates to its private IP endpoint within the network.
 
 - [Virtual Network](/azure/virtual-network/virtual-networks-overview) is a networking service that helps you create and manage virtual private networks in Azure. This service allows many types of Azure resources, such as Azure virtual machines (VMs), to communicate with each other, the internet, and on-premises networks with enhanced security. This architecture uses Virtual Network to build a private network topology, which avoids internet public endpoints for Azure-based services.
 
-- [Azure Key Vault](/azure/key-vault/general/overview) is a key-management solution that provides secure storage for secrets, keys, and certificates. In this architecture, Key Vault stores the TLS certificate, such as a wildcard or custom-domain certificate, that Application Gateway presents on the custom-domain listener. Key Vault is fronted by a [private endpoint](/azure/key-vault/general/private-link-service) and uses Azure RBAC for access, which avoids public network access with an IP address exception.
+- [Azure Key Vault](/azure/key-vault/general/overview) is a key-management solution that provides secure storage for secrets, keys, and certificates. In this architecture, Key Vault stores the TLS certificate, such as a wildcard or custom-domain certificate, that Application Gateway presents on the custom-domain listener. Key Vault uses a [private endpoint](/azure/key-vault/general/private-link-service) for network access and Azure RBAC for authorization.
 
 ## Scenario details
 
