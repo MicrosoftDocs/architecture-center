@@ -173,11 +173,11 @@ Instrument the application to see how requests are handled once they have been a
 
 ### Load test the application
 
-The following graph shows the performance of the synchronous `GetUserProfile` method shown earlier, under varying loads of up to 4000 concurrent users. The application is an ASP.NET application running in Azure App Service.
+The following graph shows the performance of the synchronous `GetUserProfile` method shown earlier, under varying loads of up to 4,000 concurrent users. The application is an ASP.NET application running in Azure App Service.
 
 ![Performance chart for the sample application performing synchronous I/O operations][sync-performance]
 
-The synchronous operation is hard-coded to sleep for 2 seconds, to simulate synchronous I/O, so the minimum response time is slightly over 2 seconds. When the load reaches approximately 2500 concurrent users, the average response time reaches a plateau, although the volume of requests per second continues to increase. The scale for these two measures is logarithmic. The number of requests per second doubles between this point and the end of the test.
+The synchronous operation is hard-coded to sleep for 2 seconds, to simulate synchronous I/O, so the minimum response time is slightly over 2 seconds. When the load reaches approximately 2,500 concurrent users, the average response time reaches a plateau, although the volume of requests per second continues to increase. The scale for these two measures is logarithmic. The number of requests per second doubles between this point and the end of the test.
 
 In isolation, it's not necessarily clear from this test whether the synchronous I/O is a problem. Under heavier load, the application might reach a tipping point where the web server can no longer process requests in a timely manner, causing client applications to receive time-out exceptions.
 

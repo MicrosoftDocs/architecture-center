@@ -16,7 +16,7 @@ The following annotations map from the source IBM z/OS to Azure:
 
 A. IBM 3270 terminal emulation for demand and online users is replaced by a web browser to access system resources in Azure.
 
-B. COBOL and other legacy application code is converted to C\#/.NET. Raincode generates 100-percent thread-safe and managed code for .NET and .NET Core.
+B. COBOL and other legacy application code is converted to C\#/.NET. Raincode generates 100% thread-safe and managed code for .NET and .NET Core.
 
 C. Raincode COBOL compiler modernizes mainframe legacy applications by migrating and integrating them with a modern, cloud-based technology stack without changing a single line of code.
 
@@ -72,8 +72,7 @@ This diagram shows how the legacy architecture can be migrated to Azure, taking 
 
 - [Azure Load Balancer](/azure/well-architected/service-guides/azure-load-balancer/reliability) operates at layer four of the Open Systems Interconnection (OSI) model. It's the single point of contact for clients. Load Balancer distributes inbound flows that arrive at the load balancer's front end to back-end pool instances. These flows are according to configured load balancing rules and health probes. The back-end pool instances can be Azure Virtual Machines or instances in a virtual machine scale set.
 
-- [Azure SQL Database](/azure/well-architected/service-guides/azure-sql-database-well-architected-framework) is a fully managed platform as a service (PaaS) database engine that always runs the latest stable version of SQL Server and patched OS, with
-    99.99-percent availability. SQL Database handles upgrading, patching, backups, monitoring, and most other database management functions without user involvement. These PaaS capabilities let you focus on business-critical, domain-specific database administration and optimization.
+- [Azure SQL Database](/azure/well-architected/service-guides/azure-sql-database-well-architected-framework) is a fully managed platform as a service (PaaS) database engine that always runs the latest stable version of SQL Server and patched OS, with 99.99% availability. SQL Database handles upgrading, patching, backups, monitoring, and most other database management functions without user involvement. These PaaS capabilities let you focus on business-critical, domain-specific database administration and optimization.
 
 - [Azure Cosmos DB](/azure/well-architected/service-guides/cosmos-db) is an Azure PaaS service for NoSQL databases.
 
@@ -83,7 +82,7 @@ This diagram shows how the legacy architecture can be migrated to Azure, taking 
 
 This architecture illustrates how the Raincode solution runs on Azure. Raincode on Azure supports the following features:
 
-- 100-percent thread-safe and managed code for .NET and .NET Core.
+- Code that's 100% thread-safe and managed for .NET and .NET Core.
 
 - A solution primarily aimed at transforming mainframes to a cloud-native architecture.
 

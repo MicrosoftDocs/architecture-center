@@ -126,7 +126,7 @@ Every architectural layer in the SAP application stack uses a different approach
 Backup for Oracle in Azure can be achieved through several means:
 - **Azure Backup.** [Scripts provided and maintained by Azure](/azure/backup/backup-azure-linux-database-consistent-enhanced-pre-post) for Oracle Database and [Azure Backup for Oracle](/azure/virtual-machines/workloads/oracle/oracle-database-backup-azure-backup) address backup requirements.
 - **Azure Storage.** Using file-based database backups, for example scheduled with SAP's BR tools, to be stored and versioned as files/directories on Azure Blob NFS, Azure Blob, or Azure Files storage services. See [Documented details](/azure/virtual-machines/workloads/oracle/oracle-database-backup-strategies) how to achieve both Oracle data and log backups.
-- **3rd party backup solutions.** See architecture of your backup storage provider, supporting Oracle in Azure.
+- **External backup solutions.** See architecture of your backup storage provider, supporting Oracle in Azure.
 
 For non-database VMs, [Azure Backup for VM](/azure/backup/backup-azure-vms-introduction) is recommended to protect SAP application VMs and surround infrastructure like SAP Web Dispatcher.
 

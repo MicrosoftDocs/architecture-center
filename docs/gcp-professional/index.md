@@ -41,7 +41,7 @@ Azure has a hierarchy of management groups and subscriptions and resource groups
 Azure levels of management scope
 
 - **Management groups:** These groups are containers that help you manage access, policy, and compliance for multiple subscriptions. All subscriptions in a management group automatically inherit the conditions applied to the management group.
-- **Subscriptions:** A subscription logically associates user accounts and the resources that were created by those user accounts. Each subscription has limits or quotas on the amount of resources you can create and use. Organizations can use subscriptions to manage costs and the resources that are created by users, teams, or projects.
+- **Subscriptions:** A subscription logically associates user accounts and the resources that were created by those user accounts. Each subscription has limits or quotas on the number of resources you can create and use. Organizations can use subscriptions to manage costs and the resources that are created by users, teams, or projects.
 - **Resource groups:** A resource group is a logical container into which Azure resources like web apps, databases, and storage accounts are deployed and managed.
 - **Resources:** Resources are instances of services that you create, like virtual machines, storage, or SQL databases.
 

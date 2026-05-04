@@ -242,7 +242,7 @@ For each SLI, you calculate the ratio of good events to total events as observed
 
 - **Latency SLI for product browsing:** The *number of requests completed successfully in <1,000 ms* divided by the *number of requests*. This SLI tracks whether the product microservice responds within the acceptable latency threshold.
 
-- **Freshness SLI for search:** The *number of search results returned within 3 seconds* divided by the *number of searches*. This SLI measures how often the search experience meets the freshness target after catalog updates.
+- **Freshness SLI for search:** The *number of search results returned within three seconds* divided by the *number of searches*. This SLI measures how often the search experience meets the freshness target after catalog updates.
 
 After you define SLIs, determine what telemetry to capture at each layer of the architecture, including Azure Front Door, API Management, Application Gateway, AKS pods, and data stores. For HTTP services, use status codes to classify success and failure. Azure Monitor and Application Insights provide diagnostic and monitoring support for all layers.
 
