@@ -73,7 +73,7 @@ Determining the correct intervals between retries is the most difficult part of 
 
 - **Incremental intervals:** The application waits a short time before the first retry, and then incrementally increases the time between each subsequent retry. For example, it might retry the operation after 3 seconds, 7 seconds, and 11 seconds.
 
-- **Regular intervals:** The application waits for the same period of time between each attempt. For example, it might retry the operation every 3 seconds.
+- **Regular intervals:** The application waits for the same period of time between each attempt. For example, it might retry the operation every three seconds.
 
 - **Immediate retry:** Transient faults that events like a network packet collision or a spike in a hardware component cause are typically brief. In these scenarios, retrying the operation immediately can help because it might succeed if the fault clears in the time that the application takes to assemble and send the next request. Don't attempt more than one immediate retry. If the immediate retry fails, switch to alternative strategies, like exponential back-off or fallback actions.
 

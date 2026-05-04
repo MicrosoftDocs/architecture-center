@@ -212,7 +212,7 @@ Many commercial systems that support paying customers make commitments about the
 
 SLAs are often defined in terms of:
 
-- Overall system availability. For example, an organization might commit to the system being available 99.9% of the time. This equates to no more than 9 hours of downtime per year, or approximately 10 minutes a week.
+- Overall system availability. For example, an organization might commit to the system being available 99.9% of the time. This equates to no more than nine hours of downtime per year, or approximately 10 minutes a week.
 - Operational throughput. This aspect is often expressed as one or more high-water marks, such as committing that the system can support up to 100,000 concurrent user requests or handle 10,000 concurrent business transactions.
 - Operational response time. The system might also make commitments for the rate at which requests are processed. An example is that 99% of all business transactions finish within 2 seconds, and no single transaction takes longer than 10 seconds.
 
