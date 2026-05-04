@@ -351,29 +351,29 @@ When clients use stateful features, such as the Assistants API, you need to conf
 
 There are two health check perspectives to consider, regardless of topology.
 
-If your gateway is built around round-robining or strictly performing service availability failover, you want a way to take a back-end instance (or model) out of availability status. Many AI services don't provide a dedicated health check endpoint to preemptively know whether they're available to handle requests. You could send synthetic transactions through, but that consumes model capacity. Unless you have another reliable signal source for instance and model availability, your gateway likely should assume the back-end instance is up and then handle `429`, `500`, `503` HTTP status codes as a signal to circuit-break for future requests on that instance or model for some time. For throttling situations, always honor the data in the `Retry-After` header found in API responses for `429` response codes in your circuit breaking logic. If you're using Azure API Management, evaluate using the [built-in circuit breaker](/azure/api-management/backends?tabs=bicep#circuit-breaker-preview) functionality.
+If your gateway is built around round-robining or strictly performing service-availability failover, you should have a way to take a back-end instance (or model) out of availability status. Many AI services don't provide a dedicated health check endpoint to preemptively determine whether instances are available to handle requests. You can send synthetic transactions through, but doing so consumes model capacity. Unless you have another reliable signal source for instance and model availability, your gateway should proabably assume that the back-end instance is available and handle `429`, `500`, and `503` HTTP status codes as a signal to circuit-break for future requests on that instance or model for a period of time. For throttling situations, always honor the data in the `Retry-After` header found in API responses for `429` response codes in your circuit breaking logic. If you're using API Management, evaluate using the [built-in circuit breaker](/azure/api-management/backends?tabs=bicep#circuit-breaker-preview) functionality.
 
-Your clients or your workload operations team might wish to have a health check exposed on your gateway for their own routing or introspection purposes. If you use API Management, the default `/status-0123456789abcdef` might not be detailed enough since it mostly addresses the API Management gateway instance, not your back ends. Consider adding a dedicated health check API that can return meaningful data to clients or observability systems on the availability of the gateway or specific routes in the gateway.
+Your clients or your workload operations team might want to have a health check exposed on your gateway for their own routing or introspection purposes. If you use API Management, the default `/status-0123456789abcdef` might not be detailed enough because it mostly addresses the API Management gateway instance, not your back ends. Consider adding a dedicated health check API that can return meaningful data to clients or observability systems on the availability of the gateway or specific routes in the gateway.
 
 ### Safe deployment practices
 
 You can use gateway implementations to orchestrate blue-green deployments of updated models. Hosted models are updated with new model versions and new models, and you might have new fine-tuned models.
 
-After testing the effects of a change in preproduction, evaluate whether production clients should be "cut over" to the new model version or instead shift traffic. The gateway pattern described earlier allows the back end to have both models concurrently deployed. Deploying models concurrently gives the power to the gateway to redirect traffic based on the workload team's safe deployment practice of incremental rollout.
+After testing the effects of a change in preproduction, evaluate whether production clients should be cut over to the new model version or instead shift traffic. The gateway pattern described earlier allows the back end to deploy both models concurrently. Deploying models concurrently enables the gateway to redirect traffic based on the workload team's safe deployment practice of incremental rollout.
 
-Even if you don't use blue-green deployments, your workload's APIOps approach needs to be defined and sufficiently automated commiserate with the rate of change of your back-end instance and model deployments.
+Even if you don't use blue-green deployments, your workload's APIOps approach needs to be defined and sufficiently automated commensurate with the rate of change of your back-end instance and model deployments.
 
 ### Just enough implementation
 
-Many of the scenarios introduced in this article help increase the potential service-level objective (SLO) of your workload by reducing client complexity and implementing reliable self-preservation techniques. Others improve the security of the workload by moving access controls to specific models away from the underlying AI service. Be sure that the introduction of the gateway doesn't end up working counter to these goals. Understand the risks of adding a new single point of failure either through service faults or human-caused configuration issues in the gateway, complex routing logic, or the risks of exposing more models to unauthorized clients than is intended.
+Many of the scenarios introduced in this article help increase the potential service-level objective (SLO) of your workload by reducing client complexity and implementing reliable self-preservation techniques. Others improve the security of the workload by moving access controls to specific models away from the underlying AI service. Be sure that the introduction of the gateway doesn't end up working counter to these goals. Understand the risks of adding a new single point of failure either through service faults or human-caused configuration problems in the gateway, complex routing logic, or the risks of exposing more models to unauthorized clients than is intended.
 
 ### Data sovereignty
 
-The various active-active and active-passive approaches need to be evaluated from a data residency compliance perspective for your workload. Many of these patterns would be applicable for your workload's architecture if the regions involved remain within the geopolitical boundary. To support this scenario, you need to treat geopolitical boundaries as isolated stamps and apply the active-active or active-passive handling exclusively within that stamp.
+You need to evaluate various active-active and active-passive approaches from a data-residency compliance perspective for your workload. Many of these patterns are applicable for your workload's architecture if the regions involved remain within the geopolitical boundary. To support this scenario, you need to treat geopolitical boundaries as isolated stamps and apply the active-active or active-passive handling exclusively within that stamp.
 
-In particular, any performance-based routing needs to be highly scrutinized for data sovereignty compliance. In data sovereignty scenarios, you can't service clients with another geography and remain compliant. All gateway architectures that involve data residency must enforce that clients only use endpoints in their geopolitical region. The clients must be blocked from using other gateway endpoints and the gateway itself doesn't violate the client's trust by making a cross-geopolitical request. The most reliable way to implement this segmentation is to build your architecture around a fully independent, highly available gateway per geopolitical region.
+In particular, any performance-based routing needs to be highly scrutinized for data sovereignty compliance. In data sovereignty scenarios, you can't service clients in another geography and remain compliant. All gateway architectures that involve data residency must enforce that clients only use endpoints in their geopolitical region. The clients must be blocked from using other gateway endpoints and the gateway itself shouldn't violate the client's trust by making a cross-geopolitical request. The most reliable way to implement this segmentation is to build your architecture around a fully independent, highly available gateway per geopolitical region.
 
-When considering whether to take advantage of increased capacity through [global](/azure/ai-foundry/foundry-models/concepts/deployment-types#global-standard) or [data zone](/azure/ai-foundry/foundry-models/concepts/deployment-types#data-zone-standard) deployments, you need to understand how these deployments affect data residency. Data stored at rest remains in the designated Azure geography for both global and data zone deployments. That data may be transmitted and processed for inferencing in any hosting location for global deployments, or in any hosting location within the Microsoft specified data zone for data zone deployments.
+When considering whether to take advantage of increased capacity by using [Global](/azure/ai-foundry/foundry-models/concepts/deployment-types#global-standard) or [Data Zone](/azure/ai-foundry/foundry-models/concepts/deployment-types#data-zone-standard) deployments, you need to understand how these deployments affect data residency. Data stored at rest remains in the designated Azure geography for both Global and Data Zone deployments. That data might be transmitted and processed for inferencing in any hosting location for Global deployments, or in any hosting location within the Microsoft specified data zone for Data Zone deployments.
 
 ### Service authorization
 
@@ -385,37 +385,37 @@ Consistency between model deployments and instances is important in both active-
 
 ### Gateway redundancy
 
-While not specific to multiple back ends, each region's gateway implementation should always be built with redundancy and be highly available within the scale unit. Choose regions with availability zones and make sure your gateway is spread across them. Deploy multiple instances of the gateway so that single point of failure is limited to a complete regional outage and not the fault of a single compute instance in your gateway. For Azure API Management, deploy two or more units across two or more zones. For custom code implementations, deploy at least three instances with best effort distribution across availability zones.
+Although this consideration isn't specific to multiple back ends, each region's gateway implementation should always be built with redundancy and be highly available within the scale unit. Choose regions that have availability zones and make sure your gateway is spread across them. Deploy multiple instances of the gateway so that single point of failure is limited to a complete regional outage and not the fault of a single compute instance in your gateway. For API Management, deploy two or more units across two or more zones. For custom code implementations, deploy at least three instances with best effort distribution across availability zones.
 
 ## Gateway implementations
 
-Azure doesn't offer a complete turn-key solution or reference architecture for building such a gateway that focuses on routing traffic across multiple back ends. However, Azure API Management is preferred as the service gives you a PaaS based solution using built in features such as back-end pools, circuit-breaking policies, and custom policies if needed. See, [Overview of generative AI gateway capabilities in Azure API Management](/azure/api-management/genai-gateway-capabilities) to evaluate what is available in that service for your workload's multi-backend needs.
+Azure doesn't provide a complete turnkey solution or reference architecture for building a gateway that's focused on routing traffic across multiple back ends. However, API Management is preferred because the service provides a PaaS-based solution that uses built in features such as back-end pools, circuit-breaking policies, and custom policies if needed. See [Overview of generative AI gateway capabilities in Azure API Management](/azure/api-management/genai-gateway-capabilities) to evaluate what's available in that service for your workload's multi-backend needs.
 
-Whether you use API Management or build a custom solution, as mentioned in the [introduction article](./azure-openai-gateway-guide.yml#implementation-options), your workload team must build and operate this gateway. Following are examples covering some of the previously mentioned use cases. Consider referencing these samples when you build your own proof of concept with API Management or custom code.
+Whether you use API Management or build a custom solution, as mentioned in the [introduction article](./azure-openai-gateway-guide.yml#implementation-options), your workload team must build and operate the gateway. The following examples cover some of the previously mentioned use cases. Consider referring to these samples when you build your own proof of concept with API Management or custom code.
 
-- **Azure API Management**
-  - [Smart load balancing using Azure API Management](https://github.com/Azure-Samples/openai-apim-lb) contains sample policy code and instructions to deploy into your subscription.
+- **API Management**
+  - [Smart load balancing using Azure API Management](https://github.com/Azure-Samples/openai-apim-lb) contains sample policy code and instructions.
   - [Scaling with Azure API Management](https://github.com/Azure/aoai-apim/) contains sample policy code and instructions for provisioned and standard spillover.
-  - The [GenAI gateway toolkit](https://github.com/Azure-Samples/apim-genai-gateway-toolkit) contains example API Management policies along with a load-testing setup for testing the behavior of the policies.
-- **Custom code** – [Smart load balancing using Azure Container Apps](https://github.com/Azure-Samples/openai-aca-lb) contains sample C# code and instructions to build the container and deploy into your subscription.
-
+  - The [GenAI gateway toolkit](https://github.com/Azure-Samples/apim-genai-gateway-toolkit) contains example API Management policies together with a load-testing setup for testing the behavior of the policies.
+- **Custom code** 
+  – [Smart load balancing using Azure Container Apps](https://github.com/Azure-Samples/openai-aca-lb) contains sample C# code and instructions for building the container and deploying it into your subscription.
 
 ## Multi-backend routing for other models
 
-The gateway pattern isn’t limited to a single provider. A gateway can unify access to different AI back ends, such as self-hosted models or third-party AI services that expose OpenAI-compatible APIs.
+The gateway pattern isn't limited to a single provider. A gateway can unify access to different AI back ends, such as self-hosted models or non-Microsoft AI services that expose OpenAI-compatible APIs.
 This approach allows a single, consistent API surface for client applications while enabling flexible routing based on use case, cost, or performance characteristics.
 
-## Azure API Management enhancements for AI gateways
+## API Management enhancements for AI gateways
 
-Azure API Management has specialized capabilities for generative AI workloads. These include token-based rate limiting, semantic response caching, built-in back-end load balancing and circuit breaking, and simplified onboarding of OpenAI-compatible endpoints.
+API Management has specialized capabilities for generative AI workloads. These capabilities include token-based rate limiting, semantic response caching, built-in back-end load balancing and circuit breaking, and simplified onboarding of OpenAI-compatible endpoints.
 
-Using these built-in capabilities can significantly reduce the amount of custom gateway logic required and improve the reliability and governability of solutions that route traffic to multiple model deployments or other AI back ends.
+By using these built-in capabilities, you can significantly reduce the amount of custom gateway logic required and improve the reliability and governability of solutions that route traffic to multiple model deployments or other AI back ends.
 
 ## Next steps
 
-Having a gateway implementation for your workload provides benefits beyond the tactical multiple back end routing benefit described in this article. Learn about the other [key challenges](./azure-openai-gateway-guide.yml#key-challenges) a gateway can solve.
+Having a gateway implementation for your workload provides benefits beyond the tactical multiple-backend routing benefit described in this article. To learn about the other challenges a gateway can solve, see [Key challenges](./azure-openai-gateway-guide.yml#key-challenges).
 
 ## Related resources
 
-- [Design a well-architected AI workload](/azure/well-architected/ai/get-started)
+- [AI workloads on Azure](/azure/well-architected/ai/get-started)
 - [API gateway in Azure API Management](/azure/api-management/api-management-gateways-overview)
