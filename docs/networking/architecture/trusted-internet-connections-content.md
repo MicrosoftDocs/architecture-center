@@ -59,6 +59,8 @@ There are a few alternatives that you can use in these solutions:
 - The examples in this article each use a single firewall, but some organizational requirements or architectures require two or more. For example, an architecture can include an Azure Firewall instance and an Application Gateway instance with Web Application Firewall. Logs for each firewall must be collected and made available for CISA TALON to collect.
 - If your environment requires internet egress from Azure-based virtual machines, you can use a layer 3 solution like Azure Firewall or a third-party firewall to monitor and log the outbound traffic.
 
+  The firewall applies source network address translation (SNAT), so one of the firewall's public IP addresses, not the workload's IP address, might appear as the source in TIC logs and at the internet destination. Azure Firewall may use any of the attached public IPs for each outbound flow, so document the entire set as your environment's egress identity. The number of attached public IP addresses also sets the SNAT port budget and therefore the concurrent outbound connection ceiling for all egressing workloads.
+
 ## Scenario details
 
 TIC 3.0 moves TIC from on-premises data collection to a cloud-based approach that better supports modern applications and systems. It improves performance because you can directly access Azure applications. With TIC 2.x, you need to access Azure applications via a TIC 2.x Managed Trusted Internet Protocol Service (MTIPS) device, which slows down the response.

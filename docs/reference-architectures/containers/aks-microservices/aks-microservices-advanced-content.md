@@ -62,7 +62,7 @@ The following workflow corresponds to the previous diagram:
 
 - [Application Gateway](/azure/well-architected/service-guides/azure-application-gateway) is an Azure-managed service that provides layer-7 load balancing and web application firewall (WAF) capabilities. In this architecture, it exposes the ingestion microservice as a public endpoint and balances incoming web traffic to the application.
 
-- [Azure Firewall](/azure/well-architected/service-guides/azure-firewall) is an Azure-managed service that delivers intelligent, cloud-native network security and threat protection. In this architecture, it controls outbound communications from microservices to external resources, which allows only approved FQDNs as egress traffic.
+- [Azure Firewall](/azure/well-architected/service-guides/azure-firewall) is an Azure-managed service that delivers intelligent, cloud-native network security and threat protection. In this architecture, it controls outbound communications from microservices to external resources, allowing only approved FQDNs as egress traffic. The firewall also performs source network address translation (SNAT) on egress flows, so its public IP addresses become the cluster's egress identity for partner allowlists.
 
 - [Azure Private Link](/azure/private-link/private-link-overview) is an Azure-managed service that enables private connectivity to Azure platform as a service (PaaS) offerings via the Microsoft backbone network. In this architecture, it assigns private IP addresses to access Azure Container Registry and Azure Key Vault from AKS node pools through private endpoints.
 
