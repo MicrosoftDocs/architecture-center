@@ -26,7 +26,7 @@ The following workflow corresponds to the previous diagram:
 
 ### Components
 
-- [SQL Managed Instance](/azure/well-architected/service-guides/azure-sql-managed-instance/reliability) is a platform-as-a-service (PaaS) offering that's almost completely compatible with the latest SQL Server Enterprise Edition database engine. It provides a native virtual network implementation that improves security and provides a beneficial business model for existing SQL Server customers. You can use SQL Managed Instance to migrate your on-premises applications to the cloud with minimal modifications to applications and databases.
+- [SQL Managed Instance](/azure/well-architected/service-guides/azure-sql-managed-instance) is a platform-as-a-service (PaaS) offering that's almost completely compatible with the latest SQL Server Enterprise Edition database engine. It provides a native virtual network implementation that improves security and provides a beneficial business model for existing SQL Server customers. You can use SQL Managed Instance to migrate your on-premises applications to the cloud with minimal modifications to applications and databases.
 
   SQL Managed Instance also provides comprehensive PaaS capabilities, including automatic patching and version updates, automated backups, and high availability. These features significantly reduce management overhead and total cost of ownership. In this architecture, SQL Managed Instance is the database that uses the TDE protector keys.
 

@@ -53,9 +53,9 @@ The following data flow corresponds to the previous diagram:
 
 ## Components
 
-- [Azure Databricks](/azure/well-architected/service-guides/azure-databricks-security) is a Spark-based analytics platform optimized for the Azure platform. In this architecture, Azure Databricks jobs enrich taxi ride and fare data and store the results in Azure Cosmos DB.
+- [Azure Databricks](/azure/well-architected/service-guides/azure-databricks) is a Spark-based analytics platform optimized for the Azure platform. In this architecture, Azure Databricks jobs enrich taxi ride and fare data and store the results in Azure Cosmos DB.
 
-- [Event Hubs](/azure/well-architected/service-guides/event-hubs) is a managed, distributed ingestion service that can scale to ingest large amounts of events. This architecture uses two event hub instances to receive data from taxis.
+- [Event Hubs](/azure/well-architected/service-guides/azure-event-hubs) is a managed, distributed ingestion service that can scale to ingest large amounts of events. This architecture uses two event hub instances to receive data from taxis.
 
 - [Azure Cosmos DB for NoSQL](/azure/well-architected/service-guides/cosmos-db) is a managed, multiple-model database service. In this architecture, it stores the output of the Azure Databricks enrichment jobs. [Fabric mirrors Azure Cosmos DB operational data](/fabric/database/mirrored-database/azure-cosmos-db) to enable analytical queries.
 

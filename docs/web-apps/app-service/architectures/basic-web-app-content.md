@@ -31,7 +31,7 @@ The following workflow corresponds to the preceding diagram.
 
 - [Azure Monitor](/azure/azure-monitor/overview) is a monitoring service that collects, analyzes, and acts on telemetry data from cloud and on-premises environments. In this architecture, it captures and stores information about requests to App Service and calls to SQL Database through Application Insights integration.
 
-- [SQL Database](/azure/well-architected/service-guides/azure-sql-database-well-architected-framework) is a managed relational database service that provides SQL Server capabilities in the cloud. In this architecture, it serves as the data storage layer, which enables the App Service application to connect via connection strings that are defined in app settings.
+- [SQL Database](/azure/well-architected/service-guides/azure-sql-database) is a managed relational database service that provides SQL Server capabilities in the cloud. In this architecture, it serves as the data storage layer, which enables the App Service application to connect via connection strings that are defined in app settings.
 
 ## Considerations
 

@@ -44,7 +44,7 @@ I. Partitions run separate workloads and segregate work types within the environ
 
 ### Components
 
-- [Azure SQL Managed Instance](/azure/well-architected/service-guides/azure-sql-managed-instance/reliability) is a managed, secure, up-to-date SQL instance in the cloud that's part of the Azure SQL service portfolio. In this architecture, SQL Managed Instance serves as the database platform for IMSql. It replaces the mainframe IMS database system and provides storage and transaction processing capabilities.
+- [Azure SQL Managed Instance](/azure/well-architected/service-guides/azure-sql-managed-instance) is a managed, secure, up-to-date SQL instance in the cloud that's part of the Azure SQL service portfolio. In this architecture, SQL Managed Instance serves as the database platform for IMSql. It replaces the mainframe IMS database system and provides storage and transaction processing capabilities.
 
 - [Azure Virtual Machine Scale Sets](/azure/well-architected/service-guides/virtual-machines) is a compute service that provides automated and load-balanced VM scaling that simplifies the management of your applications and increases availability. In this architecture, Virtual Machine Scale Sets hosts the IMSql processing servers and handles typical IMS workloads with automatic scaling capabilities.
 

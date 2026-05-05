@@ -271,7 +271,7 @@ Integration with Azure Monitor, Microsoft Sentinel, Microsoft Security Copilot, 
 
 Select the following button to deploy the environment described in this article. The deployment takes about two minutes to complete and creates a key vault, an Event Grid system topic configured with the two subscriptions, a storage account that contains the *CERTLC* queue, and an Automation account that contains the *runbook* and the *webhook* linked to Event Grid.
 
-[![Deploy To Azure](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/1-CONTRIBUTION-GUIDE/images/deploytoazure.svg?sanitize=true)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fcertlc%2Fmain%2F.armtemplate%2Fmindeploy.json)
+[![Deploy to Azure](../../_images/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fcertlc%2Fmain%2F.armtemplate%2Fmindeploy.json)
 
 For more information about the parameters that you need for the deployment, see the [code sample](/samples/azure/certlc/certlc/) portal.
 
@@ -286,7 +286,7 @@ For more information about the parameters that you need for the deployment, see 
 >
 > - The **Key Vault extension** installed on the domain controller VM for retrieving the renewed certificates from the Key Vault extension.
 >
-> [![Deploy To Azure](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/1-CONTRIBUTION-GUIDE/images/deploytoazure.svg?sanitize=true)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fcertlc%2Fmain%2F.armtemplate%2Ffulllabdeploy.json)
+> [![Deploy to Azure](../../_images/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fcertlc%2Fmain%2F.armtemplate%2Ffulllabdeploy.json)
 
 ## Contributors
 

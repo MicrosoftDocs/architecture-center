@@ -68,9 +68,9 @@ The system also contains the following components:
 
 - [Azure ExpressRoute](/azure/well-architected/service-guides/azure-expressroute) is a service that extends an on-premises network into Microsoft cloud services over a private connection that a connectivity provider facilitates. In this architecture, ExpressRoute provides a secure, reliable private connection to the Azure system, with low latency and high speed and bandwidth.
 
-- [Azure Traffic Manager](/azure/well-architected/service-guides/traffic-manager/reliability) is a domain name system (DNS)-based traffic load balancer that distributes traffic across Azure regions. In this architecture, Traffic Manager distributes public-facing application traffic across Azure regions with high availability and quick responsiveness.
+- [Azure Traffic Manager](/azure/well-architected/service-guides/azure-traffic-manager) is a domain name system (DNS)-based traffic load balancer that distributes traffic across Azure regions. In this architecture, Traffic Manager distributes public-facing application traffic across Azure regions with high availability and quick responsiveness.
 
-- [Azure Load Balancer](/azure/well-architected/service-guides/azure-load-balancer/reliability) supports high availability by distributing incoming network traffic among back-end VMs according to configured load-balancing rules and health probes. Load Balancer operates at layer 4 of the Open Systems Interconnection (OSI) model. In this architecture, Load Balancer works with Azure Web Application Firewall to provide the network management layer that replaces the legacy network appliances.
+- [Azure Load Balancer](/azure/well-architected/service-guides/azure-load-balancer) supports high availability by distributing incoming network traffic among back-end VMs according to configured load-balancing rules and health probes. Load Balancer operates at layer 4 of the Open Systems Interconnection (OSI) model. In this architecture, Load Balancer works with Azure Web Application Firewall to provide the network management layer that replaces the legacy network appliances.
 
 - [Azure Web Application Firewall](/azure/web-application-firewall/ag/ag-overview) is a cloud-native service that protects web applications from malicious attacks and vulnerabilities. In this architecture, it provides endpoint security and protection and replaces the multiple firewalls that segment network traffic in the legacy AIX system.
 
@@ -85,13 +85,13 @@ The system also contains the following components:
 
 - [Azure Files](/azure/well-architected/service-guides/azure-files) provides fully managed file shares in the cloud that can be accessed via the industry-standard Server Message Block (SMB) protocol. Cloud and on-premises Windows, Linux, and macOS deployments can mount Azure file shares concurrently. In this architecture, Azure Files provides shared file storage capabilities as part of the overall storage strategy for the migrated application.
 
-- [Azure SQL Database](/azure/well-architected/service-guides/azure-sql-database-well-architected-framework) is a fully managed database PaaS that always runs on the latest OS and most stable SQL Server database engine version to provide the highest availability. In this architecture, SQL Database handles database management functions, such as upgrades, patching, backups, and monitoring, without user involvement.
+- [Azure SQL Database](/azure/well-architected/service-guides/azure-sql-database) is a fully managed database PaaS that always runs on the latest OS and most stable SQL Server database engine version to provide the highest availability. In this architecture, SQL Database handles database management functions, such as upgrades, patching, backups, and monitoring, without user involvement.
 
 - [Azure NetApp Files](/azure/well-architected/service-guides/azure-netapp-files) provides enterprise-grade Azure file shares powered by NetApp. This architecture uses Azure NetApp Files to help enterprises easily migrate and run complex, file-based applications with no code changes.
 
 - [Azure Site Recovery](/azure/site-recovery/site-recovery-overview) is an Azure-native DR service. In this architecture, Site Recovery deploys replication, failover, and recovery processes to help keep applications running during planned and unplanned outages.
 
-- [Azure Service Bus](/azure/well-architected/service-guides/service-bus/reliability) is a reliable cloud messaging service with simple hybrid integration. In this architecture, Service Bus provides message queue services for the applications.
+- [Azure Service Bus](/azure/well-architected/service-guides/azure-service-bus) is a reliable cloud messaging service with simple hybrid integration. In this architecture, Service Bus provides message queue services for the applications.
 
 - [Microsoft Entra ID](/entra/fundamentals/whatis) is a cloud-based enterprise identity and access management service from Microsoft. In this architecture, Microsoft Entra single sign-on and multifactor authentication help users sign in and access resources, while providing protection from cybersecurity attacks.
 

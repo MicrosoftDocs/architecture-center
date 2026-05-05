@@ -489,14 +489,13 @@
 			</g>
 			<g id="shape24-92" v:mID="24" v:groupContext="shape" transform="translate(53.9901,-7.46871)">
 				<title>Sheet.24</title>
-				<desc>Azure Database for PostgreSQL flexible server</desc>
+				<desc>Azure Database for PostgreSQL</desc>
 				<v:userDefs/>
 				<v:textBlock v:margins="rect(4,4,4,4)"/>
 				<v:textRect cx="62.7732" cy="682.468" width="125.56" height="39.0637"/>
 				<rect x="0" y="662.936" width="125.546" height="39.0637" class="st13"/>
 				<text x="18.71" y="671.67" class="st5" v:langID="1033"><v:paragraph v:horizAlign="1"/><v:tabList/>Azure Database <v:newlineChar/><v:paragraph
-							v:horizAlign="1"/><tspan x="20.1" dy="1.2em" class="st12">for PostgreSQL </tspan><tspan x="23.02"
-							dy="1.2em" class="st12">flexible server</tspan></text>			</g>
+							v:horizAlign="1"/><tspan x="20.1" dy="1.2em" class="st12">for PostgreSQL</tspan></text>			</g>
 		</g>
 		<g id="shape25-97" v:mID="25" v:groupContext="shape" v:layerMember="0" transform="translate(722.242,-571)">
 			<title>Dynamic connector.50</title>

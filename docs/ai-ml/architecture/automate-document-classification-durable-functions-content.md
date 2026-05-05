@@ -35,7 +35,7 @@ The following workflow corresponds to the previous diagram:
 
 - [Azure Storage](/azure/storage/common/storage-introduction) is a set of scalable and secure cloud services for data, apps, and workloads. It includes [Blob Storage](/azure/well-architected/service-guides/azure-blob-storage), [Azure Files](/azure/well-architected/service-guides/azure-files), [Azure Table Storage](/azure/storage/tables/table-storage-overview), and [Azure Queue Storage](/azure/storage/queues/storage-queues-introduction). In this architecture, Blob Storage stores the document files that the user uploads and that the durable functions pipeline processes.
 
-- [Service Bus](/azure/well-architected/service-guides/service-bus/reliability) is a managed enterprise message broker that has message [queues](/azure/service-bus-messaging/service-bus-queues-topics-subscriptions#queues) and publish-subscribe [topics](/azure/service-bus-messaging/service-bus-queues-topics-subscriptions#topics-and-subscriptions). In this architecture, Service Bus triggers durable functions instances.
+- [Service Bus](/azure/well-architected/service-guides/azure-service-bus) is a managed enterprise message broker that has message [queues](/azure/service-bus-messaging/service-bus-queues-topics-subscriptions#queues) and publish-subscribe [topics](/azure/service-bus-messaging/service-bus-queues-topics-subscriptions#topics-and-subscriptions). In this architecture, Service Bus triggers durable functions instances.
 
 - [Azure App Service](/azure/well-architected/service-guides/app-service-web-apps) provides a framework to build, deploy, and scale web apps. The Web Apps feature of App Service is an HTTP-based tool that hosts web applications, REST APIs, and mobile back ends. You can use Web Apps to develop in .NET, .NET Core, Java, Ruby, Node.js, PHP, or Python. Applications can run and scale in Windows-based and Linux-based environments. In this architecture, users interact with the document-processing system through an App Service-hosted web app.
 
@@ -53,7 +53,7 @@ The following workflow corresponds to the previous diagram:
 
 ### Alternatives
 
-- To facilitate global distribution, this solution stores metadata in Azure Cosmos DB. [Azure SQL Database](/azure/well-architected/service-guides/azure-sql-database-well-architected-framework) is another persistent storage option for document metadata and information.
+- To facilitate global distribution, this solution stores metadata in Azure Cosmos DB. [Azure SQL Database](/azure/well-architected/service-guides/azure-sql-database) is another persistent storage option for document metadata and information.
 
 - To trigger durable functions instances, you can use other messaging platforms, including [Azure Event Grid](/azure/event-grid/overview).
 
