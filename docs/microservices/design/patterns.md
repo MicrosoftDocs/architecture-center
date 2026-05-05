@@ -25,7 +25,7 @@ The design patterns in this article address these challenges directly. Each patt
 
 ## Common design patterns
 
-- [**Anti-Corruption Layer**](../../patterns/anti-corruption-layer.yml) implements a facade or adapter layer between subsystems that don't share the same semantics. This pattern translates requests between subsystems and prevents dependencies on legacy systems or other services that have incompatible domain models from limiting a new service's design.
+- [**Anti-Corruption Layer**](../../patterns/anti-corruption-layer.md) implements a facade or adapter layer between subsystems that don't share the same semantics. This pattern translates requests between subsystems and prevents dependencies on legacy systems or other services that have incompatible domain models from limiting a new service's design.
 
 - [**Backends for Frontends**](../../patterns/backends-for-frontends.md) creates separate backend services for different types of clients, such as desktop and mobile. When you take this approach, a single backend service doesn't need to handle the conflicting requirements of various client types. This pattern helps keep each microservice simple by separating client-specific concerns.
 

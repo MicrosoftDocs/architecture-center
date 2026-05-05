@@ -1,3 +1,15 @@
+---
+title: Anti-Corruption Layer Pattern
+description: Learn about the Anti-Corruption Layer pattern. Implement a facade or adapter layer between a modern application and a legacy system.
+ms.author: pnp
+author: claytonsiemens77
+ms.date: 07/28/2022
+ms.topic: design-pattern
+ms.subservice: cloud-fundamentals
+---
+
+# Anti-Corruption Layer pattern
+
 Implement a façade or adapter layer between different subsystems that don't share the same semantics. This layer translates requests that one subsystem makes to the other subsystem. Use this pattern to ensure that an application's design isn't limited by dependencies on outside subsystems. This pattern was first described by Eric Evans in *Domain-Driven Design*.
 
 ## Context and problem
