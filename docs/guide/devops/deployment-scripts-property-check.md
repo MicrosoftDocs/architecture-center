@@ -6,6 +6,15 @@ ms.author: jatracey
 ms.date: 05/05/2026
 ms.topic: concept-article
 ms.subservice: architecture-guide
+ms.custom:
+    - devx-track-bicep
+azureCategories:
+  - devops
+  - networking
+products:
+  - azure-resource-manager
+  - azure-virtual-network
+  - azure-virtual-wan
 ---
 
 # Use deployment scripts to check resource properties
@@ -51,7 +60,7 @@ You can adapt the files for your deployment. To help you, the azResourceStateChe
 
 1. The azResourceStateCheck.bicep module deploys the [deployment script resource](/azure/templates/microsoft.resources/deploymentscripts?pivots=deployment-language-bicep).
 
-1. The deployment script resource uses the user-assigned managed identity for Resource Manager authentication. The resource then runs the PowerShell deployment script, Invoke-AzResourceStateCheck.ps1, For more information about deployment scripts, see [Use deployment scripts in Bicep](/azure/azure-resource-manager/bicep/deployment-script-bicep).
+1. The deployment script resource uses the user-assigned managed identity for Resource Manager authentication. The resource then runs the PowerShell deployment script, Invoke-AzResourceStateCheck.ps1. For more information about deployment scripts, see [Use deployment scripts in Bicep](/azure/azure-resource-manager/bicep/deployment-script-bicep).
 
    The script polls the Virtual WAN hub `routingState` property to determine whether the value is `Provisioned`:
 
@@ -129,7 +138,7 @@ module modVWanVhubVnetConnections 'modules/vwanVhcs.bicep' = {
 
 The resource check is required because deployed Virtual WAN hubs aren't ready for use until the `routingState` property has the value of `Provisioned`. Virtual WAN hubs report successful deployment to the Resource Manager so the deployment engine continues deployment. A new Virtual WAN hub becomes operational after the Virtual WAN hub router is provisioned into the created hub. This process takes around 15 minutes. This behavior can be seen in the following screenshot of a new Virtual WAN hub. The screenshot shows a hub status of `Succeeded` but a routing status of `Provisioning`.
 
-:::image type="content" border="true" source="./images/virtual-wan-hub-routing-status-provisioning.png" alt-text="Screenshot of a newly deployed Virtual WAN hub. The hub status is Ready and the routing status is Provisioning." lightbox="./images/vwan-hub-routing-status-provisioning.png":::
+:::image type="content" border="true" source="./images/virtual-wan-hub-routing-status-provisioning.png" alt-text="Screenshot of a newly deployed Virtual WAN hub. The hub status is Ready and the routing status is Provisioning." lightbox="./images/virtual-wan-hub-routing-status-provisioning.png":::
 :::image-end:::
 
 If you try to deploy the vwanvhcs.bicep module before the `routingState` value is `Provisioned`, connection creation fails and overall deployment fails. Until the router is provisioned, redeployment attempts also fail.
