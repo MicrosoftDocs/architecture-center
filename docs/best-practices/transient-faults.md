@@ -69,7 +69,7 @@ Adapt values for the time interval and the number of retry attempts to the type 
 
 Determining the correct intervals between retries is the most difficult part of designing a successful strategy. Typical strategies use the following types of retry interval:
 
-- **Exponential back-off:** The application waits a short time before the first retry and then exponentially increases the time between each subsequent retry. For example, it might retry the operation after 2 seconds, 4 seconds, 8 seconds, and up to a set number of tries or a total duration. Add jitter, which is a small random delay, to each retry interval to prevent multiple clients from syncing their retries and creating load spikes on the target service.
+- **Exponential back-off:** The application waits a short time before the first retry and then exponentially increases the time between each subsequent retry. For example, it might retry the operation after two seconds, four seconds, eight seconds, and up to a set number of tries or a total duration. Add jitter, which is a small random delay, to each retry interval to prevent multiple clients from syncing their retries and creating load spikes on the target service.
 
 - **Incremental intervals:** The application waits a short time before the first retry, and then incrementally increases the time between each subsequent retry. For example, it might retry the operation after 3 seconds, 7 seconds, and 11 seconds.
 
