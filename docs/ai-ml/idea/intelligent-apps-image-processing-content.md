@@ -24,7 +24,7 @@ This scenario covers the back-end components of a web or mobile application. Dat
 
 - [Azure Functions](/azure/well-architected/service-guides/azure-functions) is a serverless compute platform. In this architecture, Azure Functions provides the back-end API and the event-processing layer for uploaded images. The function orchestrates the workflow. It calls Content Understanding, processes the response, and writes the result to the database. This architecture uses the [Flex Consumption plan](/azure/azure-functions/flex-consumption-plan) to support virtual network integration, instance memory choice, and fast scaling.
 
-- [Azure Event Grid](/azure/well-architected/service-guides/event-grid/reliability) is a managed event-routing service that uses a publish-subscribe model. In this architecture, an Event Grid system topic on the storage account emits a `Microsoft.Storage.BlobCreated` event when a new image is uploaded and delivers it to the function.
+- [Azure Event Grid](/azure/well-architected/service-guides/azure-event-grid) is a managed event-routing service that uses a publish-subscribe model. In this architecture, an Event Grid system topic on the storage account emits a `Microsoft.Storage.BlobCreated` event when a new image is uploaded and delivers it to the function.
 
 - [Azure Blob Storage](/azure/well-architected/service-guides/azure-blob-storage) is an object store for unstructured data. In this architecture, it stores all uploaded images and any static assets that the web application serves. Blob Storage is the source of truth for incoming images.
 

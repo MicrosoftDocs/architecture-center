@@ -54,12 +54,12 @@ The following workflow describes how traffic flows through the hub-spoke Virtual
 
 ### Components
 
-* [Azure Virtual Network](/azure/well-architected/service-guides/virtual-network) provides isolated and secure network environments for workloads. Virtual networks connect to the Virtual WAN hub via virtual network connections. These connections allow workloads in the spokes to communicate securely with each other, on-premises networks, or the internet via centralized services.
+- [Azure Virtual Network](/azure/well-architected/service-guides/virtual-network) provides isolated and secure network environments for workloads. Virtual networks connect to the Virtual WAN hub via virtual network connections. These connections allow workloads in the spokes to communicate securely with each other, on-premises networks, or the internet via centralized services.
 
-* [Virtual WAN](/azure/virtual-wan/virtual-wan-about) is a networking service. It provides a unified global transit network architecture that connects virtual networks, branches, and remote users. In this architecture, it serves as the central control plane and data plane. Virtual WAN manages and routes traffic across hubs, spokes, and external networks, which enables global connectivity through a common framework.
-* [VPN Gateway](/azure/vpn-gateway/vpn-gateway-about-vpngateways) enables encrypted communication between on-premises networks and Azure by using Internet Protocol Security (IPsec) tunnels. In this architecture, VPN Gateway operates within the hub to securely connect branch offices or datacenters to the Azure network via Virtual WAN.
-* [ExpressRoute](/azure/well-architected/service-guides/azure-expressroute) provides private, high-throughput connectivity between on-premises infrastructure and Azure. When integrated with Virtual WAN, it provides a reliable and fast alternative to VPN connections for mission-critical workloads.
-* [Azure Firewall](/azure/well-architected/service-guides/azure-firewall)  is a cloud-native, stateful network security service that provides threat protection for network traffic. In this architecture, it runs in the Virtual WAN hub to inspect and filter both outbound internet traffic and private traffic between virtual networks or from on-premises environments.
+- [Virtual WAN](/azure/virtual-wan/virtual-wan-about) is a networking service. It provides a unified global transit network architecture that connects virtual networks, branches, and remote users. In this architecture, it serves as the central control plane and data plane. Virtual WAN manages and routes traffic across hubs, spokes, and external networks, which enables global connectivity through a common framework.
+- [VPN Gateway](/azure/vpn-gateway/vpn-gateway-about-vpngateways) enables encrypted communication between on-premises networks and Azure by using Internet Protocol Security (IPsec) tunnels. In this architecture, VPN Gateway operates within the hub to securely connect branch offices or datacenters to the Azure network via Virtual WAN.
+- [ExpressRoute](/azure/well-architected/service-guides/azure-expressroute) provides private, high-throughput connectivity between on-premises infrastructure and Azure. When integrated with Virtual WAN, it provides a reliable and fast alternative to VPN connections for mission-critical workloads.
+- [Azure Firewall](/azure/well-architected/service-guides/azure-firewall)  is a cloud-native, stateful network security service that provides threat protection for network traffic. In this architecture, it runs in the Virtual WAN hub to inspect and filter both outbound internet traffic and private traffic between virtual networks or from on-premises environments.
 
 ### Alternatives
 
@@ -130,6 +130,16 @@ When you use the Azure portal to create a hub, the portal creates a virtual hub 
 
 You can create a virtual hub as a secured virtual hub or convert an existing hub to a secured one anytime after creation. For more information, see [Secure your virtual hub by using Firewall Manager](/azure/firewall-manager/secure-cloud-network).
 
+The Azure Firewall in a secured virtual hub is shared by every spoke virtual network and branch site connected to that hub. Plan for how network address translation affects workload design:
+
+- **Outbound flows from any spoke or branch leave the hub sourced from one of the firewall's public IP addresses.** This is source network address translation (SNAT). Azure Firewall SNATs each outbound flow to one of the attached public IP addresses, and the selection is not deterministic, so partner allowlists must cover the entire set of IP addresses attached to the secured hub firewall. Use a [public IP address prefix](/azure/virtual-network/ip-services/public-ip-address-prefix) to express that set as a contiguous range.
+
+  The number of attached public IP addresses also sets the SNAT port budget for every connected workload; plan for the aggregate concurrent outbound connection rate across all spokes and branches because exhaustion affects every workload that egresses through the hub.
+
+- **Workloads published through the firewall are reachable at the firewall's public IP address.** You publish a backend with a destination network address translation (DNAT) rule. Azure Firewall also SNATs DNAT-matched packets, so the backend observes the firewall instance's IP address as the source rather than the original client's IP address.
+
+  If your application requires the client's IP address, terminate the client connection upstream in a reverse proxy such as Azure Application Gateway or Azure Front Door, forward the client's IP address in the `X-Forwarded-For` HTTP header, and follow [Preserve the original HTTP host name](/azure/architecture/best-practices/host-name-preservation) so the backend continues to observe the client's host name.
+
 #### Network virtual appliances in the hub
 
 You can deploy third-party NVAs directly inside the Virtual WAN hub for SD-WAN connectivity, next-generation firewall (NGFW) inspection, or dual-role scenarios. Supported vendors include Barracuda, Check Point, Cisco, and Fortinet, among others. Deploying NVAs in the hub eliminates the need for complex user-defined routes in spoke virtual networks and provides centralized traffic inspection with Azure-managed high availability and scaling. For more information, see [About NVAs in a Virtual WAN hub](/azure/virtual-wan/about-nva-hub).
@@ -137,7 +147,6 @@ You can deploy third-party NVAs directly inside the Virtual WAN hub for SD-WAN c
 #### Third-party SaaS security solutions
 
 Virtual WAN hubs also support third-party SaaS networking and security solutions that are distinct from IaaS-based NVAs. For example, Palo Alto Networks Cloud NGFW can be deployed as a fully managed SaaS offering inside the hub, providing inline traffic inspection without managing appliance infrastructure. These SaaS solutions integrate with routing intents and are billed through Azure Marketplace. For more information, see [Install Palo Alto Networks Cloud NGFW in a Virtual WAN hub](/azure/virtual-wan/how-to-palo-alto-cloud-ngfw).
-
 
 ### Gateway subnet
 
