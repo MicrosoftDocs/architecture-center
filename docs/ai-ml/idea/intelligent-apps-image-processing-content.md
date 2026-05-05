@@ -100,7 +100,7 @@ Principal authors:
 Other contributors:
 
 - [Delyn Choong](https://www.linkedin.com/in/delynchoong/) | Senior Cloud Solutions Architect – Data & AI
-- [Abhishek Singh](https://www.linkedin.com/in/abhisheksinghkholiya/) | Tech Support Engineer
+- [Abhishek Singh](https://www.linkedin.com/in/abhishek-singh-54710243) | Tech Support Engineer
 
 *To see nonpublic LinkedIn profiles, sign in to LinkedIn.*
 
