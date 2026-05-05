@@ -1,4 +1,4 @@
-This article shows how to expose a PaaS resource to a workload over a private endpoint in a single-region Azure Virtual WAN hub-and-spoke topology.
+This article shows how to expose a PaaS resource to a workload over a private endpoint in a single region with a Azure Virtual WAN hub-spoke topology.
 
 > [!IMPORTANT]
 > This article is part of a series on Azure Private Link and Azure DNS in Virtual WAN and builds on the network topology defined in the scenario guide. Read the [overview page first](./private-link-virtual-wan-dns-guide.yml) to understand the base network architecture and key challenges.
@@ -125,7 +125,8 @@ When implementing the extension for your enterprise, consider the following guid
 - The virtual network for the DNS extension should follow the same configuration guidelines under [Adding spoke networks](./private-link-virtual-wan-dns-guide.yml#adding-spoke-networks).
 
 #### Azure DNS Private Resolver
-Azure DNS Private Resolver is a zone‑redundant service, providing high availability for production workloads without requiring customer‑managed clustering. In this single‑region scenario, only an inbound endpoint is needed; however, other architectures—such as hybrid name resolution, conditional forwarding, or cross‑environment resolution—may require outbound endpoints. Monitoring is available through Azure Monitor metrics and logs, which is recommended for operational readiness and troubleshooting. The same resolver capabilities can also be used in development scenarios, such as enabling private DNS resolution from a developer workstation when connected to the virtual network.
+
+Azure DNS Private Resolver is a zone‑redundant service, providing high availability without requiring customer‑managed DNS server hosting. In this single‑region scenario, only an inbound endpoint is needed; however, other architectures, such as hybrid name resolution, conditional forwarding, or cross‑environment resolution, require outbound endpoints.
 
 - Each region should have one virtual hub DNS extension with one DNS Private Resolver.
 - The DNS Private Resolver only requires an inbound endpoint and no outbound endpoints for this scenario. Set the private IP of the inbound endpoint as the custom DNS service in the Azure Firewall policy (see figure 5).
@@ -211,7 +212,7 @@ The key point is that the FQDN resolves to the private IP address, not the publi
 
 **HTTP flow**
 
-1. With the DNS result in hand (the private IP address of the storage account), the client issues an HTTP request to `stgworkload00.blob.core.windows.net`.
+1. With the DNS result in hand, the private IP address of the storage account, the client issues an HTTP request to `stgworkload00.blob.core.windows.net`.
 1. The request is sent to the private IP address of the storage account. This request appropriately fails for many reasons:
     - Azure Firewall is configured to secure private traffic, so it handles the request. Unless Azure Firewall has a network or application rule in place to allow the flow, Azure Firewall blocks the request.
     - You don't have to use Azure Firewall in the hub to secure private traffic. For example, if your [network supports private, cross-region traffic](private-link-virtual-wan-dns-guide.yml#multi-region-routing), the NSG on the private endpoint subnet is still configured to block all traffic other than the compute ASG sources within the virtual network that hosts the workload.

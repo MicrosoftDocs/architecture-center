@@ -6,7 +6,7 @@ Your network design and, in particular, your DNS configuration, are key factors 
 
 ## Starting network topology
 
-The *starting network topology* is the baseline architecture for all scenarios in this series. It's a typical hub-spoke network that uses Azure Virtual WAN.
+The *starting network topology* is the base architecture for all scenarios in this series. It's a typical hub-spoke network that uses Azure Virtual WAN.
 
 :::image type="complex" source="images/dns-private-endpoints-virtual-wan-baseline-architecture.svg" lightbox="images/dns-private-endpoints-virtual-wan-baseline-architecture.svg" alt-text="Diagram that shows the starting Virtual WAN architecture that's used for this series of articles.":::
 The diagram shows a network with Virtual WAN. The network has two regions, each with a secured virtual hub. Each secured virtual hub is secured with Azure Firewall. The firewall is configured with DNS Proxy enabled. There are two virtual networks connected to each virtual hub. The virtual networks have a dotted line to the firewall on their hub, noting that the firewall instance is their configured DNS.
