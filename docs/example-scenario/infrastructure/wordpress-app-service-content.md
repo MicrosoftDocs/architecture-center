@@ -9,7 +9,7 @@ This article describes a solution for small to medium-sized WordPress installati
 > [!NOTE]
 > You can extend this solution by implementing tips and recommendations that aren't specific to any particular WordPress hosting method. For general tips for deploying a WordPress installation, see [WordPress on Azure](../../guide/infrastructure/wordpress-overview.yml).
 
-### Dataflow
+### Data flow
 
 This scenario covers a scalable installation of [WordPress that runs on Azure App Service](/azure/app-service/quickstart-wordpress).
 

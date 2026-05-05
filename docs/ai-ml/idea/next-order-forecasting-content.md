@@ -10,7 +10,7 @@ This article describes how merchandise distributors can use AI and machine learn
 
 *Download a [PowerPoint file](https://arch-center.azureedge.net/next-order-forecasting.pptx) of this architecture.*
 
-### Dataflow
+### Data flow
 
 1. Data sources
 

@@ -8,7 +8,7 @@ The guidance in this article is for telemetry scenarios and batch test drive dat
 
 *Download a [PowerPoint file](https://arch-center.azureedge.net/next-generation-telemetry-analytics-automotive.pptx) with all the diagrams in this article.*
 
-### Dataflow
+### Data flow
 
 The following dataflow corresponds to the preceding diagram:
 

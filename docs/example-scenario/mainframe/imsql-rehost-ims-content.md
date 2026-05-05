@@ -8,7 +8,7 @@ This architecture shows how to use Raincode's IMSql to rehost IMS Database Man
 
 *Download a [Visio file](https://arch-center.azureedge.net/imsql-rehosting-ims-pre-migration-mainframe.vsdx) of this architecture.*
 
-#### Dataflow
+#### Data flow
 
 A. Users connect via TCP/IP by using protocols like TN3270 and HTTPS.
 
@@ -34,7 +34,7 @@ I. Partitions run separate workloads and segregate work types within the environ
 
 *Download a [Visio file](https://arch-center.azureedge.net/imsql-rehosting-raincode-app-modernization.vsdx) of this architecture.*
 
-#### Dataflow
+#### Data flow
 
 1. IBM 3270 terminal emulators connect to IMS TM applications that are deployed on Azure unchanged via the IMSql Terminal Server.
 1. Batch processes written in JCL are run unchanged via transient Azure container instances that run the Raincode JCL interpreter. Compiled legacy programs access IMS DB by using standard IMS APIs. Raincode JCL can store its catalog on any file-based storage. 

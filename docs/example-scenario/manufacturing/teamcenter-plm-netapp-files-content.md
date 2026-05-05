@@ -17,7 +17,7 @@ The architecture centralizes the digital assets and product data in the Root FSC
 
 **Data replication:** The architecture uses SQL Server Always On availability groups to synchronously replicate the database across availability zones. Azure NetApp Files uses cross-zone replication to asynchronously replicate data across availability zones.
 
-**Dataflow:** The databases [a] and the Root FSC servers [b] in the resource tier store and retrieve data from Azure NetApp Files volumes. The dataflow between the architecture tiers is efficient and provides private access to product data and digital assets because Azure NetApp Files volumes are hosted in the customer virtual network, in availability zones. Azure NetApp Files provides on-demand, nondisruptive scalability and HA across availability zones.
+**Data flow:** The databases [a] and the Root FSC servers [b] in the resource tier store and retrieve data from Azure NetApp Files volumes. The dataflow between the architecture tiers is efficient and provides private access to product data and digital assets because Azure NetApp Files volumes are hosted in the customer virtual network, in availability zones. Azure NetApp Files provides on-demand, nondisruptive scalability and HA across availability zones.
 
 ## Scenario details
 

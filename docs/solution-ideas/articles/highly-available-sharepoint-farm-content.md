@@ -14,7 +14,7 @@ This solution addresses the capability to deliver highly available intranet capa
 <p>Use ExpressRoute or VPN Gateway for management access to resource group.</p>
 </div>
 
-### Dataflow
+### Data flow
 
 1. Create resource group for the storage, network, and virtual machine, plus other dependent elements.
 1. Create virtual network to host the virtual machines and load balancers for the deployment. Ensure the network has appropriate network security groups implemented to protect network traffic flow.

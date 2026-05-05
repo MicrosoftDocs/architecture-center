@@ -8,7 +8,7 @@ This article describes an architecture for many models that uses Azure Machine L
 
 *Download a [Visio file](https://arch-center.azureedge.net/many-models-machine-learning-azure.vsdx) of this architecture.*
 
-### Dataflow
+### Data flow
 
 The following dataflow corresponds to the previous diagram:
 

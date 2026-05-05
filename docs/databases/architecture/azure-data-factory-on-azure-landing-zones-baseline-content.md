@@ -115,7 +115,7 @@ The [modern analytics architecture with Azure Databricks](/azure/architecture/so
 
 *Download a [Visio file](https://arch-center.azureedge.net/azure-data-factory-baseline-logical.vsdx) of this architecture.*
 
-### Dataflow
+### Data flow
 
 This solution uses Data Factory with a SHIR to ingest data from the on-premises source system to Data Lake Storage. Data Factory also orchestrates Azure Databricks notebooks to transform and load the data into Delta Lake tables hosted on Data Lake Storage.
 

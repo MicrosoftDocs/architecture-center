@@ -6,7 +6,7 @@ This architecture describes how to implement an Information Management System (I
    The diagram shows the architecture of an IMS DB/DC workload before migration to Azure. The flow begins with an on-premises user accessing communication protocols like HTTPS via a TN3270 terminal or a web interface. A double-sided arrow connects the communication protocols to transaction managers like IMS DC. A box that's labeled front end contains online programs. A double-sided arrow that's labeled DL/I connects the front end to another box that's labeled back end. This box contains IMS data and is connected to the IMS DB data layer. Another double-sided arrow that's labeled DL/I connects the data layer to a box that contains batch jobs. A box that's labeled other services contains services like security and reporting. These services interact with all the parts of the diagram. 
 :::image-end:::   
 
-### Dataflow
+### Data flow
 
 The following dataflow corresponds to the previous diagram:
 
@@ -83,7 +83,7 @@ The following workflow corresponds to the previous diagram:
 
 - This migration addresses a one-time data load from IMS DB. It doesn't address coexistence and associated data synchronization.  
 
-### Dataflow for migration
+### Data flow for migration
 
 The following dataflow corresponds to the previous diagram:
 

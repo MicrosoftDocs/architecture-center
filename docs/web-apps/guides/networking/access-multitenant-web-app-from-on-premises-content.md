@@ -8,7 +8,7 @@ In this article, Azure App Service refers to the pricing tiers where there's sha
 
 *Download a [Visio file](https://arch-center.azureedge.net/multitenant-web-apps.vsdx) of this architecture.*
 
-### Dataflow
+### Data flow
 
 - By using Azure App Service [regional virtual network integration](/azure/app-service/web-sites-integrate-with-vnet#regional-vnet-integration), the web app connects to Azure services through delegated subnet *VNet Integration Subnet* in an Azure virtual network.
 

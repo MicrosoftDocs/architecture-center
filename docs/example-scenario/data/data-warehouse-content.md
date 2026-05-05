@@ -6,7 +6,7 @@ This example scenario demonstrates a data pipeline that integrates large amounts
 
 *Download a [Visio file](https://arch-center.azureedge.net/architecture-data-warehousing.vsdx) of this architecture.*
 
-### Dataflow
+### Data flow
 
 The data flows through the solution as follows:
 

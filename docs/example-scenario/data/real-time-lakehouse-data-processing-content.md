@@ -15,7 +15,7 @@ This article describes an end-to-end solution for near real-time data processing
 
 *Download a [Visio file](https://arch-center.azureedge.net/azure-near-realtime-data-processing.vsdx) of this architecture.*
 
-### Dataflow
+### Data flow
 
 1. Change data capture (CDC) is a prerequisite for source systems to listen to changes. [Debezium connectors](https://debezium.io/documentation/reference/stable/connectors/index.html) can connect to different source systems and tap into changes as they happen. The connectors can capture changes and produce events from various relational database management systems (RDBMS). Installing a Debezium connector requires a Kafka connect system.
 
