@@ -163,6 +163,8 @@ During the POC phase, it's important to get an understanding of what logs and me
 
 - Use [Application Insights](/azure/application-insights/app-insights-overview) or another application performance management (APM) tool to emit telemetry and logs to monitor application performance.
 
+- Configure a [Health Model (preview)](https://learn.microsoft.com/en-us/azure/well-architected/design-guides/health-modeling) to capture resource state, drive operational decisions and alerting across your entire architecture.
+
 #### Deployment
 
 The following points provide guidance for how to deploy your App Service application:
