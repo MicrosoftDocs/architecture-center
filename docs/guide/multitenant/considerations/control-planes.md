@@ -135,7 +135,7 @@ Control plane isolation provides the following advantages:
 
 - You can configure scaling separately. For example, your control plane might have consistent resource requirements, and your tenants' resources might scale elastically depending on their needs.
 
-- A clear separation creates a [bulkhead](../../../patterns/bulkhead.yml) between your control planes and data planes, which helps prevent [noisy neighbor problems](../../../antipatterns/noisy-neighbor/noisy-neighbor.yml) from spreading across your solution.
+- A clear separation creates a [bulkhead](../../../patterns/bulkhead.md) between your control planes and data planes, which helps prevent [noisy neighbor problems](../../../antipatterns/noisy-neighbor/noisy-neighbor.yml) from spreading across your solution.
 - Control planes are typically highly privileged systems that have high levels of access. Control plane isolation reduces the likelihood of a security vulnerability allowing attackers to elevate their permissions across your entire system.
 - You can deploy separate networking and firewall configurations. Data planes and control planes usually require different types of network access.
 
@@ -175,7 +175,7 @@ When your control plane manages shared components, it's important to be aware of
 
 ## Use multiple control planes
 
-In a complex environment, you might need to use multiple control planes that manage different areas. Many multitenant solutions follow the [Deployment Stamps pattern](../../../patterns/deployment-stamp.yml) and shard tenants across multiple stamps. In this pattern, you might create separate control planes for global and stamp responsibilities.
+In a complex environment, you might need to use multiple control planes that manage different areas. Many multitenant solutions follow the [Deployment Stamps pattern](../../../patterns/deployment-stamp.md) and shard tenants across multiple stamps. In this pattern, you might create separate control planes for global and stamp responsibilities.
 
 > [!TIP]
 > Coordinating across multiple control planes adds complexity, so try to minimize the number of control planes that you build. Most solutions need only one control plane.

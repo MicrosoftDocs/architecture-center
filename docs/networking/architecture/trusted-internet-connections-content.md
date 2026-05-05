@@ -47,7 +47,7 @@ This article describes how to achieve Trusted Internet Connections (TIC) 3.0 com
 
   - [Microsoft Entra ID](/entra/fundamentals/whatis) is an identity and access service that provides identity features, single sign-on, and multifactor authentication across Azure workloads. In this architecture, it secures access to Azure resources and generates identity logs for compliance monitoring.
 
-  - [Event Hubs Standard](/azure/well-architected/service-guides/event-hubs) is a big data streaming platform and event ingestion service. In this architecture, it receives logs from Log Analytics and streams them to CISA TALON for centralized analysis.
+  - [Event Hubs Standard](/azure/well-architected/service-guides/azure-event-hubs) is a big data streaming platform and event ingestion service. In this architecture, it receives logs from Log Analytics and streams them to CISA TALON for centralized analysis.
 
   - CISA TALON is a centralized log aggregation service operated by CISA that ingests telemetry data from cloud environments for cybersecurity monitoring and compliance. In this architecture, TALON authenticates by using a CISA-supplied certificate and collects logs from Event Hubs. It pulls the logs into the CLAW system to support TIC 3.0 compliance and centralized visibility.
 
@@ -58,6 +58,8 @@ There are a few alternatives that you can use in these solutions:
 - You can separate log collection into areas of responsibility. For example, you can send Microsoft Entra logs to a Log Analytics workspace that's managed by the identity team, and send network logs to a different Log Analytics workspace that's managed by the network team.
 - The examples in this article each use a single firewall, but some organizational requirements or architectures require two or more. For example, an architecture can include an Azure Firewall instance and an Application Gateway instance with Web Application Firewall. Logs for each firewall must be collected and made available for CISA TALON to collect.
 - If your environment requires internet egress from Azure-based virtual machines, you can use a layer 3 solution like Azure Firewall or a third-party firewall to monitor and log the outbound traffic.
+
+  The firewall applies source network address translation (SNAT), so one of the firewall's public IP addresses, not the workload's IP address, might appear as the source in TIC logs and at the internet destination. Azure Firewall may use any of the attached public IPs for each outbound flow, so document the entire set as your environment's egress identity. The number of attached public IP addresses also sets the SNAT port budget and therefore the concurrent outbound connection ceiling for all egressing workloads.
 
 ## Scenario details
 
@@ -229,7 +231,6 @@ Principal author:
 - [EINSTEIN](https://www.cisa.gov/einstein)
 - [Managed Trusted Internet Protocol Services (MTIPS)](https://www.gsa.gov/technology/it-contract-vehicles-and-purchasing-programs/information-technology-category/it-security/trusted-internet-connections-tic/mtips-features-and-price-structure)
 - [Azure Trusted Internet Connection - Extended](https://github.com/Azure/trusted-internet-connection)
-- [Federal App Innovation - TIC 3.0](https://github.com/microsoft/Federal-App-Innovation-Community/tree/main/assets/topics/infrastructure/solutions/tic3.0)
 - [What is Azure Firewall?](/azure/firewall/overview)
 - [Azure Firewall documentation](/azure/firewall)
 - [What is Azure Application Gateway?](/azure/application-gateway/overview)

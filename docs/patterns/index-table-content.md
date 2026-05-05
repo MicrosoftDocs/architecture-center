@@ -81,7 +81,7 @@ As with any design decision, consider any tradeoffs against the goals of the oth
 
 ## Example
 
-Azure storage tables provide a highly scalable key/value data store for applications running in the cloud. Applications store and retrieve data values by specifying a key. The data values can contain multiple fields, but the structure of a data item is opaque to table storage, which simply handles a data item as an array of bytes.
+Azure storage tables provide a highly scalable key/value data store for applications that run in the cloud. Applications store and retrieve data values by specifying a key. These data values can contain multiple fields, but the structure of a data item is opaque to table storage, which treats each item as an array of bytes.
 
 Azure storage tables also support sharding. The sharding key includes two elements, a partition key and a row key. Items that have the same partition key are stored in the same partition (shard), and the items are stored in row key order within a shard. Table storage is optimized for performing queries that fetch data falling within a contiguous range of row key values within a partition. If you're building cloud applications that store information in Azure tables, you should structure your data with this feature in mind.
 
@@ -103,5 +103,5 @@ You can duplicate the movie data in the values held by each partition by adoptin
 
 The following patterns might also be relevant when implementing this pattern:
 
-- [Sharding pattern](./sharding.yml). The Index Table pattern is frequently used in conjunction with data partitioned by using shards. The Sharding pattern provides more information on how to divide a data store into a set of shards.
+- [Sharding pattern](./sharding.md). The Index Table pattern is frequently used in conjunction with data partitioned by using shards. The Sharding pattern provides more information on how to divide a data store into a set of shards.
 - [Materialized View pattern](./materialized-view.yml). Instead of indexing data to support queries that summarize data, it might be more appropriate to create a materialized view of the data. Describes how to support efficient summary queries by generating prepopulated views over data.

@@ -95,7 +95,7 @@ The [hub-and-spoke virtual network topology](../../../networking/architecture/hu
 
 When you use a hub-and-spoke topology, plan for limits [such as the maximum number of peered virtual networks](/azure/virtual-network/virtual-network-peering-overview). Don't use overlapping address spaces for each tenant's virtual network.
 
-Consider using the hub-and-spoke topology when you deploy tenant-specific virtual networks that use IP addresses that you select. Each tenant's virtual network becomes a spoke and can share common resources in the hub virtual network. You can also use the hub-and-spoke topology when you scale shared resources across multiple virtual networks or when you use the [Deployment Stamps pattern](../../../patterns/deployment-stamp.yml).
+Consider using the hub-and-spoke topology when you deploy tenant-specific virtual networks that use IP addresses that you select. Each tenant's virtual network becomes a spoke and can share common resources in the hub virtual network. You can also use the hub-and-spoke topology when you scale shared resources across multiple virtual networks or when you use the [Deployment Stamps pattern](../../../patterns/deployment-stamp.md).
 
 > [!TIP]
 > If your solution spans multiple geographic regions, deploy separate hubs and hub resources in each region to prevent traffic from crossing multiple Azure regions. This practice incurs a higher resource cost but reduces request latency and reduces global peering charges.
@@ -181,7 +181,7 @@ In modern solutions, you should combine network-layer security with other securi
 
 When you use the [Gateway Offloading pattern](../../../patterns/gateway-offloading.yml), you might consider rewriting the `Host` header of HTTP requests. This practice can simplify the configuration of your back-end web application service by offloading the custom domain and TLS management to the gateway.
 
-But `Host` header rewrites can cause problems for some back-end services. If your application issues HTTP redirects or cookies, the mismatch in host names can break the application's functionality. In particular, this problem can occur when you use back-end services that run on multitenant infrastructure, like App Service and Azure Functions. For more information, see [Host name preservation best practices](../../../best-practices/host-name-preservation.yml).
+But `Host` header rewrites can cause problems for some back-end services. If your application issues HTTP redirects or cookies, the mismatch in host names can break the application's functionality. In particular, this problem can occur when you use back-end services that run on multitenant infrastructure, like App Service and Azure Functions. For more information, see [Host name preservation best practices](../../../best-practices/host-name-preservation.md).
 
 Test your application's behavior with the gateway configuration that you plan to use.
 

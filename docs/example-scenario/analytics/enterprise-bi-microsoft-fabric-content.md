@@ -34,7 +34,7 @@ The following workflow corresponds to the previous diagram.
 
 ### Components
 
-- [Azure SQL Database](/azure/well-architected/service-guides/azure-sql-database-well-architected-framework) is an Azure-hosted PaaS SQL server. In this architecture, SQL Database provides the source data and demonstrates the flow of data for the migration scenario.
+- [Azure SQL Database](/azure/well-architected/service-guides/azure-sql-database) is an Azure-hosted PaaS SQL server. In this architecture, SQL Database provides the source data and demonstrates the flow of data for the migration scenario.
 
 - [OneLake](/fabric/onelake/onelake-overview) is a unified, cloud-based data lake for storing both structured and unstructured data across the organization. In this architecture, OneLake serves as the central storage layer. It uses artifacts such as Fabric Lakehouse, Fabric Warehouse, Fabric Eventhouse, and mirrored databases to persist and organize various types of data for analytics and reporting.
 
@@ -313,7 +313,7 @@ Other contributors:
 
 ## Related resources
 
-- [Databases architecture design](../../databases/index.yml)
+- [Get started with database architecture design](../../databases/database-get-started.md)
 - [Analytics end-to-end with Microsoft Fabric](../../example-scenario/dataplate2e/data-platform-end-to-end.yml)
 
 [blue-green-dep]: https://martinfowler.com/bliki/BlueGreenDeployment.html

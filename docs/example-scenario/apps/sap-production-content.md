@@ -1,5 +1,3 @@
-<!-- cSpell:ignore DharmeshBhagat HANA -->
-
 This reference architecture shows a set of proven practices for running a high-availability SAP NetWeaver with Oracle Database on Azure. The architecture principles are OS-agnostic, however, unless otherwise specified, the architecture is assumed to be based on Linux.
 
 The first diagram shows a reference architecture for SAP on Oracle in Azure. We recommend that you deploy across two availability zones.
@@ -52,7 +50,7 @@ Since all other VMs supporting SAP allow the choice of either Gen2 only or Gen1+
 
 ### Storage
 
-This architecture uses [Azure managed disks](/azure/virtual-machines/windows/managed-disks-overview) for virtual machines and [Azure file shares](/azure/storage/files/files-nfs-protocol) or [Azure NetApp Files](/azure/well-architected/service-guides/azure-netapp-files) for any Network File System (NFS) shared storage requirements such as sapmnt and SAP transport NFS volumes. Guidelines for storage deployment with SAP on Azure are in detail within the [Azure Storage types for SAP workload guide](/azure/virtual-machines/workloads/sap/planning-guide-storage)
+This architecture uses [Azure managed disks](/azure/virtual-machines/managed-disks-overview) for virtual machines and [Azure file shares](/azure/storage/files/files-nfs-protocol) or [Azure NetApp Files](/azure/well-architected/service-guides/azure-netapp-files) for any Network File System (NFS) shared storage requirements such as sapmnt and SAP transport NFS volumes. Guidelines for storage deployment with SAP on Azure are in detail within the [Azure Storage types for SAP workload guide](/azure/virtual-machines/workloads/sap/planning-guide-storage)
 
 - **Certified storage for SAP.** Similar to certified VM types for SAP usage, see the details in [SAP note 2015553](https://launchpad.support.sap.com/#/notes/2015553) and [SAP note 2039619](https://launchpad.support.sap.com/#/notes/2039619).
 - **Storage design for SAP on Oracle.** You can find a recommended storage design for SAP on Oracle in Azure in [Azure Virtual Machines Oracle database management system (DBMS) deployment for SAP workload](/azure/virtual-machines/workloads/sap/dbms_guide_oracle). The article provides specific guidance on file system layout, disk sizing recommendations, and other storage options.
@@ -66,7 +64,7 @@ The preceding architecture depicts a highly available deployment, with each appl
 
 On Azure, SAP workload deployment can be either regional or zonal, depending on the availability and resiliency requirements of the SAP applications and the region selected. Azure provides [different deployment options](/azure/sap/workloads/sap-high-availability-architecture-scenarios#comparison-of-different-deployment-types-for-sap-workload), like Virtual Machine Scale Sets with flexible orchestration (FD=1), availability zones, and availability sets to increase the availability of resources. To get a comprehensive understanding of the deployment options and their applicability across different Azure regions (including across zones, within a single zone, or in a region without zones), see [High-availability architecture and scenarios for SAP NetWeaver](/azure/sap/workloads/sap-high-availability-architecture-scenarios).
 
-**Load balancers.**  [Azure Load Balancer](/azure/well-architected/service-guides/azure-load-balancer/reliability) is used to distribute traffic to virtual machines in the SAP subnets. When you incorporate Azure Load Balancer in a zonal deployment of SAP, be sure to select the Standard SKU load balancer. The Basic SKU balancer doesn't support zonal redundancy.
+**Load balancers.** An internal [Azure Load Balancer](/azure/well-architected/service-guides/azure-load-balancer) is used to distribute traffic to virtual machines in the SAP subnets. Azure Load Balancer supports zone-redundant distribution for zonal deployments of SAP.
 
 Consider the [decision factors](/azure/virtual-machines/workloads/sap/sap-ha-availability-zones#considerations-for-deploying-across-availability-zones) when deploying VMs between availability zones for SAP. Use of [proximity placement groups](/azure/virtual-machines/workloads/sap/sap-proximity-placement-scenarios) with an availability zone deployment needs to be evaluated and used only for application tier VMs.
 

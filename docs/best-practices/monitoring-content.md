@@ -1,4 +1,4 @@
-<!-- cSpell:ignore SIEM HDFS SSDT -->
+<!-- cSpell:ignore SIEM SSDT -->
 
 Distributed applications and services running in the cloud are, by their nature, complex pieces of software that comprise many moving parts. In a production environment, it's important to be able to track the way in which users use your system, trace resource utilization, and generally monitor the health and performance of your system. You can use this information as a diagnostic aid to detect and correct issues, and also to help spot potential problems and prevent them from occurring.
 
@@ -38,7 +38,7 @@ An operator should be alerted quickly (within a matter of seconds) if any part o
 - Yellow for partially healthy (the system is running with reduced functionality)
 - Green for completely healthy
 
-A comprehensive health-monitoring system enables an operator to drill down through the system to view the health status of subsystems and components. For example, if the overall system is depicted as partially healthy, the operator should be able to zoom in and determine which functionality is currently unavailable.
+A comprehensive health-monitoring system enables an operator to drill down through the system to view the health status of subsystems and components. For example, if the overall system is depicted as partially healthy, the operator should be able to zoom in and determine which functionality is currently degraded or unavailable.
 
 ### Data sources, instrumentation, and data-collection requirements
 
@@ -53,7 +53,7 @@ The raw data that's required to support health monitoring can be generated as a 
 
 ### Analyzing health data
 
-The primary focus of health monitoring is to quickly indicate whether the system is running. Hot analysis of the immediate data can trigger an alert if a critical component is detected as unhealthy. (It fails to respond to a consecutive series of pings, for example.) The operator can then take the appropriate corrective action.
+The primary focus of health monitoring is to quickly indicate whether the system is running. Hot analysis of the immediate data can trigger an alert if a critical component is detected as unhealthy (it fails to respond to a consecutive series of pings, for example). The operator can then take the appropriate corrective action.
 
 A more advanced system might include a predictive element that performs a cold analysis over recent and current workloads. A cold analysis can spot trends and determine whether the system is likely to remain healthy or whether the system needs additional resources. This predictive element should be based on critical performance metrics, such as:
 
@@ -65,15 +65,15 @@ If the value of any metric exceeds a defined threshold, the system can raise an 
 
 ## Availability monitoring
 
-A truly healthy system requires that the components and subsystems that compose the system are available. Availability monitoring is closely related to health monitoring. But whereas health monitoring provides an immediate view of the current health of the system, availability monitoring is concerned with tracking the availability of the system and its components to generate statistics about the uptime of the system.
+A truly healthy system requires that the components and subsystems that compose the system are available. Availability monitoring is closely related to health monitoring. While health monitoring provides an immediate view of the current health of the system, availability monitoring is concerned with tracking the availability of the system and its components to generate statistics about the uptime of the system.
 
 In many systems, some components (such as a database) are configured with built-in redundancy to permit rapid failover in the event of a serious fault or loss of connectivity. Ideally, users should not be aware that such a failure has occurred. But from an availability monitoring perspective, it's necessary to gather as much information as possible about such failures to determine the cause and take corrective actions to prevent them from recurring.
 
-The data that's required to track availability might depend on multiple lower-level factors. Many of these factors might be specific to the application, system, and environment. An effective monitoring system captures the availability data that corresponds to these low-level factors and then aggregates them to give an overall picture of the system. For example, in an e-commerce system, the business functionality that enables a customer to place orders might depend on the repository where order details are stored and the payment system that handles the monetary transactions for paying for these orders. The availability of the order-placement part of the system is therefore a function of the availability of the repository and the payment subsystem.
+The data required to track availability might depend on multiple lower-level factors. Many of these factors might be specific to the application, system, and environment. An effective monitoring system captures the availability data that corresponds to these low-level factors and then aggregates them to give an overall picture of the system. For example, in an e-commerce system, the business functionality that enables a customer to place orders might depend on the repository where order details are stored and the payment system that handles the monetary transactions for paying for these orders. The availability of the order-placement part of the system is therefore a function of the availability of the repository and the payment subsystem.
 
 ### Requirements for availability monitoring
 
-An operator should also be able to view the historical availability of each system and subsystem, and use this information to spot any trends that might cause one or more subsystems to periodically fail. (Do services start to fail at a particular time of day that corresponds to peak processing hours?)
+An operator should also be able to view the historical availability of each system and subsystem, and use this information to spot any trends that might cause one or more subsystems to periodically fail. For example, an operator might use availability data to detect that services start to fail at a particular time of day  corresponding to peak processing hours.
 
 A monitoring solution should provide an immediate and historical view of the availability or unavailability of each subsystem. It should also be capable of quickly alerting an operator when one or more services fail or when users can't connect to services. This is a matter of not only monitoring each service, but also examining the actions that each user performs if these actions fail when they attempt to communicate with a service. To some extent, a degree of connectivity failure is normal and might be due to transient errors. But it might be useful to allow the system to raise an alert for the number of connectivity failures to a specified subsystem that occur during a specific period.
 
@@ -104,14 +104,14 @@ This is useful for SLA purposes. ([SLA monitoring](#sla-monitoring) is described
 
 ## Performance monitoring
 
-As the system is placed under more and more stress (by increasing the volume of users), the size of the datasets that these users access grows and the possibility of failure of one or more components becomes more likely. Frequently, component failure is preceded by a decrease in performance. If you're able detect such a decrease, you can take proactive steps to remedy the situation.
+As the system is placed under more and more stress (by increasing the volume of users), the size of the datasets that these users access grows and the possibility of failure of one or more components becomes more likely. Frequently, component failure is preceded by performance degradation. If you're able detect such a degradation, you can take proactive steps to remedy the situation.
 
 System performance depends on multiple factors. Each factor is typically measured through key performance indicators (KPIs), such as the number of database transactions per second or the volume of network requests that are successfully serviced in a specified time frame. Some of these KPIs might be available as specific performance measures, whereas others might be derived from a combination of metrics.
 
 > [!NOTE]
 > Determining poor or good performance requires that you understand the level of performance at which the system should be capable of running. This requires observing the system while it's functioning under a typical load and capturing the data for each KPI over a period of time. This might involve running the system under a simulated load in a test environment and gathering the appropriate data before deploying the system to a production environment.
 >
-> You should also ensure that monitoring for performance purposes doesn't become a burden on the system. You might be able to dynamically adjust the level of detail for the data that the performance monitoring process gathers.
+> You should also ensure that monitoring for performance purposes doesn't become a burden on the system. Adjusting the level of detail for the data that the performance monitoring process gathers will help you optimize your performance.
 
 ### Requirements for performance monitoring
 
@@ -131,13 +131,13 @@ It can also be helpful to provide tools that enable an operator to help spot cor
 
 Along with this high-level functional information, an operator should be able to obtain a detailed view of the performance for each component in the system. This data is typically provided through low-level performance counters that track information such as:
 
-- Memory utilization.
-- Number of threads.
-- CPU processing time.
-- Request queue length.
-- Disk or network I/O rates and errors.
-- Number of bytes written or read.
-- Middleware indicators, such as queue length.
+- Memory utilization
+- Number of threads
+- CPU processing time
+- Request queue length
+- Disk or network I/O rates and errors
+- Number of bytes written or read
+- Middleware indicators, such as queue length
 
 All visualizations should allow an operator to specify a time period. The displayed data might be a snapshot of the current situation or a historical view of the performance.
 
@@ -145,7 +145,7 @@ An operator should be able to raise an alert based on any performance measure fo
 
 ### Data sources, instrumentation, and data-collection requirements
 
-You can gather high-level performance data (such as throughput, number of concurrent users, number of business transactions, and error rates) by monitoring the progress of users' requests as they arrive and pass through the system. This involves incorporating tracing statements at key points in the application code, together with timing information. All faults, exceptions, and warnings should be captured with sufficient data for correlating them with the requests that caused them. The Internet Information Services (IIS) log is another useful source.
+You can gather high-level performance data (such as throughput, number of concurrent users, number of business transactions, and error rates) by monitoring the progress of users' requests as they arrive and pass through the system. This involves incorporating tracing statements at key points in the application code, together with timing information. All faults, exceptions, and warnings should be captured with sufficient data for correlating them with the requests that caused them.
 
 If possible, you should also capture performance data for any external systems that the application uses. These external systems might provide their own performance counters or other features for requesting performance data. If this isn't possible, record information such as the start time and end time of each request made to an external system, together with the status (success, fail, or warning) of the operation. For example, you can use a stopwatch approach to time requests: start a timer when the request starts and then stop the timer when the request finishes.
 
@@ -177,7 +177,7 @@ The most critical aspects of security monitoring should enable an operator to qu
 
 - Detect attempted intrusions by an unauthenticated entity.
 - Identify attempts by entities to perform operations on data for which they have not been granted access.
-- Determine whether the system, or some part of the system, is under attack from outside or inside. (For example, a malicious authenticated user might be attempting to bring the system down.)
+- Determine whether the system, or some part of the system, is under attack from outside or inside. For example, a malicious authenticated user might be attempting to bring the system down.
 
 To support these requirements, an operator should be notified if:
 
@@ -187,39 +187,41 @@ To support these requirements, an operator should be notified if:
 
 The information that's provided to an operator should include the host address of the source for each request. If security violations regularly arise from a particular range of addresses, these hosts might be blocked.
 
-A key part in maintaining the security of a system is being able to quickly detect actions that deviate from the usual pattern. Information such as the number of failed or successful sign-in requests can be displayed visually to help detect whether there is a spike in activity at an unusual time. (An example of this activity is users signing in at 3:00 AM and performing a large number of operations when their working day starts at 9:00 AM). This information can also be used to help configure time-based autoscaling. For example, if an operator observes that a large number of users regularly sign in at a particular time of day, the operator can arrange to start additional authentication services to handle the volume of work, and then shut down these additional services when the peak has passed.
+A key part in maintaining the security of a system is being able to quickly detect actions that deviate from the usual pattern. Information such as the number of failed or successful sign-in requests can be displayed visually to help detect whether there is a spike in activity at an unusual time. An example of this activity is users signing in at 3:00 AM and performing a large number of operations when their working day starts at 9:00 AM.
+
+This information can also be used to help configure time-based autoscaling. For example, if an operator observes that a large number of users regularly sign in at a particular time of day, the operator can arrange to start additional authentication services to handle the volume of work, and then shut down these additional services when the peak has passed.
 
 ### Data sources, instrumentation, and data-collection requirements
 
 Security is an all-encompassing aspect of most distributed systems. The pertinent data is likely to be generated at multiple points throughout a system. You should consider adopting a Security Information and Event Management (SIEM) approach to gather the security-related information that results from events raised by the application, network equipment, servers, firewalls, antivirus software, and other intrusion-prevention elements.
 
-Security monitoring can incorporate data from tools that are not part of your application. These tools can include utilities that identify port-scanning activities by external agencies, or network filters that detect attempts to gain unauthenticated access to your application and data.
+Security monitoring can incorporate data from tools that are not part of your application. These tools can include utilities that identify port-scanning activities by external agencies, or network filters that detect attempts to gain unauthenticated access to your application and data. In some cases, CI/CD deployment tooling also make up an important part of the application life cycle, and these tools should also flag anomalous behavior.
 
 In all cases, the gathered data must enable an administrator to determine the nature of any attack and take the appropriate countermeasures.
 
 ### Analyzing security data
 
-A key feature of security monitoring is that it collects data from many sources. The different formats and level of detail often require complex analysis of the captured data to tie it together into a coherent thread of information. Apart from the simplest of cases (such as detecting a large number of failed sign-ins, or repeated attempts to gain unauthorized access to critical resources), it might not be possible to perform any complex automated processing of security data. Instead, it might be preferable to write this data, timestamped but otherwise in its original form, to a secure repository to allow for expert manual analysis.
+A key feature of security monitoring is that it collects data from many sources. The different formats and level of detail often require complex analysis of the captured data to tie it together into a coherent thread of information. Aside from basic cases (like detecting many failed sign-ins or repeated attempts to gain unauthorized access to critical resources), complex automated processing of security data might not be feasible. Instead, it might be preferable to write this data, timestamped but otherwise in its original form, to a secure repository to allow for expert manual analysis.
 
 ## SLA monitoring
 
-Many commercial systems that support paying customers make guarantees about the performance of the system in the form of SLAs. Essentially, SLAs state that the system can handle a defined volume of work within an agreed time frame and without losing critical information. SLA monitoring is concerned with ensuring that the system can meet measurable SLAs.
+Many commercial systems that support paying customers make commitments about the performance of the system in the form of [SLAs](/azure/reliability/concept-service-level-agreements). Essentially, SLAs state that the system can handle a defined volume of work within an agreed time frame and without losing critical information. SLA monitoring is concerned with ensuring that the system can meet measurable SLAs.
 
 > [!NOTE]
 > SLA monitoring is closely related to performance monitoring. But whereas performance monitoring is concerned with ensuring that the system functions *optimally*, SLA monitoring is governed by a contractual obligation that defines what *optimally* actually means.
 
 SLAs are often defined in terms of:
 
-- Overall system availability. For example, an organization might guarantee that the system is available for 99.9 percent of the time. This equates to no more than 9 hours of downtime per year, or approximately 10 minutes a week.
-- Operational throughput. This aspect is often expressed as one or more high-water marks, such as guaranteeing that the system can support up to 100,000 concurrent user requests or handle 10,000 concurrent business transactions.
-- Operational response time. The system might also make guarantees for the rate at which requests are processed. An example is that 99 percent of all business transactions finish within two seconds, and no single transaction takes longer than 10 seconds.
+- Overall system availability. For example, an organization might commit to the system being available 99.9 percent of the time. This equates to no more than 9 hours of downtime per year, or approximately 10 minutes a week.
+- Operational throughput. This aspect is often expressed as one or more high-water marks, such as committing that the system can support up to 100,000 concurrent user requests or handle 10,000 concurrent business transactions.
+- Operational response time. The system might also make commitments for the rate at which requests are processed. An example is that 99 percent of all business transactions finish within two seconds, and no single transaction takes longer than 10 seconds.
 
 > [!NOTE]
 > Some contracts for commercial systems might also include SLAs for customer support. An example is that all help-desk requests elicit a response within five minutes, and that 99 percent of all problems are fully addressed within one working day. Effective [issue tracking](#issue-tracking) (described later in this section) is key to meeting SLAs such as these.
 
 ### Requirements for SLA monitoring
 
-At the highest level, an operator should be able to determine at a glance whether the system is meeting the agreed SLAs or not. And if not, the operator should be able to drill down and examine the underlying factors to determine the reasons for substandard performance.
+At the highest level, an operator should be able to determine at a glance whether the system is meeting the agreed SLAs or not. If not, the operator should be able to drill down and examine the underlying factors to determine the reasons for substandard performance.
 
 Typical high-level indicators that can be depicted visually include:
 
@@ -233,7 +235,7 @@ All of these indicators should be capable of being filtered by a specified perio
 A cloud application likely comprises multiple subsystems and components. An operator should be able to select a high-level indicator and see how it's composed from the health of the underlying elements. For example, if the uptime of the overall system falls below an acceptable value, an operator should be able to zoom in and determine which elements are contributing to this failure.
 
 > [!NOTE]
-> System uptime needs to be defined carefully. In a system that uses redundancy to ensure maximum availability, individual instances of elements might fail, but the system can remain functional. System uptime as presented by health monitoring should indicate the aggregate uptime of each element and not necessarily whether the system has actually halted. Additionally, failures might be isolated. So even if a specific system is unavailable, the remainder of the system might remain available, although with decreased functionality. (In an e-commerce system, a failure in the system might prevent a customer from placing orders, but the customer might still be able to browse the product catalog.)
+> System uptime needs to be defined carefully. In a system that uses redundancy to ensure maximum availability, individual instances of elements might fail, but the system can remain functional. System uptime as presented by health monitoring should indicate the aggregate uptime of each element and not necessarily whether the system has actually halted. Additionally, failures might be isolated. So even if a specific system is unavailable, the remainder of the system might remain available, although with decreased functionality. In an e-commerce system, a failure in the system might prevent a customer from placing orders, but the customer might still be able to browse the product catalog.
 
 For alerting purposes, the system should be able to raise an event if any of the high-level indicators exceed a specified threshold. The lower-level details of the various factors that compose the high-level indicator should be available as contextual data to the alerting system.
 
@@ -269,7 +271,7 @@ Depending on the nature of the application, there might be statutory or other le
 
 ### Requirements for auditing
 
-An analyst must be able to trace the sequence of business operations that users are performing so that you can reconstruct users' actions. This might be necessary simply as a matter of record, or as part of a forensic investigation.
+An analyst must be able to trace the sequence of business operations that users carry out so that you can reconstruct users' actions. This record might be necessary for documentation purposes or as part of a forensic investigation.
 
 Audit information is highly sensitive. It likely includes data that identifies the users of the system, together with the tasks that they're performing. For this reason, audit information most likely takes the form of reports that are available only to trusted analysts rather than as an interactive system that supports drill-down of graphical operations. An analyst should be able to generate a range of reports. For example, reports might list all users' activities occurring during a specified time frame, detail the chronology of activity for a single user, or list the sequence of operations performed against one or more resources.
 
@@ -281,7 +283,7 @@ The primary sources of information for auditing can include:
 - Trace logs that record user activity.
 - Security logs that track all identifiable and unidentifiable network requests.
 
-The format of the audit data and the way in which it's stored might be driven by regulatory requirements. For example, it might not be possible to clean the data in any way. (It must be recorded in its original format.) Access to the repository where it's held must be protected to prevent tampering.
+The format of the audit data and the way in which it's stored might be driven by regulatory requirements. If regulations require that the data be recorded in its original format, it might not be possible to clean the data in any way. Therefore, access to the repository where it's held must be closely protected to prevent tampering.
 
 ### Analyzing audit data
 
@@ -301,6 +303,8 @@ Usage monitoring tracks how the features and components of an application are us
 
 - Enforce quotas. If a user in a multitenant system exceeds their paid quota of processing time or resource usage during a specified period, their access can be limited or processing can be throttled.
 
+- Detect noisy neighbor problems. Being able to determine if traffic is evenly spread out or if a small set of users are generating the bulk of it can help drive error investigations or product decisions. If a single user is the only one using an application feature, and that generates an outsized amount of traffic, that may imply that the feature needs some performance tuning. Alternatively, you may decide to impose additional quotas to resolve the issue.
+
 ### Requirements for usage monitoring
 
 To examine system usage, an operator typically needs to see information that includes:
@@ -310,7 +314,7 @@ To examine system usage, an operator typically needs to see information that inc
 - The volume of data storage that each user occupies.
 - The resources that each user is accessing.
 
-An operator should also be able to generate graphs. For example, a graph might display the most resource-hungry users, or the most frequently accessed resources or system features.
+An operator should also be able to generate graphs. Common examples of generated graphs include a graph to display the most resource-hungry users, and the most frequently accessed resources or system features.
 
 ### Data sources, instrumentation, and data-collection requirements
 
@@ -390,13 +394,13 @@ You should log all exceptions and warnings, and ensure that you retain a full tr
 Many applications use libraries and frameworks to perform common tasks such as accessing a data store or communicating over a network. These frameworks might be configurable to provide their own trace messages and raw diagnostic information, such as transaction rates and data transmission successes and failures.
 
 > [!NOTE]
-> Many modern frameworks automatically publish performance and trace events. Capturing this information is simply a matter of providing a means to retrieve and store it where it can be processed and analyzed.
+> Many modern frameworks automatically publish performance and trace events. Capturing this information involves providing a way to retrieve and store the events so that they can be processed and analyzed.
 
 The operating system where the application is running can be a source of low-level system-wide information, such as performance counters that indicate I/O rates, memory utilization, and CPU usage. Operating system errors (such as the failure to open a file correctly) might also be reported.
 
 You should also consider the underlying infrastructure and components on which your system runs. Virtual machines, virtual networks, and storage services can all be sources of important infrastructure-level performance counters and other diagnostic data.
 
-If your application uses other external services, such as a web server or database management system, these services might publish their own trace information, logs, and performance counters. Examples include SQL Server Dynamic Management Views for tracking operations performed against a SQL Server database, and IIS trace logs for recording requests made to a web server.
+If your application uses other external services, such as a web server or database management system, these services might publish their own trace information, logs, and performance counters. Examples include SQL Server Dynamic Management Views for tracking operations performed against a SQL Server database, and Application Insights trace logs for recording requests made to an Azure App Service.
 
 As the components of a system are modified and new versions are deployed, it's important to be able to attribute issues, events, and metrics to each version. This information should be tied back to the release pipeline so that problems with a specific version of a component can be tracked quickly and rectified.
 
@@ -422,6 +426,8 @@ The section [Instrumenting an application](#instrumenting-an-application) contai
 
 - **Endpoint monitoring**. This technique uses one or more diagnostic endpoints that the application exposes specifically to enable monitoring. An endpoint provides a pathway into the application code and can return information about the health of the system. Different endpoints can focus on various aspects of the functionality. You can write your own diagnostics client that sends periodic requests to these endpoints and assimilate the responses. For more information, see the [Health Endpoint Monitoring pattern](../patterns/health-endpoint-monitoring.yml).
 
+- **User error dumps**. This technique relies on an application to provide a graceful way to collect a snapshot of the application state if it cannot recover, and for users to voluntarily share that snapshot. Although it's not guaranteed to always run, the low-level data provided by an error dump can be incredibly useful to determine the root cause of errors. This is especially true if the errors in question happen infrequently or if errors are isolated to an uncommonly used feature in the application.
+
 For maximum coverage, you should use a combination of these techniques.
 
 ## Instrumenting an application
@@ -443,7 +449,7 @@ You can easily monitor individual system-level performance counters, capture met
 
 Also, there's unlikely to be a 1:1 mapping between threads and user requests, because asynchronous operations might reuse the same threads to perform operations on behalf of more than one user. To complicate matters further, a single request might be handled by more than one thread as execution flows through the system. If possible, associate each request with a unique activity ID that's propagated through the system as part of the request context. (The technique for generating and including activity IDs in trace information depends on the technology that's used to capture the trace data.)
 
-All monitoring data should be timestamped in the same way. For consistency, record all dates and times by using Coordinated Universal Time. This helps you more easily trace sequences of events.
+All monitoring data should be timestamped in the same way. For consistency, record all dates and times by using Coordinated Universal Time (UTC). This helps you more easily trace sequences of events.
 
 > [!NOTE]
 > Computers operating in different time zones and networks might not be synchronized. Don't depend on using timestamps alone for correlating instrumentation data that spans multiple machines.
@@ -454,7 +460,7 @@ Consider the following points when you're deciding which instrumentation data yo
 
 - Make sure that information captured by trace events is machine and human readable. Adopt well-defined schemas for this information to facilitate automated processing of log data across systems, and to provide consistency to operations and engineering staff reading the logs. Include environmental information, such as the deployment environment, the machine on which the process is running, the details of the process, and the call stack.
 
-- Enable profiling only when necessary because it can impose a significant overhead on the system. Profiling by using instrumentation records an event (such as a method call) every time it occurs, whereas sampling records only selected events. The selection can be time-based (once every *n* seconds), or frequency-based (once every *n* requests). If events occur very frequently, profiling by instrumentation might cause too much of a burden and itself affect overall performance. In this case, the sampling approach might be preferable. However, if the frequency of events is low, sampling might miss them. In this case, instrumentation might be the better approach.
+- Enable profiling only when necessary because it can impose a significant overhead on the system. Profiling by using instrumentation records an event (such as a method call) every time it occurs, whereas sampling only records selected events. The selection can be time-based (once every *n* seconds), or frequency-based (once every *n* requests). If events occur very frequently, profiling by instrumentation might cause too much of a burden and itself affect overall performance. In this case, the sampling approach might be preferable. However, if the frequency of events is low, sampling might miss them. In this case, instrumentation might be the better approach.
 
 - Provide sufficient context to enable a developer or administrator to determine the source of each request. This might include some form of activity ID that identifies a specific instance of a request. It might also include information that can be used to correlate this activity with the computational work performed and the resources used. This work might cross process and machine boundaries. For metering, the context should also include (either directly or indirectly via other correlated information) a reference to the customer who caused the request to be made. This context provides valuable information about the application state at the time that the monitoring data was captured.
 
@@ -468,7 +474,7 @@ Consider the following points when you're deciding which instrumentation data yo
 
 ### Ensuring compatibility with telemetry systems
 
-In many cases, the information that instrumentation produces is generated as a series of events and passed to a separate telemetry system for processing and analysis. A telemetry system is typically independent of any specific application or technology, but it expects information to follow a specific format that's usually defined by a schema. The schema effectively specifies a contract that defines the data fields and types that the telemetry system can ingest. The schema should be generalized to allow for data arriving from a range of platforms and devices.
+In many cases, the information that instrumentation produces is generated as a series of events and passed to a separate telemetry system for processing and analysis. A telemetry system is typically independent of any specific application or technology, but it expects information to follow a specific format that's usually defined by a schema. The schema effectively specifies a contract that defines the data fields and types that the telemetry system can ingest. The schema should be generalized to allow for data arriving from a range of platforms and devices. One example of a widely used framework and schema is [OpenTelemetry](https://opentelemetry.io/).
 
 A common schema should include fields that are common to all instrumentation events, such as the event name, the event time, the IP address of the sender, and the details that are required for correlating with other events (such as a user ID, a device ID, and an application ID). Remember that any number of devices might raise events, so the schema should not depend on the device type. Additionally, various devices might raise events for the same application; the application might support roaming or some other form of cross-device distribution.
 
@@ -504,7 +510,7 @@ The following list summarizes best practices for instrumenting a distributed app
 
 ## Collecting and storing data
 
-The collection stage of the monitoring process is concerned with retrieving the information that instrumentation generates, formatting this data to make it easier for the analysis/diagnosis stage to consume, and saving the transformed data in reliable storage. The instrumentation data that you gather from different parts of a distributed system can be held in various locations and with varying formats. For example, your application code might generate trace log files and generate application event log data, whereas performance counters that monitor key aspects of the infrastructure that your application uses can be captured through other technologies. Any third-party components and services that your application uses might provide instrumentation information in different formats, by using separate trace files, blob storage, or even a custom data store.
+The collection stage of the monitoring process is concerned with retrieving the information that instrumentation generates, formatting this data to make it easier for the analysis/diagnosis stage to consume, and saving the transformed data in reliable storage. The instrumentation data that you gather from different parts of a distributed system can be held in various locations and with varying formats. For example, your application code might generate trace log files and generate Application event log data, whereas performance counters that monitor key aspects of the infrastructure that your application uses can be captured through other technologies. Any third-party components and services that your application uses might provide instrumentation information in different formats, by using separate trace files, blob storage, or even a custom data store.
 
 Data collection is often performed through a collection service that can run autonomously from the application that generates the instrumentation data. Figure 2 illustrates an example of this architecture, highlighting the instrumentation data-collection subsystem.
 
@@ -538,7 +544,7 @@ To optimize the use of bandwidth, you can elect to transfer less urgent data in 
 
 The instrumentation data-collection subsystem can actively retrieve instrumentation data from the various logs and other sources for each instance of the application (the *pull model*). Or, it can act as a passive receiver that waits for the data to be sent from the components that constitute each instance of the application (the *push model*).
 
-One approach to implementing the pull model is to use monitoring agents that run locally with each instance of the application. A monitoring agent is a separate process that periodically retrieves (pulls) telemetry data collected at the local node and writes this information directly to centralized storage that all instances of the application share. This is the mechanism that Azure Diagnostics implements. Each instance of an Azure web or worker role can be configured to capture diagnostic and other trace information that's stored locally. The monitoring agent that runs alongside each instance copies the specified data to Azure Storage. The article [Enabling Diagnostics in Azure Cloud Services and Virtual Machines](/azure/cloud-services/cloud-services-dotnet-diagnostics) provides more details on this process. Some elements, such as IIS logs, crash dumps, and custom error logs, are written to blob storage. Data from the Windows event log, ETW events, and performance counters is recorded in table storage. Figure 3 illustrates this mechanism.
+One approach to implementing the pull model is to use monitoring agents that run locally with each instance of the application. A monitoring agent is a separate process that periodically retrieves (pulls) telemetry data collected at the local node and writes this information directly to centralized storage that all instances of the application share. This is the mechanism that the [Azure Monitor Agent](/azure/azure-monitor/agents/azure-monitor-agent-overview) implements. Each compute instance can be configured to capture diagnostic and other trace information that's stored locally. The monitoring agent that runs alongside each instance collects the specified data and sends it to Azure Monitor. Some elements, such as IIS logs, crash dumps, and custom error logs, are written to blob storage. Data from the Windows event log, ETW events, and performance counters is recorded in table storage. Figure 3 illustrates this mechanism.
 
 ![Illustration of using a monitoring agent to pull information and write to shared storage](./images/monitoring/PullModel.png)
 
@@ -547,9 +553,9 @@ One approach to implementing the pull model is to use monitoring agents that run
 > [!NOTE]
 > Using a monitoring agent is ideally suited to capturing instrumentation data that's naturally pulled from a data source. An example is information from SQL Server Dynamic Management Views or the length of an Azure Service Bus queue.
 
-It's feasible to use the approach just described to store telemetry data for a small-scale application running on a limited number of nodes in a single location. However, a complex, highly scalable, global cloud application might generate huge volumes of data from hundreds of web and worker roles, database shards, and other services. This flood of data can easily overwhelm the I/O bandwidth available with a single, central location. Therefore, your telemetry solution must be scalable to prevent it from acting as a bottleneck as the system expands. Ideally, your solution should incorporate a degree of redundancy to reduce the risks of losing important monitoring information (such as auditing or billing data) if part of the system fails.
+It's feasible to use the approach just described to store telemetry data for a small-scale application running on a limited number of nodes in a single location. However, a complex, highly scalable, global cloud application might generate huge volumes of data from hundreds of compute instances, database shards, and other services. This flood of data can easily overwhelm the I/O bandwidth available with a single, central location. Therefore, your telemetry solution must be scalable to prevent it from acting as a bottleneck as the system expands. Ideally, your solution should incorporate a degree of redundancy to reduce the risks of losing important monitoring information (such as auditing or billing data) if part of the system fails.
 
-To address these issues, you can implement queuing, as shown in Figure 4. In this architecture, the local monitoring agent (if it can be configured appropriately) or custom data-collection service (if not) posts data to a queue. A separate process running asynchronously (the storage writing service in Figure 4) takes the data in this queue and writes it to shared storage. A message queue is suitable for this scenario because it provides "at least once" semantics that help ensure that queued data isn't lost after it's posted. You can implement the storage writing service by using a separate worker role.
+To address these issues, you can implement queuing, as shown in Figure 4. In this architecture, the local monitoring agent (if it can be configured appropriately) or custom data-collection service (if not) posts data to a queue. A separate process running asynchronously (the storage writing service in Figure 4) takes the data in this queue and writes it to shared storage. A message queue is suitable for this scenario because it provides "at least once" semantics that help ensure that queued data isn't lost after it's posted. You can implement the storage writing service by using a separate background process.
 
 ![Illustration of using a queue to buffer instrumentation data](./images/monitoring/BufferedQueue.png)
 
@@ -592,7 +598,7 @@ Information that's used for more considered analysis, for reporting, and for spo
 
 #### *Log rotation and data retention*
 
-Instrumentation can generate considerable volumes of data. This data can be held in several places, starting with the raw log files, trace files, and other information captured at each node to the consolidated, cleaned, and partitioned view of this data held in shared storage. In some cases, after the data has been processed and transferred, the original raw source data can be removed from each node. In other cases, it might be necessary or simply useful to save the raw information. For example, data that's generated for debugging purposes might be best left available in its raw form but can then be discarded quickly after any bugs have been rectified.
+Instrumentation can generate considerable volumes of data. This data can be held in several places, starting with the raw log files, trace files, and other information captured at each node to the consolidated, cleaned, and partitioned view of this data held in shared storage. In some cases, after the data has been processed and transferred, the original raw source data can be removed from each node. In other cases, it might be necessary or useful to save the raw information. For example, data that's generated for debugging purposes might be best left available in its raw form but can then be discarded quickly after any bugs have been rectified.
 
 Performance data often has a longer life so that it can be used for spotting performance trends and for capacity planning. The consolidated view of this data is usually kept online for a finite period to enable fast access. After that, it can be archived or discarded. Data gathered for metering and billing customers might need to be saved indefinitely. Additionally, regulatory requirements might dictate that information collected for auditing and security purposes also needs to be archived and saved. This data is also sensitive and might need to be encrypted or otherwise protected to prevent tampering. You should never record users' passwords or other information that might be used to commit identity fraud. Such details should be scrubbed from the data before it's stored.
 
@@ -653,7 +659,7 @@ Diagnosis requires the ability to determine the cause of faults or unexpected be
 - Crash dumps for any failed processes either anywhere in the system or for a specified subsystem during a specified time window.
 - Activity logs recording the operations that are performed either by all users or for selected users during a specified period.
 
-Analyzing data for troubleshooting purposes often requires a deep technical understanding of the system architecture and the various components that compose the solution. As a result, a large degree of manual intervention is often required to interpret the data, establish the cause of problems, and recommend an appropriate strategy to correct them. It might be appropriate simply to store a copy of this information in its original format and make it available for cold analysis by an expert.
+Analyzing data for troubleshooting purposes often requires a deep technical understanding of the system architecture and the various components that compose the solution. As a result, a large degree of manual intervention is often required to interpret the data, establish the cause of problems, and recommend an appropriate strategy to correct them. It might be appropriate to store a copy of this information in its original format and make it available for cold analysis by an expert.
 
 ## Visualizing data and raising alerts
 
@@ -719,7 +725,6 @@ In many cases, batch processes can generate reports according to a defined sched
 - [Azure Monitor overview](/azure/azure-monitor/overview)
 - [Monitor, diagnose, and troubleshoot Microsoft Azure Storage](/azure/storage/storage-monitoring-diagnosing-troubleshooting)
 - [Overview of alerts in Microsoft Azure](/azure/monitoring-and-diagnostics/insights-receive-alert-notifications)
-- [View service health notifications by using the Azure portal](/azure/monitoring-and-diagnostics/insights-service-health)
 - [What is Application Insights?](/azure/application-insights/app-insights-overview)
 - [Performance diagnostics for Azure virtual machines](/azure/virtual-machines/troubleshooting/performance-diagnostics)
 - [Download and install SQL Server Data Tools (SSDT) for Visual Studio](/azure/virtual-machines/windows/sqlclassic/virtual-machines-windows-classic-ps-sql-bi)

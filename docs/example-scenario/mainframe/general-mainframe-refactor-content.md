@@ -50,7 +50,7 @@ The following workflow corresponds to the previous diagram:
 
 1. In Azure, Azure Load Balancer manages access to the application compute clusters. Load Balancer supports scale-out compute resources to handle input. You can use a level-7 application level or level-4 network level load balancer, depending on how the application input reaches the compute cluster entry point.
 
-1. Application compute clusters can run on Azure VMs or run in containers in AKS clusters. Mainframe system emulation for PL/I or COBOL applications typically uses VMs. Applications refactored to Java or .NET use containers. Some mainframe system emulation software also supports deployment in containers. Compute resources use Azure Premium SSD disks or Azure Ultra Disk Storage with accelerated networking and remote direct memory access (RDMA).
+1. Application compute clusters can run on Azure VMs or run in containers in AKS clusters. Mainframe system emulation for PL/I or COBOL applications typically uses VMs. Applications refactored to Java or .NET use containers. Some mainframe system emulation software also supports deployment in containers. Compute resources use Azure Premium SSDs or Azure Ultra Disk Storage with accelerated networking and remote direct memory access (RDMA).
 
 1. Application servers in the compute clusters host the applications based on language capability, such as Java classes or COBOL programs. The servers receive application input and share application state and data by using Azure Managed Redis or RDMA.
 
@@ -104,7 +104,7 @@ This example features the following Azure components. Several of these component
 
 - [Azure Storage](/azure/storage/common/storage-introduction) is a cloud-based service that provides scalable, secure cloud storage for all your data, applications, and workloads. In this architecture, Storage provides the necessary storage infrastructure for various data types and applications.
 
-  - [Azure Disk Storage](/azure/virtual-machines/managed-disks-overview) is a high-performance, durable block storage service for business-critical applications. Azure managed disks are block-level storage volumes that Azure manages on Azure VMs. The available types of disks are Ultra Disk Storage, Premium SSD, and Azure Standard SSD. This architecture uses either Premium SSD disks or Ultra Disk Storage.
+  - [Azure Disk Storage](/azure/virtual-machines/managed-disks-overview) is a high-performance, durable block storage service for business-critical applications. Azure managed disks are block-level storage volumes that Azure manages on Azure VMs. The available types of disks are Ultra Disk Storage, Premium SSD, and Azure Standard SSD. This architecture uses either Premium SSDs or Ultra Disk Storage.
 
   - [Azure Files](/azure/well-architected/service-guides/azure-files) is a fully managed cloud-based file storage service that provides file shares in the cloud. These file shares are accessible via the industry-standard Server Message Block (SMB) protocol. In this architecture, Azure Files provides managed file shares for cloud and on-premises deployments. Cloud and on-premises Windows, Linux, and macOS deployments can mount Azure Files file shares concurrently.
 
@@ -114,9 +114,9 @@ This example features the following Azure components. Several of these component
 
 - [Azure databases](https://azure.microsoft.com/product-categories/databases) provide a choice of fully managed relational and NoSQL databases to fit modern application needs. Automated infrastructure management provides scalability, availability, and security.
 
-  - [SQL Database](/azure/well-architected/service-guides/azure-sql-database-well-architected-framework) is a fully managed PaaS database engine. In this architecture, it provides scalable and highly available data storage to share across multiple compute resources in a cluster. SQL Database always runs on the latest stable version of SQL Server and a patched operating system that has 99.99% availability. Built-in PaaS database management capabilities include upgrading, patching, backups, and monitoring. You can use SQL Database to focus on domain-specific, business-critical database administration and optimization.
+  - [SQL Database](/azure/well-architected/service-guides/azure-sql-database) is a fully managed PaaS database engine. In this architecture, it provides scalable and highly available data storage to share across multiple compute resources in a cluster. SQL Database always runs on the latest stable version of SQL Server and a patched operating system that has 99.99% availability. Built-in PaaS database management capabilities include upgrading, patching, backups, and monitoring. You can use SQL Database to focus on domain-specific, business-critical database administration and optimization.
 
-  - [Azure Database for PostgreSQL](/azure/well-architected/service-guides/postgresql) is a fully managed database based on the open-source Postgres relational database engine. In this architecture, it provides the [Hyperscale (Citus) deployment option](https://techcommunity.microsoft.com/blog/adforpostgresql/when-to-use-hyperscale-citus-to-scale-out-postgres/1958269), which scales queries across multiple machines by using sharding. This capability is helpful for applications that require greater scale and performance.
+  - [Azure Database for PostgreSQL](/azure/well-architected/service-guides/postgresql) is a fully managed database based on the open-source Postgres relational database engine. In this architecture, it uses the [Elastic clusters](/azure/postgresql/elastic-clusters/concepts-elastic-clusters) capability, which scales queries across multiple machines by using sharding. This capability is helpful for applications that require greater scale and performance.
 
   - [Azure Cosmos DB](/azure/well-architected/service-guides/cosmos-db) is a fully managed, fast NoSQL database that has open APIs for any scale. In this architecture, Azure Cosmos DB provides scalable and highly available data storage for various applications.
 
@@ -170,7 +170,7 @@ Cost Optimization focuses on ways to reduce unnecessary expenses and improve ope
 
 - Azure avoids unnecessary costs by identifying the correct number of resource types, analyzing spending over time, and scaling to meet business needs without overspending. Azure provides cost optimization by running on VMs. You can turn off the VMs when they're not in use and script a schedule for known usage patterns. For more information, see [Azure Well-Architected Framework](/azure/well-architected/) and [Recommendations for optimizing component costs](/azure/well-architected/cost-optimization/optimize-component-costs).
 
-- The VMs in this architecture use either Premium SSD disks or Ultra Disk Storage. For more information, see [Managed disks pricing](https://azure.microsoft.com/pricing/details/managed-disks).
+- The VMs in this architecture use either Premium SSDs or Ultra Disk Storage. For more information, see [Managed disks pricing](https://azure.microsoft.com/pricing/details/managed-disks).
 
 - SQL Database optimizes costs by using serverless compute and Hyperscale storage resources that automatically scale. For more information, see [SQL Database pricing](https://azure.microsoft.com/pricing/details/azure-sql-database/single).
 

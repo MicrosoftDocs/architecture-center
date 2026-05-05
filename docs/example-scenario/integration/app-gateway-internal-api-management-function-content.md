@@ -2,9 +2,6 @@ APIs have become increasingly integral to how organizations and their customers 
 
 Azure Application Gateway serves as a security checkpoint for APIs. Instead of allowing users to connect directly over the internet, you route all traffic through an application gateway. This setup adds extra access controls to help protect your APIs. With this approach, you can use a single API Management instance to support both internal APIs within your organization and external APIs outside your organization, while keeping any publicly exposed APIs secured behind the gateway.
 
-> [!NOTE]
-> This architecture serves as the foundation of the guidance for [API Management in an Azure landing zone](/azure/cloud-adoption-framework/scenarios/app-platform/api-management/landing-zone-accelerator) in the Cloud Adoption Framework for Azure.
-
 ## Architecture
 
 :::image type="complex" border="false" source="./media/app-gateway-internal-api-management-function.svg" lightbox="./media/app-gateway-internal-api-management-function.svg" alt-text="The diagram shows a secure baseline architecture for API Management.":::
@@ -29,7 +26,7 @@ This architecture assumes that the policies are in place from the [Azure landing
 
 ### Components
 
-- [API Management](/azure/well-architected/service-guides/api-management/reliability) is a managed service that allows you to manage services across hybrid and multicloud environments. It provides control and security for API observability and consumption by both internal and external users. In this architecture, API Management serves as a facade to abstract the back-end architecture.
+- [API Management](/azure/well-architected/service-guides/azure-api-management) is a managed service that allows you to manage services across hybrid and multicloud environments. It provides control and security for API observability and consumption by both internal and external users. In this architecture, API Management serves as a facade to abstract the back-end architecture.
 
 - [Application Gateway](/azure/well-architected/service-guides/azure-application-gateway) is a managed service that serves as a layer-7 load balancer and [WAF](/azure/web-application-firewall/ag/ag-overview). Application Gateway protects the internal API Management instance, which enables the use of both internal and external modes. In this architecture, API Management secures APIs, and Application Gateway adds complementary capabilities such as WAF.
 
@@ -96,6 +93,20 @@ validate API requests and responses against an OpenAPI schema. These features ar
 
 - Private endpoints for Azure Functions allow you to securely connect to your function apps over a private IP address within your virtual network. This setup prevents exposure of your functions to the public internet, which reduces the risk of unauthorized access. In this architecture, private endpoints ensure that only trusted resources within your network can access Azure Functions.
 
+### Handling API Management policies behind a reverse proxy
+
+Application Gateway with Web Application Firewall (WAF) is positioned in front of API Managment and handles all API traffic before it reaches the internal API Management instance. The intent is to add an edge-level security layer that inspects, filters, and routes client requests, while API Management focuses on API governance, transformation, and backend integration.
+
+However, this layered topology comes with behavioral implications for certain API Management policies: when TLS termination, routing decisions, or header/connection transformations occur at the Application Gateway boundary, the API Management policy engine may not see the original client request details it expects. That can lead to policies behaving differently than when API Management is directly exposed. For example:
+
+- **Client IP-based filtering**: Policies such as `ip-filter` where you can allow or deny traffic based on source IP addresses will now see the Application Gateway’s private IP as the source, not the actual client address. As a result, the `ip-filter` policy needs to be carefully planned and managed to ensure the correct traffic is being filtered.
+
+- **Policy ordering and context assumptions**: API Management policies expect to run against requests with certain headers, host names, or request characteristics. If Application Gateway rewrites headers (for routing, custom domains, or SSL offload), the context that downstream API Management policies rely on may not match what was defined in those policies. This can cause routing policies, validation, or transformation logic inside API Management to mismatch client intent.
+
+Application Gateway and API Management become two enforcement layers, and API Management's view of incoming requests is one step removed from the original client context. You must avoid use policies in API Management that depend on raw client attributes unless those attributes are preserved end-to-end, and might need to create custom policies based off of the data available in the HTTP request.
+
+For some additional recommendations on how to preserve data such as host headers, see [Preserve the original HTTP host name between a reverse proxy and its back-end web application](/azure/architecture/best-practices/host-name-preservation).
+
 ### Cost Optimization
 
 Cost Optimization focuses on ways to reduce unnecessary expenses and improve operational efficiencies. For more information, see [Design review checklist for Cost Optimization](/azure/well-architected/cost-optimization/checklist).
@@ -135,7 +146,6 @@ Principal authors:
 
 ## Next steps
 
-- [Cloud Adoption Framework guidance for adopting API Management in an Azure landing zone](/azure/cloud-adoption-framework/scenarios/app-platform/api-management/landing-zone-accelerator)
 - [API Management terminology](/azure/api-management/api-management-terminology)
 - [Application Gateway documentation](/azure/application-gateway/overview)
 

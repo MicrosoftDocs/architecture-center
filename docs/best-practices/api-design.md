@@ -17,8 +17,6 @@ keywords:
   - "API standards"
 ---
 
-<!-- cSpell:ignore HATEOAS -->
-
 # Best practices for RESTful web API design
 
 A RESTful web API implementation is a web API that employs Representational State Transfer (REST) architectural principles to achieve a stateless, loosely coupled interface between a client and service. A web API that is RESTful supports the standard HTTP protocol to perform operations on resources and return representations of resources that contain hypermedia links and HTTP operation status codes.
@@ -307,7 +305,7 @@ HTTP/1.1 303 See Other
 Location: /api/orders/12345
 ```
 
-For more information, see [Provide asynchronous support for long-running requests](/azure/architecture/best-practices/api-implementation#provide-asynchronous-support-for-long-running-requests) and [Asynchronous Request-Reply pattern](../patterns/async-request-reply.yml).
+For more information, see [Provide asynchronous support for long-running requests](/azure/architecture/best-practices/api-implementation#provide-asynchronous-support-for-long-running-requests) and [Asynchronous Request-Reply pattern](../patterns/asynchronous-request-reply.md).
 
 ## Implement data pagination and filtering
 

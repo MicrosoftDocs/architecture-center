@@ -4,7 +4,7 @@ description: Implement the Modern Web App pattern for Java. Get prescriptive arc
 author: nishanil
 ms.author: nanil
 ms.reviewer: ssumner
-ms.date: 11/7/2024
+ms.date: 03/23/2026
 ms.topic: concept-article
 ms.subservice: architecture-guide
 ms.custom:
@@ -166,13 +166,13 @@ Implement the [Queue-Based Load Leveling pattern](/azure/architecture/patterns/q
 
 - *Implement message retry and removal.* Implement a mechanism to retry processing of queued messages that can't be processed successfully. If failures persist, these messages should be removed from the queue. For example, Service Bus has built-in retry and dead-letter queue features.
 
-- *Configure idempotent message processing.* The logic that processes messages from the queue must be idempotent to handle cases in which a message might be processed more than once. In Spring Boot, you can use `@StreamListener` or `@KafkaListener` with a unique message identifier to prevent duplicate processing. Or you can organize the business process to operate in a functional approach with Spring Cloud Stream, where the `consume` method is defined in a way that produces the same result when it runs repeatedly. For a list of settings that manage the behavior of message consumption, see [Spring Cloud Stream with Service Bus](/azure/developer/java/spring-framework/configure-spring-cloud-stream-binder-java-app-with-service-bus?tabs=use-a-service-bus-queue).
+- *Configure idempotent message processing.* The logic that processes messages from the queue must be idempotent to handle cases in which a message might be processed more than once. In Spring Boot, use the functional programming model with Spring Cloud Stream, defining `Function<>` or `Consumer<>` beans whose `consume` method produces the same result when it runs repeatedly. You can also use `@KafkaListener` with a unique message identifier to prevent duplicate processing. To further ensure idempotency, consider tracking processed message IDs in a persistent store and skipping duplicates. For a list of settings that manage the behavior of message consumption, see [Spring Cloud Stream with Service Bus](/azure/developer/java/spring-framework/configure-spring-cloud-stream-binder-java-app-with-service-bus?tabs=use-a-service-bus-queue).
 
 - *Manage changes to the user experience.* When you use asynchronous processing, tasks might not be finished immediately. To set expectations and avoid confusion, ensure that users know when their tasks are being processed. Use visual cues or messages to indicate that a task is in progress. Give users the option to receive notifications when their task is complete, like an email or push notification.
 
 ### Implement the Competing Consumers pattern
 
-Implement the [Competing Consumers pattern](/azure/architecture/patterns/competing-consumers) in the decoupled service to manage incoming tasks from the message queue. This pattern involves distributing tasks across multiple instances of decoupled services. These services process messages from the queue. The pattern enhances load balancing and increases the system's capacity for handling simultaneous requests. The Competing Consumers pattern is effective when the following factors apply:
+Implement the [Competing Consumers pattern](../../../../../patterns/competing-consumers.md) in the decoupled service to manage incoming tasks from the message queue. This pattern involves distributing tasks across multiple instances of decoupled services. These services process messages from the queue. The pattern enhances load balancing and increases the system's capacity for handling simultaneous requests. The Competing Consumers pattern is effective when the following factors apply:
 
 - The sequence of message processing isn't crucial.
 
@@ -258,7 +258,7 @@ Implement the [Health Endpoint Monitoring pattern](/azure/architecture/patterns/
         management.endpoints.web.exposure.include=metrics,health,info,retry,retryevents
     ```
 
-- *Validate dependencies.* Spring Boot Actuator includes health indicators for various dependencies like databases, message brokers (RabbitMQ or Kafka), and storage services. To validate the availability of Azure services like Azure Blob Storage or Service Bus, use technologies like Azure Spring Apps or Micrometer, which provide health indicators for these services. If you need custom checks, you can implement them by creating a custom `HealthIndicator` bean:
+- *Validate dependencies.* Spring Boot Actuator includes health indicators for various dependencies like databases, message brokers (RabbitMQ or Kafka), and storage services. To validate the availability of Azure services like Azure Blob Storage or Service Bus, consider using libraries like [Micrometer](https://micrometer.io) or [OpenTelemetry](https://opentelemetry.io), which provide health indicators and observability for these services. If you need custom checks, you can implement them by creating a custom `HealthIndicator` bean:
 
     ```java
     import org.springframework.boot.actuate.health.Health;
@@ -371,22 +371,22 @@ The Modern Web App pattern breaks up the monolithic architecture and introduces 
 For example, the reference implementation uses the Service Bus KEDA scaler to automatically scale Container Apps based on the length of the Service Bus queue. The scaling rule, named `service-bus-queue-length-rule`, adjusts the number of service replicas based on the message count in the specified Service Bus queue. The `messageCount` parameter is set to 10, which configures the scaler to add one replica for every 10 messages in the queue. The maximum replica count (`max_replicas`) is set to 10. The minimum replica count is implicitly 0 unless it's overridden. This configuration lets the service scale down to zero when there are no messages in the queue. The connection string for the Service Bus queue is stored as a secret in Azure, named `azure-servicebus-connection-string`, which is used to authenticate the scaler to the Service Bus. Here's the Terraform code:
 
 ```terraform
-    max_replicas = 10
-    min_replicas = 1
+max_replicas = 10
+min_replicas = 1
 
-    custom_scale_rule {
-      name             = "service-bus-queue-length-rule"
-      custom_rule_type = "azure-servicebus"
-      metadata = {
-        messageCount = 10
-        namespace    = var.servicebus_namespace
-        queueName    = var.email_request_queue_name
-      }
-      authentication {
-        secret_name       = "azure-servicebus-connection-string"
-        trigger_parameter = "connection"
-      }
-    }
+custom_scale_rule {
+  name             = "service-bus-queue-length-rule"
+  custom_rule_type = "azure-servicebus"
+  metadata = {
+    messageCount = 10
+    namespace    = var.servicebus_namespace
+    queueName    = var.email_request_queue_name
+  }
+  authentication {
+    secret_name       = "azure-servicebus-connection-string"
+    trigger_parameter = "connection"
+  }
+}
 ```
 
 ### Containerize service deployment
@@ -420,7 +420,6 @@ The Dockerfile includes the following steps:
 The Dockerfile keeps the image small by only including runtime dependencies. It's suitable for deployment environments like Container Apps that support Linux-based containers.
 
 ```dockerfile
-
 # Use the OpenJDK 17 base image on Ubuntu as the foundation.
 FROM mcr.microsoft.com/openjdk/jdk:17-ubuntu
 
@@ -442,7 +441,6 @@ USER appuser
 
 # Set the entrypoint to run the application with the Application Insights agent.
 ENTRYPOINT ["java", "-javaagent:applicationinsights-agent.jar", "-jar", "app.jar"]
-
 ```
 
 ## Deploy the reference implementation

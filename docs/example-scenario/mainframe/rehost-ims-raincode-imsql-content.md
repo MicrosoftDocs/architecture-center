@@ -127,7 +127,7 @@ IMS segment data files are imported into zBridge with a matching COBOL copybook 
 
 - [Microsoft Entra ID](/entra/fundamentals/whatis) is a cloud-based enterprise identity and access management service. In this architecture, Microsoft Entra ID provides single sign-on and multifactor authentication to help users sign in and access resources while helping to protect against cybersecurity attacks.
 
-- [SQL Managed Instance](/azure/well-architected/service-guides/azure-sql-managed-instance/reliability) is part of the Azure SQL service portfolio and a managed, more secure, up-to-date SQL instance in the cloud. In this architecture, SQL Managed Instance provides the relational database platform for storing the converted hierarchical IMS DB data structures with high availability and integration with Azure services.
+- [SQL Managed Instance](/azure/well-architected/service-guides/azure-sql-managed-instance) is part of the Azure SQL service portfolio and a managed, more secure, up-to-date SQL instance in the cloud. In this architecture, SQL Managed Instance provides the relational database platform for storing the converted hierarchical IMS DB data structures with high availability and integration with Azure services.
 
 ### Alternatives
 
@@ -246,4 +246,3 @@ More related resources:
 
 - [General mainframe refactor to Azure](general-mainframe-refactor.yml)
 - [Re-engineer mainframe batch applications on Azure](../../example-scenario/mainframe/reengineer-mainframe-batch-apps-azure.yml)
-- [Rehost a general mainframe on Azure](../../example-scenario/mainframe/mainframe-rehost-architecture-azure.yml)

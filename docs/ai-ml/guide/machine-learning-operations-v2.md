@@ -8,6 +8,7 @@ ms.topic: concept-article
 ms.collection: ce-skilling-ai-copilot
 ms.subservice: architecture-guide
 ai-usage: ai-assisted
+ms.custom: arb-aiml
 ---
 
 # Machine learning operations
@@ -260,7 +261,7 @@ The Machine Learning natural language processing architecture is based on the cl
 
 - [Microsoft Fabric](/fabric/fundamentals/) is a unified platform that can meet your organization's data and analytics needs. In this architecture, Fabric facilitates end-to-end data integration, preparation, and analytics to support the data estate component of MLOps.
 
-- [Azure Event Hubs](/azure/well-architected/service-guides/event-hubs) is a service that ingests data streams that client applications generate. In this architecture, Event Hubs ingests and stores real-time streaming data to enable data capture and analysis for machine learning pipelines. Customers can connect to the hub endpoints to retrieve messages for processing. This architecture uses Data Lake Storage integration.
+- [Azure Event Hubs](/azure/well-architected/service-guides/azure-event-hubs) is a service that ingests data streams that client applications generate. In this architecture, Event Hubs ingests and stores real-time streaming data to enable data capture and analysis for machine learning pipelines. Customers can connect to the hub endpoints to retrieve messages for processing. This architecture uses Data Lake Storage integration.
 
 ## Other considerations
 
@@ -268,7 +269,7 @@ The preceding MLOps v2 architectural pattern has several critical components, in
 
 ### Persona-based Azure RBAC
 
-It's crucial that you manage access to machine learning data and resources. Azure RBAC provides a robust framework to help you manage who can perform specific actions and access specific areas within your solution. Design your identity segmentation strategy to align with the lifecycle of machine learning models in Machine Learning and the personas included in the process. Each persona has a specific set of responsibilities that are reflected in their Azure RBAC roles and group membership.
+It's crucial that you manage access to machine learning data and resources. Azure RBAC provides a robust framework to help you manage who can take specific actions and access specific areas within your solution. Design your identity segmentation strategy to align with the lifecycle of machine learning models in Machine Learning and the personas included in the process. Each persona has a specific set of responsibilities that are reflected in their Azure RBAC roles and group membership.
 
 #### Example personas
 
@@ -276,7 +277,7 @@ To support appropriate segmentation in a machine learning workload, consider the
 
 ##### Data scientist and machine learning engineer
 
-Data scientists and machine learning engineers perform various machine learning and data science activities across the software development life cycle of a project. Their duties include exploratory data analysis and data preprocessing. Data scientists and machine learning engineers are responsible for training, evaluating, and deploying models. These roles' responsibilities also include break-fix activities for machine learning models, packages, and data. These duties are out of scope for the platform's technical support team.
+Data scientists and machine learning engineers do various machine learning and data science activities across the software development life cycle of a project. Their duties include exploratory data analysis and data preprocessing. Data scientists and machine learning engineers are responsible for training, evaluating, and deploying models. These roles' responsibilities also include break-fix activities for machine learning models, packages, and data. These duties are out of scope for the platform's technical support team.
 
 **Type:** Person<br>
 **Project specific:** Yes
@@ -475,14 +476,14 @@ Monitor model performance to detect model problems and performance degradation e
 
 ##### Data drift
 
-[Data drift](/azure/machine-learning/how-to-monitor-datasets) tracks changes in the distribution of a model's input data by comparing it to the model's training data or recent past production data. These changes are a result of changes in market dynamics, feature transformation changes, or upstream data changes. Such changes can degrade model performance, so it's important to monitor for drift to ensure timely remediation. To perform a comparison, data drift refactoring requires recent production datasets and outputs.
+[Data drift](/azure/machine-learning/how-to-monitor-datasets) tracks changes in the distribution of a model's input data by comparing it to the model's training data or recent past production data. These changes are a result of changes in market dynamics, feature transformation changes, or upstream data changes. Such changes can degrade model performance, so it's important to monitor for drift to ensure timely remediation. To compare results, data drift refactoring requires recent production datasets and outputs.
 
 **Environment:** Production<br>
 **Azure facilitation:** Machine Learning – [Model monitoring](/azure/machine-learning/concept-model-monitoring#enabling-model-monitoring)
 
 ##### Prediction drift
 
-Prediction drift tracks changes in the distribution of a model's prediction outputs by comparing it to validation, test-labeled, or recent production data. To perform a comparison, data drift refactoring requires recent production datasets and outputs.
+Prediction drift tracks changes in the distribution of a model's prediction outputs by comparing it to validation, test-labeled, or recent production data. Data-drift refactoring requires recent production datasets and outputs to support this comparison.
 
 **Environment:** Production<br>
 **Azure facilitation:** Machine Learning – [Model monitoring](/azure/machine-learning/concept-model-monitoring#enabling-model-monitoring)
@@ -600,7 +601,7 @@ Implement automated security scans as part of the automated integration and depl
 
 **Environment:** All<br>
 **Azure facilitation:** [Defender For DevOps](/azure/defender-for-cloud/defender-for-devops-introduction)<br>
-**Notes:** You can use apps in [Azure Marketplace](https://marketplace.visualstudio.com/search?term=security&target=AzureDevOps&category=All%20categories&sortBy=Relevance) to extend this process for non-Microsoft security testing modules.
+**Notes:** You can use solutions from the [Visual Studio Marketplace](https://marketplace.visualstudio.com/search?term=security&target=AzureDevOps&category=All%20categories&sortBy=Relevance) to extend this process with non-Microsoft security testing modules.
 
 ##### Ongoing service
 
@@ -647,7 +648,7 @@ Other contributors:
 
 ## Related resources
 
-- [Choose a Microsoft Azure AI services technology](../../data-guide/technology-choices/ai-services.md)
+- [Choose an AI services technology](../../data-guide/technology-choices/ai-services.md)
 - [Natural language processing technology](../../data-guide/technology-choices/natural-language-processing.md)
 - [Compare the machine learning products and technologies from Microsoft](../../ai-ml/guide/data-science-and-machine-learning.md)
 - [What is the Team Data Science Process?](../../data-science-process/overview.yml)

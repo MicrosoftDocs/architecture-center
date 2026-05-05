@@ -180,7 +180,7 @@ This architecture uses the following Fabric and Azure services:
 
 - [Power BI](/power-bi/fundamentals/power-bi-overview) is a business intelligence (BI) and data visualization platform. In this architecture, it connects to OneLake to create dashboards and reports.
 
-- [Microsoft Foundry](/azure/ai-foundry/what-is-azure-ai-foundry) is a unified platform as a service (PaaS) for building, deploying, and managing AI applications and agents at enterprise scale. In this architecture, Foundry agents enrich and enable multiple-agent systems, and Fabric data agents serve as domain experts alongside other agents.
+- [Microsoft Foundry](/azure/ai-foundry/what-is-foundry) is a unified platform as a service (PaaS) for building, deploying, and managing AI applications and agents at enterprise scale. In this architecture, Foundry agents enrich and enable multiple-agent systems, and Fabric data agents serve as domain experts alongside other agents.
 
 - [Azure Machine Learning](/azure/well-architected/service-guides/azure-machine-learning) is an enterprise-grade cloud service for managing the entire machine learning life cycle, from data preparation and experimentation to model training, deployment, and monitoring. In this architecture, you can enable users to run machine learning models by using batch endpoints. OneLake shortcuts let Machine Learning and Fabric share the same underlying Data Lake Storage instance, so both services can read and write without duplicating data.
 
@@ -230,7 +230,7 @@ This example scenario shows how Fabric facilitates enterprises in building a uni
 
 - Enable cross-tenant data sharing through OneLake shortcuts and external data share.
 
-- Integrate Fabric data agents with [Azure AI Foundry](/fabric/data-science/data-agent-foundry) or [Microsoft Copilot Studio](/fabric/data-science/data-agent-microsoft-copilot-studio) to build intelligent, conversational, and context-aware AI solutions for business users and applications.
+- Integrate Fabric data agents with [Microsoft Foundry](/fabric/data-science/data-agent-foundry) or [Microsoft Copilot Studio](/fabric/data-science/data-agent-microsoft-copilot-studio) to build intelligent, conversational, and context-aware AI solutions for business users and applications.
 
 ## Recommendations
 
@@ -250,7 +250,7 @@ Use [Unified Catalog health management](/purview/unified-catalog-data-health-man
 
 ### Platform services
 
-Fabric supports several [deployment patterns](/azure/architecture/analytics/architecture/fabric-deployment-patterns) that help organizations align their data architecture with business needs, governance models, and performance requirements. These patterns are defined at the tenant, capacity, workspace, and item levels of deployment. Each pattern provides different trade-offs in scalability, isolation, cost, and operational complexity.
+Fabric supports several [deployment patterns](/azure/architecture/data-guide/technology-choices/fabric-deployment-patterns) that help organizations align their data architecture with business needs, governance models, and performance requirements. These patterns are defined at the tenant, capacity, workspace, and item levels of deployment. Each pattern provides different trade-offs in scalability, isolation, cost, and operational complexity.
 
 The design incorporates several foundational Azure services. Microsoft Entra ID provides identity services, single sign-on (SSO), and multifactor authentication across Azure workloads. Cost Management delivers financial governance for your Azure workloads. Key Vault manages credentials and certificates securely. When you configure a [key vault in Fabric](/fabric/data-factory/azure-key-vault-reference-overview), you can retrieve credentials and certificates from the Key Vault service. Use these credentials to access data stores that don't support integrated authentication, like on-premises or external sources.
 
@@ -278,7 +278,7 @@ Operational Excellence covers the operations processes that deploy an applicatio
 
 - Adopt a consistent infrastructure as code (IaC) methodology for provisioning Fabric capacities by using [Bicep](/azure/templates/microsoft.fabric/capacities?pivots=deployment-language-bicep), [Azure Resource Manager templates (ARM templates)](/azure/templates/microsoft.fabric/capacities?pivots=deployment-language-arm-template), and [Terraform](/azure/templates/microsoft.fabric/capacities?pivots=deployment-language-terraform). [Integrate Fabric workspaces with Git](/fabric/cicd/git-integration/git-get-started) for Fabric application life cycle management and use [deployment pipelines](/fabric/cicd/deployment-pipelines/intro-to-deployment-pipelines) for continuous integration and continuous deployment (CI/CD).
 
-- Use the [monitoring hub](/fabric/admin/monitoring-hub) to monitor Fabric activities. The [admin monitoring workspace](/fabric/admin/monitoring-workspace) provides a dedicated workspace for Fabric admins to oversee and manage tenant operations. It provides built-in reports for activity overview, activity details, and governance, which allows admins to monitor workloads and usage effectively. Send [Teams messages](/fabric/data-factory/teams-activity) in group chats or channels to notify pipeline status. For email notifications, use the [Office 365 Outlook activity](/fabric/data-factory/outlook-activity).
+- Use the [monitoring hub](/fabric/admin/monitoring-hub) to monitor Fabric activities. The [admin monitoring workspace](/fabric/admin/monitoring-workspace) provides a dedicated workspace for Fabric admins to oversee and manage tenant operations. It provides built-in reports for activity overview, activity details, and governance, which allows admins to monitor workloads and usage effectively. Send [Teams messages](/fabric/data-factory/teams-activity) in group chats or channels to notify pipeline status. For email notifications, use the [Microsoft 365 Outlook activity](/fabric/data-factory/outlook-activity).
 
 - Apply governance policies via Microsoft Purview. Schedule regular Well-Architected reviews and optimization sprints. For more information about new features in Fabric and when to expect them, see [Fabric roadmap](https://roadmap.fabric.microsoft.com). Implement a similar architecture in preproduction environments where you develop and test your platform. Consider the specific requirements of your platform and the capabilities of each service to create a cost-effective preproduction environment.
 

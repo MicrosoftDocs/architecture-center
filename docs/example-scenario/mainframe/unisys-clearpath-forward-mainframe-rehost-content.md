@@ -1,4 +1,4 @@
-<!-- cSpell:ignore Unisys ClearPath postmigration HDDs Tmax tmaxsoft openframe replatforming replatformed -->
+<!-- cSpell:ignore Unisys ClearPath postmigration replatforming -->
 
 The Unisys mainframe systems trace their lineage back to the first commercially available mainframes. The Unisys ClearPath Forward (CPF) Dorado (2200) and Libra (Master Control Program) systems are full-featured mainframe operating environments. They can scale vertically to handle mission-critical workloads. These systems can be emulated, converted, or modernized into Azure. Azure provides similar or improved performance characteristics and service-level agreement metrics.
 
@@ -109,7 +109,7 @@ Unisys CPF in Azure eliminates hardware maintenance and upfront facility costs. 
 
 You can also optimize your costs by following the process to right-size the capacity of your VMs in the beginning and resize them as needed. For more information, see the Well-Architected Framework's [Cost Optimization design principles](/azure/well-architected/cost-optimization/principles).
 
-To estimate the cost of Azure products and configurations, use the [Azure pricing calculator](https://azure.microsoft.com/pricing/calculator/). VMs are used for the MCP. Supporting VMs are used for print or tape. Storage account types can range from premium SSD storage to standard blob storage, depending on your performance needs and data retention policies.
+To estimate the cost of Azure products and configurations, use the [Azure pricing calculator](https://azure.microsoft.com/pricing/calculator/). VMs are used for the MCP. Supporting VMs are used for print or tape. Storage account types can range from Premium SSD storage to standard blob storage, depending on your performance needs and data retention policies.
 
 For more information about Unisys CPF offerings and pricing, see the [Unisys CPF solution catalog](https://www.unisys.com/solutions/clearpath-forward/).
 
@@ -156,5 +156,4 @@ For more information, see the following resources:
 - [Unisys CPF OS 2200 enterprise server virtualization on Azure](../../mainframe/virtualization-of-unisys-clearpath-forward-os-2200-enterprise-server-on-azure.yml)
 - [SMA OpCon in Azure](../../example-scenario/integration/sma-opcon-azure.yml)
 - [Mainframe file replication and sync on Azure](/azure/architecture/solution-ideas/articles/mainframe-azure-file-replication)
-- [Micro Focus Enterprise Server on Azure VMs](./micro-focus-server.yml)
 - [Modernize mainframe and midrange data](/azure/architecture/example-scenario/mainframe/modernize-mainframe-data-to-azure)

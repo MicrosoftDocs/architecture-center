@@ -1,4 +1,3 @@
-<!---content for event-hubs-functions.yml--->
 Solutions that use Azure Event Hubs together with Azure Functions benefit from a [serverless](https://azure.microsoft.com/solutions/serverless/) architecture that is scalable, cost-effective, and capable of processing large volumes of data in near real time. Although these services are commonly used together, there are many features, settings, and intricacies that add complexity to their relationship. This article provides guidance on how to effectively take advantage of this integration by highlighting key considerations and techniques for performance, resiliency, security, observability, and scale.
 
 ## Event Hubs core concepts
@@ -67,12 +66,12 @@ To learn more, see [Azure Event Hubs bindings for Azure Functions](/azure/azure-
 
 ## Contributors
 
-*This article is maintained by Microsoft. It was originally written by the following contributors.* 
+*This article is maintained by Microsoft. It was originally written by the following contributors.*
 
 Principal author:
 
- - [David Barkol](https://www.linkedin.com/in/davidbarkol/) | Principal Solution Specialist GBB
- 
+ - [David Barkol](https://www.linkedin.com/in/davidbarkol/) | AI Apps GBB
+
 *To see non-public LinkedIn profiles, sign in to LinkedIn.*
 
 ## Next steps

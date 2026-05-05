@@ -7,6 +7,7 @@ ms.date: 12/17/2025
 ms.topic: concept-article
 ms.collection: ce-skilling-ai-copilot
 ms.subservice: architecture-guide
+ms.custom: arb-aiml
 ---
 
 # AI architecture design
@@ -61,7 +62,6 @@ For more information, see [Deep learning overview](https://azure.microsoft.com/r
 - [Foundry](/azure/ai-foundry/what-is-foundry) is a development platform as a service (PaaS) that provides access to agent hosting and a catalog of language models, including the following options:
 
    - GPT-5.2 (OpenAI)
-   - Sora2 (OpenAI)
    - Claude (Anthropic)
    - Phi (Microsoft)
    - Grok (xAI)
@@ -108,7 +108,7 @@ For more information, see the following resources:
 
 *Retrieval-augmented generation (RAG)* is an architecture pattern that augments the capabilities of a language model, like ChatGPT, that's trained only on public data. You can use this pattern to add a retrieval system that provides relevant grounding data in the context with the user request. An information retrieval system provides control over grounding data that a language model uses when it formulates a response. RAG architecture helps you scope generative AI to content that's sourced from vectorized documents, images, and other data formats. RAG isn't limited to vector search storage. You can use any data store technology.
 
-For more information, see [Design and develop a RAG solution](./guide/rag/rag-solution-design-and-evaluation-guide.md) and [Choose an Azure service for vector search](../guide/technology-choices/vector-search.md). Use [Foundry IQ knowledge bases](/azure/ai-foundry/agents/how-to/tools/knowledge-retrieval) for grounding data that Foundry agents need as a turnkey approach to RAG.
+For more information, see [Design and develop a RAG solution](./guide/rag/rag-solution-design-and-evaluation-guide.md) and [Choose an Azure service for vector search](../guide/technology-choices/vector-search.md). Use [Foundry IQ knowledge bases](/azure/ai-foundry/agents/how-to/foundry-iq-connect) for grounding data that Foundry agents need as a turnkey approach to RAG.
 
 ## Agent-based architecture
 
@@ -202,7 +202,7 @@ For more information, see the following resources:
 
 - [What is Fabric?](/fabric/fundamentals/microsoft-fabric-overview)
 - [Learning path: Get started with Fabric](/training/paths/get-started-fabric/)
-- [AI services in Fabric](/fabric/data-science/ai-services/ai-services-overview)
+- [Foundry Tools in Fabric](/fabric/data-science/ai-services/ai-services-overview)
 - [Use Azure OpenAI in Fabric with REST API](/fabric/data-science/ai-services/how-to-use-openai-via-rest-api)
 - [Use Fabric for generative AI: A guide to building and improving RAG systems](https://blog.fabric.microsoft.com/blog/using-microsoft-fabric-for-generative-ai-a-guide-to-building-and-improving-rag-systems)
 - [Build custom AI applications with Fabric: Implement RAG for enhanced language models](https://blog.fabric.microsoft.com/blog/building-custom-ai-applications-with-microsoft-fabric-implementing-retrieval-augmented-generation-for-enhanced-language-models)
@@ -484,7 +484,7 @@ Prebuilt AI models are useful and increasingly flexible, but the best way to opt
 
 #### Foundry
 
-[Foundry](/azure/ai-foundry/what-is-azure-ai-foundry) helps you efficiently build and deploy custom generative AI applications by using Azure AI capabilities.
+[Foundry](/azure/ai-foundry/what-is-foundry) helps you efficiently build and deploy custom generative AI applications by using Azure AI capabilities.
 
 - Build together as one team. Your Foundry account provides enterprise-grade security and a collaborative environment that includes shared resources and connections to pretrained models, data, and compute.
 
@@ -525,7 +525,7 @@ For more information, see the following resources:
 
 [R](https://www.r-project.org/) is a language and environment for statistical computing and graphics. You can use it for everything from mapping broad social and marketing trends online to developing financial and climate models.
 
-Microsoft fully embraces the R programming language and provides many options for R developers to run their code in Azure.
+Microsoft supports the R programming language and provides multiple options for R developers to run their code in Azure.
 
 For more information, see [Use R interactively on Machine Learning](/azure/machine-learning/how-to-r-interactive-development).
 

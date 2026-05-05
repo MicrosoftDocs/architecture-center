@@ -6,7 +6,7 @@ Jupyter is a trademark of its respective company. No endorsement is implied by t
 
 ## Architecture
 
-:::image type="content" source="../media/iot-azure-data-explorer-new.svg" alt-text="Diagram showing IoT telemetry analytics with Azure Data Explorer." lightbox="../media/iot-azure-data-explorer-new.svg" border="false":::
+:::image type="content" source="../media/iot-azure-data-explorer-new.svg" alt-text="Diagram showing an IoT telemetry analytics architecture with Azure Data Explorer processing data from Event Hubs and IoT Hub." lightbox="../media/iot-azure-data-explorer-new.svg" border="false":::
 
 *Download a [Visio file](https://arch-center.azureedge.net/iot-azure-data-explorer.vsdx) of this architecture.*
 
@@ -24,9 +24,9 @@ Jupyter is a trademark of its respective company. No endorsement is implied by t
 
    You can also continuously export data to Azure Storage in compressed, partitioned [Apache Parquet](https://parquet.apache.org) format, and seamlessly query the data with Azure Data Explorer. For more information, see [Continuous data export overview](/azure/data-explorer/kusto/management/data-export/continuous-data-export).
 
-1. To serve both the operational and analytical use cases, data can either route to Azure Data Explorer and Azure Cosmos DB in parallel, or from Azure Cosmos DB to Azure Data Explorer.
+1. To serve both the operational and analytical use cases, route data either to Azure Data Explorer and Azure Cosmos DB in parallel, or from Azure Cosmos DB to Azure Data Explorer.
 
-   - Azure Cosmos DB transactions can trigger Azure Functions via change feed. Functions will stream data to Event Hubs for ingestion into Azure Data Explorer.
+   - Azure Cosmos DB transactions can trigger Azure Functions via change feed. Functions stream data to Event Hubs for ingestion into Azure Data Explorer.
 
      -or-
 
@@ -67,7 +67,7 @@ This solution idea uses the following Azure components.
 
 - [Azure IoT Hub](/azure/well-architected/service-guides/iot-hub) enables bi-directional communication between IoT devices and the Azure cloud. In this architecture, it serves as the central messaging hub for device telemetry and command-and-control operations.
 
-- [Event Hubs](/azure/well-architected/service-guides/event-hubs) is a fully managed, real-time data ingestion service. In this architecture, it ingests telemetry from IoT devices and streams it into the analytics pipeline.
+- [Event Hubs](/azure/well-architected/service-guides/azure-event-hubs) is a fully managed, real-time data ingestion service. In this architecture, it ingests telemetry from IoT devices and streams it into the analytics pipeline.
 
 - [Kafka on HDInsight](/azure/hdinsight/kafka/apache-kafka-introduction) is an enterprise-grade, cost-effective service for running Apache Kafka on Azure. In this architecture, it provides an alternative streaming backbone for ingesting and distributing IoT data.
 
@@ -96,4 +96,4 @@ Principal author:
 
 ## Related resource
 
-- [Analytics architecture design](analytics-start-here.yml)
+- [Analytics architecture design](analytics-get-started.md)

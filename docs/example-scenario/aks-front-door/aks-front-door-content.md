@@ -211,7 +211,7 @@ These recommendations are essential for single-tenant AKS solutions and aren't s
 
 - Use [topology spread constraints](https://kubernetes.io/docs/concepts/workloads/pods/pod-topology-spread-constraints) to control how you spread pods across your AKS cluster among failure domains like regions, availability zones, and nodes.
 
-- Use the Standard or Premium tier for your production AKS clusters. These tiers include the [uptime service-level agreement (SLA) feature](/azure/aks/uptime-sla), which guarantees 99.95% availability of the Kubernetes API server endpoint for clusters that use [availability zones](/azure/aks/availability-zones) and 99.9% availability for clusters that don't use availability zones. For more information, see [Free, Standard, and Premium pricing tiers for AKS cluster management](/azure/aks/free-standard-pricing-tiers).
+- Use the Standard or Premium tier for your production AKS clusters. These tiers include the [uptime service-level agreement (SLA) feature](/azure/aks/uptime-sla), which commits to 99.95% availability of the Kubernetes API server endpoint for clusters that use [availability zones](/azure/aks/availability-zones) and 99.9% availability for clusters that don't use availability zones. For more information, see [Free, Standard, and Premium pricing tiers for AKS cluster management](/azure/aks/free-standard-pricing-tiers).
 
 - Enable [zone redundancy](/azure/reliability/availability-zones-overview) if you use Container Registry to store container images and Open Container Initiative (OCI) artifacts. Container Registry supports optional zone redundancy and [geo-replication](/azure/container-registry/container-registry-geo-replication). Zone redundancy provides resiliency and high availability to a registry or replication resource (replica) in a specific region. Geo-replication replicates registry data across one or more Azure regions to provide availability and reduce latency for regional operations.
 
@@ -269,7 +269,7 @@ Cost Optimization focuses on ways to reduce unnecessary expenses and improve ope
 
 - [Stop node pools](/azure/aks/start-stop-nodepools) or [scale down AKS clusters](/azure/aks/start-stop-cluster) when you don't use them.
 
-- Take advantage of cost management tools, such as [Azure Advisor](/azure/advisor/advisor-overview), [Azure reservations](/azure/cost-management-billing/reservations/save-compute-costs-reservations), and [Azure savings plans](/azure/cost-management-billing/savings-plan/savings-plan-compute-overview) to monitor and optimize costs.
+- Take advantage of cost management tools, such as [Azure Advisor](/azure/advisor/advisor-overview), [Azure reservations](/azure/cost-management-billing/reservations/save-compute-costs-reservations), and [Azure savings plans](/azure/cost-management-billing/savings-plan/savings-plan-overview) to monitor and optimize costs.
 
 - Consider using [spot node pools](/azure/aks/spot-node-pool) to benefit from unused capacity in Azure and reduce cost.
 
@@ -327,7 +327,7 @@ The source code for this scenario is available in [GitHub](https://github.com/Az
    git clone https://github.com/Azure-Samples/aks-front-door-end-to-end-tls.git
    ```
 
-1. Follow the instructions in the [README file](https://github.com/Azure-Samples/aks-front-door-end-to-end-tls/blob/master/README.md). You need your Azure subscription information for this step.
+1. Follow the instructions in the [README file](https://github.com/Azure-Samples/aks-front-door-end-to-end-tls/blob/main/README.md). You need your Azure subscription information for this step.
 
 ## Contributors
 
@@ -366,5 +366,5 @@ Principal author:
 - [AKS day-2 operations guide](../../operator-guides/aks/day-2-operations-guide.md)
 - [AKS solution journey](../../reference-architectures/containers/aks-start-here.md)
 - [Baseline architecture for an AKS cluster](../../reference-architectures/containers/aks/baseline-aks.yml)
-- [Best practices for multitenancy and cluster isolation](../../guide/multitenant/service/aks.yml)
+- [Best practices for multitenancy and cluster isolation](../../guide/multitenant/service/aks.md)
 - [Microservices architecture on AKS](../../reference-architectures/containers/aks-microservices/aks-microservices.yml)

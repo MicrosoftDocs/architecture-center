@@ -17,7 +17,7 @@ This article presents a solution for using Azure Kubernetes Service (AKS) to qui
 1. An ingest service in AKS stores data in Azure Cosmos DB.
 1. Asynchronously, an analysis service in AKS receives the data and streams it to Apache Kafka on Azure HDInsight.
 1. Data scientists use [machine learning models on Azure HDInsights](/azure/hdinsight/spark/apache-spark-run-machine-learning-automl) and the Splunk platform to analyze the data.
-1. A processing service in AKS processes the data and stores the results in Azure Database for PostgreSQL. The service also caches the data in Azure Cache for Redis.
+1. A processing service in AKS processes the data and stores the results in Azure Database for PostgreSQL. The service also caches the data in Azure Managed Redis.
 1. A web app that runs in Azure App Service creates visualizations of the results.
 
 ### Components
@@ -30,7 +30,7 @@ This article presents a solution for using Azure Kubernetes Service (AKS) to qui
 
 - [App Service](/azure/well-architected/service-guides/app-service-web-apps) is a fully managed platform for building and hosting web applications. In this architecture, it runs a web app that visualizes processed results from the PostgreSQL database.
 
-- [Azure Cache for Redis](/azure/azure-cache-for-redis) is an in-memory data store that supports fast data access. In this architecture, it temporarily stores processed data from AKS microservices to accelerate access and reduce latency.
+- [Azure Managed Redis](/azure/redis/overview) provides an in-memory data store based on Redis Enterprise software. In this architecture, it temporarily stores processed data from AKS microservices to accelerate access and reduce latency.
 
 - [Azure Cosmos DB](/azure/well-architected/service-guides/cosmos-db) is a globally distributed NoSQL database service. In this architecture, it stores ingested data from AKS microservices.
 
@@ -69,7 +69,7 @@ This solution benefits the following areas:
 
 Product documentation:
 
-- [About Azure Cache for Redis](/azure/azure-cache-for-redis/cache-overview)
+- [About Azure Managed Redis](/azure/redis/overview)
 - [What is Azure API Management?](/azure/api-management/api-management-key-concepts)
 - [App Service overview](/azure/app-service/overview)
 - [Azure Kubernetes Service](/azure/aks/intro-kubernetes)
@@ -85,7 +85,6 @@ Microsoft training modules:
 - [Configure Azure App Service plans](/training/modules/configure-app-service-plans)
 - [Work with Azure Cosmos DB](/training/modules/work-with-cosmos-db)
 - [Create and connect to an Azure Database for PostgreSQL](/training/modules/create-connect-to-postgres)
-- [Develop for Azure Cache for Redis](/training/modules/develop-for-azure-cache-for-redis)
 - [Explore API Management](/training/modules/explore-api-management)
 - [Introduction to Azure HDInsight](/training/modules/intro-to-azure-hdinsight)
 

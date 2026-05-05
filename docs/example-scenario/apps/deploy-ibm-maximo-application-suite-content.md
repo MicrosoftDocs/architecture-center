@@ -33,9 +33,9 @@ From the perspective of infrastructure, this architecture provides the following
 
 - [Azure DNS](/azure/dns/dns-overview) to manage DNS resolution for the containers inside and outside of the solution. Azure DNS supports all common DNS records and provides high availability.
 
-- [Azure Bastion](/azure/bastion/bastion-overview) (optional) and a subnet for enhanced-security access to any of the worker nodes or optional JumpBox machines. Azure Bastion is a fully managed service that provides RDP and SSH access to VMs without any exposure through public IP addresses.
+- [Azure Bastion](/azure/bastion/bastion-overview) (optional) and a subnet for enhanced-security access to any of the worker nodes or optional jump box machines. Azure Bastion is a fully managed service that provides RDP and SSH access to VMs without any exposure through public IP addresses.
 
-- [Azure SQL Managed Instance](/azure/well-architected/service-guides/azure-sql-managed-instance/reliability) (optional) to provide data services to MAS. The database can also be another, like Oracle Exadata or IBM Db2 Warehouse. Azure SQL Database isn't currently supported.
+- [Azure SQL Managed Instance](/azure/well-architected/service-guides/azure-sql-managed-instance) (optional) to provide data services to MAS. The database can also be another, like Oracle Exadata or IBM Db2 Warehouse. Azure SQL Database isn't currently supported.
 
 - [Twilio Send Grid](https://docs.sendgrid.com/for-developers/partners/microsoft-azure-2021) (optional) to send emails from MAS to your consumers.
 
@@ -147,7 +147,7 @@ When installing OpenShift, you must resolve the following considerations:
 In some cases, such as for regulatory compliance, you might require an air-gapped installation of MAS on Azure. *Air gapped* means that there's no inbound or outbound internet access. Without an internet connection, your installation can't retrieve the installation dependencies at run time for the installation of MAS or OpenShift.
 
 > [!NOTE]
-> Air-gapped deployments require [UPI](https://github.com/openshift/installer/blob/master/docs/user/azure/install_upi.md) for installation. However, they have not been fully tested.
+> Air-gapped deployments require [UPI](https://github.com/openshift/installer/blob/main/docs/user/azure/install_upi.md) for installation. However, they have not been fully tested.
 
 We don't recommend that you do an air-gapped installation unless that's a security requirement. An air gap adds significant complexity to the operations of your solution. Activities such as installing software, mirroring containers, updating a mirror to protect against security vulnerabilities, and managing a firewall can become very time consuming.
 
@@ -324,7 +324,7 @@ For help with getting started, see the following resources:
 
 - [Installing OpenShift on Azure](https://docs.openshift.com/container-platform/4.16/installing/installing_azure/preparing-to-install-on-azure.html)
 - [QuickStart Guide: Maximo Application Suite on Azure](https://github.com/Azure/maximo)
-- [OpenShift UPI Guide](https://github.com/openshift/installer/blob/master/docs/user/azure/install_upi.md)
+- [OpenShift UPI Guide](https://github.com/openshift/installer/blob/main/docs/user/azure/install_upi.md)
 - [Requirements for Maximo](https://www.ibm.com/docs/mas-cd/continuous-delivery?topic=deploy-system-requirements)
 - [IBM Maximo Application Suite (BYOL)](https://www.ibm.com/docs/masv-and-l/cd?topic=imas-installing-byol-maximo-application-suite)
 

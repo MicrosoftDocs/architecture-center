@@ -49,7 +49,7 @@ trigger:
     # for new release to production: release flow strategy
     - release/delivery/v*
     - refs/release/delivery/v*
-    - master
+    - main
     - feature/delivery/*
     - topic/delivery/*
   paths:
@@ -62,7 +62,7 @@ Using this approach, each team can have its own build pipeline. Only code that i
 1. Build the code.
 1. Run unit tests.
 
-The goal is to keep build times short so that the developer can get quick feedback. Once the feature is ready to merge into master, the developer opens a PR. This operation triggers another CI build that performs some additional checks:
+The goal is to keep build times short so that the developer can get quick feedback. Once the feature is ready to merge into main, the developer opens a PR. This operation triggers another CI build that performs some additional checks:
 
 1. Build the code.
 1. Run unit tests.
@@ -72,7 +72,7 @@ The goal is to keep build times short so that the developer can get quick feedba
 ![Diagram showing ci-delivery-full in the Build pipeline.](./images/aks-cicd-2.png)
 
 > [!NOTE]
-> In Azure DevOps Repos, you can define [policies](/azure/devops/repos/git/branch-policies) to protect branches. For example, the policy could require a successful CI build plus a sign-off from an approver in order to merge into master.
+> In Azure DevOps Repos, you can define [policies](/azure/devops/repos/git/branch-policies) to protect branches. For example, the policy could require a successful CI build plus a sign-off from an approver in order to merge into main.
 
 ## Full CI/CD build
 
@@ -103,7 +103,7 @@ Our recommendation is to create a dedicated production cluster along with a sepa
 
 ## Build process
 
-When possible, package your build process into a Docker container. This configuration allows you to build code artifacts using Docker and without configuring a build environment on each build machine. A containerized build process makes it easy to scale out the CI pipeline by adding new build agents. Also, any developer on the team can build the code simply by running the build container.
+When possible, package your build process into a Docker container. This configuration allows you to build code artifacts using Docker and without configuring a build environment on each build machine. A containerized build process simplifies scaling out the CI pipeline by adding new build agents. Also, any developer on the team can build the code by running the build container.
 
 By using multi-stage builds in Docker, you can define the build environment and the runtime image in a single Dockerfile. For example, here's a Dockerfile that builds a .NET application:
 

@@ -19,7 +19,7 @@ The numbered circles in the diagram correspond to the numbered steps in the foll
 1. The Java nodes use Java Message Service to connect to Service Bus, and Java interfaces like Java Database Connectivity to connect to other data sources. They use other Java APIs as needed.
 1. The recoverable transactions run along with the business code for each batch step.
 1. The batch infrastructure uses Azure accelerated networking for speed.
-1. Azure Cache for Redis, Azure Cosmos DB, and Azure Stream Analytics provide working storage if needed.
+1. Azure Managed Redis, Azure Cosmos DB, and Azure Stream Analytics provide working storage if needed.
 1. The permanent data layer uses Azure Data Factory for data integration and Azure SQL Managed Instance, business critical performance tier, for high availability. The permanent storage is loosely coupled for easy switching to other database technologies, and for optimization of storage organization (using shards or partitions, for example).
 1. The data solutions (transitional and permanent) use the Azure Storage geo-redundant storage (GRS) option to protect against catastrophic failures.
 
@@ -29,11 +29,11 @@ The numbered circles in the diagram correspond to the numbered steps in the foll
 
 - [Azure Blob Storage](/azure/well-architected/service-guides/azure-blob-storage) is a cloud object storage service that provides scalable and secure REST-based object storage for cloud-native workloads, archives, data lakes, high-performance computing, and machine learning. In this architecture, Blob Storage provides scalable storage for batch processing input, output, and intermediate data files.
 
-- [Azure Cache for Redis](/azure/azure-cache-for-redis/cache-overview) is a fully managed in-memory caching service for sharing data and state among compute resources. In this architecture, Azure Cache for Redis provides high-speed temporary storage for batch processing state and intermediate results.
+- [Azure Managed Redis](/azure/redis/overview) provides an in-memory data store based on Redis Enterprise software. In this architecture, Azure Managed Redis provides high-speed temporary storage for batch processing state and intermediate results.
 
 - [Azure Cosmos DB](/azure/well-architected/service-guides/cosmos-db) is a globally distributed multiple-model NoSQL database that has open APIs for any scale. In this architecture, Azure Cosmos DB provides scalable NoSQL storage for batch processing metadata and working data.
 
-- [Azure Databricks](/azure/well-architected/service-guides/azure-databricks-security) is an Apache Spark-based analytics platform that provides big data analytics services. In this architecture, Azure Databricks can be used for advanced analytics and machine learning on batch processing results.
+- [Azure Databricks](/azure/well-architected/service-guides/azure-databricks) is an Apache Spark-based analytics platform that provides big data analytics services. In this architecture, Azure Databricks can be used for advanced analytics and machine learning on batch processing results.
 
 - [Azure ExpressRoute](/azure/well-architected/service-guides/azure-expressroute) is a connectivity service that provides private connections between Azure datacenters and on-premises infrastructure. In this architecture, ExpressRoute enables high-bandwidth, low-latency connectivity for batch processing applications that need to access on-premises data sources.
 
@@ -61,9 +61,9 @@ The numbered circles in the diagram correspond to the numbered steps in the foll
 
 - [Log Analytics](/azure/well-architected/service-guides/azure-log-analytics) is a tool in the Azure portal that you can use to edit and run log queries on [Azure Monitor](/azure/azure-monitor/overview) logs. In this architecture, Log Analytics provides centralized logging and monitoring capabilities for batch processing operations.
 
-- [Service Bus](/azure/well-architected/service-guides/service-bus/reliability) is a cloud messaging service that provides reliable cloud messaging as a service (MaaS) and simple hybrid integration. In this architecture, Service Bus delivers transaction messages to AKS clusters and ensures reliable message processing for batch workloads.
+- [Service Bus](/azure/well-architected/service-guides/azure-service-bus) is a cloud messaging service that provides reliable cloud messaging as a service (MaaS) and simple hybrid integration. In this architecture, Service Bus delivers transaction messages to AKS clusters and ensures reliable message processing for batch workloads.
 
-- [SQL Managed Instance](/azure/well-architected/service-guides/azure-sql-managed-instance/reliability) is a managed database service that provides a secure and always up-to-date SQL instance in the cloud. In this architecture, SQL Managed Instance provides high-availability database services with a business-critical performance tier for permanent data storage.
+- [SQL Managed Instance](/azure/well-architected/service-guides/azure-sql-managed-instance) is a managed database service that provides a secure and always up-to-date SQL instance in the cloud. In this architecture, SQL Managed Instance provides high-availability database services with a business-critical performance tier for permanent data storage.
 
 - [Stream Analytics](/azure/stream-analytics/stream-analytics-introduction) is a service that provides real-time analytics for fast-moving streams of data from applications and devices. In this architecture, Stream Analytics processes streaming data from batch operations for real-time monitoring and analytics.
 
@@ -111,12 +111,12 @@ Here are pricing considerations for specific components:
 
 - Most enterprises already have a Microsoft Active Directory implementation. If not, [Microsoft Entra ID P1 or P2](https://azure.microsoft.com/services/active-directory/) is low cost.
 - [Windows VM pricing](https://azure.microsoft.com/pricing/details/virtual-machines/windows/) and [Linux VM pricing](https://azure.microsoft.com/pricing/details/virtual-machines/linux/) depend on your compute capacity.
-- For Premium SSD or Ultra managed storage disks pricing, see [Managed Disks pricing](https://azure.microsoft.com/pricing/details/managed-disks/).
+- For Premium SSD or Ultra managed storage disks pricing, see [managed disks pricing](https://azure.microsoft.com/pricing/details/managed-disks/).
 - There are no upfront costs for [Azure SQL Database](https://azure.microsoft.com/pricing/details/sql-database/single/); you pay for resources as used.
 - For [ExpressRoute](https://azure.microsoft.com/pricing/details/expressroute/), you pay a monthly port fee and outbound data transfer charges.
 - [Azure Storage](https://azure.microsoft.com/pricing/details/storage/) costs depend on data redundancy options and volume.
 - [Azure Files](https://azure.microsoft.com/pricing/details/storage/files/) pricing depends on many factors: data volume, data redundancy, transaction volume, and the number of file sync servers that you use.
-- For SSD managed disk pricing, see [Managed Disks](https://azure.microsoft.com/pricing/details/managed-disks/) pricing.
+- For SSD managed disk pricing, see [managed disks](https://azure.microsoft.com/pricing/details/managed-disks/) pricing.
 - For [Site Recovery](https://azure.microsoft.com/pricing/details/site-recovery/), you pay for each protected instance.
 - These services are free with your Azure subscription, but you pay for usage and traffic:
   - [Load Balancer](https://azure.microsoft.com/pricing/details/load-balancer/).
@@ -146,9 +146,11 @@ Performance Efficiency is the ability of your workload to scale to meet the dema
 ## Related resources
 
 - Techniques used in this architecture:
-  - [Azure Service Bus Geo-disaster recovery](/azure/service-bus-messaging/service-bus-geo-dr).
-  - [Use geo-redundancy to design highly available applications](/azure/storage/common/geo-redundant-design?tabs=current).
+
+  - [Azure Service Bus Geo-disaster recovery](/azure/service-bus-messaging/service-bus-geo-dr)
+  - [Use geo-redundancy to design highly available applications](/azure/storage/common/geo-redundant-design?tabs=current)
   - [What are ARM templates?](/azure/azure-resource-manager/templates/overview)
-- Azure reference architectures:
-  - [Micro Focus Enterprise Server on Azure VMs](./micro-focus-server.yml).
-  - [Unisys mainframe migration](../../reference-architectures/migration/unisys-mainframe-migration.yml).
+
+- Azure reference architecture:
+
+  - [Unisys mainframe migration](../../reference-architectures/migration/unisys-mainframe-migration.yml)

@@ -50,13 +50,13 @@ The following data flow corresponds to the previous diagram:
 
 - [Azure Machine Learning](/azure/well-architected/service-guides/azure-machine-learning) is a service that helps manage the machine learning project life cycle. In this architecture, it's part of the PaaS compute resources that you re-create in the target tenant.
 
-- [Azure Databricks](/azure/well-architected/service-guides/azure-databricks-security) is a unified analytics platform that builds, deploys, shares, and maintains data solutions. In this architecture, it supports scalable data engineering, and you re-create it in the target tenant.
+- [Azure Databricks](/azure/well-architected/service-guides/azure-databricks) is a unified analytics platform that builds, deploys, shares, and maintains data solutions. In this architecture, it supports scalable data engineering, and you re-create it in the target tenant.
 
-- [Azure AI services](/azure/ai-services/what-are-ai-services) are cloud-based AI services that can help developers build cognitive intelligence into applications, even without AI or data science skills or knowledge. In this architecture, AI services enhance migrated applications with cognitive intelligence.
+- [Foundry Tools](/azure/ai-services/what-are-ai-services) are cloud-based AI services that can help developers build cognitive intelligence into applications, even without AI or data science skills or knowledge. In this architecture, Foundry Tools enhance migrated applications with cognitive intelligence.
 
 - [Azure Cosmos DB](/azure/well-architected/service-guides/cosmos-db) is a globally distributed NoSQL and relational database service. In this architecture, it serves as a data service that's backed up and restored during migration.
 
-- [Azure Event Hubs](/azure/well-architected/service-guides/event-hubs) is a big data streaming platform and event ingestion service. In this architecture, it supports real-time data processing across tenants.
+- [Azure Event Hubs](/azure/well-architected/service-guides/azure-event-hubs) is a big data streaming platform and event ingestion service. In this architecture, it supports real-time data processing across tenants.
 
 - [Azure Key Vault](/azure/key-vault/general/overview) is a PaaS service that securely stores and provides access to secrets. In this architecture, it's a resource that you re-create in the target tenant to maintain secure access.
 

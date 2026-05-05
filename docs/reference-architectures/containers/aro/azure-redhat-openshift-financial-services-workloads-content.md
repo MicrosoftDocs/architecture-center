@@ -208,7 +208,7 @@ Principal authors:
 **Production deployment resources:**
 
 - [Azure Red Hat OpenShift landing zone accelerator](https://github.com/Azure/ARO-Landing-Zone-Accelerator): Comprehensive reference implementation with Terraform and Bicep templates and critical design area recommendations
-- [Azure Red Hat OpenShift workshop](https://aroworkshop.io/): Hands-on lab exercises for learning Azure Red Hat OpenShift deployment and management
+- [Azure Red Hat OpenShift workshop](https://aroworkshop.io/): Interactive lab exercises for learning Azure Red Hat OpenShift deployment and management
 - [Red Hat OpenShift on Azure documentation](/azure/openshift/): Complete technical documentation and tutorials
 
 **Architecture and best practices:**

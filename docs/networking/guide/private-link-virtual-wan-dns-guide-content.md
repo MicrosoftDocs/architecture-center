@@ -29,7 +29,7 @@ This topology has the following characteristics:
 
 ### Multi-region routing
 
-[Virtual WAN hub routing intent and routing policies](/azure/virtual-wan/how-to-routing-policies#all-virtual-wan-hubs-are-secured-deployed-with-azure-firewall-nva-or-saas-solution) let you control how traffic flows between hubs and whether that traffic is inspected by Azure Firewall or another security solution. These capabilities are generally available and support secured routing across hubs.
+[Virtual WAN hub routing intent and routing policies](/azure/virtual-wan/how-to-routing-policies#all-virtual-wan-hubs-are-secured-deployed-with-azure-firewall-nva-or-saas-solution) let you control how traffic flows between hubs and whether that traffic is inspected by Azure Firewall or another security solution.
 
 By default, in a multi-hub Virtual WAN deployment, **inter-hub private traffic does not pass through Azure Firewall**. Instead, Azure uses its built‑in Virtual WAN–managed hub‑to‑hub connectivity, which runs in parallel to the secured traffic paths inside each hub. This means that private traffic moving between hubs is **not automatically inspected**.
 
@@ -167,7 +167,7 @@ This behavior is expected. It's the problem that the scenarios address.
 
 ## Scenarios
 
-Although solutions to this problem are similar, walking through common workload scenarios shows how the solutions address the requirements of various situations. Most scenarios involve a client that accesses one or more PaaS services over a private endpoint. They adhere to the starting network topology, but differ in their workload requirements. The scenarios start simply, with a client that accesses a single regional PaaS service. They become incrementally more complex, adding more network visibility, regions, and PaaS services.
+Solutions to this problem are similar, but examining common workload scenarios shows how each solution meets different requirements. Most scenarios consist of a client that accesses one or more PaaS services over a private endpoint. They adhere to the starting network topology but differ in their workload requirements. The scenarios start with a client that accesses a single regional PaaS service. They become incrementally more complex and add more network visibility, regions, and PaaS services.
 
 In most scenarios, the client is implemented as a VM, and the PaaS service that the client accesses is a storage account. You should consider VMs as a stand-in for any Azure resource that has a NIC that's exposed on a virtual network, such as Virtual Machine Scale Sets, Azure Kubernetes Service nodes, or any other service that routes in a similar way.
 
@@ -192,7 +192,6 @@ Each scenario starts with the desired end state and details the required configu
 - [Private Link and DNS integration at scale](/azure/cloud-adoption-framework/ready/azure-best-practices/private-link-and-dns-integration-at-scale)
 - [Azure Private Link in a hub-and-spoke network](/azure/architecture/networking/guide/private-link-hub-spoke-network)
 - [DNS for on-premises and Azure resources](/azure/cloud-adoption-framework/ready/azure-best-practices/dns-for-on-premises-and-azure-resources)
-- [Single-region data landing zone connectivity](/azure/cloud-adoption-framework/scenarios/cloud-scale-analytics/eslz-network-considerations-single-region)
 - [Use Azure Private Link to connect networks to Azure Monitor](/azure/azure-monitor/logs/private-link-security)
 - [Azure DNS Private Resolver](/azure/architecture/networking/architecture/azure-dns-private-resolver)
 - [Improved-security access to multitenant web apps from an on-premises network](/azure/architecture/web-apps/guides/networking/access-multitenant-web-app-from-on-premises)

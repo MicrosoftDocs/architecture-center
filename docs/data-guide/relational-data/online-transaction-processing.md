@@ -3,7 +3,7 @@ title: Online Transaction Processing (OLTP)
 description: Learn about atomicity, consistency, and other features of online transaction processing (OLTP), which manages transactional data while supporting querying.
 author: hz4dkr
 ms.author: callard
-ms.date: 07/23/2025
+ms.date: 02/06/2026
 ms.topic: concept-article
 ms.subservice: architecture-guide
 ms.custom: arb-data
@@ -96,6 +96,17 @@ To narrow the choices, start by answering the following questions:
 
 - Does your solution require distributed transactions? If yes, consider elastic transactions within Azure SQL Database and SQL Managed Instance. SQL Managed Instance also supports traditional calls through the Microsoft Distributed Transaction Coordinator (MSDTC).
 
+## Contributors
+
+*This article is being updated and maintained by Microsoft. It was originally written by the following contributors.*
+
+Principal authors:
+
+- [Charles Allard](https://www.linkedin.com/in/charles-allard-7004a9/) | Cloud Solutions Architect
+- [Amber Sitko](https://www.linkedin.com/in/ambers/) | Cloud Solutions Architect
+
+*To see non-public LinkedIn profiles, sign in to LinkedIn.*
+
 ## Next steps
 
 - [Azure Cosmos DB transactional batch operations](/azure/cosmos-db/transactional-batch)
@@ -107,6 +118,6 @@ To narrow the choices, start by answering the following questions:
 
 ## Related resources
 
-- [Transactional Outbox pattern with Azure Cosmos DB](../../databases/guide/transactional-outbox-cosmos.yml)
+- [Transactional Outbox pattern with Azure Cosmos DB](../../databases/guide/transactional-out-box-cosmos.md)
 - [Azure Data Architecture Guide](../index.md)
 - [Multitenancy and Azure Cosmos DB](../../guide/multitenant/service/cosmos-db.md)

@@ -58,7 +58,7 @@ public class UserProfileController : ApiController
 
 - The `Get` method in the `UserProfile` controller implements an HTTP GET operation. This method is much less CPU intensive.
 
-The primary concern is the resource requirements of the `Post` method. Although it puts the work onto a background thread, the work can still consume considerable CPU resources. These resources are shared with other operations being performed by other concurrent users. If a moderate number of users send this request at the same time, overall performance is likely to suffer, slowing down all operations. Users might experience significant latency in the `Get` method, for example.
+The primary concern is the resource requirements of the `Post` method. Although it puts the work onto a background thread, the work can still consume considerable CPU resources. These resources are shared with other operations being performed by other concurrent users. If a moderate number of users send this request at the same time, overall performance is likely to degrade, slowing down all operations. Users might experience significant latency in the `Get` method, for example.
 
 ## How to fix the problem
 
@@ -135,9 +135,9 @@ Symptoms of a busy front end include high latency when resource-intensive tasks 
 
 Examine the event logs for the web server, which are likely to contain more detailed information about the causes and circumstances of the errors.
 
-You can perform the following steps to help identify this problem:
+You can do the following steps to help identify this problem:
 
-1. Perform process monitoring of the production system, to identify points when response times slow down.
+1. Monitor the production system to identify points where response times slow down.
 2. Examine the telemetry data captured at these points to determine the mix of operations being performed and the resources being used.
 3. Find any correlations between poor response times and the volumes and combinations of operations that were happening at those times.
 4. Load test each suspected operation to identify which operations are consuming resources and starving other operations.
@@ -165,7 +165,7 @@ At this point, it appears the `Post` method in the `WorkInFrontEnd` controller i
 
 ### Perform load testing
 
-The next step is to perform tests in a controlled environment. For example, run a series of load tests that include and then omit each request in turn to see the effects.
+The next step is to run tests in a controlled environment. For example, run a series of load tests that include and then omit each request in turn to see the effects.
 
 The following graph shows the results of a load test performed against an identical deployment of the cloud service used in the previous tests. The test used a constant load of 500 users performing the `Get` operation in the `UserProfile` controller, along with a step load of users performing the `Post` operation in the `WorkInFrontEnd` controller.
 
@@ -177,7 +177,7 @@ As more users send POST requests to the `WorkInFrontEnd` controller, the respons
 
 ### Review the source code
 
-The final step is to look at the source code. The development team was aware that the `Post` method could take a considerable amount of time, which is why the original implementation used a separate thread. That solved the immediate problem, because the `Post` method did not block waiting for a long-running task to complete.
+The final step is to review the source code. The development team was aware that the `Post` method could take a considerable amount of time, which is why the original implementation used a separate thread. That solved the immediate problem, because the `Post` method did not block waiting for a long-running task to complete.
 
 However, the work performed by this method still consumes CPU, memory, and other resources. Enabling this process to run asynchronously might actually damage performance, as users can trigger a large number of these operations simultaneously, in an uncontrolled manner. There is a limit to the number of threads that a server can run. Past this limit, the application is likely to get an exception when it tries to start a new thread.
 
@@ -190,7 +190,7 @@ The following image shows performance monitoring after the solution was implemen
 
 ![AppDynamics Business Transactions pane showing the effects of the response times of all requests when the WorkInBackground controller is used][AppDynamics-Transactions-Background-Requests]
 
-The `WorkInBackground` controller handled a much larger volume of requests. However, you can't make a direct comparison in this case, because the work being performed in this controller is very different from the original code. The new version simply queues a request, rather than performing a time consuming calculation. The main point is that this method no longer drags down the entire system under load.
+The `WorkInBackground` controller handled a much larger volume of requests. But you can't make a direct comparison in this case because the work performed in this controller is much different from the original code. The new version queues a request instead of performing a time-consuming calculation. The main point is that this method no longer drags down the entire system under load.
 
 CPU and network utilization also show the improved performance. The CPU utilization never reached 100%, and the volume of handled network requests was far greater than earlier, and did not tail off until the workload dropped.
 

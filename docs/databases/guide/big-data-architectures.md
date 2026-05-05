@@ -46,7 +46,7 @@ Most big data architectures include some or all of the following components:
   - Static files that applications produce, such as web server log files.
   - Real-time data sources, such as Internet of Things (IoT) devices.
 
-- **Data storage:** Data for batch processing operations is typically stored in a distributed file store that can hold high volumes of large files in various formats. This kind of store is often called a *data lake*. Options for implementing this storage include Azure Data Lake Store, blob containers in Azure Storage, or OneLake in Microsoft Fabric.
+- **Data storage:** Data for batch processing operations is typically stored in a distributed file store that can hold high volumes of large files in various formats. This kind of store is often called a *data lake*. Options for implementing this storage include Azure Data Lake Storage, blob containers in Azure Storage, or OneLake in Microsoft Fabric.
 
 - **Batch processing:** The datasets are large, so a big data solution often processes data files by using long-running batch jobs to filter, aggregate, and otherwise prepare data for analysis. Usually these jobs involve reading source files, processing them, and writing the output to new files. You can use the following options:
 
@@ -134,7 +134,7 @@ A data warehouse is a centralized repository that stores structured and semi-str
 
 The **Lakehouse architecture** combines the best elements of data lakes and data warehouses. The pattern aims to provide a unified platform that supports both structured and unstructured data, which enables efficient data management and analytics. These systems typically use low-cost cloud storage in open formats, such as Parquet or Optimized Row Columnar, to store both raw and processed data.
 
-:::image type="content" source="../../_images/lakehouse-dataflow.png" border="false" lightbox="../../_images/lakehouse-dataflow.png" alt-text="A diagram that shows a dataflow from the source to the transform and store phase and then to the consume and visualization phase.":::
+:::image type="content" source="./_images/lakehouse-dataflow.png" border="false" lightbox="./_images/lakehouse-dataflow.png" alt-text="A diagram that shows a dataflow from the source to the transform and store phase and then to the consume and visualization phase.":::
 
 Common use cases for a lakehouse architecture include:
 
@@ -167,7 +167,7 @@ Common types of processing include:
 
 - Writing event data to cold storage for archiving or batch analytics.
 
-- Hot path analytics. Analyze the event stream in near real time to detect anomalies, recognize patterns over rolling time windows, or trigger alerts when a specific condition occurs in the stream.
+- Hot path analytics. Analyze the eventstream in near real time to detect anomalies, recognize patterns over rolling time windows, or trigger alerts when a specific condition occurs in the stream.
 
 - Handling special types of nontelemetry messages from devices, such as notifications and alarms.
 
@@ -189,7 +189,7 @@ IoT architectures use machine learning for intelligent edge computing and cloud-
 
 - [IoT Hub](/azure/iot-hub/)
 - [Azure Data Explorer](/azure/data-explorer/)
-- [Microsoft Fabric decision guide: Choos a Data store](/fabric/fundamentals/decision-guide-data-store)
+- [Microsoft Fabric decision guide: Choose a Data store](/fabric/fundamentals/decision-guide-data-store)
 - [Azure Databricks](/azure/databricks/)
 - [Azure Machine Learning](/azure/machine-learning/)
 - [Fabric Data Science](/fabric/data-science/)

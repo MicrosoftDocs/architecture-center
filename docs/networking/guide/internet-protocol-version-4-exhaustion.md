@@ -154,7 +154,7 @@ This diagram contains a hub and two landing zone spokes in separate landing zone
 
 #### Implement SNAT via non-Microsoft NVAs
 
-You can find non-Microsoft NVAs that have NAT capabilities in Azure Marketplace. Consider using a non-Microsoft NVA if your requirements exceed what Azure Firewall can support. For example, you might need the following capabilities:
+You can find non-Microsoft NVAs that have NAT capabilities in the [Microsoft Marketplace](https://marketplace.microsoft.com/search/products?filters=networking&product=virtual-machines). Consider using a non-Microsoft NVA if your requirements exceed what Azure Firewall can support. For example, you might need the following capabilities:
 
 - Granular control over the NAT pool
 

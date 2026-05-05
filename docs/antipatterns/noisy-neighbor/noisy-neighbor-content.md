@@ -2,7 +2,7 @@ Multitenant systems share resources between two or more tenants. Because tenants
 
 ## Context and problem
 
-When you build a service that multiple customers or *tenants* share, you can build it to be *multitenanted*. A benefit of multitenant systems is that resources can be pooled and shared among tenants. This resource sharing often results in lower costs and improved efficiency. However, if a single tenant uses a disproportionate amount of the resources available in the system, the overall performance of the system can suffer. The *noisy neighbor* problem occurs when one tenant's performance is degraded because of the activities of another tenant.
+When you build a service that multiple customers or *tenants* share, you can build it to be *multitenanted*. A benefit of multitenant systems is that resources can be pooled and shared among tenants. This resource sharing often results in lower costs and improved efficiency. However, if a single tenant uses a disproportionate amount of the resources available in the system, the overall performance of the system can degrade. The *noisy neighbor* problem occurs when one tenant's performance is degraded because of the activities of another tenant.
 
 Consider an example multitenant system that has two tenants. Tenant A's usage patterns and tenant B's usage patterns coincide. At peak times, tenant A uses all of the system's resources, which means that any requests that tenant B makes fail. In other words, the total resource demand is higher than the capacity of the system:
 
@@ -14,7 +14,7 @@ It's likely that the tenant whose request arrives first takes precedence. Then t
 
 The noisy neighbor problem also occurs when each individual tenant consumes only a small portion of the system's capacity. However, the combined resource usage of many tenants can result in a peak in overall usage:
 
-:::image type="complex" source="_images/noisy-neighbor-multiple.png" alt-text="Diagram that shows three tenants, each that use less than max throughput. Together, they fully consume the total system resources." lightbox="_images/noisy-neighbor-multiple.png" border="false":::
+:::image type="complex" source="_images/noisy-neighbor-multiple.png" alt-text="Diagram that shows three tenants, each that use less than max throughput. Together, they consume all available system resources." lightbox="_images/noisy-neighbor-multiple.png" border="false":::
    The image shows three line graphs that represent the resource usage for three tenants: Tenant A, Tenant B, and Tenant C. These graphs show the total system capacity over time. Another line graph shows the total system capacity and resource usage of all three tenants.
 :::image-end:::
 
@@ -40,7 +40,7 @@ Sharing a single resource inherently carries the risk of noisy neighbor problems
 
 - **Apply resource governance.** Consider applying policies that prevent a single tenant from overwhelming the system and reducing the capacity available to other tenants. This step might take the form of quota enforcement through the [Throttling pattern](../../patterns/throttling.yml) or the [Rate Limiting pattern](../../patterns/rate-limiting-pattern.yml).
 
-- **Provision more infrastructure.** This process might include scaling up by upgrading some of your solution components. Or it might include scaling out by provisioning extra shards if you follow the [Sharding pattern](../../patterns/sharding.yml), or stamps if you follow the [Deployment Stamps pattern](../../patterns/deployment-stamp.yml).
+- **Provision more infrastructure.** This process might include scaling up by upgrading some of your solution components. Or it might include scaling out by provisioning extra shards if you follow the [Sharding pattern](../../patterns/sharding.md), or stamps if you follow the [Deployment Stamps pattern](../../patterns/deployment-stamp.md).
 
 - **Enable tenants to purchase pre-provisioned or reserved capacity.** This approach gives tenants greater confidence that your solution can reliably handle their workloads.
 
@@ -50,7 +50,7 @@ Sharing a single resource inherently carries the risk of noisy neighbor problems
   
   - Consider whether you have background processes or resource-intensive workloads that aren't time-sensitive. Run these workloads asynchronously at off-peak times to preserve your resource capacity for time-sensitive workloads.
 
-- **Check whether your downstream services provide controls to mitigate noisy neighbor problems.** For example, when you use Kubernetes, consider using [pod limits](/azure/aks/developer-best-practices-resource-management). When you use Azure Service Fabric, consider using the [built-in governance capabilities](/azure/service-fabric/service-fabric-resource-governance).
+- **Check whether your downstream services provide controls to mitigate noisy neighbor problems.** For example, when you use Kubernetes, consider using [pod limits](/azure/aks/developer-best-practices-resource-management). When you use Azure Container Apps, consider using [workload profiles](/azure/container-apps/workload-profiles-overview) to isolate workloads.
 
 - **Restrict the operations that tenants can perform.** For example, restrict tenants from running resource-intensive database queries by setting a maximum returnable record count or query time limit. Or change these operations to be asynchronous and schedule them to run at off-peak times. This action mitigates the risk of tenants taking actions that might negatively affect other tenants.
 

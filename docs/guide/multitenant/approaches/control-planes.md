@@ -18,7 +18,7 @@ Control planes are an important part of software as a service (SaaS) and multite
 
   - Tenant configuration
   - SKUs deployed for tenant resources
-  - Which [deployment stamps](../../../patterns/deployment-stamp.yml) the tenants are allocated to
+  - Which [deployment stamps](../../../patterns/deployment-stamp.md) the tenants are allocated to
 - Processes that manage changes to the environment. [Tenant life cycle events](../considerations/tenant-life-cycle.md) trigger these processes. Examples include tenant onboarding, tenant offboarding, and required regular maintenance.
 
 A control plane functions as an application. You must design your control plane with the same rigor and care that you apply to other parts of your solution. For more information about what a control plane is, why it matters, and design considerations, see [Considerations for multitenant control planes](../considerations/control-planes.md).
@@ -163,7 +163,7 @@ Even if you eventually want to automate your control plane, you don't necessaril
 
 - **Relying on manual processes for too long:** Manual processes work well when you start out or have a low number of tenants and require lightweight management. But you need to plan how to scale to an automated solution as you grow. If you need to hire more team members to keep up with the demand of your manual processes, consider automating parts of your control plane.
 
-- **Using inappropriate tools for long-running workflows:** Don't use tools that have runtime limits, such as standard Azure functions or synchronous API calls, for long-running operations like Azure Resource Manager deployments or multistep orchestration. Instead, use tools that support long-running workflows or sequences of operations, like [Logic Apps](/azure/logic-apps/logic-apps-overview) and [Durable Functions](/azure/azure-functions/durable/durable-functions-overview). For more information, see [Azure Functions performance and reliability](/azure/azure-functions/performance-reliability) and [Asynchronous Request-Reply pattern](/azure/architecture/patterns/async-request-reply).
+- **Using inappropriate tools for long-running workflows:** Don't use tools that have runtime limits, such as standard Azure functions or synchronous API calls, for long-running operations like Azure Resource Manager deployments or multistep orchestration. Instead, use tools that support long-running workflows or sequences of operations, like [Logic Apps](/azure/logic-apps/logic-apps-overview) and [Durable Functions](/azure/azure-functions/durable/durable-functions-overview). For more information, see [Azure Functions performance and reliability](/azure/azure-functions/performance-reliability) and [Asynchronous Request-Reply pattern](/azure/architecture/patterns/asynchronous-request-reply).
 
 ## Contributors
 

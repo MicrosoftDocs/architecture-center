@@ -41,7 +41,7 @@ The tightly coupled approach is preferred in these cases:
 1. The client application monitors job execution by polling job status.
 1. As soon as the quantum job finishes, the client application gets the compute result from Storage.
 
-This workflow implements the [Asynchronous Request-Reply pattern](../../patterns/async-request-reply.yml) and the steps defined for the [Azure Quantum job lifecycle](/azure/quantum/how-to-work-with-jobs#job-lifecycle).
+This workflow implements the [Asynchronous Request-Reply pattern](../../patterns/asynchronous-request-reply.md) and the steps defined for the [Azure Quantum job lifecycle](/azure/quantum/how-to-work-with-jobs#job-lifecycle).
 
 #### Components
 
@@ -103,7 +103,7 @@ The loosely coupled approach is preferred in these cases:
 1. The API gateway monitors job execution by polling job status from the quantum provider.
 1. When the job finishes, the compute results are stored in Azure Storage. The client application gets the results by using an API that's implemented via the Azure function.
 
-This workflow implements the [Asynchronous Request-Reply pattern](../../patterns/async-request-reply.yml) and the steps defined for the [Azure Quantum job lifecycle](/azure/quantum/how-to-work-with-jobs#job-lifecycle).
+This workflow implements the [Asynchronous Request-Reply pattern](../../patterns/asynchronous-request-reply.md) and the steps defined for the [Azure Quantum job lifecycle](/azure/quantum/how-to-work-with-jobs#job-lifecycle).
 
 #### Components
 
@@ -166,7 +166,7 @@ Cost Optimization is about looking at ways to reduce unnecessary expenses and im
 
 The overall cost of this solution depends on the quantum computing target that you select to run the quantum job. Calculating estimated costs for the classic components is straightforward. You can use the [Azure pricing calculator](https://azure.microsoft.com/pricing/calculator).
 
-For the Azure Quantum service, consider that Quantum computing providers can be consumed via an Azure Marketplace offering. Pricing depends on the type of resource (simulator or hardware), the SKU, and your usage. For more information, see the reference page for the provider needed for your scenario. These reference pages are listed in [Quantum computing providers on Azure Quantum](/azure/quantum/qc-target-list).
+For the Azure Quantum service, consider that Quantum computing providers can be consumed via a [Microsoft Marketplace](https://marketplace.microsoft.com/marketplace/apps?search=quantum) offering. Pricing depends on the type of resource (simulator or hardware), the SKU, and your usage. For more information, see the reference page for the provider needed for your scenario. These reference pages are listed in [Quantum computing providers on Azure Quantum](/azure/quantum/qc-target-list).
 
 #### Operational Excellence
 
@@ -235,5 +235,5 @@ Principal author:
 ## Related resources
 
 * [Operational excellence principles](/azure/architecture/framework/devops/principles)
-* [Asynchronous Request-Reply pattern](../../patterns/async-request-reply.yml)
+* [Asynchronous Request-Reply pattern](../../patterns/asynchronous-request-reply.md)
 * [Loosely coupled quantum computing](/azure/architecture/example-scenario/quantum/quantum-computing-integration-with-classical-apps)

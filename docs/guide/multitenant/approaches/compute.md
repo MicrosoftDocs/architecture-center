@@ -74,11 +74,11 @@ Azure compute services provide various capabilities that scale workloads. [Many 
 
 ### Deployment Stamps pattern
 
-For more information about how you can use the [Deployment Stamps pattern](../../../patterns/deployment-stamp.yml) to support a multitenant solution, see [Architectural approaches for a multitenant solution](overview.md#deployment-stamps-pattern).
+For more information about how you can use the [Deployment Stamps pattern](../../../patterns/deployment-stamp.md) to support a multitenant solution, see [Architectural approaches for a multitenant solution](overview.md#deployment-stamps-pattern).
 
 ### Compute Resource Consolidation pattern
 
-The [Compute Resource Consolidation pattern](../../../patterns/compute-resource-consolidation.yml) helps you achieve a higher density of tenants to compute infrastructure by sharing the underlying compute resources. By sharing compute resources, you can reduce the direct cost of those resources. Also, your management costs are often lower because there are fewer components to manage.
+The [Compute Resource Consolidation pattern](../../../patterns/compute-resource-consolidation.md) helps you achieve a higher density of tenants to compute infrastructure by sharing the underlying compute resources. By sharing compute resources, you can reduce the direct cost of those resources. Also, your management costs are often lower because there are fewer components to manage.
 
 However, compute resource consolidation increases the likelihood of the [noisy neighbor problem](../../../antipatterns/noisy-neighbor/noisy-neighbor.yml). Any tenant's workload might consume a disproportionate amount of the compute capacity that's available. You can often mitigate this risk by ensuring that you scale your solution appropriately and by applying controls like quotas and API limits to avoid tenants that consume more than their fair share of the capacity.
 
@@ -181,4 +181,4 @@ Review service-specific guidance for your compute services:
 
 - [App Service and Azure Functions considerations for multitenancy](../service/app-service.md)
 - [Considerations for using Container Apps in a multitenant solution](../service/container-apps.md)
-- [AKS considerations for multitenancy](../service/aks.yml)
+- [AKS considerations for multitenancy](../service/aks.md)

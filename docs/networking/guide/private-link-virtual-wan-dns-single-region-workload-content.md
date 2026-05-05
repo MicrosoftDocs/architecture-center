@@ -116,7 +116,7 @@ The diagram shows a virtual hub that Azure Firewall secures. It's connected to t
 When implementing the extension for your enterprise, consider the following guidance.
 
 - Deploying the DNS extension isn't a task for the workload team. This task is an enterprise networking function and should be an implementation decision made with those individuals.
-- The DNS extension and private DNS zones must exist prior to adding any PaaS service you want to configure private endpoint DNS records for.
+- The DNS extension and private DNS zones must exist before you add any PaaS service for which you plan to configure private endpoint DNS records.
 - The virtual hub extension is a regional resource, avoid cross-region traffic and establish a hub extension per regional hub where private endpoint DNS resolution is expected.
 
 #### Spoke virtual network
@@ -234,7 +234,6 @@ The proposed solution is for the enterprise network team to implement a virtual 
 - [Private Link and DNS integration at scale](/azure/cloud-adoption-framework/ready/azure-best-practices/private-link-and-dns-integration-at-scale)
 - [Azure Private Link in a hub-and-spoke network](/azure/architecture/networking/guide/private-link-hub-spoke-network)
 - [DNS for on-premises and Azure resources](/azure/cloud-adoption-framework/ready/azure-best-practices/dns-for-on-premises-and-azure-resources)
-- [Single-region data landing zone connectivity](/azure/cloud-adoption-framework/scenarios/cloud-scale-analytics/eslz-network-considerations-single-region)
 - [Use Azure Private Link to connect networks to Azure Monitor](/azure/azure-monitor/logs/private-link-security)
 - [Azure DNS Private Resolver](/azure/architecture/networking/architecture/azure-dns-private-resolver)
 - [Improved-security access to multitenant web apps from an on-premises network](/azure/architecture/web-apps/guides/networking/access-multitenant-web-app-from-on-premises)

@@ -315,15 +315,13 @@ In this reference implementation, [Microsoft Entra Workload ID on AKS](/azure/ak
 
 ## Select a networking model
 
-[!INCLUDE [kubenet retirement](~/reusable-content/ce-skilling/azure/includes/aks/includes/preview/retirement/kubenet-retirement-callout.md)]
+AKS provides Container Networking Interface (CNI) plugins in two networking models: **overlay** and **flat**. Both models support network policies for in-cluster traffic control.
 
-AKS supports multiple networking models, including kubenet, CNI, and Azure CNI Overlay. The CNI models are the more advanced models, and provide high performance. When they communicate between pods, the performance of CNI is similar to the performance of VMs in a virtual network. CNI also provides enhanced security control because it enables the use of Azure network policy. We recommend a CNI-based networking model.
+With a flat networking plugin, such as Azure CNI Pod Subnet, every pod gets an IP address from the virtual network subnet. Resources in the same network or peered networks can access pods directly by their IP address without network address translation (NAT). Use a flat networking model when your workload requires pods to be directly routable from the virtual network.
 
-In the nonoverlay CNI model, every pod gets an IP address from the subnet address space. Resources within the same network (or peered resources) can access the pods directly through their IP address. Network address translation (NAT) isn't needed to route that traffic.
+This reference implementation uses Azure CNI Overlay, which is an overlay networking plugin. It allocates virtual network IP addresses only to nodes and assigns pod IPs from a separate CIDR range. Because Azure CNI Overlay consumes far fewer virtual network IP addresses than flat models, we recommend it for most deployments.
 
-In this reference implementation, we use Azure CNI Overlay. It only allocates IP addresses from the node pool subnet for the nodes and uses an optimized overlay layer for pod IPs. Because Azure CNI Overlay uses fewer virtual network IP addresses than many other approaches, we recommend it for IP address-constrained deployments.
-
-For more information about the models, see [Configure Azure CNI Overlay networking in AKS](/azure/aks/azure-cni-overlay#choosing-a-network-model-to-use) and [Best practices for network connectivity and security in AKS](/azure/aks/operator-best-practices-network#choose-the-appropriate-network-model).
+For more information about the models, see [AKS CNI networking overview](/azure/aks/concepts-network-cni-overview) and [Best practices for network connectivity and security in AKS](/azure/aks/operator-best-practices-network#choose-the-appropriate-network-model).
 
 ## Deploy ingress resources
 
@@ -451,9 +449,9 @@ An exception to the Zero Trust control is when the cluster needs to communicate 
 
 The advantage of using Private Link is that specific subnets reach the service directly, and the traffic between the cluster and the services doesn't go over the internet. A downside is that Private Link needs extra configuration instead of using the target service over its public endpoint. Also, not all Azure services or products support Private Link. For those cases, consider enabling a [virtual network service endpoint](/azure/virtual-network/virtual-network-service-endpoints-overview) on the subnet to access the service.
 
-If Private Link or service endpoints aren't an option, you can reach other services through their public endpoints and control access through Azure Firewall rules and the firewall built into the target service. Because this traffic goes through the static IP addresses of the firewall, you can add those addresses to the service's IP allow list.
+If Private Link or service endpoints aren't an option, you can reach other services through their public endpoints and control access through Azure Firewall rules and the firewall built into the target service. The firewall applies source network address translation (SNAT) to egress flows, replacing the pod IP with one of its attached public IP addresses per flow, and the selection isn't deterministic. Add the entire set of attached public IPs to the target service's IP allowlist, or use a [public IP address prefix](/azure/virtual-network/ip-services/public-ip-address-prefix) to express that set as a contiguous range.
 
-One downside of connecting to Azure services through public endpoints is that Azure Firewall then needs more rules to make sure it allows only traffic from a specific subnet. Factor in those addresses when you plan to use multiple IP addresses for egress traffic with Azure Firewall. Otherwise, you could reach port exhaustion. For more information about how to plan for multiple IP addresses, see [Create an Azure Firewall with multiple IP addresses](/azure/firewall/quick-create-multiple-ip-bicep).
+One downside of connecting to Azure services through public endpoints is that Azure Firewall then needs more rules to make sure it allows only traffic from a specific subnet. The number of attached public IPs also caps the SNAT port pool and therefore the cluster's concurrent outbound connection ceiling. Plan for [multiple IP addresses on Azure Firewall](/azure/firewall/quick-create-multiple-ip-bicep) before you reach port exhaustion. For clusters that open large numbers of concurrent outbound connections, [attach an Azure NAT Gateway to the `AzureFirewallSubnet`](/azure/nat-gateway/tutorial-hub-spoke-nat-firewall) to significantly expand the SNAT port pool while keeping all egress traffic under firewall inspection.
 
 ### Pod-to-pod traffic
 
@@ -469,16 +467,18 @@ As part of running the cluster, the Kubernetes API server receives traffic from 
 
 For more information, see [Define API server-authorized IP ranges](/azure/aks/api-server-authorized-ip-ranges).
 
-We recommend that you deploy your AKS cluster as a private cluster. All control plane and node pool traffic remain on your private network and isn't exposed to the public internet. This reference implementation sets up a private cluster by using API server virtual network integration.
+We recommend that you deploy your AKS cluster as a private cluster. All control plane and node pool traffic remain on your private network and isn't exposed to the public internet. This reference implementation sets up a private cluster by using API server virtual network integration. Lower environments might consider relaxing this private cluster recommendation for convenience. But production AKS clusters should always be deployed as private clusters for a secure deployment baseline.
 
-Private traffic to a private AKS cluster might originate from the spoke virtual network, from peered networks, or from private endpoints in remote networks. Although the AKS nodes naturally live in the spoke, clients doing administrative tasks require a dedicated network path to reach the AKS API server privately. You can establish this connectivity in the following ways:
+Private traffic to a private AKS cluster might originate from the spoke virtual network, from peered networks, or from private endpoints in remote networks. Although the AKS nodes naturally live in the spoke, operators doing administrative tasks require a dedicated network path to reach the AKS API server privately. You can establish this connectivity in the following ways:
 
-- Use Azure Bastion to open a tunnel directly to the AKS API server.
-- Provision a jump-box VM, and connect to it through Azure Bastion.
+- **Tunnelling:** Use Azure Bastion to [open a tunnel directly to the cluster's API server](/azure/bastion/bastion-connect-to-aks-private-cluster).
+- **Jump-box:** Provision a jump-box VM, and use Azure Bastion to connect to it through SSH or RDP. From there, the operator makes requests against the cluster's API server through its private IP address.
 
-In the reference implementation, we use Azure Bastion to tunnel to the AKS API server when performing cluster management operations.
+In the reference implementation, we use Azure Bastion to tunnel to the AKS API server when performing cluster management operations. In general, this approach is simpler to manage, less costly than deploying and managing a jump-box VM, and less complex to coordinate among multiple operators. However, you might choose to use a jump-box VM if you have any of these requirements:
 
-Lower environments might consider relaxing this private cluster recommendation for convenience. But production AKS clusters should always be deployed as private clusters for a secure deployment baseline.
+- **Operators use insecure devices.** A jump-box VM can provide stronger security hardening if your client devices aren't trusted.
+- **Operators connect through unstable networks.** A jump-box VM can provide a more stable connection to the cluster, especially for long-running or batch management operations.
+- **Operators use advanced diagnostic tooling.** Some types of diagnostic tooling, like packet capture, might not work well with tunnelling approaches.
 
 ## Add secret management
 
@@ -668,7 +668,7 @@ Also, expect a small amount of extra network latency in node communication betwe
 
 ### Test with simulations and forced failovers
 
-Test your solution's reliability through forced failover testing with simulated outages. Simulations can include stopping a node, bringing down all AKS resources in a particular zone to simulate a zonal failure, or invoking an external dependency failure. You can also use Azure Chaos Studio to simulate various types of outages in Azure and on the cluster.
+Test your solution's reliability through forced failover testing with simulated outages. Simulations can include stopping a node, bringing down all AKS resources in a particular zone to simulate a zone failure, or invoking an external dependency failure. You can also use Azure Chaos Studio to simulate various types of outages in Azure and on the cluster.
 
 For more information, see [Chaos Studio](/azure/chaos-studio/chaos-studio-overview).
 
@@ -893,7 +893,7 @@ You can also set policies that govern how the changes are deployed.
 The following example diagram shows how to automate cluster configuration with GitOps and Flux.
 
 :::image type="complex" border="false" source="images/gitops-flow.svg" alt-text="Diagram that shows the GitOps flow." lightbox="images/gitops-flow.svg":::
-  The diagram illustrates the GitOps workflow with four numbered steps from left to right. At the far left, a developer icon with a laptop appears as Step 1, where the user pushes IaC changes to a Git repository. Step 2 shows the Git repository connecting via an arrow labeled git clone --mirror to a Flux icon inside the AKS cluster boundary. Step 3 shows an arrow labeled kubectl apply that points from from the Flux icon to the Kubernetes API server icon within the cluster. Step 4 displays a red circle with a diagonal line between the developer and the Kubernetes API server with a crossed‑out kubectl label.
+  The diagram illustrates the GitOps workflow with four numbered steps from left to right. At the far left, a developer icon with a laptop appears as Step 1, where the user pushes IaC changes to a Git repository. Step 2 shows the Git repository connecting via an arrow labeled git clone --mirror to a Flux icon inside the AKS cluster boundary. Step 3 shows an arrow labeled kubectl apply that points from the Flux icon to the Kubernetes API server icon within the cluster. Step 4 displays a red circle with a diagonal line between the developer and the Kubernetes API server with a crossed‑out kubectl label.
 :::image-end:::
 
 *Download a [Visio file](https://arch-center.azureedge.net/secure-baseline-aks-gitops-flow.vsdx) of this architecture.*
@@ -920,7 +920,9 @@ Advanced deployment techniques, like [blue-green deployment](https://martinfowle
 
 ## Cost management
 
-Start by reviewing the cost optimization design checklist and list of recommendations outlined in [Well-Architected Framework for AKS](/azure/well-architected/service-guides/azure-kubernetes-service#cost-optimization). Use the [Azure pricing calculator](https://azure.microsoft.com/pricing/calculator) to estimate costs for the services you use in the architecture. For other best practices, see [Cost Optimization](/azure/architecture/framework/cost/overview).
+Start by reviewing the cost optimization design checklist and list of recommendations outlined in [Well-Architected Framework for AKS](/azure/well-architected/service-guides/azure-kubernetes-service#cost-optimization). For general workload recommendations, see the [Design review checklist for Cost Optimization](/azure/well-architected/cost-optimization/checklist).
+
+You can find a cost estimate for the components used in this baseline architecture in the [Azure pricing calculator](https://azure.com/e/16fc0fecb81e49ddadc91f2a0d0ecffc). Modify your estimate to include the components required for your use case.
 
 Consider using [AKS cost analysis](/azure/aks/cost-analysis) for granular cluster infrastructure cost allocation by Kubernetes-specific constructs.
 
@@ -979,7 +981,6 @@ For more information, see [AKS pricing](https://azure.microsoft.com/pricing/deta
 ## Next steps
 
 - [AKS roadmap on GitHub](https://github.com/orgs/Azure/projects/685)
-- [AKS landing zone accelerator](/azure/cloud-adoption-framework/scenarios/app-platform/aks/landing-zone-accelerator)
 
 ## Related resources
 

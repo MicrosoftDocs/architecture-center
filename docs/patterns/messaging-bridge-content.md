@@ -39,7 +39,7 @@ Consider the following points when implementing the Messaging Bridge pattern:
 
 - You can use a single queue in each messaging infrastructure, designated as the *bridging queue*. In this topology, configure the sending system to use that specific queue as the destination for message types that are sent to the other system. You can also use multiple pairs of queues in each messaging infrastructure, so the sender is unaware of the bridge. A *shadow queue* is created for each destination queue in the destination system's messaging infrastructure. The bridge forwards messages between the shadow queues and their counterparts.
 
-- In order to meet the desired availability service-level agreements (SLAs), you might need to scale out the Messaging Bridge by using the [Competing consumers](./competing-consumers.yml) approach.
+- In order to meet the desired availability service-level objectives (SLOs), you might need to scale out the Messaging Bridge by using the [Competing consumers](./competing-consumers.md) approach.
 
 - Regular message-processing components use the [Retry pattern](./retry.yml) to handle transient failures. The retry counter limit enables components to detect *poison* messages and remove them from the queue to unblock processing. The bridge might require a different retry policy to prevent falsely identifying messages as poison if an infrastructure failure occurs. You might use the [Circuit Breaker](./circuit-breaker.md) pattern to pause forwarding.
 
@@ -108,6 +108,6 @@ Principal authors:
 
 ## Related resources
 
-- The [Competing Consumers](./competing-consumers.yml) pattern ensures the implementation of the Messaging Bridge can handle the load.
+- The [Competing Consumers](./competing-consumers.md) pattern ensures the implementation of the Messaging Bridge can handle the load.
 - The [Retry](./retry.yml) pattern allows the Messaging Bridge to handle transient failures.
 - The [Circuit Breaker](./circuit-breaker.md) pattern conserves resources when either side of the bridge experiences downtime.

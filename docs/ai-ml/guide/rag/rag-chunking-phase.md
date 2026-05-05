@@ -7,11 +7,12 @@ ms.date: 10/10/2025
 ms.topic: concept-article
 ms.collection: ce-skilling-ai-copilot
 ms.subservice: architecture-guide
+ms.custom: arb-aiml
 ---
 
 # RAG chunking phase
 
-After you gather your test documents and queries and perform a document analysis during the [preparation phase](./rag-preparation-phase.md), you move to the next phase, which is chunking. Chunking is where you break documents into appropriately sized chunks that each contain semantically relevant content. It's crucial to a successful retrieval-augmented generation (RAG) implementation. If you try to pass entire documents or oversized chunks, it's expensive, might overwhelm the token limits of the model, and doesn't produce the best results. Also, if you pass information to a language model that's irrelevant to the query, it can result in inaccurate or unrelated responses. You must use effective chunking and searching strategies to optimize the process, pass relevant information, and remove irrelevant information. This approach minimizes false positives and false negatives, and maximizes true positives and true negatives.
+After you gather your test documents and queries and do a document analysis during the [preparation phase](./rag-preparation-phase.md), you move to the next phase, which is chunking. Chunking is where you break documents into appropriately sized chunks that each contain semantically relevant content. It's crucial to a successful retrieval-augmented generation (RAG) implementation. If you try to pass entire documents or oversized chunks, it's expensive, might overwhelm the token limits of the model, and doesn't produce the best results. Also, if you pass information to a language model that's irrelevant to the query, it can result in inaccurate or unrelated responses. You must use effective chunking and searching strategies to optimize the process, pass relevant information, and remove irrelevant information. This approach minimizes false positives and false negatives, and maximizes true positives and true negatives.
 
 Chunks that are too small and don't contain sufficient context to address the query can result in poor outcomes. Relevant context that exists across multiple chunks might not be captured. The key is to implement effective chunking approaches for your specific document types and their specific structures and content. There are various chunking approaches to consider, each with their own cost implications and effectiveness, depending on the type and structure of the document that you apply them to.
 
@@ -29,7 +30,7 @@ The following sections examine the economics of chunking images and the overall 
 
 A language model that generates a description of an image that you chunk incurs extra cost. For example, cloud-based services such as Azure OpenAI in Foundry Models either charge on a per-transaction basis or on a prepaid provisioning basis. Larger images incur a larger cost. Through your document analysis, you determine which images are valuable to chunk and which images to ignore. From there, you need to understand the number and sizes of the images in your solution. You then weigh the value of chunking the image descriptions against the cost to generate those descriptions.
 
-Use a service such as [Azure AI Vision](/azure/ai-services/computer-vision) to determine which images you want to process. You can classify images, tag images, or do logo detection. You can use the results and confidence indicators to determine whether the image adds meaningful, contextual value and should be processed. Calls to Vision might be less expensive than calls to language models, so this approach could result in cost savings. Experiment to determine what confidence levels and classifications or tags provide the best results for your data. Also consider the following alternatives:
+Use a service such as [Azure Vision in Foundry Tools](/azure/ai-services/computer-vision) to determine which images you want to process. You can classify images, tag images, or do logo detection. You can use the results and confidence indicators to determine whether the image adds meaningful, contextual value and should be processed. Calls to Vision might be less expensive than calls to language models, so this approach could result in cost savings. Experiment to determine what confidence levels and classifications or tags provide the best results for your data. Also consider the following alternatives:
 
 - Build your own classifier model. If you take this approach, be sure you consider the costs to build, host, and maintain your own model.
 
@@ -51,7 +52,7 @@ Consider the following factors when you assess the cost of your overall solution
 
 - **Number of unique chunking implementations:** Each unique implementation has engineering and maintenance costs. Consider the number of unique document types in your collection and the cost versus quality trade-offs of unique implementations for each.
 
-- **Per-document cost of each implementation:** Some chunking approaches might result in better quality chunks but have a higher financial and temporal cost to generate those chunks. For example, using a prebuilt model in Azure AI Document Intelligence likely has a higher per-document cost than a pure text parsing implementation, but might result in better chunks.
+- **Per-document cost of each implementation:** Some chunking approaches might result in better quality chunks but have a higher financial and temporal cost to generate those chunks. For example, using a prebuilt model in Azure Document Intelligence in Foundry Tools likely has a higher per-document cost than a pure text parsing implementation, but might result in better chunks.
 
 - **Number of initial documents:** The number of initial documents that you need to process to launch your solution.
 
@@ -107,8 +108,8 @@ This section provides an overview of common chunking approaches. You can use mul
 
 A summarized decision-making matrix accompanies each approach. The matrix highlights the tools, associated costs, and more. The engineering effort and processing costs described here are subjective and included for relative comparison.
 
->[!IMPORTANT]
->Your chunking approach is a semipermanent choice in your overall solution design. Do a thorough comparison of the approaches to find the best fit for your use case and content type prior to choosing one to use in production. When you change chunking strategies, it can significantly affect downstream processes and require changes throughout the workflow.
+> [!IMPORTANT]
+> Your chunking approach is a semipermanent choice in your overall solution design. Before you choose a solution for production, thoroughly compare the approaches to find the best fit for your use case and content type. When you change chunking strategies, it can significantly affect downstream processes and require changes throughout the workflow.
 
 ### Fixed-size parsing, with overlap
 

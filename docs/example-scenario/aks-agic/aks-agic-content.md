@@ -13,7 +13,7 @@ You can use a [WAF policy](/azure/web-application-firewall/ag/create-waf-policy-
 - This architecture uses a companion Azure Resource Manager template (ARM template) to deploy a new virtual network that has four subnets:
 
   - **AksSubnet** hosts the AKS cluster.
-  - **VmSubnet** hosts a jumpbox virtual machine (VM) and private endpoints.
+  - **VmSubnet** hosts a jump box virtual machine (VM) and private endpoints.
   - **AppGatewaySubnet** hosts Application Gateway WAF2 tier.
   - **AzureBastionSubnet** hosts Azure Bastion.
 
@@ -61,7 +61,7 @@ You can use a [WAF policy](/azure/web-application-firewall/ag/create-waf-policy-
 - A virtual network link exists between the virtual network that hosts the AKS cluster and the preceding private DNS zones. A Log Analytics workspace collects the diagnostics logs and metrics from the following sources:
 
   - The AKS cluster
-  - The jumpbox VM
+  - The jump box VM
   - Application Gateway
   - Key Vault
   - Azure network security groups
@@ -86,7 +86,7 @@ You can use a [WAF policy](/azure/web-application-firewall/ag/create-waf-policy-
 
 - [Virtual network interfaces](/azure/virtual-network/virtual-network-network-interface) help establish communication between Azure VMs and the internet, Azure, and on-premises resources. You can add several network interface cards to one Azure VM so that child VMs can have their own dedicated network interface devices and IP addresses.
 
-- [Azure managed disks](/azure/virtual-machines/windows/managed-disks-overview) are block-level storage volumes that Azure manages on Azure VMs. The disk types include Azure Ultra Disk Storage, Azure Premium SSD, and Azure Standard SSD.
+- [Azure managed disks](/azure/virtual-machines/managed-disks-overview) are block-level storage volumes that Azure manages on Azure VMs. The disk types include Azure Ultra Disk Storage, Azure Premium SSD, and Azure Standard SSD.
 
 - [Blob Storage](/azure/well-architected/service-guides/azure-blob-storage) is a Microsoft object storage solution for the cloud. Blob Storage is optimized for storing massive amounts of unstructured data. Unstructured data is data that doesn't adhere to a particular data model or definition, such as text data or binary data.
 
@@ -181,11 +181,11 @@ These availability and reliability considerations don't fully pertain to multite
 
 #### Intra-region resiliency
 
-- Consider deploying the node pools of your AKS cluster across all the [availability zones](/azure/aks/availability-zones) within a region. Use [Azure Standard Load Balancer](/azure/load-balancer/load-balancer-overview) or [Application Gateway](/azure/application-gateway/overview) in front of your node pools. This topology provides better resiliency if a single datacenter outage occurs. This method distributes cluster nodes across multiple datacenters that reside in three separate availability zones within a region.
+- Consider deploying the node pools of your AKS cluster across all the [availability zones](/azure/aks/availability-zones) within a region. Use [Azure Load Balancer](/azure/load-balancer/load-balancer-overview) or [Application Gateway](/azure/application-gateway/overview) in front of your node pools. This topology provides better resiliency if a single datacenter outage occurs. This method distributes cluster nodes across multiple datacenters that reside in three separate availability zones within a region.
 
 - Enable [zone redundancy in Container Registry](/azure/container-registry/zone-redundancy) for intra-region resiliency and high availability.
 - Use [pod topology spread constraints](https://kubernetes.io/docs/concepts/workloads/pods/pod-topology-spread-constraints) to control how you spread pods across your AKS cluster among failure domains, such as regions, availability zones, and nodes.
-- Consider using an uptime service-level agreement (SLA) for AKS clusters that host mission-critical workloads. An [uptime SLA](/azure/aks/uptime-sla) is an optional feature to enable a financially backed, higher SLA for a cluster. An uptime SLA guarantees 99.95% availability of the Kubernetes API server endpoint for clusters that use availability zones. It guarantees 99.90% availability for clusters that don't use availability zones. AKS uses control plane node replicas across update and fault domains to help meet SLA requirements.
+- Consider using an uptime service-level agreement (SLA) for AKS clusters that host mission-critical workloads. An [uptime SLA](/azure/aks/uptime-sla) is an optional feature to enable a financially backed, higher SLA for a cluster. An uptime SLA commits to 99.95% availability of the Kubernetes API server endpoint for clusters that use availability zones. It commits to 99.90% availability for clusters that don't use availability zones. AKS uses control plane node replicas across update and fault domains to help meet SLA requirements.
 
 #### Disaster recovery and business continuity
 
@@ -229,7 +229,7 @@ The security considerations don't fully pertain to multitenancy in AKS, but they
 - Configure [Application Gateway](/azure/application-gateway/overview) to use a [WAF policy](/azure/application-gateway/waf-overview) to help protect public-facing workloads that run on AKS from malicious attacks.
 - Use Azure CNI networking in AKS to integrate with existing virtual networks or on-premises networks. This network model also allows greater separation of resources and controls in an enterprise environment.
 - Use network policies to segregate and secure intra-service communications by controlling which components can communicate with each other. By default, all pods in a Kubernetes cluster can send and receive traffic without limitations. To improve security, you can use Azure network policies or Calico network policies to define rules that control the traffic flow between various microservices. For more information, see [Network policy](/azure/aks/use-network-policies).
-- Don't expose remote connectivity to your AKS nodes. Create a bastion host, or jumpbox, in a management virtual network. Use the bastion host to securely route traffic into your AKS cluster to remote management tasks.
+- Don't expose remote connectivity to your AKS nodes. Create a bastion host, or jump box, in a management virtual network. Use the bastion host to securely route traffic into your AKS cluster to remote management tasks.
 - Consider using [authorized IP address ranges](/azure/aks/api-server-authorized-ip-ranges) in AKS to create a [private AKS cluster](/azure/aks/private-clusters) in your production environment. If you can't use a private AKS cluster, at least secure access to the API server.
 - Combine [Azure DDoS Protection](/azure/ddos-protection/ddos-protection-overview) with application-design best practices to provide enhanced DDoS mitigation features and extra defense against DDoS attacks. Enable [DDoS Protection](/azure/ddos-protection/ddos-protection-overview) on perimeter virtual networks.
 

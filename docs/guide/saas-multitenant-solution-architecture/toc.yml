@@ -11,11 +11,7 @@ items:
           - name: Microsoft SaaS stories
             href: ../saas/case-studies/saas-stories.md
       - name: Startups
-        items:
-        - name: Overview
-          href: ../startups/startup-architecture.md
-        - name: Core startup stack architecture
-          href: ../../example-scenario/startups/core-startup-stack.yml
+        href: ../startups/startup-architecture.md
       - name: Multitenant applications
         items:
         - name: Overview
@@ -25,18 +21,22 @@ items:
           - name: Overview
             href: ../multitenant/considerations/overview.yml
           - name: Tenancy models
+            displayName: Single tenant vs multi-tenant, tenant isolation
             href: ../multitenant/considerations/tenancy-models.md
           - name: Tenant life cycle
             href: ../multitenant/considerations/tenant-life-cycle.md
           - name: Pricing models
             href: ../multitenant/considerations/pricing-models.md
           - name: Control planes
+            displayName: Tenant provisioning, management plane, admin API
             href: ../multitenant/considerations/control-planes.md
           - name: Measure consumption
+            displayName: Usage metering, tenant billing, consumption tracking
             href: ../multitenant/considerations/measure-consumption.md
           - name: Deploy updates
             href: ../multitenant/considerations/updates.md
           - name: Map requests to tenants
+            displayName: Tenant resolution, tenant identification, tenant routing
             href: ../multitenant/considerations/map-requests.yml
           - name: Identity
             href: ../multitenant/considerations/identity.md
@@ -89,10 +89,11 @@ items:
             - name: Azure Container Apps
               href: ../multitenant/service/container-apps.md
             - name: Azure Kubernetes Service (AKS)
-              href: ../multitenant/service/aks.yml
+              href: ../multitenant/service/aks.md
           - name: Networking
             items:
             - name: Azure Front Door
+              displayName: AFD
               href: ../multitenant/service/front-door.md
             - name: Azure NAT Gateway
               href: ../multitenant/service/nat-gateway.md
@@ -100,12 +101,12 @@ items:
               href: ../multitenant/service/private-link.md
           - name: Storage and data
             items:
-            - name: Azure Cache for Redis
-              href: ../multitenant/service/cache-redis.md
             - name: Azure Cosmos DB
               href: ../multitenant/service/cosmos-db.md
             - name: Azure Database for PostgreSQL
               href: ../multitenant/service/postgresql.md
+            - name: Azure Managed Redis
+              href: ../multitenant/service/managed-redis.md
             - name: Azure SQL Database
               href: ../multitenant/service/sql-database.md
             - name: Azure Storage
@@ -127,6 +128,7 @@ items:
           - name: Integration
             items:
             - name: Azure API Management
+              displayName: APIM
               href: ../multitenant/service/api-management.md
           - name: AI and ML
             items:

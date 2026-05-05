@@ -1,13 +1,15 @@
 ### YamlMime:Architecture
 metadata:
   title: Measure Azure App Sustainability by Using the SCI Score
-  description: Create a sustainability model based on available proxies that scores the carbon impact of an application.
-  author: andrwca
-  ms.author: andrewcardy
-  ms.date: 10/24/2024
+  description: Create a sustainability model based on available proxies that scores the carbon impact of an application by using the SCI score.
+  author: simonthurman
+  ms.author: simont
+  ms.date: 01/15/2026
+  ms.update-cycle: 1095-days
   ms.topic: example-scenario
   ms.subservice: example-scenario
   ms.custom: arb-web
+  ai-usage: ai-assisted
 azureCategories:
   - ai-machine-learning
   - databases
@@ -16,10 +18,9 @@ products:
   - azure-monitor
   - azure-automation
   - azure-logic-apps
-  - azure-table-storage
   - power-bi
 name: Measure Azure app sustainability by using the SCI score
-summary: Create a sustainability model based on available proxies that scores the carbon impact of an application.
+summary: Create a sustainability model based on available proxies that scores the carbon impact of an application by using the SCI score.
 thumbnailUrl: /azure/architecture/browse/thumbs/measure-app-sci-score.png
 content: |
   [!INCLUDE[](measure-azure-app-sustainability-sci-score-content.md)]

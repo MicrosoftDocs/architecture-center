@@ -37,10 +37,10 @@ With the medallion pattern, consisting of Bronze, Silver, and Gold storage layer
 
 ### Components
 
-- [Event Hubs](/azure/well-architected/service-guides/event-hubs) is a big data streaming platform and event ingestion service designed to handle millions of events per second. In this architecture, it parses and scores streaming messages from various sources, including on-premises systems, and provides real-time data to Azure Databricks for processing.
+- [Event Hubs](/azure/well-architected/service-guides/azure-event-hubs) is a big data streaming platform and event ingestion service designed to handle millions of events per second. In this architecture, it parses and scores streaming messages from various sources, including on-premises systems, and provides real-time data to Azure Databricks for processing.
 - [Azure Data Factory](/azure/data-factory/introduction) is a data integration service that orchestrates and automates data movement and transformation. In this architecture, it manages scheduled or triggered pipelines that ingest, prepare, and transform data from diverse sources into the data lake.
 - [Data Lake Storage](/azure/storage/blobs/data-lake-storage-introduction) is a scalable data storage service for structured and unstructured data. In this architecture, it serves as the underlying infrastructure for Delta Lake. It stores raw, curated, and enriched data across Bronze, Silver, and Gold layers.
-- [Azure Databricks](/azure/well-architected/service-guides/azure-databricks-security) is an Apache Spark–based analytics platform optimized for Azure that supports collaborative data engineering, data science, and machine learning. In this architecture, Azure Databricks processes incoming data from Event Hubs and Azure Data Factory, cleans and transforms it, and loads it into Delta Lake tables.
+- [Azure Databricks](/azure/well-architected/service-guides/azure-databricks) is an Apache Spark–based analytics platform optimized for Azure that supports collaborative data engineering, data science, and machine learning. In this architecture, Azure Databricks processes incoming data from Event Hubs and Azure Data Factory, cleans and transforms it, and loads it into Delta Lake tables.
 - [IoT Hub](/azure/well-architected/service-guides/iot-hub) is a managed service that enables secure and reliable communication between IoT applications and devices. In this architecture, it streams telemetry data from connected devices into Azure Databricks for real-time processing and enrichment.
 - [Delta Lake](/azure/databricks/delta/) is an open-source storage layer that provides reliability to data lakes through ACID transactions and scalable metadata handling. In this architecture, Delta Lake on Data Lake Storage ensures consistent, efficient ingestion and querying of data across the Bronze, Silver, and Gold layers.
 
@@ -73,4 +73,4 @@ Guides and fully deployable architectures:
 
 - [Choose an analytical data store in Azure](../../data-guide/technology-choices/analytical-data-stores.md)
 - [Stream processing with Azure Databricks](../../reference-architectures/data/stream-processing-databricks.yml)
-- [Databases architecture design](../../databases/index.yml)
+- [Get started with database architecture design](../../databases/database-get-started.md)

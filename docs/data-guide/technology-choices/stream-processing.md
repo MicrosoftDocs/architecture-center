@@ -8,7 +8,6 @@ ms.topic: concept-article
 ms.subservice: architecture-guide
 ---
 
-<!-- cSpell:ignore HDFS -->
 # Choose a stream processing technology in Azure
 
 This article compares technology choices for real-time stream processing in Azure.
@@ -82,11 +81,11 @@ Consider the following factors:
 
 #### Stream ingestion components
 
-- [Event Hubs](/azure/well-architected/service-guides/event-hubs) is a real-time data ingestion service that can handle millions of events per second, which makes it ideal for high-throughput scenarios. It can scale dynamically and process massive volumes of data with low latency.
+- [Event Hubs](/azure/well-architected/service-guides/azure-event-hubs) is a real-time data ingestion service that can handle millions of events per second, which makes it ideal for high-throughput scenarios. It can scale dynamically and process massive volumes of data with low latency.
 
   Event Hubs supports features like partitioning for parallel processing and data retention policies. It integrates with Azure services like Azure Stream Analytics, Fabric, Azure Databricks, and Azure Functions. Event Hubs also integrates with Apache Kafka, and you can run existing Kafka workloads without any code changes.
 
-- [Event Grid](/azure/well-architected/service-guides/event-grid/operational-excellence) is a fully managed event-routing service. It ingests, distributes, and reacts to events from various sources, so it's ideal for real-time, event-driven architectures. It efficiently handles event notifications and integrates with Azure services, custom applications, and partner systems. Event Grid plays a critical role in stream ingestion.
+- [Event Grid](/azure/well-architected/service-guides/azure-event-grid) is a fully managed event-routing service. It ingests, distributes, and reacts to events from various sources, so it's ideal for real-time, event-driven architectures. It efficiently handles event notifications and integrates with Azure services, custom applications, and partner systems. Event Grid plays a critical role in stream ingestion.
 
 - [Kafka on Azure HDInsight](/azure/hdinsight/kafka/apache-kafka-introduction) is a managed Apache Kafka service for real-time data ingestion and processing at scale. Use this service to capture and store streaming data from various sources, such as IoT devices, application logs, and social media feeds. This service provides extra control of a Kafka configuration on a managed infrastructure.
 
@@ -101,7 +100,7 @@ Consider the following factors:
 | Managed service | Yes | Managed infrastructure as a service | Yes |
 | Autoscale | Yes | Yes | Yes |
 | Partner offering | No | No | Yes |
-| Pricing model | [Based on tier](https://azure.microsoft.com/pricing/details/event-hubs/) | [Per cluster hour](https://azure.microsoft.com/pricing/details/hdinsight/) | [Consumption models](https://azuremarketplace.microsoft.com/marketplace/apps/confluentinc.confluent-cloud-azure-prod?tab=PlansAndPrice) |
+| Pricing model | [Based on tier](https://azure.microsoft.com/pricing/details/event-hubs/) | [Per cluster hour](https://azure.microsoft.com/pricing/details/hdinsight/) | [Consumption models](https://marketplace.microsoft.com/product/confluentinc.confluent-cloud-azure-prod?tab=PlansAndPrice) |
 
 ### Stream processing
 
@@ -119,7 +118,7 @@ Consider the following factors:
 
 - [Stream Analytics](/azure/stream-analytics/stream-analytics-introduction) is a managed service that uses a SQL-based query language to enable real-time analytics. Use this service for simple processing tasks like filtering, aggregating, and joining data streams. It integrates seamlessly with Event Hubs, IoT Hub, and Azure Blob Storage for input and output. Stream Analytics best suits low-complexity, real-time tasks where a simple, managed solution with SQL-based queries is sufficient.
 
-- [Spark Structured Streaming](https://spark.apache.org/streaming/) is supported by services such as [Fabric](/azure/well-architected/service-guides/iot-hub/reliability) and [Azure Databricks](/azure/well-architected/service-guides/azure-databricks-security). These services provide a unified analytics platform that's built on Apache Spark and can handle complex data transformations, machine learning pipelines, and big data workloads. Spark streaming APIs support deep integration with Delta Lake for data versioning and consistency.
+- [Spark Structured Streaming](https://spark.apache.org/streaming/) is supported by services such as [Fabric](/azure/well-architected/service-guides/iot-hub/reliability) and [Azure Databricks](/azure/well-architected/service-guides/azure-databricks). These services provide a unified analytics platform that's built on Apache Spark and can handle complex data transformations, machine learning pipelines, and big data workloads. Spark streaming APIs support deep integration with Delta Lake for data versioning and consistency.
 
 - [Fabric eventstreams](/fabric/real-time-intelligence/event-streams/overview) is a real-time data streaming capability within Fabric, which is a unified analytics platform. Eventstreams enables seamless ingestion, processing, and integration of streaming data for real-time analytics and applications. Users can access eventstreams with minimal technical expertise. It provides drag-and-drop interfaces to set up data pipelines.
 
@@ -155,7 +154,7 @@ Consider the following factors:
 
 - [Azure Cosmos DB](/azure/well-architected/service-guides/cosmos-db) is a NoSQL database for low-latency, globally distributed, and highly scalable data storage. It delivers high throughput and can handle large volumes of streaming data with consistent performance.
 
-- [SQL Database](/azure/well-architected/service-guides/azure-sql-database-well-architected-framework) is a fully managed, cloud-based relational database service. It's built on the SQL Server engine. So it provides the capabilities of a traditional SQL Server database with the benefits of cloud-based scalability, reliability, and reduced management overhead.
+- [SQL Database](/azure/well-architected/service-guides/azure-sql-database) is a fully managed, cloud-based relational database service. It's built on the SQL Server engine. So it provides the capabilities of a traditional SQL Server database with the benefits of cloud-based scalability, reliability, and reduced management overhead.
 
 #### Streaming sinks general capabilities
 

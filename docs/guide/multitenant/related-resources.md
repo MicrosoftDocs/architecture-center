@@ -3,7 +3,7 @@ title: Related Resources for Multitenancy
 description: This article provides a set of links and resources for architects and developers of multitenant solutions.
 author: johndowns
 ms.author: pnp
-ms.date: 04/17/2025
+ms.date: 04/28/2026
 ms.topic: concept-article
 ms.subservice: architecture-guide
 ms.custom:
@@ -30,11 +30,11 @@ The following [cloud design patterns](../../patterns/index.md) are frequently us
 
 | Pattern | Summary |
 | ------- | ------- |
-| [Deployment Stamps pattern](../../patterns/deployment-stamp.yml) | Deploy multiple independent copies (or scale units) of application components, including data stores. |
+| [Deployment Stamps pattern](../../patterns/deployment-stamp.md) | Deploy multiple independent copies (or scale units) of application components, including data stores. |
 | [Federated Identity](../../patterns/federated-identity.yml) | Delegate authentication to an external identity provider. |
 | [Gatekeeper](../../patterns/gatekeeper.yml) | Protect applications and services by using a dedicated host instance that serves as a broker between clients and the application or service, validates and sanitizes requests, and passes requests and data between them. |
 | [Queue-Based Load Leveling](../../patterns/queue-based-load-leveling.yml) | Use a queue that serves as a buffer between a task and a service that it invokes in order to smooth intermittent heavy loads. |
-| [Sharding](../../patterns/sharding.yml) | Divide a data store into a set of horizontal partitions or shards. |
+| [Sharding](../../patterns/sharding.md) | Divide a data store into a set of horizontal partitions or shards. |
 | [Throttling](../../patterns/throttling.yml) | Control the consumption of resources that an application instance, an individual tenant, or an entire service uses. |
 
 ## Antipatterns
@@ -101,8 +101,6 @@ Use the following resources to help you build multitenant architectures on Azure
 
 - [Data partitioning strategies by Azure service](../../best-practices/data-partitioning-strategies.yml): This article describes some strategies for partitioning data in various Azure data stores.
 
-- [Build multitenant applications with Azure Database for PostgreSQL Hyperscale Citus](https://www.youtube.com/watch?v=7gAW08du6kk) (video)
-
 - [Multitenant applications with Azure Cosmos DB](https://www.youtube.com/watch?v=fOQoQnQqwwU) (video)
 
 - [Build a multitenant SaaS with Azure Cosmos DB and Azure](https://www.youtube.com/watch?v=Tht_RV5QPJ0) (video): A real-world case study of how Whally, a multitenant SaaS startup, built a modern platform from scratch on Azure Cosmos DB and Azure. Whally shows the design and implementation decisions they made related to partitioning, data modeling, secure multitenancy, performance, and real-time streaming from change feed to SignalR, all using ASP.NET Core on Azure App Services.
@@ -120,8 +118,6 @@ Use the following resources to help you build multitenant architectures on Azure
 - [Tenancy in Microsoft Entra ID](/entra/identity-platform/single-and-multi-tenant-apps): Microsoft Entra ID has its own concept of multitenancy, which refers to operating across multiple Microsoft Entra directories. When developers work with Microsoft Entra apps, they can choose to configure their app to be either single-tenant or multitenant to support different scenarios.
 
 - [Build a multitenant daemon with the Microsoft identity platform endpoint](https://github.com/Azure-Samples/ms-identity-aspnet-daemon-webapp): This sample application shows how to use the [Microsoft identity platform](/entra/identity-platform/v2-overview) endpoint to access the data of Microsoft business customers in a long-running, non-interactive process. It uses the OAuth2 client credentials grant to acquire an access token, which it then uses to call the Microsoft Graph and access organizational data.
-
-- [Authenticate and authorize multitenant apps using Microsoft Entra ID](/training/modules/cna-set-up-azure-ad-use-scale): Learn how Microsoft Entra ID enables you to improve the functionality of cloud-native apps in multitenant scenarios.
 
 - [Define and implement permissions, roles, and scopes with Microsoft Entra ID in SaaS solutions](https://techcommunity.microsoft.com/t5/fasttrack-for-azure/define-and-implement-permissions-roles-and-scopes-with-azure/ba-p/3810264): This article covers three main concepts related to Microsoft Entra authentication and authorization, which SaaS providers can use. It covers Application Roles functionality, Delegated & Application permissions, and Scopes functionality.
   
@@ -147,8 +143,6 @@ Use the following resources to help you build multitenant architectures on Azure
 
 - [Three tenancy models for Kubernetes](https://kubernetes.io/blog/2021/04/15/three-tenancy-models-for-kubernetes/): Kubernetes clusters are typically used by several teams in an organization. This article explains three tenancy models for Kubernetes.
 
-- [Understand Kubernetes multitenancy](https://cloudian.com/guides/kubernetes-storage/understanding-kubernetes-multi-tenancy/): Kubernetes isn't a multitenant system out of the box. It requires custom configuration. This article explains Kubernetes multitenancy types.
-
 - [Kubernetes multitenancy best practices guide](https://loft.sh/blog/kubernetes-multi-tenancy-a-best-practices-guide/): Kubernetes multitenancy is a topic that organizations are increasingly interested in as their Kubernetes usage spreads out. However, because Kubernetes isn't explicitly a multitenant system, it can be challenging to design a multitenant Kubernetes implementation. This article describes these challenges, how to overcome them, and some useful tools for Kubernetes multitenancy.
 
 - [Capsule: Kubernetes multitenancy made simple](https://capsule.clastix.io/): Capsule helps to implement a multitenancy and policy-based environment in your Kubernetes cluster. It isn't a platform as a service (PaaS) offering, but instead is a microservices-based ecosystem with a minimalist design approach, using only upstream Kubernetes.
@@ -162,8 +156,8 @@ Use the following resources to help you build multitenant architectures on Azure
 Principal authors:
 
 - [John Downs](https://www.linkedin.com/in/john-downs/) | Principal Software Engineer, Azure Patterns & Practices
-- [Paolo Salvatori](https://www.linkedin.com/in/paolo-salvatori) | Principal Customer Engineer, FastTrack for Azure
-- [Arsen Vladimirskiy](https://www.linkedin.com/in/arsenv) | Principal Customer Engineer, FastTrack for Azure
-- [LaBrina Loving](https://www.linkedin.com/in/chixcancode) | Principal Customer Engineering Manager, FastTrack for Azure
+- [Paolo Salvatori](https://www.linkedin.com/in/paolo-salvatori)
+- [Arsen Vladimirskiy](https://www.linkedin.com/in/arsenv) | Principal Customer Engineer
+- [LaBrina Loving](https://www.linkedin.com/in/chixcancode) | Principal Customer Engineering Manager
 
 *To see nonpublic LinkedIn profiles, sign in to LinkedIn.*
