@@ -1,4 +1,4 @@
-This article shows how to expose a PaaS resource to a workload over a private endpoint in a single region with a Azure Virtual WAN hub-spoke topology.
+This article shows how to expose a PaaS resource to a workload over a private endpoint in a single region with an Azure Virtual WAN hub-spoke topology.
 
 > [!IMPORTANT]
 > This article is part of a series on Azure Private Link and Azure DNS in Virtual WAN and builds on the network topology defined in the scenario guide. Read the [overview page first](./private-link-virtual-wan-dns-guide.yml) to understand the base network architecture and key challenges.
@@ -130,7 +130,7 @@ Azure DNS Private Resolver is a zone‑redundant service, providing high availab
 
 - Each region should have one virtual hub DNS extension with one DNS Private Resolver.
 - The DNS Private Resolver only requires an inbound endpoint and no outbound endpoints for this scenario. Set the private IP of the inbound endpoint as the custom DNS service in the Azure Firewall policy (see figure 5).
-- For higher resiliency and increased load handling, deploy two DNS Private Resolver instances (or at least two inbound IPs) per region, and configure both IPs on Azure Firewall DNS settings for redundant resolution.
+- For higher resiliency and increased load handling, deploy two DNS Private Resolver inbound endpoints per region. Each inbound endpoint has a single private IP address. Configure both private IP addresses in Azure Firewall DNS settings for redundant resolution.
 
     :::image type="content" source="images/dns-private-resolver-inbound-endpoints.png" lightbox="images/dns-private-resolver-inbound-endpoints.png" alt-text="Screenshot of the inbound endpoints for the DNS Private Resolver showing one endpoint.":::
     *Figure 8: Inbound endpoints for the DNS Private Resolver*

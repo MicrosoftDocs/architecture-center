@@ -54,7 +54,7 @@ A traditional hub-spoke topology allows you to isolate workloads in spokes while
 
 However, it isn't possible to link private DNS zones to Virtual WAN hubs, so any DNS resolution within the hub isn't aware of private zones. Specifically, this creates a problem for Azure Firewall, which serves as the DNS provider for workload spokes and uses DNS for FQDN resolution.
 
-When you use Virtual WAN hubs, it might seem intuitive to link private DNS zones to the spoke virtual networks where workloads expect DNS resolution. However, as noted in the architecture, DNS proxy is enabled on the regional firewalls and all spokes must use their regional firewall as their DNS source. The firewall calls Azure DNS instead of from the workload's network, so any private DNS zone links on the workload network aren't used in the resolution.
+When you use Virtual WAN hubs, it might seem intuitive to link private DNS zones to the spoke virtual networks where workloads expect DNS resolution. However, as noted in the architecture, DNS proxy is enabled on the regional firewalls and all spokes must use their regional firewall as their DNS source. The Azure DNS query originates from the firewall in the hub, not from the workload virtual network, so private DNS zone links on the spoke network aren't used in the resolution.
 
 Because Virtual WAN hubs cannot link to Private DNS zones, the recommended approach for DNS resolution in Private Link scenarios is Azure DNS Private Resolver deployed in a hub-extension virtual network. This enables scalable, zone-aware private DNS resolution for workloads connected to Virtual WAN hubs. Follow-up articles in this series demonstrate how DNS Private Resolver completes the architecture.
 
@@ -142,7 +142,7 @@ The following example is a naive attempt to use private endpoints in the startin
 
    1. A private DNS zone can't be linked to a Virtual WAN hub.
    1. Azure DNS isn't aware of a private DNS zone that's linked to the workload virtual network, because the configured DNS server for the workload virtual network is Azure Firewall.
-   
+
    Azure DNS responds with the public IP address of the storage account.
 
     Running the following command from the VM resolves the FQDN of the storage account to the public IP of the storage account.
