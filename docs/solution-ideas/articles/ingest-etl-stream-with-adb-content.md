@@ -12,6 +12,8 @@ Your organization needs to ingest data of any format, size, and speed into the c
 
 ### Data flow
 
+The following data flow corresponds to the previous diagram:
+
 1. Data is ingested in the following ways:
 
     - Event queues like Event Hubs, IoT Hub, or Kafka send streaming data to Azure Databricks, which uses the optimized Delta Engine to read the data.

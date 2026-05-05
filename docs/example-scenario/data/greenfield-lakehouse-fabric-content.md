@@ -3,7 +3,7 @@ This example workload describes a greenfield solution for creating a scalable da
 ## Architecture
 
 :::image type="complex" border="false" source="media/greenfield-lakehouse-fabric/greenfield-lakehouse-fabric.svg" alt-text="Diagram that shows a greenfield solution for building a robust, scalable data platform by using the lakehouse design paradigm on Fabric." lightbox="media/greenfield-lakehouse-fabric/greenfield-lakehouse-fabric.svg":::
-   Diagram that shows a greenfield lakehouse architecture on Fabric. External data sources include relational databases (strongly typed, structured), semistructured sources (CSV, logs, JSON, XML), unstructured files (.pdf, .docx, .jpeg), and streams (IoT devices, sensors, gadgets). Azure Data Factory ingests data into the batch processing path, which uses the medallion architecture. In the batch path, arrows labeled notebook and data flow connect the bronze lakehouse to the silver lakehouse, and the silver lakehouse to the gold lakehouse, which indicates data transformation and refinement. OneLake and Microsoft Purview function as foundational services. The real-time processing path uses an eventstream to ingest streaming data. A dotted arrow from the eventstream points to the bronze lakehouse. Both batch and real-time paths output to the consume and serve section, which includes Microsoft 365, Power Automate, a custom API, Power BI, a SQL endpoint, and notebooks.
+   Diagram that shows a greenfield lakehouse architecture on Fabric. External data sources include relational databases (strongly typed, structured), semistructured sources (CSV, logs, JSON, XML), unstructured files (.pdf, .docx, .jpeg), and streams (IoT devices, sensors, gadgets). Azure Data Factory ingests data into the batch processing path, which uses the medallion architecture. In the batch path, arrows labeled notebook and dataflow connect the bronze lakehouse to the silver lakehouse, and the silver lakehouse to the gold lakehouse, which indicates data transformation and refinement. OneLake and Microsoft Purview function as foundational services. The real-time processing path uses an eventstream to ingest streaming data. A dotted arrow from the eventstream points to the bronze lakehouse. Both batch and real-time paths output to the consume and serve section, which includes Microsoft 365, Power Automate, a custom API, Power BI, a SQL endpoint, and notebooks.
 :::image-end:::
 
 *Download a [Visio file](https://arch-center.azureedge.net/greenfield-lakehouse-fabric.vsdx) of this architecture.*
@@ -28,23 +28,23 @@ A lakehouse implementation typically uses the [medallion architecture](/azure/da
 
 ##### Step 1: Data ingestion via Data Factory
 
-The [Azure Data Factory](/fabric/data-factory/data-factory-overview) feature in Fabric provides the capabilities of the Azure Data Factory service, which is a widely used data integration service. The Data Factory service mainly provides orchestration capabilities via pipelines. But the feature in Fabric provides both pipelines and data flows.
+The [Azure Data Factory](/fabric/data-factory/data-factory-overview) feature in Fabric provides the capabilities of the Azure Data Factory service, which is a widely used data integration service. The Data Factory service mainly provides orchestration capabilities via pipelines. But the feature in Fabric provides both pipelines and dataflows.
 
 - Data pipelines provide built-in rich data orchestration capabilities for composing flexible data workflows that meet your enterprise needs.
 
-- Data flows provide a graphical interface, similar to Power Query, that supports over 300 built-in data transformations, including AI-based operations. Use data flows to write data to native data stores in Fabric, like lakehouses, warehouses, Azure SQL databases, and Kusto databases.
+- Dataflows provide a graphical interface, similar to Power Query, that supports over 300 built-in data transformations, including AI-based operations. Use dataflows to write data to native data stores in Fabric, like lakehouses, warehouses, Azure SQL databases, and Kusto databases.
 
 Depending on your requirements, you can use either or both of these capabilities to create a metadata-driven ingestion framework. You can onboard data from various source systems on a defined schedule or by using event triggers.
 
 ##### Step 2: Data transformation
 
-You can prepare and transform data in two ways. If you prefer a code-first experience, use Spark notebooks. If you prefer a low-code or no-code experience, use data flows.
+You can prepare and transform data in two ways. If you prefer a code-first experience, use Spark notebooks. If you prefer a low-code or no-code experience, use dataflows.
 
 Use [Fabric notebooks](/fabric/data-engineering/how-to-use-notebook) to develop Spark jobs. They provide a web-based interactive surface that data engineers use to write code. They also provide visualizations and support Markdown text. Data engineers write code to ingest, prepare, and transform data. Data scientists can use notebooks to create, track, and deploy machine learning models.
 
 Every workspace in Fabric includes a Spark [starter pool](/fabric/data-engineering/configure-starter-pools) for default Spark jobs. Starter pools provide rapid Spark session initialization, typically within 5 to 10 seconds, without manual setup. You can also customize Spark pools according to your data engineering requirements. Size the nodes, automatically scale, and dynamically allocate executors based on your Spark job requirements. For Spark runtime customizations, use [environments](/fabric/data-engineering/create-and-use-environment) to set up compute properties, select different runtimes, and set up library package dependencies based on your workload requirements.
 
-Use [data flows](/fabric/data-factory/create-first-dataflow-gen2) to extract data from various sources, transform it by using many operations, and optionally load it into a destination. Traditionally, data engineers spend significant time extracting, transforming, and loading data into a consumable format for downstream analytics. Dataflow Gen2 provides a reusable way to handle extract, transform, and load (ETL) tasks through visual cues in Power Query Online. The data flow preserves all transformation steps. To run other tasks or load data to a different destination after transformation, create a data pipeline and add the Dataflow Gen2 activity to your pipeline orchestration.
+Use [dataflows](/fabric/data-factory/create-first-dataflow-gen2) to extract data from various sources, transform it by using many operations, and optionally load it into a destination. Traditionally, data engineers spend significant time extracting, transforming, and loading data into a consumable format for downstream analytics. Dataflow Gen2 provides a reusable way to handle extract, transform, and load (ETL) tasks through visual cues in Power Query Online. The dataflow preserves all transformation steps. To run other tasks or load data to a different destination after transformation, create a data pipeline and add the Dataflow Gen2 activity to your pipeline orchestration.
 
 #### Hot path for real-time analytics
 

@@ -13,7 +13,7 @@ This article describes a container solution that hosts a large, storage-intensiv
 
 ### Data flow
 
-The following dataflow corresponds to the previous diagram:
+The following data flow corresponds to the previous diagram:
 
 1. Users access the front-end website through Azure Front Door with Azure Web Application Firewall enabled.
 

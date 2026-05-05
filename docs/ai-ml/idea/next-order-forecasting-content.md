@@ -12,6 +12,8 @@ This article describes how merchandise distributors can use AI and machine learn
 
 ### Data flow
 
+The following data flow corresponds to the previous diagram:
+
 1. Data sources
 
    To forecast future orders, you need comprehensive data about your customers' buying history for various SKUs at specific stores, including information about preferences and purchasing behavior. This kind of information is typically obtained from orders, merchandise, and customer databases. You also need to consider external factors like weather, holidays, and events. This data is usually obtained from partner sources.

@@ -12,7 +12,7 @@ This article describes an end-to-end modernization plan for mainframe and midran
 
 ### Data flow
 
-The following dataflow corresponds to the previous diagram:
+The following data flow corresponds to the previous diagram:
 
 1. Mainframe and midrange systems store data in the following data sources.
 

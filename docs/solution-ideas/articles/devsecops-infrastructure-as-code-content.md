@@ -14,7 +14,7 @@ This solution idea illustrates the DevSecOps pipeline that uses GitHub for infra
 
 ### Data flow
 
-The following dataflow corresponds to the previous diagram:
+The following data flow corresponds to the previous diagram:
 
 1. Developers use test-driven development to check code changes for infrastructure definitions, such as IaC templates, into GitHub repositories. They develop unit tests, integration tests, and policy as code (PaC) concurrently to test the quality of the IaC.
 

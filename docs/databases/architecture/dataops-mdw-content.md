@@ -10,7 +10,9 @@ The following diagram shows the overall architecture of the solution.
 
 ### Data flow
 
-Azure Data Factory orchestrates and Azure Data Lake Storage Gen2 stores the data:
+Azure Data Factory orchestrates and Azure Data Lake Storage Gen2 stores the data.
+
+The following data flow corresponds to the previous diagram:
 
 1. The Contoso city parking web service API is available to transfer data from the parking spots.
 

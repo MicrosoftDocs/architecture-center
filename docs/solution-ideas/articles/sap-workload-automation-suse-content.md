@@ -32,6 +32,8 @@ SUSE provides support with:
 
 *Download a [Visio file](https://arch-center.azureedge.net/sap-workload-automation-suse.vsdx) of diagrams in this article.*
 
+The following data flow corresponds to the previous diagram:
+
 1. Download the SUSE automation git repository to your local machine or Azure Cloud Shell and install the needed Terraform version, which comes with SLES4SAP or Cloud Shell.
 1. Create an Azure File Share instance and download SAP media to it.
 1. Tailor the example parameters (such as ssh-keys, network, SID, and file-share) to your needs and values.

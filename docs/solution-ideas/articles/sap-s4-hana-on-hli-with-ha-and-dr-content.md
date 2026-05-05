@@ -14,6 +14,8 @@ This system takes advantage of OS clustering for database performance, high avai
 
 ### Data flow
 
+The following data flow corresponds to the previous diagram:
+
 1. In this example, an on-premises SAP user executes a sales order via Fiori interface, custom interface, or other.
 1. Azure high-speed ExpressRoute gateway is used to connect to Azure Virtual Machines.
 1. Request flows into highly available ABAP SAP Central Services (ASCS) and then through application servers, which run on Azure Virtual Machines. This availability set offers a 99.95 percent uptime SLA.

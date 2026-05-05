@@ -8,7 +8,7 @@ This architecture describes how to implement an Information Management System (I
 
 ### Data flow
 
-The following dataflow corresponds to the previous diagram:
+The following data flow corresponds to the previous diagram:
 
 1. Users connect to the mainframe over Transmission Control Protocol or Internet Protocol by using standard mainframe protocols like TN3270 and HTTPS.
 1. Transaction managers interact with users and invoke the application to satisfy user requests.
@@ -85,7 +85,7 @@ The following workflow corresponds to the previous diagram:
 
 ### Data flow for migration
 
-The following dataflow corresponds to the previous diagram:
+The following data flow corresponds to the previous diagram:
 
 1. The mainframe nonrelational data store (IMS DB) has two components: the DBD and the actual segment data.
 
