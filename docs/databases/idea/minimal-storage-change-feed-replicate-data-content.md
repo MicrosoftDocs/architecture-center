@@ -95,6 +95,8 @@ Performance Efficiency is the ability of your workload to scale to meet the dema
 
 ### Operational Excellence
 
+Operational Excellence covers the operations processes that deploy an application and keep it running in production. For more information, see [Design review checklist for Operational Excellence](/azure/well-architected/operational-excellence/checklist).
+
 - You need to migrate existing data. The migration process requires ad hoc scripts or routines to copy old data to storage accounts. When you migrate the data, make sure that you use time stamps and copy flags to track migration progress.
 - To avoid deleting entries from the Azure Table secondary storage, ignore delete feeds that are generated when your functions delete entries from Azure Cosmos DB.
 
@@ -130,5 +132,4 @@ Other contributors:
 ## Related resources
 
 - [RESTful web API design](../../best-practices/api-design.md)
-- [Web-Queue-Worker architecture style](../../guide/architecture-styles/web-queue-worker.md)
 - [Caching best practices](../../best-practices/caching.yml)
