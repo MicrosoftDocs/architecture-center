@@ -4,7 +4,7 @@ metadata:
   description: Learn how to use the Azure IoT Hub file upload feature to privately upload files to an Azure Storage account exposed through a firewall and custom domain.
   author: katriendg
   ms.author: katriend
-  ms.date: 4/23/2026
+  ms.date: 5/05/2026
   ms.topic: solution-idea
   ms.subservice: solution-idea
   ms.category:
