@@ -32,7 +32,7 @@ Students access the Moodle application data through an Azure Application Gateway
 
 - [Moodle](https://www.moodlecloud.com/) is a free, open-source learning management system. In this architecture, Moodle serves as the core application that delivers educational content and tracks student progress.
 
-- [Azure Database for MySQL Flexible Server](/azure/well-architected/service-guides/azure-db-mysql-cost-optimization) is a managed relational database service. In this architecture, it stores Moodle's structured data, including course content, user profiles, and student progress.
+- [Azure Database for MySQL Flexible Server](/azure/well-architected/service-guides/azure-database-for-mysql) is a managed relational database service. In this architecture, it stores Moodle's structured data, including course content, user profiles, and student progress.
 
 - [Azure Managed Redis](/azure/redis/overview) is a secure, in-memory data store and messaging broker. In this architecture, it improves Moodle performance by caching user sessions, managing locks, and reducing load on the database.
 

@@ -28,7 +28,7 @@ APIOps is a methodology that applies the concepts of GitOps and [DevOps](/devops
 
 ### Components
 
-- [Azure API Management](/azure/well-architected/service-guides/api-management/reliability) is a managed service that creates consistent, API gateways for back-end services. In this architecture, it routes API calls, verifies credentials, enforces usage quotas, and logs metadata. It serves as the central platform for managing and publishing APIs.
+- [Azure API Management](/azure/well-architected/service-guides/azure-api-management) is a managed service that creates consistent, API gateways for back-end services. In this architecture, it routes API calls, verifies credentials, enforces usage quotas, and logs metadata. It serves as the central platform for managing and publishing APIs.
 
 - [Azure DevOps](/azure/devops/user-guide/what-is-azure-devops) is a suite of development tools and services that manages the development life cycle. In this architecture, it supports planning, code management, and automated deployment of APIs, which enables teams to collaborate and streamline API delivery.
 

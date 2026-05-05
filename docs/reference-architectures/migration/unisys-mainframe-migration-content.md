@@ -78,13 +78,13 @@ H. A printer subsystem manages on-premises printers.
 
 - [Azure Bastion](/azure/bastion/bastion-overview) is a fully managed PaaS that you provision inside your virtual network. Azure Bastion provides Remote Desktop Protocol (RDP) and Secure Shell (SSH) connectivity to the VMs in your virtual network over TLS from the Azure portal.
 
-- [Azure SQL Database](/azure/well-architected/service-guides/azure-sql-database-well-architected-framework) is a fully managed PaaS database engine that runs on the latest stable version of SQL Server and patched OS, with 99.99% availability. SQL Database handles most database management functions like upgrading, patching, backups, and monitoring without user involvement. These PaaS capabilities let you focus on business-critical, domain-specific database administration and optimization.
+- [Azure SQL Database](/azure/well-architected/service-guides/azure-sql-database) is a fully managed PaaS database engine that runs on the latest stable version of SQL Server and patched OS, with 99.99% availability. SQL Database handles most database management functions like upgrading, patching, backups, and monitoring without user involvement. These PaaS capabilities let you focus on business-critical, domain-specific database administration and optimization.
 
 - [Private Link](/azure/private-link/private-link-overview) for SQL Database provides a private, direct connection that's isolated to the Azure networking backbone from the Azure VMs to SQL Database.
 
 - [Site Recovery](/azure/site-recovery/site-recovery-overview) uses replication, failover, and recovery processes to help keep your applications running during planned and unplanned outages.
 
-- [Load Balancer](/azure/well-architected/service-guides/azure-load-balancer/reliability) provides Layer-4 load balancing for cloud services and VMs. Load Balancer supports TCP/UDP-based protocols such as HTTP, HTTPS, and SMTP and distributes traffic across healthy instances.
+- [Load Balancer](/azure/well-architected/service-guides/azure-load-balancer) provides Layer-4 load balancing for cloud services and VMs. Load Balancer supports TCP/UDP-based protocols such as HTTP, HTTPS, and SMTP and distributes traffic across healthy instances.
 
 ## Scenario details
 

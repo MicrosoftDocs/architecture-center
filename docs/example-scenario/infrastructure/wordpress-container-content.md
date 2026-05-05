@@ -29,7 +29,7 @@ The following data flow corresponds to the previous diagram:
 
 - [Azure Managed Redis](/azure/redis/overview) is a managed in-memory data store and caching service. In this architecture, Azure Managed Redis hosts a key-value cache that all pods share. WordPress performance optimization plug-ins use the cache to improve response times.
 
-- [Azure Database for MySQL - Flexible Server](/azure/well-architected/service-guides/azure-db-mysql-cost-optimization) is a managed relational database service based on the open-source MySQL database engine. In this architecture, this database stores WordPress data.
+- [Azure Database for MySQL - Flexible Server](/azure/well-architected/service-guides/azure-database-for-mysql) is a managed relational database service based on the open-source MySQL database engine. In this architecture, this database stores WordPress data.
 
 - [Azure DDoS Protection](/azure/ddos-protection/ddos-protection-overview) is a network security service that provides enhanced distributed denial-of-service (DDoS) mitigation features. In this architecture, DDoS Protection helps defend against DDoS attacks when combined with application-design best practices and enabled on the perimeter network.
 
@@ -41,7 +41,7 @@ The following data flow corresponds to the previous diagram:
 
 - [Key Vault](/azure/key-vault/general/overview) is a cloud service that stores and controls access to secrets, certificates, keys, and passwords. In this architecture, Key Vault provides secrets to the AKS cluster if pods need them.
 
-- [Load Balancer](/azure/well-architected/service-guides/azure-load-balancer/reliability) is a layer-4 load balancer that distributes inbound traffic based on rules and health probe results. In this architecture, an internal load balancer distributes traffic from Azure Front Door Premium tier to the ingress controller pods with low latency and high throughput.
+- [Load Balancer](/azure/well-architected/service-guides/azure-load-balancer) is a layer-4 load balancer that distributes inbound traffic based on rules and health probe results. In this architecture, an internal load balancer distributes traffic from Azure Front Door Premium tier to the ingress controller pods with low latency and high throughput.
 
 - [Network security groups (NSGs)](/azure/virtual-network/network-security-groups-overview) are security features that use security rules to allow or deny inbound or outbound network traffic based on source or destination IP address, port, and protocol. In this architecture, NSG rules restrict traffic flow between the application components in the subnets.
 
@@ -104,7 +104,7 @@ Review the following cost considerations when you deploy this solution:
 - **Amount of hosted data:** Consider the amount of data that you host, because Azure NetApp Files pricing is based on reserved capacity. To optimize costs, reserve the minimum capacity required for your data.
 - **Write percentage:** Consider how much new data you write to your website and the cost to store it. For multi-region deployments, the amount of new data that you write to your website correlates with the amount of data mirrored across your regions.
 - **Static versus dynamic content:** Monitor your database storage performance and capacity to determine whether a cheaper SKU can support your site. The database stores dynamic content, and the content delivery network caches static content.
-- **AKS cluster optimization:** Follow general tips for AKS, such as guidance about virtual machine (VM) size and Azure reservations, to optimize your AKS cluster costs. For more information, see [AKS Cost Optimization](/azure/well-architected/services/compute/azure-kubernetes-service/azure-kubernetes-service#cost-optimization).
+- **AKS cluster optimization:** Follow general tips for AKS, such as guidance about virtual machine (VM) size and Azure reservations, to optimize your AKS cluster costs. For more information, see [AKS Cost Optimization](/azure/well-architected/service-guides/azure-kubernetes-service#cost-optimization).
 
 ### Performance Efficiency
 

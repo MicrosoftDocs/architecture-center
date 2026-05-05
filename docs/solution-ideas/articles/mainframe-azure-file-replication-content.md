@@ -68,7 +68,7 @@ This architecture outlines various Azure-native migration tools that you can use
 
 - [Azure Data Factory](/azure/data-factory/introduction) is a hybrid data integration service that you can use to create, schedule, and orchestrate ETL and ELT workflows. In this architecture, Azure Data Factory transfers mainframe files to Blob Storage via FTP and manages transformation pipelines.
 
-- [Azure Databricks](/azure/well-architected/service-guides/azure-databricks-security) is an Apache Spark-based analytics platform optimized for Azure. In this architecture, it enriches and correlates incoming mainframe data with other datasets for advanced analytics and transformation.
+- [Azure Databricks](/azure/well-architected/service-guides/azure-databricks) is an Apache Spark-based analytics platform optimized for Azure. In this architecture, it enriches and correlates incoming mainframe data with other datasets for advanced analytics and transformation.
   
 - [Microsoft Fabric](/fabric/get-started/microsoft-fabric-overview) is an intelligent data platform with a suite of cloud services and tools for every data life cycle stage, including ingestion, preparation, storage, analysis, and visualization. In this architecture, Fabric enables organizations to study data movement, experiment with data science, and perform real-time analytics and business intelligence on transformed mainframe data.
 
@@ -80,13 +80,13 @@ This architecture outlines the process of migrating mainframe file data to cloud
 
 - [Azure SQL Database](/azure/well-architected/service-guides/azure-sql-database) is a scalable relational cloud database service. SQL Database is evergreen and always up-to-date, with AI-powered and automated features that optimize performance and durability. Serverless compute and hyperscale storage options automatically scale resources on demand. In this architecture, SQL Database stores transformed mainframe data and supports high availability. It also supports cost efficiency through [Azure Hybrid Benefit](/azure/virtual-machines/windows/hybrid-use-benefit-licensing) because you can use your existing on-premises SQL Server licenses on the cloud with no extra cost.
 
-- [Azure SQL Managed Instance](/azure/well-architected/service-guides/azure-sql-managed-instance/reliability) is a platform as a service (PaaS) offering that provides full SQL Server compatibility with managed infrastructure. In this architecture, it modernizes legacy applications by hosting migrated mainframe data with minimal code changes.
+- [Azure SQL Managed Instance](/azure/well-architected/service-guides/azure-sql-managed-instance) is a platform as a service (PaaS) offering that provides full SQL Server compatibility with managed infrastructure. In this architecture, it modernizes legacy applications by hosting migrated mainframe data with minimal code changes.
 
 - [SQL Server on Azure Virtual Machines](/azure/azure-sql/virtual-machines/windows/sql-server-on-azure-vm-iaas-what-is-overview?view=azuresql) is an infrastructure as a service (IaaS) solution that lifts and shifts SQL Server workloads to Azure, which combines the flexibility and hybrid connectivity of Azure with SQL Server performance, security, and analytics. In this architecture, it provides control over SQL Server configurations for hosting mainframe-derived data.
 
 - [Azure Database for PostgreSQL](/azure/well-architected/service-guides/postgresql) is a managed open-source relational database service. In this architecture, it serves as a target for migrated mainframe data that requires PostgreSQL compatibility.
 
-- [Azure Database for MySQL](/azure/well-architected/service-guides/azure-db-mysql-cost-optimization) is a managed MySQL database service. In this architecture, it supports workloads that require MySQL-based storage for transformed mainframe data.
+- [Azure Database for MySQL](/azure/well-architected/service-guides/azure-database-for-mysql) is a managed MySQL database service. In this architecture, it supports workloads that require MySQL-based storage for transformed mainframe data.
 
 - [Azure Cosmos DB](/azure/well-architected/service-guides/cosmos-db) is a globally distributed NoSQL database service that includes multi-model support. In this architecture, it stores high-performance, scalable applications built on transformed mainframe data.
 
