@@ -252,7 +252,7 @@ A topology that includes multiple instances spread across two or more Azure regi
 
 ### Introduce a gateway for multiple instances in multiple regions
 
-For business-critical architectures that must survive a complete regional outage, a global, unified gateway helps eliminate failover logic from client code. This implementation requires that the gateway remains unaffected by a regional outage.
+For business-critical architectures that must survive a complete regional outage, a global, unified gateway helps eliminate failover logic from client code. This implementation requires that the gateway remain unaffected by a regional outage.
 
 #### Use API Management (single-region deployment)
 
@@ -274,7 +274,7 @@ Because this topology introduces a single point of failure (the gateway), the ut
 
 ##### Active-passive variant
 
-This model can also be used to provide an active-passive approach to specifically handle regional failure of only the model host. In this mode, traffic normally flows from the gateway to the instance in the same region as the API Management service. That instance handles all expected traffic flow when there's not a regional failure. It can be provisioned or standard, depending on your preferred billing model. If there's a regional failure of just that service, the gateway can redirect traffic to another region that has the model already deployed in a standard deployment.
+This model can also be used to provide an active-passive approach to specifically handle regional failure of only the model host. In this mode, traffic normally flows from the gateway to the instance in the same region as the API Management service. That instance handles all expected traffic flow when there's not a regional failure. It can be provisioned or standard, depending on your preferred billing model. If there's a regional failure of just that service, the gateway can redirect traffic to another region where the model is already deployed in a standard deployment.
 
 #### Use API Management (multi-region deployment)
 
@@ -284,7 +284,7 @@ This model can also be used to provide an active-passive approach to specificall
 
 API Management supports deploying an [instance to multiple Azure regions](/azure/api-management/api-management-howto-deploy-multi-region), which can improve the reliability of the previous API Management-based architecture. This deployment option gives you a single control plane, through a single API Management instance, but provides replicated gateways in the regions of your choice. In this topology, you deploy gateway components into each region containing model-host instances that provide an active-active gateway architecture.
 
-Policies such as routing and request handling logic are replicated to each individual gateway. All policy logic must have conditional logic in the policy to ensure that you're calling instances in the same region as the current gateway. For more information, see [Route API calls to regional back-end services](/azure/api-management/api-management-howto-deploy-multi-region#-route-api-calls-to-regional-backend-services). The gateway component then requires network line of sight only to instances in its own region, usually through private endpoints.
+Policies such as routing and request handling logic are replicated to each individual gateway. All policy logic must have conditional logic in the policy to ensure that you're calling instances in the same region as the current gateway. For more information, see [Route API calls to regional back-end services](/azure/api-management/api-management-howto-deploy-multi-region#route-api-calls-to-regional-backend-services). The gateway component then requires network line of sight only to instances in its own region, usually through private endpoints.
 
 > [!NOTE]
 > This topology doesn't have a global point of failure from a traffic handling perspective. However, the architecture has a partial single point of failure in that the API Management control plane is only in a single region. Evaluate whether the control plane limitation might violate your business or mission-critical standards.
@@ -321,7 +321,7 @@ The previous section addresses the availability of the gateway by providing an a
 
 If your per-gateway routing rules are too complex for your team to consider reasonable as API Management policies, you need to deploy and manage your own solution. This architecture must be a multi-region deployment of your gateway, with one highly available scale unit per region. You need to front those deployments with [Azure Front Door](/azure/frontdoor/) or [Azure Traffic Manager](/azure/traffic-manager/traffic-manager-overview), typically by using latency-based routing and appropriate health checks for gateway availability.
 
-Use Azure Front Door if you require a web application firewall and public internet access. Use Traffic Manager if you don't need a web application firewall and DNS TTL is sufficient. When fronting your gateway instances with Azure Front Door (or any reverse proxy), ensure that the gateway can't be bypassed. Make the gateway instances available only through private endpoint when you use Azure Front Door and add validation of the `X_AZURE_FDID` HTTP header in your gateway implementation.
+Use Azure Front Door if you require a web application firewall and public internet access. Use Traffic Manager if you don't need a web application firewall and DNS TTL is sufficient. When fronting your gateway instances with Azure Front Door (or any reverse proxy), ensure that the gateway can't be bypassed. Make the gateway instances available only through private endpoint when you use Azure Front Door, and add validation of the `X_AZURE_FDID` HTTP header in your gateway implementation.
 
 Place per-region resources that are used in your custom gateway in per-region resource groups. Doing so reduces the likelihood of a blast radius of a related regional outage affecting your ability to access the resource provider for your gateway resources in that region.
 
@@ -351,7 +351,7 @@ When clients use stateful features, such as the Assistants API, you need to conf
 
 There are two health check perspectives to consider, regardless of topology.
 
-If your gateway is built around round-robining or strictly performing service-availability failover, you should have a way to take a back-end instance (or model) out of availability status. Many AI services don't provide a dedicated health check endpoint to preemptively determine whether instances are available to handle requests. You can send synthetic transactions through, but doing so consumes model capacity. Unless you have another reliable signal source for instance and model availability, your gateway should probably assume that the back-end instance is available and handle `429`, `500`, and `503` HTTP status codes as a signal to circuit-break for future requests on that instance or model for a period of time. For throttling situations, always honor the data in the `Retry-After` header found in API responses for `429` response codes in your circuit breaking logic. If you're using API Management, evaluate using the [built-in circuit breaker](/azure/api-management/backends?tabs=bicep#circuit-breaker-preview) functionality.
+If your gateway is built around round-robining or strictly performing service-availability failover, you should have a way to take a back-end instance (or model) out of availability status. Many AI services don't provide a dedicated health check endpoint to preemptively determine whether instances are available to handle requests. You can send synthetic transactions through, but doing so consumes model capacity. Unless you have another reliable signal source for instance and model availability, your gateway should probably assume that the back-end instance is available and handle `429`, `500`, and `503` HTTP status codes as a signal to circuit-break for future requests on that instance or model for a period of time. For throttling situations, always honor the data in the `Retry-After` header found in API responses for `429` response codes in your circuit breaking logic. If you're using API Management, evaluate using the [built-in circuit breaker](/azure/api-management/backends?tabs=bicep#circuit-breaker) functionality.
 
 Your clients or your workload operations team might want to have a health check exposed on your gateway for their own routing or introspection purposes. If you use API Management, the default `/status-0123456789abcdef` might not be detailed enough because it mostly addresses the API Management gateway instance, not your back ends. Consider adding a dedicated health check API that can return meaningful data to clients or observability systems on the availability of the gateway or specific routes in the gateway.
 
@@ -371,9 +371,9 @@ Many of the scenarios introduced in this article help increase the potential ser
 
 You need to evaluate various active-active and active-passive approaches from a data-residency compliance perspective for your workload. Many of these patterns are applicable for your workload's architecture if the regions involved remain within the geopolitical boundary. To support this scenario, you need to treat geopolitical boundaries as isolated stamps and apply the active-active or active-passive handling exclusively within that stamp.
 
-In particular, any performance-based routing needs to be highly scrutinized for data sovereignty compliance. In data sovereignty scenarios, you can't service clients in another geography and remain compliant. All gateway architectures that involve data residency must enforce that clients only use endpoints in their geopolitical region. The clients must be blocked from using other gateway endpoints and the gateway itself shouldn't violate the client's trust by making a cross-geopolitical request. The most reliable way to implement this segmentation is to build your architecture around a fully independent, highly available gateway per geopolitical region.
+In particular, any performance-based routing needs to be highly scrutinized for data sovereignty compliance. In data sovereignty scenarios, you can't service clients in another geography and remain compliant. All gateway architectures that involve data residency must enforce that clients only use endpoints in their geopolitical region. The clients must be blocked from using other gateway endpoints, and the gateway itself shouldn't violate the client's trust by making a cross-geopolitical request. The most reliable way to implement this segmentation is to build your architecture around a fully independent, highly available gateway per geopolitical region.
 
-When considering whether to take advantage of increased capacity by using [Global](/azure/ai-foundry/foundry-models/concepts/deployment-types#global-standard) or [Data Zone](/azure/ai-foundry/foundry-models/concepts/deployment-types#data-zone-standard) deployments, you need to understand how these deployments affect data residency. Data stored at rest remains in the designated Azure geography for both Global and Data Zone deployments. That data might be transmitted and processed for inferencing in any hosting location for Global deployments, or in any hosting location within the Microsoft specified data zone for Data Zone deployments.
+When considering whether to take advantage of increased capacity by using [Global](/azure/ai-foundry/foundry-models/concepts/deployment-types#global-standard) or [Data Zone](/azure/ai-foundry/foundry-models/concepts/deployment-types#data-zone-standard) deployments, you need to understand how these deployments affect data residency. Data stored at rest remains in the designated Azure geography for both Global and Data Zone deployments. That data might be transmitted and processed for inferencing in any hosting location for Global deployments, or in any hosting location within the Microsoft-specified data zone for Data Zone deployments.
 
 ### Service authorization
 
@@ -389,7 +389,7 @@ Although this consideration isn't specific to multiple back ends, each region's 
 
 ## Gateway implementations
 
-Azure doesn't provide a complete turnkey solution or reference architecture for building a gateway that's focused on routing traffic across multiple back ends. However, API Management is preferred because the service provides a PaaS-based solution that uses built in features such as back-end pools, circuit-breaking policies, and custom policies if needed. To evaluate what's available in that service for your workload's multi-backend needs, see [Overview of generative AI gateway capabilities in Azure API Management](/azure/api-management/genai-gateway-capabilities).
+Azure doesn't provide a complete turnkey solution or reference architecture for building a gateway that's focused on routing traffic across multiple back ends. However, API Management is preferred because the service provides a PaaS-based solution that uses built in features such as back-end pools, circuit-breaking policies, and custom policies if needed. To evaluate what's available in that service for your workload's multi-backend needs, see [AI gateway in Azure API Management](/azure/api-management/genai-gateway-capabilities).
 
 Whether you use API Management or build a custom solution, as mentioned in the [introduction article](./azure-openai-gateway-guide.yml#implementation-options), your workload team must build and operate the gateway. The following examples cover some of the previously mentioned use cases. Consider referring to these samples when you build your own proof of concept with API Management or custom code.
 
@@ -398,7 +398,7 @@ Whether you use API Management or build a custom solution, as mentioned in the [
   - [Scaling with Azure API Management](https://github.com/Azure/aoai-apim/) contains sample policy code and instructions for provisioned and standard spillover.
   - The [GenAI gateway toolkit](https://github.com/Azure-Samples/apim-genai-gateway-toolkit) contains example API Management policies together with a load-testing setup for testing the behavior of the policies.
 - **Custom code** 
-  – [Smart load balancing using Azure Container Apps](https://github.com/Azure-Samples/openai-aca-lb) contains sample C# code and instructions for building the container and deploying it into your subscription.
+  - [Smart load balancing using Azure Container Apps](https://github.com/Azure-Samples/openai-aca-lb) contains sample C# code and instructions for building the container and deploying it into your subscription.
 
 ## Multi-backend routing for other models
 
