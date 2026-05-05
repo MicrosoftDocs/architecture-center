@@ -8,7 +8,7 @@ The following diagram shows the overall architecture of the solution.
 
 *Download a [Visio file](https://arch-center.azureedge.net/architecture-diagram-demonstrating-dataops-for-the-modern-data-warehouse.vsdx) of this architecture.*
 
-### Dataflow
+### Data flow
 
 Azure Data Factory orchestrates and Azure Data Lake Storage Gen2 stores the data.
 

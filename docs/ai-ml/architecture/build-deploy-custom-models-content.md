@@ -8,7 +8,7 @@ This article describes Azure solutions for building, training, deploying, and us
 
 *Download a [Visio file](https://arch-center.azureedge.net/build-deploy-custom-models.vsdx) of this architecture.*
 
-### Dataflow
+### Data flow
 
 The following data flow corresponds to the previous diagram:
 

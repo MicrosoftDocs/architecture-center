@@ -10,7 +10,7 @@ This article presents a solution for using Azure Kubernetes Service (AKS) to qui
 
 *Download a [Visio file](https://arch-center.azureedge.net/data-streaming-scenario.vsdx) of this architecture.*
 
-### Dataflow
+### Data flow
 
 The following data flow corresponds to the previous diagram:
 

@@ -12,7 +12,7 @@ This article describes several ways to transfer files to Azure, convert and tran
 
 *Download a [Visio file](https://arch-center.azureedge.net/mainframe-azure-file-replication-updated.vsdx) of this architecture.*
 
-### Dataflow
+### Data flow
 
 The following data flow corresponds to the previous diagram:
 

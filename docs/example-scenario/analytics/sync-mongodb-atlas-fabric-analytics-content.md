@@ -12,7 +12,7 @@ The following diagram shows how a reference mirroring application deployed in Az
 
 *Download a [Visio file](https://arch-center.azureedge.net/mongodb-atlas-fabric.vsdx) of this architecture.*
 
-### Dataflow
+### Data flow
 
 The following data flow corresponds to the previous diagram:
 
@@ -96,7 +96,7 @@ This approach uses [MongoDB Atlas triggers](https://github.com/mongodb/atlas-fun
    The diagram consists of two boxes. The left box is labeled MongoDB Atlas. Inside the box, an arrow points from a cluster icon to a trigger icon and from the trigger icon to a function icon. Another arrow points right from the MongoDB Atlas box to a box labeled Microsoft Fabric. Inside this box, an arrow points from Fabric functions to OneLake. A Fabric pipeline icon connects OneLake and smaller box that contains icons for lakehouses and Data Warehouse.
 :::image-end:::
 
-##### Dataflow
+##### Data flow
 
 1. The Atlas trigger detects an insert, update, or delete operation.
 

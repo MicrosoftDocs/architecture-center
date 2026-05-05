@@ -10,7 +10,7 @@ This article describes how to use image processing, natural language processing,
 
 *Download a [Visio file](https://arch-center.azureedge.net/ai-search-skillsets.vsdx) of this architecture.*
 
-### Dataflow
+### Data flow
 
 The data flow describes how the unstructured JFK Files dataset passes through the AI Search skills pipeline to produce structured and indexable data.
 

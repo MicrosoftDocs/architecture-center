@@ -17,7 +17,7 @@ Running applications in an emulator on Azure has several benefits, such as reduc
 
 *Download a [Visio file](https://arch-center.azureedge.net/solaris-emulator-azure.vsdx) of this architecture.*
 
-### Dataflow
+### Data flow
 
 The following data flow corresponds to the previous diagram:
 

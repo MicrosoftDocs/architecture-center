@@ -8,7 +8,7 @@ In this article, Azure App Service refers to the pricing tiers where there's sha
 
 *Download a [Visio file](https://arch-center.azureedge.net/multitenant-web-apps.vsdx) of this architecture.*
 
-### Dataflow
+### Data flow
 
 The following data flow corresponds to the previous diagram:
 

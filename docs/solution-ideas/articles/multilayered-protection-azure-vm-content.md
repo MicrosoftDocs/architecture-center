@@ -48,7 +48,7 @@ The defense in depth strategy and the solution in this article apply to many sce
 
 *Download a [Visio file][Visio version of architecture diagram] of this architecture.*
 
-## Dataflow
+## Data flow
 
 The following data flow corresponds to the previous diagram:
 

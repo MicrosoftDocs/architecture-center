@@ -10,7 +10,7 @@ Rocket® Data Replicate and Sync (RDRS), formerly tcVISION, is a data replicatio
 
 *Download a [Visio file](https://arch-center.azureedge.net/mainframe-realtime-batch-data-replication-azure-rdrs.vsdx) of this architecture.*
 
-### Dataflow
+### Data flow
 
 The following data flow corresponds to the previous diagram:
 

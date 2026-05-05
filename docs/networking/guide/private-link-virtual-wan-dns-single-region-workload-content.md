@@ -1,4 +1,4 @@
-This article shows how to expose a PaaS resource over a private endpoint to a specific workload in a single region. In the scenario, the network topology is hub-spoke, and the hub is an Azure Virtual WAN hub.
+This article shows how to expose a PaaS resource to a workload over a private endpoint in a single region with an Azure Virtual WAN hub-spoke topology.
 
 > [!IMPORTANT]
 > This article is part of a series on Azure Private Link and Azure DNS in Virtual WAN and builds on the network topology defined in the scenario guide. Read the [overview page first](./private-link-virtual-wan-dns-guide.yml) to understand the base network architecture and key challenges.
@@ -11,7 +11,7 @@ Diagram showing the single-region architecture.
 *Figure 1: Single-region scenario for Virtual WAN with Private Link and Azure DNS - the challenge*
 
 *Download a [Visio file](https://arch-center.azureedge.net/dns-private-endpoints-virtual-wan.vsdx) of this architecture.*
-This section defines the scenario and redefines the challenge for this scenario (the challenge is the same as the [nonworking example in the overview page](private-link-virtual-wan-dns-guide.yml#nonworking-scenario)). The initial scenario architecture builds on the [starting network topology defined in the overview guide](private-link-virtual-wan-dns-guide.yml#starting-network-topology). The following are the additions and changes:
+This section outlines the scenario and restates the challenge from the [nonworking example in the overview](private-link-virtual-wan-dns-guide.yml#nonworking-scenario). The architecture builds on the [starting network topology](private-link-virtual-wan-dns-guide.yml#starting-network-topology) with the following additions:
 
 - There's only one region with one virtual hub.
 - There's an Azure Storage account in the region that has public network access disabled. The assumption in this scenario is that only one workload accesses the storage account.
@@ -21,20 +21,20 @@ This section defines the scenario and redefines the challenge for this scenario 
 
 ### Successful outcome
 
-The Azure Virtual Machine client can connect to the Azure Storage account via the storage account's private endpoint that is in the same virtual network, and all other access to the storage account is blocked.
+The VM client can connect to the storage account via the private endpoint in the same virtual network, and all other access to the storage account is blocked.
 
 ### Impediment
 
-You need a DNS record in the DNS flow that is able to resolve the fully qualified domain name (FQDN) of the storage account back to the private IP address of the private endpoint. As identified in the [overview](private-link-virtual-wan-dns-guide.yml#key-challenges), the challenge with the scenario is twofold:
+You need a DNS record in the DNS flow that resolves the fully qualified domain name (FQDN) of the storage account to the private IP address of the private endpoint. As identified in the [overview](private-link-virtual-wan-dns-guide.yml#key-challenges), the challenge in this scenario is twofold:
 
-1. It isn't possible to link a private DNS zone that maintains the storage accounts necessary DNS records to a virtual hub.
-1. You can link a private DNS zone to the workload network, so you might think that would work. Unfortunately, the [baseline architecture](private-link-virtual-wan-dns-guide.yml#starting-network-topology) stipulates that each connected virtual network has DNS servers configured to point to use the Azure Firewall DNS proxy.
+1. It isn't possible to link a private DNS zone that maintains the storage account's required DNS records to a virtual hub.
+1. You can link a private DNS zone to the workload network, so it might seem viable, but the [baseline architecture](private-link-virtual-wan-dns-guide.yml#starting-network-topology) stipulates that each connected virtual network has DNS servers configured to use the Azure Firewall DNS proxy.
 
-Because you can't link a private DNS zone to a virtual hub, and the virtual network is configured to use the Azure Firewall DNS proxy, Azure DNS servers don't have any mechanism to resolve the (FQDN) of the storage account to the private IP address of the private endpoint. The result is that the client receives an erroneous DNS response.
+Because you can't link a private DNS zone to a virtual hub, and the virtual network is configured to use the Azure Firewall DNS proxy, Azure DNS cannot resolve the FQDN of the storage account to the private IP address. The result is that the client receives the public IP address instead.
 
 #### DNS and HTTP flows
 
-Let's review the DNS and resulting HTTP request flows for this workload. The review helps us visualize the impediment that was described earlier.
+Let's review the DNS and resulting HTTP request flows to visualize the impediment.
 
 :::image type="complex" source="images/dns-private-endpoints-virtual-wan-scenario-single-region-challenge.svg" lightbox="images/dns-private-endpoints-virtual-wan-scenario-single-region-challenge.svg" alt-text="Diagram that shows the single-region challenge.":::
 Diagram that shows the single-region challenge. The secured virtual hub can't resolve the DNS values that the spoke needs for communicating to a local private endpoint.
@@ -46,27 +46,28 @@ Diagram that shows the single-region challenge. The secured virtual hub can't re
 **DNS flow**
 
 1. The DNS query for `stgworkload00.blob.core.windows.net` from the client is sent to the configured DNS server, which is Azure Firewall in the peered regional hub.
-1. Azure Firewall proxies the request to Azure DNS. Because it isn't possible to link a private DNS zone to a virtual hub, Azure DNS doesn't know how to resolve the FQDN to the private endpoint private IP address. It does know how to resolve the FQDN to the public IP address of the storage account, so it returns the storage account's public IP address.
+1. Azure Firewall proxies the request to Azure DNS. Because it isn't possible to link a private DNS zone to a virtual hub, Azure DNS doesn't know how to resolve the FQDN to the private endpoint's IP address. Azure DNS resolves the FQDN to the public IP address of the storage account and returns that value.
 
 **HTTP flow**
 
-1. With the DNS result in hand, the public IP address of the storage account, the client issues an HTTP request to `stgworkload00.blob.core.windows.net`.
+1. With the DNS result (the public IP address of the storage account), the client issues an HTTP request to `stgworkload00.blob.core.windows.net`.
 1. The request is sent to the public IP address of the storage account. This request fails for many reasons:
    - The NSG on the workload subnet might not allow this Internet-bound traffic.
    - The Azure Firewall that is filtering Internet-bound egress traffic likely doesn't have an application rule to support this flow.
-   - Even if both the NSG and Azure Firewall did have allowances for this request flow, the Storage account is configured to block all public network access.
-The attempt ultimately violates our goal of only allowing access to the storage account via the private endpoint.
+   - Even if both the NSG and Azure Firewall had allowances for this request flow, the storage account is configured to block all public network access.
+
+   This attempt violates the goal of allowing access only via the private endpoint.
 
 ## Solution - Establish a virtual hub extension for DNS
 
-A solution to the challenge is for the enterprise network team to implement a [virtual hub extension](./private-link-virtual-wan-dns-virtual-hub-extension-pattern.yml) for DNS. The single responsibility for the DNS virtual hub extension is to enable workload teams that need to use private DNS zones in their architecture within this [starting Virtual WAN hub topology](./private-link-virtual-wan-dns-guide.yml#starting-network-topology).
+The recommended solution for DNS in Virtual WAN environments is to implement a [virtual hub extension](./private-link-virtual-wan-dns-virtual-hub-extension-pattern.yml) for DNS. This pattern is detailed in the associated architecture article and provides the foundation for the working single‑region scenario shown here. The DNS virtual hub extension enables workload teams to use private DNS zones within the [starting Virtual WAN hub topology](./private-link-virtual-wan-dns-guide.yml#starting-network-topology).
 
-The DNS extension is implemented as a virtual network spoke that is peered to its regional virtual hub. It's possible to link private DNS zones to this virtual network. The virtual network also contains an Azure DNS Private Resolver that enables services outside of this virtual network, like Azure Firewall, to query and receive values from all linked private DNS zones. The following are the components of a typical virtual hub extension for DNS, along with some required configuration changes:
+The DNS extension is implemented as a virtual network spoke that is peered to its regional virtual hub. Private DNS zones can link to this virtual network. The virtual network also contains an Azure DNS Private Resolver that enables services outside of this virtual network, like Azure Firewall, to query and receive values from all linked private DNS zones. The following are the components of a typical virtual hub extension for DNS, along with some required configuration changes:
 
-- A new spoke virtual network that is peered with region's virtual hub. This spoke is configured like any other spoke, meaning default DNS server and routing rules force the use of Azure Firewall in the regional hub.
+- A new spoke virtual network that is peered with the region's virtual hub. This spoke is configured like any other spoke, meaning default DNS server and routing rules force the use of Azure Firewall in the regional hub.
 - A DNS Private Resolver resource is deployed with an [inbound endpoint](/azure/dns/private-resolver-endpoints-rulesets#inbound-endpoints) in the spoke virtual network.
 - A private DNS zone resource named `privatelink.blob.core.windows.net` is created.
-  - This zone contains an `A` record that maps from the storage account FQDN name to the private IP address of the private endpoint for the storage account.
+  - This zone contains an `A` record that maps the storage account FQDN to the private IP address of the private endpoint for the storage account.
   - The private DNS zone is linked to the spoke virtual network.
   - If Azure role-based access control (Azure RBAC) allows, you can use [auto registration](/azure/dns/private-dns-autoregistration) or service-managed entries to maintain these DNS records. If not, you must maintain them manually.
 - In the regional hub, the Azure Firewall's DNS server is changed to point at the DNS Private Resolver's inbound endpoint.
@@ -80,7 +81,7 @@ The diagram shows a virtual hub that Azure Firewall secures. It's connected to t
 
 *Download a [Visio file](https://arch-center.azureedge.net/dns-private-endpoints-virtual-wan.vsdx) of this architecture.*
 
-### DNS flow for establish a virtual hub extension for DNS
+### DNS flow for the virtual hub extension
 
 1. The DNS query for `stgworkload00.blob.core.windows.net` from the client is sent to the configured DNS server, which is Azure Firewall in the peered regional hub - 10.100.0.132 in this case.
 
@@ -106,8 +107,8 @@ The diagram shows a virtual hub that Azure Firewall secures. It's connected to t
 
 **HTTP flow**
 
-1. With the DNS result in hand, the private IP address of the storage account, the client issues an HTTP request to `stgworkload00.blob.core.windows.net`.
-1. The request is sent to the private IP address (10.1.2.4) of the storage account. This request routes successfully, assuming no conflicting restrictions on the local Network Security Groups on the client subnet or the private endpoint subnet. It's important to understand that, even though Azure Firewall is securing private traffic, the request doesn't get routed through Azure Firewall because the private endpoint is in the same virtual network as the client. Meaning no Azure Firewall allowances need to be made for this scenario.
+1. With the DNS result (the private IP address of the storage account), the client issues an HTTP request to `stgworkload00.blob.core.windows.net`.
+1. The request is sent to the private IP address (10.1.2.4) of the storage account. This request routes successfully, assuming no conflicting restrictions on the local Network Security Groups on the client subnet or the private endpoint subnet. It's important to understand that, even though Azure Firewall is securing private traffic, the request doesn't get routed through Azure Firewall because the private endpoint is in the same virtual network as the client. This default behavior can change if user‑defined routes (UDRs) or Network Virtual Appliances (NVAs) are introduced, but this scenario assumes the standard VNet routing model. No Azure Firewall allowances are needed for this scenario.
 1. A private connection to the storage account is established through the Private Link service. The storage account allows only private network access, and accepts the HTTP request.
 
 ### Virtual hub extension for DNS considerations
@@ -125,21 +126,24 @@ When implementing the extension for your enterprise, consider the following guid
 
 #### Azure DNS Private Resolver
 
+Azure DNS Private Resolver is a zone‑redundant service, providing high availability without requiring customer‑managed DNS server hosting. In this single‑region scenario, only an inbound endpoint is needed; however, other architectures, such as hybrid name resolution, conditional forwarding, or cross‑environment resolution, require outbound endpoints.
+
 - Each region should have one virtual hub DNS extension with one DNS Private Resolver.
-- The DNS Private Resolver only requires an inbound endpoint and no outbound endpoints for this scenario. The private IP for the inbound endpoint is what is set for the custom DNS service in the Azure Firewall policy (see figure 5).
-- For higher resiliency and increased load handling, you can deploy multiple DNS Private Resolver instances per region, with Azure DNS proxy configured with multiple IP addresses for proxied resolution.
+- The DNS Private Resolver only requires an inbound endpoint and no outbound endpoints for this scenario. Set the private IP of the inbound endpoint as the custom DNS service in the Azure Firewall policy (see figure 5).
+- For higher resiliency and increased load handling, deploy two DNS Private Resolver inbound endpoints per region. Each inbound endpoint has a single private IP address. Configure both private IP addresses in Azure Firewall DNS settings for redundant resolution.
 
     :::image type="content" source="images/dns-private-resolver-inbound-endpoints.png" lightbox="images/dns-private-resolver-inbound-endpoints.png" alt-text="Screenshot of the inbound endpoints for the DNS Private Resolver showing one endpoint.":::
     *Figure 8: Inbound endpoints for the DNS Private Resolver*
 
 - Follow the [virtual network restrictions](/azure/dns/dns-private-resolver-overview#virtual-network-restrictions) for the DNS Private Resolver.
-- The Network Security Group in the subnet for the DNS Private Resolver's inbound endpoint should only allow UDP traffic from its regional hub to port 53. You should block all other inbound and outbound traffic.
+- Use a dedicated inbound endpoint subnet sized /28 or larger per resolver requirements; don't share it with other resources.
+- The Network Security Group in the subnet for the DNS Private Resolver's inbound endpoint should only allow UDP traffic from its regional hub to port 53. Block all other inbound and outbound traffic.
 
 #### Private DNS zone
 
-Because the Azure DNS Private Resolver is resolving DNS via Azure DNS, Azure DNS is able to pick up any private DNS zones linked to its inbound subnet's virtual network.
+Because Azure DNS Private Resolver forwards to Azure DNS, it can use any private DNS zones linked to the virtual network of its inbound subnet.
 
-- Link the private DNS zone to the virtual hub extension for DNS virtual network.
+- Link the private DNS zone to the virtual hub extension virtual network.
 - Follow the guidance on [managing private DNS zones for private endpoints](/azure/private-link/private-endpoint-dns).
 - If you expect PaaS resource owners to manage their own entries, configure Azure RBAC accordingly or implement a solution such as the one from [Private Link and DNS integration at scale](/azure/cloud-adoption-framework/ready/azure-best-practices/private-link-and-dns-integration-at-scale).
 
@@ -157,7 +161,7 @@ With a well-managed virtual hub DNS extension in place, let's turn back to the w
 
 A requirement of this solution is to limit the exposure of this storage account. Once you remove public internet access to your PaaS resource, you should address private networking security.
 
-When Azure Firewall is securing private traffic in a Virtual WAN hub-spoke topology, Azure Firewall defaults to denying spoke-to-spoke connectivity. This default setting prevents  workloads in other spoke networks from accessing private endpoints (and other resources) in the workload virtual network. Traffic fully within a virtual network isn't routed through Azure Firewall. To control access within the virtual network, and add more granular protection, consider the following network security group (NSG) recommendations.
+When Azure Firewall is securing private traffic in a Virtual WAN hub-spoke topology, Azure Firewall defaults to denying spoke-to-spoke connectivity. This default setting prevents workloads in other spoke networks from accessing private endpoints (and other resources) in the workload virtual network. Traffic fully within a virtual network isn't routed through Azure Firewall. To control access within the virtual network and add more granular protection, consider the following network security group (NSG) recommendations.
 
 - Create an application security group (ASG) to group resources that have similar inbound or outbound access needs. In this scenario, use an ASG for the client VMs that need to access storage and one for storage accounts that are accessed. See, [Configure an application security group (ASG) with a private endpoint](/azure/private-link/configure-asg-private-endpoint).
 - Make sure the subnet containing the workload VM has an NSG.
@@ -172,13 +176,13 @@ Besides any other network rules that your workload requires, configure the follo
   - Allow compute ASG to the regional hub Azure Firewall's private IP for UDP on port 53.
 
 :::image type="content" source="images/workload-nsg-rules.png" lightbox="images/workload-nsg-rules.png" alt-text="Screenshot showing NSG rules for workload subnet.":::
-*Figure 9: NSG rules for workload subnet
+*Figure 9: NSG rules for workload subnet*
 
 #### NSG rules for subnet containing private endpoints
 
 It's considered best practice to expose private endpoints on a small, dedicated subnet within the consuming virtual network. One reason is that you can apply user-defined routes and Network Security Group [network policies for private endpoints](/azure/private-link/disable-private-endpoint-network-policy) for added traffic control and security.
 
-This scenario allows for a highly restrictive network security group to apply.
+This scenario allows you to apply a highly restrictive network security group.
 
 - Inbound rules:
   - Allow compute ASG to access storage account ASG
@@ -204,7 +208,7 @@ The diagram shows a virtual hub that Azure Firewall secures. It's connected to t
 
 The DNS flow is exactly the same as in [the solution flow](#solution---establish-a-virtual-hub-extension-for-dns).
 
-What is important to highlight, is that the FQDN resolves to the private IP address, and not the public IP address. This resolution means that all spokes always receive the private IP address of this service. Another scenario covers how you can use this approach to share a PaaS service across multiple consuming workloads. For this single-workload scenario, this isn't a concern.
+The key point is that the FQDN resolves to the private IP address, not the public IP address. This resolution means that all spokes always receive the private IP address of this service. In this scenario, all spokes will resolve the PaaS service’s private endpoint to its private IP address. While this enables the possibility of sharing the service across multiple workloads, this article does not provide a multi‑workload design pattern. For now, the focus remains on the single‑workload scenario illustrated here.
 
 **HTTP flow**
 
@@ -215,14 +219,14 @@ What is important to highlight, is that the FQDN resolves to the private IP addr
 
 ## Summary
 
-This article introduces a scenario in which a VM client connects to the Azure Storage account via the storage account's private endpoint. The endpoint is in the same virtual network as the client. All other access to the storage account is blocked. This scenario requires a DNS record in the DNS flow that is able to resolve the fully qualified domain name (FQDN) of the storage account back to the private IP address of the private endpoint.
+This article introduces a scenario in which a VM client connects to the Azure Storage account via the storage account's private endpoint. The endpoint is in the same virtual network as the client. All other access to the storage account is blocked. This scenario requires a DNS record in the DNS flow that resolves the fully qualified domain name (FQDN) of the storage account back to the private IP address of the private endpoint.
 
 The [starting network topology](private-link-virtual-wan-dns-guide.yml#starting-network-topology) for this scenario introduces two challenges:
 
 - It isn't possible to link a private DNS zone with the required DNS records for the storage account to the virtual hub.
 - Linking a private DNS zone to the workload subnet doesn't work. The starting network topology requires that default DNS server and routing rules force the use of Azure Firewall in the regional hub.
 
-The proposed solution is for the enterprise network team to implement a virtual hub extension for DNS. This extension allows the enterprise network team to expose shared DNS services to workload spokes that require them.
+The proposed solution is for the enterprise network team to implement a virtual hub extension for DNS. This extension enables shared DNS services to the workload spokes that require them.
 
 ## Related resources
 

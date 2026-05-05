@@ -10,7 +10,7 @@ This diagram begins with an employee that accesses the Azure virtual network fro
 
 *Download a [Visio file][visio-download] of this architecture.*
 
-### Dataflow
+### Data flow
 
 The following data flow corresponds to the previous diagram:
 

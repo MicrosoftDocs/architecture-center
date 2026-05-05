@@ -14,7 +14,7 @@ This solution addresses the capability to deliver highly available intranet capa
 <p>Use ExpressRoute or VPN Gateway for management access to resource group.</p>
 </div>
 
-### Dataflow
+### Data flow
 
 The following data flow corresponds to the previous diagram:
 

@@ -8,7 +8,7 @@ This architecture shows how to use Raincode's IMSql to rehost IMS Database Man
 
 *Download a [Visio file](https://arch-center.azureedge.net/imsql-rehosting-ims-pre-migration-mainframe.vsdx) of this architecture.*
 
-#### Dataflow
+#### Data flow
 
 The following data flow corresponds to the previous diagram:
 
@@ -36,7 +36,7 @@ I. Partitions run separate workloads and segregate work types within the environ
 
 *Download a [Visio file](https://arch-center.azureedge.net/imsql-rehosting-raincode-app-modernization.vsdx) of this architecture.*
 
-#### Dataflow
+#### Data flow
 
 The following data flow corresponds to the previous diagram:
 

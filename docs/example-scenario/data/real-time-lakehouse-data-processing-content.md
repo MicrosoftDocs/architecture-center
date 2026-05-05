@@ -15,7 +15,7 @@ This article describes an end-to-end solution for near real-time data processing
 
 *Download a [Visio file](https://arch-center.azureedge.net/azure-near-realtime-data-processing.vsdx) of this architecture.*
 
-### Dataflow
+### Data flow
 
 The following data flow corresponds to the previous diagram:
 

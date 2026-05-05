@@ -10,7 +10,7 @@ This article uses an example workload to demonstrate how to create a single [sea
 
 *Download a [PowerPoint file](https://arch-center.azureedge.net/search-blob-metadata.pptx) of this architecture.*
 
-### Dataflow
+### Data flow
 
 The following data flow corresponds to the previous diagram:
 

@@ -27,7 +27,7 @@ To perform load testing, you need a test plan, which is a set of instructions th
 
 *Download a [Visio file](https://arch-center.azureedge.net/load-testing-architecture.vsdx) of this architecture.*
 
-### Dataflow
+### Data flow
 
 The following data flow corresponds to the previous diagram:
 

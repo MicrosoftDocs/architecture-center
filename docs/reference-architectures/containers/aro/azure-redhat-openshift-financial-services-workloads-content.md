@@ -10,7 +10,7 @@ Before you build a production environment by using Azure Red Hat OpenShift, read
 
 *Download a [Visio file](https://arch-center.azureedge.net/fsi-architecture.vsdx) of this architecture.*
 
-### Dataflow
+### Data flow
 
 This scenario uses an application that runs on an Azure Red Hat OpenShift cluster. The application connects to on-premises resources and a hub virtual network on Azure that Azure Firewall protects.
 

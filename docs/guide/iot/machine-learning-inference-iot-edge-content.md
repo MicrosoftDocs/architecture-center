@@ -19,7 +19,7 @@ The solution described in this article can help you in these ways:
 
 *Download a [Visio file](https://arch-center.azureedge.net/machine-learning-inference.vsdx) of this architecture.*
 
-### Dataflow
+### Data flow
 
 The following data flow corresponds to the previous diagram:
 

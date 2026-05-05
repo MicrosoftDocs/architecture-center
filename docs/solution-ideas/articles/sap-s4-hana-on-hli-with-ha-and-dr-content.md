@@ -12,7 +12,7 @@ This system takes advantage of OS clustering for database performance, high avai
 
 *Download a [Visio file](https://arch-center.azureedge.net/sap-s4-hana-on-hli-with-ha-and-dr.vsdx) of this architecture.*
 
-### Dataflow
+### Data flow
 
 The following data flow corresponds to the previous diagram:
 

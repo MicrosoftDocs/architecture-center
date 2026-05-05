@@ -13,7 +13,7 @@ The diagram shows a left-to-right data processing workflow that uses Microsoft A
 > [!NOTE]
 > This solution is specific to Azure Data Factory and Azure Synapse Analytics Pipelines. **Data Masking with Delphix** and **Sensitive Data Discovery with Delphix** pipeline templates are not yet available for Microsoft Fabric Data Factory. Contact your Perforce Delphix account representative about [Microsoft Fabric support](https://www.perforce.com/solutions/microsoft-compliance).
 
-### Dataflow
+### Data flow
 
 The following data flow corresponds to the previous diagram:
 

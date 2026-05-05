@@ -26,7 +26,7 @@ SUSE provides support with:
 
 :::image type="content" source="../media/sap-workload-automation-suse.svg" alt-text="Architecture for SAP workload automation." lightbox="../media/sap-workload-automation-suse.svg":::
 
-### Dataflow
+### Data flow
 
 :::image type="content" source="../media/sap-workload-automation-suse-flow.svg" alt-text="Data flow of workload automation using SUSE on Azure." :::
 

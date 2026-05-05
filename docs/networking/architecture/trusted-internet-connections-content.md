@@ -9,7 +9,7 @@ This article describes how to achieve Trusted Internet Connections (TIC) 3.0 com
 
 *Download a [Visio file](https://arch-center.azureedge.net/TIC_3.0-AzureReferenceArchitecture.vsdx)  of this architecture.*
 
-### Dataflow
+### Data flow
 
 The following data flow corresponds to the previous diagram:
 

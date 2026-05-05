@@ -32,7 +32,7 @@ The tightly coupled approach is preferred in these cases:
 
 *Download a [PowerPoint file](https://arch-center.azureedge.net/tightly-coupled-quantum.pptx) of this architecture.*
 
-#### Dataflow
+#### Data flow
 
 The following data flow corresponds to the previous diagram:
 
@@ -93,7 +93,7 @@ The loosely coupled approach is preferred in these cases:
 
 *Download a [PowerPoint file](https://arch-center.azureedge.net/loosely-coupled-quantum.pptx) of this architecture.*
 
-#### Dataflow
+#### Data flow
 
 The following data flow corresponds to the previous diagram:
 
@@ -184,7 +184,7 @@ Incorporating quantum jobs into classical CI/CD pipelines can be accomplished us
 
 *Download a [PowerPoint file](https://arch-center.azureedge.net/cicd-quantum.pptx) of this architecture.*
 
-###### Dataflow
+###### Data flow
 
 The following data flow corresponds to the previous diagram:
 

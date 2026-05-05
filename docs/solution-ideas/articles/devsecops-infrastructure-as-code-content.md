@@ -12,7 +12,7 @@ This solution idea illustrates the DevSecOps pipeline that uses GitHub for infra
 
 *Download a [Visio file](https://arch-center.azureedge.net/devsecops-for-iac.vsdx) of this architecture.*
 
-### Dataflow
+### Data flow
 
 The following data flow corresponds to the previous diagram:
 
