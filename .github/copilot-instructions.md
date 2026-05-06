@@ -18,7 +18,6 @@ The data in the repo helps professional cloud architects and software engineers 
 - This data does not lead to bad or risky decisions without warning the reader about them.
 - This data helps an architect avoid regret in their solution design.
 - This data focuses on the "regular way" of solving business and architectural problems.
-- This data avoids risky decisions without proper warnings.
 - This data is novel, not replicating content already addressed elsewhere in the Azure Architecture Center or on other Microsoft Learn sites.
 - This data is truthful, even while being opinionated.
 - This data does not showcase deprecated technology or solution approaches. It focuses on what durable greenfield success looks like. Deprecation notices are never a valid workaround.
@@ -160,6 +159,20 @@ thumbnailUrl: /azure/architecture/browse/thumbs/article-name.png
 - Typically the thumbnail is a PNG export of the main article diagram (which is often SVG)
 - When updating diagrams, both the article image and browse thumbnail may need updates
 
+## Redirections
+
+When an article is deleted, moved, or renamed, a redirect entry must be added to `.openpublishing.redirection.json` at the repository root. Each entry maps the old `source_path` (relative to the repo root) to a `redirect_url` (site-relative path starting with `/azure/architecture/`). Without this entry, readers following old URLs get a 404.
+
+```json
+{
+  "source_path": "docs/example-scenario/data/azure-nifi.yml",
+  "redirect_url": "/azure/architecture/data-guide/technology-choices/pipeline-orchestration-data-movement",
+  "redirect_document_id": false
+}
+```
+
+Set `redirect_document_id` to `true` if the article was moved or renamed (the content still exists at the new URL). Set it to `false` if the article was deleted (the redirect target is a different article).
+
 ## Multi-agent usage
 
 - Invoke the Learn MCP tool to query existing Microsoft Learn documentation as needed.
@@ -178,7 +191,7 @@ thumbnailUrl: /azure/architecture/browse/thumbs/article-name.png
 
 ## Freshness updates
 
-Data in this repository must be periodically updated to reflect modern approaches and modern technology, usually once a year. Data that receives a full freshness pass gets its `ms.date` metadata updated to reflect this. Do not proactively perform a full freshness pass; instead, when you detect content that appears outdated or divergent, leave files unchanged and output a message to the human-in-the-loop indicating that a freshness pass is recommended and why.
+Data in this repository must be periodically updated to reflect modern approaches and modern technology, usually once a year. Data that receives a full freshness pass gets its `ms.date` metadata updated to reflect this. `ms.date` is never to be updated unless a full freshness pass is performed. Do not proactively perform a full freshness pass; instead, when you detect content that appears outdated or divergent, leave files unchanged and output a message to the human-in-the-loop indicating that a freshness pass is recommended and why.
 
 The following items must be addressed during a freshness update (when explicitly requested), no exceptions, and the person doing the update will need to self-attest to addressing these items:
 
