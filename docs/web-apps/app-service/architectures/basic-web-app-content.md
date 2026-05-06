@@ -163,7 +163,7 @@ During the POC phase, it's important to get an understanding of what logs and me
 
 - Use [Application Insights](/azure/application-insights/app-insights-overview) or another application performance management (APM) tool to emit telemetry and logs to monitor application performance.
 
-- Configure a [Health Model (preview)](https://learn.microsoft.com/en-us/azure/well-architected/design-guides/health-modeling) to capture resource state, drive operational decisions and alerting across your entire architecture.
+- Configure a [Health Model (preview)](https://learn.microsoft.com/en-us/azure/well-architected/design-guides/health-modeling) to capture resource state, drive operational decisions and alerting across your entire architecture. For this architecture, a health model aggregates health signals from App Service and SQL Database into an overall system health state. For example, the model reports on App Service instance availability and response latency, SQL Database connectivity and query performance, and authentication success rates from Microsoft Entra ID. Each component emits a health state (healthy, degraded, or unhealthy), and the model combines these states into a single top-level indicator. Operators use this composite health state to trigger alerts and guide operational responses, such as failover or scaling actions, rather than reacting to individual metric thresholds in isolation.
 
 #### Deployment
 
