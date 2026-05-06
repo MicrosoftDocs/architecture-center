@@ -46,7 +46,7 @@ This architecture is suitable for hybrid applications running large-scale, missi
 - Lower and more consistent latencies compared to typical connections over the Internet.
 - Supports dynamic scaling of bandwidth to help reduce costs during periods of lower demand. However, not all connectivity providers have this option.
 - Allow your organization direct access to national clouds, depending on the connectivity provider.
-- 99.9% availability SLA across the entire connection.
+- A 99.9% availability SLA across the entire connection.
 
 ### Challenges
 

@@ -64,7 +64,7 @@ The following data flow corresponds to the previous diagram:
 
 This architecture shows how to seamlessly rehost to Azure a mainframe workload that has critical IMS features and capabilities. You don't need to translate or modify your existing application. The architecture uses IMSql and Azure SQL.
 
-- Raincode compilers generate 100 percent thread-safe managed code for .NET. The .NET assemblies are loaded dynamically and called by IMSql processing servers. 
+- Raincode compilers generate 100% thread-safe managed code for .NET. The .NET assemblies are loaded dynamically and called by IMSql processing servers.
 - IMSql is intrinsically non-transformational. It keeps the source (COBOL, PL/I) as is. The IMS-specific CBLTDLI and PLITDLI calls and EXEC DLI statements aren't changed. This capability ensures optimal maintainability of the resulting system. It extends to IMS DB data: the data is imported as is, in bulk, with no changes, cleansing, or normalization. 
 - IMSql uses the robust, versatile, and scalable SQL Server as a database, transaction processor, and execution platform.
 - IMSql operates in three modes:  

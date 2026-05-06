@@ -39,7 +39,7 @@ This initial use case includes the following scenarios:
 
 - The solution must support the following target service-level agreements (SLAs):
 
-  - 99.5% target uptime, or about 1 day and 20 hours of downtime within a year.
+  - Target uptime of 99.5%, or about one day and 20 hours of downtime within a year.
 
   - Recovery point objective of three days.
 
@@ -49,9 +49,9 @@ This initial use case includes the following scenarios:
 
 - The solution must support the following expected usage:
 
-  - 200 managers, financial controllers, and analysts that are connected to the finance department, with an estimated growth of less than 5% annually.
+  - Two hundred managers, financial controllers, and analysts that are connected to the finance department, with an estimated growth of less than 5% annually.
 
-  - 100 analysts that are connected to other corporate functions, with an estimated growth of less than 5% annually.
+  - One hundred analysts that are connected to other corporate functions, with an estimated growth of less than 5% annually.
 
   - Only Contoso employees can access the solution. This control explicitly excludes any direct access by non-Contoso or external parties.
 
