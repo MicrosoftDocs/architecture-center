@@ -101,8 +101,6 @@ Use the following resources to help you build multitenant architectures on Azure
 
 - [Data partitioning strategies by Azure service](../../best-practices/data-partitioning-strategies.yml): This article describes some strategies for partitioning data in various Azure data stores.
 
-- [Build multitenant applications with Azure Database for PostgreSQL Hyperscale Citus](https://www.youtube.com/watch?v=7gAW08du6kk) (video)
-
 - [Multitenant applications with Azure Cosmos DB](https://www.youtube.com/watch?v=fOQoQnQqwwU) (video)
 
 - [Build a multitenant SaaS with Azure Cosmos DB and Azure](https://www.youtube.com/watch?v=Tht_RV5QPJ0) (video): A real-world case study of how Whally, a multitenant SaaS startup, built a modern platform from scratch on Azure Cosmos DB and Azure. Whally shows the design and implementation decisions they made related to partitioning, data modeling, secure multitenancy, performance, and real-time streaming from change feed to SignalR, all using ASP.NET Core on Azure App Services.

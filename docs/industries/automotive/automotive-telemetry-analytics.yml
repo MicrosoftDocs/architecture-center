@@ -22,7 +22,7 @@ products:
   - azure-event-grid
 name: Data analytics for automotive test fleets
 summary: Learn about a data analytics solution that can democratize data access and provide R&D engineers with near real-time insights into test drive diagnostic data.
-thumbnailUrl: /azure/architecture/browse/thumbs/analytics-dataflow.png
+thumbnailUrl: /azure/architecture/browse/thumbs/analytics-data-flow.png
 content: |
-  [!include[](automotive-telemetry-analytics-content.md)]
+  [!INCLUDE[](automotive-telemetry-analytics-content.md)]
   

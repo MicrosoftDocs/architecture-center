@@ -55,7 +55,7 @@ Because all other VMs supporting SAP HANA allow the choice of either Gen2 only o
 
 - [Azure Disk Storage](/azure/well-architected/service-guides/azure-disk-storage) is a high-performance, durable block storage solution for Azure virtual machines. In this architecture, it provides persistent storage for SAP HANA data and log volumes and supports configurations that meet strict latency and throughput requirements.
 
-- [Azure Load Balancer](/azure/well-architected/service-guides/azure-load-balancer/reliability) is a layer-4 load balancer that distributes network traffic across virtual machines. In this architecture, an internal load balancer acts as the virtual IP endpoint for SAP HANA, directing traffic to the active database node and optionally supporting read-enabled secondary nodes.
+- [Azure Load Balancer](/azure/well-architected/service-guides/azure-load-balancer) is a layer-4 load balancer that distributes network traffic across virtual machines. In this architecture, an internal load balancer acts as the virtual IP endpoint for SAP HANA, directing traffic to the active database node and optionally supporting read-enabled secondary nodes.
 
 - [Azure NetApp Files](/azure/well-architected/service-guides/azure-netapp-files) is a high-performance file storage service built for enterprise workloads. In this architecture, it stores SAP HANA data and log files, supports snapshot-based backups, and enables fast recovery and disaster replication across regions.
 

@@ -11,7 +11,7 @@ ms.custom: arb-saas
 
 # Multitenancy and Azure App Configuration
 
-[Azure App Configuration](/azure/azure-app-configuration/overview) helps you store configuration settings for your application. By using App Configuration, you can more easily implement the [External Configuration Store pattern](../../../patterns/external-configuration-store.yml). This article describes some of the features of App Configuration that are useful when you work with multitenant systems. The provided links take you to guidance and examples for how to use App Configuration in a multitenant solution.
+[Azure App Configuration](/azure/azure-app-configuration/overview) helps you store configuration settings for your application. By using App Configuration, you can more easily implement the [External Configuration Store pattern](../../../patterns/external-configuration-store.md). This article describes some of the features of App Configuration that are useful when you work with multitenant systems. The provided links take you to guidance and examples for how to use App Configuration in a multitenant solution.
 
 ## Isolation models
 

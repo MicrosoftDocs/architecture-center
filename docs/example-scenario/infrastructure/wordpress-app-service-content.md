@@ -9,9 +9,11 @@ This article describes a solution for small to medium-sized WordPress installati
 > [!NOTE]
 > You can extend this solution by implementing tips and recommendations that aren't specific to any particular WordPress hosting method. For general tips for deploying a WordPress installation, see [WordPress on Azure](../../guide/infrastructure/wordpress-overview.yml).
 
-### Dataflow
+### Data flow
 
 This scenario covers a scalable installation of [WordPress that runs on Azure App Service](/azure/app-service/quickstart-wordpress).
+
+The following data flow corresponds to the previous diagram:
 
 - Users access the front-end website through Azure Front Door with Azure Web Application Firewall enabled.
 - Azure Front Door distributes requests across the App Service web apps that WordPress runs on. Azure Front Door retrieves any data that isn't cached from the WordPress web apps.
@@ -23,7 +25,7 @@ This scenario covers a scalable installation of [WordPress that runs on Azure Ap
 
 - [App Service](/azure/well-architected/service-guides/app-service-web-apps) is a platform as a service (PaaS) offering that provides a framework for building, deploying, and scaling web apps. In this architecture, App Service hosts the WordPress application.
 
-- [Azure Database for MySQL - flexible server](/azure/well-architected/service-guides/azure-db-mysql-cost-optimization) is a managed relational database service based on the open-source MySQL database engine. In this architecture, the database option stores WordPress data.
+- [Azure Database for MySQL - flexible server](/azure/well-architected/service-guides/azure-database-for-mysql) is a managed relational database service based on the open-source MySQL database engine. In this architecture, the database option stores WordPress data.
 
 - [Azure DDoS Protection](/azure/ddos-protection/ddos-protection-overview) is a network security service that provides enhanced DDoS mitigation features. In this architecture, DDoS Protection helps defend against DDoS attacks against the public IP address.
 
@@ -90,7 +92,7 @@ Review the following cost considerations when you deploy this solution:
 - **Amount of hosted data**. It's important to consider the amount of data that you host in Blob Storage. Storage pricing is based on used capacity.
 - **Write percentage**. Consider how much new data you write to your website and host in Azure Storage. Determine whether the new data is needed. For multi-region deployments, the amount of new data that you write to your website correlates with the amount of data that's mirrored across your regions.
 - **Static versus dynamic content**. Monitor your database storage performance and capacity to determine whether a cheaper SKU can support your site. The database stores dynamic content, and the content delivery network caches static content.
-- **App Service optimization**. For general tips for optimizing App Service costs, see [Azure App Service and cost optimization](/azure/well-architected/services/compute/azure-app-service/cost-optimization).
+- **App Service optimization**. For general tips for optimizing App Service costs, see [Azure App Service and cost optimization](/azure/well-architected/service-guides/app-service-web-apps).
 
 ### Performance Efficiency
 

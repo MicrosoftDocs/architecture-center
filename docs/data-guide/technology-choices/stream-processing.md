@@ -20,7 +20,7 @@ Streaming data often has the following characteristics:
 
 - **Imperfect data integrity:** Temporary errors at the source might result in missing data elements. The continuous nature of the stream can introduce data inconsistency. So stream processing and analytics systems typically include logic for data validation to mitigate these errors.
 
-- **Continuous dataflow:** A data stream has no beginning or end, so you have to constantly collect data. For example, server activity logs accumulate as long as the server runs.
+- **Continuous data flow:** A data stream has no beginning or end, so you have to constantly collect data. For example, server activity logs accumulate as long as the server runs.
 
 - **Diverse data formats:** You might stream data in multiple formats, such as JSON, Avro, and CSV. And it might include various data types, such as strings, numbers, dates, and binary types. Stream-processing systems must handle these data variations.
 
@@ -32,7 +32,7 @@ To help you choose the right technology, this section outlines common options in
 
 ### High-level stream processing flow
 
-:::image type="complex" source="../images/stream-processing.svg" alt-text="A diagram that shows the dataflow for a stream processing solution." lightbox="../images/stream-processing.svg" border="false":::
+:::image type="complex" source="../images/stream-processing.svg" alt-text="A diagram that shows the data flow for a stream processing solution." lightbox="../images/stream-processing.svg" border="false":::
 Left to right, the diagram shows a four-stage numbered streaming data pipeline: 1 Stream producers, 2 Stream ingestion, 3 Stream processing, 4 Streaming sinks. At the far left a tall box contains Mobile apps above Customer-facing apps. To its right three stacked producer boxes: the top box labeled Device endpoint metrics contains IoT Hub left of IoT Edge; the middle box labeled CDC generated from databases contains Azure Cosmos DB left of SQL Database; the bottom box labeled metrics and events from custom applications contains AKS left of Functions. Right-pointing arrows from each producer box converge on the ingestion box, which lists (top row left to right) Event Hubs and Event Grid, and (bottom row) HDInsight Kafka left of Confluent Kafka. A single arrow leads to the processing box showing (top row) Stream Analytics, Eventstream, Functions, and below them an inset Spark Structured Streaming box containing Fabric left of Azure Databricks. Another arrow points to the sinks box listing Azure Data Explorer above Blob Storage, Azure Cosmos DB above One Lake, and Eventhouse at the bottom.
 :::image-end:::
 
@@ -48,7 +48,7 @@ Stream producers provide the following benefits:
 
 - **Optimize throughput with batching and compression.** Producers can batch messages and apply compression to minimize data size during transmission. These capabilities enhance efficiency.
 - **Ensure reliable transmission with error handling and retries.** Producers can manage network disruptions or broker failures through automatic retries to ensure dependable data delivery.
-- **Guarantee data integrity with idempotence.** You can configure producers to support *exactly once delivery*, which prevents duplicate messages and ensures a consistent dataflow.
+- **Guarantee data integrity with idempotence.** You can configure producers to support *exactly once delivery*, which prevents duplicate messages and ensures a consistent data flow.
 
 #### Components
 
@@ -81,11 +81,11 @@ Consider the following factors:
 
 #### Stream ingestion components
 
-- [Event Hubs](/azure/well-architected/service-guides/event-hubs) is a real-time data ingestion service that can handle millions of events per second, which makes it ideal for high-throughput scenarios. It can scale dynamically and process massive volumes of data with low latency.
+- [Event Hubs](/azure/well-architected/service-guides/azure-event-hubs) is a real-time data ingestion service that can handle millions of events per second, which makes it ideal for high-throughput scenarios. It can scale dynamically and process massive volumes of data with low latency.
 
   Event Hubs supports features like partitioning for parallel processing and data retention policies. It integrates with Azure services like Azure Stream Analytics, Fabric, Azure Databricks, and Azure Functions. Event Hubs also integrates with Apache Kafka, and you can run existing Kafka workloads without any code changes.
 
-- [Event Grid](/azure/well-architected/service-guides/event-grid/operational-excellence) is a fully managed event-routing service. It ingests, distributes, and reacts to events from various sources, so it's ideal for real-time, event-driven architectures. It efficiently handles event notifications and integrates with Azure services, custom applications, and partner systems. Event Grid plays a critical role in stream ingestion.
+- [Event Grid](/azure/well-architected/service-guides/azure-event-grid) is a fully managed event-routing service. It ingests, distributes, and reacts to events from various sources, so it's ideal for real-time, event-driven architectures. It efficiently handles event notifications and integrates with Azure services, custom applications, and partner systems. Event Grid plays a critical role in stream ingestion.
 
 - [Kafka on Azure HDInsight](/azure/hdinsight/kafka/apache-kafka-introduction) is a managed Apache Kafka service for real-time data ingestion and processing at scale. Use this service to capture and store streaming data from various sources, such as IoT devices, application logs, and social media feeds. This service provides extra control of a Kafka configuration on a managed infrastructure.
 
@@ -118,7 +118,7 @@ Consider the following factors:
 
 - [Stream Analytics](/azure/stream-analytics/stream-analytics-introduction) is a managed service that uses a SQL-based query language to enable real-time analytics. Use this service for simple processing tasks like filtering, aggregating, and joining data streams. It integrates seamlessly with Event Hubs, IoT Hub, and Azure Blob Storage for input and output. Stream Analytics best suits low-complexity, real-time tasks where a simple, managed solution with SQL-based queries is sufficient.
 
-- [Spark Structured Streaming](https://spark.apache.org/streaming/) is supported by services such as [Fabric](/azure/well-architected/service-guides/iot-hub/reliability) and [Azure Databricks](/azure/well-architected/service-guides/azure-databricks-security). These services provide a unified analytics platform that's built on Apache Spark and can handle complex data transformations, machine learning pipelines, and big data workloads. Spark streaming APIs support deep integration with Delta Lake for data versioning and consistency.
+- [Spark Structured Streaming](https://spark.apache.org/streaming/) is supported by services such as [Fabric](/azure/well-architected/service-guides/iot-hub/reliability) and [Azure Databricks](/azure/well-architected/service-guides/azure-databricks). These services provide a unified analytics platform that's built on Apache Spark and can handle complex data transformations, machine learning pipelines, and big data workloads. Spark streaming APIs support deep integration with Delta Lake for data versioning and consistency.
 
 - [Fabric eventstreams](/fabric/real-time-intelligence/event-streams/overview) is a real-time data streaming capability within Fabric, which is a unified analytics platform. Eventstreams enables seamless ingestion, processing, and integration of streaming data for real-time analytics and applications. Users can access eventstreams with minimal technical expertise. It provides drag-and-drop interfaces to set up data pipelines.
 
@@ -154,7 +154,7 @@ Consider the following factors:
 
 - [Azure Cosmos DB](/azure/well-architected/service-guides/cosmos-db) is a NoSQL database for low-latency, globally distributed, and highly scalable data storage. It delivers high throughput and can handle large volumes of streaming data with consistent performance.
 
-- [SQL Database](/azure/well-architected/service-guides/azure-sql-database-well-architected-framework) is a fully managed, cloud-based relational database service. It's built on the SQL Server engine. So it provides the capabilities of a traditional SQL Server database with the benefits of cloud-based scalability, reliability, and reduced management overhead.
+- [SQL Database](/azure/well-architected/service-guides/azure-sql-database) is a fully managed, cloud-based relational database service. It's built on the SQL Server engine. So it provides the capabilities of a traditional SQL Server database with the benefits of cloud-based scalability, reliability, and reduced management overhead.
 
 #### Streaming sinks general capabilities
 
