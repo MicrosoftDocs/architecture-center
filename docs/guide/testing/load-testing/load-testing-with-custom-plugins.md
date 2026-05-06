@@ -27,9 +27,9 @@ To perform load testing, you need a test plan, which is a set of instructions th
 
 *Download a [Visio file](https://arch-center.azureedge.net/load-testing-architecture.vsdx) of this architecture.*
 
-### Dataflow
+### Data flow
 
-The following dataflow corresponds to the previous diagram:
+The following data flow corresponds to the previous diagram:
 
 1. A simulated device sends data to an event hub through a Load Testing agent. Any behavior of the device can be simulated by using JMeter custom plugins. The Load Testing agent sends data to the event hub after it runs the custom plugin for any type of simulated device.
 
@@ -45,7 +45,7 @@ This example uses the following components:
 
 - **[Load Testing](/azure/load-testing/overview-what-is-azure-load-testing)**: Use Load Testing to run Apache JMeter scripts and custom plugins to simulate user and device behaviors. Load Testing provides a web-based interface to manage and run load tests and a set of APIs to automate the process. Load Testing is a fully managed service, which means that you don't need to manage servers or infrastructure. In this architecture, Load Testing uploads the JMeter scripts and custom plugins, and it's the compute where those scripts run.
 
-- **[Event Hubs](/azure/well-architected/service-guides/event-hubs)**: Event Hubs is a cloud-based event processing service that you can use to collect, process, and analyze events and streaming data from various sources in real time. Event Hubs supports multiple protocols, including Advanced Message Queuing Protocol (AMQP), HTTPS, Kafka protocol, Message Queuing Telemetry Transport (MQTT), and AMQP over WebSocket. This architecture is event based, so Load Testing populates events to load test the workload.
+- **[Event Hubs](/azure/well-architected/service-guides/azure-event-hubs)**: Event Hubs is a cloud-based event processing service that you can use to collect, process, and analyze events and streaming data from various sources in real time. Event Hubs supports multiple protocols, including Advanced Message Queuing Protocol (AMQP), HTTPS, Kafka protocol, Message Queuing Telemetry Transport (MQTT), and AMQP over WebSocket. This architecture is event based, so Load Testing populates events to load test the workload.
 
 - **[IoT Hub](/azure/well-architected/service-guides/azure-iot-hub)**: IoT Hub is a cloud-hosted managed service that serves as a central message hub for communication between an IoT application and its attached devices. You can connect millions of devices and their back-end solutions reliably and securely. Almost any device can be connected to an IoT hub. You can adapt this architecture to use IoT Hub by changing the Event Hubs client to the IoT Hub client.
 

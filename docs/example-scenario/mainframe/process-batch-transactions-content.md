@@ -33,7 +33,7 @@ The numbered circles in the diagram correspond to the numbered steps in the foll
 
 - [Azure Cosmos DB](/azure/well-architected/service-guides/cosmos-db) is a globally distributed multiple-model NoSQL database that has open APIs for any scale. In this architecture, Azure Cosmos DB provides scalable NoSQL storage for batch processing metadata and working data.
 
-- [Azure Databricks](/azure/well-architected/service-guides/azure-databricks-security) is an Apache Spark-based analytics platform that provides big data analytics services. In this architecture, Azure Databricks can be used for advanced analytics and machine learning on batch processing results.
+- [Azure Databricks](/azure/well-architected/service-guides/azure-databricks) is an Apache Spark-based analytics platform that provides big data analytics services. In this architecture, Azure Databricks can be used for advanced analytics and machine learning on batch processing results.
 
 - [Azure ExpressRoute](/azure/well-architected/service-guides/azure-expressroute) is a connectivity service that provides private connections between Azure datacenters and on-premises infrastructure. In this architecture, ExpressRoute enables high-bandwidth, low-latency connectivity for batch processing applications that need to access on-premises data sources.
 
@@ -61,9 +61,9 @@ The numbered circles in the diagram correspond to the numbered steps in the foll
 
 - [Log Analytics](/azure/well-architected/service-guides/azure-log-analytics) is a tool in the Azure portal that you can use to edit and run log queries on [Azure Monitor](/azure/azure-monitor/overview) logs. In this architecture, Log Analytics provides centralized logging and monitoring capabilities for batch processing operations.
 
-- [Service Bus](/azure/well-architected/service-guides/service-bus/reliability) is a cloud messaging service that provides reliable cloud messaging as a service (MaaS) and simple hybrid integration. In this architecture, Service Bus delivers transaction messages to AKS clusters and ensures reliable message processing for batch workloads.
+- [Service Bus](/azure/well-architected/service-guides/azure-service-bus) is a cloud messaging service that provides reliable cloud messaging as a service (MaaS) and simple hybrid integration. In this architecture, Service Bus delivers transaction messages to AKS clusters and ensures reliable message processing for batch workloads.
 
-- [SQL Managed Instance](/azure/well-architected/service-guides/azure-sql-managed-instance/reliability) is a managed database service that provides a secure and always up-to-date SQL instance in the cloud. In this architecture, SQL Managed Instance provides high-availability database services with a business-critical performance tier for permanent data storage.
+- [SQL Managed Instance](/azure/well-architected/service-guides/azure-sql-managed-instance) is a managed database service that provides a secure and always up-to-date SQL instance in the cloud. In this architecture, SQL Managed Instance provides high-availability database services with a business-critical performance tier for permanent data storage.
 
 - [Stream Analytics](/azure/stream-analytics/stream-analytics-introduction) is a service that provides real-time analytics for fast-moving streams of data from applications and devices. In this architecture, Stream Analytics processes streaming data from batch operations for real-time monitoring and analytics.
 

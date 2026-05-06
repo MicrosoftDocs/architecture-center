@@ -173,7 +173,7 @@ Foundry has [built-in integration](/azure/foundry/configuration/enable-ai-api-ma
 
 Most of the gateway routing, security, caching, and request handling logic must be implemented in the policy system of API Management. You can combine [built-in policies](/azure/api-management/api-management-policies) specific to AI, such as [Limit large language model API token usage](/azure/api-management/llm-token-limit-policy), [Emit metrics for consumption of large language model tokens](/azure/api-management/llm-emit-token-metric-policy), [Enforce content safety](/azure/api-management/llm-content-safety-policy) or [Cache responses](/azure/api-management/llm-semantic-cache-store-policy), and your own [custom policies](/azure/api-management/set-edit-policies). The [GenAI gateway toolkit](https://github.com/Azure-Samples/apim-genai-gateway-toolkit) GitHub repository contains multiple custom API Management policies, along with a load-testing setup for testing the behavior of the policies.
 
-Use the [Well-Architected Framework service guide for API Management](/azure/well-architected/service-guides/api-management/reliability) when designing a solution that involves Azure API Management.
+Use the [Well-Architected Framework service guide for API Management](/azure/well-architected/service-guides/azure-api-management) when designing a solution that involves Azure API Management.
 
 Using Azure API Management for your gateway implementation is generally the preferred approach to building and operating a Foundry gateway. It's preferred because the service is a platform as a service (PaaS) offering with rich built-in capabilities, high availability, and networking options. It also has robust APIOps approaches to managing your completion APIs.
 

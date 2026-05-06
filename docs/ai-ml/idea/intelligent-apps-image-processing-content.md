@@ -16,7 +16,7 @@ This scenario covers the back-end components of a web or mobile application. Dat
 2. Event Grid sends a notification that triggers an Azure function.
 3. The function calls Content Understanding to analyze the newly uploaded image against a defined analyzer schema. Content Understanding accesses the image through a time-limited SAS URL, or equivalent temporary access token, that the function passes in the request and scopes to least-privilege read access for only the target blob.
 4. The function persists the structured output that Content Understanding returns, along with image metadata, in Azure Cosmos DB for NoSQL.
-5. The web or mobile front end consumes the results. This dataflow returns the classification output and metadata; it doesn't return the original image bytes.
+5. The web or mobile front end consumes the results. This data flow returns the classification output and metadata; it doesn't return the original image bytes.
 
 ### Components
 
@@ -24,7 +24,7 @@ This scenario covers the back-end components of a web or mobile application. Dat
 
 - [Azure Functions](/azure/well-architected/service-guides/azure-functions) is a serverless compute platform. In this architecture, Azure Functions provides the back-end API and the event-processing layer for uploaded images. The function orchestrates the workflow. It calls Content Understanding, processes the response, and writes the result to the database. This architecture uses the [Flex Consumption plan](/azure/azure-functions/flex-consumption-plan) to support virtual network integration, instance memory choice, and fast scaling.
 
-- [Azure Event Grid](/azure/well-architected/service-guides/event-grid/reliability) is a managed event-routing service that uses a publish-subscribe model. In this architecture, an Event Grid system topic on the storage account emits a `Microsoft.Storage.BlobCreated` event when a new image is uploaded and delivers it to the function.
+- [Azure Event Grid](/azure/well-architected/service-guides/azure-event-grid) is a managed event-routing service that uses a publish-subscribe model. In this architecture, an Event Grid system topic on the storage account emits a `Microsoft.Storage.BlobCreated` event when a new image is uploaded and delivers it to the function.
 
 - [Azure Blob Storage](/azure/well-architected/service-guides/azure-blob-storage) is an object store for unstructured data. In this architecture, it stores all uploaded images and any static assets that the web application serves. Blob Storage is the source of truth for incoming images.
 
@@ -100,7 +100,7 @@ Principal authors:
 Other contributors:
 
 - [Delyn Choong](https://www.linkedin.com/in/delynchoong/) | Senior Cloud Solutions Architect – Data & AI
-- [Abhishek Singh](https://www.linkedin.com/in/abhisheksinghkholiya/) | Tech Support Engineer
+- [Abhishek Singh](https://www.linkedin.com/in/abhishek-singh-54710243/) | Tech Support Engineer
 
 *To see nonpublic LinkedIn profiles, sign in to LinkedIn.*
 

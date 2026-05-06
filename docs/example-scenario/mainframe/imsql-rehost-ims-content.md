@@ -8,7 +8,9 @@ This architecture shows how to use Raincode's IMSql to rehost IMS Database Man
 
 *Download a [Visio file](https://arch-center.azureedge.net/imsql-rehosting-ims-pre-migration-mainframe.vsdx) of this architecture.*
 
-#### Dataflow
+#### Data flow
+
+The following data flow corresponds to the previous diagram:
 
 A. Users connect via TCP/IP by using protocols like TN3270 and HTTPS.
 
@@ -34,7 +36,9 @@ I. Partitions run separate workloads and segregate work types within the environ
 
 *Download a [Visio file](https://arch-center.azureedge.net/imsql-rehosting-raincode-app-modernization.vsdx) of this architecture.*
 
-#### Dataflow
+#### Data flow
+
+The following data flow corresponds to the previous diagram:
 
 1. IBM 3270 terminal emulators connect to IMS TM applications that are deployed on Azure unchanged via the IMSql Terminal Server.
 1. Batch processes written in JCL are run unchanged via transient Azure container instances that run the Raincode JCL interpreter. Compiled legacy programs access IMS DB by using standard IMS APIs. Raincode JCL can store its catalog on any file-based storage. 
@@ -44,7 +48,7 @@ I. Partitions run separate workloads and segregate work types within the environ
 
 ### Components
 
-- [Azure SQL Managed Instance](/azure/well-architected/service-guides/azure-sql-managed-instance/reliability) is a managed, secure, up-to-date SQL instance in the cloud that's part of the Azure SQL service portfolio. In this architecture, SQL Managed Instance serves as the database platform for IMSql. It replaces the mainframe IMS database system and provides storage and transaction processing capabilities.
+- [Azure SQL Managed Instance](/azure/well-architected/service-guides/azure-sql-managed-instance) is a managed, secure, up-to-date SQL instance in the cloud that's part of the Azure SQL service portfolio. In this architecture, SQL Managed Instance serves as the database platform for IMSql. It replaces the mainframe IMS database system and provides storage and transaction processing capabilities.
 
 - [Azure Virtual Machine Scale Sets](/azure/well-architected/service-guides/virtual-machines) is a compute service that provides automated and load-balanced VM scaling that simplifies the management of your applications and increases availability. In this architecture, Virtual Machine Scale Sets hosts the IMSql processing servers and handles typical IMS workloads with automatic scaling capabilities.
 
