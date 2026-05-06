@@ -115,13 +115,13 @@ The [modern analytics architecture with Azure Databricks](/azure/architecture/so
 
 *Download a [Visio file](https://arch-center.azureedge.net/azure-data-factory-baseline-logical.vsdx) of this architecture.*
 
-### Dataflow
+### Data flow
 
 This solution uses Data Factory with a SHIR to ingest data from the on-premises source system to Data Lake Storage. Data Factory also orchestrates Azure Databricks notebooks to transform and load the data into Delta Lake tables hosted on Data Lake Storage.
 
 Delta Lake is coupled with Power BI, which is used to create senior leadership dashboards and analysis on top of the Delta Lake tables. Azure Databricks also provides raw or validated lake access for data science and machine learning workloads.
 
-The following dataflow corresponds to the preceding diagram:
+The following data flow corresponds to the previous diagram:
 
 1. Data is ingested from an on-premises source system to [Data Lake Storage](https://azure.microsoft.com/products/storage/data-lake-storage/) by using [Data Factory](https://azure.microsoft.com/products/data-factory/) with a SHIR. Data Factory also provides process orchestration for [Azure Databricks](https://azure.microsoft.com/products/databricks/) notebooks to transform and load the data into Delta Lake tables stored on Data Lake Storage, along with [SQL Server](/azure/azure-sql/) extract, transform, load processes.
 

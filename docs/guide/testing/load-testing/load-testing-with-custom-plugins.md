@@ -27,9 +27,9 @@ To perform load testing, you need a test plan, which is a set of instructions th
 
 *Download a [Visio file](https://arch-center.azureedge.net/load-testing-architecture.vsdx) of this architecture.*
 
-### Dataflow
+### Data flow
 
-The following dataflow corresponds to the previous diagram:
+The following data flow corresponds to the previous diagram:
 
 1. A simulated device sends data to an event hub through a Load Testing agent. Any behavior of the device can be simulated by using JMeter custom plugins. The Load Testing agent sends data to the event hub after it runs the custom plugin for any type of simulated device.
 

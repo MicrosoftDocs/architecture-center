@@ -13,9 +13,9 @@ The diagram shows a left-to-right data processing workflow that uses Microsoft A
 > [!NOTE]
 > This solution is specific to Azure Data Factory and Azure Synapse Analytics Pipelines. **Data Masking with Delphix** and **Sensitive Data Discovery with Delphix** pipeline templates are not yet available for Microsoft Fabric Data Factory. Contact your Perforce Delphix account representative about [Microsoft Fabric support](https://www.perforce.com/solutions/microsoft-compliance).
 
-### Dataflow
+### Data flow
 
-The following dataflow corresponds to the previous diagram:
+The following data flow corresponds to the previous diagram:
 
 1. Data Factory extracts data from the source datastore (SAP HANA) to a container in Azure Files by using the Copy Data activity. This container is referred to as the *source data container*. The data is in CSV format. To use the SAP HANA connector, Microsoft recommends deploying a self-hosted integration runtime. For more information, see [Copy data from SAP HANA by using Data Factory or Azure Synapse Analytics](/azure/data-factory/connector-sap-hana).
 

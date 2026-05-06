@@ -11,9 +11,9 @@ This article describes a container solution that hosts a large, storage-intensiv
 > [!NOTE]
 > You can extend this solution by implementing tips and recommendations that apply to any WordPress hosting method. For general tips about how to deploy a WordPress installation, see [WordPress on Azure](../../guide/infrastructure/wordpress-overview.yml).
 
-### Dataflow
+### Data flow
 
-The following dataflow corresponds to the previous diagram:
+The following data flow corresponds to the previous diagram:
 
 1. Users access the front-end website through Azure Front Door with Azure Web Application Firewall enabled.
 

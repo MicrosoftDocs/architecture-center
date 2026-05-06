@@ -32,7 +32,9 @@ The following diagram shows the Azure RHEL post-migration system architecture:
 
 *Download a [Visio file](https://arch-center.azureedge.net/UNIX-AIX-Azure-RHEL-migration.vsdx) of this architecture.*
 
-### Dataflow
+### Data flow
+
+The following data flow corresponds to the previous diagram:
 
 1. Traffic into the Azure system routes through Azure ExpressRoute and Azure Traffic Manager:
 

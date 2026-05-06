@@ -17,7 +17,7 @@ The architecture centralizes the digital assets and product data in the Root FSC
 
 **Data replication:** The architecture uses SQL Server Always On availability groups to synchronously replicate the database across availability zones. Azure NetApp Files uses cross-zone replication to asynchronously replicate data across availability zones.
 
-**Dataflow:** The databases [a] and the Root FSC servers [b] in the resource tier store and retrieve data from Azure NetApp Files volumes. The dataflow between the architecture tiers is efficient and provides private access to product data and digital assets because Azure NetApp Files volumes are hosted in the customer virtual network, in availability zones. Azure NetApp Files provides on-demand, nondisruptive scalability and HA across availability zones.
+**Data flow:** The databases [a] and the Root FSC servers [b] in the resource tier store and retrieve data from Azure NetApp Files volumes. The data flow between the architecture tiers is efficient and provides private access to product data and digital assets because Azure NetApp Files volumes are hosted in the customer virtual network, in availability zones. Azure NetApp Files provides on-demand, nondisruptive scalability and HA across availability zones.
 
 ## Scenario details
 
@@ -106,7 +106,7 @@ This architecture shows a DR solution that uses cross-region replication:
 :::image type="content" source="media/cross-region-replication.png" alt-text="Diagram that shows a DR solution that uses cross-region replication." lightbox="media/cross-region-replication.png" border="false":::
 *Figure 3. Disaster recovery architecture using cross-region replication. Download a [PowerPoint file](https://arch-center.azureedge.net/teamcenter-plm-netapp-files.pptx) of this architecture.*
 
-The architecture has the following dataflow:
+The following data flow corresponds to the previous diagram:
 
 1. The client tier, web app tier, enterprise tier, and resource tier in the production environment use the Azure NetApp Files instance in the storage tier.
 1. The applications in their respective tiers use application replication *if needed* to replicate data to an Azure DR region. We recommend that you use Azure NetApp Files cross-region replication if you can.

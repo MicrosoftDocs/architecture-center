@@ -22,7 +22,9 @@ As a result, Azure Databricks notebooks can use OneLake endpoints to access the 
 
 *Download a [Visio file](https://arch-center.azureedge.net/small-medium-businesses-simplified-architecture.vsdx) of this architecture.*
 
-### Dataflow
+### Data flow
+
+The following data flow corresponds to the previous diagram:
 
 1. **Azure Data Factory:** Use existing Azure Data Factory pipelines to ingest structured and unstructured data from source systems and land it in the existing data lake.
 
