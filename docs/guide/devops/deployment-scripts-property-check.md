@@ -138,20 +138,17 @@ module modVWanVhubVnetConnections 'modules/vwanVhcs.bicep' = {
 
 The resource check is required because deployed Virtual WAN hubs aren't ready for use until the `routingState` property has the value of `Provisioned`. Virtual WAN hubs report successful deployment to the Resource Manager so the deployment engine continues deployment. A new Virtual WAN hub becomes operational after the Virtual WAN hub router is provisioned into the created hub. This process takes around 15 minutes. This behavior can be seen in the following screenshot of a new Virtual WAN hub. The screenshot shows a hub status of `Succeeded` but a routing status of `Provisioning`.
 
-:::image type="content" border="true" source="./images/virtual-wan-hub-routing-status-provisioning.png" alt-text="Screenshot of a newly deployed Virtual WAN hub. The hub status is Ready and the routing status is Provisioning." lightbox="./images/virtual-wan-hub-routing-status-provisioning.png":::
-:::image-end:::
+:::image type="content" border="true" source="./images/virtual-wan-hub-routing-status-provisioning.png" alt-text="Screenshot of a newly deployed Virtual WAN hub. The hub status is Succeeded and the routing status is Provisioning." lightbox="./images/virtual-wan-hub-routing-status-provisioning.png":::
 
 If you try to deploy the vwanvhcs.bicep module before the `routingState` value is `Provisioned`, connection creation fails and overall deployment fails. Until the router is provisioned, redeployment attempts also fail.
 
 The following screenshot shows an example of the deployment script log during `routingState` checks of the Virtual WAN hub. The log shows repeated checks of the property that return a value other than `Provisioned`.
 
 :::image type="content" border="true" source="./images/deployment-script-in-action.png" alt-text="Screenshot that shows the deployment script polling the Virtual WAN hub routingState property." lightbox="./images/deployment-script-in-action.png":::
-:::image-end:::
 
 The following screenshot shows that the value changes to `Provisioned`.
 
-:::image type="content" border="true" source="./images/deployment-script-in-action.png" alt-text="Screenshot that shows the completion of the deployment script when the Virtual WAN hub routingState property changes to Provisioned." lightbox="./images/deployment-script-in-action.png":::
-:::image-end:::
+:::image type="content" border="true" source="./images/deployment-script-complete.png" alt-text="Screenshot that shows the completion of the deployment script when the Virtual WAN hub routingState property changes to Provisioned." lightbox="./images/deployment-script-complete.png":::
 
 If the value doesn't change to `Provisioned` after the maximum number of iterations, the script generates an exception, which signals the script resource failure to the Resource Manager. The Resource Manager deployment engine fails and stops the deployment because the exception suggests that there's an issue with the Azure resource that requires troubleshooting. For more information, see the following Invoke-AzResourceStateCheck.ps1 script.
 
