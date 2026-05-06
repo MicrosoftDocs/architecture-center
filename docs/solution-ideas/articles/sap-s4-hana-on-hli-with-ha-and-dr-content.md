@@ -18,9 +18,9 @@ The following data flow corresponds to the previous diagram:
 
 1. In this example, an on-premises SAP user executes a sales order via Fiori interface, custom interface, or other.
 1. Azure high-speed ExpressRoute gateway is used to connect to Azure Virtual Machines.
-1. Request flows into highly available ABAP SAP Central Services (ASCS) and then through application servers, which run on Azure Virtual Machines. This availability set offers a 99.95 percent uptime SLA.
+1. Request flows into highly available ABAP SAP Central Services (ASCS) and then through application servers, which run on Azure Virtual Machines. This availability set offers a 99.95% uptime SLA.
 1. Request is sent from App Server to SAP HANA running on primary large instance blades.
-1. Primary and secondary blades are clustered at OS level for 99.99 percent availability, and data replication is handled through HANA System Replication (HSR) in synchronous mode from primary to secondary enabling zero RPO.
+1. Primary and secondary blades are clustered at OS level for 99.99% availability, and data replication is handled through HANA System Replication (HSR) in synchronous mode from primary to secondary enabling zero RPO.
 1. In-memory data of SAP HANA is persisted to high-performance NFS storage.
 1. Data from NFS storage is periodically backed up in seconds, using built-in storage snapshots on the local storage, with no impact to database performance.
 1. Persistent data volume on secondary storage is replicated to dedicated DR system through a dedicated backbone network for HANA storage replication.

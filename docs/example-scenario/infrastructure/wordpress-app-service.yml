@@ -1,10 +1,10 @@
 ### YamlMime:Architecture
 metadata:
   title: WordPress on App Service
-  description: Use Azure Front Door, Azure App Service, and other Azure services to deploy a highly scalable and secure installation of WordPress.
+  description: Learn how to use Azure Front Door, Azure App Service, and other Azure services to deploy a highly scalable and secure installation of WordPress.
   author: claytonsiemens77
   ms.author: pnp
-  ms.date: 06/30/2023
+  ms.date: 05/04/2026
   ms.topic: example-scenario
   ms.subservice: example-scenario
   ai-usage: ai-assisted
@@ -19,7 +19,7 @@ metadata:
 name: WordPress on App Service
 azureCategories:
   - web
-summary: Use Azure Front Door, Azure App Service, and other Azure services to deploy a highly scalable and secure installation of WordPress.
+summary: Learn how to use Azure Front Door, Azure App Service, and other Azure services to deploy a highly scalable and secure installation of WordPress.
 products:
   - azure-front-door
   - azure-load-balancer
@@ -28,4 +28,4 @@ products:
   - azure-database-mysql
 thumbnailUrl: /azure/architecture/browse/thumbs/wordpress-app-service.png
 content: |
-   [!include[](wordpress-app-service-content.md)]
+   [!INCLUDE[](wordpress-app-service-content.md)]

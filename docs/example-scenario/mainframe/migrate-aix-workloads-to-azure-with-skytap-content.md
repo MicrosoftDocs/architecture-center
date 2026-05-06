@@ -78,7 +78,7 @@ Reliability ensures your application can meet the commitments you make to your c
 
 Skytap on Azure has high reliability built on IBM Power9 Systems backed by SSD RAID 6+1 storage and 10 Gb/sec backplane networking.
 
-Skytap on Azure is supported by a service-level agreement (SLA) of 99.95 percent availability.
+Skytap on Azure is supported by a service-level agreement (SLA) of 99.95% availability.
 
 ### Security
 

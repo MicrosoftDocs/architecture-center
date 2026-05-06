@@ -255,16 +255,16 @@ Control access to the Azure resources that you deploy. Every Azure subscription 
 Cost optimization is about looking at ways to reduce unnecessary expenses and improve operational efficiencies. For more information, see [Overview of the cost optimization pillar](/azure/architecture/framework/cost/overview).
 
 A standard deployment of MAS consists of the following components:
- - 3 control VMs
- - 6 worker VMs
- - 3 worker VMs for Db2 Warehouse
+ - Three control VMs
+ - Six worker VMs
+ - Three worker VMs for Db2 Warehouse
    - You can substitute Azure SQL Managed Instance in some configurations, rather than use Db2 Warehouse.
-- 2 Azure Storage accounts
-- 2 DNS zones
-- 2 Load balancers
+- Two Azure Storage accounts
+- Two DNS zones
+- Two Load balancers
 - Azure Bastion
-- 1 Visual Inspection VM
-  - This isn't required unless you're planning to run Visual Inspection inside of MAS.
+- One Visual Inspection VM
+  - This isn't required unless you plan to run Visual Inspection inside of MAS.
 
 You can review an example estimate by using our [cost calculator](https://azure.com/e/fae03e2386cf46149273a379966e95b1). Configurations vary, and you should verify your configuration with your IBM sizing team before finalizing your deployment.
 
