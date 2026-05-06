@@ -212,7 +212,7 @@ The following new and updated articles have recently been published in the Azure
 - [Baseline Highly Available Zone-Redundant App Services Web Application](./web-apps/app-service/architectures/baseline-zone-redundant.yml) ([#2b8460a1f5](https://github.com/MicrosoftDocs/architecture-center/commit/2b8460a1f5))
 - [Modern Data Warehouses for Small or Medium-Sized Businesses](./example-scenario/data/small-medium-data-warehouse.yml) ([#69a9025819](https://github.com/MicrosoftDocs/architecture-center/commit/69a9025819))
 - [Global Routing Redundancy for Mission-Critical Web Applications](./guide/networking/global-web-applications/overview.md) ([#56b194ee8c](https://github.com/MicrosoftDocs/architecture-center/commit/56b194ee8c))
-- [Architectural Approaches for Messaging in Multitenant Solutions](./guide/multitenant/approaches/messaging.md) ([#147d0594c0](https://github.com/MicrosoftDocs/architecture-center/commit/147d0594c0))
+- [Architectural Approaches for Messaging in Multitenant Solutions](./guide/multitenant/approaches/messaging.yml) ([#147d0594c0](https://github.com/MicrosoftDocs/architecture-center/commit/147d0594c0))
 
 
 ## Azure updates
