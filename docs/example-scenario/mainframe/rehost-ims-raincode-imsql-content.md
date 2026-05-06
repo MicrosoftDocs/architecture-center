@@ -39,7 +39,7 @@ The following workflow corresponds to the previous diagram:
 
 1. IMSql processing server
 
-   The processing server runs the Raincode-recompiled code for the IMS programs in .NET Framework or .NET Core. It contains the underlying infrastructure that lets the recompiled programs run effectively with the correct functional equivalence. The IMSql processing server can generate dynamic queries and call stored procedures in SQL Server that are created during the recompilation of Data Language/One (DL/I) calls.
+   The processing server runs the Raincode-recompiled code for the IMS programs in .NET Framework or .NET. It contains the underlying infrastructure that lets the recompiled programs run effectively with the correct functional equivalence. The IMSql processing server can generate dynamic queries and call stored procedures in SQL Server that are created during the recompilation of Data Language/One (DL/I) calls.
 
 1. SQL Server as a hierarchical data store
 
@@ -51,7 +51,7 @@ The following workflow corresponds to the previous diagram:
 
 1. Raincode JCL
 
-   Raincode job control language (JCL) is an interpreter that's compatible with z/OS JCL. The Raincode JCL interpreter makes the transition from the intricate business logic embedded in JCL to the Azure and .NET Core platforms as smooth as possible. Raincode JCL is designed to run code compiled by the Raincode COBOL, Programming Language One (PL/I), and ASM370 compilers. It can easily run steps written in most languages. You can configure and fine-tune it by implementing user-written code, so you can adapt it to your own needs for batch scheduling.
+   Raincode job control language (JCL) is an interpreter that's compatible with z/OS JCL. The Raincode JCL interpreter makes the transition from the intricate business logic embedded in JCL to the Azure and .NET platforms as smooth as possible. Raincode JCL is designed to run code compiled by the Raincode COBOL, Programming Language One (PL/I), and ASM370 compilers. It can easily run steps written in most languages. You can configure and fine-tune it by implementing user-written code, so you can adapt it to your own needs for batch scheduling.
 
 1. IMSql data view
 
