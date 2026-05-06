@@ -1,6 +1,11 @@
 {
   "redirections": [
     {
+      "source_path": "docs/example-scenario/mainframe/cloudframe-renovate-mainframe-refactor.yml",
+      "redirect_url": "https://marketplace.microsoft.com/product/cloudframeinc1615321281795.cfrenovate",
+      "redirect_document_id": false
+    },  
+    {
       "source_path": "docs/reference-architectures/migration/unisys-mainframe-migration.yml",
       "redirect_url": "/azure/architecture/mainframe/virtualization-of-unisys-clearpath-forward-os-2200-enterprise-server-on-azure",
       "redirect_document_id": false
