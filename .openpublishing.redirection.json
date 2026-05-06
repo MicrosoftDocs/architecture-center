@@ -1,6 +1,11 @@
 {
   "redirections": [
     {
+      "source_path": "docs/example-scenario/mainframe/imsql-rehost-ims.yml",
+      "redirect_url": "https://marketplace.microsoft.com/product/raincode.raincode_360",
+      "redirect_document_id": false
+    },     
+    {
       "source_path": "docs/example-scenario/mainframe/cloudframe-renovate-mainframe-refactor.yml",
       "redirect_url": "https://marketplace.microsoft.com/product/cloudframeinc1615321281795.cfrenovate",
       "redirect_document_id": false
