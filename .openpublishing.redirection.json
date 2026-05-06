@@ -1,6 +1,11 @@
 {
   "redirections": [
     {
+      "source_path": "docs/example-scenario/mainframe/hp-ux-stromasys-charon-par.yml",
+      "redirect_url": "https://www.stromasys.com/resources/breaking-down-hp-ux-lift-and-shift-migration-on-azure/",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "docs/example-scenario/mainframe/imsql-rehost-ims.yml",
       "redirect_url": "https://marketplace.microsoft.com/product/raincode.raincode_360",
       "redirect_document_id": false
