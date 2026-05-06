@@ -6,7 +6,7 @@ This article describes an architecture for small to medium-sized WordPress insta
    On the left, an arrow points from the internet to Azure Front Door with Azure Web Application Firewall. A dashed arrow labeled static web content points from Azure Blob Storage in the storage account section to Azure Front Door with Azure Web Application Firewall. An arrow points from Azure Front Door with Azure Web Application Firewall to App Service. An arrow points from App Service to the private endpoint. An arrow points from this line to Blob Storage. An arrow points from the private endpoint to Azure Database for MySQL flexible server (primary). An arrow points from the primary server to premium storage. A dashed arrow labeled locally redundant synchronous replication of data and logs points from the primary server's premium storage to the standby server's premium storage. An arrow points from Azure Database for MySQL flexible server (standby) to its premium storage. At the top, a dashed arrow labeled linked points from the private DNS zone to the virtual network.
 :::image-end:::
 
-*Download a [Visio file](https://arch-center.azureedge.net/azure-wordpress-app-service.vsdx) of this architecture.*
+*Download a [Visio file](https://arch-center.azureedge.net/wordpress-app-service.vsdx) of this architecture.*
 
 > [!NOTE]
 > You can extend this solution by implementing tips and recommendations that aren't specific to any WordPress hosting method. For more information about how to deploy a WordPress installation, see [WordPress on Azure](../../guide/infrastructure/wordpress-overview.yml).
