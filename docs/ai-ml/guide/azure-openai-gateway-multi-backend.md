@@ -3,7 +3,7 @@ title: Use a Gateway in Front of Multiple Azure OpenAI Deployments or Instances
 description: Learn how to add a gateway in front of multiple Azure OpenAI model deployments or instances.
 author: claytonsiemens77
 ms.author: pnp
-ms.date: 05/04/2026
+ms.date: 05/06/2026
 ms.topic: concept-article
 ms.subservice: architecture-guide
 ---
@@ -26,8 +26,8 @@ These topologies don't automatically require a gateway. The decision depends on 
 
 ## Multiple model deployments in a single instance
 
-:::image type="complex" source="_images/multiple-models-single-instance-before.svg" alt-text="Architecture diagram of a scenario with clients connecting to more than one model deployment in the model host." lightbox="_images/multiple-models-single-instance-before.svg":::
-   A diagram showing two clients labeled A and B directly interfacing with an instance in a resource group named rg-foundry-eastus. The instance has four model deployments. Client A has two solid lines pointing to two foundry models. Client B has a solid line pointing to a foundry model and a dashed line pointing to another foundry model deployment.
+:::image type="complex" source="_images/multiple-models-single-instance-before.svg" alt-text="Architecture diagram of a scenario in which clients connect to more than one model deployment in the model host." lightbox="_images/multiple-models-single-instance-before.svg":::
+   A diagram showing two clients labeled A and B directly interfacing with an instance in a resource group named rg-foundry-eastus. The instance has four model deployments. Client A has two solid lines pointing to two Foundry models. Client B has a solid line pointing to a Foundry model and a dashed line pointing to another Foundry model deployment.
 :::image-end:::
 
 ### Topology details for multiple model deployments
@@ -55,14 +55,14 @@ A topology that includes a single instance but contains more than one concurrent
 
 The introduction of a gateway into this topology is primarily meant to abstract clients away from self-selecting a specific model instance among the available deployments on the instance. A gateway allows server-side control to direct a client request to a specific model without needing to redeploy client code or change client configuration.
 
-A gateway is especially beneficial when you don't control the client code. It's also beneficial when deploying client configuration is more complex or risky than deploying changes to a gateway routing configuration. You might change which model a client is pointing to based on a blue-green rollout strategy of your model versions, such as rolling out a new fine-tuned model or going from version *X* to *X+1* of the same model.
+A gateway is especially beneficial when you don't control the client code. It's also beneficial when deploying client configuration is more complex or risky than deploying changes to a gateway routing configuration. You might change which model a client points to based on a blue-green rollout strategy of your model versions, such as rolling out a new fine-tuned model or going from version *X* to *X+1* of the same model.
 
 The gateway can also be used as a single API point of entry that enables the gateway to identify the client. It can then determine which model deployment is used to serve the prompt based on that client's identity or other information in the HTTP request. For example, in a multitenant solution, tenants might be limited to specific throughput, and the implementation of the architecture is a model deployment per tenant with specific quotas. In this case, the routing to the tenant's model is the responsibility of the gateway based on information in the HTTP request.
 
 > [!TIP]
-> Because API keys and Azure role-based access control (Azure RBAC) are applied at the model host instance level and not the model deployment level, adding a gateway in this scenario lets you shift security to the gateway. The gateway then provides additional segmentation between concurrently deployed models that wouldn't otherwise be possible to control through the host's identity and access management (IAM) or IP firewall.
+> Because API keys and Azure role-based access control (Azure RBAC) are applied at the model-host instance level and not the model deployment level, adding a gateway in this scenario lets you shift security to the gateway. The gateway then provides additional segmentation between concurrently deployed models that wouldn't otherwise be possible to control through the host's identity and access management (IAM) or IP firewall.
 
-Using a gateway in this topology enables client-based usage tracking. Unless clients are using distinct Microsoft Entra service principals, the access logs for the model host can't distinguish among multiple clients. Having a gateway in front of the deployment gives your workload an opportunity to track usage per client across various available model deployments to support chargeback or showback models.
+Using a gateway in this topology enables client-based usage tracking. Unless clients are using distinct Microsoft Entra service principals, the access logs for the model host can't distinguish among multiple clients. Placing a gateway in front of the deployment gives your workload an opportunity to track usage per client across various available model deployments to support chargeback or showback models.
 
 #### Tips for the multiple model deployments topology
 
@@ -72,23 +72,23 @@ Using a gateway in this topology enables client-based usage tracking. Unless cli
 
 - Maintain API compatibility when you need to support SDKs. If client applications rely on published OpenAI-style APIs/SDKs, design the gateway API so that clients can continue using those SDKs without custom adapters.
 
-- Although this topology technically supports pass-through client credentials (access tokens or API key) for the model host instance, strongly consider implementing credential termination and reestablishment. In this configuration, the client is authorized at the gateway, and then the gateway is authorized via Azure RBAC to that instance.
+- Although this topology technically supports pass-through client credentials (access tokens or API key) for the model-host instance, strongly consider implementing credential termination and reestablishment. In this configuration, the client is authorized at the gateway, and then the gateway is authorized via Azure RBAC to that instance.
 
-- If the gateway is designed to use pass-through credentials, make sure clients can't bypass the gateway or any model restrictions based on the client.
+- If the gateway is designed to use pass-through credentials, make sure that clients can't bypass the gateway or any model restrictions based on the client.
 
-- Co-locate the gateway in the same region as the model host, and, where feasible, restrict back-end network paths so the model endpoints are reachable only through the gateway. Isolating the subscription from the back ends can help drive an [APIOps](https://github.com/Azure/apiops) approach through separations of concern.
+- Colocate the gateway in the same region as the model host and restrict back-end network paths when possible so that the model endpoints are reachable only through the gateway. Isolating the subscription from the back ends can help drive an [APIOps](https://github.com/Azure/apiops) approach through separations of concern.
 
-- Deploy the gateway into a virtual network that contains a subnet for the instance's Azure Private Link private endpoint. Apply network security group (NSG) rules to that subnet to allow only the gateway access to that private endpoint. All other data plane access to the model-host instances should be disallowed.
+- Deploy the gateway into a virtual network that contains a subnet for the instance's Azure Private Link private endpoint. Apply network security group (NSG) rules to that subnet to allow only the gateway access to that private endpoint. Disallow all other data plane access to the model-host instances.
 
 ### Reasons to avoid a gateway for multiple model deployments
 
-If controlling your clients' configuration is as easy as or easier than controlling the routing at the gateway level, the added reliability, security, cost, maintenance, and performance impact of the gateway might not be worth the added architectural component.
+If controlling your clients' configuration is as easy as or easier than controlling the routing at the gateway level, the added reliability, security, cost, maintenance, and performance impact of the gateway might not justify the added architectural component.
 
 Also consider whether you actually need separate deployments in one host, versus separate host instances, to get stronger physical segmentation (identity, network boundary, billing separation) without complex routing logic.
 
 ### Chat-based workloads and stateful interactions
 
-Some workloads use chat-based interactions through chat completions and assistants APIs, which introduce stateful behavior across multiple requests. In these cases, a gateway might need to maintain session affinity (sometimes referred to as "stickiness") so that all requests that belong to an active conversation are routed to the same back end deployment while the conversation is in progress.
+Some workloads use chat-based interactions through chat completions and assistants APIs, which introduce stateful behavior across multiple requests. In these cases, a gateway might need to maintain session affinity (sometimes referred to as *stickiness*) so that all requests that belong to an active conversation are routed to the same back end deployment while the conversation is in progress.
 
 ### Provisioned capacity and priority processing
 
@@ -96,7 +96,7 @@ The platform might support provisioned throughput units, which represent reserve
 
 ## Multiple instances in a single region and a single subscription
 
-:::image type="complex" source="_images/multiple-instances-single-region-before.svg" alt-text="Architecture diagram of a scenario with clients connecting to more than one model-host instance in a single region." lightbox="_images/multiple-instances-single-region-before.svg":::
+:::image type="complex" source="_images/multiple-instances-single-region-before.svg" alt-text="Architecture diagram of a scenario in which clients connect to more than one model-host instance in a single region." lightbox="_images/multiple-instances-single-region-before.svg":::
    A diagram showing two clients labeled A and B directly interfacing with three instances, each with one model Foundry model. All instances are in a resource group named rg-foundry-eastus. Client A has a solid arrow connecting it to a Foundry model in a Client A instance that says provisioned primary. Client A has a dashed arrow connecting it to a Foundry model in a Client A instance that says standard spillover. Client B has a solid arrow connecting it to a Foundry model in a Client B instance that says provisioned.
 :::image-end:::
 
@@ -104,7 +104,7 @@ To authenticate the gateway itself, use a managed identity. When the gateway run
 
 The gateway should honor throttling behavior and `Retry-After` headers. API Management provides built-in circuit breaker capabilities that can automatically respect `Retry-After` values returned for HTTP 429 responses.
 
-API Management also provides an llm-token-limit policy that enables you to enforce token-per-minute quotas per client or subscription at the gateway level. Using these built-in policies can reduce the need for custom retry, throttling, and protection logic in gateway code and help prevent back-end throttling.
+API Management also provides an llm-token-limit policy that enables you to enforce token-per-minute quotas per client or subscription at the gateway level. These built-in policies can reduce the need for custom retry, throttling, and protection logic in gateway code and help prevent back-end throttling.
 
 ### Topology details for multiple instances in a single region and a single subscription
 
@@ -166,13 +166,13 @@ When a gateway is involved, it's in a unique position to capture details about a
 
 A gateway itself doesn't improve the ability to chargeback models against different clients for this specific topology. In this topology, clients can be granted access to their own dedicated instances, which supports your workload team's ability to manage chargeback or showback. This model supports unique identity and network perimeters, so a gateway doesn't need to be introduced specifically for segmentation.
 
-If you have a few clients in the area and you control the code, and the clients are easy to update, the logic that you'd have to build into the gateway can be added directly into the code. Consider using the gateway approach for failover or load balancing primarily when you don't own the client code or the complexity is too much for the clients to handle.
+If you have a few clients in the area, and you control the code, and the clients are easy to update, the logic that you'd have to build into the gateway can be added directly into the code. Consider using the gateway approach for failover or load balancing primarily when you don't own the client code or  when the clients can't handle the added complexity.
 
 If you're using a gateway specifically to address capacity constraints, evaluate whether data zone-based capacity features are sufficient for your workload.
 
 ## Multiple instances in a single region across multiple subscriptions
 
-:::image type="complex" source="_images/multiple-subscriptions-before.svg" alt-text="Architecture diagram of a scenario with one client connecting to two model-host instances in the same region across two subscriptions." lightbox="_images/multiple-subscriptions-before.svg":::
+:::image type="complex" source="_images/multiple-subscriptions-before.svg" alt-text="Architecture diagram of a scenario in which one client connects to two model-host instances in the same region across two subscriptions." lightbox="_images/multiple-subscriptions-before.svg":::
    A diagram that shows a client with a solid arrow that points to a Foundry model deployment in a primary instance. This primary instance is in a box labeled Workload subscription A. The client also has a solid arrow that points to a Foundry model deployment in a secondary instance. This secondary instance is in a box labeled Workload subscription B. In both subscriptions, the resource group containing the instances is called rg-foundry-eastus.
 :::image-end:::
 When multiple subscriptions are used to distribute standard quota, a gateway can abstract subscription boundaries from clients while routing traffic based on availability or capacity. Keep in mind that standard quotas remain scoped to the subscription, so capacity doesn't aggregate automatically unless separate subscriptions are used.
@@ -197,13 +197,13 @@ A topology that includes multiple instances in a single region across multiple s
 - A use case in which you want to obtain more quota in a standard deployment and you must constrain the use of models to a single, specific region.
 
   > [!NOTE]
-   > If you don't need to constrain the use of models to a specific region, you should use [Global](/azure/ai-foundry/foundry-models/concepts/deployment-types#global-deployments) or [Data Zone](/azure/ai-foundry/foundry-models/concepts/deployment-types#data-zone-deployments) deployments that use the Azure global infrastructure to dynamically route inferencing requests to datacenters that have the available capacity.
+   > If you don't need to constrain the use of models to a specific region, use [Global](/azure/foundry/foundry-models/concepts/deployment-types#global-deployments) or [Data Zone](/azure/foundry/foundry-models/concepts/deployment-types#data-zone-deployments) deployments that use the Azure global infrastructure to dynamically route inferencing requests to datacenters that have the available capacity.
 
 ### Introduce a gateway for multiple instances in a single region and multiple subscriptions
 
 The same reasons for [introducing a gateway for multiple instances in a single region and subscription](#introduce-a-gateway-for-multiple-instances-in-a-single-region-and-a-single-subscription) apply to this topology.
 
-In addition to those reasons, adding a gateway in this topology also supports a centralized team providing an AI-as-a-service model for their organization. Because quota in a standard deployment is subscription-bound, a centralized team that provides shared AI services that use the standard deployment must deploy instances across multiple subscriptions to obtain the required quota. The gateway logic still remains largely the same.
+In addition to those reasons, adding a gateway in this topology also supports a centralized team providing an AI-as-a-service model for their organization. Because quota in a standard deployment is subscription-bound, a centralized team that provides shared AI services that use the standard deployment must deploy instances across multiple subscriptions to obtain the required quota. The gateway logic still remains mostly the same.
 
 :::image type="complex" source="_images/multiple-subscriptions-after.svg" alt-text="Architecture diagram of a scenario in which one client connects to two instances, one per region, indirectly through a gateway." lightbox="_images/multiple-subscriptions-after.svg":::
    A diagram that shows a client with a solid arrow pointing to a gateway. The gateway is in a resource group called rg-gateway-eastus that's contained in a box labeled Workload gateway subscription. The gateway is connected to two private endpoints that are in the same resource group as the gateway. One private endpoint points to a Foundry model deployment in a primary instance. This primary instance is in a box labeled Workload subscription A. The second private endpoint has a dashed arrow pointing to a Foundry model deployment in a secondary instance. This secondary instance is in a box labeled Workload subscription B. The resource group containing the instances is called rg-foundry-eastus in both cases.
@@ -217,7 +217,7 @@ In addition to those reasons, adding a gateway in this topology also supports a 
 
 - Deploy the gateway into a dedicated subscription that's separate from the instances. This configuration helps enforce consistency in addressing the instances and provides a logical segmentation of duties between model deployments and their routing.
 
-- When routing requests from your gateway across subscriptions, make sure that private endpoints are reachable. You can use transitive routing through a hub to private endpoints for the back ends in their respective spokes. You might be able to expose private endpoints for the AI service directly in the gateway subscription by using [Private Link connections across subscriptions](/azure/private-link/how-to-approve-private-link-cross-subscription). Cross-subscription Private Link connections are preferred if your architecture and organization support this approach.
+- When you route requests from your gateway across subscriptions, make sure that private endpoints are reachable. You can use transitive routing through a hub to private endpoints for the back ends in their respective spokes. You might be able to expose private endpoints for the AI service directly in the gateway subscription by using [Private Link connections across subscriptions](/azure/private-link/how-to-approve-private-link-cross-subscription). Cross-subscription Private Link connections are preferred if your architecture and organization support this approach.
 
 ### Reasons to avoid a gateway for multiple instances in a single region and multiple subscriptions
 
@@ -226,7 +226,7 @@ All of the [reasons to avoid a gateway for multiple instances in a single region
 ## Multiple instances across multiple regions
 
 :::image type="complex" source="_images/multiple-regions-before.svg" alt-text="Diagram that contains three architecture diagrams that show clients connecting to model-host instances in different regions." lightbox="_images/multiple-regions-before.svg":::
-   Image that shows three architecture diagrams. The first shows a client connected to an instance in West US and another one in East US, implying an active-active load balancing scenario. Both instances have a Foundry model deployment. The second diagram shows the same scenario, only it implies that the West US instance is passive. The Foundry model instance in East US has the label Primary, and the Foundry model instance in West US has the label Secondary. The third middle depicts two regions, East US and Germany West Central. A US client is connected to a provisioned Foundry model in East US. A Germany client is connected to a provisioned Foundry model in Germany West Central.
+   Image that shows three architecture diagrams. The first diagram shows a client connected to an instance in West US and another client in East US, indicating an active-active load balancing scenario. Both instances have a Foundry model deployment. The second diagram shows the same scenario, only it indicates that the West US instance is passive. The Foundry model instance in East US has the label Primary, and the Foundry model instance in West US has the label Secondary. The third diagram shows two regions, East US and Germany West Central. A US client connects to a provisioned Foundry model in East US. A Germany client connects to a provisioned Foundry model in Germany West Central.
 :::image-end:::
 
 ### Topology details for multiple instances across multiple regions
@@ -248,7 +248,7 @@ A topology that includes multiple instances spread across two or more Azure regi
 
 - Enables mixed-model availability. Some regions have different models and different quotas available for the models.
 
- This topology is also applicable when you have an AI model exposed in a cross-premises scenario, such as on-premises or in another cloud, although this scenario doesn't use different Azure regions.
+ This topology is also applicable when you have an AI model exposed in a cross-premises scenario, such as on-premises or in another cloud. However, this scenario doesn't use different Azure regions.
 
 ### Introduce a gateway for multiple instances in multiple regions
 
@@ -260,12 +260,12 @@ For business-critical architectures that must survive a complete regional outage
    Architecture diagram that shows a client connecting to an API Management instance. That API Management instance is in a resource group called rg-gateway that's in West US. The API Management instance connects to two private endpoints. One private endpoint is in a resource group called rg-aoai-westus in the West US region. The other private endpoint is in a resource group called rg-aoai-eastus in the East US region. The rg-aoai-westus and rg-aoai-east resource groups also contain Azure OpenAI instances, both labeled Active, and each contains a gpt-4 standard deployment.
 :::image-end:::
 
-In this topology, API Management is used specifically for the gateway technology. Here, API Management is deployed into a single region. From that gateway instance, you use active-active load balancing across regions. The policies in your gateway reference all of your model-host instances. The gateway requires network line of sight to each back end across regions, either through cross-region virtual network peering or private endpoints. Calls from this gateway to an instance in another region incur more network latency and egress charges.
+In this topology, API Management is used specifically for the gateway technology. API Management is deployed into a single region. From that gateway instance, you use active-active load balancing across regions. The policies in your gateway reference all of your model-host instances. The gateway requires network line of sight to each back end across regions, either through cross-region virtual network peering or private endpoints. Calls from this gateway to an instance in another region incur more network latency and egress charges.
 
-Your gateway must honor throttling and availability signals from the back-end instances and remove faulted back ends from the pool until it's safe to add the faulted or throttled instance back. The gateway should retry the current request against another back-end instance in the pool upon fault, before falling back to returning a gateway error. The gateway's health check should signal unhealthy when no back-end instances are available.
+Your gateway must honor throttling and availability signals from the back-end instances and remove faulted back ends from the pool until it's safe to add the faulted or throttled instance back. The gateway should retry the current request against another back-end instance in the pool when a fault occurs, before falling back to returning a gateway error. The gateway's health check should signal unhealthy when no back-end instances are available.
 
 > [!NOTE]
-> This gateway introduces a global single point of regional failure in your architecture since any service outage on your gateway instances renders all regions inaccessible. Don't use this topology for business-critical workloads or where client-based load balancing is sufficient.
+> This gateway introduces a global single point of regional failure in your architecture because any service outage on your gateway instances renders all regions inaccessible. Don't use this topology for business-critical workloads or where client-based load balancing is sufficient.
 
 Because this topology introduces a single point of failure (the gateway), the utility of this specific architecture is limited to protecting you against regional model endpoint outages.
 
@@ -274,7 +274,7 @@ Because this topology introduces a single point of failure (the gateway), the ut
 
 ##### Active-passive variant
 
-This model can also be used to provide an active-passive approach to specifically handle regional failure of only the model host. In this mode, traffic normally flows from the gateway to the instance in the same region as the API Management service. That instance handles all expected traffic flow when there's not a regional failure. It can be provisioned or standard, depending on your preferred billing model. If there's a regional failure of just that service, the gateway can redirect traffic to another region where the model is already deployed in a standard deployment.
+This model can also be used to provide an active-passive approach to specifically handle regional failure of only the model host. In this mode, traffic normally flows from the gateway to the instance in the same region as the API Management service. That instance handles all expected traffic flow when there's not a regional failure. It can be provisioned or standard, depending on your preferred billing model. If a regional failure affects only that service, the gateway can redirect traffic to another region where the model is already deployed in a standard deployment.
 
 #### Use API Management (multi-region deployment)
 
@@ -282,20 +282,20 @@ This model can also be used to provide an active-passive approach to specificall
    An architecture diagram that shows a client connecting to two API Management gateways with a note that says "Built-in API Management FQDN (uses performance-based routing)." The API Management instance is in a resource group called rg-gateway-westus but has a gateway in both West US and East US, in an active-active topology. Each gateway has an arrow that points to its own single private endpoint. Each private endpoint points to a single instance in its own region. A Foundry model is deployed for each instance.
 :::image-end:::
 
-API Management supports deploying an [instance to multiple Azure regions](/azure/api-management/api-management-howto-deploy-multi-region), which can improve the reliability of the previous API Management-based architecture. This deployment option gives you a single control plane, through a single API Management instance, but provides replicated gateways in the regions of your choice. In this topology, you deploy gateway components into each region containing model-host instances that provide an active-active gateway architecture.
+API Management supports deploying an [instance to multiple Azure regions](/azure/api-management/api-management-howto-deploy-multi-region), which can improve the reliability of the previous API Management-based architecture. This deployment option gives you a single control plane through a single API Management instance but provides replicated gateways in the regions of your choice. In this topology, you deploy gateway components into each region containing model-host instances that provide an active-active gateway architecture.
 
-Policies such as routing and request handling logic are replicated to each individual gateway. All policy logic must have conditional logic in the policy to ensure that you're calling instances in the same region as the current gateway. For more information, see [Route API calls to regional back-end services](/azure/api-management/api-management-howto-deploy-multi-region#route-api-calls-to-regional-backend-services). The gateway component then requires network line of sight only to instances in its own region, usually through private endpoints.
+Policies such as routing and request handling logic are replicated to each individual gateway. All policy logic must have conditional logic in the policy to ensure that you call instances in the same region as the current gateway. For more information, see [Route API calls to regional back-end services](/azure/api-management/api-management-howto-deploy-multi-region#route-api-calls-to-regional-backend-services). The gateway component then requires network line of sight only to instances in its own region, usually through private endpoints.
 
 > [!NOTE]
 > This topology doesn't have a global point of failure from a traffic handling perspective. However, the architecture has a partial single point of failure in that the API Management control plane is only in a single region. Evaluate whether the control plane limitation might violate your business or mission-critical standards.
 
-API Management offers out-of-the-box global fully qualified domain name (FQDN) routing based on lowest latency. Use this built-in performance-based functionality for active-active gateway deployments. This built-in functionality helps address performance and handles a regional gateway outage. The built-in global router also supports disaster recovery testing because you can simulate regions down to disabling individual gateways. Make sure clients respect the Time to Live (TTL) on the FQDN and have appropriate retry logic to handle a recent DNS failover.
+API Management offers out-of-the-box global fully qualified domain name (FQDN) routing based on lowest latency. Use this built-in performance-based functionality for active-active gateway deployments. This built-in functionality helps address performance and handles a regional gateway outage. The built-in global router also supports disaster recovery testing because you can simulate regions down to disabling individual gateways. Make sure that clients respect the Time to Live (TTL) on the FQDN and have appropriate retry logic to handle a recent DNS failover.
 
 If you need to introduce a web application firewall into this architecture, you can still use the built-in FQDN routing solution as the back-end origin for your global router that implements a web application firewall. The global router delegates failover responsibility to API Management. Alternatively, you can use the regional gateway FQDNs as the back-end pool members. In the latter architecture, use the built-in `/status-0123456789abcdef` endpoint on each regional gateway or another custom health API endpoint to support regional failover. If you're not sure which approach to take, start with the single-origin back-end FQDN approach.
 
-This architecture is most effective when you treat regions as either fully available or fully unavailable. In other words, if either the API Management gateway or a back-end instance is unavailable, you don't want client traffic to be routed to the API Management gateway in that region. Unless another provision is made, if the regional gateway still accepts traffic while the back end is unavailable, the error must be propagated to the client. To avoid the client error, see an improved approach in [Active-active gateway plus active-passive variant](#active-active-gateway-plus-active-passive-variant).
+This architecture is most effective when you treat regions as either fully available or fully unavailable. In other words, if either the API Management gateway or a back-end instance is unavailable, you don't want client traffic to be routed to the API Management gateway in that region. Unless another provision is made, if the regional gateway continues to accept traffic while the back end is unavailable, the error must be propagated to the client. To avoid the client error, see an improved approach in [Active-active gateway plus active-passive variant](#active-active-gateway-plus-active-passive-variant).
 
-If a region is experiencing an API Management gateway outage or is flagged as unhealthy, the remaining available regions need to absorb 100% of the traffic from those other regions. You therefore need to over-provision provisioned model-host instances to handle the new burst of traffic or use an [active-passive approach for failover](#active-active-gateway-plus-active-passive-variant). Use the capacity calculator at the service level for capacity planning.
+If a region is experiencing an API Management gateway outage or is flagged as unhealthy, the remaining available regions need to absorb 100% of the traffic from those other regions. You therefore need to overprovision provisioned model-host instances to handle the new burst of traffic or use an [active-passive approach for failover](#active-active-gateway-plus-active-passive-variant). Use the capacity calculator at the service level for capacity planning.
 
 Ensure that the resource group that contains API Management is the same location as the API Management instance itself to reduce the likelihood of the blast radius of a related regional outage affecting your ability to access the resource provider for your gateways.
 
@@ -316,7 +316,7 @@ The previous section addresses the availability of the gateway by providing an a
 #### Use a custom-coded gateway
 
 :::image type="complex" source="_images/multiple-regions-custom-active-active-and-active-passive-after.svg" alt-text="Architecture diagram of a client connecting to model-host instances in both West US and East US through a global load balancer. Custom gateways in each region can communicate with instances in the other region." lightbox="_images/multiple-regions-custom-active-active-and-active-passive-after.svg":::
-   An architecture diagram that shows a client connecting to two gateway compute instances, each labeled with the Azure Container Apps icon, after first passing through Azure Front Door or through DNS and Traffic Manager. The two gateway instances are each in their own resource groups called rg-gateway-westus and rg-gateway-eastus in the West US and East US region respectively. Each gateway has an arrow that points to an active private endpoint in the same region and a dashed arrow that points to a passive private endpoint in the other region. There are only two private endpoints, so each active endpoint is the other gateway's passive endpoint. Each private endpoint points to an active Foundry model in an instance in its own region. The private endpoint also points to a passive Foundry model in its own region.
+   An architecture diagram that shows a client connecting to two gateway compute instances, each labeled with the Azure Container Apps icon, after first passing through Azure Front Door or through DNS and Azure Traffic Manager. The two gateway instances are each in their own resource groups called rg-gateway-westus and rg-gateway-eastus in the West US and East US region respectively. Each gateway has an arrow that points to an active private endpoint in the same region and a dashed arrow that points to a passive private endpoint in the other region. There are only two private endpoints, so each active endpoint is the other gateway's passive endpoint. Each private endpoint points to an active Foundry model in an instance in its own region. The private endpoint also points to a passive Foundry model in its own region.
 :::image-end:::
 
 If your per-gateway routing rules are too complex for your team to consider reasonable as API Management policies, you need to deploy and manage your own solution. This architecture must be a multi-region deployment of your gateway, with one highly available scale unit per region. You need to front those deployments with [Azure Front Door](/azure/frontdoor/) or [Azure Traffic Manager](/azure/traffic-manager/traffic-manager-overview), typically by using latency-based routing and appropriate health checks for gateway availability.
@@ -327,15 +327,15 @@ Place per-region resources that are used in your custom gateway in per-region re
 
 You can also consider fronting your gateway logic implementation with API Management to get the other benefits of API Management. These benefits include TLS, authentication, health check, and round-robin load balancing. This configuration shifts common API concerns out of custom code in your gateway and lets your gateway specifically address model instance and deployment routing.
 
-For data residency compliance, make sure each geopolitical boundary has its own isolated deployment of this architecture and that clients can only reach their authorized endpoint.
+For data residency compliance, make sure that each geopolitical boundary has its own isolated deployment of this architecture and that clients can only reach their authorized endpoint.
 
 ### Reasons to avoid a gateway for multiple instances in multiple regions
 
 Don't implement a unified gateway across geopolitical regions when data residency and compliance is required. Doing so would violate the data residency requirements. Use individually addressable gateways per region, and follow the guidance in one of the previous sections.
 
-Don't implement a unified gateway solely for the purpose of increasing quota. Use [Global Standard](/azure/ai-foundry/foundry-models/concepts/deployment-types#global-standard) deployments that use Azure's global infrastructure to dynamically route requests to datacenters that have the best capacity for each request.
+Don't implement a unified gateway solely to increase quota. Use [Global Standard](/azure/ai-foundry/foundry-models/concepts/deployment-types#global-standard) deployments that use Azure's global infrastructure to dynamically route requests to datacenters that have the best capacity for each request.
 
-If clients aren't expected to fail over between regions and you have the ability to give clients a specific gateway to use, instead use multiple gateways, one per region, and follow the guidance in one of the previous sections. Don't tie the availability of other regions to the region that contains your gateway as a single point of failure.
+If clients aren't expected to fail over between regions and you can assign each client to a specific, instead use multiple gateways, one per region, and follow the guidance in one of the previous sections. Don't tie the availability of other regions to the region that contains your gateway as a single point of failure.
 
 Don't implement a unified gateway if your model and version isn't available in all regions exposed by the gateway. Clients need to be routed to the same model and the same model version. For multi-region load-balanced and failover gateways, you need to pick a common model and model version that's available across all affected regions. For more information, see [Model availability](/azure/ai-foundry/foundry-models/concepts/models-sold-directly-by-azure#model-summary-table-and-region-availability). If you can't standardize on model and model version, the benefit of the gateway is limited.
 
@@ -351,7 +351,7 @@ When clients use stateful features, such as the Assistants API, you need to conf
 
 There are two health check perspectives to consider, regardless of topology.
 
-If your gateway is built around round-robining or strictly performing service-availability failover, you should have a way to take a back-end instance (or model) out of availability status. Many AI services don't provide a dedicated health check endpoint to preemptively determine whether instances are available to handle requests. You can send synthetic transactions through, but doing so consumes model capacity. Unless you have another reliable signal source for instance and model availability, your gateway should probably assume that the back-end instance is available and handle `429`, `500`, and `503` HTTP status codes as a signal to circuit-break for future requests on that instance or model for a period of time. For throttling situations, always honor the data in the `Retry-After` header found in API responses for `429` response codes in your circuit breaking logic. If you're using API Management, evaluate using the [built-in circuit breaker](/azure/api-management/backends?tabs=bicep#circuit-breaker) functionality.
+If your gateway is built around round-robining or strictly performing service-availability failover, you should have a way to take a back-end instance (or model) out of availability status. Many AI services don't provide a dedicated health check endpoint to preemptively determine whether instances are available to handle requests. You can send synthetic transactions through, but doing so consumes model capacity. Unless you have another reliable signal source for instance and model availability, your gateway should probably assume that the back-end instance is available and handle `429`, `500`, and `503` HTTP status codes as a signal to circuit-break for future requests on that instance or model for a period of time. For throttling situations, always honor the data in the `Retry-After` located found in API responses for `429` response codes in your circuit breaking logic. If you're using API Management, evaluate using the [built-in circuit breaker](/azure/api-management/backends?tabs=bicep#circuit-breaker) functionality.
 
 Your clients or your workload operations team might want to have a health check exposed on your gateway for their own routing or introspection purposes. If you use API Management, the default `/status-0123456789abcdef` might not be detailed enough because it mostly addresses the API Management gateway instance, not your back ends. Consider adding a dedicated health check API that can return meaningful data to clients or observability systems on the availability of the gateway or specific routes in the gateway.
 
@@ -365,7 +365,7 @@ Even if you don't use blue-green deployments, your workload's APIOps approach ne
 
 ### Just enough implementation
 
-Many of the scenarios introduced in this article help increase the potential service-level objective (SLO) of your workload by reducing client complexity and implementing reliable self-preservation techniques. Others improve the security of the workload by moving access controls to specific models away from the underlying AI service. Be sure that the introduction of the gateway doesn't end up working counter to these goals. Understand the risks of adding a new single point of failure either through service faults or human-caused configuration problems in the gateway, complex routing logic, or the risks of exposing more models to unauthorized clients than is intended.
+Many of the scenarios introduced in this article help increase the potential service-level objective (SLO) of your workload by reducing client complexity and implementing reliable self-preservation techniques. Others improve workload security by moving access controls to specific models away from the underlying AI service. Be sure that introducing the gateway doesn't work counter to these goals. Understand the risks of adding a new single point of failure, whether through service faults or human-caused configuration problems in the gateway, complex routing logic, or the risks of exposing more models to unauthorized clients than is intended.
 
 ### Data sovereignty
 
