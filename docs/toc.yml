@@ -649,8 +649,6 @@ items:
           href: example-scenario/mainframe/rehost-adabas-software-ag.yml
         - name: Rehost IMS workloads by using IMSql
           href: example-scenario/mainframe/imsql-rehost-ims.yml
-        - name: Solaris emulator on Azure VMs
-          href: solution-ideas/articles/solaris-azure.yml
         - name: Unisys ClearPath Forward OS 2200 enterprise server virtualization on Azure
           href: mainframe/virtualization-of-unisys-clearpath-forward-os-2200-enterprise-server-on-azure.yml
         - name: Unisys ClearPath MCP virtualization on Azure
