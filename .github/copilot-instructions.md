@@ -161,7 +161,7 @@ thumbnailUrl: /azure/architecture/browse/thumbs/article-name.png
 
 ## Redirections
 
-When an article is deleted, moved, or renamed, a redirect entry must be added to `.openpublishing.redirection.json` at the repository root. Each entry maps the old `source_path` (relative to the repo root) to a `redirect_url` (site-relative path starting with `/azure/architecture/`). Without this entry, readers following old URLs get a 404.
+When an article is deleted, moved, or renamed, add a redirect entry to the top-level `redirections` array in `.openpublishing.redirection.json` at the repository root. Each entry maps the old `source_path` (relative to the repo root) to a `redirect_url` (either a site-relative path starting with `/` or an absolute URL). Without this entry, readers following old URLs get a 404.
 
 ```json
 {
