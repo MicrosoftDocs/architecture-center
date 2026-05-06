@@ -82,7 +82,7 @@ This diagram shows how the legacy architecture can be migrated to Azure, taking 
 
 This architecture illustrates how the Raincode solution runs on Azure. Raincode on Azure supports the following features:
 
-- Code that's 100% thread-safe and managed for .NET and .NET Core.
+- Code that's 100% thread-safe and managed for .NET Framework and .NET.
 
 - A solution primarily aimed at transforming mainframes to a cloud-native architecture.
 
