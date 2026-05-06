@@ -174,7 +174,7 @@ The preceding list doesn't include all services. The following tables describe s
 | Data sharing | [AWS Data Exchange](https://aws.amazon.com/data-exchange/) | [Azure Data Share](https://azure.microsoft.com/products/data-share/) | Securely share data with other organizations.|
 | Contact center | [Amazon Connect](https://aws.amazon.com/connect/) | [Dynamics 365 Contact Center](/dynamics365/contact-center/implement/overview-contact-center) | Connect with customers by using these AI-powered cloud contact center capabilities.|
 
-Microsoft maintains a development template library that curates prescriptive patterns and guidance for replicating or migrating applications from AWS to Azure. To learn more, see [Development template library](https://marketing.partner.microsoft.com/marketplace-rewards/quick-start-development-toolkit/content-library/2-replicate-your-app-from-aws-to-azure).
+Microsoft maintains a [development template library](https://marketing.partner.microsoft.com/marketplace-rewards/quick-start-development-toolkit/content-library/2-replicate-your-app-from-aws-to-azure) that curates prescriptive patterns and guidance for replicating or migrating applications from AWS to Azure.
 
 ## Next step
 
