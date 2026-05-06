@@ -6,7 +6,7 @@ This article provides a basic architecture to help you learn about running web a
 ## Architecture
 
 :::image type="complex" source="../_images/basic-app-service-architecture-flow.svg" lightbox="../_images/basic-app-service-architecture-flow.svg" alt-text="Diagram that shows a basic App Service architecture." border="false":::
-    The diagram shows a user that issues an HTTPS request. An arrow points to a section that contains App Service built-in authentication, App Service, an App Service instance, and managed identity. An arrow points from this section to Azure SQL Database. The Identity section includes Microsoft Entra ID. The Monitoring section includes Application Insights and Azure Monitor.
+    The diagram shows a user that issues an HTTPS request. An arrow points to a section that contains App Service built-in authentication, App Service, an App Service instance, and managed identity. An arrow points from this section to Azure SQL Database. The Identity section includes Microsoft Entra ID. The Monitoring section includes Application Insights and Azure Monitor with a Health Model.
 :::image-end:::
 
 *Download a [Visio file](https://arch-center.azureedge.net/basic-app-service-architecture-flow.vsdx) of this architecture.*
