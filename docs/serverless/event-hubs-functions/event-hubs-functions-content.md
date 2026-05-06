@@ -1,5 +1,4 @@
-<!---content for event-hubs-functions.yml--->
-Solutions that use Azure Event Hubs together with Azure Functions benefit from a [serverless](https://azure.microsoft.com/solutions/serverless/) architecture that is scalable, cost-effective, and capable of processing large volumes of data in near real time. As much as these services work seamlessly together, there are many features, settings, and intricacies that add complexity to their relationship. This article provides guidance on how to effectively take advantage of this integration by highlighting key considerations and techniques for performance, resiliency, security, observability, and scale.
+Solutions that use Azure Event Hubs together with Azure Functions benefit from a [serverless](https://azure.microsoft.com/solutions/serverless/) architecture that is scalable, cost-effective, and capable of processing large volumes of data in near real time. Although these services are commonly used together, there are many features, settings, and intricacies that add complexity to their relationship. This article provides guidance on how to effectively take advantage of this integration by highlighting key considerations and techniques for performance, resiliency, security, observability, and scale.
 
 ## Event Hubs core concepts
 
@@ -38,10 +37,7 @@ Azure Functions supports [trigger](/azure/azure-functions/functions-bindings-eve
 
 Each instance of an Event Hubs triggered function is backed by a single [EventProcessorHost] instance. The trigger (powered by Event Hubs) ensures that only one  [EventProcessorHost] instance can get a lease on a given partition.
 
-For example, consider an event hub with the following characteristics:
-
-- 10 partitions.
-- 1,000 events distributed across all partitions, with a varying number of messages in each partition.
+For example, consider an event hub that has 10 partitions and 1,000 events distributed across all partitions, with a varying number of messages in each partition.
 
 When your function is first enabled, there's only one instance of the function. Let's call the first function instance `Function_1`. `Function_1` has a single instance of  [EventProcessorHost] that holds a lease on all 10 partitions. This instance is reading events from partitions 1-10. From this point forward, one of the following happens:
 
@@ -49,7 +45,7 @@ When your function is first enabled, there's only one instance of the function. 
 
     ![Event Hubs and Functions single instance](./images/event-hubs-functions.svg)
 
-- **An additional function instance is added**: event-based scaling or other automated or manual logic might determine that `Function_1` has more messages than it can process and then creates a new function app instance (`Function_2`). This new function also has an associated instance of  [EventProcessorHost]. As the underlying event hub detects that a new host instance is trying to read messages, it load balances the partitions across the host instances. For example, partitions 1-5 may be assigned to `Function_1` and partitions 6-10 to `Function_2`.
+- **An additional function instance is added**: event-based scaling or other automated or manual logic might determine that `Function_1` has more messages than it can process and then creates a new function app instance (`Function_2`). This new function also has an associated instance of  [EventProcessorHost]. As the underlying event hub detects that a new host instance is trying to read messages, it load balances the partitions across the host instances. For example, partitions 1-5 might be assigned to `Function_1` and partitions 6-10 to `Function_2`.
 
     ![Event Hubs and Functions with two instances](./images/event-hubs-functions-two-instances.svg)
 
@@ -67,21 +63,17 @@ To learn more, see [Azure Event Hubs bindings for Azure Functions](/azure/azure-
 
 ## Contributors
 
-*This article is maintained by Microsoft. It was originally written by the following contributors.* 
+*This article is maintained by Microsoft. It was originally written by the following contributors.*
 
 Principal author:
 
- - [David Barkol](https://www.linkedin.com/in/davidbarkol/) | Principal Solution Specialist GBB
- 
+ - [David Barkol](https://www.linkedin.com/in/davidbarkol/) | AI Apps GBB
+
 *To see non-public LinkedIn profiles, sign in to LinkedIn.*
 
 ## Next steps
 
 > [!div class="nextstepaction"]
 > [Performance and scale](./performance-scale.yml)
-
-## Related resource
-
-[Serverless event processing](../../reference-architectures/serverless/event-processing.yml) is a reference architecture detailing a typical architecture of this type, with code samples and discussion of important considerations.
 
 [EventProcessorHost]: /dotnet/api/microsoft.servicebus.messaging.eventprocessorhost

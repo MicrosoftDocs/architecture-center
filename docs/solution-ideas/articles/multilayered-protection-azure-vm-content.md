@@ -48,7 +48,9 @@ The defense in depth strategy and the solution in this article apply to many sce
 
 *Download a [Visio file][Visio version of architecture diagram] of this architecture.*
 
-## Dataflow
+## Data flow
+
+The following data flow corresponds to the previous diagram:
 
 1. **Authentication and access decisions**: The user is authenticated against Microsoft Entra ID to access the Azure portal, Azure REST APIs, Azure PowerShell, or the Azure CLI. If authentication succeeds, a Microsoft Entra Conditional Access policy takes effect. That policy verifies whether the user meets certain criteria. Examples include using a managed device or signing in from a known location. If the user fulfills the criteria, Conditional Access grants the user access to Azure through the Azure portal or another interface.
 
@@ -100,8 +102,6 @@ This solution uses the following components:
    Azure Bastion is optional in this solution, especially if access to the Azure Virtual Network is private through VPN or ExpressRoute. Users can connect directly to Azure VMs by using the RDP protocol.
    
    If you do configure Azure Bastion in an Azure virtual network, set up a separate subnet called `AzureBastionSubnet` that's `/26` or larger. Then associate a network security group with that subnet. In that group, specify a source for HTTPS traffic such as the user's on-premises IP classless inter-domain routing (CIDR) block address space. This configuration blocks connections that don't come from the user's on-premises environment.
-
-  
   
 - [Key Vault][Azure Key Vault] is a service for storing secrets, keys, and certificates. In this architecture, Key Vault stores VM passwords as secrets and integrates with Azure Bastion to allow retrieval by authorized users. Configure Azure RBAC so that only the user account that accesses the VM can retrieve the secret, and set secret expiration and rotation practices for local administrator credentials. Users can retrieve the secret through Azure APIs (such as the Azure CLI) or from the Azure portal.
 

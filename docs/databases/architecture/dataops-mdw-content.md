@@ -8,9 +8,11 @@ The following diagram shows the overall architecture of the solution.
 
 *Download a [Visio file](https://arch-center.azureedge.net/architecture-diagram-demonstrating-dataops-for-the-modern-data-warehouse.vsdx) of this architecture.*
 
-### Dataflow
+### Data flow
 
-Azure Data Factory orchestrates and Azure Data Lake Storage Gen2 stores the data:
+Azure Data Factory orchestrates and Azure Data Lake Storage Gen2 stores the data.
+
+The following data flow corresponds to the previous diagram:
 
 1. The Contoso city parking web service API is available to transfer data from the parking spots.
 
@@ -33,21 +35,17 @@ Azure Data Factory orchestrates and Azure Data Lake Storage Gen2 stores the data
 
 ### Components
 
-The solution uses these components:
+- [Azure Data Factory](/azure/data-factory/introduction) is a cloud-based data integration service that enables data movement and orchestration. In this architecture, it initiates the pipeline by copying data from the Contoso city parking web service API into the landing zone of the data lake.
 
-* [Azure Data Factory (ADF)](https://azure.microsoft.com/services/data-factory)
+- [Azure Data Lake Storage Gen2](/azure/storage/blobs/data-lake-storage-introduction) is a scalable and secure data lake built on Azure Blob Storage that supports tiered storage and replayable pipelines. In this architecture, it serves as the central repository for both raw and processed data across landing, malformed, and validated data zones.
 
-* [Azure Databricks](https://azure.microsoft.com/services/databricks)
+- [Azure Databricks](/azure/well-architected/service-guides/azure-databricks) is an Apache Spark-based analytics platform designed for big data and machine learning. In this architecture, it performs two critical transformation steps. First, it cleanses and standardizes raw data while filtering malformed records to a separate schema. Then it converts validated data into a format suitable for data warehouse storage and makes processed data available to data scientists for model training.
 
-* [Azure Data Lake Storage (ADLS) Gen2](/azure/storage/blobs/data-lake-storage-introduction)
+- [Azure Key Vault](/azure/key-vault/general/overview) is a secure cloud service for managing secrets, keys, and certificates. In this architecture, it stores sensitive configuration settings and credentials used throughout the pipeline, providing centralized and secure configuration management.
 
-* [Azure Synapse Analytics](https://azure.microsoft.com/services/synapse-analytics)
+- [Azure Synapse Analytics](/azure/synapse-analytics/) is an integrated analytics service that combines big data and data warehousing capabilities. In this architecture, it serves as the data warehouse that ingests transformed data from Data Lake Storage via PolyBase for querying and reporting.
 
-* [Azure Key Vault](https://azure.microsoft.com/services/key-vault)
-
-* [Azure DevOps](https://azure.microsoft.com/services/devops)
-
-* [Power BI](https://powerbi.microsoft.com)
+- [Power BI](/power-bi/fundamentals/power-bi-overview) is a business analytics tool that delivers interactive visualizations and dashboards. In this architecture, it connects to Azure Synapse Analytics to present parking usage data insights to city planners for informed decision-making.
 
 ## Scenario details
 
@@ -89,8 +87,6 @@ This article describes how a fictional city planning office could use this solut
 
 * Support monitoring.
 
-* Centralized configuration in a secure storage like Azure Key Vault.
-
 ### Potential use cases
 
 This article uses the fictional city of Contoso to describe the use case scenario. In the narrative, Contoso owns and manages parking sensors for the city. It also owns the APIs that connect to and get data from the sensors. They need a platform that will collect data from many different sources. The data then must be validated, cleansed, and transformed to a known schema. Contoso city planners can then explore and assess report data on parking use with data visualization tools, like Power BI, to determine whether they need more parking or related resources.
@@ -99,28 +95,38 @@ This article uses the fictional city of Contoso to describe the use case scenari
 
 ## Considerations
 
-The following list summarizes key learnings and best practices demonstrated by this solution:
+These considerations implement the pillars of the Azure Well-Architected Framework, which is a set of guiding tenets that can be used to improve the quality of a workload. For more information, see [Microsoft Azure Well-Architected Framework](/azure/well-architected/).
+
+The considerations in this section summarize key learnings and best practices demonstrated by this solution:
 
 > [!NOTE]
-> Each item in the list below links out to the related **Key Learnings** section in the docs for the parking sensor solution example on GitHub.
+> Each consideration in this section links to the related **Key Learnings** section in the docs for the parking sensor solution example on GitHub.
 
-* [Use Data Tiering in your Data Lake](https://github.com/Azure-Samples/modern-data-warehouse-dataops/tree/main/e2e_samples/parking_sensors#1-use-data-tiering-in-your-data-lake).
+* [Use data tiering in your Data Lake](https://github.com/Azure-Samples/modern-data-warehouse-dataops/tree/main/databricks/parking_sensors#1-use-data-tiering-in-your-data-lake).
 
-* [Validate data early in your pipeline](https://github.com/Azure-Samples/modern-data-warehouse-dataops/tree/main/e2e_samples/parking_sensors#2-validate-data-early-in-your-pipeline).
+* [Make your data pipelines replayable and idempotent](https://github.com/Azure-Samples/modern-data-warehouse-dataops/tree/main/databricks/parking_sensors#3-make-your-data-pipelines-replayable-and-idempotent).
 
-* [Make your data pipelines replayable and idempotent](https://github.com/Azure-Samples/modern-data-warehouse-dataops/tree/main/e2e_samples/parking_sensors#3-make-your-data-pipelines-replayable-and-idempotent).
+### Security
 
-* [Ensure data transformation code is testable](https://github.com/Azure-Samples/modern-data-warehouse-dataops/tree/main/e2e_samples/parking_sensors#4-ensure-data-transformation-code-is-testable).
+Security provides assurances against deliberate attacks and the abuse of your valuable data and systems. For more information, see [Design review checklist for Security](/azure/well-architected/security/checklist).
 
-* [Have a CI/CD pipeline](https://github.com/Azure-Samples/modern-data-warehouse-dataops/tree/main/e2e_samples/parking_sensors#5-have-a-cicd-pipeline).
+* [Secure and centralize configuration](https://github.com/Azure-Samples/modern-data-warehouse-dataops/tree/main/databricks/parking_sensors#6-secure-and-centralize-configuration).
 
-* [Secure and centralize configuration](https://github.com/Azure-Samples/modern-data-warehouse-dataops/tree/main/e2e_samples/parking_sensors#6-secure-and-centralize-configuration).
+### Operational Excellence
 
-* [Monitor infrastructure, pipelines, and data](https://github.com/Azure-Samples/modern-data-warehouse-dataops/tree/main/e2e_samples/parking_sensors#7-monitor-infrastructure-pipelines-and-data).
+Operational excellence covers the operations processes that deploy an application and keep it running in production. For more information, see [Design review checklist for Operational Excellence](/azure/well-architected/operational-excellence/checklist).
+
+* [Validate data early in your pipeline](https://github.com/Azure-Samples/modern-data-warehouse-dataops/tree/main/databricks/parking_sensors#2-validate-data-early-in-your-pipeline).
+
+* [Ensure data transformation code is testable](https://github.com/Azure-Samples/modern-data-warehouse-dataops/tree/main/databricks/parking_sensors#4-ensure-data-transformation-code-is-testable).
+
+* [Have a CI/CD pipeline](https://github.com/Azure-Samples/modern-data-warehouse-dataops/tree/main/databricks/parking_sensors#5-have-a-cicd-pipeline).
+
+* [Monitor infrastructure, pipelines, and data](https://github.com/Azure-Samples/modern-data-warehouse-dataops/tree/main/databricks/parking_sensors#7-monitor-infrastructure-pipelines-and-data).
 
 ## Deploy this scenario
 
-The following list contains the high-level steps required to set up the Parking Sensors solution with corresponding Build and Release Pipelines. You can find detailed setup steps and prerequisites in this [Azure Samples repository](https://github.com/Azure-Samples/modern-data-warehouse-dataops/tree/main/e2e_samples/parking_sensors#how-to-use-the-sample).
+The following list contains the high-level steps required to set up the Parking Sensors solution with corresponding Build and Release Pipelines. You can find detailed setup steps and prerequisites in this [Azure Samples repository](https://github.com/Azure-Samples/modern-data-warehouse-dataops/tree/main/databricks/parking_sensors#how-to-use-the-sample).
 
 ### Setup and deployment
 
@@ -134,13 +140,13 @@ The following list contains the high-level steps required to set up the Parking 
 
 If deployment is successful, there should be three resource groups in Azure representing three environments: dev, stg, and prod. There should also be end-to-end build and release pipelines in Azure DevOps that can automatically deploy changes across these three environments.
 
-For a detailed list of all resources, see the [Deployed Resources](https://github.com/Azure-Samples/modern-data-warehouse-dataops/tree/main/e2e_samples/parking_sensors#deployed-resources) section of the **DataOps - Parking Sensor Demo** README.
+For a detailed list of all resources, see the [Deployed Resources](https://github.com/Azure-Samples/modern-data-warehouse-dataops/tree/main/databricks/parking_sensors#deployed-resources) section of the **DataOps - Parking Sensor Demo** README.
 
 <a name='continuous-integration-and-continuous-delivery'></a>
 
 ### Continuous integration and continuous delivery (CI/CD)
 
-The diagram below demonstrates the CI/CD process and sequence for the build and release pipelines.
+The following diagram demonstrates the CI/CD process and sequence for the build and release pipelines.
 
 :::image type="content" source="_images/ci-cd-process-diagram-new.svg" lightbox="_images/ci-cd-process-diagram-new.svg" alt-text="Diagram that shows the process and sequence for build and release." border="false":::
 
@@ -148,7 +154,7 @@ The diagram below demonstrates the CI/CD process and sequence for the build and 
 
 1. Developers develop in their own sandbox environments within the dev resource group and commit changes into their own short-lived Git branches. For example, `<developer_name>/<branch_name>`.
 
-1. When changes are complete, developers raise a pull request (PR) to the main branch for review. Doing so automatically kicks-off the PR validation pipeline, which runs the unit tests, linting, and data-tier application package (DACPAC) builds.
+1. When changes are complete, developers raise a pull request (PR) to the main branch for review. Doing so automatically kicks off the PR validation pipeline, which runs the unit tests, linting, and data-tier application package (DACPAC) builds.
 
 1. On completion of the PR validation, the commit to main will trigger a build pipeline that publishes all necessary build artifacts.
 
@@ -166,19 +172,19 @@ The diagram below demonstrates the CI/CD process and sequence for the build and 
 
     On Approval, the release pipeline continues with the third stage, deploying changes to the prod environment.
 
-For more information, read the [Build and Release Pipeline](https://github.com/Azure-Samples/modern-data-warehouse-dataops/tree/main/e2e_samples/parking_sensors#build-and-release-pipeline) section of the README.
+For more information, see the [Build and Release Pipeline](https://github.com/Azure-Samples/modern-data-warehouse-dataops/tree/main/databricks/parking_sensors#build-and-release-pipeline) section of the README.
 
 ### Testing
 
-The solution includes support for both unit testing and integration testing. It uses pytest-Data Factory and the Nutter Testing Framework. For more information, see the [Testing](https://github.com/Azure-Samples/modern-data-warehouse-dataops/tree/main/e2e_samples/parking_sensors#testing) section of the README.
+The solution includes support for both unit testing and integration testing. It uses pytest-Data Factory and the Nutter Testing Framework. For more information, see the [Testing](https://github.com/Azure-Samples/modern-data-warehouse-dataops/tree/main/databricks/parking_sensors#testing) section of the README.
 
 ### Observability and monitoring
 
-The solution supports observability and monitoring for Databricks and Data Factory. For more information, see the [Observability/Monitoring](https://github.com/Azure-Samples/modern-data-warehouse-dataops/tree/main/e2e_samples/parking_sensors#observability--monitoring) section of the README.
+The solution supports observability and monitoring for Databricks and Data Factory. For more information, see the [Observability/Monitoring](https://github.com/Azure-Samples/modern-data-warehouse-dataops/tree/main/databricks/parking_sensors#observability--monitoring) section of the README.
 
 ## Next steps
 
-If you'd like to deploy the solution, follow the steps in the [How to use the sample](https://github.com/Azure-Samples/modern-data-warehouse-dataops/tree/main/e2e_samples/parking_sensors#how-to-use-the-sample) section of the **DataOps - Parking Sensor Demo** README.
+If you'd like to deploy the solution, follow the steps in the [How to use the sample](https://github.com/Azure-Samples/modern-data-warehouse-dataops/tree/main/databricks/parking_sensors#how-to-use-the-sample) section of the **DataOps - Parking Sensor Demo** README.
 
 ### Solution code samples on GitHub
 
@@ -188,7 +194,6 @@ If you'd like to deploy the solution, follow the steps in the [How to use the sa
 
 Azure Databricks
 
-* [Monitoring Azure Databricks with Azure Monitor](../../databricks-monitoring/index.md)
 * [Monitoring Azure Databricks Jobs with Application Insights](/archive/msdn-magazine/2018/june/azure-databricks-monitoring-azure-databricks-jobs-with-application-insights)
 
 Data Factory
@@ -226,10 +231,6 @@ Azure Storage
 * [Best practices for using Azure Data Lake Storage Gen2 – High availability and Disaster Recovery](/azure/storage/blobs/data-lake-storage-best-practices#high-availability-and-disaster-recovery)
 * [Azure Storage Redundancy](/azure/storage/common/storage-redundancy)
 
-### Detailed walkthrough
+### Detailed overview
 
-For a detailed walk-through of the solution and key concepts, watch the following video recording: [DataDevOps for the Modern Data Warehouse on Microsoft Azure](https://www.youtube.com/watch?v=Xs1-OU5cmsw%22)
-
-## Related resources
-
-- [Monitoring Azure Databricks with Azure Monitor](../../databricks-monitoring/index.md)
+For a detailed overview of the solution and key concepts, watch the following video recording: [DataDevOps for the Modern Data Warehouse on Microsoft Azure](https://www.youtube.com/watch?v=Xs1-OU5cmsw%22)

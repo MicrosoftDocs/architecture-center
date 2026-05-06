@@ -1,27 +1,20 @@
 ---
-title: Mission-critical global HTTP ingress
-titleSuffix: Azure Architecture Center
+title: Mission-Critical Global HTTP Ingress
 description: Learn how to develop highly resilient global HTTP applications when your focus is on HTTP ingress.
 author: johndowns
-ms.author: jodowns
-ms.date: 03/10/2023
-ms.topic: conceptual
-ms.service: azure-architecture-center
+ms.author: pnp
+ms.reviewer: dburkhardt
+ms.date: 11/25/2025
+ms.topic: concept-article
 ms.subservice: architecture-guide
-products:
-  - azure
-categories:
-  - management-and-governance
-ms.category:
-  - fcp
-ms.custom:
-  - checklist
-  - guide
+ms.custom: guide
 ---
 
 # Mission-critical global HTTP ingress
 
 Mission-critical applications need to maintain a high level of uptime, even when network components are unavailable or degraded. When you design web traffic ingress, routing, and security, you can consider combining multiple Azure services to achieve a higher level of availability and to avoid having a single point of failure.
+
+As mentioned in the previous article in this series, Azure Front Door is designed to provide the utmost resiliency and availability not only for our external customers, but also for multiple properties across Microsoft. While Microsoft offers an [industry-leading service level agreement (SLA) for Azure Front Door](https://www.microsoft.com/licensing/docs/view/Service-Level-Agreements-SLA-for-Online-Services), if you have a mission-critical application that demands even higher SLA, you will need to implement additional ingress traffic paths.
 
 If you decide to adopt this approach, you'll need to implement separate network path to your application servers, and each path needs to be configured and tested separately. You must carefully consider the full implications of this approach.  
 
@@ -33,22 +26,25 @@ This article describes an approach to support global HTTP traffic ingress throug
 Caching at the network edge isn't critical part of your application delivery. If caching is important, see [Mission-critical global content delivery](./mission-critical-content-delivery.md) for an alternative approach.
 
 > [!NOTE]
->
 > This use case is part of an overall design strategy that covers an alternate approach when Azure Front Door is unavailable. For information about the context and considerations, see [Mission-critical global web applications](./overview.md).
 
 ## Approach
 
-This DNS-based load balancing solution uses multiple Azure Traffic Manager profiles to monitor Azure Front Door. In the unlikely event of an availability issue, Traffic Manager redirects traffic through Application Gateway.
+This DNS-based load balancing solution uses multiple Azure Traffic Manager profiles. In the unlikely event of an availability issue with Azure Front Door, Azure Traffic Manager redirects traffic through Application Gateway.
 
-:::image type="content" source="./media/mission-critical-global-http-ingress/front-door-application-gateway.png" alt-text="Diagram showing Azure Traffic Manager with priority routing to Azure Front Door, and a nested Traffic Manager profile using performance routing to send to Application Gateway instances in two regions." border="false":::
+:::image type="content" source="./media/mission-critical-global-http-ingress/front-door-application-gateway.svg" alt-text="Diagram showing Azure Traffic Manager with weighted routing to Azure Front Door, and a nested Traffic Manager profile using performance routing to send to Application Gateway instances in two regions." border="false":::
 
 The solution includes the following components:
 
-- **Traffic Manager using priority routing mode** has two [endpoints](/azure/traffic-manager/traffic-manager-endpoint-types). By default, Traffic Manager sends requests through Azure Front Door. If Azure Front Door is unavailable, a second Traffic Manager profile determines where to direct the request. The second profile is described below.
+- **Traffic Manager using weighted routing mode** has two [endpoints](/azure/traffic-manager/traffic-manager-endpoint-types) and is configured to [always serve traffic](/azure/traffic-manager/traffic-manager-monitoring#always-serve).
+
+  During normal operations, Traffic Manager sends all incoming requests through Azure Front Door. 
+  
+  If Azure Front Door becomes unavailable, turn off the Azure Front Door endpoint. A second Traffic Manager profile determines where to direct the request. The following section describes this configuration.
 
 - **Azure Front Door** processes and routes most of your application traffic. Azure Front Door routes traffic to the appropriate origin application server, and it provides the primary path to your application. Azure Front Door's WAF protects your application against common security threats. If Azure Front Door is unavailable, traffic is automatically redirected through the secondary path.
 
-- **Traffic Manager using performance routing mode** has an endpoint for each Application Gateway instance. This Traffic Manager sends requests to the Application Gateway instance with the best performance from the client's location.
+- **Traffic Manager using performance routing mode** has an endpoint for each Application Gateway instance. This Traffic Manager sends requests to the Application Gateway instance with the best performance from the client's location. This Traffic Manager instance also uses endpoint monitoring to check the health of each Application Gateway instance.
 
 - **Application Gateway** is deployed into each region, and sends traffic to the origin servers within that region. Application Gateway's WAF protects any traffic that flows through the secondary path.
 
@@ -60,19 +56,21 @@ The following sections describe some important considerations for this type of a
 
 #### Traffic Manager configuration
 
-This approach uses [nested Traffic Manager profiles](/azure/traffic-manager/traffic-manager-nested-profiles) to achieve both priority-based and performance-based routing together for your application's alternative traffic path. In a simple scenario with an origin in a single region, you might only need a single Traffic Manager profile configured to use priority-based routing.
+This approach uses [nested Traffic Manager profiles](/azure/traffic-manager/traffic-manager-nested-profiles) to combine weighted routing with performance-based routing for your application's alternative traffic path. In a simple scenario with an origin in a single region, you might configure only one Traffic Manager profile to use weighted routing.
+
+Weighted routing on the first profile also lets you divert some production traffic to the alternative path for testing.
 
 #### Regional distribution
 
 Azure Front Door is a global service, while Application Gateway is a regional service.
 
-Azure Front Door's points of presence are deployed globally, and TCP and TLS connections [terminate at the closest point of presence to the client](/azure/frontdoor/front-door-traffic-acceleration). This behavior improves the performance of your application. In contrast, when clients connect to Application Gateway, their TCP and TLS connections terminate at the Application Gateway that receives the request, regardless of where the traffic originated.
+Azure Front Door's points of presence are deployed globally, and TCP and TLS connections [terminate at an optimal point of presence](/azure/frontdoor/front-door-traffic-acceleration). This behavior improves the performance of your application. In contrast, when clients connect to Application Gateway, their TCP and TLS connections terminate at the Application Gateway that receives the request, regardless of where the traffic originated.
 
 #### Connections from clients
 
-As a global multitenant service, Azure Front Door provides inherent protection against a variety of threats. Azure Front Door only accepts valid HTTP and HTTPS traffic, and doesn't accept traffic on other protocols. Microsoft manages the public IP addresses that Azure Front Door uses for its inbound connections. Because of these characteristics, Azure Front Door can help to [protect your origin against various attack types](/azure/frontdoor/front-door-ddos), and your origins can be [configured to use Private Link connectivity](#private-link-connections-to-origin-servers).
+As a global multitenant service, Azure Front Door provides inherent protection against various threats. Azure Front Door only accepts valid HTTP and HTTPS traffic, and doesn't accept traffic on other protocols. Microsoft manages the public IP addresses that Azure Front Door uses for its inbound connections. Because of these characteristics, Azure Front Door can help to [protect your origin against various attack types](/azure/frontdoor/front-door-ddos), and your origins can be [configured to use Private Link connectivity](#private-link-connections-to-origin-servers).
 
-In contrast, Application Gateway is an internet-facing service with a dedicated public IP address. You must protect your network and origin servers against a variety of attack types. For more information, see [Origin security](./overview.md#origin-security).
+In contrast, Application Gateway is an internet-facing service with a dedicated public IP address. You must protect your network, Application Gateway, and origin servers against various attack types. For more information, see [Origin security](./overview.md#origin-security).
 
 #### Private Link connections to origin servers
 
@@ -82,15 +80,15 @@ If you use Private Link to connect to your origins, consider deploying a private
 
 #### Scaling
 
-When you deploy Application Gateway, you deploy dedicated compute resources for your solution. If large amounts of traffic arrive at your Application Gateway unexpectedly, you might observe performance or reliability issues.
+When you deploy Application Gateway, dedicated compute resources are deployed automatically to support the Application Gateway instance's operation. If large amounts of traffic arrive at your Application Gateway unexpectedly, you might observe performance or reliability issues.
 
-To mitigate this risk, consider how you [scale your Application Gateway instance](/azure/application-gateway/application-gateway-autoscaling-zone-redundant). Either use autoscaling, or ensure that you've manually scaled it to handle the amount of traffic that you might receive after failing over.
+To mitigate this risk, configure [autoscaling for your Application Gateway instance](/azure/application-gateway/application-gateway-autoscaling-zone-redundant). If you can't use autoscaling, manually scale the instance to handle the expected failover traffic volume.
 
 #### Caching
 
 If you use Azure Front Door's caching features, then it's important to be aware that after your traffic switches to the alternative path and uses Application Gateway, content is no longer served from the Azure Front Door caches. 
 
-If you depend on caching for your solution, see [Mission-critical global content delivery](./mission-critical-content-delivery.md) for an alternative approach that uses a partner CDN as a fallback to Azure Front Door.
+If you depend on caching for your solution, see [Mission-critical global content delivery](./mission-critical-content-delivery.md) for an alternative approach that uses an alternative content delivery network (CDN) as a fallback to Azure Front Door.
 
 Alternatively, if you use caching but it's not an essential part of your application delivery strategy, consider whether you can scale out or scale up your origins to cope with the increased load that was caused by the higher number of cache misses during a failover.
 
@@ -110,7 +108,7 @@ However, there are tradeoffs:
 
 - **Cost**. You typically need to deploy an Application Gateway instance into each region where you have an origin. Because each Application Gateway instance is billed separately, the cost can become high when you have origins deployed into several regions.
 
-  If cost is a significant factor for your solution, see [Mission-critical global content delivery](./mission-critical-content-delivery.md) for an alternative approach that uses a partner content delivery network (CDN) as a fallback to Azure Front Door. Some CDNs bill for traffic on a consumption basis, so this approach might be more cost-effective. However, you might lose some of the other advantages of using Application Gateway for your solution.
+  If cost is a significant factor for your solution, see [Mission-critical global content delivery](./mission-critical-content-delivery.md) for an alternative approach that uses an alternative content delivery network (CDN) as a fallback to Azure Front Door. Some CDNs bill for traffic on a consumption basis, so this approach might be more cost-effective. However, you might lose some of the other advantages of using Application Gateway for your solution.
 
   Alternatively, you could consider deploying an alternative architecture where Traffic Manager can route traffic directly to platform as a service (PaaS) application services, avoiding the need for Application Gateway and reducing your costs. You could consider this approach if you use a service like Azure App Service or Azure Container Apps for your solution. However, if you follow this approach, there are several important tradeoffs to consider:
 
@@ -122,6 +120,19 @@ However, there are tradeoffs:
 > If you consider exposing your application directly to the internet, create a thorough threat model and ensure that the architecture meets your security, performance, and resiliency requirements.
 >
 > If you use virtual machines to host your solution, you should not expose the virtual machines to the internet.
+
+## Contributors
+
+*This article is maintained by Microsoft. It was originally written by the following contributors.*
+
+Principal authors:
+
+- [Dave Burkhardt](https://www.linkedin.com/in/dave-burkhardt-13b79b3/) | Principal Program Manager, Azure Front Door
+- [John Downs](https://www.linkedin.com/in/john-downs/) | Principal Software Engineer, Azure Patterns & Practices
+- [Akhil Karmalkar](https://www.linkedin.com/in/akhil-karmalkar-8b200546/) | Principal Program Manager, Azure Front Door
+- [Priyanka Wilkins](https://www.linkedin.com/in/priyanka-w/) | Principal Content Developer, Azure Patterns & Practices
+
+*To see non-public LinkedIn profiles, sign in to LinkedIn.*
 
 ## Next steps
 

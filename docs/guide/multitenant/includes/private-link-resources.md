@@ -1,8 +1,7 @@
 ---
 author: johndowns
-ms.author: jodowns
+ms.author: pnp
 ms.topic: include
-ms.service: azure-architecture-center
 ---
 
 * [Azure Private Link Service explanation and demos from provider (SaaS ISV) and consumer perspectives](https://techcommunity.microsoft.com/t5/fasttrack-for-azure/azure-private-link-service-explanation-and-demos-from-provider/ba-p/3570251): A video that looks at the Azure Private Link service feature that enables multitenant service providers (such as independent software vendors building SaaS products). This solution enables consumers to access the provider's service using private IP addresses from the consumer's own Azure virtual networks.

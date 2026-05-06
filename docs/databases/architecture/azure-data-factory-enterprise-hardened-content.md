@@ -1,6 +1,6 @@
 This article describes how to modify and harden a [medallion lakehouse](/azure/databricks/lakehouse/medallion) when you adopt your system across an enterprise. This architecture follows a typical adoption pattern described in the [baseline architecture](azure-data-factory-on-azure-landing-zones-baseline.yml). This architecture is hardened to meet extra nonfunctional requirements (NFRs), provide extra capabilities, and shift responsibilities to a domain-based federated model.
 
-This architecture incorporates best practices and guidance from the [Microsoft Cloud Adoption Framework for Azure](/azure/cloud-adoption-framework/) and focuses on the implementation of [data domains](/azure/cloud-adoption-framework/scenarios/cloud-scale-analytics/architectures/data-domains) and the adoption of [data products](/azure/cloud-adoption-framework/scenarios/cloud-scale-analytics/architectures/data-landing-zone-data-products).
+This architecture incorporates best practices and guidance from the [Microsoft Cloud Adoption Framework for Azure](/azure/cloud-adoption-framework/) and focuses on the implementation of [data domains](/azure/cloud-adoption-framework/data/operational-standards-data-processing-standards-unify-data-platform) and the adoption of [data products](/azure/cloud-adoption-framework/data/architecture-fabric-data-lake-unify-data-platform#unified-data-platform-architecture).
 
 > [!NOTE]
 > The guidance in this article focuses on key differences of this architecture compared to the [baseline architecture](azure-data-factory-on-azure-landing-zones-baseline.yml).
@@ -37,18 +37,18 @@ There are several key requirements to modify and harden a medallion lakehouse:
 
 You can modify the [baseline architecture](azure-data-factory-on-azure-landing-zones-baseline.yml) to meet these requirements without creating a new architecture.
 
-- A [domain design](/azure/cloud-adoption-framework/scenarios/cloud-scale-analytics/architectures/data-domains#domain-modeling-recommendations) that's backed by an enterprise-managed foundation works well for this scenario. A domain design supports the requirements for extending the platform across the enterprise, the self-service functionality, and the business strategic objective. The foundation is defined as:
+- A [domain design](/azure/cloud-adoption-framework/data/operational-standards-data-product-consumption-unify-data-platform) that's backed by an enterprise-managed foundation works well for this scenario. A domain design supports the requirements for extending the platform across the enterprise, the self-service functionality, and the business strategic objective. The foundation is defined as:
 
   - Identity and access controls.
   - The underlying networking, boundary controls, and security baseline.
   - The governance, audit, and monitoring functionality.
   - Functions to ingest and initially process data into the platform.
 
-- The domain design is anchored around a given business department's ownership of their data and the originating source system. A new [operating model](/azure/cloud-adoption-framework/scenarios/cloud-scale-analytics/organize-roles-teams) enables business groups to optionally build their own stack of model-and-serve components that they control and maintain going forward. Domains operate within guardrails according to enterprise requirements and are enabled to perform well-defined and controlled experiments. The data science capability is delivered through:
+- The domain design is anchored around a given business department's ownership of their data and the originating source system. A new [operating model](/azure/cloud-adoption-framework/data/organizational-readiness-unify-data-platform) enables business groups to optionally build their own stack of model-and-serve components that they control and maintain going forward. Domains operate within guardrails according to enterprise requirements and are enabled to perform well-defined and controlled experiments. The data science capability is delivered through:
 
   - [Power BI](/power-bi/connect-data/service-tutorial-build-machine-learning-model) for low code and for simple or medium complexity use cases across tabular data. This model is an ideal starting point for data citizens.
 
-  - [Azure Machine Learning](/azure/machine-learning) and AI service offerings that support the full set of use cases and [user maturity](/azure/architecture/ai-ml/guide/mlops-maturity-model).
+  - [Azure Machine Learning](/azure/machine-learning) and Foundry Tools offerings that support the full set of use cases and [user maturity](/azure/architecture/ai-ml/guide/mlops-maturity-model).
 
   - [Azure Databricks](/azure/databricks/lakehouse-architecture/performance-efficiency/best-practices#use-parallel-computation-where-it-is-beneficial) for large enterprise volume use cases with significant processing demands.
 
@@ -56,25 +56,27 @@ You can modify the [baseline architecture](azure-data-factory-on-azure-landing-z
 
 - [Azure Data Factory](/azure/data-factory/introduction) capabilities to cover near real-time and micro-batch ingestion use cases that are enabled by the [change data capture](/azure/data-factory/concepts-change-data-capture) functionality. This functionality, combined with [Azure Databricks structured streaming](/azure/databricks/structured-streaming/) and [Power BI](/power-bi/connect-data/service-real-time-streaming), supports the end-to-end solution.
 
-- Power BI to enable data sharing with external parties as required with [Microsoft Entra B2B](/power-bi/enterprise/service-admin-azure-ad-b2b) authorization and access controls.
+- Power BI to enable data sharing with external parties as required with [Microsoft Entra B2B](/fabric/enterprise/powerbi/service-admin-entra-b2b) authorization and access controls.
 
 - Streaming data patterns can be complicated to implement and manage, especially in failure case scenarios. Ensure that business requirements are tested for acceptable latency and that source system and network infrastructure can support streaming requirements before implementation.
 
-- Any decision to move toward a domain model must be made in collaboration with business stakeholders. It's critical that stakeholders understand and accept the increased [responsibilities of domain ownership](/azure/cloud-adoption-framework/scenarios/cloud-scale-analytics/organize-roles-responsibilities).
+- Any decision to move toward a domain model must be made in collaboration with business stakeholders. It's critical that stakeholders understand and accept the increased responsibilities of domain ownership.
 
-- The stakeholders' data maturity, available skilling across the software development life cycle (SDLC), governance framework, standards, and automation maturity all influence how far the initial operating model leans into [domain enablement](/azure/cloud-adoption-framework/scenarios/cloud-scale-analytics/architectures/self-serve-data-platforms). These factors can also indicate your current position in the cloud-scale analytics [adoption lifecycle](/azure/cloud-adoption-framework/scenarios/cloud-scale-analytics/architectures/data-mesh-checklist) and highlight the steps needed to advance further.
+- The stakeholders' data maturity, available skilling across the software development life cycle (SDLC), governance framework, standards, and automation maturity all influence how far the initial operating model leans into domain enablement. These factors can also indicate your organization's current readiness for domain enablement and highlight the capabilities needed to advance further.
 
 ## Architecture
 
 :::image type="content" source="_images/azure-data-factory-hardened.png" lightbox="_images/azure-data-factory-hardened.png" alt-text="Diagram that shows the hardened medallion architecture." border="false":::
 
+*Download a [Visio file](https://arch-center.azureedge.net/azure-data-factory-hardened-logical.vsdx) of this architecture.*
+
 ### Workflow
 
 The following workflow corresponds to the preceding diagram:
 
-1. The ingested data and Delta Lake are [source aligned](/azure/cloud-adoption-framework/scenarios/cloud-scale-analytics/architectures/data-domains#source-system-aligned-domains) and remain the responsibility of the central technical team. This decision reflects the level of technical expertise required for Spark development and supports a consistent, standardized implementation approach that takes enterprise reusability into consideration.
+1. The ingested data and Delta Lake are source aligned and remain the responsibility of the central technical team. This decision reflects the level of technical expertise required for Spark development and supports a consistent, standardized implementation approach that takes enterprise reusability into consideration.
 
-    - [Data contracts](/azure/cloud-adoption-framework/scenarios/cloud-scale-analytics/architectures/data-contracts#data-contracts-1) govern the data feeds from source systems. Data contracts can be used to drive a [metadata-driven](/azure/cloud-adoption-framework/scenarios/cloud-scale-analytics/architectures/data-contracts#:~:text=metadata%2Ddriven%20ingestion%20frameworks) extract, transform, load (ETL) framework and make the data available to users as part of the [governance capability](/purview/how-to-browse-catalog).
+    - Data contracts govern the data feeds from source systems. Data contracts can be used to drive a metadata-driven extract, transform, load (ETL) framework and make the data available to users as part of the [governance capability](/purview/how-to-browse-catalog).
 
     - The directory structure of the bronze layer (or the *raw layer*) in Delta Lake reflects how [data is consumed](/azure/storage/blobs/data-lake-storage-best-practices#directory-structure). The source system orders the data. This organization methodology enables a unified security implementation based on the business ownership of source systems.
 
@@ -88,7 +90,7 @@ The following workflow corresponds to the preceding diagram:
 
     - The approach is managed through infrastructure as code (IaC) [infrastructure as code (IaC)](/azure/well-architected/operational-excellence/infrastructure-as-code-design), which provides a baseline of enterprise monitoring, audit, and security controls. The platform [tagging strategy](/azure/cloud-adoption-framework/ready/azure-best-practices/naming-and-tagging) is extended to support the domain extension.
 
-    - Each domain has its own set of role-based access control (RBAC) roles that cover the [control planes and data planes](/azure/azure-resource-manager/management/control-plane-and-data-plane). Control plane roles are primarily used within domain logical containers. In contrast, data plane roles apply across the platform, which ensures consistent, unified, and low-complexity control.
+    - Each domain has its own set of Azure role-based access control (Azure RBAC) roles that cover the [control planes and data planes](/azure/azure-resource-manager/management/control-plane-and-data-plane). Control plane roles are primarily used within domain logical containers. In contrast, data plane roles apply across the platform, which ensures consistent, unified, and low-complexity control.
 
 5. Within a domain subscription, the available components can be configured based on skill sets, priorities, and use cases.
 
@@ -98,11 +100,11 @@ The following workflow corresponds to the preceding diagram:
 
 ### Network design
 
-:::image type="complex" source="./_images/azure-data-factory-hardened-network.png" alt-text="Diagram that shows a hardened network design for an Azure Data Factory workload." border="false" lightbox="_images/azure-data-factory-baseline-network.png":::
-    Diagram that shows an example of the workflow for a system that uses the Valet Key pattern. Boxes on the left show on-premises infrastructure and user connectivity. A box on the upper right shows the ingress infrastructure in the connectivity hub subscription. Below that are the main components of the design all using private endpoints. Next to the main infrastructure is a box with monitoring infrastructure in the shared services subscription.
+:::image type="complex" source="./_images/azure-data-factory-hardened-network.svg" alt-text="Diagram that shows a hardened network design for an Azure Data Factory workload." border="false" lightbox="_images/azure-data-factory-hardened-network.svg":::
+    Diagram that shows an example of the workflow for a system that uses the Valet Key pattern. Boxes on the far left show on-premises infrastructure and user connectivity. A box in the upper right shows the ingress infrastructure in the connectivity hub subscription. Underneath that ingress infrastructure box are the main components of the design that all use private endpoints. Next to the main infrastructure is a box with monitoring infrastructure in the shared services subscription.
 :::image-end:::
 
-*Download a [Visio file](https://arch-center.azureedge.net/azure-data-factory-hardened.vsdx) of this architecture.*
+*Download a [Visio file](https://arch-center.azureedge.net/azure-data-factory-baseline-network.vsdx) of this architecture.*
 
 - Use a next generation firewall like [Azure Firewall](/azure/firewall/overview) to secure network connectivity between your on-premises infrastructure and your Azure virtual network.
 
@@ -134,7 +136,7 @@ Azure Machine Learning and Azure Databricks process data to generate machine lea
 
 ## Considerations
 
-These considerations implement the pillars of the Azure Well-Architected Framework, which is a set of guiding tenets that can be used to improve the quality of a workload. For more information, see [Well-Architected Framework](/azure/well-architected/).
+These considerations implement the pillars of the Azure Well-Architected Framework, which is a set of guiding tenets that can be used to improve the quality of a workload. For more information, see [Microsoft Azure Well-Architected Framework](/azure/well-architected/).
 
 ### Reliability
 
@@ -167,13 +169,13 @@ Security provides assurances against deliberate attacks and the abuse of your va
 
 Compared to the baseline architecture, this architecture:
 
-- Creates domain-specific data RBAC roles when domain-specific data is ingested into the platform with data classification higher than enterprise. For more information, see [Govern overview](/azure/cloud-adoption-framework/govern/policy-compliance/data-classification#classifications-microsoft-uses). The roles are then reused across all solution components that use this data. You can reuse these domain data roles for any new domain data onboarded to the platform. This approach delivers consistent and unified controls for the access to data.
+- Creates domain-specific data Azure RBAC roles when domain-specific data is ingested into the platform with data classification higher than enterprise. For more information, see [Govern overview](/azure/cloud-adoption-framework/govern/policy-compliance/data-classification#classifications-microsoft-uses). The roles are then reused across all solution components that use this data. You can reuse these domain data roles for any new domain data onboarded to the platform. This approach delivers consistent and unified controls for the access to data.
 
 - Considers the higher data sensitivity requirements for the platform, [Microsoft Entra Privileged Identity Management (PIM)](/entra/id-governance/privileged-identity-management/pim-resource-roles-assign-roles) for all key operational support roles.
 
-### Cost optimization
+### Cost Optimization
 
-Cost optimization is about looking at ways to reduce unnecessary expenses and improve operational efficiencies. For more information, see [Design review checklist for Cost Optimization](/azure/well-architected/cost-optimization/checklist).
+Cost Optimization is about looking at ways to reduce unnecessary expenses and improve operational efficiencies. For more information, see [Design review checklist for Cost Optimization](/azure/well-architected/cost-optimization/checklist).
 
 Compared to the baseline architecture, this architecture:
 
@@ -181,9 +183,9 @@ Compared to the baseline architecture, this architecture:
 
 - Extends the [cost management alerting](/azure/cost-management-billing/costs/cost-mgt-alerts-monitor-usage-spending) to the domains and business stakeholders to provide transparency and observability.
 
-### Operational excellence
+### Operational Excellence
 
-Operational excellence covers the operations processes that deploy an application and keep it running in production. For more information, see [Design review checklist for Operational Excellence](/azure/well-architected/operational-excellence/checklist).
+Operational Excellence covers the operations processes that deploy an application and keep it running in production. For more information, see [Design review checklist for Operational Excellence](/azure/well-architected/operational-excellence/checklist).
 
 Compared to the baseline architecture, this architecture:
 
@@ -193,9 +195,9 @@ Compared to the baseline architecture, this architecture:
 
 - Develops a central [nonfunctional requirements register](/azure/architecture/guide/design-principles/build-for-business) and adopts a standard of [software development best practices](/azure/architecture/best-practices/index-best-practices) that any platform solution can reference in any developer area. To support these standards, integrate a robust [testing framework](/devops/develop/shift-left-make-testing-fast-reliable) into the continuous integration and continuous deployment practice.
 
-### Performance efficiency
+### Performance Efficiency
 
-Performance efficiency is the ability of your workload to scale to meet the demands placed on it by users in an efficient manner. For more information, see [Design review checklist for Performance Efficiency](/azure/well-architected/performance-efficiency/checklist).
+Performance Efficiency is the ability of your workload to meet the demands placed on it by users in an efficient manner. For more information, see [Design review checklist for Performance Efficiency](/azure/well-architected/performance-efficiency/checklist).
 
 Compared to the baseline architecture, this architecture:
 
@@ -214,8 +216,7 @@ Compared to the baseline architecture, this architecture:
 ## Next steps
 
 - [Azure landing zone](/azure/cloud-adoption-framework/ready/landing-zone/)
-- [Microsoft Cloud Adoption Framework](/azure/cloud-adoption-framework/)
-- [Data domain guidance](/azure/cloud-adoption-framework/scenarios/cloud-scale-analytics/architectures/data-domains)
+- [Executive strategy for unifying your data](/azure/cloud-adoption-framework/data/executive-strategy-unify-data-platform)
 
 ## Related resources
 

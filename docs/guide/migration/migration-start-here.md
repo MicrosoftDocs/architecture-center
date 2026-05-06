@@ -1,18 +1,12 @@
 ---
 title: Migration architecture design
 description: Get an overview of Azure migration technologies, guidance offerings, solution ideas, and reference architectures.
-author: martinekuan
+author: claytonsiemens77
 ms.author: pnp
 ms.date: 08/11/2022
-ms.topic: conceptual
-ms.service: azure-architecture-center
+ms.topic: concept-article
 ms.subservice: architecture-guide
-products:
-  - azure-migrate
-  - azure-database-migration
-  - azure-data-box-family
-categories:
-  - migration
+ms.collection: migration
 ---
 # Migration architecture design
 
@@ -79,12 +73,10 @@ The following sections provide links to reference architectures in a few high-le
 
 - [Modernize mainframe and midrange data](/azure/architecture/example-scenario/mainframe/modernize-mainframe-data-to-azure)
 - [General mainframe refactor to Azure](../../example-scenario/mainframe/general-mainframe-refactor.yml)
-- [Rehost a general mainframe on Azure](../../example-scenario/mainframe/mainframe-rehost-architecture-azure.yml)
-- [Migrate IBM mainframe applications to Azure with TmaxSoft OpenFrame](../../solution-ideas/articles/migrate-mainframe-apps-with-tmaxsoft-openframe.yml)
 
 ### Oracle migrations
 
-- [Oracle database migration to Azure](../../databases/idea/reference-architecture-for-oracle-database-migration-to-azure.yml)
+- [Migrate an Oracle database to Azure](../../databases/idea/topic-migrate-oracle-azure.yml)
 
 ### Migrations of banking systems
 
@@ -101,9 +93,7 @@ Get the latest updates on [Azure migration services and features](https://azure.
 
 Following are some additional migration architectures to consider:
 
-- [Migrate an e-commerce solution to Azure](../../industries/retail/migrate-ecommerce-solution.md)
 - [Lift and shift to containers with AKS](/azure/cloud-adoption-framework/migrate/)
-- [Migrate a monolithic application to microservices using domain-driven design](../../microservices/migrate-monolith.yml)
 - [Support matrix for migration of physical servers, AWS VMs, and GCP VMs](/azure/migrate/migrate-support-matrix-physical-migration?toc=/azure/architecture/toc.json&bc=/azure/architecture/_bread/toc.json)
 - [Migrate a web app using Azure API Management](../../example-scenario/apps/apim-api-scenario.yml)
 

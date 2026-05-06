@@ -39,7 +39,7 @@ This initial use case includes the following scenarios:
 
 - The solution must support the following target service-level agreements (SLAs):
 
-  - 99.5% target uptime, or about 1 day and 20 hours of downtime within a year.
+  - Target uptime of 99.5%, or about one day and 20 hours of downtime within a year.
 
   - Recovery point objective of three days.
 
@@ -49,9 +49,9 @@ This initial use case includes the following scenarios:
 
 - The solution must support the following expected usage:
 
-  - 200 managers, financial controllers, and analysts that are connected to the finance department, with an estimated growth of less than 5% annually.
+  - Two hundred managers, financial controllers, and analysts that are connected to the finance department, with an estimated growth of less than 5% annually.
 
-  - 100 analysts that are connected to other corporate functions, with an estimated growth of less than 5% annually.
+  - One hundred analysts that are connected to other corporate functions, with an estimated growth of less than 5% annually.
 
   - Only Contoso employees can access the solution. This control explicitly excludes any direct access by non-Contoso or external parties.
 
@@ -113,13 +113,15 @@ The [modern analytics architecture with Azure Databricks](/azure/architecture/so
 
 :::image type="content" source="_images/azure-data-factory-baseline.png" alt-text="Diagram that shows the medallion architecture and data flow." border="false" lightbox="_images/azure-data-factory-baseline.png":::
 
-### Dataflow
+*Download a [Visio file](https://arch-center.azureedge.net/azure-data-factory-baseline-logical.vsdx) of this architecture.*
+
+### Data flow
 
 This solution uses Data Factory with a SHIR to ingest data from the on-premises source system to Data Lake Storage. Data Factory also orchestrates Azure Databricks notebooks to transform and load the data into Delta Lake tables hosted on Data Lake Storage.
 
 Delta Lake is coupled with Power BI, which is used to create senior leadership dashboards and analysis on top of the Delta Lake tables. Azure Databricks also provides raw or validated lake access for data science and machine learning workloads.
 
-The following dataflow corresponds to the preceding diagram:
+The following data flow corresponds to the previous diagram:
 
 1. Data is ingested from an on-premises source system to [Data Lake Storage](https://azure.microsoft.com/products/storage/data-lake-storage/) by using [Data Factory](https://azure.microsoft.com/products/data-factory/) with a SHIR. Data Factory also provides process orchestration for [Azure Databricks](https://azure.microsoft.com/products/databricks/) notebooks to transform and load the data into Delta Lake tables stored on Data Lake Storage, along with [SQL Server](/azure/azure-sql/) extract, transform, load processes.
 
@@ -139,7 +141,7 @@ Data Lake Storage underpins Delta Lake because of its ability to efficiently sto
 
 1. The solution adds two more components to the foundational Azure services, which enable collaboration, governance, reliability, and security:
 
-    - [Microsoft Purview Data Governance](/purview/governance-home) provides data discovery services, a data catalog, and governance insights across the platform.
+    - Microsoft Purview provides data discovery services, a [Unified Catalog](/purview/unified-catalog), and governance insights across the platform.
 
     - [Site Recovery](/azure/site-recovery/) supports the backup and recovery of the VMs, which provide the compute to the Data Factory SHIR, required to ingest data from on-premises.
 
@@ -157,7 +159,7 @@ The following foundation services require extension to support this solution:
 
 ### Network design
 
-:::image type="content" source="_images/azure-data-factory-baseline-network.png" alt-text="Diagram that shows a medallion architecture network design." border="false" lightbox="_images/azure-data-factory-baseline-network.png":::
+:::image type="content" source="_images/azure-data-factory-hardened-network.svg" alt-text="Diagram that shows a medallion architecture network design." border="false" lightbox="_images/azure-data-factory-hardened-network.svg":::
 
 *Download a [Visio file](https://arch-center.azureedge.net/azure-data-factory-baseline-network.vsdx) of this architecture.*
 
@@ -169,31 +171,23 @@ The following foundation services require extension to support this solution:
 
 - To take advantage of machine learning-assisted data labeling, you must create a new storage account that is different than the default storage account you created for the Azure Machine Learning workspace. You can bind the new, nondefault storage account to the same virtual network as the workspace. If you prefer to keep the storage account separate, you can place it in a different subnet within that virtual network.
 
-## Design considerations
+## Considerations
+
+These considerations implement the pillars of the Azure Well-Architected Framework, which is a set of guiding tenets that can be used to improve the quality of a workload. For more information, see [Microsoft Azure Well-Architected Framework](/azure/well-architected/).
 
 - The use of Azure Databricks Delta Lake means that you can't use the Archive tier Azure Storage accounts because that tier is effectivity offline storage. This design choice is a tradeoff between functionality and cost.
 
 - When you create a new Azure Databricks workspace, the default redundancy for the managed storage account (Azure Databricks File system or Databricks File system root) is set as geo-redundant storage (GRS). You can change the redundancy to locally redundant storage (LRS) if geo-redundancy isn't needed.
 
-- As a general rule, data warehouses that are less than one TB perform better on Azure SQL Database than on Synapse. Synapse starts to show performance gains when the data warehouse is more than 1 to 5 TB. This performance difference is the main factor for selecting [Azure SQL rather than Synapse](https://learn.microsoft.com/answers/questions/976202/azure-sql-server-vs-synapse-dedicated-sql-pool).
-
 ## Alternatives
 
 [Microsoft Fabric](/fabric/get-started/microsoft-fabric-overview) has Data Factory, Azure Databricks, and Power BI built-in as a single solution. Because Fabric is a relatively new service, there might be some functionality that isn't currently available to match that of the services that are used in this scenario. There might also be a learning curve for operators.
 
-[Azure Synapse Analytics](/azure/synapse-analytics/) is an alternative for the storage processing layer. This service isn't a good match for the scenario described in this article because Azure Databricks is a mature, functional match and has skilling available in the market.
-
 The following services are alternatives for the storage modeling layer:
-
-- [Azure Synapse Analytics](/azure/synapse-analytics/): This service isn't a good match for the scenario described in this article because of data volumes and functional overlap with Azure Databricks.
 
 - [Azure SQL Managed Instance](/azure/azure-sql/managed-instance/): This service isn't a good match for the scenario described in this article because of the lack of migration requirement and higher operating expenses.
 
-- [Azure Database for PostgresSQL](/azure/postgresql/): This service isn't a good match for the scenario described in this article because of Contoso's existing skill set and preference to minimize the introduction of new technologies, which reduces cost and complexity.
-
-## Considerations
-
-These considerations implement the pillars of the Azure Well-Architected Framework, which is a set of guiding tenets that can be used to improve the quality of a workload. For more information, see [Well-Architected Framework](/azure/well-architected/).
+- [Azure Database for PostgreSQL](/azure/postgresql/): This service isn't a good match for the scenario described in this article because of Contoso's existing skill set and preference to minimize the introduction of new technologies, which reduces cost and complexity.
 
 ### Reliability
 
@@ -201,7 +195,7 @@ Reliability ensures your application can meet the commitments you make to your c
 
 To align with the reliability targets for a business intelligence analytical and reporting system:
 
-- The default Azure [SLAs](https://www.azure.cn/support/sla/summary/) across the solution meet the requirements, so no high-availability or multi-regional uplift is required.
+- The individual [Microsoft SLAs](https://www.microsoft.com/licensing/docs/view/Service-Level-Agreements-SLA-for-Online-Services) for the services in this solution each exceed the 99.5% target, but [review each service's SLA](/azure/reliability/concept-service-level-agreements) to understand the definitions, conditions, and exclusions that affect coverage before you conclude that no high-availability or multi-regional uplift is required.
 
 - The architecture uses a [Wait for Microsoft](/azure/architecture/data-guide/disaster-recovery/dr-for-azure-data-platform-recommendations#dr-strategy-impacts) disaster recovery strategy because of the low service criticality of the solution and the use of PaaS services.
 
@@ -238,13 +232,13 @@ This architecture addresses security via configuration of the infrastructure sel
 
   - This solution creates the groups, like finance, at the domain level to enable reuse. The data classification framework limits the sprawl of solution-specific groups.
 
-### Cost optimization
+### Cost Optimization
 
-Cost optimization is about looking at ways to reduce unnecessary expenses and improve operational efficiencies. For more information, see [Design review checklist for Cost Optimization](/azure/well-architected/cost-optimization/checklist).
+Cost Optimization is about looking at ways to reduce unnecessary expenses and improve operational efficiencies. For more information, see [Design review checklist for Cost Optimization](/azure/well-architected/cost-optimization/checklist).
 
 To address cost optimization, this architecture:
 
-- Strongly links component SKU selection to the requirements, which avoids the *build it and they'll come* antipattern. This solution schedules in regular reviews of metrics to enable [rightsizing](https://azure.microsoft.com/blog/rightsize-to-maximize-your-cloud-investment-with-microsoft-azure/) and use of [Microsoft Copilot in Azure](/azure/copilot/analyze-cost-management).
+- Strongly links component SKU selection to the requirements, which avoids the *build it and they'll come* antipattern. This solution schedules in regular reviews of metrics to enable [rightsizing](https://azure.microsoft.com/blog/rightsize-to-maximize-your-cloud-investment-with-microsoft-azure/) and use of [Azure Copilot](/azure/copilot/analyze-cost-management).
 
 - Implements practical operating expense saving benefits as part of a broader [financial operations framework](/azure/cost-management-billing/finops/overview-finops), such as:
 
@@ -266,9 +260,9 @@ To address cost optimization, this architecture:
 
 - Implements cost and budget alerting through [Cost Management](/azure/cost-management-billing/costs/cost-mgt-alerts-monitor-usage-spending) and [spending guardrails](/azure/well-architected/cost-optimization/set-spending-guardrails#use-governance-policies).
 
-### Operational excellence
+### Operational Excellence
 
-Operational excellence covers the operations processes that deploy an application and keep it running in production. For more information, see [Design review checklist for Operational Excellence](/azure/well-architected/operational-excellence/checklist).
+Operational Excellence covers the operations processes that deploy an application and keep it running in production. For more information, see [Design review checklist for Operational Excellence](/azure/well-architected/operational-excellence/checklist).
 
 Operational excellence is enabled through automation, monitoring, and auditing across the SDLC. This solution includes:
 
@@ -305,9 +299,9 @@ The recommended alerting baseline includes:
 > [!IMPORTANT]
 > Create alert [action groups](/azure/azure-monitor/alerts/action-groups) as global resources to ensure continuity in the event of regional service problems.
 
-### Performance efficiency
+### Performance Efficiency
 
-Performance efficiency is the ability of your workload to scale to meet the demands placed on it by users in an efficient manner. For more information, see [Design review checklist for Performance Efficiency](/azure/well-architected/performance-efficiency/checklist).
+Performance Efficiency is the ability of your workload to meet the demands placed on it by users in an efficient manner. For more information, see [Design review checklist for Performance Efficiency](/azure/well-architected/performance-efficiency/checklist).
 
 To addresses performance efficiency, this architecture has:
 
@@ -344,8 +338,6 @@ Understand that data solution performance typically degrades over time. Establis
 ## Deploy this scenario
 
 To deploy this architecture, follow the step-by-step instructions in the [GitHub sample](https://github.com/azure-samples/data-factory-to-databricks).
-
-To deploy a SHIR on an Azure VM, use the [quickstart template](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.compute/vms-with-selfhost-integration-runtime).
 
 ## Next steps
 

@@ -48,6 +48,8 @@ There are several key requirements to deliver a mission-critical advanced analyt
 
 :::image type="content" source="_images/azure-data-factory-mission-critical.png" alt-text="Diagram that shows the design for a mission-critical workload." border="false"lightbox="_images/azure-data-factory-mission-critical.png":::
 
+*Download a [Visio file](https://arch-center.azureedge.net/azure-data-factory-mission-critical-logical.vsdx) of this architecture.*
+
 ### Workflow
 
 The following workflow corresponds to the preceding diagram:
@@ -100,11 +102,11 @@ The following workflow corresponds to the preceding diagram:
 
 ### Network design
 
-:::image type="complex" source="./_images/azure-data-factory-mission-critical-network.png" alt-text="Diagram that shows a hardened network design for a Data Factory workload." border="false" lightbox="_images/azure-data-factory-baseline-network.png":::
-    Diagram that shows an example of the workflow for a system using the Valet Key pattern. Boxes on the left show on-premises infrastructure and user connectivity. A box on the upper right shows ingress infrastructure in the Connectivity Hub subscription. Below that are the main components of the design that all use private endpoints. To the right of the main infrastructure is a box with monitoring infrastructure in the shared services subscription.
+:::image type="complex" source="./_images/azure-data-factory-hardened-network.svg" alt-text="Diagram that shows a hardened network design for a Data Factory workload." border="false" lightbox="_images/azure-data-factory-hardened-network.svg":::
+    Diagram that shows an example of the workflow for a system using the Valet Key pattern. Boxes on the left show on-premises infrastructure and user connectivity. A box on the upper right shows ingress infrastructure in the Connectivity Hub subscription. Underneath the ingress infrastructure box are the main components of the design that all use private endpoints. To the right of the main infrastructure is a box with monitoring infrastructure in the shared services subscription.
 :::image-end:::
 
-*Download a [Visio file](https://arch-center.azureedge.net/azure-data-factory-mission-critical-network.vsdx) of this architecture.*
+*Download a [Visio file](https://arch-center.azureedge.net/azure-data-factory-baseline-network.vsdx) of this architecture.*
 
 - You should use a next-generation firewall like [Azure Firewall](/azure/firewall/overview) to secure network connectivity between your on-premises infrastructure and your Azure virtual network.
 
@@ -131,7 +133,7 @@ For more information, see [Networking and connectivity](/azure/well-architected/
 
 ## Considerations
 
-These considerations implement the pillars of the Azure Well-Architected Framework, which is a set of guiding tenets that can be used to improve the quality of a workload. For more information, see [Well-Architected Framework](/azure/well-architected/).
+These considerations implement the pillars of the Azure Well-Architected Framework, which is a set of guiding tenets that can be used to improve the quality of a workload. For more information, see [Microsoft Azure Well-Architected Framework](/azure/well-architected/).
 
 ### Reliability
 
@@ -139,7 +141,7 @@ Reliability ensures your application can meet the commitments you make to your c
 
 Compared to the baseline architecture, this architecture:
 
-- Aligns with the [mission-critical baseline architecture](/azure/architecture/reference-architectures/containers/aks-mission-critical/mission-critical-intro).
+- Aligns with the [mission-critical architecture](/azure/architecture/reference-architectures/containers/aks-mission-critical/mission-critical-intro).
 
 - Follows the guidance from the mission-critical [reliability](/azure/well-architected/mission-critical/mission-critical-design-principles#reliability) design considerations.
 
@@ -155,9 +157,9 @@ Compared to the baseline architecture, this architecture:
 
 - Implements the [security guidance](/azure/well-architected/mission-critical/mission-critical-security) from the mission-critical reference architecture.
 
-### Cost optimization
+### Cost Optimization
 
-Cost optimization is about looking at ways to reduce unnecessary expenses and improve operational efficiencies. For more information, see [Design review checklist for Cost Optimization](/azure/well-architected/cost-optimization/checklist).
+Cost Optimization is about looking at ways to reduce unnecessary expenses and improve operational efficiencies. For more information, see [Design review checklist for Cost Optimization](/azure/well-architected/cost-optimization/checklist).
 
 Mission-critical designs are [expensive](/azure/well-architected/mission-critical/mission-critical-design-principles#cost-optimization), which makes implementing controls important. Some controls include:
 
@@ -167,23 +169,23 @@ Mission-critical designs are [expensive](/azure/well-architected/mission-critica
 
 - Cost and budget alerting through [Microsoft Cost Management](/azure/cost-management-billing/costs/cost-mgt-alerts-monitor-usage-spending).
 
-### Operational excellence
+### Operational Excellence
 
-Operational excellence covers the operations processes that deploy an application and keep it running in production. For more information, see [Design review checklist for Operational Excellence](/azure/well-architected/operational-excellence/checklist).
+Operational Excellence covers the operations processes that deploy an application and keep it running in production. For more information, see [Design review checklist for Operational Excellence](/azure/well-architected/operational-excellence/checklist).
 
 Compared to the baseline architecture, this architecture:
 
 - Follows the guidance from the mission-critical [operational excellence](/azure/well-architected/mission-critical/mission-critical-design-principles#operational-excellence) design considerations.
 
-- Separates out global and regional monitoring resources to prevent a single of point failure in [Observability](/azure/architecture/reference-architectures/containers/aks-mission-critical/mission-critical-intro#unified-data-sink).
+- Separates out global and regional monitoring resources to prevent a single of point failure in [Observability](/azure/well-architected/mission-critical/mission-critical-health-modeling#unified-data-sink-for-correlated-analysis).
 
 - Implements the [deployment and testing guidance](/azure/well-architected/mission-critical/mission-critical-deployment-testing) and [operational procedures](/azure/well-architected/mission-critical/mission-critical-operational-procedures) from the mission-critical reference architecture.
 
 - Aligns the solution with [Azure engineering roadmaps](/azure/well-architected/mission-critical/mission-critical-cross-cutting-issues#azure-roadmap-alignment) and [regional rollouts](https://azure.microsoft.com/updates) to account for constantly evolving services in Azure.
 
-### Performance efficiency
+### Performance Efficiency
 
-Performance efficiency is the ability of your workload to scale to meet the demands placed on it by users in an efficient manner. For more information, see [Design review checklist for Performance Efficiency](/azure/well-architected/performance-efficiency/checklist).
+Performance Efficiency is the ability of your workload to meet the demands placed on it by users in an efficient manner. For more information, see [Design review checklist for Performance Efficiency](/azure/well-architected/performance-efficiency/checklist).
 
 Compared to the baseline architecture, this architecture:
 

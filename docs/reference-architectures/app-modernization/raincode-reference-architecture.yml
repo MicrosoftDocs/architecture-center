@@ -6,14 +6,13 @@ metadata:
   ms.author: vramakrishna
   ms.date: 07/10/2024
   ms.topic: reference-architecture
-  ms.service: azure-architecture-center
   ms.subservice: reference-architecture
   ms.category:
     - integration
     - databases
-  ms.custom:
-    - reference-architecture
-    - fcp
+  ms.collection:
+    - migration
+    - onprem-to-azure
 name: Rehost mainframe applications to Azure with Raincode compilers
 azureCategories:
   - integration
@@ -27,4 +26,4 @@ products:
   - azure-load-balancer
 thumbnailUrl: /azure/architecture/browse/thumbs/raincode-reference-architecture-02.png
 content: |
-   [!include[](raincode-reference-architecture-content.md)]
+   [!INCLUDE[](raincode-reference-architecture-content.md)]

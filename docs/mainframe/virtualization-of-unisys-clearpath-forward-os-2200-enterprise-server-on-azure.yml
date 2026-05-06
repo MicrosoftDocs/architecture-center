@@ -1,13 +1,11 @@
 ### YamlMime:Architecture
 metadata:
-  title: Unisys ClearPath Forward OS 2200 enterprise server virtualization on Azure
-  titleSuffix: Azure Architecture Center
+  title: Unisys ClearPath Forward OS 2200 Enterprise Server Virtualization on Azure
   description: Learn how to use virtualization technologies from Microsoft partner Unisys with an existing Unisys ClearPath Forward (CPF) Dorado enterprise server.
   author: pbrooks
   ms.author: pbrooks
-  ms.date: 10/25/2023
-  ms.topic: conceptual
-  ms.service: azure-architecture-center
+  ms.date: 04/02/2025
+  ms.topic: example-scenario
   ms.subservice: example-scenario
 azureCategories:
   - databases
@@ -20,4 +18,4 @@ name: Unisys ClearPath Forward OS 2200 enterprise server virtualization on Azure
 summary: Learn how to use virtualization technologies from Microsoft partner Unisys with an existing Unisys ClearPath Forward (CPF) Dorado enterprise server.
 thumbnailUrl: /azure/architecture/browse/thumbs/unisys-clearpath-forward-OS-2200-mainframe-rehost-diagram-postmigration.png
 content: |
-  [!include[](virtualization-of-unisys-clearpath-forward-os-2200-enterprise-server-on-azure-content.md)]
+  [!INCLUDE[](virtualization-of-unisys-clearpath-forward-os-2200-enterprise-server-on-azure-content.md)]

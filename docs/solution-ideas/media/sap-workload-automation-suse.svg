@@ -2164,9 +2164,9 @@
 			<text x="5.83" y="663.18" class="st32">Network security <tspan x="27.2" dy="1.2em" class="st12">group</tspan></text>		</g>
 		<g id="shape1887-752" transform="translate(220.345,-534.724)">
 			<title>Sheet.1887</title>
-			<desc>Jumpbox / Bastion</desc>
+			<desc>Jump box / Bastion</desc>
 			<rect x="0" y="656.767" width="62.6897" height="18.2332" class="st10"/>
-			<text x="5.67" y="662.58" class="st11">Jumpbox / <tspan x="13.53" dy="1.2em" class="st12">Bastion</tspan></text>		</g>
+			<text x="5.67" y="662.58" class="st11">Jump box / <tspan x="13.53" dy="1.2em" class="st12">Bastion</tspan></text>		</g>
 		<g id="shape1888-756" transform="translate(379.862,-534.724)">
 			<title>Sheet.1888</title>
 			<desc>iSCSI for Split Brain Detector (SBD)</desc>

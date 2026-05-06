@@ -1,0 +1,23 @@
+### YamlMime:Architecture
+metadata:
+  title: Implement SMA OpCon in Azure
+  description: Learn how to use SMA Technologies OpCon in a Kubernetes configuration to automate Azure and on-premises workloads that run on various servers across an enterprise.
+  author: bhbandam
+  ms.author: bhbandam
+  ms.date: 05/27/2025
+  ms.topic: example-scenario
+  ms.subservice: example-scenario
+azureCategories:
+  - containers
+  - hybrid
+products:
+  - azure-kubernetes-service
+  - azure-private-link
+  - azure-sql-database
+  - azure-storage
+  - azure-vpn-gateway
+name: Implement an SMA OpCon environment in Azure
+summary: Learn how to use SMA Technologies OpCon in a Kubernetes configuration to automate Azure and on-premises workloads that run on various servers across an enterprise.
+thumbnailUrl: /azure/architecture/browse/thumbs/opcon-azure-thumb.png
+content: |
+   [!INCLUDE[](sma-opcon-azure-content.md)]

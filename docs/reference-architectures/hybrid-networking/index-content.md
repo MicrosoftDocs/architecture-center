@@ -1,5 +1,4 @@
 
-
 This article compares three options for connecting an on-premises network to an Azure Virtual Network (VNet). For each option, a more detailed reference architecture is available.
 
 ## VPN connection
@@ -14,13 +13,13 @@ This architecture is suitable for hybrid applications where the traffic between 
 
 ### Benefits
 
-- Simple to configure.
+- Relatively straightforward configuration compared to dedicated connectivity options.
 - High aggregate bandwidth available; up to 10 Gbps depending on the VPN Gateway SKU.
 
 ### Challenges
 
 - Requires an on-premises VPN device.
-- Although Microsoft guarantees 99.9% availability for each VPN Gateway, this [SLA](https://azure.microsoft.com/support/legal/sla/vpn-gateway/) only covers the VPN gateway, and not your network connection to the gateway.
+- Although the VPN Gateway [SLA](https://www.microsoft.com/licensing/docs/view/Service-Level-Agreements-SLA-for-Online-Services) commits to 99.9% availability, that commitment only covers the VPN gateway, and not your network connection to the gateway.
 
 ### Reference architecture
 
@@ -40,15 +39,14 @@ This architecture is suitable for hybrid applications running large-scale, missi
 
 > [!NOTE]
 > In the context of ExpressRoute, the Microsoft edge describes the edge routers on the Microsoft side of the ExpressRoute circuit. This is the ExpressRoute circuit's point of entry into Microsoft's network.
-> 
 
 ### Benefits
 
 - High bandwidth available; up to 10 Gbps depending on the connectivity provider.
 - Lower and more consistent latencies compared to typical connections over the Internet.
 - Supports dynamic scaling of bandwidth to help reduce costs during periods of lower demand. However, not all connectivity providers have this option.
-- May allow your organization direct access to national clouds, depending on the connectivity provider.
-- 99.9% availability SLA across the entire connection.
+- Allow your organization direct access to national clouds, depending on the connectivity provider.
+- A 99.9% availability SLA across the entire connection.
 
 ### Challenges
 
@@ -57,7 +55,7 @@ This architecture is suitable for hybrid applications running large-scale, missi
 
 ### Reference architecture
 
-- [Hybrid network with ExpressRoute](./expressroute.yml)
+- [Hybrid network with ExpressRoute](./expressroute-vpn-failover.yml)
 
 ## ExpressRoute with VPN failover
 
@@ -77,8 +75,6 @@ This architecture is suitable for hybrid applications that need the high bandwid
 ### Reference architecture
 
 - [Hybrid network with ExpressRoute and VPN failover](./expressroute-vpn-failover.yml)
-
-<!-- markdownlint-disable MD024 -->
 
 ### Reference architectures
 

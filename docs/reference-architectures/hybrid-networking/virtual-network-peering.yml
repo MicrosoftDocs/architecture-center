@@ -1,0 +1,27 @@
+### YamlMime:Architecture
+metadata:
+  title: Virtual Network Connectivity Options and Spoke-To-Spoke Communication
+  description: Compare virtual network peering and VPN gateways for Azure connectivity. Learn spoke-to-spoke communication patterns in hub-and-spoke architectures.
+  author: jl-ms
+  ms.author: lijay
+  ms.date: 09/16/2025
+  ms.topic: reference-architecture
+  ms.subservice: reference-architecture
+  ms.category:
+    - networking
+    - integration
+  ms.custom: e2e-hybrid
+  ai-usage: ai-assisted
+name: Virtual network connectivity options and spoke-to-spoke communication
+azureCategories:
+  - networking
+  - integration
+summary: Compare virtual network peering and VPN gateways for Azure connectivity. Learn spoke-to-spoke communication patterns in hub-and-spoke architectures.
+products:
+  - entra-id
+  - azure-virtual-network
+  - azure-vpn-gateway
+  - virtual-network-manager
+thumbnailUrl: /azure/architecture/browse/thumbs/default.png
+content: |
+   [!INCLUDE[](virtual-network-peering-content.md)]

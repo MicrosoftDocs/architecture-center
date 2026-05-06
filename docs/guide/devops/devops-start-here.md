@@ -1,22 +1,11 @@
 ---
 title: DevOps architecture design
-titleSuffix: Azure Architecture Center
-description: Learn about DevOps and how to implements DevOps solutions on Azure by using services such as Azure DevOps, Azure Pipelines, Azure Monitor, and Azure DevTest Labs.
-author: brandonmartinez
-ms.author: brmar
+description: Learn about DevOps and how to implement DevOps solutions on Azure by using services such as Azure DevOps, Azure Pipelines, Azure Monitor, and Azure DevTest Labs.
+author: claytonsiemens77
+ms.author: pnp
 ms.date: 07/25/2022
-ms.topic: reference-architecture
-ms.service: azure-architecture-center
-ms.subservice: reference-architecture
-categories:
-  - devops
-  - containers
-products:
-  - azure-devops
-  - azure-monitor
-  - azure-pipelines
-  - azure-devtest-labs
-ms.custom: arb-devops
+ms.topic: concept-article
+ms.subservice: architecture-guide
 ---
 
 # DevOps architecture design
@@ -32,7 +21,7 @@ DevOps includes these activities and operations:
 
 ## Introduction to DevOps on Azure
 
-If you need to know more about DevOps, or DevOps on Azure, the best place to learn is [Microsoft Learn training](/training). This free online platform provides interactive training for Microsoft products and more. There are videos, tutorials, and hands-on learning for specific products and services, plus learning paths based on job role, such as developer or data analyst. If you're not familiar with Learn you can take [a tour of Microsoft Learn training](/teamblog/microsoft-learn-tour) or [a quick video tour of Microsoft Learn training](/shows/azure-friday/learning-azure-part-3-a-quick-tour-of-microsoft-learn).
+If you need to know more about DevOps, or DevOps on Azure, the best place to learn is [Microsoft Learn training](/training). This free online platform provides interactive training for Microsoft products and more. If you're not familiar with Learn, you can take [a tour of Microsoft Learn training](/teamblog/microsoft-learn-tour) or [a quick video tour of Microsoft Learn training](/shows/azure-friday/learning-azure-part-3-a-quick-tour-of-microsoft-learn).
 
 After you're familiar with Azure, you can decide whether to follow learning paths specific to DevOps, such as:
 
@@ -56,9 +45,8 @@ Plan your path to production by reviewing:
 | Article or section | Description |
 |--------------|-------------|
 | [Operational Excellence patterns](/azure/well-architected/operational-excellence/design-patterns) | A list of design patterns for achieving Operational Excellence—one of the five pillars of the [Microsoft Azure Well-Architected Framework](/azure/well-architected/)—in a cloud environment. See [Cloud Design Patterns](../../patterns/index.md) for more patterns. |
-| [Advanced Azure Resource Manager template functionality](../../guide/azure-resource-manager/advanced-templates/index.md) | Some advanced examples of template use. |
 | Azure Monitor guidance | A series of articles to help you use Azure Monitor to monitor cloud environments. The first article in the series is [Azure Monitor best practices - Planning your monitoring strategy and configuration](/azure/azure-monitor/best-practices-plan?toc=/azure/architecture/toc.json&bc=/azure/architecture/_bread/toc.json). |
-| [Continuous integration and delivery for an Azure Synapse Analytics workspace](/azure/synapse-analytics/cicd/continuous-integration-delivery?toc=/azure/architecture/toc.json&bc=/azure/architecture/_bread/toc.json) | An outline of how to use an Azure DevOps release pipeline and GitHub Actions to automate the deployment of an Azure Synapse workspace to multiple environments. |
+| [Continuous Integration through Git Integration](/fabric/cicd/git-integration/intro-to-git-integration) and [Continuous Deployment through Fabric Deployment Pipelines](/fabric/cicd/deployment-pipelines/intro-to-deployment-pipelines) | In Microsoft Fabric, [CI/CD](/fabric/cicd/manage-deployment/) is achieved by connecting your Fabric workspace to a Git repository (Azure DevOps or GitHub) for version control and branch-based workflows. Continuous Deployment is managed using Fabric Deployment Pipelines, which allow you to promote content across environments, either manually or via automation using Fabric REST APIs. |
 | [Platform automation for Azure VMware Solution enterprise-scale scenario](/azure/cloud-adoption-framework/scenarios/azure-vmware/eslz-platform-automation-and-devops?toc=/azure/architecture/toc.json&bc=/azure/architecture/_bread/toc.json) | An overview for deploying Azure VMware Solution, including guidance for operational automation. |
 
 ### Azure DevOps services
@@ -89,7 +77,6 @@ Here are some example architectures. For each one there's a list of the key Azur
 |--------------|-------------|----------------|
 | [Automated API deployments with APIOps](../../example-scenario/devops/automated-api-deployments-apiops.yml) | Apply GitOps and DevOps techniques to ensure quality APIs. | Azure Repos, API Management, Azure DevOps, Azure Pipelines, Azure Repos |
 | [Design a CI/CD pipeline using Azure DevOps](../../example-scenario/apps/devops-dotnet-baseline.yml) | Build a CI/CD pipeline by using Azure DevOps and other services. | Azure Repos, Azure Test Plans, Azure Pipelines |
-| [Enterprise monitoring with Azure Monitor](../../example-scenario/monitoring/enterprise-monitoring.yml) | Use Azure Monitor to achieve enterprise-level monitoring and centralized monitoring management. | Azure Monitor |
 
 ## Best practices
 
@@ -107,7 +94,7 @@ The following articles are about best practices that are specific to DevOps and 
 
 - [How Teams at Microsoft Embraced a DevOps Culture - Azure webinar series](https://info.microsoft.com/ww-ondemand-how-teams-at-microsoft-embraced-a-devops-culture.html)
 - [Azure cloud migration best practices checklist](/azure/cloud-adoption-framework/migrate/azure-best-practices)
-- [Resiliency checklist for specific Azure services](../../checklist/resiliency-per-service.md)
+- [Reliability guides by service](/azure/reliability/overview-reliability-guidance)
 - [Continuous monitoring with Azure Monitor](/azure/azure-monitor/continuous-monitoring)
 - [Monitoring best practices for reliability in Azure applications](/azure/architecture/framework/resiliency/monitor-best-practices)
 - [Overview of the Azure Security Benchmark (v1)](/security/benchmark/azure/overview-v1)
@@ -143,5 +130,5 @@ Stay current with Azure DevOps by monitoring these articles:
 
 ### AWS or Google Cloud professionals
 
-- [AWS to Azure services comparison - DevOps and application monitoring](../../aws-professional/services.md#devops-and-application-monitoring)
+- [AWS to Azure services comparison - DevOps and application monitoring](../../aws-professional/index.md#devops-and-application-monitoring)
 - [Google Cloud to Azure services comparison - DevOps and application monitoring](../../gcp-professional/services.md#devops-and-application-monitoring)

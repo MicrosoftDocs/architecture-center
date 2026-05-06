@@ -49,7 +49,7 @@ trigger:
     # for new release to production: release flow strategy
     - release/delivery/v*
     - refs/release/delivery/v*
-    - master
+    - main
     - feature/delivery/*
     - topic/delivery/*
   paths:
@@ -62,7 +62,7 @@ Using this approach, each team can have its own build pipeline. Only code that i
 1. Build the code.
 1. Run unit tests.
 
-The goal is to keep build times short so that the developer can get quick feedback. Once the feature is ready to merge into master, the developer opens a PR. This operation triggers another CI build that performs some additional checks:
+The goal is to keep build times short so that the developer can get quick feedback. Once the feature is ready to merge into main, the developer opens a PR. This operation triggers another CI build that performs some additional checks:
 
 1. Build the code.
 1. Run unit tests.
@@ -72,7 +72,7 @@ The goal is to keep build times short so that the developer can get quick feedba
 ![Diagram showing ci-delivery-full in the Build pipeline.](./images/aks-cicd-2.png)
 
 > [!NOTE]
-> In Azure DevOps Repos, you can define [policies](/azure/devops/repos/git/branch-policies) to protect branches. For example, the policy could require a successful CI build plus a sign-off from an approver in order to merge into master.
+> In Azure DevOps Repos, you can define [policies](/azure/devops/repos/git/branch-policies) to protect branches. For example, the policy could require a successful CI build plus a sign-off from an approver in order to merge into main.
 
 ## Full CI/CD build
 
@@ -97,13 +97,13 @@ Even in a monorepo, these tasks can be scoped to individual microservices so tha
 
 ## Isolation of environments
 
-You will have multiple environments where you deploy services, including environments for development, smoke testing, integration testing, load testing, and finally, production. These environments need some level of isolation. In Kubernetes, you have a choice between physical isolation and logical isolation. Physical isolation means deploying to separate clusters. Logical isolation uses namespaces and policies, as described earlier.
+You have multiple environments where you deploy services, including environments for development, smoke testing, integration testing, load testing, and finally, production. These environments need some level of isolation. In Kubernetes, you have a choice between physical isolation and logical isolation. Physical isolation means deploying to separate clusters. Logical isolation uses namespaces and policies, as described earlier.
 
 Our recommendation is to create a dedicated production cluster along with a separate cluster for your dev/test environments. Use logical isolation to separate environments within the dev/test cluster. Services deployed to the dev/test cluster should never have access to data stores that hold business data.
 
 ## Build process
 
-When possible, package your build process into a Docker container. This configuration allows you to build code artifacts using Docker and without configuring a build environment on each build machine. A containerized build process makes it easy to scale out the CI pipeline by adding new build agents. Also, any developer on the team can build the code simply by running the build container.
+When possible, package your build process into a Docker container. This configuration allows you to build code artifacts using Docker and without configuring a build environment on each build machine. A containerized build process simplifies scaling out the CI pipeline by adding new build agents. Also, any developer on the team can build the code by running the build container.
 
 By using multi-stage builds in Docker, you can define the build environment and the runtime image in a single Dockerfile. For example, here's a Dockerfile that builds a .NET application:
 
@@ -164,7 +164,7 @@ docker run delivery-test:1
 
 The CI pipeline should also run the tests as part of the build verification step.
 
-Note that this file uses the Docker `ENTRYPOINT` command to run the tests, not the Docker `RUN` command.
+This file uses the Docker `ENTRYPOINT` command to run the tests, not the Docker `RUN` command.
 
 - If you use the `RUN` command, the tests run every time you build the image. By using `ENTRYPOINT`, the tests are opt-in. They run only when you explicitly target the `testrunner` stage.
 - A failing test doesn't cause the Docker `build` command to fail. That way, you can distinguish container build failures from test failures.
@@ -174,9 +174,9 @@ Note that this file uses the Docker `ENTRYPOINT` command to run the tests, not t
 
 Here are some other best practices to consider for containers:
 
-- Define organization-wide conventions for container tags, versioning, and naming conventions for resources deployed to the cluster (pods, services, and so on). That can make it easier to diagnose deployment issues.
+- Define organization-wide conventions for container tags, versioning, and naming conventions for resources deployed to the cluster (for example, pods and services). That can make it easier to diagnose deployment issues.
 
-- During the development and test cycle, the CI/CD process will build many container images. Only some of those images are candidates for release, and then only some of those release candidates will get promoted to production. Have a clear versioning strategy so that you know which images are currently deployed to production and to help roll back to a previous version if necessary.
+- During the development and test cycle, the CI/CD process builds many container images. Only some of those images are candidates for release, and then only some of those release candidates get promoted to production. Have a clear versioning strategy so that you know which images are currently deployed to production and to help roll back to a previous version if necessary.
 
 - Always deploy specific container version tags, not `latest`.
 
@@ -197,7 +197,7 @@ Consider using Helm to manage building and deploying services. Here are some of 
 
 For more information about using Container Registry as a Helm repository, see [Use Azure Container Registry as a Helm repository for your application charts](/azure/container-registry/container-registry-helm-repos).
 
-A single microservice may involve multiple Kubernetes configuration files. Updating a service can mean touching all of these files to update selectors, labels, and image tags. Helm treats these as a single package called a chart and allows you to easily update the YAML files by using variables. Helm uses a template language (based on Go templates) to let you write parameterized YAML configuration files.
+A single microservice might involve multiple Kubernetes configuration files. Updating a service can mean touching all of these files to update selectors, labels, and image tags. Helm treats these as a single package called a chart and allows you to easily update the YAML files by using variables. Helm uses a template language (based on Go templates) to let you write parameterized YAML configuration files.
 
 For example, here's part of a YAML file that defines a deployment:
 
@@ -287,92 +287,24 @@ In Azure Pipelines, pipelines are divided into *build pipelines* and *release pi
 
 Based on the CI flow described earlier in this article, a build pipeline might consist of the following tasks:
 
-1. Build the test runner container.
+1. Build the test runner container using the `Docker` task.
 
-    ```yaml
-    - task: Docker@1
-      inputs:
-        azureSubscriptionEndpoint: $(AzureSubscription)
-        azureContainerRegistry: $(AzureContainerRegistry)
-        arguments: '--pull --target testrunner'
-        dockerFile: $(System.DefaultWorkingDirectory)/$(dockerFileName)
-        imageName: '$(imageName)-test'
-    ```
+1. Run the tests, by invoking docker run against the test runner container. This uses the `Docker` task.
 
-1. Run the tests, by invoking docker run against the test runner container.
+1. Publish the test results using the `PublishTestResults` task. See [Build an image](/azure/devops/pipelines/ecosystems/containers/build-image).
 
-    ```yaml
-    - task: Docker@1
-      inputs:
-        azureSubscriptionEndpoint: $(AzureSubscription)
-        azureContainerRegistry: $(AzureContainerRegistry)
-        command: 'run'
-        containerName: testrunner
-        volumes: '$(System.DefaultWorkingDirectory)/TestResults:/app/tests/TestResults'
-        imageName: '$(imageName)-test'
-        runInBackground: false
-    ```
+1. Build the runtime container using local docker build and the `Docker` task or using Azure Container Registry builds and the `AzureCLI` task.
 
-1. Publish the test results. See [Build an image](/azure/devops/pipelines/ecosystems/containers/build-image).
+1. Push the container image to Azure Container Registry (or other container registry) using the `Docker` or `AzureCLI` tasks.
 
-    ```yaml
-    - task: PublishTestResults@2
-      inputs:
-        testResultsFormat: 'VSTest'
-        testResultsFiles: 'TestResults/*.trx'
-        searchFolder: '$(System.DefaultWorkingDirectory)'
-        publishRunAttachments: true
-    ```
+1. Package the Helm chart using the `HelmDeploy` task.
 
-1. Build the runtime container.
+1. Push the Helm package to Azure Container Registry (or other Helm repository), using the `HelmDeploy` task.
 
-    ```yaml
-    - task: Docker@1
-      inputs:
-        azureSubscriptionEndpoint: $(AzureSubscription)
-        azureContainerRegistry: $(AzureContainerRegistry)
-        dockerFile: $(System.DefaultWorkingDirectory)/$(dockerFileName)
-        includeLatestTag: false
-        imageName: '$(imageName)'
-    ```
 
-1. Push the container image to Azure Container Registry (or other container registry).
+The output from the CI pipeline is a production-ready container image and an updated Helm chart for the microservice. At this point, the release pipeline can take over. There is a unique release pipeline for each microservice. The release pipeline is configured to have a trigger source set to the CI pipeline that published the artifact. This pipeline allows you to have independent deployments of each microservice. The release pipeline performs the following steps:
 
-    ```yaml
-    - task: Docker@1
-      inputs:
-        azureSubscriptionEndpoint: $(AzureSubscription)
-        azureContainerRegistry: $(AzureContainerRegistry)
-        command: 'Push an image'
-        imageName: '$(imageName)'
-        includeSourceTags: false
-    ```
-
-1. Package the Helm chart.
-
-    ```yaml
-    - task: HelmDeploy@0
-      inputs:
-        command: package
-        chartPath: $(chartPath)
-        chartVersion: $(Build.SourceBranchName)
-        arguments: '--app-version $(Build.SourceBranchName)'
-    ```
-
-1. Push the Helm package to Azure Container Registry (or other Helm repository).
-
-    ```yaml
-    task: AzureCLI@1
-      inputs:
-        azureSubscription: $(AzureSubscription)
-        scriptLocation: inlineScript
-        inlineScript: |
-        az acr helm push $(System.ArtifactsDirectory)/$(repositoryName)-$(Build.SourceBranchName).tgz --name $(AzureContainerRegistry);
-    ```
-
-The output from the CI pipeline is a production-ready container image and an updated Helm chart for the microservice. At this point, the release pipeline can take over. There will be a unique release pipeline for each microservice. The release pipeline will be configured to have a trigger source set to the CI pipeline that published the artifact. This pipeline allows you to have independent deployments of each microservice. The release pipeline performs the following steps:
-
-- Deploy the Helm chart to dev/QA/staging environments. The `Helm upgrade` command can be used with the `--install` flag to support the first install and subsequent upgrades.
+- Deploy the Helm chart to dev/QA/staging environments. The `helm upgrade` command can be used with the `--install` flag to support the first install and subsequent upgrades.
 - Wait for an approver to approve or reject the deployment.
 - Retag the container image for release
 - Push the release tag to the container registry.
@@ -383,16 +315,6 @@ For more information about creating a release pipeline, see [Release pipelines, 
 The following diagram shows the end-to-end CI/CD process described in this article:
 
 ![CD/CD pipeline](./images/aks-cicd-flow.png)
-
-## Contributors
-
-*This article is maintained by Microsoft. It was originally written by the following contributors.* 
-
-Principal author:
-
-- [John Poole](https://www.linkedin.com/in/johnrpoole) | Senior Cloud Solutions Architect
-
-*To see non-public LinkedIn profiles, sign in to LinkedIn.*
 
 ## Next steps
 
@@ -405,6 +327,5 @@ Principal author:
 ## Related resources
 
 - [CI/CD for microservices](/azure/architecture/microservices/ci-cd)
-- [Monitor a microservices architecture in Azure Kubernetes Service (AKS)](/azure/architecture/microservices/logging-monitoring)
 - [Review a reference architecture which shows a microservices application deployed to Azure Kubernetes Service (AKS)](/azure/architecture/reference-architectures/containers/aks-microservices/aks-microservices)
 - [GitOps for Azure Kubernetes Service](/azure/architecture/example-scenario/gitops-aks/gitops-blueprint-aks)

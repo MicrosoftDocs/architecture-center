@@ -13,7 +13,7 @@ Typical use cases for this architecture include:
 
 ## Architecture
 
-:::image type="content" source="./_images/performance-security-optimized-vwan-architecture-azure-main.png" alt-text="Diagram that shows an architecture optimized for either security or performance, depending the on department." lightbox="./_images/performance-security-optimized-vwan-architecture-azure-main.png":::
+:::image type="content" source="./_images/performance-security-optimized-vwan-architecture-azure-main.png" alt-text="Diagram that shows an architecture optimized for either security or performance, depending on the department." lightbox="./_images/performance-security-optimized-vwan-architecture-azure-main.png":::
 
 Download a [Visio file](https://arch-center.azureedge.net/Performance-security-optimized-VWAN-architecture-azure.vsdx) of this architecture.
 
@@ -87,20 +87,20 @@ Configure routes for the Virtual WAN hub as follows:
 
 ### Components
 
-- [Azure Virtual WAN](https://azure.microsoft.com/services/virtual-wan). Virtual WAN is a networking service that brings many networking, security, and routing functionalities together to provide a single operational interface. In this case, it simplifies and scales routing to the attached virtual networks and branches.
-- [Azure ExpressRoute](https://azure.microsoft.com/services/expressroute). ExpressRoute extends on-premises networks into the Microsoft cloud over a private connection.
-- [Azure Virtual Network](https://azure.microsoft.com/services/virtual-network). Virtual Network is the fundamental building block for your private network in Azure. Virtual Network enables many types of Azure resources, like Azure virtual machines (VMs), to communicate with improved security with each other, the internet, and on-premises networks.
+- [Azure Virtual WAN](/azure/virtual-wan/virtual-wan-about). Virtual WAN is a networking service that brings many networking, security, and routing functionalities together to provide a single operational interface. In this case, it simplifies and scales routing to the attached virtual networks and branches.
+- [Azure ExpressRoute](/azure/well-architected/service-guides/azure-expressroute). ExpressRoute extends on-premises networks into the Microsoft cloud over a private connection.
+- [Azure Virtual Network](/azure/well-architected/service-guides/virtual-network). Virtual Network is the fundamental building block for your private network in Azure. Virtual Network enables many types of Azure resources, like Azure virtual machines (VMs), to communicate with improved security with each other, the internet, and on-premises networks.
 - [Virtual WAN hub](/azure/virtual-wan/about-virtual-hub-routing). A virtual hub is a virtual network that Microsoft manages. The hub contains various service endpoints to enable connectivity.
 - [Hub virtual network connections](/rest/api/virtualwan/hub-virtual-network-connections/create-or-update#hubvirtualnetworkconnection). The hub virtual network connection resource connects the hub seamlessly to your virtual networks.
 - [Static routes](/azure/virtual-wan/about-virtual-hub-routing#static). Static routes provide a mechanism for steering traffic through a next hop IP.
 - [Hub route tables](/azure/virtual-wan/about-virtual-hub-routing#hub-route). You can create a virtual hub route and apply the route to the virtual hub route table.
-- [Virtual network peering](/azure/virtual-network/virtual-network-peering-overview). By using virtual network peering, you can seamlessly connect two or more [virtual networks](/azure/virtual-network/virtual-networks-overview) in Azure.
+- [Virtual network peering](/azure/virtual-network/virtual-network-peering-overview). By using virtual network peering, you can seamlessly connect two or more [virtual networks](/azure/well-architected/service-guides/virtual-network) in Azure.
 - [User-defined routes](/azure/virtual-network/virtual-networks-udr-overview#user-defined). User-defined routes are static routes that override the default Azure system routes or add more routes to a subnet's route table. They're used here to force traffic to the NVAs when necessary.
-- [Network virtual appliances](https://azure.microsoft.com/solutions/network-appliances). Network virtual appliances are marketplace-offered network appliances. In this case, the company deployed Palo Alto's NVA, but any NVA firewall would work here.
+- Network virtual appliances. Network virtual appliances are marketplace-offered network appliances. In this case, the company deployed Palo Alto's NVA, but any NVA firewall would work here.
 
 ### Alternatives
 
-If self-hosting NVAs is not a requirement, a simpler solution exists where the NVA is hosted in an Azure VWAN secured hub and internal traffic inspection is modified for each virtual network connection. However, this solution does not allow you to discriminate between vnet-to-vnet and [vnet-to-cross-premises traffic](/azure/virtual-wan/how-to-routing-policies).
+If self-hosting NVAs isn't a requirement, a simpler solution exists where the NVA is hosted in an Azure VWAN secured hub and internal traffic inspection is modified for each virtual network connection. However, this solution doesn't allow you to discriminate between vnet-to-vnet and [vnet-to-cross-premises traffic](/azure/virtual-wan/how-to-routing-policies).
 
 To deploy only a high-security NVA environment, you can follow this model: [Route traffic through an NVA](/azure/virtual-wan/scenario-route-through-nva).
 
@@ -110,37 +110,43 @@ To deploy a custom NVA model that supports both routing traffic to a dedicated f
 
 ## Considerations
 
+These considerations implement the pillars of the Azure Well-Architected Framework, which is a set of guiding tenets that you can use to improve the quality of a workload. For more information, see [Well-Architected Framework](/azure/well-architected/).
+
+### Reliability
+
+Reliability helps ensure that your application can meet the commitments that you make to your customers. For more information, see [Design review checklist for Reliability](/azure/well-architected/reliability/checklist).
+
+Virtual WAN is a highly available networking service. You can set up more connectivity or paths from the branch to get multiple pathways to the Virtual WAN service. But you don't need anything additional within the VWAN service.
+
+You should set up NVAs in a highly available architecture similar to the one described here: [Deploy highly available NVAs](../guide/nva-ha.yml).
+
+### Security
+
+Security provides assurances against deliberate attacks and the misuse of your valuable data and systems. For more information, see [Design review checklist for Security](/azure/well-architected/security/checklist).
+
+With NVAs, you can use features like IDPS with Virtual WAN.
+
 In this deployment, routes that cross the Virtual WAN hub to a performance-optimized environment don't pass through the NVA in that environment. This presents a potential problem with cross-regional traffic that's illustrated here:
 
 ![Diagram that shows a potential problem with cross-regional traffic.](./_images/performance-security-optimized-vwan-architecture-regions.png)
 
 Traffic across regions between performance-optimized environments doesn't cross the NVA. This is a limitation of directly routing hub traffic to the virtual networks.
 
-### Availability
+### Cost Optimization
 
-Virtual WAN is a highly available networking service. You can set up more connectivity or paths from the branch to get multiple pathways to the Virtual WAN service. But you don't need anything additional within the VWAN service.
+Cost Optimization focuses on ways to reduce unnecessary expenses and improve operational efficiencies. For more information, see [Design review checklist for Cost Optimization](/azure/well-architected/cost-optimization/checklist).
 
-You should set up NVAs in a highly available architecture similar to the one described here: [Deploy highly available NVAs](../guide/nva-ha.yml).
+Pricing for this architecture depends heavily on the NVAs that you deploy. For a 2-Gbps ER connection and a Virtual WAN hub that processes 10 TB per month, see this [pricing estimate](https://azure.com/e/0bf78de2bf3b45aa961e0dc2f57eb2fe).
 
-### Performance
+You should set up NVAs in a highly available architecture similar to the one described here: [Deploy highly available NVAs](../guide/network-virtual-appliance-high-availability.md).
+
+### Performance Efficiency
+
+Performance Efficiency refers to your workload's ability to scale to meet user demands efficiently. For more information, see [Design review checklist for Performance Efficiency](/azure/well-architected/performance-efficiency/checklist).
 
 This solution optimizes performance of the network where necessary. You can modify the routing according to your own requirements, enabling the traffic to the branch to cross the NVA and the traffic between virtual networks to flow freely or to use a single firewall for internet egress.
 
-### Scalability
-
 This architecture is scalable across regions. Consider your requirements when you set up routing labels for grouping routes and branch traffic forwarding between the virtual hubs.
-
-### Security
-
-With NVAs, you can use features like IDPS with Virtual WAN.
-
-### Resiliency
-
-For information about resiliency, see [Availability](#availability), earlier in this article.
-
-### Cost optimization
-
-Pricing for this architecture depends heavily on the NVAs that you deploy. For a 2-Gbps ER connection and a Virtual WAN hub that processes 10 TB per month, see this [pricing estimate](https://azure.com/e/0bf78de2bf3b45aa961e0dc2f57eb2fe).
 
 ## Contributors
 
@@ -160,6 +166,5 @@ Principal author:
 
 ## Related resources
 
-- [Hub-spoke network topology with Azure Virtual WAN](/azure/architecture/networking/architecture/hub-spoke-vwan-architecture)
+- [Hub-spoke network topology with Azure Virtual WAN](/azure/architecture/networking/architecture/hub-spoke-virtual-wan-architecture)
 - [Choose between virtual network peering and VPN gateways](/azure/architecture/reference-architectures/hybrid-networking/vnet-peering)
-- [Low-latency network connections for industry](/azure/architecture/solution-ideas/articles/low-latency-network)

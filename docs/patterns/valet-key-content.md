@@ -24,7 +24,7 @@ It's also possible to configure a key that has other dependencies, such as the s
 
 The key can also be invalidated by the application. This is a useful approach if the client notifies the server that the data transfer operation is complete. The server can then invalidate that key to prevent further access.
 
-Using this pattern can simplify managing access to resources because there's no requirement to create and authenticate a user, grant permissions, and then remove the user again, or worse leave that permission as a standing permission. It also makes it easy to limit the location, the permission, and the validity period&mdash;all by simply generating a key at runtime. The important factors are to limit the validity period, and especially the location of the resource, as tightly as possible so that the recipient can only use it for the intended purpose.
+Using this pattern can simplify managing access to resources because there's no requirement to create and authenticate a user, grant permissions, and then remove the user again, or worse leave that permission as a standing permission. It also lets you limit the location, the permission, and the validity period by generating a key at runtime. The important factors are to limit the validity period, and especially the location of the resource, as tightly as possible so that the recipient can only use it for the intended purpose.
 
 ## Issues and considerations
 
@@ -60,7 +60,7 @@ Other issues to be aware of when implementing this pattern are:
 
 - Keys should only be handed out to authenticated clients with proper authorization.
 
-- The generation of access tokens is privileged action, so the valet key service must be secured with strict access policies. The service may allow access to sensitive systems by third parties, making the security of this service of particular importance.
+- The generation of access tokens is privileged action, so the valet key service must be secured with strict access policies. The service might allow access to sensitive systems by third parties, making the security of this service of particular importance.
 
 ## When to use this pattern
 
@@ -78,7 +78,7 @@ This pattern is useful for the following situations:
 
 This pattern might not be useful in the following situations:
 
-- If clients can already uniquely authenticate to your backend service, with RBAC for example, do not use this pattern.
+- If clients can already uniquely authenticate to your backend service, with Azure role-based access control (Azure RBAC) for example, don't use this pattern.
 
 - If the application must perform some task on the data before it's stored or before it's sent to the client. For example, if the application needs to perform validation, log access success, or execute a transformation on the data. However, some data stores and clients are able to negotiate and carry out simple transformations such as compression and decompression (for example, a web browser can usually handle gzip formats).
 
@@ -104,7 +104,7 @@ As with any design decision, consider any tradeoffs against the goals of the oth
 
 Azure supports shared access signatures on Azure Storage for granular access control to data in blobs, tables, and queues, and for Service Bus queues and topics. A shared access signature token can be configured to provide specific access rights such as read, write, update, and delete to a specific table; a key range within a table; a queue; a blob; or a blob container. The validity can be a specified time period. This functionality is well suited for using a valet key for access.
 
-Consider a workload that has hundreds of mobile or desktop clients frequently uploading large binaries. Without this pattern, the workload has essentially two options. The first is to provide standing access and configuration to all the clients to perform uploads directly to a storage account. The other is to implement the [Gateway Routing pattern](./gateway-routing.yml) to set up an endpoint where clients use proxied access to storage, but this might not be adding additional value to the transaction. Both approaches suffer problems addressed in the pattern context:
+Consider a workload that has hundreds of mobile or desktop clients frequently uploading large binaries. Without this pattern, the workload has essentially two options. The first is to provide standing access and configuration to all the clients to perform uploads directly to a storage account. The other is to implement the [Gateway Routing pattern](./gateway-routing.yml) to set up an endpoint where clients use proxied access to storage, but this might not be adding additional value to the transaction. Both approaches have problems addressed in the pattern context:
 
 - Long lived, preshared secrets. Potentially without much way to provide different keys to different clients.
 - Added expense for running a compute service that has sufficient resources to deal with currently receiving large files.
@@ -159,7 +159,7 @@ private async Task<StorageEntitySas> GetSharedAccessReferenceForUploadAsync(Blob
                                                                             DateTimeOffset.UtcNow.AddMinutes(3),
                                                                             cancellationToken);
 
-  // Limit the scope of this SaS token to the following:
+  // Limit the scope of this SaS token to the following parameters:
   var blobSasBuilder = new BlobSasBuilder
   {
       BlobContainerName = blobContainerClient.Name,     // - Specific container

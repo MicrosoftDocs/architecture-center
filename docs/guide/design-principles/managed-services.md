@@ -1,20 +1,11 @@
 ---
 title: Use platform as a service (PaaS) options
-titleSuffix: Azure Architecture Center
 description: "Understand the difference between infrastructure as a service (IaaS) and platform as a service (PaaS). Learn how to swap IaaS components for PaaS solutions."
 author: johndowns
-ms.author: jodowns
-ms.date: 07/25/2022
-ms.topic: conceptual
-ms.service: azure-architecture-center
+ms.author: pnp
+ms.date: 10/05/2024
+ms.topic: concept-article
 ms.subservice: architecture-guide
-ms.custom:
-  - guide
-products:
-  - azure
-categories:
-  - developer-tools
-  - management-and-governance
 ---
 
 # Use platform as a service (PaaS) options
@@ -31,7 +22,7 @@ When your workload doesn't require the control granted by IaaS, use PaaS instead
 
 Many PaaS solutions offer a native scaling option that allow you to configure how the service will scale in and out or up and down. While scaling is possible in IaaS, it often comes with added complexity, such as dealing with attached storage.
 
-For example, suppose your application needs a message queue. You can set up your own messaging service on a virtual machine by using something like RabbitMQ. But Azure Service Bus provides a reliable messaging service, that is simpler to maintain. You can create a Service Bus namespace as part of a deployment script. Then you can use a client SDK to call Service Bus.
+For example, suppose your application needs a message queue. You can set up your own messaging service on a virtual machine by using something like RabbitMQ. But Azure Service Bus provides a reliable messaging service, and it's simpler to maintain. You can create a Service Bus namespace as part of a deployment script. Then you can use a client SDK to call Service Bus.
 
 ## PaaS alternatives to IaaS solutions
 
@@ -43,8 +34,8 @@ Your application might have specific requirements that make IaaS a more suitable
 | Elasticsearch | [Azure AI Search](/azure/search/search-what-is-azure-search) |
 | Hadoop | [Azure HDInsight](/azure/hdinsight/hdinsight-overview) |
 | IIS | [Azure App Service](/azure/app-service/overview) |
-| MongoDB | [Azure Cosmos DB for MongoDB](/azure/cosmos-db/mongodb/introduction) |
-| Redis | [Azure Cache for Redis](/azure/azure-cache-for-redis/cache-overview) |
+| MongoDB | [Azure DocumentDB](/azure/documentdb/overview) |
+| Redis | [Azure Managed Redis](/azure/redis/overview) |
 | SQL Server | [Azure SQL Database](/azure/azure-sql/database/sql-database-paas-overview) |
 | File share | [Azure Files](/azure/storage/files/storage-files-introduction) |
 

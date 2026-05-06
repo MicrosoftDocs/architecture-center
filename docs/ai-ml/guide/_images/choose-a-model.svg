@@ -1,0 +1,439 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" viewBox="0 0 1192.07674 547.31449">
+  <!-- Generator: Adobe Illustrator 29.8.2, SVG Export Plug-In . SVG Version: 2.1.1 Build 3)  -->
+  <defs>
+    <linearGradient id="linear-gradient" x1="108.95509" y1="231.80914" x2="116.98993" y2="209.73359" gradientTransform="translate(-123.02005 144.54606) rotate(-45)" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#155ea1"/>
+      <stop offset=".16" stop-color="#155ea1"/>
+      <stop offset=".68444" stop-color="#238cd9"/>
+      <stop offset=".93044" stop-color="#46a0de"/>
+    </linearGradient>
+    <linearGradient id="linear-gradient1" y1="304.5657" x2="116.98993" y2="282.49015" gradientTransform="translate(-174.46671 165.85597) rotate(-45)" xlink:href="#linear-gradient"/>
+    <linearGradient id="linear-gradient2" x1="318.08291" x2="326.11775" gradientTransform="translate(-61.76793 292.42176) rotate(-45)" xlink:href="#linear-gradient"/>
+    <linearGradient id="linear-gradient3" x1="481.99328" y1="261.34797" x2="490.02813" y2="239.27242" gradientTransform="translate(-34.6468 416.97562) rotate(-45)" xlink:href="#linear-gradient"/>
+    <linearGradient id="linear-gradient4" x1="563.73913" y1="261.34797" x2="571.77397" y2="239.27242" gradientTransform="translate(-10.70399 474.77867) rotate(-45)" xlink:href="#linear-gradient"/>
+    <linearGradient id="linear-gradient5" x1="318.08291" y1="304.5657" x2="326.11775" y2="282.49015" gradientTransform="translate(-113.21458 313.73167) rotate(-45)" xlink:href="#linear-gradient"/>
+    <linearGradient id="linear-gradient6" x1="318.08291" y1="377.66742" x2="326.11775" y2="355.59187" gradientTransform="translate(-164.90531 335.14267) rotate(-45)" xlink:href="#linear-gradient"/>
+    <linearGradient id="linear-gradient7" x1="985.29994" y1="312.69375" x2="993.33479" y2="290.61819" gradientTransform="translate(76.46137 787.90601) rotate(-45)" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#8e8278"/>
+      <stop offset=".16" stop-color="#8e8278"/>
+      <stop offset=".68444" stop-color="#b2aaa1"/>
+      <stop offset=".93044" stop-color="#b2aaa1"/>
+    </linearGradient>
+    <linearGradient id="linear-gradient8" x1="1094.58454" y1="312.69375" x2="1102.61938" y2="290.61819" gradientTransform="translate(108.47008 865.18188) rotate(-45)" xlink:href="#linear-gradient7"/>
+    <linearGradient id="linear-gradient9" x1="877.35545" y1="312.69375" x2="885.3903" y2="290.61819" gradientTransform="translate(44.84516 711.57773) rotate(-45)" xlink:href="#linear-gradient7"/>
+    <linearGradient id="linear-gradient10" x1="877.35545" y1="157.26875" x2="885.3903" y2="135.1932" gradientTransform="translate(154.74723 666.0548) rotate(-45)" xlink:href="#linear-gradient7"/>
+    <linearGradient id="linear-gradient11" x1="877.35545" y1="245.61875" x2="885.3903" y2="223.54319" gradientTransform="translate(92.27434 691.93191) rotate(-45)" xlink:href="#linear-gradient7"/>
+    <linearGradient id="linear-gradient12" y1="377.66742" x2="116.98993" y2="355.59187" gradientTransform="translate(-226.15743 187.26696) rotate(-45)" xlink:href="#linear-gradient"/>
+  </defs>
+  <g id="Shapes">
+    <rect width="1192.07674" height="547.31449" fill="#fff"/>
+    <g>
+      <line x1="112.97251" y1="109.18098" x2="112.97251" y2="127.99879" fill="none" stroke="#3c3c41" stroke-miterlimit="10"/>
+      <polygon points="109.23276 126.90455 112.97251 133.38096 116.71226 126.90455 109.23276 126.90455" fill="#3c3c41"/>
+    </g>
+    <g>
+      <rect x="44.17214" y="84.84339" width="137.60074" height="23.33759" fill="#fff"/>
+      <rect x="44.17214" y="84.84339" width="137.60074" height="23.33759" fill="#d3ec8e" opacity=".8"/>
+      <rect x="44.17214" y="84.84339" width="137.60074" height="23.33759" fill="none" opacity=".7" stroke="#8bc63f" stroke-width=".25"/>
+    </g>
+    <rect x="203.83793" y="32.45945" width="114.4" height="39.6" fill="#fff" stroke="#4e4f4f" stroke-width=".25"/>
+    <rect x="340.17288" y="32.45945" width="196.4" height="39.6" fill="#fff" stroke="#4e4f4f" stroke-width=".25"/>
+    <rect x="564.57288" y="32.45945" width="136.4" height="39.6" fill="#fff" stroke="#4e4f4f" stroke-width=".25"/>
+    <g>
+      <rect x="788.97288" y="10.18097" width="184.8" height="61.87848" fill="#fff"/>
+      <rect x="788.97288" y="10.18097" width="184.8" height="61.87848" fill="#fff1cc" opacity=".35"/>
+      <rect x="788.97288" y="10.18097" width="184.8" height="61.87848" fill="none" opacity=".5" stroke="#dfa626" stroke-width=".25"/>
+    </g>
+    <g>
+      <rect x="546.97288" y="133.38097" width="154" height="39.6" fill="#fff"/>
+      <rect x="546.97288" y="133.38097" width="154" height="39.6" fill="#53b1e0" opacity=".2"/>
+      <rect x="546.97288" y="133.38097" width="154" height="39.6" fill="none" stroke="#53b1e0" stroke-width=".25"/>
+    </g>
+    <g>
+      <rect x="44.17214" y="133.27137" width="137.60074" height="39.6" fill="#fff"/>
+      <rect x="44.17214" y="133.27137" width="137.60074" height="39.6" fill="#53b1e0" opacity=".2"/>
+      <rect x="44.17214" y="133.27137" width="137.60074" height="39.6" fill="none" stroke="#53b1e0" stroke-width=".25"/>
+    </g>
+    <g>
+      <rect x="203.77288" y="133.27137" width="136.4" height="39.6" fill="#fff"/>
+      <rect x="203.77288" y="133.27137" width="136.4" height="39.6" fill="#53b1e0" opacity=".2"/>
+      <rect x="203.77288" y="133.27137" width="136.4" height="39.6" fill="none" stroke="#53b1e0" stroke-width=".25"/>
+    </g>
+    <g>
+      <rect x="360.97214" y="133.27137" width="137.60074" height="39.6" fill="#fff"/>
+      <rect x="360.97214" y="133.27137" width="137.60074" height="39.6" fill="#53b1e0" opacity=".2"/>
+      <rect x="360.97214" y="133.27137" width="137.60074" height="39.6" fill="none" stroke="#53b1e0" stroke-width=".25"/>
+    </g>
+    <g>
+      <rect x="243.37288" y="445.78097" width="158.4" height="39.6" fill="#fff"/>
+      <rect x="243.37288" y="445.78097" width="158.4" height="39.6" fill="#e1ddd8" opacity=".6"/>
+      <rect x="243.37288" y="445.78097" width="158.4" height="39.6" fill="none" stroke="#8e8278" stroke-width=".25"/>
+    </g>
+    <g>
+      <rect x="441.37288" y="498.58097" width="180.4" height="39.6" fill="#fff"/>
+      <rect x="441.37288" y="498.58097" width="180.4" height="39.6" fill="#e1ddd8" opacity=".6"/>
+      <rect x="441.37288" y="498.58097" width="180.4" height="39.6" fill="none" stroke="#8e8278" stroke-width=".25"/>
+    </g>
+    <g>
+      <rect x="23.07753" y="498.58097" width="180.4" height="39.6" fill="#fff"/>
+      <rect x="23.07753" y="498.58097" width="180.4" height="39.6" fill="#e1ddd8" opacity=".6"/>
+      <rect x="23.07753" y="498.58097" width="180.4" height="39.6" fill="none" stroke="#8e8278" stroke-width=".25"/>
+    </g>
+    <g>
+      <rect x="265.42661" y="502.9654" width="114.05311" height="30.83113" fill="#fff"/>
+      <rect x="265.42661" y="502.9654" width="114.05311" height="30.83113" fill="#cae4dd" opacity=".6"/>
+      <rect x="265.42661" y="502.9654" width="114.05311" height="30.83113" fill="none" stroke="#9dd6c9" stroke-width=".25"/>
+    </g>
+    <g>
+      <rect x="652.57288" y="208.14984" width="136.4" height="30.83113" fill="#fff"/>
+      <rect x="652.57288" y="208.14984" width="136.4" height="30.83113" fill="#53b1e0" opacity=".07"/>
+      <rect x="652.57288" y="208.14984" width="136.4" height="30.83113" fill="none" stroke="#53b1e0" stroke-width=".25"/>
+    </g>
+    <g>
+      <line x1="112.97251" y1="172.87135" x2="112.97251" y2="202.6892" fill="none" stroke="#3c3c41" stroke-miterlimit="10"/>
+      <polygon points="109.23276 201.59496 112.97251 208.07137 116.71226 201.59496 109.23276 201.59496" fill="#3c3c41"/>
+    </g>
+    <g>
+      <line x1="112.97251" y1="232.27138" x2="112.97251" y2="275.2892" fill="none" stroke="#3c3c41" stroke-miterlimit="10"/>
+      <polygon points="109.23276 274.19495 112.97251 280.67137 116.71226 274.19495 109.23276 274.19495" fill="#3c3c41"/>
+    </g>
+    <rect x="104.13367" y="211.93253" width="17.67767" height="17.67767" transform="translate(189.19781 -15.22119) rotate(45)" fill="url(#linear-gradient)"/>
+    <g>
+      <rect x="99.77251" y="238.98097" width="26.4" height="22" fill="#fff"/>
+      <rect x="99.77251" y="238.98097" width="26.4" height="22" fill="#f3354c" opacity=".07"/>
+      <rect x="99.77251" y="238.98097" width="26.4" height="22" fill="none" stroke="#8e8278" stroke-width=".25"/>
+    </g>
+    <g>
+      <line x1="112.97251" y1="304.51502" x2="112.97251" y2="349.53284" fill="none" stroke="#3c3c41" stroke-miterlimit="10"/>
+      <polygon points="109.23276 348.4386 112.97251 354.91501 116.71226 348.4386 109.23276 348.4386" fill="#3c3c41"/>
+    </g>
+    <g>
+      <rect x="99.77251" y="312.61842" width="26.4" height="22" fill="#fff"/>
+      <rect x="99.77251" y="312.61842" width="26.4" height="22" fill="#f3354c" opacity=".07"/>
+      <rect x="99.77251" y="312.61842" width="26.4" height="22" fill="none" stroke="#8e8278" stroke-width=".25"/>
+    </g>
+    <g>
+      <line x1="203.77288" y1="518.38097" x2="259.9907" y2="518.38097" fill="none" stroke="#3c3c41" stroke-miterlimit="10"/>
+      <polygon points="258.89646 522.12072 265.37287 518.38097 258.89646 514.64122 258.89646 522.12072" fill="#3c3c41"/>
+    </g>
+    <g>
+      <line x1="441.37287" y1="518.38097" x2="385.15504" y2="518.38097" fill="none" stroke="#3c3c41" stroke-miterlimit="10"/>
+      <polygon points="386.24931 514.64122 379.77286 518.38097 386.24931 522.12072 386.24931 514.64122" fill="#3c3c41"/>
+    </g>
+    <g>
+      <line x1="112.97251" y1="377.78097" x2="112.97251" y2="493.1988" fill="none" stroke="#3c3c41" stroke-miterlimit="10"/>
+      <polygon points="109.23276 492.10456 112.97251 498.58097 116.71226 492.10456 109.23276 492.10456" fill="#3c3c41"/>
+    </g>
+    <g>
+      <rect x="99.77251" y="388.58097" width="26.4" height="22" fill="#fff"/>
+      <rect x="99.77251" y="388.58097" width="26.4" height="22" fill="#f3354c" opacity=".07"/>
+      <rect x="99.77251" y="388.58097" width="26.4" height="22" fill="none" stroke="#8e8278" stroke-width=".25"/>
+    </g>
+    <path d="M124.57294,220.38097h89.3882c2.2,0,4-1.8,4-4v-30.20963" fill="none" stroke="#3c3c41" stroke-miterlimit="10"/>
+    <rect x="104.13367" y="284.68909" width="17.67767" height="17.67767" transform="translate(240.64447 6.08871) rotate(45)" fill="url(#linear-gradient1)"/>
+    <g>
+      <path d="M124.57294,293.44903h88.3882c2.75,0,5-2.25,5-5v-110.08589" fill="none" stroke="#3c3c41" stroke-miterlimit="10"/>
+      <polygon points="221.70089 179.45738 217.96114 172.98097 214.2214 179.45738 221.70089 179.45738" fill="#3c3c41"/>
+    </g>
+    <g>
+      <rect x="137.77288" y="208.18097" width="26.4" height="22" fill="#fff"/>
+      <rect x="137.77288" y="208.18097" width="26.4" height="22" fill="#d3ec8e" opacity=".3"/>
+      <rect x="137.77288" y="208.18097" width="26.4" height="22" fill="none" opacity=".7" stroke="#8bc63f" stroke-width=".25"/>
+    </g>
+    <g>
+      <rect x="137.77288" y="282.98097" width="26.4" height="22" fill="#fff"/>
+      <rect x="137.77288" y="282.98097" width="26.4" height="22" fill="#d3ec8e" opacity=".3"/>
+      <rect x="137.77288" y="282.98097" width="26.4" height="22" fill="none" opacity=".7" stroke="#8bc63f" stroke-width=".25"/>
+    </g>
+    <g>
+      <path d="M124.57294,366.58098h60.12137c2.75,0,5,2.25,5,5v24.24722" fill="none" stroke="#3c3c41" stroke-miterlimit="10"/>
+      <polygon points="185.95457 394.73396 189.69431 401.21037 193.43406 394.73396 185.95457 394.73396" fill="#3c3c41"/>
+    </g>
+    <g>
+      <rect x="137.77288" y="356.86356" width="26.4" height="22" fill="#fff"/>
+      <rect x="137.77288" y="356.86356" width="26.4" height="22" fill="#d3ec8e" opacity=".3"/>
+      <rect x="137.77288" y="356.86356" width="26.4" height="22" fill="none" opacity=".7" stroke="#8bc63f" stroke-width=".25"/>
+    </g>
+    <g>
+      <line x1="322.10033" y1="172.98097" x2="322.10033" y2="202.68919" fill="none" stroke="#3c3c41" stroke-miterlimit="10"/>
+      <polygon points="318.36059 201.59495 322.10033 208.07136 325.84008 201.59495 318.36059 201.59495" fill="#3c3c41"/>
+    </g>
+    <g>
+      <line x1="679.43009" y1="172.98097" x2="679.43009" y2="202.79881" fill="none" stroke="#3c3c41" stroke-miterlimit="10"/>
+      <polygon points="675.69035 201.70454 679.43009 208.18098 683.16984 201.70454 675.69035 201.70454" fill="#3c3c41"/>
+    </g>
+    <g>
+      <rect x="652.57288" y="282.98097" width="136.4" height="30.83113" fill="#fff"/>
+      <rect x="652.57288" y="282.98097" width="136.4" height="30.83113" fill="#53b1e0" opacity=".07"/>
+      <rect x="652.57288" y="282.98097" width="136.4" height="30.83113" fill="none" stroke="#53b1e0" stroke-width=".25"/>
+    </g>
+    <g>
+      <line x1="679.43009" y1="238.98097" x2="679.43009" y2="277.87662" fill="none" stroke="#3c3c41" stroke-miterlimit="10"/>
+      <polygon points="675.69035 276.78238 679.43009 283.25879 683.16984 276.78238 675.69035 276.78238" fill="#3c3c41"/>
+    </g>
+    <g>
+      <rect x="652.57288" y="362.14984" width="136.4" height="30.83113" fill="#fff"/>
+      <rect x="652.57288" y="362.14984" width="136.4" height="30.83113" fill="#53b1e0" opacity=".07"/>
+      <rect x="652.57288" y="362.14984" width="136.4" height="30.83113" fill="none" stroke="#53b1e0" stroke-width=".25"/>
+    </g>
+    <g>
+      <rect x="136.35168" y="401.5654" width="105.6" height="30.83113" fill="#fff"/>
+      <rect x="136.35168" y="401.5654" width="105.6" height="30.83113" fill="#53b1e0" opacity=".07"/>
+      <rect x="136.35168" y="401.5654" width="105.6" height="30.83113" fill="none" stroke="#53b1e0" stroke-width=".25"/>
+    </g>
+    <g>
+      <line x1="679.43009" y1="313.8121" x2="679.43009" y2="356.7988" fill="none" stroke="#3c3c41" stroke-miterlimit="10"/>
+      <polygon points="675.69035 355.70456 679.43009 362.18097 683.16984 355.70456 675.69035 355.70456" fill="#3c3c41"/>
+    </g>
+    <g>
+      <line x1="322.10033" y1="230.18098" x2="322.10033" y2="273.1988" fill="none" stroke="#3c3c41" stroke-miterlimit="10"/>
+      <polygon points="318.36059 272.10455 322.10033 278.58098 325.84008 272.10455 318.36059 272.10455" fill="#3c3c41"/>
+    </g>
+    <rect x="313.2615" y="211.93253" width="17.67767" height="17.67767" transform="translate(250.44993 -163.09689) rotate(45)" fill="url(#linear-gradient2)"/>
+    <g>
+      <rect x="308.90033" y="238.98097" width="26.4" height="22" fill="#fff"/>
+      <rect x="308.90033" y="238.98097" width="26.4" height="22" fill="#f3354c" opacity=".07"/>
+      <rect x="308.90033" y="238.98097" width="26.4" height="22" fill="none" stroke="#8e8278" stroke-width=".25"/>
+    </g>
+    <g>
+      <line x1="485.72999" y1="261.81019" x2="485.72999" y2="493.1988" fill="none" stroke="#3c3c41" stroke-miterlimit="10"/>
+      <polygon points="481.99024 492.10456 485.72999 498.58097 489.46973 492.10456 481.99024 492.10456" fill="#3c3c41"/>
+    </g>
+    <g>
+      <rect x="472.62992" y="281.6102" width="26.4" height="22" fill="#fff"/>
+      <rect x="472.62992" y="281.6102" width="26.4" height="22" fill="#f3354c" opacity=".07"/>
+      <rect x="472.62992" y="281.6102" width="26.4" height="22" fill="none" stroke="#8e8278" stroke-width=".25"/>
+    </g>
+    <g>
+      <line x1="567.75654" y1="261.81019" x2="567.75654" y2="493.1988" fill="none" stroke="#3c3c41" stroke-miterlimit="10"/>
+      <polygon points="564.01679 492.10456 567.75654 498.58097 571.49631 492.10456 564.01679 492.10456" fill="#3c3c41"/>
+    </g>
+    <g>
+      <rect x="554.55655" y="281.6102" width="26.4" height="22" fill="#fff"/>
+      <rect x="554.55655" y="281.6102" width="26.4" height="22" fill="#f3354c" opacity=".07"/>
+      <rect x="554.55655" y="281.6102" width="26.4" height="22" fill="none" stroke="#8e8278" stroke-width=".25"/>
+    </g>
+    <g>
+      <line x1="486.01071" y1="172.98097" x2="486.01071" y2="232.22801" fill="none" stroke="#3c3c41" stroke-miterlimit="10"/>
+      <polygon points="482.27097 231.13377 486.01071 237.61018 489.75046 231.13377 482.27097 231.13377" fill="#3c3c41"/>
+    </g>
+    <g>
+      <line x1="494.17289" y1="250.49611" x2="550.39069" y2="250.49611" fill="none" stroke="#3c3c41" stroke-miterlimit="10"/>
+      <polygon points="549.29645 254.23585 555.77286 250.49611 549.29645 246.75636 549.29645 254.23585" fill="#3c3c41"/>
+    </g>
+    <rect x="477.17187" y="241.47136" width="17.67767" height="17.67767" transform="translate(319.34528 -270.34731) rotate(45)" fill="url(#linear-gradient3)"/>
+    <rect x="558.91772" y="241.47136" width="17.67767" height="17.67767" transform="translate(343.28808 -328.15035) rotate(45)" fill="url(#linear-gradient4)"/>
+    <g>
+      <line x1="322.10033" y1="304.42462" x2="322.10033" y2="347.44244" fill="none" stroke="#3c3c41" stroke-miterlimit="10"/>
+      <polygon points="318.36059 346.3482 322.10033 352.82461 325.84008 346.3482 318.36059 346.3482" fill="#3c3c41"/>
+    </g>
+    <g>
+      <line x1="322.10033" y1="376.49528" x2="322.10033" y2="440.3988" fill="none" stroke="#3c3c41" stroke-miterlimit="10"/>
+      <polygon points="318.36059 439.30456 322.10033 445.78097 325.84008 439.30456 318.36059 439.30456" fill="#3c3c41"/>
+    </g>
+    <g>
+      <rect x="308.90033" y="388.58097" width="26.4" height="22" fill="#fff"/>
+      <rect x="308.90033" y="388.58097" width="26.4" height="22" fill="#f3354c" opacity=".07"/>
+      <rect x="308.90033" y="388.58097" width="26.4" height="22" fill="none" stroke="#8e8278" stroke-width=".25"/>
+    </g>
+    <path d="M334.97294,220.38097h59.3882c2.2,0,4-1.8,4-4v-30.20963" fill="none" stroke="#3c3c41" stroke-miterlimit="10"/>
+    <path d="M334.97294,293.44903h59.3882c2.2,0,4-1.8,4-4v-30.17769" fill="none" stroke="#3c3c41" stroke-miterlimit="10"/>
+    <rect x="313.2615" y="284.68909" width="17.67767" height="17.67767" transform="translate(301.89659 -141.78699) rotate(45)" fill="url(#linear-gradient5)"/>
+    <rect x="313.2615" y="357.79081" width="17.67767" height="17.67767" transform="translate(353.58731 -120.37599) rotate(45)" fill="url(#linear-gradient6)"/>
+    <g>
+      <rect x="348.81646" y="206.33622" width="26.4" height="22" fill="#fff"/>
+      <rect x="348.81646" y="206.33622" width="26.4" height="22" fill="#d3ec8e" opacity=".3"/>
+      <rect x="348.81646" y="206.33622" width="26.4" height="22" fill="none" opacity=".7" stroke="#8bc63f" stroke-width=".25"/>
+    </g>
+    <g>
+      <path d="M580.42764,250.31019h58.38821c2.75,0,5-2.25,5-5v-66.35046" fill="none" stroke="#3c3c41" stroke-miterlimit="10"/>
+      <polygon points="647.5556 180.05397 643.81586 173.57756 640.07611 180.05397 647.5556 180.05397" fill="#3c3c41"/>
+    </g>
+    <g>
+      <rect x="594.27115" y="237.96545" width="26.4" height="22" fill="#fff"/>
+      <rect x="594.27115" y="237.96545" width="26.4" height="22" fill="#d3ec8e" opacity=".3"/>
+      <rect x="594.27115" y="237.96545" width="26.4" height="22" fill="none" opacity=".7" stroke="#8bc63f" stroke-width=".25"/>
+    </g>
+    <g>
+      <rect x="511.82706" y="239.4961" width="26.4" height="22" fill="#fff"/>
+      <rect x="511.82706" y="239.4961" width="26.4" height="22" fill="#d3ec8e" opacity=".3"/>
+      <rect x="511.82706" y="239.4961" width="26.4" height="22" fill="none" opacity=".7" stroke="#8bc63f" stroke-width=".25"/>
+    </g>
+    <g>
+      <rect x="348.81646" y="281.77415" width="26.4" height="22" fill="#fff"/>
+      <rect x="348.81646" y="281.77415" width="26.4" height="22" fill="#d3ec8e" opacity=".3"/>
+      <rect x="348.81646" y="281.77415" width="26.4" height="22" fill="none" opacity=".7" stroke="#8bc63f" stroke-width=".25"/>
+    </g>
+    <g>
+      <path d="M334.97294,366.58098h58.38821c2.75,0,5-2.25,5-5v-183.21783" fill="none" stroke="#3c3c41" stroke-miterlimit="10"/>
+      <polygon points="402.1009 179.45738 398.36115 172.98097 394.62141 179.45738 402.1009 179.45738" fill="#3c3c41"/>
+    </g>
+    <g>
+      <rect x="348.81646" y="357.13408" width="26.4" height="22" fill="#fff"/>
+      <rect x="348.81646" y="357.13408" width="26.4" height="22" fill="#d3ec8e" opacity=".3"/>
+      <rect x="348.81646" y="357.13408" width="26.4" height="22" fill="none" opacity=".7" stroke="#8bc63f" stroke-width=".25"/>
+    </g>
+    <g>
+      <path d="M113.34648,84.8434v-27.12094c0-2.75,2.25-5,5-5h79.61603" fill="none" stroke="#b2aaa1" stroke-miterlimit="10"/>
+      <polygon points="196.86826 56.4622 203.34468 52.72246 196.86826 48.98271 196.86826 56.4622" fill="#b2aaa1"/>
+    </g>
+    <g>
+      <line x1="318.63435" y1="52.72246" x2="334.7907" y2="52.72246" fill="none" stroke="#b2aaa1" stroke-miterlimit="10"/>
+      <polygon points="333.69646 56.4622 340.17287 52.72246 333.69646 48.98271 333.69646 56.4622" fill="#b2aaa1"/>
+    </g>
+    <g>
+      <line x1="536.77288" y1="52.72246" x2="559.1907" y2="52.72246" fill="none" stroke="#b2aaa1" stroke-miterlimit="10"/>
+      <polygon points="558.09646 56.4622 564.57287 52.72246 558.09646 48.98271 558.09646 56.4622" fill="#b2aaa1"/>
+    </g>
+    <g>
+      <rect x="788.97288" y="89.38097" width="184.8" height="26.67848" fill="#fff"/>
+      <rect x="788.97288" y="89.38097" width="184.8" height="26.67848" fill="#fff1cc" opacity=".65"/>
+      <rect x="788.97288" y="89.38097" width="184.8" height="26.67848" fill="none" opacity=".5" stroke="#dfa626" stroke-width=".25"/>
+    </g>
+    <g>
+      <line x1="700.97288" y1="54.18098" x2="783.59067" y2="54.18098" fill="none" stroke="#b2aaa1" stroke-miterlimit="10"/>
+      <polygon points="782.49644 57.92073 788.97288 54.18098 782.49644 50.44124 782.49644 57.92073" fill="#b2aaa1"/>
+    </g>
+    <g>
+      <line x1="881.37287" y1="71.78096" x2="881.37287" y2="84.27217" fill="none" stroke="#b2aaa1" stroke-miterlimit="10"/>
+      <polygon points="877.63312 83.17793 881.37287 89.65434 885.11261 83.17793 877.63312 83.17793" fill="#b2aaa1"/>
+    </g>
+    <g>
+      <line x1="813.17289" y1="146.23097" x2="862.79069" y2="146.23097" fill="none" stroke="#3c3c41" stroke-miterlimit="10"/>
+      <polygon points="861.69645 149.97072 868.17289 146.23097 861.69645 142.49123 861.69645 149.97072" fill="#3c3c41"/>
+    </g>
+    <g>
+      <line x1="881.37287" y1="155.38096" x2="881.37287" y2="215.99879" fill="none" stroke="#3c3c41" stroke-miterlimit="10"/>
+      <polygon points="877.63312 214.90455 881.37287 221.38096 885.11261 214.90455 877.63312 214.90455" fill="#3c3c41"/>
+    </g>
+    <g>
+      <line x1="881.37287" y1="244.78096" x2="881.37287" y2="283.3988" fill="none" stroke="#3c3c41" stroke-miterlimit="10"/>
+      <polygon points="877.63312 282.30455 881.37287 288.78097 885.11261 282.30455 877.63312 282.30455" fill="#3c3c41"/>
+    </g>
+    <g>
+      <line x1="881.37287" y1="309.38096" x2="881.37287" y2="356.7988" fill="none" stroke="#3c3c41" stroke-miterlimit="10"/>
+      <polygon points="877.63312 355.70456 881.37287 362.18097 885.11261 355.70456 877.63312 355.70456" fill="#3c3c41"/>
+    </g>
+    <g>
+      <line x1="989.31736" y1="309.38096" x2="989.31736" y2="356.7988" fill="none" stroke="#3c3c41" stroke-miterlimit="10"/>
+      <polygon points="985.57761 355.70456 989.31736 362.18097 993.05711 355.70456 985.57761 355.70456" fill="#3c3c41"/>
+    </g>
+    <g>
+      <rect x="1057.32221" y="362.14984" width="83.65067" height="30.83113" fill="#fff"/>
+      <rect x="1057.32221" y="362.14984" width="83.65067" height="30.83113" fill="#53b1e0" opacity=".07"/>
+      <rect x="1057.32221" y="362.14984" width="83.65067" height="30.83113" fill="none" stroke="#53b1e0" stroke-width=".25"/>
+    </g>
+    <g>
+      <rect x="947.37288" y="362.14984" width="83.65067" height="30.83113" fill="#fff"/>
+      <rect x="947.37288" y="362.14984" width="83.65067" height="30.83113" fill="#53b1e0" opacity=".07"/>
+      <rect x="947.37288" y="362.14984" width="83.65067" height="30.83113" fill="none" stroke="#53b1e0" stroke-width=".25"/>
+    </g>
+    <g>
+      <rect x="839.54754" y="362.14984" width="83.65067" height="30.83113" fill="#fff"/>
+      <rect x="839.54754" y="362.14984" width="83.65067" height="30.83113" fill="#53b1e0" opacity=".07"/>
+      <rect x="839.54754" y="362.14984" width="83.65067" height="30.83113" fill="none" stroke="#53b1e0" stroke-width=".25"/>
+    </g>
+    <g>
+      <line x1="1098.60197" y1="309.38096" x2="1098.60197" y2="356.7988" fill="none" stroke="#3c3c41" stroke-miterlimit="10"/>
+      <polygon points="1094.86222 355.70456 1098.60197 362.18097 1102.34171 355.70456 1094.86222 355.70456" fill="#3c3c41"/>
+    </g>
+    <g>
+      <path d="M788.97288,375.38097h19.20001c2.75,0,5-2.25001,5-5.00001V121.16313" fill="none" stroke="#3c3c41" stroke-miterlimit="10"/>
+      <polygon points="816.91264 122.2574 813.17289 115.78096 809.43314 122.2574 816.91264 122.2574" fill="#3c3c41"/>
+    </g>
+    <rect x="804.37288" y="322.58097" width="17.6" height="35.2" fill="#fff"/>
+    <g>
+      <rect x="846.17288" y="172.98097" width="70.4" height="22" fill="#fff"/>
+      <rect x="846.17288" y="172.98097" width="70.4" height="22" fill="#e1ddd8" opacity=".6"/>
+      <rect x="846.17288" y="172.98097" width="70.4" height="22" fill="none" stroke="#8e8278" stroke-width=".25"/>
+    </g>
+    <line x1="892.81695" y1="301.65597" x2="1099.34358" y2="301.65597" fill="none" stroke="#3c3c41" stroke-miterlimit="10"/>
+    <rect x="980.47853" y="292.81714" width="17.67767" height="17.67767" transform="translate(503.06733 -611.20003) rotate(45)" fill="url(#linear-gradient7)"/>
+    <rect x="1089.76313" y="292.81714" width="17.67767" height="17.67767" transform="translate(535.07605 -688.47591) rotate(45)" fill="url(#linear-gradient8)"/>
+    <rect x="872.53404" y="292.81714" width="17.67767" height="17.67767" transform="translate(471.45112 -534.87175) rotate(45)" fill="url(#linear-gradient9)"/>
+    <rect x="872.53404" y="137.39214" width="17.67767" height="17.67767" transform="translate(361.54905 -580.39468) rotate(45)" fill="url(#linear-gradient10)"/>
+    <rect x="872.53404" y="225.74214" width="17.67767" height="17.67767" transform="translate(424.02193 -554.51756) rotate(45)" fill="url(#linear-gradient11)"/>
+    <rect x="104.13367" y="357.79081" width="17.67767" height="17.67767" transform="translate(292.33519 27.49971) rotate(45)" fill="url(#linear-gradient12)"/>
+  </g>
+  <g id="Text">
+    <text transform="translate(99.32334 100.98098)" fill="#2f2f2f" font-family="SegoeUI-Bold, &apos;Segoe UI&apos;" font-size="12" font-weight="700"><tspan x="0" y="0">Start</tspan></text>
+    <text transform="translate(104.9686 254.58098)" fill="#2f2f2f" font-family="SegoeUI, &apos;Segoe UI&apos;" font-size="12"><tspan x="0" y="0">No</tspan></text>
+    <text transform="translate(104.9686 328.21815)" fill="#2f2f2f" font-family="SegoeUI, &apos;Segoe UI&apos;" font-size="12"><tspan x="0" y="0">No</tspan></text>
+    <text transform="translate(104.96845 404.18141)" fill="#2f2f2f" font-family="SegoeUI, &apos;Segoe UI&apos;" font-size="12"><tspan x="0" y="0">No</tspan></text>
+    <text transform="translate(142.51653 223.7809)" fill="#2f2f2f" font-family="SegoeUI, &apos;Segoe UI&apos;" font-size="12"><tspan x="0" y="0">Yes</tspan></text>
+    <text transform="translate(141.87295 298.58089)" fill="#2f2f2f" font-family="SegoeUI, &apos;Segoe UI&apos;" font-size="12"><tspan x="0" y="0">Yes</tspan></text>
+    <text transform="translate(141.87295 372.46345)" fill="#2f2f2f" font-family="SegoeUI, &apos;Segoe UI&apos;" font-size="12"><tspan x="0" y="0">Yes</tspan></text>
+    <text transform="translate(70.60923 156.95158)" fill="#2f2f2f" font-size="12"><tspan x="0" y="0" font-family="SegoeUI, &apos;Segoe UI&apos;">Filter by </tspan><tspan x="45.62109" y="0" font-family="SegoeUI-Bold, &apos;Segoe UI&apos;" font-weight="700">task fit</tspan></text>
+    <text transform="translate(284.98998 522.66368)" fill="#2f2f2f" font-family="SegoeUI, &apos;Segoe UI&apos;" font-size="12"><tspan x="0" y="0">Restart search.</tspan></text>
+    <text transform="translate(668.07774 227.52764)" fill="#2f2f2f" font-family="SegoeUI, &apos;Segoe UI&apos;" font-size="12"><tspan x="0" y="0">Explore benchmarks.</tspan></text>
+    <text transform="translate(682.69688 302.35878)" fill="#2f2f2f" font-family="SegoeUI, &apos;Segoe UI&apos;" font-size="12"><tspan x="0" y="0">Use evaluators.</tspan></text>
+    <text transform="translate(672.56602 381.52765)" fill="#2f2f2f" font-family="SegoeUI, &apos;Segoe UI&apos;" font-size="12"><tspan x="0" y="0">Try on playground.</tspan></text>
+    <text transform="translate(148.23269 420.94319)" fill="#2f2f2f" font-family="SegoeUI, &apos;Segoe UI&apos;" font-size="12"><tspan x="0" y="0">Use fine-tuning.</tspan></text>
+    <text transform="translate(892.8173 280.86368)" fill="#2f2f2f" font-family="SegoeUI, &apos;Segoe UI&apos;" font-size="12"><tspan x="0" y="0">Can it work </tspan><tspan x="0" y="14.3999">with others?</tspan></text>
+    <text transform="translate(858.35422 381.53818)" fill="#2f2f2f" font-family="SegoeUI, &apos;Segoe UI&apos;" font-size="12"><tspan x="0" y="0">Extend it.</tspan></text>
+    <text transform="translate(1001.77677 280.86368)" fill="#2f2f2f" font-family="SegoeUI, &apos;Segoe UI&apos;" font-size="12"><tspan x="0" y="0">Is the model </tspan><tspan x="0" y="14.3999">swappable?</tspan></text>
+    <text transform="translate(963.5189 381.53818)" fill="#2f2f2f" font-family="SegoeUI, &apos;Segoe UI&apos;" font-size="12"><tspan x="0" y="0">Replace it.</tspan></text>
+    <text transform="translate(1111.06132 280.86368)" fill="#2f2f2f" font-family="SegoeUI, &apos;Segoe UI&apos;" font-size="12"><tspan x="0" y="0">Is the model </tspan><tspan x="0" y="14.3999">fine-tunable?</tspan></text>
+    <text transform="translate(1065.79557 381.53818)" fill="#2f2f2f" font-family="SegoeUI, &apos;Segoe UI&apos;" font-size="12"><tspan x="0" y="0">Customize it.</tspan></text>
+    <text transform="translate(273.36494 461.82542)" fill="#2f2f2f" font-family="SegoeUI, &apos;Segoe UI&apos;" font-size="12"><tspan x="0" y="0">No match for your </tspan><tspan x="-16.70508" y="14.3999">budget. Use new criteria.</tspan></text>
+    <text transform="translate(458.3278 515.0435)" fill="#2f2f2f" font-family="SegoeUI, &apos;Segoe UI&apos;" font-size="12"><tspan x="0" y="0">No match for requirements. </tspan><tspan x="27.2666" y="14.3999">Retry new criteria.</tspan></text>
+    <text transform="translate(40.03246 515.0435)" fill="#2f2f2f" font-family="SegoeUI, &apos;Segoe UI&apos;" font-size="12"><tspan x="0" y="0">No match for requirements. </tspan><tspan x="27.2666" y="14.3999">Retry new criteria.</tspan></text>
+    <text transform="translate(23.20929 216.06369)" fill="#2f2f2f" font-family="SegoeUI, &apos;Segoe UI&apos;" font-size="12"><tspan x="0" y="0">Standard task </tspan><tspan x="38.58984" y="14.3999">types?</tspan></text>
+    <text transform="translate(12.11749 287.46593)" fill="#2f2f2f" font-family="SegoeUI, &apos;Segoe UI&apos;" font-size="12"><tspan x="0" y="0">Specialized task </tspan><tspan x="49.68164" y="14.3999">types?</tspan></text>
+    <text transform="translate(30.21124 360.56766)" fill="#2f2f2f" font-family="SegoeUI, &apos;Segoe UI&apos;" font-size="12"><tspan x="0" y="0">Custom task </tspan><tspan x="5.15625" y="14.3999">or domain? </tspan></text>
+    <text transform="translate(314.09651 254.58089)" fill="#2f2f2f" font-family="SegoeUI, &apos;Segoe UI&apos;" font-size="12"><tspan x="0" y="0">No</tspan></text>
+    <text transform="translate(477.7261 297.21011)" fill="#2f2f2f" font-family="SegoeUI, &apos;Segoe UI&apos;" font-size="12"><tspan x="0" y="0">No</tspan></text>
+    <text transform="translate(559.753 297.21011)" fill="#2f2f2f" font-family="SegoeUI, &apos;Segoe UI&apos;" font-size="12"><tspan x="0" y="0">No</tspan></text>
+    <text transform="translate(314.09651 404.18101)" fill="#2f2f2f" font-family="SegoeUI, &apos;Segoe UI&apos;" font-size="12"><tspan x="0" y="0">No</tspan></text>
+    <text transform="translate(352.91653 221.93614)" fill="#2f2f2f" font-family="SegoeUI, &apos;Segoe UI&apos;" font-size="12"><tspan x="0" y="0">Yes</tspan></text>
+    <text transform="translate(598.37122 253.56537)" fill="#2f2f2f" font-family="SegoeUI, &apos;Segoe UI&apos;" font-size="12"><tspan x="0" y="0">Yes</tspan></text>
+    <text transform="translate(516.02685 253.12971)" fill="#2f2f2f" font-family="SegoeUI, &apos;Segoe UI&apos;" font-size="12"><tspan x="0" y="0">Yes</tspan></text>
+    <text transform="translate(352.91653 297.37407)" fill="#2f2f2f" font-family="SegoeUI, &apos;Segoe UI&apos;" font-size="12"><tspan x="0" y="0">Yes</tspan></text>
+    <text transform="translate(352.91653 372.73399)" fill="#2f2f2f" font-family="SegoeUI, &apos;Segoe UI&apos;" font-size="12"><tspan x="0" y="0">Yes</tspan></text>
+    <text transform="translate(252.49017 216.06369)" fill="#2f2f2f" font-family="SegoeUI, &apos;Segoe UI&apos;" font-size="12"><tspan x="0" y="0">Serverless </tspan><tspan x="7.03125" y="14.3999">options?</tspan></text>
+    <text transform="translate(432.06318 244.29291)" fill="#2f2f2f" font-family="SegoeUI, &apos;Segoe UI&apos;" font-size="12"><tspan x="0" y="0">Region </tspan><tspan x="-23.6543" y="14.3999">availability?</tspan></text>
+    <text transform="translate(541.95487 212.66418)" fill="#2f2f2f" font-family="SegoeUI, &apos;Segoe UI&apos;" font-size="12"><tspan x="0" y="0">With data </tspan><tspan x="-7.78711" y="14.3999">governance?</tspan></text>
+    <text transform="translate(687.77268 333.52554)" fill="#2f2f2f" font-family="SegoeUI, &apos;Segoe UI&apos;" font-size="12"><tspan x="0" y="0">Custom </tspan><tspan x="0" y="14.3999">safety</tspan></text>
+    <text transform="translate(687.77268 255.89017)" fill="#2f2f2f" font-family="SegoeUI, &apos;Segoe UI&apos;" font-size="12"><tspan x="0" y="0">Cost</tspan><tspan x="0" y="14.3999">quality</tspan></text>
+    <text transform="translate(254.68743 287.46544)" fill="#2f2f2f" font-family="SegoeUI, &apos;Segoe UI&apos;" font-size="12"><tspan x="0" y="0">Managed </tspan><tspan x="-2.29102" y="14.3999">compute?</tspan></text>
+    <text transform="translate(254.68743 360.56717)" fill="#2f2f2f" font-family="SegoeUI, &apos;Segoe UI&apos;" font-size="12"><tspan x="0" y="0">Managed </tspan><tspan x="-22.63477" y="14.3999">compute with? </tspan></text>
+    <text transform="translate(237.0396 157.66369)" fill="#2f2f2f" font-size="12"><tspan x="0" y="0" font-family="SegoeUI, &apos;Segoe UI&apos;">Filter by </tspan><tspan x="45.62109" y="0" font-family="SegoeUI-Bold, &apos;Segoe UI&apos;" font-weight="700">cost</tspan></text>
+    <text transform="translate(234.35445 48.90722)" fill="#2f2f2f" font-family="SegoeUI, &apos;Segoe UI&apos;" font-size="12"><tspan x="0" y="0">Start from the </tspan><tspan x="-11.17969" y="14.3999">model catalog.</tspan></text>
+    <text transform="translate(376.21516 157.66369)" fill="#2f2f2f" font-size="12"><tspan x="0" y="0" font-family="SegoeUI, &apos;Segoe UI&apos;">Filter by </tspan><tspan x="45.62109" y="0" font-family="SegoeUI-Bold, &apos;Segoe UI&apos;" font-weight="700">availability</tspan></text>
+    <text transform="translate(566.72678 157.66369)" fill="#2f2f2f" font-size="12"><tspan x="0" y="0" font-family="SegoeUI, &apos;Segoe UI&apos;">Select by </tspan><tspan x="50.87695" y="0" font-family="SegoeUI-Bold, &apos;Segoe UI&apos;" font-weight="700">comparison</tspan></text>
+    <g>
+      <g>
+        <circle cx="204.32288" cy="32.73097" r="8.25" fill="#fff"/>
+        <circle cx="204.32288" cy="32.73097" r="8.25" fill="#4e4f4f" opacity=".25"/>
+        <circle cx="204.32288" cy="32.73097" r="8.25" fill="none" stroke="#4e4f4f" stroke-miterlimit="10" stroke-width=".15"/>
+      </g>
+      <text transform="translate(201.90881 36.98196)" fill="#4e4f4f" font-family="SegoeUI-Semibold, &apos;Segoe UI&apos;" font-size="12" font-weight="600" letter-spacing="-.01001em"><tspan x="0" y="0">1</tspan></text>
+    </g>
+    <text transform="translate(356.26231 48.90722)" fill="#2f2f2f" font-family="SegoeUI, &apos;Segoe UI&apos;" font-size="12"><tspan x="0" y="0">Navigate the decision tree </tspan><tspan x="-6.14062" y="14.3999">until you have several choices. </tspan></text>
+    <g>
+      <g>
+        <circle cx="339.62288" cy="32.73097" r="8.25" fill="#fff"/>
+        <circle cx="339.62288" cy="32.73097" r="8.25" fill="#4e4f4f" opacity=".25"/>
+        <circle cx="339.62288" cy="32.73097" r="8.25" fill="none" stroke="#4e4f4f" stroke-miterlimit="10" stroke-width=".15"/>
+      </g>
+      <text transform="translate(336.29182 36.98196)" fill="#4e4f4f" font-family="SegoeUI-Semibold, &apos;Segoe UI&apos;" font-size="12" font-weight="600" letter-spacing="-.01001em"><tspan x="0" y="0">2</tspan></text>
+    </g>
+    <text transform="translate(577.12644 48.90722)" fill="#2f2f2f" font-family="SegoeUI, &apos;Segoe UI&apos;" font-size="12"><tspan x="0" y="0">Compare the choices </tspan><tspan x="21.59473" y="14.3999">and decide.</tspan></text>
+    <text transform="translate(840.8812 27.86368)" fill="#2f2f2f" font-family="SegoeUI-Bold, &apos;Segoe UI&apos;" font-size="12" font-weight="700"><tspan x="0" y="0">Model catalog</tspan></text>
+    <text transform="translate(834.64408 45.26366)" fill="#2f2f2f" font-family="SegoeUI, &apos;Segoe UI&apos;" font-size="12"><tspan x="0" y="0">Filter to a few models. </tspan><tspan x="-8.73633" y="14.3999">Compare to choose.</tspan></text>
+    <text transform="translate(843.64976 107.06368)" fill="#2f2f2f" font-family="SegoeUI-Bold, &apos;Segoe UI&apos;" font-size="12" font-weight="700"><tspan x="0" y="0">Model choice</tspan></text>
+    <g>
+      <g>
+        <circle cx="563.52288" cy="32.73097" r="8.25" fill="#fff"/>
+        <circle cx="563.52288" cy="32.73097" r="8.25" fill="#4e4f4f" opacity=".25"/>
+        <circle cx="563.52288" cy="32.73097" r="8.25" fill="none" stroke="#4e4f4f" stroke-miterlimit="10" stroke-width=".15"/>
+      </g>
+      <text transform="translate(560.19183 36.98196)" fill="#4e4f4f" font-family="SegoeUI-Semibold, &apos;Segoe UI&apos;" font-size="12" font-weight="600" letter-spacing="-.01001em"><tspan x="0" y="0">3</tspan></text>
+    </g>
+    <text transform="translate(787.91918 333.52573)" fill="#2f2f2f" font-family="SegoeUI, &apos;Segoe UI&apos;" font-size="12"><tspan x="0" y="0">Start with </tspan><tspan x="-2.625" y="14.3999">this model.</tspan></text>
+    <text transform="translate(896.4997 142.2639)" fill="#2f2f2f" font-family="SegoeUI, &apos;Segoe UI&apos;" font-size="12"><tspan x="0" y="0">Is it good </tspan><tspan x="0" y="14.3999">enough?</tspan></text>
+    <text transform="translate(898.4997 230.2639)" fill="#2f2f2f" font-family="SegoeUI, &apos;Segoe UI&apos;" font-size="12"><tspan x="0" y="0">Models evolve or </tspan><tspan x="0" y="14.3999">changes are required?</tspan></text>
+    <text transform="translate(859.62315 188.38089)" fill="#2f2f2f" font-family="SegoeUI, &apos;Segoe UI&apos;" font-size="12"><tspan x="0" y="0">What if?</tspan></text>
+  </g>
+</svg>

@@ -15,25 +15,25 @@ You can deploy a workload so that it's internally or externally facing. Use the 
 The architecture meets infrastructure requirements in the following ways:
 
 - A container-hosting platform is used to deploy highly available workloads across availability zones. We recommend Azure Red Hat OpenShift.
-- A fully managed database service functions as the back-end database for the OMS system. Sterling OMS currently supports IBM Db2, Oracle Database, and PostgreSQL. We recommend Azure Database for PostgreSQL with the flexible server option.
+- A fully managed database service functions as the back-end database for the OMS system. Sterling OMS currently supports IBM Db2, Oracle Database, and PostgreSQL. We recommend Azure Database for PostgreSQL.
 - A scalable and highly available setup provides an environment for running a message broker like IBM MQ that's compliant with the Java Message Service (JMS) API. The diagram doesn't include this setup. Depending on your requirements, it might be within your cluster or external to your cluster.
-- Private endpoints isolate and secure network traffic to all connected services.
+- Private endpoints isolate and help secure network traffic to all connected services.
 - Additional, optional Azure virtual machines (VMs) are used for management and development purposes.
 - Premium and standard Azure Files shares provide storage for log files and other application configuration data.
 
 ### Components
 
-- [Azure Red Hat OpenShift](https://azure.microsoft.com/products/openshift) provides highly available, fully managed OpenShift clusters on demand. These clusters are monitored and operated jointly by Microsoft and Red Hat.
+- [Azure Red Hat OpenShift](/azure/openshift/intro-openshift) provides highly available, fully managed OpenShift clusters on demand. These clusters are monitored and operated jointly by Microsoft and Red Hat.
 
-- [Azure Virtual Network](https://azure.microsoft.com/services/virtual-network) is the fundamental building block for private networks in Azure. Virtual networks are used for communication between nodes, Azure services, and hybrid connectivity needs.
+- [Azure Virtual Network](/azure/well-architected/service-guides/virtual-network) is the fundamental building block for private networks in Azure. Virtual networks are used for communication between nodes, Azure services, and hybrid connectivity needs.
 
-- [Azure Files](https://azure.microsoft.com/services/storage/files) provides fully managed file shares in the cloud that are accessible via the SMB and NFS protocols. In this solution, Azure Files hosts the stateful data for the databases and systems that are inside the cluster.
+- [Azure Files](/azure/well-architected/service-guides/azure-files) provides fully managed file shares in the cloud that are accessible via the SMB and NFS protocols. In this solution, Azure Files hosts the stateful data for the databases and systems that are inside the cluster.
 
-- [Azure Bastion](https://azure.microsoft.com/services/azure-bastion) is a fully managed service that provides secure and seamless RDP and SSH access to VMs without any exposure through public IP addresses. In this solution, Azure Bastion is optional. You can use Azure Bastion and a subnet to securely access any of the worker nodes or optional jump box machines.
+- [Azure Bastion](/azure/bastion/bastion-overview) is a fully managed service that provides RDP and SSH access to VMs without exposure through VM public IP addresses. In this solution, Azure Bastion is optional. You can use Azure Bastion and a subnet to provide enhanced-security access to any of the worker nodes or optional jump box machines.
 
-- [Azure Database for PostgreSQL](https://azure.microsoft.com/products/postgresql) is a fully managed relational database service that's based on the PostgreSQL database engine. Azure Database for PostgreSQL offers predictable performance and dynamic scalability, and is appropriate for business-critical workloads. Its [flexible server deployment model](/azure/postgresql/flexible-server/overview) provides granular control and flexibility over database management functions and configuration settings.
+- [Azure Database for PostgreSQL](/azure/well-architected/service-guides/postgresql) is a fully managed relational database service that's based on the PostgreSQL database engine. Azure Database for PostgreSQL offers predictable performance and dynamic scalability, and is appropriate for business-critical workloads. It provides granular control and flexibility over database management functions and configuration settings.
 
-- [Azure Virtual Machines](https://azure.microsoft.com/products/virtual-machines) is an infrastructure as a service (IaaS) offer. You can use Virtual Machines to deploy on-demand, scalable computing resources. This solution uses [Linux VMs in Azure](https://azure.microsoft.com/services/virtual-machines/linux) to provide a jump box for management of your OMS Azure-based resources and services.
+- [Azure Virtual Machines](/azure/well-architected/service-guides/virtual-machines) is an infrastructure as a service (IaaS) offer. You can use Virtual Machines to deploy on-demand, scalable computing resources. This solution uses [Linux VMs in Azure](../../reference-architectures/n-tier/linux-vm.yml) to provide a jump box for management of your OMS Azure-based resources and services.
 
 ### Alternatives
 
@@ -41,9 +41,9 @@ If you have network connectivity into your Azure environment, you can perform th
 
 The following services typically aren't necessary, but they're effective alternatives:
 
-- [IBM Db2 on Azure](https://www.ibm.com/docs/en/db2/11.5?topic=providers-db2-azure) is an optional alternative to the flexible server model of Azure Database for PostgreSQL. If you run IBM Db2 on VMs, familiarize yourself with using [Azure Load Balancer](https://azure.microsoft.com/services/load-balancer) and Pacemaker clustering software to achieve high availability for your database servers.
+- [IBM Db2 on Azure](https://www.ibm.com/docs/en/db2/11.5?topic=providers-db2-azure) is an optional alternative to Azure Database for PostgreSQL. If you run IBM Db2 on VMs, familiarize yourself with using [Azure Load Balancer](https://azure.microsoft.com/services/load-balancer) and Pacemaker clustering software to achieve high availability for your database servers.
 - [Azure NetApp Files](https://azure.microsoft.com/services/netapp) supports any workload type by providing high availability and high performance. Azure NetApp Files is ideal for IO-sensitive workloads, such as IBM Db2 workloads that run on Azure VMs.
-- [Oracle Database on Azure](https://azure.microsoft.com/solutions/oracle) is an optional alternative to the flexible server model of Azure Database for PostgreSQL.
+- [Oracle Database on Azure](https://azure.microsoft.com/solutions/oracle) is an optional alternative to Azure Database for PostgreSQL.
 
 ## Scenario details
 
@@ -88,7 +88,7 @@ Before you proceed with your deployment, answer the following questions about yo
 
 ### Sterling OMS
 
-Sterling OMS version 10.0.2209.0 has been tested on Azure. We recommend that you use the latest version of Sterling OMS. At the time of writing, that version is 10.0.2209.0.
+Sterling OMS version 10.0.2209.0 has been tested on Azure. We recommend that you use the latest version of Sterling OMS. 
 
 Before deploying your Azure resources to support your Sterling OMS environment, familiarize yourself with the following requirements:
 
@@ -103,7 +103,7 @@ Sterling OMS has been tested with Azure Red Hat OpenShift version 4.10.15. Befor
 
 - Decide on a domain. When you deploy Azure Red Hat OpenShift, specify a domain name that gets appended to all services that get deployed in your cluster.
 - Determine your API and ingress visibility. Decide how you want your OpenShift cluster API (for management) and ingress (for deployed applications and services) to be internet-facing. If you use private connectivity to hide your API or ingress, you can only reach these endpoints from a machine that can reach the network where you deploy your service.
-- Calculate your master and worker VM sizes and counts. In Azure Red Hat OpenShift, the master count is a fixed number, with a minimum recommended size. Your worker nodes, which run your application workloads like Sterling OMS, are sized separately. When you deploy your instance, consider the required number of worker nodes in your cluster, plus the appropriate size of each. You might need to do some testing and validation to determine the correct numbers and sizes. These values depend on the number of agents in your deployment and the number of pods for each agent type that you run. After deploying, you can adjust these values when you need to scale.
+- Calculate your control and worker VM sizes and counts. In Azure Red Hat OpenShift, the control count is a fixed number, with a minimum recommended size. Your worker nodes, which run your application workloads like Sterling OMS, are sized separately. When you deploy your instance, consider the required number of worker nodes in your cluster, plus the appropriate size of each. You might need to do some testing and validation to determine the correct numbers and sizes. These values depend on the number of agents in your deployment and the number of pods for each agent type that you run. After deploying, you can adjust these values when you need to scale.
 
 For more information, see [Before Your Begin for Azure Red Hat OpenShift](/azure/openshift/tutorial-create-cluster#before-you-begin).
 
@@ -115,8 +115,8 @@ We recommend that you use the latest *Ds* series VMs as your worker nodes. Examp
 
 Because Sterling OMS has various back-end database options, it's important to first decide which platform to host your database on. Then you can make decisions about the size of that platform. Keep the following general guidelines in mind during this process:
 
-- **Azure Database for PostgreSQL, flexible server deployment model**: Due to the nature of its scale and redundancy options, the flexible server model of Azure Database for PostgreSQL is the preferred method for hosting Sterling OMS workloads in Azure. When you deploy your instance:
-  - Select the compute tier that matches your usage patterns. We recommend that you start with a general purpose tier and select an appropriate number of cores. Also note that your CPU, memory, and IOPs are tied to your compute size selection.
+- **Azure Database for PostgreSQL**: Due to the nature of its scale and redundancy options, Azure Database for PostgreSQL is the preferred method for hosting Sterling OMS workloads in Azure. When you deploy your instance:
+  - Select the compute tier that matches your usage patterns. We recommend that you start with a general purpose tier and select an appropriate number of cores. Your CPU, memory, and IOPs are determined by your compute size selection.
   - Add appropriate storage. Also remember that increased storage increases cost, and you can't shrink your provisioned storage. As a result, it's important to know your initial data size and predicted growth.
   - Adjust server parameters such as `max_connections` that affect your agents' ability to maintain connectivity to your database.
 - **Db2 on VMs**: When you run Db2 on Azure VMs, there are several complex factors that you need to address, such as performance and availability. For a detailed article about a high-performance Db2 deployment on Azure, see [High availability of IBM Db2 LUW on Azure VMs on Red Hat Enterprise Linux Server](/azure/virtual-machines/workloads/sap/high-availability-guide-rhel-ibm-db2-luw). That article walks through sizing and performance considerations. It also shows you how to deploy a high availability Db2 cluster that uses Pacemaker.
@@ -134,11 +134,21 @@ IBM also supports other JMS-based message queuing systems, such as Apache Active
 
 ## Considerations
 
-These considerations implement the pillars of the Azure Well-Architected Framework, which is a set of guiding tenets that you can use to improve the quality of a workload. For more information, see [Microsoft Azure Well-Architected Framework](/azure/well-architected/).
+These considerations implement the pillars of the Azure Well-Architected Framework, which is a set of guiding tenets that can be used to improve the quality of a workload. For more information, see [Microsoft Azure Well-Architected Framework](/azure/well-architected/).
+
+### Reliability
+
+Reliability ensures your application can meet the commitments you make to your customers. For more information, see [Design review checklist for Reliability](/azure/well-architected/reliability/checklist).
+
+Azure Red Hat OpenShift has built-in capabilities for self-healing, scaling, and resilience to ensure that Azure Red Hat OpenShift and Sterling OMS work successfully. Azure Red Hat OpenShift and Sterling OMS have been designed for parts that fail and recover. A key requirement for self-healing is that there are enough worker nodes. To recover from a zone failure within an Azure region, your control and worker nodes must be balanced across availability zones.
+
+Sterling OMS and Azure Red Hat OpenShift use database storage to persist state outside the Kubernetes cluster. Logs and other application resources are persisted to a storage account. To ensure that the storage dependencies continue to work during a failure, use [zone-redundant storage](/azure/virtual-machines/disks-deploy-zrs) whenever possible. This type of storage remains available when a zone fails. Your database deployment should also take multi-zone configurations into account.
+
+Because human error is common, deploy Sterling OMS by using as much automation as possible. For some sample scripts for setting up full, end-to-end automation, see [QuickStart Guide: Sterling Order Management on Azure](https://github.com/Azure/sterling) on GitHub.
 
 ### Security
 
-Security provides assurances against deliberate attacks and the abuse of your valuable data and systems. For more information, see [Overview of the security pillar](/azure/architecture/framework/security/overview).
+Security provides assurances against deliberate attacks and the abuse of your valuable data and systems. For more information, see [Design review checklist for Security](/azure/well-architected/security/checklist).
 
 Maintaining access and visibility into the maintenance lifecycle of your assets can be one of your organization's greatest opportunities to operate efficiently and maintain uptime. To help improve the security posture of your environment, it's important to use secure authentication and to keep your solutions up to date. Use encryption to help protect all data that moves in and out of your architecture.
 
@@ -159,7 +169,7 @@ Use [network security groups](/azure/virtual-network/security-overview) to filte
 The port numbers and ranges that you need to open depend on many factors. Some to consider are:
 
 - Port 443, for service-to-service communication.
-- Database-specific ports such as port 5432 for the flexible server option of Azure Database for PostgreSQL.
+- Database-specific ports such as port 5432 for Azure Database for PostgreSQL.
 - Message queue ports such as port 1414 for IBM MQ.
 
 Also consider these points:
@@ -177,11 +187,11 @@ You should configure OAuth for Azure Red Hat OpenShift. For more information, se
 
 #### Protect your infrastructure
 
-Control access to the Azure resources that you deploy. Every Azure subscription has a [trust relationship](/azure/active-directory/active-directory-how-subscriptions-associated-directory) with a Microsoft Entra tenant. Use [Azure role-based access control](/azure/role-based-access-control/overview) to grant users within your organization the correct permissions to Azure resources. Grant access by assigning Azure roles to users or groups at a certain scope. The scope can be a subscription, a resource group, or a single resource. Be sure to audit all changes to infrastructure. For more information about auditing, see [Azure Monitor activity log](/azure/azure-resource-manager/resource-group-audit).
+Control access to the Azure resources that you deploy. Every Azure subscription has a [trust relationship](/entra/fundamentals/how-subscriptions-associated-directory) with a Microsoft Entra tenant. Use [Azure role-based access control](/azure/role-based-access-control/overview) to grant users within your organization the correct permissions to Azure resources. Grant access by assigning Azure roles to users or groups at a certain scope. The scope can be a subscription, a resource group, or a single resource. Be sure to audit all changes to infrastructure. For more information about auditing, see [Azure Monitor activity log](/azure/azure-resource-manager/resource-group-audit).
 
-### Cost optimization
+### Cost Optimization
 
-Cost optimization is about looking at ways to reduce unnecessary expenses and improve operational efficiencies. For more information, see [Overview of the cost optimization pillar](/azure/architecture/framework/cost/overview).
+Cost Optimization is about looking at ways to reduce unnecessary expenses and improve operational efficiencies. For more information, see [Design review checklist for Cost Optimization](/azure/well-architected/cost-optimization/checklist).
 
 A standard deployment of Sterling OMS consists of the following components. You can adjust many of these compute-based resources to meet your needs. For instance, you can scale up your IBM MQ agent nodes to allow greater throughput.
 
@@ -198,7 +208,7 @@ A standard deployment of Sterling OMS consists of the following components. You 
   - Data subnet, if needed (/27)
   - Additional VM subnet, if needed (/27)
   - Management subnet, if needed (/30)
-- One instance of Azure Database for PostgreSQL with the flexible server option
+- One instance of Azure Database for PostgreSQL
 - One instance of Azure Container Registry
 - Two Azure Storage accounts
 - Three DNS zones
@@ -207,16 +217,6 @@ A standard deployment of Sterling OMS consists of the following components. You 
 - Azure Bastion
 
 Individual deployments can differ, for instance, if you run Db2 on Azure VMs, or if you deploy IBM MQ into your Azure Red Hat OpenShift environment. To review an example estimate, use the [cost calculator](https://azure.com/e/fae03e2386cf46149273a379966e95b1). Configurations vary, so verify your configuration with your IBM sizing team before you finalize your deployment.
-
-### Reliability
-
-Reliability ensures your application can meet the commitments you make to your customers. For more information, see [Overview of the reliability pillar](/azure/architecture/framework/resiliency/overview).
-
-Azure Red Hat OpenShift has built-in capabilities for self-healing, scaling, and resilience to ensure that Azure Red Hat OpenShift and Sterling OMS work successfully. Azure Red Hat OpenShift and Sterling OMS have been designed for parts that fail and recover. A key requirement for self-healing is that there are enough worker nodes. To recover from a zone failure within an Azure region, your control and worker nodes must be balanced across availability zones.
-
-Sterling OMS and Azure Red Hat OpenShift use database storage to persist state outside the Kubernetes cluster. Logs and other application resources are persisted to a storage account. To ensure that the storage dependencies continue to work during a failure, use [zone-redundant storage](/azure/virtual-machines/disks-deploy-zrs) whenever possible. This type of storage remains available when a zone fails. Your database deployment should also take multi-zone configurations into account.
-
-Because human error is common, deploy Sterling OMS by using as much automation as possible. For some sample scripts for setting up full, end-to-end automation, see [QuickStart Guide: Sterling Order Management on Azure](https://github.com/Azure/sterling) on GitHub.
 
 ## Deploy this scenario
 
@@ -247,9 +247,9 @@ IBM offers specialized services to help you with installation. Contact your IBM 
 
 Principal authors:
 
-- [David Baumgarten](https://www.linkedin.com/in/baumgarten-david) | Principal Cloud Solution Architect
-- [Drew Furgiuele](https://www.linkedin.com/in/pittfurg) | Senior Cloud Solution Architect
-- [Roeland Nieuwenhuis](https://www.linkedin.com/in/roelandnieuwenhuis) | Principal Cloud Solution Architect
+- [David Baumgarten](https://www.linkedin.com/in/baumgarten-david) | Principal Architect
+- [Drew Furgiuele](https://www.linkedin.com/in/pittfurg) | Senior Architect
+- [Roeland Nieuwenhuis](https://www.linkedin.com/in/roelandnieuwenhuis) | Chief Architect
 
 Other contributors:
 
@@ -266,12 +266,12 @@ Other contributors:
 - [Sterling Order Management - Best Practices Guide](https://www.ibm.com/docs/en/order-management-sw/10.0?topic=operator-best-practices)
 - [IBM Passport Advantage](https://www.ibm.com/software/passportadvantage/pao_customer.html)
 - [Quickstart: Deploy an Azure Red Hat OpenShift cluster](/azure/openshift/quickstart-portal)
-- [Quickstart: Create an Azure Database for PostgreSQL - Flexible Server](/azure/postgresql/flexible-server/quickstart-create-server-portal)
+- [Quickstart: Create an Azure Database for PostgreSQL](/azure/postgresql/configure-maintain/quickstart-create-server)
 - [Secure access to Azure Red Hat OpenShift with Azure Front Door](/azure/openshift/howto-secure-openshift-with-front-door)
 - [Use Azure Key Vault Provider for Secrets Store CSI Driver on Azure Red Hat OpenShift](/azure/openshift/howto-use-key-vault-secrets)
 - [IBM MQ in Containers](https://www.ibm.com/docs/en/ibm-mq/9.1?topic=mq-in-containers)
 - [Azure Red Hat OpenShift](/azure/openshift/intro-openshift)
-- [What is Azure Database for PostgreSQL?](/azure/postgresql/single-server/overview)
+- [What is Azure Database for PostgreSQL?](/azure/postgresql/overview)
 - [Introduction to Red Hat on Azure](/training/modules/introduction-to-red-hat-azure)
 - [Work with Azure Database for PostgreSQL](/training/paths/microsoft-learn-azure-database-for-postgresql)
 
@@ -279,4 +279,3 @@ Other contributors:
 
 - [Deploy IBM Maximo Application Suite on Azure](../../example-scenario/apps/deploy-ibm-maximo-application-suite.yml)
 - [Deploy a Java application with JBoss EAP on an ARO cluster](/azure/developer/java/ee/jboss-eap-on-aro)
-- [Oracle on Azure architecture design](../../solution-ideas/articles/oracle-on-azure-start-here.md)

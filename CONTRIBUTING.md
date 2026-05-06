@@ -2,27 +2,26 @@
 
 Thank you for taking the time to contribute to the Microsoft Azure documentation.
 
-This guide covers some general topics around contribution and refers out to our [contributors guide](https://learn.microsoft.com/contribute) for more detailed explanations where relevant.
+This guide covers some general topics related to contribution and refers to our [contributor guide](https://learn.microsoft.com/contribute/content) for more detailed explanations when required.
 
 ## Code of Conduct
 
 This project has adopted the [Microsoft Open Source Code of Conduct](https://opensource.microsoft.com/codeofconduct/).
-For more information, see the [Code of Conduct FAQ](https://opensource.microsoft.com/codeofconduct/faq/), or contact [opencode@microsoft.com](mailto:opencode@microsoft.com) with any additional questions or comments.
+
+For more information, see the [Code of Conduct FAQ](https://opensource.microsoft.com/codeofconduct/faq/) or contact [opencode@microsoft.com](mailto:opencode@microsoft.com) with any additional questions or comments.
 
 ## How can I contribute?
 
-There are a variety of ways to contribute to the documentation, review the following sections to find out which one is right for you.
+There are many ways to contribute to the documentation. Review the following sections to find out which one is right for you.
 
-### Reporting Bugs and Suggesting Enhancements
+### Report bugs and suggesting enhancements
 
-Use the Feedback tool at the bottom of any article to submit bugs and suggestions.
+Use the Feedback tool at the bottom of any article to submit bugs and suggestions related to the article.
 
-![Feedback Tool](https://raw.githubusercontent.com/MicrosoftDocs/azure-docs/master/media/feedback-tool.png)
+### Edit in GitHub
 
-### Editing in GitHub
+Follow the guidance for [editing documentation in the browser](https://learn.microsoft.com/contribute/content/how-to-write-quick-edits) in our contributor guide.
 
-Follow the guidance for [Quick edits to existing documents](https://learn.microsoft.com/contribute/#quick-edits-to-existing-documents) in our contributors guide.
+## Pull requests
 
-### Pull Request
-
-Review the guidance for [Pull Requests](https://learn.microsoft.com/contribute/how-to-write-workflows-major#pull-request-processing) in our contributors guide.
+Review the guidance for [pull-request processing](https://learn.microsoft.com/contribute/content/process-pull-request) in our contributor guide.

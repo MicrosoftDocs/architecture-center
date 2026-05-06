@@ -28,17 +28,21 @@ This reference architecture shows how to use Azure Monitor to monitor the perfor
 - **Azure Monitor - Visualizations**. Azure Monitor uses visualization tools to review application and infrastructure components and communications between services in Azure Monitor. Visualization tools include **Application Map in Azure Application Insight**, **the Map feature of Azure Monitor for VMs**, **Azure Monitor Workbooks**, and various dashboard views available within Azure Monitor. For more information, see [Use the Map feature of Azure Monitor for VMs to understand application components][service-map], [Create and share dashboards of Log Analytics data][share-dashboards], and [Azure Monitor Workbooks][monitor-workbooks].
 - **Azure Monitor - Integrations**. Azure Monitor integrates with a range of partner and third-party tools and extensions. These tools and extensions enhance and build upon existing Azure Monitor functionality, such as analysis and visualizations.
 - **Azure Monitor - Actions - Alerts**. Variations in metric and log data can indicate the occurrence of events. Rules define the data variations that trigger alerts, provide notifications, and initiate remediation responses. In this architecture, when an alert is triggered, automation runbooks automatically remediate the on-premises VMs and Azure VMs. Webhook actions, Service Management integration, and other action types are also available. For more information, see [Create, view, and manage metric alerts using Azure Monitor][manage-metrics-alerts] and [Create, view, and manage log alerts using Azure Monitor][manage-log-alerts].
-- **Azure Monitor - Actions - Autoscale**. Autoscale adds or removes VM instances according to deman, which maintains performance and increases cost effectiveness. In this architecture, Autoscale has conditions defined around average CPU load (in percentage). When conditions are met, Azure Monitor Autoscale will adjust the scale set according to demand. For more information, see [Overview of autoscale in Microsoft Azure][autoscale-overview].
+- **Azure Monitor - Actions - Autoscale**. Autoscale adds or removes VM instances according to demand, which maintains performance and increases cost effectiveness. In this architecture, Autoscale has conditions defined around average CPU load (in percentage). When conditions are met, Azure Monitor Autoscale will adjust the scale set according to demand. For more information, see [Overview of autoscale in Microsoft Azure][autoscale-overview].
 
 ### Components
 
 The architecture consists of the following components:
 
-- [Azure Virtual Machines](https://azure.microsoft.com/products/virtual-machines)
-- [Azure Monitor](https://azure.microsoft.com/products/monitor)
-- [Azure Policy](https://azure.microsoft.com/products/azure-policy)
-- [Azure Event Hubs](https://azure.microsoft.com/products/event-hubs)
-- [Azure Storage](https://azure.microsoft.com/product-categories/storage)
+- [Azure Event Hubs](/azure/well-architected/service-guides/azure-event-hubs) is a real-time data ingestion service for streaming events. In this architecture, it connects Azure Monitor to external SIEM tools by streaming logs and metrics for advanced analytics and long-term retention.
+
+- [Azure Monitor](/azure/azure-monitor/overview) is a unified platform for collecting and analyzing telemetry across environments. In this architecture, it serves as the central monitoring solution for performance, availability, and diagnostics across Azure, on-premises, and third-party cloud resources.
+
+- [Azure Policy](/azure/governance/policy/overview) is a governance tool for enforcing rules and automating resource configuration. In this architecture, it ensures consistent deployment of monitoring agents and enforces compliance across hybrid systems.
+
+- [Azure Storage](/azure/storage/common/storage-introduction) is a cloud-based storage solution that supports blobs, files, queues, and tables. In this architecture, it retains monitoring data and diagnostic logs, providing scalable, durable, and secure storage for long-term retention and analysis.
+
+- [Azure Virtual Machines](/azure/well-architected/service-guides/virtual-machines) are scalable compute resources for running workloads in Azure. In this architecture, they host business applications and are monitored using Azure Monitor and diagnostic agents to ensure performance and availability.
 
 ## Recommendations
 
@@ -77,7 +81,7 @@ Consider the following recommendations for analysis and diagnostics:
 
 - Customize log data collection (which is similar to metrics) using the HTTP Data Collector API to send log data to a Log Analytics workspace. For more information, see [Send log data to Azure Monitor with the HTTP Data Collector API (public preview)][custom-log-api].
 
-- Analyze your applications proactively with the **smart detection** feature of Application Insight. Smart detection applies the machine learning capabilities of Azure and statistical analysis <!-- If it's Azure's statistical analysis, rewrite as "capabilities and statistical analysis to..." -->to detect issues such as performance or failure anomalies, memory leaks, or general application degradation. For more information, see [Smart Detection in Application Insights][smart-detection].
+- Analyze your applications proactively with the **smart detection** feature of Application Insights. Smart detection applies the machine learning capabilities of Azure and statistical analysis to detect issues such as performance or failure anomalies, memory leaks, or general application degradation. For more information, see [Smart Detection in Application Insights][smart-detection].
 
 - Use **Azure Monitor for VMs - Map** to review connections between servers, processes, inbound and outbound connection latency, and ports across any TCP-connected architecture. No configuration is required other than installing an agent. With **Azure Monitor for VMs - Map**, you can interact and engage with your servers as interconnected systems.
 
@@ -99,18 +103,18 @@ These considerations implement the pillars of the Azure Well-Architected Framewo
 
 ### Reliability
 
-Reliability ensures that your application can meet the commitments that you make to your customers. For more information, see [Overview of the reliability pillar](/azure/architecture/framework/resiliency/overview).
+Reliability ensures your application can meet the commitments you make to your customers. For more information, see [Design review checklist for Reliability](/azure/well-architected/reliability/checklist).
 
 The following considerations help to ensure availability in your environment.
 
 - Availability tests. The URL ping test used in this architecture is the simplest *outside-in* availability test. However, other options are available, such as:
   - Multi-step web test. Plays back recordings of sequenced web requests to test complex scenarios. Multiple-step web tests are created in Microsoft Visual Studio Enterprise, and then uploaded to the portal for execution.
-  - Custom track availability tests. Use the `TrackAvailability()` method to send test results to Application Insights.
+  - Custom track availability tests. Use the `TrackAvailability()` method to send test results to Application Insights. For more information about custom availability tests with OpenTelemetry, see [Enable Azure Monitor OpenTelemetry](/azure/azure-monitor/app/opentelemetry-enable).
 - Alerts. When you create an availability test in Application Insights, event alert notifications are enabled by default. You can edit the alert rules by specifying the notification type and details, from **Azure Monitor** > **Alerts**.
 
 ### Security
 
-Security provides assurances against deliberate attacks and the abuse of your valuable data and systems. For more information, see [Overview of the security pillar](/azure/architecture/framework/security/overview).
+Security provides assurances against deliberate attacks and the abuse of your valuable data and systems. For more information, see [Design review checklist for Security](/azure/well-architected/security/checklist).
 
 The following items are considerations for making your environment more secure.
 
@@ -122,9 +126,9 @@ The following items are considerations for making your environment more secure.
 - Smart Detection. Use Smart Detection in Application Insights to analyze the telemetry generated by your application, and to detect security issues. For more information, see [Application security detection pack (preview)][detection-pack].
 - Integrate Azure Monitor with Security Information and Event Management (SIEM) tools. Route your monitoring data to an event hub with Azure Monitor to integrate external SIEM and monitoring tools. For more information, see [Stream Azure monitoring data to an event hub or external partner][event-hub].
 
-### Cost optimization
+### Cost Optimization
 
-Cost optimization is about looking at ways to reduce unnecessary expenses and improve operational efficiencies. For more information, see [Overview of the cost optimization pillar](/azure/architecture/framework/cost/overview).
+Cost Optimization is about looking at ways to reduce unnecessary expenses and improve operational efficiencies. For more information, see [Design review checklist for Cost Optimization](/azure/well-architected/cost-optimization/checklist).
 
 The following items are considerations for controlling and managing costs in your environment.
 
@@ -137,9 +141,9 @@ The following items are considerations for controlling and managing costs in you
 - Azure Monitor. The **Usage and estimated costs** section of Azure Monitor estimates your monthly costs based on the previous 31 days of usage.
 - For more information, see [Azure Monitor pricing][monitor-pricing] and [Pricing calculator][pricing-calculator].
 
-### Operational excellence
+### Operational Excellence
 
-Operational excellence covers the operations processes that deploy an application and keep it running in production. For more information, see [Overview of the operational excellence pillar](/azure/architecture/framework/devops/overview).
+Operational Excellence covers the operations processes that deploy an application and keep it running in production. For more information, see [Design review checklist for Operational Excellence](/azure/well-architected/operational-excellence/checklist).
 
 #### Manageability
 
@@ -156,16 +160,15 @@ The following are considerations for making your environment more manageable.
 The following are considerations for integrating your environment with DevOps processes and solutions.
 
 - Application Insights. Integrate Application Insights into Azure Pipelines to help make performance and usability improvements. Application Insights can detect performance anomalies automatically. It connects to various development tools, such as Azure DevOps Services and GitHub.
-- Application Instrumentation. *Instrument* applications by modifying application code to enable telemetry with Application Insights. The following methods are ways to instrument applications:
+- Application Instrumentation. *Instrument* applications by using the [Azure Monitor OpenTelemetry Distro](/azure/azure-monitor/app/opentelemetry-enable) to enable telemetry collection with Application Insights. The following methods are ways to instrument applications:
   - At runtime. Instrumenting your web application on the server at runtime is ideal for applications that are deployed already, as it avoids having to update code. Suitable scenarios include:
     - Microsoft ASP.NET or ASP.NET Core applications hosted on Azure Web Apps
     - ASP.NET applications hosted in Microsoft Internet Information Services (IIS) on a virtual machine or virtual machine scale set
     - ASP.NET applications hosted in IIS on an on-premises VM
     - Java-based Azure Functions
-    - Node.JS apps on Linux App Services
+    - Node.js apps on Linux App Services
     - Microservices hosted on AKS
-  - At development time. Add Application Insights to your code to customize telemetry collection and send more data. Supported languages and platforms include:
-    - ASP.NET applications
+  - At development time. Add the Azure Monitor OpenTelemetry Distro to your code to customize telemetry collection and send more data. Supported languages and platforms include:
     - ASP.NET Core applications
     - .NET Console applications
     - Java
@@ -173,9 +176,9 @@ The following are considerations for integrating your environment with DevOps pr
     - Python
 - Use IT Service Management Connector (ITSMC) to connect to external IT Service Management (ITSM) tools. ITSMC connects Azure to supported ITSM products and services, where issue-related work items typically reside. For more information, see [Connect Azure to ITSM tools using IT Service Management Connector][itsm].
 
-### Performance efficiency
+### Performance Efficiency
 
-Performance efficiency is the ability of your workload to scale in an efficient manner to meet the demands that your users place on it. For more information, see [Performance efficiency pillar overview](/azure/architecture/framework/scalability/overview).
+Performance Efficiency is the ability of your workload to meet the demands placed on it by users in an efficient manner. For more information, see [Design review checklist for Performance Efficiency](/azure/well-architected/performance-efficiency/checklist).
 
 The following are considerations for scaling your environment.
 
@@ -189,20 +192,12 @@ The following are considerations for scaling your environment.
 
 Learn more about the component technologies:
 
-- [Azure Event Hubs — A big data streaming platform and event ingestion service](/azure/event-hubs/event-hubs-about)
+- [Azure Event Hubs: A big data streaming platform and event ingestion service](/azure/event-hubs/event-hubs-about)
 - [Azure Monitor overview](/azure/azure-monitor/overview)
 - [Overview of Log Analytics in Azure Monitor](/azure/azure-monitor/logs/log-analytics-overview)
 - [What are virtual machine scale sets?](/azure/virtual-machine-scale-sets/overview)
 - [Overview of autoscale in Microsoft Azure](/azure/azure-monitor/autoscale/autoscale-overview)
 - [What is Application Insights?](/azure/azure-monitor/app/app-insights-overview)
-
-## Related resources
-
-Explore related architectures:
-
-- [Serverless event processing](../reference-architectures/serverless/event-processing.yml)
-- [Azure Data Explorer monitoring](../solution-ideas/articles/monitor-azure-data-explorer.yml)
-- [Monitor a microservices application in AKS](/azure/architecture/microservices/logging-monitoring)
 
 [architectural-diagram]: ./images/hybrid-perf-monitoring.svg
 [architectural-diagram-visio-source]: https://arch-center.azureedge.net/hybrid-perf-monitoring.vsdx

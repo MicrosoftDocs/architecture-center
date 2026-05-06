@@ -1,0 +1,28 @@
+### YamlMime:Architecture
+metadata:
+  title: Enterprise Deployment that uses App Service Environment
+  description: Learn about the recommended architecture for deploying an enterprise application by using App Service Environment version 3 in Azure.
+  author: SuhasRao
+  ms.author: susudhee
+  ms.date: 12/04/2024
+  ms.topic: reference-architecture
+  ms.subservice: reference-architecture
+  ms.category:
+    - management-and-governance
+    - featured
+  ms.custom: arb-web
+name: Enterprise deployment that uses App Service Environment
+azureCategories:
+  - management-and-governance
+  - featured
+summary: Recommended architecture for deploying an enterprise application by using App Service Environment.
+products:
+  - entra-id
+  - azure-application-gateway
+  - azure-app-service
+  - azure-firewall
+  - azure-virtual-network
+  - azure-private-link
+thumbnailUrl: /azure/architecture/browse/thumbs/app-service-environment.png
+content: |
+   [!INCLUDE[](app-service-environment-standard-deployment-content.md)]

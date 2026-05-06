@@ -8,7 +8,9 @@ This architecture shows how to use Raincode's IMSql to rehost IMS Database Man
 
 *Download a [Visio file](https://arch-center.azureedge.net/imsql-rehosting-ims-pre-migration-mainframe.vsdx) of this architecture.*
 
-#### Dataflow
+#### Data flow
+
+The following data flow corresponds to the previous diagram:
 
 A. Users connect via TCP/IP by using protocols like TN3270 and HTTPS.
 
@@ -34,7 +36,9 @@ I. Partitions run separate workloads and segregate work types within the environ
 
 *Download a [Visio file](https://arch-center.azureedge.net/imsql-rehosting-raincode-app-modernization.vsdx) of this architecture.*
 
-#### Dataflow
+#### Data flow
+
+The following data flow corresponds to the previous diagram:
 
 1. IBM 3270 terminal emulators connect to IMS TM applications that are deployed on Azure unchanged via the IMSql Terminal Server.
 1. Batch processes written in JCL are run unchanged via transient Azure container instances that run the Raincode JCL interpreter. Compiled legacy programs access IMS DB by using standard IMS APIs. Raincode JCL can store its catalog on any file-based storage. 
@@ -44,9 +48,11 @@ I. Partitions run separate workloads and segregate work types within the environ
 
 ### Components
 
-- [Azure Virtual Network](https://azure.microsoft.com/services/virtual-network) is the fundamental building block for your private network in Azure. Virtual Network enables many types of Azure resources, like virtual machines (VMs), to communicate with each other, the internet, and on-premises networks, all with improved security. Virtual Network is like a traditional network that you operate in your own datacenter, but it provides more of the benefits of the Azure infrastructure, like scale, availability, and isolation.  
-- [Azure Virtual Machine Scale Sets](https://azure.microsoft.com/services/virtual-machine-scale-sets) provides automated and load-balanced VM scaling that simplifies the management of your applications and increases availability.
-- [Azure SQL Managed Instance](https://azure.microsoft.com/services/azure-sql/sql-managed-instance), part of the Azure SQL service portfolio, is a managed, highly secure, always up-to-date SQL instance in the cloud.
+- [Azure SQL Managed Instance](/azure/well-architected/service-guides/azure-sql-managed-instance) is a managed, secure, up-to-date SQL instance in the cloud that's part of the Azure SQL service portfolio. In this architecture, SQL Managed Instance serves as the database platform for IMSql. It replaces the mainframe IMS database system and provides storage and transaction processing capabilities.
+
+- [Azure Virtual Machine Scale Sets](/azure/well-architected/service-guides/virtual-machines) is a compute service that provides automated and load-balanced VM scaling that simplifies the management of your applications and increases availability. In this architecture, Virtual Machine Scale Sets hosts the IMSql processing servers and handles typical IMS workloads with automatic scaling capabilities.
+
+- [Azure Virtual Network](/azure/well-architected/service-guides/virtual-network) is the fundamental building block for your private network in Azure. It enables many types of Azure resources, like VMs, to communicate more securely with each other, the internet, and on-premises networks. In this architecture, Virtual Network provides the networking foundation and secure communication infrastructure for all IMSql components.
 
 ### Alternatives
 
@@ -58,7 +64,7 @@ I. Partitions run separate workloads and segregate work types within the environ
 
 This architecture shows how to seamlessly rehost to Azure a mainframe workload that has critical IMS features and capabilities. You don't need to translate or modify your existing application. The architecture uses IMSql and Azure SQL.
 
-- Raincode compilers generate 100 percent thread-safe managed code for .NET. The .NET assemblies are loaded dynamically and called by IMSql processing servers. 
+- Raincode compilers generate 100% thread-safe managed code for .NET. The .NET assemblies are loaded dynamically and called by IMSql processing servers.
 - IMSql is intrinsically non-transformational. It keeps the source (COBOL, PL/I) as is. The IMS-specific CBLTDLI and PLITDLI calls and EXEC DLI statements aren't changed. This capability ensures optimal maintainability of the resulting system. It extends to IMS DB data: the data is imported as is, in bulk, with no changes, cleansing, or normalization. 
 - IMSql uses the robust, versatile, and scalable SQL Server as a database, transaction processor, and execution platform.
 - IMSql operates in three modes:  
@@ -76,18 +82,18 @@ This architecture shows how to seamlessly rehost to Azure a mainframe workload t
 
 ## Considerations
 
-These considerations implement the pillars of the Azure Well-Architected Framework, a set of guiding tenets that you can use to improve the quality of a workload. For more information, see [Microsoft Azure Well-Architected Framework](/azure/well-architected/).
+These considerations implement the pillars of the Azure Well-Architected Framework, which is a set of guiding tenets that can be used to improve the quality of a workload. For more information, see [Microsoft Azure Well-Architected Framework](/azure/well-architected/).
 
 ### Reliability
 
-Reliability ensures your application can meet the commitments you make to your customers. For more information, see [Overview of the reliability pillar](/azure/architecture/framework/resiliency/overview).
+Reliability ensures your application can meet the commitments you make to your customers. For more information, see [Design review checklist for Reliability](/azure/well-architected/reliability/checklist).
 
 - This OLTP architecture can be deployed in multiple regions and can incorporate a geo-replication data layer.
 - The Azure database services support zone redundancy and can fail over to a secondary node during outages or to enable maintenance activities.
 
 ### Security
 
-Security provides assurances against deliberate attacks and the abuse of your valuable data and systems. For more information, see [Overview of the security pillar](/azure/architecture/framework/security/overview).
+Security provides assurances against deliberate attacks and the abuse of your valuable data and systems. For more information, see [Design review checklist for Security](/azure/well-architected/security/checklist).
 
 This solution uses an Azure network security group to manage traffic to and from Azure resources. For more information, see [Network security groups](/azure/virtual-network/network-security-groups-overview).
 
@@ -99,9 +105,9 @@ These security options are available in Azure database services:
 
 For general guidance on designing highly secure SQL solutions, see [Azure security recommendations](/sql/relational-databases/security/security-center-for-sql-server-database-engine-and-azure-sql-database?view=sql-server-ver16).
 
-### Cost optimization
+### Cost Optimization
 
-Cost optimization is about reducing unnecessary expenses and improving operational efficiencies. For more information, see [Overview of the cost optimization pillar](/azure/architecture/framework/cost/overview).
+Cost Optimization is about looking at ways to reduce unnecessary expenses and improve operational efficiencies. For more information, see [Design review checklist for Cost Optimization](/azure/well-architected/cost-optimization/checklist).
 
 - Azure provides cost optimization by running on Windows VMs. You can turn off the VMs when they're not being used and script a schedule for known usage patterns. Azure helps you avoid unnecessary costs by identifying the right number of resource types, analyzing spending over time, and scaling to meet business needs without overspending.  
 - SQL Managed Instance provides various pricing tiers, like general purpose and business critical, to optimize costs based on usage and business criticality.
@@ -116,10 +122,6 @@ Use the [Azure pricing calculator](https://azure.microsoft.com/pricing/calculato
 Principal author:
 
 - [Bhaskar Bandam](https://www.linkedin.com/in/bhaskar-bandam-75202a9) | Senior Program Manager
-
-Other contributor:
-
-- [Mick Alberts](https://www.linkedin.com/in/mick-alberts-a24a1414) | Technical Writer
 
 *To see non-public LinkedIn profiles, sign in to LinkedIn.*
 
@@ -138,6 +140,4 @@ See the companion architecture:
 More related resources:
 
 - [General mainframe refactor to Azure](general-mainframe-refactor.yml)
-- [Mainframe access to Azure databases](../../solution-ideas/articles/mainframe-access-azure-databases.yml)
 - [Re-engineer mainframe batch applications on Azure](reengineer-mainframe-batch-apps-azure.yml)
-- [Rehost a general mainframe on Azure](mainframe-rehost-architecture-azure.yml)

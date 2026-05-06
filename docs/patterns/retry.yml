@@ -2,12 +2,11 @@
 metadata:
   title: Retry pattern
   description: Learn how to use the Retry pattern to enable an application to handle anticipated, temporary failures when the app tries to connect to a service or network resource.
-  ms.author: robbag
-  author: RobBagby
+  ms.author: pnp
+  author: claytonsiemens77
   ms.date: 07/18/2024
   ms.topic: design-pattern
-  ms.service: azure-architecture-center
-  ms.subservice: design-pattern
+  ms.subservice: cloud-fundamentals
 azureCategories:
   - networking
 products:

@@ -1,54 +1,47 @@
 ---
-title: Choose an Azure AI services technology
-description: Learn about Azure AI services that you can use in AI applications and data flows. Choose the appropriate service for your use case.
-author: robbagby
-ms.author: pnp
-categories:
-  - ai-machine-learning
-  - analytics
-ms.date: 09/16/2024
-ms.topic: conceptual
+title: Choose an Azure AI Technology
+description: Learn about AI services that you can use in AI applications and data flows. Choose the appropriate service for your use case.
+author: hudua
+ms.author: hudua
+ms.date: 03/20/2026
+ms.update-cycle: 180-days
+ms.topic: concept-article
 ms.collection: ce-skilling-ai-copilot
-ms.service: azure-architecture-center
 ms.subservice: architecture-guide
-products:
-  - ai-services
-  - azure-applied-ai-services
-  - azure-custom-vision
-ms.custom:
-  - cognitive services
-  - AI guide
-  - arb-aiml
+ms.custom: arb-aiml
 ---
 
-# Choose an Azure AI services technology
+# Choose an AI services technology
 
-[Azure AI services](/azure/ai-services/what-are-ai-services) offers a suite of data science tools, models, and inferencing capabilities that support a broad array of functionality. Most require little or no specific AI expertise to use. So whether you're a student, run a small-business, are launching a startup, or lead a large enterprise-scale project, you can get started right away. It's recommended to use these services, over building custom solutions, to embed intelligent application functionality into your workload. For many use cases, these prebuilt models and SaaS solutions are sufficient to provide what your workload requires. However, many of these capabilities support further customization and fine tuning as necessary, without the need to re-design your workload.
+[Foundry Tools](/azure/ai-services/what-are-ai-services) provides a suite of data science tools, models, and inferencing capabilities that support a range of functions. Most AI services require little to no AI expertise, so students, small-business owners, startups, and large enterprises can easily use them. Instead of building custom solutions, we recommend that you use these services to embed intelligent functionality into your workloads. In many cases, prebuilt models and software as a service (SaaS) solutions provide the necessary capabilities. But many services support further customization and fine-tuning without the need to redesign your workload.
 
-Some projects require functionality that goes beyond what prebuilt models can provide. You could need to use your own data exclusively to build a new model, or perform functions outside the scope of any existing prebuilt models. In those cases, [Azure Machine Learning services](/azure/machine-learning) let you build custom models of any type or scale. While these solutions require more expertise, they can also support bespoke requirements for organizations of every scale and for every budget.
+Some projects require capabilities beyond what prebuilt models provide. You might need to use your own data exclusively to build a new model or perform functions that existing prebuilt models don't support. In these cases, you can use [Azure Machine Learning](/azure/machine-learning/overview-what-is-azure-machine-learning) to build custom models of any type or scale. These solutions require more expertise, but they provide tailored functionality for organizations of any size and budget.
 
-This article provides a comparison and decision guide between the different offerings of Azure AI and Azure Machine Learning services. It's organized by broad categories to help you choose which service or model is right for your use case.
+This article compares AI services and machine learning solutions. It organizes them by broad categories to help you choose the right service or model for your use case.
 
+## Categories of AI services
 
-## Categories of Azure AI services
-
-Azure offers a number of AI services that can be grouped into categories based on their capabilities:
+The following table groups several AI services that Azure provides into categories based on their capabilities.
 
 | Technology selection guide | Service descriptions |
-| --- | --- |
-| [Targeted language processing](../ai-services/targeted-language-processing.md) | Azure AI Language &bullet; Azure AI Translator &bullet; Azure AI Document Intelligence |
-| [Speech recognition and generation](../ai-services/speech-recognition-generation.md) | Azure AI Speech &bullet; Immersive Reader |
-| [Image and video processing guide](../ai-services/image-video-processing.md) | Azure AI Vision &bullet; Azure AI Custom Vision &bullet; Azure AI Video Indexer &bullet; Azure AI Face &bullet; Azure OpenAI|
-| [Azure AI Content Safety](/azure/ai-services/content-safety/) | Azure AI Content Safety is an AI service that detects harmful user-generated and AI-generated content in applications and processes images and text to flag content that's potentially offensive or unwanted. It's able to automatically detect and scan content regardless of its source language. |
-| [Custom Machine Learning](/azure/machine-learning/overview-what-is-azure-machine-learning) | Azure Machine Learning service procures and exposes many proprietary and open-source models that you can use directly or customize further with more training. It also supports the creation of new models of any type trained using your own data. |
+| :----- | :----- |
+| [Agents](/azure/foundry/what-is-foundry) | - [Foundry Agent Service](/azure/foundry/agents/overview) <br><br> - [Foundry Models](/azure/foundry-classic/concepts/foundry-models-overview) <br><br> - [Observability](/azure/foundry/concepts/observability) |
+| [Retrieval-augmented generation (RAG)](/azure/architecture/ai-ml/guide/rag/rag-solution-design-and-evaluation-guide) | - [Azure AI Search](/azure/search/search-what-is-azure-search) <br><br> - [Azure Document Intelligence in Foundry Tools](/azure/ai-services/document-intelligence/overview) <br><br> - [Azure Content Understanding in Foundry Tools](/azure/ai-services/content-understanding/overview) <br><br> - [Models](/azure/foundry-classic/concepts/foundry-models-overview) |
+| [Targeted language processing](/azure/architecture/data-guide/ai-services/targeted-language-processing) | - [Azure OpenAI in Foundry Models](/azure/foundry/foundry-models/concepts/models-sold-directly-by-azure) <br><br> - [Azure Language in Foundry Tools](/azure/ai-services/language-service/overview) <br><br> - [Azure Translator in Foundry Tools](/azure/ai-services/translator/overview) <br><br> - [Azure Document Intelligence](/azure/ai-services/document-intelligence/overview) <br><br> - [Azure Content Understanding](/azure/ai-services/content-understanding/overview) |
+| [Speech recognition and generation](/azure/architecture/data-guide/ai-services/speech-recognition-generation) | - [Azure Speech in Foundry Tools](/azure/ai-services/speech-service/overview) <br><br>  - [Models](/azure/foundry-classic/concepts/foundry-models-overview) |
+| [Image and video processing guide](/azure/architecture/data-guide/ai-services/image-video-processing) | - [Azure Vision in Foundry Tools](/azure/ai-services/computer-vision/overview) <br><br> - [Azure Content Understanding](/azure/ai-services/content-understanding/overview) <br><br> - [Microsoft Azure AI Video Indexer](/azure/azure-video-indexer/video-indexer-overview) <br><br> - [Microsoft Azure AI Custom Vision](/azure/ai-services/custom-vision-service/overview) <br><br> - [Machine Learning](/azure/machine-learning/overview-what-is-azure-machine-learning) <br><br> - [Models](/azure/foundry-classic/concepts/foundry-models-overview) |
+| [Content Safety in Foundry Control Plane](/azure/ai-services/content-safety/overview) | Content Safety is an AI service that detects harmful user-generated and AI-generated content in applications and processes images and text to flag potentially offensive or unwanted content. It can automatically detect and scan content regardless of its source language. |
+| [Custom models in Machine Learning](/azure/machine-learning/overview-what-is-azure-machine-learning) | [Machine Learning](/azure/machine-learning/overview-what-is-azure-machine-learning) procures and exposes many proprietary and open-source models that you can use directly or customize further with more training. It also supports the creation of new models of any type and is trained by using your own data. |
+| [Local on-device inference](/azure/foundry-local/what-is-foundry-local) | [Foundry Local](/azure/foundry-local/get-started) is an on-device AI inference solution that provides performance, privacy, customization, and cost benefits. |
 
 ## Next steps
 
-- [Learning path: Get started with Azure AI Services](/training/paths/get-started-azure-ai/)
-- [Azure AI Services documentation](/azure/ai-services/)
-- [What are Azure AI services?](/azure/ai-services/what-are-ai-services)
+- [Learning path: Develop generative AI apps in Azure](/training/paths/create-custom-copilots-ai-studio/)
+- [Microsoft Foundry documentation](/azure/foundry/)
+- [Foundry Tools overview](/azure/ai-services/what-are-ai-services)
 
-## Related resources
+## Related resource
 
-- [End-to-end computer vision at the edge for manufacturing](../../reference-architectures/ai/end-to-end-smart-factory.yml)
-- [Image classification on Azure](../../example-scenario/ai/intelligent-apps-image-processing.yml)
+- [Image classification on Azure](/azure/architecture/ai-ml/idea/intelligent-apps-image-processing)
+
+- [Image classification on Azure](../../ai-ml/idea/intelligent-apps-image-processing.yml)
