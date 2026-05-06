@@ -1917,7 +1917,7 @@
 		</g>
 		<g id="shape1943-511" v:mID="1943" v:groupContext="shape" transform="translate(51.6451,-472.75)">
 			<title>Sheet.1943</title>
-			<desc>Azure Database for PostgreSQL flexible server</desc>
+			<desc>Azure Database for PostgreSQL</desc>
 			<v:userDefs>
 				<v:ud v:nameU="visNavOrder" v:prompt="" v:val="VT0(98000):26"/>
 			</v:userDefs>
@@ -1925,7 +1925,7 @@
 			<v:textRect cx="46.1775" cy="699.984" width="92.36" height="18"/>
 			<rect x="0" y="690.984" width="92.3549" height="18" class="st22"/>
 			<text x="4.72" y="681.98" class="st10" v:langID="1033"><v:paragraph v:horizAlign="1"/><v:tabList/>Azure Database <tspan
-						x="6.31" dy="1.2em" class="st14">for PostgreSQL </tspan><tspan x="9.87" dy="1.2em" class="st14">flexible server</tspan><v:newlineChar/></text>		</g>
+						x="6.31" dy="1.2em" class="st14">for PostgreSQL</tspan><v:newlineChar/></text>		</g>
 		<g id="group1944-516" transform="translate(1058.22,-498.922)" v:mID="1944" v:groupContext="group">
 			<v:userDefs>
 				<v:ud v:nameU="visNavOrder" v:val="VT0(99000):26"/>
@@ -1999,7 +1999,7 @@
 		</g>
 		<g id="shape1950-528" v:mID="1950" v:groupContext="shape" transform="translate(1030.4,-458.836)">
 			<title>Sheet.1950</title>
-			<desc>Azure Database for PostgreSQL flexible server</desc>
+			<desc>Azure Database for PostgreSQL</desc>
 			<v:userDefs>
 				<v:ud v:nameU="visNavOrder" v:prompt="" v:val="VT0(100000):26"/>
 			</v:userDefs>
@@ -2007,7 +2007,7 @@
 			<v:textRect cx="46.1775" cy="699.984" width="92.36" height="18"/>
 			<rect x="0" y="690.984" width="92.3549" height="18" class="st22"/>
 			<text x="4.72" y="681.98" class="st10" v:langID="1033"><v:paragraph v:horizAlign="1"/><v:tabList/>Azure Database <tspan
-						x="6.31" dy="1.2em" class="st14">for PostgreSQL </tspan><tspan x="9.87" dy="1.2em" class="st14">flexible server</tspan><v:newlineChar/></text>		</g>
+						x="6.31" dy="1.2em" class="st14">for PostgreSQL </tspan><v:newlineChar/></text>		</g>
 		<g id="shape2463-533" v:mID="2463" v:groupContext="shape" transform="translate(402.984,-622.425)">
 			<title>Sheet.2463</title>
 			<desc>Microsoft Entra ID</desc>

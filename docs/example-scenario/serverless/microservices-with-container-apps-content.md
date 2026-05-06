@@ -57,7 +57,7 @@ The workload uses the following Azure services in coordination with each other:
 
 - [Azure DocumentDB](/azure/documentdb/overview) is a fully managed MongoDB-compatible database service for building modern applications. In this architecture, the package service uses Azure DocumentDB as its data store.
 
-- [Service Bus](/azure/well-architected/service-guides/service-bus/reliability) is a cloud messaging service that provides asynchronous communication capabilities and hybrid integration. In this architecture, it handles asynchronous messaging between the ingestion service and the task-based, workflow microservice. The rest of the services in the existing application are designed so other services can invoke them with HTTP requests.
+- [Service Bus](/azure/well-architected/service-guides/azure-service-bus) is a cloud messaging service that provides asynchronous communication capabilities and hybrid integration. In this architecture, it handles asynchronous messaging between the ingestion service and the task-based, workflow microservice. The rest of the services in the existing application are designed so other services can invoke them with HTTP requests.
 
 - [Azure Managed Redis](/azure/redis/overview) is an in-memory caching service. In this architecture, it reduces latency and improves throughput for frequently accessed drone delivery data.
 
