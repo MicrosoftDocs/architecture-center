@@ -22,7 +22,7 @@ Multiple instances or model deployments solve specific requirements in a workloa
 These topologies don't automatically require a gateway. The decision depends on whether you benefit from centralized routing control, reliability controls, security segmentation, observability, and quota governance at the gateway layer.
 
 > [!TIP]
-> Unless otherwise stated, the following guidance is suitable for gateways that are based on Azure API Management and custom code gateways. The architecture diagrams represent the gateway component generically in most situations to illustrate this.
+> Unless stated otherwise, the following guidance applies to gateways that are based on Azure API Management and custom code gateways. The architecture diagrams show the gateway component generically in most situations to support that guidance.
 
 ## Multiple model deployments in a single instance
 
@@ -121,13 +121,13 @@ A topology that includes multiple instances in a single region and a single subs
 
 - Enables an easy chargeback model for different clients
 
-- Enables a failover strategy to maintain availability, for example, in case of a platform outage that affects a specific instance, a networking misconfiguration, or an accidentally deleted deployment
+- Enables a failover strategy to maintain availability during events like a platform outage that affects a specific instance, a networking misconfiguration, or an accidentally deleted deployment
 
 - Enables a failover strategy for quota availability, such as pairing both a provisioned instance and a standard instance for spillover
 
 ### Introduce a gateway for multiple instances in a single region and a single subscription
 
-:::image type="complex" source="_images/multiple-instances-single-region-after.svg" alt-text="Architecture diagram of a scenario with clients connecting to more than one model-host instance in a single region through a gateway." lightbox="_images/multiple-instances-single-region-after.svg":::
+:::image type="complex" source="_images/multiple-instances-single-region-after.svg" alt-text="Architecture diagram of a scenario in which clients connect to more than one model-host instance in a single region through a gateway." lightbox="_images/multiple-instances-single-region-after.svg":::
    A diagram showing two clients labeled A and B directly interfacing with a gateway. Three arrows point from the gateway to private endpoints. Two arrows are solid and one is dashed. Each private endpoint connects to a distinct instance that contains a Foundry model. The instances are labeled Client A (provisioned primary), Client A (standard spillover), and Client B (provisioned).
 :::image-end:::
 
@@ -140,17 +140,17 @@ Using a gateway with multiple instances in a single region and subscription lets
 > [!NOTE]
 > Standard quotas are subscription level, not instance level. Load balancing against standard instances in the same subscription doesn't achieve additional throughput.
 
-One option a workload team has when provisioning is deciding whether the billing and throughput model is provisioned or standard. A cost optimization strategy to avoid waste through unused provisioned capacity is to slightly underprovision the provisioned instance and also deploy a standard instance alongside it. The goal with this topology is to have clients first consume all available pre-allocated throughput and then "burst" over to the standard deployment for overages. This form of planned failover benefits for the reason mentioned in the opening paragraph of this section: keeping this complexity out of client code.
+One option a workload team has during provisioning is deciding whether the billing and throughput model is provisioned or standard. A cost optimization strategy to avoid waste through unused provisioned capacity is to slightly underprovision the provisioned instance and also deploy a standard instance alongside it. The goal with this topology is to have clients first consume all available pre-allocated throughput and then "burst" over to the standard deployment for overages. This form of planned failover benefits for the reason mentioned in the opening paragraph of this section: keeping this complexity out of client code.
 
-When a gateway is involved, it's in a unique position to capture details about all of the model deployments clients are interacting with. Although every instance can capture its own telemetry, doing so within the gateway lets the workload team publish telemetry and error responses across all consumed models to a single store. This configuration makes unified dashboarding and alerting easier.
+When a gateway is involved, it's in a unique position to capture details about all of the model deployments clients interact with. Although every instance can capture its own telemetry, capturing it within the gateway lets the workload team publish telemetry and error responses across all consumed models to a single store. This configuration simplifies unified dashboarding and alerting.
 
 #### Tips for the multiple instances in a single region and single subscription topology
 
 - Ensure that the gateway is using the `Retry-After` information available in HTTP responses from the back-end service when you implement failover scenarios at the gateway. Use that authoritative information to control your circuit-breaker implementation. Don't continuously hit an endpoint that returns `429 Too Many Requests`. Instead, break the circuit for that model instance.
 
-- Attempting to predict throttling events before they happen by tracking model consumption through prior requests is possible in the gateway, but doing so is fraught with edge cases. In most cases, it's best not to try to predict, but to use HTTP response codes to drive future routing decisions.
+- Attempting to predict throttling events before they happen by tracking model consumption through prior requests is possible in the gateway, but this approach is fraught with edge cases. In most cases, it's best not to try to predict throttling events, but to use HTTP response codes to drive future routing decisions.
 
-- When you use a round-robin strategy or fail over to a different endpoint, including provisioned spilling over into standard deployments, always make sure those endpoints are using the same model at the same version. For example, don't fail over from version *X* to version *X+1* or load balance between them. This version change can cause unexpected behavior in the clients.
+- When you use a round-robin strategy or fail over to a different endpoint, including provisioned spilling over into standard deployments, always make sure that those endpoints use the same model at the same version. For example, don't fail over from version *X* to version *X+1* or load balance between them. This version change can cause unexpected behavior in the clients.
 
 - You can implement load balancing and failover logic in API Management policies. You might be able to implement a more sophisticated approach by using a code-based gateway solution, but API Management is sufficient for this use case.
 
@@ -359,7 +359,7 @@ Your clients or your workload operations team might want to have a health check 
 
 You can use gateway implementations to orchestrate blue-green deployments of updated models. Hosted models are updated with new model versions and new models, and you might have new fine-tuned models.
 
-After testing the effects of a change in preproduction, evaluate whether production clients should be cut over to the new model version or instead shift traffic. The gateway pattern described earlier allows the back end to deploy both models concurrently. Deploying models concurrently enables the gateway to redirect traffic based on the workload team's safe deployment practice of incremental rollout.
+After you test the effects of a change in preproduction, evaluate whether production clients should be cut over to the new model version or instead shift traffic. The gateway pattern described previously allows the back end to deploy both models concurrently. Deploying models concurrently enables the gateway to redirect traffic based on the workload team's safe deployment practice of incremental rollout.
 
 Even if you don't use blue-green deployments, your workload's APIOps approach needs to be defined and sufficiently automated commensurate with the rate of change of your back-end instance and model deployments.
 
@@ -369,7 +369,7 @@ Many of the scenarios introduced in this article help increase the potential ser
 
 ### Data sovereignty
 
-You need to evaluate various active-active and active-passive approaches from a data-residency compliance perspective for your workload. Many of these patterns are applicable for your workload's architecture if the regions involved remain within the geopolitical boundary. To support this scenario, you need to treat geopolitical boundaries as isolated stamps and apply the active-active or active-passive handling exclusively within that stamp.
+Evaluate various active-active and active-passive approaches for your workload from a data-residency compliance perspective. Many of these patterns are applicable for your workload's architecture if the regions involved remain within the geopolitical boundary. To support this scenario, you need to treat geopolitical boundaries as isolated stamps and apply the active-active or active-passive handling exclusively within that stamp.
 
 In particular, any performance-based routing needs to be highly scrutinized for data sovereignty compliance. In data sovereignty scenarios, you can't service clients in another geography and remain compliant. All gateway architectures that involve data residency must enforce that clients only use endpoints in their geopolitical region. The clients must be blocked from using other gateway endpoints, and the gateway itself shouldn't violate the client's trust by making a cross-geopolitical request. The most reliable way to implement this segmentation is to build your architecture around a fully independent, highly available gateway per geopolitical region.
 
@@ -385,7 +385,7 @@ Consistency between model deployments and instances is important in both active-
 
 ### Gateway redundancy
 
-Although this consideration isn't specific to multiple back ends, each region's gateway implementation should always be built with redundancy and be highly available within the scale unit. Choose regions that have availability zones and make sure your gateway is spread across them. Deploy multiple instances of the gateway so that single point of failure is limited to a complete regional outage and not the fault of a single compute instance in your gateway. For API Management, deploy two or more units across two or more zones. For custom code implementations, deploy at least three instances with best effort distribution across availability zones.
+Although this consideration isn't specific to multiple back ends, each region's gateway implementation should always be built with redundancy and be highly available within the scale unit. Choose regions that have availability zones and make sure that your gateway is spread across them. Deploy multiple instances of the gateway so that single point of failure is limited to a complete regional outage and not the fault of a single compute instance in your gateway. For API Management, deploy two or more units across two or more zones. For custom code implementations, deploy at least three instances with best effort distribution across availability zones.
 
 ## Gateway implementations
 
@@ -402,8 +402,7 @@ Whether you use API Management or build a custom solution, as mentioned in the [
 
 ## Multi-backend routing for other models
 
-The gateway pattern isn't limited to a single provider. A gateway can unify access to different AI back ends, such as self-hosted models or non-Microsoft AI services that expose OpenAI-compatible APIs.
-This approach allows a single, consistent API surface for client applications while enabling flexible routing based on use case, cost, or performance characteristics.
+The gateway pattern isn't limited to a single provider. A gateway can unify access to different AI back ends, such as self-hosted models or non-Microsoft AI services that expose OpenAI-compatible APIs. This approach allows a single, consistent API surface for client applications while enabling flexible routing based on use case, cost, or performance characteristics.
 
 ## API Management enhancements for AI gateways
 
@@ -411,11 +410,11 @@ API Management has specialized capabilities for generative AI workloads. These c
 
 By using these built-in capabilities, you can significantly reduce the amount of custom gateway logic required and improve the reliability and governability of solutions that route traffic to multiple model deployments or other AI back ends.
 
-## Next steps
+## Next step
 
 Having a gateway implementation for your workload provides benefits beyond the tactical multiple-backend routing benefit described in this article. To learn about the other challenges a gateway can solve, see [Key challenges](./azure-openai-gateway-guide.yml#key-challenges).
 
 ## Related resources
 
 - [AI workloads on Azure](/azure/well-architected/ai/get-started)
-- [API gateway in Azure API Management](/azure/api-management/api-management-gateways-overview)
+- [API gateway in API Management](/azure/api-management/api-management-gateways-overview)
