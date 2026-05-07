@@ -138,4 +138,3 @@ Other contributors:
 
 - [Replicate and sync mainframe data in Azure](../../reference-architectures/migration/sync-mainframe-data-with-azure.yml)
 - [Modernize mainframe and midrange data](../../example-scenario/mainframe/modernize-mainframe-data-to-azure.yml)
-- [Unisys mainframe migration with Avanade Automated Migration Technology](../../reference-architectures/migration/unisys-mainframe-migration.yml)
