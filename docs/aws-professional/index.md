@@ -138,7 +138,7 @@ The preceding list doesn't include all services. The following tables describe s
 | [Amazon Inspector](https://aws.amazon.com/inspector) | [Microsoft Defender for Cloud](https://azure.microsoft.com/products/defender-for-cloud/) | Defender for Cloud is an automated security assessment service that improves the security and compliance of applications. It automatically assesses applications for vulnerabilities or deviations from best practices. |
 | [AWS Certificate Manager](https://aws.amazon.com/certificate-manager) | [Key Vault certificates](/azure/key-vault/certificates/about-certificates) <br/><br> [Microsoft Cloud PKI](https://www.microsoft.com/security/business/endpoint-management/microsoft-cloud-PKI)| Use these services to create and manage certificates and their keys. |
 | [Amazon GuardDuty](https://aws.amazon.com/guardduty/) | [Microsoft Sentinel](https://azure.microsoft.com/products/microsoft-sentinel/) | Detect and investigate advanced attacks on-premises and in the cloud. |
-| [AWS Artifact](https://aws.amazon.com/artifact) | [Microsoft Service Trust Portal](https://servicetrust.microsoft.com/) | Use these services to access to audit reports, compliance guides, and trust documents from across cloud services. |
+| [AWS Artifact](https://aws.amazon.com/artifact) | [Microsoft Service Trust Portal](https://servicetrust.microsoft.com/) | Use these services to access audit reports, compliance guides, and trust documents from across cloud services. |
 | [AWS Shield](https://aws.amazon.com/shield) | [Azure DDoS Protection](/azure/security/fundamentals/ddos-best-practices) | These services help you protect your cloud services from distributed denial of services attacks. |
 
 ### Web applications
