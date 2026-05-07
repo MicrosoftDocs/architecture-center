@@ -17,7 +17,7 @@ The architecture centralizes the digital assets and product data in the Root FSC
 
 **Data replication:** The architecture uses SQL Server Always On availability groups to synchronously replicate the database across availability zones. Azure NetApp Files uses cross-zone replication to asynchronously replicate data across availability zones.
 
-**Dataflow:** The databases [a] and the Root FSC servers [b] in the resource tier store and retrieve data from Azure NetApp Files volumes. The dataflow between the architecture tiers is efficient and provides private access to product data and digital assets because Azure NetApp Files volumes are hosted in the customer virtual network, in availability zones. Azure NetApp Files provides on-demand, nondisruptive scalability and HA across availability zones.
+**Data flow:** The databases [a] and the Root FSC servers [b] in the resource tier store and retrieve data from Azure NetApp Files volumes. The data flow between the architecture tiers is efficient and provides private access to product data and digital assets because Azure NetApp Files volumes are hosted in the customer virtual network, in availability zones. Azure NetApp Files provides on-demand, nondisruptive scalability and HA across availability zones.
 
 ## Scenario details
 
@@ -55,7 +55,7 @@ These considerations implement the pillars of the Azure Well-Architected Framewo
 
 Reliability ensures your application can meet the commitments you make to your customers. For more information, see [Design review checklist for Reliability](/azure/well-architected/reliability/checklist). 
 
-Azure NetApp Files provides HA with [built-in data replication, failover, and DR capabilities](/azure/azure-netapp-files/snapshots-introduction). These capabilities help ensure that your Teamcenter PLM database and CAD files are always available, even if there's a regional, zonal, or software failure. Azure NetApp Files provides an [SLA](https://www.microsoft.com/licensing/docs/view/Service-Level-Agreements-SLA-for-Online-Services) for all tiers and all supported regions. It supports provisioning volumes in [availability zones](/azure/azure-netapp-files/use-availability-zones) that you choose, and HA deployments across zones.
+Azure NetApp Files provides HA with [built-in data replication, failover, and DR capabilities](/azure/azure-netapp-files/snapshots-introduction). These capabilities help ensure that your Teamcenter PLM database and CAD files are always available, even if there's a regional, zone, or software failure. Azure NetApp Files provides an [SLA](https://www.microsoft.com/licensing/docs/view/Service-Level-Agreements-SLA-for-Online-Services) for all tiers and all supported regions. It supports provisioning volumes in [availability zones](/azure/azure-netapp-files/use-availability-zones) that you choose, and HA deployments across zones.
 
 Azure NetApp Files provides two data backup options: snapshots and backup. Snapshots provide a point-in-time backup of data. You can use them to quickly recover data if there's data loss or corruption. Azure NetApp Files also has a fully managed backup solution. It provides long-term retention and recovery options for snapshots. You can combine snapshots and backups to get a comprehensive backup and recovery solution.
 
@@ -106,7 +106,7 @@ This architecture shows a DR solution that uses cross-region replication:
 :::image type="content" source="media/cross-region-replication.png" alt-text="Diagram that shows a DR solution that uses cross-region replication." lightbox="media/cross-region-replication.png" border="false":::
 *Figure 3. Disaster recovery architecture using cross-region replication. Download a [PowerPoint file](https://arch-center.azureedge.net/teamcenter-plm-netapp-files.pptx) of this architecture.*
 
-The architecture has the following dataflow:
+The following data flow corresponds to the previous diagram:
 
 1. The client tier, web app tier, enterprise tier, and resource tier in the production environment use the Azure NetApp Files instance in the storage tier.
 1. The applications in their respective tiers use application replication *if needed* to replicate data to an Azure DR region. We recommend that you use Azure NetApp Files cross-region replication if you can.
@@ -231,7 +231,7 @@ Other contributors:
 
 ## Next steps
 
-- [Azure Marketplace solutions for Teamcenter](https://azuremarketplace.microsoft.com/marketplace/apps?search=teamcenter)
+- [Microsoft Marketplace solutions for Teamcenter](https://marketplace.microsoft.com/marketplace/apps?search=teamcenter)
 - [Oracle solutions on Azure NetApp Files](/azure/azure-netapp-files/azure-netapp-files-solution-architectures#oracle)
 - [SQL Server solutions on Azure NetApp Files](/azure/azure-netapp-files/azure-netapp-files-solution-architectures#sql-server)
 - [Benefits of using Azure NetApp Files for SQL Server deployment](/azure/azure-netapp-files/solutions-benefits-azure-netapp-files-sql-server)

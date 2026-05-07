@@ -160,7 +160,7 @@ If you want to take advantage of the SMA service offering later, you can seamles
 
 - [SQL Database](/azure/well-architected/service-guides/azure-sql-database) is a fully managed relational database service for the cloud. It provides high availability, scalability, and built-in intelligence for single databases or elastic pools.
 
-  [SQL Managed Instance](/azure/well-architected/service-guides/azure-sql-managed-instance/reliability) is a fully managed SQL Server instance in the cloud that provides almost complete compatibility with on-premises SQL Server.
+  [SQL Managed Instance](/azure/well-architected/service-guides/azure-sql-managed-instance) is a fully managed SQL Server instance in the cloud that provides almost complete compatibility with on-premises SQL Server.
 
   In these architectures, the OpCon database is hosted in a SQL Database instance and accessed through a private endpoint. The OpCon back end can use either SQL Database or SQL Managed Instance to manage OpCon entries.
 
@@ -170,7 +170,7 @@ If you want to take advantage of the SMA service offering later, you can seamles
 - [OpCon Cloud](https://assets.smatechnologies.com/production/assets/files/Hosting-OpCon-in-the-Cloud-FAQ.pdf) is a fully managed, cloud-hosted version of the OpCon automation platform deployed in Azure.
 
   In the OpCon Cloud architecture, OpCon Cloud automates workflows across the enterprise, both on-premises and in Azure. An OpCon instance runs in a Linux container within a Kubernetes replica-set and SQL Server serves as the OpCon database. The virtual network is private and secure.
-- [OpCon Self Service](https://help.smatechnologies.com/opcon/core/v21.0/Files/UI/Solution-Manager/Working-with-Self-Service) is a web-based implementation that allows users to run on-demand tasks, often with the option to input arguments within the OpCon environment.
+- [OpCon Self Service](https://smatechnologies.com/product-opcon/opcon-self-service) is a web-based implementation that allows users to run on-demand tasks, often with the option to input arguments within the OpCon environment.
 
   These architectures use OpCon Self Service to provide a user interface for task implementation and monitoring.
 

@@ -63,7 +63,7 @@ Consider this architecture style when you need to take the following actions:
 - Act on data in real time as data is being generated.
 - Store and process data in volumes too large for a traditional database.
 - Transform unstructured data for analysis and reporting.
-- Use Azure Machine Learning or Azure AI services.
+- Use Azure Machine Learning or Foundry Tools.
 
 ## Benefits
 

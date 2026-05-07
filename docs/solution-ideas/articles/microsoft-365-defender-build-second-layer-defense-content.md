@@ -81,7 +81,7 @@ This architecture applies to multiple industries and scenarios, including:
 
 **Microsoft Purview** plays a critical role in an organization’s overall data protection and governance strategy. Purview provides capabilities such as data discovery and classification, sensitivity labeling, data loss prevention (DLP), insider risk management, and audit across Microsoft 365, Azure, and multicloud environments. These capabilities are essential for protecting sensitive information and meeting regulatory and compliance requirements, especially in ransomware scenarios that involve data exfiltration and extortion. However, while Purview is represented in the architecture diagram to reflect its importance in a comprehensive security posture, data governance and compliance are not in scope for this article series, which focuses specifically on threat prevention, detection, and response.
 
-**Microsoft Entra ID Premium and Conditional Access** are also foundational to identity protection in cloud-centric environments. Entra ID Premium enables advanced identity security capabilities such as risk-based Conditional Access, identity protection, privileged identity management (PIM), and continuous access evaluation for cloud and SaaS applications. These controls are primarily focused on cloud identities and access enforcement. In contrast, Microsoft Defender for Identity focuses on detecting identity-based threats in on-premises Active Directory, such as credential theft, lateral movement, and domain dominance techniques. Both Entra ID Premium and Defender for Identity appear in the architecture diagram to illustrate end-to-end identity coverage across hybrid environments; however, detailed identity governance and access policy design are intentionally out of scope for this article series, which concentrates on ransomware threat mapping and layered defense architecture.
+**Microsoft Entra ID Premium and Conditional Access** is also foundational to identity protection in cloud-centric environments. Entra ID Premium enables advanced identity security capabilities such as risk-based Conditional Access, identity protection, privileged identity management (PIM), and continuous access evaluation for cloud and SaaS applications. These controls are primarily focused on cloud identities and access enforcement. In contrast, Microsoft Defender for Identity focuses on detecting identity-based threats in on-premises Active Directory, such as credential theft, lateral movement, and domain dominance techniques. Both Entra ID Premium and Defender for Identity appear in the architecture diagram to illustrate end-to-end identity coverage across hybrid environments; however, detailed identity governance and access policy design are intentionally out of scope for this article series, which concentrates on ransomware threat mapping and layered defense architecture.
 
 ## Contributors
 
@@ -96,7 +96,7 @@ Other contributors:
 - [Gary Moore](https://www.linkedin.com/in/gwmoore) | Programmer/Writer
 - [Andrew Nathan](https://www.linkedin.com/in/andrew-nathan) | Senior Customer Engineering Manager
 
-## Next Steps
+## Next steps
 
 - Review how to design and tune automated investigation and response in Microsoft Defender XDR
 - Integrate Microsoft Defender XDR with Microsoft Sentinel for advanced SIEM and SOAR capabilities

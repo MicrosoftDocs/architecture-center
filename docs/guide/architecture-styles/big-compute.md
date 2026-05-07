@@ -27,7 +27,7 @@ The following characteristics are common in big compute applications:
 
 - For some applications, tasks are independent and can run in parallel. In other cases, tasks are tightly coupled, which means that they must interact or exchange intermediate results. In this case, consider using high-speed networking technologies such as InfiniBand and remote direct memory access (RDMA).
 
-- Depending on your workload, you might use compute-intensive virtual machine (VM) sizes like H16r, H16mr, and A9.
+- Depending on your workload, you might use compute-intensive virtual machine (VM) families like HBv5-series, HC-series, and HX-series.
 
 ## When to use this architecture
 

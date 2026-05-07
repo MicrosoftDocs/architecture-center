@@ -16,7 +16,7 @@ A key design area of any mission critical architecture is the application platfo
 
 - Design in layers. Choose the right set of services, their configuration, and the application-specific dependencies. This layered approach helps in creating **logical and physical segmentation**. It's useful in defining roles and functions, and assigning appropriate privileges, and deployment strategies. This approach ultimately increases the reliability of the system.
 
-- A mission-critical application must be highly reliable and resistant to datacenter and regional failures. Building **zonal and regional redundancy** in an active-active configuration is the main strategy. As you choose Azure services for your application's platform, consider their Availability Zones support and deployment and operational patterns to use multiple Azure regions.
+- A mission-critical application must be highly reliable and resistant to datacenter and regional failures. Building **zone and regional redundancy** in an active-active configuration is the main strategy. As you choose Azure services for your application's platform, consider their Availability Zones support and deployment and operational patterns to use multiple Azure regions.
 
 - Use a *scale units*-based architecture to handle increased load. Scale units allow you to logically group resources and a unit can be **scaled independent of other units** or services in the architecture. Use your capacity model and expected performance to define the boundaries of, number of, and the baseline scale of each unit.
 
@@ -54,7 +54,7 @@ There are other foundational resources in this design, such as Microsoft Entra I
 
 ### Global load balancer
 
-Azure Front Door is used as the *only entry point* for user traffic. Azure guarantees that Azure Front Door will deliver the requested content without error 99.99% of the time. For more information, see [Front Door service limits](/azure/azure-resource-manager/management/azure-subscription-service-limits#azure-front-door-standard-and-premium-tier-service-limits). If Front Door becomes unavailable, the end user will see the system as being down.
+Azure Front Door is used as the *only entry point* for user traffic. The Azure Front Door SLA commits to delivering the requested content without error 99.99% of the time. For more information, see [Front Door service limits](/azure/azure-resource-manager/management/azure-subscription-service-limits#azure-front-door-standard-and-premium-tier-service-limits). If Front Door becomes unavailable, the end user will see the system as being down.
 
 The Front Door instance sends traffic to the configured backend services, such as the compute cluster that hosts the API and the frontend SPA. **Backend misconfigurations in Front Door can lead to outages**. To avoid outages due to misconfigurations, you should extensively test your Front Door settings.
 
@@ -92,7 +92,7 @@ Azure Log Analytics is used to store diagnostic logs from all global resources. 
 
 ### Considerations for foundational services
 
-The system is likely to use other critical platform services that can cause the entire system to be at risk, such as Azure DNS and Microsoft Entra ID. Azure DNS guarantees 100% availability SLA for valid DNS requests. Microsoft Entra guarantees at least 99.99% uptime. Still, you should be aware of the impact in the event of a failure.
+The system is likely to use other critical platform services that can cause the entire system to be at risk, such as Azure DNS and Microsoft Entra ID. Azure DNS has a 100% availability SLA for valid DNS requests. Microsoft Entra has an SLA of at least 99.99% uptime. Still, you should be aware of the impact in the event of a failure.
 
 Taking hard dependency on foundational services is inevitable because many Azure services depend on them. Expect disruption in the system if they are unavailable. For instance:
 
@@ -148,7 +148,7 @@ To containerize the workload, each stamp needs to run a compute cluster. In this
 
 The lifetime of the AKS cluster is bound to the ephemeral nature of the stamp. **The cluster is stateless** and doesn't have persistent volumes. It uses ephemeral OS disks instead of managed disks because they aren't expected to receive application or system-level maintenance.
 
-To increase reliability, the cluster is configured to **use all available availability zones** in a given region. Additionally, to enable AKS Uptime SLA with guaranteed 99.95% SLA availability of the AKS control plane, the cluster should use either **Standard**, or **Premium** tier. See [AKS pricing tiers](/azure/aks/free-standard-pricing-tiers) to learn more.
+To increase reliability, the cluster is configured to **use all available availability zones** in a given region. Additionally, to enable the AKS Uptime SLA, which commits to 99.95% availability of the AKS control plane, the cluster should use either **Standard**, or **Premium** tier. See [AKS pricing tiers](/azure/aks/free-standard-pricing-tiers) to learn more.
 
 Other factors such as scale limits, compute capacity, subscription quota can also impact reliability. If there isn't enough capacity or limits are reached, scale out and scale up operations will fail but existing compute is expected to function.
 
@@ -160,7 +160,7 @@ The cluster is also configured for **automatic node image upgrades** and to scal
 
 Some components such as cert-manager and ingress-nginx require container images from external container registries. If those repositories or images are unavailable, new instances on new nodes (where the image isn't cached) might not be able to start. This risk could be mitigated by importing these images to the environment's Azure Container Registry.
 
-Durably persisting observability data is critical for mission-critical workloads because deployment stamps are ephemeral. Configure diagnostic settings to store all log and metric data in a regional Log Analytics workspace. Also, enable AKS Container Insights through an in-cluster OMS Agent. This agent allows the cluster to send monitoring data to the Log Analytics workspace.
+Durably persisting observability data is critical for mission-critical workloads because deployment stamps are ephemeral. Configure diagnostic settings to store all log and metric data in a regional Log Analytics workspace. Also, enable AKS Container Insights. Container Insights sends monitoring data to the Log Analytics workspace.
 
 > For other considerations about the compute cluster, see [Mission-critical guidance in Well-architected Framework: Container Orchestration and Kubernetes](/azure/architecture/framework/mission-critical/mission-critical-application-platform#container-orchestration-and-kubernetes).
 

@@ -1,6 +1,6 @@
 This article describes how to use Precisely Connect to migrate mainframe and midrange systems to Azure. Precisely Connect provides real-time data replication from legacy systems to Azure by using change data capture (CDC) technology.
 
-This solution provides data consistency between on-premises mainframe environments and Azure cloud services while minimizing the effect on source system performance. The architecture supports various mainframe and midrange data sources and replicates data to Azure targets like Azure SQL Database, Azure Event Hubs, and Microsoft Fabric.
+This solution provides data consistency between on-premises mainframe environments and Azure while minimizing the effect on source system performance. The architecture supports various mainframe and midrange data sources and replicates data to Azure targets like Azure SQL Database, Azure Event Hubs, and Microsoft Fabric.
 
 *Apache®, [Spark](https://spark.apache.org), and the flame logo are either registered trademarks or trademarks of the Apache Software Foundation in the United States and/or other countries. No endorsement by The Apache Software Foundation is implied by the use of these marks.*
 
@@ -40,13 +40,13 @@ This architecture uses the following components.
 
 #### Storage
 
-- [Azure Database for MySQL](/azure/well-architected/service-guides/azure-db-mysql-cost-optimization) is a managed relational database service that's based on the community edition of the open-source MySQL database engine. In this architecture, Azure Database for MySQL provides a target option for replicated mainframe data.
+- [Azure Database for MySQL](/azure/well-architected/service-guides/azure-database-for-mysql) is a managed relational database service that's based on the community edition of the open-source MySQL database engine. In this architecture, Azure Database for MySQL provides a target option for replicated mainframe data.
 
 - [Azure Database for PostgreSQL](/azure/well-architected/service-guides/postgresql) is a managed relational database service that's based on the community edition of the open-source PostgreSQL database engine. In this architecture, Azure Database for PostgreSQL can serve as an alternative target database for mainframe data replication.
 
-- [Azure SQL Database](/azure/well-architected/service-guides/azure-sql-database-well-architected-framework) is a platform as a service (PaaS) database engine that's part of the Azure SQL family. It's built for the cloud and provides all the benefits of a managed and evergreen PaaS. SQL Database also provides AI-powered automated features that optimize performance and durability. Serverless compute and Hyperscale storage options automatically scale resources on demand. In this architecture, SQL Database serves as a target database for receiving replicated mainframe data via Open Database Connectivity (ODBC) or native database connections.
+- [Azure SQL Database](/azure/well-architected/service-guides/azure-sql-database) is a platform as a service (PaaS) database engine that's part of the Azure SQL family. It's built for the cloud and provides all the benefits of a managed and evergreen PaaS. SQL Database also provides AI-powered automated features that optimize performance and durability. Serverless compute and Hyperscale storage options automatically scale resources on demand. In this architecture, SQL Database serves as a target database for receiving replicated mainframe data via Open Database Connectivity (ODBC) or native database connections.
 
-- [Azure SQL Managed Instance](/azure/well-architected/service-guides/azure-sql-managed-instance/reliability) is a cloud database service that provides all the benefits of a managed and evergreen PaaS. SQL Managed Instance has near-complete compatibility with the latest SQL Server Enterprise edition database engine. It also provides a native virtual network implementation that addresses common security concerns. In this architecture, SQL Managed Instance can serve as a target for mainframe data that requires SQL Server compatibility.
+- [Azure SQL Managed Instance](/azure/well-architected/service-guides/azure-sql-managed-instance) is a cloud database service that provides all the benefits of a managed and evergreen PaaS. SQL Managed Instance has near-complete compatibility with the latest SQL Server Enterprise edition database engine. It also provides a native virtual network implementation that addresses common security concerns. In this architecture, SQL Managed Instance can serve as a target for mainframe data that requires SQL Server compatibility.
 
 - [Azure Storage](/azure/well-architected/service-guides/storage-accounts/reliability) is a cloud storage solution that includes object, file, disk, queue, and table storage. Services include hybrid storage solutions and tools for transferring, sharing, and backing up data. In this architecture, Storage provides scalable storage for replicated mainframe data and temporary caching.
 
@@ -64,11 +64,11 @@ This architecture uses the following components.
 
 #### Data integrators
 
-- [Azure Databricks](/azure/well-architected/service-guides/azure-databricks-security) is a unified analytics platform based on Spark that integrates with open-source libraries. It provides a collaborative workspace for running analytics workloads. You can use Python, Scala, R, and SQL languages to build extract, transform, load (ETL) pipelines and orchestrate jobs. In this architecture, Azure Databricks processes and transforms the replicated mainframe data for consumption by Azure data platform services.
+- [Azure Databricks](/azure/well-architected/service-guides/azure-databricks) is a unified analytics platform based on Spark that integrates with open-source libraries. It provides a collaborative workspace for running analytics workloads. You can use Python, Scala, R, and SQL languages to build extract, transform, load (ETL) pipelines and orchestrate jobs. In this architecture, Azure Databricks processes and transforms the replicated mainframe data for consumption by Azure data platform services.
 
 - [Fabric](/fabric/fundamentals/microsoft-fabric-overview) is an end-to-end AI powered analytics platform that operates on a managed Spark compute platform. In this architecture, Fabric Spark ingests and transforms replicated mainframe data to make it analytics-ready for consumption by downstream Azure data platform and Fabric services.
 
-- [Event Hubs](/azure/well-architected/service-guides/event-hubs) is a real-time data ingestion service that can process millions of events per second. You can ingest data from multiple sources and use it for real-time analytics. You can scale Event Hubs based on the volume of data. In this architecture, Event Hubs ingests real-time data changes from Precisely Connect for immediate processing and analytics.
+- [Event Hubs](/azure/well-architected/service-guides/azure-event-hubs) is a real-time data ingestion service that can process millions of events per second. You can ingest data from multiple sources and use it for real-time analytics. You can scale Event Hubs based on the volume of data. In this architecture, Event Hubs ingests real-time data changes from Precisely Connect for immediate processing and analytics.
 
 - [Precisely Connect](https://www.precisely.com/product/precisely-connect/connect) is a data integration platform that can integrate data from multiple sources and provide real-time replication to Azure. You can use it to replicate data without making changes to your application. Precisely Connect can also improve the performance of ETL jobs. In this architecture, Precisely Connect serves as the primary data replication engine that captures and migrates mainframe data to Azure in real time.
 

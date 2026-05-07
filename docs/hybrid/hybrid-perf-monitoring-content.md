@@ -34,7 +34,7 @@ This reference architecture shows how to use Azure Monitor to monitor the perfor
 
 The architecture consists of the following components:
 
-- [Azure Event Hubs](/azure/well-architected/service-guides/event-hubs) is a real-time data ingestion service for streaming events. In this architecture, it connects Azure Monitor to external SIEM tools by streaming logs and metrics for advanced analytics and long-term retention.
+- [Azure Event Hubs](/azure/well-architected/service-guides/azure-event-hubs) is a real-time data ingestion service for streaming events. In this architecture, it connects Azure Monitor to external SIEM tools by streaming logs and metrics for advanced analytics and long-term retention.
 
 - [Azure Monitor](/azure/azure-monitor/overview) is a unified platform for collecting and analyzing telemetry across environments. In this architecture, it serves as the central monitoring solution for performance, availability, and diagnostics across Azure, on-premises, and third-party cloud resources.
 
@@ -81,7 +81,7 @@ Consider the following recommendations for analysis and diagnostics:
 
 - Customize log data collection (which is similar to metrics) using the HTTP Data Collector API to send log data to a Log Analytics workspace. For more information, see [Send log data to Azure Monitor with the HTTP Data Collector API (public preview)][custom-log-api].
 
-- Analyze your applications proactively with the **smart detection** feature of Application Insight. Smart detection applies the machine learning capabilities of Azure and statistical analysis <!-- If it's Azure's statistical analysis, rewrite as "capabilities and statistical analysis to..." -->to detect issues such as performance or failure anomalies, memory leaks, or general application degradation. For more information, see [Smart Detection in Application Insights][smart-detection].
+- Analyze your applications proactively with the **smart detection** feature of Application Insights. Smart detection applies the machine learning capabilities of Azure and statistical analysis to detect issues such as performance or failure anomalies, memory leaks, or general application degradation. For more information, see [Smart Detection in Application Insights][smart-detection].
 
 - Use **Azure Monitor for VMs - Map** to review connections between servers, processes, inbound and outbound connection latency, and ports across any TCP-connected architecture. No configuration is required other than installing an agent. With **Azure Monitor for VMs - Map**, you can interact and engage with your servers as interconnected systems.
 
@@ -109,7 +109,7 @@ The following considerations help to ensure availability in your environment.
 
 - Availability tests. The URL ping test used in this architecture is the simplest *outside-in* availability test. However, other options are available, such as:
   - Multi-step web test. Plays back recordings of sequenced web requests to test complex scenarios. Multiple-step web tests are created in Microsoft Visual Studio Enterprise, and then uploaded to the portal for execution.
-  - Custom track availability tests. Use the `TrackAvailability()` method to send test results to Application Insights.
+  - Custom track availability tests. Use the `TrackAvailability()` method to send test results to Application Insights. For more information about custom availability tests with OpenTelemetry, see [Enable Azure Monitor OpenTelemetry](/azure/azure-monitor/app/opentelemetry-enable).
 - Alerts. When you create an availability test in Application Insights, event alert notifications are enabled by default. You can edit the alert rules by specifying the notification type and details, from **Azure Monitor** > **Alerts**.
 
 ### Security
@@ -160,7 +160,7 @@ The following are considerations for making your environment more manageable.
 The following are considerations for integrating your environment with DevOps processes and solutions.
 
 - Application Insights. Integrate Application Insights into Azure Pipelines to help make performance and usability improvements. Application Insights can detect performance anomalies automatically. It connects to various development tools, such as Azure DevOps Services and GitHub.
-- Application Instrumentation. *Instrument* applications by modifying application code to enable telemetry with Application Insights. The following methods are ways to instrument applications:
+- Application Instrumentation. *Instrument* applications by using the [Azure Monitor OpenTelemetry Distro](/azure/azure-monitor/app/opentelemetry-enable) to enable telemetry collection with Application Insights. The following methods are ways to instrument applications:
   - At runtime. Instrumenting your web application on the server at runtime is ideal for applications that are deployed already, as it avoids having to update code. Suitable scenarios include:
     - Microsoft ASP.NET or ASP.NET Core applications hosted on Azure Web Apps
     - ASP.NET applications hosted in Microsoft Internet Information Services (IIS) on a virtual machine or virtual machine scale set
@@ -168,8 +168,7 @@ The following are considerations for integrating your environment with DevOps pr
     - Java-based Azure Functions
     - Node.js apps on Linux App Services
     - Microservices hosted on AKS
-  - At development time. Add Application Insights to your code to customize telemetry collection and send more data. Supported languages and platforms include:
-    - ASP.NET applications
+  - At development time. Add the Azure Monitor OpenTelemetry Distro to your code to customize telemetry collection and send more data. Supported languages and platforms include:
     - ASP.NET Core applications
     - .NET Console applications
     - Java

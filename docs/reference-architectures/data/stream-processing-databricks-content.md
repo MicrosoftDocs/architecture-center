@@ -1,4 +1,4 @@
-<!-- cSpell:ignore eventhubs shapefile malformedrides malformedfares Dropwizard dropoff timechart DBUs DBCU -->
+<!-- cSpell:ignore eventhubs shapefile malformedrides malformedfares Dropwizard dropoff timechart DBUs -->
 
 This reference architecture shows an end-to-end stream processing pipeline. The four stages of this pipeline include ingest, process, store, and analyze and report. For this reference architecture, the pipeline ingests data from two sources, performs a join on related records from each stream, enriches the result, and calculates an average in real time. The results are then stored for further analysis.
 
@@ -53,9 +53,9 @@ The following data flow corresponds to the previous diagram:
 
 ## Components
 
-- [Azure Databricks](/azure/well-architected/service-guides/azure-databricks-security) is a Spark-based analytics platform optimized for the Azure platform. In this architecture, Azure Databricks jobs enrich taxi ride and fare data and store the results in Azure Cosmos DB.
+- [Azure Databricks](/azure/well-architected/service-guides/azure-databricks) is a Spark-based analytics platform optimized for the Azure platform. In this architecture, Azure Databricks jobs enrich taxi ride and fare data and store the results in Azure Cosmos DB.
 
-- [Event Hubs](/azure/well-architected/service-guides/event-hubs) is a managed, distributed ingestion service that can scale to ingest large amounts of events. This architecture uses two event hub instances to receive data from taxis.
+- [Event Hubs](/azure/well-architected/service-guides/azure-event-hubs) is a managed, distributed ingestion service that can scale to ingest large amounts of events. This architecture uses two event hub instances to receive data from taxis.
 
 - [Azure Cosmos DB for NoSQL](/azure/well-architected/service-guides/cosmos-db) is a managed, multiple-model database service. In this architecture, it stores the output of the Azure Databricks enrichment jobs. [Fabric mirrors Azure Cosmos DB operational data](/fabric/database/mirrored-database/azure-cosmos-db) to enable analytical queries.
 
@@ -69,7 +69,7 @@ A taxi company collects data about each taxi trip. For this scenario, we assume 
 
 To simulate a data source, this reference architecture uses the [New York City taxi data dataset](https://uofi.app.box.com/v/NYCtaxidata/folder/2332218797). This dataset contains data about taxi trips in New York City from 2010 to 2013. It contains both ride and fare data records. Ride data includes trip duration, trip distance, and the pickup and drop-off locations. Fare data includes fare, tax, and tip amounts. Fields in both record types include medallion number, hack license, and vendor ID. The combination of these three fields uniquely identifies a taxi and a driver. The data is stored in CSV format.
 
-The data generator is a .NET Core application that reads the records and sends them to Event Hubs. The generator sends ride data in JSON format and fare data in CSV format.
+The data generator is a .NET application that reads the records and sends them to Event Hubs. The generator sends ride data in JSON format and fare data in CSV format.
 
 Event Hubs uses [partitions](/azure/event-hubs/event-hubs-features#partitions) to segment the data. Partitions let a consumer read each read data in parallel. When you send data to Event Hubs, you can specify the partition key directly. Otherwise, records are assigned to partitions in round-robin fashion.
 

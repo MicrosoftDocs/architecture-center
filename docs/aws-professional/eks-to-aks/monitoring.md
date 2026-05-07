@@ -68,7 +68,7 @@ To help ensure comprehensive monitoring of your Kubernetes clusters, use the fol
 
 [Microsoft Sentinel](/azure/sentinel/overview) delivers intelligent security analytics and threat intelligence across enterprises. Microsoft Sentinel provides a single solution for attack detection, threat visibility, proactive hunting, and threat response.
 
-You must connect Microsoft Sentinel with AKS by using the [AKS connector](https://azuremarketplace.microsoft.com/marketplace/apps/azuresentinel.azure-sentinel-solution-azurekubernetes). Then you can stream your AKS diagnostics logs into Microsoft Sentinel to continuously monitor activity in your instances.
+You must connect Microsoft Sentinel with AKS by using the [AKS connector](https://marketplace.microsoft.com/product/azuresentinel.azure-sentinel-solution-azurekubernetes). Then you can stream your AKS diagnostics logs into Microsoft Sentinel to continuously monitor activity in your instances.
 
 After you connect your data sources to Microsoft Sentinel, you can [visualize and monitor the data](/azure/sentinel/monitor-your-data). Microsoft Sentinel and Azure Monitor workbooks provide versatility to create custom dashboards.
 

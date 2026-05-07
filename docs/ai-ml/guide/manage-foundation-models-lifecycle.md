@@ -7,6 +7,7 @@ ms.date: 05/13/2025
 ms.topic: concept-article
 ms.collection: ce-skilling-ai-copilot
 ms.subservice: architecture-guide
+ms.custom: arb-aiml
 ---
 
 # Design to support foundation model life cycles
@@ -60,11 +61,11 @@ Model retirement behavior depends on your model deployment strategy. There are t
 
 - **MaaS (model as a service) solutions** are pretrained models exposed as APIs that provide scalability and ease of integration. They have a trade-off of potentially higher costs and lower control of models. Examples of MaaS solutions include models deployed in Azure OpenAI in Foundry Models and models from the model catalog deployed as serverless APIs.
 
-- **MaaP (model as a platform) solutions** are models deployed and managed within a larger platform, such as models from the Azure model catalog deployed in [managed compute](/azure/ai-foundry/how-to/model-catalog-overview#managed-compute). This solution usually provides greater control of models but requires more management than MaaS solutions.
+- **MaaP (model as a platform) solutions** are models deployed and managed within a larger platform, such as models from the Azure model catalog deployed in [managed compute](/azure/ai-foundry/concepts/foundry-models-overview#managed-compute). This solution usually provides greater control of models but requires more management than MaaS solutions.
 
 - **Self-hosting models** are models deployed on your own infrastructure. This deployment provides maximum control over models but requires significant responsibility for infrastructure, management, and maintenance.
 
-Both MaaS and MaaP strategies in Azure source models from the Azure AI model catalog. Models in the model catalog follow a life cycle where models are [deprecated](/azure/ai-foundry/concepts/model-lifecycle-retirement#deprecated) and then [retired](/azure/ai-foundry/concepts/model-lifecycle-retirement#retired). You must plan for these eventualities in your workload.
+Both MaaS and MaaP strategies in Azure source models from the Foundry model catalog. Models in the model catalog follow a life cycle where models are [deprecated](/azure/ai-foundry/concepts/model-lifecycle-retirement#deprecated) and then [retired](/azure/ai-foundry/concepts/model-lifecycle-retirement#retired). You must plan for these eventualities in your workload.
 
 > [!WARNING]
 > For MaaS services, including Azure OpenAI-deployed models and models deployed by using the serverless API model, it's crucial to understand that existing deployments for *retired* models return HTTP errors. If you don't upgrade to a supported model, your application no longer operates as expected. For *deprecated* models, you can't create new deployments for those models, but existing deployments continue to work until they're retired. For more information, see [Serverless API model deprecations and retirements](/azure/ai-foundry/concepts/model-lifecycle-retirement) and [Azure OpenAI model deprecations and retirements](/azure/ai-services/openai/concepts/model-retirements).

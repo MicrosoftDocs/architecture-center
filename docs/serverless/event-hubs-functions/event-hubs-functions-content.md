@@ -1,4 +1,3 @@
-<!---content for event-hubs-functions.yml--->
 Solutions that use Azure Event Hubs together with Azure Functions benefit from a [serverless](https://azure.microsoft.com/solutions/serverless/) architecture that is scalable, cost-effective, and capable of processing large volumes of data in near real time. Although these services are commonly used together, there are many features, settings, and intricacies that add complexity to their relationship. This article provides guidance on how to effectively take advantage of this integration by highlighting key considerations and techniques for performance, resiliency, security, observability, and scale.
 
 ## Event Hubs core concepts
@@ -38,10 +37,7 @@ Azure Functions supports [trigger](/azure/azure-functions/functions-bindings-eve
 
 Each instance of an Event Hubs triggered function is backed by a single [EventProcessorHost] instance. The trigger (powered by Event Hubs) ensures that only one  [EventProcessorHost] instance can get a lease on a given partition.
 
-For example, consider an event hub with the following characteristics:
-
-- 10 partitions.
-- 1,000 events distributed across all partitions, with a varying number of messages in each partition.
+For example, consider an event hub that has 10 partitions and 1,000 events distributed across all partitions, with a varying number of messages in each partition.
 
 When your function is first enabled, there's only one instance of the function. Let's call the first function instance `Function_1`. `Function_1` has a single instance of  [EventProcessorHost] that holds a lease on all 10 partitions. This instance is reading events from partitions 1-10. From this point forward, one of the following happens:
 
@@ -67,12 +63,12 @@ To learn more, see [Azure Event Hubs bindings for Azure Functions](/azure/azure-
 
 ## Contributors
 
-*This article is maintained by Microsoft. It was originally written by the following contributors.* 
+*This article is maintained by Microsoft. It was originally written by the following contributors.*
 
 Principal author:
 
- - [David Barkol](https://www.linkedin.com/in/davidbarkol/) | Principal Solution Specialist GBB
- 
+ - [David Barkol](https://www.linkedin.com/in/davidbarkol/) | AI Apps GBB
+
 *To see non-public LinkedIn profiles, sign in to LinkedIn.*
 
 ## Next steps

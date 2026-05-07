@@ -7,6 +7,7 @@ ms.date: 10/10/2025
 ms.topic: concept-article
 ms.collection: ce-skilling-ai-copilot
 ms.subservice: architecture-guide
+ms.custom: arb-aiml
 ---
 
 # Large language model end-to-end evaluation
@@ -88,7 +89,7 @@ The following table provides guidance for how to evaluate completeness and utili
 
 You can use the following methods to calculate the relevance of responses:
 
-- [AI-assisted: Relevance in Microsoft Foundry](/azure/ai-foundry/concepts/evaluation-metrics-built-in#ai-assisted-relevance)
+- [AI-assisted: Relevance in Microsoft Foundry](/azure/ai-foundry/concepts/observability#what-are-evaluators)
 - [Ragas answer relevancy library](https://docs.ragas.io/en/stable/concepts/metrics/available_metrics/answer_relevance/)
 - [MLflow relevance calculation](https://mlflow.org/docs/latest/llms/llm-evaluate/index.html#metrics-with-llm-as-the-judge)
 
@@ -166,7 +167,7 @@ Utilization and completeness metrics together help evaluate the effectiveness of
 
 ### Groundedness, utilization, and similarity
 
-Groundedness, utilization, and similarity metrics together help identify how well the system maintains truth while transforming information. High groundedness (0.9) and utilization (.9) with low similarity (0.3) indicates that the system is using accurate grounding data, but paraphrasing poorly. To address this scenario, evaluate your prompt. Modify the prompt and test the results.
+Groundedness, utilization, and similarity metrics together help identify how well the system maintains truth while transforming information. High groundedness (0.9) and utilization (0.9) with low similarity (0.3) indicate that the system is using accurate grounding data, but paraphrasing poorly. To address this scenario, evaluate your prompt. Modify the prompt and test the results.
 
 ## Documentation, reporting, and aggregation
 

@@ -15,7 +15,7 @@ You can deploy a workload so that it's internally or externally facing. Use the 
 The architecture meets infrastructure requirements in the following ways:
 
 - A container-hosting platform is used to deploy highly available workloads across availability zones. We recommend Azure Red Hat OpenShift.
-- A fully managed database service functions as the back-end database for the OMS system. Sterling OMS currently supports IBM Db2, Oracle Database, and PostgreSQL. We recommend Azure Database for PostgreSQL with the flexible server option.
+- A fully managed database service functions as the back-end database for the OMS system. Sterling OMS currently supports IBM Db2, Oracle Database, and PostgreSQL. We recommend Azure Database for PostgreSQL.
 - A scalable and highly available setup provides an environment for running a message broker like IBM MQ that's compliant with the Java Message Service (JMS) API. The diagram doesn't include this setup. Depending on your requirements, it might be within your cluster or external to your cluster.
 - Private endpoints isolate and help secure network traffic to all connected services.
 - Additional, optional Azure virtual machines (VMs) are used for management and development purposes.
@@ -31,7 +31,7 @@ The architecture meets infrastructure requirements in the following ways:
 
 - [Azure Bastion](/azure/bastion/bastion-overview) is a fully managed service that provides RDP and SSH access to VMs without exposure through VM public IP addresses. In this solution, Azure Bastion is optional. You can use Azure Bastion and a subnet to provide enhanced-security access to any of the worker nodes or optional jump box machines.
 
-- [Azure Database for PostgreSQL](/azure/well-architected/service-guides/postgresql) is a fully managed relational database service that's based on the PostgreSQL database engine. Azure Database for PostgreSQL offers predictable performance and dynamic scalability, and is appropriate for business-critical workloads. Its [flexible server deployment model](/azure/postgresql/flexible-server/overview) provides granular control and flexibility over database management functions and configuration settings.
+- [Azure Database for PostgreSQL](/azure/well-architected/service-guides/postgresql) is a fully managed relational database service that's based on the PostgreSQL database engine. Azure Database for PostgreSQL offers predictable performance and dynamic scalability, and is appropriate for business-critical workloads. It provides granular control and flexibility over database management functions and configuration settings.
 
 - [Azure Virtual Machines](/azure/well-architected/service-guides/virtual-machines) is an infrastructure as a service (IaaS) offer. You can use Virtual Machines to deploy on-demand, scalable computing resources. This solution uses [Linux VMs in Azure](../../reference-architectures/n-tier/linux-vm.yml) to provide a jump box for management of your OMS Azure-based resources and services.
 
@@ -41,9 +41,9 @@ If you have network connectivity into your Azure environment, you can perform th
 
 The following services typically aren't necessary, but they're effective alternatives:
 
-- [IBM Db2 on Azure](https://www.ibm.com/docs/en/db2/11.5?topic=providers-db2-azure) is an optional alternative to the flexible server model of Azure Database for PostgreSQL. If you run IBM Db2 on VMs, familiarize yourself with using [Azure Load Balancer](https://azure.microsoft.com/services/load-balancer) and Pacemaker clustering software to achieve high availability for your database servers.
+- [IBM Db2 on Azure](https://www.ibm.com/docs/en/db2/11.5?topic=providers-db2-azure) is an optional alternative to Azure Database for PostgreSQL. If you run IBM Db2 on VMs, familiarize yourself with using [Azure Load Balancer](https://azure.microsoft.com/services/load-balancer) and Pacemaker clustering software to achieve high availability for your database servers.
 - [Azure NetApp Files](https://azure.microsoft.com/services/netapp) supports any workload type by providing high availability and high performance. Azure NetApp Files is ideal for IO-sensitive workloads, such as IBM Db2 workloads that run on Azure VMs.
-- [Oracle Database on Azure](https://azure.microsoft.com/solutions/oracle) is an optional alternative to the flexible server model of Azure Database for PostgreSQL.
+- [Oracle Database on Azure](https://azure.microsoft.com/solutions/oracle) is an optional alternative to Azure Database for PostgreSQL.
 
 ## Scenario details
 
@@ -115,7 +115,7 @@ We recommend that you use the latest *Ds* series VMs as your worker nodes. Examp
 
 Because Sterling OMS has various back-end database options, it's important to first decide which platform to host your database on. Then you can make decisions about the size of that platform. Keep the following general guidelines in mind during this process:
 
-- **Azure Database for PostgreSQL, flexible server deployment model**: Due to the nature of its scale and redundancy options, the flexible server model of Azure Database for PostgreSQL is the preferred method for hosting Sterling OMS workloads in Azure. When you deploy your instance:
+- **Azure Database for PostgreSQL**: Due to the nature of its scale and redundancy options, Azure Database for PostgreSQL is the preferred method for hosting Sterling OMS workloads in Azure. When you deploy your instance:
   - Select the compute tier that matches your usage patterns. We recommend that you start with a general purpose tier and select an appropriate number of cores. Your CPU, memory, and IOPs are determined by your compute size selection.
   - Add appropriate storage. Also remember that increased storage increases cost, and you can't shrink your provisioned storage. As a result, it's important to know your initial data size and predicted growth.
   - Adjust server parameters such as `max_connections` that affect your agents' ability to maintain connectivity to your database.
@@ -169,7 +169,7 @@ Use [network security groups](/azure/virtual-network/security-overview) to filte
 The port numbers and ranges that you need to open depend on many factors. Some to consider are:
 
 - Port 443, for service-to-service communication.
-- Database-specific ports such as port 5432 for the flexible server option of Azure Database for PostgreSQL.
+- Database-specific ports such as port 5432 for Azure Database for PostgreSQL.
 - Message queue ports such as port 1414 for IBM MQ.
 
 Also consider these points:
@@ -208,7 +208,7 @@ A standard deployment of Sterling OMS consists of the following components. You 
   - Data subnet, if needed (/27)
   - Additional VM subnet, if needed (/27)
   - Management subnet, if needed (/30)
-- One instance of Azure Database for PostgreSQL with the flexible server option
+- One instance of Azure Database for PostgreSQL
 - One instance of Azure Container Registry
 - Two Azure Storage accounts
 - Three DNS zones
@@ -266,12 +266,12 @@ Other contributors:
 - [Sterling Order Management - Best Practices Guide](https://www.ibm.com/docs/en/order-management-sw/10.0?topic=operator-best-practices)
 - [IBM Passport Advantage](https://www.ibm.com/software/passportadvantage/pao_customer.html)
 - [Quickstart: Deploy an Azure Red Hat OpenShift cluster](/azure/openshift/quickstart-portal)
-- [Quickstart: Create an Azure Database for PostgreSQL - Flexible Server](/azure/postgresql/flexible-server/quickstart-create-server-portal)
+- [Quickstart: Create an Azure Database for PostgreSQL](/azure/postgresql/configure-maintain/quickstart-create-server)
 - [Secure access to Azure Red Hat OpenShift with Azure Front Door](/azure/openshift/howto-secure-openshift-with-front-door)
 - [Use Azure Key Vault Provider for Secrets Store CSI Driver on Azure Red Hat OpenShift](/azure/openshift/howto-use-key-vault-secrets)
 - [IBM MQ in Containers](https://www.ibm.com/docs/en/ibm-mq/9.1?topic=mq-in-containers)
 - [Azure Red Hat OpenShift](/azure/openshift/intro-openshift)
-- [What is Azure Database for PostgreSQL?](/azure/postgresql/single-server/overview)
+- [What is Azure Database for PostgreSQL?](/azure/postgresql/overview)
 - [Introduction to Red Hat on Azure](/training/modules/introduction-to-red-hat-azure)
 - [Work with Azure Database for PostgreSQL](/training/paths/microsoft-learn-azure-database-for-postgresql)
 
@@ -279,4 +279,3 @@ Other contributors:
 
 - [Deploy IBM Maximo Application Suite on Azure](../../example-scenario/apps/deploy-ibm-maximo-application-suite.yml)
 - [Deploy a Java application with JBoss EAP on an ARO cluster](/azure/developer/java/ee/jboss-eap-on-aro)
-

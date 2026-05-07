@@ -8,13 +8,14 @@ metadata:
   ms.topic: example-scenario
   ms.collection: ce-skilling-ai-copilot
   ms.subservice: example-scenario
+  ms.custom: arb-aiml
 azureCategories:
   - ai-machine-learning
 products:
   - azure-functions
-  - azure-ai-foundry
+  - microsoft-foundry
   - azure-ai-foundry-sdk
-  - ai-services
+  - foundry-tools
   - azure-cognitive-search
   - document-intelligence
 name: Automate document classification in Azure

@@ -19,7 +19,7 @@ This architecture is suitable for hybrid applications where the traffic between 
 ### Challenges
 
 - Requires an on-premises VPN device.
-- Although Microsoft guarantees 99.9% availability for each VPN Gateway, this [SLA](https://azure.microsoft.com/support/legal/sla/vpn-gateway/) only covers the VPN gateway, and not your network connection to the gateway.
+- Although the VPN Gateway [SLA](https://www.microsoft.com/licensing/docs/view/Service-Level-Agreements-SLA-for-Online-Services) commits to 99.9% availability, that commitment only covers the VPN gateway, and not your network connection to the gateway.
 
 ### Reference architecture
 
@@ -46,7 +46,7 @@ This architecture is suitable for hybrid applications running large-scale, missi
 - Lower and more consistent latencies compared to typical connections over the Internet.
 - Supports dynamic scaling of bandwidth to help reduce costs during periods of lower demand. However, not all connectivity providers have this option.
 - Allow your organization direct access to national clouds, depending on the connectivity provider.
-- 99.9% availability SLA across the entire connection.
+- A 99.9% availability SLA across the entire connection.
 
 ### Challenges
 

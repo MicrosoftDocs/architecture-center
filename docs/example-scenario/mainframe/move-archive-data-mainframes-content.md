@@ -86,7 +86,7 @@ Use the Azure [pricing calculator](https://azure.microsoft.com/pricing/calculato
 
 ### Third-party archive solutions
 
-Some third-party solutions are available on [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps?filters=partners&page=1&search=mainframe%20data). Each of these solutions requires unique configuration. Setting up these solutions is one of the primary tasks of implementing this architecture.
+Some third-party solutions are available on the [Microsoft Marketplace](https://marketplace.microsoft.com/marketplace/apps?search=mainframe+data). Each of these solutions requires unique configuration. Setting up these solutions is one of the primary tasks of implementing this architecture.
 
 ### Azure storage
 

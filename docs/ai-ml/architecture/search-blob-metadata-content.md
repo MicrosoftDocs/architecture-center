@@ -10,7 +10,9 @@ This article uses an example workload to demonstrate how to create a single [sea
 
 *Download a [PowerPoint file](https://arch-center.azureedge.net/search-blob-metadata.pptx) of this architecture.*
 
-### Dataflow
+### Data flow
+
+The following data flow corresponds to the previous diagram:
 
 1. Documents are stored in Blob Storage, possibly together with a limited amount of metadata (for example, the document's author).
 2. Additional metadata is stored in Table Storage, which can store significantly more information for each document.
@@ -29,7 +31,7 @@ This article uses an example workload to demonstrate how to create a single [sea
 
 This scenario uses [indexers in Azure AI Search](/azure/search/search-indexer-overview) to automatically discover new content in supported data sources, like blob and table storage, and then add it to the search index. Alternatively, you can use the APIs provided by Azure AI Search to [push data to the search index](/azure/search/search-what-is-data-import#pushing-data-to-an-index). If you do, however, you need to write code to push the data into the search index and also to parse and extract text from the binary documents that you want to search. The [Blob Storage indexer supports many document formats](/azure/search/search-howto-indexing-azure-blob-storage#supported-document-formats), which significantly simplifies the text extraction and indexing process.
 
-Also, if you use indexers, you can optionally [enrich the data as part of an indexing pipeline](/azure/search/cognitive-search-concept-intro). For example, you can use Azure AI services to run [optical character recognition (OCR)](/azure/search/cognitive-search-skill-ocr) or [visual analysis](/azure/search/cognitive-search-skill-image-analysis) of the images in documents, [detect the language](/azure/search/cognitive-search-skill-language-detection) of documents, or [translate](/azure/search/cognitive-search-skill-text-translation) documents. You can also define your own [custom skills](/azure/search/cognitive-search-create-custom-skill-example) to enrich the data in ways that are relevant to your business scenario.
+Also, if you use indexers, you can optionally [enrich the data as part of an indexing pipeline](/azure/search/cognitive-search-concept-intro). For example, you can use Foundry Tools to run [optical character recognition (OCR)](/azure/search/cognitive-search-skill-ocr) or [visual analysis](/azure/search/cognitive-search-skill-image-analysis) of the images in documents, [detect the language](/azure/search/cognitive-search-skill-language-detection) of documents, or [translate](/azure/search/cognitive-search-skill-text-translation) documents. You can also define your own [custom skills](/azure/search/cognitive-search-create-custom-skill-example) to enrich the data in ways that are relevant to your business scenario.
 
 This architecture uses blob and table storage because they're cost-effective and efficient. This design also enables combined storage of the documents and metadata in a single storage account. Alternative supported data sources for the documents themselves include [Azure Data Lake Storage](/azure/search/search-howto-index-azure-data-lake-storage) and [Azure Files](/azure/search/search-file-storage-integration). Document metadata can be stored in any other supported data source that holds structured data, like [Azure SQL Database](/azure/search/search-howto-connecting-azure-sql-database-to-azure-search-using-indexers) and [Azure Cosmos DB](/azure/search/search-howto-index-cosmosdb).
 

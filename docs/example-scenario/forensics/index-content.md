@@ -7,22 +7,24 @@ This article outlines an infrastructure and workflow process designed to help te
 
 The architecture design follows the [Azure landing zone principles](/azure/cloud-adoption-framework/ready/landing-zone/design-principles) in the Cloud Adoption Framework for Azure.
 
-This scenario uses a hub-and-spoke network topology, which is shown in the following diagram:
+This scenario uses a hub-and-spoke network topology, which is shown in the following diagram.
 
 :::image type="complex" border="false" source="media/chain-of-custody.svg" alt-text="Diagram that shows the chain of custody architecture." lightbox="media/chain-of-custody.svg":::
-  This diagram shows the chain of custody architecture where production virtual machines reside in a spoke Azure virtual network. These machines have their disks encrypted by using Azure Disk Encryption, with BitLocker encryption keys stored in a production Azure Key Vault. A separate, secure Azure SOC subscription that's accessible only by the security operations center (SOC) team contains an Azure Storage account that holds disk snapshots in immutable blob storage. It also includes a dedicated Azure Key Vault that stores the hash values of the snapshots and copies of the VMs' encryption keys. When a request is made to capture digital evidence, a SOC team member logs in to the SOC subscription and uses an Azure Automation hybrid runbook worker VM to run the Copy-VmDigitalEvidence runbook. The runbook uses a system-assigned managed identity to access the target VM's resources and generates snapshots of its operating system and data disks. It transfers these snapshots to both the immutable blob storage and a temporary file share, computes their hash values, and stores the hash values and the VM's encryption key in the SOC key vault. Finally, it removes all temporary copies except for the immutable snapshot.
+  This diagram shows the chain of custody architecture where production virtual machines (VMs) reside in a spoke Azure virtual network. The machine's disks are encrypted by using encryption at host via platform-managed keys. A separate, secure Azure security operations center (SOC) subscription contains an Azure Storage account that holds disk snapshots in immutable blob storage. The subscription also includes a dedicated Azure Key Vault that stores the hash values of the snapshots. Only the SOC team can access the subscription. When a request is made to capture digital evidence, an SOC team member signs in to the SOC subscription and uses an Azure Automation hybrid runbook worker VM to run the Copy-VmDigitalEvidence runbook. The runbook uses a system-assigned managed identity to access the target VM's resources and generates snapshots of its OS and data disks. It transfers these snapshots to both the immutable blob storage and a temporary file share, computes their hash values, and stores the hash values in the SOC key vault. Finally, it removes all temporary copies except for the immutable snapshot.
 :::image-end:::
 
 *Download a [Visio file](https://arch-center.azureedge.net/chain-of-custody.vsdx) of this architecture.*
 
 ### Workflow
 
-In the architecture, the production virtual machines (VMs) are part of a spoke [Azure virtual network](/azure/virtual-network/virtual-networks-overview). The VM disks are encrypted with Azure Disk Encryption. For more information, see [Overview of managed disk encryption options](/azure/virtual-machines/disk-encryption-overview). In the production subscription, [Azure Key Vault](/azure/key-vault/general/overview) stores the BitLocker encryption keys (BEKs) of the VMs.
+In the architecture, the production virtual machines (VMs) are part of a spoke [Azure virtual network](/azure/virtual-network/virtual-networks-overview). The VM disks are encrypted via [encryption at host](/azure/virtual-machines/disk-encryption#encryption-at-host---end-to-end-encryption-for-your-vm-data) by using platform-managed keys. For more information, see [Overview of managed disk encryption options](/azure/virtual-machines/disk-encryption-overview).
 
 > [!NOTE]
-> The scenario also supports production VMs that have unencrypted disks.
+> This architecture assumes encryption at host via platform-managed keys.
+>
+> If encryption at host doesn't meet your requirements, you can use an OS-level encryption solution, such as BitLocker on Windows or dm-crypt on Linux. These encryption implementations are specific to each environment and aren't described in this article. Evaluate your requirements to determine the appropriate approach.
 
-The security operations center (SOC) team uses a discrete Azure **SOC** subscription. The team has exclusive access to that subscription, which contains the resources that must be kept protected, inviolable, and monitored. The [Azure Storage](/azure/storage/common/storage-introduction) account in the SOC subscription hosts copies of disk snapshots in [immutable blob storage](/azure/storage/blobs/storage-blob-immutable-storage). A dedicated [key vault](/azure/key-vault/general/overview) stores copies of the hash values of the snapshots and the BEKs from the VMs.
+The security operations center (SOC) team uses a discrete Azure **SOC** subscription. The team has exclusive access to that subscription, which contains the resources that must be kept protected, inviolable, and monitored. The [Azure Storage](/azure/storage/common/storage-introduction) account in the SOC subscription hosts copies of disk snapshots in [immutable blob storage](/azure/storage/blobs/storage-blob-immutable-storage). A dedicated [key vault](/azure/key-vault/general/overview) stores copies of the hash values of the snapshots.
 
 In response to a request to capture the digital evidence of a VM, a member of the SOC team signs in to the Azure SOC subscription and uses an [Azure hybrid runbook worker](/azure/automation/extension-based-hybrid-runbook-worker-install) VM from [Azure Automation](/azure/automation/automation-intro) to run the `Copy-VmDigitalEvidence` runbook. The [Automation hybrid runbook worker](/azure/automation/automation-hybrid-runbook-worker) provides control of all mechanisms included in the capture.
 
@@ -36,12 +38,9 @@ The `Copy-VmDigitalEvidence` runbook implements the following macro steps:
 
 1. Compute the hash values of the snapshots by using the copy that's stored in the file share.
 
-1. Store the obtained hash values and the VM's BEK in the SOC key vault.
+1. Store the obtained hash values in the SOC key vault.
 
 1. Remove all the copies of the snapshots, except for the copy in immutable blob storage.
-
-> [!NOTE]
-> The encrypted disks of the production VMs can also use key encryption keys (KEKs). The `Copy-VmDigitalEvidence` runbook provided in the [deploy scenario](#deploy-this-scenario) doesn't cover this scenario.
 
 ### Components
 
@@ -49,11 +48,11 @@ The `Copy-VmDigitalEvidence` runbook implements the following macro steps:
 
 - [Azure Storage](/azure/storage/common/storage-introduction) is a scalable cloud storage solution for various data types, including object, file, disk, queue, and table storage. In this architecture, it stores VM disk snapshots in immutable blob containers to preserve digital evidence in a tamper-proof format.
 
-- [Azure Blob Storage](/azure/well-architected/service-guides/azure-blob-storage) is a cloud-based solution that provides object storage optimized for unstructured data. In this architecture, it holds the immutable snapshots of VM disks to ensure the integrity and non-repudiation of digital evidence.
+- [Azure Blob Storage](/azure/well-architected/service-guides/azure-blob-storage) is a cloud-based solution that provides object storage optimized for unstructured data. In this architecture, it holds the immutable snapshots of VM disks to ensure the integrity and nonrepudiation of digital evidence.
 
 - [Azure Files](/azure/well-architected/service-guides/azure-files) is a fully managed cloud file storage service that provides shared file systems that can be accessed via the industry-standard Server Message Block (SMB) protocol, the Network File System (NFS) protocol, and the Azure Files REST API. You can concurrently mount shares through cloud or on-premises deployments of Windows, Linux, and macOS. You can also cache file shares on Windows Server by using Azure File Sync for quick access near the data usage location. In this architecture, Azure Files temporarily stores disk snapshots to compute hash values before transferring them to immutable storage.
 
-- [Key Vault](/azure/key-vault/general/overview) is a secure cloud service for managing secrets, encryption keys, and certificates. In this architecture, it stores BEKs and hash values of disk snapshots to protect access and verify the integrity of digital evidence.
+- [Key Vault](/azure/key-vault/general/overview) is a secure cloud service for managing secrets, encryption keys, and certificates. In this architecture, it stores hash values of disk snapshots to verify the integrity of digital evidence.
 
 - [Microsoft Entra ID](/entra/fundamentals/whatis) is a cloud-based identity service that helps you control access to Azure and other cloud apps. In this architecture, it ensures that only authorized SOC personnel can access and manage sensitive evidence-handling operations.
 
@@ -67,7 +66,7 @@ The SOC team uses an [Automation](/azure/automation/overview) account to create 
 
 The [hybrid runbook worker](/azure/automation/extension-based-hybrid-runbook-worker-install) VM is integrated into the Automation account. The SOC team uses this VM exclusively to run the `Copy-VmDigitalEvidence` runbook.
 
-You must place the hybrid runbook worker VM in a subnet that can access the Storage account. Configure access to the Storage account by adding the hybrid runbook worker VM subnet to the Storage account's firewall allowlist rules.
+You must place the hybrid runbook worker VM in a subnet that can access the Storage account. Configure access to the Storage account by adding the hybrid runbook worker VM subnet to the Storage account's firewall allow list rules.
 
 Grant access to this VM only to the SOC team members for maintenance activities.
 
@@ -83,18 +82,9 @@ The minimum Azure role-based access control (Azure RBAC) permissions required fo
 Access to the SOC Azure architecture includes the following roles:
 
 - **Storage Account Contributor** on the SOC immutable Storage account
-- **Key Vault Secrets Officer** on the SOC key vault for BEK management
+- **Key Vault Secrets Officer** on the SOC key vault for hash-value management
 
-Access to the target architecture includes the following roles:
-
-- **Contributor** on the target VM's resource group, which provides snapshot rights on VM disks
-
-- **Key Vault Secrets Officer** on the target VM's key vault that's used to store the BEK, only if Azure RBAC is used to control the Key Vault access
-
-- Access policy to **Get Secret** on the target VM's key vault that's used to store the BEK, only if the access policy is used to control the Key Vault access
-
-> [!NOTE]
-> To read the BEK, the target VM's key vault must be accessible from the hybrid runbook worker VM. If the key vault's firewall is enabled, make sure that the public IP address of the hybrid runbook worker VM is permitted through the firewall.
+Access to the target architecture includes the **Contributor** role on the target VM's resource group, which provides snapshot rights on VM disks.
 
 #### Storage account
 
@@ -106,9 +96,7 @@ The storage account also hosts an [Azure file share](/azure/storage/files/storag
 
 #### Key Vault
 
-The SOC subscription has its own instance of [Key Vault](/azure/key-vault/general/overview), which hosts a copy of the BEK that Azure Disk Encryption uses to protect the target VM. The primary copy is stored in the key vault that the target VM uses. This setup allows the target VM to continue normal operations without interruption.
-
-The SOC key vault also stores the hash values of disk snapshots that the hybrid runbook worker computes during the capture operations.
+The SOC subscription has its own instance of [Key Vault](/azure/key-vault/general/overview), which stores the hash values of disk snapshots that the hybrid runbook worker computes during capture operations.
 
 Ensure that the [firewall](/azure/key-vault/general/network-security#key-vault-firewall-enabled-virtual-networks---dynamic-ips) is enabled on the key vault. It must grant access exclusively from the SOC virtual network.
 
@@ -173,6 +161,10 @@ When the roles of the SOC team are assigned, only two individuals in the team, k
 
 Only the [virtual network](/azure/virtual-network/virtual-networks-overview) in the SOC subscription has access to the SOC Storage account and key vault that archives the evidence. Authorized SOC team members can grant investigators temporary access to evidence in the SOC storage.
 
+#### OS disk requirements
+
+The production VMs that are subject to forensic capture must use persistent managed OS disks. Don't use [ephemeral OS disks](/azure/virtual-machines/ephemeral-os-disks) on VMs where digital evidence collection is required. Ephemeral OS disks are stored only on the local VM host and don't support disk snapshots. Because the snapshot-based evidence capture workflow depends on the ability to create and transfer point-in-time snapshots of OS and data disks, ephemeral OS disks are incompatible with this chain of custody process.
+
 #### Evidence acquisition
 
 Azure audit logs can document the evidence acquisition by recording the action of taking a VM disk snapshot. The logs include details such as who takes the snapshots and when they're taken.
@@ -181,7 +173,7 @@ Azure audit logs can document the evidence acquisition by recording the action o
 
 Use [Automation](/azure/automation/overview) to move evidence to its final archive destination, without human intervention. This approach helps guarantee that evidence artifacts remain unaltered.
 
-When you apply a legal hold policy to the destination storage, the evidence is immediately frozen as soon as it's written. A legal hold demonstrates that the chain of custody is fully maintained within Azure. It also indicates that there's no opportunity to tamper with the evidence from the time the disk images are on a live VM to when they are stored as evidence in the storage account.
+When you apply a legal hold policy to the destination storage, the evidence is immediately frozen as soon as it's written. A legal hold demonstrates that the chain of custody is fully maintained within Azure. It also indicates that there's no opportunity to tamper with the evidence from the time the disk images are on a live VM to when they're stored as evidence in the storage account.
 
 Lastly, you can use the provided solution as an integrity mechanism to compute the hash values of the disk images. The supported hash algorithms are MD5, SHA256, SKEIN, and KECCAK (or SHA3).
 
@@ -193,15 +185,50 @@ Provide investigators with a [shared access signatures (SAS) uniform resource id
 
 For example, if a legal team needs to transfer a preserved virtual hard drive, one of the two SOC team custodians generates a read-only SAS URI key that expires after eight hours. The SAS restricts access to the investigators within a specified time frame.
 
-The SOC team must explicitly place the IP addresses of investigators that require access on an allowlist in the Storage firewall.
-
-Finally, investigators need the BEKs archived in the SOC key vault to access the encrypted disk copies. An SOC team member must extract the BEKs and provide them via secure channels to the investigators.
+The SOC team must explicitly place the IP addresses of investigators that require access on an allow list in the Storage firewall.
 
 #### Regional store
 
 For compliance, some standards or regulations require evidence and the supporting infrastructure to be maintained in the same Azure region.
 
 All the solution components, including the Storage account that archives evidence, are hosted in the same Azure region as the systems being investigated.
+
+### Cost Optimization
+
+Cost Optimization focuses on ways to reduce unnecessary expenses and improve operational efficiencies. For more information, see [Design review checklist for Cost Optimization](/azure/well-architected/cost-optimization/checklist).
+
+This architecture has a mix of fixed-cost and variable-cost components. The fixed-cost components run continuously and regardless of investigation frequency. The variable-cost components scale with the volume and size of forensic captures.
+
+#### Fixed-cost components
+
+The following components incur ongoing costs whether or not you perform evidence captures:
+
+- **Hybrid runbook worker VM:** This VM runs continuously in the SOC subscription so that it's available for on-demand evidence capture. The VM size is the primary cost lever. Evidence capture isn't compute intensive except for hash computation, so use a small general-purpose VM, such as a Standard_D2s_v5. To reduce the cost of this VM, consider [Azure reservations](/azure/cost-management-billing/reservations/save-compute-costs-reservations) or [savings plans](/azure/cost-management-billing/savings-plan/savings-plan-overview) for a one-year or three-year contract.
+
+- **Azure Automation account:** The Automation account that hosts the `Copy-VmDigitalEvidence` runbook and the hybrid worker configuration has a small baseline cost.
+
+- **Key Vault:** The SOC key vault stores hash values as secrets. The cost per secret operation is nominal, and the overall Key Vault cost is minimal for this workload.
+
+#### Variable-cost components
+
+The following components scale with the number of investigations and the size of captured evidence:
+
+- **Azure Storage (immutable blob storage):** Storage is the primary variable cost in this architecture. Each forensic capture generates full disk snapshots of the target VM's OS and data disks, which can range from tens to hundreds of GB per VM. Storage costs are cumulative because you can't delete snapshots that have a legal hold policy applied. The size of a snapshot increases with each investigation and with the number and the size of disks in each VM. To manage storage costs, evaluate the [access tier](/azure/storage/blobs/access-tiers-overview) for retained snapshots. Snapshots that you rarely access after initial hash verification can benefit from the Cool or Cold tier, which offers lower storage rates in exchange for higher access costs.
+
+- **Azure Files:** The temporary file share that computes hash values incurs a cost only for the duration that the snapshot data is present. The runbook removes this data after hash computation, so the cost is transient and proportional to snapshot size.
+
+- **Log Analytics workspace:** Log Analytics ingestion costs increase with the number of operations that you perform in the SOC subscription. More frequent evidence captures and more active monitoring generate more log data. Configure [data retention policies](/azure/azure-monitor/logs/data-retention-configure) to match your compliance requirements and avoid unnecessary data retention.
+
+#### Cost estimation
+
+To estimate the cost of this architecture for your workload, use the [Azure pricing calculator](https://azure.microsoft.com/pricing/calculator). Configure the following components based on your expected investigation volume and VM disk sizes:
+
+- One general-purpose VM, for example Standard_D2s_v5, for the hybrid runbook worker
+- Azure Blob Storage with the appropriate access tier and estimated total snapshot volume
+- Azure Files with the Standard tier for transient usage
+- Key Vault with the Standard tier
+- Azure Automation job runs based on expected capture frequency
+- Log Analytics with estimated ingestion volume
 
 ### Operational Excellence
 
@@ -211,9 +238,9 @@ Operational Excellence covers the operations processes that deploy an applicatio
 
 Azure provides services to all customers for monitoring and alerting about anomalies related to their subscriptions and resources. These services include:
 
-- [Microsoft Sentinel](https://azure.microsoft.com/products/microsoft-sentinel).
-- [Microsoft Defender for Cloud](https://azure.microsoft.com/products/defender-for-cloud).
-- [Microsoft Defender for Storage](/azure/defender-for-cloud/defender-for-storage-introduction).
+- [Microsoft Sentinel](https://azure.microsoft.com/products/microsoft-sentinel)
+- [Microsoft Defender for Cloud](https://azure.microsoft.com/products/defender-for-cloud)
+- [Microsoft Defender for Storage](/azure/defender-for-cloud/defender-for-storage-introduction)
 
 > [!NOTE]
 > The configuration of these services isn't described in this article.
@@ -226,15 +253,10 @@ The laboratory environment represents a simplified version of the architecture d
 
 Select **Deploy to Azure** to deploy only the SOC resource group in a production environment.
 
-[![Deploy to Azure](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/1-CONTRIBUTION-GUIDE/images/deploytoazure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fforensics%2Fmain%2F.armtemplate%2Fcoc-soc.json)
+[![Deploy to Azure](../../_images/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fforensics%2Fmain%2F.armtemplate%2Fcoc-soc.json)
 
 > [!NOTE]
-> If you deploy the solution in a production environment, make sure that the system-assigned managed identity of the Automation account has the following permissions:
->
->- A Contributor in the production resource group of the VM to be processed. This role creates the snapshots.
->- A Key Vault Secrets User in the production key vault that holds the BEKs. This role reads the BEKs.
->
-> If the key vault has the firewall enabled, be sure that the public IP address of the hybrid runbook worker VM is allowed through the firewall.
+> If you deploy the solution in a production environment, make sure that the system-assigned managed identity of the Automation account has Contributor permissions in the production resource group of the target VM. The Contributor role creates snapshots.
 
 ### Extended configuration
 
@@ -243,7 +265,7 @@ You can deploy a hybrid runbook worker on-premises or in different cloud environ
 In this scenario, you must customize the `Copy‑VmDigitalEvidence` runbook to enable the capture of evidence in different target environments and archive them in storage.
 
 > [!NOTE]
-> The `Copy-VmDigitalEvidence` runbook provided in the [Deploy this scenario section](#deploy-this-scenario) was developed and tested only in Azure. To extend the solution to other platforms, you must customize the runbook to work with those platforms.
+> The `Copy-VmDigitalEvidence` runbook provided in the [Deploy this scenario section](#deploy-this-scenario) was developed and tested only in Azure. To extend the solution to other platforms, you must customize the runbook to work with those platforms. If you enable the key vault firewall, allow the hybrid runbook worker VM's public IP address.
 
 ## Contributors
 

@@ -310,7 +310,7 @@ To deploy the solution, perform the following steps.
 
 1. Select the following link:
 
-   [![Button icon for deploying to Azure.](../../_images/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3a%2f%2fraw.githubusercontent.com%2fAzure%2fazure-quickstart-templates%2fmaster%2fquickstarts%2fmicrosoft.network%2fexpressroute-private-peering-vnet%2fazuredeploy.json)
+   [![Deploy to Azure](../../_images/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3a%2f%2fraw.githubusercontent.com%2fAzure%2fazure-quickstart-templates%2fmaster%2fquickstarts%2fmicrosoft.network%2fexpressroute-private-peering-vnet%2fazuredeploy.json)
 
 1. Wait for the link to open in the Azure portal, then select the **Resource group** you would like to deploy these resources into or create a new resource group. The **Region** and **Location** will automatically change to match the resource group.
 
@@ -386,7 +386,7 @@ Microsoft Learn modules:
 [configure-vpn]: /azure/expressroute/expressroute-howto-coexist-resource-manager
 [guidance-vpn]: /azure/expressroute/use-s2s-vpn-as-backup-for-expressroute-privatepeering
 [configure-expressroute-routing]: /azure/expressroute/expressroute-howto-routing-arm
-[sla-for-expressroute]: https://azure.microsoft.com/support/legal/sla/expressroute
+[sla-for-expressroute]: https://www.microsoft.com/licensing/docs/view/Service-Level-Agreements-SLA-for-Online-Services
 [expressroute-introduction]: /azure/expressroute/expressroute-introduction
 [expressroute-pricing]: https://azure.microsoft.com/pricing/details/expressroute/
 [highly-available-network-architecture]: ./expressroute-vpn-failover.yml

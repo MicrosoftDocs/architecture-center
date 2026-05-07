@@ -50,7 +50,7 @@ This article is the fourth in a series about disaster recovery (DR) for an Azure
 
 - Early detection of outages is also a way to decrease RTO and RPO values significantly. Include the following key factors:
 
-  - Define what an outage is and how it maps to the definition of an outage according to Microsoft. The Microsoft definition is available on the [Azure service-level agreement (SLA)](https://azure.microsoft.com/support/legal/sla/) page at the product or service level.
+  - Define what an outage is and how it maps to the definition of an outage according to Microsoft. The Microsoft definition is available in the [Service Level Agreements for Microsoft Online Services](https://www.microsoft.com/licensing/docs/view/Service-Level-Agreements-SLA-for-Online-Services) document.
 
   - Implement an efficient monitoring and alerting system with accountable teams that review metrics and alerts promptly to support the goal.
 

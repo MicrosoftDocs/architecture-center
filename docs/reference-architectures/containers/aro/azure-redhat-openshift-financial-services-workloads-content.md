@@ -10,11 +10,11 @@ Before you build a production environment by using Azure Red Hat OpenShift, read
 
 *Download a [Visio file](https://arch-center.azureedge.net/fsi-architecture.vsdx) of this architecture.*
 
-### Dataflow
+### Data flow
 
 This scenario uses an application that runs on an Azure Red Hat OpenShift cluster. The application connects to on-premises resources and a hub virtual network on Azure that Azure Firewall protects.
 
-The following dataflow corresponds to the previous diagram:
+The following data flow corresponds to the previous diagram:
 
 1. The developer writes code within the company's network and pushes the code to GitHub Enterprise. You can use any code repository for your scenario.
 
@@ -208,7 +208,7 @@ Principal authors:
 **Production deployment resources:**
 
 - [Azure Red Hat OpenShift landing zone accelerator](https://github.com/Azure/ARO-Landing-Zone-Accelerator): Comprehensive reference implementation with Terraform and Bicep templates and critical design area recommendations
-- [Azure Red Hat OpenShift workshop](https://aroworkshop.io/): Hands-on lab exercises for learning Azure Red Hat OpenShift deployment and management
+- [Azure Red Hat OpenShift workshop](https://aroworkshop.io/): Interactive lab exercises for learning Azure Red Hat OpenShift deployment and management
 - [Red Hat OpenShift on Azure documentation](/azure/openshift/): Complete technical documentation and tutorials
 
 **Architecture and best practices:**

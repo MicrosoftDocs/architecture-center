@@ -18,9 +18,9 @@ The data in the repo helps professional cloud architects and software engineers 
 - This data does not lead to bad or risky decisions without warning the reader about them.
 - This data helps an architect avoid regret in their solution design.
 - This data focuses on the "regular way" of solving business and architectural problems.
-- This data avoids risky decisions without proper warnings.
 - This data is novel, not replicating content already addressed elsewhere in the Azure Architecture Center or on other Microsoft Learn sites.
 - This data is truthful, even while being opinionated.
+- This data does not showcase deprecated technology or solution approaches. It focuses on what durable greenfield success looks like. Deprecation notices are never a valid workaround.
 
 ## Repository structure
 
@@ -159,15 +159,30 @@ thumbnailUrl: /azure/architecture/browse/thumbs/article-name.png
 - Typically the thumbnail is a PNG export of the main article diagram (which is often SVG)
 - When updating diagrams, both the article image and browse thumbnail may need updates
 
+## Redirections
+
+When an article is deleted, moved, or renamed, add a redirect entry to the top-level `redirections` array in `.openpublishing.redirection.json` at the repository root. Each entry maps the old `source_path` (relative to the repo root) to a `redirect_url` (either a site-relative path starting with `/` or an absolute URL). Without this entry, readers following old URLs get a 404.
+
+```json
+{
+  "source_path": "docs/example-scenario/data/azure-nifi.yml",
+  "redirect_url": "/azure/architecture/data-guide/technology-choices/pipeline-orchestration-data-movement",
+  "redirect_document_id": false
+}
+```
+
+Set `redirect_document_id` to `true` if the article was moved or renamed (the content still exists at the new URL). Set it to `false` if the article was deleted (the redirect target is a different article).
+
 ## Multi-agent usage
 
-- Invoke the GitHub Copilot for Azure `#azure_query_learn` agent tool to query existing Microsoft Learn documentation as needed.
-- Invoke the Web Search for Copilot `#websearch` agent tool to query general knowledge from the Internet as needed.
+- Invoke the Learn MCP tool to query existing Microsoft Learn documentation as needed.
+- Invoke your Web Search tool to query general knowledge from the Internet as needed.
 
 ## Sourcing policy
 
-- Prioritize Microsoft Learn as the primary source of truth.
+- Prioritize Microsoft Learn as the primary source of truth. Specifically, content found in the Learn MCP server or directly from learn.microsoft.com.
 - Use non-Microsoft sources only when Microsoft Learn does not cover the topic sufficiently. Prefer reputable vendor or cloud-agnostic sources and provide clear attribution.
+- Never use data from or link to the `azure.cn` domain. That site is a lagging, partial mirror of Microsoft Learn.
 
 ## Proactive edits (scope)
 
@@ -176,7 +191,7 @@ thumbnailUrl: /azure/architecture/browse/thumbs/article-name.png
 
 ## Freshness updates
 
-Data in this repository must be periodically updated to reflect modern approaches and modern technology, usually once a year. Data that receives a full freshness pass gets its `ms.date` metadata updated to reflect this. Do not proactively perform a full freshness pass; instead, when you detect content that appears outdated or divergent, leave files unchanged and output a message to the human-in-the-loop indicating that a freshness pass is recommended and why.
+Data in this repository must be periodically updated to reflect modern approaches and modern technology, usually once a year. Data that receives a full freshness pass gets its `ms.date` metadata updated to reflect this. `ms.date` is never to be updated unless a full freshness pass is performed. Do not proactively perform a full freshness pass; instead, when you detect content that appears outdated or divergent, leave files unchanged and output a message to the human-in-the-loop indicating that a freshness pass is recommended and why.
 
 The following items must be addressed during a freshness update (when explicitly requested), no exceptions, and the person doing the update will need to self-attest to addressing these items:
 
@@ -184,7 +199,7 @@ The following items must be addressed during a freshness update (when explicitly
 - Update the content to include the best guidance possible. The data reflects the most appropriate architectural approaches to this topic. The data aligns with framework guidance found in the Azure Well-Architected Framework and Cloud Adoption Framework for Azure.
 
   This task is the most critical task in the freshness pass list. Bring your subject matter expertise so that the article provides the best customer experience. Ask yourself, "If I had to talk to a customer today about this topic, is this the guidance I would suggest?" If not, then you must update the article accordingly.
-
+- Apply the existing Repository facts rule about deprecated technologies and solutions.
 - The data discloses or identifies previously undisclosed solution shortcomings.
 - The data aligns with the template for the content type.
 - The data is edited for quality.

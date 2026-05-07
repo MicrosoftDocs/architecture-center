@@ -123,12 +123,12 @@ Here's an overview of the architecture:
 
 The following patterns might be helpful to you when you implement this pattern:
 
-- [Competing Consumers pattern](./competing-consumers.yml): This pattern involves implementing multiple consumers that listen to the same queue and process tasks in parallel to increase throughput. Only one consumer processes each message. The article provides detailed information on the advantages and disadvantages of this approach.
+- [Competing Consumers pattern](./competing-consumers.md): This pattern involves implementing multiple consumers that listen to the same queue and process tasks in parallel to increase throughput. Only one consumer processes each message. The article provides detailed information on the advantages and disadvantages of this approach.
 
 - [Throttling pattern](./throttling.yml): This pattern can be implemented using queues to manage request rates. By utilizing priority messaging, requests from critical applications or high-value customers can be prioritized over less important ones.
 
 <!-- links -->
-[priority-queues]: https://github.com/mspnp/cloud-design-patterns/tree/master/priority-queue
+[priority-queues]: https://github.com/mspnp/cloud-design-patterns/tree/main/priority-queue
 [app]: https://github.com/mspnp/cloud-design-patterns/tree/main/priority-queue/PriorityQueueSender
 [high]: https://github.com/mspnp/cloud-design-patterns/tree/main/priority-queue/PriorityQueueConsumerHigh
 [low]: https://github.com/mspnp/cloud-design-patterns/tree/main/priority-queue/PriorityQueueConsumerLow

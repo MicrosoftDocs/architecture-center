@@ -4,7 +4,7 @@ description: Learn how to develop resilient and scalable code that runs on Azure
 author: dbarkol
 ms.author: dabarkol
 ms.topic: concept-article
-ms.date: 07/03/2024
+ms.date: 04/22/2026
 ms.subservice: architecture-guide
 ---
 
@@ -18,7 +18,7 @@ Azure provides three main messaging services that can be used with Azure Functio
 
 Understanding the benefits and drawbacks of streams helps you appreciate how a service like [Event Hubs](/azure/event-hubs/event-hubs-about) operates. You also need this context when making significant architectural decisions, troubleshooting issues, and optimizing for performance. Consider the following key concepts about solutions featuring both Event Hubs and Functions:
 
-- **Streams aren't queues:** Event Hubs, Kafka, and other similar offerings that are built on the partitioned consumer model don't intrinsically support some of the principal features in a message broker like [Service Bus](/azure/service-bus-messaging/service-bus-messaging-overview). Perhaps the biggest indicator of these differences is the fact that reads are **non-destructive**. This ensures that the data read by the Functions host remains available afterwards. Instead, messages are immutable and remain for other consumers to read, including potentially the same consumer reading it again. For this reason, solutions that implement patterns such as [competing consumers](/azure/architecture/patterns/competing-consumers) might be better served with a message broker such as Service Bus.
+- **Streams aren't queues:** Event Hubs, Kafka, and other similar offerings that are built on the partitioned consumer model don't intrinsically support some of the principal features in a message broker like [Service Bus](/azure/service-bus-messaging/service-bus-messaging-overview). Perhaps the biggest indicator of these differences is the fact that reads are **non-destructive**. This ensures that the data read by the Functions host remains available afterwards. Instead, messages are immutable and remain for other consumers to read, including potentially the same consumer reading it again. For this reason, solutions that implement patterns such as [Competing Consumers](../../patterns/competing-consumers.md) might be better served with a message broker such as Service Bus.
 
 - **Missing inherent dead-letter support:** A dead-letter channel isn't a native feature in Event Hubs or Kafka. Often, the *concept* of dead-lettering is integrated into a streaming solution to account for data that cannot be processed. This functionality is intentionally not an innate element in Event Hubs and is only added on the consumer side to manufacture a similar behavior or effect. If you need dead-letter support, you should potentially review your choice of a streaming message service.
 
@@ -72,7 +72,7 @@ Without error handling, it can be tricky to implement retries, detect runtime ex
 
 ### Retries
 
-Implementing retry logic in an event streaming architecture can be complex. Supporting cancellation tokens, retry counts and exponential back off strategies are just a few of the considerations that make it challenging. Fortunately, Functions provides [retry policies](/azure/azure-functions/functions-bindings-error-pages#retry-policies-preview) that can make up for many of these tasks that you would typically code yourself.
+Implementing retry logic in an event streaming architecture can be complex. Supporting cancellation tokens, retry counts, and exponential back-off strategies are a few of the considerations that make it a challenge. Fortunately, Functions provides [retry policies](/azure/azure-functions/functions-bindings-error-pages#retry-policies) for many of these tasks that you typically code yourself. For general guidance on retry strategies, see [Recommendations for handling transient faults](/azure/well-architected/design-guides/handle-transient-faults).
 
 Several important factors that must be considered when you use the retry policies with the Event Hub binding, include:
 
@@ -88,7 +88,7 @@ An important takeaway for the retry policies in Functions is that it's a best ef
 
 ## Strategies for failures and corrupt data
 
-There are several noteworthy approaches that you can use to compensate for issues that arise due to failures or bad data in an event stream. Some fundamental strategies are:
+Several noteworthy approaches can help you compensate for problems that occur because of failures or bad data in an eventstream. Consider the following fundamental strategies:
 
 - **Stop sending and reading:** To fix the underlying issue, pause the reading and writing of events. The benefit of this approach is that data won't be lost, and operations can resume after a fix is rolled out. This approach might require a circuit-breaker component in the architecture and possibly a notification to the affected services to achieve a pause. In some cases, stopping a function might be necessary until the issues are resolved.
 
@@ -110,7 +110,7 @@ In the end, there isn't a perfect solution and the consequences and tradeoffs of
 
 Principal author:
 
- - [David Barkol](https://www.linkedin.com/in/davidbarkol/) | Principal Solution Specialist GBB
+ - [David Barkol](https://www.linkedin.com/in/davidbarkol/) | AI Apps GBB
  
 *To see non-public LinkedIn profiles, sign in to LinkedIn.*
 

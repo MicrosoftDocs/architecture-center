@@ -8,7 +8,7 @@ ms.topic: concept-article
 ms.subservice: architecture-guide
 ---
 
-<!-- cSpell:ignore VHDs HDFS WASB HMAC POSIX ACLs JDBC -->
+<!-- cSpell:ignore VHDs WASB HMAC POSIX ACLs JDBC -->
 
 # Choose a big data storage technology in Azure
 

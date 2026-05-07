@@ -51,7 +51,7 @@ Consider whether you plan to use real-time data or send the data in batches.
 
 For real-time integrations, the following approaches are common:
 
-- **Request-response** is where a client initiates a request to a server and receives a response. Typically, request-response integrations are implemented by using APIs or webhooks. Requests might be *synchronous*, where they wait for acknowledgment and a response. Alternatively, requests can be *asynchronous* and use something like the [Asynchronous Request-Reply pattern](../../../patterns/async-request-reply.yml) to wait for a response.
+- **Request-response** is where a client initiates a request to a server and receives a response. Typically, request-response integrations are implemented by using APIs or webhooks. Requests might be *synchronous*, where they wait for acknowledgment and a response. Alternatively, requests can be *asynchronous* and use something like the [Asynchronous Request-Reply pattern](../../../patterns/asynchronous-request-reply.md) to wait for a response.
 
 - **Loosely coupled communication** is often enabled through messaging components that are designed for loosely coupling systems together. For example, Azure Service Bus provides message queuing capabilities, and Azure Event Grid and Azure Event Hubs provide eventing capabilities. These components are often used as part of integration architectures.
 
@@ -146,7 +146,7 @@ If you choose to build your own webhook eventing system, consider following the 
 Alternatively, you can use a service like [Event Grid](/azure/event-grid/overview) to provide webhook functionality. Event Grid works natively with CloudEvents and supports [event domains](/azure/event-grid/event-domains), which are useful for multitenant solutions.
 
 > [!NOTE]
-> When you make outbound connections to your tenants' systems, you connect to an external system. Follow recommended cloud practices, including using the [Retry pattern](../../../patterns/retry.yml), the [Circuit Breaker pattern](../../../patterns/circuit-breaker.md), and the [Bulkhead pattern](../../../patterns/bulkhead.yml) to ensure that problems in the tenant's system don't propagate to your system.
+> When you make outbound connections to your tenants' systems, you connect to an external system. Follow recommended cloud practices, including using the [Retry pattern](../../../patterns/retry.yml), the [Circuit Breaker pattern](../../../patterns/circuit-breaker.md), and the [Bulkhead pattern](../../../patterns/bulkhead.md) to ensure that problems in the tenant's system don't propagate to your system.
 
 ### Delegated user access
 
@@ -200,7 +200,7 @@ If you use a [tiered pricing model](../considerations/pricing-models.md#feature-
 
 - **Exposing APIs without an API gateway.** APIs have specific concerns for access control, billing, and metering. Even if you don't plan to use API policies initially, it's a good idea to include an API gateway early. That way, if you need to customize your API policies later, you don't have to make breaking changes to the URLs that an external client depends on.
 
-- **Unnecessary tight coupling.** Loose coupling, such as by using [messaging](#messaging) approaches, can provide a range of benefits for security, performance isolation, and resiliency. When possible, you should loosely couple your integrations with external systems. If you need to tightly couple to an external system, ensure that you follow good practices like the [Retry pattern](../../../patterns/retry.yml), the [Circuit Breaker pattern](../../../patterns/circuit-breaker.md), and the [Bulkhead pattern](../../../patterns/bulkhead.yml).
+- **Unnecessary tight coupling.** Loose coupling, such as by using [messaging](#messaging) approaches, can provide a range of benefits for security, performance isolation, and resiliency. When possible, you should loosely couple your integrations with external systems. If you need to tightly couple to an external system, ensure that you follow good practices like the [Retry pattern](../../../patterns/retry.yml), the [Circuit Breaker pattern](../../../patterns/circuit-breaker.md), and the [Bulkhead pattern](../../../patterns/bulkhead.md).
 
 - **Custom integrations for specific tenants.** Tenant-specific features or code can make your solution harder to test. It also makes it harder to modify your solution in the future because you have to understand more code paths. Instead, try to build [composable components](#composable-integration-components) that abstract the requirements for any specific tenant and reuse them across multiple tenants that have similar requirements.
 

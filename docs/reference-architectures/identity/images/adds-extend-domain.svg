@@ -207,14 +207,14 @@
 		</g>
 		<g id="shape1012-27" v:mID="1012" v:groupContext="shape" transform="translate(242.609,-112.5)">
 			<title>Sheet.1012</title>
-			<desc>Jumpbox</desc>
+			<desc>Jump box</desc>
 			<v:userDefs>
 				<v:ud v:nameU="visNavOrder" v:prompt="" v:val="VT0(6000):26"/>
 			</v:userDefs>
 			<v:textBlock v:margins="rect(4,2,4,2)"/>
 			<v:textRect cx="23.3175" cy="416.938" width="46.64" height="21.1239"/>
 			<rect x="0" y="406.376" width="46.635" height="21.1239" class="st9"/>
-			<text x="7.3" y="419.34" class="st6" v:langID="1033"><v:paragraph v:horizAlign="1"/><v:tabList/>Jumpbox</text>		</g>
+			<text x="7.3" y="419.34" class="st6" v:langID="1033"><v:paragraph v:horizAlign="1"/><v:tabList/>Jump box</text>		</g>
 		<g id="shape1013-30" v:mID="1013" v:groupContext="shape" transform="translate(79.5778,-165.176) rotate(-0.0494537)">
 			<title>Sheet.1013</title>
 			<v:userDefs>

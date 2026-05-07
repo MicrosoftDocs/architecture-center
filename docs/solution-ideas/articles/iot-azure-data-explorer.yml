@@ -2,9 +2,9 @@
 metadata:
   title: IoT analytics with Azure Data Explorer and Azure IoT Hub
   description: Use Azure Data Explorer with Azure IoT Hub for near real-time IoT telemetry analytics on fast-flowing, high-volume streaming data from a wide range of IoT devices.
-  author: shsagir
-  ms.author: shsagir
-  ms.date: 02/11/2025
+  author: spelluru
+  ms.author: spelluru
+  ms.date: 02/13/2026
   ms.topic: solution-idea
   ms.subservice: solution-idea
   ai-usage: ai-assisted

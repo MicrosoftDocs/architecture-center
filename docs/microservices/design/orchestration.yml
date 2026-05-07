@@ -12,7 +12,7 @@ azureCategories:
   - developer-tools
 products:
   - azure-kubernetes-service
-  - azure-service-fabric
+  - azure-container-apps
   - azure-container-instances
 name: Container orchestration for microservices
 summary: Learn how container orchestration makes it easy to manage complex multi-container microservice deployments, scaling, and cluster health.

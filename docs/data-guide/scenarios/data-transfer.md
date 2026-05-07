@@ -41,11 +41,11 @@ Consider the following options when you need scripted and programmatic data tran
 
 - The [Azure CLI](/azure/hdinsight/hdinsight-upload-data#utilities) is a cross-platform tool that lets you manage Azure services and upload data to Storage.
 
-- [AzCopy](/azure/storage/common/storage-use-azcopy-v10) is a command-line utility that lets you copy data to and from Blob Storage, Azure Files storage, and Azure Table Storage with optimal performance. AzCopy supports concurrency and parallelism, and the ability to resume copy operations when interrupted. You can also use AzCopy to copy data from Amazon Web Services (AWS) to Azure. For programmatic access, the [Microsoft Azure Storage Data Movement library](/azure/storage/common/storage-use-data-movement-library) is the core framework that powers AzCopy. It's provided as a .NET Core library.
+- [AzCopy](/azure/storage/common/storage-use-azcopy-v10) is a command-line utility that lets you copy data to and from Blob Storage, Azure Files storage, and Azure Table Storage with optimal performance. AzCopy supports concurrency and parallelism, and the ability to resume copy operations when interrupted. You can also use AzCopy to copy data from Amazon Web Services (AWS) to Azure. For programmatic access, the [Microsoft Azure Storage Data Movement library](/azure/storage/common/storage-use-data-movement-library) is the core framework that powers AzCopy. It's provided as a .NET library.
 
 - [Azure PowerShell](/powershell/module/az.storage/start-azstorageblobcopy) is a scripting environment where the `Start-AzureStorageBlobCopy` cmdlet provides an option for operators who are familiar with Azure PowerShell.
 
-- [DistCp](/azure/data-lake-store/data-lake-store-copy-data-wasb-distcp) is a utility used to copy data between an Azure HDInsight cluster's default storage and other Blob Storage or Azure Data Lake Storage accounts.
+- [DistCp](/azure/storage/blobs/data-lake-storage-use-distcp) is a utility used to copy data between an Azure HDInsight cluster's default storage and other Blob Storage or Azure Data Lake Storage accounts.
 
 - [Apache Sqoop](/azure/hdinsight/hadoop/hdinsight-use-sqoop) is an Apache project and part of the Hadoop ecosystem. It comes preinstalled on all HDInsight clusters. Sqoop transfers data between an HDInsight cluster and relational databases like SQL, Oracle, and MySQL. It's a collection of related tools, including import and export tools, and works with HDInsight clusters by using either Blob Storage or Data Lake Storage attached storage.
 

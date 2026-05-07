@@ -1,10 +1,10 @@
 ### YamlMime:Architecture
 metadata:
-  title: Multi-tier web application built for HA/DR
-  description: Learn how to create a resilient multitier web application built for high availability and disaster recovery on Azure.
+  title: Multitier Web Application Built for High Availability and Disaster Recovery
+  description: Learn how to create a resilient multitier web application built for high availability and disaster recovery on Azure by using VMs.
   author: shubhamsangal-msft
   ms.author: shsangal
-  ms.date: 07/09/2024
+  ms.date: 04/03/2026
   ms.topic: example-scenario
   ms.subservice: example-scenario
   ai-usage: ai-assisted
@@ -18,11 +18,11 @@ metadata:
     - application-development
     - example-scenario
     - arb-web
-name: Multi-tier web application built for HA/DR
+name: Multitier web application built for high availability and disaster recovery
 azureCategories:
   - web
   - featured
-summary: 'Create a multitier web application built for high availability and disaster recovery on Azure using Azure virtual machines, availability sets, availability zones, Azure Site Recovery, and Azure Traffic Manager.'
+summary: Create a multitier web application built for high availability and disaster recovery on Azure by using Azure virtual machines, availability sets, availability zones, Azure Site Recovery, and Azure Traffic Manager.
 products:
   - azure
   - azure-arc
@@ -30,4 +30,4 @@ products:
   - windows
 thumbnailUrl: /azure/architecture/browse/thumbs/architecture-disaster-recovery-multi-tier-app.png
 content: |
-   [!include[](multi-tier-app-disaster-recovery-content.md)]
+   [!INCLUDE[](multi-tier-app-disaster-recovery-content.md)]

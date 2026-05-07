@@ -65,12 +65,19 @@ We recommend creating the following resource groups:
 
 ### Networking recommendations
 
-To accept inbound traffic from the internet, add a [Destination Network Address Translation (DNAT)](/azure/firewall/tutorial-firewall-dnat) rule to Azure Firewall.
+In this architecture, all inbound and outbound traffic between the on-premises network, the internet, and the spoke virtual networks passes through Azure Firewall. Every flow that crosses the perimeter undergoes network address translation at the firewall, so the firewall's IP addresses, not the workload's, are what external systems and on-premises systems observe. Plan for the following behavior:
 
-- Destination address = Public IP address of the firewall instance.
-- Translated address = Private IP address within the virtual network.
+- **Published workloads are reachable at the firewall's public IP address, not at the workload's IP address.** You publish a backend with a [destination network address translation (DNAT)](/azure/firewall/tutorial-firewall-dnat) rule on the firewall. The destination address is the firewall's public IP address; the translated address is a private IP address within the virtual network.
 
-[Force-tunnel][azure-forced-tunneling] all outbound internet traffic through your on-premises network using the site-to-site VPN tunnel, and route to the internet using network address translation (NAT). This design prevents accidental leakage of any confidential information and allows inspection and auditing of all outgoing traffic.
+- **Outbound flows leave the perimeter sourced from one of the firewall's public IP addresses.** Azure Firewall randomly selects which attached public IP to use for each outbound flow, so partner allowlists, on-premises firewall rules, and audit logs need to cover the entire set of IP addresses attached to the firewall. Use a [public IP address prefix](/azure/virtual-network/ip-services/public-ip-address-prefix) to express that set as a contiguous range.
+
+  The number of public IP addresses attached to the firewall also determines how many concurrent outbound connections can be sustained before source network address translation (SNAT) ports are exhausted.
+
+- **Backends don't see the original client's IP address.** Azure Firewall also applies SNAT on packets that match a DNAT rule so return traffic flows back through the same firewall instance. The backend observes the firewall instance's IP address as the source.
+
+  If your application requires the client's IP address, terminate the client connection upstream in a reverse proxy such as Azure Application Gateway or Azure Front Door, forward the client's IP address in the `X-Forwarded-For` HTTP header, and follow [Preserve the original HTTP host name](/azure/architecture/best-practices/host-name-preservation) so the backend continues to observe the client's host name.
+
+[Force-tunnel][azure-forced-tunneling] all outbound internet traffic through your on-premises network using the site-to-site VPN tunnel. The on-premises edge device performs SNAT to the internet on behalf of the Azure workloads, which routes outbound flows through your existing on-premises egress controls and audit pipeline. This design prevents accidental leakage of any confidential information and allows inspection and auditing of all outgoing traffic.
 
 Don't completely block internet traffic from the resources in the spoke network subnets. Blocking traffic will prevent these resources from using Azure PaaS services that rely on public IP addresses, such as VM diagnostics logging, downloading of VM extensions, and other functionality. Azure diagnostics also requires that components can read and write to an Azure Storage account.
 
@@ -89,7 +96,8 @@ Reliability ensures your application can meet the commitments you make to your c
 If you're using Azure ExpressRoute to provide connectivity between the virtual network and on-premises network, [configure a VPN gateway to provide failover][ra-vpn-failover] if the ExpressRoute connection becomes unavailable.
 
 For information on maintaining availability for VPN and ExpressRoute connections, see the availability considerations in:
-- [Implementing a hybrid network architecture with Azure and on-premises VPN][guidance-vpn-gateway-availability] 
+
+- [Implementing a hybrid network architecture with Azure and on-premises VPN][guidance-vpn-gateway-availability]
 - [Implementing a hybrid network architecture with Azure ExpressRoute][guidance-expressroute-availability]
 
 ### Security
@@ -185,7 +193,7 @@ This deployment can take up to 45 minutes to complete. The recommended deploymen
 
 Use the following button to deploy the reference using the Azure portal.
 
-[![Deploy to Azure](../../_images/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fmspnp%2Fsamples%2Fmaster%2Fsolutions%2Fsecure-hybrid-network%2Fazuredeploy.json)
+[![Deploy to Azure](../../_images/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fmspnp%2Fsamples%2Fmain%2Fsolutions%2Fsecure-hybrid-network%2Fazuredeploy.json)
 
 #### [Azure CLI](#tab/cli)
 
@@ -195,7 +203,7 @@ When prompted, enter values for an admin user name and password. These values ar
 
 ```azurecli
 az deployment sub create --location eastus \
-    --template-uri https://raw.githubusercontent.com/mspnp/samples/master/solutions/secure-hybrid-network/azuredeploy.json
+    --template-uri https://raw.githubusercontent.com/mspnp/samples/main/solutions/secure-hybrid-network/azuredeploy.json
 ```
 
 #### [PowerShell](#tab/powershell)
@@ -206,7 +214,7 @@ When prompted, enter values for an admin user name and password. These values ar
 
 ```azurepowershell
 New-AzSubscriptionDeployment -Location eastus `
-    -TemplateUri https://raw.githubusercontent.com/mspnp/samples/master/solutions/secure-hybrid-network/azuredeploy.json
+    -TemplateUri https://raw.githubusercontent.com/mspnp/samples/main/solutions/secure-hybrid-network/azuredeploy.json
 ```
 
 ---

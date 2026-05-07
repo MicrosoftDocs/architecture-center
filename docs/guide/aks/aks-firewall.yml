@@ -25,4 +25,4 @@ products:
 - azure-devops
 thumbnailUrl: /azure/architecture/browse/thumbs/aks-firewall.png
 content: |
-   [!include[](aks-firewall-content.md)]
+   [!INCLUDE[](aks-firewall-content.md)]

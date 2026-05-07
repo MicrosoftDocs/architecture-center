@@ -88,7 +88,7 @@ Several design patterns from the Azure Architecture Center are relevant to multi
 
 ### Deployment Stamps pattern
 
-For more information about how to use the [Deployment Stamps pattern](../../../patterns/deployment-stamp.yml) to support a multitenant solution, see [Overview](overview.md#deployment-stamps-pattern).
+For more information about how to use the [Deployment Stamps pattern](../../../patterns/deployment-stamp.md) to support a multitenant solution, see [Overview](overview.md#deployment-stamps-pattern).
 
 > [!TIP]
 > In multitenant solutions, it's a good practice to create deployment stamps. This recommendation applies even when you use a multitenant database or sharded databases within a stamp. By modeling your solution as a stamp, you can easily redeploy it as new business opportunities arise.
@@ -117,7 +117,7 @@ However, when you work with shared infrastructure, consider the following drawba
 
 ### Sharding pattern
 
-The [Sharding pattern](../../../patterns/sharding.yml) involves deploying multiple separate databases, called *shards*, that each contains one or more tenants' data. Unlike deployment stamps, shards don't imply that the entire infrastructure is duplicated. You might shard databases without also duplicating or sharding other infrastructure in your solution.
+The [Sharding pattern](../../../patterns/sharding.md) involves deploying multiple separate databases, called *shards*, that each contains one or more tenants' data. Unlike deployment stamps, shards don't imply that the entire infrastructure is duplicated. You might shard databases without also duplicating or sharding other infrastructure in your solution.
 
 :::image type="complex" border="false" source="media/storage-data/sharding.png" alt-text="Diagram that shows a sharded database. One database contains the data for tenants A and B, and the other database contains the data for tenant C." lightbox="media/storage-data/sharding.png":::
    The diagram consists of three blue boxes and one gray box. The first blue box is labeled Tenant A. The second blue box is labeled Tenant B. The third blue box is labeled Tenant C. Arrows point from the blue tenant boxes to a gray box. The gray box contains a smaller box that's labeled Web server (Shared). The gray box also contains three icons for shards. One icon is labeled Shard map. The second icon is labeled Shard 1, and the third icon is labeled Shard 2. Tenants A and B share shard 1, and tenant C uses shard 2.
@@ -176,7 +176,7 @@ For relational databases, these antipatterns include:
 
 There are some features that can be useful for multitenancy. However, these features aren't available in all database services. Consider whether you need the following features when you decide on the service to use for your scenario:
 
-- **Row-level security** can provide security isolation for specific tenants' data in a shared multitenant database. This feature is available in some databases, like SQL Database and Azure Database for PostgreSQL flexible server.
+- **Row-level security** can provide security isolation for specific tenants' data in a shared multitenant database. This feature is available in some databases, like SQL Database and Azure Database for PostgreSQL.
 
     When you use row-level security, you need to ensure that the user's identity and tenant identity are propagated through the application and into the data store with each query. This approach can be complex to design, implement, test, and maintain. Many multitenant solutions don't use row-level security because of those complexities.
 

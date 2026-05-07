@@ -77,7 +77,7 @@ In a rolling update, you deploy new instances of a service, and the new instance
 
 **Example.** In Kubernetes, rolling updates are the default behavior when you update the pod spec for a [Deployment](https://kubernetes.io/docs/concepts/workloads/controllers/deployment/). The Deployment controller creates a new ReplicaSet for the updated pods. Then it scales up the new ReplicaSet while scaling down the old one, to maintain the desired replica count. It doesn't delete old pods until the new ones are ready. Kubernetes keeps a history of the update, so you can roll back an update if needed.
 
-**Example.** Azure Service Fabric uses the rolling update strategy by default. This strategy is best suited for deploying a version of a service with new features without changing existing APIs. Service Fabric starts an upgrade deployment by updating the application type to a subset of the nodes or an update domain. It then rolls forward to the next update domain until all domains are upgraded. If an upgrade domain fails to update, the application type rolls back to the previous version across all domains. Be aware that an application type with multiple services (and if all services are updated as part of one upgrade deployment) is prone to failure. If one service fails to update, the entire application is rolled back to the previous version and the other services aren't updated.
+**Example.** Azure Container Apps uses [revisions](/azure/container-apps/revisions) to manage rolling updates. When you deploy a new revision, Container Apps can gradually shift traffic from the old revision to the new one by using traffic-splitting rules. If the new revision encounters issues, you can roll back by redirecting traffic to the previous revision. You can configure multiple active revisions simultaneously and control the percentage of traffic each revision receives.
 
 One challenge of rolling updates is that during the update process, a mix of old and new versions are running and receiving traffic. During this period, any request could get routed to either of the two versions.
 
@@ -106,11 +106,10 @@ A canary release is more complex to manage than either blue-green or rolling upd
 - [Learning path: Define and implement continuous integration](/training/paths/az-400-define-implement-continuous-integration)
 - [Training: Introduction to continuous delivery](/training/modules/introduction-to-continuous-delivery)
 - [Microservices architecture](/dotnet/architecture/microservices/architect-microservice-container-applications/microservices-architecture)
-- [Why use a microservices approach to building applications](/azure/service-fabric/service-fabric-overview-microservices)
+- [Why use a microservices approach to building applications](/azure/architecture/guide/architecture-styles/microservices)
 
 ## Related resources
 
 - [CI/CD for microservices on Kubernetes](./ci-cd-kubernetes.yml)
 - [Design a microservices architecture](../guide/architecture-styles/microservices.md)
 - [Using domain analysis to model microservices](model/domain-analysis.md)
-

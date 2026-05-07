@@ -9,6 +9,7 @@ ms.collection: ce-skilling-ai-copilot
 ms.subservice: architecture-guide
 ms.custom:
   - arb-saas
+  - arb-aiml
 ---
 
 # Design a secure multitenant RAG inferencing solution
@@ -42,7 +43,12 @@ For more information, see [Design and develop a RAG solution](/azure/architectur
 
 ## Single-tenant RAG architecture with direct data access
 
-This variant of the single-tenant RAG architecture uses the [On Your Data feature](/azure/ai-services/openai/concepts/use-your-data) of Azure OpenAI to integrate directly with data stores like Azure AI Search. In this architecture, you either don't have your own orchestrator, or your orchestrator has fewer responsibilities. The Azure OpenAI API calls into the data store to fetch the grounding data and passes that data to the language model. This method gives you less control over what grounding data to fetch and the relevancy of that data.
+This variant of the single-tenant RAG architecture uses the [On Your Data feature](/azure/ai-foundry/openai/concepts/use-your-data) of Azure OpenAI to integrate directly with data stores like Azure AI Search.
+
+> [!IMPORTANT]
+> Azure OpenAI On Your Data is deprecated and approaching retirement. We recommend that you migrate Azure OpenAI On Your Data workloads to [Foundry Agent Service](/azure/ai-foundry/agents/overview) with [Foundry IQ](/azure/ai-foundry/agents/concepts/what-is-foundry-iq) to retrieve content and generate grounded answers from your data.
+
+In this architecture, you either don't have your own orchestrator, or your orchestrator has fewer responsibilities. The Azure OpenAI API calls into the data store to fetch the grounding data and passes that data to the language model. This method gives you less control over what grounding data to fetch and the relevancy of that data.
 
 > [!NOTE]
 > This Azure OpenAI feature integrates with the data store, but the model itself doesn't integrate with the data store. The model receives grounding data in the same way as it does when an orchestrator fetches the data.
@@ -105,7 +111,7 @@ In multitenant stores, multiple tenants' data coexists in the same store. The ad
 
 The challenges of using shared stores include the need for data isolation and management, the potential for the [noisy neighbor antipattern](/azure/architecture/antipatterns/noisy-neighbor/noisy-neighbor), and more complex cost allocation to tenants. Data isolation is the most important concern when you use this approach. You need to implement secure approaches to help ensure that tenants can only access their data. Data management can also be challenging if tenants have different data lifecycles that require operations such as building indexes on different schedules.
 
-Some platforms have features that you can use when you implement tenant data isolation in shared stores. For example, Azure Cosmos DB has native support for data partitioning and sharding. It's typical to use a tenant identifier as a partition key to provide some isolation between tenants. Azure SQL and Azure Database for PostgreSQL - Flexible Server support row-level security. However, these features aren't typically used in multitenant solutions because you have to design your solution around these features if you plan to use them in your multitenant store.
+Some platforms have features that you can use when you implement tenant data isolation in shared stores. For example, Azure Cosmos DB has native support for data partitioning and sharding. It's typical to use a tenant identifier as a partition key to provide some isolation between tenants. Azure SQL and Azure Database for PostgreSQL support row-level security. However, these features aren't typically used in multitenant solutions because you have to design your solution around these features if you plan to use them in your multitenant store.
 
 In the context of this AI scenario, grounding data for all tenants commingle in the same data store. Therefore, your query to that data store must include a tenant discriminator to help ensure that responses are restricted to bring back only relevant data within the context of the tenant.
 

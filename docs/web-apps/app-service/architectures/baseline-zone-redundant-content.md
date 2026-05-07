@@ -5,8 +5,8 @@ This baseline architecture builds on the [basic web application architecture](./
 
 ## Architecture
 
-:::image type="complex" source="../_images/baseline-app-service-architecture.svg" lightbox="../_images/baseline-app-service-architecture.svg" alt-text="Diagram that shows a baseline App Service architecture with zonal redundancy and high availability." border="false":::
-The diagram shows a virtual network with three subnets. One subnet contains Application Gateway with Azure Web Application Firewall. A user points to this subnet. The second subnet contains private endpoints for Azure PaaS services. The third subnet contains a virtual interface for App Service network integration. Application Gateway communicates with App Service via a private endpoint. App Service shows a zonal configuration. App Service uses virtual network integration and private endpoints to communicate with SQL Database, Key Vault, and Azure Storage. Private DNS zones are linked to the virtual network. Distributed denial of service (DDoS) protection secures the virtual network. Microsoft Entra ID provides identity and access control. Application Insights and Azure Monitor serve monitoring purposes.
+:::image type="complex" source="../_images/baseline-app-service-architecture.svg" lightbox="../_images/baseline-app-service-architecture.svg" alt-text="Diagram that shows a baseline App Service architecture with zone redundancy and high availability." border="false":::
+The diagram shows a virtual network with three subnets. One subnet contains Application Gateway with Azure Web Application Firewall. A user points to this subnet. The second subnet contains private endpoints for Azure PaaS services. The third subnet contains a virtual interface for App Service network integration. Application Gateway communicates with App Service via a private endpoint. App Service shows a zone-redundant configuration. App Service uses virtual network integration and private endpoints to communicate with SQL Database, Key Vault, and Azure Storage. Private DNS zones are linked to the virtual network. Distributed denial of service (DDoS) protection secures the virtual network. Microsoft Entra ID provides identity and access control. Application Insights and Azure Monitor serve monitoring purposes.
 :::image-end:::
 
 *Download a [Visio file](https://arch-center.azureedge.net/web-app-services.vsdx) of this architecture.*
@@ -69,7 +69,7 @@ The following steps describe the outbound flow from App Service to Azure PaaS se
 
 1. The virtual network routes the request to the service through the private endpoint.
 
-Outbound traffic that doesn't go to Azure PaaS services leaves through a public IP address that multiple customers share. For example, a web app might call a public API during an HTTP request. To control this type of egress traffic, route it through a network device like Azure Firewall. For more information, see [Control outbound traffic by using Azure Firewall](/azure/app-service/network-secure-outbound-traffic-azure-firewall).
+Outbound traffic that doesn't go to Azure PaaS services leaves through a public IP address that multiple customers share. For example, a web app might call a public API during an HTTP request. To control this type of egress traffic, route it through a network device like Azure Firewall. The firewall applies source network address translation (SNAT), so flows are sourced from the firewall's public IP addresses rather than the shared App Service outbound pool, which gives you a stable egress identity that downstream partners can allowlist. For more information, see [Control outbound traffic by using Azure Firewall](/azure/app-service/network-secure-outbound-traffic-azure-firewall).
 
 ### Application Gateway implementation
 
@@ -145,7 +145,7 @@ These considerations implement the pillars of the Azure Well-Architected Framewo
 
 Reliability helps ensure that your application can meet the commitments that you make to your customers. For more information, see [Design review checklist for Reliability](/azure/well-architected/reliability/checklist).
 
-The baseline App Service architecture focuses on zonal redundancy for key regional services. Availability zones are physically separate locations within a region that provide high availability and fault tolerance. When you deploy two or more instances across [availability zones](/azure/reliability/availability-zones-service-support) in [supported regions](/azure/reliability/availability-zones-region-support), the failure of one zone doesn't affect the others. This approach helps maintain service availability.
+The baseline App Service architecture focuses on zone redundancy for key regional services. Availability zones are physically separate locations within a region that provide high availability and fault tolerance. When you deploy two or more instances across [availability zones](/azure/reliability/availability-zones-service-support) in [supported regions](/azure/reliability/availability-zones-region-support), the failure of one zone doesn't affect the others. This approach helps maintain service availability.
 
 The architecture also ensures sufficient instances of Azure services to meet demand. The following sections provide reliability guidance for each key service in the architecture.
 
@@ -270,6 +270,12 @@ The App Service baseline architecture configures authentication and authorizatio
 
 - Use user-assigned managed identities. System-assigned identities can cause IaC deployments to fail based on race conditions and order of operations. User-assigned managed identities avoid some of these deployment error scenarios. For more information, see [Managed identities](/entra/identity/managed-identities-azure-resources/managed-identity-best-practice-recommendations).
 
+### Cost Optimization
+
+Cost Optimization focuses on ways to reduce unnecessary expenses and improve operational efficiencies. For more information, see [Design review checklist for Cost Optimization](/azure/well-architected/cost-optimization/checklist).
+
+This [Azure pricing estimate](https://azure.com/e/04fa6a287c1d47f9af40c91e4202f238) includes only the components in this architecture, including those components that are carried over from the [Basic web application](./basic-web-app.yml#components). Modify it with any architecture changes that your use case requires.
+
 ### Operational Excellence
 
 Operational Excellence covers the operations processes that deploy an application and keep it running in production. For more information, see [Design review checklist for Operational Excellence](/azure/well-architected/operational-excellence/checklist).
@@ -277,7 +283,7 @@ Operational Excellence covers the operations processes that deploy an applicatio
 The deployment for the baseline App Service application follows the [Azure Pipelines architecture guidance](/azure/devops/pipelines/architectures/devops-pipelines-azure-web-apps-architecture). Because the baseline architecture denies public access to App Service and secures the deployment storage account within the virtual network, you can't deploy from outside the virtual network. To address this constraint, the architecture uses self-hosted deployment agents that run within the virtual network. The following deployment guidance focuses on application code deployment, not infrastructure or database changes.
 
 :::image type="complex" source="../_images/baseline-app-service-deployments.svg" lightbox="../_images/baseline-app-service-deployments.svg" alt-text="Diagram that shows a baseline App Service deployment architecture." border="false":::
-The diagram shows the baseline architecture with a subnet that contains self-hosted deployment agents. It also adds Azure pipelines with managed agents. The managed agents point to Azure DevOps and the release pipeline (steps 1, 4, and 6). The self-hosted deployment agents point to Azure DevOps and the release pipeline (step 2) and to the storage private endpoint (step 3). The storage private endpoint points to Storage (step 3).
+The diagram shows the baseline architecture with a subnet that contains self-hosted deployment agents. It also adds Azure Pipelines with managed agents. The managed agents point to Azure DevOps and the release pipeline (steps 1, 4, and 6). The self-hosted deployment agents point to Azure DevOps and the release pipeline (step 2) and to the storage private endpoint (step 3). The storage private endpoint points to Storage (step 3).
 :::image-end:::
 
 #### Deployment flow
@@ -387,7 +393,7 @@ App Service provides built-in and integrated monitoring capabilities for improve
 
 - [Turn on distributed tracing](/azure/azure-monitor/app/app-map) to track requests across multiple services and dependencies. You can monitor distributed cloud systems via distributed tracing and a performance profiler.
 
-- Use code-based instrumentation for custom telemetry. Application Insights also supports code-based instrumentation for custom application telemetry. Add the Application Insights SDK to your code and use the Application Insights API.
+- Use code-based instrumentation for custom telemetry. Application Insights also supports code-based instrumentation for custom application telemetry. Add the [Azure Monitor OpenTelemetry Distro](/azure/azure-monitor/app/opentelemetry-enable) to your code.
 
 - [Turn on App Service logs](/azure/app-service/troubleshoot-diagnostic-logs) for platform-level diagnostics. App Service provides four log types for troubleshooting: application logs, web server logs, detailed error messages, and failed request tracing.
 

@@ -165,13 +165,13 @@ Other contributors:
 - [Application Insights limits](/azure/azure-monitor/service-limits#application-insights)
 - [Query across multiple workspaces and apps](/azure/azure-monitor/logs/cross-workspace-query)
 - [Azure Monitor workbooks](/azure/azure-monitor/visualize/workbooks-overview)
-- [Capture Application Insights custom metrics with .NET and .NET Core](/azure/azure-monitor/app/tutorial-asp-net-custom-metrics)
+- [Capture Application Insights custom metrics with .NET](/azure/azure-monitor/metrics/metrics-custom-overview)
 - [Application Insights API for custom events and metrics](/azure/azure-monitor/app/api-custom-events-metrics)
 - [Application Insights telemetry data model](/azure/azure-monitor/app/data-model-complete)
 - [Azure Monitor pricing](https://azure.microsoft.com/pricing/details/monitor/)
 - [Log data ingestion time in Azure Monitor](/azure/azure-monitor/logs/data-ingestion-time)
 - [Sampling in Application Insights](/azure/azure-monitor/app/opentelemetry-sampling)
-- [Filter and preprocess telemetry in the Application Insights SDK](/azure/azure-monitor/app/api-filtering-sampling)
+- [Filter and preprocess telemetry in Azure Monitor OpenTelemetry for Application Insights](/azure/azure-monitor/app/opentelemetry-filter)
 
 ## Related resources
 

@@ -57,7 +57,7 @@ The workload uses the following Azure services in coordination with each other:
 
 - [Azure DocumentDB](/azure/documentdb/overview) is a fully managed MongoDB-compatible database service for building modern applications. In this architecture, the package service uses Azure DocumentDB as its data store.
 
-- [Service Bus](/azure/well-architected/service-guides/service-bus/reliability) is a cloud messaging service that provides asynchronous communication capabilities and hybrid integration. In this architecture, it handles asynchronous messaging between the ingestion service and the task-based, workflow microservice. The rest of the services in the existing application are designed so other services can invoke them with HTTP requests.
+- [Service Bus](/azure/well-architected/service-guides/azure-service-bus) is a cloud messaging service that provides asynchronous communication capabilities and hybrid integration. In this architecture, it handles asynchronous messaging between the ingestion service and the task-based, workflow microservice. The rest of the services in the existing application are designed so other services can invoke them with HTTP requests.
 
 - [Azure Managed Redis](/azure/redis/overview) is an in-memory caching service. In this architecture, it reduces latency and improves throughput for frequently accessed drone delivery data.
 
@@ -65,7 +65,7 @@ The workload uses the following Azure services in coordination with each other:
 
 - [Azure Monitor](/azure/azure-monitor/fundamentals/overview) is a comprehensive monitoring solution that collects and analyzes telemetry data. In this architecture, it collects and stores metrics and logs from all application components through a Log Analytics workspace. You use this data to monitor the application, set up alerts and dashboards, and perform root cause analysis of failures.
 
-  - [Application Insights](/azure/well-architected/service-guides/application-insights) is an application performance management service that provides extensible monitoring capabilities. In this architecture, each service is instrumented with the Application Insights SDK to monitor application performance.
+  - [Application Insights](/azure/well-architected/service-guides/application-insights) is an application performance management service that provides extensible monitoring capabilities. In this architecture, each service is instrumented with the [Azure Monitor OpenTelemetry Distro](/azure/azure-monitor/app/opentelemetry-enable) to monitor application performance.
 
 ### Alternatives
 
