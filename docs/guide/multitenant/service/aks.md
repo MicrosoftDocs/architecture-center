@@ -175,7 +175,7 @@ AKS workloads can use persistent volumes to store data. You can create [persiste
 
 When AKS [built-in storage classes](/azure/aks/azure-csi-driver-volume-provisioning#use-a-persistent-volume-for-storage) don't fit your tenants' needs, create custom [storage classes](https://kubernetes.io/docs/concepts/storage/storage-classes) to address their specific requirements. These requirements include volume size, storage SKU, a service-level agreement (SLA), backup policies, and the pricing tier.
 
-For example, create a custom storage class for each tenant and use it to apply tags to persistent volumes in their namespaces for cost chargeback. For more information, see [Use Azure tags in AKS](https://techcommunity.microsoft.com/blog/fasttrackforazureblog/use-azure-tags-in-azure-kubernetes-service-aks/3611583).
+For example, create a custom storage class for each tenant and use it to apply tags to persistent volumes in their namespaces for cost chargeback. For more information, see [Use Azure tags in AKS](/azure/aks/use-tags).
 
 For more information, see [Storage isolation](https://kubernetes.io/docs/concepts/security/multi-tenancy/#storage-isolation).
 
@@ -396,7 +396,6 @@ Consider the following constraints of pod sandboxing on AKS:
 For more information, see the following articles:
 
 - [Pod sandboxing by using AKS](/azure/aks/use-pod-sandboxing)
-- [Support for Kata VM isolated containers on AKS for pod sandboxing](https://techcommunity.microsoft.com/blog/appsonazureblog/preview-support-for-kata-vm-isolated-containers-on-aks-for-pod-sandboxing/3751557)
 
 ### Azure Dedicated Host
 
@@ -442,7 +441,7 @@ If you require advanced customization beyond what node autoprovisioning provides
 
 ### Confidential VMs
 
-Use [confidential VMs](/azure/aks/use-cvm) to add one or more node pools to your AKS cluster to address tenants' strict isolation, privacy, and security requirements. [Confidential VMs](https://techcommunity.microsoft.com/t5/azure-confidential-computing/azure-confidential-vms-using-sev-snp-dcasv5-ecasv5-are-now/ba-p/3573747) use a hardware-based [trusted execution environment](https://en.wikipedia.org/wiki/Trusted_execution_environment).
+Use [confidential VMs](/azure/aks/use-cvm) to add one or more node pools to your AKS cluster to address tenants' strict isolation, privacy, and security requirements. Confidential VMs use a hardware-based [trusted execution environment](https://en.wikipedia.org/wiki/Trusted_execution_environment).
 
 [AMD Secure Encrypted Virtualization-Secure Nested Paging (SEV-SNP)](https://www.amd.com/system/files/TechDocs/SEV-SNP-strengthening-vm-isolation-with-integrity-protection-and-more.pdf) confidential VMs deny the hypervisor and other host-management code access to VM memory and state, which adds a layer of defense and in-depth protection against operator access. For more information, see [Use confidential VMs in an AKS cluster](/azure/aks/use-cvm).
 
