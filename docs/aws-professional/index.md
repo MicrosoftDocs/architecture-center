@@ -29,7 +29,7 @@ AWS and Azure build on a core set of AI, compute, storage, database, and network
 
 The capabilities of both platforms are similar, but the resources that provide those capabilities are often organized differently. Azure and AWS built their capabilities independently over time, so the platforms have important implementation and design differences. For example, AWS relies heavily on its accounts to serve as a logical boundary for tasks like applying permissions or tracking spend. Azure uses subscriptions, which are similar to AWS accounts.
 
-The services that each platform provides don't always clearly correspond. Sometimes, only one of the platforms provides a particular service. 
+The services that each platform provides don't always clearly correspond. Sometimes, only one of the platforms provides a particular service.
 
 ## Primary topics
 
