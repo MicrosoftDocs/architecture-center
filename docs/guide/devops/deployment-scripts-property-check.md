@@ -6,15 +6,7 @@ ms.author: jatracey
 ms.date: 05/05/2026
 ms.topic: concept-article
 ms.subservice: architecture-guide
-ms.custom:
-    - devx-track-bicep
-azureCategories:
-  - devops
-  - networking
-products:
-  - azure-resource-manager
-  - azure-virtual-network
-  - azure-virtual-wan
+ms.custom: devx-track-bicep
 ---
 
 # Use deployment scripts to check resource properties
