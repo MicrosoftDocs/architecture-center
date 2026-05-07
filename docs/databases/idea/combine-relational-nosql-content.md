@@ -72,6 +72,7 @@ Cost Optimization is about reducing unnecessary expenses and improving operation
 
 ## Related content
 
+- [Prepare to choose a data store in Azure](../../guide/technology-choices/data-stores-getting-started.md)
 - [Data considerations for microservices](../../microservices/design/data-considerations.md)
 - [Design a microservices architecture](../../microservices/design/index.md)
 - [Azure Cosmos DB](/azure/cosmos-db/introduction)
