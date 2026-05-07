@@ -103,9 +103,9 @@ As with any design decision, consider any tradeoffs against the goals of the oth
 
 ## Example
 
-You can use the [ASP.NET health checks](/aspnet/core/host-and-deploy/health-checks) middleware and libraries to report the health of app infrastructure components. This framework provides a way to report health checks in a consistent way. It implements many of the practices that this article describes. For instance, the ASP.NET health checks include external checks like database connectivity and specific concepts like liveness and readiness probes.
+You can use the [ASP.NET Core health checks](/aspnet/core/host-and-deploy/health-checks) middleware and libraries to report the health of app infrastructure components. This framework provides a way to report health checks in a consistent way. It implements many of the practices that this article describes. For instance, the ASP.NET Core health checks include external checks like database connectivity and specific concepts like liveness and readiness probes.
 
-Several example implementations that use ASP.NET health checks are available on [GitHub](https://github.com/dotnet/AspNetCore.Docs/tree/main/aspnetcore/host-and-deploy/health-checks/samples/7.x/HealthChecksSample).
+Several example implementations that use ASP.NET Core health checks are available on [GitHub](https://github.com/dotnet/AspNetCore.Docs/tree/main/aspnetcore/host-and-deploy/health-checks/samples/8.x/HealthChecksSample).
 
 ## Monitor endpoints in Azure-hosted applications
 
