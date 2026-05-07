@@ -227,14 +227,16 @@ To optimize routing for the Windows 365 network architecture, follow these recom
 
 - *Enable pass-through:* Windows 365 uses RDP, which is sensitive to latency from traffic inspection devices, such as a firewall or a Secure Sockets Layer (SSL) decryption appliance. Latency can result in a poor experience. Disable traffic inspection of these URLs and enable pass-through. For more information, see [Traffic interception technologies](/windows-365/enterprise/requirements-network#traffic-interception-technologies).
 
-- *Bypass proxy:* Cloud and traditional proxy services are useful for internet access but introduce latency in RDP connections. This latency occurs when the connection from the user's physical device or from the Cloud PC is forced through a proxy. It results in frequent disconnections, lags, and sluggish response times. Set **.wvd.microsoft.com** and [Windows 365 gateway IP address ranges](https://github.com/microsoft/Windows365-PSScripts/tree/main/Windows%20365%20Gateway%20IP%20Lookup) to bypass proxy services on the following components:
+- *Bypass proxy:* Cloud and traditional proxy services are useful for internet access but introduce latency in RDP connections. This latency occurs when the connection from the user's physical device or from the Cloud PC is forced through a proxy. It results in frequent disconnections, lags, and sluggish response times. 
 
+  Optimize RDP in the following locations:
+  
   - The user's physical device
   - The network that the physical device connects to
-  - The Cloud PC
-
-  For more information, see [Optimize RDP connectivity for Windows 365](https://techcommunity.microsoft.com/t5/windows-365/optimizing-rdp-connectivity-for-windows-365/m-p/3554327).
-
+  - The Cloud PC and underlying network within Azure
+    
+  For more information, see [Optimization of RDP traffic](/windows-365/enterprise/optimization-of-rdp).
+  
 - *Ensure shortest path routing:* Ensure that RDP traffic from a Cloud PC follows the most direct route to Virtual Desktop service endpoints. The ideal path is from a virtual network to the Virtual Desktop gateway IP address via the internet. Also ensure that RDP traffic from the user's physical device reaches the Virtual Desktop gateway IP address directly. This configuration ensures optimal routing and doesn't degrade the user experience. Avoid routing RDP traffic to the internet via cloud proxy services or on-premises networks.
 
 - *Enable RDP Shortpath:* Enable RDP Shortpath-based access for user networks, Azure networks, and Cloud PCs. RDP Shortpath uses UDP to transmit RDP traffic. Unlike Transmission Control Protocol (TCP), UDP is resilient to high-latency network connections. UDP also takes maximum advantage of the available network bandwidth to efficiently transfer RDP packets, which leads to an improved user experience. For more information, see [Use RDP Shortpath for public networks with Windows 365](/windows-365/enterprise/rdp-shortpath-public-networks).

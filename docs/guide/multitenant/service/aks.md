@@ -209,7 +209,7 @@ In this model, deploy a dedicated set of resources for each tenant, as shown in 
 The diagram shows three tenants. Each tenant has its own deployment. Each deployment contains an AKS cluster and a database.
 :::image-end:::
 
-Each tenant workload runs in a dedicated AKS cluster and accesses a distinct set of Azure resources. This model typically relies on [infrastructure as code (IaC)](/devops/deliver/what-is-infrastructure-as-code) tools. To automate on-demand deployment of tenant-dedicated resources, use [Bicep](/azure/azure-resource-manager/bicep/overview), [Azure Resource Manager](/azure/azure-resource-manager/management/overview), [Terraform](/azure/developer/terraform/overview), or [Resource Manager REST APIs](/rest/api/resources). Use this approach when you need to provision separate infrastructure for each customer. When you plan your deployment, consider the [Deployment Stamps pattern](../../../patterns/deployment-stamp.yml).
+Each tenant workload runs in a dedicated AKS cluster and accesses a distinct set of Azure resources. This model typically relies on [infrastructure as code (IaC)](/devops/deliver/what-is-infrastructure-as-code) tools. To automate on-demand deployment of tenant-dedicated resources, use [Bicep](/azure/azure-resource-manager/bicep/overview), [Azure Resource Manager](/azure/azure-resource-manager/management/overview), [Terraform](/azure/developer/terraform/overview), or [Resource Manager REST APIs](/rest/api/resources). Use this approach when you need to provision separate infrastructure for each customer. When you plan your deployment, consider the [Deployment Stamps pattern](../../../patterns/deployment-stamp.md).
 
 This approach provides the following benefits:
 

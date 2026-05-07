@@ -125,7 +125,7 @@ AND soh.[SalesOrderId] IN (
 ORDER BY soh.[TotalDue] DESC, sod.[SalesOrderDetailID]
 ```
 
-The application then uses the .NET Framework `System.Xml.Linq` APIs to format the results as XML.
+The application then uses the [`System.Xml.Linq` APIs](/dotnet/api/system.xml.linq) to format the results as XML.
 
 ```csharp
 // Create a new SqlCommand to run the Transact-SQL query

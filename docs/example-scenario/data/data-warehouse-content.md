@@ -6,9 +6,9 @@ This example scenario demonstrates a data pipeline that integrates large amounts
 
 *Download a [Visio file](https://arch-center.azureedge.net/architecture-data-warehousing.vsdx) of this architecture.*
 
-### Dataflow
+### Data flow
 
-The data flows through the solution as follows:
+The following data flow corresponds to the previous diagram:
 
 1. For each data source, any updates are exported periodically into a staging area in Azure Data Lake Storage.
 2. Azure Data Factory incrementally loads the data from Azure Data Lake Storage into staging tables in Azure Synapse Analytics. The data is cleansed and transformed during this process. PolyBase can parallelize the process for large datasets.
