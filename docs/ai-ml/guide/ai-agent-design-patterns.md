@@ -16,15 +16,15 @@ As architects and developers design their workload to take full advantage of lan
 
 ## Start with the right level of complexity
 
-Before you adopt a multi-agent orchestration pattern, evaluate whether your scenario requires one. Agent architectures exist on a spectrum of complexity, and each level introduces coordination overhead, latency, and cost. Use the lowest level of complexity that reliably meets your requirements.
+Before you adopt a multiagent orchestration pattern, evaluate whether your scenario requires one. Agent architectures exist on a spectrum of complexity, and each level introduces coordination overhead, latency, and cost. Use the lowest level of complexity that reliably meets your requirements.
 
 | Level | Description | When to use | Considerations |
 | :---- | :---------- | :---------- | :------------- |
-| **Direct model call** | A single language model call with a well-crafted prompt. No agent logic, no tool access. | Classification, summarization, translation, and other single-step tasks that the model can complete in one pass. | The least complex option. If prompt engineering can solve the problem, you don't need an agent. |
-| **Single agent with tools** | One agent that reasons and acts by selecting from available tools, knowledge sources, and APIs. The agent can loop through multiple model calls and tool invocations to refine results. | Varied queries within a single domain where some requests require dynamic tool use, such as looking up order status or querying a database. | Often the right default for enterprise use cases. Simpler to debug and test than multi-agent setups, while still allowing dynamic logic. Guard against infinite tool-call loops by setting iteration limits. |
-| **Multi-agent orchestration** | Multiple specialized agents coordinate to solve a problem. An orchestrator or peer-based protocol manages work distribution, context sharing, and result aggregation. | Cross-functional or cross-domain problems, scenarios that require distinct security boundaries per agent, or tasks that benefit from parallel specialization. | Adds coordination overhead, latency, and failure modes. Justify the added complexity by demonstrating that a single agent can't reliably handle the task due to prompt complexity, tool overload, or security requirements. |
+| **Direct model call** | A single language model call with a well-crafted prompt. No agent logic, no tool access. | The model can complete classification, summarization, translation, and other single-step tasks in one pass. | The least complex option. If prompt engineering can solve the problem, you don't need an agent. |
+| **Single agent with tools** | One agent that reasons and chooses from available tools, knowledge sources, and APIs. The agent can loop through multiple model calls and tool invocations to refine results. | The agent can handle varied queries within a single domain, in which some requests require dynamic tool use, such as order status lookup or database queries. | Often the right default for enterprise use cases. Simpler to debug and test than multiagent setups, but still allows dynamic logic. To guard against infinite tool-call loops, set iteration limits. |
+| **Multiagent orchestration** | Multiple specialized agents that coordinate to solve problems. An orchestrator or peer-based protocol manages work distribution, context sharing, and result aggregation. | The agents can handle cross-functional or cross-domain problems, scenarios that require distinct security boundaries per agent, and tasks that benefit from parallel specialization. | Adds coordination overhead, latency, and failure modes. The added complexity is justified because a single agent can't reliably handle certain tasks due to prompt complexity, tool overload, or security requirements. |
 
-The rest of this guide focuses on orchestration patterns for the multi-agent level, where the coordination challenges are most significant.
+This guide focuses on orchestration patterns for the multiagent level, in which coordination challenges are most significant.
 
 ## Overview
 
@@ -108,7 +108,7 @@ The concurrent orchestration pattern runs multiple AI agents simultaneously on t
    The image contains three key sections. In the top section, an arrow points from Input to the Initiator and collector agent. An arrow points from the Initiator and collector agent to a section that reads Aggregated results based on combined, compared, and selected results. A line connects the Initiator and collector agent to a line that connects to four sections via arrows. These sections are Agent 1, Agent 2, an unlabeled section that has ellipses, and Agent n. An arrow points from Agent 1 to Intermediate result. A line points from Agent 1 and splits into two flows. The first flow shows a Sub agent 1.1 section and a section that reads Model, knowledge, and tools. The second flow shows a Sub agent 1.2 and a section that reads Model, knowledge and tools. An arrow points from Agent 2 to Intermediate result. A line connects Agent 2 to a section that reads Model, knowledge, and tools. An arrow points from the unlabeled section that has ellipses to Intermediate results. An arrow points from Agent n to Intermediate result. A line connects Agent n to a section that reads Model, knowledge, and tools.
 :::image-end:::
 
-This pattern addresses scenarios where you need diverse insights or approaches to the same problem. Instead of sequential processing, all agents work in parallel, which reduces overall run time and provides comprehensive coverage of the problem space. This orchestration pattern resembles the Fan-out/Fan-in cloud design pattern. The results from each agent are often aggregated to return a final result, but that's not required. Each agent can independently produce its own results within the workload, such as invoking tools to accomplish tasks or updating different data stores in parallel. When aggregation is needed, choose a strategy that fits the task: voting or majority-rule for classification, weighted merging for scored recommendations, or an LLM-synthesized summary when results need to be reconciled into a coherent narrative.
+This pattern addresses scenarios where you need diverse insights or approaches to the same problem. Instead of sequential processing, all agents work in parallel, which reduces overall run time and provides comprehensive coverage of the problem space. This orchestration pattern resembles the Fan-out/Fan-in cloud design pattern. The results from each agent are often aggregated to return a final result, but that's not required. Each agent can independently produce its own results within the workload, such as invoking tools to accomplish tasks or updating different data stores in parallel. When aggregation is needed, choose a strategy that fits the task: vote or use majority-rule for classification, apply weighted merging for scored recommendations, or use an LLM-synthesized summary to reconcile results into a coherent narrative.
 
 Agents operate independently and don't hand off results to each other. An agent might invoke extra AI agents by using its own orchestration approach as part of its independent processing. The orchestrator must know which agents are registered and available. This pattern supports both deterministic calls to all registered agents and dynamic selection of which agents to invoke based on the task requirements.
 
@@ -216,11 +216,11 @@ Managing conversation flow and preventing infinite loops require careful attenti
 
 ### Maker-checker loops
 
-The maker-checker loop is a specific type of group chat orchestration where one agent, the *maker*, creates or proposes something, and another agent, the *checker*, evaluates the result against defined criteria. If the checker identifies gaps or quality issues, it pushes the conversation back to the maker with specific feedback. The maker revises its output and resubmits. This cycle repeats until the checker approves the result or the orchestration reaches a maximum iteration limit. Although the group chat pattern doesn't require agents to *take turns* chatting, the maker-checker loop requires a formal turn-based sequence that the chat manager drives.
+The maker-checker loop is a specific type of group chat orchestration in which one agent, the *maker*, creates or proposes something, and another agent, the *checker*, evaluates the result against defined criteria. If the checker identifies gaps or quality issues, it pushes the conversation back to the maker with specific feedback. The maker revises its output and resubmits. This cycle repeats until the checker approves the result or the orchestration reaches a maximum iteration limit. Although the group chat pattern doesn't require agents to *take turns* chatting, the maker-checker loop requires a formal turn-based sequence that the chat manager drives.
 
 *Also known as: evaluator-optimizer, generator-verifier, critic loop, reflection loop.*
 
-This pattern requires clear acceptance criteria for the checker agent so that it can make consistent pass or fail decisions. An iteration cap is used to prevent infinite refinement loops combined with a fallback behavior for when the cap is reached, such as escalating to a human reviewer or returning the best result with a quality warning.
+This pattern requires clear acceptance criteria for the checker agent so that it can make consistent pass or fail decisions. An iteration cap prevents infinite refinement loops combined with a fallback behavior for when the cap is reached. The failover behaviour might include escalation to a human reviewer or a quality warning alongside the best-possible result.
 
 ### Group chat orchestration example
 
@@ -268,7 +268,7 @@ Consider the agent handoff pattern in the following scenarios:
 
 Avoid this pattern in the following scenarios:
 
-- The appropriate agent or sequence of agents is identifiable from the initial input. In that case, use deterministic routing or a simpler dispatcher that classifies the input upfront and sends it to the appropriate agent without taking an active role in processing.
+- The appropriate agent, or sequence of agents, is identifiable from the initial input. In that case, use deterministic routing or a simpler dispatcher that classifies the input upfront and sends it to the appropriate agent without taking an active role in processing.
 
 - Task routing is deterministic and rule-based, not based on dynamic context window or dynamic interpretation.
 
