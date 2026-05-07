@@ -49,6 +49,15 @@ The following advantages help offset those challenges:
 - **Optimized cost allocation.** Each service uses its own pricing model. Azure SQL Database offers predictable pricing for steady transactional workloads. Azure Cosmos DB offers pay-per-request throughput for highly dynamic or spiky workloads. Segregating tasks avoids over-provisioning a single system.
 - **Shared capacity for multi-tenant workloads.** Both services support shared capacity deployment models. Azure SQL Database provides elastic pools for consolidating databases across tenants. Azure Cosmos DB provides fleet pools for efficient multitenant resource sharing. These options maintain isolation while reducing per-tenant costs.
 
+### When to use each service
+
+Azure SQL Database and Azure Cosmos DB have overlapping capabilities. Both can store JSON, and both can deliver low-latency responses when configured appropriately. The decision depends on which service's primary design strengths align with your workload's dominant access patterns:
+
+- **Choose Azure Cosmos DB when** your workload primarily requires schema-flexible document storage, automatic multi-region distribution with guaranteed single-digit millisecond reads, or elastic horizontal scaling across partitions. These are native strengths of Azure Cosmos DB and represent its optimized path.
+- **Choose Azure SQL Database when** your workload primarily requires enforced relational integrity across tables, multi-statement ACID transactions, or complex joins and aggregations. These are native strengths of Azure SQL Database and represent its optimized path.
+
+When a workload's requirements don't clearly favor one service, evaluate the dominant access pattern rather than secondary capabilities. For example, Azure SQL Database supports JSON storage, but a workload consisting primarily of schema-flexible JSON documents with high write throughput is better suited to Azure Cosmos DB. For detailed selection criteria, see [Prepare to choose a data store in Azure](../../guide/technology-choices/data-stores-getting-started.md).
+
 ### Potential use cases
 
 This architecture is appropriate for applications that handle multiple data workload types with different consistency, scalability, and schema requirements:
