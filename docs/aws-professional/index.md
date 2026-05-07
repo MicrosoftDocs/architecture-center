@@ -60,7 +60,7 @@ The preceding list doesn't include all services. The following tables describe s
 
 | AWS service | Azure service | Description |
 | :---------- | :------------ | :---------- |
-| [Amazon Timestream](https://aws.amazon.com/timestream) | [Azure Data Explorer](https://azure.microsoft.com/services/data-explorer) <br/><br/> [Fabric Real-Time Intelligence](/fabric/real-time-intelligence) | Azure Data Explorer is a fully managed, low latency, and distributed big data analytics platform. It runs complex queries across petabytes of data and is optimized for log and time series data. <br/><br/> Microsoft Fabric Real‑Time Intelligence is a fully managed, SaaS‑based analytics capability that uses KQL to ingest, store, and analyze high‑volume streaming and time‑series data in real time. It's tightly integrated with Power BI and the broader Fabric platform. |
+| [Amazon Timestream](https://aws.amazon.com/timestream) | [Azure Data Explorer](https://azure.microsoft.com/services/data-explorer) <br/><br/> [Fabric Real-Time Intelligence](/fabric/real-time-intelligence) | Azure Data Explorer is a fully managed, low-latency, and distributed big data analytics platform. It runs complex queries across petabytes of data and is optimized for log and time series data. <br/><br/> Microsoft Fabric Real‑Time Intelligence is a fully managed, SaaS‑based analytics capability that uses KQL to ingest, store, and analyze high‑volume streaming and time‑series data in real time. It's tightly integrated with Power BI and the broader Fabric platform. |
 
 ### DevOps and application monitoring
 
