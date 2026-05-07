@@ -53,8 +53,8 @@ The following advantages help offset those challenges:
 
 This architecture is appropriate for applications that handle multiple data workload types with different consistency, scalability, and schema requirements:
 
-- **SaaS platforms.** Multitenant applications that store per-tenant relational data in Azure SQL Database and shared, globally replicated metadata or user session content in Azure Cosmos DB.
 - **E-commerce and retail.** Applications that use Azure SQL Database for customer accounts, orders, and inventory, and Azure Cosmos DB for product catalogs, personalization, and real-time session data.
+- **SaaS platforms.** Multitenant applications that store per-tenant relational data in Azure SQL Database and shared, globally replicated metadata or user session content in Azure Cosmos DB.
 - **Healthcare and IoT.** Systems that ingest high-volume metrics or sensor data into Azure Cosmos DB and store aggregated results, reference data, or final reports in Azure SQL Database.
 - **Financial services.** Payment and trading platforms that use Azure SQL Database for transactional integrity over financial records and Azure Cosmos DB for globally distributed, low-latency access to portfolio or operational data.
 - **AI-enhanced applications.** Solutions that use Azure SQL Database for relational records of transactions and agreements, and Azure Cosmos DB for storing AI-generated metadata, chat sessions, or contextual artifacts that require flexible schema and fast access.
