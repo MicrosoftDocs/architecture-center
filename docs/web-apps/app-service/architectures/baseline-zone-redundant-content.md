@@ -262,7 +262,7 @@ The App Service baseline architecture configures authentication and authorizatio
 
   Replace `<application-gateway-endpoint>` with either the public IP address or custom domain name of your application gateway. Replace `<provider>` with your authentication provider, like `aad` for Microsoft Entra ID.
   
-  For setup instructions, see [Azure Front Door considerations](/azure/app-service/overview-authentication-authorization#considerations-for-using-azure-front-door) or [Set up Application Gateway](https://techcommunity.microsoft.com/blog/appsonazureblog/setting-up-application-gateway-with-an-app-service-that-uses-azure-active-direct/392490).
+  For setup instructions, see [Azure Front Door considerations](/azure/app-service/overview-authentication-authorization#considerations-for-using-azure-front-door) or [Application Gateway integration with App Service](/azure/app-service/overview-app-gateway-integration#authentication-easy-auth).
 
 ##### Workload identities
 
