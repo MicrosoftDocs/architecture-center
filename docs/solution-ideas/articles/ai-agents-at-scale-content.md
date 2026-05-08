@@ -112,8 +112,8 @@ The agent selector chooses the most appropriate agents for user inquiries from a
 
 The following diagram illustrates the structure of the agent selector system.
 
-:::image type="complex" border="false" source="../media/ai-agents-at-scale-agent-selection.png" alt-text="Agent Selector System Diagram" lightbox="../media/ai-agents-at-scale-agent-selection.png":::
-
+:::image type="complex" border="false" source="../media/ai-agents-at-scale-agent-selection.png" alt-text="Flow diagram that shows how a system uses a semantic cache to select the most relevant agents for a user query." lightbox="../media/ai-agents-at-scale-agent-selection.png":::
+In step 1, the user submits a query for a specific task and the system considers the user's registered agents. In step 2, the system performs alias mapping to resolve agent references. In step 3, the system generates a normalized query without alias agents. In step 4, Azure AI Search retrieves top embedding matches and the system assigns similarity scores to candidate agents, converts the scores to cosine similarity, and evaluates whether the top score exceeds a confidence threshold to determine whether to keep high-confidence agents or include all agents. In step 5, the system filters results to the top set based on semantic cache thresholds. In step 6, the system intersects the selected agents with the user's available agents. In step 7, the system removes duplicates and assigns each agent a maximum score. In step 8, the system checks whether a single agent remains and whether the score meets a confidence threshold, optionally adding a supervisor agent when conditions are met. In step 9, if multiple agents remain or confidence is low, the system includes additional candidate agents and agents from the previous turn. In step 10, the orchestrator receives the final list of agents and either invokes a single agent or uses an LLM to select the best agent when multiple candidates remain.
 :::image-end:::
 
 #### Agent selection workflow
@@ -245,8 +245,8 @@ The Agent Factory pattern helps you onboard, test, and evolve an agent catalog. 
 
 This process helps you maintain a high-quality, conflict-free multiagent system in which you add, update, or remove every agent deliberately and with validation. Agents form the building blocks of intelligent orchestration, so introducing or modifying one without checks can degrade performance, create overlapping responsibilities, or break user experiences. To prevent these outcomes, the life cycle applies evaluation-driven governance at every stage. The following diagram shows the onboarding process flow.
 
-:::image type="complex" border="false" source="../media/ai-agents-at-scale-onboarding-process.png" alt-text="AI Agents Onboarding Process" lightbox="../media/ai-agents-at-scale-onboarding-process.png":::
-
+:::image type="complex" border="false" source="../media/ai-agents-at-scale-onboarding-process.svg" alt-text="Flow diagram that shows a gated workflow for validating and integrating a semantic cache before production use." lightbox="../media/ai-agents-at-scale-onboarding-process.svg":::
+The process begins with prevalidation, which includes checking agent name availability, validating descriptions, and reviewing sample utterances. The workflow then moves to temporary cache creation. The temporary cache is evaluated against an existing golden dataset by using semantic cache evaluation, end-to-end evaluation, and performance analysis benchmarking. The workflow proceeds only when results are approved. The system then performs system integration, which includes updating the production cache, enhancing the golden dataset, and cleaning up intermediate artifacts. After integration, the workflow moves to final validation by using a new golden dataset. The workflow again runs semantic cache evaluation, end-to-end evaluation, and performance benchmarking. It continues only when results meet criteria. The process ends with final steps that include updating the benchmark and merging the pull request to complete the workflow.
 :::image-end:::
 
 The life cycle covers three operations:
@@ -281,8 +281,8 @@ To find code for the evaluation framework, see [Evaluation Framework repo](https
 
 ##### Evaluation pipeline diagram
 
-:::image type="complex" border="false" source="../media/ai-agents-at-scale-evalframework-flow.png" alt-text="Evaluation Pipeline" lightbox="../media/ai-agents-at-scale-evalframework-flow.png":::
-
+:::image type="complex" border="false" source="../media/ai-agents-at-scale-evalframework-flow.png" alt-text="Flow diagram that shows an evaluation pipeline for an agentic system that uses a data catalog tool and multiple evaluators." lightbox="../media/ai-agents-at-scale-evalframework-flow.png":::
+In step 1, the system loads evaluation data from a data catalog tool into an evaluation dataset that contains sample inputs and outputs. In step 2, the dataset provides utterances and inputs to the agentic system. In step 3, the agentic system processes the inputs and produces an agent response that includes predicted output alongside expected or ground truth output. In step 4, the system passes the query, predicted output, and ground truth output to the evaluators. In step 5, the evaluators run by using both custom evaluators from a repository, such as function call, agent planner, multiturn, multi-intent, agent success, and agent selector evaluators, and built-in Foundry evaluators, such as retrieval, relevance, similarity, and content safety evaluators. In step 6, the system aggregates evaluation results into experiment results. In step 7, the results feed into Foundry, where reports and dashboards visualize evaluation metrics.
 :::image-end:::
 
 ##### Pipeline flow
@@ -303,8 +303,8 @@ To find code for the evaluation framework, see [Evaluation Framework repo](https
 
 ##### Experimentation and evaluation of agentic systems
 
-:::image type="complex" border="false" source="../media/ai-agents-at-scale-experimentation-evaluation.png" alt-text="Experimentation and Evaluation" lightbox="../media/ai-agents-at-scale-experimentation-evaluation.png":::
-
+:::image type="complex" border="false" source="../media/ai-agents-at-scale-experimentation-evaluation.svg" alt-text="Flow diagram that compares component-level evaluation during agent development with end-to-end evaluation during agent onboarding." lightbox="../media/ai-agents-at-scale-experimentation-evaluation.svg":::
+On the left, the component-level evaluation section shows a user utterance that flows into either a semantic cache or an individual agent, with an optional payload provided to each. Each component produces a response that's then evaluated independently. On the right, the end-to-end evaluation section shows a user utterance and optional payload that flows into an agentic system composed of multiple agents, which generates a single response that's evaluated as a complete system output.
 :::image-end:::
 
 A step-by-step workflow for evaluating agentic systems and their components:
@@ -380,8 +380,8 @@ Traditional observability stops at logs, metrics, and traces. In AI systems, tho
 
 #### Observability data flow for agentic systems
 
-:::image type="complex" border="false" source="../media/ai-agents-at-scale-observability-flow.png" alt-text="Observability data flow for agentic systems" lightbox="../media/ai-agents-at-scale-observability-flow.png":::
-
+:::image type="complex" border="false" source="../media/ai-agents-at-scale-observability-flow.png" alt-text="Flow diagram that shows an observability pipeline for microservices by using OpenTelemetry and Azure Monitor." lightbox="../media/ai-agents-at-scale-observability-flow.png":::
+In step 1, instrumented services in the microservices section, including the orchestrator, agents, device control services, other services, and the OpenTelemetry SDK, generate telemetry data and send it to the OpenTelemetry Collector in the Telemetry pipeline. In step 2, the OpenTelemetry Collector receives, processes, and exports the data to Application Insights. In step 3, Application Insights routes the data to logs, traces, and metrics within Azure Monitor, where logs are stored in a Log Analytics workspace for KQL queries, traces capture transaction details such as trace IDs and span IDs, and metrics capture business and system measurements. In step 4, logs, traces, and metrics feed into the visualization and alerts component, which provides dashboards, workbooks, and rule-based alerts to support monitoring and incident response.
 :::image-end:::
 
 1. **Emit telemetry via OTLP:** The orchestrator, agents, device control, and other services use OpenTelemetry SDKs for instrumentation. They emit logs, traces, and metrics via OpenTelemetry Protocol (OTLP).
