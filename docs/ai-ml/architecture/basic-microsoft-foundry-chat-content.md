@@ -194,5 +194,6 @@ Architects should design AI and machine learning workloads, such as this one, wi
 ## Related resources
 
 - [A Well-Architected Framework perspective on AI workloads on Azure](/azure/well-architected/ai/get-started)
-- [Explore Models](/azure/foundry/concepts/foundry-models-overview)
+- [Guardrails and controls](/azure/foundry/guardrails/guardrails-overview)
+- [Azure OpenAI models](/azure/foundry/foundry-models/concepts/models-sold-directly-by-azure)
 - [What is Agent Service?](/azure/foundry/agents/overview)
