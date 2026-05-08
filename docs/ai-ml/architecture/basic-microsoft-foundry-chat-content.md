@@ -36,7 +36,7 @@ Many of this architecture's components are the same as the [basic App Service we
 
 - [Foundry](/azure/foundry/what-is-foundry) is a platform that you use to build, test, deploy, and host agents that consume models as a service (MaaS). This architecture uses Foundry to host an agent and to run inferencing against an Azure OpenAI model.
 
-  - [Foundry projects](/azure/foundry/how-to/create-projects) establish connections to data sources, define agents, and invoke deployed models, including Azure OpenAI models. This architecture has only one Foundry project within the Foundry account.
+  - [Foundry projects](/azure/foundry/how-to/create-projects) are containers within a Foundry account where you configure agents, model deployments, and connections to data sources. Each project exposes an endpoint that client applications use to interact with the project's agents and models. This architecture has only one Foundry project within the Foundry account.
 
   - [Agent Service](/azure/foundry/agents/overview) is a capability hosted in Foundry. You use this service to define and host agents to handle chat requests. It manages the chat conversation history, orchestrates tool calls, enforces content safety, and integrates with identity, networking, and observability systems. In this architecture, Agent Service orchestrates the flow that fetches grounding data from AI Search and other connected tools and passes it with the prompt to the deployed model.
 
