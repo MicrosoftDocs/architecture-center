@@ -26,7 +26,7 @@ The following workflow corresponds to the previous diagram:
 
 1. The App Service feature called Easy Auth ensures that the user who accesses the website is authenticated via Microsoft Entra ID.
 1. The application code deployed to App Service handles the request and renders a chat UI for the application user. The chat UI code connects to APIs hosted in the same App Service instance. The API code connects to an agent in Agent Service by using the [Microsoft Agent Framework](/dotnet/api/overview/azure/ai.agents.persistent-readme).
-1. Agent Service connects to Azure AI Search or requests up-to-date public knowledge to fetch grounding data for the query. The grounding data is added to the prompt that's sent to the model in the next step.
+1. Agent Service uses its configured tools to fetch grounding data for the query. In this architecture, those tools include an Azure AI Search index and a web search capability for up-to-date public knowledge. The grounding data is added to the prompt that's sent to the model in the next step.
 1. Agent Service connects to an Azure OpenAI model that's deployed in Foundry and sends the prompt that includes relevant grounding data and chat context.
 1. Application Insights logs information about the original request to App Service and agent interactions.
 
