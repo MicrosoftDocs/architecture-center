@@ -34,7 +34,7 @@ The following workflow corresponds to the previous diagram:
 
 Many of this architecture's components are the same as the [basic App Service web application architecture](../../web-apps/app-service/architectures/basic-web-app.yml) because the chat UI is based on that architecture. This section highlights data services, components that you can use to build and orchestrate chat flows, and services that expose language models.
 
-- [Foundry](/azure/foundry/what-is-foundry) is a platform that you use to build, test, and deploy AI solutions and models as a service (MaaS). This architecture uses Foundry to deploy an Azure OpenAI model.
+- [Foundry](/azure/foundry/what-is-foundry) is a platform that you use to build, test, deploy, and host agents that consume models as a service (MaaS). This architecture uses Foundry to host an agent and to run inferencing against an Azure OpenAI model.
 
   - [Foundry projects](/azure/foundry/how-to/create-projects) establish connections to data sources, define agents, and invoke deployed models, including Azure OpenAI models. This architecture has only one Foundry project within the Foundry account.
 
