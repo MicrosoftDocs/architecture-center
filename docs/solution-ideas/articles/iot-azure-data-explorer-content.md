@@ -1,16 +1,20 @@
 [!INCLUDE [header_file](../../../includes/sol-idea-header.md)]
 
-This solution idea describes how Azure Data Explorer provides near real-time analytics for fast flowing, high volume streaming data from internet of things (IoT) devices and sensors. This analytics workflow is part of an overall IoT solution that integrates operational and analytical workloads with Azure Cosmos DB and Azure Data Explorer.
+This solution idea describes how Azure Data Explorer provides near real-time analytics for fast flowing, high volume streaming data from internet of things (IoT) devices and sensors. This analytics data flow is part of an overall IoT solution that integrates operational and analytical workloads with Azure Cosmos DB and Azure Data Explorer.
 
 Jupyter is a trademark of its respective company. No endorsement is implied by the use of this mark. Apache® and Apache Kafka® are either registered trademarks or trademarks of the Apache Software Foundation in the United States and/or other countries. No endorsement by The Apache Software Foundation is implied by the use of these marks.
 
 ## Architecture
 
-:::image type="content" source="../media/iot-azure-data-explorer-new.svg" alt-text="Diagram showing an IoT telemetry analytics architecture with Azure Data Explorer processing data from Event Hubs and IoT Hub." lightbox="../media/iot-azure-data-explorer-new.svg" border="false":::
+:::image type="complex" source="../media/iot-azure-data-explorer-new.svg" alt-text="Diagram that shows an IoT telemetry analytics architecture with Azure Data Explorer processing data from Event Hubs and IoT Hub." lightbox="../media/iot-azure-data-explorer-new.svg" border="false":::
+   <Long description that ends with a period.>
+:::image-end:::
 
 *Download a [Visio file](https://arch-center.azureedge.net/iot-azure-data-explorer.vsdx) of this architecture.*
 
 ### Data flow
+
+The following data flow corresponds to the previous diagram:
 
 1. Azure Event Hubs, Azure IoT Hub, or Kafka ingest a wide range of fast-flowing streaming data such as logs, business events, and user activities.
 
@@ -18,7 +22,7 @@ Jupyter is a trademark of its respective company. No endorsement is implied by t
 
 1. Azure Cosmos DB stores streamed messages in JSON format to serve a real-time operational application.
 
-1. Azure Data Explorer ingests data for analytics, using its connectors for [Azure Event Hubs](/azure/data-explorer/ingest-data-event-hub), [Azure IoT Hub](/azure/data-explorer/ingest-data-iot-hub), or [Kafka](/azure/data-explorer/ingest-data-kafka) for low latency and high throughput.
+1. Azure Data Explorer ingests data for analytics by using its connectors for [Azure Event Hubs](/azure/data-explorer/ingest-data-event-hub), [Azure IoT Hub](/azure/data-explorer/ingest-data-iot-hub), or [Kafka](/azure/data-explorer/ingest-data-kafka), for low latency and high throughput.
 
    Alternatively, you can ingest blobs from your [Azure Blob Storage](https://azure.microsoft.com/services/storage/blobs) or [Azure Data Lake Storage](https://azure.microsoft.com/services/storage/data-lake-storage) account into Azure Data Explorer by using an [Event Grid data connection](/azure/data-explorer/ingest-data-event-grid).
 
@@ -26,17 +30,16 @@ Jupyter is a trademark of its respective company. No endorsement is implied by t
 
 1. To serve both the operational and analytical use cases, route data either to Azure Data Explorer and Azure Cosmos DB in parallel, or from Azure Cosmos DB to Azure Data Explorer.
 
-   - Azure Cosmos DB transactions can trigger Azure Functions via change feed. Functions stream data to Event Hubs for ingestion into Azure Data Explorer.
-
-     -or-
-
-   - Azure Functions can invoke Azure Digital Twins through its API, which then streams data to Event Hubs for ingestion into Azure Data Explorer.
+   Azure Cosmos DB transactions can trigger Azure Functions via change feed. Functions stream data to Event Hubs for ingestion into Azure Data Explorer. Alternatively, Azure Functions can invoke Azure Digital Twins through its API, which then streams data to Event Hubs for ingestion into Azure Data Explorer.
 
 1. The following interfaces get insights from data stored in Azure Data Explorer:
 
    - Custom analytics apps that blend data from Azure Digital Twins and Azure Data Explorer APIs
+   
    - Near real-time analytics dashboards that use Azure Data Explorer dashboards, [Power BI](/power-bi/transform-model/service-dataflows-best-practices), or [Grafana](/azure/data-explorer/grafana)
+   
    - Alerts and notifications from the [Azure Data Explorer connector for Azure Logic Apps](/azure/data-explorer/kusto/tools/logicapps)
+   
    - The Azure Data Explorer Web UI, [Kusto.Explorer](/azure/data-explorer/kusto/tools/kusto-explorer), and [Jupyter notebooks](/azure/data-explorer/kqlmagic)
 
 1. Azure Data Explorer integrates with [Azure Databricks](https://azure.microsoft.com/services/databricks) and [Azure Machine Learning](https://azure.microsoft.com/services/machine-learning) to provide machine learning (ML) services. You can also build ML models using other tools and services, and export them to Azure Data Explorer for scoring data.
@@ -78,16 +81,24 @@ This solution uses Azure Data Explorer to get near real-time IoT telemetry analy
 ### Potential use cases
 
 - Fleet management, for predictive maintenance of vehicle parts. This solution is ideal for the automotive and transportation industry.
+
 - Facilities management, for energy and environment optimization.
-- Combining real-time road conditions with weather data for safer autonomous driving.
+
+- Combine real-time road conditions with weather data for safer autonomous driving.
 
 ## Contributors
 
-*This article is maintained by Microsoft. It was originally written by the following contributors.*
+*Microsoft maintains this article. The following contributors wrote this article.*
 
 Principal author:
 
 - [Shlomo Sagir](https://www.linkedin.com/in/shlomo-sagir/) | Senior Content Developer
+
+Other contributors:
+
+- [Sreedhar Pelluru](https://www.linkedin.com/in/sreedharpelluru) | Senior Content Developer
+
+*To see nonpublic LinkedIn profiles, sign in to LinkedIn.*
 
 ## Next steps
 
