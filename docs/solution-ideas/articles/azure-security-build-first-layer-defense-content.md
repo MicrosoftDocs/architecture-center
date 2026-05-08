@@ -8,7 +8,7 @@ This second article builds directly on that foundation and focuses on the first 
 
 ## Architecture
 
-((diagram goes here. See the Visio file in the [PR description](https://github.com/MicrosoftDocs/architecture-center-pr/pull/15188#issue-3892365595).))
+((diagram goes here. See the Visio file in the [PR description](https://github.com/MicrosoftDocs/architecture-center-pr/pull/15188#issue-3892365595).)
 
 *Download a [Visio file](https://arch-center.azureedge.net/azure-monitor-integrate-security-components.vsdm) of this architecture.*
 
