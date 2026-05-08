@@ -238,11 +238,5 @@ For more information, contact [Azure Data Engineering - Mainframe Modernization]
 
 ## Related resources
 
-See the companion architecture:
-
-- [Rehost IMS workloads to VMs by using IMSql](imsql-rehost-ims.yml)
-
-More related resources: 
-
 - [General mainframe refactor to Azure](general-mainframe-refactor.yml)
 - [Re-engineer mainframe batch applications on Azure](../../example-scenario/mainframe/reengineer-mainframe-batch-apps-azure.yml)

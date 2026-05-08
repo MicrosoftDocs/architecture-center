@@ -423,7 +423,7 @@ Other contributors:
 - [AKS production upgrade strategies](/azure/aks/upgrade-cluster#production-upgrade-strategies)
 - [Deployment Safeguards](/azure/aks/deployment-safeguards)
 - [Define day-2 operations](https://dzone.com/articles/defining-day-2-operations)
-- [A practical guide for zone-redundant AKS clusters](https://techcommunity.microsoft.com/blog/fasttrackforazureblog/a-practical-guide-to-zone-redundant-aks-clusters-and-storage/4036254)
+- [Zone resiliency recommendations for AKS](/azure/aks/reliability-zone-resiliency-recommendations)
 
 ## Related resources
 
