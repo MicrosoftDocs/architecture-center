@@ -25,7 +25,7 @@ The following workflow corresponds to the previous diagram:
 1. An application user interacts with a web application that contains chat functionality. They issue an HTTPS request to the App Service default domain on `azurewebsites.net`. This domain automatically points to the App Service built-in public IP address. The Transport Layer Security connection is established from the client directly to App Service. Azure fully manages the certificate.
 
 1. The App Service feature called Easy Auth ensures that the user who accesses the website is authenticated via Microsoft Entra ID.
-1. The application code deployed to App Service handles the request and renders a chat UI for the application user. The chat UI code connects to APIs hosted in the same App Service instance. The API code connects to an agent in Agent Service by using the [Azure AI Persistent Agents SDK](/dotnet/api/overview/azure/ai.agents.persistent-readme).
+1. The application code deployed to App Service handles the request and renders a chat UI for the application user. The chat UI code connects to APIs hosted in the same App Service instance. The API code connects to an agent in Agent Service by using the [Microsoft Agent Framework](/dotnet/api/overview/azure/ai.agents.persistent-readme).
 1. Agent Service connects to Azure AI Search or requests up-to-date public knowledge to fetch grounding data for the query. The grounding data is added to the prompt that's sent to the model in the next step.
 1. Agent Service connects to an Azure OpenAI model that's deployed in Foundry and sends the prompt that includes relevant grounding data and chat context.
 1. Application Insights logs information about the original request to App Service and agent interactions.
@@ -85,7 +85,7 @@ Foundry includes a [guardrails and content filtering system](/azure/foundry/guar
 
 #### Identity and access management
 
-The following guidance expands on the [identity and access management guidance](/azure/architecture/web-apps/app-service/architectures/baseline-zone-redundant#identity-and-access-management) in the App Service baseline architecture. The chat UI uses its managed identity to authenticate the chat UI API code to Agent Service by using the Azure AI Persistent Agents SDK.
+The following guidance expands on the [identity and access management guidance](/azure/architecture/web-apps/app-service/architectures/baseline-zone-redundant#identity-and-access-management) in the App Service baseline architecture. The chat UI authenticates to Agent Service by using its managed identity. The Microsoft Agent Framework uses the Azure.Identity library to authenticate with the managed identity assigned to the App Service instance.
 
 The Foundry project also has a managed identity. This identity authenticates to services such as AI Search through connection definitions. The project makes those connections available to Agent Service.
 
