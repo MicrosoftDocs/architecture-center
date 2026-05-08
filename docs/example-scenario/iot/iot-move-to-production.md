@@ -50,7 +50,7 @@ Transient faults typically self-correct. If you repeat the action after a suitab
 
 - **Exponential back-off:** The application waits a short time before the first retry and then progressively increases the wait time between subsequent attempts. For example, it might retry the operation after 3 seconds, 12 seconds, and 30 seconds.
 
-- **Regular intervals:** The application waits for the same period of time between each attempt. For example, it might retry the operation every 3 seconds.
+- **Regular intervals:** The application waits for the same period of time between each attempt. For example, it might retry the operation every three seconds.
 
 - **Immediate retry:** Sometimes a transient fault is brief and can occur because of events like a network packet collision or a spike in a hardware component. In this scenario, you can retry the operation immediately. If the fault clears by the time the application assembles and sends the next request, the operation can succeed. However, an application should never attempt more than one immediate retry. If the immediate retry fails, switch to alternative strategies, such as exponential back-off or fallback actions.
 

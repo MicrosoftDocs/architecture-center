@@ -139,7 +139,7 @@ The compute cluster can communicate only within the virtual network by using the
 
 The secure environment uses Machine Learning compute to access the dataset through a private endpoint. You can also configure Azure Firewall to control both inbound and outbound access to Machine Learning compute, which resides in a machine learning workspace. For more information, see [Configure inbound and outbound network traffic](/azure/machine-learning/how-to-access-azureml-behind-firewall).
 
-For more information, see [Secure a Machine Learning service environment](https://techcommunity.microsoft.com/t5/fasttrack-for-azure/secure-azure-machine-learning-service-amls-environment/ba-p/3162297).
+For more information, see [Secure Azure Machine Learning workspace resources by using virtual networks](/azure/machine-learning/how-to-network-security-overview).
 
 For Azure services that you can't configure effectively by using private endpoints, or to provide stateful packet inspection, consider using Azure Firewall or a non-Microsoft network virtual appliance (NVA).
 

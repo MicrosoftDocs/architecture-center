@@ -81,7 +81,7 @@ Use the following resources to help you build multitenant architectures on Azure
 
 #### Web
 
-- [Claims-based routing for SaaS solutions](https://techcommunity.microsoft.com/t5/fasttrack-for-azure/claims-based-routing-for-saas-solutions/ba-p/3865707): This article describes the usage of a reverse proxy to facilitate tenant routing and mapping requests to tenants, enhancing the management of back-end services in SaaS solutions.
+- [Map requests to tenants in a multitenant solution](considerations/map-requests.yml): This article describes approaches to identify tenants from incoming requests, including using reverse proxies and claims-based routing in SaaS solutions.
   
 ### Storage and data
 

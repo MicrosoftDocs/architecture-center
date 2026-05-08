@@ -66,14 +66,12 @@ Principal authors:
 
 ## Next steps
 
-- [A comprehensive guide to Managed HSM for regulated industries](https://techcommunity.microsoft.com/t5/azure-infrastructure-blog/a-comprehensive-guide-to-azure-managed-hsm-for-regulated/ba-p/4100749)
-- [Local role-based access control built-in roles for Managed HSM](/azure/key-vault/managed-hsm/built-in-roles)
+- [Control your data in the cloud by using Managed HSM](/azure/key-vault/managed-hsm/mhsm-control-data)
 - [Enable multiregion replication on Managed HSM](/azure/key-vault/managed-hsm/multi-region-replication)
 - [Configure Managed HSM with private endpoints](/azure/key-vault/managed-hsm/private-link)
 - [Managed HSM recovery overview](/azure/key-vault/managed-hsm/recovery)
 - [Key sovereignty, availability, performance, and scalability in Managed HSM](/azure/key-vault/managed-hsm/managed-hsm-technical-details)
 - [Best practices for securing Managed HSM](/azure/key-vault/managed-hsm/best-practices)
 - [Key Vault security overview](/azure/key-vault/general/security-features)
-- [About Key Vault keys](/azure/key-vault/keys/about-keys)
 - [Generate and transfer HSM-protected keys](/azure/key-vault/keys/hsm-protected-keys-byok)
 - [Key Vault availability and redundancy](/azure/key-vault/general/disaster-recovery-guidance)

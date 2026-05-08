@@ -968,7 +968,7 @@ Follow the recommendations from [Azure Advisor](https://portal.azure.com/#blade/
 - Enable the cluster autoscaler to detect and remove underused nodes in the node pool.
 
   > [!IMPORTANT]
-  > Making rapid or frequent changes to cluster autoscaler settings, like the minimum and maximum node counts for a node pool, to control costs might lead to unintended or counterproductive outcomes. For example, if `scale-down-unneeded-time` is set to 10 minutes, and the minimum and maximum node settings are modified every five minutes based on workload characteristics, the number of nodes never reduces. It's because the calculation of the unneeded time for each node resets when the cluster autoscaler settings are refreshed.
+  > Making rapid or frequent changes to cluster autoscaler settings, like the minimum and maximum node counts for a node pool, to control costs might lead to unintended or counterproductive outcomes. For example, if `scale-down-unneeded-time` is set to 10 minutes, and the minimum and maximum node settings are modified every 5 minutes based on workload characteristics, the number of nodes never reduces. It's because the calculation of the unneeded time for each node resets when the cluster autoscaler settings are refreshed.
 
 - Choose a lower SKU for the node pools, if your workload supports it.
 
