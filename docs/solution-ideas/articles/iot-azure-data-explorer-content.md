@@ -7,7 +7,7 @@ Jupyter is a trademark of its respective company. No endorsement is implied by t
 ## Architecture
 
 :::image type="complex" source="../media/iot-azure-data-explorer-new.svg" alt-text="Diagram that shows an IoT telemetry analytics architecture with Azure Data Explorer processing data from Event Hubs and IoT Hub." lightbox="../media/iot-azure-data-explorer-new.svg" border="false":::
-   <Long description that ends with a period.>
+   Diagram that shows an Internet of Things data architecture. Connected vehicles, connected manufacturing, facilities management, and sensors and towers send telemetry to Azure IoT Hub, Azure Event Hubs, and Apache Kafka. Arrows from these services lead to Azure Stream Analytics and Azure Functions. Azure Stream Analytics and Azure Functions then route data to Azure Data Explorer and Azure Cosmos DB. Azure Cosmos DB feeds an operational custom app for mobile, web app, and kiosk users, and another path carries change feed events through Azure Functions and Azure Event Hubs into Azure Data Explorer. Azure Functions also call Azure Digital Twins, and Azure Digital Twins sends events through Azure Event Hubs to Azure Data Explorer. Azure Data Lake Storage provides another input path to Azure Data Explorer. From Azure Data Explorer, arrows go to an analytical custom app, Power BI, Grafana, Azure Logic Apps, Azure Data Explorer web UI, and Notebook, and a bidirectional arrow links Azure Data Explorer with Azure Databricks and Azure Machine Learning.
 :::image-end:::
 
 *Download a [Visio file](https://arch-center.azureedge.net/iot-azure-data-explorer.vsdx) of this architecture.*
@@ -42,7 +42,7 @@ The following data flow corresponds to the previous diagram:
    
    - The Azure Data Explorer Web UI, [Kusto.Explorer](/azure/data-explorer/kusto/tools/kusto-explorer), and [Jupyter notebooks](/azure/data-explorer/kqlmagic)
 
-1. Azure Data Explorer integrates with [Azure Databricks](https://azure.microsoft.com/services/databricks) and [Azure Machine Learning](https://azure.microsoft.com/services/machine-learning) to provide machine learning (ML) services. You can also build ML models using other tools and services, and export them to Azure Data Explorer for scoring data.
+1. Azure Data Explorer integrates with [Azure Databricks](https://azure.microsoft.com/services/databricks) and [Azure Machine Learning](https://azure.microsoft.com/services/machine-learning) to provide machine learning (ML) services. You can also build ML models by using other tools and services, and export them to Azure Data Explorer for scoring data.
 
 ### Components
 
@@ -52,15 +52,15 @@ This solution idea uses the following Azure components.
 
 - [Anomaly detection and forecasting](/azure/data-explorer/anomaly-detection) is a built-in analytics feature in [Azure Data Explorer](/azure/data-explorer/data-explorer-overview). It detects outliers and predicts future values to support proactive monitoring and decision-making. In this architecture, it identifies unusual patterns in IoT telemetry and forecasts expected behavior over time.
 
-- [Anomaly diagnosis for root analysis](/kusto/query/anomaly-diagnosis) is a Kusto Query Language (KQL) capability that helps identify the root causes of anomalies. It analyzes contributing dimensions and metrics to streamline troubleshooting. In this architecture, it isolates the source of anomalies detected in device data.
+- [Anomaly diagnosis for root analysis](/kusto/query/anomaly-diagnosis) is a Kusto Query Language (KQL) capability that helps identify the root causes of anomalies. It analyzes contributing dimensions and metrics to streamline troubleshooting. In this architecture, it isolates the source of anomalies that are detected in device data.
 
-- [Azure Data Explorer](/azure/data-explorer/data-explorer-overview) is a fully managed, high-performance analytics service. It processes large volumes of streaming data from applications, websites, and IoT devices in near real-time. In this architecture, it serves as the central analytics engine for ingesting, querying, and visualizing IoT data.
+- [Azure Data Explorer](/azure/data-explorer/data-explorer-overview) is a fully managed, high-performance analytics service. It processes large volumes of streaming data from applications, websites, and IoT devices in near real-time. In this architecture, it serves as the central analytics engine for the ingestion, querying, and visualization of IoT data.
 
-- [Azure Data Explorer dashboards](/azure/data-explorer/azure-data-explorer-dashboards) are a visualization feature within the Web UI. They allow users to export Kusto queries into interactive dashboards for real-time data exploration. In this architecture, they display insights from IoT data streams and anomaly detection results.
+- [Azure Data Explorer dashboards](/azure/data-explorer/azure-data-explorer-dashboards) are a visualization feature within the Web UI. They enable users to export Kusto queries into interactive dashboards for real-time data exploration. In this architecture, they display insights from IoT data streams and anomaly detection results.
 
-- [Azure Data Explorer web UI](/azure/data-explorer/web-query-data) is a browser-based interface for working with Azure Data Explorer clusters. It supports writing, running, and sharing KQL commands and queries. In this architecture, it provides a workspace for analysts to query and explore IoT telemetry.
+- [Azure Data Explorer web UI](/azure/data-explorer/web-query-data) is a browser-based interface for Azure Data Explorer clusters. It supports users who write, run, and share KQL commands and queries. In this architecture, it provides a workspace for analysts to query and explore IoT telemetry.
 
-- [Time series analysis](/azure/data-explorer/time-series-analysis) is a built-in capability in Azure Data Explorer. It enables users to explore temporal patterns, trends, and seasonality in time-based data. In this architecture, it reveals long-term trends and cyclical behavior in IoT sensor readings.
+- [Time series analysis](/azure/data-explorer/time-series-analysis) is a built-in capability in Azure Data Explorer. It helps users to explore temporal patterns, trends, and seasonality in time-based data. In this architecture, it reveals long-term trends and cyclical behavior in IoT sensor readings.
 
 #### Other Azure components
 
@@ -68,11 +68,11 @@ This solution idea uses the following Azure components.
 
 - [Azure Digital Twins](/azure/digital-twins/overview) is a platform for modeling physical environments as digital representations. In this architecture, it maintains digital models of IoT-connected assets to support spatial analysis and contextual insights.
 
-- [Azure IoT Hub](/azure/well-architected/service-guides/iot-hub) enables bi-directional communication between IoT devices and the Azure cloud. In this architecture, it serves as the central messaging hub for device telemetry and command-and-control operations.
+- [Azure IoT Hub](/azure/well-architected/service-guides/iot-hub) enables bidirectional communication between IoT devices and the Azure cloud. In this architecture, it serves as the central messaging hub for device telemetry and command-and-control operations.
 
 - [Event Hubs](/azure/well-architected/service-guides/azure-event-hubs) is a fully managed, real-time data ingestion service. In this architecture, it ingests telemetry from IoT devices and streams it into the analytics pipeline.
 
-- [Kafka on HDInsight](/azure/hdinsight/kafka/apache-kafka-introduction) is an enterprise-grade, cost-effective service for running Apache Kafka on Azure. In this architecture, it provides an alternative streaming backbone for ingesting and distributing IoT data.
+- [Kafka on HDInsight](/azure/hdinsight/kafka/apache-kafka-introduction) is an enterprise-grade, cost-effective service for Apache Kafka on Azure. In this architecture, it provides an alternative streaming backbone for IoT data ingestion and distribution.
 
 ## Scenario details
 
