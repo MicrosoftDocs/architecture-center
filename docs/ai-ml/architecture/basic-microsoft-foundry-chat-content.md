@@ -48,7 +48,7 @@ Many of this architecture's components are the same as the [basic App Service we
 
 ## Considerations
 
-These considerations implement the pillars of the Azure Well-Architected Framework, which is a set of guiding tenets that you can use to improve the quality of a workload. For more information, see [Microsoft Azure Well-Architected Framework](/azure/well-architected/).
+These considerations implement the pillars of the Azure Well-Architected Framework, which is a set of guiding tenets that you can use to improve the quality of a workload. For more information, see [Azure Well-Architected Framework](/azure/well-architected/).
 
 This basic architecture isn't intended for production. It favors simplicity and cost efficiency over functionality so that you can learn how to build end-to-end chat applications. The following sections outline deficiencies and recommendations. These omissions are deliberate to minimize setup time. Don't use this topology in production; each omission increases risk.
 
@@ -176,7 +176,7 @@ This architecture isn't designed for production deployments, so it omits critica
 
 - Use POC results to choose the right App Service product. Meet demand through horizontal scaling (adjust instance count). Avoid designs that require changing the product tier to handle routine demand.
 
-- This architecture uses pay-as-you-go components. Best-effort resource allocation can introduce noisy neighbor effects. Decide whether you need [provisioned throughput](/azure/foundry/openai/how-to/provisioned-throughput-onboarding) to reserve capacity and achieve predictable performance.
+- This architecture uses pay-as-you-go components. Best-effort resource allocation can introduce noisy neighbor effects. Decide whether you need [provisioned throughput](/azure/foundry/foundry-models/how-to/provisioned-throughput-onboarding) to reserve capacity and achieve predictable performance.
 
 ### Other design recommendations
 
