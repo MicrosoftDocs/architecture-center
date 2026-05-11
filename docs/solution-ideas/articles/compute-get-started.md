@@ -77,9 +77,7 @@ SAP workloads have specific architecture requirements. See the following resourc
 
 #### SAP solution idea
 
-The following is a solution idea that demonstrates an implementation pattern to explore:
-
-- [Automate SAP workloads by using SUSE on Azure](./sap-workload-automation-suse.yml): Automate SAP deployment and operations by using SUSE tools.
+You can [automate SAP workloads by using SUSE tools on Azure](./sap-workload-automation-suse.yml).
 
 ## Learn about compute on Azure
 
