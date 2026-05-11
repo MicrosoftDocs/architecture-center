@@ -174,7 +174,7 @@ The main cost drivers in this architecture are:
 1. Storage performance tiers and capacity for data, log, and backup volumes, including Azure NetApp Files capacity and replication where used.
 1. Network and platform services, especially ExpressRoute circuits and gateways, and internal load balancer resources.
 
-Use the [Azure Pricing Calculator](https://azure.microsoft.com/en-us/pricing/calculator/) to estimate costs for your design. When you create a shared calculator estimate, include your selected VM SKUs, node counts, storage tiers, and network components.
+Use the [Azure Pricing Calculator](https://azure.com/e/b6930da9f66548bbb3a8d3e2bbf29381) for an estimate for a smaller architecture. Modify the selections to estimate costs for your design. When you create a  calculator estimate, include your selected VM SKUs, node counts, storage tiers, and network components.
 
 Typical sizing starts with one of these patterns and then scales by memory, IOPS, and throughput requirements:
 
