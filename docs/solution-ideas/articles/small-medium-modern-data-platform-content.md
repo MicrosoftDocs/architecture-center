@@ -12,7 +12,7 @@ This article describes how small and medium businesses (SMBs) can build a modern
 
 The interoperability between Azure Databricks and Fabric provides a robust solution that minimizes data fragmentation while enhancing analytical capabilities.
 
-Fabric provides an open and governed data lake, called OneLake, as the underlying SaaS storage. OneLake and Azure Databricks both use the Delta Parquet format. To access your Azure Databricks data from OneLake, you can [mirror the Azure Databricks Unity Catalog](/fabric/database/mirrored-database/azure-databricks) in Fabric to integrate data without replication or data movement. With this integration, you can augment your Azure Databricks analytics systems with generative AI on top of OneLake.
+Fabric provides an open and governed data lake, called OneLake, as the underlying SaaS storage. OneLake and Azure Databricks both use the Delta Parquet format. To access your Azure Databricks data from OneLake, you can [mirror the Azure Databricks Unity Catalog](/fabric/mirroring/azure-databricks) in Fabric to integrate data without replication or data movement. With this integration, you can augment your Azure Databricks analytics systems with generative AI on top of OneLake.
 
 You can also use Direct Lake mode in Power BI on your Azure Databricks data in OneLake. Direct Lake mode simplifies the serving layer and improves report performance. OneLake supports APIs for Azure Data Lake Storage and stores all tabular data in Delta Parquet format.
 
@@ -82,9 +82,9 @@ The following tools are used for governance, collaboration, security, performanc
 
 - [Data Factory](/azure/data-factory/introduction) is a cloud-based data integration service that orchestrates and automates data movement and transformation. In this architecture, Data Factory creates, schedules, and orchestrates data pipelines that move and transform data across various data stores and services.
 
-- [Event Hubs](/azure/well-architected/service-guides/event-hubs) is a real-time data ingestion service that can process millions of events per second from any source. In this architecture, Event Hubs captures and streams large volumes of data from various sources to enable real-time analytics and event-driven processing.
+- [Event Hubs](/azure/well-architected/service-guides/azure-event-hubs) is a real-time data ingestion service that can process millions of events per second from any source. In this architecture, Event Hubs captures and streams large volumes of data from various sources to enable real-time analytics and event-driven processing.
 
-- [IoT Hub](/azure/well-architected/service-guides/iot-hub) is a managed service that improves security and reliable communication between Internet of Things (IoT) devices and the cloud. In this architecture, IoT Hub facilitates the ingestion, processing, and analysis of telemetry data from IoT devices to provide real-time insights and enable remote monitoring.
+- [IoT Hub](/azure/iot-hub/iot-concepts-and-iot-hub) is a managed service that improves security and reliable communication between Internet of Things (IoT) devices and the cloud. In this architecture, IoT Hub facilitates the ingestion, processing, and analysis of telemetry data from IoT devices to provide real-time insights and enable remote monitoring.
 
 - [Microsoft Dataverse](/power-apps/maker/data-platform/data-platform-intro) is a scalable data platform that organizations can use to help securely store and manage data that business applications use. In this architecture, it serves as a data source that feeds into the analytics pipeline via Azure Synapse Link or Microsoft Fabric Link.
 
@@ -94,7 +94,7 @@ The following tools are used for governance, collaboration, security, performanc
 
 - [Azure Databricks](/azure/well-architected/service-guides/azure-databricks) is an Apache Spark-based analytics platform for big data processing, machine learning, and data engineering. In this architecture, it performs data cleansing, transformation, and analysis by using medallion architecture layers.
 
-  - [Delta Lake](/azure/databricks/delta/) is an open-source storage layer that brings atomicity, consistency, isolation, and durability (ACID) transactions to Apache Spark and big data workloads. In this architecture, Delta Lake enhances data reliability and performance within the data lake.
+  - [Delta Lake](/azure/databricks/delta/) is an open-source storage layer that brings atomicity, consistency, isolation, and durability (ACID) transactions to Spark and big data workloads. In this architecture, Delta Lake enhances data reliability and performance within the data lake.
 
   - [Azure Databricks SQL](/azure/databricks/sql) is a SQL-based analytics service that enables users to run SQL queries on data stored in Azure Databricks. In this architecture, Azure Databricks SQL provides a powerful SQL interface to query and analyze data, which enables interactive analytics.
 
@@ -116,15 +116,15 @@ The following tools are used for governance, collaboration, security, performanc
 
 - [Power BI](/power-bi/fundamentals/power-bi-overview) is a business analytics service that provides interactive visualizations and business intelligence (BI) capabilities. In this architecture, Power BI visualizes data from Fabric and Azure Databricks by using Direct Lake mode for improved performance.
 
-- [Microsoft Purview](/purview/purview) is a unified data governance service that helps organizations manage and govern their data across various sources. In this architecture, it catalogs data, tracks lineage, and enforces compliance across the data estate. You can [integrate Unity Catalog into Purview](/purview/register-scan-azure-databricks-unity-catalog?tabs=MI) to access Unity Catalog metadata from Purview.
+- [Microsoft Purview](/purview/purview) is a unified data governance service that helps organizations manage and govern their data across various sources. In this architecture, it catalogs data, tracks lineage, and enforces compliance across the data estate. You can [integrate Unity Catalog into Purview](/purview/register-scan-azure-databricks-unity-catalog) to access Unity Catalog metadata from Purview.
 
-- [Microsoft Entra ID](/entra/fundamentals/whatis) is a cloud-based identity and access management solution that helps ensure secure sign-ins and access to resources like Microsoft 365, Azure, and other SaaS applications. In this architecture, Microsoft Entra ID provides secure identity and access management for Azure resources. This feature enables secure sign-ins, manages user identities, and helps ensure authorized access to data and resources.
+- [Microsoft Entra ID](/entra/fundamentals/what-is-entra) is a cloud-based identity and access management solution that helps ensure secure sign-ins and access to resources like Microsoft 365, Azure, and other SaaS applications. In this architecture, Microsoft Entra ID provides secure identity and access management for Azure resources. This feature enables secure sign-ins, manages user identities, and helps ensure authorized access to data and resources.
 
 - [Cost Management](/azure/cost-management-billing/costs/overview-cost-management) is a suite of FinOps tools that organizations can use to analyze, monitor, and optimize Microsoft Cloud costs. In this architecture, these tools provide financial governance over Azure resources.
 
 - [Key Vault](/azure/key-vault/general/overview) is a cloud service that stores and manages secrets, such as API keys, passwords, certificates, and cryptographic keys. In this architecture, Azure Databricks can retrieve secrets from Key Vault to authenticate and access Data Lake Storage, which ensures secure integration.
 
-- [Azure Monitor](/azure/azure-monitor/overview) is a monitoring service that provides full-stack observability for applications, infrastructure, and networks. Azure Monitor enables users to collect, analyze, and act on telemetry data from their Azure and on-premises environments. In this architecture, Azure Monitor ensures performance and reliability by proactively identifying problems.
+- [Azure Monitor](/azure/azure-monitor/fundamentals/overview) is a monitoring service that provides full-stack observability for applications, infrastructure, and networks. Azure Monitor enables users to collect, analyze, and act on telemetry data from their Azure and on-premises environments. In this architecture, Azure Monitor ensures performance and reliability by proactively identifying problems.
 
 - [Defender for Cloud](/azure/defender-for-cloud/defender-for-cloud-introduction) is a cloud-native application protection platform that provides security posture management and threat protection across Azure, hybrid, and multicloud environments. In this architecture, Defender for Cloud secures data platforms and workloads by identifying vulnerabilities, detecting threats, and providing security recommendations across Azure resources.
 
@@ -162,7 +162,7 @@ The following tools are used for governance, collaboration, security, performanc
 
   - *Azure Databricks*
 
-    - If you have an existing Azure Databricks solution, you might want to continue to use structured streaming for real-time analytics. For more information, see [Streaming on Azure Databricks](/azure/databricks/structured-streaming/).
+    - If you have an existing Azure Databricks solution, you might want to continue to use Spark structured streaming for real-time analytics. For more information, see [Streaming on Azure Databricks](/azure/databricks/structured-streaming/concepts).
 
   - *Fabric*
 
@@ -176,7 +176,7 @@ The following tools are used for governance, collaboration, security, performanc
 
 - **Data warehouse or gold layer**
 
-  - You can use either Fabric or Azure Databricks to create a SQL-based warehouse or gold layer. For a decision guide on how to choose a data warehouse or gold layer storage solution within Fabric, see [Choose a data store](/fabric/get-started/decision-guide-data-store). For more information about SQL warehouse types in Azure Databricks, see [SQL warehouse types](/azure/databricks/admin/sql/warehouse-types).
+  - You can use either Fabric or Azure Databricks to create a SQL-based warehouse or gold layer. For a decision guide on how to choose a data warehouse or gold layer storage solution within Fabric, see [Choose a data store](/fabric/fundamentals/decision-guide-data-store). For more information about SQL warehouse types in Azure Databricks, see [SQL warehouse types](/azure/databricks/compute/sql-warehouse/warehouse-types).
 
 - **Data science**
 
@@ -188,7 +188,7 @@ The following tools are used for governance, collaboration, security, performanc
 
   - Azure Databricks integrated with Power BI enables data processing and visualization. For more information, see [Connect Power BI to Azure Databricks](/azure/databricks/partners/bi/power-bi).
 
-  - By mirroring Azure Databricks Unity Catalog in Fabric, you can access data that Azure Databricks Unity Catalog manages directly from the Fabric workload. For more information, see [Mirror Azure Databricks Unity Catalog](/fabric/database/mirrored-database/azure-databricks). You can query this data from Power BI in [Direct Lake mode](/fabric/get-started/direct-lake-overview) without copying the data into the Power BI service.
+  - By mirroring Azure Databricks Unity Catalog in Fabric, you can access data that Azure Databricks Unity Catalog manages directly from the Fabric workload. For more information, see [Mirror Azure Databricks Unity Catalog](/fabric/mirroring/azure-databricks). You can query this data from Power BI in [Direct Lake mode](/fabric/fundamentals/direct-lake-overview) without copying the data into the Power BI service.
 
 ## Scenario details
 
