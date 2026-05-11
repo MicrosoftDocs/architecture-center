@@ -1,8 +1,8 @@
 ---
 title: Get Started with Analytics Architecture Design
 description: Get an overview of Azure analytics technologies, guidance, solution ideas, and reference architectures.
-ms.author: anaharris
-author: pnp
+ms.author: pnp
+author: anaharris-ms
 ms.update-cycle: 1095-days
 ms.topic: concept-article
 ms.subservice: category-get-started
