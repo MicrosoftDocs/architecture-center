@@ -19,6 +19,6 @@ products:
   - azure-data-explorer
   - azure-digital-twins
   - azure-iot-hub
-thumbnailUrl: /azure/architecture/browse/thumbs/iot-azure-data-explorer-thumbnail-new.png
+thumbnailUrl: /azure/architecture/browse/thumbs/iot-azure-data-explorer.png
 content: |
    [!INCLUDE[](iot-azure-data-explorer-content.md)]
