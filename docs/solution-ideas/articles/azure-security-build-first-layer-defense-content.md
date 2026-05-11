@@ -10,7 +10,7 @@ This second article builds directly on that foundation and focuses on the first 
 
 :::image type="complex" source="../media/azure-monitor-integrate-security-components-2.svg" alt-text="Microsoft Zero Trust pillars mapped to Azure security controls and ATT&CK techniques." border="false" lightbox="../media/azure-monitor-integrate-security-components-2.svg"::: 
 
-Diagram that shows how Microsoft Zero Trust pillars map to Azure security controls across a hybrid environment. The following labels designating the pillars appear across the top of the diagram: 2. Network, 3. Infrastructure and endpoints, 4. Application and data, 5. Identity. Across the upper rows, the customer environment begins on the left with on-premises assets such as firewall, DNS, VLANs, servers, clients, applications, file servers, databases, and an AD DS domain controller. Below those services are Microsoft 365 apps and Azure resources such as public IPs, load balancers, a virtual network, servers, AKS, Virtual Desktop, Web Apps, Azure Storage, SQL Database, and Entra ID. On-premises AD DS connects via Entra Connect to Entra ID in Microsoft 365 and Azure. Beneath those resource rows, Azure security services are grouped under the same pillars. Below the services, the controls used to protect each pillar are shown. For network security, the controls are WAF, DDoS protection, TLS/SSL, Private Link, Azure Firewall, NSGs, VPN, and NVA. For infrastructure and endpoints, the controls are Bastion, antimalware, disk encryption, Key Vault, Application Gateway, a privelege cluster, Conditional Access, MFA, RDP Shortpath, and reverse connect. For application and data, the controls are Azure Front Door with WAF, API Management, Application Gateway with WAF,  SAS tokens, Private Endpoint, storage firewalls, encryption, SQL audit, and vulnerability assessment. For identity, the controls are MFA, RBAC, Identity Protection, PIM, and Conditional Access. The bottom half is labeled as a MITRE ATT&CK matrix and breaks attacks into network attacks, infrastructure and process attacks, application and storage attacks, and identity compromise. The following example ATT&CK techniques are shown: Remote System Discovery, Remote Access Tools, Create and Modify System Process, System Information Discovery, Virtualization Evasion, Process Injection, Scheduled Task / Job, Signed Binary Process Execution, Command and Scripting Interpreter, File and Directory Discovery, Masquerading, Ingress Tool Transfer, Obfuscated Files, Account Manipulation, and OS Credential Dumping.
+Diagram that shows how Zero Trust pillars map to Azure security controls across a hybrid environment. The following labels designating the pillars appear across the top of the diagram: 2. Network, 3. Infrastructure and endpoints, 4. Application and data, 5. Identity. Across the upper rows, the customer environment begins on the left with on-premises assets such as firewall, DNS, VLANs, servers, clients, applications, file servers, databases, and an AD DS domain controller. Below those services are Microsoft 365 apps and Azure resources such as public IPs, load balancers, a virtual network, servers, AKS, Virtual Desktop, Web Apps, Azure Storage, SQL Database, and Entra ID. On-premises AD DS connects via Entra Connect to Entra ID in Microsoft 365 and Azure. Beneath those resource rows, Azure security services are grouped under the same pillars. Below the services, the controls used to protect each pillar are shown. For network security, the controls are WAF, DDoS protection, TLS/SSL, Private Link, Azure Firewall, NSGs, VPN, and NVA. For infrastructure and endpoints, the controls are Bastion, antimalware, disk encryption, Key Vault, Application Gateway, a privelege cluster, Conditional Access, MFA, RDP Shortpath, and reverse connect. For application and data, the controls are Azure Front Door with WAF, API Management, Application Gateway with WAF,  SAS tokens, Private Endpoint, storage firewalls, encryption, SQL audit, and vulnerability assessment. For identity, the controls are MFA, RBAC, Identity Protection, PIM, and Conditional Access. The bottom half is labeled as a MITRE ATT&CK matrix and breaks attacks into network attacks, infrastructure and process attacks, application and storage attacks, and identity compromise. The following example ATT&CK techniques are shown: Remote System Discovery, Remote Access Tools, Create and Modify System Process, System Information Discovery, Virtualization Evasion, Process Injection, Scheduled Task / Job, Signed Binary Process Execution, Command and Scripting Interpreter, File and Directory Discovery, Masquerading, Ingress Tool Transfer, Obfuscated Files, Account Manipulation, and OS Credential Dumping.
 
 :::image-end:::
 
@@ -32,7 +32,37 @@ The diagram doesn't include every available service. Instead, it includes common
 
 The following workflow corresponds to the previous diagram:
 
-The numbers in the ATT&CK matrix correspond to technique numbers assigned by [MITRE](https://attack.mitre.org/techniques/enterprise/). 
+1. Azure security services contribute to pre-breach protection for each of the following Zero Trust pillars: network, infrastructure and enpoints, application and data, and identity.
+1. Network services in the architecture include network security groups (NSG), a virtual private network (VPN) gateway, Azure Firewall, Azure Application Gateway with Azure Web Application Firewall, a network virtual appliance (NVA), Azure DDoS Network Protection, TLS/SSL, which provide encryption, Azure Private Link, and private endpoints.
+1. Infrastructure and endpoint services in the architecture include Azure Bastion, Microsoft Defender antimalware service, disk encryption, Azure Key Vault, Azure Virtual Desktop RDP Shortpath, and Virtual Desktop reverse connect.
+1. Application and data services in the diagram include Azure Front Door with Web Application Firewall, Azure API Management, penetration testing, Azure Storage shared access signatures (SAS), private endpoints, an Azure Storage firewall, Azure Storage encryption, SQL auditing, SQL vulnerability assessment, and encryption for Azure SQL Database services.
+1. Identity services in the architechture include Azure role-based access control (Azure RBAC), Microsoft Entra multifactor authentication, Microsoft Entra ID Protection, Privileged Identity Management (PIM), and Microsoft Entra Conditional Access.
+
+The numbers in the ATT&CK matrix correspond to technique numbers assigned by [MITRE](https://attack.mitre.org/techniques/enterprise/).
+
+### Components
+
+- [Microsoft Entra ID](/entra/fundamentals/whatis) is an identity and access management service. In this architecture, it manages user identities and access to external resources such as Microsoft 365 and the Azure portal, and internal resources such as apps on your corporate intranet network.
+
+- [Virtual Network](/azure/well-architected/service-guides/virtual-network) is a networking service  that provides secure communication between Azure resources, the internet, and on-premises networks. In this architecture, it provides the private network infrastructure that supports secure connectivity and isolation for workloads.
+
+- [Azure Load Balancer](/azure/well-architected/service-guides/azure-load-balancer) is a low-latency layer-4 load balancing service for UDP and TCP traffic. Load Balancer is a zone-redundant service that can handle millions of concurrent flows. In this architecture, it ensures high availability and scalability by distributing inbound and outbound traffic across resources in the virtual network.
+
+- [Azure Virtual Machines](/azure/well-architected/service-guides/virtual-machines) is an infrastructure as a service (IaaS) offering that provides scalable compute resources. In this architecture, Virual machines host workloads that require direct control over the operating system and security configurations.
+
+- [Azure Kubernetes Service (AKS)](/azure/well-architected/service-guides/azure-kubernetes-service) is a managed container orchestration service that simplifies deploying and managing Kubernetes clusters. In this architecture, AKS runs containerized applications and provides built-in features for security, governance, and continuous integration/continuous delivery (CI/CD).
+
+- [Virtual Desktop](/azure/virtual-desktop/overview) is a desktop and app virtualization service that you can use to create remote desktops from the cloud. In this architecture, it provides secure access to corporate desktops for remote users. The architechture uses built-in features like RDP Shortpath and reverse connect.
+
+- [The Web Apps feature of Azure App Service](/azure/well-architected/service-guides/app-service-web-apps) hosts web applications, REST APIs, and mobile back ends. In this architecture, Web Apps hosts HTTP-based applications and provides security features like TLS and private endpoints. You can develop applications in the language of your choice. Applications run and scale in both Windows and Linux-based environments.
+
+- [Azure Storage](/azure/storage/common/storage-introduction) is a scalable and secure storage solution for various data types, including blobs, files, queues, and tables. In this architecture, it stores application and system data with encryption at rest and supports secure access via SAS tokens and private endpoints.
+
+- [SQL Database](/azure/well-architected/service-guides/azure-sql-database) is a managed relational database service that automates patching, backups, and monitoring. In this architecture, it provides secure and compliant data storage via features like transparent data encryption, auditing, and vulnerability assessments.
+
+- [Microsoft Fabric](/fabric/fundamentals/microsoft-fabric-overview) is a unified SaaS analytics platform that brings together data engineering, data warehousing, real-time analytics, and business intelligence. In this architecture, you can use Fabric for analytics workloads that need governed workspaces, OneLake encryption at rest, item-level role-based access, and centralized activity logging while operational data remains in services like SQL Database.
+
+<!--old contet -->
 
 This section describes the services shown in the diagram and how they contribute to pre-breach protection. 
 1. **Azure Security Benchmark**
@@ -112,27 +142,6 @@ This section describes the services shown in the diagram and how they contribute
     | **PIM** | Privileged Identity Management (PIM), a security service from Microsoft Entra ID. It helps you to provide superuser privileges temporarily for Microsoft Entra ID (for example, User Administrator) and Azure subscriptions (for example, Role Based Access Control Administrator or Key Vault Administrator). | [What is Microsoft Entra Privileged Identity Management?](/entra/id-governance/privileged-identity-management/pim-configure) |
     | **Cond Acc** | Conditional Access is an intelligent security service that uses policies that you define for various conditions to block or grant access to users. | [What is Conditional Access?](/entra/identity/conditional-access/overview) |
 
-### Components
-
-- [Microsoft Entra ID](/entra/fundamentals/whatis) is an identity and access management service. In this architecture, it manages user identities and access to external resources such as Microsoft 365 and the Azure portal, and internal resources such as apps on your corporate intranet network.
-
-- [Azure Virtual Network](/azure/well-architected/service-guides/virtual-network) is a networking service  that enables secure communication between Azure resources, the internet, and on-premises networks. In this architecture, it provides the private network infrastructure that supports secure connectivity and isolation for workloads.
-
-- [Azure Load Balancer](/azure/well-architected/service-guides/azure-load-balancer) is a low-latency layer-4 load balancing service for UDP and TCP traffic. Load Balancer is a zone-redundant service that can handle millions of concurrent flows. In this architecture, it ensures high availability and scalability by distributing inbound and outbound traffic across resources in the virtual network.
-
-- [Azure Virtual Machines](/azure/well-architected/service-guides/virtual-machines) is an infrastructure as a service (IaaS) offering that provides scalable compute resources. In this architecture, VMs host workloads that require direct control over the operating system and security configurations.
-
-- [Azure Kubernetes Service (AKS)](/azure/well-architected/service-guides/azure-kubernetes-service) is a managed container orchestration service that simplifies deploying and managing Kubernetes clusters. In this architecture, AKS runs containerized applications and provides built-in features for security, governance, and continuous integration/continuous delivery (CI/CD).
-
-- [Virtual Desktop](/azure/virtual-desktop/overview) is a desktop and app virtualization service that delivers remote desktops from the cloud. In this architecture, it provides secure access to corporate desktops for remote users and includes built-in features like RDP Shortpath and reverse connect.
-
-- [The Web Apps feature of App Service](/azure/well-architected/service-guides/app-service-web-apps) hosts web applications, REST APIs, and mobile back ends. In this architecture, Web Apps hosts HTTP-based applications and provides security features like TLS and private endpoints. You can develop in your chosen language. Applications run and scale in both Windows and Linux-based environments.
-
-- [Azure Storage](/azure/storage/common/storage-introduction) is a scalable and secure storage solution for various data types, including blobs, files, queues, and tables. In this architecture, it stores application and system data with encryption at rest and supports secure access via SAS tokens and private endpoints.
-
-- [SQL Database](/azure/well-architected/service-guides/azure-sql-database) is a managed relational database service that automates patching, backups, and monitoring. In this architecture, it provides secure and compliant data storage via features like transparent data encryption, auditing, and vulnerability assessments.
-
-- [Microsoft Fabric](/fabric/fundamentals/microsoft-fabric-overview) is a unified SaaS analytics platform that brings together data engineering, data warehousing, real-time analytics, and business intelligence. In this architecture, you can adopt Fabric for analytics workloads that need governed workspaces, OneLake encryption at rest, item-level role-based access, and centralized activity logging while operational data remains in services such as Azure SQL Database.
 
 ## Scenario details
 
