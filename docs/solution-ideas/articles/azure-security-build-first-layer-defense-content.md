@@ -8,9 +8,9 @@ This second article builds directly on that foundation and focuses on the first 
 
 ## Architecture
 
-:::image type="complex" source="../media/azure-monitor-integrate-security-components.svg" alt-text="Microsoft Zero Trust pillars mapped to Azure security controls and ATT&CK techniques." border="false" lightbox="../media/azure-monitor-integrate-security-components.svg"::: 
+:::image type="complex" source="../media/azure-monitor-integrate-security-components-2.svg" alt-text="Microsoft Zero Trust pillars mapped to Azure security controls and ATT&CK techniques." border="false" lightbox="../media/azure-monitor-integrate-security-components-2.svg"::: 
 
-Diagram that shows how Microsoft Zero Trust pillars map to Azure security controls across a hybrid environment. The following labels designating the pillars appear across the top of the diagram: 2. Network, 3. Infrastructure and endpoints, 4. Application and data, 5. Identity. Across the upper rows, the customer environment begins on the left with on-premises assets such as firewall, DNS, VLANs, servers, clients, applications, file servers, databases, and an AD DS domain controller. Below those services are Microsoft 365 apps and Azure resources such as public IPs, load balancers, a virtual network, servers, AKS, Virtual Desktop, Web Apps, Azure Storage, SQL Database, and Entra ID. On-premises AD DS connects via Entra Connect to Entra ID in Microsoft 365 and Azure. Beneath those resource rows, Azure security services are grouped under the same pillars. The controls used to protect each pillar are shown. For network security, the controls are WAF, DDoS protection, TLS/SSL, Private Link, Azure Firewall, NSGs, VPN, and NVA. For infrastructure and endpoints, the controls are Bastion, antimalware, disk encryption, Key Vault, Application Gateway, a privelege cluster, Conditional Access, MFA, RDP Shortpath, and reverse connect. For application and data, the controls are Front Door with WAF, API Management, Application Gateway with WAF,  SAS tokens, Private Endpoint, storage firewalls, encryption, SQL audit, and vulnerability assessment. For identity, the controls are MFA, RBAC, Identity Protection, PIM, and Conditional Access. The bottom half is labeled as a MITRE ATT&CK matrix and breaks attacks into network attacks, infrastructure and process attacks, application and storage attacks, and identity compromise. Example techniques are shown, such as remote system discovery, remote access tools, privilege escalation, system information discovery, virtualization evasion, scheduled task or job execution, signed binary proxy execution, command and scripting interpreter, file and directory discovery, masquerading, ingress tool transfer, obfuscated files, account manipulation, OS credential dumping, and process injection. Red connector lines link the security controls above to the attack techniques below to show how the listed Azure and Microsoft security services reduce exposure, limit privilege, and interrupt common ransomware paths before an attacker can establish persistence.
+Diagram that shows how Microsoft Zero Trust pillars map to Azure security controls across a hybrid environment. The following labels designating the pillars appear across the top of the diagram: 2. Network, 3. Infrastructure and endpoints, 4. Application and data, 5. Identity. Across the upper rows, the customer environment begins on the left with on-premises assets such as firewall, DNS, VLANs, servers, clients, applications, file servers, databases, and an AD DS domain controller. Below those services are Microsoft 365 apps and Azure resources such as public IPs, load balancers, a virtual network, servers, AKS, Virtual Desktop, Web Apps, Azure Storage, SQL Database, and Entra ID. On-premises AD DS connects via Entra Connect to Entra ID in Microsoft 365 and Azure. Beneath those resource rows, Azure security services are grouped under the same pillars. Below the services, the controls used to protect each pillar are shown. For network security, the controls are WAF, DDoS protection, TLS/SSL, Private Link, Azure Firewall, NSGs, VPN, and NVA. For infrastructure and endpoints, the controls are Bastion, antimalware, disk encryption, Key Vault, Application Gateway, a privelege cluster, Conditional Access, MFA, RDP Shortpath, and reverse connect. For application and data, the controls are Azure Front Door with WAF, API Management, Application Gateway with WAF,  SAS tokens, Private Endpoint, storage firewalls, encryption, SQL audit, and vulnerability assessment. For identity, the controls are MFA, RBAC, Identity Protection, PIM, and Conditional Access. The bottom half is labeled as a MITRE ATT&CK matrix and breaks attacks into network attacks, infrastructure and process attacks, application and storage attacks, and identity compromise. The following example ATT&CK techniques are shown: Remote System Discovery, Remote Access Tools, Create and Modify System Process, System Information Discovery, Virtualization Evasion, Process Injection, Scheduled Task / Job, Signed Binary Process Execution, Command and Scripting Interpreter, File and Directory Discovery, Masquerading, Ingress Tool Transfer, Obfuscated Files, Account Manipulation, and OS Credential Dumping.
 
 :::image-end:::
 
@@ -18,18 +18,23 @@ Diagram that shows how Microsoft Zero Trust pillars map to Azure security contro
 
 *©2021 The MITRE Corporation. This work is reproduced and distributed with the permission of The MITRE Corporation.*
 
-The Azure security layer shown in this diagram aligns with the Azure Security Benchmark (ASB) v3, which defines Microsoft’s recommended security controls across identity, networking, compute, data, and governance.
-Today, these controls are primarily implemented and monitored through:
-- Azure Policy
-- Microsoft Defender for Cloud
-- Built-in platform security defaults
-The diagram does not attempt to include every available service. Instead, it focuses on commonly deployed, high-impact controls that directly mitigate ransomware attack paths.
+The Azure security layer shown in this diagram aligns with the Azure Security Benchmark (ASB) v3, which defines the Microsoft recommended security controls across identity, networking, compute, data, and governance.
 
+Currently, these controls are primarily implemented and monitored via:
+
+- Azure Policy.
+- Defender for Cloud.
+- Built-in platform security defaults.
+
+The diagram doesn't include every available service. Instead, it includes commonly deployed, high-impact controls that directly mitigate ransomware attack paths.
 
 ### Workflow
 
-This section describes the services shown in the diagram and how they contribute to pre-breach protection. The control codes correspond to the control domains that are listed in [Controls](/security/benchmark/azure/overview#controls). 
+The following workflow corresponds to the previous diagram:
 
+The numbers in the ATT&CK matrix correspond to technique numbers assigned by [MITRE](https://attack.mitre.org/techniques/enterprise/). 
+
+This section describes the services shown in the diagram and how they contribute to pre-breach protection. 
 1. **Azure Security Benchmark**
 
     Each security control refers to one or more specific Azure security services. The architecture reference in this article shows some of them and their control numbers according to the ASB documentation. The controls include:
