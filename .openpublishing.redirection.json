@@ -1,6 +1,11 @@
 {
   "redirections": [
     {
+      "source_path": "docs/solution-ideas/articles/sap-s4-hana-on-hli-with-ha-and-dr.yml",
+      "redirect_url": "/azure/architecture/guide/sap/sap-s4hana",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "docs/example-scenario/mainframe/hp-ux-stromasys-charon-par.yml",
       "redirect_url": "https://www.stromasys.com/resources/breaking-down-hp-ux-lift-and-shift-migration-on-azure/",
       "redirect_document_id": false
