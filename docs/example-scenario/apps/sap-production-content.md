@@ -148,11 +148,11 @@ Cost Optimization is about looking at ways to reduce unnecessary expenses and im
 The main cost drivers in this architecture are:
 
 1. Oracle and SAP-certified VM SKUs and the number of VMs across the application tier, database tier, and observer nodes.
-1. Oracle licensing model decisions for OS and database software. Including use of vCPU-constrained VM SKUs to reduce licensable cores where appropriate.
+1. Oracle licensing model decisions for OS and database software. Consider use of vCPU-constrained VM SKUs to reduce licensable cores where appropriate.
 1. Storage performance tiers and provisioned capacity for Oracle data, log, backup, and shared NFS volumes.
 1. Network and high-availability services, especially ExpressRoute or VPN gateways, load balancers, and cross-zone or cross-region replication traffic.
 
-Use the [precalculated Azure Pricing Calculator estimate](https://azure.com/e/867954395d9e41c89cc4b768963a717c) for a medium-size Oracle highly available architecture to estimate costs for your selected topology and SKUs. To control spend, right-size VM memory and CPU to the measured SAPS and Oracle throughput requirements, use higher-cost storage tiers only where latency and IOPS requirements demand them, and evaluate reservations or savings plans for steady-state compute after validating operational and licensing flexibility.
+See the [preconfigured estimate in the Azure pricing calculator](https://azure.com/e/867954395d9e41c89cc4b768963a717c) for a medium-size Oracle highly available architecture to estimate costs for your selected topology and SKUs. To control spend, right-size VM memory and CPU to the measured SAPS and Oracle throughput requirements, use higher-cost storage tiers only where latency and IOPS requirements demand them, and evaluate reservations or savings plans for steady-state compute after validating operational and licensing flexibility.
 
 ## Contributors
 

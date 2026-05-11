@@ -22,7 +22,7 @@ The following workflow corresponds to the previous diagram:
 
 1. SAP application servers or administrative clients connect from on-premises or peered Azure networks through ExpressRoute into the SAP HANA spoke virtual network.
 1. An internal Azure Load Balancer provides the virtual IP endpoint for the database and directs client traffic to the active SAP HANA node.
-1. SAP HANA System Replication keeps the secondary node synchronized with the primary node. If you use an active/read-enabled configuration, a separate load balancer frontend can direct read traffic to the secondary node.
+1. SAP HANA System Replication keeps the secondary node synchronized with the primary node. If you use an active/read-enabled configuration, a separate load balancer front end can direct read traffic to the secondary node.
 1. Pacemaker monitors node health and uses the selected fencing mechanism to isolate failed nodes. During a failover, the secondary node is promoted and the load balancer redirects client connections to the new primary node.
 
 #### Networking
@@ -174,7 +174,7 @@ The main cost drivers in this architecture are:
 1. Storage performance tiers and capacity for data, log, and backup volumes, including Azure NetApp Files capacity and replication where used.
 1. Network and platform services, especially ExpressRoute circuits and gateways, and internal load balancer resources.
 
-Use the [Azure Pricing Calculator](https://azure.com/e/b6930da9f66548bbb3a8d3e2bbf29381) for an estimate for a smaller architecture. Modify the selections to estimate costs for your design. When you create a  calculator estimate, include your selected VM SKUs, node counts, storage tiers, and network components.
+Use the [Azure Pricing Calculator](https://azure.com/e/b6930da9f66548bbb3a8d3e2bbf29381) to estimate the cost of a smaller architecture. Modify the selections to match your design. When you create a calculator estimate, include your selected VM SKUs, node counts, storage tiers, and network components.
 
 Typical sizing starts with one of these patterns and then scales by memory, IOPS, and throughput requirements:
 
