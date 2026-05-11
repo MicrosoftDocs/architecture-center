@@ -22,7 +22,7 @@ azureCategories:
   - media
 summary: Learn how to build image classification into your applications by using Azure services such as Azure AI Content Understanding and Azure Functions.
 products:
-  - azure-ai-foundry-sdk
+  - foundry-sdk
   - azure-blob-storage
   - azure-cosmos-db
   - azure-event-grid
