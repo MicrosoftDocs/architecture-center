@@ -1,14 +1,18 @@
 [!INCLUDE [header_file](../../../includes/sol-idea-header.md)]
 
-This article is the second in a series of four that explains how to design a layered security architecture using Microsoft Security solutions.
+This article is the second in a series of four that explains how to design a layered security architecture by using Microsoft Security solutions.
 
-In the first article, we mapped ransomware threats across a hybrid enterprise environment using the MITRE ATT&CK framework. That exercise demonstrated how attackers typically gain initial access, escalate privileges, move laterally, and ultimately impact identities, infrastructure, applications, and data.
+The first article describes how to [map ransomware threats across a hybrid enterprise environment](map-threats-it-environment.yml) by using the MITRE ATT&CK framework. That article demonstrates how attackers typically gain initial access, escalate privileges, move laterally, and ultimately affect identities, infrastructure, applications, and data.
 
 This second article builds directly on that foundation and focuses on the first layer of defense: pre-breach security.
 
 ## Architecture
 
-:::image type="content" source="../media/azure-monitor-integrate-security-components.svg" alt-text="{alt-text}" lightbox"../media/azure-monitor-integrate-security-components.svg":::
+:::image type="complex" source="../media/azure-monitor-integrate-security-components.svg" alt-text="Microsoft Zero Trust pillars mapped to Azure security controls and ATT&CK techniques." border="false" lightbox="../media/azure-monitor-integrate-security-components.svg"::: 
+
+Diagram that shows how Microsoft Zero Trust pillars map to Azure security controls across a hybrid environment. The following labels designating the pillars appear across the top of the diagram: 2. Network, 3. Infrastructure and endpoints, 4. Application and data, 5. Identity. Across the upper rows, the customer environment begins on the left with on-premises assets such as firewall, DNS, VLANs, servers, clients, applications, file servers, databases, and an AD DS domain controller. Below those services are Microsoft 365 apps and Azure resources such as public IPs, load balancers, a virtual network, servers, AKS, Virtual Desktop, Web Apps, Azure Storage, SQL Database, and Entra ID. On-premises AD DS connects via Entra Connect to Entra ID in Microsoft 365 and Azure. Beneath those resource rows, Azure security services are grouped under the same pillars. The controls used to protect each pillar are shown. For network security, the controls are WAF, DDoS protection, TLS/SSL, Private Link, Azure Firewall, NSGs, VPN, and NVA. For infrastructure and endpoints, the controls are Bastion, antimalware, disk encryption, Key Vault, Application Gateway, a privelege cluster, Conditional Access, MFA, RDP Shortpath, and reverse connect. For application and data, the controls are Front Door with WAF, API Management, Application Gateway with WAF,  SAS tokens, Private Endpoint, storage firewalls, encryption, SQL audit, and vulnerability assessment. For identity, the controls are MFA, RBAC, Identity Protection, PIM, and Conditional Access. The bottom half is labeled as a MITRE ATT&CK matrix and breaks attacks into network attacks, infrastructure and process attacks, application and storage attacks, and identity compromise. Example techniques are shown, such as remote system discovery, remote access tools, privilege escalation, system information discovery, virtualization evasion, scheduled task or job execution, signed binary proxy execution, command and scripting interpreter, file and directory discovery, masquerading, ingress tool transfer, obfuscated files, account manipulation, OS credential dumping, and process injection. Red connector lines link the security controls above to the attack techniques below to show how the listed Azure and Microsoft security services reduce exposure, limit privilege, and interrupt common ransomware paths before an attacker can establish persistence.
+
+:::image-end:::
 
 *Download a [Visio file](https://arch-center.azureedge.net/azure-monitor-integrate-security-components.vsdm) of this architecture.*
 
