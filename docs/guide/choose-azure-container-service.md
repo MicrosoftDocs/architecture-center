@@ -1,8 +1,8 @@
 ---
 title: Choose an Azure Container Service
 description: Understand how to evaluate which Azure container service is best suited to your specific workload scenarios and requirements.
-author: cmaclaughlin
-ms.author: cmaclaughlin
+author: mestredelpino
+ms.author: carlosmes
 ms.date: 06/20/2025
 ms.topic: concept-article
 ms.subservice: architecture-guide
@@ -26,6 +26,8 @@ This guide includes this introduction article and another article about [conside
 This introductory article outlines the Azure container services covered in this guide and compares their service models based on configurability and predefined solutions, such as customer-managed versus Microsoft-managed approaches. After you identify candidate services based on your service model preferences, the next step is to assess the options against your workload requirements by reviewing the article on [shared considerations](container-service-general-considerations.md) for networking, security, operations, and reliability.
 
 This guide helps you evaluate trade-offs based on your workload's technical requirements, size, and complexity. It also considers the expertise of your team to ensure informed decision-making.
+
+If you're building a microservices architecture, see [Choose an Azure compute option for microservices](../microservices/design/compute-options.md) for a comparison focused on inter-service communication, independent scaling, and deployability.
 
 ## Azure container services in scope for this guide
 

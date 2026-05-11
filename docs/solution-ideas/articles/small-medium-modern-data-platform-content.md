@@ -92,7 +92,7 @@ The following tools are used for governance, collaboration, security, performanc
 
   - [Microsoft Fabric Link](/power-apps/maker/data-platform/azure-synapse-link-view-in-fabric) is a data integration feature that connects Dynamics applications to Fabric. In this architecture, it replicates data from Dataverse to Fabric in near real-time.
 
-- [Azure Databricks](/azure/well-architected/service-guides/azure-databricks-security) is an Apache Spark-based analytics platform for big data processing, machine learning, and data engineering. In this architecture, it performs data cleansing, transformation, and analysis by using medallion architecture layers.
+- [Azure Databricks](/azure/well-architected/service-guides/azure-databricks) is an Apache Spark-based analytics platform for big data processing, machine learning, and data engineering. In this architecture, it performs data cleansing, transformation, and analysis by using medallion architecture layers.
 
   - [Delta Lake](/azure/databricks/delta/) is an open-source storage layer that brings atomicity, consistency, isolation, and durability (ACID) transactions to Apache Spark and big data workloads. In this architecture, Delta Lake enhances data reliability and performance within the data lake.
 

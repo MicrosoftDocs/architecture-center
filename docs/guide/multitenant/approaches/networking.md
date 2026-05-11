@@ -95,7 +95,7 @@ The [hub-and-spoke virtual network topology](../../../networking/architecture/hu
 
 When you use a hub-and-spoke topology, plan for limits [such as the maximum number of peered virtual networks](/azure/virtual-network/virtual-network-peering-overview). Don't use overlapping address spaces for each tenant's virtual network.
 
-Consider using the hub-and-spoke topology when you deploy tenant-specific virtual networks that use IP addresses that you select. Each tenant's virtual network becomes a spoke and can share common resources in the hub virtual network. You can also use the hub-and-spoke topology when you scale shared resources across multiple virtual networks or when you use the [Deployment Stamps pattern](../../../patterns/deployment-stamp.yml).
+Consider using the hub-and-spoke topology when you deploy tenant-specific virtual networks that use IP addresses that you select. Each tenant's virtual network becomes a spoke and can share common resources in the hub virtual network. You can also use the hub-and-spoke topology when you scale shared resources across multiple virtual networks or when you use the [Deployment Stamps pattern](../../../patterns/deployment-stamp.md).
 
 > [!TIP]
 > If your solution spans multiple geographic regions, deploy separate hubs and hub resources in each region to prevent traffic from crossing multiple Azure regions. This practice incurs a higher resource cost but reduces request latency and reduces global peering charges.
