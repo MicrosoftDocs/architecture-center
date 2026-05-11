@@ -16,7 +16,14 @@ The following diagram shows a reference architecture for SAP HANA on Azure:
 
 ### Workflow
 
-This reference architecture describes a typical SAP HANA database running in Azure, in a highly available deployment to maximize system availability. The architecture and its components can be customized based on business requirements (RTO, RPO, uptime expectations, system role) and potentially reduced to a single VM. The network layout is simplified to demonstrate the architectural principals of such SAP environment and not intended to describe a full enterprise network.
+This reference architecture describes a typical SAP HANA database running in Azure, in a highly available deployment to maximize system availability. The architecture and its components can be customized based on business requirements (RTO, RPO, uptime expectations, system role) and potentially reduced to a single VM. The network layout is simplified to demonstrate the architectural principles of such an SAP environment and isn't intended to describe a full enterprise network.
+
+The following workflow corresponds to the previous diagram:
+
+1. SAP application servers or administrative clients connect from on-premises or peered Azure networks through ExpressRoute into the SAP HANA spoke virtual network.
+1. An internal Azure Load Balancer provides the virtual IP endpoint for the database and directs client traffic to the active SAP HANA node.
+1. SAP HANA System Replication keeps the secondary node synchronized with the primary node. If you use an active/read-enabled configuration, a separate load balancer frontend can direct read traffic to the secondary node.
+1. Pacemaker monitors node health and uses the selected fencing mechanism to isolate failed nodes. During a failover, the secondary node is promoted and the load balancer redirects client connections to the new primary node.
 
 #### Networking
 
@@ -156,6 +163,26 @@ For user authorization, implement Azure role-based access control (Azure RBAC) a
 * Use [resource locks](/azure/azure-resource-manager/management/lock-resources) to help prevent accidental or malicious changes. Resource locks help prevent administrators from deleting or modifying critical Azure resources where your SAP solution is located.
 
 For more security guidance, see [Security for your SAP landscape](/azure/sap/workloads/planning-guide#security-for-your-sap-landscape) and [Secure Azure infrastructure for SAP applications](/azure/sap/workloads/sap-security-infrastructure).
+
+### Cost Optimization
+
+Cost Optimization is about looking at ways to reduce unnecessary expenses and improve operational efficiencies. For more information, see [Design review checklist for Cost Optimization](/azure/well-architected/cost-optimization/checklist).
+
+The main cost drivers in this architecture are:
+
+1. SAP HANA-certified VM SKUs and the number of database nodes that you deploy for high availability and disaster recovery.
+1. Storage performance tiers and capacity for data, log, and backup volumes, including Azure NetApp Files capacity and replication where used.
+1. Network and platform services, especially ExpressRoute circuits and gateways, and internal load balancer resources.
+
+Use the [Azure Pricing Calculator](https://azure.microsoft.com/en-us/pricing/calculator/) to estimate costs for your design. When you create a shared calculator estimate, include your selected VM SKUs, node counts, storage tiers, and network components.
+
+Typical sizing starts with one of these patterns and then scales by memory, IOPS, and throughput requirements:
+
+- Small: two-node high availability in one region with SAP HANA-certified E-series VMs and managed disks.
+- Medium: two-node high availability in one region with larger memory-optimized SKUs and higher-performance log storage.
+- Large: regional high availability plus cross-region disaster recovery, often with M-series VMs and replicated storage.
+
+To reduce costs, right-size VM memory for the actual HANA dataset and growth profile, apply cost-conscious storage guidance for eligible non-production systems, and evaluate reservations or savings plans for steady-state compute after validating operational flexibility and licensing requirements.
 
 ### Operational Excellence
 
