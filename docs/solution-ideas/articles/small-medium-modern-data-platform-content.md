@@ -46,7 +46,7 @@ The following data flow corresponds to the previous diagram:
    - Silver, which contains cleaned, filtered data.
    - Gold, which stores aggregated data that's useful for business analytics.
 
-1. For golden data or a data warehouse, continue to use Azure Databricks SQL or create a mirror of the Azure Databricks Unity Catalog in Fabric. To enable reporting and analytics on a Fabric lakehouse, create a semantic model explicitly and build Power BI dashboards by using Direct Lake or DirectQuery for high performance. For more information, see [Semantic models in Fabric](/fabric/data-warehouse/semantic-models).
+1. For golden data or a data warehouse, continue to use Azure Databricks SQL or create a mirroring of the Azure Databricks Unity Catalog in Fabric. To enable reporting and analytics on a Fabric lakehouse, create a semantic model explicitly and build Power BI dashboards by using Direct Lake or DirectQuery for high performance. For more information, see [Semantic models in Fabric](/fabric/data-warehouse/semantic-models).
 
 The following tools are used for governance, collaboration, security, performance, and cost monitoring.
 
