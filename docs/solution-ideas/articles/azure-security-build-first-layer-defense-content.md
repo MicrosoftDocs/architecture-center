@@ -8,7 +8,7 @@ This second article builds directly on that foundation and focuses on the first 
 
 ## Architecture
 
-:::image type="content" source="../media/azure-monitor-integrate-security-components.svg" alt-text="{alt-text}":::
+:::image type="content" source="../media/azure-monitor-integrate-security-components.svg" alt-text="{alt-text}" lightbox"../media/azure-monitor-integrate-security-components.svg":::
 
 *Download a [Visio file](https://arch-center.azureedge.net/azure-monitor-integrate-security-components.vsdm) of this architecture.*
 
