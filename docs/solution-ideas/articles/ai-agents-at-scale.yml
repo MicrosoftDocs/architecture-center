@@ -16,7 +16,7 @@ products:
   - azure-cache-redis
   - azure-monitor
 name: Dynamic AI agents at scale pattern
-summary: Learn how to dynamically select and orchestrate AI agents from a large pool using Azure AI Foundry, Azure AI Search, and Azure OpenAI to build scalable multi-agent systems.
+summary: Learn how to dynamically select and orchestrate AI agents from a large pool using Microsoft Foundry, Azure AI Search, and Azure OpenAI to build scalable multi-agent systems.
 thumbnailUrl: /azure/architecture/browse/thumbs/ai-agents-at-scale-architecture.png
 content: |
   [!INCLUDE[](ai-agents-at-scale-content.md)]

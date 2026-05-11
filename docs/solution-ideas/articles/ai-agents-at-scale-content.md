@@ -1,15 +1,15 @@
 [!INCLUDE [header_file](../../../includes/sol-idea-header.md)]
 
-Use this solution to dynamically select relevant agents from a large pool of agents during a conversation. It addresses the main challenges of building a system that can flexibly include agents, explores orchestration strategies, and discusses considerations for scaling to hundreds of agents.
+Use this solution to dynamically select relevant agents from a large pool of agents during a conversation. This article addresses the main challenges of building a system that can flexibly include agents, explores orchestration strategies, and discusses considerations for scaling to hundreds of agents.
 
-The solution uses Microsoft Foundry, Azure AI Search, Azure OpenAI, and other Azure services to support scalable agent-based interactions.
+This solution uses Microsoft Foundry, Azure AI Search, Azure OpenAI, and other Azure services to support scalable agent-based interactions.
 
 Use this approach when many agents need to handle open-ended client conversations and you can't predict the conversation domain.
 
 ## Architecture
 
 :::image type="complex" border="false" source="../media/ai-agents-at-scale-architecture.svg" alt-text="Architecture diagram for dynamic AI agents at scale" lightbox="../media/ai-agents-at-scale-architecture.svg":::
-In step 1, a user connects to application gateways with web application firewall policies in the gateway subnet. The request path continues to a front-end IP address on a load balancer in the private subnet. The diagram includes a cluster subnet that includes an application cluster, a service namespace that contains an AI agent service and multiple agent factory pods, and an operations namespace with other service components. In step 2, the private subnet points to the AI agent service. Below, a private endpoint subnet contains private endpoints for Container Registry, Azure AI Search, Foundry, Azure Managed Redis, Storage, Azure Cosmos DB, and Key Vault. Each of these services connects to corresponding resources: container registries, search services, Azure Managed Redis, Data Lake Storage, Azure Cosmos DB, and key vaults. In step 3, a bidirectional arrow connects an agent factory pod and the Azure AI Search private endpoint. In step 4, an agent factory pod points to the Foundry private endpoint. In step 5, the Foundry private endpoint points to a Foundry section that includes Foundry agents, managed identities, and Azure OpenAI models. The diagram also shows supporting components  within the virtual network boundary, including DDoS Protection and private DNS, Microsoft Entra ID, Application Insights, and Azure Monitor. At the bottom, a firewall subnet contains Azure Firewall, which connects to external APIs, MCP servers, and the internet. In step 6, an agent factory pod points to the firewall subnet.
+In step 1, a user connects to application gateways with web application firewall policies in the gateway subnet. The request path continues to a front-end IP address on a load balancer in the private subnet. The diagram includes a cluster subnet that includes an application cluster, a service namespace that contains an AI agent service and multiple agent factory pods, and an operations namespace with other service components. In step 2, the private subnet points to the AI agent service. Below, a private endpoint subnet contains private endpoints for Container Registry, AI Search, Foundry, Azure Managed Redis, Storage, Azure Cosmos DB, and Key Vault. Each of these services connects to corresponding resources: container registries, search services, Azure Managed Redis, Data Lake Storage, Azure Cosmos DB, and key vaults. In step 3, a bidirectional arrow connects an agent factory pod and the AI Search private endpoint. In step 4, an agent factory pod points to the Foundry private endpoint. In step 5, the Foundry private endpoint points to a Foundry section that includes Foundry agents, managed identities, and Azure OpenAI models. The diagram also shows supporting components  within the virtual network boundary, including DDoS Protection and private DNS, Microsoft Entra ID, Application Insights, and Azure Monitor. At the bottom, a firewall subnet contains Azure Firewall, which connects to external APIs, MCP servers, and the internet. In step 6, an agent factory pod points to the firewall subnet.
 :::image-end:::
 
 *Download a [Visio file](https://arch-center.azureedge.net/ai-agents-at-scale-architecture.vsdx) of this architecture.*
@@ -20,33 +20,33 @@ The following workflow corresponds to the previous diagram:
 
 1. A user submits a query through the client application.
 
-1. The **AI agent service** receives the request and passes it to the **orchestrator**, which delegates to the **agent selector** to identify the most relevant agents to invoke.
+1. The AI agent service receives the request and passes it to the orchestrator, which delegates to the agent selector to identify the most relevant agents to invoke.
 
-1. The **agent selector** queries the **semantic cache** in Azure AI Search. The cache uses vector similarity to compare the query against stored sample utterances and return candidate agents. The agent selector scores and filters those results. If one agent's score exceeds the confidence threshold, the system invokes that agent directly. Otherwise, a large language model (LLM) chooses from the shortlisted candidates.
+1. The agent selector queries the semantic cache in AI Search. The cache uses vector similarity to compare the query against stored sample utterances and return candidate agents. The agent selector scores and filters those results. If one agent's score exceeds the confidence threshold, the system invokes that agent directly. Otherwise, a large language model (LLM) chooses from the shortlisted candidates.
 
-1. The **agent factory** instantiates the selected agent based on its registered implementation, such as code module, YAML template, or other representation, and returns a ready-to-use agent instance.
+1. The agent factory instantiates the selected agent based on its registered implementation, such as code module, YAML template, or other representation, and returns a ready-to-use agent instance.
 
-1. The selected **agent** processes the request by using **Azure OpenAI** models hosted in **Foundry** or external tools. The response flows back through the orchestration layer to the user.
+1. The selected agent processes the request by using Azure OpenAI models hosted in Foundry or external tools. The response flows back through the orchestration layer to the user.
 
-1. When an agent needs a public endpoint, it calls external APIs or Model Context Protocol (MCP) servers through the NAT gateway.
+1. When an agent needs a public endpoint, it calls external APIs or Model Context Protocol (MCP) servers through the Network Address Translation (NAT) gateway.
 
 ## Components
 
-- [Foundry](/azure/foundry/what-is-foundry) is an end-to-end platform for building, deploying, and managing AI applications. In this solution, it hosts Azure OpenAI models and provides a unified environment for agent development, model orchestration, and evaluation.
+- [Foundry](/azure/foundry/what-is-foundry) is an end-to-end platform that helps you build, deploy, and manage AI applications. In this solution, it hosts Azure OpenAI models and provides a unified environment for agent development, model orchestration, and evaluation.
 
-- [Azure AI Search](/azure/search/search-what-is-azure-search) is a cloud search service with built-in AI capabilities for vector search and semantic ranking. In this solution, it acts as the semantic cache that stores sample agent utterances and uses vector similarity to identify candidate agents for user queries.
+- [AI Search](/azure/search/search-what-is-azure-search) is a cloud search service with built-in AI capabilities for vector search and semantic ranking. In this solution, it acts as the semantic cache that stores sample agent utterances and uses vector similarity to identify candidate agents for user queries.
 
 - [Azure OpenAI](/azure/ai-services/openai/overview) is a managed AI service that provides REST API access to OpenAI language models and embeddings. In this solution, agents use these models to process requests, generate responses, and select appropriate agents from shortlisted candidates.
 
-- [Azure Managed Redis](/azure/redis/overview) is a fully managed, in-memory data store based on Redis Enterprise that enables high-throughput and low-latency data access. In this solution, it stores conversation context and chat history to support multiturn interactions with minimal latency.
+- [Azure Managed Redis](/azure/redis/overview) is a fully managed, in-memory data store based on Redis Enterprise that supports high-throughput and low-latency data access. In this solution, Azure Managed Redis stores conversation context and chat history to support multiturn interactions with minimal latency.
 
-- [Azure Application Insights](/azure/azure-monitor/app/app-insights-overview) is an application performance management (APM) service that provides monitoring and diagnostics for cloud applications. In this solution, it collects telemetry from all components via OpenTelemetry. This process enables end-to-end observability of agent interactions, performance metrics, and system health.
+- [Application Insights](/azure/azure-monitor/app/app-insights-overview) is an application performance management (APM) feature that provides monitoring and diagnostics for cloud applications. In this solution, it collects telemetry from all components via OpenTelemetry. This process supports end-to-end observability of agent interactions, performance metrics, and system health.
 
-- [Azure Monitor](/azure/azure-monitor/fundamentals/overview) is a monitoring solution that collects, analyzes, and responds to telemetry from cloud and on-premises environments. In this solution, it provides dashboards, alerting, and log analytics for tracking system performance and detecting anomalies.
+- [Azure Monitor](/azure/azure-monitor/fundamentals/overview) is a monitoring solution that collects, analyzes, and responds to telemetry from cloud and on-premises environments. In this solution, it provides dashboards, alerting, and log analytics to track system performance and detect anomalies.
 
-- [Log Analytics](/azure/azure-monitor/logs/log-analytics-overview) is a tool for editing and running log queries against data in Azure Monitor Logs. In this solution, it stores execution logs and enables KQL queries to correlate agent behavior and identify conversation-level anomalies.
+- [Log Analytics](/azure/azure-monitor/logs/log-analytics-overview) is a tool for editing and running log queries against data in Azure Monitor Logs. In this solution, it stores execution logs and supports KQL queries to correlate agent behavior and identify conversation-level anomalies.
 
-- [Azure NAT Gateway](/azure/nat-gateway/nat-overview) is a managed Network Address Translation (NAT) service that provides outbound internet connectivity for virtual networks. In this solution, it provides a static outbound IP address for agents that call external APIs or MCP servers that require a public endpoint.
+- [Azure NAT Gateway](/azure/nat-gateway/nat-overview) is a managed NAT service that provides outbound internet connectivity for virtual networks. In this solution, it provides a static outbound IP address for agents that call external APIs or MCP servers that require a public endpoint.
 
 ## Scenario details
 
@@ -72,25 +72,25 @@ Avoid this solution in the following scenarios:
 
 - **Deterministic orchestration:** The orchestration follows a predefined workflow or handoff process, so you don't need dynamic agent selection.
 
-- **Distinct agent roles:** The agents have clearly distinct roles with no overlap, and the orchestration exposes only specific agents for selection (for example, principal agents that have predefined child or connected agents). In this case, an LLM doesn't need to perform dynamic selection.
+- **Distinct agent roles:** The agents have clearly distinct roles with no overlap, and the orchestration exposes only specific agents for selection, such as principal agents that have predefined child or connected agents. In this case, an LLM doesn't need to perform dynamic selection.
 
 ### Key challenges
 
 #### Prepare semantic cache data
 
-This solution depends on a well-constructed semantic cache that contains sample agent utterances. Represent each agent's capabilities with diverse sample utterances so that the cache covers the full range of requests that the agent handles. To support reliable agent invocation, include at least five distinct utterances for every capability. Complete this step before you onboard an agent into the system.
+This solution depends on a well-constructed semantic cache that contains sample agent utterances. Represent each agent's capabilities by using diverse sample utterances so that the cache covers the full range of requests that the agent handles. To support reliable agent invocation, include at least five distinct utterances for every capability. Complete this step before you onboard an agent into the system.
 
 #### Dynamic inclusion of agents
 
-Suppose your organization runs several domain-specific agents and you want to create a unified conversational AI that enables clients to interact with any of them without knowing which agent handles which task. A single conversation might engage multiple agents to address multi-intent requests. For example, the request "Help me book a conference room on the Yosemite floor, and notify parking services that I'll need five spots for a customer meeting on the 26th" engages both the ConferenceBookingAgent and the ParkingServiceAgent. When you have a small number of agents or tools (fewer than 20), a [function calling](/semantic-kernel/concepts/ai-services/chat-completion/function-calling/) pattern handles agent selection well. As the number of agents grows, choosing which agent or function to invoke becomes a major challenge.
+Suppose your organization runs several domain-specific agents and you want to create a unified conversational AI that enables clients to interact with any of them without knowing which agent handles which task. A single conversation might engage multiple agents to address multi-intent requests. For example, the request "Help me book a conference room on the Yosemite floor, and notify parking services that I'll need five spots for a customer meeting on the 26th" engages both the ConferenceBookingAgent and the ParkingServiceAgent. When you have fewer than 20 agents or tools, a [function calling](/semantic-kernel/concepts/ai-services/chat-completion/function-calling/) pattern handles agent selection well. As the number of agents grows, choosing which agent or function to invoke becomes a major challenge.
 
 ### Cost optimization
 
 As the number of agents grows, token consumption becomes a primary cost driver. Sending all agent definitions to an LLM on every request increases token usage linearly with agent count. This architecture addresses that challenge through several mechanisms:
 
-- **Semantic cache narrows candidate agents before LLM invocation.** Azure AI Search performs vector similarity matching against stored utterances and returns only a shortlist of relevant agents. The LLM receives definitions for a small subset of agents rather than the full catalog, which limits per-request token consumption regardless of total agent count.
+- **The semantic cache shortlists candidate agents before the system invokes the LLM.** AI Search performs vector similarity matching against stored utterances and returns only a shortlist of relevant agents. The LLM receives definitions for a small subset of agents rather than the full catalog, which limits per-request token consumption regardless of total agent count.
 
-- **Direct invocation bypasses the orchestrator LLM.** When a single agent exceeds the confidence threshold during semantic cache evaluation, the system invokes that agent directly without an extra LLM call. This path eliminates the token and compute cost of orchestrator reasoning for unambiguous queries.
+- **Direct invocation bypasses the orchestrator LLM.** When a single agent exceeds the confidence threshold during the semantic cache evaluation, the system invokes that agent directly without an extra LLM call. This path eliminates the token and compute cost of orchestrator reasoning for unambiguous queries.
 
 - **TTL-based conversation memory controls storage costs.** Configurable time-to-live (TTL) values on Azure Managed Redis ensure that stale conversation data expires automatically. Adjust TTL values based on conversation patterns to balance context retention against cache storage costs.
 
@@ -102,29 +102,29 @@ As the number of agents grows, token consumption becomes a primary cost driver. 
 
 You can orchestrate multiagent conversations in several ways. The main challenge is choosing the orchestration pattern that fits your business needs. You can configure some agents to interact or complete tasks sequentially. You can have other agents take on distinct roles and collaborate concurrently to address client requests. This solution helps you choose orchestration patterns for dynamic environments, where you might not have a precise business context or well-defined agent relationships.
 
-### Evaluating as system evolves
+### Evaluation as the system evolves
 
-Evaluate agent-based solutions regularly at multiple levels. Assess performance for each individual agent, within the orchestration layer, and across the overall system. At the system or multiagent level, evaluate every new or updated agent for its impact on agent selection, orchestration, and the behavior of other agents. Ongoing evaluation helps you confirm that new agents don't degrade the performance of existing agents. For more information, see [Evaluation framework](#evaluation-framework).
+Evaluate agent-based solutions regularly at multiple levels. Assess performance for each individual agent within the orchestration layer and across the overall system. At the system or multiagent level, evaluate every new or updated agent for its impact on agent selection, orchestration, and the behavior of other agents. Ongoing evaluation helps you confirm that new agents don't degrade the performance of existing agents. For more information, see [Evaluation framework](#evaluation-framework).
 
 ### Agent selection
 
-The agent selector chooses the most appropriate agents for user inquiries from a large pool of candidates. It uses Azure AI Search with vector similarity as a semantic cache to narrow the list of agents, and then it applies an LLM to select from this refined group. This approach ensures context-aware agent selection and produces responses or actions that align with the user's query.
+The agent selector chooses the most appropriate agents for user inquiries from a large pool of candidates. It uses AI Search with vector similarity as a semantic cache to narrow the list of agents, and then it applies an LLM to select from this refined group. This approach ensures context-aware agent selection and produces responses or actions that align with the user's query.
 
 The following diagram illustrates the structure of the agent selector system.
 
 :::image type="complex" border="false" source="../media/ai-agents-at-scale-agent-selection.png" alt-text="Flow diagram that shows how a system uses a semantic cache to select the most relevant agents for a user query." lightbox="../media/ai-agents-at-scale-agent-selection.png":::
-In step 1, the user submits a query for a specific task and the system considers the user's registered agents. In step 2, the system performs alias mapping to resolve agent references. In step 3, the system generates a normalized query without alias agents. In step 4, Azure AI Search retrieves top embedding matches and the system assigns similarity scores to candidate agents, converts the scores to cosine similarity, and evaluates whether the top score exceeds a confidence threshold to determine whether to keep high-confidence agents or include all agents. In step 5, the system filters results to the top set based on semantic cache thresholds. In step 6, the system intersects the selected agents with the user's available agents. In step 7, the system removes duplicates and assigns each agent a maximum score. In step 8, the system checks whether a single agent remains and whether the score meets a confidence threshold, optionally adding a supervisor agent when conditions are met. In step 9, if multiple agents remain or confidence is low, the system includes additional candidate agents and agents from the previous turn. In step 10, the orchestrator receives the final list of agents and either invokes a single agent or uses an LLM to select the best agent when multiple candidates remain.
+In step 1, the user submits a query for a specific task and the system considers the user's registered agents. In step 2, the system performs alias mapping to resolve agent references. In step 3, the system generates a normalized query without alias agents. In step 4, AI Search retrieves top embedding matches and the system assigns similarity scores to candidate agents, converts the scores to cosine similarity, and evaluates whether the top score exceeds a confidence threshold to determine whether to keep high-confidence agents or include all agents. In step 5, the system filters results to the top set based on semantic cache thresholds. In step 6, the system intersects the selected agents with the user's available agents. In step 7, the system removes duplicates and assigns each agent a maximum score. In step 8, the system checks whether a single agent remains and whether the score meets a confidence threshold, optionally adding a supervisor agent when conditions are met. In step 9, if multiple agents remain or confidence is low, the system includes additional candidate agents and agents from the previous turn. In step 10, the orchestrator receives the final list of agents and either invokes a single agent or uses an LLM to select the best agent when multiple candidates remain.
 :::image-end:::
 
 #### Agent selection workflow
 
-The agent selection workflow proceeds through five stages. The user query enters alias mapping, then semantic search in Azure AI Search, then agent scoring and filtering, and finally the orchestrator selects and invokes the agent. The following steps describe each stage in detail.
+The agent selection workflow proceeds through five stages. The user query enters alias mapping, then semantic search in AI Search, then agent scoring and filtering, and finally the orchestrator selects and invokes the agent. The following steps describe each stage in detail:
 
 1. The user submits a query and registered agent IDs.
 
 1. The system applies alias mapping to produce a normalized query.
 
-1. The system sends the normalized query to Azure AI Search (the semantic cache) to find the top matching agent utterances.
+1. The system sends the normalized query to AI Search (the semantic cache) to find the top matching agent utterances.
 
 1. The system assigns each agent the highest similarity score based on the vector similarity scores between the normalized query and the utterances in the semantic cache.
 
@@ -144,17 +144,17 @@ The agent selection workflow proceeds through five stages. The user query enters
 
 ### Multiagent orchestration
 
-A well-designed orchestration layer coordinates interactions among multiple AI agents. As you add more agents and your user scenarios grow more complex, the orchestration system must enable agents to work together, complete tasks accurately, and preserve conversational context. Choose your orchestration pattern based on the nature of user queries, how much agent collaboration you need, and your overall system goals.
+A well-designed orchestration layer coordinates interactions among multiple AI agents. As you add more agents and your user scenarios grow more complex, the orchestration system must help agents work together, complete tasks accurately, and preserve conversational context. Choose your orchestration pattern based on the nature of user queries, how much agent collaboration you need, and your overall system goals.
 
 You can choose from various orchestration patterns to address specific solution needs. For more information about how to select and implement these patterns, see [AI agent orchestration patterns](/azure/architecture/ai-ml/guide/ai-agent-design-patterns).
 
-For scenarios that require minimal collaboration or conversation between agents, consider the Agents as Tools pattern. In this approach, a principal agent acts as the main coordinator and invokes other agents as *tools* to fulfill specific tasks. The principal agent interprets user intent and uses the function calling capabilities of LLMs to determine which agents to call.
+For scenarios that require minimal collaboration or conversation between agents, consider the Agents as Tools pattern. In this approach, a principal agent acts as the main coordinator and invokes other agents as tools to fulfill specific tasks. The principal agent interprets user intent and uses the function calling capabilities of LLMs to determine which agents to call.
 
 Use the Agents as Tools pattern if:
 
 - The user submits straightforward requests that don't require extensive collaboration or reasoning among agents.
 
-- You use a limited set of agents, usually two or three, to fulfill the task.
+- Two or three agents can complete the task.
 
 - Each agent operates within a well-defined scope and has responsibilities that don't overlap with other agents.
 
@@ -162,13 +162,11 @@ Use the Agents as Tools pattern if:
 
 Multiturn interactions require the orchestration layer to maintain continuity by passing relevant context from previous requests to the participating agents. The orchestration system decides when to summarize, prune, or persist the conversation state to optimize performance and relevance.
 
-To augment a request with prior context, store the relevant conversation history in a low-latency cache such as Azure Managed Redis. Index the entries by conversation ID, and apply a configurable TTL value to control retention. Adjust the TTL based on business needs. For example, use a rolling TTL for ongoing conversations.
+To augment a request with prior context, store the relevant conversation history in a low-latency cache, such as Azure Managed Redis. Index the entries by conversation ID, and apply a configurable TTL value to control retention. Adjust the TTL based on business needs. For example, use a rolling TTL for ongoing conversations.
 
-For advanced agent memory strategies, see [Agent Memory](/agent-framework/user-guide/agents/agent-memory).
+#### Adaptive orchestration: Direct agent invocation vs. orchestrator path
 
-#### Adaptive orchestration: direct agent invocation vs. orchestrator path
-
-The orchestration module coordinates agent interactions, but some scenarios don't need it. If agent selection (using the semantic cache and vector similarity) returns a single agent whose confidence score exceeds a defined threshold, such as 85%, the system invokes that agent directly. This approach removes orchestration overhead, skips extra agent selection steps, and reduces the latency and token consumption of extra LLM calls.
+The orchestration module coordinates agent interactions, but some scenarios don't need orchestration. If agent selection (using the semantic cache and vector similarity) returns a single agent whose confidence score exceeds a defined threshold, such as 85%, the system invokes that agent directly. This approach removes orchestration overhead, skips extra agent selection steps, and reduces the latency and token consumption of extra LLM calls.
 
 Use direct invocation for unambiguous, single-intent queries that have a high probability of successful agent resolution. For multi-intent or ambiguous queries, rely on the orchestrator layer to coordinate agents and reason across them.
 
@@ -184,16 +182,16 @@ You define agents programmatically in your application code by using frameworks 
 
 The in-code approach offers the following advantages:
 
-- Provides maximum control over agent logic and behavior.
-- Integrates directly with your existing application infrastructure.
-- Delivers efficient runtime performance through direct code execution.
-- Provides rich debugging and testing capabilities.
+- Provides maximum control over agent logic and behavior
+- Integrates directly with your existing application infrastructure
+- Delivers efficient runtime performance through direct code execution
+- Provides debugging and testing capabilities
 
 Consider the following trade-offs before you choose this approach:
 
-- Requires proficiency in the programming language and framework that you use.
-- Requires code changes and redeployment when you update or onboard new agents.
-- Increases maintenance overhead as your system scales.
+- Requires proficiency in the programming language and framework that you use
+- Requires code changes and redeployment when you update or onboard new agents
+- Increases maintenance overhead as your system scales
 
 #### Declarative
 
@@ -201,10 +199,10 @@ Use declarative agent definitions to declare agent capabilities, prompts, and wo
 
 The declarative approach offers the following advantages:
 
-- You can introduce new agents without code changes or redeployment.
-- Nontechnical team members can contribute to defining agent behavior.
-- Iteration cycles for agent updates run faster.
-- Infrastructure stays separate from agent logic.
+- Supports introducing new agents without code changes or redeployment
+- Extends agent behavior authoring to nontechnical team members
+- Accelerates iteration cycles for agent updates
+- Separates infrastructure from agent logic
 
 Consider the following trade-offs before you choose this approach:
 
@@ -227,23 +225,23 @@ When you select an implementation approach, consider the following parameters:
 
 The solution should also support multiple implementation approaches simultaneously so that you can choose the most appropriate option for each agent based on its specific requirements and constraints.
 
-### Agent Factory
+### Agent factory
 
-The Agent Factory design pattern provides a well-established way to create objects when the system manages and instantiates various objects dynamically. When you build a scalable multiagent system, consider adding an Agent Factory to centralize how the system creates agents and to decouple creation logic from runtime use. Given an agent name, the factory returns a ready-to-use agent instance regardless of its implementation, such as code or a YAML template. Use this approach to add new agent types without changing orchestration logic.
+The agent factory design pattern provides a well-established way to create objects when the system manages and instantiates various objects dynamically. When you build a scalable multiagent system, consider adding an agent factory to centralize how the system creates agents and to decouple creation logic from runtime use. Given an agent name, the factory returns a ready-to-use agent instance regardless of its implementation, such as code or a YAML template. Use this approach to add new agent types without changing orchestration logic.
 
 #### Key design considerations
 
 - The factory inspects available representations, such as a code module or YAML, and instantiates the appropriate implementation.
 
-- Allow configurable priority (for example, prefer a YAML template over code) to control which implementation the factory uses when multiple representations exist.
+- Make priority configurable (for example, prefer a YAML template over code) to control which implementation the factory uses when multiple representations exist.
 
 - Apply validation, lightweight instantiation checks, and caching to avoid repeated heavy construction.
 
-The Agent Factory pattern helps you onboard, test, and evolve an agent catalog. It also preserves modularity and scalability because it isolates agent changes from other system components.
+The agent factory pattern helps you onboard, test, and evolve an agent catalog. It also preserves modularity and scalability because it isolates agent changes from other system components.
 
 ### Agent onboarding process
 
-This process helps you maintain a high-quality, conflict-free multiagent system in which you add, update, or remove every agent deliberately and with validation. Agents form the building blocks of intelligent orchestration, so introducing or modifying one without checks can degrade performance, create overlapping responsibilities, or break user experiences. To prevent these outcomes, the life cycle applies evaluation-driven governance at every stage. The following diagram shows the onboarding process flow.
+This process helps you maintain a high-quality, conflict-free multiagent system in which you add, update, or remove every agent deliberately and with validation. Agents form the building blocks of intelligent orchestration. Introducing or modifying an agent without checks can degrade performance, create overlapping responsibilities, or break user experiences. To prevent these outcomes, the life cycle applies evaluation-driven governance at every stage. The following diagram shows the onboarding process flow.
 
 :::image type="complex" border="false" source="../media/ai-agents-at-scale-onboarding-process.svg" alt-text="Flow diagram that shows a gated workflow for validating and integrating a semantic cache before production use." lightbox="../media/ai-agents-at-scale-onboarding-process.svg":::
 The process begins with prevalidation, which includes checking agent name availability, validating descriptions, and reviewing sample utterances. The workflow then moves to temporary cache creation. The temporary cache is evaluated against an existing golden dataset by using semantic cache evaluation, end-to-end evaluation, and performance analysis benchmarking. The workflow proceeds only when results are approved. The system then performs system integration, which includes updating the production cache, enhancing the golden dataset, and cleaning up intermediate artifacts. After integration, the workflow moves to final validation by using a new golden dataset. The workflow again runs semantic cache evaluation, end-to-end evaluation, and performance benchmarking. It continues only when results meet criteria. The process ends with final steps that include updating the benchmark and merging the pull request to complete the workflow.
@@ -251,7 +249,7 @@ The process begins with prevalidation, which includes checking agent name availa
 
 The life cycle covers three operations:
 
-- **Onboard a new agent.** First verify that the agent's name, description, and sample utterances are unique. After validation, the system creates a temporary semantic cache and runs semantic and response evaluations to confirm that the new agent doesn't degrade existing ones. If results meet the benchmarks, the system promotes the agent to production and updates the golden dataset (the ground truth for evaluations) to reflect the new capabilities.
+- **Onboard a new agent.** First verify that the agent has a unique name, description, and sample utterances. After validation, the system creates a temporary semantic cache and runs semantic and response evaluations to confirm that the new agent doesn't degrade existing agents. If results meet the benchmarks, the system promotes the agent to production and updates the golden dataset (the ground truth for evaluations) to reflect the new capabilities.
 
 - **Update an agent.** The same validation and regression checks apply to prevent selection drift. Update the golden dataset to keep evaluations aligned with real-world usage.
 
@@ -259,21 +257,19 @@ The life cycle covers three operations:
 
 This structured approach ensures scalability without sacrificing accuracy or reliability.
 
-### Evaluation framework
+### Foundry Evaluation Framework
 
-#### Agentic system evaluation framework by using Foundry
+Use the Foundry Evaluation Framework to evaluate the agentic system. This franework focuses on the inner mechanics of agent-based systems, such as tool invocation, agent selection, and final responses, and applies both built-in and custom evaluation metrics. It also visualizes benchmarks and provides detailed analysis through the Foundry Evaluation dashboard.
 
-This framework evaluates agentic systems by using Foundry. It focuses on the inner mechanics of agent-based systems, such as tool invocation, agent selection, and final responses, and applies both built-in and custom evaluation metrics. The framework also visualizes benchmarks and provides detailed analysis through the AI Foundry Evaluation dashboard.
+The framework uses the Azure AI Evaluation SDK to simplify experimentation and evaluation. A configuration-driven approach combined with a pipeline-based architecture supports adding any module to the pipeline. The SDK supports both Foundry built-in evaluators for standardized scoring and custom evaluator metrics that measure agent performance. The flow organizes work into modular stages (data_loading, data_preprocessing, evaluation, reporting) with swappable datasets, inference models, and evaluators. Inputs and outputs use JSONL or golden dataset formats. You can upload results to blob storage and visualize them in the Foundry evaluation dashboard to compare runs.
 
-The framework uses the AI Foundry evaluation SDK to simplify experimentation and evaluation. A configuration-driven approach combined with a pipeline-based architecture supports adding any module to the pipeline. The SDK supports both Foundry built-in evaluators for standardized scoring and custom evaluator metrics that measure agent performance. The flow organizes work into modular stages (data_loading, data_preprocessing, evaluation, reporting) with swappable datasets, inference models, and evaluators. Inputs and outputs use JSONL or golden dataset formats. You can upload results to blob storage and visualize them in the AI Foundry Evaluation dashboard to compare runs.
-
-To find code for the evaluation framework, see [Evaluation Framework repo](https://github.com/Azure-Samples/Agentic-Evaluations).
+To find code for the Foundry Evaluation Framework, see [Evaluation Framework repo](https://github.com/Azure-Samples/Agentic-Evaluations).
 
 ##### Features
 
-- **AI Foundry SDK:** Framework integrated with the [Azure AI Evaluation SDK](https://pypi.org/project/azure-ai-evaluation/).
+- **Foundry SDK:** Framework integrated with the [Azure AI Evaluation SDK](https://pypi.org/project/azure-ai-evaluation/).
 
-- **Built-in and custom evaluators:** Utilizes both [built-in evaluators from Foundry](/azure/foundry/concepts/evaluation-evaluators/general-purpose-evaluators) and custom evaluators.
+- **Built-in and custom evaluators:** Uses both [built-in evaluators from Foundry](/azure/foundry/concepts/evaluation-evaluators/general-purpose-evaluators) and custom evaluators.
 
 - **Configuration-driven architecture:** YAML configuration to customize pipelines and add evaluators.
 
@@ -311,7 +307,7 @@ A step-by-step workflow for evaluating agentic systems and their components:
 
 1. **Agent development:** Developers create or fine-tune new agents, define evaluation metrics, and prepare sample utterances or golden datasets.
 
-1. **Component-level evaluation:** Evaluate each agent or component individually to ensure its responses meet defined expectations and quality standards.
+1. **Component-level evaluation:** Evaluate each agent or component individually to ensure that its responses meet defined expectations and quality standards.
 
 1. **System-level evaluation:** After integration, perform system-level evaluations, including semantic cache checks and end-to-end (E2E) assessments, to validate overall system behavior.
 
@@ -334,7 +330,7 @@ This structured approach supports validation, benchmarking, and integration of a
 | Similarity      | Measures how similar the agent response is compared to the ground truth response      |
 | Relevance       | Measures the relevance of the agent response for a query                              |
 
-For the full list of evaluators, see [Microsoft Foundry Evaluator Reference](/azure/foundry/concepts/built-in-evaluators).
+For the full list of evaluators, see [Foundry evaluator reference](/azure/foundry/concepts/built-in-evaluators).
 
 ### Observability
 
@@ -358,13 +354,13 @@ When you combine signals from infrastructure, orchestration, and model behavior,
 
 #### Observability framework
 
-This observability framework uses OpenTelemetry for instrumentation and Azure Application Insights as the telemetry back end.
+This observability framework uses OpenTelemetry for instrumentation and Application Insights as the telemetry back end.
 
 - OpenTelemetry standardizes how the system captures traces, metrics, and logs across agents and services. It ensures interoperability across frameworks and programming languages.
 
 - Application Insights aggregates and visualizes this telemetry. You use it to view dashboards, configure alerts, and explore correlations between infrastructure metrics, application traces, and LLM inference data.
 
-If you build agents by using Semantic Kernel, you get observability through OpenTelemetry standardized instrumentation. When you configure OpenTelemetry, Semantic Kernel automatically emits traces, logs, and metrics for kernel operations such as function invocations, prompt executions, and plugin calls.
+If you build agents by using Semantic Kernel, OpenTelemetry standardized instrumentation provides observability. When you set up OpenTelemetry, Semantic Kernel automatically emits traces, logs, and metrics for kernel operations such as function invocations, prompt executions, and plugin calls.
 
 #### The three dimensions of agentic observability
 
@@ -376,7 +372,7 @@ Traditional observability stops at logs, metrics, and traces. In AI systems, tho
 
 1. **Distributed traces with context:** Traces connect every service and agent involved in a single conversation. Use trace IDs and span IDs to view the full path of an inference request, from the orchestrator to downstream agents, caches, and external calls.
 
-   Each trace carries semantic context, such as conversation ID and agent name, which provides a unified view of model collaboration. Use these traces to diagnose latency spikes, identify network bottlenecks, or analyze where agent coordination fails.
+  Each trace carries semantic context, such as conversation ID and agent name, which provides a unified view of model collaboration. Use these traces to diagnose latency spikes, identify network bottlenecks, or analyze where agent coordination fails.
 
 #### Observability data flow for agentic systems
 
@@ -386,7 +382,7 @@ In step 1, instrumented services in the microservices section, including the orc
 
 1. **Emit telemetry via OTLP:** The orchestrator, agents, device control, and other services use OpenTelemetry SDKs for instrumentation. They emit logs, traces, and metrics via OpenTelemetry Protocol (OTLP).
 
-1. **Collect, process, and export:** The OpenTelemetry Collector receives the telemetry, runs it through receiver, processor, and exporter stages, and then exports it to Azure Application Insights.
+1. **Collect, process, and export:** The OpenTelemetry Collector receives the telemetry, runs it through receiver, processor, and exporter stages, and then exports it to Application Insights.
 
 1. **Route to stores:** Application Insights routes data into dedicated stores. It sends logs to Log Analytics for KQL querying, traces to the trace store for distributed tracing through trace ID and span ID, and metrics to the metrics store for system and business monitoring.
 
@@ -400,13 +396,13 @@ For LLM-driven architectures, observability must capture the cognitive layer, wh
 
 Capture infrastructure telemetry and contextual data such as:
 
-- **System prompts:** The instructions that guide behavior.
+- **System prompts:** The instructions that guide behavior
 
-- **Model parameters:** Temperature, top-p, and token limits.
+- **Model parameters:** Temperature, top-p, and token limits
 
-- **User inputs and conversation history:** The context that you pass to the model.
+- **User inputs and conversation history:** The context that you pass to the model
 
-- **Outputs:** The text, decisions, or structured responses that the model returns.
+- **Outputs:** The text, decisions, or structured responses that the model returns
 
 When you capture this metadata, you can reproduce inference runs. Data scientists use these reproductions to analyze why an output differed, whether drift occurred, or whether bias emerged.
 
@@ -440,12 +436,12 @@ Track the following categories of metrics:
 
 *Microsoft maintains this article. The following contributors wrote this article.*
 
-Principal author:
+Principal authors:
 
 - [Vikesh Bagel](https://www.linkedin.com/in/vikesh-singh-baghel-28601322/) | Principal Data Scientist
 - [Sushant Bhalla](https://www.linkedin.com/in/sushaanttb/) | Senior Software Engineer
 - [Munish Malhotra](https://www.linkedin.com/in/munish-malhotra) | Senior Software Engineer
-- [Vidhya Shankar Venkatesan](https://www.linkedin.com/in/vikesh-singh-baghel-28601322/) | Principal Software Engineer
+- [Vidhya Shankar Venkatesan](https://www.linkedin.com/in/vidhya-shankar/) | Principal Software Engineer
 - [Kshitij Sharma](https://www.linkedin.com/in/ikshitijsharma/) | Senior Software Engineer
 - [Brijraj Singh](https://www.linkedin.com/in/brijraajsingh/) | Principal Software Engineering Manager
 
@@ -454,10 +450,10 @@ Principal author:
 ## Next steps
 
 - [What is Foundry?](/azure/foundry/what-is-foundry)
-- [What is Azure AI Search?](/azure/search/search-what-is-azure-search)
+- [What is AI Search?](/azure/search/search-what-is-azure-search)
 - [What is Azure OpenAI?](/azure/ai-services/openai/overview)
 - [AI agent orchestration patterns](/azure/architecture/ai-ml/guide/ai-agent-design-patterns)
-- [Microsoft Agent Framework overview](/agent-framework/overview/)
+- [Agent Framework overview](/agent-framework/overview/)
 - [Foundry evaluation SDK](https://pypi.org/project/azure-ai-evaluation/)
 - [Agentic Evaluations framework](https://github.com/Azure-Samples/Agentic-Evaluations)
 
@@ -466,5 +462,5 @@ Principal author:
 - [Baseline Foundry chat reference architecture](../../ai-ml/architecture/baseline-microsoft-foundry-chat.yml)
 - [Azure OpenAI chat baseline architecture in an Azure landing zone](../../ai-ml/architecture/baseline-microsoft-foundry-landing-zone.yml)
 - [AI agent orchestration patterns](../../ai-ml/guide/ai-agent-design-patterns.md)
-- [Build a multiple-agent workflow automation solution by using Microsoft Agent Framework](../../ai-ml/idea/multiple-agent-workflow-automation.yml)
+- [Build a multiple-agent workflow automation solution by using Agent Framework](../../ai-ml/idea/multiple-agent-workflow-automation.yml)
 
