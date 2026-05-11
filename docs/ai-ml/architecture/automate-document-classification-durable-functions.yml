@@ -14,7 +14,7 @@ azureCategories:
 products:
   - azure-functions
   - microsoft-foundry
-  - azure-ai-foundry-sdk
+  - foundry-sdk
   - foundry-tools
   - azure-cognitive-search
   - document-intelligence

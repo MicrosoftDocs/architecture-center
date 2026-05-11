@@ -546,7 +546,7 @@ Consider metrics and logs for the following services:
 This article focuses on the key differences among the container services features. Review the complete operational excellence guidance for the following services:
 
 - [AKS](/azure/well-architected/service-guides/azure-kubernetes-service)
-- [Web App for Containers](/azure/well-architected/service-guides/azure-app-service/operational-excellence)
+- [Web App for Containers](/azure/well-architected/service-guides/app-service-web-apps)
 
 ## Reliability
 
@@ -668,7 +668,7 @@ This article focuses on the key differences among the container services feature
 
 - [Well-Architected Framework review for AKS](/azure/well-architected/service-guides/azure-kubernetes-service)
 - [Reliability in Container Apps](/azure/reliability/reliability-azure-container-apps)
-- [App Service and reliability](/azure/well-architected/service-guides/azure-app-service/reliability)
+- [App Service and reliability](/azure/well-architected/service-guides/app-service-web-apps)
 
 ## Conclusion
 

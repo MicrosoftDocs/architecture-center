@@ -242,7 +242,7 @@ For each SLI, you calculate the ratio of good events to total events as observed
 
 - **Latency SLI for product browsing:** The *number of requests completed successfully in <1,000 ms* divided by the *number of requests*. This SLI tracks whether the product microservice responds within the acceptable latency threshold.
 
-- **Freshness SLI for search:** The *number of search results returned within 3 seconds* divided by the *number of searches*. This SLI measures how often the search experience meets the freshness target after catalog updates.
+- **Freshness SLI for search:** The *number of search results returned within three seconds* divided by the *number of searches*. This SLI measures how often the search experience meets the freshness target after catalog updates.
 
 After you define SLIs, determine what telemetry to capture at each layer of the architecture, including Azure Front Door, API Management, Application Gateway, AKS pods, and data stores. For HTTP services, use status codes to classify success and failure. Azure Monitor and Application Insights provide diagnostic and monitoring support for all layers.
 
@@ -254,11 +254,11 @@ Define SLO measurement periods to capture activity, not idleness. The window can
 
 Consider the following sample aspirational SLOs:
 
-- 95% of READ requests respond within one second.
-- 95% of CREATE and UPDATE requests respond within three seconds.
-- 99% of all requests respond within five seconds with no failures.
-- 99.9% of all requests succeed without error.
-- Less than 1% of requests during peak hour error out.
+- READ requests respond within one second for 95% of calls.
+- CREATE and UPDATE requests respond within three seconds for 95% of calls.
+- All requests respond within five seconds with no failures for 99% of calls.
+- All requests succeed without error for 99.9% of calls.
+- During peak hour, fewer than 1% of requests result in errors.
 
 Tailor SLOs to your application requirements.
 
@@ -268,15 +268,15 @@ Assume a week of data:
 
 - Requests: 123,456
 - Successful requests: 123,204
-- 90th percentile latency: 497 ms
-- 95th percentile latency: 870 ms
-- 99th percentile latency: 1,024 ms
+- Latency at 90th percentile: 497 ms
+- Latency at 95th percentile: 870 ms
+- Latency at 99th percentile: 1,024 ms
 
 Initial SLIs:
 
-- Availability = (123,204 / 123,456) = 99.8%
-- 90% of requests served within 500 ms
-- 98% of requests served within 1,000 ms
+- Availability = (123,204 / 123,456) = 99.8%.
+- Requests are served within 500 ms for 90% of calls.
+- Requests are served within 1,000 ms for 98% of calls.
 
 Compare log data to SLO targets to assess compliance.
 
@@ -336,4 +336,3 @@ Other contributor:
 - [Design to scale out](../../guide/design-principles/scale-out.md)
 - [Choose an Azure compute service for your application](../../guide/technology-choices/compute-decision-tree.md)
 - [Baseline web application with zone redundancy](../../web-apps/app-service/architectures/baseline-zone-redundant.yml)
-

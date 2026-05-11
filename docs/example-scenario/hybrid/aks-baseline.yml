@@ -2,8 +2,8 @@
 metadata:
   title: Azure Kubernetes Service (AKS) Baseline Architecture for AKS on Azure Local
   description: Learn how to design and implement a baseline architecture for Microsoft Azure Kubernetes Service (AKS) that runs on Azure Local.
-  author: sethmanheim
-  ms.author: sethm
+  author: davidsmatlak
+  ms.author: davidsmatlak
   ms.date: 06/23/2025
   ms.topic: example-scenario
   ms.subservice: example-scenario

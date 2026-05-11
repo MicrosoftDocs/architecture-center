@@ -47,7 +47,7 @@ However, if you want to use this isolation model, your application code must be 
 This model is potentially subject to [noisy neighbor concerns](../../../antipatterns/noisy-neighbor/noisy-neighbor.yml), which means that one tenant's workload might affect the performance of another tenant's workload. If you need to provide dedicated throughput to mitigate this concern, the shared container apps model might not be suitable.
 
 > [!NOTE]
-> The [Deployment Stamps pattern](../../../patterns/deployment-stamp.yml) is useful when tenants are on different pricing models. For example, tenants might be assigned to shared or dedicated Container Apps environments depending on their pricing tier. This deployment strategy allows you to go beyond the Container Apps limit for a single subscription for each region and scale linearly as the number of tenants grows.
+> The [Deployment Stamps pattern](../../../patterns/deployment-stamp.md) is useful when tenants are on different pricing models. For example, tenants might be assigned to shared or dedicated Container Apps environments depending on their pricing tier. This deployment strategy allows you to go beyond the Container Apps limit for a single subscription for each region and scale linearly as the number of tenants grows.
 
 ### Tenant-specific container apps
 

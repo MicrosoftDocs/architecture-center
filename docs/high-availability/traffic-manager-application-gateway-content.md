@@ -58,6 +58,8 @@ Some workloads accept traffic over protocols other than HTTP(S), like Secure Fil
 
 Outbound traffic flows for VM patch updates or other internet-bound traffic go from the workload VMs to Azure Firewall through UDRs. Azure Firewall enforces connectivity rules by using web categories and network and application rules to prevent workloads from accessing disallowed content or exfiltrating data.
 
+Approved flows leave the firewall source network address translated (SNAT) to one of its public IP addresses, which Azure Firewall selects randomly per flow. The number of attached public IPs caps the SNAT port budget and defines the egress identity that downstream partners need to allowlist; use a [public IP address prefix](/azure/virtual-network/ip-services/public-ip-address-prefix) to express that set as a contiguous range.
+
 ### Components
 
 - [Azure Firewall](/azure/well-architected/service-guides/azure-firewall) is a cloud service from Microsoft that provides next-generation firewall capabilities, including deep packet inspection for north-south and east-west traffic flows. In this architecture, Azure Firewall provides network security for both web and non-web traffic. It uses TLS inspection to inspect inbound HTTP(S) flows from Application Gateway, handles inbound non-HTTP(S) flows from the public internet, and inspects outbound flows from VMs to prevent data exfiltration.

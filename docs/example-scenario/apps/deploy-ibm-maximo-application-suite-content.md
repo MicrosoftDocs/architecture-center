@@ -35,7 +35,7 @@ From the perspective of infrastructure, this architecture provides the following
 
 - [Azure Bastion](/azure/bastion/bastion-overview) (optional) and a subnet for enhanced-security access to any of the worker nodes or optional jump box machines. Azure Bastion is a fully managed service that provides RDP and SSH access to VMs without any exposure through public IP addresses.
 
-- [Azure SQL Managed Instance](/azure/well-architected/service-guides/azure-sql-managed-instance/reliability) (optional) to provide data services to MAS. The database can also be another, like Oracle Exadata or IBM Db2 Warehouse. Azure SQL Database isn't currently supported.
+- [Azure SQL Managed Instance](/azure/well-architected/service-guides/azure-sql-managed-instance) (optional) to provide data services to MAS. The database can also be another, like Oracle Exadata or IBM Db2 Warehouse. Azure SQL Database isn't currently supported.
 
 - [Twilio Send Grid](https://docs.sendgrid.com/for-developers/partners/microsoft-azure-2021) (optional) to send emails from MAS to your consumers.
 
@@ -236,7 +236,7 @@ Use [network security groups](/azure/virtual-network/security-overview) to filte
 
 If you need access to your VMs for some reason, you can connect through your hybrid connectivity or through the OpenShift admin console. If you have an online deployment or don't want to rely on connectivity, you can also access your VMs through [Azure Bastion](/azure/bastion/bastion-overview) (which is optional). For security reasons, you shouldn't expose VMs to a network or the internet without configuring [network security groups](/azure/virtual-network/network-security-groups-overview) to control access to them.
 
-[Server-side encryption (SSE) of Azure Disk Storage](/azure/virtual-machines/disk-encryption) protects your data. It also helps you meet organizational security and compliance commitments. With Azure Managed Disks, SSE encrypts the data at rest when persisting it to the cloud. This behavior applies by default to both OS and data disks. OpenShift uses SSE by default.
+[Server-side encryption (SSE) of Azure Disk Storage](/azure/virtual-machines/disk-encryption) protects your data. It also helps you meet organizational security and compliance commitments. With Azure managed disks, SSE encrypts the data at rest when persisting it to the cloud. This behavior applies by default to both OS and data disks. OpenShift uses SSE by default.
 
 #### Authentication
 
@@ -255,16 +255,16 @@ Control access to the Azure resources that you deploy. Every Azure subscription 
 Cost optimization is about looking at ways to reduce unnecessary expenses and improve operational efficiencies. For more information, see [Overview of the cost optimization pillar](/azure/architecture/framework/cost/overview).
 
 A standard deployment of MAS consists of the following components:
- - 3 control VMs
- - 6 worker VMs
- - 3 worker VMs for Db2 Warehouse
+ - Three control VMs
+ - Six worker VMs
+ - Three worker VMs for Db2 Warehouse
    - You can substitute Azure SQL Managed Instance in some configurations, rather than use Db2 Warehouse.
-- 2 Azure Storage accounts
-- 2 DNS zones
-- 2 Load balancers
+- Two Azure Storage accounts
+- Two DNS zones
+- Two Load balancers
 - Azure Bastion
-- 1 Visual Inspection VM
-  - This isn't required unless you're planning to run Visual Inspection inside of MAS.
+- One Visual Inspection VM
+  - This isn't required unless you plan to run Visual Inspection inside of MAS.
 
 You can review an example estimate by using our [cost calculator](https://azure.com/e/fae03e2386cf46149273a379966e95b1). Configurations vary, and you should verify your configuration with your IBM sizing team before finalizing your deployment.
 

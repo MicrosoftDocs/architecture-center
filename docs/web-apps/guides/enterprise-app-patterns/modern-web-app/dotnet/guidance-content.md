@@ -367,23 +367,23 @@ To configure authentication and authorization on users (*user identities*), foll
 The reference implementation uses IaC to assign managed identities to added services and specific roles to each identity. It defines roles and permissions access for deployment (`containerRegistryPushRoleId`), application owner (`containerRegistryPushRoleId`), and Container Apps application (`containerRegistryPullRoleId`). The following example illustrates the code.
 
 ```bicep
-roleAssignments: \[
-    {
+roleAssignments: [
+  {
     principalId: deploymentSettings.principalId
     principalType: deploymentSettings.principalType
     roleDefinitionIdOrName: containerRegistryPushRoleId
-    }
-    {
+  }
+  {
     principalId: ownerManagedIdentity.outputs.principal_id
     principalType: 'ServicePrincipal'
     roleDefinitionIdOrName: containerRegistryPushRoleId
-    }
-    {
+  }
+  {
     principalId: appManagedIdentity.outputs.principal_id
     principalType: 'ServicePrincipal'
     roleDefinitionIdOrName: containerRegistryPullRoleId
-    }
-\]
+  }
+]
 ```
 
 The reference implementation assigns the managed identity as the new Container Apps identity at deployment:
@@ -414,6 +414,7 @@ The Modern Web App pattern begins breaking up the monolithic architecture and in
 - *Configure minimum replicas.* To prevent a cold start, configure autoscaling settings to maintain a minimum of one replica. A *cold start* occurs when you initialize a service from a stopped state, which often creates a delayed response. If minimizing costs is a priority and you can tolerate cold start delays, set the minimum replica count to 0 when you configure autoscaling.
 
 - *Configure a cooldown period.* Apply an appropriate cooldown period to introduce a delay between scaling events. The goal is to [prevent excessive scaling](/azure/well-architected/cost-optimization/optimize-scaling-costs#optimize-autoscaling) activities that are triggered by temporary load spikes.
+
 - *Configure queue-based scaling.* If your application uses a message queue like Service Bus, configure your autoscaling settings to scale based on the length of the queue with request messages. The scaler aims to maintain one replica of the service for every *N* messages in the queue (rounded up).
 
 For example, the reference implementation uses the [Service Bus KEDA scaler](/azure/container-apps/scale-app) to scale the container app based on the length of the queue. The `service-bus-queue-length-rule` scales the service based on the length of a specified Service Bus queue. The `messageCount` parameter is set to 10, so the scaler has one service replica for every 10 messages in the queue. The `scaleMaxReplicas` and `scaleMinReplicas` parameters set the maximum and minimum number of replicas for the service. The `queue-connection-string` secret, which contains the connection string for the Service Bus queue, is retrieved from Azure Key Vault. This secret is used to authenticate the scaler to the Service Bus.
@@ -461,11 +462,11 @@ In a containerized deployment, all dependencies required by the app are encapsul
 
 - *Choose the right base images.* The base image you choose depends on your deployment environment. If you're deploying to Container Apps, for instance, you need to use Linux Docker images.
 
-For example, the reference implementation uses a [multi-stage](https://docs.docker.com/build/building/multi-stage/) build process. The initial stages compile and build the application using a full SDK image (`mcr.microsoft.com/dotnet/sdk:8.0-jammy`). The final runtime image is created from the `chiseled` base image, which excludes the SDK and build artifacts. The service runs as a nonroot user (`USER $APP_UID`) and exposes port 8080. The dependencies required for the application to operate are included in the Docker image, as evidenced by the commands to copy project files and restore packages. The use of Linux-based images (`mcr.microsoft.com/dotnet/aspnet:8.0-jammy-chiseled`) ensures compatibility with Container Apps, which requires Linux containers for deployment.
+For example, the reference implementation uses a [multi-stage](https://docs.docker.com/build/building/multi-stage/) build process. The initial stages compile and build the application using a full SDK image (`mcr.microsoft.com/dotnet/sdk:10.0-noble`). The final runtime image is created from the `chiseled` base image, which excludes the SDK and build artifacts. The service runs as a nonroot user (`USER $APP_UID`) and exposes port 8080. The dependencies required for the application to operate are included in the Docker image, as evidenced by the commands to copy project files and restore packages. The use of Linux-based images (`mcr.microsoft.com/dotnet/aspnet:10.0-noble-chiseled`) ensures compatibility with Container Apps, which requires Linux containers for deployment.
 
 ```dockerfile
 # Build in a separate stage to avoid copying the SDK into the final image.
-FROM mcr.microsoft.com/dotnet/sdk:8.0-jammy AS build
+FROM mcr.microsoft.com/dotnet/sdk:10.0-noble AS build
 ARG BUILD_CONFIGURATION=Release
 WORKDIR /src
 
@@ -480,8 +481,8 @@ COPY . .
 WORKDIR "/src/Relecloud.TicketRenderer"
 RUN dotnet publish "./Relecloud.TicketRenderer.csproj" -c $BUILD_CONFIGURATION -o /app/publish /p:UseAppHost=false
 
-# Chiseled images contain only the minimal set of packages needed for .NET 8.0.
-FROM mcr.microsoft.com/dotnet/aspnet:8.0-jammy-chiseled AS final
+# Chiseled images contain only the minimal set of packages needed for .NET 10.0.
+FROM mcr.microsoft.com/dotnet/aspnet:10.0-noble-chiseled AS final
 WORKDIR /app
 EXPOSE 8080
 
@@ -495,7 +496,7 @@ ENTRYPOINT ["dotnet", "./Relecloud.TicketRenderer.dll"]
 
 ## Deploy the reference implementation
 
-Deploy the reference implementation of the [Modern Web App Pattern for .NET](https://github.com/azure/modern-web-app-pattern-dotnet). There are instructions for both development and production deployment in the repository. After you deploy the implementation, you can simulate and observe design patterns. 
+Deploy the reference implementation of the [Modern Web App Pattern for .NET](https://github.com/azure/modern-web-app-pattern-dotnet). There are instructions for both development and production deployment in the repository. After you deploy the implementation, you can simulate and observe design patterns.
 
 The following diagram shows the architecture of the reference implementation:
 

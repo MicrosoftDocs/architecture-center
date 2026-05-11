@@ -58,7 +58,7 @@ This diagram shows how you can migrate the legacy architecture to Azure by using
 
 - [AKS](/azure/well-architected/service-guides/azure-kubernetes-service) is a fully managed Kubernetes service for deploying and managing containerized applications. AKS provides serverless Kubernetes, integrated continuous integration and continuous delivery (CI/CD), and enterprise-grade security and governance. In this scenario, Adabas & Natural containers are deployed in AKS.
 
-- [Azure Managed Disks](/azure/virtual-machines/managed-disks-overview) are block-level storage volumes that Azure manages and you use with Azure Virtual Machines (VMs). Various types are available: Ultra Disks, Premium SSDs, Standard SSDs, and Standard HDDs. SSD disks are used in this architecture. In this scenario, all operating system volumes are stored in Azure Managed Disks.
+- [Azure managed disks](/azure/virtual-machines/managed-disks-overview) are block-level storage volumes that Azure manages and you use with Azure Virtual Machines (VMs). Various types are available: Ultra Disks, Premium SSDs, Standard SSDs, and Standard HDDs. SSD disks are used in this architecture. In this scenario, all operating system volumes are stored in Azure managed disks.
 
 - [Azure NetApp Files](/azure/well-architected/service-guides/azure-netapp-files) provides enterprise-grade Azure file shares powered by NetApp. Azure NetApp Files makes it easy to migrate and run complex, file-based applications without changing code. In this scenario, all persistent data, like database files, protection logs, application data, and backup files, use Azure NetApp Files.
 

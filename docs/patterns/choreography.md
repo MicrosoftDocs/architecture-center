@@ -52,7 +52,7 @@ Consider the following points as you decide how to implement this pattern:
 
 - Handling failures can be challenging. Components in an application might manage atomic tasks and depend on other parts of the system. Failure in one component can affect other components, which might cause delays in completing the overall request.
 
-   To handle failures gracefully, you implement failure-handling logic, which introduces complexity. Failure-handling logic, such as [compensating transactions](./compensating-transaction.yml), is also prone to failures.
+   To handle failures gracefully, you implement failure-handling logic, which introduces complexity. Failure-handling logic, such as [compensating transactions](./compensating-transaction.md), is also prone to failures.
 
     :::image type="complex" source="./_images/choreography-pattern-handling-errors.png" border="false" lightbox="./_images/choreography-pattern-handling-errors.png" alt-text="A flowchart that shows how the choreography pattern handles error.":::
         The flowchart shows error-handling and compensation logic in a choreography pattern that has sequential service dependencies. At the top, a start node points to service A. Service A connects to a diamond that points to service B on the left and service C on the right. Arrows point from each of these services to a decision diamond that asks whether the request fails. The path labeled yes branches upward in a loop back to the diamond that connects all three services. The path labeled no continues to a box that reads both services succeeded. From this success state, the flow continues downward to service D, which connects to a final decision diamond that asks whether the request fails. The yes path from this diamond loops back upward to reenter the flow before service D, and the no path continues downward to an end node.
@@ -165,4 +165,4 @@ Consider these patterns in your design for choreography:
 
 - Use asynchronous distributed messaging through the [Publisher-Subscriber pattern](./publisher-subscriber.md).
 
-- Use [compensating transactions](./compensating-transaction.yml) to undo a series of successful operations if one or more related operations fail.
+- Use [compensating transactions](./compensating-transaction.md) to undo a series of successful operations if one or more related operations fail.

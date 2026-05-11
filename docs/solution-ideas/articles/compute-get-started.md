@@ -57,7 +57,6 @@ The following production-ready architectures demonstrate comprehensive compute s
 
 - [AIX UNIX to Azure Linux migration](../../example-scenario/unix-migration/migrate-aix-azure-linux.yml): Migrate IBM AIX workloads to Azure Linux.
 - [General mainframe refactor to Azure](../../example-scenario/mainframe/general-mainframe-refactor.yml): Modernize mainframe applications by using Azure services.
-- [Solaris emulator on Azure virtual machines](./solaris-azure.yml): Emulate legacy Sun SPARC systems on Azure virtual machines.
 
 ### SAP
 
@@ -103,7 +102,7 @@ The following resources provide foundational knowledge for compute implementatio
 
 ## Organizational readiness
 
-Organizations that start their cloud adoption can use the [Cloud Adoption Framework for Azure](/azure/cloud-adoption-framework/) to access proven guidance that accelerates cloud adoption. For cloud-scale compute guidance, see [Cloud-scale analytics](/azure/cloud-adoption-framework/scenarios/cloud-scale-analytics).
+Organizations that start their cloud adoption can use the [Cloud Adoption Framework for Azure](/azure/cloud-adoption-framework/) to access proven guidance that accelerates cloud adoption.
 
 To help ensure the quality of your compute solution on Azure, follow the [Azure Well-Architected Framework](/azure/well-architected/). The Well-Architected Framework provides prescriptive guidance for organizations that seek architectural excellence and describes how to design, provision, and monitor cost-optimized Azure solutions.
 

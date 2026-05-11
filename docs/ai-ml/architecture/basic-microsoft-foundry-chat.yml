@@ -18,7 +18,7 @@ products:
   - azure-monitor
   - microsoft-foundry
   - foundry-agent-service
-  - azure-ai-foundry-sdk
+  - foundry-sdk
 name: Basic Microsoft Foundry chat reference architecture
 summary: Establish foundational knowledge for how to build and deploy enterprise chat applications by using Microsoft Foundry and Azure App Service.
 thumbnailUrl: /azure/architecture/browse/thumbs/openai-end-to-end-basic.png

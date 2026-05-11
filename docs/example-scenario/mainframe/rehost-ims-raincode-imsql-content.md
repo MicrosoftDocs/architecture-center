@@ -6,9 +6,9 @@ This architecture describes how to implement an Information Management System (I
    The diagram shows the architecture of an IMS DB/DC workload before migration to Azure. The flow begins with an on-premises user accessing communication protocols like HTTPS via a TN3270 terminal or a web interface. A double-sided arrow connects the communication protocols to transaction managers like IMS DC. A box that's labeled front end contains online programs. A double-sided arrow that's labeled DL/I connects the front end to another box that's labeled back end. This box contains IMS data and is connected to the IMS DB data layer. Another double-sided arrow that's labeled DL/I connects the data layer to a box that contains batch jobs. A box that's labeled other services contains services like security and reporting. These services interact with all the parts of the diagram. 
 :::image-end:::   
 
-### Dataflow
+### Data flow
 
-The following dataflow corresponds to the previous diagram:
+The following data flow corresponds to the previous diagram:
 
 1. Users connect to the mainframe over Transmission Control Protocol or Internet Protocol by using standard mainframe protocols like TN3270 and HTTPS.
 1. Transaction managers interact with users and invoke the application to satisfy user requests.
@@ -39,7 +39,7 @@ The following workflow corresponds to the previous diagram:
 
 1. IMSql processing server
 
-   The processing server runs the Raincode-recompiled code for the IMS programs in .NET Framework or .NET Core. It contains the underlying infrastructure that lets the recompiled programs run effectively with the correct functional equivalence. The IMSql processing server can generate dynamic queries and call stored procedures in SQL Server that are created during the recompilation of Data Language/One (DL/I) calls.
+   The processing server runs the Raincode-recompiled code for the IMS programs in .NET Framework or .NET. It contains the underlying infrastructure that lets the recompiled programs run effectively with the correct functional equivalence. The IMSql processing server can generate dynamic queries and call stored procedures in SQL Server that are created during the recompilation of Data Language/One (DL/I) calls.
 
 1. SQL Server as a hierarchical data store
 
@@ -51,7 +51,7 @@ The following workflow corresponds to the previous diagram:
 
 1. Raincode JCL
 
-   Raincode job control language (JCL) is an interpreter that's compatible with z/OS JCL. The Raincode JCL interpreter makes the transition from the intricate business logic embedded in JCL to the Azure and .NET Core platforms as smooth as possible. Raincode JCL is designed to run code compiled by the Raincode COBOL, Programming Language One (PL/I), and ASM370 compilers. It can easily run steps written in most languages. You can configure and fine-tune it by implementing user-written code, so you can adapt it to your own needs for batch scheduling.
+   Raincode job control language (JCL) is an interpreter that's compatible with z/OS JCL. The Raincode JCL interpreter makes the transition from the intricate business logic embedded in JCL to the Azure and .NET platforms as smooth as possible. Raincode JCL is designed to run code compiled by the Raincode COBOL, Programming Language One (PL/I), and ASM370 compilers. It can easily run steps written in most languages. You can configure and fine-tune it by implementing user-written code, so you can adapt it to your own needs for batch scheduling.
 
 1. IMSql data view
 
@@ -83,9 +83,9 @@ The following workflow corresponds to the previous diagram:
 
 - This migration addresses a one-time data load from IMS DB. It doesn't address coexistence and associated data synchronization.  
 
-### Dataflow for migration
+### Data flow for migration
 
-The following dataflow corresponds to the previous diagram:
+The following data flow corresponds to the previous diagram:
 
 1. The mainframe nonrelational data store (IMS DB) has two components: the DBD and the actual segment data.
 
@@ -127,7 +127,7 @@ IMS segment data files are imported into zBridge with a matching COBOL copybook 
 
 - [Microsoft Entra ID](/entra/fundamentals/whatis) is a cloud-based enterprise identity and access management service. In this architecture, Microsoft Entra ID provides single sign-on and multifactor authentication to help users sign in and access resources while helping to protect against cybersecurity attacks.
 
-- [SQL Managed Instance](/azure/well-architected/service-guides/azure-sql-managed-instance/reliability) is part of the Azure SQL service portfolio and a managed, more secure, up-to-date SQL instance in the cloud. In this architecture, SQL Managed Instance provides the relational database platform for storing the converted hierarchical IMS DB data structures with high availability and integration with Azure services.
+- [SQL Managed Instance](/azure/well-architected/service-guides/azure-sql-managed-instance) is part of the Azure SQL service portfolio and a managed, more secure, up-to-date SQL instance in the cloud. In this architecture, SQL Managed Instance provides the relational database platform for storing the converted hierarchical IMS DB data structures with high availability and integration with Azure services.
 
 ### Alternatives
 
@@ -237,12 +237,6 @@ Principal authors:
 For more information, contact [Azure Data Engineering - Mainframe Modernization](mailto:mainframedatamod@microsoft.com).
 
 ## Related resources
-
-See the companion architecture:
-
-- [Rehost IMS workloads to VMs by using IMSql](imsql-rehost-ims.yml)
-
-More related resources: 
 
 - [General mainframe refactor to Azure](general-mainframe-refactor.yml)
 - [Re-engineer mainframe batch applications on Azure](../../example-scenario/mainframe/reengineer-mainframe-batch-apps-azure.yml)

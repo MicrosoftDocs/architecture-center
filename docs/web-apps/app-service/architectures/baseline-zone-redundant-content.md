@@ -69,7 +69,7 @@ The following steps describe the outbound flow from App Service to Azure PaaS se
 
 1. The virtual network routes the request to the service through the private endpoint.
 
-Outbound traffic that doesn't go to Azure PaaS services leaves through a public IP address that multiple customers share. For example, a web app might call a public API during an HTTP request. To control this type of egress traffic, route it through a network device like Azure Firewall. For more information, see [Control outbound traffic by using Azure Firewall](/azure/app-service/network-secure-outbound-traffic-azure-firewall).
+Outbound traffic that doesn't go to Azure PaaS services leaves through a public IP address that multiple customers share. For example, a web app might call a public API during an HTTP request. To control this type of egress traffic, route it through a network device like Azure Firewall. The firewall applies source network address translation (SNAT), so flows are sourced from the firewall's public IP addresses rather than the shared App Service outbound pool, which gives you a stable egress identity that downstream partners can allowlist. For more information, see [Control outbound traffic by using Azure Firewall](/azure/app-service/network-secure-outbound-traffic-azure-firewall).
 
 ### Application Gateway implementation
 
@@ -262,7 +262,7 @@ The App Service baseline architecture configures authentication and authorizatio
 
   Replace `<application-gateway-endpoint>` with either the public IP address or custom domain name of your application gateway. Replace `<provider>` with your authentication provider, like `aad` for Microsoft Entra ID.
   
-  For setup instructions, see [Azure Front Door considerations](/azure/app-service/overview-authentication-authorization#considerations-for-using-azure-front-door) or [Set up Application Gateway](https://techcommunity.microsoft.com/blog/appsonazureblog/setting-up-application-gateway-with-an-app-service-that-uses-azure-active-direct/392490).
+  For setup instructions, see [Azure Front Door considerations](/azure/app-service/overview-authentication-authorization#considerations-for-using-azure-front-door) or [Application Gateway integration with App Service](/azure/app-service/overview-app-gateway-integration#authentication-easy-auth).
 
 ##### Workload identities
 

@@ -195,7 +195,7 @@ Other contributor:
 - [Build an extract, transform, and load (ETL) pipeline by using change data capture][Build an ETL pipeline using change data capture]
 - [Create an end-to-end pipeline by using Data Factory](/fabric/data-factory/tutorial-end-to-end-pipeline)
 - [Use Direct Lake for high‑performance analytics on OneLake data][Direct Lake]
-- [Understand supported Databricks and Fabric integration patterns](https://techcommunity.microsoft.com/blog/analyticsonazure/approaches-to-integrating-azure-databricks-with-microsoft-fabric-the-better-toge/4453643)
+- [Integrate OneLake with Azure Databricks](/fabric/onelake/onelake-azure-databricks)
 
 ## Related resources
 

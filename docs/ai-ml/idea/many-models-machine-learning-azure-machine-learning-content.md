@@ -8,9 +8,9 @@ This article describes an architecture for many models that uses Azure Machine L
 
 *Download a [Visio file](https://arch-center.azureedge.net/many-models-machine-learning-azure.vsdx) of this architecture.*
 
-### Dataflow
+### Data flow
 
-The following dataflow corresponds to the previous diagram:
+The following data flow corresponds to the previous diagram:
 
 1. **Data ingestion:**
 
@@ -82,7 +82,7 @@ The following dataflow corresponds to the previous diagram:
 
 - [Azure DevOps](/azure/devops/user-guide/what-is-azure-devops) is a set of developer services that provide comprehensive application and infrastructure lifecycle management. It includes tools for continuous integration and continuous delivery (CI/CD) pipelines, work tracking, source control, build pipelines, package management, and testing solutions. In this architecture, Azure DevOps is used to manage CI/CD pipelines for automating model promotion, testing, and deployment to production environments.
 
-- [Azure SQL Database](/azure/well-architected/service-guides/azure-sql-database-well-architected-framework) is a fully managed relational cloud database. In this architecture, SQL Database is used to store structured data that might be queried or analyzed as part of the data pipeline.
+- [Azure SQL Database](/azure/well-architected/service-guides/azure-sql-database) is a fully managed relational cloud database. In this architecture, SQL Database is used to store structured data that might be queried or analyzed as part of the data pipeline.
 
 - [Azure Stream Analytics](/azure/stream-analytics/stream-analytics-introduction) is a real-time analytics and complex event-processing service designed to analyze and process high volumes of fast streaming data. In this architecture, Stream Analytics can be used for real-time data processing.
 

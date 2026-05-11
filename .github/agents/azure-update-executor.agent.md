@@ -1,6 +1,6 @@
 ---
 name: azure-update-executor
-tools: [vscode/askQuestions, read/problems, read/readFile, agent, ms-docs-mcp/microsoft_docs_fetch, ms-docs-mcp/microsoft_docs_search, edit/editFiles, search, web, todo]
+tools: [vscode/askQuestions, read/problems, read/readFile, agent, edit/createFile, edit/editFiles, search, web, 'microsoft-learn-mcp-server/*', 'agency:-msft-learn/*', todo, ms-vscode.vscode-websearchforcopilot/websearch]
 description: Maps Azure update report findings to affected articles in the codebase and applies content updates
 argument-hint: Provide the path to azure-updates-report.md
 ---

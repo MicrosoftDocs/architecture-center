@@ -414,7 +414,7 @@
 		</g>
 		<g id="shape110-30" v:mID="110" v:groupContext="shape" transform="translate(152.293,-170.417)">
 			<title>Sheet.110</title>
-			<desc>Azure Databse for PostgresSQL flexible server</desc>
+			<desc>Azure Databse for PostgresSQL</desc>
 			<v:userDefs>
 				<v:ud v:nameU="visNavOrder" v:prompt="" v:val="VT0(10000):26"/>
 			</v:userDefs>
@@ -422,7 +422,7 @@
 			<v:textRect cx="33.5037" cy="716.692" width="67.01" height="21.8659"/>
 			<rect x="0" y="705.759" width="67.0073" height="21.8659" class="st4"/>
 			<text x="7.9" y="709.49" class="st11" v:langID="1033"><v:paragraph v:horizAlign="1"/><v:tabList/>Azure Databse <tspan
-						x="5.23" dy="1.2em" class="st6">for PostgresSQL </tspan><tspan x="9.3" dy="1.2em" class="st6">flexible server</tspan></text>		</g>
+						x="5.23" dy="1.2em" class="st6">for PostgresSQL </tspan></text>		</g>
 		<g id="shape11-35" v:mID="11" v:groupContext="shape" transform="translate(311.924,-239.922)">
 			<title>Sheet.11</title>
 			<desc>Copilot in Fabric</desc>

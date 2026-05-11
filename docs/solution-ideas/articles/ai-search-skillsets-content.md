@@ -10,9 +10,11 @@ This article describes how to use image processing, natural language processing,
 
 *Download a [Visio file](https://arch-center.azureedge.net/ai-search-skillsets.vsdx) of this architecture.*
 
-### Dataflow
+### Data flow
 
-The following dataflow corresponds to the previous diagram. The dataflow describes how the unstructured JFK Files dataset passes through the AI Search skills pipeline to produce structured and indexable data.
+The data flow describes how the unstructured JFK Files dataset passes through the AI Search skills pipeline to produce structured and indexable data.
+
+The following data flow corresponds to the previous diagram:
 
 1. Unstructured data in Azure Blob Storage, such as documents and images, is ingested into AI Search.
 

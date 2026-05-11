@@ -23,7 +23,7 @@ OLAP systems traditionally use multidimensional data cubes to organize data in a
 This diagram shows a flow from the client applications, to the OLTP system, to the OLAP system, and finally to analytics and reporting. The client applications contain web apps, API apps, and logic apps. The OLTP system contains SQL Database, SQL Server on VMs, Azure Database for MySQL, and Azure Database for PostgreSQL. The OLAP system contains Azure Analysis Services. Analytics and reporting contains Power BI and SQL Server reporting services. Orchestration runs along the bottom of the OLTP system and the OLAP system. It contains SQL Server Integration Services and Azure Data Factory.
 :::image-end:::
 
-As technology progresses and both data and computation scales increase, OLAP systems transition to massively parallel processing (MPP) architectures that [Microsoft Fabric](/fabric/get-started/microsoft-fabric-overview) supports. For more information, see [Fabric analytical data store](https://techcommunity.microsoft.com/blog/analyticsonazure/decision-guide-for-selecting-an-analytical-data-store-in-microsoft-fabric/4362079).
+As technology progresses and both data and computation scales increase, OLAP systems transition to massively parallel processing (MPP) architectures that [Microsoft Fabric](/fabric/get-started/microsoft-fabric-overview) supports. For more information, see [Choose an analytical data store in Microsoft Fabric](../technology-choices/fabric-analytical-data-stores.md).
 
 The following diagram shows a modern OLAP system architecture.
 
@@ -180,7 +180,7 @@ The following tables summarize the key differences in capabilities between these
 
 ## Next steps
 
-- [Fabric analytical data store](https://techcommunity.microsoft.com/blog/analyticsonazure/decision-guide-for-selecting-an-analytical-data-store-in-microsoft-fabric/4362079)
+- [Choose an analytical data store in Microsoft Fabric](../technology-choices/fabric-analytical-data-stores.md)
 - [Columnstore indexes](/sql/relational-databases/indexes/columnstore-indexes-overview)
 - [Create an Analysis Services server](/azure/analysis-services/analysis-services-create-server)
 - [What is Azure Data Factory?](/azure/data-factory/introduction)

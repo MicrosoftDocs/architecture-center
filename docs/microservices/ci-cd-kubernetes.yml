@@ -9,7 +9,6 @@ metadata:
   ms.subservice: architecture-guide
   ms.custom:
     - arb-containers
-    - arb-devops
 azureCategories:
   - containers
 products:

@@ -26,7 +26,7 @@ The following workflow corresponds to the previous diagram:
 
 ### Components
 
-- [SQL Managed Instance](/azure/well-architected/service-guides/azure-sql-managed-instance/reliability) is a platform-as-a-service (PaaS) offering that's almost completely compatible with the latest SQL Server Enterprise Edition database engine. It provides a native virtual network implementation that improves security and provides a beneficial business model for existing SQL Server customers. You can use SQL Managed Instance to migrate your on-premises applications to the cloud with minimal modifications to applications and databases.
+- [SQL Managed Instance](/azure/well-architected/service-guides/azure-sql-managed-instance) is a platform-as-a-service (PaaS) offering that's almost completely compatible with the latest SQL Server Enterprise Edition database engine. It provides a native virtual network implementation that improves security and provides a beneficial business model for existing SQL Server customers. You can use SQL Managed Instance to migrate your on-premises applications to the cloud with minimal modifications to applications and databases.
 
   SQL Managed Instance also provides comprehensive PaaS capabilities, including automatic patching and version updates, automated backups, and high availability. These features significantly reduce management overhead and total cost of ownership. In this architecture, SQL Managed Instance is the database that uses the TDE protector keys.
 
@@ -66,14 +66,12 @@ Principal authors:
 
 ## Next steps
 
-- [A comprehensive guide to Managed HSM for regulated industries](https://techcommunity.microsoft.com/t5/azure-infrastructure-blog/a-comprehensive-guide-to-azure-managed-hsm-for-regulated/ba-p/4100749)
-- [Local role-based access control built-in roles for Managed HSM](/azure/key-vault/managed-hsm/built-in-roles)
+- [Control your data in the cloud by using Managed HSM](/azure/key-vault/managed-hsm/mhsm-control-data)
 - [Enable multiregion replication on Managed HSM](/azure/key-vault/managed-hsm/multi-region-replication)
 - [Configure Managed HSM with private endpoints](/azure/key-vault/managed-hsm/private-link)
 - [Managed HSM recovery overview](/azure/key-vault/managed-hsm/recovery)
 - [Key sovereignty, availability, performance, and scalability in Managed HSM](/azure/key-vault/managed-hsm/managed-hsm-technical-details)
 - [Best practices for securing Managed HSM](/azure/key-vault/managed-hsm/best-practices)
 - [Key Vault security overview](/azure/key-vault/general/security-features)
-- [About Key Vault keys](/azure/key-vault/keys/about-keys)
 - [Generate and transfer HSM-protected keys](/azure/key-vault/keys/hsm-protected-keys-byok)
 - [Key Vault availability and redundancy](/azure/key-vault/general/disaster-recovery-guidance)

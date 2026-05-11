@@ -5,6 +5,7 @@ author: anaharris-ms
 ms.author: anaharris
 ms.date: 03/05/2026
 ms.topic: concept-article
+ms.custom: arb-data
 ms.subservice: architecture-guide
 ai-usage: ai-assisted
 ---
@@ -106,7 +107,7 @@ The following production-ready architectures demonstrate end-to-end database sol
 
 **Big data**
 
-- [Microsoft Fabric deployment patterns](../analytics/architecture/fabric-deployment-patterns.yml)
+- [Microsoft Fabric deployment patterns](../data-guide/technology-choices/fabric-deployment-patterns.md)
 
 ### Database solution ideas
 
@@ -144,7 +145,7 @@ For more role-based training, [browse other learning paths](/training/browse/?re
 
 ## Organizational readiness
 
-Organizations that are beginning their cloud adoption can use the [Cloud Adoption Framework for Azure](/azure/cloud-adoption-framework/) for proven guidance designed to accelerate cloud adoption. For cloud-scale analytics and data management guidance, see [Cloud-scale analytics](/azure/cloud-adoption-framework/scenarios/cloud-scale-analytics).
+Organizations that are beginning their cloud adoption can use the [Cloud Adoption Framework for Azure](/azure/cloud-adoption-framework/) for proven guidance designed to accelerate cloud adoption. For guidance on creating an executive strategy for a unified data platform, see [Executive strategy for unifying your data](/azure/cloud-adoption-framework/data/executive-strategy-unify-data-platform).
 
 To help ensure the quality of your database solution on Azure, follow the [Azure Well-Architected Framework](/azure/well-architected/). The Well-Architected Framework provides prescriptive guidance for organizations that seek architectural excellence and describes how to design, provision, and monitor cost-optimized Azure solutions.
 
@@ -224,9 +225,3 @@ Principal authors:
 - [Mohit Agarwal](https://www.linkedin.com/in/mohitagarwal01/) | Principal Cloud Solution Architect
 
 *To see nonpublic LinkedIn profiles, sign in to LinkedIn.*
-
-## Related resources
-
-- [Adatum Corporation scenario for cloud-scale analytics in Azure](/azure/cloud-adoption-framework/scenarios/cloud-scale-analytics/architectures/reference-architecture-adatum)
-- [Lamna Healthcare scenario for data management and analytics in Azure](/azure/cloud-adoption-framework/scenarios/cloud-scale-analytics/architectures/reference-architecture-lamna)
-- [Relecloud scenario for data management and analytics in Azure](/azure/cloud-adoption-framework/scenarios/cloud-scale-analytics/architectures/reference-architecture-multizone)

@@ -4057,12 +4057,12 @@
 							x="16.26" dy="1.2em" class="st27">security </tspan><tspan x="19.46" dy="1.2em" class="st27">group</tspan></text>			</g>
 			<g id="shape1583-693" v:mID="1583" v:groupContext="shape" transform="translate(65.8492,-55.781)">
 				<title>Sheet.1583</title>
-				<desc>Azure Database for PostgreSQL flexible server</desc>
+				<desc>Azure Database for PostgreSQL</desc>
 				<v:textBlock v:margins="rect(4,4,4,4)"/>
 				<v:textRect cx="53.0692" cy="712.95" width="106.14" height="32.1"/>
 				<rect x="0" y="696.9" width="106.138" height="32.1" class="st25"/>
 				<text x="6.71" y="703.05" class="st26" v:langID="1033"><v:paragraph v:horizAlign="1"/><v:tabList/>Azure Database for <tspan
-							x="6.15" dy="1.2em" class="st27">PostgreSQL flexible </tspan><tspan x="38.52" dy="1.2em" class="st27">server</tspan></text>			</g>
+							x="6.15" dy="1.2em" class="st27">PostgreSQL</tspan></text>			</g>
 		</g>
 		<g id="shape1585-698" v:mID="1585" v:groupContext="shape" v:layerMember="0" transform="translate(727.364,1155) rotate(180)">
 			<title>Directed line 1.1585</title>

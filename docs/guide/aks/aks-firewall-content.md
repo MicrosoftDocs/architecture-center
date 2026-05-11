@@ -37,7 +37,7 @@ An Azure Bastion host provides improved-security SSH connectivity to the jump bo
 
 AKS doesn't provide a built-in solution for securing ingress and egress traffic between the cluster and external networks.
 
-For this reason, the architecture presented in this article includes an [Azure Firewall](/azure/firewall/overview) that controls inbound and outbound traffic by using [destination network address translation (DNAT) rules, network rules, and application rules](/azure/firewall/rule-processing). The firewall also protects workloads by using [threat intelligence-based filtering](/azure/firewall/threat-intel). The Azure Firewall and Bastion are deployed to a hub virtual network that is peered with the virtual network hosting the private AKS cluster. A route table and user-defined routes direct outbound traffic from the AKS cluster to the Azure Firewall.
+For this reason, the architecture presented in this article includes an [Azure Firewall](/azure/firewall/overview) that controls inbound traffic with [destination network address translation (DNAT) rules and outbound traffic with network and application rules](/azure/firewall/rule-processing). The firewall applies source network address translation (SNAT) to outbound flows from the cluster, replacing the pod IP with one of the firewall's public IP addresses, which becomes the cluster's egress identity for partner allowlisting. The firewall also protects workloads by using [threat intelligence-based filtering](/azure/firewall/threat-intel). The Azure Firewall and Bastion are deployed to a hub virtual network that is peered with the virtual network hosting the private AKS cluster. A route table and user-defined routes direct outbound traffic from the AKS cluster to the Azure Firewall.
 
 > [!NOTE]
 >
@@ -58,7 +58,7 @@ A Log Analytics workspace is used to collect the diagnostics logs and metrics fr
 
 ### Components
 
-- [Azure Firewall](/azure/well-architected/service-guides/azure-firewall) is a cloud-native, intelligent network firewall security service that provides threat protection for cloud workloads that run in Azure. In this architecture, Azure Firewall provides both east-west and north-south traffic inspection. It controls inbound and outbound traffic by using DNAT rules, network rules, and application rules and protects workloads by using threat intelligence-based filtering in the hub virtual network.
+- [Azure Firewall](/azure/well-architected/service-guides/azure-firewall) is a cloud-native, intelligent network firewall security service that provides threat protection for cloud workloads that run in Azure. In this architecture, Azure Firewall provides both east-west and north-south traffic inspection. It uses DNAT rules to publish inbound flows to private workloads, network and application rules to filter outbound flows, and SNAT to translate egress traffic to its public IPs. It also protects workloads by using threat intelligence-based filtering in the hub virtual network.
 
 - [Container Registry](/azure/container-registry/container-registry-intro) is a managed, private Docker registry service that's based on the open-source Docker Registry 2.0. In this architecture, Container Registry is used to build, store, and manage container images and artifacts like Helm charts that are deployed to the AKS cluster, with support for geo-replication for disaster recovery scenarios.
 
@@ -74,7 +74,7 @@ A Log Analytics workspace is used to collect the diagnostics logs and metrics fr
 
 - [Virtual network interfaces](/azure/virtual-network/virtual-network-network-interface) are networking components that enable Azure VMs to communicate with the internet, Azure, and on-premises resources. In this architecture, network interfaces provide connectivity for the jump box VM and AKS nodes. You can add several network interface cards to one Azure VM, so that child VMs can have their own dedicated network interface devices and IP addresses.
 
-- [Azure Managed Disks](/azure/virtual-machines/windows/managed-disks-overview) are block-level storage volumes that Azure manages on Azure VMs. Ultra Disks, Premium SSDs, Standard SSDs, and Standard HDDs are available. In this architecture, managed disks provide persistent storage for the jump box VM and AKS cluster nodes.
+- [Azure managed disks](/azure/virtual-machines/windows/managed-disks-overview) are block-level storage volumes that Azure manages on Azure VMs. Ultra Disks, Premium SSDs, Standard SSDs, and Standard HDDs are available. In this architecture, managed disks provide persistent storage for the jump box VM and AKS cluster nodes.
 
 - [Blob Storage](/azure/well-architected/service-guides/azure-blob-storage) is an object storage solution for the cloud. Blob Storage is optimized for storing massive amounts of unstructured data. In this architecture, Blob Storage stores the boot diagnostics logs of the jump box VM.
 

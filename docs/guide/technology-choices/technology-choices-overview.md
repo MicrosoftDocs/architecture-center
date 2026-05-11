@@ -20,7 +20,6 @@ The term *compute* refers to the hosting model for the computing resources that 
 | :------ | :------ |
 | [Choose an Azure compute service](compute-decision-tree.md) | Decide which compute service best suits your application. |
 | [Choose an Azure compute option for microservices](../../microservices/design/compute-options.md) | Learn about two compute options for microservices: service orchestrator and serverless architecture. |
-| [Compare Java application hosting options on Azure](service-for-java-comparison.yml) | Explore recommended strategies for hosting Java applications on Azure, including platform types and supportability. |
 | [Choose between traditional web apps and single-page applications (SPAs)](/dotnet/architecture/modern-web-apps-azure/choose-between-traditional-web-and-single-page-apps) | Learn how to choose between traditional web apps and SPAs. |
 
 ## Choose a container option
@@ -60,7 +59,7 @@ Azure provides multiple storage services for different access patterns, performa
 | Article | Summary |
 | :------ | :------ |
 | [Review your storage options](/azure/architecture/guide/technology-choices/storage-options) | Review the storage options for Azure workloads. |
-| [Learn about Azure Managed Disk types](/azure/virtual-machines/disks-types) | Learn about the disk types for Azure virtual machines (VMs), including Azure Ultra Disk Storage, Azure Premium SSD v2, Premium SSD, and Azure Standard SSD. |
+| [Learn about Azure managed disk types](/azure/virtual-machines/disks-types) | Learn about the disk types for Azure virtual machines (VMs), including Azure Ultra Disk Storage, Azure Premium SSD v2, Premium SSD, and Azure Standard SSD. |
 | [Choose a data transfer technology](../../data-guide/scenarios/data-transfer.md) | Learn about Azure data transfer options like the Azure Import/Export service, Azure Data Box, Azure Data Factory, and command-line and graphical interface tools. |
 
 ## Choose a data store
@@ -136,6 +135,15 @@ Internet of Things (IoT) solutions use a combination of technologies to connect 
 | :------ | :------ |
 | [Learn about Azure IoT services and technologies](/azure/iot/iot-services-and-technologies) | Learn about Azure IoT services and technologies, including Azure IoT Hub, Azure IoT Operations, Azure IoT Edge, and Azure IoT Central. Choose between cloud-based and edge-based solution types. |
 | [Compare IoT Hub and Event Hubs](/azure/iot-hub/iot-hub-compare-event-hubs) | Review a comparison between Azure IoT Hub and Event Hubs that highlights functional differences and use cases. The comparison includes supported protocols, device management, monitoring, and file uploads. |
+
+## Map services from other cloud providers to Azure
+
+If you're [migrating](/azure/migration) from another cloud provider or designing a multicloud solution, these articles map Amazon Web Services (AWS) and Google Cloud services to functionally similar Azure services.
+
+| Article | Summary |
+| :------ | :------ |
+| [Azure for AWS professionals](../../aws-professional/index.md) | Map AWS services to their Azure equivalents across category-specific articles that cover compute, storage, databases, networking, and more. |
+| [Azure for Google Cloud professionals](../../gcp-professional/index.md) | Look up Azure equivalents for Google Cloud services organized by technology category. |
 
 ## Next step
 

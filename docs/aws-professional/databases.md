@@ -89,7 +89,7 @@ Other contributor:
 
 ### Additional resources
 
-- [Cloud-scale analytics](/azure/cloud-adoption-framework/scenarios/cloud-scale-analytics/)
+- [Executive strategy for unifying your data](/azure/cloud-adoption-framework/data/executive-strategy-unify-data-platform)
 
 - [Big data architecture style](../guide/architecture-styles/big-data.md)
 

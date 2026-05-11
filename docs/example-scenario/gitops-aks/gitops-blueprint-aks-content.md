@@ -266,5 +266,5 @@ Principal author:
 
 - [Baseline architecture for an AKS cluster](../../reference-architectures/containers/aks/baseline-aks.yml)
 - [AKS baseline for multiregion clusters](../../reference-architectures/containers/aks-multi-region/aks-multi-cluster.yml)
-- [DevSecOps on AKS](../../guide/devsecops/devsecops-on-aks.yml)
+- [DevSecOps on AKS](../../guide/devsecops/devsecops-on-aks.md)
 - [DevSecOps for IaC](../../solution-ideas/articles/devsecops-infrastructure-as-code.yml)

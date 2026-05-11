@@ -261,7 +261,7 @@ The Machine Learning natural language processing architecture is based on the cl
 
 - [Microsoft Fabric](/fabric/fundamentals/) is a unified platform that can meet your organization's data and analytics needs. In this architecture, Fabric facilitates end-to-end data integration, preparation, and analytics to support the data estate component of MLOps.
 
-- [Azure Event Hubs](/azure/well-architected/service-guides/event-hubs) is a service that ingests data streams that client applications generate. In this architecture, Event Hubs ingests and stores real-time streaming data to enable data capture and analysis for machine learning pipelines. Customers can connect to the hub endpoints to retrieve messages for processing. This architecture uses Data Lake Storage integration.
+- [Azure Event Hubs](/azure/well-architected/service-guides/azure-event-hubs) is a service that ingests data streams that client applications generate. In this architecture, Event Hubs ingests and stores real-time streaming data to enable data capture and analysis for machine learning pipelines. Customers can connect to the hub endpoints to retrieve messages for processing. This architecture uses Data Lake Storage integration.
 
 ## Other considerations
 
