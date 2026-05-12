@@ -58,7 +58,7 @@ The following workflow describes how traffic flows through the hub-spoke Virtual
 
 1. **Internet egress traffic is inspected and routed:** If the destination is external, such as the internet, Virtual WAN forwards the traffic to the security solution that you set as the next hop for the routing policy that handles internet traffic.
 
-    In **direct access** mode, an internet routing policy steers `0.0.0.0/0` and the security solution forwards inspected traffic to the internet from the hub. In [**forced tunnel** mode](/azure/virtual-wan/about-internet-routing), the private routing policy handles `0.0.0.0/0` and the security solution forwards inspected traffic to an on-premises egress point.
+   In **direct access** mode, an internet routing policy steers `0.0.0.0/0` and the security solution forwards inspected traffic to the internet from the hub. In [**forced tunnel** mode](/azure/virtual-wan/about-internet-routing), the private routing policy handles `0.0.0.0/0` and the security solution forwards inspected traffic to an on-premises egress point.
 
 ### Components
 
