@@ -58,7 +58,7 @@ The following workflow describes how traffic flows through the hub-spoke Virtual
 
 1. **Internet egress traffic is inspected and routed:** If the destination is external, such as the internet, Virtual WAN forwards the traffic to the security solution that you set as the next hop for the routing policy that handles internet traffic.
 
-  In **direct access** mode, an internet routing policy steers `0.0.0.0/0` and the security solution forwards inspected traffic to the internet from the hub. In [**forced tunnel** mode](/azure/virtual-wan/about-internet-routing), the private routing policy handles `0.0.0.0/0` and the security solution forwards inspected traffic to an on-premises egress point.
+    In **direct access** mode, an internet routing policy steers `0.0.0.0/0` and the security solution forwards inspected traffic to the internet from the hub. In [**forced tunnel** mode](/azure/virtual-wan/about-internet-routing), the private routing policy handles `0.0.0.0/0` and the security solution forwards inspected traffic to an on-premises egress point.
 
 ### Components
 
@@ -214,7 +214,7 @@ In Virtual WAN, Microsoft manages virtual network peering. When you add a connec
 
 Routing intent is a declarative routing feature that sends traffic through a security solution deployed in the Virtual WAN hub. A hub has at most two routing policies, and each policy has a single next-hop resource:
 
-- **Private routing policy.** Steers vnet-to-vnet, branch-to-vnet (over ExpressRoute, site-to-site VPN, or point-to-site VPN), and inter-hub traffic to the configured next hop as a single class.
+- **Private routing policy.** Steers VNet-to-VNet, branch-to-VNet (over ExpressRoute, site-to-site VPN, or point-to-site VPN), and inter-hub traffic to the configured next hop as a single class.
 - **Internet routing policy.** Steers `0.0.0.0/0` traffic to the configured next hop, which forwards inspected traffic directly to the internet from the hub. This pattern is called **direct access**.
 
 Each policy accepts one of the following next-hop resources: Azure Firewall, an integrated NGFW NVA, or a SaaS security solution. The two policies can point to different resources in the same hub. For example, you can set the private policy next hop to Azure Firewall and the internet policy next hop to a SaaS security solution. For the current eligibility list, vendor identifiers, and configuration steps, see [How to configure Virtual WAN Hub routing intent and routing policies](/azure/virtual-wan/how-to-routing-policies). For guidance on combining different security products in the same hub, see [Combine security solutions in a single hub](#combine-security-solutions-in-a-single-hub).
