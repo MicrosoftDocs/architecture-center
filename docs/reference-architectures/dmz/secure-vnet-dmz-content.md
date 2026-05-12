@@ -47,7 +47,7 @@ The following recommendations apply for most scenarios. Follow these recommendat
 
 Use [Azure role-based access control (Azure RBAC)][rbac] to manage the resources in your application. Consider creating the following [custom roles][rbac-custom-roles]:
 
-- A DevOps role with permissions to administer the infrastructure for the application, deploy the application components, and monitor and restart VMs.
+- A DevOps role with permissions to administer the infrastructure for the application, deploy the application components, and manage virtual machine scale set operations such as scaling, reimaging, and upgrades.
 
 - A centralized IT administrator role to manage and monitor network resources.
 
