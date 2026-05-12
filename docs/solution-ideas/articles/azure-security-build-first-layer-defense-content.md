@@ -62,117 +62,113 @@ The numbers in the ATT&CK matrix correspond to technique numbers assigned by [MI
 
 - [Microsoft Fabric](/fabric/fundamentals/microsoft-fabric-overview) is a unified SaaS analytics platform that brings together data engineering, data warehousing, real-time analytics, and business intelligence. In this architecture, you can use Fabric for analytics workloads that need governed workspaces, OneLake encryption at rest, item-level role-based access, and centralized activity logging while operational data remains in services like SQL Database.
 
-<!--old contet -->
+- [Network security group (NSG)](/azure/virtual-network/network-security-groups-overview) is a free service that you attach to a network interface or subnet. An NSG allows you to filter TCP or UDP protocol traffic by using IP address ranges and ports for inbound and outbound connections.
 
-This section describes the services shown in the diagram and how they contribute to pre-breach protection. 
-1. **Azure Security Benchmark**
+- [Azure VPN Gateway](/azure/vpn-gateway/vpn-gateway-about-vpngateways) is virtual private network (VPN) gateway that provides a tunnel with IPSEC (IKE v1/v2) protection.
 
-    Each security control refers to one or more specific Azure security services. The architecture reference in this article shows some of them and their control numbers according to the ASB documentation. The controls include:
+- [Azure Firewall](/azure/well-architected/service-guides/azure-firewall) is a platform as a service (PaaS) that provides protection in layer 4 and is attached to an entire virtual network.
 
-    - Network security
-    - Identity management
-    - Privileged access
-    - Data protection
-    - Asset management
-    - Logging and threat detection
-    - Incident response
-    - Posture and vulnerability management
-    - Endpoint security
-    - Backup and recovery
-    - DevOps security
-    - Governance and strategy
+- [Application Gateway](/azure/well-architected/service-guides/azure-application-gateway) is a load balancer for web traffic that works in layer 7 and adds Azure Web Application Firewall to protect applications that use HTTP and HTTPS.
 
-    For more information about security controls, see [Overview of the Azure Security Benchmark (v3)](/security/benchmark/azure/overview).
+- [Network virtual appliance (NVA)](../../networking/guide/network-virtual-appliance-high-availability) is a virtual security service from the marketplace that's provisioned on VMs on Azure.
 
-1. **Network**
+- [Azure DDoS Protection](/azure/ddos-protection/ddos-protection-overview) implements DDoS protection on the virtual network to help you mitigate various types of DDoS attacks.
 
-    The following table describes the network services in the diagram.
-    
-    | Label | Description | Documentation |
-    |---|---|---|
-    | **NSG** | A free service that you attach to a network interface or subnet. An NSG allows you to filter TCP or UDP protocol traffic by using IP address ranges and ports for inbound and outbound connections. | [Network security groups](/azure/virtual-network/network-security-groups-overview) |
-    | **VPN** | A virtual private network (VPN) gateway that delivers a tunnel with IPSEC (IKE v1/v2) protection. | [VPN Gateway](https://azure.microsoft.com/services/vpn-gateway) |
-    | **Azure Firewall** | A platform as a service (PaaS) that delivers protection in layer 4 and is attached to an entire virtual network. | [What is Azure Firewall?](/azure/firewall/overview) |
-    | **App GW + WAF** | Azure Application Gateway with Web Application Firewall (WAF). Application Gateway is a load balancer for web traffic that works in layer 7 and adds WAF to protect applications that use HTTP and HTTPS. | [What is Azure Application Gateway?](/azure/application-gateway/overview)|
-    | **NVA** | Network virtual appliance (NVA). A virtual security service from the marketplace that's provisioned on VMs on Azure. | [Network virtual appliances](https://azure.microsoft.com/solutions/network-appliances) |
-    | **DDOS** | DDoS protection implemented on the virtual network to help you mitigate different types of DDoS attacks. | [Azure DDoS Network Protection overview](/azure/ddos-protection/ddos-protection-overview) |
-    | **TLS/SSL** | TLS/SSL deliver encryption in transit for most Azure services that exchange information, such as Azure Storage and Web Apps. | [Configure end-to-end TLS by using Application Gateway with PowerShell](/azure/application-gateway/application-gateway-end-to-end-ssl-powershell) |
-    | **Private Link** | Service that allows you to create a private network for an Azure service that initially is exposed to the internet. | [What is Azure Private Link?](/azure/private-link/private-link-overview) |
-    | **Private endpoint** | Creates a network interface and attaches it to the Azure service. Private Endpoint is part of Private Link. This configuration lets the service become part of your virtual network through a private endpoint. | [What is a private endpoint?](/azure/private-link/private-endpoint-overview) |
+- [TLS/SSL](/azure/application-gateway/application-gateway-end-to-end-ssl-powershell) provide encryption in transit for most Azure services that exchange information, such as Azure Storage and Web Apps.
 
-1. **Infrastructure and endpoints**
+- [Private Link](/azure/private-link/private-link-overview) enables you to create a private network for an Azure service that's initially exposed to the internet.
 
-    The following table describes infrastructure and endpoint services that are shown in the diagram.
+- [Private endpoints](/azure/private-link/private-endpoint-overview) enable you to create a network interface and attach it to an Azure service. When you use a private endpoint, you bring the service into your virtual network. Private endpoints are provided by Private Link.
 
-    | Label | Description | Documentation |
-    |---|---|---|
-    | **Bastion** | Bastion provides jump server functionality. This service allows you to access your VMs through remote desktop protocol (RDP) or SSH without exposing your VMs to the internet. | [What is Azure Bastion?](/azure/bastion/bastion-overview) |
-    | **Antimalware** | Microsoft Defender provides antimalware service and is part of Windows 10, Windows 11, Windows Server 2016, and Windows Server 2019. | [Microsoft Defender Antivirus in Windows](/microsoft-365/security/defender-endpoint/microsoft-defender-antivirus-windows?view=o365-worldwide) |
-    | **Disk encrypt** | Azure Managed Disks are encrypted at rest by default with server-side encryption (SSE). Encryption at host is an optional enhancement that provides end-to-end encryption for VM data, including temp disks and disk caches, for supported VM sizes. | [Encryption at host](/azure/virtual-machines/disk-encryption#encryption-at-host---end-to-end-encryption-for-your-vm-data) |
-    | **Keyvault** | Key Vault, a service to store keys, secrets, and certificates with FIPS 140-2 Level 2 or 3. | [Azure Key Vault basic concepts](/azure/key-vault/general/basic-concepts) |
-    | **RDP Short** | Azure Virtual Desktop RDP Shortpath. This feature allows remote users to connect to the Virtual Desktop service from a private network. | [Azure Virtual Desktop RDP Shortpath for managed networks](/azure/virtual-desktop/shortpath) |
-    | **Reverse connect** | A built-in security feature from Azure Virtual Desktop. Reverse connect guarantees that remote users receive only pixel streams and don't reach the host VMs. | [Understanding Azure Virtual Desktop network connectivity](/azure/virtual-desktop/network-connectivity) |
+- [Azure Bastion](/azure/bastion/bastion-overview) provides jump server functionality. You can use this service to access your VMs through remote desktop protocol (RDP) or SSH without exposing them to the internet.
 
-1. **Application and data**
+- [Microsoft Defender Antivirus in Windows](/microsoft-365/security/defender-endpoint/microsoft-defender-antivirus-windows) provides antimalware service. It's part of Windows 10, Windows 11, Windows Server 2016, and Windows Server 2019.
 
-    The following table describes application and data services that are shown in the diagram.
+- [Encryption at host](/azure/virtual-machines/disk-encryption#encryption-at-host---end-to-end-encryption-for-your-vm-data) is an optional enhancement to Azure managed disks that provides end-to-end encryption for VM data, including temporary disks and disk caches, for supported VM sizes. Azure managed disks are encrypted at rest by default with server-side encryption (SSE).
 
-    | Label | Description | Documentation |
-    |---|---|---|
-    | **Frontdoor + WAF** | A content delivery network (CDN). Front Door combines multiple points of presence to deliver a better connection for users who access the service and adds WAF. | [What is Azure Front Door?](/azure/frontdoor/front-door-overview) |
-    | **API Management** | A service that delivers security for API calls and manages APIs across environments. | [About API Management](/azure/api-management/api-management-key-concepts) |
-    | **PenTest** | A set of best practices to execute a penetration test in your environment, including Azure resources. | [Penetration testing](/azure/security/fundamentals/pen-testing) |
-    | **Storage SAS token** | A shared access token using expiration policies to allow others to access your Azure storage account. | [Grant limited access to Azure Storage resources using shared access signatures (SAS)](/azure/storage/common/storage-sas-overview) |
-    | **Private endpoint** | Create a network interface and attach it to your storage account to configure it inside a private network on Azure. | [Use private endpoints for Azure Storage](/azure/storage/common/storage-private-endpoints) |
-    | **Storage firewall** | Firewall that allows you to set a range of IP addresses that can access your storage account. | [Configure Azure Storage firewalls and virtual networks](/azure/storage/common/storage-network-security?tabs=azure-portal) |
-    | **Encryption**<br/>(Azure Storage) | Protects your storage account with encryption at rest. | [Azure Storage encryption for data at rest](/azure/storage/common/storage-service-encryption) |
-    | **SQL audit** | Tracks database events and writes them to an audit log in your Azure storage account. For analytics scenarios that use Microsoft Fabric warehouses or lakehouses, use Fabric workspace activity logs and Microsoft Purview (when enabled) to monitor access and classification. | [Auditing for Azure SQL Database](/azure/azure-sql/database/auditing-overview)<br/><br/>[Microsoft Purview overview](/azure/purview/overview) |
-    | **Vulnerability assessment** | Service that helps you discover, track, and remediate potential database vulnerabilities. | [SQL vulnerability assessment helps you identify database vulnerabilities](/azure/azure-sql/database/sql-vulnerability-assessment?tabs=azure-powershell) |
-    | **Encryption**<br/>(Azure SQL) | Transparent data encryption (TDE) encrypts data at rest for Azure SQL Database services. Microsoft Fabric data stored in OneLake is encrypted at rest by default with platform-managed encryption, aligned with Fabric security fundamentals. | [Transparent data encryption for SQL Database and SQL Managed Instance](/azure/azure-sql/database/transparent-data-encryption-tde-overview?tabs=azure-portal)<br/><br/>[Security in Microsoft Fabric](/fabric/security/security-overview) |
+- [Encryption at rest](/azure/storage/common/storage-service-encryption) protects the storage account.  
 
-1. **Identity**
+- [Transparent data encryption (TDE)](/azure/azure-sql/database/transparent-data-encryption-tde-overview) encrypts data at rest for SQL Database services. [Fabric](/fabric/security/security-overview) data stored in OneLake is encrypted at rest by default with platform-managed encryption to align with Fabric security fundamentals.
 
-    The following table describes identity services that are shown in the diagram.
+- [Key Vault](/azure/key-vault/general/overview) is a service for storing keys, secrets, and certificates with FIPS 140-2 Level 2 or 3.
 
-    | Label | Description | Documentation |
-    |---|---|---|
-    | **RBAC** | Azure role-based access control (Azure RBAC) helps you manage access to Azure services by using granular permissions that are based on users' Microsoft Entra credentials. | [What is Azure role-based access control (Azure RBAC)?](/azure/role-based-access-control/overview) |
-    | **MFA** | Multifactor authentication offers additional types of authentication beyond user names and passwords. | [How it works: Microsoft Entra multifactor authentication](/entra/identity/authentication/concept-mfa-howitworks) |
-    | **ID protection** | Identity Protection, a security service from Microsoft Entra ID, analyzes trillions of signals per day to identify and protect users from threats. | [What is Identity Protection?](/entra/id-protection/overview-identity-protection) |
-    | **PIM** | Privileged Identity Management (PIM), a security service from Microsoft Entra ID. It helps you to provide superuser privileges temporarily for Microsoft Entra ID (for example, User Administrator) and Azure subscriptions (for example, Role Based Access Control Administrator or Key Vault Administrator). | [What is Microsoft Entra Privileged Identity Management?](/entra/id-governance/privileged-identity-management/pim-configure) |
-    | **Cond Acc** | Conditional Access is an intelligent security service that uses policies that you define for various conditions to block or grant access to users. | [What is Conditional Access?](/entra/identity/conditional-access/overview) |
+- [Virtual Desktop RDP Shortpath](/azure/virtual-desktop/shortpath) enables remote users to connect to the Virtual Desktop service from a private network.
 
+- [Reverse connect](/azure/virtual-desktop/network-connectivity) is a security feature of Virtual Desktop. Reverse connect guarantees that remote users receive only pixel streams and don't reach host VMs.
+
+- [Azure Front Door](/azure/well-architected/service-guides/azure-front-door) is a content delivery network (CDN). It combines multiple points of presence to deliver a better connection for users who access the service. It also adds Azure Web Application Firewall.
+
+- [API Management](/azure/well-architected/service-guides/azure-api-management) is service that provides security for API calls and manages APIs across environments.
+
+- [Penetration testing](/azure/security/fundamentals/pen-testing) is a set of best practices for running penetration tests in your environment, including Azure resources.
+
+- [Storage SAS token](/azure/storage/common/storage-sas-overview) is a shared access token that allows others to access your Azure storage account by using an expiration policy.
+
+- [SQL auditing](/azure/azure-sql/database/auditing-overview) tracks database events and writes them to an audit log in your Azure storage account. For analytics scenarios that use Fabric warehouses or lakehouses, use Fabric workspace activity logs and [Microsoft Purview](/azure/purview/overview) (when it's enabled) to monitor access and classification.
+
+- [SQL Vulnerability assessment](/azure/azure-sql/database/sql-vulnerability-assessment?tabs=azure-powershell) is a service that helps you discover, track, and remediate potential database vulnerabilities.
+
+- [Azure RBAC](/azure/role-based-access-control/overview) helps you manage access to Azure services by using granular permissions that are based on users' Microsoft Entra credentials.
+
+- [Microsoft Entra multifactor authentication](/entra/identity/authentication/concept-mfa-howitworks) Multifactor authentication provides other types of authentication beyond user names and passwords.
+
+- [Microsoft Entra ID protection](/entra/id-protection/overview-identity-protection) analyzes trillions of signals per day to identify and protect users from threats.
+
+- [Microsoft Entra Privileged Identity Management (PIM)](/entra/id-governance/privileged-identity-management/pim-configure) helps you to provide superuser privileges temporarily for Microsoft Entra ID (for example, User Administrator) and Azure subscriptions (for example, Role Based Access Control Administrator or Key Vault Administrator).
+
+- [Conditional Access](/entra/identity/conditional-access/overview) is an intelligent security service that uses policies that you define for various conditions to block or grant user access.
 
 ## Scenario details
 
-Pre-breach controls are designed to reduce attack surface, eliminate common misconfigurations, and block attackers before an intrusion begins. These controls align closely with Microsoft’s Zero Trust principles, where no resource is implicitly trusted and access is continuously verified.
+Pre-breach controls are designed to reduce attack surface, eliminate common misconfigurations, and block attackers before an intrusion begins. These controls align closely with Microsoft Zero Trust principles, which is based on the philosophy that no resource is implicitly trusted and access is continuously verified.
 
-The goal of this article is to show how foundational Azure security services can be combined to disrupt common ransomware entry points identified in the threat map from Article 1.
+The goal of this article is to show how foundational Azure security services can be combined to disrupt common ransomware entry points identified in the threat map in the first article in this series, [Map threats to your IT environment](./map-threats-it-environment.yml).
 
-As introduced in Article 1, Ransomware attacks rarely start with sophisticated exploits. In most real-world incidents, attackers succeed because of:
-- Exposed services
-- Weak identity controls
-- Excessive privileges
-- Flat networks
-- Unencrypted data paths
+As pointed out in that article, ransomware attacks rarely start with sophisticated exploits. In most real-world incidents, attackers succeed because of:
 
-The controls described in this article are not advanced detection or response tools. Instead, they form the baseline security posture that makes ransomware campaigns significantly harder to execute.
+- Exposed services.
+- Weak identity controls.
+- Excessive privileges.
+- Flat networks.
+- Unencrypted data paths.
 
-When these controls are missing or misconfigured, attackers often succeed before detection tools even have a chance to alert. 
+The controls described in this article aren't advanced detection or response tools. Instead, they form the baseline security posture that makes ransomware campaigns significantly harder to run.
+
+When these controls are missing or misconfigured, attackers often succeed before detection tools even have a chance send alerts.
+
+### Azure Security Benchmark
+
+Each security control in the Azure Security Benchmark refers to one or more specific Azure security services. The architecture reference in this article shows some of them. The controls include:
+
+- Network security.
+- Identity management.
+- Privileged access.
+- Data protection.
+- Asset management.
+- Logging and threat detection.
+- Incident response.
+- Posture and vulnerability management.
+- Endpoint security.
+- Backup and recovery.
+- DevOps security.
+- Governance and strategy.
+
+For more information about security controls, see [Overview of the Azure security controls (v3)](/security/benchmark/azure/overview-v3).
 
 ### Potential use cases
 
 This article organizes Azure security services by resource type so you can directly map them to ransomware techniques identified earlier, such as:
-- Initial access through exposed services
-- Credential theft and brute force attacks
-- Lateral movement across networks
-- Unauthorized access to data stores
+
+- Initial access through exposed services.
+- Credential theft and brute-force attacks.
+- Lateral movement across networks.
+- Unauthorized access to data stores.
   
-The architecture diagram below highlights how these services protect identities, networks, compute, applications, and data before an attacker establishes persistence.
+The architecture diagram at the start of this article highlights how these services protect identities, networks, compute, applications, and data before an attacker establishes persistence.
 
 ## Contributors
 
-*This article is maintained by Microsoft. It was originally written by the following contributors.*
+*  Microsoft maintains this article. The following contributors wrote this article.*
 
 Principal author:
 
@@ -186,14 +182,13 @@ Other contributors:
 
 ## Next steps
 
-In this article, we focused on preventing attacks before they start by applying foundational Azure security controls.
+This article focuses on preventing attacks before they start by applying foundational Azure security controls.
 
-In the next article, we will assume that some attacks will still succeed and focus on:
-Part 3: Detecting and responding to threats using Microsoft Defender XDR
-This next layer introduces:
-- Advanced threat detection
-- Behavioral analytics
-- Incident response and investigation
+[The next article in the series](./microsoft-365-defender-build-second-layer-defense.yml) assumes that some attacks will still succeed and focus on:
+
+- Advanced threat detection.
+- Behavioral analytics.
+- Incident response and investigation.
 
 ## Related resources
 
