@@ -8,8 +8,8 @@ The diagram shows a client sending requests to an API proxy. The API proxy route
 
 This article describes a polyglot persistence approach that pairs Azure SQL Database with Azure Cosmos DB so you can configure each workload to use the database best suited to its requirements:
 
-* **Azure SQL Database** manages data that benefits from relational integrity, ACID transactions, and complex queries. Azure SQL Database also supports multi-model capabilities such as JSON, graph, spatial, and vector data, along with analytical workloads through columnstore indexes.
-* **Azure Cosmos DB** handles high-volume, schema-flexible, or globally distributed data that requires low-latency access and elastic scalability.
+* **Azure SQL Database** manages data that benefits from relational integrity, ACID transactions, and complex queries. Azure SQL Database also supports multi-model capabilities such as JSON, graph, spatial, and vector data, along with analytical workloads through columnstore indexes. Financial transaction records are well suited to this database because they require consistent multi-table transactions that span line items, inventory, and accounts.
+* **Azure Cosmos DB** handles high-volume, schema-flexible, or globally distributed data that requires low-latency access and elastic scalability. E-commerce catalogs are well suited to this database because their schemas evolve frequently and shoppers expect sub-millisecond reads regardless of region.
 
 A domain-driven microservices approach allows each service to use the database that matches its data characteristics. Each microservice owns its private data store, which prevents unintentional coupling between services and allows teams to update and deploy services independently without coordinating changes across the system.
 
