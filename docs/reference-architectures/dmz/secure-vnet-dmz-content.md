@@ -25,7 +25,9 @@ The architecture consists of the following aspects:
 
 - **Network security groups**. Use [security groups][nsg] to restrict network traffic within the virtual network. 
 
-- **Azure Bastion**. [Azure Bastion](/azure/bastion/) allows you to log into virtual machines (VMs) in the virtual network through SSH or remote desktop protocol (RDP) without exposing the VMs directly to the internet. Use Bastion to manage the VMs in the virtual network.
+- **Virtual machine scale sets**. [Virtual Machine Scale Sets](/azure/virtual-machine-scale-sets/overview) provide the compute tier in the spoke virtual networks. Scale sets deploy and manage a group of identical VMs behind the internal load balancer, and they support autoscaling to match demand.
+
+- **Azure Bastion**. [Azure Bastion](/azure/bastion/) allows you to log into virtual machine scale set instances in the virtual network through SSH or remote desktop protocol (RDP) without exposing the instances directly to the internet. Use Bastion to manage instances in the virtual network.
 
     Bastion [requires a dedicated subnet named **AzureBastionSubnet**](/azure/bastion/configuration-settings#subnet).
 
@@ -55,13 +57,13 @@ The IT administrator role shouldn't have access to the firewall resources. Acces
 
 ### Resource group recommendations
 
-Azure resources such as VMs, virtual networks, and load balancers can be managed by grouping them together into resource groups. Assign Azure roles to each resource group to restrict access.
+Azure resources such as virtual machine scale sets, virtual networks, and load balancers can be managed by grouping them together into resource groups. Assign Azure roles to each resource group to restrict access.
 
 We recommend creating the following resource groups:
 
-- A resource group containing the virtual network (excluding the VMs), NSGs, and the gateway resources for connecting to the on-premises network. Assign the centralized IT administrator role to this resource group.
-- A resource group containing the VMs for the Azure Firewall instance and the user-defined routes for the gateway subnet. Assign the security IT administrator role to this resource group.
-- Separate resource groups for each spoke virtual network that contains the load balancer and VMs.
+- A resource group containing the virtual network (excluding the compute resources), NSGs, and the gateway resources for connecting to the on-premises network. Assign the centralized IT administrator role to this resource group.
+- A resource group containing the resources for the Azure Firewall instance and the user-defined routes for the gateway subnet. Assign the security IT administrator role to this resource group.
+- Separate resource groups for each spoke virtual network that contains the load balancer and virtual machine scale sets.
 
 ### Networking recommendations
 
@@ -155,9 +157,7 @@ Azure Virtual Network is free. Every subscription is allowed to create up to 1,0
 
 #### Internal load balancer
 
-Basic load balancing between virtual machines that reside in the same virtual network is free.
-
-In this architecture, internal load balancers are used to load balance traffic inside a virtual network.
+In this architecture, internal load balancers are used to distribute traffic to the virtual machine scale set instances inside a virtual network. Standard Load Balancer is required for use with virtual machine scale sets.
 
 ### Operational Excellence
 
