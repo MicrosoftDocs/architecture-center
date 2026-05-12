@@ -23,6 +23,10 @@ This article compares the core compute services that Microsoft Azure and Amazon 
 
 The following tables describe and compare the core compute services on Amazon Web Services (AWS) and Azure.
 
+> [!NOTE]
+>
+> For information about how to migrate services, see [Migrate compute from Amazon Web Services to Azure](/migration/migrate-compute-from-aws)
+
 ### Virtual machines and servers
 
 Virtual machines (VMs) and servers allow users to deploy, manage, and maintain OS and other software. Users pay for what they use, with the flexibility to change sizes.
