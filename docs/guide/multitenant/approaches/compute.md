@@ -3,7 +3,7 @@ title: Architectural Approaches for Compute in Multitenant Solutions
 description: Learn about approaches to support multitenancy for compute components, including scaling strategies, isolation models, and cost-efficient shared resources.
 author: DixitArora-MSFT
 ms.author: dixitaro
-ms.date: 05/02/2025
+ms.date: 05/12/2026
 ms.topic: concept-article
 ms.subservice: architecture-guide
 ms.custom: arb-saas
@@ -27,7 +27,7 @@ If you deploy dedicated resources for each tenant, you have the flexibility to s
 
 When you build cloud solutions, you can choose whether to [scale horizontally or vertically](/azure/well-architected/performance-efficiency/scale-partition). In a multitenant solution that has a growing number of tenants, scaling horizontally often provides greater flexibility and a higher overall scale ceiling.
 
-Performance problems often remain undetected until an application is under load. You can use a fully managed service, such as [Azure Load Testing](/azure/load-testing/overview-what-is-azure-load-testing), to learn how your application operates under stress.
+Performance problems often remain undetected until an application is under load. You can use a fully managed service, such as [Azure Load Testing](/azure/app-testing/load-testing/overview-what-is-azure-load-testing), to learn how your application operates under stress.
 
 #### Scale triggers
 
@@ -148,7 +148,7 @@ Instead, consider using asynchronous processing by using queues or other messagi
 
 Multitenant solutions are often subject to bursty scale patterns. Shared components are especially vulnerable to this problem because the scope for burst is higher, and the effect is greater when you have more tenants that have distinct usage patterns.
 
-Ensure that you take advantage of the elasticity and scale of the cloud. Consider whether you should use [horizontal or vertical scaling](/azure/well-architected/performance-efficiency/scale-partition), and use autoscaling to automatically handle spikes in load. Test your solution to understand how it operates under different levels of load. Ensure that you include the load volumes that are expected in production and your expected growth. You can use a fully managed service, such as [Load Testing](/azure/load-testing/overview-what-is-azure-load-testing), to learn how your application operates under stress.
+Ensure that you take advantage of the elasticity and scale of the cloud. Consider whether you should use [horizontal or vertical scaling](/azure/well-architected/performance-efficiency/scale-partition), and use autoscaling to automatically handle spikes in load. Test your solution to understand how it operates under different levels of load. Ensure that you include the load volumes that are expected in production and your expected growth. You can use a fully managed service, such as [Load Testing](/azure/app-testing/load-testing/overview-what-is-azure-load-testing), to learn how your application operates under stress.
 
 ### No Caching antipattern
 
@@ -172,7 +172,7 @@ Principal authors:
 Other contributors:
 
 - [Arsen Vladimirskiy](https://www.linkedin.com/in/arsenv/) | Principal Customer Engineer, FastTrack for Azure
-
+- [Rade Zheng](https://www.linkedin.com/in/rade-zheng-9483a411/) | Partner Solution Architect, Enterprise Partner Solutions Team
 *To see nonpublic LinkedIn profiles, sign in to LinkedIn.*
 
 ## Related resources
