@@ -91,8 +91,8 @@ Model training typically requires many interactions with your data stores, so it
 
 When you build a solution to use AI and machine learning, you can use prebuilt components or build custom components. You must make two key decisions:
 
-1. Select the *platform or service* to use for AI and machine learning.
-1. Decide whether to use pretrained models or build your own custom models.
+- Select the *platform or service* to use for AI and machine learning.
+- Decide whether to use pretrained models or build your own custom models.
 
 **Platforms:** Azure provides many services that you can use for your AI and machine learning workloads. For example, Microsoft Foundry provides APIs to perform inference against prebuilt models, and Microsoft manages the underlying resources. With Foundry, you can deploy a new solution quickly, but it limits control over training and inference processes and might not suit every type of workload. In contrast, Machine Learning is a platform for building, training, and using your own machine learning models. Machine Learning provides control and flexibility, but it increases the complexity of your design and implementation. Review the [machine learning products and technologies from Microsoft](../../../ai-ml/guide/data-science-and-machine-learning.md) to make an informed decision when you select an approach.
 
