@@ -26,7 +26,7 @@ The following list is guidance for grouping functions. The guidance considers st
 
 There are several hosting options for function apps and it is important to review their capabilities. For information about these hosting options, see [Azure Functions hosting options](/azure/azure-functions/functions-scale). Take note of how the options scale.
 
-The Consumption plan is the default. Function apps in the Consumption plan scale independently and are most effective when they avoid long-running tasks.
+The [Flex Consumption plan](/azure/azure-functions/flex-consumption-plan) is the recommended serverless hosting plan for Azure Functions, including event-driven workloads triggered by Event Hubs. It scales each Event Hubs–triggered function on its own instances based on [target-based scaling rules for Event Hubs](/azure/azure-functions/functions-target-based-scaling#event-hubs).
 
 The Premium and Dedicated plans are often used to host multiple function apps and functions that are more CPU and memory intensive. With the Dedicated plan, you run your functions in an Azure App Service plan at regular App Service plan rates. All the function apps in these plans share the resources that are allocated to the plan. If functions have different load profiles or unique requirements, it's best to host them in different plans, especially in stream processing applications.
 

@@ -133,6 +133,7 @@ Other contributors:
 
 *To see nonpublic LinkedIn profiles, sign in to LinkedIn.*
 
-## Related resource
+## Related resources
 
 - [Architectural approaches for messaging in multitenant solutions](../approaches/messaging.md)
+- [Architecture best practices for Azure Service Bus](/azure/well-architected/service-guides/azure-service-bus)

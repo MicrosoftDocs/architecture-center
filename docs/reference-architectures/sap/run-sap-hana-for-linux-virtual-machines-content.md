@@ -24,7 +24,7 @@ This reference architecture describes a typical SAP HANA database running in Azu
 
 If applications connecting to SAP HANA are running on VMs, the application VMs should be located in same virtual network but within a dedicated application subnet. Alternatively, if SAP HANA connection isn't the primary database, the application VMs can be located in other virtual networks. Separating into subnets by workload allows easier enablement of network security groups (NSG) to set security rules applicable to SAP HANA VMs only.
 
-**Zone-redundant gateway.** A gateway connects distinct networks, extending your on-premises network to the Azure virtual network. We recommend that you use ExpressRoute to create private connections that don't go over the public internet, but you can also use a site-to-site connection. Use zone-redundant Azure ExpressRoute or VPN gateways to guard against zone failures. See [Zone-redundant virtual network gateways](/azure/vpn-gateway/about-zone-redundant-vnet-gateways) to understand the differences between a zonal deployment and a zone-redundant deployment. It's worth mentioning here that the IP addresses used need to be of Standard SKU for a zone deployment of the gateways.
+**Zone-redundant gateway.** A gateway connects distinct networks, extending your on-premises network to the Azure virtual network. We recommend that you use ExpressRoute to create private connections that don't go over the public internet, but you can also use a site-to-site connection. Use zone-redundant Azure ExpressRoute or VPN gateways to guard against zone failures. See [Zone-redundant virtual network gateways](/azure/vpn-gateway/about-zone-redundant-vnet-gateways) to understand the differences between a zonal deployment and a zone-redundant deployment.
 
 **Network security groups (NSG).**  To restrict incoming and outgoing network traffic of the virtual network, create [network security groups](/azure/virtual-network/tutorial-filter-network-traffic-cli), which are in turn assigned to specific subnets. DB and application subnets are secured with workload specific NSGs.
 
@@ -41,7 +41,7 @@ Azure NICs support multiple IPs. This support conforms with the SAP recommended 
 
 #### Virtual machines
 
-This architecture uses virtual machines (VM). Azure offers single-node scale up to 32 Tebibytes (TiB) of memory on virtual machines. The [SAP Certified and Supported SAP HANA Hardware Directory](https://www.sap.com/dmc/exp/2014-09-02-hana-hardware/enEN/#/solutions?id=s:2494&filters=ve:24) lists the virtual machines that are certified for the SAP HANA database. For more information about SAP support for virtual machine types and throughput metrics (SAPS), see [SAP Note 1928533 - SAP Applications on Microsoft Azure: Supported Products and Azure VM types](https://launchpad.support.sap.com/#/notes/1928533). (To access this and other SAP notes, an SAP Service Marketplace account is required.)
+This architecture uses virtual machines (VM). Azure offers single-node scale up to 32 Terabytes (TB) of memory on virtual machines. The [SAP Certified and Supported SAP HANA Hardware Directory](https://www.sap.com/dmc/exp/2014-09-02-hana-hardware/enEN/#/solutions?id=s:2494&filters=ve:24) lists the virtual machines that are certified for the SAP HANA database. For more information about SAP support for virtual machine types and throughput metrics (SAPS), see [SAP Note 1928533 - SAP Applications on Microsoft Azure: Supported Products and Azure VM types](https://launchpad.support.sap.com/#/notes/1928533). (To access this and other SAP notes, an SAP Service Marketplace account is required.)
 
 Microsoft and SAP jointly certify a range of virtual machine sizes for SAP HANA workloads. For example, smaller deployments can run on an [Edsv4](/azure/virtual-machines/edv4-edsv4-series) or [Edsv5](/azure/virtual-machines/edv5-edsv5-series) virtual machine with 160 GiB or more of RAM. To support the largest SAP HANA memory sizes on virtual machines, as much as 30 TiB, you can use [Mv3-series](/azure/virtual-machines/sizes/memory-optimized/mdsv3-very-high-memory-series) virtual machines.
 
@@ -110,17 +110,17 @@ Azure Load Balancer provides a layer of security by default. Virtual machines th
 
 For SAP HANA database clusters, you must enable Direct Server Return (DSR), also known as floating IP. This feature allows the server to respond with the IP address of the load balancer front end.
 
-**Deployment options.** On Azure, SAP workload deployment can be either regional or zonal, depending on the availability and resiliency requirements of the SAP applications. Azure provides [different deployment options](/azure/sap/workloads/sap-high-availability-architecture-scenarios#comparison-of-different-deployment-types-for-sap-workload), like Virtual Machine Scale Sets with Flexible orchestration (FD=1), availability zones, and availability sets, to enhance the availability of resources. To get a comprehensive understanding of the available deployment options and their applicability across different Azure regions (including across zones, within a single zone, or in a region without zones), see [High-availability architecture and scenarios for SAP NetWeaver](/azure/sap/workloads/sap-high-availability-architecture-scenarios).
+**Deployment options.** On Azure, SAP workload deployment can be either regional or zonal, depending on the availability and resiliency requirements of the SAP applications. Azure provides [different deployment options](/azure/sap/workloads/sap-high-availability-architecture-scenarios#comparison-of-different-deployment-types-for-sap-workload), like Virtual Machine Scale Sets with Flexible orchestration (FD=1), availability zones, and availability sets, to enhance the availability of resources. For new SAP deployments across availability zones, use Virtual Machine Scale Sets with Flexible orchestration and FD=1 as the recommended deployment model. To get a comprehensive understanding of the available deployment options and their applicability across different Azure regions (including across zones, within a single zone, or in a region without zones), see [High-availability architecture and scenarios for SAP NetWeaver](/azure/sap/workloads/sap-high-availability-architecture-scenarios) and [Virtual machine scale sets for SAP workload](/azure/sap/workloads/virtual-machine-scale-set-sap-deployment-guide).
 
 **SAP HANA.** For high availability, SAP HANA runs on two or more Linux virtual machines. SAP HANA System Replication (HSR) is used to replicate data between the primary and secondary (replica) SAP HANA systems. HSR is also used for cross-region or cross-zone disaster recovery. Depending on latency in the communication between your virtual machines, synchronous replication can be used within a region. HSR between regions for disaster recovery will in most cases be running in asynchronous manner.
 
-For the Linux Pacemaker cluster, you need to decide which cluster fencing mechanism to use. Cluster fencing is the process of isolating a failed VM from the cluster and restarting it. For RedHat Enterprise Linux (RHEL), the only supported fencing mechanism for Pacemaker on Azure is Azure fence agent. For SUSE Linux Enterprise Server (SLES), you can use either Azure fence agent or STONITH Block Device (SBD). Compare the failover times for each solution and, if there's a difference, choose a solution based on your business requirements for recovery time objective (RTO).
+For the Linux Pacemaker cluster, you need to decide which cluster fencing mechanism to use. Cluster fencing is the process of isolating a failed VM from the cluster and restarting it. Supported fencing options vary by distribution version and scenario. Review the supported configurations in [High availability of SAP NetWeaver on Azure VMs on Red Hat Enterprise Linux](/azure/sap/workloads/high-availability-guide-rhel-pacemaker) and [High availability of SAP NetWeaver on Azure VMs on SUSE Linux Enterprise Server](/azure/sap/workloads/high-availability-guide-suse-pacemaker) to confirm when to use Azure fence agent or SBD, including SBD deployments that use Azure shared disks. Compare the failover times for each supported solution and choose the approach that best meets your recovery time objective (RTO).
 
-**Azure fence agent.** This fencing method relies on the Azure ARM API, with Pacemaker querying ARM API about the status of both SAP HANA VMs in the cluster. Should one VM fail, for example OS unresponsive or VM crash, the cluster manager uses again the ARM API to restart the VM and if needed fails the SAP HANA database to the other, active node. For this purpose, a service name principal ([SPN](/azure/virtual-machines/workloads/sap/high-availability-guide-suse-pacemaker#create-an-azure-fence-agent-stonith-device)) with a custom role to query and restart VMs is used to authorize against the ARM API. No other infrastructure is needed. The SBD VMs in the architecture diagrams aren't deployed if Azure fence agent is used.
+**Azure fence agent.** This fencing method relies on the Azure Resource Manager API, with Pacemaker querying the API about the status of both SAP HANA VMs in the cluster. Should one VM fail, for example because the operating system is unresponsive or the VM crashes, the cluster manager uses the API to restart the VM and, if needed, fails over the SAP HANA database to the other active node. To authorize against the API, use managed identities for the cluster VMs to query and restart VMs. No other infrastructure is needed. The SBD VMs in the architecture diagrams aren't deployed if Azure fence agent is used.
 
-**SBD.** STONITH block device (SBD) uses a disk that is accessed as block device (raw, without filesystem) by the cluster manager. This disk, or disks if multiple, acts as a vote. Each of the two cluster nodes running SAP HANA accesses the SDB disks and reads/writes periodically to them small bits of information about status. Thus each cluster node knows the status about the other without depending only on networking between the VMs.
+**SBD.** STONITH block device (SBD) uses a disk that is accessed as a block device (raw, without filesystem) by the cluster manager. This disk, or disks if multiple, acts as a vote. Each of the two cluster nodes running SAP HANA accesses the SBD disks and periodically reads and writes small status records. Thus each cluster node knows the status of the other without depending only on networking between the VMs.
 
-Preferably three small VMs are deployed in either an availability set or availability zone setup. Each VM exporting small parts of a disk as a block device which is accessed by the two SAP HANA cluster nodes. Three SBD VMs ensure sufficient voting members are available in case of planned or unplanned downtime for either SBD VM.
+Preferably three small VMs are deployed in an availability zone setup. Each VM exports small parts of a disk as a block device, which is accessed by the two SAP HANA cluster nodes. Three SBD VMs ensure sufficient voting members are available in case of planned or unplanned downtime for either SBD VM.
 
 Alternatively to using SBD VMs, [Azure shared disk](/azure/virtual-machines/disks-shared) can be used instead. The SAP HANA cluster nodes then [access the single shared disk](/azure/virtual-machines/workloads/sap/high-availability-guide-suse-pacemaker#use-an-sbd-device). The shared disk can be locally ([LRS](/azure/storage/common/storage-redundancy#locally-redundant-storage)) or zone ([ZRS](/azure/storage/common/storage-redundancy#zone-redundant-storage)) redundant, if ZRS is available in your Azure region.
 
@@ -128,22 +128,20 @@ Alternatively to using SBD VMs, [Azure shared disk](/azure/virtual-machines/disk
 
 Security provides assurances against deliberate attacks and the abuse of your valuable data and systems. For more information, see [Design review checklist for Security](/azure/well-architected/security/checklist).
 
-Many security measures are used to protect the confidentiality, integrity, and availability of an SAP landscape. To secure user access, for example, SAP has its own User Management Engine (UME) to control role-based access and authorization within the SAP application and databases. For more information, see [SAP HANA Security—An Overview](https://www.tutorialspoint.com/sap_hana/sap_hana_security_overview.htm).
+Many security measures are used to protect the confidentiality, integrity, and availability of an SAP landscape. To secure user access, SAP provides application-level identity, role, and authorization controls. For infrastructure and platform guidance that applies to SAP on Azure, see [Secure Azure infrastructure for SAP applications](/azure/sap/workloads/sap-security-infrastructure).
 
-For data at rest, different encryption functionalities provide security as follows:
+For data at rest, use the current SAP on Azure encryption guidance:
 
-* Along with the SAP HANA native encryption technology, consider using an encryption solution from a partner that supports customer-managed keys.
+* Use SAP HANA native encryption to secure HANA data, log, and backup content.
 
-* To encrypt virtual machine disks, you can use functionalities described in [Disk Encryption Overview](/azure/virtual-machines/disk-encryption-overview).
-  
-* SAP Database servers: Use Transparent Data Encryption offered by the DBMS provider (for example, *SAP HANA native encryption technology*) to help secure your data and log files and to ensure the backups are also encrypted.
-  
-* Data in Azure physical storage (Server-Side Encryption) is automatically encrypted at rest with an Azure managed key. You can also choose a customer managed key (CMK) instead of the Azure managed key.
+* Azure managed disks and storage are encrypted at rest by default with server-side encryption. You can use either platform-managed keys or customer-managed keys, depending on your security requirements.
 
-* For information about support of Azure Disk Encryption on particular Linux distros, versions, and images, see [Azure Disk Encryption for Linux VMs](/azure/virtual-machines/linux/disk-encryption-overview).
+* For VM-level protection, evaluate [encryption at host](/azure/virtual-machines/disk-encryption#encryption-at-host---end-to-end-encryption-for-your-vm-data) for supported VM sizes and operating system combinations. Review the current SAP guidance for any VM family-specific considerations before enabling it.
+
+* Azure Disk Encryption isn't supported for SAP systems and is [scheduled for retirement](/azure/virtual-machines/linux/disk-encryption-overview). Don't plan new SAP HANA deployments around Azure Disk Encryption.
 
 > [!NOTE]
-> Don't combine SAP HANA native encryption technology with Azure Disk Encryption or Host Based Encryption on the same storage volume. Also, operating system boot disks for Linux virtual machines don't support Azure Disk Encryption. Instead, when you use SAP HANA native encryption, combine it with Server-Side Encryption, which is automatically enabled. Be aware that the usage of customer-managed keys might affect storage throughput.
+> Don't combine SAP HANA native encryption with guest-based disk encryption. For SAP HANA on Azure, use HANA native encryption together with Azure storage encryption. If you use customer-managed keys, validate the performance effect for your selected storage and VM configuration.
 
 For network security, use network security groups (NSGs) and Azure Firewall or a network virtual appliance as follows:
 
@@ -157,7 +155,7 @@ For user authorization, implement Azure role-based access control (Azure RBAC) a
 
 * Use [resource locks](/azure/azure-resource-manager/management/lock-resources) to help prevent accidental or malicious changes. Resource locks help prevent administrators from deleting or modifying critical Azure resources where your SAP solution is located.
 
-More security recommendations can be found at these [Microsoft](https://azure.microsoft.com/blog/sap-on-azure-architecture-designing-for-security/) and [SAP](https://blogs.sap.com/2019/07/21/sap-security-operations-on-azure/) articles.
+For more security guidance, see [Security for your SAP landscape](/azure/sap/workloads/planning-guide#security-for-your-sap-landscape) and [Secure Azure infrastructure for SAP applications](/azure/sap/workloads/sap-security-infrastructure).
 
 ### Operational Excellence
 
@@ -199,7 +197,8 @@ For more information about SAP HANA performance requirements, see [SAP Note 1943
 
 - **Cost-conscious storage design for non-production systems.** For SAP HANA environments that don't require maximum storage performance in all situations, you can use a storage architecture that's optimized for cost. This choice of storage optimization can apply to little-used production systems or some non-production SAP HANA environments. The cost-optimized storage option uses a combination of Standard SSDs instead of the Premium SSDs or Ultra Disks that are used for production environments. It also combines */hana/data* and */hana/log* file systems onto a single set of disks. [Guidelines and best practices](/azure/virtual-machines/workloads/sap/hana-vm-operations-storage#cost-conscious-solution-with-azure-premium-storage) are available for most VM sizes. If you use Azure NetApp Files for SAP HANA, you can use size-reduced volumes to achieve the same goal.
 
-- **Resizing storage when scaling-up.** When you resize a virtual machine because of changed business demands or because of a growing database size, the storage configuration can change. Azure supports online disk expansion, without any interruption to service. With a striped disk setup, as used for SAP HANA, a resize operation should be done equally to all disks in the volume group. The addition of more disks to a volume group can potentially unbalance the striped data. If you're adding more disks to a storage configuration, it's far preferable to create a new storage volume on new disks. Next, copy the contents during downtime and modify mount points. Finally, discard the old volume group and underlying disks.
+- **Resizing storage when scaling-up.** When you resize a virtual machine because of changed business demands or because of a growing database size, the storage configuration can change. Azure supports online disk expansion without any interruption to service. With a striped disk setup, as used for SAP HANA, a resize operation should be done equally to all disks in the volume group. The addition of more disks to a volume group can potentially unbalance the striped data. If you're adding more disks to a storage configuration, it's far preferable to create a new storage volume on new disks. Next, copy the contents during downtime and modify mount points. Finally, discard the old volume group and underlying disks.
+
 - **Azure NetApp Files application volume group.** For deployments with SAP HANA files contained on Azure NetApp Files NFS volumes, application volume groups enable you to deploy all volumes according to best practices. This process also ensures optimal performance for your SAP HANA database. [Details are available](/azure/azure-netapp-files/application-volume-group-introduction) about how to proceed with this process. It requires manual intervention. Allow some time for the creation.
 
 ## Communities
@@ -227,20 +226,19 @@ Principal author:
 Learn more about the component technologies:
 
 - [What is Azure ExpressRoute?](/azure/expressroute/expressroute-introduction)
-- [What is Azure Bastion?](/azure/bastion/bastion-overview)
-- [What is Power BI?](/power-bi/fundamentals/power-bi-overview)
-- [Use the SAP Business Warehouse connector in Power BI Desktop](/power-bi/connect-data/desktop-sap-bw-connector)
-- [SAP workload configurations with Azure Availability Zones](/azure/virtual-machines/workloads/sap/sap-ha-availability-zones)
-- [What is the Azure Backup service?](/azure/backup/backup-overview)
-- [About Site Recovery](/azure/site-recovery/site-recovery-overview)
+- [SAP workload configurations with Azure Availability Zones](/azure/sap/workloads/high-availability-zones)
+- [High-availability architecture and scenarios for SAP NetWeaver](/azure/sap/workloads/sap-high-availability-architecture-scenarios)
+- [Virtual machine scale sets for SAP workload](/azure/sap/workloads/virtual-machine-scale-set-sap-deployment-guide)
 - [What is Azure Load Balancer?](/azure/load-balancer/load-balancer-overview)
-- [Connect to SAP HANA databases in Power BI](/power-bi/connect-data/desktop-sap-hana)
 - [What is Azure NetApp Files](/azure/azure-netapp-files/azure-netapp-files-introduction)
 - [Introduction to Azure managed disks](/azure/virtual-machines/managed-disks-overview)
 - [Linux virtual machines in Azure](/azure/virtual-machines/linux/overview)
 - [Installation of SAP HANA on Azure virtual machines](/azure/virtual-machines/workloads/sap/hana-get-started)
+- [SAP HANA Azure virtual machine storage configurations](/azure/sap/workloads/hana-vm-operations-storage)
 - [What is Azure Virtual Network?](/azure/virtual-network/virtual-networks-overview)
 - [Network security groups](/azure/virtual-network/network-security-groups-overview)
+- [Security for your SAP landscape](/azure/sap/workloads/planning-guide#security-for-your-sap-landscape)
+- [Secure Azure infrastructure for SAP applications](/azure/sap/workloads/sap-security-infrastructure)
 - [SAP HANA Disaster Recovery with Azure NetApp Files](https://docs.netapp.com/us-en/netapp-solutions-sap/pdfs/sidebar/SAP_HANA_Disaster_Recovery_with_Azure_NetApp_Files.pdf)
 
 ## Related resources
