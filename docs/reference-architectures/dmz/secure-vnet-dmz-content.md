@@ -201,7 +201,7 @@ Use the following button to deploy the reference using the Azure portal.
 
 Run the following command to deploy two resource groups and the secure network reference architecture using the Azure CLI.
 
-When prompted, enter values for an admin user name and password. These values are used to log into the included virtual machines.
+When prompted, enter values for an admin user name and password. These values are used to log into the included virtual machine scale set instances.
 
 ```azurecli
 az deployment sub create --location eastus \
@@ -212,7 +212,7 @@ az deployment sub create --location eastus \
 
 Run the following command to deploy two resource groups and the secure network reference architecture using PowerShell.
 
-When prompted, enter values for an admin user name and password. These values are used to log into the included virtual machines.
+When prompted, enter values for an admin user name and password. These values are used to log into the included virtual machine scale set instances.
 
 ```azurepowershell
 New-AzSubscriptionDeployment -Location eastus `
@@ -225,7 +225,7 @@ After the deployment finishes, verify site-to-site connectivity by looking at th
 
 ![Screenshot showing the status of connections.](./images/portal-connections.png)
 
-The IIS instance found in the spoke network can be accessed from the virtual machine located in the mock on-premises network. Create a connection to the virtual machine using the included Azure Bastion host, open a web browser, and navigate to the address of the application's network load balancer.
+The IIS instance found in the spoke network can be accessed from the virtual machine located in the mock on-premises network. Create a connection to that virtual machine using the included Azure Bastion host, open a web browser, and navigate to the address of the application's internal load balancer.
 
 For more information and other deployment options, see the Azure Resource Manager templates (ARM templates) used to deploy this solution: [Secure Hybrid Network](/samples/mspnp/samples/secure-hybrid-network/).
 
