@@ -118,7 +118,7 @@ Traffic to and from resource subnets in spoke virtual networks is restricted by 
 
 #### DDoS protection
 
-[Azure DDoS Protection](/azure/ddos-protection/ddos-protection-overview), combined with application-design best practices, provides enhanced DDoS mitigation features to provide more defense against DDoS attacks. You should enable [Azure DDOS Protection](/azure/ddos-protection/ddos-protection-overview) on any perimeter virtual network.
+[Azure DDoS Protection](/azure/ddos-protection/ddos-protection-overview), combined with application-design best practices, provides enhanced DDoS mitigation features to provide more defense against DDoS attacks. You should enable [Azure DDoS Protection](/azure/ddos-protection/ddos-protection-overview) on any perimeter virtual network.
 
 #### Use AVNM to create baseline Security Admin rules
 
@@ -231,7 +231,7 @@ For more information and other deployment options, see the Azure Resource Manage
 
 ## Next steps
 
-- [The virtual datacenter: A network perspective][cloud-services-network-security].
+- [Hub-spoke network topology in Azure][cloud-services-network-security].
 - [Azure security documentation][getting-started-with-azure-security].
 
 ## Related resources
