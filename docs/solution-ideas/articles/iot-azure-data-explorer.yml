@@ -1,6 +1,6 @@
 ### YamlMime:Architecture
 metadata:
-  title: IoT analytics with Azure Data Explorer and Azure IoT Hub
+  title: IoT Analytics with Azure Data Explorer and Azure IoT Hub
   description: Use Azure Data Explorer with Azure IoT Hub for near real-time IoT data analytics on fast-flowing, high-volume streaming data from a wide range of IoT devices.
   author: spelluru
   ms.author: spelluru
