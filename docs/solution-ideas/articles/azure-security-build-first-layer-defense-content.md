@@ -36,7 +36,7 @@ The following workflow corresponds to the previous diagram:
 1. Network services in the architecture include network security groups (NSG), a virtual private network (VPN) gateway, Azure Firewall, Azure Application Gateway with Azure Web Application Firewall, a network virtual appliance (NVA), Azure DDoS Network Protection, TLS/SSL, which provide encryption, Azure Private Link, and private endpoints.
 1. Infrastructure and endpoint services in the architecture include Azure Bastion, Microsoft Defender antimalware service, disk encryption, Azure Key Vault, Azure Virtual Desktop RDP Shortpath, and Virtual Desktop reverse connect.
 1. Application and data services in the diagram include Azure Front Door with Web Application Firewall, Azure API Management, penetration testing, Azure Storage shared access signatures (SAS), private endpoints, an Azure Storage firewall, Azure Storage encryption, SQL auditing, SQL vulnerability assessment, and encryption for Azure SQL Database services.
-1. Identity services in the architechture include Azure role-based access control (Azure RBAC), Microsoft Entra multifactor authentication, Microsoft Entra ID Protection, Privileged Identity Management (PIM), and Microsoft Entra Conditional Access.
+1. Identity services in the architechture include Azure role-based access control (Azure RBAC), Microsoft Entra multifactor authentication, Microsoft Entra ID Protection, Microsoft Entra Privileged Identity Management (PIM), and Microsoft Entra Conditional Access.
 
 The numbers in the ATT&CK matrix correspond to technique numbers assigned by [MITRE](https://attack.mitre.org/techniques/enterprise/).
 
@@ -52,13 +52,13 @@ The numbers in the ATT&CK matrix correspond to technique numbers assigned by [MI
 
 - [Azure Kubernetes Service (AKS)](/azure/well-architected/service-guides/azure-kubernetes-service) is a managed container orchestration service that simplifies deploying and managing Kubernetes clusters. In this architecture, AKS runs containerized applications and provides built-in features for security, governance, and continuous integration/continuous delivery (CI/CD).
 
-- [Virtual Desktop](/azure/virtual-desktop/overview) is a desktop and app virtualization service that you can use to create remote desktops from the cloud. In this architecture, it provides secure access to corporate desktops for remote users. The architechture uses built-in features like RDP Shortpath and reverse connect.
+- [Virtual Desktop](/azure/virtual-desktop/overview) is a desktop and app virtualization service that you can use to create remote desktops from the cloud. In this architecture, it provides secure access to corporate desktops for remote users. The architechture uses built-in features like [RDP Shortpath](/azure/virtual-desktop/shortpath) and [reverse connect](/azure/virtual-desktop/network-connectivity).
 
-- [The Web Apps feature of Azure App Service](/azure/well-architected/service-guides/app-service-web-apps) hosts web applications, REST APIs, and mobile back ends. In this architecture, Web Apps hosts HTTP-based applications and provides security features like TLS and private endpoints. You can develop applications in the language of your choice. Applications run and scale in both Windows and Linux-based environments.
+- [The Web Apps feature of Azure App Service](/azure/well-architected/service-guides/app-service-web-apps) hosts web applications, REST APIs, and mobile back ends. In this architecture, Web Apps hosts HTTP-based applications and provides security features like TLS and [private endpoints](/azure/private-link/private-endpoint-overview). You can develop applications in the language of your choice. Applications run and scale in both Windows and Linux-based environments.
 
-- [Azure Storage](/azure/storage/common/storage-introduction) is a scalable and secure storage solution for various data types, including blobs, files, queues, and tables. In this architecture, it stores application and system data with encryption at rest and supports secure access via SAS tokens and private endpoints.
+- [Azure Storage](/azure/storage/common/storage-introduction) is a scalable and secure storage solution for various data types, including blobs, files, queues, and tables. In this architecture, it stores application and system data with encryption at rest and supports secure access via [SAS tokens](/azure/storage/common/storage-sas-overview) and [private endpoints](/azure/private-link/private-endpoint-overview).
 
-- [SQL Database](/azure/well-architected/service-guides/azure-sql-database) is a managed relational database service that automates patching, backups, and monitoring. In this architecture, it provides secure and compliant data storage via features like transparent data encryption, auditing, and vulnerability assessments.
+- [SQL Database](/azure/well-architected/service-guides/azure-sql-database) is a managed relational database service that automates patching, backups, and monitoring. In this architecture, it provides secure and compliant data storage via features like [transparent data encryption](/azure/azure-sql/database/transparent-data-encryption-tde-overview), [auditing](/azure/azure-sql/database/auditing-overview), and [vulnerability assessments](/azure/azure-sql/database/sql-vulnerability-assessment?tabs=azure-powershell).
 
 - [Microsoft Fabric](/fabric/fundamentals/microsoft-fabric-overview) is a unified SaaS analytics platform that brings together data engineering, data warehousing, real-time analytics, and business intelligence. In this architecture, you can use Fabric for analytics workloads that need governed workspaces, OneLake encryption at rest, item-level role-based access, and centralized activity logging while operational data remains in services like SQL Database.
 
@@ -78,8 +78,6 @@ The numbers in the ATT&CK matrix correspond to technique numbers assigned by [MI
 
 - [Private Link](/azure/private-link/private-link-overview) enables you to create a private network for an Azure service that's initially exposed to the internet.
 
-- [Private endpoints](/azure/private-link/private-endpoint-overview) enable you to create a network interface and attach it to an Azure service. When you use a private endpoint, you bring the service into your virtual network. Private endpoints are provided by Private Link.
-
 - [Azure Bastion](/azure/bastion/bastion-overview) provides jump server functionality. You can use this service to access your VMs through remote desktop protocol (RDP) or SSH without exposing them to the internet.
 
 - [Microsoft Defender Antivirus in Windows](/microsoft-365/security/defender-endpoint/microsoft-defender-antivirus-windows) provides antimalware service. It's part of Windows 10, Windows 11, Windows Server 2016, and Windows Server 2019.
@@ -88,13 +86,7 @@ The numbers in the ATT&CK matrix correspond to technique numbers assigned by [MI
 
 - [Encryption at rest](/azure/storage/common/storage-service-encryption) protects the storage account.  
 
-- [Transparent data encryption (TDE)](/azure/azure-sql/database/transparent-data-encryption-tde-overview) encrypts data at rest for SQL Database services. [Fabric](/fabric/security/security-overview) data stored in OneLake is encrypted at rest by default with platform-managed encryption to align with Fabric security fundamentals.
-
 - [Key Vault](/azure/key-vault/general/overview) is a service for storing keys, secrets, and certificates with FIPS 140-2 Level 2 or 3.
-
-- [Virtual Desktop RDP Shortpath](/azure/virtual-desktop/shortpath) enables remote users to connect to the Virtual Desktop service from a private network.
-
-- [Reverse connect](/azure/virtual-desktop/network-connectivity) is a security feature of Virtual Desktop. Reverse connect guarantees that remote users receive only pixel streams and don't reach host VMs.
 
 - [Azure Front Door](/azure/well-architected/service-guides/azure-front-door) is a content delivery network (CDN). It combines multiple points of presence to deliver a better connection for users who access the service. It also adds Azure Web Application Firewall.
 
@@ -102,19 +94,13 @@ The numbers in the ATT&CK matrix correspond to technique numbers assigned by [MI
 
 - [Penetration testing](/azure/security/fundamentals/pen-testing) is a set of best practices for running penetration tests in your environment, including Azure resources.
 
-- [Storage SAS token](/azure/storage/common/storage-sas-overview) is a shared access token that allows others to access your Azure storage account by using an expiration policy.
-
-- [SQL auditing](/azure/azure-sql/database/auditing-overview) tracks database events and writes them to an audit log in your Azure storage account. For analytics scenarios that use Fabric warehouses or lakehouses, use Fabric workspace activity logs and [Microsoft Purview](/azure/purview/overview) (when it's enabled) to monitor access and classification.
-
-- [SQL Vulnerability assessment](/azure/azure-sql/database/sql-vulnerability-assessment?tabs=azure-powershell) is a service that helps you discover, track, and remediate potential database vulnerabilities.
-
 - [Azure RBAC](/azure/role-based-access-control/overview) helps you manage access to Azure services by using granular permissions that are based on users' Microsoft Entra credentials.
 
-- [Microsoft Entra multifactor authentication](/entra/identity/authentication/concept-mfa-howitworks) Multifactor authentication provides other types of authentication beyond user names and passwords.
+- [Microsoft Entra multifactor authentication](/entra/identity/authentication/concept-mfa-howitworks) provides other types of authentication beyond user names and passwords.
 
 - [Microsoft Entra ID protection](/entra/id-protection/overview-identity-protection) analyzes trillions of signals per day to identify and protect users from threats.
 
-- [Microsoft Entra Privileged Identity Management (PIM)](/entra/id-governance/privileged-identity-management/pim-configure) helps you to provide superuser privileges temporarily for Microsoft Entra ID (for example, User Administrator) and Azure subscriptions (for example, Role Based Access Control Administrator or Key Vault Administrator).
+- [Privileged Identity Management (PIM)](/entra/id-governance/privileged-identity-management/pim-configure) helps you to provide superuser privileges temporarily for Microsoft Entra ID (for example, User Administrator) and Azure subscriptions (for example, Role Based Access Control Administrator or Key Vault Administrator).
 
 - [Conditional Access](/entra/identity/conditional-access/overview) is an intelligent security service that uses policies that you define for various conditions to block or grant user access.
 
@@ -134,7 +120,7 @@ As pointed out in that article, ransomware attacks rarely start with sophisticat
 
 The controls described in this article aren't advanced detection or response tools. Instead, they form the baseline security posture that makes ransomware campaigns significantly harder to run.
 
-When these controls are missing or misconfigured, attackers often succeed before detection tools even have a chance send alerts.
+When these controls are missing or misconfigured, attackers often succeed before detection tools even have a chance to send alerts.
 
 ### Azure Security Benchmark
 
@@ -168,7 +154,7 @@ The architecture diagram at the start of this article highlights how these servi
 
 ## Contributors
 
-*  Microsoft maintains this article. The following contributors wrote this article.*
+*Microsoft maintains this article. The following contributors wrote this article.*
 
 Principal author:
 
@@ -184,7 +170,7 @@ Other contributors:
 
 This article focuses on preventing attacks before they start by applying foundational Azure security controls.
 
-[The next article in the series](./microsoft-365-defender-build-second-layer-defense.yml) assumes that some attacks will still succeed and focus on:
+[The next article in the series](./microsoft-365-defender-build-second-layer-defense.yml) assumes that some attacks will still succeed and focuses on:
 
 - Advanced threat detection.
 - Behavioral analytics.
@@ -196,4 +182,4 @@ For more information about this reference architecture, see the other articles i
 
 - Part 1: [Map threats to your IT environment](./map-threats-it-environment.yml)
 - Part 3: [Build the second layer of defense with Microsoft Defender XDR Security services](./microsoft-365-defender-build-second-layer-defense.yml)
-- Part 4: [Integration between Azure and Microsoft Defender XDR security services](./microsoft-365-defender-security-integrate-azure.yml)
+- Part 4: [Integrate Azure and Microsoft Defender XDR security services](./microsoft-365-defender-security-integrate-azure.yml)
