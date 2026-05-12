@@ -22,7 +22,9 @@ For links to articles that compare other AWS and Azure services and a complete s
 Azure virtual networks and AWS virtual private clouds (VPCs) are similar in that they both provide isolated, logically defined network spaces within their respective cloud platforms. There are, however, key differences in terms of architecture, features, and integration.
 
 - **Subnet placement.** In AWS, each subnet is bound to a single Availability Zone, so achieving zonal redundancy requires creating one subnet per Availability Zone. In Azure, a subnet is a regional construct that spans all availability zones in the region. Resources deployed into the same subnet can reside in different availability zones and use the same subnet CIDR or address space. If you redeploy or move a given resource into a different availability zone, the resource's private IP address might or might not be preserved, depending on the resource type and how you redeploy or move it.
+
 - **Security models.** AWS layers stateful security groups (attached to ENIs) with stateless network ACLs (applied at the subnet boundary). Azure uses stateful network security groups (NSGs), which can be applied at the subnet or NIC level, and [application security groups](/azure/virtual-network/application-security-groups), which you can use to create NSG rules by using logical workload tags instead of IP ranges. The latter approach is conceptually similar to AWS security groups that reference other security groups. For deeper inspection, [Azure Firewall](/azure/firewall/overview) provides a managed, stateful, cloud-native firewall with FQDN filtering, threat intelligence, and optional IDPS/TLS inspection, similar to AWS Network Firewall.
+
 - **Peering.** Both Azure and AWS support virtual network / VPC peering. Both technologies allow more complex peering via Azure Virtual WAN or AWS Transit Gateway.
 
 ## VPN
@@ -42,6 +44,7 @@ The Azure equivalents of the Elastic Load Balancing services are:
 In AWS, Route 53 provides both DNS name management and DNS-level traffic routing and failover services. In Azure, two services handle these tasks:
 
 - **Azure DNS** provides domain and DNS management.
+
 - **Traffic Manager** provides DNS-level traffic routing, load balancing, and failover capabilities.
 
 ## AWS Direct Connect and Azure ExpressRoute
