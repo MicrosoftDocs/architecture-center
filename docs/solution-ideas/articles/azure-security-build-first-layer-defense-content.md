@@ -163,5 +163,5 @@ In the following resources, you can find more information about the services, te
 For more information about this reference architecture, see the other articles in this series:
 
 - Part 1: [Map threats to your IT environment](./map-threats-it-environment.yml)
-- Part 3: [Build the second layer of defense with Microsoft Defender XDR Security services](./microsoft-365-defender-build-second-layer-defense.yml)
+- Part 3: [Build the second layer of defense with Microsoft Defender XDR Security services](./microsoft-defender-xdr-build-second-layer-defense.yml)
 - Part 4: [Integration between Azure and Microsoft Defender XDR security services](./microsoft-365-defender-security-integrate-azure.yml)

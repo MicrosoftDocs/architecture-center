@@ -1220,7 +1220,7 @@ items:
         - name: 'First layer of defense: Azure security'
           href: solution-ideas/articles/azure-security-build-first-layer-defense.yml
         - name: 'Second layer of defense: Defender'
-          href: solution-ideas/articles/microsoft-365-defender-build-second-layer-defense.yml
+          href: solution-ideas/articles/microsoft-defender-xdr-build-second-layer-defense.yml
         - name: Integrate Azure and Defender
           href: solution-ideas/articles/microsoft-365-defender-security-integrate-azure.yml
         - name: Microsoft Sentinel automated responses

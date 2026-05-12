@@ -8,7 +8,7 @@ This article builds on the previous articles in the series:
 
 2. [Build the first layer of defense with Azure Security services](./azure-security-build-first-layer-defense.yml) maps an example of some Azure security services that create the first layer of defense to protect your Azure environment according to Azure Security Benchmark version 3.
 
-3. [Build the second layer of defense with Microsoft Defender XDR Security services](./microsoft-365-defender-build-second-layer-defense.yml) describes an example of a series of attacks against your IT environment and how to add another layer of protection by using Microsoft Defender XDR.
+3. [Build the second layer of defense with Microsoft Defender XDR Security services](./microsoft-defender-xdr-build-second-layer-defense.yml) describes an example of a series of attacks against your IT environment and how to add another layer of protection by using Microsoft Defender XDR.
 
 ## Architecture
 
@@ -83,7 +83,7 @@ The following list provides information about how to access each of the services
 
 - **Microsoft Defender for Identity**. Defender for Identity is part of Microsoft 365. You access the service through [https://portal.atp.azure.com](https://portal.atp.azure.com). Although it's a cloud service, Defender for Identity is responsible for also protecting identity on on-premises systems.
 
-- **Microsoft Endpoint Manager**. Endpoint Manager is the new name for Intune, Configuration Manager, and other services. Access it through [https://endpoint.microsoft.com](https://endpoint.microsoft.com). To learn more about accessing the services that are provided by Microsoft Defender XDR and how each portal is related, see [Build the second layer of defense with Microsoft Defender XDR Security services](./microsoft-365-defender-build-second-layer-defense.yml).
+- **Microsoft Endpoint Manager**. Endpoint Manager is the new name for Intune, Configuration Manager, and other services. Access it through [https://endpoint.microsoft.com](https://endpoint.microsoft.com). To learn more about accessing the services that are provided by Microsoft Defender XDR and how each portal is related, see [Build the second layer of defense with Microsoft Defender XDR Security services](./microsoft-defender-xdr-build-second-layer-defense.yml).
 
 - **Azure Network Watcher**. To access Azure Network Watcher, search for *watcher* in the [Azure portal](https://portal.azure.com).
 
@@ -120,7 +120,7 @@ The example architecture in this article uses the following Azure components:
 Monitoring solutions on Azure might seem confusing at first, because Azure offers multiple monitoring services. However, each Azure monitoring service is important in the security and monitoring strategy that's described in this series. The articles in this series describe the various services and how to plan effective security for your IT environment.
 1. [Map threats to your IT environment](./map-threats-it-environment.yml)
 2. [Build the first layer of defense with Azure Security services](./azure-security-build-first-layer-defense.yml)
-3. [Build the second layer of defense with Microsoft Defender XDR Security services](./microsoft-365-defender-build-second-layer-defense.yml)
+3. [Build the second layer of defense with Microsoft Defender XDR Security services](./microsoft-defender-xdr-build-second-layer-defense.yml)
 
 ### Potential use cases
 
@@ -162,7 +162,7 @@ For more information about this reference architecture, see the other articles i
 
 - Part 1: [Map threats to your IT environment](./map-threats-it-environment.yml)
 - Part 2: [Build the first layer of defense with Azure Security services](./azure-security-build-first-layer-defense.yml)
-- Part 3: [Build the second layer of defense with Microsoft Defender XDR Security services](./microsoft-365-defender-build-second-layer-defense.yml)
+- Part 3: [Build the second layer of defense with Microsoft Defender XDR Security services](./microsoft-defender-xdr-build-second-layer-defense.yml)
 
 For related architectures on Azure Architecture Center, see the following article:
 
