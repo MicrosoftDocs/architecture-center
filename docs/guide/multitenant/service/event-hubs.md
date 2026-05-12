@@ -203,3 +203,4 @@ Other contributors:
 - [Integrate Event Hubs with serverless functions on Azure](../../../serverless/event-hubs-functions/event-hubs-functions.yml)
 - [Monitor Azure Functions and Event Hubs](../../../serverless/event-hubs-functions/observability.yml)
 - [Performance and scale for Event Hubs and Azure Functions](../../../serverless/event-hubs-functions/performance-scale.yml)
+- [Architecture best practices for Azure Event Hubs](/azure/well-architected/service-guides/azure-event-hubs)
