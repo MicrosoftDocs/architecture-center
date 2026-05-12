@@ -7,7 +7,7 @@ Jupyter is a trademark of its respective company. No endorsement is implied by t
 ## Architecture
 
 :::image type="complex" source="../media/iot-azure-data-explorer.svg" alt-text="Diagram that shows an Azure IoT data analytics architecture in which Azure Data Explorer processes data from Azure IoT Hub, Azure Event Hubs, and Apache Kafka." lightbox="../media/iot-azure-data-explorer.svg" border="false":::
-   Diagram that shows an Internet of Things (IoT) data architecture. Connected vehicles and fleet management, connected manufacturing, facilities management, and sensors and towers send device data to Azure IoT Hub, Azure Event Hubs, and Apache Kafka. A bidirectional arrow connects these services to Azure Stream Analytics and Azure Functions. Stream Analytics and Azure Functions then routes data to Azure Cosmos DB. Azure Cosmos DB feeds an operational custom app for mobile, web app, and kiosk users, and another path carries change feed events back to Stream Analytics and Azure Functions. Azure Data Explorer is fed by the IoT Hub, Event Hubs and Kafka, and is connected by bidirectional arrows to Azure Databricks and Azure Machine Learning and Data Lake Storage. Azure Data Explorer feeds an analytical custom app, as well as the Azure Data Explore web UI, Power BI, Grafana, Logic Apps and Jupyter Notebook. A dotted line also connects Azure Data Explorer to APIs, and another dotted line connects Event Hubs back to Azure Data Explorer.
+   Diagram that shows an Internet of Things (IoT) data architecture. Connected vehicles and fleet management, connected manufacturing, facilities management, and sensors and towers send device data to Azure IoT Hub, Azure Event Hubs, and Apache Kafka. A bidirectional arrow connects these services to Azure Stream Analytics and Azure Functions. Stream Analytics and Azure Functions then route data to Azure Cosmos DB. Azure Cosmos DB feeds an operational custom app for mobile, web app, and kiosk users, and another path carries change feed events back to Stream Analytics and Azure Functions. Azure Data Explorer is fed by the IoT Hub, Event Hubs and Kafka, and is connected by bidirectional arrows to Azure Databricks, Azure Machine Learning, and Data Lake Storage. Azure Data Explorer feeds an analytical custom app, as well as the Azure Data Explorer web UI, Power BI, Grafana, Logic Apps and Jupyter Notebook. A dotted line also connects Azure Data Explorer to APIs, and another dotted line connects Event Hubs back to Azure Data Explorer.
 :::image-end:::
 
 *Download a [Visio file](https://arch-center.azureedge.net/iot-azure-data-explorer.vsdx) of this architecture.*
@@ -16,13 +16,13 @@ Jupyter is a trademark of its respective company. No endorsement is implied by t
 
 The following data flow corresponds to the previous diagram:
 
-1. Azure Event Hubs, Azure IoT Hub, or Apache Kafka ingest a wide range of fast-flowing streaming data, such as logs, business events, and user activities.
+1. Azure Event Hubs, Azure IoT Hub, or Apache Kafka ingests a wide range of fast-flowing streaming data, such as logs, business events, and user activities.
 
-1. Azure Functions or Azure Stream Analytics process the data in near real-time.
+1. Azure Functions or Azure Stream Analytics processes the data in near real time.
 
 1. Azure Cosmos DB stores streamed messages in JSON format to serve a real-time operational application.
 
-1. Azure Data Explorer ingests data for analytics by using its connectors for [Event Hubs](/azure/data-explorer/create-event-hubs-connection), [IoT Hub](/azure/data-explorer/create-iot-hub-connection), or [Kafka](/azure/data-explorer/ingest-data-kafka) for low-latency and high throughput.
+1. Azure Data Explorer ingests data for analytics by using its connectors for [Event Hubs](/azure/data-explorer/create-event-hubs-connection), [IoT Hub](/azure/data-explorer/create-iot-hub-connection), or [Kafka](/azure/data-explorer/ingest-data-kafka) for low latency and high throughput.
 
    Alternatively, you can ingest blobs from your [Azure Blob Storage](https://azure.microsoft.com/products/storage/blobs/) or [Azure Data Lake Storage](https://azure.microsoft.com/products/storage/data-lake-storage/) account into Azure Data Explorer by using an [Azure Event Grid data connection](/azure/data-explorer/create-event-grid-connection).
 
@@ -54,7 +54,7 @@ This solution idea uses the following Azure components.
 
 - [Anomaly diagnosis for root analysis](/kusto/query/anomaly-diagnosis) is a KQL capability that helps identify the root causes of anomalies. It analyzes contributing dimensions and metrics to streamline troubleshooting. In this architecture, it isolates the source of anomalies that are detected in device data.
 
-- Azure Data Explorer is a fully managed, high-performance analytics service. It processes large volumes of streaming data from applications, websites, and IoT devices in near real-time. In this architecture, it serves as the central analytics engine for the ingestion, querying, and visualization of IoT data.
+- Azure Data Explorer is a fully managed, high-performance analytics service. It processes large volumes of streaming data from applications, websites, and IoT devices in near real time. In this architecture, it serves as the central analytics engine for the ingestion, querying, and visualization of IoT data.
 
 - [Azure Data Explorer dashboards](/azure/data-explorer/azure-data-explorer-dashboards) are a visualization feature in the Azure Data Explorer web UI. You can use Azure Data Explorer dashboards to export Kusto queries into interactive dashboards for real-time data exploration. In this architecture, they display insights from IoT data streams and anomaly detection results.
 
