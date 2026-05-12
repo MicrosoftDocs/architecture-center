@@ -25,7 +25,7 @@ The following tables describe and compare the core compute services on Amazon We
 
 > [!NOTE]
 >
-> For information about how to migrate services, see [Migrate compute from Amazon Web Services to Azure](/migration/migrate-compute-from-aws)
+> For information about how to migrate services, see [Migrate compute from Amazon Web Services to Azure](/azure/migration/migrate-compute-from-aws)
 
 ### Virtual machines and servers
 
