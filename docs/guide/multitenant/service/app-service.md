@@ -176,7 +176,7 @@ Other contributors:
 
 *To see nonpublic LinkedIn profiles, sign in to LinkedIn.*
 
-## Related resource
+## Related resources
 
 - [Resources for architects and developers of multitenant solutions](../related-resources.md)
 - [Architecture best practices for Azure App Service (Web Apps)](/azure/well-architected/service-guides/app-service-web-apps)
