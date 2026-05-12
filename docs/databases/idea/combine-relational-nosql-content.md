@@ -9,7 +9,7 @@ The diagram shows a client sending requests to an API proxy. The API proxy route
 This article describes a polyglot persistence approach that pairs Azure SQL Database with Azure Cosmos DB so you can configure each workload to use the database best suited to its requirements:
 
 * **Azure SQL Database** manages data that benefits from relational integrity, ACID transactions, and complex queries. Azure SQL Database also supports multi-model capabilities such as JSON, graph, spatial, and vector data, along with analytical workloads through columnstore indexes. Financial transaction records are well suited to this database because they require consistent multi-table transactions that span line items, inventory, and accounts.
-* **Azure Cosmos DB** handles high-volume, schema-flexible, or globally distributed data that requires low-latency access and elastic scalability. E-commerce catalogs are well suited to this database because their schemas evolve frequently and shoppers expect sub-millisecond reads regardless of region.
+* **Azure Cosmos DB** handles high-volume, schema-flexible, or globally distributed data that requires low-latency access and elastic scalability. E-commerce catalogs are well suited to this database because their schemas evolve frequently and shoppers expect submillisecond reads regardless of region.
 
 A domain-driven microservices approach allows each service to use the database that matches its data characteristics. Each microservice owns its private data store, which prevents unintentional coupling between services and allows teams to update and deploy services independently without coordinating changes across the system.
 
@@ -37,7 +37,7 @@ Diagram of an e-commerce polyglot persistence architecture. Users access the sys
 
 ## Scenario details
 
-Applications often handle diverse data workloads with different characteristics. Some data is structured and transactional, requiring relational integrity and complex queries. Other data is semi-structured, rapidly evolving, or high-volume, requiring flexible schemas and horizontal scalability. A polyglot persistence approach allows you to use different database technologies so each workload is handled by the data store best suited to its requirements.
+Applications often handle diverse data workloads with different characteristics. Some data is structured and transactional, requiring relational integrity and complex queries. Other data is semi-structured, rapidly evolving, or high-volume, requiring flexible schemas and horizontal scalability. A polyglot persistence approach lets you assign each workload to the specific database technology that best matches its requirements.
 
 A polyglot persistence strategy assigns each data workload to the database technology that best matches its requirements. Domain-driven microservices enforce this separation, allowing each service to independently manage its own data store. This approach leads to many of the [challenges described in the microservices data considerations guide](../../microservices/design/data-considerations.md#challenges). These challenges include data redundancy across stores and eventual consistency between services. A polyglot architecture also increases operational complexity compared to a single database platform. Your team must develop and maintain expertise across both database technologies, which increases training and operational overhead.
 
@@ -53,8 +53,8 @@ The following advantages help offset those challenges:
 
 Azure SQL Database and Azure Cosmos DB have overlapping capabilities. Both can store JSON, and both can deliver low-latency responses when configured appropriately. The decision depends on which service's primary design strengths align with your workload's dominant access patterns:
 
-- **Choose Azure Cosmos DB when** your workload primarily requires schema-flexible document storage, automatic multi-region distribution with guaranteed single-digit millisecond reads, or elastic horizontal scaling across partitions. These are native strengths of Azure Cosmos DB and represent its optimized path.
-- **Choose Azure SQL Database when** your workload primarily requires enforced relational integrity across tables, multi-statement ACID transactions, or complex joins and aggregations. These are native strengths of Azure SQL Database and represent its optimized path.
+- **Choose Azure Cosmos DB when** your workload primarily requires schema-flexible document storage, automatic multi-region distribution with guaranteed single-digit millisecond reads, or elastic horizontal scaling across partitions. These characteristics are native strengths of Azure Cosmos DB and represent its optimized path.
+- **Choose Azure SQL Database when** your workload primarily requires enforced relational integrity across tables, multi-statement ACID transactions, or complex joins and aggregations. These characteristics are native strengths of Azure SQL Database and represent its optimized path.
 
 When a workload's requirements don't clearly favor one service, evaluate the dominant access pattern rather than secondary capabilities. For example, Azure SQL Database supports JSON storage, but a workload consisting primarily of schema-flexible JSON documents with high write throughput is better suited to Azure Cosmos DB. For detailed selection criteria, see [Prepare to choose a data store in Azure](../../guide/technology-choices/data-stores-getting-started.md).
 
