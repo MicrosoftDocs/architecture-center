@@ -173,6 +173,7 @@ Other contributors:
 
 - [Arsen Vladimirskiy](https://www.linkedin.com/in/arsenv/) | Principal Customer Engineer, FastTrack for Azure
 - [Rade Zheng](https://www.linkedin.com/in/rade-zheng-9483a411/) | Partner Solution Architect, Enterprise Partner Solutions Team
+
 *To see nonpublic LinkedIn profiles, sign in to LinkedIn.*
 
 ## Related resources
