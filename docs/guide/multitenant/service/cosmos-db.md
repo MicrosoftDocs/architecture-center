@@ -296,3 +296,4 @@ To review other Azure Cosmos DB architectural scenarios, see the following artic
 
 - [Storage and data approaches for multitenancy](../approaches/storage-data.md)
 - [Transactional Outbox pattern with Azure Cosmos DB](../../../databases/guide/transactional-out-box-cosmos.md)
+- [Architecture best practices for Azure Cosmos DB for NoSQL](/azure/well-architected/service-guides/cosmos-db)
