@@ -8,6 +8,7 @@ ms.topic: concept-article
 ms.subservice: category-get-started
 ms.date: 01/26/2026
 ai-usage: ai-assisted
+ms.custom: arb-data
 ---
 
 # Get started with analytics architecture design
@@ -28,7 +29,7 @@ Azure provides a range of services for <category>:
 
 ## Architecture
 
-:::image type="complex" border="false" source="media/analytics-get-started-diagram.svg" alt-text="Diagram that shows the analytics solution journey on Azure." lightbox="media/analytics-get-started-diagram.svg":::
+:::image type="complex" border="false" source="./media/analytics-get-started-diagram.svg" alt-text="Diagram that shows the analytics solution journey on Azure." lightbox="./media/analytics-get-started-diagram.svg":::
    Diagram that shows four columns, labeled Learn, Assign roles, Choose storage, and Choose technology. Two tiles appear in the Learn column, labeled Azure data services and Data modeling. Three user groups appear in the Assign roles column: Data analysts, Data engineers, and Self-service users. One square tile labeled Analytical data store appears in the Choose storage column. Four functions appear in the Choose technology column: Report and visualize, Stream data, Make predictions, and Scale analytics.
 :::image-end:::
 
@@ -38,7 +39,7 @@ The previous diagram demonstrates a typical basic or baseline analytics implemen
 
 ## Explore analytics guides, architectures, and solution ideas
 
-The articles in this section include guides and fully developed architectures that you can deploy in Azure and expand to production-grade solutions. Solution ideas demonstrate implementation patterns and possibilities to consider as you plan your analytics proof-of-concept (POC) development. These articles can help you decide how to use analytics technologies in Azure. 
+The articles in this section include guides and fully developed architectures that you can deploy in Azure and expand to production-grade solutions. Solution ideas demonstrate implementation patterns and possibilities to consider as you plan your analytics proof-of-concept (POC) development. These articles can help you decide how to use analytics technologies in Azure.
 
 ### Analytics guides
 
@@ -113,7 +114,7 @@ The following resources provide foundational knowledge for analytics implementat
 
 Organizations at the beginning of the cloud adoption process can use the [Cloud Adoption Framework for Azure](/azure/cloud-adoption-framework/) to access proven guidance that accelerates cloud adoption.
 
-To help ensure the quality of your analytics solution on Azure, follow the guidance in the [Azure Well-Architected Framework](/azure/well-architected/). The Well-Architected Framework provides prescriptive guidance for organizations that seek architectural excellence and describes how to design, provision, and monitor cost-optimized Azure solutions. For <category>-specific guidance, see the following Well-Architected Framework service guides:
+To help ensure the quality of your analytics solution on Azure, follow the guidance in the [Azure Well-Architected Framework](/azure/well-architected/). The Well-Architected Framework provides prescriptive guidance for organizations that seek architectural excellence and describes how to design, provision, and monitor cost-optimized Azure solutions.
 
 ## Best practices
 
@@ -167,18 +168,6 @@ To stay current with key analytics services, see the following articles:
 ## Other resources
 
 The following resources can help you discover more about analytics.
-
-### Hybrid and multicloud
-
-Most organizations need a hybrid approach to analytics because their data is hosted both on-premises and in the cloud. Organizations typically [extend on-premises analytics solutions to the cloud](/azure/cloud-adoption-framework/scenarios/hybrid/strategy). To connect environments, organizations must [choose a hybrid network architecture](/azure/architecture/reference-architectures/hybrid-networking/index).
-
-Review the following key hybrid analytics scenarios:
-
-- [Modernize mainframe and midrange data](../example-scenario/mainframe/modernize-mainframe-data-to-azure.yml): Integrate legacy data sources with modern analytics platforms.
-
-- [Unified hybrid and multicloud operations](/azure/cloud-adoption-framework/scenarios/hybrid/strategy): Connect on-premises databases to cloud analytics.
-
-- [Tutorial: Deploy Stream Analytics as an IoT Edge module](/azure/iot-edge/tutorial-deploy-stream-analytics): Process data at the edge and aggregate insights in the cloud.
 
 ### Real-time analytics
 
