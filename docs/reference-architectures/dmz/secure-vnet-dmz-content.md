@@ -81,7 +81,7 @@ In this architecture, all inbound and outbound traffic between the on-premises n
 
 [Force-tunnel][azure-forced-tunneling] all outbound internet traffic through your on-premises network using the site-to-site VPN tunnel. The on-premises edge device performs SNAT to the internet on behalf of the Azure workloads, which routes outbound flows through your existing on-premises egress controls and audit pipeline. This design prevents accidental leakage of any confidential information and allows inspection and auditing of all outgoing traffic.
 
-Don't completely block internet traffic from the resources in the spoke network subnets. Blocking traffic will prevent these resources from using Azure PaaS services that rely on public IP addresses, such as VM diagnostics logging, downloading of VM extensions, and other functionality. Azure diagnostics also requires that components can read and write to an Azure Storage account.
+Don't completely block internet traffic from the resources in the spoke network subnets. Blocking traffic will prevent these resources from using Azure PaaS services that rely on public IP addresses, such as diagnostics logging, provisioning virtual machine extensions and their dependencies, and other platform functionality. Azure diagnostics also requires that components can read and write to an Azure Storage account.
 
 Verify that outbound internet traffic is force-tunneled correctly. If you're using a VPN connection with the [routing and remote access service][routing-and-remote-access-service] on an on-premises server, use a tool such as [WireShark][wireshark].
 
