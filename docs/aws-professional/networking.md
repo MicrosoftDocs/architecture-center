@@ -17,6 +17,10 @@ This article compares the core networking services that Azure and Amazon Web Ser
 
 For links to articles that compare other AWS and Azure services and a complete service mapping between AWS and Azure, see [Azure for AWS professionals](/azure/architecture/aws-professional/).
 
+> [!NOTE]
+>
+> For information about migration to Azure services, see [Migrate networking from Amazon Web Services to Azure](/azure/migration/migrate-networking-from-aws).
+
 ## Azure virtual networks and AWS VPCs
 
 Azure virtual networks and AWS virtual private clouds (VPCs) are similar in that they both provide isolated, logically defined network spaces within their respective cloud platforms. There are, however, key differences in terms of architecture, features, and integration.
@@ -134,3 +138,4 @@ Other contributors:
 
 - [Compare AWS and Azure resource management](resources.md)
 - [Compare AWS and Azure accounts](accounts.md)
+- [Migrate networking from Amazon Web Services to Azure](/azure/migration/migrate-networking-from-aws)
