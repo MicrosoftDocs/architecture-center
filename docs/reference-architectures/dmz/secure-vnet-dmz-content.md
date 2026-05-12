@@ -163,9 +163,9 @@ In this architecture, internal load balancers are used to distribute traffic to 
 
 Operational Excellence covers the operations processes that deploy an application and keep it running in production. For more information, see [Design review checklist for Operational Excellence](/azure/well-architected/operational-excellence/checklist).
 
-If gateway connectivity from your on-premises network to Azure is down, you can still reach the VMs in the Azure virtual network through Azure Bastion.
+If gateway connectivity from your on-premises network to Azure is down, you can still use Azure Bastion to access resources in the Azure virtual network for troubleshooting. Because virtual machine scale set instances are ephemeral, rely on centralized logging and monitoring through [Azure Monitor](/azure/azure-monitor/vm/vminsights-overview) and [boot diagnostics](/azure/virtual-machines/boot-diagnostics) rather than interactive remote sessions for routine operations.
 
-Each tier's subnet in the reference architecture is protected by NSG rules. You might need to create a rule to open port 3389 for remote desktop protocol (RDP) access on Windows VMs or port 22 for secure shell (SSH) access on Linux VMs. Other management and monitoring tools might require rules to open additional ports.
+Each tier's subnet in the reference architecture is protected by NSG rules. Management and monitoring tools might require rules to open additional ports.
 
 If you're using ExpressRoute to provide the connectivity between your on-premises datacenter and Azure, use the [Azure Connectivity Toolkit (AzureCT)][azurect] to monitor and troubleshoot connection issues.
 
@@ -174,6 +174,8 @@ You can find additional information about monitoring and managing VPN and Expres
 ### Performance Efficiency
 
 Performance Efficiency is the ability of your workload to scale to meet the demands placed on it by users in an efficient manner. For more information, see [Design review checklist for Performance Efficiency](/azure/well-architected/performance-efficiency/checklist).
+
+Virtual machine scale sets in the spoke networks support autoscaling. Configure [autoscale rules](/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-autoscale-overview) based on metrics such as CPU usage or request count so that instances are added or removed in response to demand. Choose an [orchestration mode and upgrade policy](/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-upgrade-policy) that matches your workload's tolerance for disruption during updates.
 
 For more information about the bandwidth limits of VPN Gateway, see [Gateway SKUs](/azure/vpn-gateway/vpn-gateway-about-vpngateways#gwsku). For higher bandwidths, consider upgrading to an ExpressRoute gateway. ExpressRoute provides up to 10-Gbps bandwidth with lower latency than a VPN connection.
 
