@@ -70,7 +70,7 @@ The numbers in the ATT&CK matrix correspond to technique numbers assigned by [MI
 
 - [Application Gateway](/azure/well-architected/service-guides/azure-application-gateway) is a load balancer for web traffic that works in layer 7 and adds Azure Web Application Firewall to protect applications that use HTTP and HTTPS.
 
-- [Network virtual appliance (NVA)](../../networking/guide/network-virtual-appliance-high-availability) is a virtual security service from the marketplace that's provisioned on VMs on Azure.
+- [Network virtual appliance (NVA)](../../networking/guide/network-virtual-appliance-high-availability.md) is a virtual security service from the marketplace that's provisioned on VMs on Azure.
 
 - [Azure DDoS Protection](/azure/ddos-protection/ddos-protection-overview) implements DDoS protection on the virtual network to help you mitigate various types of DDoS attacks.
 
