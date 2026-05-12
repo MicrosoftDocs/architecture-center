@@ -175,7 +175,7 @@ Azure Storage is a software-defined storage solution for all cloud workloads. Th
 
 | Use case | Recommended storage | Notes | SAP note reference |
 |----------|--------------------|---------|-----------------|
-| Database tier | Premium SSD v1, Premium SSD v2, or Azure Ultra Disk Storage | Required for production SAP HANA | [SAP note 2015553](https://launchpad.support.sap.com/#/notes/2015553) |
+| Database tier | Premium SSD, Premium SSD v2, or Azure Ultra Disk Storage | Required for production SAP HANA | [SAP note 2015553](https://launchpad.support.sap.com/#/notes/2015553) |
 | Application servers | Premium SSD (P4, P6 for cost optimization) | Accepts smaller disks, but doesn't host business data | [SAP note 2015553](https://launchpad.support.sap.com/#/notes/2015553) |
 | Shared file systems | Azure NetApp Files or NFS on Azure Files | For `/hana/shared`, `/sapmnt`, and `/saptrans` | None |
 | HA scenarios | Azure shared disk storage (Premium SSD or Ultra Disk Storage) | For cluster configurations | None |
@@ -187,7 +187,7 @@ The following storage types aren't supported for SAP:
 
 - Azure Standard SSD storage (except for specific use cases according to [SAP note 2015553](https://launchpad.support.sap.com/#/notes/2015553))
 
-Because application servers don't host any business data, you can also use the smaller P4 and P6 premium disks to help manage costs. For SAP applications, we strongly recommend that you use Premium SSD v1, Premium SSD v2, or Ultra Disk Storage. To learn how the storage type affects the VM availability SLA, see [SLAs for online services](https://www.microsoft.com/licensing/docs/view/Service-Level-Agreements-SLA-for-Online-Services?lang=1). For HA scenarios, [Azure shared disk](/azure/virtual-machines/disks-shared) features are available on Premium SSD and Ultra Disk Storage. For more information, see [Azure managed disks](/azure/storage/storage-managed-disks-overview) and [Azure managed disk types](/azure/virtual-machines/disks-types).
+Because application servers don't host any business data, you can also use the smaller P4 and P6 premium disks to help manage costs. For SAP applications, we strongly recommend that you use Premium SSD, Premium SSD v2, or Ultra Disk Storage. To learn how the storage type affects the VM availability SLA, see [SLAs for online services](https://www.microsoft.com/licensing/docs/view/Service-Level-Agreements-SLA-for-Online-Services?lang=1). For HA scenarios, [Azure shared disk](/azure/virtual-machines/disks-shared) features are available on Premium SSD and Ultra Disk Storage. For more information, see [Azure managed disks](/azure/storage/storage-managed-disks-overview) and [Azure managed disk types](/azure/virtual-machines/disks-types).
 
 You can use Azure shared disks with Windows Server, SLES 15 SP1 and later, or SLES for SAP. When you use an Azure shared disk in Linux clusters, the Azure shared disk serves as a fencing block device to isolate a failed node. It provides a quorum vote in a cluster network partitioning scenario. This shared disk doesn't have a file system and doesn't support simultaneous writes from multiple cluster member VMs.
 
@@ -490,7 +490,7 @@ For SAP HANA data-at-rest encryption, we recommend SAP HANA-native encryption te
 
 To enhance the security of data in Azure Files, you can turn on [encryption in transit for Azure Files NFS](/azure/sap/workloads/sap-azure-files-nfs-encryption-in-transit-guide).
 
-#### Azure disk encryption for SAP workloads
+#### Avoid Azure disk encryption for SAP workloads
 
 We don't recommend Azure disk encryption for SAP systems that run on Linux because of the following limitations:
 
