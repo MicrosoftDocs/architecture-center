@@ -73,7 +73,7 @@ This architecture is appropriate for applications that handle multiple data work
 Cost Optimization is about reducing unnecessary expenses and improving operational efficiencies. For more information, see [Design review checklist for Cost Optimization](/azure/well-architected/cost-optimization/checklist).
 
 - Avoid over-provisioning by segregating workloads by data characteristics. Placing high-volume NoSQL reads in Azure Cosmos DB and complex transactional queries in Azure SQL Database allows each service to operate within its optimal cost profile.
-- Azure SQL Database offers [serverless](/azure/azure-sql/database/serverless-tier-overview) and [provisioned](/azure/azure-sql/database/service-tiers-sql-database-vcore) compute tiers. Choose serverless for intermittent, unpredictable transactional workloads. Alternatively, choose provisioned for steady workloads.
+- Azure SQL Database offers [provisioned](/azure/azure-sql/database/service-tiers-sql-database-vcore) and [serverless](/azure/azure-sql/database/serverless-tier-overview) compute tiers. Use provisioned compute for steady transactional workloads. Serverless can reduce costs for intermittent or unpredictable workloads, but cold start latency can affect response times after periods of inactivity.
 - Azure Cosmos DB offers [provisioned throughput](/azure/cosmos-db/set-throughput) and [serverless](/azure/cosmos-db/throughput-serverless) modes. Use provisioned throughput with autoscale for production workloads with variable demand. Serverless can reduce costs for development and low-traffic workloads, but cold start latency can affect response times after periods of inactivity.
 
 > [!TIP]
