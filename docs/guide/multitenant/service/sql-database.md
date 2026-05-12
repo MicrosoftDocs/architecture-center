@@ -83,3 +83,4 @@ Other contributors:
 
 - [Architectural approaches for storage and data in multitenant solutions](../approaches/storage-data.md).
 - [Data partitioning strategies for SQL Database](../../../best-practices/data-partitioning-strategies.yml#partitioning-azure-sql-database)
+- [Architecture best practices for Azure SQL Database](/azure/well-architected/service-guides/azure-sql-database)

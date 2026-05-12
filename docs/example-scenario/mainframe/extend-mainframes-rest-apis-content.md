@@ -20,9 +20,9 @@ The following workflow corresponds to the previous diagram.
 
 To create and deploy APIs for mainframe applications by using a contract-first approach, do the following steps:
 
-1. Import an OpenAPI v3 (OAS3) declarative JSON API schema file into the [z/OS Connect Designer](https://www.ibm.com/docs/cloud-paks/z-modernization-stack/2023.4?topic=concepts-what-is-zos-connect-designer).
+1. Import an OpenAPI v3 (OAS3) declarative JSON API schema file into the [z/OS Connect Designer](https://www.ibm.com/docs/zos-connect/3.0.0?topic=connect-what-is-zos-designer).
 
-1. Use the z/OS Connect Designer to [map your API and z/OS assets](https://www.ibm.com/docs/cloud-paks/z-modernization-stack/2023.4?topic=designer-mapping-your-rest-api-operations-zos-assets).
+1. Use the z/OS Connect Designer to [map your API and z/OS assets](https://www.ibm.com/docs/zos-connect/3.0.0?topic=designer-mapping-your-rest-api-operations-zos-assets).
 1. Test the functionality of the APIs by interacting with core z/OS applications. Push the mappings into source control management.
 1. Build a web archive file, and deploy it in [the z/OS Connect Server image](https://www.ibm.com/docs/zos-connect/3.0.0?topic=zos-connect-server-image).
 1. Import the OAS3 specification into [Azure API Management](https://azure.microsoft.com/products/api-management/), establish a connection with the z/OS Connect Server, and configure that connection to be a back end in API Management.
@@ -48,7 +48,7 @@ IT staff use Azure tools to monitor the system and implement disaster recovery m
 
 - [Red Hat OpenShift](https://www.redhat.com/technologies/cloud-computing/openshift) reduces the friction of developing, modernizing, deploying, running, and managing applications. In this architecture, Red Hat OpenShift delivers a consistent experience across public cloud, on-premises, hybrid cloud, and edge architectures.
 
-- [IBM Z and Cloud Modernization Stack](https://www.ibm.com/products/z-and-cloud-modernization-stack) provides simple and more secure access to mainframe applications and data through APIs. This architecture enables modern [DevOps for IBM Z](https://www.ibm.com/z/devops) with industry-standard tooling and modern languages to expand your talent pool.
+- [IBM Z and Cloud Modernization Stack](https://www.ibm.com/docs/cloud-paks/rhos/1.0.0?topic=cloudpaks_start/cp_arch/zmod.htm) provides simple and more secure access to mainframe applications and data through APIs. This architecture enables modern [DevOps for IBM Z](https://www.ibm.com/z/devops) with industry-standard tooling and modern languages to expand your talent pool.
 
 - [IBM z/OS Connect](https://www.ibm.com/products/zos-connect) is a middleware solution that provides more secure connectivity between cloud-native applications and IBM z/OS systems. In this architecture, IBM z/OS Connect integrates and uses data and services that reside on the mainframe, while embracing modern technologies and open standards.
 
@@ -72,7 +72,7 @@ Instead of an ExpressRoute gateway, you can use an Azure VPN gateway. A VPN gate
 
 You can deploy IBM Z and Cloud Modernization Stack and z/OS Connect on Azure via Azure Resource Manager templates. You can use this solution to build REST APIs for z/OS applications and data while adhering to OpenAPI standards. You can also scale business-critical APIs and take advantage of IBM Z benefits. Seamless integration with API management solutions like [API Management](https://azure.microsoft.com/products/api-management/) ensures effective API governance. You can integrate APIs with web applications or Microsoft Power Platform for efficient data exchange and integration.
 
-[z/OS Connect Designer](https://www.ibm.com/docs/cloud-paks/z-modernization-stack/2023.2?topic=concepts-what-is-zos-connect-designer) features an intuitive web user interface that provides a low-code approach that's designed to create APIs for IBM Z. This graphical interface reduces development time and the learning curve for new developers who use z/OS Connect.
+[z/OS Connect Designer](https://www.ibm.com/docs/zos-connect/3.0.0?topic=connect-what-is-zos-designer) features an intuitive web user interface that provides a low-code approach that's designed to create APIs for IBM Z. This graphical interface reduces development time and the learning curve for new developers who use z/OS Connect.
 
 [Power Apps](/power-apps/powerapps-overview) in [Microsoft Power Platform](https://www.microsoft.com/power-platform) is a low-code or no-code option to create a web-based user interface that connects to the previously mentioned developed services. This architecture shows both a low-code Power Apps client and a custom web app client.
 
@@ -139,6 +139,7 @@ Performance Efficiency refers to your workload's ability to scale to meet user d
 - Performance efficiency is a core strength of IBM z/OS Connect. It handles high transaction volumes and manages concurrent connections. The solution's scalability expands both horizontally and vertically so that it can adapt to the evolving demands of workloads.
 
 - API Management enhances performance efficiency by automatically scaling out its infrastructure based on incoming traffic and demand. This dynamic scaling ensures consistent response times and reliable throughput, even during traffic spikes, which helps maintain a seamless experience for API consumers without over-provisioning resources.
+
 ## Contributors
 
 *Microsoft maintains this article. The following contributors wrote this article.*
@@ -160,6 +161,5 @@ Other contributors:
 For more information, [contact the Legacy Migrations Engineering team](mailto:legacy2azure@microsoft.com).
 
 - [Azure DevOps services](https://azure.microsoft.com/products/devops)
-- [IBM Z and Cloud Modernization Stack](https://www.ibm.com/products/z-and-cloud-modernization-stack)
 - [Azure DevOps for Z systems](https://www.ibm.com/support/pages/system/files/inline-files/Azure-DBB%20Integration%20v2g.pdf)
 - [Microsoft Power Platform](https://www.microsoft.com/power-platform)

@@ -194,7 +194,7 @@ Additional considerations regarding internet-bound communications might apply to
 
 Because of changes to default outbound access in Azure, ensure a scalable outbound access is defined. For VMs that are behind an internal load balancer, like those in clustered environments, keep in mind that Load Balancer modifies the behavior for public connectivity. For more information, see [Public endpoint connectivity for VMs using Azure Load Balancer in SAP high-availability scenarios](/azure/virtual-machines/workloads/sap/high-availability-guide-standard-load-balancer-outbound-connections).
 
-For more information about default outbound connectivity from VMs, see [Routing options for VMs from Private Subnets](https://techcommunity.microsoft.com/t5/azure-networking-blog/routing-options-for-vms-from-private-subnets/ba-p/4271244) on the Azure Networking blog.
+For more information about default outbound connectivity from VMs and the recommended replacement options, see [Design virtual networks with Azure NAT Gateway](/azure/nat-gateway/nat-gateway-design).
 
 #### Operating system updates
 
@@ -234,7 +234,6 @@ Consider using these communities to get answers to questions and for help with s
 - [SAP Blogs | SAP on Azure: Azure Application Gateway Web Application Firewall v2 Setup for Internet-facing SAP Fiori Apps](https://blogs.sap.com/2020/12/03/sap-on-azure-application-gateway-web-application-firewall-waf-v2-setup-for-internet-facing-sap-fiori-apps)
 - [SAP Blogs | Getting Started with BTP Private Link Service for Azure](https://blogs.sap.com/2021/12/29/getting-started-with-btp-private-link-service-for-azure)
 - [SAP Blogs | BTP private linky swear with Azure – running Cloud Connector and SAP Private Link side-by-side](https://blogs.sap.com/2022/07/07/btp-private-linky-swear-with-azure-running-cloud-connector-and-sap-private-link-side-by-side)
-- [Azure Networking Blog | Routing options for VMs from Private Subnets](https://techcommunity.microsoft.com/t5/azure-networking-blog/routing-options-for-vms-from-private-subnets/ba-p/4271244)
 - [SAP on Azure Tech Community | SAProuter configuration with Azure Firewall](https://techcommunity.microsoft.com/t5/running-sap-applications-on-the/saprouter-configuration-with-azure-firewall/ba-p/3293496)
 - [SAP on Azure Tech Community | Use SAP Virtual Host Names with Linux in Azure](https://techcommunity.microsoft.com/t5/running-sap-applications-on-the/use-sap-virtual-host-names-with-linux-in-azure/ba-p/3251593)
 - [SAP Documentation | What is Cloud Connector?](https://help.sap.com/docs/CP_CONNECTIVITY/cca91383641e40ffbe03bdc78f00f681/e6c7616abb5710148cfcf3e75d96d596.html)
