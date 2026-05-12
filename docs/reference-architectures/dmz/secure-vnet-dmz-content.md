@@ -201,7 +201,7 @@ Use the following button to deploy the reference using the Azure portal.
 
 Run the following command to deploy two resource groups and the secure network reference architecture using the Azure CLI.
 
-When prompted, enter values for an admin user name and password. These values are used to log into the included virtual machine scale set instances.
+When prompted, enter values for an admin user name and password. These values are used as the default credentials for the virtual machine scale set instances.
 
 ```azurecli
 az deployment sub create --location eastus \
@@ -212,7 +212,7 @@ az deployment sub create --location eastus \
 
 Run the following command to deploy two resource groups and the secure network reference architecture using PowerShell.
 
-When prompted, enter values for an admin user name and password. These values are used to log into the included virtual machine scale set instances.
+When prompted, enter values for an admin user name and password. These values are used as the default credentials for the virtual machine scale set instances.
 
 ```azurepowershell
 New-AzSubscriptionDeployment -Location eastus `
