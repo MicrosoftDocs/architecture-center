@@ -6,12 +6,12 @@ Applications often handle diverse data workloads with different characteristics.
 The diagram shows a client sending requests to an API proxy. The API proxy routes requests to two backend services, named API 1 and API 2. API 1 connects to a NoSQL database, and API 2 connects to a relational database. API 1 and API 2 are also connected to each other with a bidirectional relationship that indicates interaction or synchronization between the two services. The overall flow shows a split data architecture in which one API path uses NoSQL storage and the other API path uses relational storage. In this flow, the proxy acts as the entry point for client requests.
 :::image-end:::
 
-This article describes a polyglot persistence approach that pairs Azure SQL Database with Azure Cosmos DB so each workload uses the database best suited to its requirements:
+This article describes a polyglot persistence approach that pairs Azure SQL Database with Azure Cosmos DB so you can configure each workload to use the database best suited to its requirements:
 
 * **Azure SQL Database** manages data that benefits from relational integrity, ACID transactions, and complex queries. Azure SQL Database also supports multi-model capabilities such as JSON, graph, spatial, and vector data, along with analytical workloads through columnstore indexes.
 * **Azure Cosmos DB** handles high-volume, schema-flexible, or globally distributed data that requires low-latency access and elastic scalability.
 
-A domain-driven microservices approach allows each service to use the database that matches its data characteristics. Each microservice owns its private data store, which prevents unintentional coupling between services and preserves the agility of independent deployments.
+A domain-driven microservices approach allows each service to use the database that matches its data characteristics. Each microservice owns its private data store, which prevents unintentional coupling between services and allows teams to update and deploy services independently without coordinating changes across the system.
 
 ## Architecture
 
@@ -37,7 +37,7 @@ Diagram of an e-commerce polyglot persistence architecture. Users access the sys
 
 ## Scenario details
 
-Applications often handle diverse data workloads with different characteristics. Some data is structured and transactional, requiring relational integrity and complex queries. Other data is semi-structured, rapidly evolving, or high-volume, requiring flexible schemas and horizontal scalability. A single database technology might not handle all of these requirements optimally.
+Applications often handle diverse data workloads with different characteristics. Some data is structured and transactional, requiring relational integrity and complex queries. Other data is semi-structured, rapidly evolving, or high-volume, requiring flexible schemas and horizontal scalability. A polyglot persistence approach allows you to use different database technologies so each workload is handled by the data store best suited to its requirements.
 
 A polyglot persistence strategy assigns each data workload to the database technology that best matches its requirements. Domain-driven microservices enforce this separation, allowing each service to independently manage its own data store. This approach leads to many of the [challenges described in the microservices data considerations guide](../../microservices/design/data-considerations.md#challenges). These challenges include data redundancy across stores and eventual consistency between services. A polyglot architecture also increases operational complexity compared to a single database platform. Your team must develop and maintain expertise across both database technologies, which increases training and operational overhead.
 
@@ -70,7 +70,7 @@ This architecture is appropriate for applications that handle multiple data work
 
 ## Cost Optimization
 
-Cost Optimization is about reducing unnecessary expenses and improving operational efficiencies. For more information, see [Design review checklist for Cost Optimization](/azure/well-architected/cost-optimization/checklist).
+Cost Optimization helps reduce unnecessary expenses and improve operational efficiencies. For more information, see [Design review checklist for Cost Optimization](/azure/well-architected/cost-optimization/checklist).
 
 - Avoid over-provisioning by segregating workloads by data characteristics. Placing high-volume NoSQL reads in Azure Cosmos DB and complex transactional queries in Azure SQL Database allows each service to operate within its optimal cost profile.
 - Azure SQL Database offers [provisioned](/azure/azure-sql/database/service-tiers-sql-database-vcore) and [serverless](/azure/azure-sql/database/serverless-tier-overview) compute tiers. Use provisioned compute for steady transactional workloads. Serverless can reduce costs for intermittent or unpredictable workloads, but cold start latency can affect response times after periods of inactivity.
