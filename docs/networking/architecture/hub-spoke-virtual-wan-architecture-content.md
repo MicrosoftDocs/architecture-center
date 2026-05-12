@@ -45,12 +45,20 @@ The following workflow describes how traffic flows through the hub-spoke Virtual
 1. **Branch or user traffic originates on-premises:** A user or system from a branch site or on-premises network initiates a connection. This traffic is routed through the SD-WAN or VPN device configured to connect to Virtual WAN.
 
 1. **Traffic enters Azure via a VPN or ExpressRoute gateway:** The encrypted traffic reaches the Virtual WAN hub through a VPN or ExpressRoute gateway deployed in the region. Virtual WAN manages and optimizes routing to the appropriate destination.
+
 1. **The Virtual WAN hub manages routing:** The hub evaluates routing policies, including custom routes or policies that Azure Firewall or NVAs enforce. The hub determines the next hop for the traffic. If the destination is in another region or hub, global transit capabilities handle the routing.
+
 1. **Inter-hub connectivity ensures global reachability:** If the destination is in another region, the traffic is routed via the Microsoft global backbone through inter-hub connectivity between Virtual WAN hubs.
+
 1. **Traffic reaches the spoke virtual network:** If the destination is a workload or application in a spoke virtual network, the Virtual WAN hub forwards the traffic based on defined peering and routing configurations.
-1. **Security inspection (optional):** Azure Firewall or a non-Microsoft NVA deployed in the hub can inspect traffic before it reaches its final destination. This method enforces centralized security and policy compliance.
+
+1. **Security inspection (optional):** When you configure a private routing policy through [routing intent](/azure/virtual-wan/how-to-routing-policies), Azure Firewall, an integrated NGFW NVA, or a SaaS security solution deployed in the hub inspects traffic before it reaches its final destination. This method enforces centralized security and policy compliance.
+
 1. **The application response follows the reverse path:** The application or resource in the spoke virtual network responds, and the return traffic flows back through the same Virtual WAN hub and gateway. It follows the defined route and security policies.
-1. **Azure Firewall filters or routes internet-bound traffic:** If the destination is external, such as the internet, Azure Firewall or a non-Microsoft security solution can inspect, filter, or route the traffic. Then the traffic exits through a secured egress point.
+
+1. **Internet egress traffic is inspected and routed:** If the destination is external, such as the internet, Virtual WAN forwards the traffic to the security solution that you set as the next hop for the routing policy that handles internet traffic.
+
+  In **direct access** mode, an internet routing policy steers `0.0.0.0/0` and the security solution forwards inspected traffic to the internet from the hub. In [**forced tunnel** mode](/azure/virtual-wan/about-internet-routing), the private routing policy handles `0.0.0.0/0` and the security solution forwards inspected traffic to an on-premises egress point.
 
 ### Components
 
@@ -142,11 +150,36 @@ The Azure Firewall in a secured virtual hub is shared by every spoke virtual net
 
 #### Network virtual appliances in the hub
 
-You can deploy third-party NVAs directly inside the Virtual WAN hub for SD-WAN connectivity, next-generation firewall (NGFW) inspection, or dual-role scenarios. Supported vendors include Barracuda, Check Point, Cisco, and Fortinet, among others. Deploying NVAs in the hub eliminates the need for complex user-defined routes in spoke virtual networks and provides centralized traffic inspection with Azure-managed high availability and scaling. For more information, see [About NVAs in a Virtual WAN hub](/azure/virtual-wan/about-nva-hub).
+You can deploy specific third-party NVAs directly inside the Virtual WAN hub. Only the NVAs that Microsoft and the vendor have jointly qualified can run in the hub. Each qualified NVA falls into one of three role categories:
+
+- **SD-WAN connectivity NVAs.** Terminate branch connectivity. These NVAs aren't eligible to be the next-hop resource for [routing intent](/azure/virtual-wan/how-to-routing-policies).
+
+- **Next-generation firewall (NGFW) NVAs.** Inspect traffic. These NVAs are eligible to be the next-hop resource for routing intent.
+
+- **Dual-role SD-WAN and NGFW NVAs.** Combine both roles in a single appliance.
+
+For the authoritative list of partners, the vendor identifiers that routing intent accepts, and which category each vendor falls into, see [About NVAs in a Virtual WAN hub](/azure/virtual-wan/about-nva-hub). Examples of qualified vendors include Barracuda, Check Point, Cisco, and Fortinet.
+
+Deploying NVAs in the hub eliminates the need for user-defined routes in spoke virtual networks and provides centralized traffic inspection with Azure-managed high availability and scaling.
 
 #### Third-party SaaS security solutions
 
-Virtual WAN hubs also support third-party SaaS networking and security solutions that are distinct from IaaS-based NVAs. For example, Palo Alto Networks Cloud NGFW can be deployed as a fully managed SaaS offering inside the hub, providing inline traffic inspection without managing appliance infrastructure. These SaaS solutions integrate with routing intents and are billed through Azure Marketplace. For more information, see [Install Palo Alto Networks Cloud NGFW in a Virtual WAN hub](/azure/virtual-wan/how-to-palo-alto-cloud-ngfw).
+Virtual WAN hubs also support third-party SaaS networking and security solutions that are distinct from IaaS-based NVAs. For example, Palo Alto Networks Cloud NGFW can be deployed as a fully managed SaaS offering inside the hub, providing inline traffic inspection without managing appliance infrastructure. These SaaS solutions integrate with routing intent and are billed through Azure Marketplace. You can deploy at most one SaaS security solution per hub. For more information, see [Install Palo Alto Networks Cloud NGFW in a Virtual WAN hub](/azure/virtual-wan/how-to-palo-alto-cloud-ngfw).
+
+#### Combine security solutions in a single hub
+
+Routing intent gives you two traffic-steering controls per hub: one private routing policy and one internet routing policy, each with a single next-hop resource. All east-west, branch-to-virtual-network, and inter-hub traffic moves together under the private policy, so you can't use routing intent to send datacenter-to-Azure traffic to one vendor's firewall and east-west traffic to another.
+
+The following coexistence patterns are supported in a single hub:
+
+- **Azure Firewall plus one integrated NGFW NVA.** Set one policy's next hop to Azure Firewall and the other to a partner NGFW NVA. For more information, see [Can I deploy an NVA into a Secure hub?](/azure/virtual-wan/about-nva-hub#nva-faq) in the NVA FAQ.
+
+- **Azure Firewall plus one SaaS security solution.** Set one policy's next hop to Azure Firewall and the other to the SaaS security resource deployed in the hub.
+
+Two different third-party NVAs in the same hub aren't supported. A Virtual WAN hub hosts at most one integrated NVA. If you genuinely need per-traffic-type vendor separation beyond what the two routing policies allow, consider one of these alternatives:
+
+- **Deploy multiple hubs**, each with its own next-hop choice for the workloads that connect to it. Inter-hub inspection requires routing intent on every hub.
+- **Place the secondary NVA in a spoke virtual network** and selectively peer the virtual networks that need to use it. The [performance and security optimized Virtual WAN architecture](performance-security-optimized-vwan.yml) shows this pattern.
 
 ### Gateway subnet
 
@@ -179,21 +212,16 @@ In Virtual WAN, Microsoft manages virtual network peering. When you add a connec
 
 ### Routing intents
 
-Routing intents in Virtual WAN are predefined routing configurations that simplify how traffic flows between spokes, on-premises, and the internet through the hub. You can use routing intents to enforce consistent and centralized traffic flows for specific traffic categories, including the following categories:
+Routing intent is a declarative routing feature that sends traffic through a security solution deployed in the Virtual WAN hub. A hub has at most two routing policies, and each policy has a single next-hop resource:
 
-- **Internet:** Traffic destined for the internet
-- **Private traffic:** Traffic between virtual networks or from on-premises to virtual networks
+- **Private routing policy.** Steers vnet-to-vnet, branch-to-vnet (over ExpressRoute, site-to-site VPN, or point-to-site VPN), and inter-hub traffic to the configured next hop as a single class.
+- **Internet routing policy.** Steers `0.0.0.0/0` traffic to the configured next hop, which forwards inspected traffic directly to the internet from the hub. This pattern is called **direct access**.
 
-When you enable routing intents on the Virtual WAN hub, Azure automatically configures the appropriate routes. Traffic that matches a given intent flows to a specified next hop, such as the following components:
+Each policy accepts one of the following next-hop resources: Azure Firewall, an integrated NGFW NVA, or a SaaS security solution. The two policies can point to different resources in the same hub. For example, you can set the private policy next hop to Azure Firewall and the internet policy next hop to a SaaS security solution. For the current eligibility list, vendor identifiers, and configuration steps, see [How to configure Virtual WAN Hub routing intent and routing policies](/azure/virtual-wan/how-to-routing-policies). For guidance on combining different security products in the same hub, see [Combine security solutions in a single hub](#combine-security-solutions-in-a-single-hub).
 
-- Azure Firewall for traffic inspection and filtering
-- NVAs for custom traffic processing
-  
-Virtual WAN supports the following routing intents:
+To inspect internet-bound traffic in the hub and then send it to an on-premises egress point instead of directly to the internet, use **forced tunnel** mode. In this mode you don't configure an internet routing policy; instead, you configure a private routing policy and add `0.0.0.0/0` to the policy's additional prefixes. The private policy's next-hop security solution inspects `0.0.0.0/0` traffic and forwards it through a default route that Virtual WAN learns from on-premises, from an NVA (in the hub or in a spoke), or from a static route on a virtual network connection. Forced tunnel mode doesn't support DNAT and can introduce asymmetric routing in some topologies. For more information, see [Internet access patterns with routing intent](/azure/virtual-wan/about-internet-routing).
 
-- **Internet:** Routes internet-bound traffic through a designated security appliance, such as Azure Firewall
-- **Private traffic:** Routes network-to-network or hybrid traffic through the security path, such as an NVA or firewall
-- **Forced Tunnel:** Routes internet-bound traffic to a security appliance in the hub for inspection, then forwards it via a learned or static `0.0.0.0/0` route to an on-premises egress point rather than directly to the internet. This mode doesn't support DNAT and might introduce asymmetric routing in some topologies. For more information, see [Securing internet access with routing intent](/azure/virtual-wan/about-internet-routing).
+Internet ingress isn't a routing intent traffic class. To publish a workload to the internet, configure a DNAT rule on the hub firewall, or terminate the client connection upstream at Azure Application Gateway or Azure Front Door in a spoke virtual network. For more information, see the [Secured virtual hub](#secured-virtual-hub) section.
 
 ### Route maps
 
