@@ -147,13 +147,13 @@ When compared to network virtual appliances (NVAs), with Azure Firewall you can 
 
 #### Azure Bastion
 
-Azure Bastion securely connects to your virtual machine over RDP and SSH without having the need to configure a public IP on the virtual machine.
+Azure Bastion securely connects to virtual machine scale set instances over RDP and SSH without requiring a public IP on the instances.
 
 Bastion billing is comparable to a basic, low-level virtual machine configured as a jump box. Bastion is more cost effective than a jump box as it has built-in security features, and doesn't incur extra costs for storage and managing a separate server.
 
 #### Azure Virtual Network
 
-Azure Virtual Network is free. Every subscription is allowed to create up to 1,000 virtual networks across all regions. All traffic that occurs within the boundaries of a virtual network is free. For example, VMs in the same virtual network that talk to each other don't incur network traffic charges.
+Azure Virtual Network is free. Every subscription is allowed to create up to 1,000 virtual networks across all regions. All traffic that occurs within the boundaries of a virtual network is free. For example, traffic from the internal load balancer to the virtual machine scale set instances doesn't incur network traffic charges.
 
 #### Internal load balancer
 
