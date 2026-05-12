@@ -27,7 +27,7 @@ The architecture consists of the following aspects:
 
 - **Virtual machine scale sets**. [Virtual Machine Scale Sets](/azure/virtual-machine-scale-sets/overview) provide the compute tier in the spoke virtual networks. Scale sets deploy and manage a group of identical VMs behind the internal load balancer, and they support autoscaling to match demand.
 
-- **Azure Bastion**. [Azure Bastion](/azure/bastion/) allows you to log into virtual machine scale set instances in the virtual network through SSH or remote desktop protocol (RDP) without exposing the instances directly to the internet. Use Bastion to manage instances in the virtual network.
+- **Azure Bastion**. [Azure Bastion](/azure/bastion/) provides secure SSH and RDP access to virtual machine scale set instances without exposing them to the internet. Use Bastion as break-glass access for troubleshooting individual instances when centralized logging and monitoring are insufficient.
 
     Bastion [requires a dedicated subnet named **AzureBastionSubnet**](/azure/bastion/configuration-settings#subnet).
 
