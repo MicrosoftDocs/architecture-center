@@ -55,7 +55,7 @@ You can build your own shared models by training them from the data that all you
 >
 > If you train a shared model from your tenants' data, ensure that your tenants understand and agree to the use of their data. Ensure that identifying information is removed from your tenants' data.
 >
-> Consider what to do if a tenant objects to their data being used to train a model that serves another tenant. For example, if a tenant objects to their data being used to train a model that serves another tenant, you might need to exclude that tenant's data from the training dataset.
+> Consider what to do if a tenant objects to their data being used to train a model that serves another tenant. For example, you might need to exclude that tenant's data from the training dataset.
 
 #### Tuned shared models
 
