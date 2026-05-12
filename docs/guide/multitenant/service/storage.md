@@ -233,3 +233,5 @@ Other contributors:
 ## Related resource
 
 - [Storage and data approaches for multitenancy](../approaches/storage-data.md)
+- [Architecture best practices for Azure Blob Storage](/azure/well-architected/service-guides/azure-blob-storage)
+- [Architecture best practices for Azure Files](/azure/well-architected/service-guides/azure-files)

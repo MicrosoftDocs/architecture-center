@@ -179,3 +179,4 @@ Other contributors:
 ## Related resource
 
 - [Resources for architects and developers of multitenant solutions](../related-resources.md)
+- [Architecture best practices for Azure App Service (Web Apps)](/azure/well-architected/service-guides/app-service-web-apps)

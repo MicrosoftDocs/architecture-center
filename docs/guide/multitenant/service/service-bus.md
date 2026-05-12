@@ -136,3 +136,4 @@ Other contributors:
 ## Related resource
 
 - [Architectural approaches for messaging in multitenant solutions](../approaches/messaging.md)
+- [Architecture best practices for Azure Service Bus](/azure/well-architected/service-guides/azure-service-bus)

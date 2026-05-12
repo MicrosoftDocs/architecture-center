@@ -658,3 +658,4 @@ Other contributors:
 ## Related resource
 
 - [Resources for architects and developers of multitenant solutions](../related-resources.md)
+- [Architecture best practices for Azure Kubernetes Service (AKS)](/azure/well-architected/service-guides/azure-kubernetes-service)
