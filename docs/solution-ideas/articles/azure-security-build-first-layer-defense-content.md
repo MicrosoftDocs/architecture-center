@@ -14,7 +14,7 @@ Diagram that shows how Zero Trust pillars map to Azure security controls across 
 
 :::image-end:::
 
-*Download a [Visio file](https://arch-center.azureedge.net/azure-monitor-integrate-security-components-2.vsdm) of this architecture.*
+*Download a [Visio file](https://arch-center.azureedge.net/azure-monitor-integrate-security-components-2.vsdx) of this architecture.*
 
 *This image incorporates concepts and terminology from the MITRE ATT&CK® Framework developed by The MITRE Corporation. ATT&CK® is a registered trademark of The MITRE Corporation.*
 
