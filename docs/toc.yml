@@ -669,8 +669,6 @@ items:
           href: guide/sap/sap-s4hana.md
       - name: Solution ideas
         items:
-        - name: SAP S/4 HANA for Large Instances
-          href: solution-ideas/articles/sap-s4-hana-on-hli-with-ha-and-dr.yml
         - name: Automate SAP workloads by using SUSE on Azure
           href: solution-ideas/articles/sap-workload-automation-suse.yml
   - name: Containers

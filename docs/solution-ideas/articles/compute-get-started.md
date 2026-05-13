@@ -75,12 +75,9 @@ SAP workloads have specific architecture requirements. See the following resourc
 - [SAP NetWeaver in Windows on Azure](../../guide/sap/sap-netweaver.md): Deploy SAP NetWeaver on Windows VMs.
 - [SAP S/4HANA in Linux on Azure](../../guide/sap/sap-s4hana.md): Run SAP S/4HANA on Azure Linux VMs.
 
-#### SAP solution ideas
+#### SAP solution idea
 
-The following solution ideas demonstrate implementation patterns and possibilities to explore:
-
-- [SAP S/4HANA for Azure Large Instances for Epic](./sap-s4-hana-on-hli-with-ha-and-dr.yml): Deploy SAP S/4HANA on Azure Large Instances for Epic with HA/DR.
-- [Automate SAP workloads by using SUSE on Azure](./sap-workload-automation-suse.yml): Automate SAP deployment and operations by using SUSE tools.
+You can [automate SAP workloads by using SUSE tools on Azure](./sap-workload-automation-suse.yml).
 
 ## Learn about compute on Azure
 
