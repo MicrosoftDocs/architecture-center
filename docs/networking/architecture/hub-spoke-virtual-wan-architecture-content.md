@@ -289,6 +289,7 @@ Operational Excellence covers the operations processes that deploy an applicatio
 Microsoft provides Virtual WAN as a managed service. From a technology perspective, it closely resembles a self-managed hub infrastructure. However, Virtual WAN simplifies the overall network architecture by providing a mesh network topology that enables transitive network connectivity among spokes.
 
 You should monitor Virtual WAN by using Azure Monitor. Key hub-level metrics include **Routing Infrastructure Units usage (%)** for capacity planning and scale monitoring, and **Bits In** and **Bits Out** to track hub traffic volume. Set alert rules when utilization or traffic approaches thresholds to proactively manage hub scale. For more information, see [Azure Virtual WAN monitoring](/azure/virtual-wan/monitor-virtual-wan). You can also fully automate site-to-site configuration and connectivity between on-premises networks and Azure.
+
 ### Performance Efficiency
 
 Performance Efficiency refers to your workload's ability to scale to meet user demands efficiently. For more information, see [Design review checklist for Performance Efficiency](/azure/well-architected/performance-efficiency/checklist).
