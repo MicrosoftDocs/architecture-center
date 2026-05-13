@@ -17,78 +17,93 @@ Defender XDR provides a unified detection and response layer that correlates sec
 This architecture illustrates a hybrid enterprise environment composed of on-premises infrastructure, Microsoft 365 services, Azure workloads, and user endpoints. Defender XDR sits logically above these layers and collects telemetry from Microsoft Defender for Endpoint, Microsoft Defender for Identity, Microsoft Defender for Office 365, Microsoft Defender for Cloud Apps, and Microsoft Defender Vulnerability Management. It correlates signals into unified incidents so that you can automate investigation and response actions. Integration with Microsoft Sentinel lets you use centralized security information and event management (SIEM) and security orchestration, automation, and response (SOAR) capabilities for extended analytics and orchestration.
 
 :::image type="complex" border="false" source="./media/microsoft-defender-xdr-build-second-layer-defense.svg" alt-text="Diagram that shows the Defender XDR second layer of defense architecture." lightbox="./media/microsoft-defender-xdr-build-second-layer-defense.svg":::
-   The diagram is organized as a large grid. Across the top, a banner labeled Microsoft Zero Trust pillars spans four vertical columns labeled network, infrastructure and endpoints, application and data, and identity. Along the left side, horizontal rows represent distinct environment layers. From top to bottom these rows are labeled on-premises, Microsoft 365 apps, Azure, Azure security services, Microsoft Purview, Defender XDR, and Microsoft Entra ID. A label on the far right identifies the top three rows as the customer environment and the fourth row as the Azure security benchmark. On the far left, a vertical rectangle labeled Microsoft Sentinel spans all rows to indicate its role as an overarching SIEM and SOAR service. The on-premises row contains icons for a firewall, Domain Name System (DNS), and virtual local area networks (VLANs) in the network column; servers and client endpoints in the infrastructure and endpoints column; application, file server, and database in the application and data column; and Active Directory Domain Services (AD DS) domain controller (DC) in the identity column.
-   
-    The M365 Apps row shows Office 365 Apps (excluding Teams and OneDrive) under Application and Data, labeled as step 1, and Entra Connect under Identity. The Azure row shows PIP, LBS, and VNET under Network; Servers, AKS, and VDI under Infrastructure and Endpoints; Web Apps, Azure Storage, and Database under Application and Data; and Microsoft Entra ID under Identity. The Azure Security Services row is the most detailed and spans all four columns under a Policy banner. Under Network, it includes WAF, DDoS protection, Private Link, NVA, NSG, VPN, Azure Firewall, and TLS/SSL. Under Infrastructure and Endpoints, it includes Bastion, Antimalware, Disk Encrypt, Key Vault, Default, MFA, RDP Short, Privileged Connect, App GW Cluster, and Cond Access. Under Application and Data, it includes FD WAF, API Management, App GW plus WAF, SAS Token, Private Endpoint, Vulnerability Assessment, Storage Firewall, Private Endpoint, and Encryption along with SQL Audit and Vulnerability Assessment. Under Identity, it includes MFA, RBAC, ID Protection, PIM, and Cond Access. Step 8 is labeled on a Logic Apps icon within the Infrastructure and Endpoints section of this row, and step 9 appears on the Microsoft Sentinel label on the left. The Microsoft Purview row spans the middle columns and contains Compliance Manager under Infrastructure and Endpoints, and Data Governance and MIP, DLP, and IRM under Application and Data and Identity respectively. The XDR row contains four Defender products spanning the columns: Defender for Endpoint labeled as step 4 under Infrastructure and Endpoints, Defender for Cloud Apps labeled as step 6 under Application and Data, Defender for Office 365 labeled as step 3 under Application and Data, and Defender for Identity labeled as step 5 under Identity. A label on the right reads "XDR" with step 7 indicating the unified correlation layer. The Microsoft Entra ID row spans the Identity column and contains Microsoft Entra ID Premium, marked with an asterisk. At the bottom of the diagram, a section labeled "MITRE ATT&CK Matrix Tactics and Techniques" is divided into four attack domain columns matching the top columns: Network Attacks, Infrastructure and Process Attacks, Application and Storage Attacks, and Identity Compromising. Each column lists specific MITRE ATT&CK technique IDs and names. Under Network Attacks are Discovery techniques Remote System Discovery T1018 and Remote Access Tool T1219, and Command and Control technique. Under Infrastructure and Process Attacks are techniques covering Privilege Escalation, Discovery, Defense Evasion, and Execution such as T1053, T1082, T1497, T1059, T1218, and T1055. Under Application and Storage Attacks, step 2 marks Initial Access via Phishing T1566, along with Command and Control via Ingress Tool Transfer T1105, and Defense Evasion via Obfuscated Files T1027 and Masquerading T1036. Under Identity Compromising are Persistence via Account Manipulation T1098, Defense Evasion via OS Credential Dumping T1003, and Privilege Escalation via Process Injection T1055. The ATT&CK logo appears in the lower left corner of this section.
+   The diagram is organized as a large grid. Across the top, a banner labeled Microsoft Zero Trust pillars spans four vertical columns labeled network, infrastructure and endpoints, application and data, and identity. Along the left side, horizontal rows represent distinct environment layers. From top to bottom these rows are labeled on-premises, Microsoft 365 apps, Azure, Azure security services, Microsoft Purview, Defender XDR, and Microsoft Entra ID. A label on the far right identifies the top three rows as the customer environment and the fourth row as the Azure security benchmark. On the far left, a vertical rectangle labeled Microsoft Sentinel spans all rows to indicate its role as an overarching SIEM and SOAR service. The on-premises row contains icons for a firewall, Domain Name System (DNS), and virtual local area networks (VLANs) in the network column; servers and client endpoints in the infrastructure and endpoints column; application, file server, and database in the application and data column; and Active Directory Domain Services (AD DS) domain controller (DC) in the identity column. The Microsoft 365 Apps row contains icons for apps like Excel, Microsoft Teams, and OneDrive in the application and data column and an icon for Microsoft Entra ID in the identity column. The Azure row contains icons for private IP (PIP) addresses, Azure Load Balancer, and Azure Virtual Network in the network column; servers, Azure Kubernetes Service (AKS), and Azure Virtual Desktop in the infrastructure and endpoints column; the Web Apps feature of Microsoft Azure App Service, Azure Storage, and Azure SQL Database in the application and data column; and Microsoft Entra ID in the identity column. The Azure security services row is the most detailed and spans all four columns under a banner labeled Azure Policy. The network column includes Azure Web Application Firewall, Azure DDoS Protection, Transport Layer Security (TLS) and Secure Sockets Layer (SSL), Azure Private Link, Azure Firewall, a private endpoint, network security group (NSG), VPN, and network virutal appliance (NVA). The infrastructure and endpoints column includes Azure Logic Apps, Azure Bastion, anti-malware tools, disk encryption, Azure Key Vault, Azure Application Gateway, privileged clusters, Microsoft Entra Conditional Access, Microsoft Entra multifactor authentication (MFA), Remote Desktop Protocol (RDP) shortpath, and reverse connection. The application and data column includes Azure Front Door web application firewall (WAF), Azure API Management, Application Gateway plus WAF, shared access signature (SAS) token, private endpoint, Storage firewall, encryption, SQL Audit, and vulnerability assessment. The identity column includes MFA, Azure role-based access control (Azure RBAC), Microsoft Entra ID Protection, privileged identity management (PIM), and Conditional Access. The Microsoft Purview row contains Microsoft Purview Compliance Manager in the infrastructure and endpoints column; data governance in the application and data column; and Microsoft Purview Information Protection, Microsoft Purview Data Loss Prevention, and Microsoft Purview Insider Risk Management in the identity column. The Defender XDR row contains Defender for Endpoint in the infrastructure and endpoints column; Defender for Cloud Apps and Defender for Office 365 in the application and data column; and Defender for Identity in the identity column. The Microsoft Entra ID row contains Microsoft Entra ID Premium in the identity column. At the bottom of the diagram, a section labeled MITRE ATT&CK Matrix Tactics and Techniques is divided into four attack domain columns labeled network attacks, infrastructure and process attacks, application and storage attacks, and identity compromising. Each column lists specific MITRE ATT&CK technique IDs and names. The network attacks column lists techniques for discovery and command and control. Infrastructure and process attacks lists techniques for privilege escalation, discovery, defense evasion, and execution, such as T1053, T1082, T1497, T1059, T1218, and T1055. Application and storage attacks lists techniques for initial access, command and control, defense evasion, and discovery like T1566, T1105, and T1027. Identity compromising lists techniques for persistence, credential access, and privilege escalation, such as T1098, T1003, and T1055. The ATT&CK logo appears in the lower left corner of this section.
 :::image-end:::
 
-*Download a [Visio file](https://arch-center.azureedge.net/<file-name>.vsdx) of this architecture.*
+*This image incorporates concepts and terminology from the MITRE ATT&CK® Framework developed by [The MITRE Corporation](https://attack.mitre.org/index.html). ATT&CK® is a registered trademark of The MITRE Corporation.*
+
+*Download a [Visio file](https://arch-center.azureedge.net/microsoft-defender-xdr-build-second-layer-defense.vsdx) of this architecture.*
 
 ## Workflow
 
-The following workflow corresponds to the architecture diagram:
+The following workflow corresponds to the previous diagram:
 
-1. A user interacts with email, applications, or endpoints that are protected by baseline preventive controls defined in the first layer of defense.
-2. A phishing attempt or malicious payload bypasses preventive controls and reaches a user mailbox or endpoint.
-3. Defender for Office 365 analyzes email content and detects suspicious links or attachments.
-4. Defender for Endpoint monitors endpoint behavior and identifies malicious process execution or lateral movement activity.
-5. Defender for Identity analyzes authentication traffic and detects abnormal Active Directory behavior, such as credential theft or privilege escalation.
-6. Defender for Cloud Apps detects anomalous SaaS activity or risky OAuth application usage.
-7. Defender XDR correlates all signals into a single incident representing the full attack chain.
-8. Automated investigation and response actions are triggered to contain the threat, such as isolating devices, disabling accounts, or blocking malicious indicators.
-9. Security teams investigate and remediate the incident using unified XDR workflows or forward data to Microsoft Sentinel for advanced analytics and orchestration.
+1. A user interacts with email, applications, or endpoints protected by baseline preventive controls defined in the first layer of defense.
+
+1. A phishing attempt or malicious payload bypasses preventive controls and reaches a user mailbox or endpoint.
+
+1. Defender for Office 365 analyzes email content and detects suspicious links or attachments.
+
+1. Defender for Endpoint monitors endpoint behavior and identifies malicious process execution or lateral movement activity.
+
+1. Defender for Identity analyzes authentication traffic and detects abnormal Active Directory behavior, such as credential theft or privilege escalation.
+
+1. Defender for Cloud Apps detects anomalous software as a service (SaaS) activity or risky OAuth application usage.
+
+1. Defender XDR correlates all signals into a single incident that represents the whole attack chain.
+
+1. Automated investigation and response actions are triggered to contain the threat. These actions include device isolation, account inactivation, or malicious indicator blocks.
+
+1. Security teams investigate and remediate the incident by using unified Defender XDR workflows, or they forward the data to Microsoft Sentinel for advanced analytics and orchestration.
 
 ## Components
 
-- Defender XDR is a unified extended detection and response platform that correlates signals across multiple security domains. In this architecture, it provides centralized visibility, incident correlation, and automated response across the environment.
+- [Defender XDR](/defender-xdr/microsoft-365-defender) is a unified extended detection and response platform that correlates signals across multiple security domains. In this architecture, it provides centralized visibility, incident correlation, and automated responses across the environment.
 
-- Defender for Endpoint is an endpoint security platform that provides EDR, attack surface reduction, and vulnerability insights. In this architecture, it detects malicious behavior on user devices and servers and enforces containment actions during active attacks.
+- [Defender for Endpoint](/defender-endpoint/microsoft-defender-endpoint) is an endpoint security platform that provides endpoint detection and response, attack surface reduction, and vulnerability insights. In this architecture, it detects malicious behavior on user devices and servers and enforces containment actions during active attacks.
 
-- Defender for Identity monitors on-premises Active Directory signals to detect identity-based attacks. In this architecture, it identifies lateral movement, credential theft, and privilege escalation attempts commonly used in ransomware campaigns.
+- [Defender for Identity](/defender-for-identity/what-is) is a service that monitors on-premises Active Directory signals to detect identity-based attacks. In this architecture, it identifies lateral movement, credential theft, and privilege escalation attempts that ransomware campaigns typically use.
 
-- Defender for Office 365 protects email and collaboration workloads from phishing and malware. In this architecture, it detects and investigates malicious email-based initial access vectors.
+- [Defender for Office 365](/defender-office-365/mdo-about) is a service that helps protect email and collaboration workloads from phishing and malware. In this architecture, it detects and investigates malicious email-based initial-access vectors.
 
-- Defender for Cloud Apps provides visibility and control over SaaS applications. In this architecture, it detects compromised cloud identities, anomalous application behavior, and data exfiltration attempts.
+- [Defender for Cloud Apps](/defender-cloud-apps/what-is-defender-for-cloud-apps) is a service that provides visibility and control over SaaS applications. In this architecture, it detects compromised cloud identities, anomalous application behavior, and data exfiltration attempts.
 
-- Defender Vulnerability Management continuously assesses endpoint vulnerabilities and misconfigurations. In this architecture, it helps reduce exploitable attack surface before and after compromise.
+- [Defender Vulnerability Management](/defender-vulnerability-management/defender-vulnerability-management) is a service that continuously assesses endpoint vulnerabilities and misconfigurations. In this architecture, it helps reduce exploitable attack surface before and after its compromised.
 
-- Microsoft Sentinel is a cloud-native SIEM and SOAR solution. In this architecture, it optionally aggregates Defender XDR incidents for long-term retention, advanced hunting, and orchestration.
+- [Microsoft Sentinel](/azure/sentinel/sentinel-overview) is a cloud-native SIEM and SOAR solution. In this architecture, it optionally aggregates Defender XDR incidents for long-term retention, advanced hunting, and orchestration.
 
 ## Scenario details
 
 This scenario focuses on detecting and responding to ransomware attacks that bypass preventive security controls.
 
-In [Map threats to your IT environment](map-threats-it-environment.yml), ransomware threats were mapped across a hybrid enterprise environment using the MITRE ATT&CK framework. [Build the first layer of defense by using Azure security services](azure-security-build-first-layer-defense.yml) addressed how foundational Azure security services and Zero Trust principles reduce the likelihood of those attacks succeeding.
+[Map threats to your IT environment](map-threats-it-environment.yml), the first article in this series, describes how to map ransomware threats across a hybrid enterprise environment by using the MITRE ATT&CK framework. [Build the first layer of defense by using Azure security services](azure-security-build-first-layer-defense.yml) addresses how foundational Azure security services and Zero Trust principles reduce the likelihood of those attacks succeeding.
 
-This article assumes that some attacks will still succeed and focuses on minimizing their impact by:
+This article assumes that some attacks succeed. It focuses on the following tasks to minimize their impact:
 
-- Detecting attacker behavior early
-- Correlating signals across multiple security domains
-- Reducing attacker dwell time
-- Containing threats before widespread encryption or data exfiltration occurs
+- Early detection of attacker behavior
+- Signal correlation across multiple security domains
+- Reduction of attacker dwell time
+- Threat containment before widespread encryption or data exfiltration occurs
 
-Defender XDR is designed to identify behavioral patterns, not just known malware signatures, making it effective against modern ransomware operators who rely on living-off-the-land techniques and legitimate tools.
+Defender XDR identifies behavioral patterns, not just known malware signatures. This design makes it effective against modern ransomware operators who rely on living-off-the-land techniques and legitimate tools.
 
 ## Potential use cases
 
-This architecture applies to multiple industries and scenarios, including:
+This architecture applies to multiple industries and scenarios, including the following examples:
 
-- Finance – Detecting credential theft and lateral movement in regulated environments
-- Healthcare – Protecting sensitive identities and data from ransomware disruption
-- Manufacturing – Preventing operational impact from compromised endpoints
-- Government – Detecting identity-based attacks and nation-state techniques
-- Retail and e-commerce – Identifying phishing-driven account compromise
-- Education – Monitoring high-volume identity and endpoint activity
+- **Finance:** Detect credential theft and lateral movement in regulated environments
 
-## Additional considerations
+- **Healthcare:** Protect sensitive identities and data from ransomware disruption
 
-**Microsoft Purview** plays a critical role in an organization’s overall data protection and governance strategy. Microsoft Purview provides capabilities such as data discovery and classification, sensitivity labeling, data loss prevention (DLP), insider risk management, and audit across Microsoft 365, Azure, and multicloud environments. These capabilities are essential for protecting sensitive information and meeting regulatory and compliance requirements, especially in ransomware scenarios that involve data exfiltration and extortion. However, while Microsoft Purview is represented in the architecture diagram to reflect its importance in a comprehensive security posture, data governance and compliance are not in scope for this article series, which focuses specifically on threat prevention, detection, and response.
+- **Manufacturing:** Prevent operational impact from compromised endpoints
 
-**Microsoft Entra ID Premium and Conditional Access** is also foundational to identity protection in cloud-centric environments. Microsoft Entra ID Premium enables advanced identity security capabilities such as risk-based Conditional Access, identity protection, privileged identity management (PIM), and continuous access evaluation for cloud and SaaS applications. These controls are primarily focused on cloud identities and access enforcement. In contrast, Defender for Identity focuses on detecting identity-based threats in on-premises Active Directory, such as credential theft, lateral movement, and domain dominance techniques. Both Microsoft Entra ID Premium and Defender for Identity appear in the architecture diagram to illustrate end-to-end identity coverage across hybrid environments; however, detailed identity governance and access policy design are intentionally out of scope for this article series, which concentrates on ransomware threat mapping and layered defense architecture.
+- **Government:** Detect identity-based attacks and nation-state techniques
+
+- **Retail and e-commerce:** Identify phishing-driven account compromise
+
+- **Education:** Monitor high-volume identity and endpoint activity
+
+## Other considerations
+
+[Microsoft Purview](/purview/purview) plays a critical role in an organization's overall data protection and governance strategy. Microsoft Purview provides capabilities like data discovery and classification, sensitivity labeling, data loss prevention (DLP), insider risk management, and auditing across Microsoft 365, Azure, and multicloud environments. These capabilities are essential for protecting sensitive information and meeting regulatory and compliance requirements, especially in ransomware scenarios that involve data exfiltration and extortion. The architecture diagram in this article includes Microsoft Purview to reflect its importance in a comprehensive security posture, but data governance and compliance aren't in scope for this article series, which focuses specifically on threat prevention, detection, and response.
+
+[Microsoft Entra ID Premium](/entra/fundamentals/what-is-entra) and [Microsoft Entra Conditional Access](/entra/identity/conditional-access/overview) are also foundational to identity protection in cloud-centric environments. Use Microsoft Entra ID Premium for advanced identity security capabilities like risk-based conditional access, identity protection, privileged identity management (PIM), and continuous access evaluation for cloud and SaaS applications. These controls focus on cloud identities and access enforcement. 
+
+In contrast, Defender for Identity focuses on detecting identity-based threats in on-premises Active Directory, including credential theft, lateral movement, and domain dominance techniques. Both Microsoft Entra ID Premium and Defender for Identity appear in the architecture diagram to illustrate end-to-end identity coverage across hybrid environments. However, detailed identity governance and access policy design aren't in scope for this article series, which concentrates on ransomware threat mapping and layered defense architecture.
 
 ## Contributors
 
-*This article is maintained by Microsoft. It was originally written by the following contributors.*
+*Microsoft maintains this article. The following contributors wrote this article.*
 
 Principal author:
 
@@ -99,13 +114,12 @@ Other contributors:
 - [Gary Moore](https://www.linkedin.com/in/gwmoore) | Programmer/Writer
 - [Andrew Nathan](https://www.linkedin.com/in/andrew-nathan) | Senior Customer Engineering Manager
 
+*To see nonpublic LinkedIn profiles, sign in to LinkedIn.*
+
 ## Next steps
 
-- Review how to design and tune automated investigation and response in Defender XDR
-- Integrate Defender XDR with Microsoft Sentinel for advanced SIEM and SOAR capabilities
-- Validate detections by simulating ransomware attack paths identified in [Map threats to your IT environment](map-threats-it-environment.yml)
-- Continue to Part 4: Integrating Azure security services with Defender XDR
-
+- [Configure automated investigation and response capabilities in Microsoft Defender XDR](/defender-xdr/m365d-configure-auto-investigation-response)
+- [Integrate Defender XDR with Microsoft Sentinel for advanced SIEM and SOAR capabilities](/azure/sentinel/microsoft-365-defender-sentinel-integration)
 
 ## Related resources
 

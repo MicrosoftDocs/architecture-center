@@ -4339,6 +4339,11 @@
       "redirect_document_id": true
     },
     {
+      "source_path": "docs/solution-ideas/articles/microsoft-365-defender-build-second-layer-defense.yml",
+      "redirect_url": "/azure/architecture/solution-ideas/articles/microsoft-defender-xdr-build-second-layer-defense",
+      "redirect_document_id": true
+    },    
+    {
       "source_path": "docs/example-scenario/data-warehouse/dataops-mdw.yml",
       "redirect_url": "/azure/architecture/databases/architecture/dataops-mdw",
       "redirect_document_id": true
