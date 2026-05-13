@@ -176,7 +176,7 @@ This architecture isn't designed for production deployments, so it omits critica
 
 - Use POC results to choose the right App Service product. Meet demand through horizontal scaling (adjust instance count). Avoid designs that require changing the product tier to handle routine demand.
 
-- This architecture uses pay-as-you-go components. Best-effort resource allocation can introduce noisy neighbor effects. Decide whether you need [provisioned throughput](/azure/foundry/foundry-models/how-to/provisioned-throughput-onboarding) to reserve capacity and achieve predictable performance.
+- This architecture uses pay-as-you-go components. Best-effort resource allocation can introduce noisy neighbor effects. Decide whether you need [provisioned throughput](/azure/foundry/openai/how-to/provisioned-throughput-onboarding) to reserve capacity and achieve predictable performance.
 
 ### Other design recommendations
 
