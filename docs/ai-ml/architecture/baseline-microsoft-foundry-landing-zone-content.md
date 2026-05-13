@@ -44,7 +44,7 @@ Like most application landing zone implementations, the workload team primarily 
 
 The following resources remain mostly unchanged from the [baseline architecture](./baseline-microsoft-foundry-chat.yml#components).
 
-- **[Foundry resource](/azure/foundry/what-is-foundry)** is a platform that you use to build, test, deploy, and host agents that consume models as a service (MaaS). **[Foundry projects](/azure/foundry/how-to/create-projects)** are containers within a Foundry resource where you configure agent definitions, model deployments, and connections to data sources. Each project exposes an endpoint that client applications use to interact with the project's agents and models. In this architecture, the Foundry resource enables the workload team to host models as a service (MaaS), implement content safety, and establish workload-specific connections to tools.
+- **[Foundry resource](/azure/foundry/what-is-foundry)** and its **[projects](/azure/foundry/how-to/create-projects)** is an AI application platform. On this platform, the workload's AI developers and data scientists build, evaluate, and deploy AI models and host agents. Each project exposes an endpoint that clients use to interact with the team's agents and models. In this architecture, the Foundry resource enables the workload team to host models as a service (MaaS), implement content safety, and establish workload-specific connections to tools.
 
   If your organization's AI Center of Excellence restricts access to AI model deployments, the workload team might not host models in their own Foundry resource. Instead, they might need to use [centralized AI resources](/azure/cloud-adoption-framework/scenarios/ai/plan) such as an AI hub. In this scenario, all model consumption usually flows through an AI gateway that your AI platform team provides.
 
@@ -547,4 +547,3 @@ Learn how to collaborate on technical details with the platform team.
 
 - [A Well-Architected Framework perspective on AI workloads on Azure](/azure/well-architected/ai/get-started)
 - [Guardrails and controls](/azure/foundry/guardrails/guardrails-overview)
-- [Azure OpenAI models](/azure/foundry/foundry-models/concepts/models-sold-directly-by-azure)
