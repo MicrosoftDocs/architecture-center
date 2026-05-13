@@ -16,7 +16,7 @@ Diagram that shows how Zero Trust pillars map to Azure security controls across 
 
 *Download a [Visio file](https://arch-center.azureedge.net/azure-monitor-integrate-security-components.vsdm) of this architecture.*
 
-*©2021 The MITRE Corporation. This work is reproduced and distributed with the permission of The MITRE Corporation.*
+*This image incorporates concepts and terminology from the MITRE ATT&CK® Framework developed by The MITRE Corporation. ATT&CK® is a registered trademark of The MITRE Corporation.*
 
 The Azure security layer shown in this diagram aligns with the Azure Security Benchmark (ASB) v3, which defines the Microsoft recommended security controls across identity, networking, compute, data, and governance.
 
