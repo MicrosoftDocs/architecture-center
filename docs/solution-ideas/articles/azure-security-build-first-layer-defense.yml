@@ -17,6 +17,6 @@ products:
   - entra-id
 name: Build the first layer of defense with Azure Security services
 summary: Secure your IT environment by using Azure security services and Azure Security Benchmark. This article is part of a series.
-thumbnailUrl: /azure/architecture/browse/thumbs/azure-security-build-first-layer-defense-thumbnail.png
+thumbnailUrl: /azure/architecture/browse/thumbs/azure-security-build-first-layer-defense.png
 content: |
   [!include[](azure-security-build-first-layer-defense-content.md)]
