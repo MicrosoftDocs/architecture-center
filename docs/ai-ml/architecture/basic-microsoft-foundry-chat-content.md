@@ -85,7 +85,7 @@ Foundry includes a [guardrails and content filtering system](/azure/foundry/guar
 
 #### Identity and access management
 
-The following guidance expands on the [identity and access management guidance](/azure/architecture/web-apps/app-service/architectures/baseline-zone-redundant#identity-and-access-management) in the App Service baseline architecture. The chat UI authenticates to Agent Service by using its managed identity. The Microsoft Agent Framework uses the Azure.Identity library to authenticate with the managed identity assigned to the App Service instance.
+The following guidance expands on the [identity and access management guidance](/azure/architecture/web-apps/app-service/architectures/baseline-zone-redundant#identity-and-access-management) in the App Service baseline architecture. The chat UI authenticates to Agent Service by using its managed identity. The Microsoft Agent Framework uses the Azure.Identity library to authenticate using the managed identity assigned to the App Service instance.
 
 The Foundry project also has a managed identity. This identity authenticates to services such as AI Search through connection definitions. The project makes those connections available to Agent Service.
 
