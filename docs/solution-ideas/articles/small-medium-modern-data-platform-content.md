@@ -222,10 +222,10 @@ Principal authors:
 ## Next steps
 
 - [Learning paths for data engineers](/training/roles/data-engineer)
-- [Fabric - Get Started Microsoft Learn Path](/training/fabric/)
+- [Fabric - Get started with Microsoft Learn](/training/fabric/)
 - [Fabric - Microsoft Learn modules](/training/browse/?products=fabric&resource_type=module)
 - [Create a storage account for Data Lake Storage](/azure/storage/blobs/create-data-lake-storage-account)
-- [Event Hubs Quickstart - Create an event hub by using the Azure portal](/azure/event-hubs/event-hubs-create)
+- [Event Hubs quickstart - Create an event hub by using the Azure portal](/azure/event-hubs/event-hubs-create)
 - [What is the medallion lakehouse architecture?](/azure/databricks/lakehouse/medallion)
 - [What is a lakehouse in Fabric?](/fabric/data-engineering/lakehouse-overview)
   
