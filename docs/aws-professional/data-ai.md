@@ -64,8 +64,6 @@ Data integration and extract, transform, and load (ETL) tools help extract, tran
 | [Amazon AppFlow](https://aws.amazon.com/appflow/) | [Azure Logic Apps](https://azure.microsoft.com/services/logic-apps/) | These services automate data flows between cloud applications and services without requiring code. Logic Apps provides integration capabilities through a wide range of connectors and a visual designer. AppFlow provides secure data transfer between specific SaaS applications and AWS services and includes built-in data transformation features. |
 | [AWS Step Functions](https://aws.amazon.com/step-functions/)   | [Data Factory](https://azure.microsoft.com/services/data-factory/) with [Logic Apps](https://azure.microsoft.com/services/logic-apps/) | These services provide workflow orchestration for coordinating distributed applications and microservices. Logic Apps supports both data integration and enterprise workflow automation. Step Functions orchestrates AWS services and microservices in serverless applications.   |
 
-For more information about how to migrate databases, see [Migrate databases from Amazon Web Services to Azure](/azure/migration/migrate-databases-from-aws).
-
 ## Data warehousing
 
 The following solutions store and manage large volumes of structured data optimized for querying and reporting.

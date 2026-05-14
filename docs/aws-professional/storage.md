@@ -71,8 +71,6 @@ On Azure, you can configure many VM types for host caching. When host caching is
 
 ## Storage comparison
 
-For more information about migrating to Azure storage, see [Migrate storage from Amazon Web Services to Azure](/azure/migration/migrate-storage-from-aws).
-
 ### Object storage
 
 | AWS service | Azure service | Description |

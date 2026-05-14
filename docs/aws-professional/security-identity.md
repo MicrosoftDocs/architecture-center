@@ -17,8 +17,6 @@ This guide is for organizations that use Amazon Web Services (AWS) and want to m
 > [!TIP]
 > For more information about extending Microsoft Entra ID into AWS, see [Microsoft Entra identity management and access management for AWS](/azure/architecture/reference-architectures/aws/aws-azure-ad-security).
 
-For information about migrating security services to Azure, see [Migrate security services from Amazon Web Services](/azure/migration/migrate-security-from-aws).
-
 ## Core identity services
 
 Core identity services in both platforms form the foundation of identity and access management. These services include core authentication, authorization, and accounting capabilities, and the ability to organize cloud resources into logical structures. AWS professionals can use similar capabilities in Azure. These capabilities might have architectural differences in implementation.
