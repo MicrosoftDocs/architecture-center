@@ -129,7 +129,7 @@ To optimize costs, consider the following recommendations:
     - [Save costs with Foundry reservations](/azure/cost-management-billing/reservations/microsoft-foundry)
     - [Plan and manage Foundry costs](/azure/ai-foundry/how-to/costs-plan-manage)
 
-- **Use a [Batch deployment](/azure/ai-foundry/openai/how-to/batch) for the embedding activity.** The embedding step runs in the backend pipeline and isn't user-interactive, which fits the asynchronous Batch model. Global Batch (`GlobalBatch`) and Data Zone Batch (`DataZoneBatch`) cost 50% less than Global Standard for the same model, with a 24-hour target turnaround.
+- **Use a [Batch deployment](/azure/ai-foundry/openai/how-to/batch) for the embedding activity.** The embedding step runs in the backend pipeline and isn't user-interactive, which fits the asynchronous Batch model. Global Batch (`GlobalBatch`) and Data Zone Batch (`DataZoneBatch`) can cost less than Global Standard for the same model, with a 24-hour target turnaround.
 
 - **Plan for [regional deployments and operational scale-up scheduling](/azure/search/search-sku-manage-costs) in AI Search.**
 
