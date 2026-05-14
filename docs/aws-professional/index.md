@@ -23,7 +23,7 @@ The articles in this series describe:
 
 ## Migration
 
-If you plan on migrating a workload from AWS to Azure, we suggest you have a methodical approach to that initaitive. Component selection and Azure fundimentals are important parts of that larger process. Fine tune your migration plan using Microsoft's guidance, see [Migrate a workload from Amazon Web Services (AWS) to Azure](/azure/migration/migrate-workload-from-aws-introduction).
+If you plan to migrate a workload from AWS to Azure, we suggest you have a methodical approach to that initaitive. Component selection and Azure fundimentals are important parts of that larger process. Fine tune your migration plan using Microsoft's guidance, see [Migrate a workload from Amazon Web Services (AWS) to Azure](/azure/migration/migrate-workload-from-aws-introduction).
 
 ## Similarities and differences
 

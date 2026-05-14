@@ -170,7 +170,7 @@ The following AI services create new content or data that resembles human-genera
 
 ## Migration
 
-If your planning a migration of an AWS workload to Azure, see [Migrate databases from Amazon Web Services to Azure](/azure/migration/migrate-databases-from-aws) which includes some specific [example migration scenarios](/azure/migration/migrate-databases-from-aws#migration-scenarios) that might align to your use case.
+If you plan to migrate an AWS workload to Azure, see [Migrate databases from Amazon Web Services to Azure](/azure/migration/migrate-databases-from-aws) which includes some specific [example migration scenarios](/azure/migration/migrate-databases-from-aws#migration-scenarios) that might align to your use case.
 
 ## Contributors
 
