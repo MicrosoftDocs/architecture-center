@@ -30,7 +30,7 @@ You might need to federate with external identity providers (IdPs). You can use 
 
 For more information, see the [Federated Identity pattern](../../../patterns/federated-identity.yml).
 
-If you choose to support tenant-specific IdPs, ensure that you clarify which services and protocols your application supports. For example, determine whether to support the OpenID Connect protocol and the Security Assertion Markup Language protocol, or whether to limit federation to Microsoft Entra ID instances.
+If you choose to support tenant-specific IdPs, ensure that you clarify which services and protocols your application supports. For example, determine whether to support the OpenID Connect protocol and the Security Assertion Markup Language (SAML) protocol, or whether to limit federation to Microsoft Entra ID instances.
 
 When you implement an IdP, consider scale and limits that might apply. For example, your IdP might be able to federate with only a limited number of other IdPs.
 
@@ -44,6 +44,10 @@ When users visit an application, the application directs them to an IdP. If the 
 
 In a multitenant solution, you might enable another form of single sign-on. If users are authorized to access data across multiple tenants, you might need to let them change their context from one tenant to another. In some solutions, the IdP can silently issue a new token for the selected tenant when the user already has a valid session. In other solutions, the tenant change requires an interactive sign-in or a new session. Consider whether your solution needs to support tenant transitions without another sign-in prompt, and whether your IdP should reissue tokens with specific tenant claims. For example, when a user signs in to the Azure portal, they can switch between different Microsoft Entra ID directories. This transition requires reauthentication and generates a new token from the newly selected Microsoft Entra ID instance.
 
+### Multifactor authentication
+
+Some tenants require their users to continue to use a specific multifactor authentication (MFA) provider for compliance or user-experience reasons. Microsoft Entra ID supports [external authentication methods](/entra/identity/authentication/concept-authentication-external-method-provider), which let tenants use a non-Microsoft MFA provider while Microsoft Entra ID remains the identity control plane and continues to evaluate Conditional Access policies and sign-in risk on every sign-in. Consider whether your solution should support tenants that bring their own MFA provider.
+
 ### Sign-in risk evaluation
 
 Modern identity platforms support a risk evaluation during the sign-in process. For example, if a user signs in from an unusual location or device, the authentication system might require extra identity checks, such as multifactor authentication (MFA), before it allows the sign-in request to proceed.
@@ -53,8 +57,6 @@ Consider whether your tenants might have different risk policies that need to be
 If you need to support different risk policies for each tenant, your authentication system needs to know which tenant the user is signing in to so that it can apply the correct policies.
 
 If your IdP includes these capabilities, consider using the IdP's native sign-in risk evaluation features. These features can be complex and error-prone to implement yourself.
-
-Some tenants require their users to continue to use a specific multifactor authentication (MFA) provider for compliance or user-experience reasons. Microsoft Entra ID supports [external authentication methods](/entra/identity/authentication/concept-authentication-external-method), which let tenants use a non-Microsoft MFA provider while Microsoft Entra ID remains the identity control plane and continues to evaluate Conditional Access policies and sign-in risk on every sign-in. Consider whether your solution should support tenants that bring their own MFA provider.
 
 Alternatively, if you federate to the tenants' IdPs, their risky sign-in mitigation policies can be applied, which allows them to control enforcement policies and controls. For example, requiring two MFA challenges, one from the user's home IdP and another from your own, can make the sign-in process more difficult. Ensure that you understand how federation interacts with each of your tenant's IdPs and the policies that they have in place.
 
@@ -102,7 +104,7 @@ Microsoft Entra ID and External ID are managed identity platforms that you can u
 
 Many multitenant solutions operate as SaaS. Your choice to use Microsoft Entra ID or External ID depends partly on how you define your tenants or customer base.
 
-- If your tenants or customers are organizations, they might already use Microsoft Entra ID for services like Microsoft 365, Microsoft Teams, or for their own Azure environments. You can create a [multitenant application](/entra/identity-platform/single-and-multi-tenant-apps) in your own Microsoft Entra ID directory to make your solution available to other Microsoft Entra ID directories. You can also list your solution in [Microsoft commercial marketplace](/partner-center/marketplace-offers/plan-saas-offer) so that organizations that use Microsoft Entra ID can discover and acquire it.
+- If your tenants or customers are organizations, they might already use Microsoft Entra ID for services like Microsoft 365, Microsoft Teams, or for their own Azure environments. You can create a [multitenant application](/entra/identity-platform/single-and-multi-tenant-apps) in your own Microsoft Entra ID directory to make your solution available to other Microsoft Entra ID directories. You can also list your solution in [Microsoft Marketplace](/partner-center/marketplace-offers/plan-saas-offer) so that organizations that use Microsoft Entra ID can discover and acquire it.
 
 - If your tenants or customers don't use Microsoft Entra ID, or if they're individuals instead of organizations, consider using External ID. External ID provides features to control how users sign up and sign in. For example, you can restrict access to your solution to only the users that you invite, or you can enable self-service sign-up. You can use [custom branding](/entra/external-id/customers/how-to-customize-branding-customers). To enable your own staff to sign in, you can [invite users from your Microsoft Entra ID tenant as guests into the External ID via guest access](/entra/external-id/b2b-quickstart-add-guest-users-portal). External ID also enables [federation with other IdPs](/entra/external-id/customers/concept-authentication-methods-customers).
 
