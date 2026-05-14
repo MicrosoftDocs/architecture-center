@@ -118,14 +118,17 @@ On Azure, you can configure many VM types for host caching. When host caching is
 | [Import/Export Disk](https://aws.amazon.com/snowball/disk/details/) | [Import/Export](/azure/storage/common/storage-import-export-service) | A data transport solution that uses secure disks and appliances to transfer large amounts of data. Also offers data protection during transit. |
 | [Snowball Edge](https://aws.amazon.com/snowball-edge/) | [Data Box](https://azure.microsoft.com/services/storage/databox/) | Petabyte-scale to exabyte-scale data transport solution that uses enhanced-security data storage devices to transfer large amounts of data to and from Azure. |
 
+## Migration
+
+If your planning a migration of an AWS workload to Azure, see [Migrate storage from Amazon Web Services to Azure](/azure/migration/migrate-storage-from-aws) which includes some specific [example migration scenarios](/azure/migration/migrate-storage-from-aws#migration-scenarios) that might align to your use case.
+
 ## Contributors
 
 *This article is maintained by Microsoft. It was originally written by the following contributors.*
 
 Principal author:
 
-- [Adam Cerini](https://www.linkedin.com/in/adamcerini) |
-Director, Partner Technology Strategist
+- [Adam Cerini](https://www.linkedin.com/in/adamcerini) | Director, Partner Technology Strategist
 
 Other contributor:
 
@@ -138,4 +141,3 @@ Other contributor:
 - [Microsoft Azure Storage Performance and Scalability Checklist](/azure/storage/common/storage-performance-checklist)
 - [Azure Storage security guide](/azure/storage/common/storage-security-guide)
 - [Best practices for using content delivery networks (CDNs)](../best-practices/cdn.yml)
-- [Migrate storage from Amazon Web Services to Azure](/azure/migration/migrate-storage-from-aws)

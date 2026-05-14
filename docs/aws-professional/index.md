@@ -21,7 +21,9 @@ The articles in this series describe:
 - How Azure organizes accounts and resources.
 - How core Azure services differ from AWS services and how they're similar.
 
-Use the table of contents to select the technology areas that are relevant to your workload. These articles compare services that are roughly comparable. Not every AWS service or Azure service is listed, and not every matched service has exact feature-for-feature parity.
+## Migration
+
+If you plan on migrating a workload from AWS to Azure, we suggest you have a methodical approach to that initaitive. Component selection and Azure fundimentals are important parts of that larger process. Fine tune your migration plan using Microsoft's guidance, see [Migrate a workload from Amazon Web Services (AWS) to Azure](/azure/migration/migrate-workload-from-aws-introduction).
 
 ## Similarities and differences
 
@@ -31,9 +33,9 @@ The capabilities of both platforms are similar, but the resources that provide t
 
 The services that each platform provides don't always clearly correspond. Sometimes, only one of the platforms provides a particular service.
 
-## Primary topics
+## Technology categories
 
-Read the following articles to learn about Azure services and how they map to the services that you're already familiar with in AWS. The following articles go into more detail about how Azure works in these specific areas:
+Read the following articles to learn about Azure services and how they map to the services that you're already familiar with in AWS. These articles compare services that are roughly comparable. The following articles go into more detail about how Azure works in these specific areas:
 
 - [Accounts and subscriptions on Azure and AWS](./accounts.md)
 - [Compute services on Azure and AWS](./compute.md)
@@ -45,6 +47,8 @@ Read the following articles to learn about Azure services and how they map to th
 - [Resource management on Azure and AWS](./resources.md)
 - [Multicloud identity with Azure and AWS](./security-identity.md)
 - [Storage on Azure and AWS](./storage.md)
+
+Not every AWS service or Azure service is listed, and not every matched service has exact feature-for-feature parity.
 
 ## Other services
 

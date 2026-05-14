@@ -168,6 +168,10 @@ The following AI services create new content or data that resembles human-genera
 | ----  | --------  | ------  |
 | [Amazon Bedrock](https://aws.amazon.com/bedrock/) | [Microsoft Foundry](https://azure.microsoft.com/products/ai-foundry/) | These services provide foundation models to create and deploy generative AI applications. |
 
+## Migration
+
+If your planning a migration of an AWS workload to Azure, see [Migrate databases from Amazon Web Services to Azure](/azure/migration/migrate-databases-from-aws) which includes some specific [example migration scenarios](/azure/migration/migrate-databases-from-aws#migration-scenarios) that might align to your use case.
+
 ## Contributors
 
 *Microsoft maintains this article. The following contributors wrote this article.*
@@ -191,4 +195,3 @@ Other contributor:
 
 - [Choose an AI services technology](../data-guide/technology-choices/ai-services.md)
 - [Compare Microsoft machine learning products and technologies](../ai-ml/guide/data-science-and-machine-learning.md)
-- [Migrate databases from Amazon Web Services to Azure](/azure/migration/migrate-databases-from-aws)

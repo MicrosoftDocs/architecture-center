@@ -73,6 +73,10 @@ Azure provides a package of products and services designed to capture, organize,
 | Caching | [ElastiCache](https://aws.amazon.com/elasticache)<br/><br/>[Amazon MemoryDB for Redis](https://aws.amazon.com/memorydb/) | [Azure Managed Redis](https://azure.microsoft.com/products/managed-redis) | Azure Managed Redis is an in-memory data store that offloads nontransactional work from databases and acts as a real-time memory layer for intelligent apps and AI agents. |
 | Database migration | [Database Migration Service](https://aws.amazon.com/dms) | [Azure Database Migration Service](https://azure.microsoft.com/campaigns/database-migration)<br/><br/>[Microsoft Fabric Migration Assistant for Data Warehouse](/fabric/data-warehouse/migration-assistant) | A service that executes the migration of database schema and data from one database format to a specific database technology in the cloud. |
 
+## Migration
+
+If your planning a migration of an AWS workload to Azure, see [Migrate databases from Amazon Web Services to Azure](/azure/migration/migrate-databases-from-aws) which includes some specific [example migration scenarios](/azure/migration/migrate-databases-from-aws#migration-scenarios) that might align to your use case.
+
 ## Contributors
 
 *This article is maintained by Microsoft. It was originally written by the following contributors.*
@@ -90,9 +94,5 @@ Other contributor:
 ### Additional resources
 
 - [Executive strategy for unifying your data](/azure/cloud-adoption-framework/data/executive-strategy-unify-data-platform)
-
 - [Big data architecture style](../guide/architecture-styles/big-data.md)
-
 - [Microsoft Fabric community blogs](https://community.fabric.microsoft.com/t5/Fabric-community-blogs/ct-p/fabricblogs)
-
-- [Migrate databases from Amazon Web Services to Azure](/azure/migration/migrate-databases-from-aws)
