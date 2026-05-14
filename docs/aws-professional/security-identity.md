@@ -149,7 +149,7 @@ Both platforms provide identity services to secure application access and API au
 
 ## Migration
 
-If you plan to migrate an AWS workload to Azure, see [Migrate security services from Amazon Web Services to Azure](/azure/migration/migrate-security-from-aws) which includes some specific [example migration scenarios](/azure/migration/migrate-security-from-aws#migration-scenarios) that might align to your use case.
+If you plan to migrate an AWS workload to Azure, see [Migrate security services from Amazon Web Services to Azure](/azure/migration/migrate-security-from-aws), which includes some specific [example migration scenarios](/azure/migration/migrate-security-from-aws#migration-scenarios) that might align to your use case.
 
 ## Contributors
 

@@ -110,7 +110,7 @@ Neither virtual networks nor VPCs allow transitive peering. In Azure, however, y
 
 ## Migration
 
-If you plan to migrate an AWS workload to Azure, see [Migrate networking from Amazon Web Services to Azure](/azure/migration/migrate-networking-from-aws) which includes some specific [example migration scenarios](/azure/migration/migrate-networking-from-aws#migration-scenarios) that might align to your use case.
+If you plan to migrate an AWS workload to Azure, see [Migrate networking from Amazon Web Services to Azure](/azure/migration/migrate-networking-from-aws), which includes some specific [example migration scenarios](/azure/migration/migrate-networking-from-aws#migration-scenarios) that might align to your use case.
 
 ## Contributors
 

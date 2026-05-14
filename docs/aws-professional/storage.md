@@ -120,7 +120,7 @@ On Azure, you can configure many VM types for host caching. When host caching is
 
 ## Migration
 
-If you plan to migrate an AWS workload to Azure, see [Migrate storage from Amazon Web Services to Azure](/azure/migration/migrate-storage-from-aws) which includes some specific [example migration scenarios](/azure/migration/migrate-storage-from-aws#migration-scenarios) that might align to your use case.
+If you plan to migrate an AWS workload to Azure, see [Migrate storage from Amazon Web Services to Azure](/azure/migration/migrate-storage-from-aws), which includes some specific [example migration scenarios](/azure/migration/migrate-storage-from-aws#migration-scenarios) that might align to your use case.
 
 ## Contributors
 
