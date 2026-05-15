@@ -81,7 +81,7 @@ Whichever model you choose, use path-scoped triggers in your pipelines, such as 
 
 ## Updating services
 
-There are various strategies for updating a service that's already in production. Here we discuss three common options: Rolling update, blue-green deployment, and canary release. These patterns are often coordinated through a GitOps workflow. For more information, see [GitOps and progressive delivery](#gitops-and-progressive-delivery).
+There are various strategies for updating a service that's already in production. Here we discuss three common options: Rolling update, blue-green deployment, and canary release. These patterns are often coordinated through a GitOps workflow. For more information, see [GitOps and progressive delivery](#progressive-delivery-and-gitops).
 
 ### Rolling updates
 
