@@ -1,12 +1,12 @@
-Faster release cycles are one of the major advantages of microservices architectures. But without a good CI/CD process, you won't achieve the agility that microservices promise. This article describes the challenges and recommends some approaches to the problem.
+Faster release cycles are one of the major advantages of microservices architectures. But without a reliable CI/CD process, you won't achieve the agility that microservices promise. This article describes the CI/CD challenges that are common in microservices architectures and recommends approaches for building, validating, securing, and deploying services independently.
 
 ## What is CI/CD?
 
 When we talk about CI/CD, we're really talking about several related processes: Continuous integration, continuous delivery, and continuous deployment.
 
-- **Continuous integration**. Code changes are frequently merged into the main branch. Automated build and test processes ensure that code in the main branch is always production-quality.
+- **Continuous integration (CI)**. Code changes are frequently merged into the main branch. Automated build and test processes ensure that code in the main branch is always production-quality.
 
-- **Continuous delivery**. Any code changes that pass the CI process are automatically published to a production-like environment. Deployment into the live production environment might require manual approval, but is otherwise automated. The goal is that your code should always be *ready* to deploy into production.
+- **Continuous delivery (CD)**. Any code changes that pass the CI process are automatically published to a production-like environment. Deployment into the live production environment might require manual approval, but is otherwise automated. The goal is that your code should always be *ready* to deploy to production.
 
 - **Continuous deployment**. Code changes that pass the previous two steps are automatically deployed *into production*.
 
@@ -18,9 +18,9 @@ Here are some goals of a robust CI/CD process for a microservices architecture:
 
 - A new version of a service can be deployed side by side with the previous version.
 
-- Sufficient access control policies are in place.
+- Sufficient access control policies are in place. Pipelines authenticate to Azure with federated, short-lived credentials instead of long-lived secrets.
 
-- For containerized workloads, you can trust the container images that are deployed to production.
+- For containerized workloads, you can trust the container images that are deployed to production. That trust is established through signed images, software bill of materials (SBOM) attestations, and vulnerability scanning enforced in the pipeline.
 
 ## Why a robust CI/CD pipeline matters
 
@@ -34,23 +34,33 @@ To achieve a high release velocity, your release pipeline must be automated and 
 
 ## Challenges
 
-- **Many small independent code bases**. Each team is responsible for building its own service, with its own build pipeline. In some organizations, teams might use separate code repositories. Separate repositories can lead to a situation where the knowledge of how to build the system is spread across teams, and nobody in the organization knows how to deploy the entire application. For example, what happens in a disaster recovery scenario, if you need to quickly deploy to a new cluster?
+- **Many small independent code bases**. Each team is responsible for building its own service, with its own build pipeline. In some organizations, teams might use separate code repositories. Separate repositories can lead to a situation where the knowledge of how to build the system is spread across teams, and nobody in the organization knows how to deploy the entire application.
 
-    **Mitigation**: Have a unified and automated pipeline to build and deploy services, so that this knowledge isn't "hidden" within each team.
+    **Mitigation**: Have a unified and automated pipeline to build and deploy services, so that this knowledge isn't "hidden" within each team. Reusable pipeline templates, such as [GitHub Actions reusable workflows](https://docs.github.com/actions/using-workflows/reusing-workflows) or [Azure Pipelines templates](/azure/devops/pipelines/process/templates), help standardize the build, test, scan, and deploy steps across every service.
 
 - **Multiple languages and frameworks**. With each team using its own mix of technologies, it can be difficult to create a single build process that works across the organization. The build process must be flexible enough that every team can adapt it for their choice of language or framework.
 
-    **Mitigation**: Containerize the build process for each service. That way, the build system just needs to be able to run the containers.
+    **Mitigation**: Containerize the build process for each service. That way, the build system just needs to be able to run the containers. Platforms such as GitHub Actions, Azure Pipelines, and [ACR Tasks](/azure/container-registry/container-registry-tasks-overview) can build and publish container images consistently regardless of the source language.
 
 - **Integration and load testing**. With teams releasing updates at their own pace, it can be challenging to design robust end-to-end testing, especially when services have dependencies on other services. Moreover, running a full production cluster can be expensive, so it's unlikely that every team runs its own full cluster at production scales, just for testing.
 
+    **Mitigation**: Use ephemeral preview environments, such as per-pull-request namespaces in Kubernetes or [Azure Container Apps environments](/azure/container-apps/environment) created on demand. Use contract tests so that integration issues are surfaced early without requiring a full-scale duplicate of production.
+
 - **Release management**. Every team should be able to deploy an update to production. That doesn't mean that every team member has permissions to do so. But having a centralized Release Manager role can reduce the velocity of deployments.
 
-    **Mitigation**: The more that your CI/CD process is automated and reliable, the less there should be a need for a central authority. That said, you might have different policies for releasing major feature updates versus minor bug fixes. Being decentralized doesn't mean zero governance.
+    **Mitigation**: The more that your CI/CD process is automated and reliable, the less there should be a need for a central authority. That said, you might have different policies for releasing major feature updates versus minor bug fixes. Being decentralized doesn't mean zero governance. Enforce approvals with [Azure Pipelines environments and approvals](/azure/devops/pipelines/process/environments) or [GitHub Actions deployment environments and required reviewers](https://docs.github.com/en/actions/how-tos/deploy/configure-and-manage-deployments/manage-environments), and codify cluster-side policy with [Azure Policy for AKS](/azure/governance/policy/concepts/policy-for-kubernetes) or [OPA Gatekeeper](https://open-policy-agent.github.io/gatekeeper/).
 
 - **Service updates**. When you update a service to a new version, it shouldn't break other services that depend on it.
 
     **Mitigation**: Use deployment techniques such as blue-green or canary release for non-breaking changes. For breaking API changes, deploy the new version side by side with the previous version. That way, services that consume the previous API can be updated and tested for the new API. For more information, see the [Updating services](#updating-services) section in this article.
+
+- **Pipeline identity and secret management**. Long-lived service principal secrets stored in pipelines are a frequent source of compromise and operational work. They expire, can leak, and require rotation across many independent microservice pipelines.
+
+    **Mitigation**: Authenticate pipelines to Azure with workload identity federation (OIDC) so no client secret is stored in the pipeline. See [Workload identities for Azure Pipelines](/azure/devops/pipelines/release/configure-workload-identity) and [Configuring OpenID Connect in Azure for GitHub Actions](https://docs.github.com/actions/how-tos/secure-your-work/security-harden-deployments/oidc-in-azure). Store any remaining secrets in [Azure Key Vault](/azure/key-vault/general/overview) and reference them at runtime.
+
+- **Supply-chain security**. Anything you ship to production must be traceable to the code and dependencies it was built from. Microservices multiply the number of images, registries, and pipelines, which expands the supply-chain attack surface.
+
+    **Mitigation**: Sign container images with [Notation and Azure Key Vault](/azure/container-registry/container-registry-tutorial-sign-build-push), and verify signatures at admission time by using [AKS image integrity](/azure/aks/image-integrity) or [Ratify](https://ratify.dev/). Generate a software bill of materials (SBOM) as a build artifact. Scan code, dependencies, and pipelines with [Microsoft Defender for Cloud DevOps security](/azure/defender-for-cloud/defender-for-devops-introduction) and [GitHub Advanced Security](https://docs.github.com/en/code-security), scan runtime images with [Microsoft Defender for Containers](/azure/defender-for-cloud/defender-for-containers-introduction), and gate releases on scan results.
 
 ## Monorepo vs. multi-repo
 
@@ -60,16 +70,18 @@ Before creating a CI/CD workflow, you must know how the code base is structured 
 - What is your branching strategy?
 - Who can push code to production? Is there a release manager role?
 
-The monorepo approach has been gaining favor but there are advantages and disadvantages to both.
+Both approaches are widely used in production today. The choice depends on team topology, tooling maturity, and the degree of code sharing across services.
 
 | &nbsp; | Monorepo | Multiple repos |
 |--------|----------|----------------|
-| **Advantages** | Code sharing<br/>Easier to standardize code and tooling<br/>Easier to refactor code<br/>Discoverability - single view of the code<br/> | Clear ownership per team<br/>Potentially fewer merge conflicts<br/>Helps to enforce decoupling of microservices |
-| **Challenges** | Changes to shared code can affect multiple microservices<br/>Greater potential for merge conflicts<br/>Tooling must scale to a large code base<br/>Access control<br/>More complex deployment process | Harder to share code<br/>Harder to enforce coding standards<br/>Dependency management<br/>Diffuse code base, poor discoverability<br/>Lack of shared infrastructure
+| **Advantages** | Code sharing<br/>Easier to standardize code and tooling<br/>Easier to refactor code<br/>Discoverability - single view of the code<br/> | Clear ownership per team<br/>Potentially fewer merge conflicts<br/>Helps enforce decoupling of microservices |
+| **Challenges** | Changes to shared code can affect multiple microservices<br/>Greater potential for merge conflicts<br/>Tooling must scale to a large code base<br/>Access control<br/>More complex deployment process | Harder to share code<br/>Harder to enforce coding standards<br/>Dependency management<br/>Diffuse code base, poor discoverability<br/>Lack of shared infrastructure |
+
+Whichever model you choose, use path-scoped triggers in your pipelines, such as [paths filters in GitHub Actions](https://docs.github.com/actions/how-tos/write-workflows/choose-when-workflows-run/trigger-a-workflow) or [trigger paths in Azure Pipelines](/azure/devops/pipelines/build/triggers). Path-scoped triggers help ensure that only affected microservices rebuild and redeploy on each commit.
 
 ## Updating services
 
-There are various strategies for updating a service that's already in production. Here we discuss three common options: Rolling update, blue-green deployment, and canary release.
+There are various strategies for updating a service that's already in production. Here we discuss three common options: Rolling update, blue-green deployment, and canary release. These patterns are often coordinated through a GitOps workflow. For more information, see [GitOps and progressive delivery](#gitops-and-progressive-delivery).
 
 ### Rolling updates
 
@@ -101,6 +113,22 @@ A canary release is more complex to manage than either blue-green or rolling upd
 
 **Example**. In Kubernetes, you can configure a [Service](https://kubernetes.io/docs/concepts/services-networking/service/) to span two replica sets (one for each version) and adjust the replica counts manually. However, this approach is rather coarse-grained, because of the way Kubernetes load balances across pods. For example, if you have a total of 10 replicas, you can only shift traffic in 10% increments. If you are using a service mesh, you can use the service mesh routing rules to implement a more sophisticated canary release strategy.
 
+**Example**. In Azure Container Apps, [traffic splitting](/azure/container-apps/traffic-splitting) lets you send a defined percentage of traffic to a new revision, for example, 10% to `v2` while 90% remains on `v1`, and shift the weights as confidence grows, without an external service mesh.
+
+### Progressive delivery and GitOps
+
+For teams that operate many microservices on Kubernetes, a GitOps (pull-based) model complements the push-based examples above. The desired cluster state lives in Git, and an in-cluster operator reconciles the cluster to that state. This separation between CI (build, test, scan, sign, and push the image) and CD (the cluster reconciles to the manifest) gives you audit trails, easier disaster recovery, and removes the need for the CI runner to hold direct cluster credentials.
+
+## CI/CD tooling on Azure
+
+Common choices on Azure for implementing the practices above include:
+
+- **Source and CI**: [GitHub](https://github.com) with [GitHub Actions](https://docs.github.com/actions), or [Azure Repos](/azure/devops/repos) with [Azure Pipelines](/azure/devops/pipelines).
+- **Container registry and image signing**: [Azure Container Registry](/azure/container-registry/) with [Notation signing](/azure/container-registry/container-registry-tutorial-sign-build-push) and [ACR Tasks](/azure/container-registry/container-registry-tasks-overview).
+- **Runtime targets**: [Azure Kubernetes Service (AKS)](/azure/aks/), [Azure Container Apps](/azure/container-apps/), or [Azure Arc-enabled Kubernetes](/azure/azure-arc/kubernetes/) for hybrid and multicloud.
+- **Security and policy**: [Microsoft Defender for Containers](/azure/defender-for-cloud/defender-for-containers-introduction), [Azure Policy for AKS](/azure/governance/policy/concepts/policy-for-kubernetes), and [GitHub Advanced Security](https://github.com/security/advanced-security).
+- **Identity for pipelines**: [Workload identity federation](/entra/workload-id/workload-identity-federation) for passwordless OIDC from GitHub Actions and Azure Pipelines into Azure.
+
 ## Next steps
 
 - [Learning path: Define and implement continuous integration](/training/paths/az-400-define-implement-continuous-integration)
@@ -111,5 +139,6 @@ A canary release is more complex to manage than either blue-green or rolling upd
 ## Related resources
 
 - [CI/CD for microservices on Kubernetes](./ci-cd-kubernetes.yml)
+- [GitOps for Azure Kubernetes Service](/azure/architecture/example-scenario/gitops-aks/gitops-blueprint-aks)
 - [Design a microservices architecture](../guide/architecture-styles/microservices.md)
 - [Using domain analysis to model microservices](model/domain-analysis.md)
