@@ -266,7 +266,7 @@ Virtual WAN handles routing, which helps optimize network latency among spokes a
 
 Security provides assurances against deliberate attacks and the misuse of your valuable data and systems. For more information, see [Design review checklist for Security](/azure/well-architected/security/checklist).
 
-You can convert hubs in Virtual WAN to secure hubs by using Azure Firewall. UDRs remain effective for enforcing network isolation. Virtual WAN also encrypts traffic between on-premises networks and Azure virtual networks through an ExpressRoute connection.
+You can convert hubs in Virtual WAN to secure hubs by using Azure Firewall. UDRs remain effective for enforcing network isolation. ExpressRoute private peering doesn't encrypt traffic by default. To encrypt on-premises traffic that traverses ExpressRoute, configure [IPsec over ExpressRoute](/azure/virtual-wan/vpn-over-expressroute), which runs a site-to-site VPN tunnel through the ExpressRoute private peering.
 
 [Azure DDoS Protection](/azure/ddos-protection/ddos-protection-overview), combined with application design best practices, provides enhanced mitigation against distributed denial-of-service (DDoS) attacks. Azure DDoS Protection is available in two tiers: [DDoS Network Protection](/azure/ddos-protection/ddos-protection-sku-comparison), which covers entire virtual networks and includes DDoS Rapid Response and cost protection, and DDoS IP Protection, a per-IP model suited for smaller environments. For hub-spoke architectures with many public endpoints, DDoS Network Protection is recommended. Enable DDoS Protection on perimeter virtual networks.
 
