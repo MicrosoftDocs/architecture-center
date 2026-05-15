@@ -1,4 +1,4 @@
-Faster release cycles are one of the major advantages of microservices architectures. But without a reliable CI/CD process, you won't achieve the agility that microservices promise. This article describes the CI/CD challenges that are common in microservices architectures and recommends approaches for building, validating, securing, and deploying services independently.
+Faster release cycles are one of the major advantages of microservices architectures. But without a reliable CI/CD process, you don't achieve the agility that microservices promise. This article describes the CI/CD challenges that are common in microservices architectures. It recommends approaches to build, validate, secure, and deploy services independently.
 
 ## What is CI/CD?
 
@@ -24,7 +24,7 @@ Here are some goals of a robust CI/CD process for a microservices architecture:
 
 ## Why a robust CI/CD pipeline matters
 
-In a traditional monolithic application, there's a single build pipeline whose output is the application executable. All development work feeds into this pipeline. If a high-priority bug is found, a fix must be integrated, tested, and published, which can delay the release of new features. You can mitigate these problems by having well-factored modules and using feature branches to minimize the impact of code changes. But as the application grows more complex, and more features are added, the release process for a monolith tends to become more brittle and likely to break.
+In a traditional monolithic application, there's a single build pipeline whose output is the application executable. All development work feeds into this pipeline. If a high-priority bug is found, a fix must be integrated, tested, and published, which can delay the release of new features. You can mitigate these problems by having well-factored modules and using feature branches to minimize the effect of code changes. But as the application grows more complex, and more features are added, the release process for a monolith tends to become more brittle and likely to break.
 
 Following the microservices philosophy, there should never be a long release train where every team has to get in line. The team that builds service "A" can release an update when they choose, without waiting for changes in service "B" to be merged, tested, and deployed.
 
@@ -34,13 +34,13 @@ To achieve a high release velocity, your release pipeline must be automated and 
 
 ## Challenges
 
-- **Many small independent code bases**. Each team is responsible for building its own service, with its own build pipeline. In some organizations, teams might use separate code repositories. Separate repositories can lead to a situation where the knowledge of how to build the system is spread across teams, and nobody in the organization knows how to deploy the entire application.
+- **Many small independent code bases**. Each team is responsible for building its own service, with its own build pipeline. In some organizations, teams might use separate code repositories. Separate repositories can scatter the knowledge of how to build the system across teams. As a result, nobody in the organization knows how to deploy the entire application.
 
     **Mitigation**: Have a unified and automated pipeline to build and deploy services, so that this knowledge isn't "hidden" within each team. Reusable pipeline templates, such as [GitHub Actions reusable workflows](https://docs.github.com/actions/using-workflows/reusing-workflows) or [Azure Pipelines templates](/azure/devops/pipelines/process/templates), help standardize the build, test, scan, and deploy steps across every service.
 
 - **Multiple languages and frameworks**. With each team using its own mix of technologies, it can be difficult to create a single build process that works across the organization. The build process must be flexible enough that every team can adapt it for their choice of language or framework.
 
-    **Mitigation**: Containerize the build process for each service. That way, the build system just needs to be able to run the containers. Platforms such as GitHub Actions, Azure Pipelines, and [ACR Tasks](/azure/container-registry/container-registry-tasks-overview) can build and publish container images consistently regardless of the source language.
+    **Mitigation**: Containerize the build process for each service. That way, the build system just needs to be able to run the containers. Platforms such as GitHub Actions, Azure Pipelines, and [Azure Container Registry (ACR) Tasks](/azure/container-registry/container-registry-tasks-overview) can build and publish container images consistently regardless of the source language.
 
 - **Integration and load testing**. With teams releasing updates at their own pace, it can be challenging to design robust end-to-end testing, especially when services have dependencies on other services. Moreover, running a full production cluster can be expensive, so it's unlikely that every team runs its own full cluster at production scales, just for testing.
 
@@ -52,15 +52,15 @@ To achieve a high release velocity, your release pipeline must be automated and 
 
 - **Service updates**. When you update a service to a new version, it shouldn't break other services that depend on it.
 
-    **Mitigation**: Use deployment techniques such as blue-green or canary release for non-breaking changes. For breaking API changes, deploy the new version side by side with the previous version. That way, services that consume the previous API can be updated and tested for the new API. For more information, see the [Updating services](#updating-services) section in this article.
+    **Mitigation**: Use deployment techniques such as blue-green or canary release for nonbreaking changes. For breaking API changes, deploy the new version side by side with the previous version. That way, services that consume the previous API can be updated and tested for the new API. For more information, see the [Updating services](#updating-services) section in this article.
 
 - **Pipeline identity and secret management**. Long-lived service principal secrets stored in pipelines are a frequent source of compromise and operational work. They expire, can leak, and require rotation across many independent microservice pipelines.
 
-    **Mitigation**: Authenticate pipelines to Azure with workload identity federation (OIDC) so no client secret is stored in the pipeline. See [Workload identities for Azure Pipelines](/azure/devops/pipelines/release/configure-workload-identity) and [Configuring OpenID Connect in Azure for GitHub Actions](https://docs.github.com/actions/how-tos/secure-your-work/security-harden-deployments/oidc-in-azure). Store any remaining secrets in [Azure Key Vault](/azure/key-vault/general/overview) and reference them at runtime.
+    **Mitigation**: Authenticate pipelines to Azure with workload identity federation, which uses OpenID Connect (OIDC), so no client secret is stored in the pipeline. See [Workload identities for Azure Pipelines](/azure/devops/pipelines/release/configure-workload-identity) and [Configuring OpenID Connect in Azure for GitHub Actions](https://docs.github.com/actions/how-tos/secure-your-work/security-harden-deployments/oidc-in-azure). Store any remaining secrets in [Azure Key Vault](/azure/key-vault/general/overview) and reference them at runtime.
 
 - **Supply-chain security**. Anything you ship to production must be traceable to the code and dependencies it was built from. Microservices multiply the number of images, registries, and pipelines, which expands the supply-chain attack surface.
 
-    **Mitigation**: Sign container images with [Notation and Azure Key Vault](/azure/container-registry/container-registry-tutorial-sign-build-push), and verify signatures at admission time by using [AKS image integrity](/azure/aks/image-integrity) or [Ratify](https://ratify.dev/). Generate a software bill of materials (SBOM) as a build artifact. Scan code, dependencies, and pipelines with [Microsoft Defender for Cloud DevOps security](/azure/defender-for-cloud/defender-for-devops-introduction) and [GitHub Advanced Security](https://docs.github.com/en/code-security), scan runtime images with [Microsoft Defender for Containers](/azure/defender-for-cloud/defender-for-containers-introduction), and gate releases on scan results.
+    **Mitigation**: Sign container images with [Notation and Azure Key Vault](/azure/container-registry/container-registry-tutorial-sign-build-push), and verify signatures at admission time by using [AKS image integrity](/azure/aks/image-integrity) or [Ratify](https://ratify.dev/). Generate a software bill of materials (SBOM) as a build artifact. Scan code, dependencies, and pipelines with [Microsoft Defender for Cloud DevOps security](/azure/defender-for-cloud/defender-for-devops-introduction) and [GitHub Advanced Security](https://docs.github.com/en/code-security). Scan runtime images with [Microsoft Defender for Containers](/azure/defender-for-cloud/defender-for-containers-introduction). Gate releases on scan results.
 
 ## Monorepo vs. multi-repo
 
@@ -87,9 +87,9 @@ There are various strategies for updating a service that's already in production
 
 In a rolling update, you deploy new instances of a service, and the new instances start receiving requests immediately. As the new instances come up, the previous instances are removed.
 
-**Example.** In Kubernetes, rolling updates are the default behavior when you update the pod spec for a [Deployment](https://kubernetes.io/docs/concepts/workloads/controllers/deployment/). The Deployment controller creates a new ReplicaSet for the updated pods. Then it scales up the new ReplicaSet while scaling down the old one, to maintain the desired replica count. It doesn't delete old pods until the new ones are ready. Kubernetes keeps a history of the update, so you can roll back an update if needed.
+**Example (Kubernetes).** In Kubernetes, rolling updates are the default behavior when you update the pod spec for a [Deployment](https://kubernetes.io/docs/concepts/workloads/controllers/deployment/). The Deployment controller creates a new ReplicaSet for the updated pods. Then it scales up the new ReplicaSet while scaling down the old one, to maintain the desired replica count. It doesn't delete old pods until the new ones are ready. Kubernetes keeps a history of the update, so you can roll back an update if needed.
 
-**Example.** Azure Container Apps uses [revisions](/azure/container-apps/revisions) to manage rolling updates. When you deploy a new revision, Container Apps can gradually shift traffic from the old revision to the new one by using traffic-splitting rules. If the new revision encounters issues, you can roll back by redirecting traffic to the previous revision. You can configure multiple active revisions simultaneously and control the percentage of traffic each revision receives.
+**Example (Azure Container Apps).** Azure Container Apps uses [revisions](/azure/container-apps/revisions) to manage rolling updates. When you deploy a new revision, Container Apps can gradually shift traffic from the old revision to the new one by using traffic-splitting rules. If the new revision encounters issues, you can roll back by redirecting traffic to the previous revision. You can configure multiple active revisions simultaneously and control the percentage of traffic each revision receives.
 
 One challenge of rolling updates is that during the update process, a mix of old and new versions are running and receiving traffic. During this period, any request could get routed to either of the two versions.
 
@@ -99,9 +99,9 @@ For breaking API changes, a good practice is to support both versions side by si
 
 In a blue-green deployment, you deploy the new version alongside the previous version. After you validate the new version, you switch all traffic at once from the previous version to the new version. After the switch, you monitor the application for any problems. If something goes wrong, you can swap back to the old version. Assuming there are no problems, you can delete the old version.
 
-With a more traditional monolithic or N-tier application, blue-green deployment generally meant provisioning two identical environments. You would deploy the new version to a staging environment, then redirect client traffic to the staging environment &mdash; for example, by swapping VIP addresses. In a microservices architecture, updates happen at the microservice level, so you would typically deploy the update into the same environment and use a service discovery mechanism to swap.
+With a more traditional monolithic or N-tier application, blue-green deployment generally meant creating two identical environments. You would deploy the new version to a staging environment, then redirect client traffic to the staging environment&mdash;for example, by swapping VIP addresses. In a microservices architecture, updates happen at the microservice level, so you would typically deploy the update into the same environment and use a service discovery mechanism to swap.
 
-**Example**. In Kubernetes, you don't need to provision a separate cluster to do blue-green deployments. Instead, you can take advantage of selectors. Create a new [Deployment](https://kubernetes.io/docs/concepts/workloads/controllers/deployment/) resource with a new pod spec and a different set of labels. Create this deployment, without deleting the previous deployment or modifying the service that points to it. Once the new pods are running, you can update the service's selector to match the new deployment.
+**Example (Kubernetes)**. In Kubernetes, you don't need to create a separate cluster to do blue-green deployments. Instead, you can take advantage of selectors. Create a new [Deployment](https://kubernetes.io/docs/concepts/workloads/controllers/deployment/) resource with a new pod spec and a different set of labels. Create this deployment, without deleting the previous deployment or modifying the service that points to it. Once the new pods are running, you can update the service's selector to match the new deployment.
 
 One drawback of blue-green deployment is that during the update, you run twice as many pods for the service (current and next). If the pods require substantial CPU or memory resources, you might need to scale out the cluster temporarily to handle the resource consumption.
 
@@ -111,17 +111,17 @@ In a canary release, you first deploy an updated version to a small subset of cl
 
 A canary release is more complex to manage than either blue-green or rolling update, because you must dynamically route requests to different versions of the service.
 
-**Example**. In Kubernetes, you can configure a [Service](https://kubernetes.io/docs/concepts/services-networking/service/) to span two replica sets (one for each version) and adjust the replica counts manually. However, this approach is rather coarse-grained, because of the way Kubernetes load balances across pods. For example, if you have a total of 10 replicas, you can only shift traffic in 10% increments. If you are using a service mesh, you can use the service mesh routing rules to implement a more sophisticated canary release strategy.
+**Example (Kubernetes)**. In Kubernetes, you can configure a [Service](https://kubernetes.io/docs/concepts/services-networking/service/) to span two replica sets (one for each version) and adjust the replica counts manually. However, this approach is rather coarse-grained, because of the way Kubernetes load balances across pods. For example, if you have a total of 10 replicas, you can only shift traffic in 10% increments. If you're using a service mesh, you can use the service mesh routing rules to implement a more sophisticated canary release strategy.
 
-**Example**. In Azure Container Apps, [traffic splitting](/azure/container-apps/traffic-splitting) lets you send a defined percentage of traffic to a new revision, for example, 10% to `v2` while 90% remains on `v1`, and shift the weights as confidence grows, without an external service mesh.
+**Example (Azure Container Apps)**. In Azure Container Apps, [traffic splitting](/azure/container-apps/traffic-splitting) lets you send a defined percentage of traffic to a new revision, for example, 10% to `v2` while 90% remains on `v1`, and shift the weights as confidence grows, without an external service mesh.
 
 ### Progressive delivery and GitOps
 
-For teams that operate many microservices on Kubernetes, a GitOps (pull-based) model complements the push-based examples above. The desired cluster state lives in Git, and an in-cluster operator reconciles the cluster to that state. This separation between CI (build, test, scan, sign, and push the image) and CD (the cluster reconciles to the manifest) gives you audit trails, easier disaster recovery, and removes the need for the CI runner to hold direct cluster credentials.
+For teams that operate many microservices on Kubernetes, a GitOps (pull-based) model complements the earlier push-based examples. The desired cluster state lives in Git, and an in-cluster operator reconciles the cluster to that state. CI builds, tests, scans, signs, and pushes the image. CD reconciles the cluster to the manifest. This separation gives you audit trails and easier disaster recovery. It also removes the need for the CI runner to hold direct cluster credentials.
 
 ## CI/CD tooling on Azure
 
-Common choices on Azure for implementing the practices above include:
+Common choices on Azure for implementing these practices include:
 
 - **Source and CI**: [GitHub](https://github.com) with [GitHub Actions](https://docs.github.com/actions), or [Azure Repos](/azure/devops/repos) with [Azure Pipelines](/azure/devops/pipelines).
 - **Container registry and image signing**: [Azure Container Registry](/azure/container-registry/) with [Notation signing](/azure/container-registry/container-registry-tutorial-sign-build-push) and [ACR Tasks](/azure/container-registry/container-registry-tasks-overview).
