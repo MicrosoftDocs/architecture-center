@@ -201,22 +201,22 @@ Use the following button to deploy the reference using the Azure portal.
 
 Run the following command to deploy two resource groups and the secure network reference architecture using the Azure CLI.
 
-When prompted, enter values for an admin user name and password. These values are used as the default credentials for the virtual machine scale set instances.
+When prompted, enter values for an admin user name, password, and a VPN shared key. The admin credentials are used as the default credentials for the virtual machine scale set instances. The shared key authenticates the site-to-site VPN connection between the gateways.
 
 ```azurecli
 az deployment sub create --location eastus \
-    --template-uri https://raw.githubusercontent.com/mspnp/samples/main/solutions/secure-hybrid-network/azuredeploy.json
+    --template-uri https://raw.githubusercontent.com/mspnp/samples/main/solutions/secure-hybrid-network/main.bicep
 ```
 
 #### [PowerShell](#tab/powershell)
 
 Run the following command to deploy two resource groups and the secure network reference architecture using PowerShell.
 
-When prompted, enter values for an admin user name and password. These values are used as the default credentials for the virtual machine scale set instances.
+When prompted, enter values for an admin user name, password, and a VPN shared key. The admin credentials are used as the default credentials for the virtual machine scale set instances. The shared key authenticates the site-to-site VPN connection between the gateways.
 
 ```azurepowershell
 New-AzSubscriptionDeployment -Location eastus `
-    -TemplateUri https://raw.githubusercontent.com/mspnp/samples/main/solutions/secure-hybrid-network/azuredeploy.json
+    -TemplateUri https://raw.githubusercontent.com/mspnp/samples/main/solutions/secure-hybrid-network/main.bicep
 ```
 
 ---
@@ -227,7 +227,7 @@ After the deployment finishes, verify site-to-site connectivity by looking at th
 
 The IIS instance found in the spoke network can be accessed from the virtual machine located in the mock on-premises network. Create a connection to that virtual machine using the included Azure Bastion host, open a web browser, and navigate to the address of the application's internal load balancer.
 
-For more information and other deployment options, see the Azure Resource Manager templates (ARM templates) used to deploy this solution: [Secure Hybrid Network](/samples/mspnp/samples/secure-hybrid-network/).
+For more information and other deployment options, see the Bicep templates used to deploy this solution: [Secure Hybrid Network](/samples/mspnp/samples/secure-hybrid-network/).
 
 ## Next steps
 
