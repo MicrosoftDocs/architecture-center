@@ -4,7 +4,7 @@ The *hub* is a virtual network in Azure that serves as a central point of connec
 
 This architecture includes the benefits of standard hub-spoke network topology and introduces new benefits:
 
-- **Less operational overhead** by replacing existing hubs with a fully managed Virtual WAN service, since Microsoft will manage the peerings between all the hubs as well as the network configuration inside of the hubs.
+- **Less operational overhead** by replacing existing hubs with a fully managed Virtual WAN service, since Microsoft manages the peerings between all the hubs and the network configuration inside of the hubs.
 
 - **Improved security** through centrally managed secure hubs that use Azure Firewall and Virtual WAN to minimize security risks related to misconfiguration, making sure that all traffic flows are inspected by a firewall.
 
@@ -30,7 +30,7 @@ The architecture uses the following networking components:
 
 - **Spoke virtual networks:** One or more virtual networks that serve as spokes in the hub-spoke topology. You can use spokes to isolate workloads in their own virtual networks and manage them separately. Each workload might include multiple tiers across multiple subnets, with Azure load balancers that distribute traffic within or between those tiers.
 
-- **Virtual network peering:** You can use virtual network peering to provide a nontransitive, low-latency connection between virtual networks. Peered networks exchange traffic over the Azure backbone without requiring a router. In a hub-spoke network topology, you use virtual network peerings to connect the hub to each spoke and between the hubs, along with user-defined routes (UDRs) to handle cross-hub traffic. In Virtual WAN Microsoft manages both the peerings between the hubs as well as the routing required for cross-hub traffic flows.
+- **Virtual network peering:** You can use virtual network peering to provide a nontransitive, low-latency connection between virtual networks. Peered networks exchange traffic over the Azure backbone without requiring a router. In a hub-spoke network topology, you use virtual network peerings to connect the hub to each spoke and between the hubs, along with user-defined routes (UDRs) to handle cross-hub traffic. In Virtual WAN Microsoft manages both the peerings between the hubs and the routing required for cross-hub traffic flows.
 
 ### Workflow
 
@@ -40,13 +40,13 @@ The following workflow describes how traffic flows through the hub-spoke Virtual
 
 1. **Traffic enters Azure via a VPN or ExpressRoute gateway:** The encrypted traffic reaches the Virtual WAN hub through a VPN or ExpressRoute gateway deployed in the region. Virtual WAN manages and optimizes routing to the appropriate destination.
 
-1. **The Virtual WAN hub manages routing:** The hub evaluates routing policies, including custom routes or policies that Azure Firewall or NVAs enforce. The hub determines the next hop for the traffic. If the destination is in another region or hub, global transit capabilities handle the routing.
+1. **The Virtual WAN hub manages routing:** The hub evaluates routing policies, including custom routes or policies that Azure Firewall or Network Virtual Appliances (NVAs) enforce. The hub determines the next hop for the traffic. If the destination is in another region or hub, global transit capabilities handle the routing.
 
 1. **Inter-hub connectivity ensures global reachability:** If the destination is in another region, the traffic is routed via the Microsoft global backbone through inter-hub connectivity between Virtual WAN hubs.
 
 1. **Traffic reaches the spoke virtual network:** If the destination is a workload or application in a spoke virtual network, the Virtual WAN hub forwards the traffic based on defined peering and routing configurations.
 
-1. **Security inspection (optional):** When you configure a private routing policy through [routing intent](/azure/virtual-wan/how-to-routing-policies), Azure Firewall, an integrated NGFW NVA, or a SaaS security solution deployed in the hub inspects traffic before it reaches its final destination. This method enforces centralized security and policy compliance.
+1. **Security inspection (optional):** When you configure a private routing policy through [routing intent](/azure/virtual-wan/how-to-routing-policies), Azure Firewall, an integrated next-generation firewall (NGFW) NVA, or a SaaS security solution deployed in the hub inspects traffic before it reaches its final destination. This method enforces centralized security and policy compliance.
 
 1. **The application response follows the reverse path:** The application or resource in the spoke virtual network responds, and the return traffic flows back through the same Virtual WAN hub and gateway. It follows the defined route and security policies.
 
@@ -145,7 +145,7 @@ You can create a virtual hub as a secured virtual hub or convert an existing hub
 
 The Azure Firewall in a secured virtual hub is shared by every spoke virtual network and branch site connected to that hub. Plan for how network address translation affects workload design:
 
-- **Outbound flows from any spoke or branch leave the hub sourced from one of the firewall's public IP addresses.** This is source network address translation (SNAT). Azure Firewall SNATs each outbound flow to one of the attached public IP addresses, and the selection is not deterministic, so partner allowlists must cover the entire set of IP addresses attached to the secured hub firewall. Use a [public IP address prefix](/azure/virtual-network/ip-services/public-ip-address-prefix) to express that set as a contiguous range.
+- **Outbound flows from any spoke or branch leave the hub sourced from one of the firewall's public IP addresses.** This is source network address translation (SNAT). Azure Firewall SNATs each outbound flow to one of the attached public IP addresses, and the selection isn't deterministic, so partner allowlists must cover the entire set of IP addresses attached to the secured hub firewall. Use a [public IP address prefix](/azure/virtual-network/ip-services/public-ip-address-prefix) to express that set as a contiguous range.
 
   The number of attached public IP addresses also sets the SNAT port budget for every connected workload; plan for the aggregate concurrent outbound connection rate across all spokes and branches because exhaustion affects every workload that egresses through the hub.
 
