@@ -3,7 +3,7 @@ metadata:
   title: CI/CD for microservices
   description: Learn about continuous integration and continuous delivery for microservices, including challenges and recommended approaches.
   author: fimdim
-  ms.author: pnp
+  ms.author: fimdimag
   ms.date: 05/15/2026
   ms.topic: concept-article
   ms.subservice: architecture-guide
