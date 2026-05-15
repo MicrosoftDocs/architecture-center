@@ -361,7 +361,7 @@ If you use customer-managed keys for encryption, you can host both the customer-
 
 ##### Foundry portal employee access
 
-When you onboard employees to Foundry projects, assign the minimum permissions required for their role. Use Microsoft Entra ID groups and Azure role-based access control (Azure RBAC) to enforce separation of duties. For example, distinguish agent developers from data scientists who handle fine-tuning tasks. But understand the limitations and risks. Map personas to the [Foundry built-in roles](/azure/foundry/concepts/rbac-foundry), for example:
+When you onboard employees to Foundry projects, assign the minimum permissions required for their role. Use Microsoft Entra ID groups and Azure role-based access control (Azure RBAC) to enforce separation of duties. For example, distinguish agent developers from data scientists who handle fine-tuning tasks. But understand the limitations and risks. Map personas to the [Foundry built-in roles](/azure/foundry/concepts/rbac-foundry) and Azure RBAC roles, for example:
 
 | Persona | Built-in role | Scope |
 | :------ | :------------ | :---- |
