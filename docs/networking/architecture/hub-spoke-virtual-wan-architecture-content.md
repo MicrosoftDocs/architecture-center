@@ -163,6 +163,8 @@ You can deploy specific third-party NVAs directly inside the Virtual WAN hub. On
 
 - **Dual-role SD-WAN and NGFW NVAs.** Combine both roles in a single appliance.
 
+A Virtual WAN hub hosts only one integrated NVA, and that one slot is shared across all three categories. To run both SD-WAN connectivity and NGFW inspection from a partner in the same hub, you must use a dual-role NVA; you can't deploy a separate SD-WAN NVA alongside a separate NGFW NVA.
+
 For the authoritative list of partners, the vendor identifiers that routing intent accepts, and which category each vendor falls into, see [About NVAs in a Virtual WAN hub](/azure/virtual-wan/about-nva-hub). Examples of qualified vendors include Barracuda, Check Point, Cisco, and Fortinet.
 
 Deploying NVAs in the hub eliminates the need for user-defined routes in spoke virtual networks and provides centralized traffic inspection with Azure-managed high availability and scaling.
@@ -181,16 +183,16 @@ The following coexistence patterns are supported in a single hub:
 
 - **Azure Firewall plus one SaaS security solution.** Set one policy's next hop to Azure Firewall and the other to the SaaS security resource deployed in the hub.
 
-Two different third-party NVAs in the same hub aren't supported. A Virtual WAN hub hosts at most one integrated NVA. If you genuinely need per-traffic-type vendor separation beyond what the two routing policies allow, consider one of these alternatives:
+Two third-party NVAs in the same hub aren't supported, whether they differ by vendor or by [role category](#network-virtual-appliances-in-the-hub). If you genuinely need per-traffic-type vendor separation beyond what the two routing policies allow, consider one of these alternatives:
 
 - **Deploy multiple hubs**, each with its own next-hop choice for the workloads that connect to it. Inter-hub inspection requires routing intent on every hub.
 - **Place the secondary NVA in a spoke virtual network** and selectively peer the virtual networks that need to use it. The [performance and security optimized Virtual WAN architecture](performance-security-optimized-vwan.yml) shows this pattern.
 
 ### Gateway connectivity
 
-For more information about setting up a gateway, see [Hybrid network by using a VPN gateway](/azure/expressroute/expressroute-howto-coexist-resource-manager).
+To create a gateway in a Virtual WAN hub, see [Create a site-to-site connection by using Azure Virtual WAN](/azure/virtual-wan/virtual-wan-site-to-site-portal) and [Create an ExpressRoute association to Virtual WAN](/azure/virtual-wan/virtual-wan-expressroute-portal).
 
-For higher availability, you can use ExpressRoute with a VPN for failover. For more information, see [Connect an on-premises network to Azure by using ExpressRoute with VPN failover](../../reference-architectures/hybrid-networking/expressroute-vpn-failover.yml).
+For higher availability of hybrid connectivity, deploy a VPN gateway alongside the ExpressRoute gateway in the same hub and set the Border Gateway Protocol (BGP) path preference to favor ExpressRoute. The VPN connection then carries traffic only when the ExpressRoute circuit fails. For more information, see [Virtual WAN disaster recovery design](/azure/virtual-wan/disaster-recovery-design) and the reliability recommendations in [Architecture best practices for Azure Virtual WAN](/azure/well-architected/service-guides/azure-virtual-wan#reliability).
 
 A hub-spoke topology requires a gateway, even if you don't require connectivity to your on-premises network.
 
@@ -219,6 +221,9 @@ In Virtual WAN, Microsoft manages virtual network peering. When you add a connec
 Routing intent is a declarative routing feature that sends traffic through a security solution deployed in the Virtual WAN hub. A hub has at most two routing policies, and each policy has a single next-hop resource:
 
 - **Private routing policy.** Steers VNet-to-VNet, branch-to-VNet (over ExpressRoute, site-to-site VPN, or point-to-site VPN), and inter-hub traffic to the configured next hop as a single class.
+
+  By default, the policy matches the RFC1918 aggregates `10.0.0.0/8`, `172.16.0.0/12`, and `192.168.0.0/16`. To inspect other private address ranges such as non-RFC1918 prefixes advertised by on-premises or delegated subnets used by services such as [Azure NetApp Files](/azure/azure-netapp-files/configure-virtual-wan), add them to the policy's additional prefixes.
+
 - **Internet routing policy.** Steers `0.0.0.0/0` traffic to the configured next hop, which forwards inspected traffic directly to the internet from the hub. This pattern is called **direct access**.
 
 Each policy accepts one of the following next-hop resources: Azure Firewall, an integrated NGFW NVA, or a SaaS security solution. The two policies can point to different resources in the same hub. For example, you can set the private policy next hop to Azure Firewall and the internet policy next hop to a SaaS security solution. For the current eligibility list, vendor identifiers, and configuration steps, see [How to configure Virtual WAN Hub routing intent and routing policies](/azure/virtual-wan/how-to-routing-policies). For guidance on combining different security products in the same hub, see [Combine security solutions in a single hub](#combine-security-solutions-in-a-single-hub).
