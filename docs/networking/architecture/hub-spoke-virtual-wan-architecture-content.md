@@ -60,7 +60,7 @@ The following workflow describes how traffic flows through the hub-spoke Virtual
 
 - [Virtual WAN](/azure/virtual-wan/virtual-wan-about) is a networking service. It provides a unified global transit network architecture that connects virtual networks, branches, and remote users. In this architecture, it serves as the central control plane and data plane. Virtual WAN manages and routes traffic across hubs, spokes, and external networks, which enables global connectivity through a common framework.
 
-- [VPN Gateway](/azure/vpn-gateway/vpn-gateway-about-vpngateways) enables encrypted communication between on-premises networks and Azure by using Internet Protocol Security (IPsec) tunnels. In this architecture, VPN Gateway operates within the hub to securely connect branch offices or datacenters to the Azure network via Virtual WAN.
+- [Virtual WAN site-to-site VPN gateway](/azure/virtual-wan/virtual-wan-site-to-site-portal) is a Virtual WAN-specific resource that provides encrypted IPsec/IKE connectivity from on-premises VPN devices to the hub. In this architecture, it securely connects branch offices or datacenters to Azure through Virtual WAN.
 
 - [ExpressRoute](/azure/well-architected/service-guides/azure-expressroute) provides private, high-throughput connectivity between on-premises infrastructure and Azure. When integrated with Virtual WAN, it provides a reliable and fast alternative to VPN connections for mission-critical workloads.
 
@@ -330,12 +330,10 @@ Principal author:
 - [Azure Firewall](https://azure.microsoft.com/services/azure-firewall)
 - [Azure landing zone architecture](/azure/cloud-adoption-framework/ready/landing-zone/)
 - [ExpressRoute overview](/azure/expressroute/expressroute-introduction)
-- [Extend an on-premises network by using VPN](/azure/expressroute/expressroute-howto-coexist-resource-manager)
 
 ## Related resources
 
 - [Design a hybrid DNS solution by using Azure](../../hybrid/hybrid-dns-infra.yml)
 - [Implement a secure hybrid network](../../reference-architectures/dmz/secure-vnet-dmz.yml)
 - [Hub-spoke network topology in Azure](../architecture/hub-spoke.yml)
-- [Connect an on-premises network to Azure by using ExpressRoute](../../reference-architectures/hybrid-networking/expressroute-vpn-failover.yml)
 - [Firewall and Application Gateway for virtual networks](../../example-scenario/gateway/firewall-application-gateway.md)
