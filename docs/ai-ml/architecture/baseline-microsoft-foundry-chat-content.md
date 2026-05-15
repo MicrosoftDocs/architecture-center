@@ -361,7 +361,14 @@ If you use customer-managed keys for encryption, you can host both the customer-
 
 ##### Foundry portal employee access
 
-When you onboard employees to Foundry projects, assign the minimum permissions required for their role. Use Microsoft Entra ID groups and Azure role-based access control (Azure RBAC) to enforce separation of duties. For example, distinguish agent developers from data scientists who handle fine-tuning tasks. But understand the limitations and risks.
+When you onboard employees to Foundry projects, assign the minimum permissions required for their role. Use Microsoft Entra ID groups and Azure role-based access control (Azure RBAC) to enforce separation of duties. For example, distinguish agent developers from data scientists who handle fine-tuning tasks. But understand the limitations and risks. Map personas to the [Foundry built-in roles](/azure/foundry/concepts/rbac-foundry), for example:
+
+| Persona | Built-in role | Scope |
+| :------ | :------------ | :---- |
+| Foundry resource manager | Foundry Account Owner | Foundry account |
+| Agent developer or data scientist | Foundry User on the Foundry project, plus Reader on the Foundry account | Foundry project and Foundry account |
+
+For the permissions in each built-in role and additional enterprise mapping examples, see [Role-based access control for Microsoft Foundry](/azure/foundry/concepts/rbac-foundry).
 
 The Foundry portal runs many actions by using the service's identity rather than the employee's identity. As a result, employees that have limited Azure RBAC roles might have visibility into sensitive data, like chat conversations, agent definitions, and configuration. This Foundry portal design can inadvertently bypass your desired access constraints and expose more information than intended.
 
@@ -655,7 +662,7 @@ To prevent service disruptions, ensure safe and controlled agent deployment by i
 
 - **Enforce access control and user-level data isolation.** In this architecture, the chat UI application layer is the access boundary between end users and your agents. The Foundry project API sits behind private endpoints and isn't directly accessible to consumers. Your application code must authenticate end users through Microsoft Entra ID and scope each conversation and its associated data to the authenticated identity.
 
-  When you use project-level APIs, any principal that has the Azure AI User role on the Foundry project can interact with all agents in that project. Your application's authentication and authorization layer, not Foundry's project RBAC, is what enforces which users can access which agents and conversations. Design your session management to prevent cross-user data access, and apply your workload's data governance and retention policies to the conversation data your application stores.
+  When you use project-level APIs, any principal that has the Foundry User role on the Foundry project can interact with all agents in that project. Your application's authentication and authorization layer, not Foundry's project RBAC, is what enforces which users can access which agents and conversations. Design your session management to prevent cross-user data access, and apply your workload's data governance and retention policies to the conversation data your application stores.
 
 - **Plan for progressive rollout and failback.** Foundry doesn't provide built-in support for blue-green or canary deployments of agents. If you require these deployment patterns or controlled migration of users between agent versions, implement a routing layer, like an API gateway or custom router, in front of the agent API. This routing layer lets you shift traffic incrementally between agent versions, monitor the effect, and perform a full switchover when ready.
 
