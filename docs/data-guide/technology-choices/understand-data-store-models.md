@@ -58,7 +58,7 @@ Relational database management systems organize data into normalized tables by u
 
 - [Azure SQL Managed Instance](/azure/azure-sql/managed-instance/sql-managed-instance-paas-overview) is a near-complete SQL Server environment in the cloud that's ideal for lift-and-shift migrations.
 - [SQL Database (Hyperscale)](/azure/azure-sql/database/service-tier-hyperscale) is a highly scalable SQL tier designed for massive workloads with fast autoscaling and rapid backups.
-- [Azure Database for PostgreSQL](/azure/postgresql/flexible-server/overview) is a managed PostgreSQL service that supports open-source extensions and flexible deployment options.
+- [Azure Database for PostgreSQL](/azure/postgresql/overview) is a managed PostgreSQL service that supports open-source extensions and flexible deployment options.
 - [Azure Database for MySQL](/azure/mysql/flexible-server/overview) is a managed MySQL database for web apps and open-source workloads.
 - [SQL Database in Fabric](/fabric/database/sql/overview) is a developer-friendly transactional database, based on SQL Database, that you can use to easily create an operational database in Fabric. 
 
@@ -69,7 +69,7 @@ Use the following table to help determine which Azure service meets your use cas
 |[SQL Database](/azure/azure-sql/database/sql-database-paas-overview)|Cloud-native apps| Managed, elastic pools, Hyperscale, built-in high availability, advanced security|Building a modern software as a service (SaaS) application by using a scalable SQL back end|
 |[SQL Managed Instance](/azure/azure-sql/managed-instance/sql-managed-instance-paas-overview)|Legacy enterprise apps|Full SQL Server compatibility, lift-and-shift support, virtual networks, advanced auditing|Migrating an on-premises SQL Server app by using minimal code changes|
 |[SQL Database (Hyperscale)](/azure/azure-sql/database/service-tier-hyperscale)|Global distribution|Multi-region read scalability, geo-replication, rapid autoscaling|Serving a globally distributed app that requires high read throughput|
-|[Azure Database for PostgreSQL](/azure/postgresql/flexible-server/overview)|Open-source, analytics workloads|PostGIS, Hyperscale, Flexible Server, open-source extensions|Developing a geospatial analytics app by using PostgreSQL and PostGIS|
+|[Azure Database for PostgreSQL](/azure/postgresql/overview)|Open-source, analytics workloads|PostGIS, hyperscale, elastic clusters, open-source extensions|Developing a geospatial analytics app by using PostgreSQL and PostGIS|
 |[Azure Database for MySQL](/azure/mysql/flexible-server/overview)|Lightweight web apps|Flexible Server, open-source compatibility, cost-effective|Hosting a WordPress-based e-commerce site|
 |[SQL Database in Fabric](/fabric/database/sql/overview)|Online transaction processing (OLTP) workloads in the Fabric ecosystem|Built on the SQL Database engine, scalable, and integrated into Fabric|Building AI apps on an operational, relational data model that includes native vector search capabilities|
 
@@ -182,7 +182,7 @@ Time-series data stores manage a set of values organized by time. They support f
 
 - [Eventhouse in Microsoft Fabric](/fabric/real-time-intelligence/eventhouse) is part of the Real-Time Intelligence experience in Fabric. It uses KQL databases to handle streaming data. Choose this service if you want a software as a service (SaaS) experience that's integrated with the Fabric ecosystem, including OneLake and other Fabric workloads.
 
-- Some transactional databases provide limited time-series capabilities as part of their broader feature set or through extensions. For example, Azure Database for PostgreSQL flexible server supports [TimescaleDB](/azure/postgresql/extensions/concepts-extensions-considerations#timescaledb). Select this option if you need to query time-series data alongside existing transactional data in the database.
+- Some transactional databases provide limited time-series capabilities as part of their broader feature set or through extensions. For example, Azure Database for PostgreSQL supports [TimescaleDB](/azure/postgresql/extensions/concepts-extensions-considerations#timescaledb). Select this option if you need to query time-series data alongside existing transactional data in the database.
 
 When you choose a time-series data store, evaluate the service based on your workload's needs for:
 

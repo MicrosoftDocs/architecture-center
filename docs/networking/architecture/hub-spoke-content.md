@@ -68,7 +68,7 @@ With Virtual Network Manager, you can define [network groups](/azure/virtual-net
 
 We recommend that you evaluate whether you should use Virtual Network Manager to optimize your network management operations. To determine whether Virtual Network Manager provides net value for your network's size and complexity, compare the service cost with the time savings and operational benefits.
 
-### Azure Virtual WAN
+#### Azure Virtual WAN
 
 This architecture describes a network pattern that includes customer-managed hub infrastructure components. For a Microsoft-managed hub infrastructure solution, see [Hub-spoke network topology that uses Azure Virtual WAN](/azure/architecture/networking/architecture/hub-spoke-virtual-wan-architecture).
 
@@ -156,6 +156,18 @@ The number of virtual network peerings per virtual network is limited. If you ha
 In this scenario, consider using user-defined routes (UDRs) to force spoke traffic to be sent to Azure Firewall or another NVA that acts as a router at the hub. This change allows the spokes to connect to each other. To support this configuration, implement Azure Firewall with forced tunnel configuration turned on. For more information, see [Azure Firewall forced tunneling](/azure/firewall/forced-tunneling).
 
 The topology in this architectural design facilitates egress flows. While Azure Firewall is primarily for egress security, it can also be an ingress point. For more considerations about hub NVA ingress routing, see [Azure Firewall and Azure Application Gateway for virtual networks](/azure/architecture/example-scenario/gateway/firewall-application-gateway).
+
+#### Network address translation through Azure Firewall
+
+The Azure Firewall in the hub sits between every spoke and the internet, on-premises networks, and other spokes that route through it. Plan for how network address translation affects workload design:
+
+- **Outbound flows leave a spoke sourced from one of the firewall's public IP addresses.** This is source network address translation (SNAT). Azure Firewall uses one of the attached public IPs for each outbound flow, so partner allowlists and audit logs need to cover the entire set of IP addresses attached to the firewall. Use a [public IP address prefix](/azure/virtual-network/ip-services/public-ip-address-prefix) to express that set as a contiguous range.
+
+  The number of attached public IP addresses also sets the SNAT port budget and therefore the concurrent outbound connection ceiling for every spoke that egresses through the firewall. To scale beyond what attached public IPs alone provide, [attach an Azure NAT Gateway to the `AzureFirewallSubnet`](/azure/nat-gateway/tutorial-hub-spoke-nat-firewall). NAT Gateway becomes the outbound path for the firewall, provides up to 16 public IPs that downstream systems need to allowlist, and significantly increases the available SNAT port pool. Return traffic still flows back through the firewall, which preserves flow symmetry.
+
+- **Published workloads are reachable at the firewall's public IP address.** You publish a backend with a destination network address translation (DNAT) rule, which rewrites destination IP and port from the firewall's public endpoint to the workload's private IP and port. Azure Firewall also applies SNAT on DNAT-matched packets to ensure return traffic flows back through the same firewall instance. As a result, the backend observes the firewall instance's IP address as the source rather than the original client's IP address.
+
+  If your application requires the client's IP address, terminate the client connection upstream in a reverse proxy such as Azure Application Gateway or Azure Front Door, forward the client's IP address in the `X-Forwarded-For` HTTP header, and follow [Preserve the original HTTP host name](/azure/architecture/best-practices/host-name-preservation) so the backend continues to observe the client's host name. For a worked example of DNAT, SNAT, and reverse-proxy interactions in front of a firewall, see [Azure Firewall and Application Gateway for virtual networks](/azure/architecture/example-scenario/gateway/firewall-application-gateway).
 
 #### Spoke connections to remote networks through a hub gateway
 

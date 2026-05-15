@@ -10,11 +10,11 @@ This article describes a solution for running an order management system that ha
 
 *Download a [PowerPoint file](https://arch-center.azureedge.net/microservices-with-container-apps-dapr.pptx) of this architecture.*
 
-### Dataflow
+### Data flow
 
 This solution describes a fictitious Red Dog order management system and its supporting Azure infrastructure. The architecture is composed of a single Container Apps environment that hosts 10 .NET Core microservice applications. The solution uses the Dapr SDK to integrate with Azure resources via publish-subscribe, state, and binding building blocks. The services also use KEDA scale rules to allow for scaling based on event triggers and scale-to-zero scenarios.
 
-The following dataflow corresponds to the previous diagram:
+The following data flow corresponds to the previous diagram:
 
 1. **Traefik:** The basic proxy for routing user requests from the UI to the accounting and Makeline services for the interactive dashboard.
 
@@ -61,11 +61,11 @@ The following dataflow corresponds to the previous diagram:
 
 - [Azure Monitor](/azure/azure-monitor/overview) is a unified platform that enables you to collect, analyze, and act on customer content data from your Azure infrastructure environments. In this architecture, you use Azure Monitor with [Application Insights](/azure/well-architected/service-guides/application-insights) to view the container logs and collect metrics from the microservices.
 
-- [Service Bus](/azure/well-architected/service-guides/service-bus/reliability) is a fully managed enterprise message broker that has queues and publish-subscribe topics. In this architecture, you use Service Bus for the Dapr publish-subscribe component implementation. Multiple services use this component. The order service publishes messages on the bus, and the Makeline, accounting, loyalty, and receipt services subscribe to these messages.
+- [Service Bus](/azure/well-architected/service-guides/azure-service-bus) is a fully managed enterprise message broker that has queues and publish-subscribe topics. In this architecture, you use Service Bus for the Dapr publish-subscribe component implementation. Multiple services use this component. The order service publishes messages on the bus, and the Makeline, accounting, loyalty, and receipt services subscribe to these messages.
 
 - [Container Apps](/azure/well-architected/service-guides/azure-container-apps) is a fully managed, serverless container service used to build and deploy modern apps at scale. In this architecture, you host all 10 microservices on Container Apps and deploy them into a single Container Apps environment. This environment serves as a secure boundary around the system.
 
-- [SQL Database](/azure/well-architected/service-guides/azure-sql-database-well-architected-framework) is an intelligent, scalable, relational database service built for the cloud. In this architecture, it serves as the data store for the accounting service, which uses [Entity Framework Core](/ef/core/) to interface with the database. The bootstrapper service is responsible for setting up the SQL tables in the database. Then it runs one time before it establishes the connection to the accounting service.
+- [SQL Database](/azure/well-architected/service-guides/azure-sql-database) is an intelligent, scalable, relational database service built for the cloud. In this architecture, it serves as the data store for the accounting service, which uses [Entity Framework Core](/ef/core/) to interface with the database. The bootstrapper service is responsible for setting up the SQL tables in the database. Then it runs one time before it establishes the connection to the accounting service.
 
 - [Traefik](https://traefik.io/traefik) is a reverse proxy and load balancer used to route network traffic to microservices. In this architecture, use Traefik's dynamic configuration feature to do path-based routing from the UI, which is a Vue.js single-page application. This configuration also enables direct API calls to the back-end services for testing.
 

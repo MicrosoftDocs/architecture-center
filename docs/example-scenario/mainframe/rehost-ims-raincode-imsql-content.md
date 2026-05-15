@@ -6,9 +6,9 @@ This architecture describes how to implement an Information Management System (I
    The diagram shows the architecture of an IMS DB/DC workload before migration to Azure. The flow begins with an on-premises user accessing communication protocols like HTTPS via a TN3270 terminal or a web interface. A double-sided arrow connects the communication protocols to transaction managers like IMS DC. A box that's labeled front end contains online programs. A double-sided arrow that's labeled DL/I connects the front end to another box that's labeled back end. This box contains IMS data and is connected to the IMS DB data layer. Another double-sided arrow that's labeled DL/I connects the data layer to a box that contains batch jobs. A box that's labeled other services contains services like security and reporting. These services interact with all the parts of the diagram. 
 :::image-end:::   
 
-### Dataflow
+### Data flow
 
-The following dataflow corresponds to the previous diagram:
+The following data flow corresponds to the previous diagram:
 
 1. Users connect to the mainframe over Transmission Control Protocol or Internet Protocol by using standard mainframe protocols like TN3270 and HTTPS.
 1. Transaction managers interact with users and invoke the application to satisfy user requests.
@@ -83,9 +83,9 @@ The following workflow corresponds to the previous diagram:
 
 - This migration addresses a one-time data load from IMS DB. It doesn't address coexistence and associated data synchronization.  
 
-### Dataflow for migration
+### Data flow for migration
 
-The following dataflow corresponds to the previous diagram:
+The following data flow corresponds to the previous diagram:
 
 1. The mainframe nonrelational data store (IMS DB) has two components: the DBD and the actual segment data.
 
@@ -127,7 +127,7 @@ IMS segment data files are imported into zBridge with a matching COBOL copybook 
 
 - [Microsoft Entra ID](/entra/fundamentals/whatis) is a cloud-based enterprise identity and access management service. In this architecture, Microsoft Entra ID provides single sign-on and multifactor authentication to help users sign in and access resources while helping to protect against cybersecurity attacks.
 
-- [SQL Managed Instance](/azure/well-architected/service-guides/azure-sql-managed-instance/reliability) is part of the Azure SQL service portfolio and a managed, more secure, up-to-date SQL instance in the cloud. In this architecture, SQL Managed Instance provides the relational database platform for storing the converted hierarchical IMS DB data structures with high availability and integration with Azure services.
+- [SQL Managed Instance](/azure/well-architected/service-guides/azure-sql-managed-instance) is part of the Azure SQL service portfolio and a managed, more secure, up-to-date SQL instance in the cloud. In this architecture, SQL Managed Instance provides the relational database platform for storing the converted hierarchical IMS DB data structures with high availability and integration with Azure services.
 
 ### Alternatives
 

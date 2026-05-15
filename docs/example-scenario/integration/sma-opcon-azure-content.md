@@ -160,7 +160,7 @@ If you want to take advantage of the SMA service offering later, you can seamles
 
 - [SQL Database](/azure/well-architected/service-guides/azure-sql-database) is a fully managed relational database service for the cloud. It provides high availability, scalability, and built-in intelligence for single databases or elastic pools.
 
-  [SQL Managed Instance](/azure/well-architected/service-guides/azure-sql-managed-instance/reliability) is a fully managed SQL Server instance in the cloud that provides almost complete compatibility with on-premises SQL Server.
+  [SQL Managed Instance](/azure/well-architected/service-guides/azure-sql-managed-instance) is a fully managed SQL Server instance in the cloud that provides almost complete compatibility with on-premises SQL Server.
 
   In these architectures, the OpCon database is hosted in a SQL Database instance and accessed through a private endpoint. The OpCon back end can use either SQL Database or SQL Managed Instance to manage OpCon entries.
 

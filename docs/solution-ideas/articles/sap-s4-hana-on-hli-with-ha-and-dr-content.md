@@ -12,7 +12,9 @@ This system takes advantage of OS clustering for database performance, high avai
 
 *Download a [Visio file](https://arch-center.azureedge.net/sap-s4-hana-on-hli-with-ha-and-dr.vsdx) of this architecture.*
 
-### Dataflow
+### Data flow
+
+The following data flow corresponds to the previous diagram:
 
 1. In this example, an on-premises SAP user executes a sales order via Fiori interface, custom interface, or other.
 1. Azure high-speed ExpressRoute gateway is used to connect to Azure Virtual Machines.

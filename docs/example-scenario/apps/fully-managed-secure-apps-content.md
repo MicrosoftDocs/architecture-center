@@ -10,9 +10,9 @@ This diagram begins with an employee that accesses the Azure virtual network fro
 
 *Download a [Visio file][visio-download] of this architecture.*
 
-### Dataflow
+### Data flow
 
-The following dataflow corresponds to the previous diagram:
+The following data flow corresponds to the previous diagram:
 
 1. HTTP and HTTPS requests reach the application gateway.
 
@@ -183,7 +183,7 @@ Principal author:
 [design-geo-distributed-ase]: /azure/app-service/environment/app-service-app-service-environment-geo-distributed-scale
 [design-best-practice-cloud-apps-autoscale]: ../../best-practices/auto-scaling.md
 
-[docs-sql-database]: /azure/well-architected/service-guides/azure-sql-database-well-architected-framework
+[docs-sql-database]: /azure/well-architected/service-guides/azure-sql-database
 [docs-webapps]: /azure/well-architected/service-guides/app-service-web-apps
 [docs-apiapps]: /azure/app-service/app-service-web-tutorial-rest-api
 [docs-appgw]: /azure/well-architected/service-guides/azure-application-gateway

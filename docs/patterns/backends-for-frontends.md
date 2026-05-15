@@ -148,7 +148,7 @@ Each client has a dedicated BFF service running as an Azure function that serves
 
 - [Microsoft Entra ID](/entra/fundamentals/whatis) serves as the cloud-based identity provider. It provides tailored audience claims for both mobile and desktop clients. These claims are then used for authorization.
 
-- [API Management](/azure/well-architected/service-guides/api-management/operational-excellence) serves as a proxy between the clients and their BFF services, which establishes a perimeter. API Management is configured with policies to [validate the JSON Web Tokens](/azure/api-management/validate-jwt-policy) and rejects requests that lack a token or contain invalid claims for the targeted BFF service. It also streams all the activity logs to Azure Monitor.
+- [API Management](/azure/well-architected/service-guides/azure-api-management) serves as a proxy between the clients and their BFF services, which establishes a perimeter. API Management is configured with policies to [validate the JSON Web Tokens](/azure/api-management/validate-jwt-policy) and rejects requests that lack a token or contain invalid claims for the targeted BFF service. It also streams all the activity logs to Azure Monitor.
 
 - [Azure Monitor](/azure/well-architected/service-guides/azure-log-analytics) functions as the centralized monitoring solution. It aggregates all activity logs to ensure comprehensive, end-to-end observability.
 
