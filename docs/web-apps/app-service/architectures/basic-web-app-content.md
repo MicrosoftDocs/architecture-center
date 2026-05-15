@@ -163,8 +163,9 @@ During the POC phase, it's important to get an understanding of what logs and me
 
 - Use [Application Insights](/azure/application-insights/app-insights-overview) or another application performance management (APM) tool to emit telemetry and logs to monitor application performance.
 
-- Use a [health model](https://learn.microsoft.com/en-us/azure/well-architected/design-guides/health-modeling) that aggregates multiple correlated signals into health states, then alert on state transitions across your architecture, not isolated metric thresholds. In this architecture, a health model should aggregate signals from the App Service and SQL Database resources, along with the application components deployed to App Service. It should evaluate availability and latency, database connectivity and query performance, and authentication success rates as well as relevant application level signals. Each entity in the model emits a health state, which is propagated through dependency chains and consolidated into a single top-level indicator of overall workload health.
-  - [Azure Monitor health models](https://learn.microsoft.com/en-us/azure/azure-monitor/health-models/overview) help you define, measure, and visualise workload health by correlating metrics, logs, and traces into actionable health states across Azure resources and components.
+- Use a [health model](/azure/well-architected/design-guides/health-modeling) that aggregates multiple correlated signals into health states, then alert on state transitions across your architecture, not isolated metric thresholds. [Azure Monitor health models](/azure/azure-monitor/health-models/overview) help you define, measure, and visualize workload health by correlating metrics, logs, and traces into actionable health states across Azure resources and components.
+
+  In this architecture, a health model should aggregate signals from the App Service and SQL Database resources, along with the application components deployed to App Service. It should evaluate availability and latency, database connectivity and query performance, and authentication success rates as well as relevant application level signals. Each entity in the model emits a health state, which is propagated through dependency chains and consolidated into a single top-level indicator of overall workload health.
 
 #### Deployment
 
