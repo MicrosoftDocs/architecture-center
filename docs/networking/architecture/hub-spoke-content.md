@@ -337,7 +337,7 @@ You can reduce your throughput by using Azure Firewall features such as IDPS. Fo
 
 A single [ExpressRoute virtual network gateway](/azure/expressroute/expressroute-about-virtual-network-gateways#gateway-limitations-and-performance) caps traffic from on-premises into the virtual network at the gateway SKU's throughput limit, no matter how much circuit bandwidth is attached.
 
-For workloads that send high-bandwidth traffic from on-premises to virtual machines or private endpoints in Azure, use [ExpressRoute FastPath](/azure/expressroute/about-fastpath) to bypass the gateway on that direction, including to destinations in peered spokes. FastPath is the standard way to use circuit bandwidth that exceeds the gateway ceiling.
+For workloads that send high-bandwidth traffic from on-premises to virtual machines or private endpoints in Azure, use [ExpressRoute FastPath](/azure/expressroute/about-fastpath) to bypass the gateway in that direction, including to destinations in peered spokes. FastPath is the standard way to use circuit bandwidth that exceeds the gateway ceiling.
 
 Using FastPath introduces some important design constraints for hub-spoke networks:
 
@@ -346,7 +346,7 @@ Using FastPath introduces some important design constraints for hub-spoke networ
 - **No global peering.** All virtual networks must be in the same region.
 - **IP-address ceiling.** FastPath programs a fixed number of IPs per circuit; when exceeded, traffic falls back through the gateway. Alert on the FastPath route count in Azure Monitor.
 
-If a constraint your team has blocks FastPath, scale horizontally instead. Deploy multiple hubs in the same region, each with its own ExpressRoute gateway, firewall, and circuit connections. Use [Azure Firewall Manager](/azure/firewall-manager/overview) to apply a shared [Firewall Policy](/azure/firewall-manager/policy-overview) across every hub firewall, and direct each spoke's traffic to a specific hub through routing and IP-address planning.
+If a constraint blocks FastPath, scale horizontally instead. Deploy multiple hubs in the same region, each with its own ExpressRoute gateway, firewall, and circuit connections. Use [Azure Firewall Manager](/azure/firewall-manager/overview) to apply a shared [Firewall Policy](/azure/firewall-manager/policy-overview) across every hub firewall, and direct each spoke's traffic to a specific hub through routing and IP-address planning.
 
 ## Deploy this scenario
 
