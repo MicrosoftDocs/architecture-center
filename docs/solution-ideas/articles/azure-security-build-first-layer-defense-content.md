@@ -16,14 +16,14 @@ Diagram that shows how Zero Trust pillars map to Azure security controls across 
 
 *Download a [Visio file](https://arch-center.azureedge.net/azure-monitor-integrate-security-components-2.vsdx) of this architecture.*
 
-*This image incorporates concepts and terminology from the MITRE ATT&CK® Framework developed by The MITRE Corporation. ATT&CK® is a registered trademark of The MITRE Corporation.*
+*This image incorporates concepts and terminology from the MITRE ATT&CK® Framework developed by [The MITRE Corporation](https://attack.mitre.org/index.html). ATT&CK® is a registered trademark of The MITRE Corporation.*
 
 The Azure security layer shown in this diagram aligns with the Azure Security Benchmark (ASB) v3, which defines the Microsoft recommended security controls across identity, networking, compute, data, and governance.
 
 Currently, these controls are primarily implemented and monitored via:
 
 - Azure Policy.
-- Defender for Cloud.
+- Microsoft Defender for Cloud.
 - Built-in platform security defaults.
 
 The diagram doesn't include every available service. Instead, it includes commonly deployed, high-impact controls that directly mitigate ransomware attack paths.
@@ -42,9 +42,9 @@ The numbers in the ATT&CK matrix correspond to technique numbers assigned by [MI
 
 ### Components
 
-- [Microsoft Entra ID](/entra/fundamentals/whatis) is an identity and access management service. In this architecture, it manages user identities and access to external resources such as Microsoft 365 and the Azure portal, and internal resources such as apps on your corporate intranet network.
+- [Microsoft Entra ID](/entra/fundamentals/what-is-entra) is an identity and access management service. In this architecture, it manages user identities and access to external resources such as Microsoft 365 and the Azure portal, and internal resources such as apps on your corporate intranet network.
 
-- [Virtual Network](/azure/well-architected/service-guides/virtual-network) is a networking service  that provides secure communication between Azure resources, the internet, and on-premises networks. In this architecture, it provides the private network infrastructure that supports secure connectivity and isolation for workloads.
+- [Virtual Network](/azure/well-architected/service-guides/virtual-network) is a networking service that provides secure communication between Azure resources, the internet, and on-premises networks. In this architecture, it provides the private network infrastructure that supports secure connectivity and isolation for workloads.
 
 - [Azure Load Balancer](/azure/well-architected/service-guides/azure-load-balancer) is a low-latency layer-4 load balancing service for UDP and TCP traffic. Load Balancer is a zone-redundant service that can handle millions of concurrent flows. In this architecture, it ensures high availability and scalability by distributing inbound and outbound traffic across resources in the virtual network.
 
@@ -58,7 +58,7 @@ The numbers in the ATT&CK matrix correspond to technique numbers assigned by [MI
 
 - [Azure Storage](/azure/storage/common/storage-introduction) is a scalable and secure storage solution for various data types, including blobs, files, queues, and tables. In this architecture, it stores application and system data with encryption at rest and supports secure access via [SAS tokens](/azure/storage/common/storage-sas-overview) and [private endpoints](/azure/private-link/private-endpoint-overview).
 
-- [SQL Database](/azure/well-architected/service-guides/azure-sql-database) is a managed relational database service that automates patching, backups, and monitoring. In this architecture, it provides secure and compliant data storage via features like [transparent data encryption](/azure/azure-sql/database/transparent-data-encryption-tde-overview), [auditing](/azure/azure-sql/database/auditing-overview), and [vulnerability assessments](/azure/azure-sql/database/sql-vulnerability-assessment?tabs=azure-powershell).
+- [SQL Database](/azure/well-architected/service-guides/azure-sql-database) is a managed relational database service that automates patching, backups, and monitoring. In this architecture, it provides secure and compliant data storage via features like [transparent data encryption](/azure/azure-sql/database/transparent-data-encryption-tde-overview), [auditing](/azure/azure-sql/database/auditing-overview), and [vulnerability assessments](/azure/defender-for-cloud/sql-azure-vulnerability-assessment-overview).
 
 - [Microsoft Fabric](/fabric/fundamentals/microsoft-fabric-overview) is a unified SaaS analytics platform that brings together data engineering, data warehousing, real-time analytics, and business intelligence. In this architecture, you can use Fabric for analytics workloads that need governed workspaces, OneLake encryption at rest, item-level role-based access, and centralized activity logging while operational data remains in services like SQL Database.
 
@@ -74,13 +74,13 @@ The numbers in the ATT&CK matrix correspond to technique numbers assigned by [MI
 
 - [Azure DDoS Protection](/azure/ddos-protection/ddos-protection-overview) implements DDoS protection on the virtual network to help you mitigate various types of DDoS attacks.
 
-- [TLS/SSL](/azure/application-gateway/application-gateway-end-to-end-ssl-powershell) provide encryption in transit for most Azure services that exchange information, such as Azure Storage and Web Apps.
+- [TLS/SSL](/azure/application-gateway/application-gateway-end-to-end-ssl-powershell) provides encryption in transit for most Azure services that exchange information, such as Azure Storage and Web Apps.
 
 - [Private Link](/azure/private-link/private-link-overview) enables you to create a private network for an Azure service that's initially exposed to the internet.
 
 - [Azure Bastion](/azure/bastion/bastion-overview) provides jump server functionality. You can use this service to access your VMs through remote desktop protocol (RDP) or SSH without exposing them to the internet.
 
-- [Microsoft Defender Antivirus in Windows](/microsoft-365/security/defender-endpoint/microsoft-defender-antivirus-windows) provides anti-malware service. It's part of Windows 10, Windows 11, Windows Server 2016, and Windows Server 2019.
+- [Microsoft Defender Antivirus in Windows](/microsoft-365/security/defender-endpoint/microsoft-defender-antivirus-windows) provides anti-malware services. It's part of Windows 10, Windows 11, Windows Server 2016, and Windows Server 2019.
 
 - [Encryption at host](/azure/virtual-machines/disk-encryption#encryption-at-host---end-to-end-encryption-for-your-vm-data) is an optional enhancement to Azure managed disks that provides end-to-end encryption for VM data, including temporary disks and disk caches, for supported VM sizes. Azure managed disks are encrypted at rest by default with server-side encryption (SSE).
 
@@ -98,7 +98,7 @@ The numbers in the ATT&CK matrix correspond to technique numbers assigned by [MI
 
 - [Microsoft Entra multifactor authentication](/entra/identity/authentication/concept-mfa-howitworks) provides other types of authentication beyond user names and passwords.
 
-- [Microsoft Entra ID protection](/entra/id-protection/overview-identity-protection) analyzes trillions of signals per day to identify and protect users from threats.
+- [Microsoft Entra ID Protection](/entra/id-protection/overview-identity-protection) analyzes trillions of signals per day to identify and protect users from threats.
 
 - [Privileged Identity Management (PIM)](/entra/id-governance/privileged-identity-management/pim-configure) helps you to provide superuser privileges temporarily for Microsoft Entra ID (for example, User Administrator) and Azure subscriptions (for example, Role Based Access Control Administrator or Key Vault Administrator).
 
@@ -106,9 +106,9 @@ The numbers in the ATT&CK matrix correspond to technique numbers assigned by [MI
 
 ## Scenario details
 
-Pre-breach controls are designed to reduce attack surface, eliminate common misconfigurations, and block attackers before an intrusion begins. These controls align closely with Microsoft Zero Trust principles, which is based on the philosophy that no resource is implicitly trusted and access is continuously verified.
+Pre-breach controls are designed to reduce attack surface, eliminate common misconfigurations, and block attackers before an intrusion begins. These controls align closely with Microsoft Zero Trust principles. Zero Trust is based on the philosophy that no resource is implicitly trusted and access is continuously verified.
 
-The goal of this article is to show how foundational Azure security services can be combined to disrupt common ransomware entry points identified in the threat map in the first article in this series, [Map threats to your IT environment](./map-threats-it-environment.yml).
+The goal of this article is to show how you can combine foundational Azure security services to disrupt common ransomware entry points identified in the threat map in the first article in this series, [Map threats to your IT environment](./map-threats-it-environment.yml).
 
 As pointed out in that article, ransomware attacks rarely start with sophisticated exploits. In most real-world incidents, attackers succeed because of:
 
@@ -163,8 +163,8 @@ Principal author:
 Other contributors:
 
 - [Gary Moore](https://www.linkedin.com/in/gwmoore/) | Programmer/Writer
-- [Andrew Nathan](https://www.linkedin.com/in/andrew-nathan/) | Senior Customer Engineering Manager
 - [Filipe Moreira](https://www.linkedin.com/in/filipefumaux/) | Cloud Solution Architect
+- [Andrew Nathan](https://www.linkedin.com/in/andrew-nathan/) | Senior Customer Engineering Manager
 
 ## Next steps
 
