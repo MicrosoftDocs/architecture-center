@@ -97,9 +97,9 @@ You're responsible for creating the required role assignments for the managed id
 
 | Resource | Role | Scope |
 | --- | --- | --- |
-| App Service | Azure AI User | Foundry account |
+| App Service | Foundry User | Foundry account |
 | Foundry project | Search Index Data Reader | AI Search |
-| Portal user (for each individual) | Azure AI Developer | Foundry account |
+| Portal user (for each individual) | Foundry User | Foundry account |
 
 #### Network security
 
