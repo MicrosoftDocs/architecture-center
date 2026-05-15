@@ -137,7 +137,7 @@ Basic Virtual WAN supports site-to-site VPN connectivity, branch-to-branch conne
 
 A virtual hub is a Microsoft-managed virtual network that serves as the core of your network in a region. The hub contains various service endpoints to enable connectivity. You can have multiple hubs in each Azure region. For more information, see [Virtual WAN FAQ](/azure/virtual-wan/virtual-wan-faq#is-it-possible-to-create-multiple-virtual-wan-hubs-in-the-same-region).
 
-When you use the Azure portal to create a hub, the portal creates a virtual hub virtual network and a virtual hub VPN gateway. A Virtual WAN hub requires an address range of at least `/24`. Azure uses this IP address space to reserve a subnet for the gateway and other components.
+A Virtual WAN hub requires an address range of at least `/24`. Azure reserves the space for the hub router and for any gateways or other components you add to the hub. Gateways are separate resources that you create explicitly; see [Gateway connectivity](#gateway-connectivity) for the gateways this architecture uses.
 
 ### Secured virtual hub
 
@@ -194,7 +194,7 @@ To create a gateway in a Virtual WAN hub, see [Create a site-to-site connection 
 
 For higher availability of hybrid connectivity, deploy a VPN gateway alongside the ExpressRoute gateway in the same hub and set the Border Gateway Protocol (BGP) path preference to favor ExpressRoute. The VPN connection then carries traffic only when the ExpressRoute circuit fails. For more information, see [Virtual WAN disaster recovery design](/azure/virtual-wan/disaster-recovery-design) and the reliability recommendations in [Architecture best practices for Azure Virtual WAN](/azure/well-architected/service-guides/azure-virtual-wan#reliability).
 
-A hub-spoke topology requires a gateway, even if you don't require connectivity to your on-premises network.
+This architecture deploys gateways in the hub to provide the branch, remote-user, and on-premises connectivity shown in the diagrams. Gateways are a common addition to a Virtual WAN hub, not a requirement: a hub without any gateway still routes spoke-to-spoke traffic through the hub router.
 
 ### Virtual network peering
 
