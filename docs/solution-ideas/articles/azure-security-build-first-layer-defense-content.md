@@ -1,6 +1,6 @@
 [!INCLUDE [header_file](../../../includes/sol-idea-header.md)]
 
-This article is the second in a series of four that explains how to design a layered security architecture by using Microsoft Security solutions.
+This article is the second in a series of four that explains how to design a layered security architecture by using Microsoft security solutions.
 
 The first article describes how to [map ransomware threats across a hybrid enterprise environment](map-threats-it-environment.yml) by using the MITRE ATT&CK framework. That article demonstrates how attackers typically gain initial access, escalate privileges, move laterally, and ultimately affect identities, infrastructure, applications, and data.
 
