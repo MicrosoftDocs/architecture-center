@@ -91,7 +91,7 @@ For more information, see [Hub-and-spoke network topology](/azure/cloud-adoption
 
 Your architecture might differ from the simple hub-spoke architecture described in this article. The following list describes guidance for advanced scenarios:
 
-- To add more regions, [use Azure Firewall to route a multi-hub-spoke topology](/azure/firewall/firewall-multi-hub-spoke).
+- To add more regions, or to scale aggregate throughput in a single region beyond a single ExpressRoute gateway and firewall, [use Azure Firewall to route a multi-hub-spoke topology](/azure/firewall/firewall-multi-hub-spoke) and centralize policy with [Azure Firewall Manager](/azure/firewall-manager/overview).
 
 - To use advanced spoke-to-spoke patterns, use [Spoke-to-spoke networking](../../reference-architectures/hybrid-networking/virtual-network-peering.yml#spoke-to-spoke-communication-patterns).
 
@@ -100,7 +100,7 @@ Your architecture might differ from the simple hub-spoke architecture described 
 - To replace the virtual network gateway with a custom software-defined WAN (SD-WAN) NVA, see [SD-WAN integration with Azure hub-spoke network topologies](/azure/architecture/networking/guide/sdwan-integration-in-hub-and-spoke-network-topologies).
 
 - To provide transitivity between your ExpressRoute and VPN or SDWAN, or to customize prefixes advertised over Border Gateway Protocol (BGP) on Azure virtual network gateways, see [Route Server support for ExpressRoute and Azure VPN](/azure/route-server/expressroute-vpn-support).
- 
+
 - To add private resolver or DNS servers, see [Private resolver architecture](/azure/dns/private-resolver-architecture).
 
 ### Potential use cases
@@ -304,7 +304,6 @@ Example Virtual Network Manager use-case scenarios include:
 To ensure uniform connectivity and network security rules, you can use [network groups](/azure/virtual-network-manager/concept-network-groups) to group virtual networks in any subscription, management group, or region under the same Microsoft Entra tenant. You can automatically or manually onboard virtual networks to network groups through dynamic or static membership assignments.
 
 Define virtual networks discoverability in Virtual Network Manager by using [scopes](/azure/virtual-network-manager/concept-network-manager-scope). Scopes make network manager instances flexible so that you can distribute management responsibilities across virtual network groups.
- 
 
 To connect spoke virtual networks in the same network group to each other, use Virtual Network Manager to implement virtual network peering or [direct connectivity](/azure/virtual-network-manager/concept-connectivity-configuration#enable-direct-connectivity). Use the [global mesh](/azure/virtual-network-manager/concept-connectivity-configuration#global-mesh) option to extend mesh direct connectivity to spoke networks in different regions. The following diagram shows global mesh connectivity between regions.
 
@@ -326,8 +325,6 @@ To get started with Virtual Network Manager, see [Create a hub-spoke topology by
 
 Performance Efficiency refers to your workload's ability to scale to meet user demands efficiently. For more information, see [Design review checklist for Performance Efficiency](/azure/well-architected/performance-efficiency/checklist).
 
-For workloads that communicate from on-premises to VMs in an Azure virtual network that require low latency and high bandwidth, consider using [ExpressRoute FastPath](/azure/expressroute/about-fastpath). Improve performance by using FastPath to send traffic directly from on-premises to virtual machines (VMs) in your virtual network and to bypass the ExpressRoute virtual network gateway.
-
 For spoke-to-spoke communications that require low-latency, you can set up spoke-to-spoke networking.
 
 Choose a [gateway SKU](/azure/vpn-gateway/about-gateway-skus) that meets your requirements, such as the number of point-to-site or site-to-site connections, required packets-per-second, bandwidth requirements, or TCP flows.
@@ -335,6 +332,24 @@ Choose a [gateway SKU](/azure/vpn-gateway/about-gateway-skus) that meets your re
 For latency-sensitive flows, such as SAP or access to storage, you can bypass Azure Firewall or hub routing. To help you decide the best approach, you can [test the latency introduced by Azure Firewall](/azure/firewall/firewall-best-practices#testing-and-monitoring). You can use features such as [virtual network peering](/azure/virtual-network/virtual-network-peering-overview), which connects two or more networks, or you can use [Private Link](/azure/private-link/private-link-overview) to connect to a service over a private endpoint in your virtual network.
 
 You can reduce your throughput by using Azure Firewall features such as IDPS. For more information, see [Azure Firewall performance](/azure/firewall/firewall-performance#performance-data).
+
+#### Scaling beyond a single hub's throughput
+
+A single [ExpressRoute virtual network gateway](/azure/expressroute/expressroute-about-virtual-network-gateways#gateway-limitations-and-performance) caps traffic from on-premises into the virtual network at the gateway SKU's throughput limit, no matter how much circuit bandwidth is attached.
+
+For workloads that send high-bandwidth traffic from on-premises to virtual machines or private endpoints in Azure, use [ExpressRoute FastPath](/azure/expressroute/about-fastpath) to bypass the gateway in that direction. FastPath is the standard way to use circuit bandwidth that exceeds the gateway ceiling.
+
+In hub-spoke networks, FastPath support comes with important design constraints:
+
+- **Keep inspection appliances in the hub.** FastPath supports Azure Firewall and internal load balancers only when they're in the hub virtual network. If they're in a *peered* (spoke) virtual network, traffic to them falls back through the gateway and negates FastPath.
+
+- **ExpressRoute Direct is required** for FastPath over virtual network peering, user-defined routes, and Private Link. With ExpressRoute provider circuits, traffic from on-premises to peered spoke virtual networks is routed through the virtual network gateway, so FastPath applies only to the gateway's own virtual network.
+
+- **No global peering.** For FastPath over virtual network peering, all virtual networks must be in the same region.
+
+- **IP-address ceiling.** FastPath programs a fixed number of IPs per circuit; when exceeded, traffic falls back through the gateway. Alert on the FastPath route count in Azure Monitor.
+
+If a constraint blocks FastPath, scale horizontally instead. Deploy multiple hubs in the same region, each with its own ExpressRoute gateway, firewall, and circuit connections. Use [Azure Firewall Manager](/azure/firewall-manager/overview) to apply a shared [Firewall Policy](/azure/firewall-manager/policy-overview) across every hub firewall, and direct each spoke's traffic to a specific hub through routing and IP-address planning.
 
 ## Deploy this scenario
 
