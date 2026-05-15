@@ -202,19 +202,9 @@ Virtual network peering creates a nontransitive relationship between two virtual
 
 When you need to connect multiple spokes, you can quickly reach the limit for virtual network peerings for each virtual network. For more information, see [Networking limits](/azure/azure-resource-manager/management/azure-subscription-service-limits#networking-limits). Virtual WAN resolves this limitation by providing built-in connectivity between spokes. For more information, see [Global transit network architecture and Virtual WAN](/azure/virtual-wan/virtual-wan-global-transit-network-architecture).
 
-You can also configure spokes to use the hub gateway to communicate with remote networks. To allow gateway traffic to flow from the spoke to the hub and connect to remote networks, do the following steps:
-
-1. Configure the peering connection in the hub to **allow gateway transit**.
-
-1. Configure the peering connection in each spoke to **use remote gateways**.
-
-1. Configure all peering connections to **allow forwarded traffic**.
-
-For more information, see [Virtual network connectivity options and spoke-to-spoke communication](../../reference-architectures/hybrid-networking/virtual-network-peering.yml).
-
 #### Virtual network peering for a hub connection
 
-In Virtual WAN, Microsoft manages virtual network peering. When you add a connection to a hub, Virtual WAN configures virtual network peering. As a result, all spokes have a transitive relationship.
+In Virtual WAN, Microsoft manages virtual network peering. When you add a connection to a hub, Virtual WAN configures virtual network peering. As a result, all spokes have a transitive relationship and automatically reach the hub's gateways and connected branches through the hub's route tables, without per-connection peering settings such as gateway transit or remote gateways.
 
 ### Routing intents
 
