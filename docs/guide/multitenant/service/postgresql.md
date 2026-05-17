@@ -88,7 +88,7 @@ For more information, see the following articles:
 
 - [PgBouncer in Azure Database for PostgreSQL](/azure/postgresql/connectivity/concepts-pgbouncer)
 - [Connection pooling in Azure Cosmos DB for PostgreSQL](/azure/cosmos-db/postgresql/concepts-connection-pool)
-- [Steps to install and set up PgBouncer connection pooling proxy with Azure Database for PostgreSQL](https://techcommunity.microsoft.com/t5/azure-database-for-postgresql/steps-to-install-and-setup-pgbouncer-connection-pooling-proxy/ba-p/730555)
+- [Connection pooling strategy for Azure Database for PostgreSQL by using PgBouncer](/azure/postgresql/connectivity/concepts-connection-pooling-best-practices)
 
 ### Microsoft Entra authentication
 
@@ -132,6 +132,7 @@ Other contributors:
 
 *To see nonpublic LinkedIn profiles, sign in to LinkedIn.*
 
-## Related resource
+## Related resources
 
 - [Architectural approaches for storage and data in multitenant solutions](../approaches/storage-data.md)
+- [Architecture best practices for Azure Database for PostgreSQL](/azure/well-architected/service-guides/postgresql)

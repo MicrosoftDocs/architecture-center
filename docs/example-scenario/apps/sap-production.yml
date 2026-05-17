@@ -2,9 +2,9 @@
 metadata:
   title: SAP deployment in Azure using an Oracle database
   description: Learn proven practices for running SAP on Oracle in Azure, with high availability.
-  author: robiro
+  author: msftrobiro
   ms.author: robiro
-  ms.date: 10/29/2024
+  ms.date: 05/07/2026
   ms.topic: example-scenario
   ms.subservice: example-scenario
   ms.category:

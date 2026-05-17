@@ -12,9 +12,9 @@ This article describes several ways to transfer files to Azure, convert and tran
 
 *Download a [Visio file](https://arch-center.azureedge.net/mainframe-azure-file-replication-updated.vsdx) of this architecture.*
 
-### Dataflow
+### Data flow
 
-The following dataflow corresponds to the architecture diagram:
+The following data flow corresponds to the previous diagram:
 
 1. Transfer files to Azure:
 
@@ -138,4 +138,3 @@ Other contributors:
 
 - [Replicate and sync mainframe data in Azure](../../reference-architectures/migration/sync-mainframe-data-with-azure.yml)
 - [Modernize mainframe and midrange data](../../example-scenario/mainframe/modernize-mainframe-data-to-azure.yml)
-- [Unisys mainframe migration with Avanade Automated Migration Technology](../../reference-architectures/migration/unisys-mainframe-migration.yml)

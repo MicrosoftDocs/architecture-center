@@ -10,9 +10,9 @@ This article describes an end-to-end modernization plan for mainframe and midran
 
 *Download a [Visio file](https://arch-center.azureedge.net/modernize-mainframe-data-azure.vsdx) of this architecture.*
 
-### Dataflow
+### Data flow
 
-The following dataflow corresponds to the previous diagram:
+The following data flow corresponds to the previous diagram:
 
 1. Mainframe and midrange systems store data in the following data sources.
 

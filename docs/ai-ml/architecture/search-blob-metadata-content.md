@@ -10,7 +10,9 @@ This article uses an example workload to demonstrate how to create a single [sea
 
 *Download a [PowerPoint file](https://arch-center.azureedge.net/search-blob-metadata.pptx) of this architecture.*
 
-### Dataflow
+### Data flow
+
+The following data flow corresponds to the previous diagram:
 
 1. Documents are stored in Blob Storage, possibly together with a limited amount of metadata (for example, the document's author).
 2. Additional metadata is stored in Table Storage, which can store significantly more information for each document.

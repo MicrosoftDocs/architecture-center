@@ -1,6 +1,36 @@
 {
   "redirections": [
     {
+      "source_path": "docs/solution-ideas/articles/sap-s4-hana-on-hli-with-ha-and-dr.yml",
+      "redirect_url": "/azure/architecture/guide/sap/sap-s4hana",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/example-scenario/mainframe/hp-ux-stromasys-charon-par.yml",
+      "redirect_url": "https://www.stromasys.com/resources/breaking-down-hp-ux-lift-and-shift-migration-on-azure/",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/example-scenario/mainframe/imsql-rehost-ims.yml",
+      "redirect_url": "https://marketplace.microsoft.com/product/raincode.raincode_360",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/example-scenario/mainframe/cloudframe-renovate-mainframe-refactor.yml",
+      "redirect_url": "https://marketplace.microsoft.com/product/cloudframeinc1615321281795.cfrenovate",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/reference-architectures/migration/unisys-mainframe-migration.yml",
+      "redirect_url": "/azure/architecture/mainframe/virtualization-of-unisys-clearpath-forward-os-2200-enterprise-server-on-azure",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/solution-ideas/articles/solaris-azure.yml",
+      "redirect_url": "https://www.stromasys.com/resources/running-solaris-on-azure-vms/",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "docs/example-scenario/data/azure-nifi.yml",
       "redirect_url": "/azure/architecture/data-guide/technology-choices/pipeline-orchestration-data-movement",
       "redirect_document_id": false

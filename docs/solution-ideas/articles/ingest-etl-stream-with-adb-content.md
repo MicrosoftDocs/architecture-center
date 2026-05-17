@@ -10,7 +10,9 @@ Your organization needs to ingest data of any format, size, and speed into the c
 
 *Download a [Visio file](https://arch-center.azureedge.net/ingest-etl-and-stream-processing-with-azure-databricks.vsdx) of this architecture.*
 
-### Dataflow
+### Data flow
+
+The following data flow corresponds to the previous diagram:
 
 1. Data is ingested in the following ways:
 

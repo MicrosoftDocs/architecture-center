@@ -42,7 +42,7 @@ This architecture assumes that the policies are in place from the [Azure landing
 
 For the back-end services that the API Management instance connects to, several alternatives are available:
 
-- [Azure App Service](/azure/app-service/overview) is a fully managed HTTP-based service that builds, deploys, and scales web apps. It supports .NET, .NET Core, Java, Ruby, Node.js, PHP, and Python. Applications can run and scale in either Windows or Linux-based environments.
+- [Azure App Service](/azure/app-service/overview) is a fully managed HTTP-based service that builds, deploys, and scales web apps. It supports .NET, Java, Ruby, Node.js, PHP, and Python. Applications can run and scale in either Windows or Linux-based environments.
 
 - [Azure Kubernetes Service (AKS)](/azure/aks/intro-kubernetes) is a managed Kubernetes offering that delivers fully managed clusters. It enables integrated continuous integration and continuous delivery (CI/CD), along with built-in governance and security.
 
