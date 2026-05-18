@@ -508,6 +508,10 @@ This section contains high availability (HA) and DR guidance for other key Azure
 
 - **Data Share:** Enhance resiliency by [deploying Data Share resources in a secondary region](/azure/data-share/disaster-recovery#achieving-business-continuity-for-azure-data-share).
 
+## Example costs for the architecture
+
+Use this [Azure pricing estimate](https://azure.microsoft.com/en-us/pricing/calculator/) as a starting point to estimate the costs for your scenario. The estimate focuses on the Microsoft Fabric capacity units used in the architecture as described in this article series.
+
 ## Next steps
 
 Now that you've learned about the scenario's architecture, you can learn about the [scenario details](../disaster-recovery/dr-for-azure-data-platform-scenario-details.md).
