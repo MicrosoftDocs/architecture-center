@@ -239,8 +239,6 @@ For more information and other deployment options, see the Azure Resource Manage
 - [Extend an on-premises network using ExpressRoute][guidance-expressroute-security].
 
 <!-- links -->
-
-[aaf-cost]: /azure/architecture/framework/cost/overview
 [azure-forced-tunneling]: /azure/vpn-gateway/vpn-gateway-forced-tunneling-rm
 [azurect]: https://github.com/Azure/NetworkMonitoring/tree/main/AzureCT
 [cloud-services-network-security]: /azure/best-practices-network-security
