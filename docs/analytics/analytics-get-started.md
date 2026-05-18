@@ -15,18 +15,6 @@ ms.custom: arb-data
 
 Organizations rely on the compute, storage, and analytical power of Azure to scale, stream, predict, and view their data. Analytics solutions transform volumes of data into useful business intelligence (BI), such as reports and visualizations, and inventive AI, such as forecasts based on machine learning. Azure offers a range of cloud-based analytics tools for organizations that are new to analytics and organizations that need to expand their implementation. Analytics solutions help organizations use data at scale. You can use a [big data architecture](../guide/architecture-styles/big-data.md) or an [Internet of Things (IoT) architecture](../guide/architecture-styles/big-data.md#iot-architecture) to process raw data and then move it to an analytical data store. This data store becomes a single source of truth that can power insightful analytics solutions.
 
-## Azure services for <category>
-
-Azure provides a range of services for <category>:
-
-- [Service](link): Brief description of the service and how it serves the category.
-
-<!-- If the list is long, organize the list into relevant sections using the format below. -->
-
-### <Type of services>
-
-- [Service](link): Brief description of the service and how it serves the category.
-
 ## Architecture
 
 :::image type="complex" border="false" source="./media/analytics-get-started-diagram.svg" alt-text="Diagram that shows the analytics solution journey on Azure." lightbox="./media/analytics-get-started-diagram.svg":::
