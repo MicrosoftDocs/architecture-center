@@ -130,7 +130,7 @@ Use [Azure RBAC][rbac] to restrict the operations that DevOps can perform on eac
 
 Cost Optimization is about looking at ways to reduce unnecessary expenses and improve operational efficiencies. For more information, see [Design review checklist for Cost Optimization](/azure/well-architected/cost-optimization/checklist).
 
-Use the [Azure pricing calculator][azure-pricing-calculator] to estimate costs. Other considerations are described in the Cost optimization section in [Microsoft Azure Well-Architected Framework][aaf-cost].
+Use this [Azure pricing estimate](https://azure.com/e/7e0622150a1e41ddbcf70b6e3ebf5ff4) as a starting point to estimate the costs for your scenario. It includes the networking components described in this article with example VMs.
 
 Here are cost considerations for the services used in this architecture.
 
@@ -239,8 +239,6 @@ For more information and other deployment options, see the Azure Resource Manage
 - [Extend an on-premises network using ExpressRoute][guidance-expressroute-security].
 
 <!-- links -->
-
-[aaf-cost]: /azure/architecture/framework/cost/overview
 [azure-forced-tunneling]: /azure/vpn-gateway/vpn-gateway-forced-tunneling-rm
 [azurect]: https://github.com/Azure/NetworkMonitoring/tree/main/AzureCT
 [cloud-services-network-security]: /azure/best-practices-network-security
