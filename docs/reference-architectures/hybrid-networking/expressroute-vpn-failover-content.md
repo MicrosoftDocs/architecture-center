@@ -218,6 +218,8 @@ For ExpressRoute cost considerations, see these articles:
 
 - [Cost considerations in configuring a Hybrid Network Architecture with Azure ExpressRoute](../../reference-architectures/hybrid-networking/expressroute-vpn-failover.yml#considerations).
 
+Use this [Azure pricing estimate](https://azure.com/e/6ada1687b91f4f1e81af212196ef16eb) as a starting point to estimate the costs for your scenario. It includes the networking components described in this article with example VMs.
+
 #### ExpressRoute
 
 In this architecture, an ExpressRoute circuit is used to join the on-premises network with Azure through the edge routers.
