@@ -335,9 +335,9 @@ You can reduce your throughput by using Azure Firewall features such as IDPS. Fo
 
 #### Scaling beyond a single hub's throughput
 
-A single [ExpressRoute virtual network gateway](/azure/expressroute/expressroute-about-virtual-network-gateways#gateway-limitations-and-performance) caps traffic from on-premises into the virtual network at the gateway SKU's throughput limit, no matter how much circuit bandwidth is attached.
+A single [ExpressRoute virtual network gateway](/azure/expressroute/expressroute-about-virtual-network-gateways#gateway-limitations-and-performance) caps traffic from on-premises into the virtual network at the gateway SKU's aggregate throughput limit, caps the throughput of any single TCP flow, and limits concurrent flows, no matter how much circuit bandwidth is attached.
 
-For workloads that send high-bandwidth traffic from on-premises to virtual machines or private endpoints in Azure, use [ExpressRoute FastPath](/azure/expressroute/about-fastpath) to bypass the gateway in that direction. FastPath is the standard way to use circuit bandwidth that exceeds the gateway ceiling.
+For workloads that send high-bandwidth traffic from on-premises to virtual machines or private endpoints in Azure, use [ExpressRoute FastPath](/azure/expressroute/about-fastpath) to bypass the gateway in that direction. FastPath is the standard way to use circuit bandwidth that exceeds the gateway ceiling, and it also relieves per-flow throughput and concurrent-flow limits.
 
 In hub-spoke networks, FastPath support comes with important design constraints:
 
