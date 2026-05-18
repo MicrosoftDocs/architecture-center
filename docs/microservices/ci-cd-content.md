@@ -36,15 +36,15 @@ To achieve a high release velocity, your release pipeline must be automated and 
 
 - **Many small independent code bases**. Each team is responsible for building its own service, with its own build pipeline. In some organizations, teams might use separate code repositories. Separate repositories can scatter the knowledge of how to build the system across teams. As a result, nobody in the organization knows how to deploy the entire application.
 
-    **Mitigation**: Have a unified and automated pipeline to build and deploy services, so that this knowledge isn't "hidden" within each team. Reusable pipeline templates, such as [GitHub Actions reusable workflows](https://docs.github.com/actions/using-workflows/reusing-workflows) or [Azure Pipelines templates](/azure/devops/pipelines/process/templates), help standardize the build, test, scan, and deploy steps across every service.
+   **Mitigation**: Have a unified and automated pipeline or at lead common pipeline infrastructure to build and deploy services, so that this knowledge isn't "hidden" within each team. Reusable pipeline templates, such as [GitHub Actions reusable workflows](https://docs.github.com/actions/using-workflows/reusing-workflows) or [Azure Pipelines templates](/azure/devops/pipelines/process/templates), help standardize the build, test, scan, and deploy steps across every service.
 
-- **Multiple languages and frameworks**. With each team using its own mix of technologies, it can be difficult to create a single build process that works across the organization. The build process must be flexible enough that every team can adapt it for their choice of language or framework.
+- **Multiple languages and frameworks**. With each team using its own mix of technologies, it can be difficult to create a single build process that works across the workload. The build process must be flexible enough that every team can adapt it for their choice of language or framework.
 
-    **Mitigation**: Containerize the build process for each service. That way, the build system just needs to be able to run the containers. Platforms such as GitHub Actions, Azure Pipelines, and [Azure Container Registry (ACR) Tasks](/azure/container-registry/container-registry-tasks-overview) can build and publish container images consistently regardless of the source language.
+   **Mitigation**: Containerize the build process for each service. That way, the build system just needs to be able to run the containers. Platforms such as GitHub Actions, Azure Pipelines, and [Azure Container Registry (ACR) Tasks](/azure/container-registry/container-registry-tasks-overview) can build and publish container images consistently regardless of the source language.
 
 - **Integration and load testing**. With teams releasing updates at their own pace, it can be challenging to design robust end-to-end testing, especially when services have dependencies on other services. Moreover, running a full production cluster can be expensive, so it's unlikely that every team runs its own full cluster at production scales, just for testing.
 
-    **Mitigation**: Use ephemeral preview environments, such as per-pull-request namespaces in Kubernetes or [Azure Container Apps environments](/azure/container-apps/environment) created on demand. Use contract tests so that integration issues are surfaced early without requiring a full-scale duplicate of production.
+   **Mitigation**: Use ephemeral preview environments, such as per-pull-request namespaces in Kubernetes or [Azure Container Apps environments](/azure/container-apps/environment) created on demand. Use contract tests so that integration issues are surfaced early without requiring a full-scale duplicate of production.
 
 - **Release management**. Every team should be able to deploy an update to production. That doesn't mean that every team member has permissions to do so. But having a centralized Release Manager role can reduce the velocity of deployments.
 
@@ -52,15 +52,15 @@ To achieve a high release velocity, your release pipeline must be automated and 
 
 - **Service updates**. When you update a service to a new version, it shouldn't break other services that depend on it.
 
-    **Mitigation**: Use deployment techniques such as blue-green or canary release for nonbreaking changes. For breaking API changes, deploy the new version side by side with the previous version. That way, services that consume the previous API can be updated and tested for the new API. For more information, see the [Updating services](#updating-services) section in this article.
+   **Mitigation**: Use deployment techniques such as blue-green or canary release for nonbreaking changes. For breaking API changes, deploy the new version side by side with the previous version. That way, services that consume the previous API can be updated and tested for the new API. For more information, see the [Updating services](#updating-services) section in this article.
 
 - **Pipeline identity and secret management**. Long-lived service principal secrets stored in pipelines are a frequent source of compromise and operational work. They expire, can leak, and require rotation across many independent microservice pipelines.
 
-    **Mitigation**: Authenticate pipelines to Azure with workload identity federation, which uses OpenID Connect (OIDC), so no client secret is stored in the pipeline. See [Workload identities for Azure Pipelines](/azure/devops/pipelines/release/configure-workload-identity) and [Configuring OpenID Connect in Azure for GitHub Actions](https://docs.github.com/actions/how-tos/secure-your-work/security-harden-deployments/oidc-in-azure). Store any remaining secrets in [Azure Key Vault](/azure/key-vault/general/overview) and reference them at runtime.
+   **Mitigation**: Authenticate pipelines to Azure with workload identity federation, which uses OpenID Connect (OIDC), so no client secret is stored in the pipeline. See [Workload identities for Azure Pipelines](/azure/devops/pipelines/release/configure-workload-identity) and [Configuring OpenID Connect in Azure for GitHub Actions](https://docs.github.com/actions/how-tos/secure-your-work/security-harden-deployments/oidc-in-azure). Store any remaining secrets in [Azure Key Vault](/azure/key-vault/general/overview) and reference them at runtime.
 
 - **Supply-chain security**. Anything you ship to production must be traceable to the code and dependencies it was built from. Microservices multiply the number of images, registries, and pipelines, which expands the supply-chain attack surface.
 
-    **Mitigation**: Sign container images with [Notation and Azure Key Vault](/azure/container-registry/container-registry-tutorial-sign-build-push), and verify signatures at admission time by using [AKS image integrity](/azure/aks/image-integrity) or [Ratify](https://ratify.dev/). Generate a software bill of materials (SBOM) as a build artifact. Scan code, dependencies, and pipelines with [Microsoft Defender for Cloud DevOps security](/azure/defender-for-cloud/defender-for-devops-introduction) and [GitHub Advanced Security](https://docs.github.com/en/code-security). Scan runtime images with [Microsoft Defender for Containers](/azure/defender-for-cloud/defender-for-containers-introduction). Gate releases on scan results.
+   **Mitigation**: Sign container images with [Notation and Azure Key Vault](/azure/container-registry/container-registry-tutorial-sign-build-push), and verify signatures at admission time by using [AKS image integrity](/azure/aks/image-integrity) or [Ratify](https://ratify.dev/). Generate a software bill of materials (SBOM) as a build artifact. Scan code, dependencies, and pipelines with [Microsoft Defender for Cloud DevOps security](/azure/defender-for-cloud/defender-for-devops-introduction) and [GitHub Advanced Security](https://docs.github.com/en/code-security). Scan runtime images with [Microsoft Defender for Containers](/azure/defender-for-cloud/defender-for-containers-introduction). Gate releases on scan results.
 
 ## Monorepo vs. multi-repo
 
@@ -118,16 +118,6 @@ A canary release is more complex to manage than either blue-green or rolling upd
 ### Progressive delivery and GitOps
 
 For teams that operate many microservices on Kubernetes, a GitOps (pull-based) model complements the earlier push-based examples. The desired cluster state lives in Git, and an in-cluster operator reconciles the cluster to that state. CI builds, tests, scans, signs, and pushes the image. CD reconciles the cluster to the manifest. This separation gives you audit trails and easier disaster recovery. It also removes the need for the CI runner to hold direct cluster credentials.
-
-## CI/CD tooling on Azure
-
-Common choices on Azure for implementing these practices include:
-
-- **Source and CI**: [GitHub](https://github.com) with [GitHub Actions](https://docs.github.com/actions), or [Azure Repos](/azure/devops/repos) with [Azure Pipelines](/azure/devops/pipelines).
-- **Container registry and image signing**: [Azure Container Registry](/azure/container-registry/) with [Notation signing](/azure/container-registry/container-registry-tutorial-sign-build-push) and [ACR Tasks](/azure/container-registry/container-registry-tasks-overview).
-- **Runtime targets**: [Azure Kubernetes Service (AKS)](/azure/aks/), [Azure Container Apps](/azure/container-apps/), or [Azure Arc-enabled Kubernetes](/azure/azure-arc/kubernetes/) for hybrid and multicloud.
-- **Security and policy**: [Microsoft Defender for Containers](/azure/defender-for-cloud/defender-for-containers-introduction), [Azure Policy for AKS](/azure/governance/policy/concepts/policy-for-kubernetes), and [GitHub Advanced Security](https://github.com/security/advanced-security).
-- **Identity for pipelines**: [Workload identity federation](/entra/workload-id/workload-identity-federation) for passwordless OIDC from GitHub Actions and Azure Pipelines into Azure.
 
 ## Next steps
 
