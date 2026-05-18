@@ -139,6 +139,8 @@ A virtual hub is a Microsoft-managed virtual network that serves as the core of 
 
 A Virtual WAN hub requires an address range of at least `/24`. Azure reserves the space for the hub router and for any gateways or other components you add to the hub. Gateways are separate resources that you create explicitly; see [Gateway connectivity](#gateway-connectivity) for the gateways this architecture uses.
 
+Virtual WAN doesn't support IPv6 in the hub or its gateways, and a spoke virtual network with an IPv6 address range loses IPv6 connectivity when you attach it to a hub. If your workloads, hybrid connectivity, or remote users require IPv6, choose a self-managed hub-spoke topology. See [Virtual WAN FAQ](/azure/virtual-wan/virtual-wan-faq#is-there-support-for-ipv6-in-virtual-wan).
+
 ### Secured virtual hub
 
 You can create a virtual hub as a secured virtual hub or convert an existing hub to a secured one anytime after creation. For more information, see [Secure your virtual hub by using Firewall Manager](/azure/firewall-manager/secure-cloud-network).
