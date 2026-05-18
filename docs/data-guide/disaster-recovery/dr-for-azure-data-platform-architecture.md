@@ -510,7 +510,7 @@ This section contains high availability (HA) and DR guidance for other key Azure
 
 ## Example costs for the architecture
 
-Use this [Azure pricing estimate](https://azure.microsoft.com/en-us/pricing/calculator/) as a starting point to estimate the costs for your scenario. The estimate focuses on the Microsoft Fabric capacity units used in the architecture as described in this article series.
+Use this [Azure pricing estimate](https://azure.microsoft.com/pricing/calculator/) as a starting point to estimate the costs for your scenario. The estimate focuses on the Microsoft Fabric capacity units used in the architecture as described in this article series.
 
 ## Next steps
 
