@@ -147,7 +147,7 @@ The Azure Firewall in a secured virtual hub is shared by every spoke virtual net
 
 - **Outbound flows from any spoke or branch leave the hub sourced from one of the firewall's public IP addresses.** This is source network address translation (SNAT). Azure Firewall SNATs each outbound flow to one of the attached public IP addresses, and the selection isn't deterministic, so partner allowlists must cover the entire set of IP addresses attached to the secured hub firewall. Use a [public IP address prefix](/azure/virtual-network/ip-services/public-ip-address-prefix) to express that set as a contiguous range.
 
-  The number of attached public IP addresses also sets the SNAT port budget for every connected workload; plan for the aggregate concurrent outbound connection rate across all spokes and branches because exhaustion affects every workload that egresses through the hub.
+  The number of attached public IP addresses also sets the SNAT port budget for every connected workload; plan for the aggregate concurrent outbound connection rate across all spokes and branches because exhaustion affects every workload that egresses through the hub. Each attached public IP provides 2,496 SNAT ports per backend firewall instance, so adding public IPs is the primary lever to scale SNAT in a secured hub. [Azure NAT Gateway](/azure/nat-gateway/nat-overview), which scales SNAT for Azure Firewall in standard virtual networks, [isn't supported in a Virtual WAN hub](/troubleshoot/azure/nat-gateway/troubleshoot-nat-and-azure-services#azure-firewall).
 
 - **Workloads published through the firewall are reachable at the firewall's public IP address.** You publish a backend with a destination network address translation (DNAT) rule. Azure Firewall also SNATs DNAT-matched packets, so the backend observes the firewall instance's IP address as the source rather than the original client's IP address.
 
@@ -250,7 +250,9 @@ These considerations implement the pillars of the Azure Well-Architected Framewo
 
 Reliability helps ensure that your application can meet the commitments that you make to your customers. For more information, see [Design review checklist for Reliability](/azure/well-architected/reliability/checklist).
 
-Virtual WAN handles routing, which helps optimize network latency among spokes and ensure predictable performance. Virtual WAN also provides reliable connectivity among different Azure regions for workloads that span multiple regions. This setup improves end-to-end visibility of network flow within Azure.
+- Virtual WAN handles routing, which helps optimize network latency among spokes and ensure predictable performance. Virtual WAN also provides reliable connectivity among different Azure regions for workloads that span multiple regions. This setup improves end-to-end visibility of network flow within Azure.
+
+- Long-lived TCP flows that traverse the shared Azure Firewall in the secured virtual hub drop on idle timeouts and instance recycling. Workloads that hold connections for hours, such as VPN tunnels, database sessions, and SSH or RDP sessions, need bi-directional TCP keep-alives and application-level retry. Scale-in and monthly platform maintenance also recycle Azure Firewall instances and drop sessions that outlast the drain period. For idle-timeout values, scale-in behavior, and prescaling guidance, see [Azure Firewall TCP session management](/azure/firewall/tcp-session-behavior).
 
 ### Security
 
@@ -292,6 +294,12 @@ Performance Efficiency refers to your workload's ability to scale to meet user d
 Virtual WAN helps reduce latency among spokes and across regions. Gateway throughput varies by gateway type and deployment scope. For workloads that exceed single-gateway or single-hub limits, deploy additional hubs or gateways per region to scale aggregate capacity. For current limits, see [Virtual WAN limits](/azure/azure-resource-manager/management/azure-subscription-service-limits#virtual-wan-limits).
 
 Virtual WAN provides full-mesh connectivity among spokes while allowing traffic restriction based on specific needs. This architecture enables large-scale, site-to-site performance. You can also create a global transit network architecture by enabling any-to-any connectivity between globally distributed sets of cloud workloads.
+
+Plan capacity for the shared hub firewall:
+
+- Size Azure Firewall for the inspection profile you plan to run, not its advertised maximum throughput. Enabling both TLS inspection and IDPS in Deny mode reduces effective throughput by roughly an order of magnitude compared with running without inspection. If a single hub's inspected throughput becomes the constraint, scale out across multiple hubs. For figures by feature combination, see [Azure Firewall performance](/azure/firewall/firewall-performance#performance-data).
+
+- Network rule capacity is combinatorial, not a flat rule count. Azure Firewall has a limit on unique source-destination combinations across network rules. The sources, destinations, IP groups, FQDNs, protocols, and ports in each rule multiply against each other, so a few rules can consume a large share of the budget. An IP group counts as one unit regardless of size, so use [IP groups](/azure/firewall/ip-groups) to compact allowlists and [policy analytics](/azure/firewall/policy-analytics) to track usage against the documented [Azure Firewall limits](/azure/azure-resource-manager/management/azure-subscription-service-limits#azure-firewall-limits).
 
 ## Advanced scenarios
 
