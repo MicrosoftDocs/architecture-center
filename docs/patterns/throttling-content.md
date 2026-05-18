@@ -54,6 +54,8 @@ You should consider the following points when deciding how to implement this pat
 
 - Throttling must be performed quickly. The system must be capable of detecting an increase in activity and react accordingly. The system must also be able to revert to its original state quickly after the load has eased. This requires that the appropriate performance data is continually captured and monitored.
 
+- Shed load proactively, not at the edge of collapse. A throttle that only rejects after a component is just about saturated before callers see any back-pressure is risky. As utilization approaches the hard limit, start rejecting a growing fraction of requests; this gives callers earlier signals to back off and avoids the latency collapse that abrupt limits often trigger. Where you can distinguish request value, shed lower value or more retryable work first; see the [Priority Queue pattern](./priority-queue.yml).
+
 - If a service needs to deny a user request temporarily, it should return a specific error code like 429 ("Too many requests") and 503 ("Server Too Busy") so the client application can understand that the reason for the refusal to serve a request is due to throttling.
 
   - HTTP 429 indicates the calling application sent too many requests in a time window and exceeded a predetermined limit.
@@ -66,6 +68,8 @@ You should consider the following points when deciding how to implement this pat
 - Throttling can be used as a temporary measure while a system autoscales. In some cases, it's better to throttle rather than scale if a burst in activity is sudden and not expected to last because scaling can add considerably to running costs.
 
 - If throttling is being used as a temporary measure while a system autoscales, and if resource demands grow very quickly, the system might not be able to continue functioning&mdash;even when operating in a throttled mode. If this isn't acceptable, consider maintaining larger capacity reserves and configuring more aggressive autoscaling.
+
+- Don't substitute caching for throttling. A cache lowers average load on the origin but doesn't bound peak load. Cache misses pass through to the origin, and a popular key expiring under heavy traffic can cause many callers to race to refill it. Use caching to reduce normal pressure and throttling to bound the worst case; see the [Cache-Aside pattern](./cache-aside.yml).
 
 - Normalize resource costs for different operations as they generally don't carry equal execution costs. For example, throttling limits might be lower for read operations and higher for write operations. Not considering the cost of an operation can result in exhausted capacity and exposing a potential attack vector.
 
