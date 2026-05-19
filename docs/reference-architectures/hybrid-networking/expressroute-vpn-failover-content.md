@@ -48,7 +48,7 @@ The architecture consists of the following components.
 
 This reference architecture shows how to connect an on-premises network to an Azure virtual network by using ExpressRoute, with a site-to-site virtual private network (VPN) as a failover connection. Traffic flows between the on-premises network and the Azure virtual network through an ExpressRoute connection. If there's a loss of connectivity in the ExpressRoute circuit, traffic is routed through an IPsec VPN tunnel. [**Deploy this solution**](#deploy-this-scenario).
 
-If the ExpressRoute circuit is unavailable, the VPN route handles only private peering connections. Microsoft peering connections pass over the internet. ExpressRoute public peering is deprecated; use Microsoft peering for connectivity to Azure public services and Microsoft 365.
+If the ExpressRoute circuit is unavailable, the VPN route handles only private peering connections. Microsoft peering connections pass over the internet.
 
 ## Recommendations
 
@@ -191,8 +191,8 @@ You can configure high availability for your Azure connection in different ways,
 
 - Configure a site-to-site VPN as a failover path for ExpressRoute. For more information about this option, see [Connect an on-premises network to Azure using ExpressRoute with VPN failover][highly-available-network-architecture]. Configure the VPN in active-active mode for higher throughput and redundancy of the backup connection. In active-standby mode, failover takes 10 to 15 seconds for planned maintenance and up to 1 to 3 minutes for unplanned events. Active-active mode reduces this impact. This option only applies to private peering. For Azure and Microsoft 365 services, the internet is the only failover path. For more information, see [Using S2S VPN as a backup for ExpressRoute private peering](/azure/expressroute/use-s2s-vpn-as-backup-for-expressroute-privatepeering).
 
-    > [!NOTE]
-    > A site-to-site VPN backup is not recommended for latency-sensitive, mission-critical, or bandwidth-intensive workloads. For those scenarios, design for disaster recovery by using [ExpressRoute multi-site resiliency](/azure/expressroute/designing-for-disaster-recovery-with-expressroute-privatepeering) with multiple circuits across different peering locations.
+  > [!NOTE]
+  > A site-to-site VPN backup is not recommended for latency-sensitive, mission-critical, or bandwidth-intensive workloads. For those scenarios, design for disaster recovery by using [ExpressRoute multi-site resiliency](/azure/expressroute/designing-for-disaster-recovery-with-expressroute-privatepeering) with multiple circuits across different peering locations.
 
 ### Security
 
@@ -367,13 +367,12 @@ Principal author:
 Product documentation:
 
 - [ExpressRoute Documentation](/azure/expressroute)
-- [Azure Security baseline for ExpressRoute](/security/benchmark/azure/baselines/expressroute-security-baseline?toc=%2fazure%2fexpressroute%2fTOC.json)
+- [Azure Security baseline for ExpressRoute](/security/benchmark/azure/baselines/expressroute-security-baseline)
 - [How to create an ExpressRoute circuit](/azure/expressroute/expressroute-howto-circuit-portal-resource-manager)
 - [Configure ExpressRoute and Site-to-Site coexisting connections using PowerShell](/azure/expressroute/expressroute-howto-coexist-resource-manager)
 - [What is Azure Virtual Network?](/azure/virtual-network/virtual-networks-overview)
-- [Microsoft 365 services](/office365/servicedescriptions/office-365-service-descriptions-technet-library)
 
-Microsoft Learn modules:
+Training modules:
 
 - [Configure virtual network peering](/training/modules/configure-vnet-peering)
 - [Design and implement Azure ExpressRoute](/training/modules/design-implement-azure-expressroute)
