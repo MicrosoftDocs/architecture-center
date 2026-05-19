@@ -68,7 +68,7 @@ You should consider the following points when deciding how to implement this pat
 
 - Decide where the counter lives when the throttle spans multiple nodes. Local counters are fast but undercount when the same caller hits multiple replicas. A centralized counter, stored in a shared dependency like Redis, sees all requests but adds latency to every decision. You can approximate a global rate by dividing the limit among replicas with periodic reconciliation.
 
-- Throttling decisions must be performed quickly. The system must be capable to detect load increases, react, and revert to its original state once load eases. This requires continuous performance instrumentation.
+- Throttling decisions must be performed quickly. The system must be capable of detecting load increases, reacting, and reverting to its original state once load eases. This requires continuous performance instrumentation.
 
 - Shed load proactively, not at the edge of collapse. A throttle that only rejects after a component is fully saturated lets latency spike before callers see any back-pressure.
 
