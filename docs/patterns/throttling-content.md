@@ -40,6 +40,9 @@ The next figure shows an area graph of the overall resource use by all applicati
 
 At time T1, the threshold specifying the soft limit of resource use is reached. At this point, the system can start to scale out. However, if the new resources don't become available quickly enough, then the existing resources might be exhausted and the system could fail. To prevent this from occurring, the system is temporarily throttled, as described earlier. When autoscaling has completed and the extra resources are available, throttling can be relaxed.
 
+> [!TIP]
+> Edge controls such as [Azure DDoS Protection](/azure/ddos-protection/ddos-protection-overview) and web application firewall (WAF) rate-limit rules sit above this pattern. They drop volumetric or abusive traffic at the network boundary before requests reach your application. The Throttling pattern meters *legitimate* traffic against application-defined limits, and doesn't replace those edge controls. Use both layers together, DDoS protection won't stop a user from running a runaway job, and application throttling isn't designed to absorb a volumetric attack.
+
 ## Issues and considerations
 
 You should consider the following points when deciding how to implement this pattern:
