@@ -52,6 +52,15 @@ You should consider the following points when deciding how to implement this pat
 
   Identify the saturation point at each boundary where you enforce throttling; for example, the gateway, the service, a partition, or a specific downstream dependency. Then set the limit on that dimension. For concurrency-bounded protection at fan-out points, see the [Bulkhead pattern](./bulkhead.md), which complements throttling.
 
+- Pick a limiting algorithm intentionally. Match the algorithm to the tolerance of the component you're protecting.
+
+  | Algorithm | Behavior and best fit |
+  | :-------- | :-------------------- |
+  | Token bucket | Allows bursts up to a configured size while enforcing a steady refill rate. Fits gateways that need to absorb short spikes. |
+  | Leaky bucket | Emits at a constant rate. Fits backends that need a steady ingress rate. |
+  | Fixed window | Simple to implement, but allows back-to-back bursts at window boundaries. |
+  | Sliding window | Smooths the window-boundary problem of fixed windows at the cost of more state. |
+
 - Decide who feels the limit. Throttling at a coarse boundary, like a regional gateway, can affect many unrelated users when only a few are causing the load.
 
 - Throttling must be performed quickly. The system must be capable of detecting an increase in activity and react accordingly. The system must also be able to revert to its original state quickly after the load has eased. This requires that the appropriate performance data is continually captured and monitored.
@@ -68,6 +77,8 @@ You should consider the following points when deciding how to implement this pat
   Beyond `Retry-After`, return enough context for the caller to retry deliberately rather than blindly. For example include the limit that was exceeded, be clear about the affected scope, or suggest a rate that would succeed. Opaque rejections don't help callers adapt.
 
 - Propagate important overload signals from your dependencies; don't absorb them. A service that throttles its callers should also respect the throttling responses it receives from its own downstream dependencies. If your service masks a downstream's 429 or 503 response by retrying silently or by translating it into an opaque 500, callers can't slow down appropriately, retries amplify, and the overload cascades back through the system. This is the failure mode described by the [Retry Storm antipattern](../antipatterns/retry-storm/index.md). Surface back-pressure to upstream callers so the entire call chain can shed load together.
+
+- Make rejection cheaper than the work it prevents. If refusing a request involves heavy authentication, deep parsing, or complex policy evaluation, a flood of rejected requests can still saturate the system. Reject as early in the request pipeline as you can.
 
 - Throttling can be used as a temporary measure while a system autoscales. In some cases, it's better to throttle rather than scale if a burst in activity is sudden and not expected to last because scaling can add considerably to running costs.
 
