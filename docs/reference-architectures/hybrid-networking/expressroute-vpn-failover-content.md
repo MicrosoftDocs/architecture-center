@@ -16,7 +16,7 @@ The architecture consists of the following components.
 
     - **Gateway subnet**. The virtual network gateways are located in the same subnet.
 
-- **VPN appliance**. A device or service that provides external connectivity to the on-premises network. The VPN appliance can be a hardware device, or it can be a software solution such as the Routing and Remote Access Service (RRAS) in Windows Server 2012. For a list of supported VPN appliances and information on configuring selected VPN appliances for connecting to Azure, see [About VPN devices for Site-to-Site VPN Gateway connections][vpn-appliance].
+- **VPN appliance**. A device or service that provides external connectivity to the on-premises network. The VPN appliance can be a hardware device, or it can be a software solution such as the Routing and Remote Access Service (RRAS) in Windows Server. For a list of supported VPN appliances and information on configuring selected VPN appliances for connecting to Azure, see [About VPN devices for Site-to-Site VPN Gateway connections][vpn-appliance].
 
 - **ExpressRoute circuit**. A layer 2 or layer 3 circuit supplied by the connectivity provider that joins the on-premises network with Azure through the edge routers. The circuit uses the hardware infrastructure managed by the connectivity provider.
 
@@ -32,7 +32,7 @@ The architecture consists of the following components.
 
 - **Azure public services**. Azure services that can be used within a hybrid application. These services are also available over the internet, but accessing them by using an ExpressRoute circuit provides low latency and more predictable performance, because traffic doesn't go through the internet.
 
-- **Microsoft 365 services**. The publicly available Microsoft 365 applications and services that Microsoft provides. Connections use [Microsoft peering](/azure/expressroute/expressroute-circuit-peerings) and addresses that are owned by your organization or supplied by your connectivity provider. You can also connect directly to Microsoft CRM Online by using Microsoft peering.
+- **Microsoft 365 services**. The publicly available Microsoft 365 applications and services that Microsoft provides. Connections use [Microsoft peering](/azure/expressroute/expressroute-circuit-peerings) and addresses that are owned by your organization or supplied by your connectivity provider. You can also connect directly to Dynamics 365 by using Microsoft peering.
 
 - **Connectivity providers** (not shown). Companies that provide a connection by using either layer 2 or layer 3 connectivity between your datacenter and an Azure datacenter.
 
@@ -48,7 +48,7 @@ The architecture consists of the following components.
 
 This reference architecture shows how to connect an on-premises network to an Azure virtual network by using ExpressRoute, with a site-to-site virtual private network (VPN) as a failover connection. Traffic flows between the on-premises network and the Azure virtual network through an ExpressRoute connection. If there's a loss of connectivity in the ExpressRoute circuit, traffic is routed through an IPsec VPN tunnel. [**Deploy this solution**](#deploy-this-scenario).
 
-If the ExpressRoute circuit is unavailable, the VPN route handles only private peering connections. Public peering and Microsoft peering connections pass over the Internet.
+If the ExpressRoute circuit is unavailable, the VPN route handles only private peering connections. Microsoft peering connections pass over the internet. ExpressRoute public peering is deprecated; use Microsoft peering for connectivity to Azure public services and Microsoft 365.
 
 ## Recommendations
 
@@ -68,7 +68,7 @@ ExpressRoute connectivity providers connect your datacenter to Microsoft in the 
 
 - **Point-to-point Ethernet connections**. You can connect your on-premises datacenters/offices to Azure by using point-to-point Ethernet links. Point-to-point Ethernet providers can provide layer 2 connections or managed layer 3 connections between your site and Azure.
 
-- **Any-to-any (IPVPN) networks**. You can integrate your wide area network (WAN) with Azure. Internet protocol virtual private network (IPVPN) providers  offer any-to-any connectivity between your branch offices and datacenters. (An IPVPN is typically a multiprotocol label-switching VPN.) Azure can be interconnected to your WAN to make it appear like any other branch office. WAN providers typically offer managed layer 3 connectivity.
+- **Any-to-any (IPVPN) networks**. You can integrate your wide area network (WAN) with Azure. Internet protocol virtual private network (IPVPN) providers offer any-to-any connectivity between your branch offices and datacenters. An IPVPN is typically a multiprotocol label-switching VPN. Azure can be interconnected to your WAN to make it appear like any other branch office. WAN providers typically offer managed layer 3 connectivity.
 
 For more information about connectivity providers, see the [ExpressRoute introduction][expressroute-introduction].
 
@@ -113,6 +113,16 @@ You can use the following steps to create an ExpressRoute circuit.
 ### VPN and ExpressRoute gateways
 
 If you already have an existing VPN virtual network gateway in your Azure virtual network, you can create an ExpressRoute virtual network gateway without needing to delete the existing virtual network gateway.
+
+The following requirements apply to coexisting ExpressRoute and site-to-site VPN configurations:
+
+- **Route-based VPN gateway only**. You must use a route-based VPN gateway. Policy-based VPN gateways aren't supported for coexisting configurations.
+- **Basic SKU not supported**. ExpressRoute-VPN Gateway coexist configurations aren't supported on the Basic SKU for either gateway.
+- **Gateway subnet sizing**. The gateway subnet must be /27 or a shorter prefix, such as /26 or /25.
+- **ASN configuration**. For transit routing between ExpressRoute and VPN, set the ASN of the Azure VPN Gateway to the default value of 65515 and use Azure Route Server.
+- **Asymmetric routing prevention**. Configure your on-premises network to prefer the ExpressRoute circuit over the site-to-site VPN by setting a higher local preference for routes received through ExpressRoute.
+
+For more information, see [Configure ExpressRoute and site-to-site coexisting connections](/azure/expressroute/how-to-configure-coexisting-gateway-portal).
 
 Follow the instructions in [Configure a hybrid network architecture with Azure ExpressRoute][configure-expressroute] to establish your ExpressRoute connection.
 
@@ -179,7 +189,10 @@ You can configure high availability for your Azure connection in different ways,
 - If you require maximum resiliency, create multiple circuits to different peering locations. For high resiliency, [ExpressRoute Metro](/azure/expressroute/metro) provides a single circuit with multiple peering locations.
   - For each circuit, consider a different service provider to minimize the risk of network downtime by a single provider outage.
 
-- Configure a site-to-site VPN as a failover path for ExpressRoute. For more information about this option, see [Connect an on-premises network to Azure using ExpressRoute with VPN failover][highly-available-network-architecture]. This option only applies to private peering. For Azure and Microsoft 365 services, the internet is the only failover path.
+- Configure a site-to-site VPN as a failover path for ExpressRoute. For more information about this option, see [Connect an on-premises network to Azure using ExpressRoute with VPN failover][highly-available-network-architecture]. Configure the VPN in active-active mode for higher throughput and redundancy of the backup connection. In active-standby mode, failover takes 10 to 15 seconds for planned maintenance and up to 1 to 3 minutes for unplanned events. Active-active mode reduces this impact. This option only applies to private peering. For Azure and Microsoft 365 services, the internet is the only failover path. For more information, see [Using S2S VPN as a backup for ExpressRoute private peering](/azure/expressroute/use-s2s-vpn-as-backup-for-expressroute-privatepeering).
+
+    > [!NOTE]
+    > A site-to-site VPN backup is not recommended for latency-sensitive, mission-critical, or bandwidth-intensive workloads. For those scenarios, design for disaster recovery by using [ExpressRoute multi-site resiliency](/azure/expressroute/designing-for-disaster-recovery-with-expressroute-privatepeering) with multiple circuits across different peering locations.
 
 ### Security
 
@@ -204,7 +217,7 @@ If you must expose management endpoints for VMs to an external network, use NSGs
 > [!NOTE]
 > Azure VMs deployed through the Azure portal can include a public IP address that provides sign-in access. However, it's a best practice to prohibit this access.
 
-By default, traffic traversing an ExpressRoute connection isn't encrypted. You can optionally configure encryption to be either Point-to-point encryption by MACsec or end-to-end encryption by IPsec; MACsec only available for ExpressRoute Direct. For more information, see [About encryption for Azure ExpressRoute](/azure/expressroute/expressroute-about-encryption#end-to-end-encryption-by-ipsec-faq).
+By default, traffic traversing an ExpressRoute connection isn't encrypted. You can optionally configure point-to-point encryption by using MACsec or end-to-end encryption by using IPsec. MACsec is available only for ExpressRoute Direct. For more information, see [About encryption for Azure ExpressRoute](/azure/expressroute/expressroute-about-encryption#end-to-end-encryption-by-ipsec-faq).
 
 To ensure your data hasn't been tampered with during transit, you can configure an MD5 hash on the ExpressRoute circuit during the [configuration of private peering or Microsoft peering](/azure/expressroute/expressroute-howto-routing-portal-resource-manager#prerequisites) to secure messages between the cross-premises route and the MSEE routers.
 
@@ -213,10 +226,6 @@ For more security considerations, see [Azure security baseline for ExpressRoute]
 ### Cost Optimization
 
 Cost Optimization is about looking at ways to reduce unnecessary expenses and improve operational efficiencies. For more information, see [Design review checklist for Cost Optimization](/azure/well-architected/cost-optimization/checklist).
-
-For ExpressRoute cost considerations, see these articles:
-
-- [Cost considerations in configuring a Hybrid Network Architecture with Azure ExpressRoute](../../reference-architectures/hybrid-networking/expressroute-vpn-failover.yml#considerations).
 
 Use this [Azure pricing estimate](https://azure.com/e/6ada1687b91f4f1e81af212196ef16eb) as a starting point to estimate the costs for your scenario. It includes the networking components described in this article with example VMs.
 
@@ -246,6 +255,8 @@ Operational Excellence covers the operations processes that deploy an applicatio
 - Consider configuring [Dynamic Routing](/azure/expressroute/expressroute-routing#dynamic-route-exchange) over the eBGP protocol to allow for more efficient and flexible routing, ensuring optimal path selection and automatic updates to route tables in response to network changes.
 - Configure [Traffic Collector for ExpressRoute](/azure/expressroute/how-to-configure-traffic-collector) and [ExpressRoute Insights with Network Insights](/azure/expressroute/expressroute-network-insights) for near real time performance and network health metrics.
 
+- Test failover from ExpressRoute to the VPN backup path at least quarterly. Regular testing prevents the VPN configuration from becoming stale and validates that routing, BGP sessions, and IPsec tunnels function correctly during an actual outage. For step-by-step validation and failover test procedures, see [Using S2S VPN as a backup for ExpressRoute private peering](/azure/expressroute/use-s2s-vpn-as-backup-for-expressroute-privatepeering).
+
 For site-to-site VPN DevOps considerations, see the [Configure a Hybrid Network Architecture with Azure and On-premises VPN][guidance-vpn] guidance.
 
 ### Performance Efficiency
@@ -255,11 +266,11 @@ Performance Efficiency is the ability of your workload to scale to meet the dema
 ExpressRoute circuits provide a high-bandwidth path between networks. Generally, the higher the bandwidth, the higher the cost.
 
 > [!NOTE]
-> Use the [Azure Connectivity Toolkit](/azure/expressroute/expressroute-troubleshooting-network-performance#azurect---the-azure-connectivity-toolkit) to ensure the ExpressRoute gateway meets workload requirements.
+> Use the [Azure Connectivity Toolkit](/troubleshoot/azure/expressroute/expressroute-troubleshooting-network-performance#azurect---the-azure-connectivity-toolkit) to ensure the ExpressRoute gateway meets workload requirements.
 
 ExpressRoute offers two [pricing plans][expressroute-pricing]: the Metered Plan and the Unlimited Data plan. Charges vary according to circuit bandwidth. Available bandwidth will probably vary from provider to provider. Use the `Get-AzExpressRouteServiceProvider` cmdlet to see the providers available in your region and the bandwidths that they offer.
 
-A single ExpressRoute circuit can support a certain number of peerings and virtual network links. See [ExpressRoute limits](/azure/azure-subscription-service-limits#expressroute-limits) for more information.
+A single ExpressRoute circuit can support a certain number of peerings and virtual network links. See [ExpressRoute limits](/azure/azure-resource-manager/management/azure-subscription-service-limits#expressroute-limits) for more information.
 
 The ExpressRoute Premium add-on provides:
 
@@ -300,9 +311,9 @@ Although some providers allow you to change your bandwidth, be sure to choose an
 
     You can upgrade the SKU without disruption, but you can't switch from the unlimited pricing plan to the metered plan. If you downgrade the SKU, your bandwidth consumption must remain within the default limit of the Standard SKU.
 
-[ExpressRoute scalable gateways](/azure/expressroute/expressroute-about-virtual-network-gateways#expressroute-scalable-gateway-preview) offers the ability automatically scale the ExpressRoute Virtual Network Gateway to accommodate for performance needs without having to intervene manually.
+The [ExpressRoute scalable gateway (ErGwScale)](/azure/expressroute/scalable-gateway) provides up to 40-Gbps bandwidth with autoscaling capabilities. You can configure fixed or autoscaling scale units to match your workload. If you have an ErGw1Az, ErGw2Az, or ErGw3Az gateway, you can upgrade directly to ErGwScale without downtime. ErGwScale doesn't currently support IPsec over ExpressRoute, so evaluate this trade-off if you require end-to-end encryption.
 
-For higher throughput, enable [ExpressRoute FastPath](/azure/expressroute/about-fastpath) to bypass the gateway and improve the data path performance between your on-premises network and Azure virtual networks.
+For higher throughput, enable [ExpressRoute FastPath](/azure/expressroute/about-fastpath) to bypass the gateway and improve data path performance between your on-premises network and Azure virtual networks. FastPath requires the Ultra Performance, ErGw3AZ, or ErGwScale (minimum 10 scale units) gateway SKU. For ExpressRoute Direct circuits, FastPath supports virtual network peering, user-defined routes (UDR), and Private Link connectivity (limited general availability).
 
 ## Deploy this scenario
 
@@ -358,17 +369,14 @@ Product documentation:
 - [ExpressRoute Documentation](/azure/expressroute)
 - [Azure Security baseline for ExpressRoute](/security/benchmark/azure/baselines/expressroute-security-baseline?toc=%2fazure%2fexpressroute%2fTOC.json)
 - [How to create an ExpressRoute circuit](/azure/expressroute/expressroute-howto-circuit-portal-resource-manager)
-- [Azure Networking Blog](https://azure.microsoft.com/blog/topics/networking)
 - [Configure ExpressRoute and Site-to-Site coexisting connections using PowerShell](/azure/expressroute/expressroute-howto-coexist-resource-manager)
 - [What is Azure Virtual Network?](/azure/virtual-network/virtual-networks-overview)
 - [Microsoft 365 services](/office365/servicedescriptions/office-365-service-descriptions-technet-library)
 
 Microsoft Learn modules:
 
-- [Configure ExpressRoute and Virtual WAN](/training/modules/configure-expressroute-virtual-wan)
 - [Configure virtual network peering](/training/modules/configure-vnet-peering)
 - [Design and implement Azure ExpressRoute](/training/modules/design-implement-azure-expressroute)
-- [Explore the Microsoft 365 platform services](/training/paths/explore-microsoft-365-platform-services)
 
 ## Related resources
 
