@@ -76,6 +76,8 @@ Failures can also occur if images are deleted inadvertently, new compute nodes w
 
 It’s recommended that you use the Premium SKU to enable geo replication. The zone redundancy feature ensures resiliency and high availability within a specific region. In case of a regional outage, replicas in other regions are still available for data plane operations. With this SKU you can restrict access to images through private endpoints.
 
+When you push an image to a geo-replicated registry, Container Registry replicates the manifest and layers to each replica asynchronously. Each replica fires its own [webhook event](/azure/container-registry/container-registry-webhook) as replication completes locally, so a single push produces one webhook event per replica region, with staggered timing. Make any consumer of these webhooks (CD pipelines, GitOps reconcilers, autoscaler hooks) idempotent so repeated events don't trigger duplicate work.
+
 For more information, see [Best practices for Azure Container Registry](/azure/container-registry/container-registry-best-practices).
 
 ### Database
