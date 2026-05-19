@@ -21,6 +21,6 @@ products:
   - github
 name: Automate API deployments by using APIOps
 summary: Use APIOps and Azure API Management to build and deploy APIs. This solution provides self-service tools, auditing, policy enforcement, and early feedback.
-thumbnailUrl: /azure/architecture/browse/thumbs/automated-api-deployments-architecture.png
+thumbnailUrl: /azure/architecture/browse/thumbs/automated-api-deployments-apiops-architecture.png
 content: |
   [!INCLUDE[](automated-api-deployments-apiops-content.md)]
