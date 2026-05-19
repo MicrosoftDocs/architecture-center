@@ -2,11 +2,11 @@ APIOps is a methodology that applies the concepts of GitOps and [DevOps](https:/
 
 ## Architecture
 
-:::image type="complex" border="false" source="media/automated-api-deployments-apiops-architecture-diagram.svg" alt-text="Diagram that shows the automated API deployment using APIOps architecture." lightbox="media/automated-api-deployments-apiops-architecture-diagram.svg":::
-  Diagram that shows an automated API deployment flow with APIOps. API developers and API operators connect with arrows to a Git repo in Azure Repos, where pull requests (PRs) pass through Create PR, Review changes, Approve PR, and Merge steps. Azure API Management connects with an arrow to an Extractor pipeline in Azure Pipelines, and the extractor synchronizes Azure API Management state in the Git repo. The Git repo connects with an arrow to a Publisher pipeline in Azure Pipelines, and the publisher deploys approved changes to the API Management instance. The repo also stores API service information, Azure API Management Policy, and products, logger, and diagnostics objects. A separate step named Design, create, and test OpenAPI specification connects to pull request creation.
+:::image type="complex" border="false" source="media/automated-api-deployments-apiops-architecture.svg" alt-text="Diagram that shows the automated API deployment using APIOps architecture." lightbox="media/automated-api-deployments-apiops-architecture.svg":::
+  Diagram that shows an automated API deployment flow that uses APIOps. API operators feed into a box labeled CI/CD. An API Management instance feeds the extractor pipeline, which creates a PR and syncs the API Management state in the Git repo. The Git repo contains icons that are labeled API definition, API Management policy, API service information, and Product logger and diagnostics. The Git repo connects via a bidirectional arrow to API developers, who design, create, and test the OpenAPI specification. The Git repo also creates a PR, which is merged after review and approval. The merge icon connects to the publisher pipeline, which leads back to the API Management instance.
 :::image-end:::
 
-*Download a [Visio file](https://arch-center.azureedge.net/automated-api-deployments-apiops-architecture-diagram.vsdx) of this architecture.*
+*Download a [Visio file](https://arch-center.azureedge.net/automated-api-deployments-apiops-architecture.vsdx) of this architecture.*
 
 ### Workflow
 
