@@ -146,7 +146,7 @@ The following patterns and guidance might also be relevant to your scenario when
 
 - The [Competing Consumers pattern](../patterns/competing-consumers.md) describes how to implement a pool of service instances that can handle messages from any application instance. Autoscaling can be used to start and stop service instances to match the anticipated workload. This approach enables a system to process multiple messages concurrently to optimize throughput, improve scalability and availability, and balance the workload.
 
-- [Monitoring and diagnostics](./monitoring.yml), including instrumentation and metrics, are vital for gathering the information that can drive the autoscaling process.
+- [Monitoring and diagnostics](./monitoring.md), including instrumentation and metrics, are vital for gathering the information that can drive the autoscaling process.
 
 <!-- links -->
 

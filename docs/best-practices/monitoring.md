@@ -1,4 +1,17 @@
+---
+title: Best Practices for Monitoring and Diagnostics
+description: Learn how to track how customers use your distributed applications and services, trace resource utilization, and monitor health and performance.
+ms.author: pnp
+author: claytonsiemens77
+ms.date: 03/27/2026
+ms.topic: best-practice
+ms.subservice: best-practice
+ms.custom: fcp
+---
+
 <!-- cSpell:ignore SIEM SSDT -->
+
+# Best practices for monitoring and diagnostics
 
 Distributed applications and services running in the cloud are, by their nature, complex pieces of software that comprise many moving parts. In a production environment, it's important to be able to track the way in which users use your system, trace resource utilization, and generally monitor the health and performance of your system. You can use this information as a diagnostic aid to detect and correct issues, and also to help spot potential problems and prevent them from occurring.
 
