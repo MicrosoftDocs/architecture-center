@@ -6,7 +6,9 @@ To perform a single task, a client might have to make multiple calls to various 
 
 In the following diagram, the client sends requests to each service (1,2,3). Each service processes the request and sends the response back to the application (4,5,6). Over a cellular network with typically high latency, using individual requests in this manner is inefficient and could result in broken connectivity or incomplete requests. While each request might be done in parallel, the application must send, wait, and process data for each request, all on separate connections, increasing the chance of failure.
 
-![Problem diagram for the Gateway Aggregation pattern](./_images/gateway-aggregation-problem.png)
+:::image type="complex" source="./_images/gateway-aggregation-problem.png" alt-text="Problem diagram for the Gateway Aggregation pattern." border="false":::
+   Diagram that shows a client making separate calls to multiple backend services and receiving individual responses.
+:::image-end:::
 
 ## Solution
 
@@ -16,7 +18,9 @@ This pattern can reduce the number of requests that the application makes to bac
 
 In the following diagram, the application sends a request to the gateway (1). The request contains a package of additional requests. The gateway decomposes these and processes each request by sending it to the relevant service (2). Each service returns a response to the gateway (3). The gateway combines the responses from each service and sends the response to the application (4). The application makes a single request and receives only a single response from the gateway.
 
-![Solution diagram for the Gateway Aggregation pattern](./_images/gateway-aggregation.png)
+:::image type="complex" source="./_images/gateway-aggregation.png" alt-text="Solution diagram for the Gateway Aggregation pattern." border="false":::
+   Diagram that shows a client sending one request to a gateway, which calls multiple backend services and returns an aggregated response.
+:::image-end:::
 
 ## Problems and considerations
 
@@ -63,34 +67,34 @@ As with any design decision, consider any tradeoffs against the goals of the oth
 ## Example
 
 Consider a microservices-based application that provides an order summary experience for a customer. When a user opens an order page, the application must retrieve data from multiple backend services, such as an order service, a shipment service, and a customer profile service.  
-In a microservices architecture, these services are implemented and deployed independently. Without aggregation, the client must call each service directly, increasing latency and complexity.  
-To address this problem, the application introduces a gateway aggregation layer within the workload. The client sends a single request, and the system retrieves and combines data from multiple backend services before returning a unified response.  
-In this example, the application is deployed using [Azure Container Apps](/azure/container-apps/overview). External traffic is routed through [Azure Application Gateway](/azure/application-gateway/overview), which provides a secure entry point with capabilities such as TLS termination and [Web Application Firewall (WAF)](/azure/web-application-firewall/ag/ag-overview) protection.  
-The request is then forwarded to a [Container Apps environment](/azure/container-apps/environment), which provides a managed ingress layer responsible for routing HTTP traffic to the appropriate services. 
-The aggregation logic is implemented as a dedicated aggregation service, deployed as a container app. Backend services are also deployed as container apps and are exposed using internal ingress, making them accessible only within the environment.  
+In a microservices architecture, these services are implemented and deployed independently. Without aggregation, the client must call each service directly, which increases latency and complexity.  
+To address this problem, the application uses [Azure API Management](/azure/api-management/api-management-key-concepts) as the gateway aggregation layer. The client sends a single request to an API Management operation that acts as a collector for order information. API Management then calls the supporting backend APIs and returns a unified response to the client.  
+You can implement this lightweight composition by using the API Management [`send-request` policy](/azure/api-management/send-request-policy) to retrieve data from multiple services and construct a combined response, as shown in [Using external services from the Azure API Management service](/azure/api-management/api-management-sample-send-request). In this example, the backend services run in an [Azure Container Apps environment](/azure/container-apps/environment), and each backend service is deployed as a container app that remains hidden from direct client access.  
 
-![Diagram showing client request flow through Application Gateway to a Container Apps environment with an Aggregator service that calls Order, Shipment, and Customer profile backend services](./_images/gateway-aggregation-example.png)
+:::image type="complex" source="./_images/gateway-aggregation-example.png" alt-text="Diagram showing a client request flowing through API Management to order, shipment, and customer profile services in an app environment." border="false":::
+   Diagram that shows a client request flowing through API Management to order, shipment, and customer profile services that run in an app environment.
+:::image-end:::
 
 The request flow is as follows:
 
-1. The client sends a request to the public endpoint exposed by Application Gateway.
-1. Application Gateway forwards the request to the Container Apps environment.
-1. The ingress layer routes the request to the aggregation service.
-1. The aggregation service calls the required backend services.
-1. The aggregation service combines the responses into a single payload.
-1. The aggregated response is returned to the client.
+1. The client sends a request to an order summary endpoint exposed through API Management.
+1. API Management applies a policy that collects the order, shipment, and customer profile data from the backend services.
+1. API Management composes the backend responses into a single order summary payload.
+1. API Management returns the aggregated response to the client.
 
 By introducing this aggregation layer, the solution reduces client-to-service round trips and simplifies client interactions.  
 
-In this architecture, the gateway is responsible for edge concerns such as security and routing, while aggregation logic is implemented within the application layer. This separation improves maintainability and supports more complex orchestration scenarios.
+If one of the backend calls times out or returns an error, API Management can apply the behavior that best fits the operation. For example, it might return a partial response when missing data is acceptable, or it might fail the entire request when complete and consistent order data is required. This decision should be explicit in the policy design so that clients receive predictable behavior.
 
-For monitoring, collect telemetry across the full request path so you can correlate gateway behavior with aggregation and backend latency. Use [Azure Monitor](/azure/azure-monitor/overview) as the central observability platform, review [Application Gateway diagnostics and access logs](/azure/application-gateway/monitor-application-gateway), and enable [monitoring for Azure Container Apps](/azure/container-apps/log-monitoring) to capture application logs and metrics from the aggregation and backend services. Route logs to a [Log Analytics workspace](/azure/azure-monitor/logs/log-analytics-overview) for unified querying, alerting, and troubleshooting.
+This approach works well when the gateway performs lightweight composition, shaping, and response assembly. If the aggregation requires custom domain logic, complex transformations, or longer-running orchestration, place that functionality in a dedicated custom service behind the gateway.
+
+For monitoring, collect telemetry across the full request path so you can correlate API Management behavior with backend latency. This visibility is important in a gateway aggregation pattern because a single client operation depends on multiple backend calls, and failures or slow responses in any one dependency can affect the final aggregated result. Use [Azure Monitor](/azure/azure-monitor/overview) as the central observability platform, collect API Management logs and metrics for the gateway and policy execution path, and enable [monitoring for Azure Container Apps](/azure/container-apps/log-monitoring) to capture application logs and metrics from the backend container apps. Route API Management and backend telemetry to a [Log Analytics workspace](/azure/azure-monitor/logs/log-analytics-overview) for unified querying, alerting, and troubleshooting. With this telemetry, you can detect timeout patterns, identify which backend dependency caused a partial or failed response, and create alerts for elevated latency or error rates.
 
 ## Next steps
 
+- [Using external services from the Azure API Management service](/azure/api-management/api-management-sample-send-request)
+- [Send-request policy](/azure/api-management/send-request-policy)
 - [Azure Container Apps documentation](/azure/container-apps/)
-- [Scale applications in Azure Container Apps](/azure/container-apps/scale-app)
-- [Application Gateway configuration overview](/azure/application-gateway/configuration-overview)
 
 ## Related resources
 
