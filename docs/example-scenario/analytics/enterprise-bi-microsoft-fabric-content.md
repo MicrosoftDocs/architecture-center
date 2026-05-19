@@ -213,7 +213,7 @@ Consider the following common security concerns:
 
 Cost Optimization focuses on ways to reduce unnecessary expenses and improve operational efficiencies. For more information, see [Design review checklist for Cost Optimization](/azure/well-architected/cost-optimization/checklist).
 
-This section outlines pricing details for the various services used in the solution and explains the decisions made for this scenario by using a sample dataset. Use the starting configuration in this [Azure pricing estimate](https://azure.com/e/6cfedbbb9b894042aced62f518a77ec3) and adjust it to fit your scenario. For more information about Fabric SKUs, see [Fabric pricing overview](https://azure.microsoft.com/pricing/details/microsoft-fabric/). For more information about how to generate an estimate of overall Fabric consumption, see the [Fabric capacity estimator](https://www.microsoft.com/microsoft-fabric/capacity-estimator).
+This section outlines pricing details for the various services used in the solution and explains the decisions made for this scenario by using a sample dataset. Use the starting configuration in this [Azure pricing estimate](https://azure.com/e/c84b6daecf514022a3a04c21db9963ca) and adjust it to fit your scenario. For more information about Fabric SKUs, see [Fabric pricing overview](https://azure.microsoft.com/pricing/details/microsoft-fabric/). For more information about how to generate an estimate of overall Fabric consumption, see the [Fabric capacity estimator](https://www.microsoft.com/microsoft-fabric/capacity-estimator).
 
 #### Fabric scalable architecture
 
