@@ -56,7 +56,7 @@ An application-specific [perimeter network](/azure/cloud-adoption-framework/read
 
 Here are some of the benefits of using a separate SAP perimeter virtual network:
 
-- Immediate isolation of compromised services if a breach is detected. Removing virtual network peering from the SAP perimeter to the hub immediately isolates the SAP perimeter workloads and SAP application virtual network applications from the internet. Changing or removing an NSG rule that permits access affects only new connections and doesn't cut existing connections.
+- Immediate isolation of compromised services if a breach is detected. Moving virtual network peering from the SAP perimeter to the hub immediately isolates the SAP perimeter workloads and SAP application virtual network applications from the internet. Changing or removing an NSG rule that permits access affects only new connections and doesn't cut existing connections.
 - More stringent controls on the virtual network and subnet, with a tight lockdown on communication partners in and out of the SAP perimeter network and SAP application networks. You can extend increased control to authorized users and access methods on SAP perimeter applications, with different authorization back ends, privileged access, or sign-in credentials for SAP perimeter applications.
 
 The drawbacks are increased complexity and extra virtual network peering costs for internet-bound SAP traffic (because communication needs to pass through virtual network peering twice). The latency impact on spoke-hub-spoke peering traffic depends on any firewall that's in place and needs to be measured.
@@ -83,7 +83,7 @@ For a high-availability configuration, keep in mind that Azure NAT Gateway Stand
 
 ### Use of network components across an SAP landscape
 
-An architecture document typically depicts only one SAP system or landscape. This limited depiction makes them easier to understand. The result is that frequently the bigger picture, how the architecture fits into a larger SAP landscape that includes several system tracks and tiers, isn't addressed.
+An architecture document typically depicts only one SAP system or landscape. This focused depiction makes them easier to understand. The result is that frequently the bigger picture, how the architecture fits into a larger SAP landscape that includes several system tracks and tiers, isn't addressed.
 
 Central networking services, like the firewall, NAT gateway, and proxy servers if they're deployed, are best used across the entire SAP landscape of all tiers: production, pre-production, development, and sandbox. Depending on your requirements, the size of your organization, and business policies, you might want to consider separate implementations per tier, or one production and one sandbox/testing environment.
 
@@ -115,7 +115,7 @@ SAProuter is a tunnel to SAP or to your partners. This architecture describes th
 
 The following features help protect the communication path over the internet:
 
-- Azure Firewall or a non-Microsoft NVA provides the public IP entry point into your Azure networks. Firewall rules limit communication to only authorized IP addresses. For your connection to  SAP support, [SAP note 48243 - Integrating the SAProuter software into a firewall environment](https://launchpad.support.sap.com/#/notes/48243) documents the IP addresses of SAP routers.
+- Azure Firewall or a non-Microsoft NVA provides the public IP entry point into your Azure networks. Firewall rules limit communication to only authorized IP addresses. For your connection to SAP support, [SAP note 48243 - Integrating the SAProuter software into a firewall environment](https://launchpad.support.sap.com/#/notes/48243) documents the IP addresses of SAP routers.
 - Like firewall rules, network security rules allow communication on SAProuter's port, typically 3299 with the designated destination.
 - You maintain SAProuter allow and deny rules in the *saprouttab* file, specifying who can contact SAProuter and which SAP system can be accessed.
 - Further NSG rules are in place on the respective subnets in the SAP production subnet that contains the SAP systems.
@@ -138,7 +138,7 @@ To implement cascading SAProuters, you can define as many as two SAProuters for 
 
 SAP Fiori and other HTTPS front ends for SAP applications are often consumed from outside of the internal corporate network. Because they need to be available on the internet, you need a high-security solution to help protect the SAP application. Application Gateway with [Web Application Firewall](/azure/web-application-firewall/ag/ag-overview) is the ideal service for this purpose.
 
-For users and applications that access the public host name of the public IP that's tied to Application Gateway, the HTTPS session is terminated on Application Gateway. A back-end pool of two or more SAP Web Dispatcher VMs gets round-robin sessions from the Application Gateway. This internal traffic application gateway to Web Dispatcher can be either HTTP or HTTPS, depending on requirements. With HTTPS between Application Gateway and Web Dispatcher VMs, use a certificate and certificate chain well known to the SAP team for any periodic certificate rotation. The web application firewall helps protect the SAP Web Dispatcher from attacks that come over the internet with the [OWASP core rule set](/azure/web-application-firewall/ag/application-gateway-crs-rulegroups-rules). SAP NetWeaver, often tied to Microsoft Entra ID via [single sign-on (SSO)](/entra/identity/saas-apps/sap-fiori-tutorial), performs user authentication. For the steps needed to configure SSO for Fiori by using Application Gateway, see [Single Sign On Configuration using SAML and Microsoft Entra ID for Public and Internal URLs](https://blogs.sap.com/2020/12/10/sap-on-azure-single-sign-on-configuration-using-saml-and-azure-active-directory-for-public-and-internal-urls).
+For users and applications that access the public host name of the public IP that's tied to Application Gateway, the HTTPS session is terminated on Application Gateway. A back-end pool of two or more SAP Web Dispatcher VMs gets round-robin sessions from the application gateway. This internal traffic application gateway to Web Dispatcher can be either HTTP or HTTPS, depending on requirements. With HTTPS between Application Gateway and Web Dispatcher VMs, use a certificate and certificate chain well known to the SAP team for any periodic certificate rotation. The web application firewall helps protect the SAP Web Dispatcher from attacks that come over the internet with the [OWASP core rule set](/azure/web-application-firewall/ag/application-gateway-crs-rulegroups-rules). SAP NetWeaver, often tied to Microsoft Entra ID via [single sign-on (SSO)](/entra/identity/saas-apps/sap-fiori-tutorial), performs user authentication. For the steps needed to configure SSO for Fiori by using Application Gateway, see [Single Sign On Configuration using SAML and Microsoft Entra ID for Public and Internal URLs](https://blogs.sap.com/2020/12/10/sap-on-azure-single-sign-on-configuration-using-saml-and-azure-active-directory-for-public-and-internal-urls).
 
 Keep in mind that you need to secure the SAP Web Dispatcher in any situation, even if it's open only internally, accessed through Application Gateway via public IP, or accessed by other network means. For more information, see [Security Information for SAP Web Dispatcher](https://help.sap.com/docs/ABAP_PLATFORM/683d6a1797a34730a6e005d1e8de6f22/489ab29948c673e8e10000000a42189b.html?version=1709.008).
 
@@ -167,11 +167,11 @@ For internet-facing deployments, we recommend Application Gateway with Web Appli
 
 SAP BTP is a large set of SAP applications, SaaS or PaaS, that are typically accessed through a public endpoint via the internet. [SAP Cloud Connector](https://help.sap.com/docs/CP_CONNECTIVITY/cca91383641e40ffbe03bdc78f00f681/e6c7616abb5710148cfcf3e75d96d596.html) is often used to provide communication for applications running in private networks, like an SAP S/4HANA system running on Azure. SAP Cloud Connector runs as an application in a VM. It requires outbound internet access to establish a TLS-encrypted HTTPS tunnel with SAP BTP. It acts as a reverse invoke proxy between the private IP range in your virtual network and SAP BTP applications. Because of this reverse invoke support, you don't need open firewall ports or other access for inbound connections, because the connection from your virtual network is outbound.
 
-By default, VMs have [outbound internet](/azure/virtual-network/ip-services/default-outbound-access) access natively on Azure. The public IP address that's used for outbound traffic, when there's no dedicated public IP address associated with the VM, is  randomly chosen from the pool of public IPs in the specific Azure region. You can't control it. To ensure that outbound connections are made through a controlled and identifiable service and IP address, you can use one of the following methods:
+By default, VMs have [outbound internet](/azure/virtual-network/ip-services/default-outbound-access) access natively on Azure. The public IP address that's used for outbound traffic, when there's no dedicated public IP address associated with the VM, is randomly selected from the pool of public IPs in the specific Azure region. You can't control this selection. To ensure that outbound connections are made through a controlled and identifiable service and IP address, you can use one of the following methods:
 
-- A NAT gateway that's associated with the subnet or load balancer and its public IP address.
-- HTTP proxy servers that you operate.
-- A [user-defined route](/azure/virtual-network/ip-services/default-outbound-access) that forces the network traffic to flow to a network appliance, like a firewall.
+- A NAT gateway that's associated with the subnet or load balancer and its public IP address
+- HTTP proxy servers that you operate
+- A [user-defined route](/azure/virtual-network/ip-services/default-outbound-access) that forces the network traffic to flow to a network appliance, like a firewall
 
 The architecture diagram shows the most common scenario: routing internet-bound traffic to the hub virtual network and through the central firewall. You need to configure [further settings](https://help.sap.com/docs/CLOUD_INTEGRATION/368c481cd6954bdfa5d0435479fd4eaf/642e87f1492146998a8eb0779cd07289.html) in SAP Cloud Connector to connect to your SAP BTP account.
 
@@ -213,7 +213,7 @@ For Linux operating systems, you can access the following repositories if you ob
 
 #### High-availability cluster management
 
-Highly available systems like clustered SAP ASCS/SCS or databases might use a cluster manager with Azure fence agent as a STONITH device. These systems depend on reaching Azure Resource Manager. Resource Manager is used for status queries about Azure resources and for operations to stop and start VMs. Because Resource Manager is a public endpoint, available under `management.azure.com`, VM outbound communication needs to be able to reach it. This architecture relies on a central firewall with user-defined rules routing traffic from SAP virtual networks. For alternatives, see the preceding sections.
+Highly available systems like clustered SAP ASCS/SCS or databases might use a cluster manager with Azure fence agent as a STONITH device. These systems depend on reaching Azure Resource Manager. Resource Manager is used for status queries about Azure resources and for operations to stop and start VMs. Because Resource Manager is a public endpoint, available under management.azure.com, VM outbound communication needs to be able to reach it. This architecture relies on a central firewall with user-defined rules routing traffic from SAP virtual networks. For alternatives, see the preceding sections.
 
 ## Contributors
 
