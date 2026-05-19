@@ -4,17 +4,17 @@ Control the consumption of resources used by an instance of an application, an i
 
 The load on a cloud application typically varies over time based on the number of active users or the types of activities they're performing. For example, more users are likely to be active during business hours, or the system might be required to perform computationally expensive analytics at the end of each month. There might also be sudden and unanticipated bursts in activity. If the processing requirements of the system exceed the capacity of the resources that are available, it'll experience poor performance and can even fail. If the system has to meet an agreed level of service, such failure could be unacceptable.
 
-There are many strategies available for handling varying load in the cloud, depending on the business goals for the application. One strategy is to use [autoscaling](/azure/architecture/best-practices/auto-scaling) to match the provisioned resources to the user needs at any given time. This has the potential to consistently meet user demand, while optimizing running costs. However, while autoscaling can trigger the provisioning of more resources, this provisioning isn't immediate. If demand grows quickly, there can be a window of time where there's a resource deficit.
+There are many strategies available for handling varying load in the cloud, depending on the business goals for the application. One strategy is to use [autoscaling](../best-practices/auto-scaling.md) to match the provisioned resources to the user needs at any given time. This has the potential to consistently meet user demand, while optimizing running costs. However, while autoscaling can trigger the provisioning of more resources, this provisioning isn't immediate. If demand grows quickly, there can be a window of time where there's a resource deficit.
 
 ## Solution
 
-An alternative strategy to autoscaling is to allow applications to use resources only up to a limit, and then throttle them when this limit is reached. The system should monitor how it's using resources so that, when usage exceeds the threshold, it can throttle requests from one or more users. This enables the system to continue functioning and meet any service-level objectives (SLOs) that are in place. For more information on monitoring resource usage, see the [Instrumentation and Telemetry Guidance](/previous-versions/msp-n-p/dn589775(v=pandp.10)).
+An alternative strategy to autoscaling is to allow applications to use resources only up to a limit, and then throttle them when this limit is reached. The system should monitor how it's using resources so that, when usage exceeds the threshold, it can throttle requests from one or more users. This enables the system to continue functioning and meet any service-level objectives (SLOs) that are in place.
 
-Throttling is a control loop, not a single admission decision. The system continuously measures saturation, enforces limits at well-defined boundaries, and adapts those limits as traffic patterns change. Overload is a normal operating mode that a mature system detects and recovers from. Throttling provides [self-preservation](/azure/well-architected/reliability/self-preservation) capabilities in your workload.
+Throttling is a control loop, not a single admission decision. The system needs low-latency signals at three layers: infrastructure utilization, application state, and per-principal counters. It continuously measures saturation, enforces limits at well-defined boundaries, and adapts those limits as traffic patterns change. Overload is a normal operating mode that a mature system detects and recovers from. Throttling provides [self-preservation](/azure/well-architected/reliability/self-preservation) capabilities in your workload.
 
 The system could implement several throttling strategies, including:
 
-- Rejecting requests from an individual user who's already accessed system APIs more than n times per second over a given period of time. This requires the system to meter the use of resources for each tenant or user running an application. For more information, see the [Service Metering Guidance](/previous-versions/msp-n-p/dn589796(v=pandp.10)).
+- Rejecting requests from an individual user who's already accessed system APIs more than n times per second over a given period of time. This requires the system to attribute each request to a principal and meter resource use against that principal. For multitenant workloads, see [Measure the consumption of each tenant](../guide/multitenant/considerations/measure-consumption.md).
 
 - Disabling or degrading the functionality of selected nonessential services so that essential services can run unimpeded with sufficient resources. This approach trades response completeness for availability. For example, if the application is streaming video output, it could switch to a lower resolution.
 
@@ -120,9 +120,9 @@ In order to prevent the users from one tenant affecting the responsiveness and a
 
 The following guidance might also be relevant when implementing this pattern:
 
-- [Instrumentation and Telemetry Guidance](/previous-versions/msp-n-p/dn589775(v=pandp.10)). Throttling depends on gathering information about how heavily a service is being used. Describes how to generate and capture custom monitoring information.
-- [Service Metering Guidance](/previous-versions/msp-n-p/dn589796(v=pandp.10)). Describes how to meter the use of services in order to gain an understanding of how they're used. This information can be useful in determining how to throttle a service.
-- [Autoscaling Guidance](/previous-versions/msp-n-p/dn589774(v=pandp.10)). Throttling can be used as an interim measure while a system autoscales, or to remove the need for a system to autoscale. Contains information on autoscaling strategies.
+- [Architecture strategies for designing a monitoring system](/azure/well-architected/operational-excellence/observability). Throttling depends on continuous, low-latency signals about resource use and saturation. This guidance describes how to design the instrumentation, collection, and alerting that your throttling control loop relies on.
+- [Measure the consumption of each tenant](../guide/multitenant/considerations/measure-consumption.md). Per-tenant throttling requires attributing each request to a principal and metering its resource use. This guidance covers the per-tenant signals and approaches you need before you can enforce per-tenant limits.
+- [Autoscaling in Azure](../best-practices/auto-scaling.md). Throttling can be used as an interim measure while a system autoscales, or to remove the need for a system to autoscale. Contains information on autoscaling strategies.
 
 ## Related resources
 
