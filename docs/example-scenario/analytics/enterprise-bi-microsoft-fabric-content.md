@@ -215,6 +215,9 @@ Cost Optimization focuses on ways to reduce unnecessary expenses and improve ope
 
 This section outlines pricing details for the various services used in the solution and explains the decisions made for this scenario by using a sample dataset. Use the starting configuration in this [Azure pricing estimate](https://azure.com/e/c84b6daecf514022a3a04c21db9963ca) and adjust it to fit your scenario. For more information about Fabric SKUs, see [Fabric pricing overview](https://azure.microsoft.com/pricing/details/microsoft-fabric/). For more information about how to generate an estimate of overall Fabric consumption, see the [Fabric capacity estimator](https://www.microsoft.com/microsoft-fabric/capacity-estimator).
 
+> [!NOTE]
+> The estimate doesn't include Power BI Pro or Premium Per User licenses. These are per-user costs that are outside the scope of this infrastructure estimate but should be taken into account.
+
 #### Fabric scalable architecture
 
 Fabric is a serverless architecture for most workloads that you can use to scale your compute and storage levels independently. Compute resources incur costs based on usage. You can scale or pause these resources on demand. Storage resources incur costs per GB, so your costs increase as you ingest data.
