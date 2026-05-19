@@ -82,9 +82,7 @@ You should consider the following points when deciding how to implement this pat
 
 - Make rejection cheaper than the work it prevents. If refusing a request involves heavy authentication, deep parsing, or complex policy evaluation, a flood of rejected requests can still saturate the system. Reject as early in the request pipeline as you can.
 
-- Throttling can be used as a temporary measure while a system autoscales. In some cases, it's better to throttle rather than scale if a burst in activity is sudden and not expected to last because scaling can add considerably to running costs.
-
-- If throttling is being used as a temporary measure while a system autoscales, and if resource demands grow very quickly, the system might not be able to continue functioning&mdash;even when operating in a throttled mode. If this isn't acceptable, consider maintaining larger capacity reserves and configuring more aggressive autoscaling.
+- Throttling can't always buy enough time for autoscale. If demand grows faster than new capacity comes online, even a throttled system can fail. Where this is unacceptable, keep larger capacity reserves and configure more aggressive autoscaling.
 
 - Don't substitute caching for throttling. A cache lowers average load on the origin but doesn't bound peak load. Cache misses pass through to the origin, and a popular key expiring under heavy traffic can cause many callers to race to refill it. Use caching to reduce normal pressure and throttling to bound the worst case; see the [Cache-Aside pattern](./cache-aside.yml).
 
@@ -94,7 +92,7 @@ You should consider the following points when deciding how to implement this pat
 
 - Consider adaptive limits as an alternative to static ones. Some throttling SDKs react to latency or queue depth signals so the limit tracks actual component conditions. Always pair an adaptive limiter with a hard ceiling.
 
-- Revisit your limits as the workload evolves. Traffic patterns, dependency capacity, and operation costs change over time, so static limits drift out of correctness.
+- Revisit your limits as the workload evolves. Even adaptive limits can't see all drift; SLO changes, changed dependency capacity, or shifts in per-operation cost. Schedule periodic operator review against those inputs.
 
 ## When to use this pattern
 
