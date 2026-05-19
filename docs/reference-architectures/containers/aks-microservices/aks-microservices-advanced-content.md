@@ -377,7 +377,7 @@ Cost Optimization focuses on ways to reduce unnecessary expenses and improve ope
 
 - The [Cost Optimization section in the Well-Architected Framework](/azure/architecture/framework/cost/overview) describes cost considerations.
 
-- Use the [Azure pricing calculator](https://azure.com/e/3be2cec9c8be4c14803daa916f5b2dc9) to estimate costs for your specific scenario.
+- Use the [Azure pricing calculator](https://azure.com/e/3be2cec9c8be4c14803daa916f5b2dc9) to estimate costs for your specific scenario. The estimate doesn't include shared hub infrastructure costs such as Azure Firewall, Azure Bastion, or the hub virtual network, which are typically managed by a platform team and shared across multiple workloads.
 
 - In the Free tier, AKS has no costs associated with deployment, management, and operations of the Kubernetes cluster. You only pay for the VM instances, storage, and networking resources that the cluster consumes. Cluster autoscaling can significantly reduce the cost of the cluster by removing empty or unused nodes.
 
