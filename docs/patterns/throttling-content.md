@@ -24,17 +24,17 @@ The system could implement several throttling or related strategies, including:
 
 - Rate limit your own outbound calls when an external dependency is failing or returning errors. Lower the in-flight request count to stop flooding logs and to avoid retry costs against an unhealthy dependency. Restore normal request flow once the dependency recovers. [NServiceBus](https://docs.particular.net/nservicebus/recoverability/#automatic-rate-limiting) is one library that implements this.
 
-The figure shows an area graph for resource use (a combination of memory, CPU, bandwidth, and other factors) against time for applications that are making use of three features. A feature is an area of functionality, such as a component that performs a specific set of tasks, a piece of code that performs a complex calculation, or an element that provides a service such as an in-memory cache. These features are labeled A, B, and C.
+The figure shows an area graph of resource use (a combination of memory, CPU, bandwidth, and other factors) against time for applications that are making use of three features. A feature is an area of functionality, such as a component that performs a specific set of tasks, a piece of code that performs a complex calculation, or an element that provides a service such as an in-memory cache. These features are labeled A, B, and C.
 
 ![Figure 1 - Graph showing resource use against time for applications running on behalf of three users.](./_images/throttling-resource-utilization.png)
 
-> The area immediately below the line for a feature indicates the resources that are used by applications when they invoke this feature. For example, the area below the line for Feature A shows the resources used by applications that are making use of Feature A, and the area between the lines for Feature A and Feature B indicates the resources used by applications invoking Feature B. Aggregating the areas for each feature shows the total resource use of the system.
+> The area below a feature's line shows the resources that feature consumes. For example, the area below Feature A's line is the resources used by Feature A, and the area between Feature A and Feature B is the resources used by Feature B. The combined areas equal total system resource use.
 
 The figure shows the effects of deferring operations. Just before time T1, total resource use reaches the threshold and the applications risk exhausting available resources. Feature B is less critical than Feature A or Feature C, so the system disables Feature B and releases its resources. Between times T1 and T2, applications using Feature A and Feature C continue normally. By time T2, their resource use has fallen enough to re-enable Feature B.
 
 You can combine autoscaling, graceful degradation, and throttling to keep applications responsive and within SLAs. When demand is expected to stay high, throttling holds the line while the system scales out. After scaling completes, the system restores full functionality.
 
-The next figure shows total resource use over time and illustrates how throttling combines with autoscaling and other compensating control.
+The next figure shows total resource use over time and illustrates how throttling combines with autoscaling and other compensating controls.
 
 ![Figure 2 - Graph showing the effects of combining throttling with autoscaling](./_images/throttling-autoscaling.png)
 
@@ -47,7 +47,7 @@ At time T1, the system reaches the soft limit and starts to scale out. If new re
 
 You should consider the following points when deciding how to implement this pattern:
 
-- Throttling, and the strategy you pick, is an architectural decision that affects the whole system. Decide on it early, retrofitting throttling into an existing system is expensive.
+- Throttling, and the strategy you pick, is an architectural decision that affects the whole system. Decide on it early. Retrofitting throttling into an existing system is expensive.
 
 - Align your throttling limits with the component that saturates first.
 
@@ -66,7 +66,7 @@ You should consider the following points when deciding how to implement this pat
 
 - Decide who feels the limit. Throttling at a coarse boundary, like a regional gateway, can affect many unrelated users when only a few are causing the load.
 
-- Decide where the counter lives when the throttle spans multiple nodes. Local counters are fast but under count when the same caller hits multiple replicas. A centralized counter, stored in a shared dependency like Redis, sees all requests but adds latency to every decision. You can approximate a global rate by dividing the limit among replicas with periodic reconciliation.
+- Decide where the counter lives when the throttle spans multiple nodes. Local counters are fast but undercount when the same caller hits multiple replicas. A centralized counter, stored in a shared dependency like Redis, sees all requests but adds latency to every decision. You can approximate a global rate by dividing the limit among replicas with periodic reconciliation.
 
 - Throttling decisions must be performed quickly. The system must be capable to detect load increases, react, and revert to its original state once load eases. This requires continuous performance instrumentation.
 
