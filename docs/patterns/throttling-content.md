@@ -69,7 +69,7 @@ You should consider the following points when deciding how to implement this pat
 
 - Shed load proactively, not at the edge of collapse. A throttle that only rejects after a component is fully saturated lets latency spike before callers see any back-pressure. As utilization approaches the hard limit, start rejecting a growing fraction of requests; this gives callers earlier signals to back off and avoids the latency collapse that abrupt limits often trigger. Where you can distinguish request value, shed lower value or more retryable work first; see the [Priority Queue pattern](./priority-queue.yml).
 
-- If a service needs to deny a user request temporarily, it should return a specific error code like 429 ("Too many requests") and 503 ("Server Too Busy") so the client application can understand that the reason for the refusal to serve a request is due to throttling.
+- If a service needs to deny a user request temporarily, it should return a specific error code like 429 ("Too Many Requests") and 503 ("Service Unavailable") so the client application can understand that the reason for the refusal to serve a request is due to throttling.
 
   - HTTP 429 indicates the calling application sent too many requests in a time window and exceeded a predetermined limit.
   - HTTP 503 indicates the service isn't ready to handle the request. The common cause is that the service is experiencing more temporary load spikes than expected.
