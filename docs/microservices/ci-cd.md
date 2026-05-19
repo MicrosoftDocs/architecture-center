@@ -1,3 +1,15 @@
+---
+title: CI/CD for Microservices
+description: Learn about continuous integration and continuous delivery for microservices, including challenges and recommended approaches.
+author: fimdim
+ms.author: fimdimag
+ms.date: 05/22/2026
+ms.topic: concept-article
+ms.subservice: architecture-guide
+---
+
+# CI/CD for microservices
+
 Faster release cycles are one of the major advantages of microservices architectures. But without a reliable CI/CD process, you don't achieve the agility that microservices promise. This article describes the CI/CD challenges that are common in microservices architectures. It recommends approaches to build, validate, secure, and deploy services independently.
 
 ## What is CI/CD?

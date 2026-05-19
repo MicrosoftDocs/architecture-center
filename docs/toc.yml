@@ -40,7 +40,7 @@ items:
             href: guide/technology-choices/microservices-assessment.md
           - name: CI/CD for microservices
             displayName: continuous integration continuous delivery
-            href: microservices/ci-cd.yml
+            href: microservices/ci-cd.md
           - name: Domain modeling for microservices
             items:
             - name: Use domain analysis to model microservices
