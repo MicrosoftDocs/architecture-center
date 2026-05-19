@@ -922,7 +922,7 @@ Advanced deployment techniques, like [blue-green deployment](https://martinfowle
 
 Start by reviewing the cost optimization design checklist and list of recommendations outlined in [Well-Architected Framework for AKS](/azure/well-architected/service-guides/azure-kubernetes-service#cost-optimization). For general workload recommendations, see the [Design review checklist for Cost Optimization](/azure/well-architected/cost-optimization/checklist).
 
-You can find a cost estimate for the components used in this baseline architecture in the [Azure pricing calculator](https://azure.com/e/ea5647f88d244aa0be33d46cc36447b3). Modify your estimate to include the components required for your use case. This estimate covers spoke-level resources that are directly associated with the cluster. Shared hub infrastructure, such as Azure Firewall, hub virtual networks, and Azure Private DNS zones, isn't included because those resources are typically owned and managed by a central platform team in a landing zone model.
+You can find a cost estimate for the components used in this baseline architecture in the [Azure pricing calculator](https://azure.com/e/ea5647f88d244aa0be33d46cc36447b3). Modify your estimate to include the components required for your use case. This estimate covers spoke-level resources that are directly associated with the cluster. Shared hub infrastructure, such as Azure Firewall, hub virtual networks, and Azure Private DNS zones, isn't included because those resources are typically owned and managed by a central platform team.
 
 Consider using [AKS cost analysis](/azure/aks/cost-analysis) for granular cluster infrastructure cost allocation by Kubernetes-specific constructs.
 
