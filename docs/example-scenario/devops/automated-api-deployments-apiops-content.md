@@ -1,4 +1,4 @@
-APIOps is a methodology that applies the concepts of GitOps and [DevOps](https://learn.microsoft.com/devops/) to API deployment. Like DevOps, [APIOps](https://github.com/Azure/apiops) helps team members easily make changes and deploy them in an iterative and automated way. This architecture demonstrates how you can improve the entire API lifecycle and API quality by using APIOps.
+APIOps is a methodology that applies the concepts of GitOps and [DevOps](/devops) to API deployment. Like DevOps, [APIOps](https://github.com/Azure/apiops) helps team members easily make changes and deploy them in an iterative and automated way. This architecture demonstrates how you can improve the entire API lifecycle and API quality by using APIOps.
 
 ## Architecture
 
@@ -73,9 +73,9 @@ Set up repository permissions and consider the following security measures in Gi
 
 - **PR review:** Use branches, and protect the branches that represent the state of the API Management instances from directly pushed changes. Require that PRs have at least one reviewer.
 
-- **Immutable history:**: Only accept new commits on top of existing changes. Immutable history is especially important for auditing purposes.
+- **Immutable history:** Only accept new commits on top of existing changes. Immutable history is especially important for auditing purposes.
 
-- **Multifactor authentication:**: Require users to activate multifactor authentication.
+- **Multifactor authentication:** Require users to activate multifactor authentication.
 
 - **Signed commits:** Only accept signed commits that can't be altered later.
 
