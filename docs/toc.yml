@@ -1121,7 +1121,7 @@ items:
         href: example-scenario/wsus/index.yml
       - name: Use the Azure Governance Visualizer
         displayName: ALZ, Azure landing zone
-        href: landing-zones/azure-governance-visualizer-accelerator.yml
+        href: landing-zones/azure-governance-visualizer-accelerator.md
     - name: Architectures
       items:
       - name: Hybrid management
