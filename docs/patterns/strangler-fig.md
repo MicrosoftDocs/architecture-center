@@ -54,6 +54,8 @@ Consider the following points as you decide how to implement this pattern:
 
 - Make sure that the façade doesn't become a single point of failure or a performance bottleneck.
 
+- Plan for cross-system dependencies. During migration, the new system and the legacy system need to coexist and communicate. The new system might need to call unmigrated functionality that still resides in the legacy system, and unmigrated legacy components might need to call functionality that you already migrated to the new system. Use the [Anti-corruption Layer pattern](./anti-corruption-layer.yml) to handle these calls in both directions. An anti-corruption layer acts as an adapter that translates requests between the two systems. It protects the new system's design from legacy semantics and allows the legacy system to reach new services without significant code changes. Without this adapter, cross-system dependencies can break components or force the new system to adopt legacy conventions.
+
 ## When to use this pattern
 
 Use this pattern when:
@@ -65,6 +67,8 @@ Use this pattern when:
 This pattern might not be suitable when:
 
 - Requests to the back-end system can't be intercepted.
+
+- You don't have access to the legacy system's source code. This pattern requires you to modify the legacy system to disable migrated features and redirect internal calls. Without source code access, you can't make those changes.
 
 - You migrate a small system and replacing the whole system is simple.
 
