@@ -97,7 +97,7 @@ The system is likely to use other critical platform services that can cause the 
 Taking hard dependency on foundational services is inevitable because many Azure services depend on them. Expect disruption in the system if they are unavailable. For instance:
 
 - Azure Front Door uses Azure DNS to reach the backend and other global services.
-- Azure Container Registry uses Azure DNS to fail over requests to another region.
+- Azure Container Registry clients use Azure DNS to resolve the registry's global endpoint.
 
 In both cases, both Azure services will be affected if Azure DNS is unavailable. Name resolution for user requests from Front Door will fail; Docker images won't be pulled from the registry. Using an external DNS service as backup won't mitigate the risk because many Azure services don't allow such configuration and rely on internal DNS. Expect full outage.
 
