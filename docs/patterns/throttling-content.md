@@ -92,6 +92,8 @@ You should consider the following points when deciding how to implement this pat
 
 - Dynamic configuration change of throttling behavior at runtime is desirable. If a system faces an abnormal load that the applied configuration cannot handle, throttling limits might need to increase or decrease to stabilize the system and keep up with the current traffic. Expensive, risky, and slow deployments are not desirable at this point. Using the [External Configuration Store pattern](./external-configuration-store.md) throttling configuration is externalized and can be changed and applied without deployments.
 
+- Consider adaptive limits as an alternative to static ones. Some throttling SDKs react to latency or queue depth signals so the limit tracks actual component conditions. Always pair an adaptive limiter with a hard ceiling.
+
 - Revisit your limits as the workload evolves. Traffic patterns, dependency capacity, and operation costs change over time, so static limits drift out of correctness.
 
 ## When to use this pattern
