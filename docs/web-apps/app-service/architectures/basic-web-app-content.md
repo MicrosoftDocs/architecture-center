@@ -6,7 +6,7 @@ This article provides a basic architecture to help you learn about running web a
 ## Architecture
 
 :::image type="complex" source="../_images/basic-app-service-architecture-flow.svg" lightbox="../_images/basic-app-service-architecture-flow.svg" alt-text="Diagram that shows a basic App Service architecture." border="false":::
-    The diagram shows a user that issues an HTTPS request. An arrow points to a section that contains App Service built-in authentication, App Service, an App Service instance, and managed identity. An arrow points from this section to Azure SQL Database. The Identity section includes Microsoft Entra ID. The Monitoring section includes Application Insights and Azure Monitor with a health model.
+    The diagram shows a user that issues an HTTPS request. An arrow points to a section that contains App Service built-in authentication, App Service, an App Service instance, and managed identity. An arrow points from this section to Azure SQL Database. The identity section includes Microsoft Entra ID. The monitoring section includes Application Insights and Azure Monitor with a health model.
 :::image-end:::
 
 *Download a [Visio file](https://arch-center.azureedge.net/basic-app-service-architecture-flow.vsdx) of this architecture.*
@@ -165,7 +165,7 @@ During the POC phase, it's important to get an understanding of what logs and me
 
 - Use a [health model](/azure/well-architected/design-guides/health-modeling) that aggregates multiple correlated signals into health states. Send alerts based on state transitions across your architecture, not on isolated metric thresholds. [Azure Monitor health models](/azure/azure-monitor/health-models/overview) help you define, measure, and visualize workload health by correlating metrics, logs, and traces into actionable health states across Azure resources and components.
 
-  In this architecture, the health model should aggregate signals from the App Service and SQL Database resources and the application components deployed to App Service. It should evaluate availability and latency, database connectivity and query performance, authentication success rates, and relevant application-level signals. Each entity in the model emits a health state that dependency chains propagate and consolidate into a single top-level indicator of overall workload health.
+  In this architecture, the health model aggregates signals from the App Service and SQL Database resources and the application components deployed to App Service. It evaluates availability and latency, database connectivity and query performance, authentication success rates, and relevant application-level signals. Each entity in the model emits a health state that dependency chains propagate and consolidate into a single top-level indicator of overall workload health.
 
 #### Deployment
 
