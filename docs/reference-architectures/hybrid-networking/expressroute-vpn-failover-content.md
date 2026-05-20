@@ -257,7 +257,7 @@ Operational Excellence covers the operations processes that deploy an applicatio
 
 - Test failover from ExpressRoute to the VPN backup path at least quarterly. Regular testing prevents the VPN configuration from becoming stale and validates that routing, BGP sessions, and IPsec tunnels function correctly during an actual outage. For step-by-step validation and failover test procedures, see [Using S2S VPN as a backup for ExpressRoute private peering](/azure/expressroute/use-s2s-vpn-as-backup-for-expressroute-privatepeering).
 
-For site-to-site VPN DevOps considerations, see the [Configure a Hybrid Network Architecture with Azure and On-premises VPN](/azure/expressroute/use-s2s-vpn-as-backup-for-expressroute-privatepeering) guidance.
+For site-to-site VPN DevOps considerations, see the [Using S2S VPN as a backup for ExpressRoute private peering](/azure/expressroute/use-s2s-vpn-as-backup-for-expressroute-privatepeering) guidance.
 
 ### Performance Efficiency
 
