@@ -8,8 +8,8 @@ Use this approach when many agents need to handle open-ended client conversation
 
 ## Architecture
 
-:::image type="complex" border="false" source="../media/ai-agents-at-scale-architecture.svg" alt-text="Architecture diagram for dynamic AI agents at scale" lightbox="../media/ai-agents-at-scale-architecture.svg":::
-In step 1, a user connects to application gateways with web application firewall policies in the gateway subnet. The request path continues to a front-end IP address on a load balancer in the private subnet. The diagram includes a cluster subnet that includes an application cluster, a service namespace that contains an AI agent service and multiple agent factory pods, and an operations namespace with other service components. In step 2, the private subnet points to the AI agent service. Below, a private endpoint subnet contains private endpoints for Container Registry, AI Search, Foundry, Azure Managed Redis, Storage, Azure Cosmos DB, and Key Vault. Each of these services connects to corresponding resources: container registries, search services, Azure Managed Redis, Data Lake Storage, Azure Cosmos DB, and key vaults. In step 3, a bidirectional arrow connects an agent factory pod and the AI Search private endpoint. In step 4, an agent factory pod points to the Foundry private endpoint. In step 5, the Foundry private endpoint points to a Foundry section that includes Foundry agents, managed identities, and Azure OpenAI models. The diagram also shows supporting components  within the virtual network boundary, including DDoS Protection and private DNS, Microsoft Entra ID, Application Insights, and Azure Monitor. At the bottom, a firewall subnet contains Azure Firewall, which connects to external APIs, MCP servers, and the internet. In step 6, an agent factory pod points to the firewall subnet.
+:::image type="complex" border="false" source="../media/ai-agents-at-scale-architecture.svg" alt-text="Architecture diagram for dynamic AI agents at scale." lightbox="../media/ai-agents-at-scale-architecture.svg":::
+In step 1, a user connects to application gateways with web application firewall policies in the gateway subnet. The request path continues to a front-end IP address on a load balancer in the private subnet. The diagram includes a cluster subnet that includes an application cluster, a service namespace that contains an AI agent service and multiple agent factory pods, and an operations namespace with other service components. In step 2, the private subnet points to the AI agent service. Below, a private endpoint subnet contains private endpoints for Azure Container Registry, AI Search, Foundry, Azure Managed Redis, Azure Storage, Azure Cosmos DB, and Azure Key Vault. Each of these services connects to corresponding resources: container registries, search services, Azure Managed Redis, Azure Data Lake Storage, Azure Cosmos DB, and key vaults. In step 3, a bidirectional arrow connects an agent factory pod and the AI Search private endpoint. In step 4, an agent factory pod points to the Foundry private endpoint. In step 5, the Foundry private endpoint points to a Foundry section that includes Foundry agents, managed identities, and Azure OpenAI models. The diagram also shows supporting components within the virtual network boundary, including Azure DDoS Protection and private domain name system (DNS), Microsoft Entra ID, Application Insights, and Azure Monitor. At the bottom, a firewall subnet contains Azure Firewall, which connects to external APIs, Model Context Procotol (MCP) servers, and the internet. In step 6, an agent factory pod points to the firewall subnet.
 :::image-end:::
 
 *Download a [Visio file](https://arch-center.azureedge.net/ai-agents-at-scale-architecture.vsdx) of this architecture.*
@@ -32,11 +32,11 @@ The following workflow corresponds to the previous diagram:
 
 ## Components
 
-- [Foundry](/azure/foundry/what-is-foundry) is an end-to-end platform that helps you build, deploy, and manage AI applications. In this solution, it hosts Azure OpenAI models and provides a unified environment for agent development, model orchestration, and evaluation.
+- [Foundry](/azure/foundry/what-is-foundry) is an end-to-end platform that helps you build, deploy, and manage AI applications. In this architecture, it hosts Azure OpenAI models and provides a unified environment for agent development, model orchestration, and evaluation.
 
 - [AI Search](/azure/search/search-what-is-azure-search) is a cloud search service with built-in AI capabilities for vector search and semantic ranking. In this solution, it acts as the semantic cache that stores sample agent utterances and uses vector similarity to identify candidate agents for user queries.
 
-- [Azure OpenAI](/azure/ai-services/openai/overview) is a managed AI service that provides REST API access to OpenAI language models and embeddings. In this solution, agents use these models to process requests, generate responses, and select appropriate agents from shortlisted candidates.
+- [Azure OpenAI](/azure/foundry/foundry-models/concepts/models-sold-directly-by-azure) is a managed AI service that provides REST API access to OpenAI language models and embeddings. In this solution, agents use these models to process requests, generate responses, and select appropriate agents from shortlisted candidates.
 
 - [Azure Managed Redis](/azure/redis/overview) is a fully managed, in-memory data store based on Redis Enterprise that supports high-throughput and low-latency data access. In this solution, Azure Managed Redis stores conversation context and chat history to support multiturn interactions with minimal latency.
 
@@ -54,7 +54,7 @@ Use this solution to build and scale multiagent AI systems that can grow to hund
 
 ### Potential use cases
 
-**Virtual smart assistant ecosystems:** These ecosystems evolve rapidly as you add more agents to support users across operations. As you automate more devices and workflows, you need a structured mechanism to build and manage a large network of agents and to keep costs under control.
+**Virtual smart assistant ecosystems:** These ecosystems evolve rapidly as you add more agents to support users across operations. As you automate more devices and workflows, you need a structured mechanism to build and manage a large network of agents and to control costs.
 
 **Agentic AI ecosystems:** Use this solution for agentic AI ecosystems that have the following characteristics:
 
@@ -82,7 +82,7 @@ This solution depends on a well-constructed semantic cache that contains sample 
 
 #### Dynamic inclusion of agents
 
-Suppose your organization runs several domain-specific agents and you want to create a unified conversational AI that enables clients to interact with any of them without knowing which agent handles which task. A single conversation might engage multiple agents to address multi-intent requests. For example, the request "Help me book a conference room on the Yosemite floor, and notify parking services that I'll need five spots for a customer meeting on the 26th" engages both the ConferenceBookingAgent and the ParkingServiceAgent. When you have fewer than 20 agents or tools, a [function calling](/semantic-kernel/concepts/ai-services/chat-completion/function-calling/) pattern handles agent selection well. As the number of agents grows, choosing which agent or function to invoke becomes a major challenge.
+Suppose your organization runs several domain-specific agents and you want to create a unified conversational AI that enables clients to interact with any of them without knowing which agent handles which task. A single conversation might engage multiple agents to address multiple-intent requests. For example, the request "Help me book a conference room on the Yosemite floor, and notify parking services that I'll need five spots for a customer meeting on the 26th" engages both the `ConferenceBookingAgent` and the `ParkingServiceAgent`. When you have fewer than 20 agents or tools, a [function calling](/semantic-kernel/concepts/ai-services/chat-completion/function-calling/) pattern handles agent selection effectively. As the number of agents grows, choosing which agent or function to invoke becomes a major challenge.
 
 ### Cost optimization
 
@@ -134,7 +134,7 @@ The agent selection workflow proceeds through five stages. The user query enters
 
 1. The system removes duplicate agents by retaining only the highest similarity score for each agent based on matched utterances.
 
-1. If a single agent remains and its score exceeds the confidence threshold, the system selects that agent. Otherwise, the system includes the SupervisorAgent for further evaluation.
+1. If a single agent remains and its score exceeds the confidence threshold, the system selects that agent. Otherwise, the system includes the `SupervisorAgent` for further evaluation.
 
 1. The system incorporates agents from the previous conversation turn by using chat history.
 
@@ -166,7 +166,7 @@ To augment a request with prior context, store the relevant conversation history
 
 #### Adaptive orchestration: Direct agent invocation vs. orchestrator path
 
-The orchestration module coordinates agent interactions, but some scenarios don't need orchestration. If agent selection (using the semantic cache and vector similarity) returns a single agent whose confidence score exceeds a defined threshold, such as 85%, the system invokes that agent directly. This approach removes orchestration overhead, skips extra agent selection steps, and reduces the latency and token consumption of extra LLM calls.
+The orchestration module coordinates agent interactions, but some scenarios don't need orchestration. If agent selection uses the semantic cache and vector similarity to return a single agent whose confidence score exceeds a defined threshold, such as 85%, the system invokes that agent directly. This approach removes orchestration overhead, skips extra agent selection steps, and reduces the latency and token consumption of extra LLM calls.
 
 Use direct invocation for unambiguous, single-intent queries that have a high probability of successful agent resolution. For multi-intent or ambiguous queries, rely on the orchestrator layer to coordinate agents and reason across them.
 
@@ -249,7 +249,7 @@ The process begins with prevalidation, which includes checking agent name availa
 
 The life cycle covers three operations:
 
-- **Onboard a new agent.** First verify that the agent has a unique name, description, and sample utterances. After validation, the system creates a temporary semantic cache and runs semantic and response evaluations to confirm that the new agent doesn't degrade existing agents. If results meet the benchmarks, the system promotes the agent to production and updates the golden dataset (the ground truth for evaluations) to reflect the new capabilities.
+- **Onboard a new agent.** Verify that the agent has a unique name, description, and sample utterances. After validation, the system creates a temporary semantic cache and runs semantic and response evaluations to confirm that the new agent doesn't degrade existing agents. If results meet the benchmarks, the system promotes the agent to production and updates the golden dataset (the ground truth for evaluations) to reflect the new capabilities.
 
 - **Update an agent.** The same validation and regression checks apply to prevent selection drift. Update the golden dataset to keep evaluations aligned with real-world usage.
 
@@ -283,7 +283,7 @@ In step 1, the system loads evaluation data from a data catalog tool into an eva
 
 #### Pipeline flow
 
-1. **Load evaluation data from the data store:** Load the version-controlled golden dataset to be evaluated.
+1. **Evaluation data retrieval:** Load the version-controlled golden dataset to be evaluated.
 
 1. **Data transformation:** Prepare the datasets for agentic system inference.
 
@@ -441,9 +441,9 @@ Principal authors:
 - [Vikesh Bagel](https://www.linkedin.com/in/vikesh-singh-baghel-28601322/) | Principal Data Scientist
 - [Sushant Bhalla](https://www.linkedin.com/in/sushaanttb/) | Senior Software Engineer
 - [Munish Malhotra](https://www.linkedin.com/in/munish-malhotra) | Senior Software Engineer
-- [Vidhya Shankar Venkatesan](https://www.linkedin.com/in/vidhya-shankar/) | Principal Software Engineer
 - [Kshitij Sharma](https://www.linkedin.com/in/ikshitijsharma/) | Senior Software Engineer
 - [Brijraj Singh](https://www.linkedin.com/in/brijraajsingh/) | Principal Software Engineering Manager
+- [Vidhya Shankar Venkatesan](https://www.linkedin.com/in/vidhya-shankar/) | Principal Software Engineer
 
 *To see nonpublic LinkedIn profiles, sign in to LinkedIn.*
 
