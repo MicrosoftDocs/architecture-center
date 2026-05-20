@@ -26,6 +26,8 @@ The following diagram shows an architecture of an OLTP system that runs on a z/O
 
 1. In addition to transaction processing, other services provide authentication, security, management, monitoring, and reporting. These services interact with all other services in the system.
 
+### After migration
+
 The following diagram shows this same architecture after it's been migrated to Azure.
 
 :::image type="complex" source="media/ibm-zos-online-transaction-processing-on-azure.svg" alt-text="Diagram that shows an architecture to migrate a z/OS OLTP workload to Azure." lightbox="media/ibm-zos-online-transaction-processing-on-azure.svg" border="false":::
