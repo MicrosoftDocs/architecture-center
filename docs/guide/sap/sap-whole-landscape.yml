@@ -1,6 +1,6 @@
 ### YamlMime:Architecture
 metadata:
-  title: SAP landscape architecture
+  title: SAP Landscape Architecture
   description: Best practices and recommendations for architecting an entire SAP landscape on Azure. 
   author: msftrobiro
   ms.author: robiro
@@ -9,6 +9,7 @@ metadata:
   ms.topic: concept-article
   ms.subservice: architecture-guide
   ms.custom: arb-sap
+  ai-usage: ai-assisted
 azureCategories:
   - databases
   - compute
