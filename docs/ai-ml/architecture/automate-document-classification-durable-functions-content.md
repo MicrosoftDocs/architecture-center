@@ -6,7 +6,7 @@ This article describes an architecture that processes various documents. The arc
 The image is a flowchart that has multiple sections. The ingestion section contains an Azure web app. It connects via arrows to the document store section that contains Azure Blob Storage and the activation section that contains an Azure Service Bus queue. The Azure Functions orchestration section contains icons that represent analyze activity, metadata store activity, and embedding activity. Arrows point from these icons to the document processing, document metadata collection, and vectorize and index sections. The chat with your data section contains a Microsoft Foundry Agent Service prompt agent that uses an Azure AI Search tool to ground responses in the indexed content. The ingestion section points to the vectorize and index data section and the chat with your data section.
 :::image-end:::
 
-*Download a [Visio file](https://onedrive.cloud.microsoft/:u:/a@pj7nc657/r/_layouts/15/Doc.aspx?sourcedoc=%7B86590195-71a4-471d-b239-ebdc5ecacd00%7D&action=default&share=cQqVAVmGpHEdR7I569xeys0AEgUC8zlOF1B9gWOJD59AuLlExQ) of this architecture.*
+*Download a [Visio file](https://arch-center.azureedge.net/automate-document-classification-durable-functions.vsdx) of this architecture.*
 
 ### Workflow
 
