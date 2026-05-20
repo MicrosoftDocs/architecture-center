@@ -265,7 +265,7 @@ The framework uses the Azure AI Evaluation SDK to simplify experimentation and e
 
 To find code for the Foundry Evaluation Framework, see [Evaluation Framework repo](https://github.com/Azure-Samples/Agentic-Evaluations).
 
-##### Features
+#### Features
 
 - **Foundry SDK:** Framework integrated with the [Azure AI Evaluation SDK](https://pypi.org/project/azure-ai-evaluation/).
 
@@ -275,13 +275,13 @@ To find code for the Foundry Evaluation Framework, see [Evaluation Framework rep
 
 - **Customizable pipelines:** Beyond evaluations, the framework supports adding your own modules for data preprocessing, model inferencing, and reporting.
 
-##### Evaluation pipeline diagram
+#### Evaluation pipeline diagram
 
 :::image type="complex" border="false" source="../media/ai-agents-at-scale-evalframework-flow.svg" alt-text="Flow diagram that shows an evaluation pipeline for an agentic system that uses a data catalog tool and multiple evaluators." lightbox="../media/ai-agents-at-scale-evalframework-flow.svg":::
 In step 1, the system loads evaluation data from a data catalog tool into an evaluation dataset that contains sample inputs and outputs. In step 2, the dataset provides utterances and inputs to the agentic system. In step 3, the agentic system processes the inputs and produces an agent response that includes predicted output alongside expected or ground truth output. In step 4, the system passes the query, predicted output, and ground truth output to the evaluators. In step 5, the evaluators run by using both custom evaluators from a repository, such as function call, agent planner, multiturn, multi-intent, agent success, and agent selector evaluators, and built-in Foundry evaluators, such as retrieval, relevance, similarity, and content safety evaluators. In step 6, the system aggregates evaluation results into experiment results. In step 7, the results feed into Foundry, where reports and dashboards visualize evaluation metrics.
 :::image-end:::
 
-##### Pipeline flow
+#### Pipeline flow
 
 1. **Load evaluation data from the data store:** Load the version-controlled golden dataset to be evaluated.
 
@@ -297,7 +297,7 @@ In step 1, the system loads evaluation data from a data catalog tool into an eva
 
 1. **Reporting:** Push the evaluation report to Foundry and analyze it in the Foundry dashboard.
 
-##### Experimentation and evaluation of agentic systems
+#### Experimentation and evaluation of agentic systems
 
 :::image type="complex" border="false" source="../media/ai-agents-at-scale-experimentation-evaluation.svg" alt-text="Flow diagram that compares component-level evaluation during agent development with end-to-end evaluation during agent onboarding." lightbox="../media/ai-agents-at-scale-experimentation-evaluation.svg":::
 On the left, the component-level evaluation section shows a user utterance that flows into either a semantic cache or an individual agent, with an optional payload provided to each. Each component produces a response that's then evaluated independently. On the right, the end-to-end evaluation section shows a user utterance and optional payload that flows into an agentic system composed of multiple agents, which generates a single response that's evaluated as a complete system output.
@@ -320,7 +320,7 @@ This structured approach supports validation, benchmarking, and integration of a
 | Metric                               | Description                                                      |
 |--------------------------------------|------------------------------------------------------------------|
 | Agent invoke accuracy, recall        | Evaluates whether the right agent handled the message or task    |
-| Agent selection recall, precision    | Measures if the list of agents suggested by cache matches expected results |
+| Agent selection recall, precision    | Measures if the list of agents suggested by the cache matches expected results |
 
 #### Evaluation of agent response (Foundry)
 
