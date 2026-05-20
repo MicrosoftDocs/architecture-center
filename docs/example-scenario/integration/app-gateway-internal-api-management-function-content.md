@@ -111,7 +111,7 @@ For some additional recommendations on how to preserve data such as host headers
 
 Cost Optimization focuses on ways to reduce unnecessary expenses and improve operational efficiencies. For more information, see [Design review checklist for Cost Optimization](/azure/well-architected/cost-optimization/checklist).
 
-- This deployment uses the [Premium plan](https://azure.microsoft.com/pricing/details/functions/) to support availability zone and virtual network capabilities. If you don't require dedicated instances, you can also use [Flex Consumption](/azure/azure-functions/flex-consumption-plan), which supports both network access and availability zones. Review the [pricing calculator](https://azure.com/e/802ca3c87e13413580e49bab4a9f67ea) for this deployment.
+- This deployment uses the [Premium plan](https://azure.microsoft.com/pricing/details/functions/) to support availability zone and virtual network capabilities. If you don't require dedicated instances, you can also use [Flex Consumption](/azure/azure-functions/flex-consumption-plan), which supports both network access and availability zones. Review the [Azure pricing estimate](https://azure.com/e/802ca3c87e13413580e49bab4a9f67ea) for this deployment.
 
 - For proof of concepts or prototypes, we recommend that you use other API Management tiers, such as Developer or Standard.
 
