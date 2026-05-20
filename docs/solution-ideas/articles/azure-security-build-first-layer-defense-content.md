@@ -64,7 +64,7 @@ The numbers in the ATT&CK matrix correspond to technique numbers assigned by [MI
 
 - [Network security group (NSG)](/azure/virtual-network/network-security-groups-overview) is a free service that you attach to a network interface or subnet. An NSG allows you to filter TCP or UDP protocol traffic by using IP address ranges and ports for inbound and outbound connections.
 
-- [Azure VPN Gateway](/azure/vpn-gateway/vpn-gateway-about-vpngateways) is virtual private network (VPN) gateway that provides a tunnel with IPSEC (IKE v1/v2) protection.
+- [Azure VPN Gateway](/azure/vpn-gateway/vpn-gateway-about-vpngateways) is a virtual private network (VPN) gateway that provides a tunnel with IPSEC (IKE v1/v2) protection.
 
 - [Azure Firewall](/azure/well-architected/service-guides/azure-firewall) is a platform as a service (PaaS) that provides protection in layer 4 and is attached to an entire virtual network.
 
@@ -90,7 +90,7 @@ The numbers in the ATT&CK matrix correspond to technique numbers assigned by [MI
 
 - [Azure Front Door](/azure/well-architected/service-guides/azure-front-door) is a content delivery network (CDN). It combines multiple points of presence to deliver a better connection for users who access the service. It also adds Azure Web Application Firewall.
 
-- [API Management](/azure/well-architected/service-guides/azure-api-management) is service that provides security for API calls and manages APIs across environments.
+- [API Management](/azure/well-architected/service-guides/azure-api-management) is a service that provides security for API calls and manages APIs across environments.
 
 - [Penetration testing](/azure/security/fundamentals/pen-testing) is a set of best practices for running penetration tests in your environment, including Azure resources.
 
@@ -165,6 +165,8 @@ Other contributors:
 - [Gary Moore](https://www.linkedin.com/in/gwmoore/) | Programmer/Writer
 - [Filipe Moreira](https://www.linkedin.com/in/filipefumaux/) | Cloud Solution Architect
 - [Andrew Nathan](https://www.linkedin.com/in/andrew-nathan/) | Senior Customer Engineering Manager
+
+*To see nonpublic LinkedIn profiles, sign in to LinkedIn.*
 
 ## Next steps
 
