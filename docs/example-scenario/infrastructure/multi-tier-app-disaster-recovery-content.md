@@ -109,7 +109,7 @@ Using Site Recovery for DR in Azure VMs incurs the following ongoing charges:
 
 - Storage on the recovery site. Recovery site storage typically matches source region storage plus extra storage for recovery point snapshots.
 
-Use this [sample cost calculator][calculator] to estimate DR costs for a three-tier application that uses six VMs. The calculator includes preconfigured services. Change the variables to see pricing for your use case.
+Use this [Azure pricing estimate][estimate] to estimate DR costs for a three-tier application that uses six VMs. The estimate includes preconfigured services. Change the variables to see pricing for your use case.
 
 ### Performance Efficiency
 
@@ -147,7 +147,7 @@ Principal author:
 [docs-traffic-manager]: /azure/well-architected/service-guides/azure-traffic-manager
 [docs-azure-site-recovery]: /azure/site-recovery/site-recovery-overview
 [docs-availability-sets]: /azure/virtual-machines/availability-set-overview
-[calculator]: https://azure.com/e/6835332265044d6d931d68c917979e6d
+[estimate]: https://azure.com/e/6835332265044d6d931d68c917979e6d
 [Multiregion-load-balancing]: /azure/architecture/high-availability/traffic-manager-application-gateway
 [Set-up-disaster-recovery-for-Azure-VMs]: /azure/site-recovery/azure-to-azure-tutorial-enable-replication
 [Deploy-Traffic-Manager-in-Azure]: /azure/traffic-manager/quickstart-create-traffic-manager-profile
