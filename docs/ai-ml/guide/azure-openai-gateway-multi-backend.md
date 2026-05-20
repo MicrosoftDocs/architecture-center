@@ -3,7 +3,7 @@ title: Use a Gateway in Front of Multiple Azure OpenAI Deployments or Instances
 description: Learn how to add a gateway in front of multiple Azure OpenAI model deployments or instances.
 author: claytonsiemens77
 ms.author: pnp
-ms.date: 05/06/2026
+ms.date: 05/20/2026
 ms.topic: concept-article
 ms.subservice: architecture-guide
 ms.custom: arb-aiml
