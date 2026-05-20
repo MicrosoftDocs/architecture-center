@@ -1,4 +1,17 @@
+---
+title: Inbound and Outbound Internet Connections for SAP on Azure
+description: Learn proven practices for enabling improved-security inbound and outbound internet connections for your SAP on Azure infrastructure.
+author: msftrobiro
+ms.author: robiro
+ms.date: 03/03/2026
+ms.topic: concept-article
+ms.subservice: architecture-guide
+ai-usage: ai-assisted
+---
+
 <!-- cSpell:ignore saprouter linky -->
+
+# Inbound and outbound internet connections for SAP on Azure
 
 This article provides a set of proven practices for improving the security of inbound and outbound internet connections for your SAP on Azure infrastructure.
 
