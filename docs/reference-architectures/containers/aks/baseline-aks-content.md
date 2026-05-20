@@ -978,29 +978,6 @@ Follow the recommendations from [Azure Advisor](https://portal.azure.com/#blade/
 
 For more information, see [AKS pricing](https://azure.microsoft.com/pricing/details/kubernetes-service/).
 
-## Alternatives
-
-### AKS cluster mode
-
-AKS offers two cluster modes: [AKS Standard](/azure/aks/standard-aks) and [AKS Automatic](/azure/aks/intro-aks-automatic). The mode determines how much cluster-level configuration the workload team owns versus how much the AKS service manages on their behalf. The platform team should make this decision based on the workload's infrastructure requirements and the workload team's operational capacity.
-
-**Current approach:** This architecture uses AKS Standard, which gives the workload team explicit control over cluster-level decisions such as the network model, ingress and egress paths, node pool configuration, upgrade cadence, and policy posture. The platform team selects AKS Standard when the workload's requirements conflict with AKS Automatic's preconfigured features.
-
-**Alternative approach:** AKS Automatic preconfigures many of those cluster-level decisions. Node provisioning, the upgrade lifecycle, the authorization model, and security policies are set by the service and can't be changed. Other capabilities such as networking, ingress, and egress have service-managed defaults but also support optional alternatives such as custom virtual networks or bring-your-own ingress controllers.
-
-The platform team should consider AKS Automatic when the following conditions apply:
-
-- The workload team benefits from the service managing node provisioning and scaling rather than defining node pools, VM SKUs, and scaling rules directly. Node Autoprovisioning is preconfigured and can't be disabled.
-- The workload runs exclusively on Linux containers. Azure Linux is the only supported node operating system.
-- Automatic cluster upgrades align with the workload's change management process. Manual Kubernetes version upgrades aren't available.
-- Azure RBAC for Kubernetes authorization satisfies the workload's access control requirements. Local accounts and Kubernetes RBAC with Microsoft Entra integration aren't available.
-- The workload doesn't require long-term support (LTS) for Kubernetes versions. AKS Automatic uses the Standard tier, which doesn't include the Premium tier's LTS option.
-- Preconfigured deployment safeguards, image cleaner, and workload identity are compatible with the workload's security and compliance posture. These features are always enabled.
-
-AKS Automatic is a viable production mode. If the workload aligns with its preconfigured features, it reduces the operational scope that the workload team carries. If the workload later requires configuration beyond what AKS Automatic exposes, you can [convert the cluster to AKS Standard](/azure/aks/intro-aks-automatic#scalability).
-
-For a detailed comparison of what each mode configures, see [AKS Automatic and AKS Standard comparison](/azure/aks/intro-aks-automatic#comparison-between-aks-automatic-and-aks-standard).
-
 ## Next steps
 
 - [AKS roadmap on GitHub](https://github.com/orgs/Azure/projects/685)
