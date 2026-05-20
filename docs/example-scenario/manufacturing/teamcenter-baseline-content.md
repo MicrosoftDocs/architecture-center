@@ -168,7 +168,7 @@ Cost Optimization is about looking at ways to reduce unnecessary expenses and im
 |Database servers |[Standard E32-16ds_v4](/azure/virtual-machines/constrained-vcpu)|
 |Pool manager for 4T and AWC| [Dv4](/azure/virtual-machines/dv4-dsv4-series) and [Ev4](/azure/virtual-machines/ev4-esv4-series)|
 
-**Use the Azure calculator.** The Azure calculator can help you estimate and optimize cost. For an estimated cost of the baseline architecture, see [Azure pricing estimate](https://azure.com/e/625cea91d4aa43bca73e0a8235817ba7). Your estimates might differ based on your Azure Teamcenter implementation.
+**Use the Azure calculator.** The Azure calculator can help you estimate and optimize cost. For an estimated cost of the baseline architecture, see [Azure pricing estimate](https://azure.com/e/f832a334f77c4418b2ad17a196e66f34). Your estimates might differ based on your Azure Teamcenter implementation.
 
 ### Performance Efficiency
 
