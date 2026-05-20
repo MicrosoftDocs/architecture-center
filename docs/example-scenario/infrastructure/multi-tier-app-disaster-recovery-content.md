@@ -147,7 +147,7 @@ Principal author:
 [docs-traffic-manager]: /azure/well-architected/service-guides/azure-traffic-manager
 [docs-azure-site-recovery]: /azure/site-recovery/site-recovery-overview
 [docs-availability-sets]: /azure/virtual-machines/availability-set-overview
-[estimate]: https://azure.com/e/6835332265044d6d931d68c917979e6d
+[estimate]: https://azure.com/e/4686abd6d5624ed8844e6ac10852bb1e
 [Multiregion-load-balancing]: /azure/architecture/high-availability/traffic-manager-application-gateway
 [Set-up-disaster-recovery-for-Azure-VMs]: /azure/site-recovery/azure-to-azure-tutorial-enable-replication
 [Deploy-Traffic-Manager-in-Azure]: /azure/traffic-manager/quickstart-create-traffic-manager-profile
