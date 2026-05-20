@@ -74,8 +74,6 @@ The numbers in the ATT&CK matrix correspond to technique numbers assigned by [MI
 
 - [Azure DDoS Protection](/azure/ddos-protection/ddos-protection-overview) implements DDoS protection on the virtual network to help you mitigate various types of DDoS attacks.
 
-- [TLS/SSL](/azure/application-gateway/application-gateway-end-to-end-ssl-powershell) provides encryption in transit for most Azure services that exchange information, such as Azure Storage and Web Apps.
-
 - [Private Link](/azure/private-link/private-link-overview) enables you to create a private network for an Azure service that's initially exposed to the internet.
 
 - [Azure Bastion](/azure/bastion/bastion-overview) provides jump server functionality. You can use this service to access your VMs through remote desktop protocol (RDP) or SSH without exposing them to the internet.
@@ -84,21 +82,15 @@ The numbers in the ATT&CK matrix correspond to technique numbers assigned by [MI
 
 - [Encryption at host](/azure/virtual-machines/disk-encryption#encryption-at-host---end-to-end-encryption-for-your-vm-data) is an optional enhancement to Azure managed disks that provides end-to-end encryption for VM data, including temporary disks and disk caches, for supported VM sizes. Azure managed disks are encrypted at rest by default with server-side encryption (SSE).
 
-- [Encryption at rest](/azure/storage/common/storage-service-encryption) protects the storage account.  
-
 - [Key Vault](/azure/key-vault/general/overview) is a service for storing keys, secrets, and certificates with FIPS 140-2 Level 2 or 3.
 
 - [Azure Front Door](/azure/well-architected/service-guides/azure-front-door) is a content delivery network (CDN). It combines multiple points of presence to deliver a better connection for users who access the service. It also adds Azure Web Application Firewall.
 
 - [API Management](/azure/well-architected/service-guides/azure-api-management) is a service that provides security for API calls and manages APIs across environments.
 
-- [Penetration testing](/azure/security/fundamentals/pen-testing) is a set of best practices for running penetration tests in your environment, including Azure resources.
-
 - [Azure RBAC](/azure/role-based-access-control/overview) helps you manage access to Azure services by using granular permissions that are based on users' Microsoft Entra credentials.
 
 - [Microsoft Entra multifactor authentication](/entra/identity/authentication/concept-mfa-howitworks) provides other types of authentication beyond user names and passwords.
-
-- [Microsoft Entra ID Protection](/entra/id-protection/overview-identity-protection) analyzes trillions of signals per day to identify and protect users from threats.
 
 - [Privileged Identity Management (PIM)](/entra/id-governance/privileged-identity-management/pim-configure) helps you to provide superuser privileges temporarily for Microsoft Entra ID (for example, User Administrator) and Azure subscriptions (for example, Role Based Access Control Administrator or Key Vault Administrator).
 
