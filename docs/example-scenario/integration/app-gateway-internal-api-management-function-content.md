@@ -26,7 +26,7 @@ This architecture assumes that the policies are in place from the [Azure landing
 
 ### Components
 
-- [API Management](/azure/well-architected/service-guides/api-management/reliability) is a managed service that allows you to manage services across hybrid and multicloud environments. It provides control and security for API observability and consumption by both internal and external users. In this architecture, API Management serves as a facade to abstract the back-end architecture.
+- [API Management](/azure/well-architected/service-guides/azure-api-management) is a managed service that allows you to manage services across hybrid and multicloud environments. It provides control and security for API observability and consumption by both internal and external users. In this architecture, API Management serves as a facade to abstract the back-end architecture.
 
 - [Application Gateway](/azure/well-architected/service-guides/azure-application-gateway) is a managed service that serves as a layer-7 load balancer and [WAF](/azure/web-application-firewall/ag/ag-overview). Application Gateway protects the internal API Management instance, which enables the use of both internal and external modes. In this architecture, API Management secures APIs, and Application Gateway adds complementary capabilities such as WAF.
 
@@ -42,7 +42,7 @@ This architecture assumes that the policies are in place from the [Azure landing
 
 For the back-end services that the API Management instance connects to, several alternatives are available:
 
-- [Azure App Service](/azure/app-service/overview) is a fully managed HTTP-based service that builds, deploys, and scales web apps. It supports .NET, .NET Core, Java, Ruby, Node.js, PHP, and Python. Applications can run and scale in either Windows or Linux-based environments.
+- [Azure App Service](/azure/app-service/overview) is a fully managed HTTP-based service that builds, deploys, and scales web apps. It supports .NET, Java, Ruby, Node.js, PHP, and Python. Applications can run and scale in either Windows or Linux-based environments.
 
 - [Azure Kubernetes Service (AKS)](/azure/aks/intro-kubernetes) is a managed Kubernetes offering that delivers fully managed clusters. It enables integrated continuous integration and continuous delivery (CI/CD), along with built-in governance and security.
 

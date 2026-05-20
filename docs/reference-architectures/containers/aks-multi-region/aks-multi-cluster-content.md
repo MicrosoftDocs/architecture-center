@@ -35,7 +35,7 @@ You can also optionally use a fleet for workload deployment coordination, which 
 
 This architecture uses two cloud design patterns:
 - [Geodes (geographical nodes)](../../../patterns/geodes.yml), where any region can service any request.
-- [Deployment Stamps](../../../patterns/deployment-stamp.yml), where multiple independent copies of an application or application component are deployed from a single source, such as a deployment template.
+- [Deployment Stamps](../../../patterns/deployment-stamp.md), where multiple independent copies of an application or application component are deployed from a single source, such as a deployment template.
 
 ### Geode pattern considerations
 
@@ -218,7 +218,7 @@ Azure Container Registry is used in this architecture to provide container image
 
 ##### Geographic availability
 
-Position a container registry in each region in which an AKS cluster is deployed. This approach allows for low-latency network operations, enabling fast, reliable image layer transfers. It also means that you have multiple image service endpoints to provide availability when regional services are unavailable. Using Azure Container Registry's geo-replication functionality allows you to manage one container registry that's automatically replicated to multiple regions.
+Position a container registry in each region in which an AKS cluster is deployed. This approach allows for low-latency network operations, enabling fast, reliable image layer transfers. If a regional replica becomes degraded, Container Registry's failover automatically reroutes pulls to a healthy replica through its global endpoint (`<registry>.azurecr.io`), without requiring AKS-side or DNS configuration changes. Using Azure Container Registry's geo-replication functionality allows you to manage one container registry that's automatically replicated to multiple regions.
 
 Consider creating a single registry, with replicas into each Azure region that contains clusters. For more information on Azure Container Registry replication, see [Geo-replication in Azure Container Registry](/azure/container-registry/container-registry-geo-replication).
 

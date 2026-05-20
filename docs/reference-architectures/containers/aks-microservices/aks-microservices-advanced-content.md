@@ -62,7 +62,7 @@ The following workflow corresponds to the previous diagram:
 
 - [Application Gateway](/azure/well-architected/service-guides/azure-application-gateway) is an Azure-managed service that provides layer-7 load balancing and web application firewall (WAF) capabilities. In this architecture, it exposes the ingestion microservice as a public endpoint and balances incoming web traffic to the application.
 
-- [Azure Firewall](/azure/well-architected/service-guides/azure-firewall) is an Azure-managed service that delivers intelligent, cloud-native network security and threat protection. In this architecture, it controls outbound communications from microservices to external resources, which allows only approved FQDNs as egress traffic.
+- [Azure Firewall](/azure/well-architected/service-guides/azure-firewall) is an Azure-managed service that delivers intelligent, cloud-native network security and threat protection. In this architecture, it controls outbound communications from microservices to external resources, allowing only approved FQDNs as egress traffic. The firewall also performs source network address translation (SNAT) on egress flows, so its public IP addresses become the cluster's egress identity for partner allowlists.
 
 - [Azure Private Link](/azure/private-link/private-link-overview) is an Azure-managed service that enables private connectivity to Azure platform as a service (PaaS) offerings via the Microsoft backbone network. In this architecture, it assigns private IP addresses to access Azure Container Registry and Azure Key Vault from AKS node pools through private endpoints.
 
@@ -82,7 +82,7 @@ The following workflow corresponds to the previous diagram:
 
   Container Network Observability for Advanced Container Networking Services uses Hubble for flow visibility and Retina for curated network telemetry. These tools integrate with managed observability back ends, like Azure Monitor managed service for Prometheus and Azure Managed Grafana, for troubleshooting and service-level objective (SLO) reporting.
 
-- [Service Bus](/azure/well-architected/service-guides/service-bus/reliability) is an Azure-managed messaging service that supports reliable and asynchronous communication between distributed applications. In this architecture, Service Bus serves as the queueing layer between the ingestion and workflow microservices, which enables decoupled and scalable message exchange.
+- [Service Bus](/azure/well-architected/service-guides/azure-service-bus) is an Azure-managed messaging service that supports reliable and asynchronous communication between distributed applications. In this architecture, Service Bus serves as the queueing layer between the ingestion and workflow microservices, which enables decoupled and scalable message exchange.
 
 #### Other operations support system components
 
@@ -377,7 +377,7 @@ Cost Optimization focuses on ways to reduce unnecessary expenses and improve ope
 
 - The [Cost Optimization section in the Well-Architected Framework](/azure/architecture/framework/cost/overview) describes cost considerations.
 
-- Use the [Azure pricing calculator](https://azure.com/e/149812331b124489ad0ae69e1ad3b118) to estimate costs for your specific scenario.
+- Use this [Azure pricing estimate](https://azure.com/e/3be2cec9c8be4c14803daa916f5b2dc9) to estimate costs for your specific scenario. The estimate doesn't include shared hub infrastructure costs such as Azure Firewall, Azure Bastion, or the hub virtual network, which are typically managed by a platform team and shared across multiple workloads.
 
 - In the Free tier, AKS has no costs associated with deployment, management, and operations of the Kubernetes cluster. You only pay for the VM instances, storage, and networking resources that the cluster consumes. Cluster autoscaling can significantly reduce the cost of the cluster by removing empty or unused nodes.
 

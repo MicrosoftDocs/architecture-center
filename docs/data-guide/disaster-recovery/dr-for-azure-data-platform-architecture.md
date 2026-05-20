@@ -253,7 +253,8 @@ The following tables present a breakdown of each Azure service and component use
     - Notes:
         - GRS is recommended to uplift redundancy, providing a copy of the data in the paired region.
 
-- **Azure Database for PostgreSQL flexible server**
+- **Azure Database for PostgreSQL**
+
     - Component recovery responsibility: Microsoft
     - Workload/configuration recovery responsibility: Contoso
     - Contoso SKU selection: Standard
@@ -506,6 +507,10 @@ This section contains high availability (HA) and DR guidance for other key Azure
 - **Azure Stream Analytics:** Stream Analytics is a fully managed platform as a service (PaaS) offering, but it doesn't provide automatic geo-failover. Achieve [geo-redundancy](/azure/stream-analytics/geo-redundancy) by deploying identical Stream Analytics jobs in multiple Azure regions.
 
 - **Data Share:** Enhance resiliency by [deploying Data Share resources in a secondary region](/azure/data-share/disaster-recovery#achieving-business-continuity-for-azure-data-share).
+
+## Example costs for the architecture
+
+Use this [Azure pricing estimate](https://azure.com/e/6fc35607474b4deba3ffb16c478963f6) as a starting point to estimate the costs for your scenario. The estimate focuses on the Microsoft Fabric capacity units used in the architecture as described in this article series.
 
 ## Next steps
 

@@ -315,15 +315,13 @@ In this reference implementation, [Microsoft Entra Workload ID on AKS](/azure/ak
 
 ## Select a networking model
 
-[!INCLUDE [kubenet retirement](~/reusable-content/ce-skilling/azure/includes/aks/includes/preview/retirement/kubenet-retirement-callout.md)]
+AKS provides Container Networking Interface (CNI) plugins in two networking models: **overlay** and **flat**. Both models support network policies for in-cluster traffic control.
 
-AKS supports multiple networking models, including kubenet, CNI, and Azure CNI Overlay. The CNI models are the more advanced models, and provide high performance. When they communicate between pods, the performance of CNI is similar to the performance of VMs in a virtual network. CNI also provides enhanced security control because it enables the use of Azure network policy. We recommend a CNI-based networking model.
+With a flat networking plugin, such as Azure CNI Pod Subnet, every pod gets an IP address from the virtual network subnet. Resources in the same network or peered networks can access pods directly by their IP address without network address translation (NAT). Use a flat networking model when your workload requires pods to be directly routable from the virtual network.
 
-In the nonoverlay CNI model, every pod gets an IP address from the subnet address space. Resources within the same network (or peered resources) can access the pods directly through their IP address. Network address translation (NAT) isn't needed to route that traffic.
+This reference implementation uses Azure CNI Overlay, which is an overlay networking plugin. It allocates virtual network IP addresses only to nodes and assigns pod IPs from a separate CIDR range. Because Azure CNI Overlay consumes far fewer virtual network IP addresses than flat models, we recommend it for most deployments.
 
-In this reference implementation, we use Azure CNI Overlay. It only allocates IP addresses from the node pool subnet for the nodes and uses an optimized overlay layer for pod IPs. Because Azure CNI Overlay uses fewer virtual network IP addresses than many other approaches, we recommend it for IP address-constrained deployments.
-
-For more information about the models, see [Configure Azure CNI Overlay networking in AKS](/azure/aks/azure-cni-overlay#choosing-a-network-model-to-use) and [Best practices for network connectivity and security in AKS](/azure/aks/operator-best-practices-network#choose-the-appropriate-network-model).
+For more information about the models, see [AKS CNI networking overview](/azure/aks/concepts-network-cni-overview) and [Best practices for network connectivity and security in AKS](/azure/aks/operator-best-practices-network#choose-the-appropriate-network-model).
 
 ## Deploy ingress resources
 
@@ -451,9 +449,11 @@ An exception to the Zero Trust control is when the cluster needs to communicate 
 
 The advantage of using Private Link is that specific subnets reach the service directly, and the traffic between the cluster and the services doesn't go over the internet. A downside is that Private Link needs extra configuration instead of using the target service over its public endpoint. Also, not all Azure services or products support Private Link. For those cases, consider enabling a [virtual network service endpoint](/azure/virtual-network/virtual-network-service-endpoints-overview) on the subnet to access the service.
 
-If Private Link or service endpoints aren't an option, you can reach other services through their public endpoints and control access through Azure Firewall rules and the firewall built into the target service. Because this traffic goes through the static IP addresses of the firewall, you can add those addresses to the service's IP allow list.
+For Container Registry specifically, use [dedicated data endpoints](/azure/container-registry/container-registry-dedicated-data-endpoints). Without them, image-layer downloads redirect to a `*.blob.core.windows.net` endpoint rather than the registry's private endpoint and your egress firewall rules would need to allow a dangerous Blob storage wildcard. This rule would permit node egress to *any* Azure Storage account. Dedicated data endpoints replace the wildcard with registry-specific FQDNs (`<registry>.<region>.data.azurecr.io`) that resolve through Private Link to your private endpoint, keeping image-layer traffic on the private path and letting you scope egress rules to your cluster's registry.
 
-One downside of connecting to Azure services through public endpoints is that Azure Firewall then needs more rules to make sure it allows only traffic from a specific subnet. Factor in those addresses when you plan to use multiple IP addresses for egress traffic with Azure Firewall. Otherwise, you could reach port exhaustion. For more information about how to plan for multiple IP addresses, see [Create an Azure Firewall with multiple IP addresses](/azure/firewall/quick-create-multiple-ip-bicep).
+If Private Link or service endpoints aren't an option, you can reach other services through their public endpoints and control access through Azure Firewall rules and the firewall built into the target service. The firewall applies source network address translation (SNAT) to egress flows, replacing the pod IP with one of its attached public IP addresses per flow, and the selection isn't deterministic. Add the entire set of attached public IPs to the target service's IP allowlist, or use a [public IP address prefix](/azure/virtual-network/ip-services/public-ip-address-prefix) to express that set as a contiguous range.
+
+One downside of connecting to Azure services through public endpoints is that Azure Firewall then needs more rules to make sure it allows only traffic from a specific subnet. The number of attached public IPs also caps the SNAT port pool and therefore the cluster's concurrent outbound connection ceiling. Plan for [multiple IP addresses on Azure Firewall](/azure/firewall/quick-create-multiple-ip-bicep) before you reach port exhaustion. For clusters that open large numbers of concurrent outbound connections, [attach an Azure NAT Gateway to the `AzureFirewallSubnet`](/azure/nat-gateway/tutorial-hub-spoke-nat-firewall) to significantly expand the SNAT port pool while keeping all egress traffic under firewall inspection.
 
 ### Pod-to-pod traffic
 
@@ -480,7 +480,7 @@ In the reference implementation, we use Azure Bastion to tunnel to the AKS API s
 
 - **Operators use insecure devices.** A jump-box VM can provide stronger security hardening if your client devices aren't trusted.
 - **Operators connect through unstable networks.** A jump-box VM can provide a more stable connection to the cluster, especially for long-running or batch management operations.
-- **Operators use advanced diagnostic tooling.** Some types of diagnostic tooling, like packet capture, might not work well with tunnelling approahces.
+- **Operators use advanced diagnostic tooling.** Some types of diagnostic tooling, like packet capture, might not work well with tunnelling approaches.
 
 ## Add secret management
 
@@ -640,7 +640,7 @@ Ideally, if a failure occurs in the primary region, you can quickly switch to an
 
 - Integrate the recovery strategy, like replicating to another region, as part of the DevOps pipeline to meet your SLO.
 
-- Set up each Azure service by using features that support disaster recovery. For example, in this architecture, Container Registry is enabled for geo-replication. If a region fails, you can still pull images from the replicated region.
+- Set up each Azure service by using features that support disaster recovery. For example, in this architecture, Container Registry is enabled for geo-replication. If a region fails, ACR's health-aware failover automatically reroutes pulls to a healthy replica through the global endpoint without requiring a change to your cluster's configuration.
 
 - Deploy your infrastructure as code, including your AKS cluster and any other components you need. If you need to deploy into another region, you can reuse the scripts or templates to create an identical instance.
 
@@ -895,7 +895,7 @@ You can also set policies that govern how the changes are deployed.
 The following example diagram shows how to automate cluster configuration with GitOps and Flux.
 
 :::image type="complex" border="false" source="images/gitops-flow.svg" alt-text="Diagram that shows the GitOps flow." lightbox="images/gitops-flow.svg":::
-  The diagram illustrates the GitOps workflow with four numbered steps from left to right. At the far left, a developer icon with a laptop appears as Step 1, where the user pushes IaC changes to a Git repository. Step 2 shows the Git repository connecting via an arrow labeled git clone --mirror to a Flux icon inside the AKS cluster boundary. Step 3 shows an arrow labeled kubectl apply that points from from the Flux icon to the Kubernetes API server icon within the cluster. Step 4 displays a red circle with a diagonal line between the developer and the Kubernetes API server with a crossed‑out kubectl label.
+  The diagram illustrates the GitOps workflow with four numbered steps from left to right. At the far left, a developer icon with a laptop appears as Step 1, where the user pushes IaC changes to a Git repository. Step 2 shows the Git repository connecting via an arrow labeled git clone --mirror to a Flux icon inside the AKS cluster boundary. Step 3 shows an arrow labeled kubectl apply that points from the Flux icon to the Kubernetes API server icon within the cluster. Step 4 displays a red circle with a diagonal line between the developer and the Kubernetes API server with a crossed‑out kubectl label.
 :::image-end:::
 
 *Download a [Visio file](https://arch-center.azureedge.net/secure-baseline-aks-gitops-flow.vsdx) of this architecture.*
@@ -924,7 +924,7 @@ Advanced deployment techniques, like [blue-green deployment](https://martinfowle
 
 Start by reviewing the cost optimization design checklist and list of recommendations outlined in [Well-Architected Framework for AKS](/azure/well-architected/service-guides/azure-kubernetes-service#cost-optimization). For general workload recommendations, see the [Design review checklist for Cost Optimization](/azure/well-architected/cost-optimization/checklist).
 
-You can find a cost estimate for the components used in this baseline architecture in the [Azure pricing calculator](https://azure.com/e/16fc0fecb81e49ddadc91f2a0d0ecffc). Modify your estimate to include the components required for your use case.
+You can find a cost estimate for the components used in this baseline architecture in the [Azure pricing calculator](https://azure.com/e/ea5647f88d244aa0be33d46cc36447b3). Modify your estimate to include the components required for your use case. This estimate covers spoke-level resources that are directly associated with the cluster. Shared hub infrastructure, such as Azure Firewall, hub virtual networks, and Azure Private DNS zones, isn't included because those resources are typically owned and managed by a central platform team.
 
 Consider using [AKS cost analysis](/azure/aks/cost-analysis) for granular cluster infrastructure cost allocation by Kubernetes-specific constructs.
 
@@ -970,7 +970,7 @@ Follow the recommendations from [Azure Advisor](https://portal.azure.com/#blade/
 - Enable the cluster autoscaler to detect and remove underused nodes in the node pool.
 
   > [!IMPORTANT]
-  > Making rapid or frequent changes to cluster autoscaler settings, like the minimum and maximum node counts for a node pool, to control costs might lead to unintended or counterproductive outcomes. For example, if `scale-down-unneeded-time` is set to 10 minutes, and the minimum and maximum node settings are modified every five minutes based on workload characteristics, the number of nodes never reduces. It's because the calculation of the unneeded time for each node resets when the cluster autoscaler settings are refreshed.
+  > Making rapid or frequent changes to cluster autoscaler settings, like the minimum and maximum node counts for a node pool, to control costs might lead to unintended or counterproductive outcomes. For example, if `scale-down-unneeded-time` is set to 10 minutes, and the minimum and maximum node settings are modified every 5 minutes based on workload characteristics, the number of nodes never reduces. It's because the calculation of the unneeded time for each node resets when the cluster autoscaler settings are refreshed.
 
 - Choose a lower SKU for the node pools, if your workload supports it.
 

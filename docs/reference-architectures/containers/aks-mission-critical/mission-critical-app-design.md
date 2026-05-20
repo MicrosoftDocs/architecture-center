@@ -59,7 +59,7 @@ For mission-critical applications that prioritize availability over performance,
 
 Use Azure Storage to temporarily store state in the stamp for Azure Event Hubs checkpointing.
 
-All workload components use the Azure Cosmos DB .NET Core SDK to communicate with the database. The SDK includes robust logic to maintain database connections and handle failures. Key configuration settings include:
+All workload components use the Azure Cosmos DB .NET SDK to communicate with the database. The SDK includes robust logic to maintain database connections and handle failures. Key configuration settings include:
 
 - **Direct connectivity mode**: This setting is a default for .NET SDK v3 because it offers better performance. Direct connectivity mode has fewer network hops compared to Gateway mode, which uses HTTP.
 

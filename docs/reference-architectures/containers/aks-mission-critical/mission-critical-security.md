@@ -108,7 +108,7 @@ These security measures are:
 
 These security measures are also configured for non-Microsoft containers and Helm charts like `cert-manager` when possible. You can use Azure Policy to audit these security measures.
 
-Each environment should have a dedicated instance of Azure Container Registry with global replication to each of the regions where deployment stamps are deployed.
+Each environment should have a dedicated instance of Azure Container Registry with global replication to each of the regions where deployment stamps are deployed. Enable [dedicated data endpoints](/azure/container-registry/container-registry-dedicated-data-endpoints) on the registry so that image-layer pulls use registry-specific FQDNs (`<registry>.<region>.data.azurecr.io`) instead of a shared `*.blob.core.windows.net` endpoint. Egress firewall rules from each stamp can then scope traffic to your registry only, instead of permitting egress to any Azure Blob Storage account.
 
 > [!NOTE]
 > We recommend that you perform vulnerability scanning of container images. Use [Microsoft Defender for container registries](/azure/container-registry/scan-images-defender), potentially [with GitHub Actions](/azure/container-registry/github-action-scan).

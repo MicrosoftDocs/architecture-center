@@ -150,6 +150,8 @@ Consider the following factors when you evaluate your infrastructure readiness:
 
 - Whether the deployment infrastructure supports self-healing of services
 
+For help selecting a compute platform, see [Choose an Azure compute option for microservices](../../microservices/design/compute-options.md).
+
 ## Assess release cycles
 
 Microservices can adapt to change and take advantage of agile development to shorten release cycles and bring value to customers faster. Consider the following factors when you evaluate your release cycles:
