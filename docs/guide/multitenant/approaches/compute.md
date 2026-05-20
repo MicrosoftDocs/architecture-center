@@ -54,13 +54,13 @@ When you design a multitenant compute tier, you have several options for tenant 
 
 You might be concerned with the logical isolation of tenants and how to separate the management responsibilities or policies that are applied to each tenant. Alternatively, you might need to deploy distinct resource configurations for specific tenants, such as deploying a specific virtual machine (VM) SKU to suit a tenant's workload.
 
-Depending on the isolation model that you choose, ensure that tenant data remains properly isolated, even if component failures or outages occur. Consider using [Azure Chaos Studio](/azure/chaos-studio/chaos-studio-overview) in your regular automated testing process to introduce faults that simulate real-world outages. This testing helps verify that your solution maintains proper tenant isolation and continues to function under pressure.
+Depending on the isolation model that you choose, ensure that tenant data remains properly isolated, even if component failures or outages occur. Consider using [Azure Chaos Studio](/azure/chaos-studio/) in your regular automated testing process to introduce faults that simulate real-world outages. This testing helps verify that your solution maintains proper tenant isolation and continues to function under pressure.
 
 ## Approaches and patterns to consider
 
 ### Autoscale
 
-Azure compute services provide various capabilities that scale workloads. [Many compute services support autoscaling](../../../best-practices/auto-scaling.md), which requires you to determine when to scale and to set minimum and maximum scale levels. The specific scaling options depend on the compute services that you use. See the following example services or components:
+Azure compute services provide various capabilities that scale workloads. [Many compute services support autoscaling](/azure/azure-monitor/autoscale/autoscale-get-started), which requires you to determine when to scale and to set minimum and maximum scale levels. The specific scaling options depend on the compute services that you use. See the following example services or components:
 
 - **Azure App Service:** [Specify autoscale rules](/azure/app-service/manage-scale-up) that scale your infrastructure based on your requirements.
 
@@ -148,7 +148,7 @@ Instead, consider using asynchronous processing by using queues or other messagi
 
 Multitenant solutions are often subject to bursty scale patterns. Shared components are especially vulnerable to this problem because the scope for burst is higher, and the effect is greater when you have more tenants that have distinct usage patterns.
 
-Ensure that you take advantage of the elasticity and scale of the cloud. Consider whether you should use [horizontal or vertical scaling](/azure/well-architected/performance-efficiency/scale-partition), and use autoscaling to automatically handle spikes in load. Test your solution to understand how it operates under different levels of load. Ensure that you include the load volumes that are expected in production and your expected growth. You can use a fully managed service, such as [Load Testing](/azure/app-testing/load-testing/overview-what-is-azure-load-testing), to learn how your application operates under stress.
+Ensure that you take advantage of the elasticity and scale of the cloud. Consider whether you should use [horizontal or vertical scaling](/azure/well-architected/performance-efficiency/scale-partition), and use autoscaling to automatically handle spikes in load. Test your solution to understand how it operates under different levels of load. Ensure that you include the load volumes that are expected in production and your expected growth. You can use a fully managed service, such as [Azure Load Testing](/azure/app-testing/load-testing/overview-what-is-azure-load-testing), to learn how your application operates under stress.
 
 ### No Caching antipattern
 
@@ -172,7 +172,7 @@ Principal authors:
 Other contributors:
 
 - [Arsen Vladimirskiy](https://www.linkedin.com/in/arsenv/) | Principal Customer Engineer, FastTrack for Azure
-- [Rade Zheng](https://www.linkedin.com/in/rade-zheng-9483a411/) | Partner Solution Architect, Enterprise Partner Solutions Team
+- [Rade Zheng](https://www.linkedin.com/in/rade-zheng-9483a411/) | Partner Solution Architect, Enterprise Partner Solutions
 
 *To see nonpublic LinkedIn profiles, sign in to LinkedIn.*
 
