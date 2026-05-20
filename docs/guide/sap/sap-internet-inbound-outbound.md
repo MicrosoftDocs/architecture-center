@@ -8,7 +8,6 @@ ms.topic: concept-article
 ms.subservice: architecture-guide
 ai-usage: ai-assisted
 ---
-
 <!-- cSpell:ignore saprouter linky -->
 
 # Inbound and outbound internet connections for SAP on Azure
