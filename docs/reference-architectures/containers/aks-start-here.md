@@ -29,7 +29,11 @@ If you're new to Kubernetes or AKS, start with Microsoft Learn. This free online
 
 ## Path to production
 
-After you understand the benefits and trade-offs of Kubernetes, evaluate whether AKS is the right Azure compute platform for your workload and establish organizational policies for this technology. When you're ready to deploy production-ready clusters, start with the **Microsoft AKS baseline cluster** and modify it to meet your workload's specific needs.
+After you understand the benefits and trade-offs of Kubernetes, evaluate whether AKS is the right Azure compute platform for your workload and establish organizational policies for this technology.
+
+If your workload has basic requirements, [AKS Automatic](/azure/aks/intro-aks-automatic) provides a faster path to production. AKS Automatic preconfigures node management, scaling, security policies, and upgrades so your team can focus on deploying workloads rather than managing cluster infrastructure.
+
+When your workload requires explicit control over networking, node pools, upgrade cadence, or authorization, start with the **Microsoft AKS baseline cluster** and modify it to meet your workload's specific needs.
 
 > [!div class="nextstepaction"]
 > [Microsoft AKS baseline cluster](./aks/baseline-aks.yml)
