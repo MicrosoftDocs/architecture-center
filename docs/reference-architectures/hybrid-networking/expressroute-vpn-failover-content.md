@@ -313,7 +313,7 @@ Although some providers allow you to change your bandwidth, be sure to choose an
 
 The [ExpressRoute scalable gateway (ErGwScale)](/azure/expressroute/scalable-gateway) provides up to 40-Gbps bandwidth with autoscaling capabilities. You can configure fixed or autoscaling scale units to match your workload. If you have an ErGw1Az, ErGw2Az, or ErGw3Az gateway, you can upgrade directly to ErGwScale without downtime. ErGwScale doesn't currently support IPsec over ExpressRoute, so evaluate this trade-off if you require end-to-end encryption.
 
-For higher throughput, enable [ExpressRoute FastPath](/azure/expressroute/about-fastpath) to bypass the gateway and improve data path performance between your on-premises network and Azure virtual networks. FastPath requires the Ultra Performance, ErGw3AZ, or ErGwScale (minimum 10 scale units) gateway SKU. For ExpressRoute Direct circuits, FastPath supports virtual network peering, user-defined routes (UDR), and Private Link connectivity (limited general availability).
+For higher throughput, enable [ExpressRoute FastPath](/azure/expressroute/about-fastpath) to bypass the gateway and improve data path performance between your on-premises network and Azure virtual networks. FastPath requires the UltraPerformance, ErGw3Az, or ErGwScale (minimum 10 scale units) gateway SKU. For ExpressRoute Direct circuits, FastPath supports virtual network peering, user-defined routes (UDR), and Private Link connectivity (limited general availability).
 
 ## Deploy this scenario
 
