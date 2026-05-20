@@ -82,7 +82,7 @@ The request flow is as follows:
 1. API Management composes the backend responses into a single order summary payload.
 1. API Management returns the aggregated response to the client.
 
-By introducing this aggregation layer, the solution reduces client-to-service round trips and simplifies client interactions.  
+By introducing this aggregation layer, the solution reduces client-to-service round trips and simplifies client interactions. This layer is now responsible for handling unresponsive backend services gracefully and preventing failures from cascading across the aggregated response. Harden your API Management policies with per-request timeouts, conditional error handling, and circuit breakers (/azure/api-management/backends?tabs=bicep#circuit-breaker).
 
 If one of the backend calls times out or returns an error, API Management can apply the behavior that best fits the operation. For example, it might return a partial response when missing data is acceptable, or it might fail the entire request when complete and consistent order data is required. This decision should be explicit in the policy design so that clients receive predictable behavior.
 
