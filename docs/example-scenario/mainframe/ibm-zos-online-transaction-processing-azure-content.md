@@ -37,7 +37,7 @@ The following diagram shows this same architecture after it's been migrated to A
 *Download a [Visio file](https://arch-center.azureedge.net/ibm-zos-online-transaction-processing-on-azure.vsdx) of this architecture.*
 ## Workflow
 1. Mainframe users are familiar with 3270 terminals and on-premises connectivity. In the migrated system, they interact with Azure applications via the public internet or via a private connection that's implemented via Azure ExpressRoute. Microsoft Entra ID provides authentication.
-1. Input requests go to a global load balancer service, like Azure Front Door or Azure Traffic Manager. The load balancer can serve a geographically spread user base. It routes the requests according to rules defined for the supported workloads. These load balancers can coordinate with Azure Application Gateway or Azure Load Balancer to load balance the application layer. A web application firewall (WAF) helps secure the service.
+1. Client requests are routed through a global load balancing service such as Azure Front Door or Azure Traffic Manager, which helps serve users across regions. Based on workload rules, traffic can then be directed to Azure Application Gateway or Azure Load Balancer for application-level distribution, while a web application firewall (WAF) helps protect the service.
 1. The front end of the application layer uses Azure services like Azure App Service to implement application screens and to interact with users. The screens are migrated versions of the mainframe screens.
 1. COBOL and PL/I code in the back end of the application layer implement the business logic. The code can use services including Azure Functions, WebJobs, and Azure Container Apps. Applications can run in an Azure Kubernetes Service (AKS) container.
 
