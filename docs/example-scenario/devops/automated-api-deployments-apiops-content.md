@@ -1,16 +1,16 @@
-APIOps is a methodology that applies the concepts of GitOps and [DevOps](/devops) to API deployment. Like DevOps, [APIOps](https://github.com/Azure/apiops) helps team members easily make changes and deploy them in an iterative and automated way. This architecture demonstrates how you can improve the entire API lifecycle and API quality by using APIOps.
+APIOps is a methodology that applies the concepts of GitOps and [DevOps](/devops) to API deployment. Like DevOps, [APIOps](https://github.com/Azure/apiops) helps team members easily make changes and deploy them in an iterative and automated way. This architecture demonstrates how you can improve the entire API life cycle and API quality by using APIOps.
 
 ## Architecture
 
-:::image type="complex" border="false" source="media/automated-api-deployments-apiops-architecture.svg" alt-text="Diagram that shows the automated API deployment using APIOps architecture." lightbox="media/automated-api-deployments-apiops-architecture.svg":::
-  Diagram that shows an automated API deployment flow that uses APIOps. API operators feed into a box labeled CI/CD. An API Management instance feeds the extractor pipeline, which creates a PR and syncs the API Management state in the Git repo. The Git repo contains icons that are labeled API definition, API Management policy, API service information, and Product logger and diagnostics. The Git repo connects via a bidirectional arrow to API developers, who design, create, and test the OpenAPI specification. The Git repo also creates a PR, which is merged after review and approval. The merge icon connects to the publisher pipeline, which leads back to the API Management instance.
+:::image type="complex" border="false" source="media/automated-api-deployments-apiops-architecture.svg" alt-text="Diagram that shows the automated API deployment that uses APIOps architecture." lightbox="media/automated-api-deployments-apiops-architecture.svg":::
+  Diagram that shows an automated API deployment flow that uses APIOps. API operators feed into a box labeled CI/CD. An API Management instance feeds the extractor pipeline, which creates a PR and syncs the API Management state in the Git repo. The Git repo section contains icons labeled API definition, API Management policy, API service information, and product logger and diagnostics. The Git repo connects via a bidirectional arrow to API developers, who design, create, and test the OpenAPI specification. The Git repo also creates a PR, which is merged after review and approval. A merge icon connects to the publisher pipeline, which leads back to the API Management instance.
 :::image-end:::
 
 *Download a [Visio file](https://arch-center.azureedge.net/automated-api-deployments-apiops-architecture.vsdx) of this architecture.*
 
 ### Workflow
 
-1. API operators run the [extractor pipeline](https://azure.github.io/apiops/apiops/3-apimTools/apiops-2-1-tools-extractor.html) to synchronize the Git repository with the API Management instance and populate the Git repository with API Management objects in the required format.
+1. API operators run the [extractor pipeline](https://azure.github.io/apiops/apiops/3-apimTools/apiops-2-1-tools-extractor.html) to sync the Git repository with the Azure API Management instance and populate the Git repository with API Management objects in the required format.
 
 1. If an API change is detected in the API Management instance, a pull request (PR) is created for operators to review. Operators merge the changes into the Git repository.
 
@@ -30,9 +30,9 @@ APIOps is a methodology that applies the concepts of GitOps and [DevOps](/devops
 
 ### Components
 
-- [Azure API Management](/azure/well-architected/service-guides/azure-api-management) is a managed service that creates consistent, API gateways for back-end services. In this architecture, it routes API calls, verifies credentials, enforces usage quotas, and logs metadata. It serves as the central platform for API management and publication.
+- [API Management](/azure/well-architected/service-guides/azure-api-management) is a managed service that creates consistent API gateways for back-end services. In this architecture, it routes API calls, verifies credentials, enforces usage quotas, and logs metadata. It serves as the central platform for API management and publication.
 
-- [Azure DevOps](/azure/devops/user-guide/what-is-azure-devops) is a suite of development tools and services that manages the development life cycle. In this architecture, it supports planning, code management, and automated deployment of APIs, so that teams can collaborate and streamline API delivery.
+- [Azure DevOps](/azure/devops/user-guide/what-is-azure-devops) is a suite of development tools and services that manages the development life cycle. In this architecture, it supports planning, code management, and automated deployment of APIs so that teams can collaborate and streamline API delivery.
 
   - [Azure Pipelines](/azure/devops/pipelines/get-started/what-is-azure-pipelines) is a cloud-based service that supports continuous integration and continuous delivery (CI/CD). In this architecture, it automatically tests, builds, and deploys API changes to the API Management instance.
 
@@ -50,13 +50,13 @@ You can use any comparable technologies that provide similar version control and
 
 APIOps uses version control to manage APIs and create an audit trail of changes to APIs, policies, and operations.
 
-API developers who use an APIOps methodology review and audit APIs earlier and more frequently. These developers catch and resolve deviations from API standards faster, which improves specifications and API quality. The more APIs that you build and deploy with an APIOps approach, the greater the consistency between APIs.
+API developers who use an APIOps methodology review and audit APIs earlier and more frequently. These developers catch and resolve deviations from API standards faster, which improves specifications and API quality. The more APIs that you build and deploy by using an APIOps approach, the greater the consistency between APIs.
 
 ### Potential use cases
 
-- Organization that develop and manage APIs
-  You can use APIOps with only one exposed API in API Management.
-- Highly regulated sectors like insurance, banking, finance, and government
+- Organizations that develop and manage APIs. You can use APIOps with only one exposed API in API Management.
+
+- Highly regulated sectors like insurance, banking, finance, and government.
 
 ## Considerations
 
@@ -70,7 +70,7 @@ This solution provides several security benefits. Individual developers and oper
 
 To make sure the API Management instances use best practices for security, you can extend this solution to enforce API best practices by using non-Microsoft tools and unit testing. Teams can provide early feedback via PR review if the proposed changes to an API or policy violate standards.
 
-Set up repository permissions and consider the following security measures in Git repositories that synchronize to API Management instances:
+Set up repository permissions and consider the following security measures in Git repositories that sync to API Management instances:
 
 - **PR review:** Use branches, and protect the branches that represent the state of the API Management instances from directly pushed changes. Require that PRs have at least one reviewer.
 
@@ -135,6 +135,6 @@ Principal authors:
 
 ## Related resources
 
-- [GitOps for Azure Kubernetes Service](../gitops-aks/gitops-blueprint-aks.yml)
-- [Migrate a web app using API Management](../apps/apim-api-scenario.yml)
-- [Protect APIs with Azure Application Gateway and API Management](../../web-apps/api-management/architectures/protect-apis.yml)
+- [GitOps for Azure Kubernetes Service (AKS)](../gitops-aks/gitops-blueprint-aks.yml)
+- [Migrate a web app by using API Management](../apps/apim-api-scenario.yml)
+- [Protect APIs by using Azure Application Gateway and API Management](../../web-apps/api-management/architectures/protect-apis.yml)
