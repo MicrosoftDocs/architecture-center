@@ -14,7 +14,7 @@ APIOps is a methodology that applies the concepts of GitOps and [DevOps](/devops
 
 1. If an API change is detected in the API Management instance, a pull request (PR) is created for operators to review. Operators merge the changes into the Git repository.
 
-1. API developers clone the Git repository, create a branch, and create API definitions by using a tool like OpenAPI Specification.
+1. API developers clone the Git repository, create a branch, and create API definitions by using a tool like OpenAPI specification.
 
 1. If a developer pushes changes to the repository, a PR is created for review.
 
@@ -98,7 +98,7 @@ APIOps can increase DevOps productivity for API development and deployments. You
 
 API operators often manage multiple environments for the same set of APIs. Several stages of an API can be deployed to different API Management instances or in a shared API Management instance. The Git repository, which is the single source of truth, shows which application versions are currently deployed to a cluster.
 
-If someone makes a PR in the Git repository, the API operator knows that they have new code to review. For example, if a developer takes the OpenAPI Specification and builds the API implementation, they add this new code to the repository. The operators can review the PR to check that the submitted API meets best practices and standards.
+If someone makes a PR in the Git repository, the API operator knows that they have new code to review. For example, if a developer takes the OpenAPI specification and builds the API implementation, they add this new code to the repository. The operators can review the PR to check that the submitted API meets best practices and standards.
 
 API Management landscapes are becoming more complex. This solution helps to:
 
