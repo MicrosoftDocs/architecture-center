@@ -37,7 +37,8 @@ The following diagram shows this same architecture after it's been migrated to A
 1. Mainframe users are familiar with 3270 terminals and on-premises connectivity. In the migrated system, they interact with Azure applications via the public internet or via a private connection that's implemented via Azure ExpressRoute. Microsoft Entra ID provides authentication.
 1. Input requests go to a global load balancer service, like Azure Front Door or Azure Traffic Manager. The load balancer can serve a geographically spread user base. It routes the requests according to rules defined for the supported workloads. These load balancers can coordinate with Azure Application Gateway or Azure Load Balancer to load balance the application layer. The Azure Content Delivery Network service caches static content in edge servers for quick response. A web application firewall (WAF) helps secure the service.
 1. The front end of the application layer uses Azure services like Azure App Service to implement application screens and to interact with users. The screens are migrated versions of the mainframe screens.
-1. COBOL and PL/I code in the back end of the application layer implement the business logic. The code can use services and features like Azure Functions, WebJobs, and Azure Container Apps. Applications can run in an Azure Kubernetes Service (AKS) container.
+1. COBOL and PL/I code in the back end of the application layer implement the business logic. The code can use services including Azure Functions, WebJobs, and Azure Container Apps. Applications can run in an Azure Kubernetes Service (AKS) container.
+
 
 1. Azure Managed Redis provides in-memory caching to accelerate high-throughput OLTP transactions. In-Memory OLTP, a feature of Azure SQL Database and Azure SQL Managed Instance, provides additional transaction-processing acceleration.
 1. The data layer can include:
