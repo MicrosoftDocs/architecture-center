@@ -199,7 +199,7 @@ A topology that includes multiple instances in a single region across multiple s
 - A use case in which you want to obtain more quota in a standard deployment and you must constrain the use of models to a single, specific region.
 
   > [!NOTE]
-   > If you don't need to constrain the use of models to a specific region, use [Global](/azure/foundry/foundry-models/concepts/deployment-types#global-deployments) or [Data Zone](/azure/foundry/foundry-models/concepts/deployment-types#data-zone-deployments) deployments that use the Azure global infrastructure to dynamically route inferencing requests to datacenters that have the available capacity.
+  > If you don't need to constrain the use of models to a specific region, use [Global](/azure/foundry/foundry-models/concepts/deployment-types#global-deployments) or [Data Zone](/azure/foundry/foundry-models/concepts/deployment-types#data-zone-deployments) deployments that use the Azure global infrastructure to dynamically route inferencing requests to datacenters that have the available capacity.
 
 ### Introduce a gateway for multiple instances in a single region and multiple subscriptions
 
