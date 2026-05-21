@@ -40,7 +40,7 @@ In a traditional monolithic application, a single build pipeline produces the ap
 
 In the microservices philosophy, there should never be a long release train where every team has to get in line. The team that builds service *A* can release an update when they choose, and doesn't have to wait for changes in service *B* to merge, test, and deploy.
 
-:::image type="complex" border="false" source="./images/cicd-monolith.svg" alt-text="Diagram that compares CI/CD for monolith versus microservices architectures." lightbox="./images/cicd-monolith.svg":::
+:::image type="complex" border="false" source="./images/cicd-monolith.png" alt-text="Diagram that compares CI/CD for monolith versus microservices architectures." lightbox="./images/cicd-monolith.png":::
    The diagram shows two sections: monolith and microservices. The monolith section shows teams A, B, C, and D. Arrows point from the teams to the release candidate. An arrow points from the release candidate to production. X's mark team B, the release candidate, and the arrow that points to production. The microservices section shows teams A, B, C, and D. Arrows point from the teams to individual release sections. Arrows point from the release sections to production. X's mark the arrows in the team B flow.
 :::image-end:::
 
