@@ -88,7 +88,7 @@ Cost Optimization focuses on ways to reduce unnecessary expenses and improve ope
 
 - Use the [Azure pricing calculator](https://azure.microsoft.com/pricing/calculator) to estimate the costs of the Azure components in this solution.
 
-- The sample in GitHub deploys only one App Service instance, but you can deploy as many as you need.
+- The sample noted in [Deploy this scenario](#deploy-this-scenario) deploys only one App Service instance, but you can deploy as many as you need.
 
 ### Operational Excellence
 
