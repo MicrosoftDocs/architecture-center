@@ -1,3 +1,16 @@
+---
+title: SAP Landscape Architecture
+description: Best practices and recommendations for architecting an entire SAP landscape on Azure.
+author: msftrobiro
+ms.author: robiro
+ms.date: 03/03/2026
+ms.topic: concept-article
+ms.subservice: architecture-guide
+ai-usage: ai-assisted
+---
+
+# SAP landscape architecture
+
 This article provides best practices for architecting an entire SAP landscape in Azure. The SAP landscape includes multiple SAP systems across hub, production, non-production, and disaster recovery environments. The article provides recommendations that focus on network design and not specific SAP systems. The goal is to provide recommendations for architecting a secure, high-performing, and resilient SAP landscape.
 
 ## Architecture
