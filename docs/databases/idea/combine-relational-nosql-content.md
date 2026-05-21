@@ -2,9 +2,9 @@
 
 Applications often handle diverse data workloads that have different characteristics. Structured, transactional data requires relational integrity and complex queries. Semistructured, rapidly changing, or high-volume data requires flexible schemas and horizontal scalability. Databases like Azure SQL Database and Azure Cosmos DB can support diverse workloads and multimodel requirements. However, in specific scenarios, organizations can achieve better outcomes by pairing SQL Database and Azure Cosmos DB through a polyglot persistence architecture.
 
-Some workloads need the strict transactional guarantees and complex relational queries of a relational database, while other workloads need the flexible schemas and horizontal scalability of a NoSQL database. A polyglot approach assigns each workload to the platform with a core design that matches its dominant access pattern, instead of forcing a single system to support requirements outside its optimization. For more information, see [Data considerations for microservices](../../microservices/design/data-considerations.md).
+Some workloads need the strict transactional guarantees and complex relational queries of a relational database, while other workloads need the flexible schemas and horizontal scalability of a NoSQL database. A polyglot approach assigns each workload to the platform that best fits its access pattern. It avoids using a platform for requirements it isn't optimized for. For more information, see [Data considerations for microservices](../../microservices/design/data-considerations.md).
 
-:::image type="complex" source="_images/combine-relational-nosql/scenario-diagram.svg" alt-text="Diagram that shows a client calling an API proxy that routes to two APIs and separate NoSQL and relational databases.":::
+:::image type="complex" source="_images/combine-relational-nosql/scenario-diagram.svg" lightbox="_images/combine-relational-nosql/scenario-diagram.svg" alt-text="Diagram that shows a client calling an API proxy that routes to two APIs and separate NoSQL and relational databases.":::
    The diagram shows a client sending requests to an API proxy. The API proxy routes requests to two back-end services, named API 1 and API 2. API 1 connects to a NoSQL database, and API 2 connects to a relational database. API 1 and API 2 are also connected to each other with a bidirectional relationship that indicates interaction or synchronization between the two services. The overall flow shows a split data architecture in which one API path uses NoSQL storage and the other API path uses relational storage. In this flow, the proxy serves as the entry point for client requests.
 :::image-end:::
 
@@ -42,7 +42,7 @@ The following data flow corresponds to the previous diagram:
 
 - [Azure Cosmos DB](/azure/well-architected/service-guides/cosmos-db) is a globally distributed, multimodel database that enables applications to elastically and independently scale throughput and storage. In this architecture, it stores data for workloads that require flexible schemas, low-latency access, horizontal scalability, or global distribution. Examples include user profiles, session state, product catalogs, and shopping carts.
 
-- [SQL Database](/azure/well-architected/service-guides/azure-sql-database-well-architected-framework) is a fully managed, cloud-first relational database engine that typically includes capabilities ahead of the latest public version of SQL Server. Beyond relational data, it supports multimodel workloads, including JSON, graph, spatial, and vector data within the same database. In this architecture, it handles workloads that require ACID compliance, relational integrity, and complex query support. Examples include order management, inventory tracking, and payment processing.
+- [SQL Database](/azure/well-architected/service-guides/azure-sql-database) is a fully managed, cloud-first relational database engine that typically includes capabilities ahead of the latest public version of SQL Server. Beyond relational data, it supports multimodel workloads, including JSON, graph, spatial, and vector data within the same database. In this architecture, it handles workloads that require ACID compliance, relational integrity, and complex query support. Examples include order management, inventory tracking, and payment processing.
 
 ## Scenario details
 
@@ -97,11 +97,11 @@ Cost Optimization focuses on ways to reduce unnecessary expenses and improve ope
 Azure Cosmos DB provides [provisioned throughput](/azure/cosmos-db/set-throughput) and [serverless](/azure/cosmos-db/throughput-serverless) modes. Use provisioned throughput in autoscale mode for production workloads that have variable demand. Serverless can reduce costs for development and low-traffic workloads, but cold-start latency can affect response times after periods of inactivity.
 
 > [!TIP]
-> To estimate the cost of the Azure resources for this solution idea, use the [preconfigured estimate in the Azure pricing calculator](https://azure.com/e/b699ade4c29b4af4b13699451c4bbcc5).
+> To estimate the cost of the Azure resources for this solution idea, use the [preconfigured estimate in the Azure pricing calculator](https://azure.microsoft.com/pricing/calculator/?shared-estimate=b699ade4c29b4af4b13699451c4bbcc5).
 
 ## Next steps
 
-- [Azure Cosmos DB](/azure/cosmos-db/introduction)
+- [Azure Cosmos DB](/azure/cosmos-db/overview)
 - [SQL Database](/azure/azure-sql/database/sql-database-paas-overview)
 
 ## Related content
