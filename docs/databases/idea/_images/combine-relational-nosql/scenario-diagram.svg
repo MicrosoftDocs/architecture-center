@@ -9,15 +9,15 @@
     <path fill="#3b2e58" fill-rule="evenodd" d="M361 1107.5c0-17.95 14.551-32.5 32.5-32.5h477c17.949 0 32.5 14.55 32.5 32.5v260c0 17.95-14.551 32.5-32.5 32.5h-477c-17.949 0-32.5-14.55-32.5-32.5Z"/>
     <text fill="#fff" font-family="Segoe UI,Segoe UI_MSFontService,sans-serif" font-size="55" font-weight="700" transform="translate(557.085 1258)">Client</text>
     <path fill="#243a5e" fill-rule="evenodd" d="M1296 1107.5c0-17.95 14.55-32.5 32.5-32.5h585c17.95 0 32.5 14.55 32.5 32.5v260c0 17.95-14.55 32.5-32.5 32.5h-585c-17.95 0-32.5-14.55-32.5-32.5Z"/>
-    <text fill="#fff" font-family="Segoe UI,Segoe UI_MSFontService,sans-serif" font-size="55" font-weight="700" transform="translate(1494.31 1258)">API Proxy</text>
+    <text fill="#fff" font-family="Segoe UI,Segoe UI_MSFontService,sans-serif" font-size="55" font-weight="700" transform="translate(1494.31 1258)">API proxy</text>
     <path fill="#0078d4" fill-rule="evenodd" d="M2379 746.5c0-17.949 14.55-32.5 32.5-32.5h512c17.95 0 32.5 14.551 32.5 32.5v260c0 17.95-14.55 32.5-32.5 32.5h-512c-17.95 0-32.5-14.55-32.5-32.5Z"/>
     <text fill="#fff" font-family="Segoe UI,Segoe UI_MSFontService,sans-serif" font-size="55" font-weight="700" transform="translate(2599.25 898)">API 1</text>
     <path fill="#0078d4" fill-rule="evenodd" d="M2379 1468.5c0-17.95 14.55-32.5 32.5-32.5h512c17.95 0 32.5 14.55 32.5 32.5v260c0 17.95-14.55 32.5-32.5 32.5h-512c-17.95 0-32.5-14.55-32.5-32.5Z"/>
     <text fill="#fff" font-family="Segoe UI,Segoe UI_MSFontService,sans-serif" font-size="55" font-weight="700" transform="translate(2599.25 1619)">API 2</text>
     <path fill="#008575" fill-rule="evenodd" d="M3389 746.5c0-17.949 14.55-32.5 32.5-32.5h585c17.95 0 32.5 14.551 32.5 32.5v260c0 17.95-14.55 32.5-32.5 32.5h-585c-17.95 0-32.5-14.55-32.5-32.5Z"/>
-    <text fill="#fff" font-family="Segoe UI,Segoe UI_MSFontService,sans-serif" font-size="55" font-weight="700" transform="translate(3498 898)">NoSQL Database</text>
+    <text fill="#fff" font-family="Segoe UI,Segoe UI_MSFontService,sans-serif" font-size="55" font-weight="700" transform="translate(3498 898)">NoSQL database</text>
     <path fill="#008575" fill-rule="evenodd" d="M3389 1468.5c0-17.95 14.55-32.5 32.5-32.5h585c17.95 0 32.5 14.55 32.5 32.5v260c0 17.95-14.55 32.5-32.5 32.5h-585c-17.95 0-32.5-14.55-32.5-32.5Z"/>
-    <text fill="#fff" font-family="Segoe UI,Segoe UI_MSFontService,sans-serif" font-size="55" font-weight="700" transform="translate(3457.73 1619)">Relational Database</text>
+    <text fill="#fff" font-family="Segoe UI,Segoe UI_MSFontService,sans-serif" font-size="55" font-weight="700" transform="translate(3457.73 1619)">Relational database</text>
     <path fill="#3b2e58" d="M903.5 1235.06h370.6v6.88H903.5Zm366.02-10.31 27.5 13.75-27.5 13.75Z"/>
     <path fill="#243a5e" d="M1946.5 1241.8275h216.535c1.899 0 3.438-1.539 3.438-3.4375V877.498l-3.438 3.437h193.619v-6.875h-193.619c-1.898 0-3.437 1.539-3.437 3.438v360.892l3.437-3.4375H1946.5Zm405.571-350.5795 27.5-13.75-27.5-13.75Z"/>
     <path fill="#243a5e" d="M1946.5 1235.06h216.54c1.89 0 3.43 1.54 3.43 3.44v360.89l-3.43-3.44h193.61v6.88h-193.61c-1.9 0-3.44-1.54-3.44-3.44V1238.5l3.44 3.44H1946.5Zm405.57 350.58 27.5 13.75-27.5 13.75Z"/>
