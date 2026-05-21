@@ -53,7 +53,7 @@ User-facing solutions that consist of a single-page application (SPA), or a mobi
 > [!WARNING]
 > Make sure you store request metrics in a reliable data store that's designed for this purpose. For example, although Azure Application Insights can track requests and can even track tenant IDs (by using [properties](/azure/azure-monitor/app/api-custom-events-metrics#properties)), Application Insights isn't designed to store every piece of telemetry. It removes data, as part of its [sampling behavior](/azure/azure-monitor/app/sampling). For billing and metering purposes, choose a data store that gives you a high level of accuracy.
 
-When you measure request counts, you often make an implicit assumption that requests are approximately equal, which means that they take the same amount of resources to process. Often that's not the case. You could also consider more complex metrics that take account of the request complexity, like measuring the amount of time that your application spends processing a specific request.
+When you measure request counts, you often make an implicit assumption that requests are approximately equal, which means that they take the same amount of resources to process. Often that's not the case. You could also consider more complex metrics that take the request's complexity into account, like measuring the amount of time that your application spends processing a specific request.
 
 ## Estimate consumption
 
