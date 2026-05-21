@@ -26,7 +26,7 @@ Consider the following goals of a robust CI/CD process for a microservices archi
 
 - Each team can build and deploy the services that it owns independently, without affecting or disrupting other teams.
 
-- Before a new version of a service is deployed to production, it's deployed to dev/test and Q&A environments for validation. Quality gates are enforced at each stage.
+- Before a new version of a service is deployed to production, it's deployed to dev/test and QA environments for validation. Quality gates are enforced at each stage.
 
 - A new version of a service can be deployed side by side with the previous version.
 
