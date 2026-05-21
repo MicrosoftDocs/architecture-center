@@ -10,7 +10,7 @@ ms.subservice: architecture-guide
 
 # Use Azure Governance Visualizer to optimize cloud governance
 
-This article describes how to deploy Azure Governance Visualizer. Organizations can use the visualizer to capture pertinent governance information, like management group hierarchies, policy information, and security analysis, and access the output in multiple formats. This article shows you how to automate the visualizer, and how to host the output securely and cost effectively on the Web Apps feature of Azure App Service.
+This article describes how to deploy Azure Governance Visualizer. Organizations can use the visualizer to capture pertinent governance information, like management group hierarchies, policy information, and security analysis, and access the output in multiple formats. This article shows you how to automate the visualizer, and how to host the output securely and cost-effectively on the Web Apps feature of Azure App Service.
 
 ## Architecture
 
