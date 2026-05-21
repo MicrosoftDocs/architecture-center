@@ -15,7 +15,7 @@ This article describes how to deploy Azure Governance Visualizer. Organizations 
 ## Architecture
 
 :::image type="complex" border="false" source="./images/azure-governance-visualizer-accelerator-architecture.svg" alt-text="Diagram that shows the deployed Azure Governance Visualizer architecture." lightbox="./images/azure-governance-visualizer-accelerator-architecture.svg":::
-   Diagram that shows the deployment architecture. Inside a box, GitHub Actions is positioned next to a clock icon, and it connects with an arrow to Run Azure Governance Visualizer. This command connects via an arrow to a group of items, Microsoft Graph, Azure Resource Manager, and Storage. This group contains a subgroup of items that represent data that the visualizer outputs, like Management groups, subscriptions, Azure RBAC custom roles, and Azure Policy definitions. The visualizer's results are published to the GitHub repository, and the HTML output is published to the App Service instance, outside of the box. A user authenticates by using Microsoft Entra ID and then accesses the output by using the App Service instance.
+   Diagram that shows the deployment architecture. Inside a box, GitHub Actions is positioned next to a timer icon, and it connects with an arrow to Run Azure Governance Visualizer. This command connects via an arrow to a group of items, Microsoft Graph, Azure Resource Manager, and Storage. This group contains a subgroup of items that represent data that the visualizer outputs, like management groups, subscriptions, Azure RBAC custom roles, and Azure Policy definitions. The visualizer's results are published to a GitHub repository, and the HTML output is published to the App Service instance, outside of the box. A user authenticates by using Microsoft Entra ID and then accesses the output by using the App Service instance.
 :::image-end:::
 
 *Download a [Visio file](https://arch-center.azureedge.net/azure-governance-visualizer-accelerator-architecture.vsdx) of this architecture.*
@@ -84,7 +84,7 @@ For more information about security controls, see [Azure security baseline for A
 
 Cost Optimization focuses on ways to reduce unnecessary expenses and improve operational efficiencies. For more information, see [Design review checklist for Cost Optimization](/azure/well-architected/cost-optimization/checklist).
 
-- Use the B1 (Basic) tier for the deployed App Service web app. App Service hosts the HTML output so it requires a lightweight configuration. You can host Azure Governance Visualizer on any other secure, cost-effective hosting platform.
+- Use the B1 (Basic) tier for the deployed App Service web app. App Service hosts the HTML output, so it requires a lightweight configuration. You can host Azure Governance Visualizer on any other secure, cost-effective hosting platform.
 
 - Use the [Azure pricing calculator](https://azure.microsoft.com/pricing/calculator) to estimate the costs of the Azure components in this solution.
 
@@ -100,7 +100,7 @@ Operational Excellence covers the operations processes that deploy an applicatio
 
 - Use the latest runtime stack versions for the web app.
 
-- Azure Governance Visualizer updates regularly with new features, bug fixes, and improvements. Updates might include new App Service Bicep settings or revised prerequisite instructions. A GitHub workflow manages updates. You can configure it to update automatically or you can review the changes in a pull request.
+- Azure Governance Visualizer updates regularly with new features, bug fixes, and improvements. Updates might include new App Service Bicep settings or revised prerequisite instructions. A GitHub workflow manages updates. You can configure it to update automatically, or you can review the changes in a pull request.
 
 ## Deploy this scenario
 
@@ -108,7 +108,7 @@ To deploy this scenario, see the [Azure Governance Visualizer Accelerator GitHub
 
 ## Contributors
 
-*Microsoft maintains this article. The following contributors wrote this article.*
+*Microsoft maintains this article. The following contributor wrote this article.*
 
 Principal author:
 
