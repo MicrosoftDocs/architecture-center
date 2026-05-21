@@ -652,7 +652,7 @@ items:
       - name: Guides
         items:
         - name: SAP landscape architecture
-          href: guide/sap/sap-whole-landscape.yml
+          href: guide/sap/sap-whole-landscape.md
         - name: Inbound and outbound internet connections for SAP on Azure
           href: guide/sap/sap-internet-inbound-outbound.yml
       - name: Architectures
