@@ -1,10 +1,10 @@
 ### YamlMime:Architecture
 metadata:
-  title: Connect an On-Premises Network to Azure by Using ExpressRoute with VPN failover
+  title: Connect an On-Premises Network to Azure by Using ExpressRoute with VPN Failover
   description: Learn how to connect an on-premises network to an Azure virtual network by using ExpressRoute with a virtual private network (VPN) gateway failover.
   author: duongau
   ms.author: duau
-  ms.date: 05/20/2026
+  ms.date: 05/21/2026
   ms.topic: reference-architecture
   ms.subservice: reference-architecture
   ms.category:
