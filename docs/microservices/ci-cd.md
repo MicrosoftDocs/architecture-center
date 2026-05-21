@@ -48,7 +48,7 @@ To achieve a high release velocity, your release pipeline must be automated and 
 
 ## Challenges
 
-- **Many small independent code bases:** Each team is responsible for building its own service, with its own build pipeline. In some organizations, teams might use separate code repositories. Separate repositories can fragment the knowledge of how to build the system across teams. As a result, nobody in the organization knows how to deploy the entire application.
+- **Many small independent code bases:** Each team is responsible for building its own service, with its own build pipeline. In some organizations, teams might use separate code repositories. Separate repositories can scatter the knowledge of how to build the system across teams. As a result, nobody in the organization knows how to deploy the entire application.
 
    **Mitigation:** Have a unified and automated pipeline or at least common pipeline infrastructure to build and deploy services so that this knowledge isn't hidden within each team. Reusable pipeline templates, like [GitHub Actions reusable workflows](https://docs.github.com/en/actions/how-tos/reuse-automations/reuse-workflows) or [Azure Pipelines templates](/azure/devops/pipelines/process/templates), help standardize the build, test, scan, and deploy steps across every service.
 
