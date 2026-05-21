@@ -11,7 +11,7 @@ ms.custom: arb-saas
 
 # Architectural approaches for identity in multitenant solutions
 
-Almost all multitenant solutions require an identity system. This article describes common components of identity, including authentication and authorization, and how you can apply these components in a multitenant solution.
+Most multitenant solutions require an identity system. This article describes common components of identity, including authentication and authorization, and how you can use these components in a multitenant solution.
 
 > [!NOTE]
 > Before you start to build an identity system for a multitenant solution, see [Architectural considerations for identity in a multitenant solution](../considerations/identity.md).
@@ -22,7 +22,7 @@ Authentication is the process that establishes a user's identity. When you build
 
 ### Federation
 
-You might need to federate with external identity providers (IdPs). You can use federation to enable the following scenarios:
+You might need to federate with external identity providers (IdPs). You can use federation in the following scenarios:
 
 - Social login, which allows users to sign in with their Google, Facebook, GitHub, or personal Microsoft account
 
@@ -32,27 +32,27 @@ For more information, see the [Federated Identity pattern](../../../patterns/fed
 
 If you choose to support tenant-specific IdPs, ensure that you clarify which services and protocols your application supports. For example, determine whether to support the OpenID Connect protocol and the Security Assertion Markup Language (SAML) protocol, or whether to limit federation to Microsoft Entra ID instances.
 
-When you implement an IdP, consider scale and limits that might apply. For example, your IdP might be able to federate with only a limited number of other IdPs.
+When you implement an IdP, consider scaling and limits that might apply. For example, your IdP might be able to federate with only a limited number of other IdPs.
 
 Also consider providing federation as a feature that only applies to customers at a higher [product tier](../considerations/pricing-models.md#feature--and-service-level-based-pricing).
 
 ### Single sign-on
 
-Single sign-on enables users to switch between applications without being prompted to reauthenticate at each point.
+Users can switch between applications without reauthentication by using single sign-on.
 
-When users visit an application, the application directs them to an IdP. If the IdP detects an existing session, it issues a new token without requiring the users to interact with the sign-in process. A federated identity model supports single sign-on by enabling users to use a single identity across multiple applications.
+When users open an application, the application directs them to an IdP. If the IdP detects an existing session, it issues a new token automatically. The user doesn't need to sign in again. Federated identity supports single sign-on so that users can use a single identity across multiple applications.
 
-In a multitenant solution, you might enable another form of single sign-on. If users are authorized to access data across multiple tenants, you might need to let them change their context from one tenant to another. In some solutions, the IdP can silently issue a new token for the selected tenant when the user already has a valid session. In other solutions, the tenant change requires an interactive sign-in or a new session. Consider whether your solution needs to support tenant transitions without another sign-in prompt, and whether your IdP should reissue tokens with specific tenant claims. For example, when a user signs in to the Azure portal, they can switch between different Microsoft Entra ID directories. This transition requires reauthentication and generates a new token from the newly selected Microsoft Entra ID instance.
+In a multitenant solution, you might use another form of single sign-on. If users are authorized to access data across multiple tenants, you might need to let them change their context from one tenant to another. In some solutions, the IdP can silently issue a new token for the selected tenant if the user already has a valid session. In other solutions, the tenant change requires an interactive sign-in or a new session. Consider whether your solution needs to support tenant transitions without another sign-in prompt and whether your IdP should reissue tokens with specific tenant claims. For example, when a user signs in to the Azure portal, they can switch between different Microsoft Entra ID directories. This transition requires reauthentication and generates a new token from the new Microsoft Entra ID instance.
 
 ### Multifactor authentication
 
-Some tenants require their users to continue to use a specific multifactor authentication (MFA) provider for compliance or user-experience reasons. Microsoft Entra ID supports [external authentication methods](/entra/identity/authentication/concept-authentication-external-method-provider), which let tenants use a non-Microsoft MFA provider while Microsoft Entra ID remains the identity control plane and continues to evaluate Conditional Access policies and sign-in risk on every sign-in. Consider whether your solution should support tenants that bring their own MFA provider.
+Some tenants require users to continue to use a specific multifactor authentication (MFA) provider for compliance or user-experience reasons. Microsoft Entra ID supports [external authentication methods](/entra/identity/authentication/concept-authentication-external-method-provider) so that tenants use a non-Microsoft MFA provider while Microsoft Entra ID continues to act as the identity control plane and continues to evaluate Conditional Access policies and sign-in risk during every sign-in. Consider whether your solution should support tenants that use their own MFA provider.
 
 ### Sign-in risk evaluation
 
-Modern identity platforms support a risk evaluation during the sign-in process. For example, if a user signs in from an unusual location or device, the authentication system might require extra identity checks, such as multifactor authentication (MFA), before it allows the sign-in request to proceed.
+Modern identity platforms support risk evaluation during the sign-in process. For example, if a user signs in from an unusual location or device, the authentication system might require extra identity checks, such as multifactor authentication (MFA), before the sign-in request can continue.
 
-Consider whether your tenants might have different risk policies that need to be applied during the authentication process. For example, if you have some tenants in a highly regulated industry, they might have different risk profiles and requirements than tenants who work in less regulated environments. Or you might allow tenants at higher pricing tiers to specify more restrictive sign-in policies than tenants who purchase a lower tier of your service.
+Your tenants might have different risk policies that need to be applied during authentication. For example, tenants in a highly regulated industry might have different risk profiles and requirements than tenants who work in less regulated environments. Or you might allow tenants at higher pricing tiers to specify more restrictive sign-in policies than tenants who purchase a lower tier of your service.
 
 If you need to support different risk policies for each tenant, your authentication system needs to know which tenant the user is signing in to so that it can apply the correct policies.
 
@@ -81,7 +81,6 @@ Authorization data can be stored in several places, including in the following l
 - **In your application:** You can build your own authorization logic and then store information about what each user can do in a database or similar storage system. You can then design fine-grained controls for role-based or resource-level authorization.
 
 In most multitenant solutions, the customer or tenant manages role and permission assignments, and not the vendor of the multitenant system.
-
 
 ### Add tenant identity and role information to tokens
 
