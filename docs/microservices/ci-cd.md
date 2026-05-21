@@ -36,7 +36,7 @@ Consider the following goals of a robust CI/CD process for a microservices archi
 
 ## Why a robust CI/CD pipeline matters
 
-In a traditional monolithic application, a single build pipeline produces the application executable. All development work feeds into this pipeline. If the team finds a high-priority bug, the fix must be integrated, tested, and published, which can delay the release of new features. You can reduce these problems by using well-factored modules and feature branches to limit the effect of code changes. But as the application grows more complex and more features are added, the release process for a monolith tends to become more brittle and more likely to break.
+In a traditional monolithic application, a single build pipeline produces the application executable. All development work feeds into this pipeline. If the team finds a high-priority bug, the fix must be integrated, tested, and published, which can delay the release of new features. You can reduce these problems by using well-factored modules and feature branches to limit the effect of code changes. But as the application grows more complex and more features are added, the release process for a monolith tends to become more brittle and likely to break.
 
 In the microservices philosophy, there should never be a long release train where every team has to get in line. The team that builds service A can release an update when they choose and doesn't have to wait for changes in service B to merge, test, and deploy.
 
@@ -50,9 +50,9 @@ To achieve a high release velocity, your release pipeline must be automated and 
 
 - **Many small independent code bases:** Each team is responsible for building its own service, with its own build pipeline. In some organizations, teams might use separate code repositories. Separate repositories can fragment the knowledge of how to build the system across teams. As a result, nobody in the organization knows how to deploy the entire application.
 
-   **Mitigation:** Have a unified and automated pipeline or at least common pipeline infrastructure to build and deploy services, so that this knowledge isn't hidden within each team. Reusable pipeline templates, like [GitHub Actions reusable workflows](https://docs.github.com/en/actions/how-tos/reuse-automations/reuse-workflows) or [Azure Pipelines templates](/azure/devops/pipelines/process/templates), help standardize the build, test, scan, and deploy steps across every service.
+   **Mitigation:** Have a unified and automated pipeline or at least common pipeline infrastructure to build and deploy services so that this knowledge isn't hidden within each team. Reusable pipeline templates, like [GitHub Actions reusable workflows](https://docs.github.com/en/actions/how-tos/reuse-automations/reuse-workflows) or [Azure Pipelines templates](/azure/devops/pipelines/process/templates), help standardize the build, test, scan, and deploy steps across every service.
 
-- **Multiple languages and frameworks:** Each team uses its own mix of technologies, so it can be difficult to create a single build process that works across the workload. The build process must be flexible enough that every team can adapt it for their choice of language or framework.
+- **Multiple languages and frameworks:** Each team uses its own mix of technologies, so it can be difficult to create a single build process that works across the workload. The build process must be flexible enough that every team can adapt it for their chosen language or framework.
 
    **Mitigation:** Containerize the build process for each service so that the build system only needs to run the containers. Platforms like GitHub Actions, Azure Pipelines, and [Azure Container Registry tasks](/azure/container-registry/container-registry-tasks-overview) can build and publish container images consistently regardless of the source language.
 
