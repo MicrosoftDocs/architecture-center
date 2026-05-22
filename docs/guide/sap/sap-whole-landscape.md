@@ -206,33 +206,33 @@ SAP solutions rely on shared services. Load balancers and application gateways a
 
 ### Disaster recovery
 
-Disaster recovery (DR) addresses the requirement for business continuity in case the primary Azure region is unavailable or compromised. From an overall SAP landscape perspective and shown in the diagram, here are our recommendations for disaster recovery design.
+Disaster recovery (DR) addresses the requirement for business continuity in case the primary Azure region is unavailable or compromised. From an overall SAP landscape perspective, the following sections provide recommendations for disaster recovery design. These recommendations are depicted in the diagram.
 
-**Use different IP address ranges** Virtual networks only span a single Azure region. Any disaster recovery solutions should use a different region. You need to create a different virtual network in the secondary region. The virtual network in the DR environment needs a different IP address range to enable database synchronization through database native technology.
+**Use different IP address ranges:** Virtual networks only span a single Azure region. DR solutions should use a different region. You need to create a different virtual network in the secondary region. The virtual network in the DR environment needs to use a different IP address range to enable database synchronization through database-native technology.
 
-**Central services and connectivity to on-premises**: Connectivity to on-premises and key central services (DNS or firewalls) must be available in the disaster recovery region. Availability and change configuration of the central IT services need to be part your disaster recovery plan. Central IT services are key components for a functioning SAP environment.
+**Ensure connectivity to central services and on-premises:** Connectivity to on-premises and key central services (DNS or firewalls) must be available in the DR region. Make availability and change configuration of the central IT services a part your DR plan. Central IT services are key components for a functioning SAP environment.
 
-**Use Azure Site Recovery** Azure Site Recovery replicates and protects managed disks and VMs configurations for application servers to the DR region.
+**Use Azure Site Recovery:** Site Recovery replicates managed disks and VM configurations for application servers to the DR region.
 
-**Ensure file share availability**: SAP depends on availability of key file shares. Backup or continuous file share replication is necessary to provide data on these file shares with minimal data loss in DR scenario.
+**Ensure file share availability:** SAP depends on the availability of key file shares. Backup or continuous file share replication is necessary to provide data on these file shares, with minimal data loss in a DR scenario.
 
-**Database replication** Azure Site Recovery can't protect SAP database servers due to the high change rate and lack of database support by the service. You need to configure continuous and asynchronous database replication to the disaster recovery region.
+**Database replication:** Site Recovery can't protect SAP database servers because of the high change rate and lack of database support by the service. You need to configure continuous and asynchronous database replication to the DR region.
 
-For more information, see [disaster recovery overview and infrastructure guidelines for SAP workload](/azure/virtual-machines/workloads/sap/disaster-recovery-overview-guide).
+For more information, see [Disaster recovery overview and infrastructure guidelines for SAP workload](/azure/virtual-machines/workloads/sap/disaster-recovery-overview-guide).
 
 ### Smaller SAP architecture
 
-For smaller SAP solutions, it might be beneficial to simplify the network design. Each SAP environment's virtual network would then be subnets inside such combined virtual network. Any simplification of the network and subscription design needs can affect security. You should reevaluate the network routing, access to and from public networks, access to shared services (file shares), and access other Azure services. Here are some options for shrinking the architecture to better meet organizational needs.
+For smaller SAP solutions, it might be beneficial to simplify the network design. In this design, each SAP environment's virtual network would be a subnet in a combined virtual network. Any simplification of the network and subscription design can affect security. You should reevaluate the network routing, access to and from public networks, access to shared services (file shares), and access to other Azure services. Here are some options for reducing the architecture to better meet organizational needs:
 
-**Combine the SAP application and database subnets into one.** You can combine the application and database subnets to create one large SAP network. This network design mirrors many on-premises SAP networks. The combination of these two subnets requires higher attention to subnet security and network-security-group rules. Application security groups are important when you use a single subnet for SAP application and database subnets.
+**Combine the SAP application and database subnets into one.** You can combine the application and database subnets to create one large SAP network. This network design mirrors many on-premises SAP networks. If you combine these two subnets, you need to pay closer attention to subnet security and NSG rules. ASGs are important when you use a single subnet for SAP application and database subnets.
 
-**Combine SAP perimeter subnet and application subnet.** You can combine the perimeter subnet and SAP application subnet. A heightened attention must be placed on network-security-group rules and application security group use. We only recommend this simplification approach for small SAP estates.
+**Combine the SAP perimeter subnet and application subnet.** You can combine the perimeter subnet and SAP application subnet. If you do, you need to pay closer attention to NSG rules and ASG use. We recommend this simplified approach only for small SAP estates.
 
-**Combine SAP spoke virtual networks between different SAP environments** The architecture uses different virtual networks for each SAP environment (hub, production, non-production, and disaster recovery). Depending on the size of your SAP landscape, you can combine the SAP spoke virtual networks into fewer or even only one SAP spoke. You still need to divide between production and non-production environments. Each SAP production environment becomes a subnet in one SAP production virtual network. Each SAP non-production environment becomes a subnet in one SAP non-production virtual network.
+**Combine SAP spoke virtual networks between different SAP environments.** The architecture uses different virtual networks for each SAP environment (hub, production, nonproduction, and DR). Depending on the size of your SAP landscape, you might be able to combine the SAP spoke virtual networks into fewer or even only one SAP spoke. You still need to separate production and nonproduction environments. In this simplified scenario, each SAP production environment becomes a subnet in one SAP production virtual network. Each SAP nonproduction environment becomes a subnet in one SAP nonproduction virtual network.
 
 ## Contributors
 
-*Microsoft maintains this article. It was originally written by the following contributors.*
+*Microsoft maintains this article. The following contributors wrote this article.*
 
 Principal authors:
 
@@ -245,11 +245,14 @@ Contributing author:
 
 ## Next steps
 
-- [SAP S/4HANA in Linux on Azure](./sap-s4hana.md)
-- [Run SAP NetWeaver in Windows on Azure](./sap-netweaver.md)
-- [Run SAP HANA in a scale-up architecture on Azure](/azure/architecture/reference-architectures/sap/run-sap-hana-for-linux-virtual-machines)
-- [Cloud Adoption Framework - SAP scenario](/azure/cloud-adoption-framework/scenarios/sap/)
-- [In- and Outbound internet connections for SAP on Azure](/azure/architecture/guide/sap/sap-internet-inbound-outbound)
+- [The strategic impact of SAP in the cloud](azure/cloud-adoption-framework/scenarios/sap/strategy)
 - [SAP on Azure documentation](/azure/virtual-machines/workloads/sap/get-started).
 - [Azure planning and implementation guide for SAP workloads](/azure/virtual-machines/workloads/sap/planning-guide)
 - [SAP workloads on Azure: planning and deployment checklist](/azure/virtual-machines/workloads/sap/sap-deployment-checklist)
+
+## Related resources
+
+- [SAP S/4HANA in Linux on Azure](./sap-s4hana.md)
+- [Run SAP NetWeaver in Windows on Azure](./sap-netweaver.md)
+- [Run SAP HANA in a scale-up architecture on Azure](/azure/architecture/reference-architectures/sap/run-sap-hana-for-linux-virtual-machines)
+- [Inbound and outbound internet connections for SAP on Azure](/azure/architecture/guide/sap/sap-internet-inbound-outbound)
