@@ -8,11 +8,11 @@ Some workloads need the strict transactional guarantees and complex relational q
    The diagram shows a client sending requests to an API proxy. The API proxy routes requests to two back-end services, named API 1 and API 2. API 1 connects to a NoSQL database, and API 2 connects to a relational database. API 1 and API 2 are also connected to each other with a bidirectional relationship that indicates interaction or synchronization between the two services. The overall flow shows a split data architecture in which one API path uses NoSQL storage and the other API path uses relational storage. In this flow, the proxy serves as the entry point for client requests.
 :::image-end:::
 
-This article describes a polyglot persistence approach that pairs SQL Database with Azure Cosmos DB so that you can configure each workload to use the database best suited to its requirements:
+This article describes a polyglot persistence approach that pairs SQL Database with Azure Cosmos DB so that you can configure each workload to use the database that best suits its requirements:
 
-- SQL Database manages data that benefits from complex queries, relational integrity, and atomicity, consistency, isolation, and durability (ACID) transactions. SQL Database also supports multimodel capabilities like JSON, graph, spatial, and vector data, along with analytical workloads through columnstore indexes. Financial transaction records suit this database because they require consistent multiple-table transactions that span line items, inventory, and accounts.
+- SQL Database manages data that benefits from complex queries, relational integrity, and atomicity, consistency, isolation, and durability (ACID) transactions. SQL Database also supports multimodel capabilities like JSON, graph, spatial, and vector data, along with analytical workloads through columnstore indexes. Financial transaction records are well-suited to this database because they require consistent multiple-table transactions that span line items, inventory, and accounts.
 
-- Azure Cosmos DB handles high-volume, schema-flexible, or globally distributed data that requires low-latency access and elastic scalability. E-commerce catalogs suit this database because their schemas evolve frequently and shoppers expect submillisecond reads regardless of region.
+- Azure Cosmos DB handles high-volume, schema-flexible, or globally distributed data that requires low-latency access and elastic scalability. E-commerce catalogs are well-suited to this database because their schemas evolve frequently and shoppers expect submillisecond reads regardless of region.
 
 With a domain-driven microservices approach, each service uses the database that fits its data characteristics. Each microservice owns its private data store. This design prevents unintentional coupling between services and supports independent updates and deployments without coordinating changes across the system.
 
@@ -46,9 +46,9 @@ The following data flow corresponds to the previous diagram:
 
 ## Scenario details
 
-Applications often handle diverse data workloads that have different characteristics. Structured, transactional data requires relational integrity and complex queries. Semistructured, rapidly evolving, or high-volume data requires flexible schemas and horizontal scalability. With a polyglot persistence approach, you can assign each workload to the specific database technology that best matches its requirements.
+Applications often combine transactional operations with high-volume or rapidly evolving data. Structured, transactional data requires relational integrity and complex queries. Semistructured, rapidly evolving, or high-volume data requires flexible schemas and horizontal scalability. With a polyglot persistence approach, you can assign each workload to the database technology that best matches its requirements.
 
-A polyglot persistence strategy assigns each data workload to the database technology that best matches its requirements. Domain-driven microservices enforce this separation, so each service can manage its own data store independently. This approach introduces challenges like [data redundancy across stores and eventual consistency between services](../../microservices/design/data-considerations.md#challenges). A polyglot architecture also increases operational complexity compared to a single database platform. Your team must develop and maintain expertise across both database technologies, which increases training and operational overhead.
+Domain-driven microservices enforce this workload‑to‑database separation, so each service can manage its own data store independently. This approach introduces challenges like [data redundancy across stores and eventual consistency between services](../../microservices/design/data-considerations.md#challenges). A polyglot architecture also increases operational complexity compared to a single database platform. Your team must develop and maintain expertise across both database technologies, which increases training and operational overhead.
 
 The following advantages help offset those challenges:
 
@@ -80,7 +80,7 @@ This architecture suits applications that handle multiple data workload types th
 
 - **Software as a service (SaaS) platforms:** Multitenant applications that store per-tenant relational data in SQL Database and shared, globally replicated metadata or user session content in Azure Cosmos DB.
 
-- **Healthcare and Internet of Things (IoT):** Systems that ingest high-volume metrics or sensor data into Azure Cosmos DB and store aggregated results, reference data, or final reports in SQL Database.
+- **Healthcare and Internet of Things (IoT):** Systems that store aggregated results, reference data, or final reports in SQL Database and ingest high-volume metrics or sensor data into Azure Cosmos DB.
 
 - **Financial services:** Payment and trading platforms that use SQL Database for transactional integrity over financial records and Azure Cosmos DB for globally distributed, low-latency access to portfolio or operational data.
 
