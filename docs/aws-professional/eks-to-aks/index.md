@@ -3,7 +3,7 @@ title: AKS for Amazon EKS Professionals
 description: Learn about the AKS managed solution, configurations, best practices, and similarities and differences compared to Amazon EKS.
 author: pranabpaul-tech
 ms.author: pranabp
-ms.date: 05/18/2026
+ms.date: 05/22/2026
 ms.topic: concept-article
 ms.subservice: architecture-guide
 ms.collection: 
@@ -15,7 +15,7 @@ ms.custom:
 
 # AKS for Amazon EKS professionals
 
-This series of articles guides Amazon EKS professionals looking to learn about [Azure Kubernetes Service (AKS)](/azure/aks/what-is-aks). This series evaluates the core similarities and differences between both managed Kubernetes platforms. The scope includes both EKS Standard and EKS Auto Mode, and similar offerings within AKS - AKS Standard and AKS Automatic.
+This series of articles guides Amazon EKS professionals that want to learn about [Azure Kubernetes Service (AKS)](/azure/aks/what-is-aks). This series evaluates the core similarities and differences between both managed Kubernetes platforms. The scope includes both EKS Standard and EKS Auto Mode, and similar offerings within AKS Standard and AKS Automatic.
 
 The articles compare AKS with Amazon EKS in the following Kubernetes design areas:
 
@@ -29,7 +29,7 @@ The articles compare AKS with Amazon EKS in the following Kubernetes design area
 
 For greenfield AKS implementations, see [Baseline architecture for an AKS cluster](../../reference-architectures/containers/aks/baseline-aks.yml). To build a foundational understanding of AKS, review [Get started with Azure Kubernetes Service (AKS)](/azure/aks/get-started-aks).
 
-Both Azure Kubernetes Service (AKS) and Amazon Elastic Kubernetes Service (EKS) provide a managed Kubernetes environment that reduces the complexity of operating Kubernetes clusters. Azure, as well as AWS, offer multiple solutions for running container-based workloads. These articles don't compare the other Azure and AWS container hosts. Also, hybrid options such as AWS Outposts or Azure Local and Red Hat OpenShift offerings such as Red Hat OpenShift Service on AWS (ROSA) or Azure Red Hat OpenShift (ARO) are not part of these articles.
+Both Azure Kubernetes Service (AKS) and Amazon Elastic Kubernetes Service (EKS) provide a managed Kubernetes environment that reduces the complexity of operating Kubernetes clusters. Azure and AWS offer multiple solutions for running container-based workloads. These articles don't compare the other Azure and AWS container hosts. These articles also don't include hybrid options such as AWS Outposts or Azure Local and Red Hat OpenShift offerings, such as Red Hat OpenShift Service on AWS (ROSA) or Azure Red Hat OpenShift (ARO).
 
 For more information about other Azure services that can host containerized workloads, see the following articles:
 
