@@ -118,7 +118,7 @@ Many multitenant solutions operate as SaaS. Your choice to use Microsoft Entra I
 
 It's complex to build a modern identity platform. These platforms require support for a range of protocols and standards, and an incorrect implementation can introduce security vulnerabilities. You need to continually update your identity system to mitigate attacks, incorporate the latest security features, and respond to new and amended standards and protocols. Identity systems must be resilient, because any downtime can have serious consequences for the rest of your solution. In most scenarios, IdP implementation doesn't directly benefit the business, but IdP implementation is necessary in a multitenant service. It's better to use a specialized identity system that experts build, operate, and secure.
 
-If you run your own identity system, you need to store password hashes or other credentials, which creates a vulnerability for cybercriminals. Password hashing and salting are often insufficient, because some cybercriminals can still compromise these credentials.
+If you run your own identity system, you need to store password hashes or other credentials, which creates a vulnerability that cybercriminals can take advantage of. Password hashing and salting are often insufficient, because some cybercriminals can still compromise these credentials.
 
 When you run an identity system, you're responsible for multifactor authentication generation and distribution, or for the distribution of one-time password codes. You also need a mechanism to send these codes via text message or email. You must also detect targeted and brute-force attacks, throttle sign-in attempts, and maintain audit logs.
 
