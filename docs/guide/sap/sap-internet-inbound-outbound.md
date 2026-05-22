@@ -203,13 +203,13 @@ For some SAP BTP integration scenarios, the Private Link service approach is pre
 
 ### SAP RISE/ECS
 
-If SAP operates your SAP system under an SAP RISE/ECS contract, SAP is the managed service partner. The SAP environment is deployed by SAP. On SAP's architecture, the architecture shown here doesn't apply to your systems that run in RISE with SAP/ECS. For more information about integrating this type of SAP landscape with Azure services and your network, see [Integrate Azure with SAP RISE managed workloads](/azure/virtual-machines/workloads/sap/sap-rise-integration).
+If SAP operates your SAP system under an SAP RISE/ECS contract, SAP is the managed service partner. The SAP environment is deployed by SAP. On SAP's architecture, the architecture shown here doesn't apply to your systems that run in RISE with SAP/ECS. For more information about integrating this type of SAP landscape with Azure services and your network, see [Integrate Azure with SAP RISE managed workloads](/azure/sap/workloads/rise-integration).
 
 ### Other SAP communication requirements
 
 Additional considerations regarding internet-bound communications might apply to an SAP landscape operating on Azure. Traffic flow in this architecture uses a central Azure firewall for this outbound traffic. User-defined rules in the spoke virtual networks route internet-bound traffic requests to the firewall. Alternatively, you can use NAT gateways on specific subnets, public IP addresses on VMs (not recommended), or a public load balancer with outbound rules. Your subnets might not have [default Azure outbound](/azure/virtual-network/ip-services/default-outbound-access) enabled. Typical scenarios reach public endpoints of Microsoft Entra ID, Azure management APIs at management.azure.com, and services of non-Microsoft applications or government applications via outbound network access.
 
-Because of changes to default outbound access in Azure, ensure that scalable outbound access is defined. For VMs that are behind an internal load balancer, like those in clustered environments, keep in mind that Load Balancer modifies the behavior for public connectivity. For more information, see [Outbound connectivity for SAP VMs](/azure/virtual-machines/workloads/sap/high-availability-guide-standard-load-balancer-outbound-connections).
+Because of changes to default outbound access in Azure, ensure that scalable outbound access is defined. For VMs that are behind an internal load balancer, like those in clustered environments, keep in mind that Load Balancer modifies the behavior for public connectivity. For more information, see [Outbound connectivity for SAP VMs](/azure/sap/workloads/high-availability-guide-standard-load-balancer-outbound-connections).
 
 For more information about default outbound connectivity from VMs and the recommended replacement options, see [Design virtual networks with Azure NAT Gateway](/azure/nat-gateway/nat-gateway-design).
 
@@ -262,6 +262,6 @@ Consider using these communities to get answers to questions and for help with s
 
 ## Related resources
 
-- [SAP workloads on Azure: planning and deployment checklist](/azure/virtual-machines/workloads/sap/sap-deployment-checklist?toc=/azure/architecture/toc.json&bc=/azure/architecture/_bread/toc.json)
+- [SAP workloads on Azure: planning and deployment checklist](/azure/sap/workloads/deployment-checklist?toc=/azure/architecture/toc.json&bc=/azure/architecture/_bread/toc.json)
 - [Run SAP NetWeaver in Windows on Azure](./sap-netweaver.md)
 - [SAP S/4HANA in Linux on Azure](./sap-s4hana.md)
