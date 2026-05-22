@@ -6,6 +6,7 @@ ms.author: fimdimag
 ms.date: 05/22/2026
 ms.topic: concept-article
 ms.subservice: architecture-guide
+ai-usage: ai-assisted
 ---
 
 # CI/CD for microservices
@@ -36,12 +37,12 @@ Consider the following goals of a robust CI/CD process for a microservices archi
 
 ## Why a robust CI/CD pipeline matters
 
-In a traditional monolithic application, a single build pipeline produces the application executable. All development work feeds into this pipeline. If the team finds a high-priority bug, the fix must be integrated, tested, and published, which can delay the release of new features. You can reduce these problems by using well-factored modules and feature branches to limit the effect of code changes. But as the application grows more complex and more features are added, the release process for a monolith tends to become more brittle and likely to break.
+In a traditional monolithic application, a single build pipeline produces the application executable. All development work feeds into this pipeline. If the team finds a high-priority bug, the fix must be integrated, tested, and published, which can delay the release of new features. You can reduce these problems by using well-factored modules and feature branches to limit the effect of code changes. But as the application grows more complex and more features are added, the release process for a monolith tends to become more complicated and likely to fail.
 
-In the microservices philosophy, there should never be a long release train where every team has to get in line. The team that builds service A can release an update when they choose and doesn't have to wait for changes in service B to merge, test, and deploy.
+According to the microservices philosophy, there should never be a long release train where every team has to get in line. The team that builds service A can release an update when they choose and doesn't have to wait for changes in service B to merge, test, and deploy.
 
 :::image type="complex" border="false" source="./images/cicd-monolith.png" alt-text="Diagram that compares CI/CD for monolith versus microservices architectures." lightbox="./images/cicd-monolith.png":::
-   The diagram shows two sections: monolith and microservices. The monolith section shows teams A, B, C, and D. Arrows point from the teams to the release candidate. An arrow points from the release candidate to production. X's mark team B, the release candidate, and the arrow that points to production. The microservices section shows teams A, B, C, and D. Arrows point from the teams to individual release sections. Arrows point from the release sections to production. X's mark the arrows in the team B flow.
+   The diagram shows two sections: monolith and microservices. The monolith section shows teams A, B, C, and D. Arrows point from the teams to the release candidate. An arrow points from the release candidate to production. X's mark team B, the release candidate, and the arrow that points to production. The microservices section shows teams A, B, C, and D. Arrows point from the teams to individual release sections. Arrows point from the release sections to production. X's mark the arrows in the team B flow. In the monolith section, team B's failure blocks the entire release path, while in the microservices section, team B's failure affects only its own service's path to production.
 :::image-end:::
 
 To achieve a high release velocity, your release pipeline must be automated and highly reliable to minimize risk. If you release to production one or more times daily, regressions or service disruptions must be rare. At the same time, if you deploy a bad update, you must have a reliable way to quickly roll back or roll forward to a previous version of a service.
@@ -64,7 +65,7 @@ To achieve a high release velocity, your release pipeline must be automated and 
 
     **Mitigation:** The more your CI/CD process is automated and reliable, the less you need a central authority. You might still have different policies for releasing major feature updates versus minor bug fixes. A decentralized approach doesn't mean zero governance. Enforce approvals by using [Azure Pipelines environments and approvals](/azure/devops/pipelines/process/environments) or [GitHub Actions deployment environments and required reviewers](https://docs.github.com/en/actions/how-tos/deploy/configure-and-manage-deployments/manage-environments), and codify cluster-side policy by using [Azure Policy for Azure Kubernetes Service (AKS)](/azure/governance/policy/concepts/policy-for-kubernetes) or [OPA Gatekeeper](https://open-policy-agent.github.io/gatekeeper/website/).
 
-- **Service updates:** When you update a service to a new version, it shouldn't break other services that depend on it.
+- **Service updates:** When you update a service to a new version, the update shouldn't cause other services that depend on it to fail.
 
    **Mitigation:** Use deployment techniques like blue-green or canary releases for nonbreaking changes. For breaking API changes, deploy the new version side by side with the previous version. With this approach, services that consume the previous API can be updated and tested for the new API. For more information, see [Update services](#update-services).
 
@@ -72,7 +73,7 @@ To achieve a high release velocity, your release pipeline must be automated and 
 
    **Mitigation:** Authenticate pipelines to Azure with workload identity federation, which uses OpenID Connect (OIDC), so no client secret is stored in the pipeline. For more information, see [Workload identities for Azure Pipelines](/azure/devops/pipelines/release/configure-workload-identity) and [Configure OpenID Connect in Azure for GitHub Actions](https://docs.github.com/en/actions/how-tos/secure-your-work/security-harden-deployments/oidc-in-azure). Store any remaining secrets in [Azure Key Vault](/azure/key-vault/general/overview) and reference them at runtime.
 
-- **Supply-chain security:** Everything that you ship to production must be traceable to the code and dependencies that it was built from. Microservices multiply the number of images, registries, and pipelines, which increases your supply-chain exposure.
+- **Supply-chain security:** Everything that you ship to production must be traceable to the code and dependencies that it was built from. Microservices increase the number of images, registries, and pipelines, which increases your supply-chain exposure.
 
   **Mitigation:** Sign container images by using [Notation and Key Vault](/azure/container-registry/container-registry-tutorial-sign-build-push), and verify signatures at admission time by using [AKS image integrity](/azure/aks/image-integrity) or [Ratify](https://ratify.dev/). Generate an SBOM as a build artifact. Scan code, dependencies, and pipelines by using [Microsoft Defender for Cloud DevOps security](/azure/defender-for-cloud/defender-for-devops-introduction) and [GitHub Advanced Security](https://docs.github.com/en/code-security). Scan runtime images by using [Microsoft Defender for Containers](/azure/defender-for-cloud/defender-for-containers-introduction). Require all scans to pass before a release can proceed.
 
@@ -95,7 +96,7 @@ Regardless of the model that you choose, use path-scoped triggers in your pipeli
 
 ## Update services
 
-Updating a service that's in production can follow several strategies, including rolling update, blue-green deployment, and canary release. These patterns are often coordinated through a GitOps workflow. For more information, see [GitOps and progressive delivery](#progressive-delivery-and-gitops).
+There are various strategies for updating a service that's already in production, including rolling update, blue-green deployment, and canary release. These patterns are often coordinated through a GitOps workflow. For more information, see [GitOps and progressive delivery](#progressive-delivery-and-gitops).
 
 ### Rolling updates
 
