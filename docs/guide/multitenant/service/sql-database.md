@@ -3,7 +3,7 @@ title: Multitenancy and Azure SQL Database
 description: This article outlines Azure SQL Database features for designing a multitenant system. It provides guidance and examples for using Azure SQL in a multitenant solution.
 author: johndowns
 ms.author: pnp
-ms.date: 03/18/2025
+ms.date: 05/21/2026
 ms.topic: concept-article
 ms.subservice: architecture-guide
 ms.custom: arb-saas
@@ -25,11 +25,15 @@ SQL Database includes many features that support multitenancy.
 
 Elastic pools enable you to share compute resources between multiple databases on the same server. By using elastic pools, you can achieve performance elasticity for each database. You can also maximize cost efficiency by sharing provisioned resources across multiple databases. Elastic pools provide built-in protections against the [noisy neighbor problem](../../../antipatterns/noisy-neighbor/noisy-neighbor.yml).
 
+Hyperscale elastic pools extend the elastic pool model to the Hyperscale service tier. You can host many tenant databases in a single Hyperscale pool and scale the shared compute independently of per-tenant data size. Hyperscale pools also support larger per-database storage than other elastic pool tiers. Use them when individual tenant databases exceed the storage limits of non-Hyperscale pools. You can add read-scale replicas at the pool level to offload read workloads across tenants.
+
 For more information, see the following resources:
 
 - [SQL Database elastic pools](/azure/azure-sql/database/elastic-pool-overview)
 - [Resource management in dense elastic pools](/azure/azure-sql/database/elastic-pool-resource-management)
 - [Disaster recovery strategies for applications that use SQL Database elastic pools](/azure/azure-sql/database/disaster-recovery-strategies-for-applications-with-elastic-pool)
+- [Hyperscale elastic pools overview](/azure/azure-sql/database/hyperscale-elastic-pool-overview)
+- [Work with Hyperscale elastic pools using command-line tools](/azure/azure-sql/database/hyperscale-elastic-pool-command-line)
 
 ### Elastic database tools
 
