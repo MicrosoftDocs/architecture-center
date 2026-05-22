@@ -88,15 +88,15 @@ The production virtual network in the architecture has five subnets. This design
 
 ##### Subnet sizing
 
-Ensure that the subnets have sufficient network address space. If you use SAP virtual host names, you need more address space in your SAP subnets. Often each SAP instance requires two, three, or more IP addresses and includes one IP address for the virtual machine hostname. Other Azure services might require a dedicated subnet when deployed in the SAP workload virtual networks.
+Ensure that the subnets have sufficient network address space. If you use SAP virtual host names, you need more address space in your SAP subnets. Often each SAP instance requires two, three, or more IP addresses and includes one IP address for the virtual machine (VM) hostname. Other Azure services might require a dedicated subnet when deployed in the SAP workload virtual networks.
 
 ##### Application subnet
 
-The application subnet contains virtual machines that run SAP application servers, SAP Central Services (ASCS), SAP Enqueue Replication Server (ERS), and SAP Web Dispatcher instances. The subnet also contains a private endpoint for Azure Files. In the diagram, the virtual machines are grouped by role. We recommend using Azure Virtual Machine Scale Sets with flexible orchestration together with availability zones for resilient deployment. For more information, see the [Next steps](#next-steps) section of this article.
+The application subnet contains VMs that run SAP application servers, SAP Central Services (ASCS), SAP Enqueue Replication Server (ERS), and SAP Web Dispatcher instances. The subnet also contains a private endpoint for Azure Files. In the diagram, the VMs are grouped by role. We recommend using Azure Virtual Machine Scale Sets with flexible orchestration together with availability zones for resilient deployment. For more information, see the [Next steps](#next-steps) section of this article.
 
 ##### Database subnet
 
-The database subnet contains virtual machines that run databases. In the diagram, a pair of virtual machines with synchronous replication represents all the database virtual machines of one SAP environment.
+The database subnet contains VMs that run databases. In the diagram, a pair of VMs with synchronous replication represents all the database VMs of one SAP environment.
 
 ##### Perimeter subnets
 
@@ -114,39 +114,39 @@ You can create a separate SAP perimeter subnet in the nonproduction subscription
 This diagram shows an architecture that places perimeter subnets in a separate virtual network. On the far left, an on-premises network that contains a gateway connects through ExpressRoute to an Azure subscription for regional hubs. Inside that subscription, a hub virtual network contains a gateway subnet that contains a zone-redundant gateway, an Azure Firewall subnet, a shared services subnet that contains Microsoft Entra ID and DNS, and an Azure Bastion subnet. The hub also exposes a public IP endpoint. The hub connects to an Azure subscription for SAP production via virtual network peering. This subscription is split into two spoke virtual networks: the SAP perimeter spoke and the SAP production spoke. In the perimeter spoke, one subnet hosts Application Gateway with Web Application Firewall, and another subnet hosts SAProuter and Cloud Connector. There's a public IP at the perimeter edge. Inbound internet traffic for web services and Fiori enters through this perimeter path. In the production spoke, one subnet hosts a SAP Web Dispatcher pool, SAP ASCS, and application servers. Another production subnet hosts databases. A separate storage area in this subnet includes Azure Files or Azure NetApp Files with SMB/NFS shares. Azure NetApp Files in its own subnet. Azure Files connects to the application subnet via a private endpoint. Directional arrows labeled spoke-hub-spoke traffic flow show that communication from the production spoke to the perimeter spoke is forced through the hub. On the far right is a group connected platform services: cloud witness, Data Factory, Data Lake Storage, Recovery Services vaults, and Site Recovery. At the top-right, a Private Link label indicates private connectivity for SAP BTP.
 :::image-end:::
 
-*Download a [Visio file](https://arch-center.azureedge.net/sap-whole-landscape-secured.vsdx) including this alternative architecture.*
+*Download a [Visio file](https://arch-center.azureedge.net/sap-whole-landscape-secured.vsdx) that includes this alternative architecture.*
 
-This network design provides better incident response capabilities and fine-grained network access control. However, it also increases the management complexity, network latency, and cost of the deployment. Let's discuss each point.
+This network design provides better incident response capabilities and fine-grained network access control. However, it also increases the management complexity, network latency, and cost of the deployment. The following sections discuss each point.
 
-*Better incident response*: The SAP perimeter spoke virtual network allows quick isolation of compromised services if you detect a breach. You can remove virtual network peering from the SAP perimeter spoke virtual network to the hub and immediately isolate the SAP perimeter workloads and SAP application virtual network applications from the internet. You don't want to rely on network security group (NSG) rules changes for incident response. Changing or removing an NSG rule only affects new connections and won't cut existing malicious connections.
+*Better incident response:* The SAP perimeter spoke virtual network allows you to quickly isolate compromised services if you detect a breach. You can remove virtual network peering from the SAP perimeter spoke virtual network to the hub and immediately isolate the SAP perimeter workloads and SAP application virtual network applications from the internet. You shouldn't rely on network security group (NSG) rule changes for incident response. Changing or removing an NSG rule affects only new connections and doesn't remove existing malicious connections.
 
-*Fine-grained network access control*: The SAP perimeter virtual network provides more stringent network access control to and from the SAP production spoke virtual network.
+*Fine-grained network access control:* The SAP perimeter virtual network provides more stringent network access control to and from the SAP production spoke virtual network.
 
-*Increased complexity, latency, and cost*: The architecture increases management complexity, cost, and latency. Internet-bound communication from the SAP production virtual network is peered twice, once to the Hub virtual network and again to the SAP perimeter virtual network out to the internet. The firewall in the Hub virtual network has the greatest effect on latency. We recommend measuring the latency to see if your use case can support it.
+*Increased complexity, latency, and cost:* The architecture increases management complexity, cost, and latency. Internet-bound communication from the SAP production virtual network is peered twice, once to the hub virtual network and again to the SAP perimeter virtual network out to the internet. The firewall in the hub virtual network has the biggest effect on latency. We recommend that you measure the latency to see if your use case can support it.
 
 For more information, see [perimeter network best practices](/azure/cloud-adoption-framework/ready/azure-best-practices/perimeter-networks).
 
 ##### Azure NetApp Files subnet
 
-If you're using NetApp Files, you should have a delegated subnet to provide network file system (NFS) or server message block (SMB) file shares for different SAP on Azure scenarios. A /24 subnet is the default size for a NetApp Files subnet, but you can change the size to meet your needs. Use your own requirements to determine the proper sizing. For more information, see [delegated subnet](/azure/azure-netapp-files/azure-netapp-files-delegate-subnet).
+If you're using Azure NetApp Files, you should have a delegated subnet to provide network file system (NFS) or server message block (SMB) file shares for different SAP-on-Azure scenarios. A /24 subnet is the default size for an Azure NetApp Files subnet, but you can change the size to meet your needs. Use your own requirements to determine the proper size. For more information, see [Delegate a subnet to Azure NetApp Files](/azure/azure-netapp-files/azure-netapp-files-delegate-subnet).
 
 ##### Subnet security
 
 Using subnets to group SAP resources that have the same security rule requirements makes it easier to manage the security.
 
-**Network security groups (NSG)**: Subnets allow you to implement network security groups at the subnet level. Grouping resources in the same subnet that require different security rules requires network security groups at the subnet level and network-interface level. With this two-level setup, security rules easily conflict and can cause unexpected communication problems that are difficult to troubleshoot. NSG rules also affect traffic [within the subnet](/azure/virtual-network/network-security-group-how-it-works#intra-subnet-traffic). For more information on NSGs, see [network security groups](/azure/virtual-network/tutorial-filter-network-traffic-cli).
+**NSGs**: Subnets allow you to implement network security groups at the subnet level. Grouping resources in the same subnet that require different security rules requires NSGs at the subnet level and network-interface level. In this two-level configuration, security rules easily conflict and can cause unexpected communication problems that are difficult to troubleshoot. NSG rules also affect traffic [within the subnet](/azure/virtual-network/network-security-group-how-it-works#intra-subnet-traffic). For more information, see [NSGs](/azure/virtual-network/tutorial-filter-network-traffic-cli).
 
-**Application security groups (ASG)**: We recommend using application security groups to group virtual machine network interfaces and reference the application security groups in the network-security-group rules. This configuration allows easier rule creation and management for SAP deployments. Each network interface can belong to multiple application security groups with different network-security-group rules. For more information, see [application security groups](/azure/virtual-network/application-security-groups).
+**Application security groups (ASGs)**: We recommend that you use ASGs to group VM network interfaces and reference the ASGs in the NSG rules. This configuration enables easier rule creation and management for SAP deployments. Each network interface can belong to multiple ASGs with different NSG rules. For more information, see [ASGs](/azure/virtual-network/application-security-groups).
 
-#### Azure Private Link
+#### Private Link
 
-We recommend using Azure Private Link to improve the security of network communications. Azure Private Link uses private endpoints with private IP addresses to communicate with Azure services. Azure Private Links avoids sending network communication over the internet to public endpoints. For more information, see [private endpoints on Azure services](/azure/private-link/private-endpoint-overview).
+We recommend that you use Private Link to improve the security of network communications. Private Link uses private endpoints with private IP addresses to communicate with Azure services. Using Private Link enables you to avoid sending network communication over the internet to public endpoints. For more information, see [What is a private endpoint?](/azure/private-link/private-endpoint-overview).
 
-**Use private endpoints in the application subnet**: We recommend using private endpoints to connect the application subnet to supported Azure services. In the architecture, there's a private endpoint for Azure Files in the Application subnet of each virtual network. You can extend this concept to any supported Azure service.
+**Use private endpoints in the application subnet:** We recommend that you use private endpoints to connect the application subnet to supported Azure services. In the architecture, there's a private endpoint for Azure Files in the application subnet of each virtual network. You can use this configuration for any supported Azure service.
 
-**Use Azure Private Link for SAP Business Technology Platform (BTP)**: Azure Private Link for SAP Business Technology Platform (BTP) is now generally available. SAP Private Link Service supports connections from SAP BTP, the Cloud Foundry runtime, and other services. Example scenarios include SAP S/4HANA or SAP ERP running on the virtual machine. They can connect to Azure native services such as Azure Database for MySQL.
+**Use Private Link for SAP BTP:** You can use Private Link for SAP BTP. SAP Private Link Service supports connections from SAP BTP, the Cloud Foundry Runtime, and other services. Example scenarios include SAP S/4HANA or SAP ERP running on a VM. SAP services can connect to Azure native services like Azure Database for MySQL.
 
-The architecture depicts an SAP Private Link Service connection from SAP BTP environments. SAP Private Link Service establishes a private connection between specific SAP BTP services and specific services in each network as service provider accounts. Private link allows BTP services to access your SAP environment through private network connections. It improves security by not using the public internet to communicate.
+The architecture uses an SAP Private Link Service connection from SAP BTP environments. SAP Private Link Service establishes a private connection between specific SAP BTP services and specific services in each network as service provider accounts. Private Link allows BTP services to access your SAP environment through private network connections. It improves security because it enables you to avoid using the public internet to communicate.
 
 For more information, see:
 
@@ -154,9 +154,9 @@ For more information, see:
 - [Azure Database for MySQL](https://help.sap.com/docs/PRIVATE_LINK/42acd88cb4134ba2a7d3e0e62c9fe6cf/5c70499ee70b415d954145a795e43355.html?locale=en-US)
 - [Internet connection for SAP on Azure](/azure/architecture/guide/sap/sap-internet-inbound-outbound)
 
-### Network file system (NFS) and server message block (SMB) file shares
+### NFS and SMB file shares
 
-SAP systems often depend on network file system volumes or server message block shares. These file shares move files between virtual machines or function as a file interface with other applications. We recommend using native Azure services, such as Azure Premium Files and Azure NetApp Files, as your network file system (NFS) and server message block (SMB) file shares. Azure services have better combined availability, resilience, and service level agreements (SLAs) than operating-system-based tools.
+SAP systems often depend on NFS or SMB shares. These file shares move files between VMs or function as a file interface with other applications. We recommend that you native Azure services, like Azure Premium Files and Azure NetApp Files, as your NFS and SMB file shares. Azure services have better combined availability, resilience, and service-level agreements (SLAs) than operating-system-based tools.
 
 For more information, see:
 
@@ -164,45 +164,45 @@ For more information, see:
 - [Azure NetApp Files](/azure/virtual-machines/workloads/sap/planning-guide-storage#azure-netapp-files-anf)
 - [SAP note 2015553 (requirements for storage services)](https://launchpad.support.sap.com/#/notes/2015553)
 
-When architecting your SAP solution, you need to properly size the individual file share volumes and know which SAP system file share connects to. Keep scalability and performance targets of the Azure service in mind during planning. The following table outlines common SAP file shares and gives a brief description and recommended use in a whole SAP environment.
+When you architect your SAP solution, you need to properly size the individual file share volumes and know which SAP system file share connects to. Keep scalability and performance targets of the Azure service in mind during planning. The following table outlines common SAP file shares and gives a brief description and recommended use in a whole-SAP environment.
 
 | File share name | Usage | Recommendation |
 |:----------------|:------| :--------------|
 | `sapmnt`          | Distributed SAP system, profile, and global directories | Dedicated share for each SAP system, no reuse               |
 | `cluster`         | High-availability shares for ASCS, ERS, and database per respective design  | Dedicated share for each SAP system, no reuse               |
-| `saptrans`        | SAP transport directory                                | One share for one or few SAP landscapes (ERP, Business Warehouse) |
-| `interface`       | File exchange with non-SAP applications                | Customer specific requirements, separate file shares per environment (production, non-production) |
+| `saptrans`        | SAP transport directory                                | One share for one or a few SAP landscapes (ERP, Business Warehouse) |
+| `interface`       | File exchange with non-SAP applications                | Customer-specific requirements, separate file shares per environment (production, nonproduction) |
 
-You can only share `saptrans` between different SAP environments, and, as such, you should carefully consider its placement. Avoid consolidating too many SAP systems into one `saptrans` share for scalability and performance reasons.
+You can only share `saptrans` between different SAP environments, so you should carefully consider its placement. For scalability and performance reasons, avoid consolidating too many SAP systems into one `saptrans` share.
 
-The corporate security policies will drive the architecture and separation of volumes between environments. A transport directory with separation per environment or tier needs RFC communication between SAP environments to allow SAP transport groups or transport domain links. For more information, see:
+Corporate security policies dictate the architecture and separation of volumes between environments. A transport directory with separation per environment or tier needs RFC communication between SAP environments to allow SAP transport groups or transport domain links. For more information, see:
 
 - [SAP transport groups](https://help.sap.com/docs/SAP_NETWEAVER_750/4a368c163b08418890a406d413933ba7/44b4a0ce7acc11d1899e0000e829fbbd.html)
 - [Transport domain links](https://help.sap.com/docs/SAP_NETWEAVER_750/4a368c163b08418890a406d413933ba7/14c795388d62e450e10000009b38f889.html)
 
 ### Data services
 
-The architecture contains Azure data services that help you extend and improve your SAP data platform. To help unlock business insights, we recommend you use services such as Microsoft Fabric, Azure Data Factory, and Azure Data Lake Storage. These data services help you analyze and visualize SAP data and non-SAP data.
+The architecture contains Azure data services that help you extend and improve your SAP data platform. We recommend that you use services like Microsoft Fabric, Azure Data Factory, and Azure Data Lake Storage to obtain business insights. These data services help you analyze and visualize SAP data and non-SAP data.
 
-For many data integration scenarios, an integration runtime or an on-premises data gateway is required. The Azure integration runtime is the compute infrastructure that Azure Data Factory  uses to provide data integration capabilities, while an on-premises data gateway provides data integration capabilities for Microsoft Fabric data pipelines, shortcuts, and other Fabric integration and reporting tools.  We recommend the deployment of runtime virtual machines for these services for each environment separately. For more information, see:
+For many data integration scenarios, an integration runtime or an on-premises data gateway is required. The Azure integration runtime is the compute infrastructure that Data Factory uses to provide data integration capabilities. Conversely, an on-premises data gateway provides data integration capabilities for Microsoft Fabric data pipelines, shortcuts, and other Fabric integration and reporting tools. We recommend that you deploy runtime VMs for these services, for each environment separately. For more information, see:
 
-- [On premises data gateway](/data-integration/gateway/service-gateway-onprem)
+- [On-premises data gateway](/data-integration/gateway/service-gateway-onprem)
 - [Azure integration runtime](/azure/data-factory/concepts-integration-runtime)
-- [Set up a self-hosted integration runtime to use in the SAP CDC solution](/azure/data-factory/sap-change-data-capture-shir-preparation)
+- [Set up a self-hosted integration runtime for the SAP CDC connector](/azure/data-factory/sap-change-data-capture-shir-preparation)
 - [Copy data from SAP HANA](/azure/data-factory/connector-sap-hana?tabs=data-factory)
 - [Copy data from SAP Business Warehouse via Open Hub](/azure/data-factory/connector-sap-business-warehouse-open-hub)
 
 ### Shared services
 
-SAP solutions rely on shared services. Load balancer and application gateways are examples of services that multiple SAP systems use. The architecture but your organizational needs should determine how you architect your shared services. Here's general guidance you should follow.
+SAP solutions rely on shared services. Load balancers and application gateways are examples of services that multiple SAP systems use. Your organizational needs should determine how you architect your shared services. The following sections provide general guidance.
 
-**Load balancers**: We recommend one load balancer per SAP system. This configuration helps minimize complexity. You want to avoid too many pools and rules on a single load balancer. This configuration also ensures naming and placement aligns with the SAP system and resource group. Each SAP system with a clustered high-availability (HA) architecture should have at least one internal load balancer. The architecture uses one load balancer for the ASCS virtual machines and a second load balancer for the database virtual machines. Some databases might not require load balancers to create a high-availability deployment. SAP HANA does. For more information, see the database-specific documentation.
+**Load balancers:** We recommend one load balancer per SAP system. This configuration helps minimize complexity. You should avoid having too many pools and rules on a single load balancer. This configuration also ensures that naming and placement aligns with the SAP system and resource group. Each SAP system with a clustered high-availability (HA) architecture should have at least one internal load balancer. The architecture uses one load balancer for the ASCS VMs and a second load balancer for the database VMs. Some databases might not need load balancers to enable an HA deployment. SAP HANA does. For more information, see database-specific documentation.
 
-**Application Gateway**: We recommend at least one application gateway per SAP environment (production, non-production, and sandbox) unless the complexity and number of connected systems is too high. You could use an application gateway for multiple SAP systems to reduce complexity since not all SAP systems in the environment require inbound access from the Internet. A single application gateway could serve multiple web dispatcher ports for a single SAP S/4HANA system or be used by different SAP systems.
+**Application Gateway:** We recommend at least one application gateway per SAP environment (production, nonproduction, and sandbox) unless the complexity and number of connected systems is too high. You could use an application gateway for multiple SAP systems to reduce complexity because not all SAP systems in the environment require inbound access from the internet. A single application gateway could serve multiple web dispatcher ports for a single SAP S/4HANA system or be used by different SAP systems.
 
-**SAP Web Dispatcher virtual machines**: The architecture shows a pool of two or more SAP Web Dispatcher VMs. We recommend that you don't reuse SAP Web Dispatcher virtual machines between different SAP systems. Keeping them separate allows you to size the Web Dispatcher virtual machines to meet the needs of each SAP system. For smaller SAP solutions, we recommend embedding the Web Dispatcher services in the ASCS instance.
+**SAP Web Dispatcher VMs:** The architecture shows a pool of two or more SAP Web Dispatcher VMs. We don't recommend the reuse of SAP Web Dispatcher VMs between different SAP systems. Keeping them separate allows you to size the Web Dispatcher VMs to meet the needs of each SAP system. For smaller SAP solutions, we recommend that you embed the Web Dispatcher services in the ASCS instance.
 
-**SAP services**: SAP services like SAProuter, Cloud Connector, and Analytics Cloud Agent, are deployed based on application requirements, either centrally or split up. No recommendation on reuse between SAP systems due to diverse customer requirements. Main decision to make is mentioned in networking section, if and when SAP perimeter subnet for non-production should be used. Otherwise with just production perimeter subnet for SAP, the SAP perimeter services are consumed by entire SAP landscape.
+**SAP services:** When you deploy SAP services like SAProuter, Cloud Connector, and Analytics Cloud Agent, use application requirements to determine whether to deploy them centrally or split them up. The main consideration to take into account, if and when you should use a SAP perimeter subnet for nonproduction, is mentioned in the [networking section](#perimeter-subnets). If you use only a production perimeter subnet for SAP, the SAP perimeter services are consumed by the entire SAP landscape.
 
 ### Disaster recovery
 
@@ -212,7 +212,7 @@ Disaster recovery (DR) addresses the requirement for business continuity in case
 
 **Central services and connectivity to on-premises**: Connectivity to on-premises and key central services (DNS or firewalls) must be available in the disaster recovery region. Availability and change configuration of the central IT services need to be part your disaster recovery plan. Central IT services are key components for a functioning SAP environment.
 
-**Use Azure Site Recovery** Azure Site Recovery replicates and protects managed disks and virtual machines configurations for application servers to the DR region.
+**Use Azure Site Recovery** Azure Site Recovery replicates and protects managed disks and VMs configurations for application servers to the DR region.
 
 **Ensure file share availability**: SAP depends on availability of key file shares. Backup or continuous file share replication is necessary to provide data on these file shares with minimal data loss in DR scenario.
 
