@@ -102,7 +102,7 @@ Consider the alternative if your workload primarily focuses on standardized form
 
 Cost Optimization focuses on ways to reduce unnecessary expenses and improve operational efficiencies. For more information, see [Design review checklist for Cost Optimization](/azure/well-architected/cost-optimization/checklist).
 
-This preconfigured [estimate in the Azure pricing calculator](https://azure.com/e/b7574e1a2952486e94073601a26ad52f) shows the costs to run this scenario.
+This preconfigured [Azure pricing estimate](https://azure.com/e/b7574e1a2952486e94073601a26ad52f) shows the costs to run this scenario.
 
 Pricing varies based on region and usage, so you can't predict exact costs for your scenario. Most Azure resources in this infrastructure use usage-based pricing tiers.
 
