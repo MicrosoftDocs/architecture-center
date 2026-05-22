@@ -24,7 +24,7 @@ Authentication is the process that establishes a user's identity. When you build
 
 You might need to federate with external identity providers (IdPs). You can use federation in the following scenarios:
 
-- **Social sign-in.** Users can sign in with their account credentials from platforms like Google, Meta, GitHub, or Microsoft.
+- **Social sign-in.** Users can sign in with their account credentials from platforms like Google, Facebook, GitHub, or a personal Microsoft account.
 
 - **Tenant-specific directories.** Tenants can federate applications with their own IdPs so that they don't need to manage accounts in multiple locations.
 
