@@ -3,7 +3,7 @@ title: Architectural Approaches for Identity in Multitenant Solutions
 description: This article covers identity management strategies for multitenant solutions, including authentication, authorization, federation, and security considerations.
 author: johndowns
 ms.author: pnp
-ms.date: 04/30/2026
+ms.date: 05/22/2026
 ms.topic: concept-article
 ms.subservice: architecture-guide
 ms.custom: arb-saas
