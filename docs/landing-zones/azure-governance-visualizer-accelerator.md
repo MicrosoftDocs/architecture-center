@@ -10,7 +10,7 @@ ms.subservice: architecture-guide
 
 # Use Azure Governance Visualizer to optimize cloud governance
 
-This article describes how to deploy Azure Governance Visualizer. Organizations can use the visualizer to capture pertinent governance information, like management group hierarchies, policy information, and security analysis, and access the output in multiple formats. This article shows you how to automate the visualizer, and how to host the output securely and cost-effectively on the Web Apps feature of Azure App Service.
+This article describes how to deploy the open-source Azure Governance Visualizer. Organizations can use the visualizer to capture pertinent governance information, like management group hierarchies, policy information, and security analysis, and access the output in multiple formats. This article shows you how to automate the visualizer, and how to host the output securely and cost-effectively on the Web Apps feature of Azure App Service.
 
 ## Architecture
 
@@ -40,7 +40,7 @@ The following data flow corresponds to the previous diagram:
 
 - [Microsoft Entra ID](/entra/fundamentals/what-is-entra) is an enterprise identity service that protects against cybersecurity threats by using single sign-on and multifactor authentication. In this architecture, it's used for secure authentication and authorization to the Azure Governance Visualizer web app for a specific Microsoft Entra ID group.
 
-- [App Service](/azure/well-architected/service-guides/app-service-web-apps) is a fully managed platform to create and deploy cloud applications. You can use App Service to define compute resources for web apps, to configure deployment slots, and to deploy web apps. In this architecture, it's used to host Azure Governance Visualizer output for secure and smooth access across the organization.
+- [App Service](/azure/well-architected/service-guides/app-service-web-apps) is a managed platform to create and deploy cloud applications. You can use App Service to define compute resources for web apps, to configure deployment slots, and to deploy web apps. In this architecture, it's used to host Azure Governance Visualizer output for secure access across the organization.
 
 - [GitHub](https://docs.github.com/) is a web-based platform to build, ship, and maintain software projects. In this architecture, it's used to host the infrastructure as code for the solution, and to host the GitHub actions that are used to deploy and maintain it.
 
