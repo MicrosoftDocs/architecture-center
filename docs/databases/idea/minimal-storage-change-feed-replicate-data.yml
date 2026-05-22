@@ -4,7 +4,7 @@ metadata:
   description: Architecture for a high-availability solution that uses two Azure storage services, one for quick access to high-demand data, the other for low-demand data.
   author: nabilshams
   ms.author: nasiddi
-  ms.date: 06/27/2024
+  ms.date: 05/05/2026
   ms.topic: solution-idea
   ms.subservice: solution-idea
   ms.custom: arb-data
