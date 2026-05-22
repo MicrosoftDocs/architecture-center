@@ -39,10 +39,10 @@ Consider the following goals of a robust CI/CD process for a microservices archi
 
 In a traditional monolithic application, a single build pipeline produces the application executable. All development work feeds into this pipeline. If the team finds a high-priority bug, the fix must be integrated, tested, and published, which can delay the release of new features. You can reduce these problems by using well-factored modules and feature branches to limit the effect of code changes. But as the application grows more complex and more features are added, the release process for a monolith tends to become more complicated and likely to fail.
 
-According to the microservices philosophy, there should never be a long release train where every team has to get in line. The team that builds service A can release an update when they choose and doesn't have to wait for changes in service B to merge, test, and deploy.
+According to the microservices philosophy, there should never be a long release train where every team has to get in line. The team that builds service A can release an update when it chooses and doesn't have to wait for changes in service B to merge, test, and deploy.
 
 :::image type="complex" border="false" source="./images/cicd-monolith.png" alt-text="Diagram that compares CI/CD for monolith versus microservices architectures." lightbox="./images/cicd-monolith.png":::
-   The diagram shows two sections: monolith and microservices. The monolith section shows teams A, B, C, and D. Arrows point from the teams to the release candidate. An arrow points from the release candidate to production. X's mark team B, the release candidate, and the arrow that points to production. The microservices section shows teams A, B, C, and D. Arrows point from the teams to individual release sections. Arrows point from the release sections to production. X's mark the arrows in the team B flow. In the monolith section, team B's failure blocks the entire release path, while in the microservices section, team B's failure affects only its own service's path to production.
+   The diagram shows two sections: monolith and microservices. The monolith section shows teams A, B, C, and D. Arrows point from the teams to the release candidate. An arrow points from the release candidate to production. Xs mark team B, the release candidate, and the arrow that points to production. The microservices section shows teams A, B, C, and D. Arrows point from the teams to individual release sections. Arrows point from the release sections to production. Xs mark the arrows in the team B flow. In the monolith section, team B's failure blocks the entire release path, while in the microservices section, team B's failure affects only its own service's path to production.
 :::image-end:::
 
 To achieve a high release velocity, your release pipeline must be automated and highly reliable to minimize risk. If you release to production one or more times daily, regressions or service disruptions must be rare. At the same time, if you deploy a bad update, you must have a reliable way to quickly roll back or roll forward to a previous version of a service.
@@ -57,7 +57,7 @@ To achieve a high release velocity, your release pipeline must be automated and 
 
    **Mitigation:** Containerize the build process for each service so that the build system only needs to run the containers. Platforms like GitHub Actions, Azure Pipelines, and [Azure Container Registry tasks](/azure/container-registry/container-registry-tasks-overview) can build and publish container images consistently regardless of the source language.
 
-- **Integration and load testing:** Teams release updates at their own pace, so it can be challenging to design robust end-to-end testing, especially when services have dependencies on other services. Running a full production cluster can be costly, so it's unlikely that every team runs its own full cluster at production scales only for testing.
+- **Integration and load testing:** Teams release updates at their own pace, so it can be challenging to design robust end-to-end testing, especially when services have dependencies on other services. Running a full production cluster can be costly, so it's unlikely that every team runs its own full cluster at production scale only for testing.
 
    **Mitigation:** Use ephemeral preview environments, like per-pull-request namespaces in Kubernetes or [Azure Container Apps environments](/azure/container-apps/environment) that are created on demand. Use contract tests so that you surface integration problems early without requiring a full-scale duplicate of production.
 
@@ -92,7 +92,7 @@ Teams widely use both approaches in production. Your choice depends on team topo
 | **Advantages** | - Code sharing<br><br>- Easier to standardize code and tooling<br><br>- Easier to refactor code<br><br>- Discoverability (a single view of the code) | - Clear ownership per team<br><br>- Potentially fewer merge conflicts<br><br>- Helps enforce microservice decoupling |
 | **Challenges** | - Changes to shared code can affect multiple microservices<br><br>- Greater potential for merge conflicts<br><br>- Tooling must scale to a large code base<br><br>- Access control<br><br>- More complex deployment process | - Harder to share code<br><br>- Harder to enforce coding standards<br><br>- Dependency management<br><br>- Diffuse code base, poor discoverability<br><br>- Lack of shared infrastructure |
 
-Regardless of the model that you choose, use path-scoped triggers in your pipelines, like [paths filters in GitHub Actions](https://docs.github.com/en/actions/how-tos/write-workflows/choose-when-workflows-run/trigger-a-workflow) or [trigger paths in Azure Pipelines](/azure/devops/pipelines/build/triggers). Path-scoped triggers help ensure that only affected microservices rebuild and redeploy on each commit.
+Regardless of the model that you choose, use path-scoped triggers in your pipelines, like [path filters in GitHub Actions](https://docs.github.com/en/actions/how-tos/write-workflows/choose-when-workflows-run/trigger-a-workflow) or [trigger paths in Azure Pipelines](/azure/devops/pipelines/build/triggers). Path-scoped triggers help ensure that only affected microservices rebuild and redeploy on each commit.
 
 ## Update services
 
@@ -124,7 +124,7 @@ One drawback of blue-green deployment is that during the update, you run twice a
 
 In a canary release, you deploy an updated version to a small subset of clients and then monitor the behavior of the new service before you roll it out to all clients. With this approach, you can roll out gradually in a controlled way, monitor real data, and identify problems before they affect all customers.
 
-A canary release is more complex to manage than either blue-green or rolling update because you must route requests dynamically to different versions of the service.
+A canary release is more complex to manage than either a blue-green or rolling update because you must route requests dynamically to different versions of the service.
 
 **Example in Kubernetes:** In Kubernetes, you can configure a [service](https://kubernetes.io/docs/concepts/services-networking/service/) to span two replica sets (one for each version) and adjust the replica counts manually. However, this approach is coarse-grained because of how Kubernetes load balances across pods. For example, if you have a total of 10 replicas, you can only shift traffic in 10% increments. If you use a service mesh, you can use the service mesh routing rules to implement a more sophisticated canary release strategy.
 
