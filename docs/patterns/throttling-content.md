@@ -1,10 +1,10 @@
-Control the consumption of resources used by an application instance, an individual tenant, or an entire service. This lets the system continue to function and meet service-level objectives (SLOs) under sudden or sustained load.
+Control the consumption of resources used by an application instance, an individual tenant, or an entire service. With this pattern, the system continues to function and meets service-level objectives (SLOs) under sudden or sustained load.
 
 ## Context and problem
 
-The load on a cloud application varies over time based on active users and the work they're doing. Users concentrate during business hours, or the system runs computationally expensive analytics at the end of each month. Sudden bursts also occur. If processing demand exceeds available capacity, the system slows or fails. When the system has an agreed service level, that failure violates the SLO.
+The load on a cloud application varies over time based on active users and the work that they do. More users sign in during business hours, and the system runs computationally expensive analytics at the end of each month. Sudden bursts also occur. If processing demand exceeds available capacity, the system slows or fails. When the system has an agreed service level, that failure violates the SLO.
 
-Several strategies handle varying load, depending on the application's business goals. One is [autoscaling](../best-practices/auto-scaling.md), which matches provisioned resources to current demand and controls cost. But provisioning new resources takes time and adds cost. When demand grows faster than capacity arrives or cost allows, there's a window of resource deficit.
+Several strategies handle varying load, depending on the application's business goals. One strategy is [autoscaling](../best-practices/auto-scaling.md), which matches provisioned resources to current demand and controls cost. But provisioning new resources takes time and adds cost. Demand that exceeds capacity growth or budget creates a resource deficit.
 
 ## Solution
 
@@ -14,15 +14,15 @@ Throttling is a control loop, not a single admission decision. The system needs 
 
 The system could implement several throttling or related strategies, including:
 
-- Reject requests from a user who's already exceeded the configured rate over a defined window. This requires the system to attribute each request to a principal and meter resource use against that principal. For multitenant workloads, see [Measure the consumption of each tenant](../guide/multitenant/considerations/measure-consumption.md).
+- **Per-principal rate limits:** Reject requests from a user who's already exceeded the configured rate over a defined window. This strategy requires the system to attribute each request to a principal and meter resource use against that principal. For multitenant workloads, see [Measure the consumption of each tenant](../guide/multitenant/considerations/measure-consumption.md).
 
-- Disable or degrade nonessential features so essential features have enough resources. This trades response completeness for availability. For example, a video-streaming application can drop to a lower resolution.
+- **Graceful feature degradation:** Turn off or degrade nonessential features so that essential features have enough resources. This strategy trades response completeness for availability. For example, a video-streaming application can drop to a lower resolution.
 
-- Use load leveling to smooth activity volume; see the [Queue-based Load Leveling pattern](./queue-based-load-leveling.yml). In a multitenant environment, leveling reduces performance for every tenant. When tenants have different SLAs, process work for high-value tenants immediately and hold lower-priority work until the backlog eases. Implement this with the [Priority Queue pattern](./priority-queue.yml) or by exposing separate endpoints per priority tier.
+- **Load leveling:** [Smooth activity volume by using a queue](./queue-based-load-leveling.yml). In a multitenant environment, leveling reduces performance for every tenant. When tenants have different service-level agreements (SLAs), process work for high-value tenants immediately and hold lower-priority work until the backlog eases. Implement this approach with the [Priority Queue pattern](./priority-queue.yml) or by exposing separate endpoints per priority tier.
 
-- Defer operations on behalf of lower-priority applications or tenants. Suspend or limit them and return an exception telling the tenant to retry later.
+- **Priority-based deferral:** Defer operations on behalf of lower-priority applications or tenants. Suspend or limit operations, and return an exception that tells the tenant to retry later.
 
-- Rate limit your own outbound calls when an external dependency is failing or returning errors. Lower the in-flight request count to stop flooding logs and to avoid retry costs against an unhealthy dependency. Restore normal request flow once the dependency recovers. [NServiceBus](https://docs.particular.net/nservicebus/recoverability/#automatic-rate-limiting) is one library that implements this.
+- **Outbound rate limits:** Cap your own outbound calls when an external dependency fails or returns errors. Lower the in-flight request count to stop flooding logs and to avoid retry costs against an unhealthy dependency. Restore normal request flow after the dependency recovers. For example, [NServiceBus](https://docs.particular.net/nservicebus/recoverability/#automatic-rate-limiting) implements this functionality.
 
 The figure shows an area graph of resource use (a combination of memory, CPU, bandwidth, and other factors) against time for applications that are making use of three features. A feature is an area of functionality, such as a component that performs a specific set of tasks, a piece of code that performs a complex calculation, or an element that provides a service such as an in-memory cache. These features are labeled A, B, and C.
 
@@ -59,9 +59,9 @@ You should consider the following points when deciding how to implement this pat
 
   | Algorithm | Behavior and best fit |
   | :-------- | :-------------------- |
-  | Token bucket | Allows bursts up to a configured size while enforcing a steady refill rate. Fits gateways that need to absorb short spikes. |
+  | Token bucket | Supports bursts up to a configured size while enforcing a steady refill rate. Fits gateways that need to absorb short spikes. |
   | Leaky bucket | Emits at a constant rate. Fits backends that need a steady ingress rate. |
-  | Fixed window | Simple to implement, but allows back-to-back bursts at window boundaries. |
+  | Fixed window | Simple to implement, but admits back-to-back bursts at window boundaries. |
   | Sliding window | Smooths the window-boundary problem of fixed windows at the cost of more state. |
 
 - Decide who feels the limit. Throttling at a coarse boundary, like a regional gateway, can affect many unrelated users when only a few are causing the load.
@@ -70,7 +70,7 @@ You should consider the following points when deciding how to implement this pat
 
 - Throttling decisions must be performed quickly. The system must be capable of detecting load increases, reacting, and reverting to its original state once load eases. This requires continuous performance instrumentation.
 
-- Shed load proactively, not at the edge of collapse. A throttle that only rejects after a component is fully saturated lets latency spike before callers see any back-pressure.
+- Shed load proactively, not at the edge of collapse. A throttle that only rejects after a component is fully saturated causes latency to spike before callers see any back-pressure.
 
   As utilization approaches the hard limit, start rejecting a growing fraction of requests; this gives callers earlier signals to back off and avoids the latency collapse that abrupt limits often trigger. Use p99 latency against your SLO as the primary trigger; average utilization can look healthy while p99 has already breached.
 

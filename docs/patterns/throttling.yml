@@ -1,10 +1,10 @@
 ### YamlMime:Architecture
 metadata:
-  title: Throttling pattern
+  title: Throttling Pattern
   description: Control the resources an application instance, tenant, or service consumes so the system keeps meeting service-level objectives under load.
   ms.author: pnp
   author: claytonsiemens77
-  ms.date: 05/19/2026
+  ms.date: 05/25/2026
   ms.topic: design-pattern
   ms.subservice: cloud-fundamentals
 azureCategories:
