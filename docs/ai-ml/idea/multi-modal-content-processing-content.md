@@ -147,7 +147,7 @@ These considerations implement the pillars of the Azure Well-Architected Framewo
 
 Cost Optimization focuses on ways to reduce unnecessary expenses and improve operational efficiencies. For more information, see [Design review checklist for Cost Optimization](/azure/well-architected/cost-optimization/checklist).
 
-For more information about the costs to run this scenario, see the [preconfigured estimate in the Azure pricing calculator](https://azure.com/e/6f9f52a0c7be4cbd9ae8bd8b77200396).
+For more information about the costs to run this scenario, see the [Azure pricing estimate](https://azure.com/e/ee1fd23188c2474aaf01b0c447c8933b).
 
 Pricing varies by region and usage, so you can't predict exact costs for your deployment. Most Azure resources in this infrastructure follow usage-based pricing tiers. But Container Registry incurs a daily fixed cost for each registry.
 
