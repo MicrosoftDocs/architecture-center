@@ -297,7 +297,7 @@ Consider the following goals of a robust CI/CD process for a microservices archi
 
 - For containerized workloads, you can trust the container images that are deployed to production.
 
-For more information about the challenges, see [CI/CD for microservices architectures](../../../microservices/ci-cd.yml).
+For more information about the challenges, see [CI/CD for microservices architectures](../../../microservices/ci-cd.md).
 
 Using a service mesh like Istio can help with CI/CD processes, like canary deployments, A/B testing of microservices, and staged rollouts with percentage-based traffic splits.
 
@@ -371,5 +371,5 @@ Other contributors:
 ## Related resources
 
 - [Advanced AKS microservices architecture](./aks-microservices-advanced.yml).
-- [CI/CD for microservices architectures](../../../microservices/ci-cd.yml)
+- [CI/CD for microservices architectures](../../../microservices/ci-cd.md)
 - [CI/CD for microservices on Kubernetes](../../../microservices/ci-cd-kubernetes.yml)

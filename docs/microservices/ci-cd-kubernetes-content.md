@@ -9,7 +9,7 @@ The goals of a CI/CD pipeline for Kubernetes hosted microservices can be summari
 - Quality gates are enforced at each stage of the pipeline.
 - A new version of a service can be deployed side by side with the previous version.
 
-For more background, see [CI/CD for microservices architectures](./ci-cd.yml).
+For more background, see [CI/CD for microservices architectures](./ci-cd.md).
 
 ## Assumptions
 
