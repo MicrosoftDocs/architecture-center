@@ -107,7 +107,7 @@ Many multitenant solutions operate as SaaS. Your choice to use Microsoft Entra I
 
 - If your tenants or customers don't use Microsoft Entra ID, or if they're individuals instead of organizations, you can use External ID. External ID provides features to control how users sign up and sign in. For example, you can restrict access to your solution to only invited users, or you can turn on self-service sign-up. You can use [custom branding](/entra/external-id/customers/how-to-customize-branding-customers). To invite your own staff to sign in, use guest access to [add External ID users from your Microsoft Entra ID tenant](/entra/external-id/b2b-quickstart-add-guest-users-portal). External ID also supports [federation with other IdPs](/entra/external-id/customers/concept-authentication-methods-customers).
 
-- Some multitenant solutions are intended for both previously listed scenarios. Some tenants might have their own Microsoft Entra ID tenants and other tenants might not. In this scenario, use External ID and federation so that users can sign in from a tenant's Microsoft Entra ID directory.
+- Some multitenant solutions are intended for both previously listed scenarios. Some tenants might have their own Microsoft Entra ID tenants, and other tenants might not. In this scenario, use External ID and federation so that users can sign in from a tenant's Microsoft Entra ID directory.
 
 > [!IMPORTANT]
 > Azure Active Directory B2C (Azure AD B2C) also supports many of the scenarios in this article. However, as of May 1, 2025, this product is no longer available to purchase for new customers, so we don't recommend it for new solutions. For more information, see [Azure AD B2C FAQ](/azure/active-directory-b2c/faq#azure-ad-b2c-end-of-sale).
@@ -116,9 +116,9 @@ Many multitenant solutions operate as SaaS. Your choice to use Microsoft Entra I
 
 ### Self-administered identity systems
 
-Modern identity platforms are complex, and they require support for a range of protocols and standards. An incorrect implementation can introduce security vulnerabilities. You need to continually update your identity system to mitigate attacks, incorporate the latest security features, and respond to new and amended standards and protocols. Identity systems must be resilient, because any downtime can have serious consequences for the rest of your solution. In most scenarios, IdP implementation doesn't directly benefit the business, but IdP implementation is necessary in a multitenant service. It's better to use a specialized identity system that experts build, operate, and secure.
+Modern identity platforms are complex, and they require support for a range of protocols and standards. An incorrect implementation can introduce security vulnerabilities. You need to continually update your identity system to mitigate attacks, incorporate the latest security features, and respond to new and amended standards and protocols. Identity systems must be resilient because any downtime can have serious consequences for the rest of your solution. In most scenarios, IdP implementation doesn't directly benefit the business, but it's necessary in a multitenant service. It's better to use a specialized identity system that experts build, operate, and secure.
 
-If you run your own identity system, you need to store password hashes or other credentials, which creates a vulnerability that cybercriminals can take advantage of. Password hashing and salting are often insufficient, because some cybercriminals can still compromise these credentials.
+If you run your own identity system, you need to store password hashes or other credentials, which creates a vulnerability that cybercriminals can take advantage of. Password hashing and salting are often insufficient because some cybercriminals can still compromise these credentials.
 
 When you run an identity system, you're responsible for multifactor authentication generation and distribution, or for the distribution of one-time password codes. You also need a mechanism to send these codes via text message or email. You must also detect targeted and brute-force attacks, throttle sign-in attempts, and maintain audit logs.
 
@@ -144,7 +144,7 @@ Choose an authorization model that fits your solution. Role-based security is st
 
 ### Failure to write audit logs
 
-Audit logs help you to understand your environment and how users implement your system. If you audit every identity-related event, you can often determine whether your identity system is under attack, and you can review how your system is being used. Write and store audit logs within your identity system. Consider whether your solution's identity audit logs should be made available for tenant review.
+Audit logs help you understand your environment and how users interact with your system. If you audit every identity-related event, you can often determine whether your identity system is under attack, and you can review how your system is being used. Write and store audit logs within your identity system. Consider whether your solution's identity audit logs should be made available for tenant review.
 
 ## Contributors
 
