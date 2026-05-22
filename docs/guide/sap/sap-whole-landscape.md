@@ -245,7 +245,7 @@ Contributing author:
 
 ## Next steps
 
-- [The strategic impact of SAP in the cloud](azure/cloud-adoption-framework/scenarios/sap/strategy)
+- [The strategic impact of SAP in the cloud](/azure/cloud-adoption-framework/scenarios/sap/strategy)
 - [SAP on Azure documentation](/azure/virtual-machines/workloads/sap/get-started).
 - [Azure planning and implementation guide for SAP workloads](/azure/virtual-machines/workloads/sap/planning-guide)
 - [SAP workloads on Azure: planning and deployment checklist](/azure/virtual-machines/workloads/sap/sap-deployment-checklist)
