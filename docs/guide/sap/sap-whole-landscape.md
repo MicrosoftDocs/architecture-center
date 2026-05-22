@@ -11,7 +11,7 @@ ai-usage: ai-assisted
 
 # SAP landscape architecture
 
-This article provides best practices for architecting an entire SAP landscape in Azure. The SAP landscape includes multiple SAP systems across hub, production, nonproduction, and disaster recovery environments. The article provides recommendations that focus on network design and not specific SAP systems. The goal is to provide recommendations for architecting a secure, high-performing, and resilient SAP landscape.
+This article provides best practices for architecting an entire SAP landscape in Azure. The SAP landscape includes multiple SAP systems across hub, production, nonproduction, and disaster recovery (DR) environments. The article provides recommendations that focus on network design and not specific SAP systems. The goal is to provide recommendations for architecting a secure, high-performing, and resilient SAP landscape.
 
 ## Architecture
 
@@ -26,7 +26,7 @@ This diagram presents an end-to-end SAP landscape that crosses two Azure regions
 1. *On-premises network*. An Azure ExpressRoute connection from the on-premises network to connected Azure regions.
 1. *Azure subscription: regional hubs*. An Azure subscription that contains central services for the whole enterprise, not just SAP. The hub subscription provides central services and connectivity by peering to spoke virtual networks that contain SAP workloads.
 1. *Hub virtual network*. A virtual network spoke for the central hub in the primary region.
-1. *Hub virtual network in disaster recovery (DR) region*. A virtual network spoke for the central hub in the DR region. It mirrors the subnet design of the production virtual network in the primary region.
+1. *Hub virtual network in DR region*. A virtual network spoke for the central hub in the DR region. It mirrors the subnet design of the production virtual network in the primary region.
 1. *Azure subscription: SAP nonproduction*. An Azure subscription for all nonproduction SAP workloads. It includes pre-production, quality assurance, development, and sandbox environments.
 1. *SAP nonproduction spoke virtual networks*. Separate virtual networks for SAP nonproduction workloads in the primary region. Each SAP environment has its own virtual network and subnets.
 1. *Azure subscription: SAP production*. An Azure subscription for all production SAP workloads.
@@ -37,7 +37,7 @@ This diagram presents an end-to-end SAP landscape that crosses two Azure regions
 
 ### Azure subscriptions
 
-We recommend a hub-spoke network design. With a hub-spoke design, you need at least three subscriptions to divide your SAP environments:
+We recommend a hub-spoke network design. In a hub-spoke design, you need at least three subscriptions to divide your SAP environments:
 
 - One for the regional hub virtual networks
 - One for nonproduction virtual networks
@@ -74,9 +74,9 @@ For more information, see:
 
 **Use a central firewall.** All network traffic to the spoke virtual networks, including remote function call (RFC) connections, should pass through a central firewall in the hub virtual network. All communication between the spoke virtual networks passes through the hub virtual network firewall. Network communication between the spoke virtual networks (spoke-to-spoke communication) passes through the hub virtual network firewall in the Azure Firewall subnet of the hub virtual network. Similarly, network communication between the spoke virtual networks and the on-premises network also passes through the hub virtual network firewall. The architecture uses virtual network peering to connect the various spoke virtual networks to the hub virtual network. You could also use a network virtual appliance (NVA) instead of a firewall. For more information, see [Create an NVA in the hub](/azure/virtual-wan/how-to-nva-hub).
 
-Network traffic that stays within a virtual network shouldn't pass through a firewall. For example, don't put a firewall between the SAP application subnet and the SAP database subnet. Placing a firewall or NVAs between the SAP application and the database management system (DBMS) layer of SAP systems running the SAP kernel isn't supported. Doing so negatively affects network latency for all database access and negatively affects SAP performance.
+Network traffic that stays within a virtual network shouldn't pass through a firewall. For example, don't put a firewall between the SAP application subnet and the SAP database subnet. Placing a firewall or NVAs between the SAP application and the database management system (DBMS) layer of SAP systems running the SAP kernel isn't supported. This configuration negatively affects network latency for all database access and negatively affects SAP performance.
 
-**Avoid peering spoke virtual networks.** Virtual network peering between the spoke virtual networks should be avoided if possible. Spoke-to-spoke virtual network peering allows spoke-to-spoke communication to bypass the hub virtual network firewall. You should configure spoke-to-spoke virtual network peering only when you have high-bandwidth requirements, for example, for database replication between SAP environments. All other network traffic should run through the hub virtual network and firewall. For more information, see [inbound and outbound internet connections for SAP on Azure](./sap-internet-inbound-outbound.yml).
+**Avoid peering spoke virtual networks.** Virtual network peering between the spoke virtual networks should be avoided if possible. Spoke-to-spoke virtual network peering allows spoke-to-spoke communication to bypass the hub virtual network firewall. You should configure spoke-to-spoke virtual network peering only when you have high-bandwidth requirements, for example, for database replication between SAP environments. All other network traffic should run through the hub virtual network and firewall. For more information, see [Inbound and outbound internet connections for SAP on Azure](./sap-internet-inbound-outbound.yml).
 
 #### Subnets
 
@@ -132,7 +132,7 @@ If you're using Azure NetApp Files, you should have a delegated subnet to provid
 
 ##### Subnet security
 
-Using subnets to group SAP resources that have the same security rule requirements makes it easier to manage the security.
+Using subnets to group SAP resources that have the same security rule requirements makes it easier to manage security.
 
 **NSGs**: Subnets allow you to implement network security groups at the subnet level. Grouping resources in the same subnet that require different security rules requires NSGs at the subnet level and network-interface level. In this two-level configuration, security rules easily conflict and can cause unexpected communication problems that are difficult to troubleshoot. NSG rules also affect traffic [within the subnet](/azure/virtual-network/network-security-group-how-it-works#intra-subnet-traffic). For more information, see [NSGs](/azure/virtual-network/tutorial-filter-network-traffic-cli).
 
@@ -196,9 +196,9 @@ For many data integration scenarios, an integration runtime or an on-premises da
 
 SAP solutions rely on shared services. Load balancers and application gateways are examples of services that multiple SAP systems use. Your organizational needs should determine how you architect your shared services. The following sections provide general guidance.
 
-**Load balancers:** We recommend one load balancer per SAP system. This configuration helps minimize complexity. You should avoid having too many pools and rules on a single load balancer. This configuration also ensures that naming and placement align with the SAP system and resource group. Each SAP system with a clustered high-availability (HA) architecture should have at least one internal load balancer. The architecture uses one load balancer for the ASCS VMs and a second load balancer for the database VMs. Some databases might not need load balancers to enable an HA deployment. SAP HANA does. For more information, see database-specific documentation.
+**Load balancers:** We recommend one load balancer per SAP system. This configuration helps minimize complexity. You should avoid having too many pools and rules on a single load balancer. The recommended configuration also ensures that naming and placement align with the SAP system and resource group. Each SAP system with a clustered high-availability (HA) architecture should have at least one internal load balancer. The architecture uses one load balancer for the ASCS VMs and a second load balancer for the database VMs. Some databases might not need load balancers to enable an HA deployment. SAP HANA does. For more information, see database-specific documentation.
 
-**Application Gateway:** We recommend at least one application gateway per SAP environment (production, nonproduction, and sandbox) unless the complexity and number of connected systems is too high. You could use an application gateway for multiple SAP systems to reduce complexity because not all SAP systems in the environment require inbound access from the internet. A single application gateway could serve multiple web dispatcher ports for a single SAP S/4HANA system or be used by different SAP systems.
+**Application Gateway:** We recommend at least one application gateway per SAP environment (production, nonproduction, and sandbox) unless the complexity and number of connected systems is too high. You could use an application gateway for multiple SAP systems to reduce complexity, because not all SAP systems in the environment require inbound access from the internet. A single application gateway could serve multiple web dispatcher ports for a single SAP S/4HANA system or be used by different SAP systems.
 
 **SAP Web Dispatcher VMs:** The architecture shows a pool of two or more SAP Web Dispatcher VMs. We don't recommend the reuse of SAP Web Dispatcher VMs between different SAP systems. Keeping them separate allows you to size the Web Dispatcher VMs to meet the needs of each SAP system. For smaller SAP solutions, we recommend that you embed the Web Dispatcher services in the ASCS instance.
 
@@ -206,7 +206,7 @@ SAP solutions rely on shared services. Load balancers and application gateways a
 
 ### Disaster recovery
 
-Disaster recovery (DR) addresses the requirement for business continuity in case the primary Azure region is unavailable or compromised. From an overall SAP landscape perspective, the following sections provide recommendations for disaster recovery design. These recommendations are depicted in the diagram.
+Disaster recovery (DR) addresses the requirement for business continuity in case the primary Azure region is unavailable or compromised. From an overall SAP landscape perspective, the following sections provide recommendations for DR design. These recommendations are depicted in the diagram.
 
 **Use different IP address ranges:** Virtual networks only span a single Azure region. DR solutions should use a different region. You need to create a different virtual network in the secondary region. The virtual network in the DR environment needs to use a different IP address range to enable database synchronization through database-native technology.
 
@@ -246,7 +246,7 @@ Contributing author:
 ## Next steps
 
 - [The strategic impact of SAP in the cloud](/azure/cloud-adoption-framework/scenarios/sap/strategy)
-- [SAP on Azure documentation](/azure/virtual-machines/workloads/sap/get-started).
+- [SAP on Azure documentation](/azure/virtual-machines/workloads/sap/get-started)
 - [Azure planning and implementation guide for SAP workloads](/azure/virtual-machines/workloads/sap/planning-guide)
 - [SAP workloads on Azure: planning and deployment checklist](/azure/virtual-machines/workloads/sap/sap-deployment-checklist)
 
