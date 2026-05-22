@@ -24,11 +24,11 @@ Authentication is the process that establishes a user's identity. When you build
 
 You might need to federate with external identity providers (IdPs). You can use federation in the following scenarios:
 
-- Social login, which allows users to sign in with their Google, Facebook, GitHub, or personal Microsoft account
+- **Social sign-in.** Users can sign in by using their account credentials platforms like Google, Meta, GitHub, or Microsoft.
 
-- Tenant-specific directories, which enable tenants to federate your application with their own IdPs so that they don't need to manage accounts in multiple places
+- **Tenant-specific directories.** Tenants can federate applications with their own IdPs so that they don't need to manage accounts in multiple locations.
 
-For more information, see the [Federated Identity pattern](../../../patterns/federated-identity.yml).
+For more information, see the [Federated identity pattern](../../../patterns/federated-identity.yml).
 
 If you choose to support tenant-specific IdPs, ensure that you clarify which services and protocols your application supports. For example, determine whether to support the OpenID Connect protocol and the Security Assertion Markup Language (SAML) protocol, or whether to limit federation to Microsoft Entra ID instances.
 
@@ -42,29 +42,29 @@ Users can switch between applications without reauthentication by using single s
 
 When users open an application, the application directs them to an IdP. If the IdP detects an existing session, it issues a new token automatically. The user doesn't need to sign in again. Federated identity supports single sign-on so that users can use a single identity across multiple applications.
 
-In a multitenant solution, you might use another form of single sign-on. If users are authorized to access data across multiple tenants, you might need to let them change their context from one tenant to another. In some solutions, the IdP can silently issue a new token for the selected tenant if the user already has a valid session. In other solutions, the tenant change requires an interactive sign-in or a new session. Consider whether your solution needs to support tenant transitions without another sign-in prompt and whether your IdP should reissue tokens with specific tenant claims. For example, when a user signs in to the Azure portal, they can switch between different Microsoft Entra ID directories. This transition requires reauthentication and generates a new token from the new Microsoft Entra ID instance.
+In a multitenant solution, you might use another form of single sign-on. If users are authorized to access data across multiple tenants, they might need to change their context from one tenant to another. In some solutions, the IdP can silently issue a new token for the selected tenant if the user already has a valid session. In other solutions, the tenant change requires an interactive sign-in or a new session. Consider whether your solution needs to support tenant transitions without another sign-in prompt and whether your IdP should reissue tokens that have specific tenant claims. For example, when a user signs in to the Azure portal, they can switch between different Microsoft Entra ID directories. This transition requires reauthentication and generates a new token from the new Microsoft Entra ID instance.
 
 ### Multifactor authentication
 
-Some tenants require users to continue to use a specific multifactor authentication (MFA) provider for compliance or user-experience reasons. Microsoft Entra ID supports [external authentication methods](/entra/identity/authentication/concept-authentication-external-method-provider). These methods require that tenants use a non-Microsoft MFA provider, but Microsoft Entra ID continues to act as the identity control plane and continues to evaluate Conditional Access policies and sign-in risk during every sign-in. Consider whether your solution should support tenants that use their own MFA provider.
+Some tenants require users to continue to use a specific multifactor authentication provider for compliance or user-experience reasons. Microsoft Entra ID supports [external authentication methods](/entra/identity/authentication/concept-authentication-external-method-provider). These methods require that tenants use a non-Microsoft multifactor authentication provider, but Microsoft Entra ID is the identity control plane and evaluates Microsoft Entra Conditional Access policies and sign-in risk during sign-in. Consider whether your solution should support tenants that use their own multifactor authentication provider.
 
 ### Sign-in risk evaluation
 
-Modern identity platforms support risk evaluation during the sign-in process. For example, if a user signs in from an unusual location or device, the authentication system might require extra identity checks, such as multifactor authentication (MFA), before the sign-in request can continue.
+Modern identity platforms support risk evaluation during the sign-in process. For example, if a user signs in from an unusual location or device, the authentication system might require extra identity checks, such as multifactor authentication, before the sign-in request can continue.
 
-Your tenants might have different risk policies that need to be applied during authentication. For example, tenants in a highly regulated industry might have different risk profiles and requirements than tenants who work in less regulated environments. In another example, you might provide tenants who purchase a higher tier of your service with more granular controls over sign-in poiicies than lower-tier tenants.
+Your tenants might have different risk policies that need to be applied during authentication. For example, tenants in a highly regulated industry might have different risk profiles and requirements than tenants who work in less regulated environments. In another example, you might provide tenants who purchase a higher tier of your service with more granular controls over sign-in policies than lower-tier tenants.
 
 If you need to support different risk policies for each tenant, your authentication system needs to know which tenant the user signs in to, so that it can apply the correct policies.
 
 If your IdP includes these capabilities, you can use the IdP's native sign-in risk-evaluation features. It can be difficult to implement these features yourself.
 
-If you federate to the tenants' IdPs, you can apply their risky sign-in mitigation policies so that they can configure enforcement policies and controls. For example, you can require two MFA challenges, one from the user's home IdP and another from your own, to make the sign-in process more difficult. Check how federation interacts with your tenants' IdPs and the policies that they have in place.
+If you federate to the tenants' IdPs, you can apply their risky sign-in mitigation policies so that they can configure enforcement policies and controls. For example, you can require two multifactor authentication challenges, one from the user's home IdP and another from your own, to make the sign-in process more difficult. Check how federation interacts with your tenants' IdPs and the policies that they have in place.
 
 ### Impersonation
 
 A user performs impersonation when they assume another user’s identity without that user’s credentials.
 
-Impersonation is generally dangerous and can be difficult to implement and control. However, in some scenarios, impersonation is required. For example, if you operate in a software as a service (SaaS) environment, your helpdesk personnel might need to assume a user's identity so that they can sign in as the user and troubleshoot a problem.
+Impersonation is dangerous and can be difficult to implement and control. However, in some scenarios, impersonation is required. For example, if you operate in a software as a service (SaaS) environment, your helpdesk personnel might need to assume a user's identity so that they can sign in as the user and troubleshoot a problem.
 
 If you implement impersonation, consider how to audit its use. Your logs should capture the identifier of the impersonator and the identifier of the impersonated user.
 
@@ -84,9 +84,9 @@ In most multitenant solutions, the customer or tenant manages role and permissio
 
 ### Add tenant identity and role information to tokens
 
-Determine which parts of your solution should handle authorization requests. Evaluate whether to permit a user to access data from a specific tenant.
+Determine which parts of your solution should handle authorization requests. Evaluate whether to grant to access data from a specific tenant.
 
-A common approach is for your identity system to embed a tenant identifier claim into a token. Your application can then inspect the claim and verify whether the user is allowed access. If you use role-based security, you might extend the token to include information about the user's role within the tenant.
+A common approach is for your identity system to embed a tenant identifier claim into a token. Your application can then inspect the claim and verify the user's access restrictions. If you use role-based security, you might extend the token to include information about the user's role within the tenant.
 
 If a single user has access to multiple tenants, you might need a way for your users to signal which tenant they plan to work with during the sign-in process. After the user selects their active tenant, the IdP can issue a token that includes the correct tenant identifier claim and role for that tenant. Consider how users can switch between tenants, which requires a new token.
 
@@ -105,28 +105,28 @@ Many multitenant solutions operate as SaaS. Your choice to use Microsoft Entra I
 
 - If your tenants or customers are organizations, they might already use Microsoft Entra ID for services like Microsoft 365, Microsoft Teams, or for their own Azure environments. You can create a [multitenant application](/entra/identity-platform/single-and-multi-tenant-apps) in your own Microsoft Entra ID directory to make your solution available to other Microsoft Entra ID directories. You can also list your solution in [Microsoft Marketplace](/partner-center/marketplace-offers/plan-saas-offer) so that organizations that use Microsoft Entra ID can discover and acquire it.
 
-- If your tenants or customers don't use Microsoft Entra ID, or if they're individuals instead of organizations, you can use External ID. External ID provides features to control how users sign up and sign in. For example, you can restrict access to your solution to only invited users, or you can turn on self-service sign-up. You can use [custom branding](/entra/external-id/customers/how-to-customize-branding-customers). To invite your own staff to sign, use guest access to add External ID users from your Microsoft Entra ID tenant](/entra/external-id/b2b-quickstart-add-guest-users-portal). External ID also supports [federation with other IdPs](/entra/external-id/customers/concept-authentication-methods-customers).
+- If your tenants or customers don't use Microsoft Entra ID, or if they're individuals instead of organizations, you can use External ID. External ID provides features to control how users sign up and sign in. For example, you can restrict access to your solution to only invited users, or you can turn on self-service sign-up. You can use [custom branding](/entra/external-id/customers/how-to-customize-branding-customers). To invite your own staff to sign, use guest access to [add External ID users from your Microsoft Entra ID tenant](/entra/external-id/b2b-quickstart-add-guest-users-portal). External ID also supports [federation with other IdPs](/entra/external-id/customers/concept-authentication-methods-customers).
 
-- Some multitenant solutions are intended for both previously listed scenarios. Some tenants might have their own Microsoft Entra ID tenants and other tenants might not. You can use External ID for this scenario, and [use federation so that users can sign-in from a tenant's Microsoft Entra ID directory](/entra/external-id/customers/concept-authentication-methods-customers).
+- Some multitenant solutions are intended for both previously listed scenarios. Some tenants might have their own Microsoft Entra ID tenants and other tenants might not. In this scenario, use External ID and federation so that users can sign in from a tenant's Microsoft Entra ID directory.
 
 > [!IMPORTANT]
-> Azure AD B2C also supports many of the scenarios in this article. However, as of May 1, 2025, this product no longer available to purchase for new customers, so we don't recommend it for new solutions. For more information, see [Azure AD B2C FAQ](/azure/active-directory-b2c/faq#azure-ad-b2c-end-of-sale).
+> Azure Active Directory B2C (Azure AD B2C) also supports many of the scenarios in this article. However, as of May 1, 2025, this product no longer available to purchase for new customers, so we don't recommend it for new solutions. For more information, see [Azure AD B2C FAQ](/azure/active-directory-b2c/faq#azure-ad-b2c-end-of-sale).
 
 ## Antipatterns to avoid
 
 ### Self-administered identity systems
 
-It is complex to build a modern identity platform. These platforms require support for a range of protocols and standards, and an incorrect implementation can introduce security vulnerabilities. You need to continually update your identity system to mitigate attacks, incorporate the latest security features, and respond to new and amended standards and protocols. Identity systems must be resilient, because any downtime can have serious consequences for the rest of your solution. In most scenarios, IdP implementation doesn't directly benefit the business, but IdP implementation is necessary in a multitenant service. It's better to use a specialized identity system that experts build, operate, and secure.
+It's complex to build a modern identity platform. These platforms require support for a range of protocols and standards, and an incorrect implementation can introduce security vulnerabilities. You need to continually update your identity system to mitigate attacks, incorporate the latest security features, and respond to new and amended standards and protocols. Identity systems must be resilient, because any downtime can have serious consequences for the rest of your solution. In most scenarios, IdP implementation doesn't directly benefit the business, but IdP implementation is necessary in a multitenant service. It's better to use a specialized identity system that experts build, operate, and secure.
 
-If you run your own identity system, you need to store password hashes or other forms of credentials, which creates a vulnerability for cybercriminals. Password hashing and salting is often insufficient, because some cybercriminals can still compromise these credentials.
+If you run your own identity system, you need to store password hashes or other credentials, which creates a vulnerability for cybercriminals. Password hashing and salting is often insufficient, because some cybercriminals can still compromise these credentials.
 
-When you run an identity system, you're responsible for MFA generation and distribution, or for the distribution of one-time password codes. You also need a mechanism to send these codes via SMS or email. You must also detect targeted and brute-force attacks, throttle sign-in attempts, and maintain audit logs.
+When you run an identity system, you're responsible for multifactor authentication generation and distribution, or for the distribution of one-time password codes. You also need a mechanism to send these codes via text message or email. You must also detect targeted and brute-force attacks, throttle sign-in attempts, and maintain audit logs.
 
 It's best to use a prebuilt service or component. Consider managed identity platforms like Microsoft Entra ID or External ID. Platform vendors are responsible for infrastructure and operations, and these platforms typically support current identity and authentication standards.
 
 ### Failure to consider your tenants' requirements
 
-Tenants often have strong identity-management preferences in the solutions that they use. For example, many enterprise customers require federation with their own IdPs, so that they can use single sign-on and manage only one set of credentials. Other tenants might require MFA or extra security measures for the sign-in process. Consider these requirements during design because it can be difficult to add them later.
+Tenants often have strong identity-management preferences in the solutions that they use. For example, many enterprise customers require federation that have their own IdPs, so that they can use single sign-on and manage only one set of credentials. Other tenants might require multifactor authentication or extra security measures for the sign-in process. Consider these requirements during design because it can be difficult to add them later.
 
 Understand your tenants' identity requirements before you finalize your identity system design. For more information about specific requirements, see [Architectural considerations for identity in a multitenant solution](../considerations/identity.md).
 
@@ -136,11 +136,11 @@ Consider how your solution defines a user and a tenant. In many scenarios, the r
 
 Ensure that you have a clear process for tracking tenant context within your application and requests. In some scenarios, this process requires you to include a tenant identifier in every access token and validate it on each request. In other cases, tenant authorization information and user identities are stored separately. This approach requires a more complex authorization system to manage which users can perform specific operations within each tenant.
 
-Tracking the tenant context of a user or token is applicable to any [tenancy model](../considerations/tenancy-models.md) because a user identity always has a tenant context within a multitenant solution. It's a good practice to track tenant context when you deploy independent stamps for a single tenant, which future-proofs your codebase for other forms of multitenancy.
+You can track the tenant context of a user or token to any [tenancy model](../considerations/tenancy-models.md) because a user identity always has a tenant context within a multitenant solution. It's a good practice to track tenant context when you deploy independent stamps for a single tenant, which future-proofs your codebase for other forms of multitenancy.
 
 ### Role and resource authorization conflation
 
-Choose an authorization model that fits your solution. Role-based security is straightforward to implement, but resource-based authorization provides you with more granular control. Evaluate your tenants' requirements and determine if they need to authorize some users to only access specific parts of your solution.
+Choose an authorization model that fits your solution. Role-based security is straightforward to implement, but resource-based authorization provides more granular control. Evaluate your tenants' requirements and determine if they need to authorize some users to only access specific parts of your solution.
 
 ### Failure to write audit logs
 
