@@ -1,6 +1,6 @@
 ### YamlMime:Architecture
 metadata:
-  title: Minimal storage – change feed to replicate data
+  title: Minimal Storage – Change Feed to Replicate Data
   description: Architecture for a high-availability solution that uses two Azure storage services, one for quick access to high-demand data, the other for low-demand data.
   author: nabilshams
   ms.author: nasiddi
@@ -19,7 +19,7 @@ products:
   - azure-functions
   - azure-cosmos-db
   - azure-table-storage
-name: Minimal storage – change feed to replicate data
+name: Minimal Storage – Change Feed to Replicate Data
 summary: Architecture for a high-availability solution that uses two Azure storage services, one for quick access to high-demand data, the other for low-demand data.
 thumbnailUrl: /azure/architecture/browse/thumbs/minimal-storage-change-feed-replicate-data.png
 content: |
