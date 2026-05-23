@@ -149,7 +149,7 @@ The following new and updated articles have recently been published in the Azure
 - [Data partitioning strategies](./best-practices/data-partitioning-strategies.yml) ([#b1a7cae5ab](https://github.com/MicrosoftDocs/architecture-center/commit/b1a7cae5ab))
 - [Administer SQL Server with Azure Arc](./hybrid/azure-arc-sql-server.yml) ([#9073ba5a49](https://github.com/MicrosoftDocs/architecture-center/commit/9073ba5a49))
 - [Azure API Management Landing Zone Architecture](./example-scenario/integration/app-gateway-internal-api-management-function.yml) ([#bfa30f6edb](https://github.com/MicrosoftDocs/architecture-center/commit/bfa30f6edb))
-- [Inbound and outbound internet connections for SAP on Azure](./guide/sap/sap-internet-inbound-outbound.yml) ([#09fe6ea01a](https://github.com/MicrosoftDocs/architecture-center/commit/09fe6ea01a))
+- [Inbound and outbound internet connections for SAP on Azure](./guide/sap/sap-internet-inbound-outbound.md) ([#09fe6ea01a](https://github.com/MicrosoftDocs/architecture-center/commit/09fe6ea01a))
 - [Enhanced-security hybrid messaging for client access](./example-scenario/hybrid/secure-hybrid-messaging-client.yml) ([#864bbfff71](https://github.com/MicrosoftDocs/architecture-center/commit/864bbfff71))
 - [Enhanced-security hybrid messaging for mobile access](./example-scenario/hybrid/secure-hybrid-messaging-mobile.yml) ([#864bbfff71](https://github.com/MicrosoftDocs/architecture-center/commit/864bbfff71))
 - [Identity architecture design](./identity/identity-start-here.yml) ([#864bbfff71](https://github.com/MicrosoftDocs/architecture-center/commit/864bbfff71))
