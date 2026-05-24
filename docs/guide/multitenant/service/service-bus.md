@@ -37,7 +37,7 @@ You can also fine-tune messaging capabilities for each tenant based on their nee
 
 - Deploy a tenant-specific namespace with a pricing tier that's appropriate to that tenant. For example, you can provision [premium namespaces](/azure/service-bus-messaging/service-bus-premium-messaging) that have a different number of [messaging units (MUs)](/azure/service-bus-messaging/service-bus-premium-messaging#how-many-messaging-units-are-needed).
 
-- Apply networking restrictions based on the tenant's needs. Service Bus Premium namespaces [support a variety of network security approaches](/azure/service-bus-messaging/network-security), including private endpoints, virtual network service endpoints, and IP firewall rules. In a multitenant solution with dedicated namespaces for each tenant, you can configure network restrictions that match each tenant's security requirements.
+- Apply networking restrictions based on the tenant's needs. Service Bus namespaces [support a variety of network security approaches](/azure/service-bus-messaging/network-security), including private endpoints, virtual network service endpoints, IP firewall rules, and network security perimeters. Some features require the Premium tier. In a multitenant solution with dedicated namespaces for each tenant, you can configure network restrictions that match each tenant's security requirements.
 
 - Use [tenant-specific encryption keys](#customer-managed-keys).
 
