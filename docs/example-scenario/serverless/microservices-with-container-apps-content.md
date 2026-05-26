@@ -212,7 +212,7 @@ For more information about network topology options, including private endpoint 
 
 Cost Optimization focuses on ways to reduce unnecessary expenses and improve operational efficiencies. For more information, see [Design review checklist for Cost Optimization](/azure/well-architected/cost-optimization/checklist).
 
-- Review an example price estimate for the workload. Use the [Azure pricing estimate](https://azure.com/e/05d736df10c64bcbb77819b7a7ddf9c2). Configurations vary, so adjust it to match your scenario.
+- Review an example price estimate for the workload. Use the [preconfigured estimate in the Azure pricing calculator](https://azure.com/e/05d736df10c64bcbb77819b7a7ddf9c2). Configurations vary, so adjust it to match your scenario.
 
 - In this scenario, Azure Cosmos DB, Azure Managed Redis, and Service Bus Premium are the main cost drivers.
 
