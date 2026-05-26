@@ -76,7 +76,7 @@ For more information, see:
 
 Network traffic that stays within a virtual network shouldn't pass through a firewall. For example, don't put a firewall between the SAP application subnet and the SAP database subnet. Placing a firewall or NVAs between the SAP application and the database management system (DBMS) layer of SAP systems that runs the SAP kernel isn't supported. This configuration negatively affects network latency for all database access and negatively affects SAP performance.
 
-**Avoid peering spoke virtual networks.** Virtual network peering between the spoke virtual networks should be avoided if possible. Spoke-to-spoke virtual network peering allows spoke-to-spoke communication to bypass the hub virtual network firewall. You should configure spoke-to-spoke virtual network peering only when you have high-bandwidth requirements, for example, for database replication between SAP environments. All other network traffic should run through the hub virtual network and firewall. For more information, see [Inbound and outbound internet connections for SAP on Azure](./sap-internet-inbound-outbound.yml).
+**Avoid peering spoke virtual networks.** Virtual network peering between the spoke virtual networks should be avoided if possible. Spoke-to-spoke virtual network peering allows spoke-to-spoke communication to bypass the hub virtual network firewall. You should configure spoke-to-spoke virtual network peering only when you have high-bandwidth requirements, for example, for database replication between SAP environments. All other network traffic should run through the hub virtual network and firewall. For more information, see [Inbound and outbound internet connections for SAP on Azure](./sap-internet-inbound-outbound.md).
 
 #### Subnets
 
@@ -254,5 +254,5 @@ Other author:
 
 - [SAP S/4HANA in Linux on Azure](./sap-s4hana.md)
 - [Run SAP NetWeaver in Windows on Azure](./sap-netweaver.md)
-- [Run SAP HANA in a scale-up architecture on Azure](../../reference-architectures/sap/run-sap-hana-for-linux-virtual-machines.md)
-- [Inbound and outbound internet connections for SAP on Azure](./sap-internet-inbound-outbound.yml)
+- [Run SAP HANA in a scale-up architecture on Azure](../../reference-architectures/sap/run-sap-hana-for-linux-virtual-machines.yml)
+- [Inbound and outbound internet connections for SAP on Azure](./sap-internet-inbound-outbound.md)
