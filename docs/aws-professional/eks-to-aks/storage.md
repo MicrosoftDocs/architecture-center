@@ -53,7 +53,7 @@ You typically use Kubernetes to run stateless applications, but sometimes you ne
 #### Amazon EBS
 Use [Amazon EBS](https://aws.amazon.com/ebs/) volumes for block-level storage and for databases and throughput-intensive applications. Amazon EKS users can use the latest generation of block storage [gp3](https://aws.amazon.com/ebs/volume-types/#gp3) for a balance between price and performance. For higher-performance applications, you can use [io2 Block Express volumes](https://docs.aws.amazon.com/ebs/latest/userguide/provisioned-iops.html#io2-block-express). To minimize cost, you can use HDD based ST1/SC1 volumes as well.
 
-In EKS Auto the EBS CSI driver is auto managed.
+In EKS Auto mode, the EBS CSI driver is auto-managed.
 
 #### Amazon EFS
 [Amazon EFS](https://aws.amazon.com/efs/) is a serverless, elastic file system that you can share across multiple containers and nodes. It automatically grows and shrinks as files are added or removed, which eliminates the need for capacity planning. The [Amazon EFS Container Storage Interface (CSI) driver](https://github.com/kubernetes-sigs/aws-efs-csi-driver) integrates Amazon EFS with Kubernetes. The Amazon EFS CSI driver isn’t compatible with Windows-based container images.
@@ -66,7 +66,7 @@ In EKS Auto mode, setting up EFS requires you to create the underlying file syst
 #### Amazon FSx for Lustre
 [Amazon FSx for Lustre](https://aws.amazon.com/fsx/lustre/) provides high-performance parallel file storage. Use this type of storage for scenarios that require high-throughput and low-latency operations. You can link this file storage to an Amazon S3 data repository to store large datasets. 
 
-Amazon FSx for Luster is supported in both EKS Standard and EKS Auto mode.
+Amazon FSx for Lustre is supported in both EKS Standard and EKS Auto mode.
 
 #### Amazon FSx for NetApp ONTAP
 [Amazon FSx for NetApp ONTAP](https://docs.aws.amazon.com/eks/latest/userguide/fsx-ontap.html) is a fully managed, shared storage solution that's built on NetApp's ONTAP file system. You can provision and manage highly available shared file storage natively in your EKS  Standard and EKS Auto Mode clusters using the NetApp Astra Trident CSI driver. 
@@ -478,7 +478,6 @@ Choose a tool to back up persistent data. The tool should match your storage typ
 ### Cost optimization
 
 To optimize Azure Storage costs, use Azure reservations if the [service supports them](/azure/cost-management-billing/reservations/save-compute-costs-reservations#charges-covered-by-reservation). For more information, see [Cost management for a Kubernetes cluster](cost-management.md).
-
 
 ## Contributors
 
