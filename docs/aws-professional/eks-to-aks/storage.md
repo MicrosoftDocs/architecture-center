@@ -1,9 +1,9 @@
 ---
 title: Storage Options for a Kubernetes Cluster
 description: Understand storage options for a Kubernetes cluster, and compare Amazon EKS and Azure Kubernetes Service (AKS) storage options.
-author: francisnazareth
+author: pranabpaul-tech
 ms.author: pranabp
-ms.date: 01/28/2025
+ms.date: 05/26/2026
 ms.topic: concept-article
 ms.subservice: architecture-guide
 ms.collection: 
@@ -25,19 +25,61 @@ Amazon EKS provides different types of storage volumes for applications that req
 
 ### Ephemeral volumes
 
-For applications that require temporary local volumes but don't need to persist data after restarts, use ephemeral volumes. Kubernetes supports different types of ephemeral volumes, such as [emptyDir](https://kubernetes.io/docs/concepts/storage/volumes/#emptydir), [ConfigMap](https://kubernetes.io/docs/concepts/storage/volumes/#configmap), [downwardAPI](https://kubernetes.io/docs/concepts/storage/volumes/#downwardapi), [secret](https://kubernetes.io/docs/concepts/storage/volumes/#secret), and [hostPath](https://kubernetes.io/docs/concepts/storage/volumes/#hostpath). To ensure cost efficiency and performance, choose the most appropriate host volume. In Amazon EKS, you can use [gp3](https://aws.amazon.com/ebs/volume-types/) as the host root volume, which costs less than gp2 volumes.
+Ephemeral volumes are applicable to applications that require temporary storage but don't need to persist data after restarts. For example:
 
+- Caching Service moves not so frequently used data to temporary storage.
+- Read-only input data stored in files, like configuration data or secret keys.
+
+Kubernetes supports different types of ephemeral volumes, such as [emptyDir](https://kubernetes.io/docs/concepts/storage/volumes/#emptydir), [ConfigMap](https://kubernetes.io/docs/concepts/storage/volumes/#configmap), [downwardAPI](https://kubernetes.io/docs/concepts/storage/volumes/#downwardapi), [secret](https://kubernetes.io/docs/concepts/storage/volumes/#secret), [hostPath](https://kubernetes.io/docs/concepts/storage/volumes/#hostpath), [CSI ephemeral volumes](https://kubernetes.io/docs/concepts/storage/ephemeral-volumes/#csi-ephemeral-volumes), and [Generic ephemeral volumes](https://kubernetes.io/docs/concepts/storage/ephemeral-volumes/#generic-ephemeral-volumes). 
+
+#### Amazon EBS
+For EKS Standard, Generic Ephemeral Volumes allow you to use the [Amazon EBS CSI Driver](https://docs.aws.amazon.com/eks/latest/userguide/ebs-csi.html) to provision temporary, block-level scratch space that is directly tied to a Pod's lifecycle. Unlike traditional emptyDir volumes which share the node's root disk, generic ephemeral volumes automatically spin up an independent AWS EBS volume when the Pod starts and completely delete it when the Pod terminates.
+
+EKS Auto completely manages the underlying Amazon EBS CSI driver for you, you do not need to install or manage the storage controller yourself.
+
+#### Amazon EC2 Instance Store
 You can also use [Amazon EC2 instance stores](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/InstanceStorage.html), which provide temporary block-level storage for EC2 instances. These volumes are physically attached to the hosts and only exist during the lifetime of the instance. To use local store volumes in Kubernetes, you must partition, configure, and format the disks by using Amazon EC2 user data.
+
+The Amazon EC2 Instance Store CSI driver is not supported in EKS Auto Mode.
+
+#### FSx for Lustre Scratch Volumes
+While not managed as ephemeral Kubernetes storage, you can provision "Scratch" type (Scratch 1, Scratch 2) [FSx for Lustre](https://docs.aws.amazon.com/eks/latest/userguide/fsx-csi.html) file systems on EKS which are designed for temporary, short-term data processing. This can be mounted via Persistent Volume Claims (PVCs) and the file system can be deleted entirely once the compute job finishes.
+
 
 ### Persistent volumes
 
-You typically use Kubernetes to run stateless applications, but sometimes you need persistent data storage. You can use [Kubernetes persistent volumes](https://kubernetes.io/docs/concepts/storage/persistent-volumes/) to store data independently from pods so that the data can persist beyond the lifetime of a given pod. Amazon EKS supports different types of storage options for persistent volumes, including [Amazon EBS](https://aws.amazon.com/ebs/), [Amazon Elastic File System (EFS)](https://aws.amazon.com/efs/), [Amazon FSx for Lustre](https://aws.amazon.com/fsx/lustre/), and [Amazon FSx for NetApp ONTAP](https://aws.amazon.com/fsx/netapp-ontap/).
+You typically use Kubernetes to run stateless applications, but sometimes you need persistent data storage. You can use Kubernetes persistent volumes to store data independently from pods so that the data can persist beyond the lifetime of a given pod. Amazon EKS supports different types of storage options for persistent volumes:
 
-Use [Amazon EBS](https://aws.amazon.com/ebs/) volumes for block-level storage and for databases and throughput-intensive applications. Amazon EKS users can use the latest generation of block storage [gp3](https://aws.amazon.com/ebs/volume-types/#gp3) for a balance between price and performance. For higher-performance applications, you can use [io2 Block Express volumes](https://docs.aws.amazon.com/ebs/latest/userguide/provisioned-iops.html#io2-block-express).
+#### Amazon EBS
+Use [Amazon EBS](https://aws.amazon.com/ebs/) volumes for block-level storage and for databases and throughput-intensive applications. Amazon EKS users can use the latest generation of block storage [gp3](https://aws.amazon.com/ebs/volume-types/#gp3) for a balance between price and performance. For higher-performance applications, you can use [io2 Block Express volumes](https://docs.aws.amazon.com/ebs/latest/userguide/provisioned-iops.html#io2-block-express). To minimize cost, you can use HDD based ST1/SC1 volumes as well.
 
-[Amazon EFS](https://aws.amazon.com/efs/) is a serverless, elastic file system that you can share across multiple containers and nodes. It automatically grows and shrinks as files are added or removed, which eliminates the need for capacity planning. The [Amazon EFS Container Storage Interface (CSI) driver](https://github.com/kubernetes-sigs/aws-efs-csi-driver) integrates Amazon EFS with Kubernetes.
+In EKS Auto the EBS CSI driver is auto managed.
 
-[Amazon FSx for Lustre](https://aws.amazon.com/fsx/lustre/) provides high-performance parallel file storage. Use this type of storage for scenarios that require high-throughput and low-latency operations. You can link this file storage to an Amazon S3 data repository to store large datasets. Amazon FSx for NetApp ONTAP is a fully managed, shared storage solution that's built on NetApp's ONTAP file system.
+#### Amazon EFS
+[Amazon EFS](https://aws.amazon.com/efs/) is a serverless, elastic file system that you can share across multiple containers and nodes. It automatically grows and shrinks as files are added or removed, which eliminates the need for capacity planning. The [Amazon EFS Container Storage Interface (CSI) driver](https://github.com/kubernetes-sigs/aws-efs-csi-driver) integrates Amazon EFS with Kubernetes. The Amazon EFS CSI driver isn’t compatible with Windows-based container images.
+
+In EKS Auto mode, setting up EFS requires you to create the underlying file system first and manually define the mapping using standard [StorageClasses](https://kubernetes.io/docs/concepts/storage/storage-classes/), [PersistentVolume (PV)](https://kubernetes.io/docs/concepts/storage/persistent-volumes/), and [PersistentVolumeClaim (PVC)](https://kubernetes.io/docs/reference/kubernetes-api/core/persistent-volume-claim-v1/).
+
+#### Amazon S3 Files
+[Amazon S3 Files](https://docs.aws.amazon.com/eks/latest/userguide/s3files-csi.html) functions as a high-performance, low-latency shared file system layered over your Amazon S3 data. This allows file-dependent applications, workflows, and teams to operate on S3 datasets using their existing tools. To support Kubernetes environments, version 3.0.0 and later of the Amazon EFS CSI Driver allows AWS-hosted clusters to natively mount these S3 file systems as persistent volumes in both EKS Standard and EKS Auto.
+
+#### Amazon FSx for Lustre
+[Amazon FSx for Lustre](https://aws.amazon.com/fsx/lustre/) provides high-performance parallel file storage. Use this type of storage for scenarios that require high-throughput and low-latency operations. You can link this file storage to an Amazon S3 data repository to store large datasets. 
+
+Amazon FSx for Luster is supported in both EKS Standard and EKS Auto mode.
+
+#### Amazon FSx for NetApp ONTAP
+[Amazon FSx for NetApp ONTAP](https://docs.aws.amazon.com/eks/latest/userguide/fsx-ontap.html) is a fully managed, shared storage solution that's built on NetApp's ONTAP file system. You can provision and manage highly available shared file storage natively in your EKS  Standard and EKS Auto Mode clusters using the NetApp Astra Trident CSI driver. 
+
+#### Amazon FSx for OpenZFS
+[Amazon FSx for OpenZFS](https://docs.aws.amazon.com/eks/latest/userguide/fsx-openzfs-csi.html) provides a fully managed service for migrating on-premises ZFS or Linux-based file systems to AWS without altering application code or workflows, utilizing the open-source OpenZFS file system for scalable, efficient storage. The FSx for OpenZFS Container Storage Interface (CSI) driver enables Amazon EKS clusters to manage the lifecycle of these volumes.
+
+Amazon FSx for OpenZFS is supported in both EKS Standard and EKS Auto mode.
+
+#### Amazon File Cache
+[Amazon File Cache](https://docs.aws.amazon.com/eks/latest/userguide/file-cache-csi.html) is a fully managed, high-speed AWS service that processes file data from any location, automatically loading files when needed and clearing them when they aren't. With the Amazon File Cache CSI driver, Amazon EKS clusters can easily manage the entire lifecycle of these caches through a standard interface. 
+
+Amazon File Cache is supported in both EKS Standard and EKS Auto mode.
 
 To optimize storage configurations and manage backups and snapshots, use tools like [AWS Compute Optimizer](https://aws.amazon.com/compute-optimizer/) and [Velero](https://velero.io/).
 
@@ -54,7 +96,7 @@ The following sections introduce the storage options and core concepts that prov
 
 Kubernetes volumes represent more than just a traditional disk to store and retrieve information. You can also use Kubernetes volumes to inject data into a pod for its containers to use.
 
-Common volume types in Kubernetes include [emptyDirs](#emptydirs), [secrets](#secrets), and [ConfigMaps](#configmaps).
+Common volume types in Kubernetes include [emptyDirs](#emptydirs), [secrets](#secrets), and [ConfigMaps](#configmaps). 
 
 #### EmptyDirs
 
@@ -74,9 +116,9 @@ The Kubernetes control plane also uses secrets, such as [bootstrap token secrets
 
 #### ConfigMaps
 
-A [ConfigMap](https://kubernetes.io/docs/concepts/configuration/configmap/) is a Kubernetes object that you use to store nonconfidential data in key-value pairs. [Pods](https://kubernetes.io/docs/concepts/workloads/pods/) can consume ConfigMaps as environment variables, command-line arguments, or as configuration files in a [volume](https://kubernetes.io/docs/concepts/storage/volumes/). You can use a ConfigMap to decouple environment-specific configurations from your [container images](https://kubernetes.io/docs/reference/glossary/?all=true#term-image), which makes your applications easily portable.
+A [ConfigMap](https://kubernetes.io/docs/concepts/configuration/configmap/) is a Kubernetes object that you use to store nonconfidential data in key-value pairs. Pods can consume ConfigMaps as environment variables, command-line arguments, or as configuration files in a volume. You can use a ConfigMap to decouple environment-specific configurations from your container images, which makes your applications easily portable.
 
-ConfigMaps don't provide secrecy or encryption. If you want to store confidential data, use a [secret](https://kubernetes.io/docs/concepts/configuration/secret/) rather than a ConfigMap, or use other partner tools to keep your data private.
+ConfigMaps don't provide secrecy or encryption. If you want to store confidential data, use a secret rather than a ConfigMap, or use other partner tools to keep your data private.
 
 You can use a ConfigMap to set configuration data separately from application code. For example, you might develop an application to run on your computer for development and to run in the cloud to handle real traffic. You can write the code to look in an environment variable named `DATABASE_HOST`. Locally, set that variable to `localhost`. In the cloud, set it to refer to a Kubernetes [service](https://kubernetes.io/docs/concepts/services-networking/service/) that exposes the database component to your cluster. This approach lets you fetch a container image that runs in the cloud and debug the same code locally if needed.
 
@@ -224,13 +266,6 @@ By default, Azure automatically replicates the operating system disk for a virtu
 In contrast, ephemeral OS disks are stored only on the host machine, like a temporary disk. This configuration provides lower read and write latency and faster node scaling and cluster upgrades.
 
 If you don't request [Azure managed disks](/azure/virtual-machines/managed-disks-overview) for the OS, AKS defaults to ephemeral OS disks if possible for a given node pool configuration.
-
-For size requirements and recommendations, see [Ephemeral OS disks for Azure VMs](/azure/virtual-machines/ephemeral-os-disks). Consider the following sizing considerations:
-
-- If you use the AKS default VM size [Standard_DS2_v2](/azure/virtual-machines/sizes/general-purpose/dsv2-series) SKU with the default OS disk size of 100 GiB, the default VM size supports ephemeral OS disks but only has a cache size of 86 GiB. This configuration defaults to managed disks if you don't specify it. If you request an ephemeral OS disk, you receive a validation error.
-
-- If you request the same Standard_DS2_v2 SKU with a 60-GiB OS disk, this configuration defaults to ephemeral OS disks. The requested size of 60 GiB is smaller than the maximum cache size of 86 GiB.
-- If you select the [Standard_D8s_v3](/azure/virtual-machines/sizes/general-purpose/dsv3-series) SKU with a 100-GB OS disk, this VM size supports ephemeral OS disks and has a cache size of 200 GiB. If you don't specify the OS disk type, the node pool receives ephemeral OS disks by default.
 
 The latest generation of VM series doesn't have a dedicated cache and only has temporary storage. 
 
@@ -397,6 +432,23 @@ Like Amazon EKS, AKS is a Kubernetes implementation, and you can integrate partn
 - [Quobyte](https://www.quobyte.com/) provides high-performance file and object storage that you can deploy on any server or cloud to scale performance, manage large amounts of data, and simplify administration.
 - Ondat delivers a consistent storage layer across any platform. You can run a database or any persistent workload in a Kubernetes environment without having to manage the storage layer.
 
+## Storage and AKS Automatic
+AKS Automatic manages the storage lifecycle for you, while AKS Standard gives you more direct control.
+
+#### High-level comparison
+
+| **Area**                           | **AKS Automatic**                            | **Standard AKS**          |
+| ---------------------------------- | -------------------------------------------- | ------------------------- |
+| Default storage setup              | Preconfigured                                | You configure manually    |
+| CSI drivers                        | Automatically managed                        | You enable/manage         |
+| StorageClasses                     | Created automatically                        | Often manually customized |
+| Node storage optimization          | Automatic                                    | Manual                    |
+| Azure Disk/Azure Files integration | Built in                                     | Manual setup possible     |
+| Azure NetApp Files integration     | Still requires Trident/manual backend config | Same                      |
+| Ephemeral storage tuning           | Automatic                                    | Manual                    |
+| Flexibility/customization          | Lower                                        | Higher                    |
+| Operational effort                 | Lower                                        | Higher                    |
+
 ## Kubernetes storage considerations
 
 Consider the following factors when you choose a storage solution for Amazon EKS or AKS.
@@ -427,6 +479,7 @@ Choose a tool to back up persistent data. The tool should match your storage typ
 
 To optimize Azure Storage costs, use Azure reservations if the [service supports them](/azure/cost-management-billing/reservations/save-compute-costs-reservations#charges-covered-by-reservation). For more information, see [Cost management for a Kubernetes cluster](cost-management.md).
 
+
 ## Contributors
 
 *Microsoft maintains this article. The following contributors wrote this article.*
@@ -435,6 +488,7 @@ Principal authors:
 
 - [Paolo Salvatori](https://www.linkedin.com/in/paolo-salvatori/) | Principal System Engineer
 - [Laura Nicolas](https://www.linkedin.com/in/lauranicolasd/) | Senior Cloud Solution Architect
+- [Pranab Paul](https://www.linkedin.com/in/pranabpaul/) | Senior Global Partner Solution Architect
 
 Other contributors:
 
