@@ -67,7 +67,7 @@ For more information, see:
 
 - [Network topology and connectivity for an SAP migration](/azure/cloud-adoption-framework/scenarios/sap/eslz-network-topology-and-connectivity)
 - [Hub-spoke network topology in Azure](/azure/architecture/networking/architecture/hub-spoke)
-- [Azure virtual WAN](/azure/virtual-wan/virtual-wan-about)
+- [Azure Virtual WAN](/azure/virtual-wan/virtual-wan-about)
 - [S2S VPN as a backup for ExpressRoute private peering](/azure/expressroute/use-s2s-vpn-as-backup-for-expressroute-privatepeering)
 
 **Use one virtual network per environment.** We recommend using one virtual network per SAP environment (deployment tier). The architecture uses a different virtual network for production, development, quality assurance, and sandbox. This network design is ideal for large enterprise architectures.
@@ -118,7 +118,7 @@ This diagram shows an architecture that places perimeter subnets in a separate v
 
 This network design provides better incident response capabilities and fine-grained network access control. However, it also increases the management complexity, network latency, and cost of the deployment. The following sections discuss each point.
 
-*Better incident response:* The SAP perimeter spoke virtual network allows you to quickly isolate compromised services if you detect a breach. You can remove virtual network peering from the SAP perimeter spoke virtual network to the hub and immediately isolate the SAP perimeter workloads and SAP application virtual network applications from the internet. You shouldn't rely on network security group (NSG) rule changes for incident response. Changing or removing an NSG rule affects only new connections and doesn't remove existing malicious connections.
+*Better incident response:* When you use an SAP perimeter spoke virtual network, you can quickly isolate compromised services if you detect a breach. You can remove virtual network peering from the SAP perimeter spoke virtual network to the hub and immediately isolate the SAP perimeter workloads and SAP application virtual network applications from the internet. You shouldn't rely on network security group (NSG) rule changes for incident response. Changing or removing an NSG rule affects only new connections and doesn't remove existing malicious connections.
 
 *Fine-grained network access control:* The SAP perimeter virtual network provides more stringent network access control to and from the SAP production spoke virtual network.
 
@@ -140,13 +140,13 @@ Using subnets to group SAP resources that have the same security rule requiremen
 
 #### Private Link
 
-We recommend that you use Private Link to improve the security of network communications. Private Link uses private endpoints with private IP addresses to communicate with Azure services. Using Private Link enables you to avoid sending network communication over the internet to public endpoints. For more information, see [What is a private endpoint?](/azure/private-link/private-endpoint-overview).
+We recommend that you use Private Link to improve the security of network communications. Private Link uses private endpoints with private IP addresses to communicate with Azure services. When you use Private Link, you can avoid sending network communication over the internet to public endpoints. For more information, see [What is a private endpoint?](/azure/private-link/private-endpoint-overview).
 
 **Use private endpoints in the application subnet:** We recommend that you use private endpoints to connect the application subnet to supported Azure services. In the architecture, there's a private endpoint for Azure Files in the application subnet of each virtual network. You can use this configuration for any supported Azure service.
 
 **Use Private Link for SAP BTP:** You can use Private Link for SAP BTP. SAP Private Link Service supports connections from SAP BTP, the Cloud Foundry Runtime, and other services. Example scenarios include SAP S/4HANA or SAP ERP running on a VM. SAP services can connect to Azure native services like Azure Database for MySQL.
 
-The architecture uses an SAP Private Link Service connection from SAP BTP environments. SAP Private Link Service establishes a private connection between specific SAP BTP services and specific services in each network as service provider accounts. Private Link allows BTP services to access your SAP environment through private network connections. It improves security because it enables you to avoid using the public internet to communicate.
+The architecture uses an SAP Private Link Service connection from SAP BTP environments. SAP Private Link Service establishes a private connection between specific SAP BTP services and specific services in each network as service provider accounts. When you use Private Link, BTP services can access your SAP environment through private network connections. It improves security because you can avoid using the public internet to communicate.
 
 For more information, see:
 
@@ -164,7 +164,7 @@ For more information, see:
 - [Azure NetApp Files](/azure/sap/workloads/planning-guide-storage)
 - [SAP note 2015553 (requirements for storage services)](https://launchpad.support.sap.com/#/notes/2015553)
 
-When you architect your SAP solution, you need to properly size the individual file share volumes and know which SAP system file share connects to. Keep scalability and performance targets of the Azure service in mind during planning. The following table outlines common SAP file shares and gives a brief description and recommended use in a whole-SAP environment.
+When you architect your SAP solution, you need to properly size the individual file share volumes and know which SAP system each file share connects to. Keep scalability and performance targets of the Azure service in mind during planning. The following table outlines common SAP file shares and gives a brief description and recommended use in a whole-SAP environment.
 
 | File share name | Usage | Recommendation |
 |:----------------|:------| :--------------|
@@ -198,7 +198,7 @@ SAP solutions rely on shared services. Load balancers and application gateways a
 
 **Load balancers:** We recommend one load balancer per SAP system. This configuration helps minimize complexity. Avoid having too many pools and rules on a single load balancer. The recommended configuration also ensures that naming and placement align with the SAP system and resource group. Each SAP system with a clustered high-availability (HA) architecture should have at least one internal load balancer. The architecture uses one load balancer for the ASCS VMs and a second load balancer for the database VMs. Some databases might not need load balancers to enable an HA deployment. SAP HANA does. For more information, see database-specific documentation.
 
-**Application Gateway:** We recommend at least one application gateway per SAP environment (production, nonproduction, and sandbox) unless the complexity and number of connected systems is too high. You could use an application gateway for multiple SAP systems to reduce complexity, because not all SAP systems in the environment require inbound access from the internet. A single application gateway could serve multiple web dispatcher ports for a single SAP S/4HANA system or be used by different SAP systems.
+**Application Gateway:** We recommend at least one application gateway per SAP environment (production, nonproduction, and sandbox) unless the complexity and number of connected systems are too high. You could use an application gateway for multiple SAP systems to reduce complexity, because not all SAP systems in the environment require inbound access from the internet. A single application gateway could serve multiple web dispatcher ports for a single SAP S/4HANA system or be used by different SAP systems.
 
 **SAP Web Dispatcher VMs:** The architecture shows a pool of two or more SAP Web Dispatcher VMs. We don't recommend the reuse of SAP Web Dispatcher VMs between different SAP systems. Keeping them separate allows you to size the Web Dispatcher VMs to meet the needs of each SAP system. For smaller SAP solutions, we recommend that you embed the Web Dispatcher services in the ASCS instance.
 
@@ -210,7 +210,7 @@ Disaster recovery (DR) addresses the requirement for business continuity in case
 
 **Use different IP address ranges:** Virtual networks only span a single Azure region. DR solutions should use a different region. You need to create a different virtual network in the secondary region. The virtual network in the DR environment needs to use a different IP address range to enable database synchronization through database-native technology.
 
-**Ensure connectivity to central services and on-premises:** Connectivity to on-premises and key central services (DNS or firewalls) must be available in the DR region. Make availability and change configuration of the central IT services a part your DR plan. Central IT services are key components for a functioning SAP environment.
+**Ensure connectivity to central services and on-premises:** Connectivity to on-premises and key central services (DNS or firewalls) must be available in the DR region. Make availability and change configuration of the central IT services a part of your DR plan. Central IT services are key components for a functioning SAP environment.
 
 **Use Azure Site Recovery:** Site Recovery replicates managed disks and VM configurations for application servers to the DR region.
 
@@ -242,6 +242,8 @@ Principal authors:
 Other author:
 
 - [Daniel Crawford](https://www.linkedin.com/in/daniel-crawford-b661373) | Senior Program Manager
+
+*To see nonpublic LinkedIn profiles, sign in to LinkedIn.*
 
 ## Next steps
 
