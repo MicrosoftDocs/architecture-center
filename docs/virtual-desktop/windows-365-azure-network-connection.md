@@ -1,9 +1,9 @@
 ---
-title: Windows 365 Azure Network Connection  
+title: Windows 365 Azure Network Connection
 description: Design and implement Windows 365 Azure network connections to integrate Cloud PCs with your existing network infrastructure and on-premises resources.
 author: PaulCollinge
 ms.author: paulcoll
-ms.date: 06/05/2025
+ms.date: 05/26/2026
 ms.topic: concept-article
 ms.subservice: architecture-guide
 ---
@@ -19,6 +19,9 @@ Windows 365 delivers cloud-based Windows computing instances called *Cloud PCs* 
 - Azure Virtual Desktop for secure remote connectivity and session management
 
 Cloud PCs run in the Windows 365 service and provide users with consistent Windows desktop experiences that they can access from any device, anywhere. This article focuses on Windows 365 deployments that use Azure network connections to integrate with your existing network infrastructure and on-premises resources.
+
+> [!IMPORTANT]
+> For most new Windows 365 deployments, Microsoft recommends the **Microsoft-hosted network (MHN)** option. MHN provides a fully managed virtual network, simpler operations, and lower cost. Choose an **Azure network connection (ANC)** only when you have a specific requirement that MHN can't meet, such as Microsoft Entra hybrid join, direct network-level connectivity to on-premises resources, or customer-managed network controls on the Cloud PC subnet. For best provisioning success with MHN, choose **Automatic** for the region. For a side-by-side comparison, see [Deployment options for Windows 365](/windows-365/enterprise/windows-365-network-deployment-options).
 
 ### The Windows 365 shared responsibility model
 
@@ -69,6 +72,8 @@ This diagram shows an Azure network that contains customer subscriptions and Azu
 
 *Download a [PowerPoint file](https://arch-center.azureedge.net/windows-365-placement-diagrams-updated-3.pptx) of this architecture.*
 
+For on-premises application access from Microsoft-hosted network Cloud PCs, use [Microsoft Entra Private Access](/entra/global-secure-access/concept-private-access) (part of Microsoft's Global Secure Access offering) or another Zero Trust Network Access (ZTNA) solution. These device-side connectors replace the need for site-to-site VPN or Azure ExpressRoute on the Cloud PC and align with Zero Trust principles.
+
 The preceding architecture pattern maximizes the value of Windows 365 and provides the following benefits:
 
 - Simplified and faster deployment
@@ -78,6 +83,25 @@ The preceding architecture pattern maximizes the value of Windows 365 and provid
 - Self-service user troubleshooting
 - Low overhead and management
 - Highest maturity model of software and application delivery
+
+## Choose between Microsoft-hosted network and Azure network connection
+
+Windows 365 supports two network deployment models. Microsoft recommends **Microsoft-hosted network (MHN)** for new deployments. Use an Azure network connection (ANC) only when one of the constraints listed below applies.
+
+| Requirement | Recommended deployment model |
+| --- | --- |
+| Microsoft Entra join only, with no on-premises dependencies | Microsoft-hosted network |
+| On-premises application access by using Microsoft Entra Private Access or another Zero Trust Network Access (ZTNA) solution | Microsoft-hosted network |
+| Internet-routed software-as-a-service (SaaS) applications | Microsoft-hosted network |
+| Microsoft Entra hybrid join requirements (Kerberos or NTLM to on-premises Active Directory) | Azure network connection |
+| Direct network-level connectivity requirements from the Cloud PC NIC to on-premises subnets | Azure network connection |
+
+The recommendation can also be applied per provisioning policy. A single Windows 365 tenant can run MHN and ANC side-by-side for different user populations.
+
+> [!IMPORTANT]
+> **Plan for the retirement of Azure default outbound access.** On 31 March 2026, Azure retires default outbound access for newly created virtual networks. After that date, new virtual networks default to private subnets with no implicit outbound internet path. ANC deployments depend on outbound access for Cloud PC provisioning, agent updates, Windows activation, and Remote Desktop Protocol (RDP) brokering — so any new ANC virtual network must have an explicit outbound method configured, such as a NAT gateway, Azure Firewall, or load balancer outbound rules. Microsoft-hosted network deployments aren't affected because Microsoft manages egress for those networks. For more information, see [Default outbound access for VMs in Azure will be retired](/azure/virtual-network/ip-services/default-outbound-access).
+
+If you operate ANC today, audit your existing virtual networks for explicit outbound configuration ahead of the retirement date. If your scenario can be migrated to MHN, do so to reduce operational overhead and eliminate the outbound-access dependency.
 
 ### The Windows 365 service architecture
 
@@ -129,6 +153,9 @@ See the following Azure network connection patterns:
 
 **Azure network connection with Microsoft Entra hybrid join:** In this pattern, Microsoft Entra hybrid-joined Cloud PCs use an Azure network connection to domain join with an on-premises Microsoft Entra ID domain controller. The Cloud PC authenticates with the on-premises domain controller when users access the Cloud PC, on-premises apps, or cloud apps that require Kerberos or NTLM authentication.
 
+  > [!NOTE]
+  > Microsoft Entra hybrid join is a transitional identity model for organizations that still depend on on-premises Active Directory authentication. For new Cloud PC deployments, prefer Microsoft Entra join and migrate Group Policy settings to Intune by using the [Settings Catalog](/mem/intune/configuration/settings-catalog), [ADMX ingestion](/mem/intune/configuration/administrative-templates-import-custom), or [security baselines](/mem/intune/protect/security-baselines).
+
 ### Azure network connection architecture patterns
 
 For some patterns, the Windows 365 service connects to on-premises environments via Virtual Network by using Azure ExpressRoute or a site-to-site VPN. An Azure network connection, which is an Intune object, represents this connectivity method. The Azure network connection enables Cloud PCs to connect to on-premises resources such as Windows Server Active Directory or LOB apps.
@@ -146,9 +173,9 @@ The following table lists dependencies for an Azure network connection for Micro
 | Dependency | Windows 365 check | Recommendations |
 | --- | --- | --- |
 | Azure tenant readiness | Checks if Azure subscription is enabled, with no blocking restrictions, and is ready for use | - Use an account that has the right privileges to manage the Azure, Intune, and Windows 365 subscriptions. For more information, see [Role-based access control](/windows-365/enterprise/role-based-access). <br><br> - Disable or modify Azure policies that prevent the creation of Cloud PCs. For more information, see [Restrict allowed virtual machine (VM) SKUs](/azure/lab-services/how-to-use-restrict-allowed-virtual-machine-sku-sizes-policy). <br><br> - Make sure the subscription has sufficient resource quotas for networking and general limits based on the maximum number of Cloud PCs that you want to create. Examples include the network gateway size, IP address space, size of the virtual network, and bandwidth required. For more information, see [Networking limits](/azure/azure-resource-manager/management/azure-subscription-service-limits#azure-resource-manager-virtual-networking-limits) and [General limits](/azure/azure-resource-manager/management/azure-subscription-service-limits#general-limits). |
-| Azure virtual network readiness | Checks if the virtual network is in a supported Windows 365 region | - Create the virtual network in a [Windows 365-supported Azure region for Cloud PC provisioning](/windows-365/enterprise/requirements#supported-azure-regions-for-cloud-pc-provisioning). <br><br> - Create at least one subnet, in addition to the default subnet, to deploy the Cloud PC virtual network adaptors. <br><br> - Create shared network services, such as Azure Firewall, VPN gateways, or ExpressRoute gateways, in a separate virtual network to allow for routing controls and expansion of deployment. <br><br> In virtual networks, apply network security groups (NSGs) that have appropriate exclusions to allow the required URLs for the Windows 365 service. For more information, see [Networking requirements](/windows-365/enterprise/requirements-network) and [NSGs](/azure/virtual-network/network-security-groups-overview). |
+| Azure virtual network readiness | Checks if the virtual network is in a supported Windows 365 region | - Create the virtual network in a [Windows 365-supported Azure region for Cloud PC provisioning](/windows-365/enterprise/requirements#supported-azure-regions-for-cloud-pc-provisioning). <br><br> - Create at least one subnet, in addition to the default subnet, to deploy the Cloud PC virtual network adaptors. <br><br> - Create shared network services, such as Azure Firewall, VPN gateways, or ExpressRoute gateways, in a separate virtual network to allow for routing controls and expansion of deployment. <br><br> - Configure an explicit outbound path on the Cloud PC subnet, such as a NAT gateway, Azure Firewall, or load balancer outbound rules. On 31 March 2026, Azure retires default outbound access for newly created virtual networks, and ANC Cloud PC provisioning fails on private subnets without an explicit outbound configuration. <br><br> In virtual networks, apply network security groups (NSGs) that have appropriate exclusions to allow the required URLs for the Windows 365 service. For more information, see [Networking requirements](/windows-365/enterprise/requirements-network) and [NSGs](/azure/virtual-network/network-security-groups-overview). |
 | Azure subnet IP address usage | Checks if there are sufficient IP addresses available | - Create the virtual network with sufficient IP addresses to handle the Cloud PC creation and temporary IP address reservation during reprovisioning. We recommend that you use an IP address space that's 1.5 to 2 times the maximum Cloud PCs that you deploy for the cloud. For more information, see [General network requirements](/windows-365/enterprise/requirements-network#general-network-requirements). <br><br> - Treat the Azure virtual network as a logical extension of your on-premises network. Assign unique IP address space across all your networks to avoid routing conflicts. |
-| Endpoint connectivity | Checks if the external URLs needed for the Cloud PC provisioning are reachable from the virtual network | - Allow all URLs required for Cloud PC provisioning via the Azure virtual network. For more information, see [Allow network connectivity](/windows-365/enterprise/requirements-network#allow-network-connectivity). <br><br> - Use Azure Firewall to take advantage of Windows 365, Azure Virtual Desktop, and Intune [fully qualified domain name (FQDN) tags](/azure/firewall/fqdn-tags). Use the tags to create application rules and allow URLs required for Windows 365 Cloud PC provisioning. For more information, see [Use Azure Firewall to manage and secure Windows 365 environments](/windows-365/enterprise/azure-firewall-windows-365). <br><br> - Bypass or exclude Remote Desktop Protocol (RDP) traffic from any network inspection, proxying, or manipulation device to avoid latency and routing problems. For more information, see [Traffic interception technologies](/windows-365/enterprise/requirements-network#traffic-interception-technologies). <br><br> - From the user device and network side, allow the Windows 365 service URLs and ports for proxy and network inspections. <br><br> - Allow Azure internal IP addresses `168.63.129.16` and `169.254.169.254`. These IP addresses provide communication with Azure platform services such as metadata or heartbeat. <br><br> For more information, see the following resources: <br> - [IP address 168.63.129.16](/azure/virtual-network/what-is-ip-address-168-63-129-16) <br> - [Azure Instance Metadata Service](/azure/virtual-machines/instance-metadata-service) <br> - [Virtual Network FAQ](/azure/virtual-network/virtual-networks-faq) |
+| Endpoint connectivity | Checks if the external URLs needed for the Cloud PC provisioning are reachable from the virtual network | - Allow all URLs required for Cloud PC provisioning via the Azure virtual network. For more information, see [Allow network connectivity](/windows-365/enterprise/requirements-network#allow-network-connectivity). <br><br> - Use Azure Firewall to take advantage of Windows 365, Azure Virtual Desktop, and Intune [fully qualified domain name (FQDN) tags](/azure/firewall/fqdn-tags). Use the tags to create application rules and allow URLs required for Windows 365 Cloud PC provisioning. For more information, see [Use Azure Firewall to manage and secure Windows 365 environments](/windows-365/enterprise/azure-firewall-windows-365). <br><br> - For network security group (NSG) rules, use the **WindowsVirtualDesktop**, **AzureCloud**, and Intune-related Azure [service tags](/azure/virtual-network/service-tags-overview) instead of maintaining static IP address lists. <br><br> - Bypass or exclude Remote Desktop Protocol (RDP) traffic from any network inspection, proxying, or manipulation device to avoid latency and routing problems. For more information, see [Traffic interception technologies](/windows-365/enterprise/requirements-network#traffic-interception-technologies) and [Optimization of RDP traffic](/windows-365/enterprise/optimization-of-rdp). <br><br> - From the user device and network side, allow the Windows 365 service URLs and ports for proxy and network inspections. <br><br> - Allow Azure internal IP addresses `168.63.129.16` and `169.254.169.254`. These IP addresses provide communication with Azure platform services such as metadata or heartbeat. <br><br> For more information, see the following resources: <br> - [IP address 168.63.129.16](/azure/virtual-network/what-is-ip-address-168-63-129-16) <br> - [Azure Instance Metadata Service](/azure/virtual-machines/instance-metadata-service) <br> - [Virtual Network FAQ](/azure/virtual-network/virtual-networks-faq) |
 | Intune enrollment | Checks if Intune allows Windows enrollment | - Ensure that you set Intune device type enrollment restrictions to allow the Windows MDM platform for corporate enrollment. <br><br> - For Microsoft Entra hybrid join, set up devices automatically by configuring the service connection point for each domain in Microsoft Entra Connect or by using the targeted deployment model. For more information, see [Configure Microsoft hybrid join](/entra/identity/devices/how-to-hybrid-join#prerequisites) and [Microsoft Entra hybrid join targeted deployment](/entra/identity/devices/hybrid-join-control). |
 | Microsoft app permissions | Checks the Windows 365 app for permissions on the customer Azure subscription, resource group, and virtual network levels | - Ensure that the account you use to set up the Azure network connection has read permissions on the Azure subscription where you create the Azure virtual network. <br><br> - Ensure that the Azure subscription doesn't have policies that block permissions for the Windows 365 Microsoft-managed app. The app must have permissions at the subscription, resource group, and virtual network levels. For more information, see [Azure requirements](/windows-365/enterprise/requirements#azure-requirements). |
 | Localization language pack | Checks if the language pack download locations are reachable | - Ensure that the firewall rules in the Azure virtual network allow URLs required for the appropriate version of Windows images. For more information, see [Provide a localized Windows experience](/windows-365/enterprise/provide-localized-windows-experience). |
@@ -286,7 +313,7 @@ In an Azure network connection deployment architecture, DNS servers or a DNS ser
 
 Set up deployed Cloud PCs to allow uninterrupted connection flow to and from the Virtual Desktop gateway service. When you deploy apps as part of a Windows OS configuration, consider the following recommendations:
 
-- Ensure that the VPS client doesn't launch when the user signs in because it can disconnect the session when the VPN tunnel establishes. Then the user must sign in again.
+- Ensure that the VPN client doesn't launch when the user signs in because it can disconnect the session when the VPN tunnel establishes. Then the user must sign in again.
 
 - Configure the VPN, proxy, firewall, and antivirus and anti-malware apps to allow or bypass traffic for IP addresses `168.63.129.16` and `169.254.169.254`. This architecture uses these IP addresses for communication with Azure platform services, such as metadata and heartbeat.
 
@@ -324,6 +351,8 @@ Other contributors:
 - [Data encryption in Windows 365](/windows-365/enterprise/encryption)
 - [Understand Virtual Desktop network connectivity](/azure/virtual-desktop/network-connectivity)
 
-## Related resource
+## Related resources
 
 - [Web applications architecture design](/azure/architecture/web-apps/)
+- [Deployment options for Windows 365](/windows-365/enterprise/windows-365-network-deployment-options)
+- [Use Azure Firewall to manage and secure Windows 365 environments](/windows-365/enterprise/azure-firewall-windows-365)
