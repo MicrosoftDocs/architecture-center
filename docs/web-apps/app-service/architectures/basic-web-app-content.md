@@ -119,7 +119,7 @@ This architecture optimizes for cost through the many trade-offs against the oth
 
 - Minimal logs and log retention period in Azure Monitor Logs
 
-To view the estimated cost of this architecture, see the [pricing calculator estimate](https://azure.com/e/a5e725c0fda44d4286fd1836976f56f8) that uses this architecture's components. The cost of this architecture can usually be further reduced by using an [Azure Dev/Test subscription](https://azure.microsoft.com/pricing/offers/dev-test/), which would be an ideal subscription type for POCs like this.
+To view the estimated cost of this architecture, see the [preconfigured estimate in the Azure pricing calculator](https://azure.com/e/a5e725c0fda44d4286fd1836976f56f8) that uses this architecture's components. The cost of this architecture can usually be further reduced by using an [Azure Dev/Test subscription](https://azure.microsoft.com/pricing/offers/dev-test/), which would be an ideal subscription type for POCs like this.
 
 ### Operational Excellence
 
