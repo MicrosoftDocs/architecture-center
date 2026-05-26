@@ -109,7 +109,7 @@ Using Site Recovery for DR in Azure VMs incurs the following ongoing charges:
 
 - Storage on the recovery site. Recovery site storage typically matches source region storage plus extra storage for recovery point snapshots.
 
-Use this [preconfigured estimate in the Azure pricing calculator][estimate] to estimate DR costs for a three-tier application that uses six VMs. The estimate includes preconfigured services. Change the variables to see pricing for your use case.
+Use this [preconfigured estimate in the Azure pricing calculator][estimate] to estimate DR costs for a three-tier application that uses six VMs. Adjust the values to match your use case.
 
 ### Performance Efficiency
 
