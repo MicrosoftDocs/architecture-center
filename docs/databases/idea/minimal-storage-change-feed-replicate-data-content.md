@@ -3,7 +3,7 @@ This article presents a high-availability solution for a web application that ha
 ## Architecture
 
 :::image type="complex" border="false" source="_images/minimal-storage-change-feed-replicate-data.svg" alt-text="Diagram that shows the minimal storage architecture." lightbox="_images/minimal-storage-change-feed-replicate-data.svg":::
-   Diagram that shows an internet icon that is connected by dotted arrows to Microsft Entra ID and Azure DNS and a solid arrow to Azure Front Door. Azure Front Door then connects to two active regions. Both active regions contain a box that houses the Azure App Service web app, which feeds Azure Storage Queue, which feeds Azure Functions. The larger active region contains a box that's labeled delete and houses Azure Cosmos DB, which feeds the change feed and is connected by a dotted arrow to Azure Cosmos DB in the smaller active region. The dotted arrow is labeled geo replication. The delete box feeds Azure Managed Redis, which connects back to the larger active region's first box. The delete box also feeds the Azure Functions Functions app box, which feeds Azure Table Storage in both active regions. In the smaller active region, the first box feeds Azure Cosmos DB, which feeds Azure Managed Redis, which is connected back to the smaller active region's first box. 
+   Diagram that shows an internet icon that is connected by dotted arrows to Microsft Entra ID and Azure DNS and a solid arrow to Azure Front Door. Azure Front Door then connects to two active regions. Both active regions contain a box that houses the Azure App Service web app, which feeds Azure Queue Storage, which feeds Azure Functions. The larger active region contains a box that's labeled delete and houses Azure Cosmos DB, which feeds the change feed and is connected by a dotted arrow to Azure Cosmos DB in the smaller active region. The dotted arrow is labeled geo replication. The delete box feeds Azure Managed Redis, which connects back to the larger active region's first box. The delete box also feeds the Functions app box, which feeds Azure Table Storage in both active regions. In the smaller active region, the first box feeds Azure Cosmos DB, which feeds Azure Managed Redis, which is connected back to the smaller active region's first box. 
 :::image-end:::
 
 *Download a [Visio file](https://arch-center.azureedge.net/minimal-storage-change-feed-replicate-data.vsdx) of this architecture.*
@@ -16,7 +16,7 @@ The following data flow corresponds to the previous diagram:
 
 1. Azure Front Door, which is a firewall and layer-7 load balancer, switches user traffic to the standby region if there's a regional outage.
 
-1. App Service hosts websites and RESTful web APIs. Browser clients run Asynchronous JavaScript and XML (AJAX) applications that use the APIs.
+1. App Service hosts websites and RESTful web APIs. Browser clients run asynchronous JavaScript and XML applications that use the APIs.
 
 1. Web APIs delegate responsibility to code Functions-hosted code to handle background tasks. The tasks are queued in Azure Queue Storage queues.
 
@@ -42,15 +42,15 @@ The following data flow corresponds to the previous diagram:
 
 - [Functions](/azure/well-architected/service-guides/azure-functions) provides an environment to run small pieces of code, called functions, without having to establish an application infrastructure. You can use it to process bulk data, integrate systems, work with Internet of Things (IoT) devices, and build simple APIs and microservices. You can use microservices to create servers that connect to Azure services and always remain up to date. In this architecture, Functions handles background tasks like data replication and expired record deletion.
 
-- [Azure Storage](/azure/storage/common/storage-introduction) is a set of scalable and secure cloud services for data, apps, and workloads. In this architecture, Azure Storage provides Queue Storage for task messaging and Table Storage for low-cost replicated data storage.
+- [Azure Storage](/azure/storage/common/storage-introduction) is a set of scalable and secure cloud services for data, apps, and workloads. In this architecture, Storage provides Queue Storage for task messaging and Table Storage for low-cost replicated data storage.
 
   - [Queue Storage](/azure/storage/queues/storage-queues-introduction) provides simple, cost-effective, durable message queueing for large workloads. This architecture uses Queue Storage for task messaging.
 
   - [Table Storage](/azure/storage/tables/table-storage-overview) is a NoSQL key-value store for rapid development that uses massive semi-structured datasets. The tables are schemaless and adapt according to need. Access is fast and cost-effective for many applications. This architecture uses Table Storage to store a synchronized and restructured copy of the data in Azure Cosmos DB.
 
-- [Azure Managed Redis](/azure/redis/overview) is a fully managed in-memory caching service and message broker for data and state sharing between compute resources. To improve the performance of high-throughput online transaction processing (OLTP) applications, design them to scale use an in-memory data store, such as Azure Managed Redis. In this architecture, Azure Managed Redis accelerates access to frequently used data, which improves performance for function apps and web apps.
+- [Azure Managed Redis](/azure/redis/overview) is a fully managed in-memory caching service and message broker for data and state sharing between compute resources. To improve the performance of high-throughput online transaction processing applications, design them to scale use an in-memory data store, such as Azure Managed Redis. In this architecture, Azure Managed Redis accelerates access to frequently used data, which improves performance for function apps and web apps.
 
-- [Azure Cosmos DB](/azure/well-architected/service-guides/cosmos-db) is a globally distributed, multimodel database that powers your solutions to elastically and independently scale throughput and storage across any number of geographic regions. It provides throughput, latency, availability, and consistency guarantees with comprehensive service-level agreements (SLAs). In this architecture, Azure Cosmos DB stores recent data and emits a change feed that you can use to replicate updates to Table Storage.
+- [Azure Cosmos DB](/azure/well-architected/service-guides/cosmos-db) is a globally distributed, multimodel database that powers your solutions to elastically and independently scale throughput and storage across any number of geographic regions. It provides throughput, latency, availability, and consistency guarantees with comprehensive service-level agreements. In this architecture, Azure Cosmos DB stores recent data and emits a change feed that you can use to replicate updates to Table Storage.
 
 ### Alternatives
 
@@ -154,22 +154,20 @@ Other contributor:
 
 ## Next steps
 
-- [Design a geographically distributed application](/training/modules/design-a-geographically-distributed-application)
-- [Distribute your data globally with Azure Cosmos DB](/training/modules/distribute-data-globally-with-cosmos-db)
-- [Choose the appropriate API for Azure Cosmos DB](/training/modules/choose-api-for-cosmos-db)
-- [Store and access NoSQL data with Azure Cosmos DB for Table](/training/modules/store-access-data-cosmos-table-api)
-- [Work with NoSQL data in Azure Cosmos DB](/training/paths/work-with-nosql-data-in-azure-cosmos-db)
-- [How to model and partition data on Azure Cosmos DB using a real-world example](/azure/cosmos-db/how-to-model-partition-example)
-- [Options to migrate your on-premises or cloud data to Azure Cosmos DB](/azure/cosmos-db/cosmosdb-migrationchoices)
-- [Migrate hundreds of terabytes of data into Azure Cosmos DB](/azure/cosmos-db/migrate-cosmosdb-data)
+- [Azure Front Door and cloud content delivery network documentation](azure/frontdoor/)
+- [Use Azure Cosmos DB](/training/modules/distribute-data-globally-with-cosmos-db)
+- [Choose the appropriate API for Azure Cosmos DB](/training/modules/work-with-cosmos-db)
+- [Develop solutions by using Azure Cosmos DB](/training/paths/az-204-develop-solutions-that-use-azure-cosmos-db)
+- [Migrate large volumes of data into Azure Cosmos DB](/azure/cosmos-db/migrate)
+- [How to model and partition data by using a real-world example](azure/cosmos-db/model-partition-example)
 - [Change feed design patterns in Azure Cosmos DB](/azure/cosmos-db/change-feed-design-patterns)
-- [Serverless event-based architectures with Azure Cosmos DB and Azure Functions](/azure/cosmos-db/change-feed-functions)
-- [Introduction to Azure Data Factory](/training/modules/intro-to-azure-data-factory)
-- [Orchestrate data movement and transformation in Azure Data Factory](/training/modules/orchestrate-data-movement-transformation-azure-data-factory)
-- [Data integration with Data Factory in Microsoft Fabric](/fabric/data-factory/)
+- [Create a serverless event-based architecture by using Azure Cosmos DB and Functions](/azure/cosmos-db/change-feed-functions)
+- [What is Data Factory in Microsoft Fabric?](/fabric/data-factory/data-factory-overview)
+- [Orchestrate data movement and transformation by using Azure Data Factory](/training/modules/orchestrate-data-movement-transformation-azure-data-factory)
+- [Microsoft Fabric Data Factory documentation](/fabric/data-factory/)
 
 ## Related resources
 
 - [Web-Queue-Worker architecture style](../../guide/architecture-styles/web-queue-worker.md)
 - [RESTful web API design](../../best-practices/api-design.md)
-- [Caching best practices](../../best-practices/caching.yml)
+- [Caching guidance](../../best-practices/caching.yml)
