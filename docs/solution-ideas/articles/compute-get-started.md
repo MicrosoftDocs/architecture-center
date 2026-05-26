@@ -64,8 +64,13 @@ SAP workloads have specific architecture requirements. See the following resourc
 
 #### SAP guides
 
+<<<<<<< HEAD
 - [SAP landscape architecture](../../guide/sap/sap-whole-landscape.md): Review guidance about SAP landscapes on Azure.
 - [Inbound and outbound internet connections for SAP on Azure](../../guide/sap/sap-internet-inbound-outbound.yml): See a network architecture for SAP internet connectivity.
+=======
+- [SAP landscape architecture](../../guide/sap/sap-whole-landscape.yml): Review guidance about SAP landscapes on Azure.
+- [Inbound and outbound internet connections for SAP on Azure](../../guide/sap/sap-internet-inbound-outbound.md): See a network architecture for SAP internet connectivity.
+>>>>>>> a9703fa95bf1b44a694c13cded59effbd3db1478
 
 #### SAP architectures
 

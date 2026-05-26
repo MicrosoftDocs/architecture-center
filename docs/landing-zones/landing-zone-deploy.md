@@ -72,7 +72,7 @@ After you deploy the platform landing zone, you need to operate and maintain it.
 
 ### Azure governance visualizer
 
-[Azure governance visualizer](./azure-governance-visualizer-accelerator.yml) can help you get a holistic overview of your technical Azure governance implementation by contextualizing data and providing sophisticated reports.
+[Azure governance visualizer](./azure-governance-visualizer-accelerator.md) can help you get a holistic overview of your technical Azure governance implementation by contextualizing data and providing sophisticated reports.
 
 ## Subscription vending
 

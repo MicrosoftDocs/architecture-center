@@ -1,11 +1,10 @@
 ### YamlMime:Architecture
 metadata:
-  title: Building the First Layer of Defense with Azure Security Services
+  title: Build the First Layer of Defense by Using Azure Security Services
   description: Secure your IT environment by using Azure security services and Azure Security Benchmark. This article is part of a series.
   author: rudneir2
   ms.author: ruoliveira
-  ms.custom: fcp
-  ms.date: 11/11/2024
+  ms.date: 05/20/2026
   ms.topic: solution-idea
   ms.subservice: solution-idea
   ai-usage: ai-assisted
@@ -15,8 +14,8 @@ azureCategories:
 products:
   - azure
   - entra-id
-name: Build the first layer of defense with Azure Security services
+name: Build the first layer of defense by using Azure security services
 summary: Secure your IT environment by using Azure security services and Azure Security Benchmark. This article is part of a series.
-thumbnailUrl: /azure/architecture/browse/thumbs/azure-security-build-first-layer-defense-thumbnail.png
+thumbnailUrl: /azure/architecture/browse/thumbs/azure-security-build-first-layer-defense.png
 content: |
-  [!include[](azure-security-build-first-layer-defense-content.md)]
+  [!INCLUDE[](azure-security-build-first-layer-defense-content.md)]
