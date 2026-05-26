@@ -25,20 +25,20 @@ Amazon EKS provides different types of storage volumes for applications that req
 
 ### Ephemeral volumes
 
-Ephemeral volumes are applicable to applications that require temporary storage but don't need to persist data after restarts. For example:
+Use ephemeral volumes when your applications require temporary storage but doesn't need to persist data after restarts. For example:
 
 - Caching Service moves not so frequently used data to temporary storage.
-- Read-only input data stored in files, like configuration data or secret keys.
+- Read-only input data stored in files, like configuration data.
 
 Kubernetes supports different types of ephemeral volumes, such as [emptyDir](https://kubernetes.io/docs/concepts/storage/volumes/#emptydir), [ConfigMap](https://kubernetes.io/docs/concepts/storage/volumes/#configmap), [downwardAPI](https://kubernetes.io/docs/concepts/storage/volumes/#downwardapi), [secret](https://kubernetes.io/docs/concepts/storage/volumes/#secret), [hostPath](https://kubernetes.io/docs/concepts/storage/volumes/#hostpath), [CSI ephemeral volumes](https://kubernetes.io/docs/concepts/storage/ephemeral-volumes/#csi-ephemeral-volumes), and [Generic ephemeral volumes](https://kubernetes.io/docs/concepts/storage/ephemeral-volumes/#generic-ephemeral-volumes). 
 
 #### Amazon EBS
 
-For EKS Standard, Generic Ephemeral Volumes allow you to use the [Amazon EBS CSI Driver](https://docs.aws.amazon.com/eks/latest/userguide/ebs-csi.html) to provision temporary, block-level scratch space that is directly tied to a Pod's lifecycle. Unlike traditional emptyDir volumes which share the node's root disk, generic ephemeral volumes automatically spin up an independent AWS EBS volume when the Pod starts and completely delete it when the Pod terminates.
+For EKS Standard, Generic Ephemeral Volumes allow you to use the [Amazon EBS CSI Driver](https://docs.aws.amazon.com/eks/latest/userguide/ebs-csi.html) to provision temporary, block-level scratch space that is directly tied to a pod's lifecycle. Unlike traditional `emptyDir` volumes which share the node's root disk, generic ephemeral volumes automatically use an independent AWS EBS volume when the pod starts and completely deletes it when the pod terminates.
 
 EKS Auto completely manages the underlying Amazon EBS CSI driver for you, you do not need to install or manage the storage controller yourself.
 
-#### Amazon EC2 Instance Store
+#### Amazon EC2 instance store
 
 You can also use [Amazon EC2 instance stores](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/InstanceStorage.html), which provide temporary block-level storage for EC2 instances. These volumes are physically attached to the hosts and only exist during the lifetime of the instance. To use local store volumes in Kubernetes, you must partition, configure, and format the disks by using Amazon EC2 user data.
 
@@ -46,11 +46,11 @@ The Amazon EC2 Instance Store CSI driver is not supported in EKS Auto Mode.
 
 #### FSx for Lustre Scratch Volumes
 
-While not managed as ephemeral Kubernetes storage, you can provision "Scratch" type (Scratch 1, Scratch 2) [FSx for Lustre](https://docs.aws.amazon.com/eks/latest/userguide/fsx-csi.html) file systems on EKS which are designed for temporary, short-term data processing. This can be mounted via Persistent Volume Claims (PVCs) and the file system can be deleted entirely once the compute job finishes.
+While not managed as ephemeral Kubernetes storage, you can provision *scratch* type (Scratch_1, Scratch_2) [FSx for Lustre](https://docs.aws.amazon.com/eks/latest/userguide/fsx-csi.html) file systems on EKS which are designed for temporary, short-term data processing. This can be mounted via Persistent Volume Claims (PVCs) and the file system can be deleted entirely once the compute job finishes.
 
 ### Persistent volumes
 
-You typically use Kubernetes to run stateless applications, but sometimes you need persistent data storage. You can use Kubernetes persistent volumes to store data independently from pods so that the data can persist beyond the lifetime of a given pod. Amazon EKS supports different types of storage options for persistent volumes:
+You typically use Kubernetes to run stateless applications, but sometimes you need persistent data storage. You can use Kubernetes persistent volumes to store data independently from pods so that the data can persist beyond the lifetime of a given pod. Amazon EKS supports different types of storage options for persistent volumes.
 
 #### Amazon EBS
 
@@ -82,7 +82,7 @@ Amazon FSx for Lustre is supported in both EKS Standard and EKS Auto mode.
 
 [Amazon FSx for OpenZFS](https://docs.aws.amazon.com/eks/latest/userguide/fsx-openzfs-csi.html) provides a fully managed service for migrating on-premises ZFS or Linux-based file systems to AWS without altering application code or workflows, utilizing the open-source OpenZFS file system for scalable, efficient storage. The FSx for OpenZFS Container Storage Interface (CSI) driver enables Amazon EKS clusters to manage the lifecycle of these volumes.
 
-Amazon FSx for OpenZFS is supported in both EKS Standard and EKS Auto mode.
+Amazon FSx for OpenZFS is supported in both EKS Standard and EKS Auto Mode.
 
 #### Amazon File Cache
 
@@ -105,7 +105,7 @@ The following sections introduce the storage options and core concepts that prov
 
 Kubernetes volumes represent more than just a traditional disk to store and retrieve information. You can also use Kubernetes volumes to inject data into a pod for its containers to use.
 
-Common volume types in Kubernetes include [emptyDirs](#emptydirs), [secrets](#secrets), and [ConfigMaps](#configmaps). 
+Common volume types in Kubernetes include [emptyDirs](#emptydirs), [secrets](#secrets), and [ConfigMaps](#configmaps).
 
 #### EmptyDirs
 
@@ -127,7 +127,7 @@ The Kubernetes control plane also uses secrets, such as [bootstrap token secrets
 
 A [ConfigMap](https://kubernetes.io/docs/concepts/configuration/configmap/) is a Kubernetes object that you use to store nonconfidential data in key-value pairs. Pods can consume ConfigMaps as environment variables, command-line arguments, or as configuration files in a volume. You can use a ConfigMap to decouple environment-specific configurations from your container images, which makes your applications easily portable.
 
-ConfigMaps don't provide secrecy or encryption. If you want to store confidential data, use a secret rather than a ConfigMap, or use other partner tools to keep your data private.
+ConfigMaps don't provide secrecy or encryption. If you want to store confidential data, use a [secret](https://kubernetes.io/docs/concepts/configuration/secret/) rather than a ConfigMap, or use other partner tools to keep your data private.
 
 You can use a ConfigMap to set configuration data separately from application code. For example, you might develop an application to run on your computer for development and to run in the cloud to handle real traffic. You can write the code to look in an environment variable named `DATABASE_HOST`. Locally, set that variable to `localhost`. In the cloud, set it to refer to a Kubernetes [service](https://kubernetes.io/docs/concepts/services-networking/service/) that exposes the database component to your cluster. This approach lets you fetch a container image that runs in the cloud and debug the same code locally if needed.
 
@@ -152,7 +152,7 @@ A cluster administrator can *statically* create a persistent volume, or the Kube
 > [!IMPORTANT]
 > Windows and Linux pods can't share persistent volumes because the operating systems support different file systems.
 
-If you want a fully managed solution for block-level access to data, consider using [Azure Container Storage](/azure/storage/container-storage/container-storage-introduction) instead of CSI drivers. Azure Container Storage integrates with Kubernetes to provide dynamic and automatic provisioning of persistent volumes. Azure Container Storage supports Azure disks, ephemeral disks, and Azure Elastic SAN (preview) as backing storage. These options provide flexibility and scalability for stateful applications that run on Kubernetes clusters.
+If you want a fully managed solution for block-level access to data, consider using [Azure Container Storage](/azure/storage/container-storage/container-storage-introduction) instead of CSI drivers. Azure Container Storage integrates with Kubernetes to provide dynamic and automatic provisioning of persistent volumes. Azure Container Storage supports Azure disks, ephemeral disks, and Azure Elastic SAN as backing storage. These options provide flexibility and scalability for stateful applications that run on Kubernetes clusters.
 
 ## Storage classes
 
@@ -439,13 +439,11 @@ Like Amazon EKS, AKS is a Kubernetes implementation, and you can integrate partn
 
 - [Ceph](https://www.ceph.com/en/) provides a reliable and scalable unified storage service that has object, block, and file interfaces from a single cluster that's built from commodity hardware components.
 
-- [MinIO](https://min.io/) multicloud object storage lets enterprises build AWS S3-compatible data infrastructure on any cloud. It provides a consistent, portable interface to your data and applications.
+- [MinIO](https://www.min.io/) multicloud object storage lets enterprises build AWS S3-compatible data infrastructure on any cloud. It provides a consistent, portable interface to your data and applications.
 
 - [Portworx](https://portworx.com/) is an end-to-end storage and data management solution for Kubernetes projects and container-based initiatives. Portworx provides container-granular storage, disaster recovery, data security, and multicloud migrations.
 
 - [Quobyte](https://www.quobyte.com/) provides high-performance file and object storage that you can deploy on any server or cloud to scale performance, manage large amounts of data, and simplify administration.
-
-- Ondat delivers a consistent storage layer across any platform. You can run a database or any persistent workload in a Kubernetes environment without having to manage the storage layer.
 
 ## Storage and AKS Automatic
 
@@ -489,7 +487,7 @@ Different services support storage classes that have different access modes.
 
 ### Backup
 
-Choose a tool to back up persistent data. The tool should match your storage type, such as snapshots, [Azure Backup](/azure/backup/backup-overview), [Velero](https://github.com/vmware-tanzu/velero) or [Kasten](https://www.kasten.io).
+Choose a tool to back up persistent data. The tool should match your storage type, such as snapshots, [Azure Backup](/azure/backup/azure-kubernetes-service-cluster-backup) for AKS, [Velero](https://github.com/velero-io/velero) or [Veeam Kasten](https://www.veeam.com/products/cloud/kubernetes-data-protection.html).
 
 ### Cost optimization
 
