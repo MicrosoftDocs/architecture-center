@@ -137,7 +137,7 @@ This basic architecture doesn't represent the costs for a production-ready solut
 
 - This architecture doesn't include cost governance or containment controls. Set Azure budgets and alerts early to guard against unexpected token or tool usage.
 
-  For budgeting, modify the [pricing calculator estimate](https://azure.com/e/d43fd2e27fdc4766a125818efd56294e) of this architecture to fit your scenario.
+  For budgeting, modify the [preconfigured estimate in the Azure pricing calculator](https://azure.com/e/d43fd2e27fdc4766a125818efd56294e) of this architecture to fit your scenario.
 
 ### Operational Excellence
 
