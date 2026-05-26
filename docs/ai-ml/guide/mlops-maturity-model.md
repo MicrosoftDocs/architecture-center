@@ -3,7 +3,7 @@ title: MLOps Maturity Model
 description: Learn about MLOps maturity levels, from manual processes to automated MLOps with continuous improvement and optimization.
 author: delynchoong
 ms.author: delynchoong
-ms.date: 10/28/2025
+ms.date: 05/26/2026
 ms.topic: concept-article
 ms.collection: ce-skilling-ai-copilot  
 ms.subservice: architecture-guide
@@ -38,7 +38,7 @@ The MLOps maturity model encompasses five levels of technical capability.
 | 3 | [Automated model deployment](#level-3-automated-model-deployment) | <ul><li>Releases are easy to implement and automatic.<br><br><li>Full traceability exists from deployment back to original data.<br><br><li>Entire environment is managed, including training, testing, and production.</ul> | <ul><li>A/B testing of model performance is integrated for deployment.<br><br><li>All code has automated tests.<br><br><li>Model training performance tracking is centralized.<br><br><li>Artifacts are promoted across workspaces by using Machine Learning registries.</ul> |
 | 4 | [Full MLOps automated operations](#level-4-full-mlops-automated-operations) | <ul><li>Full system is automated and easily monitored.<br><br><li>Production systems provide information about how to improve, and sometimes automatically improve with new models.<br><br><li>System is approaching zero downtime.</ul> | <ul><li>Model training and testing are automated.<br><br><li>Deployed model emits verbose, centralized metrics.<br><br><li>Drift or regression signals trigger automatic retraining by using Event Grid.<br><br><li>Feature materialization health and freshness are monitored.<br><br><li>Model promotion is policy-based and automated by using Machine Learning registries.</ul> |
 
-The following tables describe detailed characteristics for each level of maturity.
+The following tables describe detailed characteristics for each level of maturity. The MLOps maturity model encompasses five levels of capabilities. These levels are not intended to be rigid or strictly bounded; in practice, organizations may exhibit characteristics from multiple levels simultaneously. As such, the progression between levels should be viewed as a continuum, where capabilities can overlap and evolve incrementally rather than as discrete, isolated stages.
 
 ## Level 0: No MLOps
 
@@ -72,13 +72,14 @@ The following tables describe detailed characteristics for each level of maturit
 
 ## MLOps and GenAIOps
 
-This article focuses on predictive, tabular, and classical machine learning life cycle capabilities. Generative AI operations (GenAIOps) introduce extra capabilities that complement the MLOps maturity levels rather than replace them. GenAIOps include prompt life cycle, retrieval augmentation, output safety, and token cost governance. For more information, see [GenAIOps for organizations that have MLOps investments](/azure/architecture/ai-ml/guide/genaiops-for-mlops). Don't confuse prompt iteration mechanics with the reproducible training-deployment loop described in this article.
+This article focuses on predictive, tabular, and classical machine learning life cycle capabilities. Generative AI operations (GenAIOps) introduce extra capabilities that complement the MLOps maturity levels rather than replace them. GenAIOps include prompt life cycle, retrieval augmentation, output safety, and token cost governance. For more information, see [GenAIOps for organizations that have MLOps investments](/azure/architecture/ai-ml/guide/genaiops-for-mlops). 
 
 ## Contributors
 
 *Microsoft maintains this article. The following contributors wrote this article.*
 
 - [Delyn Choong](https://www.linkedin.com/in/delynchoong/) | Senior Cloud Solutions Architect – Data & AI
+- [Shan Swaleh](https://www.linkedin.com/in/shanswaleh/) | Security Assurance Engineer & Program Manager – Copilot, Agents and Platform
 
 *To see nonpublic LinkedIn profiles, sign in to LinkedIn.*
 
