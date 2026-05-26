@@ -33,50 +33,59 @@ Ephemeral volumes are applicable to applications that require temporary storage 
 Kubernetes supports different types of ephemeral volumes, such as [emptyDir](https://kubernetes.io/docs/concepts/storage/volumes/#emptydir), [ConfigMap](https://kubernetes.io/docs/concepts/storage/volumes/#configmap), [downwardAPI](https://kubernetes.io/docs/concepts/storage/volumes/#downwardapi), [secret](https://kubernetes.io/docs/concepts/storage/volumes/#secret), [hostPath](https://kubernetes.io/docs/concepts/storage/volumes/#hostpath), [CSI ephemeral volumes](https://kubernetes.io/docs/concepts/storage/ephemeral-volumes/#csi-ephemeral-volumes), and [Generic ephemeral volumes](https://kubernetes.io/docs/concepts/storage/ephemeral-volumes/#generic-ephemeral-volumes). 
 
 #### Amazon EBS
+
 For EKS Standard, Generic Ephemeral Volumes allow you to use the [Amazon EBS CSI Driver](https://docs.aws.amazon.com/eks/latest/userguide/ebs-csi.html) to provision temporary, block-level scratch space that is directly tied to a Pod's lifecycle. Unlike traditional emptyDir volumes which share the node's root disk, generic ephemeral volumes automatically spin up an independent AWS EBS volume when the Pod starts and completely delete it when the Pod terminates.
 
 EKS Auto completely manages the underlying Amazon EBS CSI driver for you, you do not need to install or manage the storage controller yourself.
 
 #### Amazon EC2 Instance Store
+
 You can also use [Amazon EC2 instance stores](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/InstanceStorage.html), which provide temporary block-level storage for EC2 instances. These volumes are physically attached to the hosts and only exist during the lifetime of the instance. To use local store volumes in Kubernetes, you must partition, configure, and format the disks by using Amazon EC2 user data.
 
 The Amazon EC2 Instance Store CSI driver is not supported in EKS Auto Mode.
 
 #### FSx for Lustre Scratch Volumes
-While not managed as ephemeral Kubernetes storage, you can provision "Scratch" type (Scratch 1, Scratch 2) [FSx for Lustre](https://docs.aws.amazon.com/eks/latest/userguide/fsx-csi.html) file systems on EKS which are designed for temporary, short-term data processing. This can be mounted via Persistent Volume Claims (PVCs) and the file system can be deleted entirely once the compute job finishes.
 
+While not managed as ephemeral Kubernetes storage, you can provision "Scratch" type (Scratch 1, Scratch 2) [FSx for Lustre](https://docs.aws.amazon.com/eks/latest/userguide/fsx-csi.html) file systems on EKS which are designed for temporary, short-term data processing. This can be mounted via Persistent Volume Claims (PVCs) and the file system can be deleted entirely once the compute job finishes.
 
 ### Persistent volumes
 
 You typically use Kubernetes to run stateless applications, but sometimes you need persistent data storage. You can use Kubernetes persistent volumes to store data independently from pods so that the data can persist beyond the lifetime of a given pod. Amazon EKS supports different types of storage options for persistent volumes:
 
 #### Amazon EBS
+
 Use [Amazon EBS](https://aws.amazon.com/ebs/) volumes for block-level storage and for databases and throughput-intensive applications. Amazon EKS users can use the latest generation of block storage [gp3](https://aws.amazon.com/ebs/volume-types/#gp3) for a balance between price and performance. For higher-performance applications, you can use [io2 Block Express volumes](https://docs.aws.amazon.com/ebs/latest/userguide/provisioned-iops.html#io2-block-express). To minimize cost, you can use HDD based ST1/SC1 volumes as well.
 
 In EKS Auto mode, the EBS CSI driver is auto-managed.
 
 #### Amazon EFS
+
 [Amazon EFS](https://aws.amazon.com/efs/) is a serverless, elastic file system that you can share across multiple containers and nodes. It automatically grows and shrinks as files are added or removed, which eliminates the need for capacity planning. The [Amazon EFS Container Storage Interface (CSI) driver](https://github.com/kubernetes-sigs/aws-efs-csi-driver) integrates Amazon EFS with Kubernetes. The Amazon EFS CSI driver isn’t compatible with Windows-based container images.
 
 In EKS Auto mode, setting up EFS requires you to create the underlying file system first and manually define the mapping using standard [StorageClasses](https://kubernetes.io/docs/concepts/storage/storage-classes/), [PersistentVolume (PV)](https://kubernetes.io/docs/concepts/storage/persistent-volumes/), and [PersistentVolumeClaim (PVC)](https://kubernetes.io/docs/reference/kubernetes-api/core/persistent-volume-claim-v1/).
 
 #### Amazon S3 Files
+
 [Amazon S3 Files](https://docs.aws.amazon.com/eks/latest/userguide/s3files-csi.html) functions as a high-performance, low-latency shared file system layered over your Amazon S3 data. This allows file-dependent applications, workflows, and teams to operate on S3 datasets using their existing tools. To support Kubernetes environments, version 3.0.0 and later of the Amazon EFS CSI Driver allows AWS-hosted clusters to natively mount these S3 file systems as persistent volumes in both EKS Standard and EKS Auto.
 
 #### Amazon FSx for Lustre
+
 [Amazon FSx for Lustre](https://aws.amazon.com/fsx/lustre/) provides high-performance parallel file storage. Use this type of storage for scenarios that require high-throughput and low-latency operations. You can link this file storage to an Amazon S3 data repository to store large datasets. 
 
 Amazon FSx for Lustre is supported in both EKS Standard and EKS Auto mode.
 
 #### Amazon FSx for NetApp ONTAP
-[Amazon FSx for NetApp ONTAP](https://docs.aws.amazon.com/eks/latest/userguide/fsx-ontap.html) is a fully managed, shared storage solution that's built on NetApp's ONTAP file system. You can provision and manage highly available shared file storage natively in your EKS  Standard and EKS Auto Mode clusters using the NetApp Astra Trident CSI driver. 
+
+[Amazon FSx for NetApp ONTAP](https://docs.aws.amazon.com/eks/latest/userguide/fsx-ontap.html) is a fully managed, shared storage solution that's built on NetApp's ONTAP file system. You can provision and manage highly available shared file storage natively in your EKS  Standard and EKS Auto Mode clusters using the NetApp Astra Trident CSI driver.
 
 #### Amazon FSx for OpenZFS
+
 [Amazon FSx for OpenZFS](https://docs.aws.amazon.com/eks/latest/userguide/fsx-openzfs-csi.html) provides a fully managed service for migrating on-premises ZFS or Linux-based file systems to AWS without altering application code or workflows, utilizing the open-source OpenZFS file system for scalable, efficient storage. The FSx for OpenZFS Container Storage Interface (CSI) driver enables Amazon EKS clusters to manage the lifecycle of these volumes.
 
 Amazon FSx for OpenZFS is supported in both EKS Standard and EKS Auto mode.
 
 #### Amazon File Cache
+
 [Amazon File Cache](https://docs.aws.amazon.com/eks/latest/userguide/file-cache-csi.html) is a fully managed, high-speed AWS service that processes file data from any location, automatically loading files when needed and clearing them when they aren't. With the Amazon File Cache CSI driver, Amazon EKS clusters can easily manage the entire lifecycle of these caches through a standard interface. 
 
 Amazon File Cache is supported in both EKS Standard and EKS Auto mode.
@@ -155,8 +164,8 @@ Clusters that use [Azure Container Storage](/azure/storage/container-storage/con
 
 For clusters that use [CSI drivers](/azure/aks/csi-storage-drivers), the following extra storage classes are created:
 
-| Storage class            | Description                                                  |
-| :----------------------- | :----------------------------------------------------------- |
+| Storage class            | Description   |
+| :----------------------- | :------------ |
 | `managed-csi`            | Uses Azure Standard SSD with locally redundant storage (LRS) to create a managed disk. The reclaim policy ensures that the underlying Azure disk is deleted when the persistent volume that used it is deleted. The storage class also configures the persistent volumes to be expandable. You can edit the persistent volume claim to specify the new size. <br><br> For Kubernetes version 1.29 and later, this storage class uses Standard SSD with zone-redundant storage (ZRS) to create managed disks for AKS clusters that are deployed across multiple availability zones. |
 | `managed-csi-premium`    | Uses Azure Premium SSD with LRS to create a managed disk. The reclaim policy ensures that the underlying Azure disk is deleted when the persistent volume that used it is deleted. This storage class allows persistent volumes to be expanded. <br><br> For Kubernetes version 1.29 and later, this storage class uses Premium SSD with ZRS to create managed disks for AKS clusters that are deployed across multiple availability zones. |
 | `azurefile-csi`          | Uses Standard SSD storage to create an Azure file share. The reclaim policy ensures that the underlying Azure file share is deleted when the persistent volume that used it is deleted. |
@@ -397,6 +406,7 @@ Azure Container Storage uses existing Azure Storage offerings for actual data st
 - **[Azure disks](/azure/virtual-machines/managed-disks-overview):** Provide granular control of storage SKUs and configurations. Azure disks suit tier-1 and general purpose databases.
 
 - **Ephemeral disks:** Use local storage resources on AKS nodes (NVMe or temp SSD). Ephemeral disks suit applications that don't have data durability requirements or that have built-in data replication support. AKS discovers the available ephemeral storage on AKS nodes and acquires them for volume deployment.
+
 - **[Elastic SAN](/azure/storage/elastic-san/elastic-san-introduction):** Provision on-demand, fully managed resources. Elastic SAN suits general purpose databases, streaming and messaging services, continuous integration and continuous delivery environments, and other tier-1 or tier-2 workloads. Multiple clusters can access a single storage area network (SAN) concurrently. However persistent volumes can only be attached by one consumer at a time.
 
 Previously, to provide cloud storage for containers, you needed individual CSI drivers to adapt storage services intended for IaaS-centric workloads. This method created operational overhead and increased the risk of problems related to application availability, scalability, performance, usability, and cost.
@@ -426,16 +436,22 @@ Like Amazon EKS, AKS is a Kubernetes implementation, and you can integrate partn
 - [Rook](https://rook.io/) turns distributed storage systems into self-managing storage services by automating Azure Storage administrator tasks. Rook delivers its services via a Kubernetes operator for each storage provider.
 
 - [GlusterFS](https://www.gluster.org/) is a free and open-source scalable network filesystem that uses common off-the-shelf hardware to create large, distributed storage solutions for data-heavy and bandwidth-intensive tasks.
+
 - [Ceph](https://www.ceph.com/en/) provides a reliable and scalable unified storage service that has object, block, and file interfaces from a single cluster that's built from commodity hardware components.
+
 - [MinIO](https://min.io/) multicloud object storage lets enterprises build AWS S3-compatible data infrastructure on any cloud. It provides a consistent, portable interface to your data and applications.
+
 - [Portworx](https://portworx.com/) is an end-to-end storage and data management solution for Kubernetes projects and container-based initiatives. Portworx provides container-granular storage, disaster recovery, data security, and multicloud migrations.
+
 - [Quobyte](https://www.quobyte.com/) provides high-performance file and object storage that you can deploy on any server or cloud to scale performance, manage large amounts of data, and simplify administration.
+
 - Ondat delivers a consistent storage layer across any platform. You can run a database or any persistent workload in a Kubernetes environment without having to manage the storage layer.
 
 ## Storage and AKS Automatic
+
 AKS Automatic manages the storage lifecycle for you, while AKS Standard gives you more direct control.
 
-#### High-level comparison
+### High-level comparison
 
 | **Area**                           | **AKS Automatic**                            | **Standard AKS**          |
 | ---------------------------------- | -------------------------------------------- | ------------------------- |
@@ -459,13 +475,13 @@ In Kubernetes version 1.21 and later, by default AKS and Amazon EKS storage clas
 
 Different services support storage classes that have different access modes.
 
-| Service      | ReadWriteOnce | ReadOnlyMany | ReadWriteMany |
-|--------------------|---------------|--------------|---------------|
-| Azure disk storage        |      X        |              |               |
-| Azure Files         |      X        |      X       |       X       |
-| Azure NetApp Files |      X        |       X      |       X       |
-| NFS server         |      X        |       X      |       X       |
-| Azure Managed Lustre    |      X        |       X      |       X       |
+| Service              | ReadWriteOnce | ReadOnlyMany | ReadWriteMany |
+| :------------------- | :-----------: | :----------: | :------------ |
+| Azure disk storage   |      X        |              |               |
+| Azure Files          |      X        |       X      |       X       |
+| Azure NetApp Files   |      X        |       X      |       X       |
+| NFS server           |      X        |       X      |       X       |
+| Azure Managed Lustre |      X        |       X      |       X       |
 
 ### Dynamic vs. static provisioning
 
@@ -492,7 +508,6 @@ Principal authors:
 Other contributors:
 
 - [Chad Kittel](https://www.linkedin.com/in/chadkittel/) | Principal Software Engineer - Azure Patterns & Practices
-- [Ed Price](https://www.linkedin.com/in/priceed/) | Senior Content Program Manager
 - [Theano Petersen](https://www.linkedin.com/in/theanop/) | Technical Writer
 
 *To see nonpublic LinkedIn profiles, sign in to LinkedIn.*
