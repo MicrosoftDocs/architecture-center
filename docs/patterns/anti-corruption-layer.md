@@ -26,8 +26,8 @@ Similar problems can arise with any external system that your development team d
 
 Isolate the different subsystems by placing an anti-corruption layer between them. This layer translates communication between the two systems. This approach allows one system to remain unchanged while the other avoids compromising its design and technological approach.
 
-:::image type="complex" source="./_images/anti-corruption-layer.png" border="false" lightbox="./_images/anti-corruption-layer.png" alt-text="Diagram that shows an overview of the Anti-Corruption Layer pattern.":::
-    The diagram shows a central anti-corruption layer component that acts as the translation boundary between two subsystems. On the left, within a dotted boundary labeled subsystem A, three microservice rectangles connect via bidirectional arrows to data store cylinders. Arrows point from each of the microservices in subsystem A to the anti-corruption layer. Three arrows point from the anti-corruption layer back to each microservice. These arrows represent bidirectional communication between subsystem A and the anti-corruption layer. On the right, within a dotted boundary, a bidirectional arrow connects a single large rectangle labeled subsystem B and a data store cylinder. An arrow points from subsystem B and from the data store to the anti-corruption layer. Two arrows point from the anti-corruption layer to subsystem B and its data store. The overall structure illustrates how the anti-corruption layer mediates all communication between the microservices of subsystem A and the components of subsystem B by translating their respective data models and semantics without the need for either subsystem to understand the other's internal structure.
+:::image type="complex" source="./_images/anti-corruption-layer.svg" border="false" lightbox="./_images/anti-corruption-layer.svg" alt-text="Diagram that shows an overview of the Anti-Corruption Layer pattern.":::
+    The diagram shows a central anti-corruption layer component that acts as the translation boundary between two subsystems. On the left, within a dotted boundary labeled subsystem A, three microservice rectangles connect via bidirectional arrows to data store cylinders. Arrows point from each of the microservices in subsystem A to the anti-corruption layer. Three arrows point from the anti-corruption layer back to each microservice. These arrows represent bidirectional communication between subsystem A and the anti-corruption layer. On the right, within a dotted boundary, a bidirectional arrow connects a single large rectangle labeled subsystem B and a data store cylinder. Arrows point from subsystem B and from the data store to the anti-corruption layer. Two arrows point from the anti-corruption layer to subsystem B and the data store. The overall structure illustrates how the anti-corruption layer mediates all communication between the microservices of subsystem A and the components of subsystem B by translating their respective data models and semantics without the need for either subsystem to understand the other's internal structure.
 :::image-end:::
 
 The diagram shows an application that has two subsystems. Subsystem A calls subsystem B through an anti-corruption layer. Communication between subsystem A and the anti-corruption layer always uses the data model and architecture of subsystem A. Calls from the anti-corruption layer to subsystem B conform to that subsystem's data model or methods. The anti-corruption layer contains all the logic necessary to translate between the two systems. You can implement the layer as a component within the application or as an independent service.
@@ -86,28 +86,9 @@ This pattern is conceptual and originates from the domain‑driven design softwa
 
 In the following example, API Management handles the external exposure and protocol concerns. Azure Functions implements the anti-corruption layer through domain mapping between the new system and the legacy system. Azure Monitor and Application Insights provide the observability that you need to track the success and latency of the translation between the two subsystems.
 
-```text
-       Client Apps
-           |
-           v
-    +--------------------+
-    | Azure API          |
-    | Management (APIM)  |  <-- Auth, throttling, protocol facade (REST)
-    +--------------------+
-              |
-              v                     +----------------------------+
-    +----------------------------+  | Azure Monitor              |
-    | Azure Function             |  | & Application Insights     |
-    | OrdersAclFunction          |  |                            |
-    | - Maps REST DTO -> Domain  |--| - Logging & Tracing        |
-    | - Maps Domain -> Legacy DTO|  | - Translation Error Rates  |
-    +----------------------------+  +----------------------------+
-              |
-              v
-    +----------------------------+
-    | Legacy Order System        |
-    +----------------------------+
-```
+:::image type="complex" source="./_images/anti-corruption-layer-conceptual-azure-implementation.svg" border="false" lightbox="./_images/anti-corruption-layer-conceptual-azure-implementation.svg" alt-text="Diagram that shows a conceptual Azure implementation of the Anti-Corruption Layer pattern.":::
+    The diagram shows a vertical flow that represents a conceptual Azure implementation of the Anti-Corruption Layer pattern. At the top, a rectangle labeled client applications connects to a box labeled Azure API Management, which lists authentication, throttling, and REST facade as its functions. Another arrow points to a box labeled Azure Functions, ProcessOrderFunction, which describes two transformations: REST order data transfer object (DTO) to domain model, and domain model to legacy DTO. From this Azure Functions box, a dashed horizontal arrow points right to a box labeled Azure Monitor and Application Insights, which lists logging, tracing, and error metrics. A solid arrow points downward from Azure Functions to a box labeled Legacy order system. The diagram illustrates how client applications interact with the legacy order system through API Management and Azure Functions, with monitoring and diagnostics provided by Azure Monitor and Application Insights. The Microsoft Azure logo appears in the lower left corner.
+:::image-end:::
 
 Beyond this synchronous request-response model, the anti-corruption layer can also use an asynchronous, event-driven approach. By using Azure Service Bus, Azure Event Grid, or Azure Event Hubs, the layer decouples the modern domain from the legacy system's throughput constraints to allow message-based translation for high-throughput or highly decoupled workloads.
 
