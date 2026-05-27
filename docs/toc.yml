@@ -40,7 +40,7 @@ items:
             href: guide/technology-choices/microservices-assessment.md
           - name: CI/CD for microservices
             displayName: continuous integration continuous delivery
-            href: microservices/ci-cd.yml
+            href: microservices/ci-cd.md
           - name: Domain modeling for microservices
             items:
             - name: Use domain analysis to model microservices
@@ -635,28 +635,18 @@ items:
           href: example-scenario/mainframe/integrate-ibm-message-queues-azure.yml
         - name: Migrate AIX workloads with Skytap
           href: example-scenario/mainframe/migrate-aix-workloads-to-azure-with-skytap.yml
-        - name: Migrate HP-UX workloads
-          href: example-scenario/mainframe/hp-ux-stromasys-charon-par.yml
         - name: Migrate IBM i series to Azure with Skytap
           href: example-scenario/mainframe/migrate-ibm-i-series-to-azure-with-skytap.yml
-        - name: Refactor mainframe with CloudFrame Renovate
-          href: example-scenario/mainframe/cloudframe-renovate-mainframe-refactor.yml
         - name: Refactor Adabas & Natural systems
           href: example-scenario/mainframe/refactor-adabas-aks.yml
         - name: Refactor mainframe with Raincode
           href: reference-architectures/app-modernization/raincode-reference-architecture.yml
         - name: Rehost Adabas & Natural applications
           href: example-scenario/mainframe/rehost-adabas-software-ag.yml
-        - name: Rehost IMS workloads by using IMSql
-          href: example-scenario/mainframe/imsql-rehost-ims.yml
-        - name: Solaris emulator on Azure VMs
-          href: solution-ideas/articles/solaris-azure.yml
         - name: Unisys ClearPath Forward OS 2200 enterprise server virtualization on Azure
           href: mainframe/virtualization-of-unisys-clearpath-forward-os-2200-enterprise-server-on-azure.yml
         - name: Unisys ClearPath MCP virtualization on Azure
           href: example-scenario/mainframe/unisys-clearpath-forward-mainframe-rehost.yml
-        - name: Unisys mainframe migration with Avanade AMT
-          href: reference-architectures/migration/unisys-mainframe-migration.yml
     - name: SAP
       items:
       - name: Guides
@@ -664,7 +654,7 @@ items:
         - name: SAP landscape architecture
           href: guide/sap/sap-whole-landscape.yml
         - name: Inbound and outbound internet connections for SAP on Azure
-          href: guide/sap/sap-internet-inbound-outbound.yml
+          href: guide/sap/sap-internet-inbound-outbound.md
       - name: Architectures
         items:
         - name: SAP BW/4HANA in Linux on Azure
@@ -679,8 +669,6 @@ items:
           href: guide/sap/sap-s4hana.md
       - name: Solution ideas
         items:
-        - name: SAP S/4 HANA for Large Instances
-          href: solution-ideas/articles/sap-s4-hana-on-hli-with-ha-and-dr.yml
         - name: Automate SAP workloads by using SUSE on Azure
           href: solution-ideas/articles/sap-workload-automation-suse.yml
   - name: Containers
@@ -750,7 +738,7 @@ items:
           items:
           - name: Access an AKS API server
             displayName: Azure Kubernetes Service
-            href: /security/access-azure-kubernetes-service-cluster-api-server.md
+            href: security/access-azure-kubernetes-service-cluster-api-server.md
           - name: AKS day-2 operations guide
             items:
             - name: Introduction
@@ -948,7 +936,7 @@ items:
         displayName: Azure Kubernetes Service
         href: guide/devsecops/devsecops-on-aks.md
       - name: Use deployment scripts to check resource properties
-        href: guide/devops/deployment-scripts-property-check.yml
+        href: guide/devops/deployment-scripts-property-check.md
     - name: Architectures
       items:
       - name: Automate API deployments with APIOps
@@ -1133,7 +1121,7 @@ items:
         href: example-scenario/wsus/index.yml
       - name: Use the Azure Governance Visualizer
         displayName: ALZ, Azure landing zone
-        href: landing-zones/azure-governance-visualizer-accelerator.yml
+        href: landing-zones/azure-governance-visualizer-accelerator.md
     - name: Architectures
       items:
       - name: Hybrid management

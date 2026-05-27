@@ -37,10 +37,7 @@ Azure Functions supports [trigger](/azure/azure-functions/functions-bindings-eve
 
 Each instance of an Event Hubs triggered function is backed by a single [EventProcessorHost] instance. The trigger (powered by Event Hubs) ensures that only one  [EventProcessorHost] instance can get a lease on a given partition.
 
-For example, consider an event hub with the following characteristics:
-
-- 10 partitions.
-- 1,000 events distributed across all partitions, with a varying number of messages in each partition.
+For example, consider an event hub that has 10 partitions and 1,000 events distributed across all partitions, with a varying number of messages in each partition.
 
 When your function is first enabled, there's only one instance of the function. Let's call the first function instance `Function_1`. `Function_1` has a single instance of  [EventProcessorHost] that holds a lease on all 10 partitions. This instance is reading events from partitions 1-10. From this point forward, one of the following happens:
 

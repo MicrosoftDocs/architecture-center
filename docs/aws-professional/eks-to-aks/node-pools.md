@@ -399,8 +399,6 @@ Pod Sandboxing can help you isolate tenant applications on the same cluster node
 
 Pod Sandboxing is based on [Kata Containers](https://katacontainers.io/) that runs on the [Azure Linux container host for AKS stack](/azure/aks/use-azure-linux) to provide hardware-enforced isolation. Kata Containers on AKS is built on a security-hardened Azure hypervisor. It achieves isolation for each pod via a nested, lightweight Kata VM that uses resources from a parent VM node. In this model, each Kata pod gets its own kernel in a nested Kata guest VM. Use this model to place several Kata containers in a single guest VM while continuing to run containers in the parent VM. This model provides a strong isolation boundary in a shared AKS cluster.
 
-For more information, see [Support for Kata VM isolated containers on AKS for Pod Sandboxing](https://techcommunity.microsoft.com/t5/apps-on-azure-blog/preview-support-for-kata-vm-isolated-containers-on-aks-for-pod/ba-p/3751557).
-
 ### Azure Dedicated Host
 
 [Azure Dedicated Host](/azure/virtual-machines/dedicated-hosts) is a service that provides physical servers that are dedicated to a single Azure subscription to help ensure hardware isolation at the physical server level. You can provision these dedicated hosts within a region, availability zone, and fault domain. You can place VMs directly into the provisioned hosts.
@@ -536,7 +534,6 @@ Other contributors:
 
 - [Laura Nicolas](https://www.linkedin.com/in/lauranicolasd/) | Senior Software Engineer
 - [Chad Kittel](https://www.linkedin.com/in/chadkittel/) | Principal Software Engineer - Azure Patterns & Practices
-- [Ed Price](https://www.linkedin.com/in/priceed/) | Senior Content Program Manager
 - [Theano Petersen](https://www.linkedin.com/in/theanop/) | Technical Writer
 
 *To see nonpublic LinkedIn profiles, sign in to LinkedIn.*

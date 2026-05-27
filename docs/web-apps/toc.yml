@@ -69,7 +69,7 @@ items:
       items:
       - name: Overview
         href: ../guide/infrastructure/wordpress-overview.yml
-      - name: Container hosting (AKS)
+      - name: AKS hosting (containers)
         displayName: Azure Kubernetes Service
         href: ../example-scenario/infrastructure/wordpress-container.yml
       - name: App Service hosting

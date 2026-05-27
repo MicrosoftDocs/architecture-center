@@ -1,10 +1,10 @@
 ### YamlMime:Architecture
 metadata:
   title: WordPress on Azure Kubernetes Service
-  description: "Use Azure Kubernetes Service (AKS) to deploy a highly scalable and secure installation of WordPress for large, storage-intensive applications."
+  description: Learn how to use Azure Kubernetes Service (AKS) to deploy a highly scalable and secure installation of WordPress for large, storage-intensive applications.
   author: andrwca
   ms.author: andrewcardy
-  ms.date: 08/15/2025
+  ms.date: 05/04/2026
   ms.topic: example-scenario
   ms.subservice: example-scenario
   ai-usage: ai-assisted
@@ -20,7 +20,7 @@ name: WordPress on Azure Kubernetes Service
 azureCategories:
   - web
   - containers
-summary: "Use Azure Kubernetes Service (AKS) to deploy a highly scalable and secure installation of WordPress for large, storage-intensive applications."
+summary: Learn how to use Azure Kubernetes Service (AKS) to deploy a highly scalable and secure installation of WordPress for large, storage-intensive applications.
 products:
   - azure-managed-redis
   - azure-front-door
