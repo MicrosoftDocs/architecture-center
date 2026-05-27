@@ -154,12 +154,12 @@ Other contributor:
 
 ## Next steps
 
-- [Azure Front Door and cloud content delivery network documentation](azure/frontdoor/)
+- [Azure Front Door and cloud content delivery network documentation](/azure/frontdoor/)
 - [Use Azure Cosmos DB](/training/modules/distribute-data-globally-with-cosmos-db)
 - [Choose the appropriate API for Azure Cosmos DB](/training/modules/work-with-cosmos-db)
 - [Develop solutions by using Azure Cosmos DB](/training/paths/az-204-develop-solutions-that-use-azure-cosmos-db)
 - [Migrate large volumes of data into Azure Cosmos DB](/azure/cosmos-db/migrate)
-- [How to model and partition data by using a real-world example](azure/cosmos-db/model-partition-example)
+- [How to model and partition data by using a real-world example](/azure/cosmos-db/model-partition-example)
 - [Change feed design patterns in Azure Cosmos DB](/azure/cosmos-db/change-feed-design-patterns)
 - [Create a serverless event-based architecture by using Azure Cosmos DB and Functions](/azure/cosmos-db/change-feed-functions)
 - [What is Fabric Data Factory?](/fabric/data-factory/data-factory-overview)
