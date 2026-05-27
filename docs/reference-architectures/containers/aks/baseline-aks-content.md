@@ -5,7 +5,7 @@ This architecture doesn't focus on a workload. It concentrates on the AKS cluste
 Your business requirements influence the target architecture and can vary between application contexts. Consider the architecture as your starting point for preproduction and production stages.
 
 > [!TIP]
-> This article covers designing a durable AKS cluster for long-term use. If your workload has basic requirements, consider [AKS Automatic](/azure/aks/intro-aks-automatic) as a faster path to production.
+> This article covers extensive design considerations for AKS clusters. [AKS Automatic](/azure/aks/intro-aks-automatic) implements many design decisions to reduce the number of considerations you need to evaluate and to optimize for common use cases. Even if your workload is going to be hosted in an AKS Automatic environment, knowing the foundations for a self-managed cluster can help you make the right choices as your workload changes.
 
 Kubernetes is a broad ecosystem that extends beyond Azure and Microsoft technologies. When you deploy an AKS cluster, you're responsible for many decisions about how to design and operate the cluster. Running an AKS cluster involves closed-source components from various vendors, including Microsoft, along with open-source components from the Kubernetes ecosystem. The landscape changes frequently, so revisit decisions regularly. When you adopt Kubernetes, you acknowledge that your workload needs its capabilities and that your workload team is prepared to invest on an ongoing basis.
 
