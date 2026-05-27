@@ -263,6 +263,8 @@ Use Virtual Network Manager [deployments](/azure/virtual-network-manager/concept
 
 Cost Optimization focuses on ways to reduce unnecessary expenses and improve operational efficiencies. For more information, see [Design review checklist for Cost Optimization](/azure/well-architected/cost-optimization/checklist).
 
+To get an estimate of the cost for the hub networking components in this architecture, use this [preconfigured estimate in the Azure pricing calculator](https://azure.com/e/c7a42bc3b03f48ada7c9854d3028dc46). Adjust the values to match your expected traffic volumes and additional spokes.
+
 Consider the following cost-related factors when you deploy and manage hub-spoke networks. For more information, see [Virtual network pricing](https://azure.microsoft.com/pricing/details/virtual-network).
 
 #### Azure Firewall costs
