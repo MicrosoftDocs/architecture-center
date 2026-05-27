@@ -1,8 +1,8 @@
 ---
 title: Architectural Approaches for Compute in Multitenant Solutions
 description: Learn about approaches to support multitenancy for compute components, including scaling strategies, isolation models, and cost-efficient shared resources.
-author: DixitArora-MSFT
-ms.author: dixitaro
+author: PlagueHO
+ms.author: dascottr
 ms.date: 05/12/2026
 ms.topic: concept-article
 ms.subservice: architecture-guide
