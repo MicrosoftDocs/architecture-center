@@ -1,9 +1,9 @@
-This article presents a high-availability solution for a web application that handles large volumes of data that need to be accessible within a specific time frame. The solution uses Azure Cosmos DB as the primary data store and uses the Azure Cosmos DB change feed to replicate data to low-cost secondary storage. After the specified time period, the solution uses Azure Functions to delete the data from Azure Cosmos DB. The data in secondary storage remains available for longer for auditing and analysis by other solutions. The solution replicates data to different data services, which provides high durability.
+This article presents a high-availability solution for a web application that manages large volumes of data that need to be accessible within a specific time frame. The solution uses Azure Cosmos DB as the primary data store and uses the Azure Cosmos DB change feed to replicate data to low-cost secondary storage. After the specified time period, the solution uses Azure Functions to delete the data from Azure Cosmos DB. The data in secondary storage remains available for longer for auditing and analysis by other solutions. The solution replicates data to different data services, which provides high durability.
 
 ## Architecture
 
 :::image type="complex" border="false" source="_images/minimal-storage-change-feed-replicate-data.svg" alt-text="Diagram that shows the minimal storage architecture." lightbox="_images/minimal-storage-change-feed-replicate-data.svg":::
-   Diagram that shows an internet icon that is connected by dotted arrows to Microsft Entra ID and Azure DNS and a solid arrow to Azure Front Door. Azure Front Door then connects to two active regions. Both active regions contain a box that houses the Azure App Service web app, which feeds Azure Queue Storage, which feeds Azure Functions. The larger active region contains a box that's labeled delete and houses Azure Cosmos DB, which feeds the change feed and is connected by a dotted arrow to Azure Cosmos DB in the smaller active region. The dotted arrow is labeled geo replication. The delete box feeds Azure Managed Redis, which connects back to the larger active region's first box. The delete box also feeds the Functions app box, which feeds Azure Table Storage in both active regions. In the smaller active region, the first box feeds Azure Cosmos DB, which feeds Azure Managed Redis, which is connected back to the smaller active region's first box. 
+   Diagram that shows an internet icon that is connected by dotted arrows to Microsoft Entra ID and Azure DNS and a solid arrow to Azure Front Door. Azure Front Door then connects to two active regions. Both active regions contain a box that houses the Azure App Service web app, which feeds Azure Queue Storage, which feeds Azure Functions. The larger active region contains a box that's labeled delete and houses Azure Cosmos DB, which feeds the change feed and is connected by a dotted arrow to Azure Cosmos DB in the smaller active region. The dotted arrow is labeled geo-replication. The delete box feeds Azure Managed Redis, which connects back to the larger active region's first box. The delete box also feeds the Functions app box, which feeds Azure Table Storage in both active regions. In the smaller active region, the first box feeds Azure Cosmos DB, which feeds Azure Managed Redis, which is connected back to the smaller active region's first box. 
 :::image-end:::
 
 *Download a [Visio file](https://arch-center.azureedge.net/minimal-storage-change-feed-replicate-data.vsdx) of this architecture.*
@@ -40,7 +40,7 @@ The following data flow corresponds to the previous diagram:
 
 - [App Service](/azure/well-architected/service-guides/app-service-web-apps) is a fully managed service that developers use to build, deploy, host, and scale web apps. You can build apps by using .NET, Node.js, Java, Python, or PHP. Apps can run in containers or on Windows or Linux. In this architecture, App Service hosts the web interface and REST APIs for the application. For more information about web APIs, see [RESTful web API design](../../best-practices/api-design.md).
 
-- [Functions](/azure/well-architected/service-guides/azure-functions) provides an environment to run small pieces of code, called functions, without having to establish an application infrastructure. You can use it to process bulk data, integrate systems, work with Internet of Things (IoT) devices, and build simple APIs and microservices. You can use microservices to create servers that connect to Azure services and always remain up to date. In this architecture, Functions handles background tasks like data replication and expired record deletion.
+- [Functions](/azure/well-architected/service-guides/azure-functions) provides an environment to run small pieces of code, called functions, without having to establish an application infrastructure. You can use it to process bulk data, integrate systems, work with Internet of Things (IoT) devices, and build simple APIs and microservices. You can use microservices to create servers that connect to Azure services and always remain up to date. In this architecture, Functions runs background tasks like data replication and expired record deletion.
 
 - [Azure Storage](/azure/storage/common/storage-introduction) is a set of scalable and secure cloud services for data, apps, and workloads. In this architecture, Storage provides Queue Storage for task messaging and Table Storage for low-cost replicated data storage.
 
@@ -48,7 +48,7 @@ The following data flow corresponds to the previous diagram:
 
   - [Table Storage](/azure/storage/tables/table-storage-overview) is a NoSQL key-value store for rapid development that uses massive semi-structured datasets. The tables are schemaless and adapt according to need. Access is fast and cost-effective for many applications. This architecture uses Table Storage to store a synchronized and restructured copy of the data in Azure Cosmos DB.
 
-- [Azure Managed Redis](/azure/redis/overview) is a fully managed in-memory caching service and message broker for data and state sharing between compute resources. To improve the performance of high-throughput online transaction processing applications, design them to scale use an in-memory data store, such as Azure Managed Redis. In this architecture, Azure Managed Redis accelerates access to frequently used data, which improves performance for function apps and web apps.
+- [Azure Managed Redis](/azure/redis/overview) is a fully managed in-memory caching service and message broker for data and state sharing between compute resources. To improve the performance of high-throughput online transaction processing applications, design them to scale by using an in-memory data store, such as Azure Managed Redis. In this architecture, Azure Managed Redis accelerates access to frequently used data, which improves performance for function apps and web apps.
 
 - [Azure Cosmos DB](/azure/well-architected/service-guides/cosmos-db) is a globally distributed, multimodel database that powers your solutions to elastically and independently scale throughput and storage across any number of geographic regions. It provides throughput, latency, availability, and consistency guarantees with comprehensive service-level agreements. In this architecture, Azure Cosmos DB stores recent data and emits a change feed that you can use to replicate updates to Table Storage.
 
@@ -68,7 +68,7 @@ The following data flow corresponds to the previous diagram:
 
 This solution uses Azure Cosmos DB to store the large volume of data that web applications use. Web apps that handle massive amounts of data use Azure Cosmos DB to elastically and independently scale throughput and storage.
 
-When changes are made to the database, the Azure Cosmos DB change feed stream is sent to an event-driven Functions trigger. A function then runs and replicates the changes to Table Storage tables, which provide a low-cost storage solution. You can also orchestrate broader downstream data movement by using Azure Data Factory pipelines or Microsoft Fabric Data Factory to land data in analytics zones.
+When changes are made to the database, the Azure Cosmos DB change feed is sent to an event-driven Functions trigger. A function then runs and replicates the changes to Table Storage tables, which provide a low-cost storage solution. You can also orchestrate broader downstream data movement by using Azure Data Factory pipelines or Fabric Data Factory to land data in analytics zones.
 
 The web app needs the data for only a limited amount of time. This solution periodically runs and deletes expired data from Azure Cosmos DB, which reduces costs. Functions can be triggered and they can be scheduled to run at specific times.
 
@@ -112,7 +112,7 @@ Reliability helps ensure that your application can meet the commitments that you
 
 Cost Optimization focuses on ways to reduce unnecessary expenses and improve operational efficiencies. For more information, see [Design review checklist for Cost Optimization](/azure/well-architected/cost-optimization/checklist).
 
-- The primary cost benefit comes from expired data removal from Azure Cosmos DB, which is billed per RU, and into Table Storage, which is billed per transaction and per GB stored. This process is cheaper for infrequently accessed data.
+- The primary cost benefit comes from expired data removal from Azure Cosmos DB, which is billed per request unit (RU), and into Table Storage, which is billed per transaction and per GB stored. This process is cheaper for infrequently accessed data.
 
 - If your workload has predictable throughput requirements, consider [reserved capacity](/azure/cosmos-db/reserved-capacity) for Azure Cosmos DB.
 
@@ -162,9 +162,9 @@ Other contributor:
 - [How to model and partition data by using a real-world example](azure/cosmos-db/model-partition-example)
 - [Change feed design patterns in Azure Cosmos DB](/azure/cosmos-db/change-feed-design-patterns)
 - [Create a serverless event-based architecture by using Azure Cosmos DB and Functions](/azure/cosmos-db/change-feed-functions)
-- [What is Data Factory in Microsoft Fabric?](/fabric/data-factory/data-factory-overview)
+- [What is Fabric Data Factory?](/fabric/data-factory/data-factory-overview)
 - [Orchestrate data movement and transformation by using Azure Data Factory](/training/modules/orchestrate-data-movement-transformation-azure-data-factory)
-- [Microsoft Fabric Data Factory documentation](/fabric/data-factory/)
+- [Fabric Data Factory documentation](/fabric/data-factory/)
 
 ## Related resources
 
