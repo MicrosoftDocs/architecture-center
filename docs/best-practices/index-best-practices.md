@@ -3,7 +3,7 @@ title: Best Practices in Cloud Applications
 description: Learn about some best practices for building cloud applications and how they align with the Azure Well-Architected Framework.
 author: claytonsiemens77
 ms.author: pnp
-ms.date: 03/12/2026
+ms.date: 05/27/2026
 ms.topic: best-practice
 ms.subservice: cloud-fundamentals
 ---
@@ -37,7 +37,7 @@ Each practice in this table maps to one or more [Well-Architected Framework pill
 | [Host name preservation](./host-name-preservation.md) | Learn why it's important to preserve the original HTTP host name between a reverse proxy and its back-end web application and how to implement this recommendation for the most common Azure services. | [Reliability](/azure/well-architected/reliability/), [Security](/azure/well-architected/security/) |
 | [Message encoding considerations](./message-encode.md) | Choose the payload structure, encoding format, and serialization library for asynchronous messages exchanged between system components. Consider trade-offs, such as interoperability, size, human readability, and schema evolution. | [Security](/azure/well-architected/security/) |
 | [Monitoring and diagnostics](./monitoring.yml) | Track system health, usage, and performance by using a monitoring and diagnostics pipeline. Turn monitoring data into alerts, reports, and triggers that help you take action in various situations. Examples include detecting and correcting issues, catching potential problems, meeting performance guarantees, and fulfilling auditing requirements. | [Operational&nbsp;Excellence](/azure/well-architected/operational-excellence/) |
-| [Transient fault handling](./transient-faults.md) | Handle transient faults caused by unavailable networks or resources. Overcome challenges when you develop appropriate retry strategies. Avoid duplicating layers of retry code and other antipatterns. | [Reliability](/azure/well-architected/reliability/) |
+| [Transient fault handling](./transient-faults.md) | Handle transient faults caused by unavailable networks or resources. Overcome challenges with developing appropriate retry strategies. Avoid duplicating layers of retry code and other antipatterns. | [Reliability](/azure/well-architected/reliability/) |
 
 ## Design principles
 
@@ -49,7 +49,7 @@ After you establish design principles, [cloud design patterns](../patterns/index
 
 ## Performance antipatterns
 
-Defects can emerge under production load even when you apply sound principles, good patterns, and best practices. [Performance antipatterns for cloud applications](../antipatterns/index.md) describe common designs that don't scale or shortcuts that accumulate as you add features. To catch problems before they reach production, use these antipatterns as a checklist during design reviews and code reviews.
+Defects can emerge under production load even when you apply sound principles, good patterns, and best practices. [Performance antipatterns for cloud applications](../antipatterns/index.md) describe common designs that don't scale or shortcuts that cause problems to accumulate as you add features. To catch problems before they reach production, use these antipatterns as a checklist during design reviews and code reviews.
 
 ## Next step
 
