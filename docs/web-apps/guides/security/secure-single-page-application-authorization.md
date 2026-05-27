@@ -3,7 +3,7 @@ title: Use API Management to Protect Access Tokens in Single-Page Applications
 description: Learn how to use Azure API Management to implement a JavaScript single-page application that doesn't store tokens in the browser session or local storage.
 author: irarainey
 ms.author: irarainey
-ms.date: 07/08/2025
+ms.date: 05/27/2026
 ms.topic: concept-article
 ms.subservice: architecture-guide
 ms.custom:
@@ -84,7 +84,7 @@ This process uses the [OAuth2 Authorization Code Flow](/entra/architecture/auth-
 
 The flow contains the following steps:
 
-1. To obtain an access token to allow the single-page application to access the API, users must first authenticate themselves. Users invoke the flow by selecting a button that redirects them to the Microsoft identity platform authorization endpoint. The `redirect_uri` is set to the `/auth/callback` API endpoint of the API Management gateway.
+1. To obtain an access token to allow the single-page application to access the API, users must first authenticate themselves. The user selects **Sign in** in the single-page application, which redirects them to the Microsoft identity platform authorization endpoint. The `redirect_uri` is set to the `/auth/callback` API endpoint of the API Management gateway.
 
 1. Users are prompted to authenticate themselves. If authentication succeeds, Microsoft identity platform responds with a redirect.
 
@@ -127,7 +127,7 @@ The flow contains the following steps:
 
    ```XML
    <return-response>
-       <set-status code="302" reason="Temporary Redirect" />
+       <set-status code="302" reason="Found" />
        <set-header name="Set-Cookie" exists-action="override">
            <value>@($"{{cookie-name}}={context.Variables.GetValueOrDefault<string>("cookie")}; Secure; SameSite=Strict; Path=/; Domain={{cookie-domain}}; HttpOnly")</value>
        </set-header>
@@ -142,7 +142,7 @@ The flow contains the following steps:
 When the single-page application has the access token, it can use the token to call the downstream API. The cookie is scoped to the domain of the single-page application and is configured with the `SameSite=Strict` attribute, so it's automatically added to the request. The access token can then be decrypted so it can be used to call the downstream API. The following diagram shows the sequence of events for this flow.
 
 :::image type="complex" border="false" source="../_images/no-token-in-browser-call-api-sequence.png" alt-text="Diagram that shows the API call sequence." lightbox="../_images/no-token-in-browser-call-api-sequence.png":::
-   The diagram has three sections: the browser, API Management, and Microsoft Graph API. A series of arrows and dotted lines show the secure authentication flow between a user, single-page application, Microsoft Graph API, and API Management. An arrow points from the single-page application in the browser section to the API endpoint in the API Management section. The browser process adds the cookie, and the inbound policy sets the variable and header for the cookie. Another arrow represents the request being sent to the downstream API in the Microsoft Graph API section. Another arrow represents the downstream API returning the request to the single-page application in the browser section.
+   The diagram has three sections: the browser, API Management, and Microsoft Graph API. A series of arrows and dotted lines show the API call flow between the single-page application, API Management, and the downstream Microsoft Graph API. An arrow points from the single-page application in the browser section to the API endpoint in the API Management section. The browser process adds the cookie, and the inbound policy sets the variable and header for the cookie. Another arrow represents the request being sent to the downstream API in the Microsoft Graph API section. Another arrow represents the downstream API returning the response to the single-page application in the browser section.
 :::image-end:::
 
 The flow contains the following steps:
@@ -188,7 +188,7 @@ The flow contains the following steps:
    </choose>
    ```
 
-1. The request is proxied to the downstream API, including the access token in to the `Authorization` header.
+1. The request is proxied to the downstream API, including the access token in the `Authorization` header.
 
 1. The response from the downstream API is returned directly to the single-page application.
 
@@ -202,13 +202,17 @@ This solution isn't production-ready. It's meant to demonstrate what you can do 
 
 - This example doesn't implement access token expiration or the use of refresh or ID tokens.
 
-- The contents of the cookie in the sample are encrypted via AES encryption. The key is stored as a secret on the **Named values** pane of the API Management instance. To better protect this named value, you can use a reference to a secret that's stored in [Azure Key Vault](https://azure.microsoft.com/services/key-vault/). You should periodically rotate encryption keys as part of your [key management](https://en.wikipedia.org/wiki/Key_management) policy.
+- The contents of the cookie in the sample are encrypted via AES encryption. The key is stored as a secret on the **Named values** pane of the API Management instance. To better protect this named value, you can use a reference to a secret that's stored in [Azure Key Vault](https://azure.microsoft.com/services/key-vault/). Apply the same Key Vault-backed named value pattern to the Microsoft Entra application's `client-secret`, because it's also a sensitive credential that must not be stored as a plain named value. You should periodically rotate encryption keys and client secrets as part of your [key management](https://en.wikipedia.org/wiki/Key_management) policy.
 
 - This example only proxies calls to a single downstream API, so it requires only one access token. This scenario allows a stateless approach. However, because of the size limitation of HTTP cookies, if you need to proxy calls to multiple downstream APIs, you need a stateful approach. 
 
    Instead of using a single access token, this approach stores access tokens in a cache and retrieves them based on the API that's being called and a key that's provided in the cookie. You can implement this approach by using the API Management [cache](/azure/api-management/api-management-howto-cache) or an external [Redis cache](/azure/api-management/api-management-howto-cache-external).
 
 - This example demonstrates the retrieval of data only via a GET request, so it doesn't provide protection against [Cross-site request forgery (CSRF)](https://owasp.org/www-community/attacks/csrf) attacks. If you use other HTTP methods, like POST, PUT, PATCH, or DELETE, this protection is required.
+
+- This example doesn't include a `state` parameter in the authorization request to the Microsoft Entra authorization endpoint. As a result, the `/auth/callback` endpoint accepts any authorization code that arrives from Microsoft Entra ID, which leaves the OAuth redirect itself open to CSRF attacks as described in [RFC 6749 section 10.12](https://datatracker.ietf.org/doc/html/rfc6749#section-10.12). In production, generate a cryptographically random `state` value when initiating the flow, store it (for example, in a short-lived `HttpOnly` cookie scoped to the API Management gateway), include it on the authorization request, and verify that the value returned to `/auth/callback` matches before exchanging the code.
+
+- This example uses the bare OAuth 2.0 authorization code flow with a client secret and doesn't implement [Proof Key for Code Exchange (PKCE)](https://datatracker.ietf.org/doc/html/rfc7636). Microsoft Entra ID requires PKCE only for redirect URIs registered as the `spa` type. The API Management callback in this architecture is registered as a Web (confidential client) redirect URI, so the platform doesn't enforce PKCE. However, the authorization code still travels through the browser, which leaves the flow open to authorization code interception. Microsoft Entra ID [recommends PKCE for all application types, both public and confidential clients](/entra/identity-platform/v2-oauth2-auth-code-flow). To add PKCE to this design, generate a random `code_verifier` in the API Management policy that starts the flow, derive the `code_challenge` from it by using SHA-256, include `code_challenge` and `code_challenge_method=S256` on the authorization request, persist the verifier (for example, in the API Management [cache](/azure/api-management/api-management-howto-cache) keyed by `state` or in a temporary `HttpOnly` cookie), and include the corresponding `code_verifier` when the callback endpoint exchanges the authorization code at the token endpoint.
 
 ## Contributors
 
