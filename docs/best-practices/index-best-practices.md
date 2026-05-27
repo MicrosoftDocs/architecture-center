@@ -53,10 +53,10 @@ Defects can emerge under production load even when you apply sound principles, g
 
 ## Next step
 
-- [Azure Well-Architected Review](/assessments/azure-architecture-review/): Assess your workload against the Well-Architected Framework pillars.
+- [Design principles for Azure applications](../guide/design-principles/index.md): Start with the foundational principles that inform these best practices.
 
 ## Related content
 
-- [Design principles for Azure applications](../guide/design-principles/index.md): Start with the foundational principles that inform these best practices.
+- [Azure Well-Architected Review](/assessments/azure-architecture-review/): Assess your workload against the Well-Architected Framework pillars.
 
 - [Cloud design patterns](../patterns/index.md): Explore reusable solutions to common architectural challenges.
