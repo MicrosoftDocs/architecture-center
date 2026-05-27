@@ -366,11 +366,11 @@ If you build agents by using Semantic Kernel, OpenTelemetry standardized instrum
 
 Traditional observability stops at logs, metrics, and traces. In AI systems, those pillars extend to include semantic and behavioral observability, which covers how agents reason, collaborate, and evolve during execution.
 
-1. **Execution logs:** Beyond infrastructure logging, capture semantic events, like prompts, responses, and intermediate reasoning steps between agents. OpenTelemetry exporters stream all log data to Log Analytics, where you use KQL to correlate across agents and identify anomalies at the conversation level.
+- **Execution logs:** Beyond infrastructure logging, capture semantic events, like prompts, responses, and intermediate reasoning steps between agents. OpenTelemetry exporters stream all log data to Log Analytics, where you use KQL to correlate across agents and identify anomalies at the conversation level.
 
-1. **System and model metrics:** Metrics provide quantitative signals about both system and model performance. Track latency, throughput, and cost, along with AI-specific metrics such as token usage and time to first token (TTFT).
+- **System and model metrics:** Metrics provide quantitative signals about both system and model performance. Track latency, throughput, and cost, along with AI-specific metrics such as token usage and time to first token (TTFT).
 
-1. **Distributed traces with context:** Traces connect every service and agent involved in a single conversation. Use trace IDs and span IDs to view the full path of an inference request, from the orchestrator to downstream agents, caches, and external calls.
+- **Distributed traces with context:** Traces connect every service and agent involved in a single conversation. Use trace IDs and span IDs to view the full path of an inference request, from the orchestrator to downstream agents, caches, and external calls.
 
   Each trace carries semantic context, such as conversation ID and agent name, which provides a unified view of model collaboration. Use these traces to diagnose latency spikes, identify network bottlenecks, or analyze where agent coordination fails.
 
