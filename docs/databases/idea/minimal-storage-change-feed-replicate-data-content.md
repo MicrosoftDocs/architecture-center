@@ -18,7 +18,7 @@ The following data flow corresponds to the previous diagram:
 
 1. App Service hosts websites and RESTful web APIs. Browser clients run asynchronous JavaScript and XML applications that use the APIs.
 
-1. Web APIs delegate responsibility to code Functions-hosted code to handle background tasks. The tasks are queued in Azure Queue Storage queues.
+1. Web APIs delegate responsibility to Functions-hosted code to handle background tasks. The tasks are queued in Azure Queue Storage queues.
 
 1. The queued messages trigger the functions, which perform the background tasks.
 
