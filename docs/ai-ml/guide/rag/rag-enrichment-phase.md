@@ -29,14 +29,14 @@ The following image shows a code sample of chunks that are enriched with data.
 
 ## Clean your data
 
-When you clean your data, it helps your workload find the most relevant chunks, typically through vectorizing those chunks and storing them in a vector database. An optimized vector search returns only the rows in the database that have the closest semantic matches to the query. The goal of cleaning the data is to support closeness matches by eliminating potential differences that aren't material to the semantics of the text.
+Cleaning your data helps your workload find the most relevant chunks, typically through vectorizing those chunks and storing them in a vector database. An optimized vector search returns only the rows in the database that have the closest semantic matches to the query. The goal of cleaning the data is to support closeness matches by eliminating potential differences that aren't material to the semantics of the text.
 
 > [!NOTE]
 > To return the original, uncleaned chunk as the query result, add an extra field to store the cleaned and vectorized data.
 
 Consider the following common cleaning procedures:
 
-- **Implement lowercasing strategies.** Lowercasing allows words that are capitalized, such as words at the beginning of a sentence, to match corresponding words within a sentence. Embeddings are typically case-sensitive, so "Cheetah" and "cheetah" would result in a different vector for the same logical word. For example, for the embedded query "what is faster, a cheetah or a puma?" the embedding "cheetahs are faster than pumas" is a closer match than "Cheetahs are faster than pumas." Some lowercasing strategies lowercase all words, including proper nouns, while other strategies lowercase only the first words in sentences.
+- **Implement lowercasing strategies.** Lowercasing allows words that are capitalized, such as words at the beginning of a sentence, to match corresponding words within a sentence. Embeddings are typically case-sensitive, so "Cheetah" and "cheetah" would result in a different vector for the same logical word. For example, for the embedded query "what is faster, a cheetah or a puma?" the embedding "cheetahs are faster than pumas" is a closer match than "Cheetahs are faster than pumas." Some lowercasing strategies lowercase all words, including proper nouns, and other strategies lowercase only the first words in sentences.
 
 - **Guard against prompt injection attacks.** If an attacker knows that a content repository is processed for indexing, the attacker can try to add content to the repository that includes instructions for your language models and agents to evaluate. Never use the data from your content as a source of instructions during any processing tasks.
 
@@ -59,7 +59,7 @@ Semantic searches against the vectorized chunks work well for some types of quer
 The following image shows the JSON of fully enriched content and describes how a search platform might use the metadata.
 
 :::image type="complex" border="true" source="./_images/augmented-metadata-usage-in-search.svg" lightbox="./_images/augmented-metadata-usage-in-search.png" alt-text="Diagram that shows the JSON of fully enriched content and how a search platform might use the metadata."::: 
-   The diagram shows a JSON for one chunk that has six fields: Chunk, CleanedChunk, Title, Summary, Keywords, and Questions. The chunk has the following name-value pairs: Chunk, CleanedChunk, Title, and Summary. It has the following arrays: Keywords and Questions. Each field points to a column in a table that shows its data type, usage, and query type. Each item contains the following values: Chunk (String, Return, Full Text), CleanedChunk (Vector: Float, Search, Vector), Title (String, Search/Return, Full Text), Summary (String, Search/Return, Full Text/Vector), Keywords (Collection of Strings, Search/Filter, Full Text), and Questions (Vector: Float, Search, Vector).
+   The diagram shows JSON for one chunk that has six fields: Chunk, CleanedChunk, Title, Summary, Keywords, and Questions. The chunk has the following name-value pairs: Chunk, CleanedChunk, Title, and Summary. It has the following arrays: Keywords and Questions. Each field points to a column in a table that shows its data type, usage, and query type. Each item contains the following values: Chunk (String, Return, Full Text), CleanedChunk (Vector: Float, Search, Vector), Title (String, Search/Return, Full Text), Summary (String, Search/Return, Full Text/Vector), Keywords (Collection of Strings, Search/Filter, Full Text), and Questions (Vector: Float, Search, Vector).
 :::image-end:::
 
 The metadata columns that you need to add depend on your problem domain, including the type of data you have and the types of queries you want to support. You need to analyze the user experience, available data, and result quality you're trying to achieve. From there, you can determine what metadata might help you address your workload's requirements.
