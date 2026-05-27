@@ -3,7 +3,7 @@ title: Best Practices in Cloud Applications
 description: Learn about some best practices for building cloud applications and how they align with the Azure Well-Architected Framework.
 author: claytonsiemens77
 ms.author: pnp
-ms.date: 05/27/2026
+ms.date: 03/12/2026
 ms.topic: best-practice
 ms.subservice: cloud-fundamentals
 ---
@@ -27,7 +27,7 @@ Each practice in this table maps to one or more [Well-Architected Framework pill
 | Practice | Summary | Related pillars |
 | :------- | :------ | :-------------- |
 | [API design](./api-design.md) | Design web APIs to support platform independence by using standard protocols and agreed-upon data formats. Promote service evolution so that clients can discover functionality without requiring modification. Improve response times by supporting partial responses and providing ways to filter and paginate data. | [Operational&nbsp;Excellence](/azure/well-architected/operational-excellence/), [Performance&nbsp;Efficiency](/azure/well-architected/performance-efficiency/) |
-| [API implementation](./api-implementation.md) | Implement web APIs to be efficient, responsive, scalable, and available. Make actions idempotent, support content negotiation, and follow the HTTP specification. Handle exceptions, and support the discovery of resources. Provide ways to handle large requests and minimize network traffic. | [Operational&nbsp;Excellence](/azure/well-architected/operational-excellence/), [Performance&nbsp;Efficiency](/azure/well-architected/performance-efficiency/) |
+| [API implementation](./api-implementation.md) | Implement web APIs to be efficient, responsive, scalable, and available. Make actions idempotent, support content negotiation, and follow the HTTP specification. Handle exceptions and support the discovery of resources. Provide ways to handle large requests and minimize network traffic. | [Operational&nbsp;Excellence](/azure/well-architected/operational-excellence/), [Performance&nbsp;Efficiency](/azure/well-architected/performance-efficiency/) |
 | [Autoscaling](./auto-scaling.md) | Design apps to dynamically allocate and deallocate resources to satisfy performance requirements and minimize costs. Take advantage of the [autoscale feature in Azure Monitor](/azure/azure-monitor/autoscale/autoscale-overview) and the built-in autoscaling that many Azure components provide. | [Cost&nbsp;Optimization](/azure/well-architected/cost-optimization/), [Performance&nbsp;Efficiency](/azure/well-architected/performance-efficiency/) |
 | [Background jobs](./background-jobs.md) | Implement batch jobs, processing tasks, and workflows as background jobs. Use Azure platform services to host these tasks. Use events or schedules to trigger tasks, and return results to calling tasks. | [Reliability](/azure/well-architected/reliability/), [Operational&nbsp;Excellence](/azure/well-architected/operational-excellence/) |
 | [Caching](./caching.yml) | Improve performance by copying data to fast storage that's close to apps. Cache data that you read often but rarely modify. Manage data expiration and concurrency. See how to populate caches and use the [Azure Managed Redis](/azure/redis/overview) service. | [Performance&nbsp;Efficiency](/azure/well-architected/performance-efficiency/) |
