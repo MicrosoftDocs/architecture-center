@@ -9,6 +9,16 @@ The first diagram shows a reference architecture for SAP on Oracle in Azure. We 
 > [!NOTE]
 > To deploy this reference architecture, you need the appropriate licensing of SAP products and other non-Microsoft technologies.
 
+## Workflow
+
+The following workflow corresponds to the previous diagram:
+
+1. Users and enterprise systems connect from on-premises or peered Azure networks through the hub network into the SAP spoke virtual network.
+1. SAP Web Dispatcher and SAP application servers process requests in the application tier and send database calls to the Oracle primary node.
+1. Oracle Data Guard keeps a synchronized standby database in another availability zone and Oracle Data Guard Observer VMs monitor replication and failover readiness.
+1. If a database node or zone failure occurs, Oracle Data Guard Fast-Start Failover promotes the standby to primary and SAP application servers reconnect to the new primary node.
+1. Shared SAP file systems (such as sapmnt and transport volumes) remain available through the selected resilient NFS tier, and backup services protect database and application VMs.
+
 ## Components
 
 This reference architecture describes a typical SAP production system running on Oracle Database in Azure, in a highly available deployment to maximize system availability. The architecture and its components can be customized based on business requirements (recovery time objective (RTO), recovery point objective (RPO), uptime expectations, system role) and potentially reduced to a single VM. The network layout is simplified to demonstrate the architectural principles of such an SAP environment and isn't intended to describe a full enterprise network.
@@ -130,6 +140,19 @@ Backup for Oracle in Azure can be achieved through several means:
 - **External backup solutions.** See architecture of your backup storage provider, supporting Oracle in Azure.
 
 For non-database VMs, [Azure Backup for VM](/azure/backup/backup-azure-vms-introduction) is recommended to protect SAP application VMs and surround infrastructure like SAP Web Dispatcher.
+
+### Cost Optimization
+
+Cost Optimization is about looking at ways to reduce unnecessary expenses and improve operational efficiencies. For more information, see [Design review checklist for Cost Optimization](/azure/well-architected/cost-optimization/checklist).
+
+The main cost drivers in this architecture are:
+
+- Oracle and SAP-certified VM SKUs and the number of VMs across the application tier, database tier, and observer nodes.
+- Oracle licensing model decisions for OS and database software. Consider use of vCPU-constrained VM SKUs to reduce licensable cores where appropriate.
+- Storage performance tiers and provisioned capacity for Oracle data, log, backup, and shared NFS volumes.
+- Network and high-availability services, especially ExpressRoute or VPN gateways, load balancers, and cross-zone or cross-region replication traffic.
+
+See the [preconfigured estimate in the Azure pricing calculator](https://azure.com/e/df99d09a95454b6f9bd89788ff47f4ff) for a medium-size Oracle highly available architecture to estimate costs for your selected topology and SKUs. To control spend, right-size VM memory and CPU to the measured SAPS and Oracle throughput requirements, use higher-cost storage tiers only where latency and IOPS requirements demand them, and evaluate reservations or savings plans for steady-state compute after validating operational and licensing flexibility.
 
 ## Contributors
 

@@ -90,7 +90,7 @@ The following workflow corresponds to the previous diagram:
   - Your traffic type, like HTTP or SAP GUI
   - The network services that you need, like Secure Sockets Layer (SSL) termination
 
-  For more information, see [Inbound and outbound internet connections for SAP on Azure](./sap-internet-inbound-outbound.yml).
+  For more information, see [Inbound and outbound internet connections for SAP on Azure](./sap-internet-inbound-outbound.md).
 
   Standard Load Balancer supports multiple front-end virtual IP addresses.
 

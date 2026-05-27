@@ -241,7 +241,7 @@ For enterprise chat scenarios, deploy both a [data zone provisioned](/azure/foun
 
 Foundry doesn't support advanced load balancing or failover mechanisms, like round-robin routing or [circuit breaking](/azure/api-management/backends#circuit-breaker), for model deployments. If you require granular redundancy and failover control within a region, host your model access logic outside the managed service. For example, you can build a custom gateway by using Azure API Management. This approach lets you implement custom routing, health checks, and failover strategies. But it also increases operational complexity and shifts responsibility for the reliability of that component to your team.
 
-You can also expose gateway-fronted models as custom API-based tools for your agent. For more information, see [Use a gateway in front of multiple Azure OpenAI deployments or instances](../guide/azure-openai-gateway-multi-backend.yml).
+You can also expose gateway-fronted models as custom API-based tools for your agent. For more information, see [Use a gateway in front of multiple Azure OpenAI deployments or instances](../guide/azure-openai-gateway-multi-backend.md).
 
 #### Reliability in AI Search for enterprise knowledge
 
@@ -361,7 +361,14 @@ If you use customer-managed keys for encryption, you can host both the customer-
 
 ##### Foundry portal employee access
 
-When you onboard employees to Foundry projects, assign the minimum permissions required for their role. Use Microsoft Entra ID groups and Azure role-based access control (Azure RBAC) to enforce separation of duties. For example, distinguish agent developers from data scientists who handle fine-tuning tasks. But understand the limitations and risks.
+When you onboard employees to Foundry projects, assign the minimum permissions required for their role. Use Microsoft Entra ID groups and Azure role-based access control (Azure RBAC) to enforce separation of duties. For example, distinguish agent developers from data scientists who handle fine-tuning tasks. But understand the limitations and risks. Map personas to the [Foundry built-in roles](/azure/foundry/concepts/rbac-foundry) and Azure RBAC roles, for example:
+
+| Persona | Built-in role | Scope |
+| :------ | :------------ | :---- |
+| Foundry resource manager | Foundry Account Owner | Foundry account |
+| Agent developer or data scientist | Foundry User on the Foundry project, plus Reader on the Foundry account | Foundry project and Foundry account |
+
+For the permissions in each built-in role and additional enterprise mapping examples, see [Role-based access control for Microsoft Foundry](/azure/foundry/concepts/rbac-foundry).
 
 The Foundry portal runs many actions by using the service's identity rather than the employee's identity. As a result, employees that have limited Azure RBAC roles might have visibility into sensitive data, like chat conversations, agent definitions, and configuration. This Foundry portal design can inadvertently bypass your desired access constraints and expose more information than intended.
 
@@ -503,7 +510,7 @@ Consider implementing the following types of security policies to strengthen you
 
 Cost Optimization focuses on ways to reduce unnecessary expenses and improve operational efficiencies. For more information, see [Design review checklist for Cost Optimization](/azure/well-architected/cost-optimization/checklist).
 
-This [Azure pricing estimate](https://azure.com/e/9ed058e3b57b4386b7ac1bd3f782a344) includes only the components in this architecture, so customize it to match your usage. The most expensive components in the scenario are Azure Cosmos DB, AI Search, and DDoS Protection. Other notable costs include the chat UI compute and Application Gateway. Optimize those resources to reduce costs.
+This [preconfigured estimate in the Azure pricing calculator](https://azure.com/e/c7ecb32637e348daaaf3dbab4454f566) includes only the components in this architecture, so customize it to match your usage. The most expensive components in the scenario are Azure Cosmos DB, AI Search, and DDoS Protection. Other notable costs include the chat UI compute and Application Gateway. Optimize those resources to reduce costs.
 
 #### Foundry Agent Service
 
@@ -655,7 +662,7 @@ To prevent service disruptions, ensure safe and controlled agent deployment by i
 
 - **Enforce access control and user-level data isolation.** In this architecture, the chat UI application layer is the access boundary between end users and your agents. The Foundry project API sits behind private endpoints and isn't directly accessible to consumers. Your application code must authenticate end users through Microsoft Entra ID and scope each conversation and its associated data to the authenticated identity.
 
-  When you use project-level APIs, any principal that has the Azure AI User role on the Foundry project can interact with all agents in that project. Your application's authentication and authorization layer, not Foundry's project RBAC, is what enforces which users can access which agents and conversations. Design your session management to prevent cross-user data access, and apply your workload's data governance and retention policies to the conversation data your application stores.
+  When you use project-level APIs, any principal that has the Foundry User role on the Foundry project can interact with all agents in that project. Your application's authentication and authorization layer, not Foundry's project RBAC, is what enforces which users can access which agents and conversations. Design your session management to prevent cross-user data access, and apply your workload's data governance and retention policies to the conversation data your application stores.
 
 - **Plan for progressive rollout and failback.** Foundry doesn't provide built-in support for blue-green or canary deployments of agents. If you require these deployment patterns or controlled migration of users between agent versions, implement a routing layer, like an API gateway or custom router, in front of the agent API. This routing layer lets you shift traffic incrementally between agent versions, monitor the effect, and perform a full switchover when ready.
 
