@@ -485,7 +485,7 @@ All [cost optimization strategies in the baseline architecture](./baseline-micro
 This architecture greatly benefits from Azure landing zone [platform resources](#platform-team-owned-resources). For example, resources such as Azure Firewall and DDoS Protection transition from workload to platform resources. Even if you use those resources through a chargeback model, the added security and cross-premises connectivity are more cost-effective than self-managing those resources. Take advantage of other centralized offerings from your platform team to extend those benefits to your workload without compromising its service-level objective, recovery time objective, or recovery point objective.
 
 > [!NOTE]
-> The pricing estimate doesn't include shared platform infrastructure such as Azure Firewall, Azure Bastion, DDoS Protection, or hub networking resources. The platform team manages those resources in the connectivity subscription, and costs are shared across workloads.
+> The preconfigured pricing estimate doesn't include shared platform infrastructure such as Azure Firewall, Azure Bastion, DDoS Protection, or hub networking resources. The platform team manages those resources in the platform subscriptions, and costs are shared across workloads.
 
 > [!IMPORTANT]
 > Don't try to optimize costs by consolidating Foundry dependencies as platform resources. These services must remain workload resources.
