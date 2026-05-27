@@ -24,80 +24,81 @@ The system could implement several throttling or related strategies, including:
 
 - **Outbound rate limits:** Cap your own outbound calls when an external dependency fails or returns errors. Lower the in-flight request count to stop flooding logs and to avoid retry costs against an unhealthy dependency. Restore normal request flow after the dependency recovers. For example, [NServiceBus](https://docs.particular.net/nservicebus/recoverability/#automatic-rate-limiting) implements this functionality.
 
-The figure shows an area graph of resource use (a combination of memory, CPU, bandwidth, and other factors) against time for applications that are making use of three features. A feature is an area of functionality, such as a component that performs a specific set of tasks, a piece of code that performs a complex calculation, or an element that provides a service such as an in-memory cache. These features are labeled A, B, and C.
+The following chart shows resource use (a combination of memory, CPU, bandwidth, and other factors) over time for an application that uses three features, labeled A, B, and C. A feature is a specific area of functionality, such as a component that performs a specific set of tasks, a piece of code that performs a complex calculation, or an element that provides a service such as an in-memory cache.
 
-![Figure 1 - Graph showing resource use against time for applications running on behalf of three users.](./_images/throttling-resource-utilization.png)
+:::image type="complex" border="false" source="./_images/throttling-resource-utilization.png" alt-text="Graph that shows resource use against time for applications that run on behalf of three users." lightbox="./_images/throttling-resource-utilization.png":::
 
-> The area below a feature's line shows the resources that feature consumes. For example, the area below Feature A's line is the resources used by Feature A, and the area between Feature A and Feature B is the resources used by Feature B. The combined areas equal total system resource use.
+:::image-end:::
 
-The figure shows the effects of deferring operations. Just before time T1, total resource use reaches the threshold and the applications risk exhausting available resources. Feature B is less critical than Feature A or Feature C, so the system disables Feature B and releases its resources. Between times T1 and T2, applications using Feature A and Feature C continue normally. By time T2, their resource use has fallen enough to re-enable Feature B.
 
-You can combine autoscaling, graceful degradation, and throttling to keep applications responsive and within SLAs. When demand is expected to stay high, throttling holds the line while the system scales out. After scaling completes, the system restores full functionality.
+The chart is a stacked area chart. The area below Feature A's line shows the resources that Feature A consumes, the area between Feature A's and Feature B's lines shows the resources that Feature B consumes, and the area between Feature B's and Feature C's lines shows the resources that Feature C consumes. Feature C's line sits at the top of the stack, so it also shows total system resource use over time.
 
-The next figure shows total resource use over time and illustrates how throttling combines with autoscaling and other compensating controls.
+The chart illustrates graceful feature degradation. Just before time T1, total resource use approaches the threshold and risks exhausting available capacity. Feature B is less critical than Feature A or Feature C, so the system turns off Feature B and releases its resources. Between times T1 and T2, Feature A and Feature C continue normally. By time T2, total resource use has fallen enough to turn Feature B back on.
+
+You can combine autoscaling, graceful degradation, and throttling to keep applications responsive and within SLAs. When you expect demand to stay high, throttling holds the line while the system scales out. After scaling completes, the system restores full functionality.
+
+The next chart shows total resource use over time and illustrates how throttling combines with autoscaling and other compensating controls.
 
 ![Figure 2 - Graph showing the effects of combining throttling with autoscaling](./_images/throttling-autoscaling.png)
 
-At time T1, the system reaches the soft limit and starts to scale out. If new resources don't arrive in time, the existing resources can be exhausted and the system can fail. Throttling holds the line until scaling completes, then relaxes.
+At time T1, the system reaches the soft limit and starts to scale out. If new resources don't arrive in time, demand can exhaust the existing resources, and the system can fail. Throttling rejects excess requests during scale-out to keep resource use below the hard limit, then lifts those restrictions after new capacity comes online.
 
 > [!TIP]
-> Edge controls such as [Azure DDoS Protection](/azure/ddos-protection/ddos-protection-overview) and web application firewall (WAF) rate-limit rules sit above this pattern. They drop volumetric or abusive traffic at the network boundary before requests reach your application. The Throttling pattern meters *legitimate* traffic against application-defined limits, and doesn't replace those edge controls. Use both layers together: DDoS protection won't stop a user from running a runaway job, and application throttling isn't designed to absorb a volumetric attack.
+> Edge controls and the Throttling pattern address different problems. Edge controls, such as [Azure DDoS Protection](/azure/ddos-protection/ddos-protection-overview) and web application firewall (WAF) rate-limit rules, run at the network boundary and drop volumetric or abusive traffic before it reaches your application. The Throttling pattern runs inside your application and meters *legitimate* traffic against application-defined limits. Use both layers together. DDoS protection doesn't stop a legitimate user from running a runaway job, and application throttling doesn't absorb a volumetric attack.
 
-## Issues and considerations
+## Problems and considerations
 
-You should consider the following points when deciding how to implement this pattern:
+Consider the following points as you decide how to implement this pattern:
 
-- Throttling, and the strategy you pick, is an architectural decision that affects the whole system. Decide on it early. Retrofitting throttling into an existing system is expensive.
+- Throttling is an architectural decision that affects the whole system, so decide on it early. Retrofitting it later is expensive.
 
-- Align your throttling limits with the component that saturates first.
+- Align throttling limits with the component that saturates first.
 
-  Request rate is the most familiar dimension to limit, but the real bottleneck is often concurrent in-flight requests, queue depth, CPU or memory utilization, or a downstream dependency's own limitations. A requests-per-second limit doesn't protect a system whose bottleneck is concurrency at a fan-out point.
+  Request rate is the most familiar dimension to limit, but the real bottleneck is often concurrent in-flight requests, queue depth, CPU or memory utilization, or a downstream dependency's own limits. A requests-per-second limit doesn't protect a system whose bottleneck is concurrency at a fan-out point.
 
-  Identify the saturation point at each boundary where you enforce throttling; for example, the gateway, the service, a partition, or a specific downstream dependency. Then set the limit on that dimension. For concurrency-bounded protection at fan-out points, see the [Bulkhead pattern](./bulkhead.md), which complements throttling.
+  At each throttling enforcement boundary, such as the gateway, the service, a partition, or a downstream dependency, identify what saturates first and set the limit on that dimension. For concurrency-bounded protection at fan-out points, see the [Bulkhead pattern](./bulkhead.md), which complements throttling.
 
-- Pick a limiting algorithm intentionally. Match the algorithm to the tolerance of the component you're protecting.
+- Pick a limiting algorithm intentionally. Match it to the tolerance of the component that you're protecting.
 
   | Algorithm | Behavior and best fit |
   | :-------- | :-------------------- |
   | Token bucket | Supports bursts up to a configured size while enforcing a steady refill rate. Fits gateways that need to absorb short spikes. |
-  | Leaky bucket | Emits at a constant rate. Fits backends that need a steady ingress rate. |
+  | Leaky bucket | Emits at a constant rate. Fits back ends that need a steady ingress rate. |
   | Fixed window | Simple to implement, but admits back-to-back bursts at window boundaries. |
   | Sliding window | Smooths the window-boundary problem of fixed windows at the cost of more state. |
 
-- Decide who feels the limit. Throttling at a coarse boundary, like a regional gateway, can affect many unrelated users when only a few are causing the load.
+- Decide who feels the limit. Throttling at a coarse boundary, such as a regional gateway, can affect many unrelated users when only a few drive the load.
 
-- Decide where the counter lives when the throttle spans multiple nodes. Local counters are fast but undercount when the same caller hits multiple replicas. A centralized counter, stored in a shared dependency like Redis, sees all requests but adds latency to every decision. You can approximate a global rate by dividing the limit among replicas with periodic reconciliation.
+- Decide where the counter lives when one limit spans multiple nodes. Local counters are fast but undercount when the same caller hits multiple replicas. A centralized counter in a shared store like Redis sees every request but adds latency to each decision. You can approximate a global rate by dividing the limit among replicas and reconciling periodically.
 
-- Throttling decisions must be performed quickly. The system must be capable of detecting load increases, reacting, and reverting to its original state once load eases. This requires continuous performance instrumentation.
+- Make throttling decisions quickly. The system must detect rising load, react, and return to normal after load eases. This process requires continuous performance instrumentation.
 
-- Shed load proactively, not at the edge of collapse. A throttle that only rejects after a component is fully saturated causes latency to spike before callers see any back-pressure.
+- Shed load proactively, not at the edge of collapse. A throttle that only rejects after a component saturates causes latency to spike before callers see any back-pressure.
 
-  As utilization approaches the hard limit, start rejecting a growing fraction of requests; this gives callers earlier signals to back off and avoids the latency collapse that abrupt limits often trigger. Use p99 latency against your SLO as the primary trigger; average utilization can look healthy while p99 has already breached.
+  As utilization approaches the hard limit, start rejecting a growing fraction of requests. Early rejection signals callers to back off and prevents the latency collapse that abrupt limits often trigger. Use p99 latency against your SLO as the primary trigger. Average utilization can look healthy while p99 has already breached.
 
-  Where you can distinguish request value, shed lower value or more retryable work first; see the [Priority Queue pattern](./priority-queue.yml).
+  Where you can distinguish request value, shed lower-value or more retryable work first. FOr more information, see the [Priority Queue pattern](./priority-queue.yml).
 
-- When a service rejects a request temporarily, it should return a specific status code like 429 ("Too Many Requests") or 503 ("Service Unavailable") so the client knows the rejection is due to throttling.
+- When a service rejects a request temporarily, return a status code that tells the client that the rejection is because of throttling:
 
-  - HTTP 429 indicates the calling application sent too many requests in a time window and exceeded a predetermined limit.
-  - HTTP 503 indicates the service isn't ready to handle the request, often because of an unexpected load spike.
+  - HTTP 429 Too Many Requests: The caller exceeded a configured request rate over a defined window.
+  - HTTP 503 Service Unavailable: The service can't handle the request right now, often because of an unexpected load spike.
 
-  The client waits before retrying. Include a `Retry-After` HTTP header so the client can pick a retry strategy.
+  Include a `Retry-After` HTTP header so that the client can pick a retry strategy. Return enough context for the caller to retry deliberately instead of guessing. For example, name the limit that was exceeded, clarify the affected scope, or suggest a rate that would succeed. Unexplained rejections don't help callers adapt.
 
-  Beyond `Retry-After`, return enough context for the caller to retry deliberately rather than blindly. For example, include the limit that was exceeded, clarify the affected scope, or suggest a rate that would succeed. Opaque rejections don't help callers adapt.
+- Propagate overload signals from your dependencies instead of absorbing them. A service that throttles its callers must also honor the throttling responses that it receives from its own downstream dependencies. If your service hides a downstream 429 or 503 response by retrying silently or by returning a generic 500 response, callers can't slow down, retries amplify, and the overload cascades back upstream. The [Retry Storm antipattern](../antipatterns/retry-storm/index.md) describes this failure mode. Surface back-pressure to upstream callers so that the entire call chain sheds load together.
 
-- Propagate important overload signals from your dependencies; don't absorb them. A service that throttles its callers should also respect the throttling responses it receives from its own downstream dependencies. If your service masks a downstream's 429 or 503 response by retrying silently or by translating it into an opaque 500, callers can't slow down appropriately, retries amplify, and the overload cascades back through the system. This is the failure mode described by the [Retry Storm antipattern](../antipatterns/retry-storm/index.md). Surface back-pressure to upstream callers so the entire call chain can shed load together.
+- Make rejection cheaper than the work that it prevents. If refusing a request requires heavy authentication, deep parsing, or complex policy evaluation, a flood of rejections can still saturate the system. Reject as early in the request pipeline as possible, and load test the rejection path itself.
 
-- Make rejection cheaper than the work it prevents. If refusing a request involves heavy authentication, deep parsing, or complex policy evaluation, a flood of rejected requests can still saturate the system. Reject as early in the request pipeline as you can, and load test the rejection path itself.
+- Throttling can't always buy enough time for autoscale. If demand grows faster than new capacity comes online, even a throttled system can fail. If that outcome is unacceptable, keep larger capacity reserves and configure more aggressive autoscaling.
 
-- Throttling can't always buy enough time for autoscale. If demand grows faster than new capacity comes online, even a throttled system can fail. Where this is unacceptable, keep larger capacity reserves and configure more aggressive autoscaling.
+- Don't use caching as a substitute for throttling. A cache lowers average load on the origin but doesn't bound peak load. Cache misses pass through to the origin, and a popular key expiring under heavy traffic can cause many callers to race to refill it. Use caching to reduce normal pressure and throttling to bound the worst case. For more information, see the [Cache-Aside pattern](./cache-aside.yml).
 
-- Don't substitute caching for throttling. A cache lowers average load on the origin but doesn't bound peak load. Cache misses pass through to the origin, and a popular key expiring under heavy traffic can cause many callers to race to refill it. Use caching to reduce normal pressure and throttling to bound the worst case; see the [Cache-Aside pattern](./cache-aside.yml).
+- Normalize resource costs for different operations because they generally don't carry equal execution costs. For example, throttling limits might be higher for read operations and lower for write operations. Ignoring per-operation cost can exhaust capacity and create an attack vector.
 
-- Normalize resource costs for different operations as they generally don't carry equal execution costs. For example, throttling limits might be higher for read operations and lower for write operations. Ignoring per-operation cost can exhaust capacity and create an attack vector.
+- Make throttling configuration changeable at runtime. When abnormal load arrives, you need to adjust limits without a deployment. Deployments are slow and risky during an incident. The [External Configuration Store pattern](./external-configuration-store.md) externalizes the configuration so that you can change it at runtime.
 
-- Make throttling configuration changeable at runtime. When abnormal load arrives, you need to adjust limits without a deployment. Deployments are slow and risky during an incident. The [External Configuration Store pattern](./external-configuration-store.md) externalizes the configuration so you can change it on the fly.
-
-- Consider adaptive limits as an alternative to static ones. Some throttling SDKs react to latency or queue depth signals so the limit tracks actual component conditions. Always pair an adaptive limiter with a hard ceiling.
+- Consider adaptive limits instead of static ones. Some throttling SDKs react to latency or queue-depth signals so that the limit tracks actual component conditions. Always pair an adaptive limiter with an absolute maximum.
 
 - Revisit your limits as the workload evolves. Adaptive limiters can't track every kind of drift, such as SLO changes, changes in dependency capacity, or shifts in per-operation cost. Schedule periodic operator review against those inputs.
 
