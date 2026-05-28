@@ -24,7 +24,7 @@ Similar problems can arise with any external system that your development team d
 
 ## Solution
 
-Isolate the different subsystems by placing an anti-corruption layer between them. This layer translates communication between the two systems. By using this approach, you can keep one system unchanged while avoiding compromise to the design and technological approach of the other.
+Isolate the different subsystems by placing an anti-corruption layer between them. This layer translates communication between the two systems. By using this approach, you can keep one system unchanged without compromising the design and technological approach of the other.
 
 :::image type="complex" source="./_images/anti-corruption-layer.svg" border="false" lightbox="./_images/anti-corruption-layer.svg" alt-text="Diagram that shows an overview of the Anti-Corruption Layer pattern.":::
     The diagram shows a central anti-corruption layer component that acts as the translation boundary between two subsystems. On the left, within a dotted boundary labeled subsystem A, three microservices connect via bidirectional arrows to three data stores. Arrows point from each of the microservices in subsystem A to the anti-corruption layer. Three arrows point from the anti-corruption layer back to each microservice. These arrows represent bidirectional communication between subsystem A and the anti-corruption layer. On the right, within a dotted boundary, a bidirectional arrow connects subsystem B and a data store. Arrows point from subsystem B and from the data store to the anti-corruption layer. Two arrows point from the anti-corruption layer to subsystem B and the data store. The overall structure illustrates how the anti-corruption layer mediates all communication between the microservices of subsystem A and the components of subsystem B by translating their respective data models and semantics without the need for either subsystem to understand the other's internal structure.
@@ -82,7 +82,7 @@ If this pattern introduces trade-offs within a pillar, consider them against the
 
 ## Example
 
-This pattern is conceptual and originates from the domain‑driven design software development approach. Azure services like Azure API Management or Azure Functions might assist with protocol handling and translation, but the core purpose of an anti‑corruption layer is to protect the domain model, not to prescribe any specific product choice.
+This pattern is conceptual and originates from the domain-driven design software development approach. Azure services like Azure API Management or Azure Functions might assist with protocol handling and translation, but the core purpose of an anti-corruption layer is to protect the domain model, not to prescribe any specific product choice.
 
 In the following example, API Management handles the external exposure and protocol concerns. Azure Functions implements the anti-corruption layer through domain mapping between the new system and the legacy system. Azure Monitor and Application Insights provide the observability that you need to track the success and latency of the translation between the two subsystems.
 
