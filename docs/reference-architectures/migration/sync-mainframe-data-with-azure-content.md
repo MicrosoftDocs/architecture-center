@@ -1,6 +1,6 @@
 [!INCLUDE [header_file](../../../includes/sol-idea-header.md)]
 
-This article outlines an implementation plan to replicate and sync data during modernization to Azure. It describes technical aspects like data stores, tools, and services.
+This article outlines an implementation plan for replicating and syncing data during modernization to Azure. It describes technical aspects like data stores, tools, and services.
 
 ## Architecture
 
