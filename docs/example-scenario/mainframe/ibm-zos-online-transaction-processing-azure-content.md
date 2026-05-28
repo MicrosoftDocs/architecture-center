@@ -1,6 +1,6 @@
 [!INCLUDE [header_file](../../../includes/sol-idea-header.md)]
 
-Online transaction processing (OLTP) systems are the face of your business because they interact directly with customers. By migrating z/OS mainframe OLTP workloads to Azure platform as a service (PaaS) services like Azure App Service, Azure Kubernetes Service (AKS), Azure Functions, and Azure SQL, your business gains a dynamically adaptable infrastructure that enables faster product launches and reduces operational costs.
+Because customers interact directly with online transaction processing (OLTP) systems, these systems are often a customer's first point of contact with your business. When you migrate z/OS mainframe OLTP workloads to Azure platform as a service (PaaS) services like Azure App Service, Azure Kubernetes Service (AKS), Azure Functions, and Azure SQL, your business gains a dynamically adaptable infrastructure that enables faster product launches and reduces operational costs.
 
 ## Architecture
 
@@ -9,10 +9,8 @@ Online transaction processing (OLTP) systems are the face of your business becau
 The following diagram shows an architecture of an OLTP system that runs on a z/OS mainframe before migration to Azure:
 
 :::image type="complex" source="media/ibm-zos-online-transaction-processing-on-zos.svg" alt-text="Diagram of an OLTP architecture on z/OS." lightbox="media/ibm-zos-online-transaction-processing-on-zos.svg" border="false":::
-   The diagram shows the architecture of an OLTP application that runs on a z/OS mainframe. An on-premises user accesses the system via a web interface and connects through various communication protocols such as HTTPS, SNA LU 6.2, and Telnet 3270. The system is divided into several layers that are depicted as numbered boxes. Arrows connect the boxes to show how different components interact within the mainframe environment. Box number one includes the communication protocols. Double-sided arrows connect box one with the on-premises user and the TN3270 terminal. Box number two includes transaction managers, including CICS and IMS. Double-sided arrows connect boxes one and two. The application layer includes boxes numbered four and five for front-end and business logic components. Double-sided arrows connect boxes three and four. One arrow points from the application layer to box six, which contains other services. Box number five is the data layer, which contains databases, like Db2 and IMS DB, and VSAM files. A double-sided arrow connects the data layer and the application layer. One arrow points from the data layer to box six. Box number six includes other services, such as security, management, monitoring, and reporting services.
+   The diagram shows the architecture of an OLTP application that runs on a z/OS mainframe. An on-premises user accesses the system via a web interface and connects through various communication protocols, such as HTTPS, SNA LU 6.2, and Telnet 3270. The system is divided into several layers that are depicted as numbered boxes. Arrows connect the boxes to show how different components interact within the mainframe environment. Box number one includes the communication protocols. Double-sided arrows connect box one with the on-premises user and the TN3270 terminal. Box number two includes transaction managers, including CICS and IMS. Double-sided arrows connect boxes one and two. The application layer includes boxes numbered three and four for front-end and business logic components. A double-sided arrow connects boxes three and four. One arrow points from the application layer to box six, which contains other services. Box number five is the data layer, which contains databases, like Db2 and IMS DB, and VSAM files. A double-sided arrow connects the data layer with the application layer. AN arrow points from the data layer to box six. Box number six contains security, management, monitoring, and reporting services.
 :::image-end:::
-
-
 
 1. Users connect to the mainframe by using standard mainframe protocols like TN3270 and HTTPS.
 
@@ -28,21 +26,21 @@ The following diagram shows an architecture of an OLTP system that runs on a z/O
 
 ### After migration
 
-The following diagram shows this same architecture after it's been migrated to Azure.
+The following diagram shows this same architecture after it's migrated to Azure.
 
 :::image type="complex" source="media/ibm-zos-online-transaction-processing-on-azure.svg" alt-text="Diagram that shows an architecture to migrate a z/OS OLTP workload to Azure." lightbox="media/ibm-zos-online-transaction-processing-on-azure.svg" border="false":::
-   The architecture is divided into several layers that represent different components and their interactions. Each layer uses numbers and arrows to highlight the flow of data. Layer 1 represents an on-premises user. A double-sided arrow connects the user and Azure ExpressRoute. Layer 2 represents input requests. This layer contains two boxes that are connected by a dotted, double-sided arrow labeled Azure web application firewall. The left box contains icons for Azure Front Door and Azure Traffic Manager. A double-sided arrow connects the left box with an icon that represents the internet. Another double-sided arrow connects the internet icon with Microsoft Entra ID. A box on the right contains icons for Azure Application Gateway and Azure Load Balancer. A double-sided arrow connects this box with a box labeled front end. The box labeled front end is inside of the application layer. It contains icons for Azure API Management, Azure App Service, Azure Kubernetes Service (AKS), and Azure Spring Apps. Three dotted, double-sided arrows connect the front-end box with a box labeled business logic. This box contains icons for Azure Functions, Azure WebJobs, AKS, and Azure Container Apps. Icons for Azure Service Bus and Azure Queue Storage (asynchronous) are above and below the three arrows. A double-sided arrow connects the application layer with the cache layer. The cache layer contains Azure Managed Redis. An arrow points from the cache layer to the monitoring layer. In this layer, a dotted arrow passes from Azure Monitor through Azure Monitor logs and to a blue box that contains icons labeled Log Analytics dashboard and alerts. The monitoring layer also includes Application Insights. A dotted arrow points from Application Insights to the blue box. Another arrow points from the application layer to Application Insights. The data layer contains two boxes. One box contains icons for Azure Table Storage and Azure Files. The other box contains Azure SQL, Azure Cosmos DB, Azure Database for PostgreSQL, and Azure Database for MySQL. A double-sided arrow connects the data layer and the application layer.
+   The architecture is divided into several layers that represent different components and their interactions. Numbers and arrows highlight the flow of data. Layer 1 represents an on-premises user. A double-sided arrow connects the user and Azure ExpressRoute. Layer 2 represents input requests. This layer contains two boxes that are connected by a dotted, double-sided arrow labeled Azure Web Application Firewall. The box on the left contains Azure Front Door. A double-sided arrow connects that box with the internet. Another double-sided arrow connects the internet with Microsoft Entra ID. The box on the right contains Azure Application Gateway and Azure Load Balancer. A double-sided arrow connects this box with a box labeled front end. The box labeled front end is inside the application layer. It contains icons for Azure API Management, Azure App Service, Azure Kubernetes Service (AKS), and Azure Spring Apps. Three dotted, double-sided arrows connect the front-end box with a box labeled business logic. This box contains Azure Functions, WebJobs, and AKS. Icons for Azure Service Bus and Azure Queue Storage (asynchronous) are above and below the three arrows. A double-sided arrow connects the application layer with the cache layer. The cache layer contains Azure Managed Redis. An arrow points from the cache layer to the monitoring layer. In this layer, a dotted arrow passes from Azure Monitor through Azure Monitor Logs and then to a blue box that contains icons labeled Log Analytics dashboard and alerts. The monitoring layer also includes Application Insights. A dotted arrow points from Application Insights to the blue box. Another arrow points from the application layer to Application Insights. The data layer contains two boxes. One box contains Azure Table Storage and Azure Files. The other box contains Azure SQL, Azure Cosmos DB, Azure Database for PostgreSQL, and Azure Database for MySQL. A double-sided arrow connects the data layer with the application layer.
 :::image-end:::
 
 *Download a [Visio file](https://arch-center.azureedge.net/ibm-zos-online-transaction-processing-on-azure.vsdx) of this architecture.*
+
 ## Workflow
+
 1. Mainframe users are familiar with 3270 terminals and on-premises connectivity. In the migrated system, they interact with Azure applications via the public internet or via a private connection that's implemented via Azure ExpressRoute. Microsoft Entra ID provides authentication.
-1. Client requests are routed through a global load balancing service such as Azure Front Door or Azure Traffic Manager, which helps serve users across regions. Based on workload rules, traffic can then be directed to Azure Application Gateway or Azure Load Balancer for application-level distribution, while a web application firewall (WAF) helps protect the service.
+1. Client requests are routed through a global load balancing service such as Azure Front Door or Azure Traffic Manager, which helps serve users across regions. Based on workload rules, traffic can then be directed to Azure Application Gateway or Azure Load Balancer for application-level distribution. A web application firewall (WAF) helps protect the service.
 1. The front end of the application layer uses Azure services like Azure App Service to implement application screens and to interact with users. The screens are migrated versions of the mainframe screens.
-1. COBOL and PL/I code in the back end of the application layer implement the business logic. The code can use services including Azure Functions, WebJobs, and Azure Container Apps. Applications can run in an Azure Kubernetes Service (AKS) container.
-
-
-1. Azure Managed Redis provides in-memory caching to accelerate high-throughput OLTP transactions. In-Memory OLTP, a feature of Azure SQL Database and Azure SQL Managed Instance, provides additional transaction-processing acceleration.
+1. COBOL and PL/I code in the back end of the application layer implement the business logic. The code can use services like Azure Functions, WebJobs, and Azure Container Apps. Applications can run in an AKS container.
+1. Azure Managed Redis provides in-memory caching to speed up high-throughput OLTP transactions. In-Memory OLTP, a feature of Azure SQL Database and Azure SQL Managed Instance, provides additional transaction-processing speed.
 1. The data layer can include:
 
    - Files, tables, and blobs implemented by using Azure Storage.
@@ -54,9 +52,7 @@ The following diagram shows this same architecture after it's been migrated to A
 
 1. Azure-native services like Application Insights and Azure Monitor proactively monitor the health of the system. You can integrate Azure Monitor Logs by using an Azure dashboard.
 1. The data layer can store migrated mainframe data in Azure Storage (Azure Files, Azure Table Storage), Azure SQL family databases, Azure Database for PostgreSQL, Azure Database for MySQL, or Azure Cosmos DB.
-
-
-1. Application Insights and Azure Monitor provide application and infrastructure monitoring. Azure Monitor Logs feeds Log Analytics dashboards and alerts for operational visibility.
+1. Application Insights and Azure Monitor provide application and infrastructure monitoring. Azure Monitor Logs feeds Log Analytics dashboards and alerts to provide operational visibility.
 
 ### Components
 
@@ -84,17 +80,17 @@ Azure provides managed services that support more secure, scalable, and efficien
 
 - [App Service](/azure/well-architected/service-guides/app-service-web-apps) is a fully managed service for building, deploying, and scaling web apps. You can build apps by using .NET, Node.js, Java, Python, or PHP. The apps can run in containers or on Windows or Linux. In a mainframe migration, the front-end screens or web interface can be coded as HTTP-based REST APIs. They can be segregated according to the mainframe application and can be stateless to orchestrate a microservices-based system. In this architecture, it delivers REST APIs and web interfaces that replace 3270 terminal screens and mainframe user interfaces.
 
-- [Azure Container Apps](/azure/container-apps/overview) is a fully managed serverless platform that allows you to maintain less infrastructure and save costs while running containerized applications. In this architecture, it integrates with API Management, Service Bus, and Front Door, and provides built-in scaling (including scale-to-zero), making it ideal for event-driven and HTTP-based workloads in this architecture.
+- [Container Apps](/azure/container-apps/overview) is a fully managed serverless platform that reduces your infrastructure maintenance and saves money when you run containerized applications. In this architecture, it integrates with Azure API Management, Azure Service Bus, and Azure Front Door and provides built-in scaling (including scale-to-zero), which makes it ideal for event-driven and HTTP-based workloads in this architecture.
 
-- [WebJobs](/azure/app-service/webjobs-create) is a feature of App Service that runs a program or script in the same instance as a web app, API app, or mobile app. A web job can be a good choice for implementing sharable and reusable program logic. In this architecture, it executes batch processing tasks and [background tasks](/azure/app-service/webjobs-create) that were previously handled by mainframe job schedulers.
+- [WebJobs](/azure/app-service/webjobs-create) is a feature of App Service that runs a program or script in the same instance as a web app, API app, or mobile app. A web job can be a good choice for implementing sharable and reusable program logic. In this architecture, it runs batch processing tasks and [background tasks](/azure/app-service/webjobs-create) that were previously handled by mainframe job schedulers.
 
-- [Azure API Management](/azure/well-architected/service-guides/azure-api-management) is a fully managed platform as a service (PaaS) that supports the publishing, routing, securing, logging, and analytics of APIs. You can control how the data is presented and extended and which apps can access it. You can also restrict access to your apps or allow third parties. In this architecture, it manages access to modernized APIs that expose mainframe business logic and controls how legacy data is accessed by new applications.
+- [API Management](/azure/well-architected/service-guides/azure-api-management) is a fully managed platform as a service (PaaS) that supports the publishing, routing, securing, logging, and analytics of APIs. You can control how the data is presented and extended and which apps can access it. You can also restrict access to your apps or allow third parties. In this architecture, it manages access to modernized APIs that expose mainframe business logic and controls how legacy data is accessed by new applications.
 
 - [Azure Managed Redis](/azure/redis/overview) is a managed in-memory caching service for sharing data and state among compute resources. You can improve the performance of high-throughput OLTP applications by designing them to scale and to use an in-memory data store such as Azure Managed Redis. In this architecture, it accelerates data access for high-throughput OLTP workloads that replace mainframe transaction processing systems.
 
 - [Azure Functions](/azure/well-architected/service-guides/azure-functions) is a serverless compute service. It provides an environment for running small pieces of code, called functions, without having to establish an application infrastructure. You can use it to process bulk data, integrate systems, work with Internet of Things, and build simple APIs and microservices. Use microservices to create servers that connect to Azure services and are always up to date. In this architecture, it handles event-driven processing and lightweight business logic components migrated from mainframe transaction managers.
 
-- [Azure Service Bus](/azure/well-architected/service-guides/azure-service-bus) is a reliable cloud messaging service for simple hybrid integration. Service Bus and Storage queues can connect the front end with the business logic in the migrated system. Azure Service Bus enables reliable messaging between distributed systems. In this architecture, it facilitates asynchronous communication between migrated mainframe components that previously used mainframe messaging systems.
+- [Service Bus](/azure/well-architected/service-guides/azure-service-bus) is a reliable cloud messaging service for simple hybrid integration. Service Bus and Storage queues can connect the front end with the business logic in the migrated system. Azure Service Bus enables reliable messaging between distributed systems. In this architecture, it facilitates asynchronous communication between migrated mainframe components that previously used mainframe messaging systems.
 
 #### Storage and database
 
@@ -140,7 +136,7 @@ This architecture is ideal for OLTP workloads that have the following characteri
 
 - Their usage varies greatly over time, so they benefit from flexible scaling and usage-based pricing.
 
-- Complex monolithic Mainframe business logic can be modernized to RESTful APIs and scaled with traffic management and load balancing services.
+- Complex monolithic mainframe business logic can be modernized to RESTful APIs and scaled with traffic management and load balancing services.
 
 ## Contributors
 
