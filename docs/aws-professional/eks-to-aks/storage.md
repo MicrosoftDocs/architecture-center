@@ -90,7 +90,15 @@ Amazon FSx for OpenZFS is supported in both EKS Standard and EKS Auto Mode.
 
 Amazon File Cache is supported in both EKS Standard and EKS Auto Mode.
 
-To optimize storage configurations and manage backups and snapshots, use tools like [AWS Compute Optimizer](https://aws.amazon.com/compute-optimizer/) and [Velero](https://velero.io/).
+### Backup
+
+You can back up your Amazon Elastic Kubernetes Service (EKS) persistent volumes using [Amazon EKS Backup (part of AWS Backup)](https://docs.aws.amazon.com/aws-backup/latest/devguide/eks-backups.html), or [Velero](https://velero.io/). Amazon EKS Backup is the easiest method because it handles everything natively without extra tools.
+
+Also, [CSI snapshot controller](https://docs.aws.amazon.com/eks/latest/userguide/csi-snapshot-controller.html) provides snapshot functionality to EKS, that allows to get point-in-time copies of your data. You need both a CSI driver with snapshot support (such as the Amazon EBS CSI driver) and a CSI snapshot controller to have this capability. The snapshot controller is available either as an Amazon EKS managed add-on or as a self-managed installation.
+
+### EKS and AWS Secrets Manager
+
+[AWS Secrets and Configuration Provider (ASCP) for the Kubernetes Secrets Store CSI Driver](https://docs.aws.amazon.com/eks/latest/userguide/manage-secrets.html) enables you to securely store and manage secrets in Secrets Manager and access them from applications running on Amazon EKS. Access to secrets can be restricted to specific Kubernetes Pods through IAM roles and policies. ASCP obtains the Pod identity, maps it to an IAM role, assumes that role, and then retrieves only the secrets that the role is permitted to access.
 
 ## AKS storage options
 
@@ -402,15 +410,9 @@ This solution is based on infrastructure as a service (IaaS) rather than platfor
 
 Azure Container Storage uses existing Azure Storage offerings for actual data storage and provides a volume orchestration and management solution that's purposely built for containers. Azure Container Storage supports the following backing storage:
 
-- **[Azure disks](/azure/virtual-machines/managed-disks-overview):** Provide granular control of storage SKUs and configurations. Azure disks suit tier-1 and general purpose databases.
-
-- **Ephemeral disks:** Use local storage resources on AKS nodes (NVMe or temp SSD). Ephemeral disks suit applications that don't have data durability requirements or that have built-in data replication support. AKS discovers the available ephemeral storage on AKS nodes and acquires them for volume deployment.
+- **[Local NVMe disk](/azure/storage/container-storage/use-container-storage-with-local-disk):** Use local NVMe storage resources on AKS nodes. NVMe is designed for high-speed data transfer between storage and CPU, providing high IOPS and throughput.
 
 - **[Elastic SAN](/azure/storage/elastic-san/elastic-san-introduction):** Provision on-demand, fully managed resources. Elastic SAN suits general purpose databases, streaming and messaging services, continuous integration and continuous delivery environments, and other tier-1 or tier-2 workloads. Multiple clusters can access a single storage area network (SAN) concurrently. However persistent volumes can only be attached by one consumer at a time.
-
-Previously, to provide cloud storage for containers, you needed individual CSI drivers to adapt storage services intended for IaaS-centric workloads. This method created operational overhead and increased the risk of problems related to application availability, scalability, performance, usability, and cost.
-
-Azure Container Storage is derived from OpenEBS, an open-source solution that provides container storage capabilities for Kubernetes. Azure Container Storage provides a managed volume orchestration solution via microservice-based storage controllers in a Kubernetes environment. This feature enables true container-native storage.
 
 Azure Container Storage suits the following scenarios:
 
@@ -462,24 +464,23 @@ AKS Automatic manages the storage lifecycle for you, while AKS Standard gives yo
 
 ### High-level comparison between AKS Automatic and EKS Auto Mode
 
-| Aspect | Azure Kubernetes Service (AKS) Automatic | Amazon EKS Auto Mode |
+| Aspect | Amazon EKS Auto Mode | Azure Kubernetes Service (AKS) Automatic |
 | --- | --- | --- |
-| Overall storage philosophy | Managed Kubernetes experience with storage preconfigured and ready to use. | Managed infrastructure automation, but storage configuration remains more explicit and user-driven. |
-| Default StorageClass availability | AKS automatically creates and manages default storage classes for the cluster. | EKS Auto Mode does not create a default StorageClass; you must create one yourself. |
-| Default provisioning behavior | PersistentVolumeClaims (PVCs) work immediately without additional setup because a default storage class already exists. | PVCs requiring dynamic provisioning will remain pending until a StorageClass is created and optionally marked as default. |
-| Underlying default block storage | Azure Managed Disks through the Azure Disk CSI driver. | Amazon EBS through the EBS CSI provisioner. |
-| CSI driver management | Azure Disk CSI driver is integrated and managed by AKS. | EBS CSI functionality is managed as part of EKS Auto Mode. |
-| Typical default disk type | Standard SSD-backed managed disks by default. Premium options also available. | gp3 EBS volumes are the standard default. |
-| Encryption defaults | Azure platform-managed disk encryption is enabled transparently. | Encryption is configurable in the StorageClass. |
-| Zone-aware provisioning | AKS automatically handles zone-aware provisioning and ZRS support in multi-zone clusters. | Uses WaitForFirstConsumer to provision EBS volumes in the correct Availability Zone. |
+| Overall storage philosophy | Managed infrastructure automation, but storage configuration remains more explicit and user-driven. | Managed Kubernetes experience with storage preconfigured and ready to use. |
+| Default StorageClass availability | EKS Auto Mode does not create a default StorageClass; you must create one yourself. | AKS automatically creates and manages default storage classes for the cluster. |
+| Default provisioning behavior | PVCs requiring dynamic provisioning will remain pending until a StorageClass is created and optionally marked as default. | PersistentVolumeClaims (PVCs) work immediately without additional setup because a default storage class already exists. |
+| Underlying default block storage | Amazon EBS through the EBS CSI provisioner. | Azure Managed Disks through the Azure Disk CSI driver. |
+| CSI driver management | EBS CSI functionality is managed as part of EKS Auto Mode. | Azure Disk CSI driver is integrated and managed by AKS. |
+| Encryption defaults | Encryption is configurable in the StorageClass. | Azure platform-managed disk encryption is enabled transparently. |
+| Zone-aware provisioning | Uses WaitForFirstConsumer to provision EBS volumes in the correct Availability Zone. | AKS automatically handles zone-aware provisioning and ZRS support in multi-zone clusters. |
 
 ## Kubernetes storage considerations
 
-Consider the following factors when you choose a storage solution for Amazon EKS or AKS.
+Consider the following factors when you choose a storage solution for AKS.
 
 ### Storage class access modes
 
-In Kubernetes version 1.21 and later, by default AKS and Amazon EKS storage classes use [CSI drivers](/azure/aks/csi-storage-drivers) only.
+In Kubernetes version 1.21 and later, by default AKS storage classes use [CSI drivers](/azure/aks/csi-storage-drivers) only.
 
 Different services support storage classes that have different access modes.
 
@@ -498,6 +499,13 @@ Different services support storage classes that have different access modes.
 ### Backup
 
 Choose a tool to back up persistent data. The tool should match your storage type, such as snapshots, [Azure Backup](/azure/backup/azure-kubernetes-service-cluster-backup) for AKS, [Velero](https://github.com/velero-io/velero) or [Veeam Kasten](https://www.veeam.com/products/cloud/kubernetes-data-protection.html).
+
+To create a volume snapshot in AKS, ensure the snapshot controller is enabled, create a VolumeSnapshotClass, and then create a VolumeSnapshot that references your Persistent Volume Claim (PVC). The [Azure Files CSI driver](https://learn.microsoft.com/en-us/azure/aks/create-volume-azure-files#create-a-volume-snapshot-from-a-pvc-with-azure-files) supports creating a volume snapshot from a PVC with Azure Files. On the other hand, The [Azure Disks CSI driver](https://learn.microsoft.com/en-us/azure/aks/create-volume-azure-disk#volume-snapshot-class-parameters-for-azure-disks) supports creating a volume snapshot from a PVC with Azure Disks.
+
+### AKS and Azure Key Vault
+
+[Azure Key Vault provider for the Secrets Store CSI Driver](https://learn.microsoft.com/en-us/azure/aks/csi-secrets-store-driver?pivots=azure-cli-create) enables Azure Key Vault to be integrated as a secure secret store for Azure Kubernetes Service (AKS) clusters through a CSI volume. It allows secrets, keys, and certificates to be mounted directly into Pods, supports CSI inline volumes, and enables multiple secret store objects to be mounted within a single volume. The provider also improves Pod portability through the SecretProviderClass Custom Resource Definition (CRD), supports Windows containers, synchronizes with Kubernetes secrets, and offers automatic rotation for both mounted content and synced Kubernetes secrets.
+
 
 ### Cost optimization
 
