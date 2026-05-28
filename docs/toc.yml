@@ -629,10 +629,6 @@ items:
           href: example-scenario/mainframe/general-mainframe-refactor.yml
         - name: IBM z/OS migration with Avanade AMT
           href: example-scenario/mainframe/avanade-amt-zos-migration.yml
-        - name: IBM z/OS online transaction processing
-          href: example-scenario/mainframe/ibm-zos-online-transaction-processing-azure.yml
-        - name: Integrate IBM MQs with Azure
-          href: example-scenario/mainframe/integrate-ibm-message-queues-azure.yml
         - name: Migrate AIX workloads with Skytap
           href: example-scenario/mainframe/migrate-aix-workloads-to-azure-with-skytap.yml
         - name: Migrate IBM i series to Azure with Skytap
@@ -647,6 +643,14 @@ items:
           href: mainframe/virtualization-of-unisys-clearpath-forward-os-2200-enterprise-server-on-azure.yml
         - name: Unisys ClearPath MCP virtualization on Azure
           href: example-scenario/mainframe/unisys-clearpath-forward-mainframe-rehost.yml
+        - name: Unisys Dorado migration
+          href: example-scenario/mainframe/migrate-unisys-dorado-mainframe-apps-with-astadia-micro-focus.yml
+        - name: Unisys mainframe migration with Avanade AMT
+          href: reference-architectures/migration/unisys-mainframe-migration.yml
+    - name: Solution ideas
+      items:
+      - name: IBM z/OS online transaction processing
+        href: example-scenario/mainframe/ibm-zos-online-transaction-processing-azure.yml
     - name: SAP
       items:
       - name: Guides
@@ -879,8 +883,6 @@ items:
           href: databases/architecture/azure-synapse-analytics-integrate-mongodb-atlas.yml
       - name: Mainframe
         items:
-        - name: Replicate and sync mainframe data
-          href: reference-architectures/migration/sync-mainframe-data-with-azure.yml
         - name: Mainframe data replication with Connect
           href: example-scenario/mainframe/mainframe-replication-precisely-connect.yml
         - name: Mainframe data replication with Qlik
@@ -922,8 +924,12 @@ items:
           href: solution-ideas/articles/secure-sql-managed-instance-managed-hardware-security-module.yml
       - name: NoSQL
         items:
-        - name: Minimal storage – change feed replication
+        - name: Minimal storage - change feed replication
           href: databases/idea/minimal-storage-change-feed-replicate-data.yml
+      - name: Mainframe
+        items:
+        - name: Replicate and sync mainframe data
+          href: reference-architectures/migration/sync-mainframe-data-with-azure.yml
   - name: DevOps
     items:
     - name: Get started
@@ -1079,6 +1085,10 @@ items:
         href: example-scenario/integration/queues-events.yml
       - name: Real-time monitoring and observable systems for media
         href: example-scenario/monitoring/monitoring-observable-systems-media.yml
+    - name: Solution ideas
+      items:
+      - name: Integrate IBM MQs with Azure
+        href: example-scenario/mainframe/integrate-ibm-message-queues-azure.yml
   - name: Internet of Things
     items:
     - name: Guides
@@ -1248,12 +1258,12 @@ items:
           href: example-scenario/file-storage/sql-server-azure-netapp-files.yml
       - name: Hybrid file services
         href: hybrid/hybrid-file-services.yml
-      - name: Mainframe
-        items:
-        - name: Mainframe file replication on Azure
-          href: solution-ideas/articles/mainframe-azure-file-replication.yml
-        - name: Move mainframe archive data to Azure
-          href: example-scenario/mainframe/move-archive-data-mainframes.yml
+      - name: Move mainframe archive data to Azure
+        href: example-scenario/mainframe/move-archive-data-mainframes.yml
+    - name: Solution ideas
+      items:
+      - name: Mainframe file replication on Azure
+        href: solution-ideas/articles/mainframe-azure-file-replication.yml
   - name: Virtual Desktop
     items:
     - name: Get started

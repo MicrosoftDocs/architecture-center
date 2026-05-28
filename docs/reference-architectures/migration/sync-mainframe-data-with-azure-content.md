@@ -1,4 +1,6 @@
-This example architecture outlines an implementation plan to replicate and sync data during modernization to Azure. It describes technical aspects like data stores, tools, and services.
+[!INCLUDE [header_file](../../../includes/sol-idea-header.md)]
+
+This article outlines an implementation plan to replicate and sync data during modernization to Azure. It describes technical aspects like data stores, tools, and services.
 
 ## Architecture
 
@@ -16,7 +18,7 @@ Mainframe and midrange systems update on-premises application databases at regul
 
 1. Azure Data Factory dynamic pipelines orchestrate activities that range from data extraction to data loading. You can schedule pipeline activities, start them manually, or trigger them automatically.
 
-   Pipelines group the activities that perform tasks. To extract data, Azure Data Factory dynamically creates one pipeline for each on-premises table. You can then use a massively parallel implementation when you replicate data in Azure. You can also configure the solution to meet your requirements: 
+   Pipelines group the activities that perform tasks. To extract data, Azure Data Factory dynamically creates one pipeline for each on-premises table. You can then use a massively parallel implementation when you replicate data in Azure. You can also configure the solution to meet your requirements:
 
    - **Full replication:** You replicate the entire database and make the necessary modifications to data types and fields in the target Azure database.
 
@@ -30,7 +32,7 @@ Mainframe and midrange systems update on-premises application databases at regul
     - Column derivation
     - Data flattening
     - Data sorting
-    - Data filtering 
+    - Data filtering
 
 1. On-premises databases like Db2 zOS, Db2 for i, and Db2 LUW store the application data.
 1. A self-hosted integration runtime (IR) provides the environment that Azure Data Factory uses to run and dispatch activities.
@@ -121,63 +123,9 @@ Data replication and sync scenarios that can benefit from this solution include:
 
 - On-premises systems that have tightly coupled applications that require phased remediation or modernization.
 
-## Recommendations
+- By integrating data from mainframe systems into modern analytics platforms, organizations can unlock valuable insights from historical and real-time transactional records.
 
-You can apply the following recommendations to most scenarios. Follow these recommendations unless you have a specific requirement that overrides them.
-
-When you use Azure Data Factory to extract data, take steps to [tune the performance of the copy activity](/azure/data-factory/copy-activity-performance#performance-tuning-steps). When you use Microsoft Fabric Data Factory to extract data, apply recommended practices to optimize pipeline performance, such as tuning parallelism, batch size, and connector settings. See [Fabric Data Factory Pipeline overview](/fabric/data-factory/pipeline-overview) and [Fabric connector overview](/fabric/data-factory/connector-overview) for guidance.
-
-## Considerations
-
-These considerations implement the pillars of the Azure Well-Architected Framework, which is a set of guiding tenets that you can use to improve the quality of a workload. For more information, see [Microsoft Azure Well-Architected Framework](/azure/well-architected/).
-
-### Reliability
-
-Reliability helps ensure that your application can meet the commitments that you make to your customers. For more information, see [Design review checklist for Reliability](/azure/well-architected/reliability/checklist).
-
-- Infrastructure management, including [availability](/azure/azure-sql/database/business-continuity-high-availability-disaster-recover-hadr-overview), is automated in Azure databases.
-
-- For information about Microsoft Service for DRDA failover protection, see [Pooling and failover](/host-integration-server/core/planning-and-architecting-solutions-using-microsoft-service-for-drda#pooling-and-failover).
-
-- You can cluster the on-premises data gateway and IR to provide higher availability guarantees.
-
-### Security
-
-Security provides assurances against deliberate attacks and the misuse of your valuable data and systems. For more information, see [Design review checklist for Security](/azure/well-architected/security/checklist).
-
-- Use [network security groups](/azure/virtual-network/manage-network-security-group) to limit access to only the necessary functions for each service.
-
-- Use [private endpoints](/azure/private-link/private-endpoint-overview) for your PaaS services. Use service firewalls that are both reachable and unreachable through the internet to supplement security for your services.
-
-- Use managed identities for component-to-component dataflows.
-
-- For information about the types of client connections that Microsoft Service for DRDA supports, see [Plan and architect solutions by using Microsoft Service for DRDA](/host-integration-server/core/planning-and-architecting-solutions-using-microsoft-service-for-drda). Client connections affect the nature of transactions, pooling, failover, authentication, and encryption on your network.
-
-### Cost Optimization
-
-Cost Optimization focuses on ways to reduce unnecessary expenses and improve operational efficiencies. For more information, see [Design review checklist for Cost Optimization](/azure/well-architected/cost-optimization/checklist).
-
-- Pricing models vary between component services. Review the pricing models of the available component services to ensure that they fit your budget.
-
-- Use the [Azure pricing calculator](https://azure.microsoft.com/pricing/calculator/) to estimate the cost of implementing this solution.
-
-### Operational Excellence
-
-Operational Excellence covers the operations processes that deploy an application and keep it running in production. For more information, see [Design review checklist for Operational Excellence](/azure/well-architected/operational-excellence/checklist).
-
-- Infrastructure management, including [scalability](/azure/architecture/guide/design-principles/scale-out), is automated in Azure databases.
-
-- You can [scale out the self-hosted IR](/azure/data-factory/concepts-integration-runtime#self-hosted-ir-compute-resource-and-scaling) by associating the logical instance with multiple on-premises machines in active-active mode.
-
-### Performance Efficiency
-
-Performance Efficiency refers to your workload's ability to scale to meet user demands efficiently. For more information, see [Design review checklist for Performance Efficiency](/azure/well-architected/performance-efficiency/checklist).
-
-- Consider [Azure ExpressRoute](/azure/well-architected/service-guides/azure-expressroute) as a high-scale option if your implementation uses significant bandwidth for initial replication or ongoing changed data replication.
-
-- Choose the right [IR configuration](/azure/data-factory/choose-the-right-integration-runtime-configuration) for your scenario.
-
-## Contributors:
+## Contributors
 
 *This article is maintained by Microsoft. It was originally written by the following contributors.*
 

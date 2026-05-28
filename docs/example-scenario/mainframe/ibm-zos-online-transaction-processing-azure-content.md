@@ -1,18 +1,20 @@
-Online transaction processing (OLTP) systems are the face of your business because they interact directly with customers. By migrating to a dynamically adaptable infrastructure, your business can create and launch products quickly so that customers can use your products sooner.
+[!INCLUDE [header_file](../../../includes/sol-idea-header.md)]
+
+Online transaction processing (OLTP) systems are the face of your business because they interact directly with customers. By migrating z/OS mainframe OLTP workloads to Azure platform as a service (PaaS) services like Azure App Service, Azure Kubernetes Service (AKS), Azure Functions, and Azure SQL, your business gains a dynamically adaptable infrastructure that enables faster product launches and reduces operational costs.
 
 ## Architecture
+
+### Before Azure migration 
 
 The following diagram shows an architecture of an OLTP system that runs on a z/OS mainframe before migration to Azure:
 
 :::image type="complex" source="media/ibm-zos-online-transaction-processing-on-zos.svg" alt-text="Diagram of an OLTP architecture on z/OS." lightbox="media/ibm-zos-online-transaction-processing-on-zos.svg" border="false":::
-   The diagram shows the architecture of an OLTP application that runs on a z/OS mainframe. An on-premises user accesses the system via a web interface and connects through various communication protocols such as HTTPS, SNA LU 6.2, and Telnet 3270. The system is divided into several layers that are depicted as numbered boxes. Arrows connect the boxes to show how different components interact within the mainframe environment. Box number one includes the communication protocols. Double-sided arrows connect box one with the on-premises user and the TN3270 terminal. Box number two includes transaction managers, including CICS and IMS. Double-sided arrows connect boxes one and two. The application layer includes boxes numbered four and five for front-end and business logic components. Double-sided arrows connect boxes three and four. One arrow points from the application layer to box six, which contains other services. Box number five is the data layer, which contains databases, like DB2 and IMS DB, and VSAM files. A double-sided arrow connects the data layer and the application layer. One arrow points from the data layer to box six. Box number six includes other services, such as security, management, monitoring, and reporting services.
+   The diagram shows the architecture of an OLTP application that runs on a z/OS mainframe. An on-premises user accesses the system via a web interface and connects through various communication protocols such as HTTPS, SNA LU 6.2, and Telnet 3270. The system is divided into several layers that are depicted as numbered boxes. Arrows connect the boxes to show how different components interact within the mainframe environment. Box number one includes the communication protocols. Double-sided arrows connect box one with the on-premises user and the TN3270 terminal. Box number two includes transaction managers, including CICS and IMS. Double-sided arrows connect boxes one and two. The application layer includes boxes numbered four and five for front-end and business logic components. Double-sided arrows connect boxes three and four. One arrow points from the application layer to box six, which contains other services. Box number five is the data layer, which contains databases, like Db2 and IMS DB, and VSAM files. A double-sided arrow connects the data layer and the application layer. One arrow points from the data layer to box six. Box number six includes other services, such as security, management, monitoring, and reporting services.
 :::image-end:::
 
-### Workflow
 
-The following workflow corresponds to the preceding diagram:
 
-1. Users connect to the mainframe over Transmission Control Protocol (TCP) or Internet Protocol (IP) by using standard mainframe protocols like TN3270 and HTTPS.
+1. Users connect to the mainframe by using standard mainframe protocols like TN3270 and HTTPS.
 
 1. The transaction managers interact with the users and invoke the application to satisfy user requests.
 
@@ -20,27 +22,27 @@ The following workflow corresponds to the preceding diagram:
 
 1. The transaction managers use the business logic written in common business-oriented language (COBOL) or Programming Language One (PL/I) to implement the transactions.
 
-1. Application code uses the storage capabilities of the data layer, such as DB2, IMS DB, or VSAM.
+1. Application code uses the storage capabilities of the data layer, such as Db2, IMS DB, or VSAM.
 
 1. In addition to transaction processing, other services provide authentication, security, management, monitoring, and reporting. These services interact with all other services in the system.
 
-The following diagram shows how to migrate this architecture to Azure.
+### After migration
+
+The following diagram shows this same architecture after it's been migrated to Azure.
 
 :::image type="complex" source="media/ibm-zos-online-transaction-processing-on-azure.svg" alt-text="Diagram that shows an architecture to migrate a z/OS OLTP workload to Azure." lightbox="media/ibm-zos-online-transaction-processing-on-azure.svg" border="false":::
-   The diagram shows how to migrate a z/OS OLTP workload to Azure. The architecture is divided into several layers that represent different components and their interactions. Each layer uses numbers and arrows to highlight the flow of data. Layer 1 represents an on-premises user. A double-sided arrow connects the user and Azure ExpressRoute. Layer 2 represents input requests. This layer contains two boxes that are connected by a dotted, double-sided arrow labeled Azure web application firewall. The left box contains icons for Azure Front Door and Azure Traffic Manager. A double-sided arrow connects the left box with an icon that represents the internet. Another double-sided arrow connects the internet icon with Microsoft Entra ID. A box on the right contains icons for Azure Application Gateway and Azure Load Balancer. A double-sided arrow connects this box with a box labeled front end. The box labeled front end is inside of the application layer. It contains icons for Azure API Management, Azure App Service, Azure Kubernetes Service (AKS), and Azure Spring Apps. Three dotted, double-sided arrows connect the front-end box with a box labeled business logic. This box contains icons for Azure Functions, Azure WebJobs, AKS, and Azure Spring Apps. Icons for Azure Service Bus and Azure Queue Storage (asynchronous) are above and below the three arrows. A double-sided arrow connects the application layer with the cache layer. The cache layer contains Azure Managed Redis. An arrow points from the cache layer to the monitoring layer. In this layer, a dotted arrow passes from Azure Monitor through Azure Monitor logs and to a blue box that contains icons labeled Log Analytics dashboard and alerts. The monitoring layer also includes Application Insights. A dotted arrow points from Application Insights to the blue box. Another arrow points from the application layer to Application Insights. The data layer contains two boxes. One box contains icons for Azure Table Storage and Azure Files. The other box contains Azure SQL, Azure Cosmos DB, Azure Database for PostgreSQL, and Azure Database for MySQL. A double-sided arrow connects the data layer and the application layer.
+   The architecture is divided into several layers that represent different components and their interactions. Each layer uses numbers and arrows to highlight the flow of data. Layer 1 represents an on-premises user. A double-sided arrow connects the user and Azure ExpressRoute. Layer 2 represents input requests. This layer contains two boxes that are connected by a dotted, double-sided arrow labeled Azure web application firewall. The left box contains icons for Azure Front Door and Azure Traffic Manager. A double-sided arrow connects the left box with an icon that represents the internet. Another double-sided arrow connects the internet icon with Microsoft Entra ID. A box on the right contains icons for Azure Application Gateway and Azure Load Balancer. A double-sided arrow connects this box with a box labeled front end. The box labeled front end is inside of the application layer. It contains icons for Azure API Management, Azure App Service, Azure Kubernetes Service (AKS), and Azure Spring Apps. Three dotted, double-sided arrows connect the front-end box with a box labeled business logic. This box contains icons for Azure Functions, Azure WebJobs, AKS, and Azure Container Apps. Icons for Azure Service Bus and Azure Queue Storage (asynchronous) are above and below the three arrows. A double-sided arrow connects the application layer with the cache layer. The cache layer contains Azure Managed Redis. An arrow points from the cache layer to the monitoring layer. In this layer, a dotted arrow passes from Azure Monitor through Azure Monitor logs and to a blue box that contains icons labeled Log Analytics dashboard and alerts. The monitoring layer also includes Application Insights. A dotted arrow points from Application Insights to the blue box. Another arrow points from the application layer to Application Insights. The data layer contains two boxes. One box contains icons for Azure Table Storage and Azure Files. The other box contains Azure SQL, Azure Cosmos DB, Azure Database for PostgreSQL, and Azure Database for MySQL. A double-sided arrow connects the data layer and the application layer.
 :::image-end:::
 
 *Download a [Visio file](https://arch-center.azureedge.net/ibm-zos-online-transaction-processing-on-azure.vsdx) of this architecture.*
-
+## Workflow
 1. Mainframe users are familiar with 3270 terminals and on-premises connectivity. In the migrated system, they interact with Azure applications via the public internet or via a private connection that's implemented via Azure ExpressRoute. Microsoft Entra ID provides authentication.
-1. Input requests go to a global load balancer service, like Azure Front Door or Azure Traffic Manager. The load balancer can serve a geographically spread user base. It routes the requests according to rules defined for the supported workloads. These load balancers can coordinate with Azure Application Gateway or Azure Load Balancer to load balance the application layer. The Azure Content Delivery Network service caches static content in edge servers for quick response. A web application firewall (WAF) helps secure the service.
+1. Client requests are routed through a global load balancing service such as Azure Front Door or Azure Traffic Manager, which helps serve users across regions. Based on workload rules, traffic can then be directed to Azure Application Gateway or Azure Load Balancer for application-level distribution, while a web application firewall (WAF) helps protect the service.
 1. The front end of the application layer uses Azure services like Azure App Service to implement application screens and to interact with users. The screens are migrated versions of the mainframe screens.
-1. COBOL and PL/I code in the back end of the application layer implement the business logic. The code can use services and features like Azure Functions, WebJobs, and Azure Spring Apps microservices. Applications can run in an Azure Kubernetes Service (AKS) container.
+1. COBOL and PL/I code in the back end of the application layer implement the business logic. The code can use services including Azure Functions, WebJobs, and Azure Container Apps. Applications can run in an Azure Kubernetes Service (AKS) container.
 
-   > [!IMPORTANT]
-   > Azure Spring Apps is retired as of March 31, 2028. We recommend [Azure Container Apps](/azure/container-apps/overview) and [Azure Kubernetes Service (AKS)](/azure/aks/what-is-aks) as the replacement services. For more information, see [Azure Spring Apps retirement announcement](/azure/spring-apps/basic-standard/retirement-announcement).
 
-1. An in-memory data store accelerates high-throughput OLTP applications. Examples include In-Memory OLTP, which is a feature of Azure SQL Database and Azure SQL Managed Instance, and Azure Managed Redis.
+1. Azure Managed Redis provides in-memory caching to accelerate high-throughput OLTP transactions. In-Memory OLTP, a feature of Azure SQL Database and Azure SQL Managed Instance, provides additional transaction-processing acceleration.
 1. The data layer can include:
 
    - Files, tables, and blobs implemented by using Azure Storage.
@@ -51,6 +53,10 @@ The following diagram shows how to migrate this architecture to Azure.
    These stores hold data migrated from the mainframe for the application layer to use.
 
 1. Azure-native services like Application Insights and Azure Monitor proactively monitor the health of the system. You can integrate Azure Monitor Logs by using an Azure dashboard.
+1. The data layer can store migrated mainframe data in Azure Storage (Azure Files, Azure Table Storage), Azure SQL family databases, Azure Database for PostgreSQL, Azure Database for MySQL, or Azure Cosmos DB.
+
+
+1. Application Insights and Azure Monitor provide application and infrastructure monitoring. Azure Monitor Logs feeds Log Analytics dashboards and alerts for operational visibility.
 
 ### Components
 
@@ -66,13 +72,9 @@ When you design application architecture, it's crucial to prioritize networking 
 
 - [Azure Front Door](/azure/well-architected/service-guides/azure-front-door) is a global HTTP load balancer with instant failover capabilities. In this architecture, it accelerates content delivery and ensures high availability for geographically distributed mainframe users.
 
-  - [Content Delivery Network](/azure/cdn/cdn-overview) is a distributed caching service that optimizes static content delivery by storing cached copies on edge servers to enable faster response times for users. It uses network optimizations to improve response for dynamic content. Content Delivery Network is especially useful when the user base is global. In this architecture, it improves performance for mainframe screen elements and static assets across global edge locations.
-
 - [ExpressRoute](/azure/well-architected/service-guides/azure-expressroute) is a private connectivity service that establishes a dedicated connection between on-premises infrastructure and Azure. In this architecture, it provides secure network access for users familiar with mainframe terminal connectivity who require private connections.
 
-[Load Balancer](/azure/well-architected/service-guides/azure-load-balancer) is a service that distributes incoming network traffic across multiple back-end resources and handles layer 4 TCP and UDP traffic. In this architecture, it balances traffic for containerized applications and microservices that replace mainframe transaction processing components.
-
-- [Traffic Manager](/azure/well-architected/service-guides/azure-traffic-manager) is a DNS-based traffic routing service that helps distribute user requests across multiple endpoints. In this architecture, it distributes traffic across regional endpoints to optimize availability for mainframe users across different geographic locations.
+- [Load Balancer](/azure/well-architected/service-guides/azure-load-balancer/reliability) is a service that distributes incoming network traffic across multiple back-end resources and handles layer 4 TCP and UDP traffic. In this architecture, it balances traffic for containerized applications and microservices that replace mainframe transaction processing components.
 
 #### Application
 
@@ -82,7 +84,9 @@ Azure provides managed services that support more secure, scalable, and efficien
 
 - [App Service](/azure/well-architected/service-guides/app-service-web-apps) is a fully managed service for building, deploying, and scaling web apps. You can build apps by using .NET, Node.js, Java, Python, or PHP. The apps can run in containers or on Windows or Linux. In a mainframe migration, the front-end screens or web interface can be coded as HTTP-based REST APIs. They can be segregated according to the mainframe application and can be stateless to orchestrate a microservices-based system. In this architecture, it delivers REST APIs and web interfaces that replace 3270 terminal screens and mainframe user interfaces.
 
-  - [WebJobs](/azure/app-service/webjobs-create) is a feature of App Service that runs a program or script in the same instance as a web app, API app, or mobile app. A web job can be a good choice for implementing sharable and reusable program logic. In this architecture, it executes batch processing tasks and [background tasks](/azure/app-service/webjobs-create) that were previously handled by mainframe job schedulers.
+- [Azure Container Apps](/azure/container-apps/overview) is a fully managed serverless platform that allows you to maintain less infrastructure and save costs while running containerized applications. In this architecture, it integrates with API Management, Service Bus, and Front Door, and provides built-in scaling (including scale-to-zero), making it ideal for event-driven and HTTP-based workloads in this architecture.
+
+- [WebJobs](/azure/app-service/webjobs-create) is a feature of App Service that runs a program or script in the same instance as a web app, API app, or mobile app. A web job can be a good choice for implementing sharable and reusable program logic. In this architecture, it executes batch processing tasks and [background tasks](/azure/app-service/webjobs-create) that were previously handled by mainframe job schedulers.
 
 - [Azure API Management](/azure/well-architected/service-guides/azure-api-management) is a fully managed platform as a service (PaaS) that supports the publishing, routing, securing, logging, and analytics of APIs. You can control how the data is presented and extended and which apps can access it. You can also restrict access to your apps or allow third parties. In this architecture, it manages access to modernized APIs that expose mainframe business logic and controls how legacy data is accessed by new applications.
 
@@ -102,9 +106,7 @@ This architecture addresses scalable and secure cloud storage as well as managed
 
 - [Azure Database for PostgreSQL](/azure/well-architected/service-guides/postgresql) is a fully managed, intelligent, and scalable PostgreSQL that has native connectivity with Azure services. In this architecture, it hosts relational data migrated from mainframe databases with advanced indexing and analytics capabilities.
 
-- [Azure SQL](/azure/azure-sql/) is a family of cloud-based SQL database services. In this architecture, it hosts relational data migrated from mainframe databases like DB2 and IMS DB:
-
-  - [SQL Database](/azure/well-architected/service-guides/azure-sql-database) is a fully managed relational database service. In this architecture, it supports modernized workloads with elastic scaling for variable mainframe transaction loads.
+- [Azure SQL](/azure/azure-sql/) is a family of cloud-based SQL database services. In this architecture, it hosts relational data migrated from mainframe databases like Db2 and IMS DB:
 
   - [SQL Managed Instance](/azure/well-architected/service-guides/azure-sql-managed-instance) is a fully managed, cloud-based deployment option that provides near 100% SQL Server compatibility. In this architecture, it hosts migrated mainframe databases with minimal code changes and built-in high availability.
 
@@ -112,7 +114,7 @@ This architecture addresses scalable and secure cloud storage as well as managed
 
   - [In-Memory OLTP](/sql/relational-databases/in-memory-oltp/overview-and-usage-scenarios) is a high-performance feature that accelerates transaction processing in SQL Database and SQL Managed Instance. In this architecture, it provides the high-performance transaction processing capabilities that mainframe OLTP workloads require.
 
-- [Storage](/azure/well-architected/service-guides/storage-accounts/reliability) is a set of massively scalable and more secure cloud services for data, apps, and workloads that provides foundational cloud storage services. In this architecture, it supports [Azure Files](/azure/well-architected/service-guides/azure-files), [Azure Table Storage](/azure/storage/tables/table-storage-overview), and [Azure Queue Storage](https://azure.microsoft.com/services/storage/queues) for various mainframe data migration scenarios.
+- [Storage](/azure/well-architected/service-guides/azure-blob-storage) is a set of massively scalable and more secure cloud services for data, apps, and workloads that provides foundational cloud storage services. In this architecture, it supports [Azure Files](/azure/well-architected/service-guides/azure-files), [Azure Table Storage](/azure/storage/tables/table-storage-overview), and [Azure Queue Storage](/azure/storage/queues/storage-queues-introduction) for various mainframe data migration scenarios.
 
 #### Monitoring
 
@@ -138,49 +140,7 @@ This architecture is ideal for OLTP workloads that have the following characteri
 
 - Their usage varies greatly over time, so they benefit from flexible scaling and usage-based pricing.
 
-## Considerations
-
-These considerations implement the pillars of the Azure Well-Architected Framework, which is a set of guiding tenets that you can use to improve the quality of a workload. For more information, see [Well-Architected Framework](/azure/well-architected/).
-
-### Reliability
-
-Reliability helps ensure that your application can meet the commitments that you make to your customers. For more information, see [Design review checklist for Reliability](/azure/well-architected/reliability/checklist).
-
-- You can deploy this OLTP architecture in multiple regions. It can also have a geo-replicated data layer.
-
-- The Azure database services support zone redundancy and can fail over to a secondary node if an outage occurs or to allow for maintenance activities.
-
-### Security
-
-Security provides assurances against deliberate attacks and the misuse of your valuable data and systems. For more information, see [Design review checklist for Security](/azure/well-architected/security/checklist).
-
-- ExpressRoute creates a private connection to Azure from an on-premises environment. You can also use site-to-site VPN.
-
-- Microsoft Entra ID can authenticate resources and control access by using Azure role-based access control.
-
-- Database services in Azure support various security options like data encryption at rest.
-
-- For general guidance about how to design more secure solutions, see [Security quick links](/azure/architecture/framework/security/overview).
-
-### Cost Optimization
-
-Cost Optimization focuses on ways to reduce unnecessary expenses and improve operational efficiencies. For more information, see [Design review checklist for Cost Optimization](/azure/well-architected/cost-optimization/checklist).
-
-Use the [Azure pricing calculator](https://azure.microsoft.com/pricing/calculator) to estimate costs for your implementation.
-
-### Operational Excellence
-
-Operational Excellence covers the operations processes that deploy an application and keep it running in production. For more information, see [Design review checklist for Operational Excellence](/azure/well-architected/operational-excellence/checklist).
-
-This scenario uses Azure Monitor and Application Insights to monitor the health of the Azure resources. You can set alerts for proactive management.
-
-### Performance Efficiency
-
-Performance Efficiency refers to your workload's ability to scale to meet user demands efficiently. For more information, see [Design review checklist for Performance Efficiency](/azure/well-architected/performance-efficiency/checklist).
-
-- This architecture uses Azure PaaS services like App Service, which has autoscaling capabilities.
-
-- For more information, see [Autoscaling](../../best-practices/auto-scaling.md).
+- Complex monolithic Mainframe business logic can be modernized to RESTful APIs and scaled with traffic management and load balancing services.
 
 ## Contributors
 

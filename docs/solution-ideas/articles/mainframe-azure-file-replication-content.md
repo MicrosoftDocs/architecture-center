@@ -7,7 +7,7 @@ This article describes several ways to transfer files to Azure, convert and tran
 ## Architecture
 
 :::image type="complex" border="false" source="../media/mainframe-azure-file-replication-updated.svg" alt-text="Diagram that shows the three steps of migrating on-premises files to Azure: data transfer, conversion and transformation, and storing in persistent storage." lightbox="../media/mainframe-azure-file-replication-updated.svg":::
-   The image contains an on-premises section and an Azure section that both have multiple sections and subsections. The on-premises section shows the first step in the migration process. It includes three flows. The first flow points from Local storage to an icon that represents FTP using JCL and then to a section that contains Azure Virtual Machines. The second flow points from a Mainframe dataset to SHIR and then to Azure Data Factory via the Azure Data Factory FTP connector. The last flow points from an IBM mainframe to Azure Blob Storage via non-Microsoft solutions. The Azure section contains steps two and three. The step two section contains a subsection that includes Host Integration Server, Azure Databricks and Microsoft Fabric paired together, Azure Data Factory, and Azure Data Lake Storage. Azure Data Factory points to Data Lake Storage and Fabric Data Factory points to OneLake. The step three section contains Azure SQL Database, Azure Database for PostgreSql, Azure Cosmos DB, Azure Database for MySQL, Data Lake Storage, Blob Storage, and Microsoft Fabric.
+   The image contains an on-premises section and an Azure section that both have multiple sections and subsections. The on-premises section shows the first step in the migration process. It includes three flows. The first flow points from Local storage to an icon that represents SFTP using JCL and then to a section that contains Azure Virtual Machines. The second flow points from a Mainframe dataset to SHIR and then to Azure Data Factory via the Azure Data Factory SFTP connector. The last flow points from an IBM mainframe to Azure Blob Storage via non-Microsoft solutions. The Azure section contains steps two and three. The step two section contains a subsection that includes Host Integration Server, Azure Databricks and Microsoft Fabric paired together, Azure Data Factory, and Azure Data Lake Storage. Azure Data Factory points to Data Lake Storage and Fabric Data Factory points to OneLake. The step three section contains Azure SQL Database, Azure Database for PostgreSql, Azure Cosmos DB, Azure Database for MySQL, Data Lake Storage, Blob Storage, and Microsoft Fabric.
 :::image-end:::
 
 *Download a [Visio file](https://arch-center.azureedge.net/mainframe-azure-file-replication-updated.vsdx) of this architecture.*
@@ -18,11 +18,11 @@ The following data flow corresponds to the previous diagram:
 
 1. Transfer files to Azure:
 
-   - The easiest way to transfer files on-premises to Azure is by using [File Transfer Protocol (FTP)](https://wikipedia.org/wiki/File_Transfer_Protocol). You can host an FTP server on an Azure virtual machine (VM). A simple FTP job control language (JCL) sends files to Azure in binary format, which is essential to preserving mainframe and midrange computation and binary data types. You can store transmitted files in on-premises disks, Azure VM file storage, or Azure Blob Storage.
+   - The easiest way to transfer files on-premises to Azure is by using [Secure File Transfer Protocol (SFTP)](https://en.wikipedia.org/wiki/SSH_File_Transfer_Protocol). You can host an FTP server on an Azure virtual machine (VM). A simple SFTP job control language (JCL) sends files to Azure in binary format, which is essential to preserving mainframe and midrange computation and binary data types. You can store transmitted files in on-premises disks, Azure VM file storage, or Azure Blob Storage.
 
    - You can also upload on-premises files to Blob Storage by using tools like [AzCopy](/azure/storage/common/storage-use-azcopy-v10).
 
-   - The Azure Data Factory FTP or Secure File Transfer Protocol (SFTP) connector can be used to transfer data from the mainframe system to Blob Storage. This method requires an intermediate VM on which a self-hosted integration runtime is installed.
+   - The Azure Data Factory Secure File Transfer Protocol (SFTP) connector can be used to transfer data from the mainframe system to Blob Storage. This method requires an intermediate VM on which a self-hosted integration runtime is installed.
 
    - You can also find non-Microsoft tools on the [Microsoft Marketplace](https://marketplace.microsoft.com/marketplace/apps?search=mainframe) to transfer files from mainframes to Azure.
 
@@ -32,7 +32,7 @@ The following data flow corresponds to the previous diagram:
 
      Copybooks define the data structure of COBOL, PL/I, and assembly language files. HIS converts these files to ASCII based on the copybook layouts.
 
-   - Mainframe file data conversion can be achieved by using the Azure Logic Apps connector for IBM host files.
+   - Mainframe file data conversion can be achieved by using the Azure Logic Apps IBM Host File connector.
 
    - Before you transfer data to Azure data stores, you might need to transform the data or use it for analytics. Azure Data Factory can manage these extract-transform-load (ETL) and extract-load-transform (ELT) activities and store the data directly in Azure Data Lake Storage. Alternatively, you can use Fabric Data Factory and OneLake store.
 
@@ -66,7 +66,7 @@ This architecture outlines various Azure-native migration tools that you can use
 
 - [Data Provider for Host Files](/host-integration-server/core/data-for-host-files) is a component of [HIS](/host-integration-server/what-is-his) that converts EBCDIC code page files to ASCII. The provider can read and write records offline in a local binary file. Or it can use Systems Network Architecture (SNA) or Transmission Control Protocol/Internet Protocol (TCP/IP) to read and write records in remote IBM z/OS mainframe datasets or i5/OS physical files. HIS connectors are available for [BizTalk](/host-integration-server/core/biztalk-adapter-for-host-files-configuration1) and [Logic Apps](/azure/logic-apps/logic-apps-overview). In this architecture, Data Provider for Host Files enables file-level access and transformation of IBM z/OS and i5/OS datasets for migration to Azure.
 
-- [Azure Data Factory](/azure/data-factory/introduction) is a hybrid data integration service that you can use to create, schedule, and orchestrate ETL and ELT workflows. In this architecture, Azure Data Factory transfers mainframe files to Blob Storage via FTP and manages transformation pipelines.
+- [Azure Data Factory](/azure/data-factory/introduction) is a hybrid data integration service that you can use to create, schedule, and orchestrate ETL and ELT workflows. In this architecture, Azure Data Factory transfers mainframe files to Blob Storage via SFTP and manages transformation pipelines.
 
 - [Azure Databricks](/azure/well-architected/service-guides/azure-databricks) is an Apache Spark-based analytics platform optimized for Azure. In this architecture, it enriches and correlates incoming mainframe data with other datasets for advanced analytics and transformation.
   
@@ -98,6 +98,10 @@ This architecture outlines the process of migrating mainframe file data to cloud
 
 - [OneLake in Microsoft Fabric](/fabric/onelake/onelake-overview) is a single, unified, logical data lake. In this architecture, it serves as the storage destination for Fabric Data Factory pipelines. It provides a centralized location to store transformed mainframe data for analytics and business intelligence workloads.
 
+### Alternatives
+
+Besides native services like Host Integration Server and Logic Apps IBM Host connector, open-source file conversion libraries can be used to convert EBCDIC mainframe files to ASCII or Unicode. This method, however, needs more orchestration and management than Azure's native solutions.
+
 ## Scenario details
 
 Converting mainframe files from EBCDIC-encoded format to ASCII format is necessary for migrating data from mainframe systems to Azure cloud storage and databases. Mainframe applications generate and handle large amounts of data daily. This data must be accurately converted for use in other platforms.
@@ -113,7 +117,9 @@ On-premises file replication and synchronization are essential for various use c
 - Parallel testing of rehosted or re-engineered applications on Azure with on-premises applications
   
 - Tightly coupled on-premises applications on systems that can't be immediately remediated or modernized
-  
+
+- Microsoft Fabric enables T‑SQL–based, read‑only analytics and reporting on large mainframe datasets migrated to OneLake or ADLS Gen2 via its SQL Analytics Endpoint.
+
 ## Contributors
 
 *Microsoft maintains this article. The following contributors wrote this article.*
@@ -122,10 +128,6 @@ Principal authors:
 
 - [Nithish Aruldoss](https://www.linkedin.com/in/nithish-aruldoss-b4035b2b) | Engineering Architect
 - [Ashish Khandelwal](https://www.linkedin.com/in/ashish-khandelwal-839a851a3/) | Principal Engineering Architecture Manager
-
-Other contributors:
-
-- [Gyani Sinha](https://www.linkedin.com/in/gyani-sinha/) | Senior Cloud Solution Architect
 
 *To see nonpublic LinkedIn profiles, sign in to LinkedIn.*
 
