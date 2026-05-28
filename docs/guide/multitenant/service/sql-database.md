@@ -3,7 +3,7 @@ title: Multitenancy and Azure SQL Database
 description: This article outlines Azure SQL Database features for designing a multitenant system. It provides guidance and examples for using Azure SQL in a multitenant solution.
 author: johndowns
 ms.author: pnp
-ms.date: 05/21/2026
+ms.date: 05/28/2026
 ms.topic: concept-article
 ms.subservice: architecture-guide
 ms.custom: arb-saas
@@ -25,7 +25,7 @@ SQL Database includes many features that support multitenancy.
 
 Elastic pools enable you to share compute resources between multiple databases on the same server. By using elastic pools, you can achieve performance elasticity for each database. You can also maximize cost efficiency by sharing provisioned resources across multiple databases. Elastic pools provide built-in protections against the [noisy neighbor problem](../../../antipatterns/noisy-neighbor/noisy-neighbor.yml).
 
-Hyperscale elastic pools extend the elastic pool model to the Hyperscale service tier. You can host many tenant databases in a single Hyperscale pool and scale the shared compute independently of per-tenant data size. Hyperscale pools also support larger per-database storage than other elastic pool tiers. Use them when individual tenant databases exceed the storage limits of non-Hyperscale pools. You can add read-scale replicas at the pool level to offload read workloads across tenants.
+Hyperscale elastic pools extend the elastic pool model to the Hyperscale service tier. You can host many tenant databases in a single Hyperscale pool and scale the shared compute resources independently of per-tenant data size. Hyperscale pools also support higher storage limits for each database than other elastic pool tiers. Use them when individual tenant databases exceed the storage limits of non-Hyperscale pools. You can add read-scale replica pools to offload read workloads across tenants.
 
 For more information, see the following resources:
 
@@ -41,7 +41,6 @@ You can use the [Sharding pattern](../../../patterns/sharding.md) to scale your 
 
 For more information, see:
 
-- [Multitenant applications with elastic database tools and row-level security](/azure/azure-sql/database/saas-tenancy-elastic-tools-multi-tenant-row-level-security)
 - [Scale out by using SQL Database](/azure/azure-sql/database/elastic-scale-introduction)
 - [Elastic jobs](/azure/azure-sql/database/job-automation-overview)
 - [Create, configure, and manage elastic jobs](/azure/azure-sql/database/elastic-jobs-overview)
@@ -53,7 +52,6 @@ For more information, see:
 For more information, see the following resources:
 
 - [Row-level security implementation on Azure SQL](https://www.youtube.com/watch?v=QQobIo-gfmk)
-- [Multitenant applications with elastic database tools and row-level security](/azure/azure-sql/database/saas-tenancy-elastic-tools-multi-tenant-row-level-security)
 
 ### Key management
 
@@ -80,7 +78,6 @@ Other contributors:
 ## Next step
 
 - **Case study:** [Run one million databases on Azure SQL for a large SaaS provider: Dynamics 365 and Microsoft Power Platform](https://devblogs.microsoft.com/azure-sql/running-1m-databases-on-azure-sql-for-a-large-saas-provider-microsoft-dynamics-365-and-power-platform/)
-- **Sample:** The [Wingtip Tickets SaaS application](/azure/azure-sql/database/saas-tenancy-welcome-wingtip-tickets-app) provides three multitenant examples of the same app. Each example explores a different database tenancy pattern on SQL Database. The first example uses a standalone application, where each tenant has its own database. The second example features a multitenant app, with each tenant having a separate database. The third example includes a multitenant app that has sharded multitenant databases.
 - **Video:** [Design patterns for SaaS applications on SQL Database](https://www.youtube.com/watch?v=jjNmcKBVjrc)
 
 ## Related resources
