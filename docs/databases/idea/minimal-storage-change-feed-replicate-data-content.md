@@ -66,11 +66,11 @@ The following data flow corresponds to the previous diagram:
 
 ## Scenario details
 
-This solution uses Azure Cosmos DB to store the large volume of data that web applications use. Web apps that handle massive amounts of data use Azure Cosmos DB to elastically and independently scale throughput and storage.
+This solution stores large volumes of web application data in Azure Cosmos DB. Web apps that handle massive amounts of data use Azure Cosmos DB to elastically and independently scale throughput and storage.
 
 When changes are made to the database, the Azure Cosmos DB change feed is sent to an event-driven Functions trigger. A function then runs and replicates the changes to Table Storage tables, which provide a low-cost storage solution. You can also orchestrate broader downstream data movement by using Azure Data Factory pipelines or Fabric Data Factory to land data in analytics zones.
 
-The web app needs the data for only a limited amount of time. This solution periodically runs and deletes expired data from Azure Cosmos DB, which reduces costs. Functions can be triggered and they can be scheduled to run at specific times.
+The web app needs the data for only a limited amount of time. This solution periodically runs and deletes expired data from Azure Cosmos DB, which reduces costs. You can trigger functions on demand or schedule them to run at specific times.
 
 ### Potential use cases
 
@@ -112,7 +112,7 @@ Reliability helps ensure that your application can meet the commitments that you
 
 Cost Optimization focuses on ways to reduce unnecessary expenses and improve operational efficiencies. For more information, see [Design review checklist for Cost Optimization](/azure/well-architected/cost-optimization/checklist).
 
-- The primary cost benefit comes from expired data removal from Azure Cosmos DB, which is billed per request unit (RU), and into Table Storage, which is billed per transaction and per GB stored. This process is cheaper for infrequently accessed data.
+- The primary cost benefit comes from moving expired data from Azure Cosmos DB, which is billed per request unit (RU), into Table Storage, which is billed per transaction and per GB stored. This process is cheaper for infrequently accessed data.
 
 - If your workload has predictable throughput requirements, consider [reserved capacity](/azure/cosmos-db/reserved-capacity) for Azure Cosmos DB.
 
