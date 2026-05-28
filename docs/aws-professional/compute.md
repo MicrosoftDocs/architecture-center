@@ -163,7 +163,7 @@ Other contributor:
 
 ## Related resources
 
-- [Baseline architecture for an Azure Kubernetes Service (AKS) cluster](../reference-architectures/containers/aks/baseline-aks.md)
+- [Baseline architecture for an Azure Kubernetes Service (AKS) cluster](../reference-architectures/containers/aks/baseline-aks.yml)
 - [Microservices architecture on Azure Kubernetes Service](../reference-architectures/containers/aks-microservices/aks-microservices.yml)
 - [Run a Linux VM on Azure](../reference-architectures/n-tier/linux-vm.yml)
 - [Basic web application](../web-apps/app-service/architectures/basic-web-app.yml)
@@ -175,9 +175,9 @@ Other contributor:
 
 ### Container and Kubernetes architectures
 
-- [Baseline architecture for an Azure Kubernetes Service (AKS) cluster](../reference-architectures/containers/aks/baseline-aks.md)
+- [Baseline architecture for an Azure Kubernetes Service (AKS) cluster](../reference-architectures/containers/aks/baseline-aks.yml)
 - [Microservices architecture on Azure Kubernetes Service](../reference-architectures/containers/aks-microservices/aks-microservices.yml)
-- [CI/CD pipeline for container-based workloads](../guide/aks/aks-cicd-github-actions-and-gitops.md)
+- [CI/CD pipeline for container-based workloads](/azure/devops/pipelines/architectures/devops-pipelines-baseline-architecture)
 
 ### VMs and web applications
 
