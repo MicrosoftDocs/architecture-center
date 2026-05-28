@@ -205,7 +205,7 @@ When prompted, enter values for an admin user name, password, and a VPN shared k
 
 ```azurecli
 az deployment sub create --location eastus \
-    --template-uri https://raw.githubusercontent.com/mspnp/samples/main/solutions/secure-hybrid-network/main.bicep
+    --template-uri https://raw.githubusercontent.com/mspnp/samples/main/solutions/secure-hybrid-network/azuredeploy.bicep
 ```
 
 #### [PowerShell](#tab/powershell)
@@ -216,7 +216,7 @@ When prompted, enter values for an admin user name, password, and a VPN shared k
 
 ```azurepowershell
 New-AzSubscriptionDeployment -Location eastus `
-    -TemplateUri https://raw.githubusercontent.com/mspnp/samples/main/solutions/secure-hybrid-network/main.bicep
+    -TemplateUri https://raw.githubusercontent.com/mspnp/samples/main/solutions/secure-hybrid-network/azuredeploy.bicep
 ```
 
 ---
