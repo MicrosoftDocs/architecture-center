@@ -1,8 +1,8 @@
 ---
 title: Gatekeeper Pattern
 description: Learn how to use the Gatekeeper pattern to protect applications and services by using a dedicated host instance as a broker to validate requests and data.
-ms.author: pnp
 author: claytonsiemens77
+ms.author: pnp
 ms.date: 06/02/2026
 ms.topic: design-pattern
 ms.subservice: cloud-fundamentals
@@ -10,96 +10,112 @@ ms.subservice: cloud-fundamentals
 
 # Gatekeeper pattern
 
-Protect applications and services by using a dedicated component to broker requests between clients and the application or service. The broker validates and sanitizes the requests, and can provide an additional layer of security and limit the system's attack surface.
+Protect applications and services by using a dedicated component to broker requests between clients and the application or service. The broker validates and sanitizes the requests, and can provide an extra layer of security and limit the system's attack surface.
 
 ## Context and problem
 
-Many cloud services expose endpoints that allow client applications to call their APIs across the internet or another untrusted network. The code used to implement the APIs triggers or performs several tasks, including but not limited to authentication, authorization, parameter validation, and some or all request processing. The API code is likely to access storage and other services on behalf of the client.
+Many cloud services expose endpoints that allow client applications to call their APIs across the internet or another untrusted network. The code that implements the APIs triggers or performs several tasks, including but not limited to authentication, authorization, parameter validation, and some or all request processing. The API code is likely to access storage and other services on the client's behalf.
 
 If a malicious user compromises the system and gains access to the application's hosting environment, its security mechanisms and access to data and other services are exposed. As a result, the malicious user can gain unrestricted access to credentials, storage keys, sensitive information, and other services.
 
 ## Solution
 
-One solution to this problem is to decouple the code that implements public endpoints from the code that processes requests and accesses storage. Do this by using a façade tier that interacts with clients and then hands off approved requests, through an internal endpoint, queue, or broker, to the workload components that handle the business operation. The figure provides a high-level overview of this pattern.
+One solution to this problem is to decouple the code that implements public endpoints from the code that processes requests and accesses storage. Decouple the code by using a façade tier that interacts with clients and hands off approved requests through an internal endpoint, queue, or broker to the workload components that handle the business operation. The figure provides a high-level overview of this pattern.
 
-![High-level overview of this pattern](./_images/gatekeeper-diagram.png)
+:::image type="complex" border="false" source="./_images/gatekeeper-diagram.png" alt-text="Diagram that shows a high-level overview of the Gatekeeper pattern." lightbox="./_images/gatekeeper-diagram.png":::
+   The diagram shows client, gatekeeper, trusted host or key master, services, and data sections. The gatekeeper exposes endpoints to clients, then validates and sanitizes requests. The gatekeeper might then be decoupled from the trusted host or hosts. The trusted host accesses service and storage.
+:::image-end:::
 
-The gatekeeper pattern can be used to protect storage, or it can be used as a more comprehensive façade to protect all of the functions of the application. The important factors are:
+You can use the Gatekeeper pattern to protect storage, or you can use it as a more comprehensive façade to protect all of the functions of the application. Important factors include:
 
-- **Controlled validation**. The gatekeeper validates all requests, and rejects requests that don't meet validation requirements.
-- **Limited risk and exposure**. The gatekeeper limits risk and exposure by not accessing the credentials or keys that the trusted host uses to access storage and services. If the gatekeeper becomes compromised, attackers can't access these credentials or keys.
-- **Appropriate security**. The gatekeeper runs in a limited privilege mode, while the rest of the application runs in the full trust mode required to access storage and services. If the gatekeeper is compromised, it can't directly access the application services or data.
+- **Controlled validation:** The gatekeeper validates all requests, and rejects requests that don't meet validation requirements.
 
-This pattern acts like a firewall in a typical network topography. Unlike a traditional firewall, it allows the gatekeeper to examine requests in detail and make an application-driven decision about whether to pass the request on to the trusted host that performs the required tasks. This decision typically requires the gatekeeper to validate and sanitize the request content before passing it on to the trusted host. Gatekeepers might authorize the request, look for unexpected or invalid payload content, perform rate limiting, and a range of other checks.
+- **Limited risk and exposure:** The gatekeeper limits risk and exposure by not accessing the credentials or keys that the trusted host uses to access storage and services. If the gatekeeper becomes compromised, attackers can't access these credentials or keys.
+
+- **Appropriate security:** The gatekeeper runs in a limited privilege mode, while the rest of the application runs in the full trust mode required to access storage and services. If the gatekeeper is compromised, it can't directly access the application services or data.
+
+This pattern acts like a firewall in a typical network topography. Unlike a traditional firewall, it allows the gatekeeper to examine requests in detail and make an application-driven decision about whether to pass the request to the trusted host that performs the required tasks. This decision typically requires the gatekeeper to validate and sanitize the request content before it passes it to the trusted host. Gatekeepers might authorize the request, look for unexpected or invalid payload content, perform rate limiting, and perform various other checks.
 
 ## Problems and considerations
 
 Consider the following points as you decide how to implement this pattern:
 
-- Ensure that the trusted hosts expose only internal or protected endpoints, used only by the gatekeeper. The trusted hosts shouldn't expose any external endpoints or interfaces.
-- The gatekeeper must run in a limited-privilege mode. In practice, host the gatekeeper and trusted backend on separate compute boundaries, and keep backend endpoints private.
-- The gatekeeper shouldn't perform any processing related to the application or services or access any data. Its function is purely to validate and sanitize requests. The trusted hosts might need to perform additional request validation, but the gatekeeper should perform the core validation.
-- Use a secure communication channel (HTTPS, SSL, or TLS) between the gatekeeper and the trusted hosts or tasks where possible. However, some hosting environments don't support HTTPS on internal endpoints.
-- Adding the extra layer to implement the gatekeeper pattern will likely affect performance due to the additional processing and network communication required.
-- The gatekeeper could be a single point of failure. To minimize the impact of a failure, consider deploying redundant instances and using an autoscaling mechanism to ensure capacity to maintain availability.
+- Ensure that the trusted hosts expose only internal or protected endpoints that only the gatekeeper uses. The trusted hosts shouldn't expose any external endpoints or interfaces.
+
+- The gatekeeper must run in a limited-privilege mode. In practice, host the gatekeeper and trusted back end on separate compute boundaries, and keep back-end endpoints private.
+
+- The gatekeeper shouldn't perform processing related to the application or services or access data. Its function is solely to validate and sanitize requests. The trusted hosts might need to perform extra request validation, but the gatekeeper should perform the core validation.
+
+- Use a secure communication channel like HTTPS, Secure Sockets Layer (SSL), or Transport Layer Security (TLS) between the gatekeeper and the trusted hosts or tasks where possible. However, some hosting environments don't support HTTPS on internal endpoints.
+
+- Adding the extra layer to implement the Gatekeeper pattern will likely affect performance because of the extra processing and network communication required.
+
+- The gatekeeper can be a single point of failure (SPoF). To minimize the impact of a failure, consider deploying redundant instances and using an autoscaling mechanism to ensure capacity to maintain availability.
 
 ## When to use this pattern
 
 Use this pattern when:
 
 - You handle sensitive information.
+
 - You expose services that require strong protection from malicious traffic.
-- You perform mission-critical operations that can't tolerate direct exposure of backend services.
+
+- You perform mission-critical operations that can't tolerate direct exposure of back-end services.
+
 - You need request validation and sanitization to be separated from core business processing.
 
 This pattern might not be suitable when:
 
-- You can satisfy security and validation requirements through built-in platform controls on the backend service without adding a dedicated gatekeeper tier.
-- Added network hops and validation latency would violate strict end-to-end latency requirements.
+- You can satisfy security and validation requirements through built-in platform controls on the back-end service without adding a dedicated gatekeeper tier.
+
+- Added network hops and validation latency violate strict end-to-end latency requirements.
 
 ## Workload design
 
-An architect should evaluate how the Gatekeeper pattern can be used in their workload's design to address the goals and principles covered in the [Azure Well-Architected Framework pillars](/azure/well-architected/pillars). For example:
+Evaluate how to use the Gatekeeper pattern in a workload's design to address the goals and principles covered in the [Azure Well-Architected Framework pillars](/azure/well-architected/pillars). The following table provides guidance about how this pattern supports the goals of each pillar.
 
 | Pillar | How this pattern supports pillar goals |
 | :----- | :------------------------------------- |
-| [Security](/azure/well-architected/security/checklist) design decisions help ensure the **confidentiality**, **integrity**, and **availability** of your workload's data and systems. | Adding a gatekeeper into the request flow enables you to centralize security functionality like web application firewalls, DDoS protection, bot detection, request manipulation, authentication initiation, and authorization checks.<br/><br/> - [SE:06 Network controls](/azure/well-architected/security/networking)<br/> - [SE:10 Monitoring and threat detection](/azure/well-architected/security/monitor-threats) |
-| [Performance Efficiency](/azure/well-architected/performance-efficiency/checklist) helps your workload **efficiently meet demands** through optimizations in scaling, data, and code. | This pattern is how you can implement throttling at a gatekeeper level rather than implementing rate checks at the node level. Coordinating rate state among all nodes isn't inherently performant.<br/><br/> - [PE:03 Selecting services](/azure/well-architected/performance-efficiency/select-services) |
+| [Security](/azure/well-architected/security/checklist) design decisions help ensure the **confidentiality**, **integrity**, and **availability** of your workload's data and systems. | A gatekeeper in the request flow helps you centralize security functionality like web application firewalls, DDoS protection, bot detection, request manipulation, authentication initiation, and authorization checks.<br/><br/> - [SE:06 Network controls](/azure/well-architected/security/networking)<br/> - [SE:10 Monitoring and threat detection](/azure/well-architected/security/monitor-threats) |
+| [Performance Efficiency](/azure/well-architected/performance-efficiency/checklist) helps your workload **efficiently meet demands** through optimizations in scaling, data, and code. | You can use this pattern to implement throttling at a gatekeeper level rather than implement rate checks at the node level. Rate state coordination among all nodes isn't inherently performant.<br/><br/> - [PE:03 Select services](/azure/well-architected/performance-efficiency/select-services) |
 
-As with any design decision, consider any tradeoffs against the goals of the other pillars that might be introduced with this pattern.
+If this pattern introduces trade-offs within a pillar, consider them against the goals of the other pillars.
 
 ## Example
 
-The gatekeeper pattern typically implements a layered request path, where each layer has a specific responsibility and a limited trust scope:
+The Gatekeeper pattern typically implements a layered request path, where each layer has a specific responsibility and a limited trust scope.
 
-![Diagram showing the layered gatekeeper pattern with Client → Application Gateway (WAF) → API Management (APIM) → Backend services (private)](./_images/gatekeeper-example.png)
+:::image type="complex" border="false" source="./_images/gatekeeper-example.png" alt-text="Diagram that shows the layered Gatekeeper pattern." lightbox="./_images/gatekeeper-example.png":::
+   The diagram shows an arrow labeled public IP that points to Azure Application Gateway in the virtual network. The virtual network includes Application Gateway, Azure API Management, a private endpoint, and three subnets. An arrow points from Application Gateway to API Management, from API Management to the private endpoint, and from the private endpoint to App Service. Azure Monitor is beneath Azure App Service.
+:::image-end:::
 
-In this design, [Azure Application Gateway with Web Application Firewall](/azure/web-application-firewall/ag/ag-overview) is the outer gatekeeper. It inspects internet-facing traffic and applies security controls before traffic reaches the API tier. [Azure API Management](/azure/api-management/api-management-key-concepts) is the inner gatekeeper. It applies API-specific controls and forwards only approved traffic to private backends.
+In this design, [Azure Application Gateway with Azure Web Application Firewall](/azure/web-application-firewall/ag/ag-overview) is the outer gatekeeper. It inspects internet-facing traffic and applies security controls before traffic reaches the API tier. [Azure API Management](/azure/api-management/api-management-key-concepts) is the inner gatekeeper. It applies API-specific controls and forwards only approved traffic to private back ends.
 
-For example, WAF can detect and block SQL injection and cross-site scripting patterns, enforce protocol and request-size rules, and apply bot and IP-based filtering before requests reach APIM or private backends.
+For example, Azure Web Application Firewall can detect and block SQL injection and cross-site scripting patterns, enforce protocol and request-size rules, and apply bot and IP-based filtering before requests reach API Management or private back ends.
 
-When APIM is used in the inner layer, it applies policies to inbound requests and outbound responses in the gateway pipeline. See [Policies in Azure API Management](/azure/api-management/api-management-howto-policies) for the inbound/backend/outbound model, and [API Management policy reference](/azure/api-management/api-management-policies) for policy options such as JWT validation, rate limiting, header transformation, and response shaping.
+When you use API Management in the inner layer, it applies policies to inbound requests and outbound responses in the gateway pipeline. For the inbound/back-end/outbound model, see [Policies in API Management](/azure/api-management/api-management-howto-policies). For policy options such as JSON Web Token (JWT) validation, rate limiting, header transformation, and response shaping, see [API Management policy reference](/azure/api-management/api-management-policies).
 
-Use [managed identities for Azure resources](/entra/identity/managed-identities-azure-resources/overview) consistently for service-to-service authentication in this path. For example, APIM can use the [Authenticate with managed identity policy](/azure/api-management/authentication-managed-identity-policy) to get Microsoft Entra tokens for backend calls without storing secrets.
+Use [managed identities for Azure resources](/entra/identity/managed-identities-azure-resources/overview) consistently for service-to-service authentication in this path. For example, API Management can use the [authenticate with managed identity policy](/azure/api-management/authentication-managed-identity-policy) to get Microsoft Entra tokens for back-end calls without storing secrets.
 
-The backend remains private. For example, the backend can be an [Azure App Service](/azure/app-service/overview) app that uses a [private endpoint](/azure/app-service/overview-private-endpoint), so the app can be accessed privately.
+The back end remains private. For example, the back end can be an [Azure App Service](/azure/app-service/overview) app that uses a [private endpoint](/azure/app-service/overview-private-endpoint), so the app can be accessed privately.
 
-For containerized workloads, an alternative can replace the APIM plus App Service inner path with ingress-based compute:
+For containerized workloads, an alternative can replace the API Management plus App Service inner path with ingress-based compute:
 
-- [Azure Kubernetes Service (AKS)](/azure/aks/concepts-network-ingress#compare-ingress-options), where you have more control over ingress controller choice, Kubernetes policies, network topology, and cluster operations.
-- [Azure Container Apps](/azure/container-apps/overview), a serverless managed container platform with [ingress capabilities](/azure/container-apps/ingress-overview) and reduced infrastructure management.
+- [Azure Kubernetes Service (AKS)](/azure/aks/concepts-network-ingress#compare-ingress-options), which gives you more control over ingress controller choice, Kubernetes policies, network topology, and cluster operations.
 
-In these alternatives, ingress can route by host or path, terminate TLS, and expose internal-only services. Specific capabilities such as request limits and allow or deny rules depend on the selected ingress implementation. In all cases, keep the gatekeeper boundaries: apply validation and policy enforcement at ingress, and keep backend services reachable only through that gatekeeper path.
+- [Azure Container Apps](/azure/container-apps/overview), which is a serverless managed container platform that provides [ingress capabilities](/azure/container-apps/ingress-overview) and reduces infrastructure management.
 
-Each layer in this path emits logs and metrics that you should centralize. WAF diagnostic logs record matched and blocked rules per request. APIM emits gateway logs that capture request duration, response codes, and policy outcomes. Backend services emit application-level telemetry. Collect all of this in[Azure Monitor](/azure/azure-monitor/overview) and route it to a [Log Analytics workspace](/azure/azure-monitor/logs/log-analytics-overview) for unified querying. Also standardize end-to-end request correlation by generating or forwarding a correlation ID at the edge and propagating it through APIM and backend services (for example, through request headers and distributed trace context) so a single transaction can be traced across all layers. Use [Microsoft Defender for Cloud](/azure/defender-for-cloud/defender-for-cloud-introduction) to surface security recommendations across the gatekeeper components, and configure alerts on anomalous WAF block rates or APIM error spikes to detect threats before they reach private backends.
+In these alternatives, ingress can route by host or path, terminate TLS, and expose internal-only services. Specific capabilities such as request limits and allow or deny rules depend on the selected ingress implementation. In all cases, keep the gatekeeper boundaries: apply validation and policy enforcement at ingress, and keep back-end services reachable only through that gatekeeper path.
+
+Each layer in this path emits logs and metrics that you should centralize. Azure Web Application Firewall diagnostic logs record matched and blocked rules per request. API Management emits gateway logs that capture request duration, response codes, and policy outcomes. Back-end services emit application-level telemetry. Collect these logs and metrics in [Azure Monitor](/azure/azure-monitor/fundamentals/overview) and route them to a [Log Analytics workspace](/azure/azure-monitor/logs/log-analytics-overview) for unified querying. Also standardize end-to-end request correlation by generating or forwarding a correlation ID at the edge and propagating it through API Management and back-end services (for example, through request headers and distributed trace context) so that a single transaction remains traceable across all layers. Use [Microsoft Defender for Cloud](/azure/defender-for-cloud/defender-for-cloud-introduction) to surface security recommendations across the gatekeeper components. Configure alerts on anomalous Azure Web Application Firewall block rates or API Management error spikes to detect threats before they reach private back ends.
 
 ## Next steps
 
-The following guidance might be relevant when implementing this pattern:
+The following guidance might be relevant when you implement this pattern:
 
-- [What is Azure Web Application Firewall on Azure Application Gateway?](/azure/web-application-firewall/ag/ag-overview)
-- [Policies in Azure API Management](/azure/api-management/api-management-howto-policies)
-- [Use private endpoints for Azure App Service apps](/azure/app-service/overview-private-endpoint)
+- [Azure Web Application Firewall on Application Gateway](/azure/web-application-firewall/ag/ag-overview)
+- [Policies in API Management](/azure/api-management/api-management-howto-policies)
+- [Use private endpoints for App Service apps](/azure/app-service/overview-private-endpoint)
 
 ## Related resources
 
