@@ -173,6 +173,11 @@ Apply these practices to help ensure that your document classification solution 
 Principal author:
 
 - [Peter Lee](https://www.linkedin.com/in/peter-t-lee/) | Sr. Cloud Solution Architect
+ 
+Other contributors:
+
+- [Kevin Kraus](https://www.linkedin.com/in/kevin-w-kraus) | Principal Solution Engineer
+- [Brian Swiger](https://www.linkedin.com/in/brianswiger) | Principal Solution Engineer
 
 
 *To see nonpublic LinkedIn profiles, sign in to LinkedIn.*
