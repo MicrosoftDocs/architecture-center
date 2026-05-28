@@ -307,7 +307,7 @@ For more information about specific recommendations and best practices, see [Bui
 
 Cost Optimization focuses on ways to reduce unnecessary expenses and improve operational efficiencies. For more information, see [Design review checklist for Cost Optimization](/azure/well-architected/cost-optimization/checklist).
 
-To estimate the cost of the resources in this architecture, use this [preconfigured estimate in the Azure pricing calculator](https://azure.com/e/b5edf959973d4792968b3c7eb0f4169b). Adjust the values to see how the cost changes based on your specific requirements.
+To estimate the cost of the resources in this architecture, use this [preconfigured estimate in the Azure pricing calculator](https://azure.com/e/0891dc227092472cbee8913965fae933). Adjust the values to see how the cost changes based on your specific requirements.
 
 Consider the following points for some of the services used in this architecture.
 
