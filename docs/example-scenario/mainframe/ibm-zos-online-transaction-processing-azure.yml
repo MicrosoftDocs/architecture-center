@@ -4,7 +4,7 @@ metadata:
   description: Migrate a z/OS online transaction processing (OLTP) workload to an Azure application that is cost effective, responsive, scalable, and adaptable.
   author: ashish-khandelwal-ms
   ms.author: askhande
-  ms.date: 03/09/2026
+  ms.date: 05/28/2026
   ms.topic: solution-idea
   ms.subservice: solution-idea
   ai-usage: ai-assisted
