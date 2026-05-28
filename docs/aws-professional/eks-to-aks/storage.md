@@ -30,13 +30,13 @@ Use ephemeral volumes when your applications require temporary storage but doesn
 - Caching Service moves not so frequently used data to temporary storage.
 - Read-only input data stored in files, like configuration data.
 
-Kubernetes supports different types of ephemeral volumes, such as [emptyDir](https://kubernetes.io/docs/concepts/storage/volumes/#emptydir), [ConfigMap](https://kubernetes.io/docs/concepts/storage/volumes/#configmap), [downwardAPI](https://kubernetes.io/docs/concepts/storage/volumes/#downwardapi), [secret](https://kubernetes.io/docs/concepts/storage/volumes/#secret), [hostPath](https://kubernetes.io/docs/concepts/storage/volumes/#hostpath), [CSI ephemeral volumes](https://kubernetes.io/docs/concepts/storage/ephemeral-volumes/#csi-ephemeral-volumes), and [Generic ephemeral volumes](https://kubernetes.io/docs/concepts/storage/ephemeral-volumes/#generic-ephemeral-volumes). 
+Kubernetes supports different types of ephemeral volumes, such as [emptyDir](https://kubernetes.io/docs/concepts/storage/volumes/#emptydir), [ConfigMap](https://kubernetes.io/docs/concepts/storage/volumes/#configmap), [downwardAPI](https://kubernetes.io/docs/concepts/storage/volumes/#downwardapi), [secret](https://kubernetes.io/docs/concepts/storage/volumes/#secret), [CSI ephemeral volumes](https://kubernetes.io/docs/concepts/storage/ephemeral-volumes/#csi-ephemeral-volumes), and [Generic ephemeral volumes](https://kubernetes.io/docs/concepts/storage/ephemeral-volumes/#generic-ephemeral-volumes). 
 
 #### Amazon EBS
 
 For EKS Standard, Generic Ephemeral Volumes allow you to use the [Amazon EBS CSI Driver](https://docs.aws.amazon.com/eks/latest/userguide/ebs-csi.html) to provision temporary, block-level scratch space that is directly tied to a pod's lifecycle. Unlike traditional `emptyDir` volumes which share the node's root disk, generic ephemeral volumes automatically use an independent AWS EBS volume when the pod starts and completely deletes it when the pod terminates.
 
-EKS Auto completely manages the underlying Amazon EBS CSI driver for you, you do not need to install or manage the storage controller yourself.
+EKS Auto Mode completely manages the underlying Amazon EBS CSI driver for you, you do not need to install or manage the storage controller yourself.
 
 #### Amazon EC2 instance store
 
@@ -56,23 +56,23 @@ You typically use Kubernetes to run stateless applications, but sometimes you ne
 
 Use [Amazon EBS](https://aws.amazon.com/ebs/) volumes for block-level storage and for databases and throughput-intensive applications. Amazon EKS users can use the latest generation of block storage [gp3](https://aws.amazon.com/ebs/volume-types/#gp3) for a balance between price and performance. For higher-performance applications, you can use [io2 Block Express volumes](https://docs.aws.amazon.com/ebs/latest/userguide/provisioned-iops.html#io2-block-express). To minimize cost, you can use HDD based ST1/SC1 volumes as well.
 
-In EKS Auto mode, the EBS CSI driver is auto-managed.
+In EKS Auto Mode, the EBS CSI driver is auto-managed.
 
 #### Amazon EFS
 
 [Amazon EFS](https://aws.amazon.com/efs/) is a serverless, elastic file system that you can share across multiple containers and nodes. It automatically grows and shrinks as files are added or removed, which eliminates the need for capacity planning. The [Amazon EFS Container Storage Interface (CSI) driver](https://github.com/kubernetes-sigs/aws-efs-csi-driver) integrates Amazon EFS with Kubernetes. The Amazon EFS CSI driver isn’t compatible with Windows-based container images.
 
-In EKS Auto mode, setting up EFS requires you to create the underlying file system first and manually define the mapping using standard [StorageClasses](https://kubernetes.io/docs/concepts/storage/storage-classes/), [PersistentVolume (PV)](https://kubernetes.io/docs/concepts/storage/persistent-volumes/), and [PersistentVolumeClaim (PVC)](https://kubernetes.io/docs/reference/kubernetes-api/core/persistent-volume-claim-v1/).
+In EKS Auto Mode, setting up EFS requires you to create the underlying file system first and manually define the mapping using standard [StorageClasses](https://kubernetes.io/docs/concepts/storage/storage-classes/), [PersistentVolume (PV)](https://kubernetes.io/docs/concepts/storage/persistent-volumes/), and [PersistentVolumeClaim (PVC)](https://kubernetes.io/docs/reference/kubernetes-api/core/persistent-volume-claim-v1/).
 
 #### Amazon S3 Files
 
-[Amazon S3 Files](https://docs.aws.amazon.com/eks/latest/userguide/s3files-csi.html) functions as a high-performance, low-latency shared file system layered over your Amazon S3 data. This allows file-dependent applications, workflows, and teams to operate on S3 datasets using their existing tools. To support Kubernetes environments, version 3.0.0 and later of the Amazon EFS CSI Driver allows AWS-hosted clusters to natively mount these S3 file systems as persistent volumes in both EKS Standard and EKS Auto.
+[Amazon S3 Files](https://docs.aws.amazon.com/eks/latest/userguide/s3files-csi.html) functions as a high-performance, low-latency shared file system layered over your Amazon S3 data. This allows file-dependent applications, workflows, and teams to operate on S3 datasets using their existing tools. The Amazon EFS CSI Driver allows AWS-hosted clusters to natively mount these S3 file systems as persistent volumes in both EKS Standard and EKS Auto Mode.
 
 #### Amazon FSx for Lustre
 
 [Amazon FSx for Lustre](https://aws.amazon.com/fsx/lustre/) provides high-performance parallel file storage. Use this type of storage for scenarios that require high-throughput and low-latency operations. You can link this file storage to an Amazon S3 data repository to store large datasets. 
 
-Amazon FSx for Lustre is supported in both EKS Standard and EKS Auto mode.
+Amazon FSx for Lustre is supported in both EKS Standard and EKS Auto Mode.
 
 #### Amazon FSx for NetApp ONTAP
 
@@ -88,7 +88,7 @@ Amazon FSx for OpenZFS is supported in both EKS Standard and EKS Auto Mode.
 
 [Amazon File Cache](https://docs.aws.amazon.com/eks/latest/userguide/file-cache-csi.html) is a fully managed, high-speed AWS service that processes file data from any location, automatically loading files when needed and clearing them when they aren't. With the Amazon File Cache CSI driver, Amazon EKS clusters can easily manage the entire lifecycle of these caches through a standard interface. 
 
-Amazon File Cache is supported in both EKS Standard and EKS Auto mode.
+Amazon File Cache is supported in both EKS Standard and EKS Auto Mode.
 
 To optimize storage configurations and manage backups and snapshots, use tools like [AWS Compute Optimizer](https://aws.amazon.com/compute-optimizer/) and [Velero](https://velero.io/).
 
@@ -276,7 +276,6 @@ In contrast, ephemeral OS disks are stored only on the host machine, like a temp
 
 If you don't request [Azure managed disks](/azure/virtual-machines/managed-disks-overview) for the OS, AKS defaults to ephemeral OS disks if possible for a given node pool configuration.
 
-The latest generation of VM series doesn't have a dedicated cache and only has temporary storage. 
 
 - If you select the [Standard_E2bds_v5](/azure/virtual-machines/ebdsv5-ebsv5-series#ebdsv5-series) VM size with the default OS disk size of 100 GiB, the VM supports ephemeral OS disks but only has 75 GB of temporary storage. This configuration defaults to managed OS disks if you don't specify it. If you request an ephemeral OS disk, you receive a validation error.
 
@@ -435,8 +434,6 @@ Like Amazon EKS, AKS is a Kubernetes implementation, and you can integrate partn
 
 - [Rook](https://rook.io/) turns distributed storage systems into self-managing storage services by automating Azure Storage administrator tasks. Rook delivers its services via a Kubernetes operator for each storage provider.
 
-- [GlusterFS](https://www.gluster.org/) is a free and open-source scalable network filesystem that uses common off-the-shelf hardware to create large, distributed storage solutions for data-heavy and bandwidth-intensive tasks.
-
 - [Ceph](https://www.ceph.com/en/) provides a reliable and scalable unified storage service that has object, block, and file interfaces from a single cluster that's built from commodity hardware components.
 
 - [MinIO](https://www.min.io/) multicloud object storage lets enterprises build AWS S3-compatible data infrastructure on any cloud. It provides a consistent, portable interface to your data and applications.
@@ -449,9 +446,9 @@ Like Amazon EKS, AKS is a Kubernetes implementation, and you can integrate partn
 
 AKS Automatic manages the storage lifecycle for you, while AKS Standard gives you more direct control.
 
-### High-level comparison
+### High-level comparison between AKS Automatic and AKS Standard
 
-| **Area**                           | **AKS Automatic**                            | **Standard AKS**          |
+| **Area**                           | **AKS Automatic**                            | **AKS Standard**          |
 | ---------------------------------- | -------------------------------------------- | ------------------------- |
 | Default storage setup              | Preconfigured                                | You configure manually    |
 | CSI drivers                        | Automatically managed                        | You enable/manage         |
@@ -462,6 +459,19 @@ AKS Automatic manages the storage lifecycle for you, while AKS Standard gives yo
 | Ephemeral storage tuning           | Automatic                                    | Manual                    |
 | Flexibility/customization          | Lower                                        | Higher                    |
 | Operational effort                 | Lower                                        | Higher                    |
+
+### High-level comparison between AKS Automatic and EKS Auto Mode
+
+| Aspect | Azure Kubernetes Service (AKS) Automatic | Amazon EKS Auto Mode |
+| --- | --- | --- |
+| Overall storage philosophy | Managed Kubernetes experience with storage preconfigured and ready to use. | Managed infrastructure automation, but storage configuration remains more explicit and user-driven. |
+| Default StorageClass availability | AKS automatically creates and manages default storage classes for the cluster. | EKS Auto Mode does not create a default StorageClass; you must create one yourself. |
+| Default provisioning behavior | PersistentVolumeClaims (PVCs) work immediately without additional setup because a default storage class already exists. | PVCs requiring dynamic provisioning will remain pending until a StorageClass is created and optionally marked as default. |
+| Underlying default block storage | Azure Managed Disks through the Azure Disk CSI driver. | Amazon EBS through the EBS CSI provisioner. |
+| CSI driver management | Azure Disk CSI driver is integrated and managed by AKS. | EBS CSI functionality is managed as part of EKS Auto Mode. |
+| Typical default disk type | Standard SSD-backed managed disks by default. Premium options also available. | AWS examples recommend gp3 EBS volumes as the standard default. |
+| Encryption defaults | Azure platform-managed disk encryption is enabled transparently. | Encryption is configurable in the StorageClass; AWS examples recommend encrypted: "true". |
+| Zone-aware provisioning | AKS automatically handles zone-aware provisioning and ZRS support in multi-zone clusters. | Uses WaitForFirstConsumer to provision EBS volumes in the correct Availability Zone. |
 
 ## Kubernetes storage considerations
 
