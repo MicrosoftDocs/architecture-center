@@ -13,7 +13,7 @@
 	<style type="text/css">
 	<![CDATA[
 		.st1 {fill:#ffffff;stroke:none;stroke-linecap:round;stroke-linejoin:round;stroke-width:0.75}
-		.st2 {fill:#f2f2f2;stroke:#000000;stroke-linecap:round;stroke-linejoin:round;stroke-width:1}
+		.st2 {fill:#ffffff;stroke:#000000;stroke-linecap:round;stroke-linejoin:round;stroke-width:1}
 		.st3 {fill:#d8d8d8;stroke:#000000;stroke-linecap:round;stroke-linejoin:round;stroke-opacity:0;stroke-width:0.75}
 		.st4 {fill:#bfbfbf;stroke:#000000;stroke-linecap:round;stroke-linejoin:round;stroke-width:0.25}
 		.st5 {fill:#d8d8d8;stroke:none;stroke-linecap:round;stroke-linejoin:round;stroke-width:0.75}
@@ -509,7 +509,7 @@
 			<v:userDefs>
 				<v:ud v:nameU="visNavOrder" v:val="VT0(116000):26"/>
 			</v:userDefs>
-			<rect x="0" y="183.383" width="594" height="431.922" class="st2"/>
+			<rect x="0" y="183.383" width="604.005" height="431.922" class="st2"/>
 		</g>
 		<g id="shape1047-5" v:mID="1047" v:groupContext="shape" transform="translate(552.495,-87.0936)">
 			<title>Sheet.1047</title>
@@ -1483,15 +1483,15 @@
 		</g>
 		<g id="shape1378-328" v:mID="1378" v:groupContext="shape" transform="translate(386.295,-304.105)">
 			<title>Sheet.1378</title>
-			<desc>Azure web application firewall</desc>
+			<desc>Azure Web Application Firewall</desc>
 			<v:userDefs>
 				<v:ud v:nameU="visNavOrder" v:val="VT0(53000):26"/>
 			</v:userDefs>
 			<v:textBlock v:margins="rect(4,4,4,4)"/>
 			<v:textRect cx="36" cy="604.094" width="72" height="22.4229"/>
 			<rect x="0" y="592.882" width="72" height="22.4229" class="st6"/>
-			<text x="17.44" y="596.89" class="st7" v:langID="1033"><v:paragraph v:horizAlign="1"/><v:tabList/>Azure web <tspan
-						x="16.51" dy="1.2em" class="st8">application </tspan><tspan x="23.43" dy="1.2em" class="st8">firewall</tspan></text>		</g>
+			<text x="16.59" y="596.89" class="st7" v:langID="1033"><v:paragraph v:horizAlign="1"/><v:tabList/>Azure Web <tspan
+						x="15.97" dy="1.2em" class="st8">Application </tspan><tspan x="22.73" dy="1.2em" class="st8">Firewall</tspan></text>		</g>
 		<g id="shape1471-333" v:mID="1471" v:groupContext="shape" v:layerMember="2" transform="translate(146.534,-384.41)">
 			<title>Dynamic connector.1471</title>
 			<v:userDefs>
@@ -2235,7 +2235,7 @@
 				</g>
 				<g id="shape1321-682" v:mID="1321" v:groupContext="shape" transform="translate(12.8163,-7.34784)">
 					<title>Sheet.1321</title>
-					<path d="M5.57 614.71 L4.95 615.3 L0.08 610.64 a0.310664 0.297886 0 0 1 -4.44089E-15 -0.397181 L0.7 609.65 a0.310664
+					<path d="M5.57 614.71 L4.95 615.3 L0.08 610.64 a0.310664 0.297886 0 0 1 -4.46865E-15 -0.397181 L0.7 609.65 a0.310664
 								 0.297886 0 0 1 0.414219 0 L5.57 613.91 a0.621328 0.595771 0 0 1 -1.77636E-15 0.794362 Z"
 							class="st31"/>
 				</g>
@@ -2516,8 +2516,8 @@
 			</v:userDefs>
 			<rect v:rectContext="foreign" x="0" y="579.998" width="35.3738" height="35.3068" class="st6"/>
 			<image x="0" y="579.998" width="35.3738" height="35.3068" preserveAspectRatio="none" xlink:href="data:image/png;base64,
-						iVBORw0KGgoAAAANSUhEUgAABAAAAAQACAIAAADwf7zUAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAAFiUAABYl
-						AUlSJPAAAO8iSURBVHhe7J0htB030q0DDQ1DAwMDTQMDA0MNDQ1DAw0DQw0NDU0DAwOHDvzhg/OWVNJpdamqW90ttUqtvVetvb43ydzM
+						iVBORw0KGgoAAAANSUhEUgAABAAAAAQACAIAAADwf7zUAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAAGdYAABnW
+						ARjRyu0AAO8iSURBVHhe7J0htB030q0DDQ1DAwMDTQMDA0MNDQ1DAw0DQw0NDU0DAwOHDvzhg/OWVNJpdamqW90ttUqtvVetvb43ydzM
 						m3/63F1bp+Xv/gdBEARBEARB0DT6jv8LEARBEARBEAQ9V1gAIAiCIAiCIGgiYQGAIAiCIAiCoImEBQCCIAiCIAiCJhIWAAiCIAiCIAia
 						SFgAIAiCIAiCIGgiYQGAIAiCIAiCoImEBQCCIAiCIAiCJhIWAAiCIAiCIAiaSFgAIAiCIAiCIGgiYQGAIAiCIAiCoImEBQCCIAiCIAiC
 						JhIWAAiCIAiCIAiaSFgAIAiCIAiCIGgiYQGAIAiCIAiCoImEBQCCIAiCIAiCJhIWAAiCIAiCIAiaSFgAIAiCIAiCIGgiYQGAIAiCIAiC
@@ -3423,15 +3423,15 @@
 			<rect x="0" y="603.647" width="63" height="11.6581" class="st6"/>
 			<text x="18.71" y="606.18" class="st18" v:langID="1033"><v:paragraph v:horizAlign="1"/><v:tabList/>Input<v:newlineChar/><tspan
 						x="10.95" dy="1.2em" class="st8">requests</tspan></text>		</g>
-		<g id="shape5-848" v:mID="5" v:groupContext="shape" transform="translate(19.125,-19.125)">
+		<g id="shape5-848" v:mID="5" v:groupContext="shape" transform="translate(119.13,-6.85111)">
 			<title>Sheet.5</title>
 			<v:userDefs>
 				<v:ud v:nameU="visNavOrder" v:val="VT0(121000):26"/>
 			</v:userDefs>
 			<rect v:rectContext="foreign" x="0" y="557.007" width="110.37" height="58.2978" class="st133"/>
 			<image x="0" y="557.007" width="110.37" height="58.2978" preserveAspectRatio="none" xlink:href="data:image/png;base64,
-						iVBORw0KGgoAAAANSUhEUgAABqYAAAODCAYAAADetLAsAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAAFiUAABYl
-						AUlSJPAAAGu3SURBVHhe7d3BkeNImibsFqE02LKRoATYw4iQt/9aIrQZBdgSIQXYQx1WgLzunlqEFCE1mLJRoH/zGrAnyh0RQcL9dTjJ
+						iVBORw0KGgoAAAANSUhEUgAABqYAAAODCAYAAADetLAsAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAAGdYAABnW
+						ARjRyu0AAGu3SURBVHhe7d3BkeNImibsFqE02LKRoATYw4iQt/9aIrQZBdgSIQXYQx1WgLzunlqEFCE1mLJRoH/zGrAnyh0RQcL9dTjJ
 						5/CYdX+VEXDAQTD4vXTgb//85z//BgAAAAAAAGlNAQAAAAAAABKaAgAAAAAAACQ0BQAAAAAAAEhoCgAAAAAAAJDQFAAAAAAAACChKQAA
 						AAAAAEBCUwAAAAAAAICEpgAAAAAAAAAJTQEAAAAAAAASmgIAAAAAAAAkNAUAAAAAAABIaAoAAAAAAACQ0BQAAAAAAAAgoSkAAAAAAABA
 						QlMAAAAAAACAhKYAAAAAAAAACU0BAAAAAAAAEpoCAAAAAAAAJDQFAAAAAAAASGgKAAAAAAAAkNAUAAAAAAAAIKEpAAAAAAAAQEJTAAAA
@@ -4005,8 +4005,8 @@
 			</v:userDefs>
 			<rect v:rectContext="foreign" x="0" y="573.553" width="44.5417" height="41.7517" class="st6"/>
 			<image x="0" y="573.553" width="44.5417" height="41.7517" preserveAspectRatio="none" xlink:href="data:image/png;base64,
-						iVBORw0KGgoAAAANSUhEUgAAAlgAAAIVCAYAAAANoIFuAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAAFiUAABYl
-						AUlSJPAAAP+lSURBVHhe7J0HdFTVFoYnbVIJRQSkl9B7lSad9EJXFBUsgIiIDRF5KnYFFQGRHpIQQu9FOiH0joCIENJ7J4TQwv/WOXfu
+						iVBORw0KGgoAAAANSUhEUgAAAlgAAAIVCAYAAAANoIFuAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAAGdYAABnW
+						ARjRyu0AAP+lSURBVHhe7J0HdFTVFoYnbVIJRQSkl9B7lSad9EJXFBUsgIiIDRF5KnYFFQGRHpIQQu9FOiH0joCIENJ7J4TQwv/WOXfu
 						ZObcCcklIaTsf61vTWZSCJNkzrf22XcfjYZCoVAoFAqFQqFQKBQKhUKhUCgUCoVCoVAoFAqFQqFQKBQKhUKhUCgUCoVCoVAoFAqFQqFQ
 						KBQKhUKhUCgUCoVCoVAoFAqFQqFQKBQKhUKhUCgUCoVCoVAoFAqFQqFQKBQKhUKhUCgUCoVCoVAoFAqFQqFQKBQKhUKhUCgUCoVCoVAo
 						FAqF8hRjZm6mta9iZleltpltpZpmthVrmFlXqMofs3aoqrGyq6Sx0NppzC1tNGbmluzjxa9AoVAoFAqFUn5jbmljbl+lrkXlOm2sqjfp
@@ -4890,8 +4890,8 @@
 			</v:userDefs>
 			<rect v:rectContext="foreign" x="0" y="591.68" width="45" height="23.625" class="st6"/>
 			<image x="0" y="591.68" width="45" height="23.625" preserveAspectRatio="none" xlink:href="data:image/png;base64,iVBO
-						Rw0KGgoAAAANSUhEUgAAAlgAAAE7CAYAAAAB7v+1AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAAFiUAABYlAUlS
-						JPAAABhsSURBVHhe7d09iJ1ndsBxQYgSZGQlCDv4A3kFRg5iUEDYDAYJCwsjM+APJIJQYzUWBiPwIjDCuNBU2sY2LBirEDZkCzNNVIXp
+						Rw0KGgoAAAANSUhEUgAAAlgAAAE7CAYAAAAB7v+1AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAAGdYAABnWARjR
+						yu0AABhsSURBVHhe7d09iJ1ndsBxQYgSZGQlCDv4A3kFRg5iUEDYDAYJCwsjM+APJIJQYzUWBiPwIjDCuNBU2sY2LBirEDZkCzNNVIXp
 						vFVQoWJJJdjGZUqVaTcce23tHM3Hc+/cj/c57+8H/2pZ2Ied573nXs2ce+AAsC8Xfn/vT1f+689/kap0cePBo3/8p6P/kn/WAWAhTrz7
 						wSf5xUmq0Ksfr3+Tf94BYO7iHf77//Hf/5tfmKQq/fPxf/23/HMPAHN1+sPPvsovSFKl3rz9hz/mn3sAmJt4Z//v//k//5dfkKRqvbh6
 						/r388w8Ac3Fu/e5mfiGSKhb/DP53f3/wH/IdAICZinf0+UVIqtzJS9du5nsAADMT7+TX7mw+zC9AUuXin8OtbQBgbqxl0Fh7/dMvv8/3
@@ -4981,8 +4981,8 @@
 			</v:userDefs>
 			<rect v:rectContext="foreign" x="0" y="591.68" width="45" height="23.625" class="st6"/>
 			<image x="0" y="591.68" width="45" height="23.625" preserveAspectRatio="none" xlink:href="data:image/png;base64,iVBO
-						Rw0KGgoAAAANSUhEUgAAAlgAAAE7CAYAAAAB7v+1AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAAFiUAABYlAUlS
-						JPAAABK4SURBVHhe7d3Pj131ecfxIFt4ZyOBBEICSwjL0E0FIgoSRaURBYoXBNEsGqQGUdKkSPWCLEwB81NKK/XHklZtFQXPjLvLssKO
+						Rw0KGgoAAAANSUhEUgAAAlgAAAE7CAYAAAAB7v+1AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAAGdYAABnWARjR
+						yu0AABK4SURBVHhe7d3Pj131ecfxIFt4ZyOBBEICSwjL0E0FIgoSRaURBYoXBNEsGqQGUdKkSPWCLEwB81NKK/XHklZtFQXPjLvLssKO
 						FPUvSDeYZbrLMstspzpGFs5zxz9m5jn3fs45r7f0+hPmez+aufbzjW9osd1xxx13HD169Oidd95558MPP/z0I4888qePPvrocwBTM7xf
 						J0+e/OMHH3xwo44dO3aivrWSFtK99977B88999wnb7zxxv988sknuwBT9vHHH+++9957u++8887GDSOrvrmSZt6JEyfuf+211z6vjxPA
 						lKWMq4GBJS2sJ5544vXz58//rj5MAFN2/vz5lZGzaa+//vqvXn311V++8sorP3/yySfP3X///d+qb7KkGfTss89+XB8lgKlLHFc38uab
@@ -5106,8 +5106,8 @@
 			</v:userDefs>
 			<rect v:rectContext="foreign" x="0" y="584.526" width="30.7785" height="30.7785" class="st6"/>
 			<image x="0" y="584.526" width="30.7785" height="30.7785" preserveAspectRatio="none" xlink:href="data:image/png;base64,
-						iVBORw0KGgoAAAANSUhEUgAAAgAAAAIACAYAAAD0eNT6AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAAFiUAABYl
-						AUlSJPAAAIsqSURBVHhe7b0JmFTlmfbfSSbfuCQajTrZk0kymawzJl8yWSdjltky+U9mkph8mt0YF9wVRaW7upDqhu5m650W6Gbrhj7d
+						iVBORw0KGgoAAAANSUhEUgAAAgAAAAIACAYAAAD0eNT6AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAAGdYAABnW
+						ARjRyu0AAIsqSURBVHhe7b0JmFTlmfbfSSbfuCQajTrZk0kymawzJl8yWSdjltky+U9mkph8mt0YF9wVRaW7upDqhu5m650W6Gbrhj7d
 						gCgu7IpsIiCKoqwii4AgCLILvP/rdNcpTj3nPm+91afOeU+d89zXdX9PYpQu65urfr+6eysp4XA4HA6Hw+FwOBwOh8PhcDgcDofD4XA4
 						HA6Hw+FwOBwOh8PhcDgcDofD4XA4HA6Hw+FwOBwOh8PhcDgcDofD4XA4HA6Hw+FwOBwOh8PhcDgcDofD4XA4HA6Hw+FwOBwOh8PhRCAT
 						Jkz4RFtb2y1tbW2j2traprS2ts4dP3789La2tua2trb7W1tbv0P/GY48M2fOfP/kyZN/2dHRUdne3t7W3t7+aLrmf65ob2//+eTJky+g
