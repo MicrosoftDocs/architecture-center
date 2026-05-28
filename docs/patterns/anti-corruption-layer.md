@@ -3,7 +3,7 @@ title: Anti-Corruption Layer Pattern
 description: Learn about the Anti-Corruption Layer pattern. Implement a facade or adapter layer between a modern application and a legacy system.
 ms.author: pnp
 author: claytonsiemens77
-ms.date: 07/28/2022
+ms.date: 05/28/2026
 ms.topic: design-pattern
 ms.subservice: cloud-fundamentals
 ---
