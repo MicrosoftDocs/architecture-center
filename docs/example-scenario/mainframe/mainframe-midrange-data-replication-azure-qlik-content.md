@@ -1,4 +1,4 @@
-This solution uses an on-premises instance of Qlik Software to replicate on-premises data sources to Azure in real time.
+This solution uses an on-premises instance of Qlik software to replicate on-premises data sources to Azure in real time.
 
 > [!NOTE]
 > Pronounce "Qlik" like "click."
