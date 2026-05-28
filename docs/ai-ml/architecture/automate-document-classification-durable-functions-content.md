@@ -3,7 +3,7 @@ This article describes an architecture that processes various documents. The arc
 ## Architecture
 
 :::image type="complex" border="false" source="_images/automate-document-classification-durable-functions.svg" alt-text="Diagram that shows an architecture to identify, classify, and search documents." lightbox="_images/automate-document-classification-durable-functions.svg":::
-The image is a flowchart that has multiple sections. The ingestion section contains an Azure web app. It connects via arrows to the document store section that contains Azure Blob Storage and the activation section that contains an Azure Service Bus queue. The Azure Functions orchestration section contains icons that represent analyze activity, metadata store activity, and embedding activity. Arrows point from these icons to the document processing, document metadata collection, and vectorize and index sections. The chat with your data section contains a Microsoft Foundry Agent Service prompt agent that uses an Azure AI Search tool to ground responses in the indexed content. The ingestion section points to the vectorize and index data section and the chat with your data section.
+The image is a flowchart that has multiple sections. The ingestion section contains an Azure web app. It connects via arrows to the document store section that contains Azure Blob Storage and the activation section that contains an Azure Service Bus queue. The Azure Functions orchestration section contains icons that represent analyze activity, metadata store activity, and embedding activity. Arrows point from these icons to the document processing, document metadata collection, and vectorize and index sections. The embedding activity also has a call arrow to a Microsoft Foundry-hosted `text-embedding-3-large` model that returns vector embeddings. The chat with your data section contains a Microsoft Foundry Agent Service prompt agent that uses an Azure AI Search tool to ground responses in the indexed content. The ingestion section points to the vectorize and index data section and the chat with your data section.
 :::image-end:::
 
 *Download a [Visio file](https://arch-center.azureedge.net/automate-document-classification-durable-functions.vsdx) of this architecture.*
@@ -21,6 +21,9 @@ The following workflow corresponds to the previous diagram:
 1. The *metadata store* activity function saves the document type, location, and page range information for each document in an Azure Cosmos DB store.
 
 1. The *embedding* activity function uses Semantic Kernel's `TextChunker` to split each document into overlap-aware passages sized to the embedding model's context window. The function then calls a `text-embedding-3-large` model deployed in Microsoft Foundry to create vector embeddings for each chunk. The architecture uses `text-embedding-3-large` rather than `text-embedding-3-small` because the document corpus spans multiple document types and benefits from the higher retrieval quality that the larger embedding dimensions provide. The function writes the embeddings and associated content to a vector-enabled index in Azure AI Search and adds a correlation ID to each search document so that search results map back to the corresponding document metadata in Azure Cosmos DB.
+
+   > [!NOTE]
+   > Microsoft Agent Framework is the going-forward direction for new orchestration in Azure Architecture Center solutions, and step 6 already uses Foundry Agent Service through the Azure AI Projects SDK rather than a Semantic Kernel orchestrator. Agent Framework doesn't currently ship a text-splitting primitive, so this architecture uses `TextChunker` from Semantic Kernel for chunking only. Replace `TextChunker` with the Microsoft-recommended splitter when one ships with Agent Framework or another Foundry-aligned library.
 
 1. The web app calls a pre-deployed Microsoft Foundry Agent Service prompt agent through the Azure AI Projects SDK. The workload team deploys and versions the agent as part of its release pipeline. The web app doesn't create agents on the fly per user. The agent has the Azure AI Search tool attached and is configured to ground its responses in the indexed content and return inline citations. For code-first agent definition with custom multi-step orchestration, see the Microsoft Agent Framework alternative in the next section.
 
@@ -65,7 +68,7 @@ The following workflow corresponds to the previous diagram:
 
 - For code-based agent orchestration, you can build a Hosted agent (preview) with the [Microsoft Agent Framework](/agent-framework/overview/agent-framework-overview) and deploy it to Foundry Agent Service instead of using a prompt agent. Use this option when you need custom multi-step orchestration, multi-agent coordination, or full control over the agent loop.
 
-- To provide a natural language interface for users, you can substitute a different chat model in the Foundry Agent Service prompt agent. This architecture uses `gpt-4o` as the default agent model. Foundry Models also offers models from Mistral, Meta, Cohere, and Hugging Face that you can swap in based on your quality, latency, and cost targets.
+- To provide a natural language interface for users, you can substitute a different chat model in the Foundry Agent Service prompt agent. This architecture uses `gpt-4.1` as the default agent model. Foundry Models also offers models from Mistral, Meta, Cohere, and Hugging Face that you can swap in based on your quality, latency, and cost targets.
 
 ### Scenario details
 
@@ -105,7 +108,7 @@ For learning and early proof-of-concept work, use a [Global Standard](/azure/fou
 
 For production workloads, choose the [deployment type](/azure/foundry/foundry-models/concepts/deployment-types) along two axes:
 
-- **Data-processing location:** Use *Global* deployments (`GlobalStandard` or `GlobalProvisionedManaged`) when inferencing can occur in any Foundry region. Use *Data Zone* deployments (`DataZoneStandard` or `DataZoneProvisionedManaged`) when inferencing must stay within the US or EU data zone. Use *Standard* (`Standard`) or *Regional Provisioned* (`ProvisionedManaged`) when inferencing must stay in a single region. The data at rest in this architecture — document files in Blob Storage, document metadata in Azure Cosmos DB, and the vector index in AI Search — remains in your selected Azure geography for all deployment types. Only the model inference request and response can cross regions when you use Global or Data Zone deployments.
+- **Data-processing location:** Use *Global* deployments (`GlobalStandard` or `GlobalProvisionedManaged`) when inferencing can occur in any Foundry region. Use *Data Zone* deployments (`DataZoneStandard` or `DataZoneProvisionedManaged`) when inferencing must stay within one of the data zone boundaries. Use *Standard* (`Standard`) or *Regional Provisioned* (`ProvisionedManaged`) when inferencing must stay in a single region. The data at rest in this architecture — document files in Blob Storage, document metadata in Azure Cosmos DB, and the vector index in AI Search — remains in your selected Azure geography for all deployment types. Only the model inference request and response can cross regions when you use Global or Data Zone deployments.
 
 - **Throughput and cost model:** Use *Standard* deployment types for low-to-medium, bursty, or exploratory workloads. These types use pay-per-token billing with no reserved capacity. Use *Provisioned* deployment types for predictable, higher-volume workloads that need reserved throughput, lower latency variance, and the option to apply reservations for cost optimization.
 
@@ -143,7 +146,7 @@ To optimize costs, consider the following recommendations:
 
 - **Use the pay-as-you-go strategy for your architecture and [scale out](/azure/well-architected/cost-optimization/optimize-scaling-costs) as needed** instead of investing in large-scale resources at the start. As your solution matures, you can use [App Service reservations](/azure/cost-management-billing/reservations/reservation-discount-app-service) to help reduce costs where applicable.
 
-- **Consider opportunity costs in your architecture and balance a first-mover advantage strategy with a fast-follow strategy.** To estimate the initial cost and operational costs, use the [Azure pricing calculator](https://azure.microsoft.com/pricing/calculator).
+- **Consider opportunity costs in your architecture and balance a first-mover advantage strategy with a fast-follow strategy.** To estimate the initial cost and operational costs, start from this [preconfigured estimate in the Azure pricing calculator](https://azure.com/e/99a10a519f7648d6bf27e3a36c2e68d5) and adjust the region, throughput, and reserved-capacity dials to match your expected workload.
 
 - **Establish [budgets and controls](/azure/well-architected/cost-optimization/collect-review-cost-data) that set cost limits for your solution.** To set up forecasting and actual cost alerts, use [budget alerting](/azure/cost-management-billing/costs/tutorial-acm-create-budgets).
 
@@ -159,7 +162,7 @@ This solution can expose performance bottlenecks when you process high volumes o
 
 - **Optimize indexing and retrieval performance** by configuring appropriate partitioning, replicas, and schema for AI Search. For more information, see [AI Search performance tips](/azure/search/search-performance-tips).
 
-- **Establish performance baselines and feedback loops.** Define realistic latency and throughput targets early, monitor actual system performance continuously, and refine architecture and operational configurations as usage patterns evolve. For more information, see [Performance Efficiency design principles](/azure/well-architected/performance-efficiency/principles).
+- **Establish performance baselines and feedback loops.** Define realistic latency and throughput targets early, monitor actual system performance continuously, and refine architecture and operational configurations as usage patterns evolve.
 
 Apply these practices to help ensure that your document classification solution remains responsive and cost effective as the solution scales.
 
