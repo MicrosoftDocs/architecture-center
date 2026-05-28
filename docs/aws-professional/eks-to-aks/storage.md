@@ -160,8 +160,6 @@ A cluster administrator can *statically* create a persistent volume, or the Kube
 > [!IMPORTANT]
 > Windows and Linux pods can't share persistent volumes because the operating systems support different file systems.
 
-If you want a fully managed solution for block-level access to data, consider using [Azure Container Storage](/azure/storage/container-storage/container-storage-introduction) instead of CSI drivers. Azure Container Storage integrates with Kubernetes to provide dynamic and automatic provisioning of persistent volumes. Azure Container Storage supports Azure disks, ephemeral disks, and Azure Elastic SAN as backing storage. These options provide flexibility and scalability for stateful applications that run on Kubernetes clusters.
-
 ## Storage classes
 
 To specify different tiers of storage, such as premium or standard, you can create a storage class.
@@ -500,11 +498,11 @@ Different services support storage classes that have different access modes.
 
 Choose a tool to back up persistent data. The tool should match your storage type, such as snapshots, [Azure Backup](/azure/backup/azure-kubernetes-service-cluster-backup) for AKS, [Velero](https://github.com/velero-io/velero) or [Veeam Kasten](https://www.veeam.com/products/cloud/kubernetes-data-protection.html).
 
-To create a volume snapshot in AKS, ensure the snapshot controller is enabled, create a VolumeSnapshotClass, and then create a VolumeSnapshot that references your Persistent Volume Claim (PVC). The [Azure Files CSI driver](https://learn.microsoft.com/en-us/azure/aks/create-volume-azure-files#create-a-volume-snapshot-from-a-pvc-with-azure-files) supports creating a volume snapshot from a PVC with Azure Files. On the other hand, The [Azure Disks CSI driver](https://learn.microsoft.com/en-us/azure/aks/create-volume-azure-disk#volume-snapshot-class-parameters-for-azure-disks) supports creating a volume snapshot from a PVC with Azure Disks.
+To create a volume snapshot in AKS, ensure the snapshot controller is enabled, create a VolumeSnapshotClass, and then create a VolumeSnapshot that references your Persistent Volume Claim (PVC). The [Azure Files CSI driver](/aks/create-volume-azure-files#create-a-volume-snapshot-from-a-pvc-with-azure-files) supports creating a volume snapshot from a PVC with Azure Files. On the other hand, The [Azure Disks CSI driver](/azure/aks/create-volume-azure-disk#volume-snapshot-class-parameters-for-azure-disks) supports creating a volume snapshot from a PVC with Azure Disks.
 
 ### AKS and Azure Key Vault
 
-[Azure Key Vault provider for the Secrets Store CSI Driver](https://learn.microsoft.com/en-us/azure/aks/csi-secrets-store-driver?pivots=azure-cli-create) enables Azure Key Vault to be integrated as a secure secret store for Azure Kubernetes Service (AKS) clusters through a CSI volume. It allows secrets, keys, and certificates to be mounted directly into Pods, supports CSI inline volumes, and enables multiple secret store objects to be mounted within a single volume. The provider also improves Pod portability through the SecretProviderClass Custom Resource Definition (CRD), supports Windows containers, synchronizes with Kubernetes secrets, and offers automatic rotation for both mounted content and synced Kubernetes secrets.
+[Azure Key Vault provider for the Secrets Store CSI Driver](/azure/aks/csi-secrets-store-driver?pivots=azure-cli-create) enables Azure Key Vault to be integrated as a secure secret store for Azure Kubernetes Service (AKS) clusters through a CSI volume. It allows secrets, keys, and certificates to be mounted directly into Pods, supports CSI inline volumes, and enables multiple secret store objects to be mounted within a single volume. The provider also improves Pod portability through the SecretProviderClass Custom Resource Definition (CRD), supports Windows containers, synchronizes with Kubernetes secrets, and offers automatic rotation for both mounted content and synced Kubernetes secrets.
 
 
 ### Cost optimization
