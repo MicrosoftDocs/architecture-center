@@ -17,7 +17,7 @@ This article compares Microsoft Azure and Amazon Web Services (AWS) core compute
 
 - For links to articles that compare other AWS and Azure services, see [Azure for AWS professionals](index.md).
 
-- For a complete listing and charts that show the service mapping between AWS and Azure, see [AWS to Azure services comparison](services.md).
+- For a complete listing and charts that show the service mapping between AWS and Azure, see [AWS to Azure services comparison](../gcp-professional/services.md).
 
 - For Azure architectures, see [Browse Azure compute architectures](/azure/architecture/browse/?azure_categories=compute).
 
