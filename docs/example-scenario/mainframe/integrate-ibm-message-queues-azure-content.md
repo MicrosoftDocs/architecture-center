@@ -14,7 +14,7 @@ When you use Azure as a modern data platform, you have your choice of platform a
 
 1. In a cloud-native approach, Azure Logic Apps uses the MQ connector to exchange messages with IBM MQ. The Scheduler feature orchestrates the Azure workflow, sending and receiving messages at [recurring intervals](/azure/logic-apps/concepts-schedule-automated-recurring-tasks-workflows) of one second.
 
-1. The MQ connector can send the messages it reads directly to storage through a connector or send them to be transformed first. Logic Apps includes several options for data transformation, such as an inline [JavaScript](/azure/logic-apps/logic-apps-add-run-inline-code) runtime that you can use to run simple JavaScript code snippets for data transformation or [data operations](/azure/logic-apps/logic-apps-perform-data-operations) that perform transformations on JSON, CSV, and HTML table data. You can also create serverless, single-task functions using [Azure Functions](/azure/logic-apps/logic-apps-azure-functions).
+1. The MQ connector can send the messages it reads directly to storage through a connector or send them to be transformed first. Logic Apps includes several options for data transformation, such as an inline [JavaScript](/azure/logic-apps/logic-apps-add-run-inline-code) runtime that you can use to run simple JavaScript code snippets for data transformation, and [data operations](/azure/logic-apps/logic-apps-perform-data-operations) that perform transformations on JSON, CSV, and HTML table data. You can also create serverless, single-task functions by using [Azure Functions](/azure/logic-apps/logic-apps-azure-functions).
 
 1. Data is loaded into storage. Azure offers many managed data storage solutions, each providing different features and capabilities.
 
@@ -38,20 +38,21 @@ When you use Azure as a modern data platform, you have your choice of platform a
 
 ### Alternatives
 
-- For the data layer, you have your choice of managed services,
-  [Azure SQL Database](https://azure.microsoft.com/services/sql-database/). Part of the Azure SQL family, Azure SQL Database is the intelligent, scalable, relational database service built for the cloud. Always up to date, it includes automated features that optimize performance, durability, and scalability, so you can focus on building new applications.
+- For the data layer, you have your choice of managed services:
 
-  [Azure SQL Managed Instance](https://azure.microsoft.com/services/azure-sql/sql-managed-instance/). Part of the Azure SQL service portfolio, SQL Managed Instance combines the broadest SQL Server engine compatibility with all the benefits of a fully managed PaaS.
+  [Azure SQL Database](https://azure.microsoft.com/products/azure-sql/database/). Part of the Azure SQL family, SQL Database is an intelligent and scalable relational database service that's built for the cloud. Always up to date, it includes automated features that optimize performance, durability, and scalability, so you can focus on building new applications.
 
-  [Azure SQL on Azure Virtual Machines](https://azure.microsoft.com/en-in/services/virtual-machines/sql-server/). Part of the Azure SQL family, this cost-effective option is designed for lifting and shifting SQL Server workloads to Azure. It combines the performance, security, and analytics of SQL Server with the flexibility and hybrid connectivity of Azure—with 100 percent code compatibility. Now includes SQL Server 2019 images.
+  [Azure SQL Managed Instance](https://azure.microsoft.com/products/azure-sql/managed-instance/). Part of the Azure SQL service family, SQL Managed Instance combines the broadest SQL Server engine compatibility with all the benefits of a fully managed PaaS.
+
+  [Azure SQL on Azure Virtual Machines](https://azure.microsoft.com/products/virtual-machines/sql-server/). Part of the Azure SQL family, this cost-effective option is designed for lifting and shifting SQL Server workloads to Azure. It combines the performance, security, and analytics of SQL Server with the flexibility and hybrid connectivity of Azure—with 100 percent code compatibility. Now includes SQL Server 2019 images.
 
   [Azure Database for PostgreSQL](/azure/postgresql/overview). This fully managed relational database service is based on the community edition of the open-source PostgreSQL database engine. You can focus on application innovation instead of database management and easily scale your workloads.
 
-  [Azure Database for MySQL](/azure/mysql/overview). This fully managed relational database service is based on the community edition of the open-source MySQL database engine.
+  [Azure Database for MySQL](/azure/mysql/flexible-server/overview). This fully managed relational database service is based on the community edition of the open-source MySQL database engine.
 
-  [Azure Cosmos DB](/azure/cosmos-db/introduction). A globally distributed, multi-model database, Azure Cosmos DB provides throughput and storage that scales elastically and independently across any number of geographic regions. It is a fully managed NoSQL database service that guarantees single-digit-millisecond latencies at the 99th percentile anywhere in the world.
+  [Azure Cosmos DB](/azure/cosmos-db/overview). A globally distributed, multi-model database, Azure Cosmos DB provides throughput and storage that scales elastically and independently across any number of geographic regions. It's a fully managed NoSQL database service that guarantees single-digit-millisecond latencies at the 99th percentile anywhere in the world.
 
-  [Data Warehouse in Microsoft Fabric](/fabric/data-warehouse/data-warehousing). This enterprise analytics service accelerates time to insight across data warehouses and big data systems.
+  [Fabric Data Warehouse](/fabric/data-warehouse/data-warehousing). This enterprise analytics service speeds up time to insight across data warehouses and big data systems.
 
 - For the storage layer, create an enterprise data lake using [Azure Data Lake Storage](/azure/storage/blobs/data-lake-storage-introduction).
 
@@ -67,11 +68,11 @@ The following architecture illustrates how these options work in practice:
 
 - **Cloud-native PaaS**. [Azure Logic Apps](/azure/logic-apps/logic-apps-overview) exchanges messages with [IBM MQ](https://www.ibm.com/think/topics/message-queues) through the [MQ connector](/azure/connectors/connectors-create-api-mq). Additional [connectors](/connectors/connector-reference/) provide quick access to events, data, and actions across other apps, services, systems, protocols, and platforms. Logic Apps also includes tools for transforming data from the queue if you need to modify the data format, structure, or values before storing it on Azure or sending it to the application layer.
 
-- **VM-based IaaS**. Running [Microsoft Host Integration Server (HIS)](/host-integration-server/what-is-his) on a VM, you can use a messaging integration component that connects to IBM MQ. You control the data transformation process by creating a .NET application to read and write messages. The application can persist data in the Azure data store of your choice, and you can choose the MQ server's polling interval.
+- **VM-based IaaS**. By running [Microsoft Host Integration Server (HIS)](/host-integration-server/what-is-his) on a VM, you can use a messaging integration component that connects to IBM MQ. You control the data transformation process by creating a .NET application to read and write messages. The application can persist data in the Azure data store of your choice, and you can choose the MQ server's polling interval.
 
 A hybrid datacenter configuration makes sense for organizations that are developing their cloud strategies. Connecting to Azure can help bridge the gaps in your datacenter, enhance performance, improve business continuity, and expand your reach globally.
 
-For example, applications on-premises can communicate with a modern data platform on Azure and begin taking advantage of big data analytics or machine learning. If you need a cost-effective storage solution, you can replicate mainframe data, store it on Azure, and keep the data in sync. Azure can also add the scale needed to support online transaction processing (OLTP), batch, and data ingestion systems.
+For example, applications on-premises can communicate with a modern data platform on Azure to take advantage of big data analytics or machine learning. If you need a cost-effective storage solution, you can replicate mainframe data, store it on Azure, and keep the data in sync. Azure can also add the scale needed to support online transaction processing (OLTP), batch, and data ingestion systems.
 
 ### Potential use cases
 
@@ -87,24 +88,24 @@ Either of these approaches can be used to:
 
 ## Data loading
 
-Logic Apps connectors can be used to send messages directly to [Azure Storage](/azure/storage/common/storage-introduction) and [Azure Data Lake Storage](/azure/storage/blobs/data-lake-storage-introduction). For example, Logic Apps includes the [Azure Blob Storage connector](/connectors/azureblob/) as the following figure shows. The connector makes it easy to store massive amounts of unstructured data in [Azure Blob Storage](/azure/storage/blobs/storage-blobs-introduction). Your data becomes accessible from anywhere in the world via HTTP or HTTPS.
+You can use Logic Apps connectors to send messages directly to [Azure Storage](/azure/storage/common/storage-introduction) and [Data Lake Storage](/azure/storage/blobs/data-lake-storage-introduction). For example, Logic Apps includes the [Azure Blob Storage connector](/connectors/azureblob/), as the following diagram shows. The connector makes it easy to store massive amounts of unstructured data in [Blob Storage](/azure/storage/blobs/storage-blobs-introduction). Your data becomes accessible from anywhere in the world via HTTP or HTTPS.
 
 :::image type="content" source="media/integrate-ibm-message-queues-azure-02.svg" alt-text="Diagram that shows an architecture for the relationship of IBM MQ and Azure Logic Apps workload." lightbox="media/integrate-ibm-message-queues-azure-02.svg" border="false":::
 
 *Download a [Visio file](https://arch-center.azureedge.net/integrate-ibm-message-queues-azure.vsdx) of this architecture.*
 
-Blob storage also supports [Azure Data Lake Storage Gen2](/azure/storage/blobs/data-lake-storage-introduction), a big data analytics solution for the cloud. Data is loaded into storage using an Azure service such as the [AzCopy](/azure/storage/common/storage-ref-azcopy) tool, [Azure Data Factory](/azure/data-factory/introduction), or another solution that can connect to storage.
+Blob Storage also supports [Azure Data Lake Storage](/azure/storage/blobs/data-lake-storage-introduction), a big data analytics solution for the cloud. You can load data into storage by using [AzCopy](https://github.com/Azure/azure-storage-azcopy/wiki/azcopy), [Azure Data Factory](/azure/data-factory/introduction), or another solution that can connect to storage.
 
-Both the PaaS and IaaS architecture options support many popular managed database services. You can load data using a custom-built loader, a vendor solution, or a managed service such as [Azure Data Factory](/azure/data-factory/introduction).
+The PaaS and IaaS architecture options both support many popular managed database services. You can load data by using a custom-built loader, a vendor solution, or a managed service like [Data Factory](/azure/data-factory/introduction).
 
 ## Contributors
 
 *This article is maintained by Microsoft. It was originally written by the following contributors.*
 
-Principal author:
+Principal authors:
 
-- [Ashish Khandelwal](https://www.linkedin.com/in/ashish-khandelwal-839a851a3/) | Principal Engineering Architecture Manager
 - [Nithish Aruldoss](https://www.linkedin.com/in/nithish-aruldoss-b4035b2b/) | Engineering Architect
+- [Ashish Khandelwal](https://www.linkedin.com/in/ashish-khandelwal-839a851a3/) | Principal Engineering Architecture Manager
 
 *To see non-public LinkedIn profiles, sign in to LinkedIn.*
 
