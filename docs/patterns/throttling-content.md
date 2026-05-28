@@ -27,7 +27,7 @@ The system could implement several throttling or related strategies, including:
 The following chart shows resource use (a combination of memory, CPU, bandwidth, and other factors) over time for an application that uses three features, labeled A, B, and C. A feature is a specific area of functionality, such as a component that performs a specific set of tasks, a piece of code that performs a complex calculation, or an element that provides a service such as an in-memory cache.
 
 :::image type="complex" border="false" source="./_images/throttling-resource-utilization.png" alt-text="Graph that shows resource use against time for applications that run on behalf of three users." lightbox="./_images/throttling-resource-utilization.png":::
-
+A line graph plots resource utilization on the y-axis against time on the x-axis. Three colored lines represent Feature A, Feature B, and Feature C, with Feature A's line lowest, Feature B's line in the middle, and Feature C's line highest. A solid horizontal line near the top of the chart marks maximum capacity, and a dashed horizontal line below it marks the soft limit of resource utilization. Two vertical dashed lines mark times T1 and T2. Before T1, all three feature lines fluctuate, and Feature C's line rises and crosses the soft limit. At T1, Feature B's line drops to zero and stays at zero until T2 because Feature B is suspended to free resources for Feature A and Feature C. Feature C's line falls back below the soft limit between T1 and T2 while Feature A continues normally. At T2, Feature B resumes and all three lines continue to fluctuate below the soft limit.
 :::image-end:::
 
 
@@ -39,7 +39,9 @@ You can combine autoscaling, graceful degradation, and throttling to keep applic
 
 The next chart shows total resource use over time and illustrates how throttling combines with autoscaling and other compensating controls.
 
-![Figure 2 - Graph showing the effects of combining throttling with autoscaling](./_images/throttling-autoscaling.png)
+:::image type="complex" border="false" source="./_images/throttling-autoscaling.png" alt-text="Graph that shows the effects of combining throttling with autoscaling." lightbox="./_images/throttling-autoscaling.png":::
+A line graph plots resource utilization for all applications on the y-axis against time on the x-axis. Two horizontal reference lines mark the soft limit of resource utilization and the maximum capacity before autoscaling. A higher horizontal line, which begins at time T2, marks the maximum capacity after autoscaling. The utilization line rises and fluctuates over time. It crosses the soft limit at time T1, which is the point where autoscaling commences. Between T1 and T2, the system is throttled while autoscaling occurs, and utilization stays below the preautoscaling maximum capacity. At time T2, autoscaling completes, throttling is relaxed, and the utilization line jumps up and continues to fluctuate below the new, higher maximum capacity.
+:::image-end:::
 
 At time T1, the system reaches the soft limit and starts to scale out. If new resources don't arrive in time, demand can exhaust the existing resources, and the system can fail. Throttling rejects excess requests during scale-out to keep resource use below the hard limit, then lifts those restrictions after new capacity comes online.
 
@@ -77,7 +79,7 @@ Consider the following points as you decide how to implement this pattern:
 
   As utilization approaches the hard limit, start rejecting a growing fraction of requests. Early rejection signals callers to back off and prevents the latency collapse that abrupt limits often trigger. Use p99 latency against your SLO as the primary trigger. Average utilization can look healthy while p99 has already breached.
 
-  Where you can distinguish request value, shed lower-value or more retryable work first. FOr more information, see the [Priority Queue pattern](./priority-queue.yml).
+  Where you can distinguish request value, shed lower-value or more retryable work first. For more information, see the [Priority Queue pattern](./priority-queue.yml).
 
 - When a service rejects a request temporarily, return a status code that tells the client that the rejection is because of throttling:
 
@@ -88,7 +90,7 @@ Consider the following points as you decide how to implement this pattern:
 
 - Propagate overload signals from your dependencies instead of absorbing them. A service that throttles its callers must also honor the throttling responses that it receives from its own downstream dependencies. If your service hides a downstream 429 or 503 response by retrying silently or by returning a generic 500 response, callers can't slow down, retries amplify, and the overload cascades back upstream. The [Retry Storm antipattern](../antipatterns/retry-storm/index.md) describes this failure mode. Surface back-pressure to upstream callers so that the entire call chain sheds load together.
 
-- Make rejection cheaper than the work that it prevents. If refusing a request requires heavy authentication, deep parsing, or complex policy evaluation, a flood of rejections can still saturate the system. Reject as early in the request pipeline as possible, and load test the rejection path itself.
+- Make rejection cheaper than the work that it prevents. If refusing a request requires heavy authentication, deep parsing, or complex policy evaluation, a flood of rejected requests can still saturate the system. Reject as early in the request pipeline as possible, and load test the rejection path itself.
 
 - Throttling can't always buy enough time for autoscale. If demand grows faster than new capacity comes online, even a throttled system can fail. If that outcome is unacceptable, keep larger capacity reserves and configure more aggressive autoscaling.
 
@@ -106,49 +108,47 @@ Consider the following points as you decide how to implement this pattern:
 
 Use this pattern:
 
-- To keep a system within its service-level objectives (SLOs).
+- To keep a system within its SLOs.
 
 - To prevent a single tenant from monopolizing application resources.
 
 - To handle bursts in activity.
 
-- To cap the maximum resource level a system needs.
+- To cap the maximum resource level that a system needs.
 
-- To reduce low value compute during periods of high grid carbon intensity.
+- To reduce low-value compute during periods of high grid carbon intensity.
 
 ## Workload design
 
-An architect should evaluate how the Throttling pattern can be used in their workload's design to address the goals and principles covered in the [Azure Well-Architected Framework pillars](/azure/well-architected/pillars). For example:
+Evaluate how to use the Throttling pattern in a workload's design to address the goals and principles covered in the [Azure Well-Architected Framework pillars](/azure/well-architected/pillars). The following table provides guidance about how this pattern supports the goals of each pillar.
 
 | Pillar | How this pattern supports pillar goals |
 | :----- | :------------------------------------- |
-| [Reliability](/azure/well-architected/reliability/checklist) design decisions help your workload become **resilient** to malfunction and to ensure that it **recovers** to a fully functioning state after a failure occurs. | You design the limits to help prevent resource exhaustion that might lead to malfunctions. You can also use this pattern as a control mechanism in a graceful degradation plan.<br/><br/> - [RE:07 Self-preservation](/azure/well-architected/reliability/self-preservation) |
+| [Reliability](/azure/well-architected/reliability/checklist) design decisions help your workload become **resilient** to malfunction and ensure that it **recovers** to a fully functioning state after a failure occurs. | You design the limits to help prevent resource exhaustion that might lead to malfunctions. You can also use this pattern as a control mechanism in a graceful degradation plan.<br/><br/> - [RE:07 Self-preservation](/azure/well-architected/reliability/self-preservation) |
 | [Security](/azure/well-architected/security/checklist) design decisions help ensure the **confidentiality**, **integrity**, and **availability** of your workload's data and systems. | You can design the limits to help prevent resource exhaustion that could result from automated abuse of the system.<br/><br/> - [SE:06 Network controls](/azure/well-architected/security/networking)<br/> - [SE:08 Hardening resources](/azure/well-architected/security/harden-resources) |
-| [Cost Optimization](/azure/well-architected/cost-optimization/checklist) is focused on **sustaining and improving** your workload's **return on investment**. | The enforced limits can inform cost modeling and can be directly tied to the business model of your application. They also put clear upper bounds on utilization, which can be factored into resource sizing.<br/><br/> - [CO:02 Cost model](/azure/well-architected/cost-optimization/cost-model)<br/> - [CO:12 Scaling costs](/azure/well-architected/cost-optimization/optimize-scaling-costs) |
-| [Performance Efficiency](/azure/well-architected/performance-efficiency/checklist) helps your workload **efficiently meet demands** through optimizations in scaling, data, code. | When the system is under high demand, this pattern helps mitigate congestion that can lead to performance bottlenecks. You can also use it to proactively avoid noisy neighbor scenarios.<br/><br/> - [PE:02 Capacity planning](/azure/well-architected/performance-efficiency/capacity-planning)<br/> - [PE:05 Scaling and partitioning](/azure/well-architected/performance-efficiency/scale-partition) |
+| [Cost Optimization](/azure/well-architected/cost-optimization/checklist) focuses on **sustaining and improving** your workload's **return on investment**. | The enforced limits can inform cost modeling and can be directly tied to the business model of your application. They also put clear upper bounds on utilization, which can be factored into resource sizing.<br/><br/> - [CO:02 Cost model](/azure/well-architected/cost-optimization/cost-model)<br/> - [CO:12 Scaling costs](/azure/well-architected/cost-optimization/optimize-scaling-costs) |
+| [Performance Efficiency](/azure/well-architected/performance-efficiency/checklist) helps your workload **efficiently meet demands** through optimizations in scaling, data, and code. | When the system is under high demand, this pattern helps mitigate congestion that can lead to performance bottlenecks. You can also use it to proactively avoid noisy neighbor scenarios.<br/><br/> - [PE:02 Capacity planning](/azure/well-architected/performance-efficiency/capacity-planning)<br/> - [PE:05 Scaling and partitioning](/azure/well-architected/performance-efficiency/scale-partition) |
 
-As with any design decision, consider any tradeoffs against the goals of the other pillars that might be introduced with this pattern.
+If this pattern introduces trade-offs within a pillar, consider them against the goals of the other pillars.
 
 ## Example
 
-The final figure illustrates how throttling can be implemented in a multitenant system. Users from each of the tenant organizations access a cloud-hosted application where they fill out and submit surveys. The application contains instrumentation that monitors the rate at which these users are submitting requests to the application.
+The following diagram shows throttling in a multitenant system. Users from several tenant organizations access a cloud-hosted application to fill out and submit surveys. The application contains instrumentation that monitors the rate at which each tenant's users submit requests.
 
-In order to prevent the users from one tenant affecting the responsiveness and availability of the application for all other users, a limit is applied to the number of requests per second the users from any one tenant can submit. The application blocks requests that exceed this limit.
+To prevent users from one tenant degrading responsiveness and availability for users in other tenants, the application limits the requests-per-second rate that any single tenant can submit. The application blocks requests that exceed this limit.
 
-![Figure 3 - Implementing throttling in a multitenant application](./_images/throttling-multi-tenant.png)
+:::image type="complex" border="false" source="./_images/throttling-multi-tenant.png" alt-text="Diagram that shows throttling in a multitenant application." lightbox="./_images/throttling-multi-tenant.png":::
+Three labeled users on the left represent tenants of a multitenant Surveys application: Adatum, Fabrikam, and Contoso. Each user sends requests through a tenant-specific custom domain, which the application uses to identify the tenant. Adatum sends 5 requests per second through surveys.adatum.com, Fabrikam sends 10 requests per second through surveys.fabrikam.com, and Contoso sends 150 requests per second through surveys.contoso.com. On the right, the surveys application web role meters the per-second request rate for each tenant. The Adatum and Fabrikam request flows pass through to the application. The Contoso request flow is blocked by an Error: Throttled response because the rate exceeds the per-tenant limit.
+:::image-end:::
 
 ## Next steps
 
-The following guidance might also be relevant when implementing this pattern:
-
-- [Architecture strategies for designing a monitoring system](/azure/well-architected/operational-excellence/observability). Throttling depends on continuous, low-latency signals about resource use and saturation. This guidance describes how to design the instrumentation, collection, and alerting that your throttling control loop relies on.
-- [Measure the consumption of each tenant](../guide/multitenant/considerations/measure-consumption.md). Per-tenant throttling requires attributing each request to a principal and metering its resource use. This guidance covers the per-tenant signals and approaches you need before you can enforce per-tenant limits.
-- [Autoscaling in Azure](../best-practices/auto-scaling.md). Throttling can hold the line while a system autoscales, or remove the need for autoscaling. This guidance covers autoscaling strategies.
+- [Architecture strategies for designing a monitoring system](/azure/well-architected/operational-excellence/observability)
 
 ## Related resources
 
-The following patterns might also be relevant when implementing this pattern:
-
-- [Queue-based Load Leveling pattern](./queue-based-load-leveling.yml). A common mechanism for implementing throttling. The queue buffers incoming requests and evens out the rate at which they reach the service.
-- [Priority Queue pattern](./priority-queue.yml). Use priority queuing as part of throttling to preserve performance for critical or higher-value work and degrade lower-value work.
-- [External Configuration Store pattern](./external-configuration-store.md). Centralize the throttling policy so you can change it at runtime without redeploying. Services can subscribe to configuration changes and apply new limits immediately to stabilize the system.
+- [Measure the consumption of each tenant](../guide/multitenant/considerations/measure-consumption.md)
+- [Autoscaling in Azure](../best-practices/auto-scaling.md)
+- [Queue-Based Load Leveling pattern](./queue-based-load-leveling.yml)
+- [Priority Queue pattern](./priority-queue.yml)
+- [External Configuration Store pattern](./external-configuration-store.md)
