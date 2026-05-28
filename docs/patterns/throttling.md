@@ -1,3 +1,15 @@
+---
+title: Throttling Pattern
+description: Control the resources an application instance, tenant, or service consumes so the system keeps meeting service-level objectives under load.
+ms.author: pnp
+author: claytonsiemens77
+ms.date: 05/28/2026
+ms.topic: design-pattern
+ms.subservice: cloud-fundamentals
+---
+
+# Throttling Pattern
+
 Limit the resources that an application instance, an individual tenant, or an entire service can consume. With this pattern, the system continues to function and meets its service-level objectives (SLOs) under sudden or sustained load.
 
 ## Context and problem
