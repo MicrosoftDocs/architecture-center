@@ -1,3 +1,15 @@
+---
+title: Gatekeeper Pattern
+description: Learn how to use the Gatekeeper pattern to protect applications and services by using a dedicated host instance as a broker to validate requests and data.
+ms.author: pnp
+author: claytonsiemens77
+ms.date: 06/02/2026
+ms.topic: design-pattern
+ms.subservice: cloud-fundamentals
+---
+
+# Gatekeeper pattern
+
 Protect applications and services by using a dedicated component to broker requests between clients and the application or service. The broker validates and sanitizes the requests, and can provide an additional layer of security and limit the system's attack surface.
 
 ## Context and problem

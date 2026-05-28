@@ -33,7 +33,7 @@ Background jobs typically include one or more of the following types of jobs:
 
 - Long-running workflows, like order fulfillment, or provisioning services and systems.
 
-- Sensitive-data processing in which you send the task to a more secure location for processing. For example, you might not want to process sensitive data within a web app. You might instead use a pattern like the [Gatekeeper pattern](../patterns/gatekeeper.yml) to transfer the data to an isolated background process that can access protected storage.
+- Sensitive-data processing in which you send the task to a more secure location for processing. For example, you might not want to process sensitive data within a web app. You might instead use a pattern like the [Gatekeeper pattern](../patterns/gatekeeper.md) to transfer the data to an isolated background process that can access protected storage.
 
 ## Triggers
 
@@ -237,7 +237,7 @@ If you decide to include background tasks within an existing compute instance, c
 
 - **Recovery:** If a compute instance that only hosts background tasks fails, the application can continue to serve users as long as pending work is queued. When the instance recovers, it processes the backlog.
 
-- **Security:** Background tasks might need access to different resources, credentials, or network segments than the UI. Running them in a separate compute instance lets you apply a tighter security boundary, like restricting network access to a data store that the UI should never reach directly. You can also use patterns like [Gatekeeper](../patterns/gatekeeper.yml) to isolate background compute from user-facing components.
+- **Security:** Background tasks might need access to different resources, credentials, or network segments than the UI. Running them in a separate compute instance lets you apply a tighter security boundary, like restricting network access to a data store that the UI should never reach directly. You can also use patterns like [Gatekeeper](../patterns/gatekeeper.md) to isolate background compute from user-facing components.
 
 - **Manageability:** Background tasks often change on a different release cadence than the UI. Separating tasks avoids redeploying the entire application when only the job logic changes.
 

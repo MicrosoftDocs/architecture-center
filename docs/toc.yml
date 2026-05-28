@@ -448,7 +448,7 @@ items:
     displayName: Single sign-on, SSO
     href: patterns/federated-identity.yml
   - name: Gatekeeper
-    href: patterns/gatekeeper.yml
+    href: patterns/gatekeeper.md
   - name: Gateway Aggregation
     href: patterns/gateway-aggregation.yml
   - name: Gateway Offloading

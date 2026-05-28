@@ -138,6 +138,6 @@ The following guidance is useful for implementing this pattern:
 - [External Configuration Store pattern](./external-configuration-store.yml)
 - [Circuit Breaker pattern](./circuit-breaker.md)
 - [Gateway Routing pattern](./gateway-routing.yml)
-- [Gatekeeper pattern](./gatekeeper.yml)
+- [Gatekeeper pattern](./gatekeeper.md)
 
 [portal-alerts]: /azure/azure-monitor/alerts/alerts-create-new-alert-rule?tabs=metric
