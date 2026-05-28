@@ -152,7 +152,7 @@ To design APIs, follow good [web API design](../../../best-practices/api-design.
 ## Related resources
 
 - [Gateway Routing pattern](../../../patterns/gateway-routing.yml): Route requests to multiple services by using a single endpoint.
-- [Gateway Aggregation pattern](../../../patterns/gateway-aggregation.yml): Aggregate multiple requests into a single request.
+- [Gateway Aggregation pattern](../../../patterns/gateway-aggregation.md): Aggregate multiple requests into a single request.
 - [Gateway Offloading pattern](../../../patterns/gateway-offloading.yml): Offload shared functionality to an API gateway.
 - [URL path-based routing overview](/azure/application-gateway/url-route-overview)
 - [Tutorial: Create an application gateway with URL path-based redirection by using the Azure CLI](/azure/application-gateway/tutorial-url-redirect-cli)

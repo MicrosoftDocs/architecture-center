@@ -445,7 +445,7 @@ items:
   - name: Gatekeeper
     href: patterns/gatekeeper.yml
   - name: Gateway Aggregation
-    href: patterns/gateway-aggregation.yml
+    href: patterns/gateway-aggregation.md
   - name: Gateway Offloading
     href: patterns/gateway-offloading.yml
   - name: Gateway Routing
