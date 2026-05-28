@@ -118,7 +118,7 @@ Traffic to and from resource subnets in spoke virtual networks is restricted by 
 
 #### DDoS protection
 
-[Azure DDoS Protection](/azure/ddos-protection/ddos-protection-overview), combined with application-design best practices, provides enhanced DDoS mitigation features to provide more defense against DDoS attacks. You should enable [Azure DDoS Protection](/azure/ddos-protection/ddos-protection-overview) on any perimeter virtual network.
+[Azure DDoS Protection](/azure/ddos-protection/ddos-protection-overview), combined with application-design best practices, provides enhanced mitigation against DDoS attacks. Enable Azure DDoS Protection on any perimeter virtual network.
 
 #### Use AVNM to create baseline Security Admin rules
 
