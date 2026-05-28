@@ -98,7 +98,7 @@ Legacy systems typically depend on a centralized monolithic database that serves
 
 1. Introduce a new system service, which starts to manage requests for its domain. The new service still reads from and writes to the monolithic database for its domain tables. The legacy system continues to serve all other domains.
 
-1. Introduce an isolated domain database for the new system. Migrate the relevant domain tables and their historical data to the new database by using an extract, transform, and load process. A change data capture process syncs the domain data from the monolithic database to the new domain database. During this phase, the legacy system continues to read from and write to the monolithic database, and the new system writes to the new domain database. Validate consistency between both databases before cutover.
+1. Introduce an isolated domain database for the new system. Migrate the relevant domain tables and their historical data to the new database by using an extract, transform, and load (ETL) process. A change data capture (CDC) process syncs the domain data from the monolithic database to the new domain database. During this phase, the legacy system continues to read from and write to the monolithic database, and the new system writes to the new domain database. Validate consistency between both databases before cutover.
 
 1. After validation, the new domain database is the system of record for that domain. The new system performs all read and write operations against the domain database. Remove the corresponding domain tables, stored procedures, and dependencies from the monolithic database. Repeat this process for each domain until the monolithic database is fully decomposed.
 
