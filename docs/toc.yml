@@ -503,7 +503,7 @@ items:
     displayName: migration, incremental modernization, facade
     href: patterns/strangler-fig.md
   - name: Throttling
-    href: patterns/throttling.yml
+    href: patterns/throttling.md
   - name: Valet Key
     displayName: SAS token, access token
     href: patterns/valet-key.yml

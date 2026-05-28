@@ -38,7 +38,7 @@ An API gateway can be tailored to your application’s requirements by using spe
   - Mutual TLS
   - Authentication
   - IP allowlist or blocklist
-  - Client [throttling](../../patterns/throttling.yml)
+  - Client [throttling](../../patterns/throttling.md)
   - Logging and monitoring
   - Response caching
   - Web application firewall

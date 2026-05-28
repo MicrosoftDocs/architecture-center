@@ -48,7 +48,7 @@ A self-healing workload design is fundamental in the [Azure Well-Architected Fra
 
 **Degrade gracefully and stay responsive during failure.** Sometimes you can't work around a problem, but you can provide reduced functionality that remains useful. For example, if an application can't retrieve a book cover thumbnail image, it might show a placeholder image. Entire subsystems might be noncritical, such as product recommendations on an e-commerce site compared to order processing.
 
-**Throttle clients.** Sometimes a few users create excessive load, which can reduce your application's availability for other users. In this situation, throttle the client for a set period of time. For more information, see the [Throttling pattern](../../patterns/throttling.yml).
+**Throttle clients.** Sometimes a few users create excessive load, which can reduce your application's availability for other users. In this situation, throttle the client for a set period of time. For more information, see the [Throttling pattern](../../patterns/throttling.md).
 
 **Block bad actors.** Throttling doesn't imply malicious intent. It means that the client exceeded their service quota. But if a client consistently exceeds their quota or otherwise behaves badly, you might block them. Define an out-of-band process for users to request unblocking.
 
