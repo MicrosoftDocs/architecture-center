@@ -22,7 +22,7 @@ The following data flow corresponds to the previous diagram:
 
    - You can also upload on-premises files to Blob Storage by using tools like [AzCopy](/azure/storage/common/storage-use-azcopy-v10).
 
-   - The Azure Data Factory Secure File Transfer Protocol (SFTP) connector can be used to transfer data from the mainframe system to Blob Storage. This method requires an intermediate VM on which a self-hosted integration runtime is installed.
+   - The Azure Data Factory SFTP connector can be used to transfer data from the mainframe system to Blob Storage. This method requires an intermediate VM on which a self-hosted integration runtime is installed.
 
    - You can also find non-Microsoft tools on the [Microsoft Marketplace](https://marketplace.microsoft.com/marketplace/apps?search=mainframe) to transfer files from mainframes to Azure.
 
@@ -100,7 +100,7 @@ This architecture outlines the process of migrating mainframe file data to cloud
 
 ### Alternatives
 
-Besides native services like Host Integration Server and Logic Apps IBM Host connector, open-source file conversion libraries can be used to convert EBCDIC mainframe files to ASCII or Unicode. This method, however, needs more orchestration and management than Azure's native solutions.
+Instead of using native services like HIS and Logic Apps IBM Host File connector, you can use open-source file conversion libraries to convert EBCDIC mainframe files to ASCII or Unicode. This method, however, requires more orchestration and management than the Azure native solutions.
 
 ## Scenario details
 
@@ -118,7 +118,7 @@ On-premises file replication and synchronization are essential for various use c
   
 - Tightly coupled on-premises applications on systems that can't be immediately remediated or modernized
 
-- Microsoft Fabric enables T‑SQL–based, read‑only analytics and reporting on large mainframe datasets migrated to OneLake or ADLS Gen2 via its SQL Analytics Endpoint.
+- Fabric enables T‑SQL–based, read‑only analytics and reporting on large mainframe datasets migrated to OneLake or ADLS Gen2 via its SQL Analytics Endpoint.
 
 ## Contributors
 

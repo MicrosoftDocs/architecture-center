@@ -59,7 +59,7 @@ This section describes other tools that you can use during data modernization, s
 
 - [Azure Data Factory](/azure/data-factory/introduction) is a hybrid data integration service. You can use this fully managed, serverless solution to create, schedule, and orchestrate extract, transform, and load (ETL) workflows and extract, load, and transform (ELT) workflows.
 
-- [Microsoft Fabric](/fabric/fundamentals/microsoft-fabric-overview) is an enterprise analytics platform that accelerates time to insight across data engineering, data warehousing, data integration, real‑time analytics, and business intelligence. It is delivered as a SaaS solution and has centralized storage in OneLake. Microsoft Fabric combines the following technologies and services:
+- [Microsoft Fabric](/fabric/fundamentals/microsoft-fabric-overview) is an enterprise analytics platform that accelerates time to insight across data engineering, data warehousing, data integration, real‑time analytics, and business intelligence. It's delivered as a SaaS solution and has centralized storage in OneLake. Microsoft Fabric combines the following technologies and services:
 
   - **SQL technologies for enterprise data warehousing** is available in [Fabric Data Warehouse](/fabric/data-warehouse/), a managed, transactional (ACID) warehouse on an open Delta format.
   
