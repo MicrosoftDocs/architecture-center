@@ -197,6 +197,9 @@ Use the following button to deploy the reference using the Azure portal.
 
 [![Deploy to Azure](../../_images/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fmspnp%2Fsamples%2Fmain%2Fsolutions%2Fsecure-hybrid-network%2Fazuredeploy.json)
 
+> [!NOTE]
+> The portal deployment only deploys the base infrastructure. After the site-to-site connection is established, you still need to add the firewall DNAT rules using the Azure CLI or PowerShell as described in [Add firewall DNAT rules](#add-firewall-dnat-rules).
+
 #### [Azure CLI](#tab/cli)
 
 Run the following command to deploy two resource groups and the secure network reference architecture using the Azure CLI.
@@ -224,6 +227,34 @@ New-AzSubscriptionDeployment -Location eastus `
 After the deployment finishes, verify site-to-site connectivity by looking at the newly created connection resources. In the Azure portal, search for *connections* and check the status of each connection.
 
 ![Screenshot showing the status of connections.](./images/portal-connections.png)
+
+### Add firewall DNAT rules
+
+After the site-to-site connection status shows **Connected**, update the hub firewall with DNAT rules so on-premises traffic can reach the spoke workloads.
+
+#### [Azure CLI](#tab/cli2)
+
+```azurecli
+FW_IP=$(az network firewall show -g rg-site-to-site-azure-network-eastus2 -n AzureFirewall --query "ipConfigurations[0].privateIPAddress" -o tsv)
+LB_IP=$(az network lb frontend-ip list -g rg-site-to-site-azure-network-eastus2 --lb-name lb-internal --query "[0].privateIPAddress" -o tsv)
+
+az deployment group create -n firewallDnat -g rg-site-to-site-azure-network-eastus2 \
+    --template-uri https://raw.githubusercontent.com/mspnp/samples/main/solutions/secure-hybrid-network/nestedtemplates/azure-network-azuredeploy-v2.bicep \
+    -p firewallName=AzureFirewall firewallPrivateIp=$FW_IP internalLoadBalancerPrivateIp=$LB_IP
+```
+
+#### [PowerShell](#tab/powershell2)
+
+```azurepowershell
+$fwIp = (Get-AzFirewall -ResourceGroupName rg-site-to-site-azure-network-eastus2 -Name AzureFirewall).IpConfigurations[0].PrivateIPAddress
+$lbIp = (Get-AzLoadBalancerFrontendIpConfig -LoadBalancer (Get-AzLoadBalancer -ResourceGroupName rg-site-to-site-azure-network-eastus2 -Name lb-internal))[0].PrivateIpAddress
+
+New-AzResourceGroupDeployment -Name firewallDnat -ResourceGroupName rg-site-to-site-azure-network-eastus2 `
+    -TemplateUri https://raw.githubusercontent.com/mspnp/samples/main/solutions/secure-hybrid-network/nestedtemplates/azure-network-azuredeploy-v2.bicep `
+    -firewallName AzureFirewall -firewallPrivateIp $fwIp -internalLoadBalancerPrivateIp $lbIp
+```
+
+---
 
 The IIS instance found in the spoke network can be accessed from the virtual machine located in the mock on-premises network. Create a connection to that virtual machine using the included Azure Bastion host, open a web browser, and navigate to the address of the application's internal load balancer.
 
