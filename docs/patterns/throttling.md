@@ -8,7 +8,7 @@ ms.topic: design-pattern
 ms.subservice: cloud-fundamentals
 ---
 
-# Throttling Pattern
+# Throttling pattern
 
 Limit the resources that an application instance, an individual tenant, or an entire service can consume. With this pattern, the system continues to function and meets its service-level objectives (SLOs) under sudden or sustained load.
 
