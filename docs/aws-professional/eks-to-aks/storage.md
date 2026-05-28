@@ -448,7 +448,7 @@ AKS Automatic manages the storage lifecycle for you, while AKS Standard gives yo
 
 ### High-level comparison between AKS Automatic and AKS Standard
 
-| **Area**                           | **AKS Automatic**                            | **AKS Standard**          |
+| Area                           | AKS Automatic                            | AKS Standard          |
 | ---------------------------------- | -------------------------------------------- | ------------------------- |
 | Default storage setup              | Preconfigured                                | You configure manually    |
 | CSI drivers                        | Automatically managed                        | You enable/manage         |
@@ -469,8 +469,8 @@ AKS Automatic manages the storage lifecycle for you, while AKS Standard gives yo
 | Default provisioning behavior | PersistentVolumeClaims (PVCs) work immediately without additional setup because a default storage class already exists. | PVCs requiring dynamic provisioning will remain pending until a StorageClass is created and optionally marked as default. |
 | Underlying default block storage | Azure Managed Disks through the Azure Disk CSI driver. | Amazon EBS through the EBS CSI provisioner. |
 | CSI driver management | Azure Disk CSI driver is integrated and managed by AKS. | EBS CSI functionality is managed as part of EKS Auto Mode. |
-| Typical default disk type | Standard SSD-backed managed disks by default. Premium options also available. | AWS examples recommend gp3 EBS volumes as the standard default. |
-| Encryption defaults | Azure platform-managed disk encryption is enabled transparently. | Encryption is configurable in the StorageClass; AWS examples recommend encrypted: "true". |
+| Typical default disk type | Standard SSD-backed managed disks by default. Premium options also available. | gp3 EBS volumes are the standard default. |
+| Encryption defaults | Azure platform-managed disk encryption is enabled transparently. | Encryption is configurable in the StorageClass. |
 | Zone-aware provisioning | AKS automatically handles zone-aware provisioning and ZRS support in multi-zone clusters. | Uses WaitForFirstConsumer to provision EBS volumes in the correct Availability Zone. |
 
 ## Kubernetes storage considerations
