@@ -325,15 +325,15 @@ Consider the following points for some of the services used in this architecture
 
 #### Azure Load Balancer
 
-You're charged only for the number of configured load-balancing and outbound rules. Inbound network address translation rules are free. There's no hourly charge for Load Balancer when no rules are configured. For more information, see [Azure Load Balancer pricing](https://azure.microsoft.com/pricing/details/load-balancer).
+- You're charged only for the number of configured load-balancing and outbound rules. Inbound NAT rules are free. There's no hourly charge for Load Balancer when no rules are configured.
 
 #### Azure Pipelines
 
-This reference architecture uses Azure Pipelines for CI/CD tasks. Azure provides the pipeline as an individual service. You're allowed a free Microsoft-hosted job with 1,800 minutes for each month for CI/CD and one self-hosted job with unlimited minutes for each month. Extra jobs incur more costs. For more information, see [Azure DevOps services pricing](https://azure.microsoft.com/pricing/details/devops/azure-devops-services).
+- This reference architecture uses Azure Pipelines for CI/CD tasks. You're allowed a free Microsoft-hosted job with 1,800 minutes for each month and one self-hosted job with unlimited minutes. Extra jobs incur more costs.
 
 #### Azure Monitor
 
-For Log Analytics, you're charged for data ingestion and retention. For more information, see [Azure Monitor pricing](https://azure.microsoft.com/pricing/details/monitor).
+- You're charged for data ingestion and retention. The preconfigured estimate includes Log Analytics, Prometheus metrics, and Application Insights.
 
 ### Operational Excellence
 
