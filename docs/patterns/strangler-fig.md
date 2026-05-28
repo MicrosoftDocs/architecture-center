@@ -16,13 +16,15 @@ This pattern incrementally migrates a legacy system by gradually replacing speci
 
 As systems age, the development tools, hosting technology, and system architectures that they're built on can become obsolete. As new features and functionality are added, these applications become more complex, which can make them harder to maintain or extend.
 
-Replacing an entire complex system is a huge undertaking. Instead, many teams prefer to migrate to a new system gradually and keep the old system to handle unmigrated features. However, running parallel versions of an application forces clients to track which version has individual features. Every time teams migrate a feature or service, they must direct clients to the new location. To overcome these challenges, you can adopt an approach that supports incremental migration and minimizes disruptions to clients.
+It's difficult to replace an entire complex system. Instead, you can migrate to a new system gradually and use the old system for unmigrated features. However, if you run parallel versions of an application, clients must track which version contains each feature. When you migrate a feature or service, you must direct clients to the new location. To address these challenges, adopt an approach that supports incremental migration and minimizes disruptions to clients.
 
 ## Solution
 
-After identifying new [service boundaries](/azure/architecture/microservices/model/tactical-domain-driven-design), use an incremental process to replace specific pieces of functionality with new applications and services. Customers can continue using the same interface, unaware that this migration is taking place.
+After you identify new [service boundaries](/azure/architecture/microservices/model/tactical-domain-driven-design), use an incremental process to replace specific pieces of functionality with new applications and services. Customers continue to use the same interface and are unaware that a migration in progress.
 
-:::image type="content" border="false" source="./_images/strangler.png" alt-text="Diagram of the Strangler Fig pattern." lightbox="./_images/strangler.png":::
+:::image type="complex" source="./_images/strangler.png" alt-text="Diagram that shows the Strangler Fig pattern." lightbox="./_images/strangler.png":::
+   <long description here>
+:::image-end:::
 
 The Strangler Fig pattern provides a controlled and phased approach to modernization. It allows the existing application to continue functioning during the modernization effort. A façade (proxy) intercepts requests that go to the back-end legacy system. The façade routes these requests either to the legacy application or to the new services. 
 
@@ -48,13 +50,13 @@ Consider the following points as you decide how to implement this pattern:
 
 - After the migration is complete, you typically remove the strangler fig façade. Alternatively, you can maintain the façade as an adaptor for legacy clients to use while you update the core system for newer clients.
 
-  This should be deliberately thought of as transitional architecture. A such, you must ensure risks being mitigated using this approach outweigh the cost of throwaway infrastructure.
+  Conceptualize this as transitional architecture, and balance this architecture's risk mitigation benefits against its temporary infrastructural costs.
 
 - Make sure that the façade keeps up with the migration.
 
 - Make sure that the façade doesn't become a single point of failure or a performance bottleneck.
 
-- Plan for cross-system dependencies. During migration, the new system and the legacy system need to coexist and communicate. The new system might need to call unmigrated functionality that still resides in the legacy system, and unmigrated legacy components might need to call functionality that you already migrated to the new system. Use the [Anti-corruption Layer pattern](./anti-corruption-layer.yml) to handle these calls in both directions. An anti-corruption layer acts as an adapter that translates requests between the two systems. It protects the new system's design from legacy semantics and allows the legacy system to reach new services without significant code changes. Without this adapter, cross-system dependencies can break components or force the new system to adopt legacy conventions.
+- Plan for cross-system dependencies. During migration, both systems need to coexist and communicate. For example, the new system might need to call unmigrated functionality from the legacy system, and unmigrated legacy components might need to call migrated functionality from the new system. To manage these calls, use the [anti-corruption layer pattern](./anti-corruption-layer.yml). An anti-corruption layer acts as an adapter that translates requests between the two systems. This layer protects the new system's design from legacy semantics so that the legacy system can reach new services without significant code changes. Without this adapter, cross-system dependencies can break components or force the new system to adopt legacy conventions.
 
 ## When to use this pattern
 
@@ -68,7 +70,7 @@ This pattern might not be suitable when:
 
 - Requests to the back-end system can't be intercepted.
 
-- You don't have access to the legacy system's source code. This pattern requires you to modify the legacy system to disable migrated features and redirect internal calls. Without source code access, you can't make those changes.
+- You can't access the legacy system's source code. To disable migrated features and redirect internal calls, you need to be able to modify the legacy system's source code.
 
 - You migrate a small system and replacing the whole system is simple.
 
@@ -88,17 +90,19 @@ Consider any trade-offs against the goals of the other pillars that this pattern
 
 ## Example
 
-Legacy systems typically depend on a centralized monolithic database that serves multiple domains. Over time, this shared database becomes difficult to manage and evolve because of its many cross-domain dependencies. The Strangler Fig pattern addresses this challenge by incrementally extracting domain-specific tables, stored procedures, and related data from the monolithic database into isolated domain databases. Each domain service gets its own database, and you repeat the process domain by domain until the monolithic database is fully decomposed.
+Legacy systems typically depend on a centralized monolithic database that serves multiple domains. Over time, this shared database becomes difficult to manage and develop because of its cross-domain dependencies. To address this challenge, the Strangler Fig pattern incrementally extracts domain-specific tables, stored procedures, and related data from the monolithic database into isolated domain databases. Each database contains only one domain. Repeat the process until the monolithic database is fully decomposed.
 
-:::image type="content" border="false" source="./_images/strangler-fig-database.png" alt-text="Diagram of the Strangler Fig pattern applied to a database." lightbox="./_images/strangler-fig-database.png":::
+:::image type="complex" source="./_images/strangler-fig-database.png" alt-text="Diagram that shows the Strangler Fig pattern applied to a database." lightbox="./_images/strangler-fig-database.png":::
+   <long description here>
+:::image-end:::
 
-1. You introduce a new system service, and the new service starts handling requests for its domain. However, the new service still reads from and writes to the monolithic database for the domain tables it owns. The legacy system continues to serve all other domains.
+1. Introduce a new system service, which starts to manage requests for its domain. The new service still reads from and writes to the monolithic database for its domain tables. The legacy system continues to serve all other domains.
 
-1. In the next phase, you introduce an isolated domain database for the new system. You migrate the relevant domain tables and their historical data to the new database by using an extract, transform, and load (ETL) process. A change data capture (CDC) process keeps the domain data synchronized from the monolithic database to the new domain database. During this phase, the legacy system continues to read from and write to the monolithic database, and the new system writes to the new domain database. You validate consistency between both databases before cutover.
+1. Introduce an isolated domain database for the new system. Migrate the relevant domain tables and their historical data to the new database by using an extract, transform, and load process. A change data capture process syncs the domain data from the monolithic database to the new domain database. During this phase, the legacy system continues to read from and write to the monolithic database, and the new system writes to the new domain database. Validate consistency between both databases before cutover.
 
-1. After you validate the new domain database, it becomes the system of record for that domain. The new system performs all read and write operations against the domain database. You remove the corresponding domain tables, stored procedures, and dependencies from the monolithic database. You repeat this process for each subsequent system domain until the monolithic database is fully decomposed.
+1. After validation, the new domain database is the system of record for that domain. The new system performs all read and write operations against the domain database. Remove the corresponding domain tables, stored procedures, and dependencies from the monolithic database. Repeat this process for each domain until the monolithic database is fully decomposed.
 
-   Rollback to the monolithic database is feasible during phases 2 and at the start of phase 3, while the domain tables and synchronization processes still exist in the monolithic database. After you remove the domain tables, stored procedures, and synchronization processes from the monolithic database, rollback requires you to restore those objects and replay data changes, which significantly increases effort and risk. Treat the removal of legacy objects as a deliberate final step for each domain, only after the new system has been thoroughly validated.
+   You can roll back to the monolithic database during phases 2 and at the start of phase 3, when the domain tables and synchronization processes still exist in the monolithic database. To roll back to the monolithic database after you remove the domain tables, stored procedures, and synchronization processes from the monolithic database, you must restore those objects and replay data changes. However, this process significantly increases effort and risk. Treat the removal of legacy objects as a deliberate final step for each domain. Remove legacy objects only after the new system is validated.
 
 ## Contributors
 
@@ -108,11 +112,12 @@ Legacy systems typically depend on a centralized monolithic database that serves
 - [Ovais Mehboob Ahmed Khan](https://www.linkedin.com/in/ovaismehboob/) | Senior Cloud Solution Architect
 
 *To see nonpublic LinkedIn profiles, sign in to LinkedIn.*
+
 ## Next step
 
-Read Martin Fowler's blog post about [Strangler Fig pattern application](https://martinfowler.com/bliki/StranglerFigApplication.html).
+- [Strangler Fig pattern application](https://martinfowler.com/bliki/StranglerFigApplication.html).
 
 ## Related resource
 
 - [Messaging Bridge pattern](./messaging-bridge.yml)
-- Consider the Stranger Fig pattern when you [Plan your workload migration from Amazon Web Services (AWS) to Azure](/azure/migration/migrate-workload-from-aws-plan)
+- [Plan your workload migration from Amazon Web Services to Azure](/azure/migration/migrate-workload-from-aws-plan)
