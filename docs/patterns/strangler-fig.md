@@ -20,7 +20,7 @@ It's difficult to replace an entire complex system. Instead, you can migrate to 
 
 ## Solution
 
-After you identify new [service boundaries](/azure/architecture/microservices/model/tactical-domain-driven-design), use an incremental process to replace specific pieces of functionality with new applications and services. Customers continue to use the same interface and are unaware that a migration in progress.
+After you identify new [service boundaries](/azure/architecture/microservices/model/tactical-domain-driven-design), use an incremental process to replace specific pieces of functionality with new applications and services. Customers continue to use the same interface and are unaware that a migration is in progress.
 
 :::image type="complex" source="./_images/strangler-fig-pattern.svg" alt-text="Diagrams that show the Strangler Fig pattern." lightbox="./_images/strangler-fig-pattern.svg":::
    Four diagrams that show the four phases of the Strangler Fig pattern. In the first diagram, a Strangler Fig façade routes client requests between the legacy system and the new system. The client app sends requests through the Strangler Fig façade, which routes some requests to the legacy system and other requests to the new system. In the second diagram, incremental decomposition shifts functionality from the legacy system to the new system. The client app sends requests through the Strangler Fig façade, which now routes a greater number of requests to the new system than to the legacy system. In the third diagram, the legacy system is fully decommissioned and has no dependencies. The client app sends requests through the Strangler Fig façade, which routes them all to the new system. In the fourth diagram, the Strangler Fig façade is removed, and the client interacts directly with the new system. The client app sends requests directly to the new system.
@@ -104,7 +104,7 @@ Legacy systems typically depend on a centralized monolithic database that serves
 
 1. After validation, the new domain database is the system of record for that domain. The new system performs all read and write operations against the domain database. Remove the corresponding domain tables, stored procedures, and dependencies from the monolithic database. Repeat this process for each domain until the monolithic database is fully decomposed.
 
-   You can roll back to the monolithic database during phases 2 and at the start of phase 3, when the domain tables and synchronization processes still exist in the monolithic database. To roll back to the monolithic database after you remove the domain tables, stored procedures, and synchronization processes from the monolithic database, you must restore those objects and replay data changes. However, this process significantly increases effort and risk. Treat the removal of legacy objects as a deliberate final step for each domain. Remove legacy objects only after the new system is validated.
+   You can roll back to the monolithic database during phase 2 and at the start of phase 3, when the domain tables and synchronization processes still exist in the monolithic database. To roll back to the monolithic database after you remove the domain tables, stored procedures, and synchronization processes from the monolithic database, you must restore those objects and replay data changes. However, this process significantly increases effort and risk. Treat the removal of legacy objects as a deliberate final step for each domain. Remove legacy objects only after the new system is validated.
 
 ## Contributors
 
