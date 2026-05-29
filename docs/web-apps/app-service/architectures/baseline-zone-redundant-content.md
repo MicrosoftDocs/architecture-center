@@ -274,7 +274,7 @@ The App Service baseline architecture configures authentication and authorizatio
 
 Cost Optimization focuses on ways to reduce unnecessary expenses and improve operational efficiencies. For more information, see [Design review checklist for Cost Optimization](/azure/well-architected/cost-optimization/checklist).
 
-This [Azure pricing estimate](https://azure.com/e/04fa6a287c1d47f9af40c91e4202f238) includes only the components in this architecture, including those components that are carried over from the [Basic web application](./basic-web-app.yml#components). Modify it with any architecture changes that your use case requires.
+This [preconfigured estimate in the Azure pricing calculator](https://azure.com/e/a1d3157fee6842b188bedd045f8374dc) includes only the components in this architecture, including those components that are carried over from the [Basic web application](./basic-web-app.yml#components). Modify it with any architecture changes that your use case requires.
 
 ### Operational Excellence
 

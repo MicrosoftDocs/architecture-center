@@ -197,7 +197,7 @@ The use of non-Microsoft gateway technology, which is a product or service that 
 
 Learn about a specific scenario where deploying a gateway between an intelligent application and Azure Foundry deployments is used to address workload requirements:
 
-- [Load balancing or failover between multiple backend instances](./azure-openai-gateway-multi-backend.yml)
+- [Load balancing or failover between multiple backend instances](./azure-openai-gateway-multi-backend.md)
 - [Custom authentication and authorization for client applications](./azure-openai-gateway-custom-authentication.yml)
 - [Implement logging and monitoring for Azure OpenAI models](./azure-openai-gateway-monitoring.yml)
 

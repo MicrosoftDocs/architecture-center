@@ -146,7 +146,7 @@ To optimize costs, consider the following recommendations:
 
 - **Use the pay-as-you-go strategy for your architecture and [scale out](/azure/well-architected/cost-optimization/optimize-scaling-costs) as needed** instead of investing in large-scale resources at the start. As your solution matures, you can use [App Service reservations](/azure/cost-management-billing/reservations/reservation-discount-app-service) to help reduce costs where applicable.
 
-- **Consider opportunity costs in your architecture and balance a first-mover advantage strategy with a fast-follow strategy.** To estimate the initial cost and operational costs, start from this [preconfigured estimate in the Azure pricing calculator](https://azure.com/e/99a10a519f7648d6bf27e3a36c2e68d5) and adjust the region, throughput, and reserved-capacity dials to match your expected workload.
+- **Consider opportunity costs in your architecture and balance a first-mover advantage strategy with a fast-follow strategy.** To estimate the initial cost and operational costs, use the [preconfigured estimate in the Azure pricing calculator](https://azure.com/e/131d1f225c7f4a92aa5a1d8273ac5199). Adjust the values to match your specific document volume and processing requirements.
 
 - **Establish [budgets and controls](/azure/well-architected/cost-optimization/collect-review-cost-data) that set cost limits for your solution.** To set up forecasting and actual cost alerts, use [budget alerting](/azure/cost-management-billing/costs/tutorial-acm-create-budgets).
 

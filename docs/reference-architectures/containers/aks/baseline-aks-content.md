@@ -4,6 +4,9 @@ This architecture doesn't focus on a workload. It concentrates on the AKS cluste
 
 Your business requirements influence the target architecture and can vary between application contexts. Consider the architecture as your starting point for preproduction and production stages.
 
+> [!TIP]
+> This article covers extensive design considerations for AKS clusters. [AKS Automatic](/azure/aks/intro-aks-automatic) implements many design decisions to reduce the number of considerations you need to evaluate and to optimize for common use cases. Even if your workload is going to be hosted in an AKS Automatic environment, knowing the foundations for a self-managed AKS cluster can help you make the right choices as your workload changes.
+
 Kubernetes is a broad ecosystem that extends beyond Azure and Microsoft technologies. When you deploy an AKS cluster, you're responsible for many decisions about how to design and operate the cluster. Running an AKS cluster involves closed-source components from various vendors, including Microsoft, along with open-source components from the Kubernetes ecosystem. The landscape changes frequently, so revisit decisions regularly. When you adopt Kubernetes, you acknowledge that your workload needs its capabilities and that your workload team is prepared to invest on an ongoing basis.
 
 You can use an implementation of this architecture on [GitHub: AKS baseline reference implementation](https://github.com/mspnp/aks-baseline) as an alternative starting point and configure it to meet your needs.
@@ -449,6 +452,8 @@ An exception to the Zero Trust control is when the cluster needs to communicate 
 
 The advantage of using Private Link is that specific subnets reach the service directly, and the traffic between the cluster and the services doesn't go over the internet. A downside is that Private Link needs extra configuration instead of using the target service over its public endpoint. Also, not all Azure services or products support Private Link. For those cases, consider enabling a [virtual network service endpoint](/azure/virtual-network/virtual-network-service-endpoints-overview) on the subnet to access the service.
 
+For Container Registry specifically, use [dedicated data endpoints](/azure/container-registry/container-registry-dedicated-data-endpoints). Without them, image-layer downloads redirect to a `*.blob.core.windows.net` endpoint rather than the registry's private endpoint and your egress firewall rules would need to allow a dangerous Blob storage wildcard. This rule would permit node egress to *any* Azure Storage account. Dedicated data endpoints replace the wildcard with registry-specific FQDNs (`<registry>.<region>.data.azurecr.io`) that resolve through Private Link to your private endpoint, keeping image-layer traffic on the private path and letting you scope egress rules to your cluster's registry.
+
 If Private Link or service endpoints aren't an option, you can reach other services through their public endpoints and control access through Azure Firewall rules and the firewall built into the target service. The firewall applies source network address translation (SNAT) to egress flows, replacing the pod IP with one of its attached public IP addresses per flow, and the selection isn't deterministic. Add the entire set of attached public IPs to the target service's IP allowlist, or use a [public IP address prefix](/azure/virtual-network/ip-services/public-ip-address-prefix) to express that set as a contiguous range.
 
 One downside of connecting to Azure services through public endpoints is that Azure Firewall then needs more rules to make sure it allows only traffic from a specific subnet. The number of attached public IPs also caps the SNAT port pool and therefore the cluster's concurrent outbound connection ceiling. Plan for [multiple IP addresses on Azure Firewall](/azure/firewall/quick-create-multiple-ip-bicep) before you reach port exhaustion. For clusters that open large numbers of concurrent outbound connections, [attach an Azure NAT Gateway to the `AzureFirewallSubnet`](/azure/nat-gateway/tutorial-hub-spoke-nat-firewall) to significantly expand the SNAT port pool while keeping all egress traffic under firewall inspection.
@@ -638,7 +643,7 @@ Ideally, if a failure occurs in the primary region, you can quickly switch to an
 
 - Integrate the recovery strategy, like replicating to another region, as part of the DevOps pipeline to meet your SLO.
 
-- Set up each Azure service by using features that support disaster recovery. For example, in this architecture, Container Registry is enabled for geo-replication. If a region fails, you can still pull images from the replicated region.
+- Set up each Azure service by using features that support disaster recovery. For example, in this architecture, Container Registry is enabled for geo-replication. If a region fails, ACR's health-aware failover automatically reroutes pulls to a healthy replica through the global endpoint without requiring a change to your cluster's configuration.
 
 - Deploy your infrastructure as code, including your AKS cluster and any other components you need. If you need to deploy into another region, you can reuse the scripts or templates to create an identical instance.
 
@@ -922,7 +927,7 @@ Advanced deployment techniques, like [blue-green deployment](https://martinfowle
 
 Start by reviewing the cost optimization design checklist and list of recommendations outlined in [Well-Architected Framework for AKS](/azure/well-architected/service-guides/azure-kubernetes-service#cost-optimization). For general workload recommendations, see the [Design review checklist for Cost Optimization](/azure/well-architected/cost-optimization/checklist).
 
-You can find a cost estimate for the components used in this baseline architecture in the [Azure pricing calculator](https://azure.com/e/16fc0fecb81e49ddadc91f2a0d0ecffc). Modify your estimate to include the components required for your use case.
+You can find a cost estimate for the components used in this baseline architecture in the [Azure pricing calculator](https://azure.com/e/ea5647f88d244aa0be33d46cc36447b3). Modify your estimate to include the components required for your use case. This estimate covers spoke-level resources that are directly associated with the cluster. Shared hub infrastructure, such as Azure Firewall, hub virtual networks, and Azure Private DNS zones, isn't included because those resources are typically owned and managed by a central platform team.
 
 Consider using [AKS cost analysis](/azure/aks/cost-analysis) for granular cluster infrastructure cost allocation by Kubernetes-specific constructs.
 

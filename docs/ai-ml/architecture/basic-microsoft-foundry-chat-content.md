@@ -97,9 +97,9 @@ You're responsible for creating the required role assignments for the managed id
 
 | Resource | Role | Scope |
 | --- | --- | --- |
-| App Service | Azure AI User | Foundry account |
+| App Service | Foundry User | Foundry account |
 | Foundry project | Search Index Data Reader | AI Search |
-| Portal user (for each individual) | Azure AI Developer | Foundry account |
+| Portal user (for each individual) | Foundry User | Foundry account |
 
 #### Network security
 
@@ -137,7 +137,7 @@ This basic architecture doesn't represent the costs for a production-ready solut
 
 - This architecture doesn't include cost governance or containment controls. Set Azure budgets and alerts early to guard against unexpected token or tool usage.
 
-  For budgeting, modify the [pricing calculator estimate](https://azure.com/e/6324d7c192ae4fd59092d5c2c60c07d9) of this architecture to fit your scenario.
+  For budgeting, modify the [preconfigured estimate in the Azure pricing calculator](https://azure.com/e/d43fd2e27fdc4766a125818efd56294e) of this architecture to fit your scenario.
 
 ### Operational Excellence
 

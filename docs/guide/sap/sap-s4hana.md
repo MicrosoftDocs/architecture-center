@@ -110,7 +110,7 @@ If you use the FES hub deployment, the FES is an add-on component to the classic
 
 *Download a [Visio file](https://arch-center.azureedge.net/fiori.vsdx) of this architecture.*
 
-For more information, see [Inbound and outbound internet connections for SAP on Azure](./sap-internet-inbound-outbound.yml).
+For more information, see [Inbound and outbound internet connections for SAP on Azure](./sap-internet-inbound-outbound.md).
 
 ### Application servers pool
 
