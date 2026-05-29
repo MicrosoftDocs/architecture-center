@@ -5,7 +5,7 @@ metadata:
   author: rudneir2
   ms.author: ruoliveira
   ms.custom: fcp
-  ms.date: 02/06/2026
+  ms.date: 05/28/2026
   ms.topic: solution-idea
   ms.subservice: solution-idea
   ai-usage: ai-assisted
@@ -22,4 +22,4 @@ name: Build the second layer of defense by using Microsoft Defender XDR
 summary: Enhance security in your IT environment by implementing Microsoft Defender XDR across applications and infrastructure to detect and respond to ransomware.
 thumbnailUrl: /azure/architecture/browse/thumbs/microsoft-defender-xdr-build-second-layer-defense.png
 content: |
-  [!include[](microsoft-defender-xdr-build-second-layer-defense-content.md)]
+  [!INCLUDE[](microsoft-defender-xdr-build-second-layer-defense-content.md)]

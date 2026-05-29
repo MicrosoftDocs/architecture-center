@@ -105,6 +105,10 @@ Serverless computing lets you integrate systems and run backend processes withou
 
 [View all the serverless architectures](/azure/architecture/browse/?expanded=azure&products=azure-functions)
 
+## Migration
+
+If you plan to migrate an AWS workload to Azure, see [Migrate compute from Amazon Web Services to Azure](/azure/migration/migrate-compute-from-aws), which includes some specific [example migration scenarios](/azure/migration/migrate-compute-from-aws#migration-scenarios) that might align to your use case.
+
 ## Contributors
 
 *This article is maintained by Microsoft. It was originally written by the following contributors.*

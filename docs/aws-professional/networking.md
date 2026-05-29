@@ -98,7 +98,6 @@ Neither virtual networks nor VPCs allow transitive peering. In Azure, however, y
 | DDoS protection | [AWS Shield Standard and AWS Shield Advanced](https://aws.amazon.com/shield/) | [Azure DDoS Protection](/azure/ddos-protection/ddos-protection-overview) (Network Protection or IP Protection) / Azure basic infrastructure DDoS protection | These services provide protection against volumetric, protocol, and application-layer distributed denial of service (DDoS) attacks. Both platforms provide a free baseline tier (AWS Shield Standard or Azure basic infrastructure DDoS) that's enabled by default, and a paid advanced tier with detailed telemetry, attack analytics, cost protection, and access to a rapid response team. |
 | Secure VM remote access | [AWS Systems Manager Session Manager](https://docs.aws.amazon.com/systems-manager/latest/userguide/session-manager.html) / [EC2 Instance Connect Endpoint](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/connect-using-eice.html) | [Azure Bastion](/azure/bastion/bastion-overview) | These services provide secure RDP and SSH connectivity to virtual machines without exposing public IP addresses or opening inbound ports. Azure Bastion is a fully managed PaaS service that's deployed inside a virtual network. |
 
-
 ### Networking architectures
 
 | Architecture | Description |
@@ -108,6 +107,10 @@ Neither virtual networks nor VPCs allow transitive peering. In Azure, however, y
 | [Implement a secure hybrid network](/azure/architecture/reference-architectures/dmz/secure-vnet-dmz) | Learn how to implement a secure hybrid network that extends an on-premises network to Azure with a perimeter network between the on-premises network and an Azure virtual network. |
 
 [View all networking architectures.](/azure/architecture/browse/?terms=networking)
+
+## Migration
+
+If you plan to migrate an AWS workload to Azure, see [Migrate networking from Amazon Web Services to Azure](/azure/migration/migrate-networking-from-aws), which includes some specific [example migration scenarios](/azure/migration/migrate-networking-from-aws#migration-scenarios) that might align to your use case.
 
 ## Contributors
 

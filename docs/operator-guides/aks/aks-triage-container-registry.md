@@ -95,6 +95,8 @@ If you encounter performance issues with an Azure Container Registry, consider t
 - [Configure the geo-replicated registry for optimal performance with replicas in nearby regions](/azure/container-registry/container-registry-troubleshoot-performance#configure-geo-replicated-registry).
 - [Optimize DNS configuration for pulling from a geographically distant registry replica](/azure/container-registry/container-registry-troubleshoot-performance#configure-dns-for-geo-replicated-registry).
 
+If image pulls suddenly take longer with no AKS-side configuration change on a geo-replicated registry, check [Azure Resource Health](/azure/service-health/resource-health-overview) for the registry. Container Registry's failover automatically reroutes traffic from a degraded regional replica to a healthy one through the global endpoint (`<registry>.azurecr.io`), which can route AKS nodes to a replica in a more distant region. Pull latency returns to baseline automatically once the local replica recovers.
+
 These guides can help you achieve reliable image retrieval for your AKS cluster and support stable operation of your workloads.
 
 ## Integrate a third-party container registry

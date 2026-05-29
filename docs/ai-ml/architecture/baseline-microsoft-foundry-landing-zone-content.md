@@ -480,9 +480,12 @@ It's expected that you'll be required to use the native integration of Microsoft
 
 Cost Optimization focuses on ways to reduce unnecessary expenses and improve operational efficiencies. For more information, see [Design review checklist for Cost Optimization](/azure/well-architected/cost-optimization/checklist).
 
-All [cost optimization strategies in the baseline architecture](./baseline-microsoft-foundry-chat.yml#cost-optimization) apply to the workload resources in this architecture.
+All [cost optimization strategies in the baseline architecture](./baseline-microsoft-foundry-chat.yml#cost-optimization) apply to the workload resources in this architecture. Use this [preconfigured estimate in the Azure pricing calculator](https://azure.com/e/ab9da2693b5046ed8dece535af402741) to understand the cost of the workload resources. Adjust the values to match your usage patterns and regional pricing.
 
 This architecture greatly benefits from Azure landing zone [platform resources](#platform-team-owned-resources). For example, resources such as Azure Firewall and DDoS Protection transition from workload to platform resources. Even if you use those resources through a chargeback model, the added security and cross-premises connectivity are more cost-effective than self-managing those resources. Take advantage of other centralized offerings from your platform team to extend those benefits to your workload without compromising its service-level objective, recovery time objective, or recovery point objective.
+
+> [!NOTE]
+> The preconfigured pricing estimate doesn't include shared platform infrastructure such as Azure Firewall, Azure Bastion, DDoS Protection, or hub networking resources. The platform team manages those resources in the platform subscriptions, and costs are shared across workloads.
 
 > [!IMPORTANT]
 > Don't try to optimize costs by consolidating Foundry dependencies as platform resources. These services must remain workload resources.
