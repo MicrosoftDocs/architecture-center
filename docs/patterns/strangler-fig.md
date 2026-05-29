@@ -117,7 +117,7 @@ Legacy systems typically depend on a centralized monolithic database that serves
 
 ## Next step
 
-- [Strangler Fig pattern application](https://martinfowler.com/bliki/StranglerFigApplication.html).
+- [Strangler Fig pattern application](https://martinfowler.com/bliki/StranglerFigApplication.html)
 
 ## Related resource
 
