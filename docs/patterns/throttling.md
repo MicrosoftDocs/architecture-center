@@ -3,7 +3,7 @@ title: Throttling Pattern
 description: Control the resources that an application instance, tenant, or service consumes so that the system continues to meet service-level objectives (SLOs) under load.
 ms.author: pnp
 author: claytonsiemens77
-ms.date: 05/28/2026
+ms.date: 05/29/2026
 ms.topic: design-pattern
 ms.subservice: cloud-fundamentals
 ---
@@ -49,7 +49,7 @@ The chart shows graceful feature degradation. Just before time T1, total resourc
 
 You can combine autoscaling, graceful degradation, and throttling to keep applications responsive and within SLAs. When you expect demand to stay high, throttling maintains stability while the system scales out. After scaling completes, the system restores full functionality.
 
-The next chart shows total resource use over time and shows how throttling combines with autoscaling and other compensating controls.
+The next chart shows total resource use over time and how throttling combines with autoscaling and other compensating controls.
 
 :::image type="complex" border="false" source="./_images/throttling-autoscaling.png" alt-text="Graph that shows the effects of combining throttling with autoscaling.":::
 A line graph plots resource utilization for all applications on the y-axis against time on the x-axis. Two horizontal reference lines mark the soft limit of resource utilization and the maximum capacity before autoscaling. A higher horizontal line, which begins at time T2, marks the maximum capacity after autoscaling. The utilization line rises and fluctuates over time. It crosses the soft limit at time T1, which is the point where autoscaling commences. Between T1 and T2, the system is throttled while autoscaling occurs, and utilization stays below the preautoscaling maximum capacity. At time T2, autoscaling completes, throttling is relaxed, and the utilization line jumps up and continues to fluctuate below the new, higher maximum capacity.
