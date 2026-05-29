@@ -96,9 +96,13 @@ You can back up your Amazon Elastic Kubernetes Service (EKS) persistent volumes 
 
 Also, [CSI snapshot controller](https://docs.aws.amazon.com/eks/latest/userguide/csi-snapshot-controller.html) provides snapshot functionality to EKS, that allows to get point-in-time copies of your data. You need both a CSI driver with snapshot support (such as the Amazon EBS CSI driver) and a CSI snapshot controller to have this capability. The snapshot controller is available either as an Amazon EKS managed add-on or as a self-managed installation.
 
+See [AKS Backup](#aks-backup) to learn about how AKS handles backup and snapshot.
+
 ### EKS and AWS Secrets Manager
 
 [AWS Secrets and Configuration Provider (ASCP) for the Kubernetes Secrets Store CSI Driver](https://docs.aws.amazon.com/eks/latest/userguide/manage-secrets.html) enables you to securely store and manage secrets in Secrets Manager and access them from applications running on Amazon EKS. Access to secrets can be restricted to specific Kubernetes Pods through IAM roles and policies. ASCP obtains the Pod identity, maps it to an IAM role, assumes that role, and then retrieves only the secrets that the role is permitted to access.
+
+See [AKS and Azure Key Vault](#aks-and-azure-key-vault) to learn about Azure Key Vault provider for the Secrets Store CSI Driver.
 
 ## AKS storage options
 
@@ -494,15 +498,17 @@ Different services support storage classes that have different access modes.
 
 [Dynamically provision volumes](/azure/aks/operator-best-practices-storage#dynamically-provision-volumes) to reduce the management overhead of statically creating persistent volumes. Set an appropriate reclaim policy to eliminate unused disks when you delete pods.
 
-### Backup
+### AKS Backup
+
+Similar to EKS Backup and Snapshot AKS provides various options for persistent data backup or to create a volume snapshot.
 
 Choose a tool to back up persistent data. The tool should match your storage type, such as snapshots, [Azure Backup](/azure/backup/azure-kubernetes-service-cluster-backup) for AKS, [Velero](https://github.com/velero-io/velero) or [Veeam Kasten](https://www.veeam.com/products/cloud/kubernetes-data-protection.html).
 
-To create a volume snapshot in AKS, ensure the snapshot controller is enabled, create a VolumeSnapshotClass, and then create a VolumeSnapshot that references your Persistent Volume Claim (PVC). The [Azure Files CSI driver](/aks/create-volume-azure-files#create-a-volume-snapshot-from-a-pvc-with-azure-files) supports creating a volume snapshot from a PVC with Azure Files. On the other hand, The [Azure Disks CSI driver](/azure/aks/create-volume-azure-disk#volume-snapshot-class-parameters-for-azure-disks) supports creating a volume snapshot from a PVC with Azure Disks.
+To create a volume snapshot in AKS, ensure the snapshot controller is enabled, create a VolumeSnapshotClass, and then create a VolumeSnapshot that references your Persistent Volume Claim (PVC). The [Azure Files CSI driver](/azure/aks/create-volume-azure-files) supports creating a volume snapshot from a PVC with Azure Files. On the other hand, The [Azure Disks CSI driver](/azure/aks/create-volume-azure-disk) supports creating a volume snapshot from a PVC with Azure Disks.
 
 ### AKS and Azure Key Vault
 
-[Azure Key Vault provider for the Secrets Store CSI Driver](/azure/aks/csi-secrets-store-driver?pivots=azure-cli-create) enables Azure Key Vault to be integrated as a secure secret store for Azure Kubernetes Service (AKS) clusters through a CSI volume. It allows secrets, keys, and certificates to be mounted directly into Pods, supports CSI inline volumes, and enables multiple secret store objects to be mounted within a single volume. The provider also improves Pod portability through the SecretProviderClass Custom Resource Definition (CRD), supports Windows containers, synchronizes with Kubernetes secrets, and offers automatic rotation for both mounted content and synced Kubernetes secrets.
+Just like EKS ASCP for the Kubernetes Secrets Store CSI Driver [Azure Key Vault provider for the Secrets Store CSI Driver](/azure/aks/csi-secrets-store-driver?pivots=azure-cli-create) enables Azure Key Vault to be integrated as a secure secret store for Azure Kubernetes Service (AKS) clusters through a CSI volume. It allows secrets, keys, and certificates to be mounted directly into Pods, supports CSI inline volumes, and enables multiple secret store objects to be mounted within a single volume. The provider also improves Pod portability through the SecretProviderClass Custom Resource Definition (CRD), supports Windows containers, synchronizes with Kubernetes secrets, and offers automatic rotation for both mounted content and synced Kubernetes secrets.
 
 
 ### Cost optimization
