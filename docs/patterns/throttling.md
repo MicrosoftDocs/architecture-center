@@ -1,6 +1,6 @@
 ---
 title: Throttling Pattern
-description: Control the resources an application instance, tenant, or service consumes so the system keeps meeting service-level objectives under load.
+description: Control the resources that an application instance, tenant, or service consumes so that the system continues to meet service-level objectives (SLOs) under load.
 ms.author: pnp
 author: claytonsiemens77
 ms.date: 05/28/2026
@@ -20,7 +20,7 @@ Several strategies handle varying load, depending on the application's business 
 
 ## Solution
 
-An alternative to autoscaling is to cap resource use and throttle requests when usage crosses the cap. The workload monitors its own resource use and throttles requests from one or more users when usage exceeds the threshold. The system keeps functioning and continues to meet its SLOs.
+An alternative to autoscaling is to cap resource use and throttle requests when usage exceeds that cap. The workload monitors its own resource use and throttles requests from one or more users when usage exceeds the threshold. The system continues to function and meet its SLOs.
 
 Throttling is a control loop, not a single admission decision. The system needs low-latency signals at three layers: infrastructure utilization, application state, and per-principal counters. It continuously measures saturation, enforces limits at well-defined boundaries, and adapts those limits as traffic patterns change. Overload is a normal operating mode that a mature system detects and recovers from. Throttling provides [self-preservation](/azure/well-architected/reliability/self-preservation) capabilities in your workload.
 
@@ -45,11 +45,11 @@ A line graph plots resource utilization on the y-axis against time on the x-axis
 
 The chart is a stacked area chart. The area below Feature A's line shows the resources that Feature A consumes, the area between Feature A's and Feature B's lines shows the resources that Feature B consumes, and the area between Feature B's and Feature C's lines shows the resources that Feature C consumes. Feature C's line sits at the top of the stack, so it also shows total system resource use over time.
 
-The chart illustrates graceful feature degradation. Just before time T1, total resource use approaches the threshold and risks exhausting available capacity. Feature B is less critical than Feature A or Feature C, so the system turns off Feature B and releases its resources. Between times T1 and T2, Feature A and Feature C continue normally. By time T2, total resource use drops enough to turn Feature B back on.
+The chart shows graceful feature degradation. Just before time T1, total resource use approaches the threshold and risks exhausting available capacity. Feature B is less critical than Feature A or Feature C, so the system turns off Feature B and releases its resources. Between times T1 and T2, Feature A and Feature C continue normally. By time T2, total resource use drops enough to turn Feature B back on.
 
-You can combine autoscaling, graceful degradation, and throttling to keep applications responsive and within SLAs. When you expect demand to stay high, throttling holds the line while the system scales out. After scaling completes, the system restores full functionality.
+You can combine autoscaling, graceful degradation, and throttling to keep applications responsive and within SLAs. When you expect demand to stay high, throttling maintains stability while the system scales out. After scaling completes, the system restores full functionality.
 
-The next chart shows total resource use over time and illustrates how throttling combines with autoscaling and other compensating controls.
+The next chart shows total resource use over time and shows how throttling combines with autoscaling and other compensating controls.
 
 :::image type="complex" border="false" source="./_images/throttling-autoscaling.png" alt-text="Graph that shows the effects of combining throttling with autoscaling.":::
 A line graph plots resource utilization for all applications on the y-axis against time on the x-axis. Two horizontal reference lines mark the soft limit of resource utilization and the maximum capacity before autoscaling. A higher horizontal line, which begins at time T2, marks the maximum capacity after autoscaling. The utilization line rises and fluctuates over time. It crosses the soft limit at time T1, which is the point where autoscaling commences. Between T1 and T2, the system is throttled while autoscaling occurs, and utilization stays below the preautoscaling maximum capacity. At time T2, autoscaling completes, throttling is relaxed, and the utilization line jumps up and continues to fluctuate below the new, higher maximum capacity.
@@ -95,12 +95,12 @@ Consider the following points as you decide how to implement this pattern:
 
 - Return a status code that tells the client when a temporary rejection is the result of throttling:
 
-  - **HTTP 429 Too Many Requests:** The caller exceeds a configured request rate over a defined window.
-  - **HTTP 503 Service Unavailable:** The service can't handle the request right now, often because of an unexpected load spike.
+  - **HTTP 429 (Too Many Requests):** The caller exceeds a configured request rate over a defined window.
+  - **HTTP 503 (Service Unavailable):** The service can't handle the request right now, often because of an unexpected load spike.
 
   Include a `Retry-After` HTTP header so that the client can pick a retry strategy. Return enough context for the caller to retry deliberately instead of guessing. For example, name the limit that the caller exceeds, clarify the affected scope, or suggest a rate that would succeed. Unexplained rejections don't help callers adapt.
 
-- Propagate overload signals from your dependencies instead of absorbing them. A service that throttles its callers must also honor the throttling responses that it receives from its own downstream dependencies. If your service hides a downstream 429 or 503 response by retrying silently or by returning a generic 500 response, callers can't slow down, retries amplify, and the overload cascades back upstream. The [Retry Storm antipattern](../antipatterns/retry-storm/index.md) describes this failure mode. Surface back-pressure to upstream callers so that the entire call chain sheds load together.
+- Propagate overload signals from your dependencies instead of absorbing them. A service that throttles its callers must also honor the throttling responses that it receives from its own downstream dependencies. If your service hides a downstream 429 or 503 response by retrying silently or by returning a generic HTTP 500 (Internal Server Error) response, callers can't slow down, retries amplify, and the overload cascades back upstream. The [Retry Storm antipattern](../antipatterns/retry-storm/index.md) describes this failure mode. Surface back-pressure to upstream callers so that the entire call chain sheds load together.
 
 - Make rejection cheaper than the work that it prevents. If refusing a request requires heavy authentication, deep parsing, or complex policy evaluation, a flood of rejected requests can still saturate the system. Reject as early in the request pipeline as possible, and load test the rejection path itself.
 
@@ -155,7 +155,7 @@ Users from several tenant organizations access a cloud-hosted application to fil
 
 To prevent users from one tenant degrading responsiveness and availability for users in other tenants, the application limits the requests-per-second rate that any single tenant can submit. The application blocks requests that exceed this limit.
 
-## Next steps
+## Next step
 
 - [Architecture strategies for designing a monitoring system](/azure/well-architected/operational-excellence/observability)
 
