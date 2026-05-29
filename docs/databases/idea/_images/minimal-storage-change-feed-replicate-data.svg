@@ -968,7 +968,7 @@
 		</g>
 		<g id="group1204-470" transform="translate(288.027,-299.153)">
 			<title>Storage Queue.1841</title>
-			<desc>Azure Storage Queue</desc>
+			<desc>Azure Queue Storage</desc>
 			<g id="shape1205-471">
 				<title>Sheet.1205</title>
 				<path d="M0 410.84 L24.93 410.84 L24.93 429.02 a0.832939 1.03586 0 0 1 -0.832939 1.03586 L0.83 430.06 a0.832939 1.03586
@@ -1001,11 +1001,11 @@
 				</g>
 			</g>
 			<g id="shape1204-484">
-				<text x="-12.46" y="437.26" class="st8">Azure Storage <tspan x="0.74" dy="1.2em" class="st14">Queue</tspan></text>			</g>
+				<text x="-10.49" y="437.26" class="st8">Azure Queue <tspan x="-1.23" dy="1.2em" class="st14">Storage</tspan></text>			</g>
 		</g>
 		<g id="group1211-487" transform="translate(288.14,-131.314)">
 			<title>Storage Queue.1848</title>
-			<desc>Azure Storage Queue</desc>
+			<desc>Azure Queue Storage</desc>
 			<g id="shape1212-488">
 				<title>Sheet.1212</title>
 				<path d="M0 410.84 L24.93 410.84 L24.93 429.02 a0.832939 1.03586 0 0 1 -0.832939 1.03586 L0.83 430.06 a0.832939 1.03586
@@ -1038,7 +1038,7 @@
 				</g>
 			</g>
 			<g id="shape1211-500">
-				<text x="-12.46" y="437.26" class="st8">Azure Storage <tspan x="0.74" dy="1.2em" class="st14">Queue</tspan></text>			</g>
+				<text x="-10.49" y="437.26" class="st8">Azure Queue <tspan x="-1.23" dy="1.2em" class="st14">Storage</tspan></text>			</g>
 		</g>
 		<g id="group1218-503" transform="translate(122.623,-191.785)">
 			<title>Front Doors.1855</title>
