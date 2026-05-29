@@ -18,7 +18,7 @@ When you use Azure as a modern data platform, you have your choice of platform a
 
 1. Data is loaded into storage. Azure offers many managed data storage solutions, each providing different features and capabilities.
 
-1. In an IaaS approach, a VM runs Microsoft Host Integration Server (HIS) with the BizTalk Adapter for WebSphere MQ. HIS exchanges messages with IBM MQ and exposes orchestration as web service to a custom .NET application.
+1. In an IaaS approach, a VM runs Microsoft Host Integration Server (HIS) with the BizTalk Adapter for WebSphere MQ. HIS exchanges messages with IBM MQ and exposes orchestration as a web service to a custom .NET application.
 
 1. A .NET application persists the data using any supported Azure data store. For example, the application can mask data or use private endpoints for security.
 
