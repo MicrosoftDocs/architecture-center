@@ -61,4 +61,4 @@ In a cloud-hosted scenario, this pattern can be implemented by decoupling the ga
 
 The [Valet Key pattern](./valet-key.yml) might also be relevant when implementing the Gatekeeper pattern. When communicating between the Gatekeeper and trusted roles, it's a good practice to enhance security by using keys or tokens that limit permissions for accessing resources. The pattern describes using a token or key that provides clients with restricted, direct access to a specific resource or service.
 
-The [Throttling pattern](./throttling.md) is often enforced at the gatekeeper or gateway boundary, where centralizing rate state avoids the coordination cost of doing rate checks on every backend node.
+The [Throttling pattern](./throttling.md) is often enforced at the gatekeeper or gateway boundary, where centralizing rate state avoids the coordination cost of doing rate checks on every back-end node.
