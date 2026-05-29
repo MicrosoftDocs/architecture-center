@@ -4,13 +4,13 @@ The guidance in this article is for telemetry scenarios and batch test drive dat
 
 ## Architecture
 
-:::image type="content" source="images/analytics-dataflow.svg" alt-text="Diagram that shows the analytics dataflow for streaming automotive data and files." border="false" lightbox="images/analytics-dataflow.svg":::
+:::image type="content" source="images/analytics-data-flow.svg" alt-text="Diagram that shows the analytics data flow for streaming automotive data and files." border="false" lightbox="images/analytics-data-flow.svg":::
 
 *Download a [PowerPoint file](https://arch-center.azureedge.net/next-generation-telemetry-analytics-automotive.pptx) with all the diagrams in this article.*
 
-### Dataflow
+### Data flow
 
-The following dataflow corresponds to the preceding diagram:
+The following data flow corresponds to the previous diagram:
 
 1. The data capture device is connected to the vehicle networks and collects high-resolution vehicle signal data and video. (**1a**) The device publishes real-time telemetry messages or (**1b**) requests the upload of recorded data files to the Azure Event Grid MQTT broker functionality by using an MQTT client. This functionality uses a Claim-Check pattern.
 
@@ -81,17 +81,17 @@ The following key technologies implement this workload. For each component in th
 
 - [Data Activator](/fabric/real-time-intelligence/data-activator/activator-introduction) is a no-code automation tool that responds to data patterns and conditions. In this architecture, it monitors telemetry data and triggers actions such as alerts or Power Automate flows when data meets predefined conditions.
 
-- [Event Grid](/azure/well-architected/service-guides/event-grid/reliability) is a managed event routing service that supports MQTT and other protocols. In this architecture, it distributes telemetry and file upload events from vehicles to downstream services like Azure Functions and the lakehouse. Vehicles can use Event Grid to publish and subscribe to topics. For example, they can publish telemetry and subscribe to command and control messages. 
+- [Event Grid](/azure/well-architected/service-guides/azure-event-grid) is a managed event routing service that supports MQTT and other protocols. In this architecture, it distributes telemetry and file upload events from vehicles to downstream services like Azure Functions and the lakehouse. Vehicles can use Event Grid to publish and subscribe to topics. For example, they can publish telemetry and subscribe to command and control messages. 
 
-- [Azure Event Hubs](/azure/well-architected/service-guides/event-hubs/reliability) is a real-time data streaming platform designed for high-throughput scenarios. In this architecture, it ingests millions of vehicle telemetry events per second with low latency for real-time processing.
+- [Azure Event Hubs](/azure/well-architected/service-guides/azure-event-hubs) is a real-time data streaming platform designed for high-throughput scenarios. In this architecture, it ingests millions of vehicle telemetry events per second with low latency for real-time processing.
 
-- [Functions](/azure/well-architected/service-guides/azure-functions-security) is a serverless compute service that runs code in response to events. In this architecture, it decodes telemetry data, orchestrates file ingestion, and triggers downstream analytics workflows. It simplifies processing vehicle telemetry events at scale with event-driven triggers and bindings by using the language of your choice.
+- [Functions](/azure/well-architected/service-guides/azure-functions) is a serverless compute service that runs code in response to events. In this architecture, it decodes telemetry data, orchestrates file ingestion, and triggers downstream analytics workflows. It simplifies processing vehicle telemetry events at scale with event-driven triggers and bindings by using the language of your choice.
 
 - [Azure Managed Grafana](/azure/managed-grafana/overview) is a data visualization platform based on the software from Grafana Labs. Microsoft manages and supports Azure Managed Grafana. In this architecture, it visualizes telemetry data stored in the eventhouse, which supports dashboards for engineering and operations teams.
 
 - [Azure App Service](/azure/well-architected/service-guides/app-service-web-apps) is a service for building and hosting web apps and APIs. In this architecture, it exposes vehicle telemetry data stored in Fabric through RESTful APIs that external applications consume.
 
-- [API Management](/azure/well-architected/service-guides/api-management/reliability) is a hybrid multicloud platform for managing APIs. In this architecture, it secures and abstracts access to partner-facing APIs used for configuring data capture devices and integrating business workflows.
+- [API Management](/azure/well-architected/service-guides/azure-api-management) is a hybrid multicloud platform for managing APIs. In this architecture, it secures and abstracts access to partner-facing APIs used for configuring data capture devices and integrating business workflows.
 
 ### Alternatives
 

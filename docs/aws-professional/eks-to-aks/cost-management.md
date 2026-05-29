@@ -138,7 +138,7 @@ If you run workloads that use CSI persistent volumes on your AKS cluster, consid
 
   - The service, such as Azure Blob Storage, Azure Files, Azure Queue Storage, Azure Table Storage, or managed disks
 
-  - The Storage account type, such as GPv1, GPv2, blob, or premium blob
+  - The [Storage account type](/azure/storage/common/storage-account-overview#types-of-storage-accounts), such as standard general-purpose v2 for standard file shares or premium FileStorage for premium file shares
   - The level of resiliency, such as locally redundant storage (LRS), zone-redundant storage (ZRS), geo-redundant storage (GRS), or read-access geo-redundant storage (RA-GRS)
   - The access tier, such as hot, cool, or archive
   - Operations and data transfers
@@ -280,7 +280,6 @@ Principal authors:
 Other contributors:
 
 - [Chad Kittel](https://www.linkedin.com/in/chadkittel/) | Principal Software Engineer - Azure Patterns & Practices
-- [Ed Price](https://www.linkedin.com/in/priceed/) | Senior Content Program Manager
 - [Theano Petersen](https://www.linkedin.com/in/theanop/) | Technical Writer
 
 *To see nonpublic LinkedIn profiles, sign in to LinkedIn.*

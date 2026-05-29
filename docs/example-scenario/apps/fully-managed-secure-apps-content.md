@@ -10,9 +10,9 @@ This diagram begins with an employee that accesses the Azure virtual network fro
 
 *Download a [Visio file][visio-download] of this architecture.*
 
-### Dataflow
+### Data flow
 
-The following dataflow corresponds to the previous diagram:
+The following data flow corresponds to the previous diagram:
 
 1. HTTP and HTTPS requests reach the application gateway.
 
@@ -175,7 +175,7 @@ Principal author:
 [azure-networking]: /azure/well-architected/service-guides/virtual-network
 [sql-service-endpoint]: /azure/sql-database/sql-database-vnet-service-endpoint-rule-overview
 [ase-dns-configuration]: /azure/app-service/environment/how-to-custom-domain-suffix?pivots=experience-azp#dns-configuration
-[secure-default-hostnames]: https://techcommunity.microsoft.com/blog/appsonazureblog/secure-unique-default-hostnames-ga-on-app-service-web-apps-and-public-preview-on/4303571
+[secure-default-hostnames]: /azure/app-service/reference-dangling-subdomain-prevention
 [small-pricing]: https://azure.com/e/9563539d508a4b68853a6b3c5168431e
 [medium-pricing]: https://azure.com/e/c3fb0809853c4cbabdcecae279dafe1f
 [large-pricing]: https://azure.com/e/42f54342044846e3bfb42f9f66847054
@@ -183,7 +183,7 @@ Principal author:
 [design-geo-distributed-ase]: /azure/app-service/environment/app-service-app-service-environment-geo-distributed-scale
 [design-best-practice-cloud-apps-autoscale]: ../../best-practices/auto-scaling.md
 
-[docs-sql-database]: /azure/well-architected/service-guides/azure-sql-database-well-architected-framework
+[docs-sql-database]: /azure/well-architected/service-guides/azure-sql-database
 [docs-webapps]: /azure/well-architected/service-guides/app-service-web-apps
 [docs-apiapps]: /azure/app-service/app-service-web-tutorial-rest-api
 [docs-appgw]: /azure/well-architected/service-guides/azure-application-gateway

@@ -57,7 +57,7 @@ The workload uses the following Azure services in coordination with each other:
 
 - [Azure DocumentDB](/azure/documentdb/overview) is a fully managed MongoDB-compatible database service for building modern applications. In this architecture, the package service uses Azure DocumentDB as its data store.
 
-- [Service Bus](/azure/well-architected/service-guides/service-bus/reliability) is a cloud messaging service that provides asynchronous communication capabilities and hybrid integration. In this architecture, it handles asynchronous messaging between the ingestion service and the task-based, workflow microservice. The rest of the services in the existing application are designed so other services can invoke them with HTTP requests.
+- [Service Bus](/azure/well-architected/service-guides/azure-service-bus) is a cloud messaging service that provides asynchronous communication capabilities and hybrid integration. In this architecture, it handles asynchronous messaging between the ingestion service and the task-based, workflow microservice. The rest of the services in the existing application are designed so other services can invoke them with HTTP requests.
 
 - [Azure Managed Redis](/azure/redis/overview) is an in-memory caching service. In this architecture, it reduces latency and improves throughput for frequently accessed drone delivery data.
 
@@ -212,7 +212,7 @@ For more information about network topology options, including private endpoint 
 
 Cost Optimization focuses on ways to reduce unnecessary expenses and improve operational efficiencies. For more information, see [Design review checklist for Cost Optimization](/azure/well-architected/cost-optimization/checklist).
 
-- Review an example price estimate for the workload. Use the [Azure pricing calculator](https://azure.com/e/4f044f65e46f40c7a9d7a4837a17e6d7). Configurations vary, so adjust it to match your scenario.
+- Review an example price estimate for the workload. Use the [preconfigured estimate in the Azure pricing calculator](https://azure.com/e/05d736df10c64bcbb77819b7a7ddf9c2). Configurations vary, so adjust it to match your scenario.
 
 - In this scenario, Azure Cosmos DB, Azure Managed Redis, and Service Bus Premium are the main cost drivers.
 

@@ -90,6 +90,7 @@ Both AWS and Azure services provide containerized application deployment and orc
 | [Amazon Elastic Container Registry (Amazon ECR)](https://aws.amazon.com/ecr/) | [Azure Container Registry](/azure/container-registry/container-registry-intro) | Container registries store Docker formatted images and create all types of container deployments in the cloud. Both services support vulnerability scanning, geo-replication, and private networking. |
 | [Amazon Elastic Kubernetes Service (Amazon EKS)](https://aws.amazon.com/eks/) | [Azure Kubernetes Service (AKS)](/azure/aks/what-is-aks) | You can use Amazon EKS and Azure Kubernetes Service (AKS) to orchestrate Docker containerized application deployments with Kubernetes. Azure Kubernetes Service (AKS) provides two modes: AKS Standard for full control and customization and [AKS Automatic](/azure/aks/intro-aks-automatic) for simplified, production-ready deployments with built-in best practices. For specifics about the hosting environment, see [Container runtime configuration](/azure/aks/core-aks-concepts#nodes). |
 | [Amazon ECS Anywhere](https://aws.amazon.com/ecs/anywhere/), [Amazon EKS Anywhere](https://aws.amazon.com/eks/eks-anywhere/) | [Azure Arc-enabled Kubernetes](/azure/azure-arc/kubernetes/overview), [AKS on Azure Arc](/azure/aks/aksarc/overview) | Both platforms support container orchestration services on-premises or in other cloud environments with centralized management from the respective cloud control planes. |
+| [Amazon ECS Service Connect](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/service-connect.html) | [Built-in service discovery in Azure Container Apps](/azure/container-apps/connect-apps), optionally with [Dapr service invocation](/azure/container-apps/dapr-overview) <br><br> [Istio add-on for AKS](/azure/aks/istio-about) | Service discovery and a service mesh for the managed container platform. ECS Service Connect is a feature of Amazon ECS. The Container Apps and AKS equivalents pair with their respective orchestrator (see the ECS and EKS rows above). |
 
 #### Example container architectures
 
@@ -139,6 +140,10 @@ You can use serverless compute to integrate systems and run back-end processes w
 | [Cross-cloud scaling pattern](/azure-stack/user/pattern-cross-cloud-scale) | Learn how to improve cross-cloud scalability with a solution architecture that includes Azure Stack. A step-by-step flowchart details instructions for implementation. |
 
 [View all the serverless architectures](/azure/architecture/browse/?expanded=azure&products=azure-functions).
+
+## Migration
+
+If you plan to migrate an AWS workload to Azure, see [Migrate compute from Amazon Web Services to Azure](/azure/migration/migrate-compute-from-aws), which includes some specific [example migration scenarios](/azure/migration/migrate-compute-from-aws#migration-scenarios) that might align to your use case.
 
 ## Contributors
 

@@ -175,7 +175,7 @@ When your control plane manages shared components, it's important to be aware of
 
 ## Use multiple control planes
 
-In a complex environment, you might need to use multiple control planes that manage different areas. Many multitenant solutions follow the [Deployment Stamps pattern](../../../patterns/deployment-stamp.yml) and shard tenants across multiple stamps. In this pattern, you might create separate control planes for global and stamp responsibilities.
+In a complex environment, you might need to use multiple control planes that manage different areas. Many multitenant solutions follow the [Deployment Stamps pattern](../../../patterns/deployment-stamp.md) and shard tenants across multiple stamps. In this pattern, you might create separate control planes for global and stamp responsibilities.
 
 > [!TIP]
 > Coordinating across multiple control planes adds complexity, so try to minimize the number of control planes that you build. Most solutions need only one control plane.
