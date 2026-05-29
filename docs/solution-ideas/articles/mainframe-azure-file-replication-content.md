@@ -7,7 +7,7 @@ This article describes several ways to transfer files to Azure, convert and tran
 ## Architecture
 
 :::image type="complex" border="false" source="../media/mainframe-azure-file-replication-updated.svg" alt-text="Diagram that shows the three steps of migrating on-premises files to Azure: data transfer, conversion and transformation, and storing in persistent storage." lightbox="../media/mainframe-azure-file-replication-updated.svg":::
-   The image contains an on-premises section and an Azure section that both have multiple sections and subsections. The on-premises section shows the first step in the migration process. It includes three flows. The first flow points from Local storage to an icon that represents SFTP using JCL and then to a section that contains Azure Virtual Machines. The second flow points from a Mainframe dataset to SHIR and then to Azure Data Factory via the Azure Data Factory SFTP connector. The last flow points from an IBM mainframe to Azure Blob Storage via non-Microsoft solutions. The Azure section contains steps two and three. The step two section contains a subsection that includes Host Integration Server, Azure Databricks and Microsoft Fabric paired together, Azure Data Factory, and Azure Data Lake Storage. Azure Data Factory points to Data Lake Storage and Fabric Data Factory points to OneLake. The step three section contains Azure SQL Database, Azure Database for PostgreSql, Azure Cosmos DB, Azure Database for MySQL, Data Lake Storage, Blob Storage, and Microsoft Fabric.
+   The image contains an on-premises section and an Azure section that both have multiple sections and subsections. The on-premises section shows the first step in the migration process. It includes three flows. The first flow points from Local storage to an icon that represents SFTP using JCL and then to a section that contains Azure Virtual Machines. The second flow points from a mainframe dataset to SHIR and an on-premises data gateway. SHIR connects to Azure Data Factory via FTP/SFTP. The data gateway connects to a Fabric pipeline. The last flow points from an IBM mainframe to Azure Blob Storage via non-Microsoft solutions. The Azure section contains steps two and three. The step two section contains a subsection that includes Host Integration Server, Azure Databricks and Microsoft Fabric paired together, Azure Data Factory, and Azure Data Lake Storage. Azure Data Factory points to Data Lake Storage. The step three section contains Azure SQL Database, Azure Database for PostgreSql, Azure Cosmos DB, Azure Database for MySQL, Data Lake Storage, Blob Storage, and Microsoft Fabric.
 :::image-end:::
 
 *Download a [Visio file](https://arch-center.azureedge.net/mainframe-azure-file-replication-updated.vsdx) of this architecture.*
@@ -42,7 +42,7 @@ The following data flow corresponds to the previous diagram:
 
    You can store transferred data in one of several available persistent Azure storage modes, depending on your requirements.
 
-   - If analytics aren't required, Azure Data Factory can store data directly in a wide range of storage options, such as Data Lake Storage, Blob Storage, and Microsoft Fabric OneLake.
+   - If analytics aren't required, Azure Data Factory can store data directly in a wide range of storage options, such as Data Lake Storage, Blob Storage, and Microsoft OneLake.
 
    - [Azure hosts various databases](/azure/architecture/guide/technology-choices/data-options) that address different needs:
 
@@ -118,7 +118,7 @@ On-premises file replication and synchronization are essential for various use c
   
 - Tightly coupled on-premises applications on systems that can't be immediately remediated or modernized
 
-- Fabric enables T‑SQL–based, read‑only analytics and reporting on large mainframe datasets migrated to OneLake or ADLS Gen2 via its SQL Analytics Endpoint.
+- Fabric enables T‑SQL–based, read‑only analytics and reporting on large mainframe datasets migrated to OneLake or Data Lake Storage via its SQL analytics endpoint.
 
 ## Contributors
 
