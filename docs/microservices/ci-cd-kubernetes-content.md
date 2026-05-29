@@ -182,7 +182,7 @@ Here are some other best practices to consider for containers:
 
 - Use [namespaces](/azure/container-registry/container-registry-best-practices#repository-namespaces) in Azure Container Registry to isolate images that are approved for production from images that are still being tested. Don't move an image into the production namespace until you're ready to deploy it into production. If you combine this practice with semantic versioning of container images, it can reduce the chance of accidentally deploying a version that wasn't approved for release.
 
-- Follow the principle of least privilege by running containers as a nonprivileged user. Set `runAsNonRoot: true` in the pod's `securityContext`, and enforce it cluster-wide by using [Pod Security Admission](/azure/aks/use-psa) with the `restricted` or `baseline` [Pod Security Standard](https://kubernetes.io/docs/concepts/security/pod-security-standards/), or by using [Azure Policy for Kubernetes](/azure/governance/policy/concepts/policy-for-kubernetes).
+- Follow the principle of least privilege by running containers as a nonprivileged user. Set `runAsNonRoot: true` in the pod's `securityContext`, and enforce it cluster-wide by using [Pod Security Admission](/azure/aks/use-psa) with the *Restricted* or *Baseline* [Pod Security Standard](https://kubernetes.io/docs/concepts/security/pod-security-standards/), or by using [Azure Policy for Kubernetes](/azure/governance/policy/concepts/policy-for-kubernetes).
 
 ## Helm charts
 
