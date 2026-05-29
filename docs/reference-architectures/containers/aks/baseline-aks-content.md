@@ -651,16 +651,6 @@ Ideally, if a failure occurs in the primary region, you can quickly switch to an
 
 For many architectures, you can set up a new cluster and return it to operating state through GitOps-based [cluster bootstrapping](#cluster-bootstrapping), followed by application deployment. But if there's critical resource state, like config maps, jobs, and secrets that can't be captured within your bootstrapping process, consider your recovery strategy. We recommend that you run stateless workloads in Kubernetes. If your architecture involves disk-based state, you must also consider your recovery strategy for that content.
 
-If you must support stateful workloads, use [AKS Backup](/azure/backup/azure-kubernetes-service-backup-overview) so that persistent volumes and cluster resource state are recoverable within your defined recovery-point and recovery-time objectives. Use Azure Policy to enforce that backup is configured on your cluster. Azure Monitor surfaces backup job health through the same observability stack already established in this architecture.
-
-Account for the following architectural considerations in your design:
-
-- **Backup scope.** Decide whether you back up the entire cluster or specific namespaces. AKS Backup stores data in a blob container and as disk or file snapshots. Define this scope early because it determines your storage account sizing, retention policies, and recovery granularity for scenarios such as operational recovery, environment cloning, and cluster upgrades.
-- **Trusted access.** AKS Backup requires [trusted access](/azure/aks/trusted-access-feature) between the Backup vault and the AKS cluster, regardless of whether the cluster is public, private, or IP-restricted.
-- **RBAC permissions.** The Backup vault's managed identity requires a set of permissions on the AKS cluster to configure and execute backups. The backup extension also creates a user identity with permissions on the storage account where backups are stored.
-- **Network egress.** The backup extension communicates with Azure Backup services from within the cluster. Account for the required outbound endpoints in your Azure Firewall and NSG rules.
-- **In-cluster footprint.** The extension deploys pods onto your nodes. Plan for the additional compute and memory consumption in your node resource budgets, and include the extension namespace in your network policy governance.
-
 When cluster backup must be a part of your recovery strategy, you must install a solution that matches your business requirements within the cluster. This agent is responsible for pushing cluster resource state out to a destination of your choosing and coordinating Azure disk-based, persistent volume snapshots.
 
 VMware [Velero](https://velero.io/) is an example of a common Kubernetes backup solution that you can install and manage directly. Or you can use the [AKS backup extension](/azure/backup/azure-kubernetes-service-cluster-backup) to provide a managed Velero implementation. The AKS backup extension supports backing up both Kubernetes resources and persistent volumes, with schedules and backup scope externalized as vault configuration in Azure Backup.
@@ -668,6 +658,14 @@ VMware [Velero](https://velero.io/) is an example of a common Kubernetes backup 
 The reference implementation doesn't implement backup, which involves extra Azure resources to manage, monitor, purchase, and secure. These resources might include an Azure Storage account, an Azure Backup vault and configuration, and the [trusted access feature](/azure/aks/trusted-access-feature). Instead, GitOps combined with the intent to run stateless workload is the recovery solution.
 
 Choose and validate a backup solution that meets your business objective, which includes your defined recovery-point objective and recovery-time objective. Define your recovery process in a team runbook and practice it for all business-critical workloads.
+
+If you must support stateful workloads and adopt [AKS Backup](/azure/backup/azure-kubernetes-service-backup-overview), use Azure Policy to enforce that backup is configured on your cluster. Azure Monitor surfaces backup job health through the same observability stack already established in this architecture. Beyond that governance, account for the following architectural considerations in your design:
+
+- **Backup scope.** Decide whether you back up the entire cluster or specific namespaces. AKS Backup stores data in a blob container and as disk or file snapshots. Define this scope early because it determines your storage account sizing, retention policies, and recovery granularity for scenarios such as operational recovery, environment cloning, and cluster upgrades.
+- **Trusted access.** AKS Backup requires [trusted access](/azure/aks/trusted-access-feature) between the Backup vault and the AKS cluster, regardless of whether the cluster is public, private, or IP-restricted.
+- **RBAC permissions.** The Backup vault's managed identity requires a set of permissions on the AKS cluster to configure and execute backups. The backup extension also creates a user identity with permissions on the storage account where backups are stored.
+- **Network egress.** The backup extension communicates with Azure Backup services from within the cluster. Account for the required outbound endpoints in your Azure Firewall and NSG rules.
+- **In-cluster footprint.** The extension deploys pods onto your nodes. Plan for the additional compute and memory consumption in your node resource budgets, and include the extension namespace in your network policy governance.
 
 ### Kubernetes API server SLA
 
