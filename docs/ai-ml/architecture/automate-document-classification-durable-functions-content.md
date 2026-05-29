@@ -1,4 +1,4 @@
-This article describes an architecture that processes various documents. The architecture uses the durable functions feature of Azure Functions to implement pipelines. The pipelines use Azure AI Document Intelligence to split and classify the documents within a file and to extract their content. A Microsoft Foundry Agent Service prompt agent that has an Azure AI Search tool grounds chat responses in the indexed content and returns inline citations.
+This article describes an architecture that processes various documents. The architecture uses the durable functions feature of Azure Functions to implement pipelines. The pipelines use Azure Document Intelligence to split and classify the documents within a file and to extract their content. A Microsoft Foundry Agent Service prompt agent that has an Azure AI Search tool grounds chat responses in the indexed content and returns inline citations.
 
 ## Architecture
 
