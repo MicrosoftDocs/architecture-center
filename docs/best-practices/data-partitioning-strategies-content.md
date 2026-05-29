@@ -6,31 +6,31 @@ This article describes some strategies for partitioning data in various Azure da
 
 A single SQL database has a limit to the volume of data that it can contain. Throughput is constrained by architectural factors and the number of concurrent connections that it supports.
 
-[Elastic pools](/azure/sql-database/sql-database-elastic-pool) support horizontal scaling for a SQL database. Using elastic pools, you can partition your data into shards that are spread across multiple SQL databases. You can also add or remove shards as the volume of data that you need to handle grows and shrinks. Elastic pools can also help reduce contention by distributing the load across databases.
+[Elastic pools](/azure/azure-sql/database/elastic-pool-overview) support horizontal scaling for a SQL database. Using elastic pools, you can partition your data into shards that are spread across multiple SQL databases. You can also add or remove shards as the volume of data that you need to handle grows and shrinks. Elastic pools can also help reduce contention by distributing the load across databases.
 
 Each shard is implemented as a SQL database. A shard can hold more than one dataset (called a *shardlet*). Each database maintains metadata that describes the shardlets that it contains. A shardlet can be a single data item, or a group of items that share the same shardlet key. For example, in a multitenant application, the shardlet key can be the tenant ID, and all data for a tenant can be held in the same shardlet.
 
-Client applications are responsible for associating a dataset with a shardlet key. A separate SQL Database acts as a global shard map manager. This database has a list of all the shards and shardlets in the system. The application connects to the shard map manager database to obtain a copy of the shard map. It caches the shard map locally, and uses the map to route data requests to the appropriate shard. This functionality is hidden behind a series of APIs that are contained in the [Elastic Database client library](/azure/sql-database/sql-database-elastic-database-client-library), which is available for Java and .NET.
+Client applications are responsible for associating a dataset with a shardlet key. A separate SQL Database acts as a global shard map manager. This database has a list of all the shards and shardlets in the system. The application connects to the shard map manager database to obtain a copy of the shard map. It caches the shard map locally, and uses the map to route data requests to the appropriate shard. This functionality is hidden behind a series of APIs that are contained in the [Elastic Database client library](/azure/azure-sql/database/elastic-database-client-library), which is available for Java and .NET.
 
-For more information about elastic pools, see [Scaling out with Azure SQL Database](/azure/sql-database/sql-database-elastic-scale-introduction).
+For more information about elastic pools, see [Scaling out with Azure SQL Database](/azure/azure-sql/database/elastic-scale-introduction).
 
 To reduce latency and improve availability, you can replicate the global shard map manager database. With the Premium pricing tiers, you can configure active geo-replication to continuously copy data to databases in different regions.
 
-Alternatively, use [Azure SQL Data Sync](/azure/sql-database/sql-database-sync-data) or [Azure Data Factory](/azure/data-factory) to replicate the shard map manager database across regions. This form of replication runs periodically and is more suitable if the shard map changes infrequently, and doesn't require Premium tier.
+Alternatively, use [Azure Data Factory](/azure/data-factory) to replicate the shard map manager database across regions. This form of replication runs periodically and is more suitable if the shard map changes infrequently, and doesn't require Premium tier.
 
 Elastic Database provides two schemes for mapping data to shardlets and storing them in shards:
 
 - A **list shard map** associates a single key to a shardlet. For example, in a multitenant system, the data for each tenant can be associated with a unique key and stored in its own shardlet. To guarantee isolation, each shardlet can be held within its own shard.
 
-    ![Diagram that shows a list shard map to store tenant data in separate shards.](./images/data-partitioning/point-shardlet.svg)
+  ![Diagram that shows a list shard map to store tenant data in separate shards.](./images/data-partitioning/point-shardlet.svg)
 
-    *Download a [Visio file](https://arch-center.azureedge.net/data-partitioning-strategies.vsdx) of this diagram.*
+  *Download a [Visio file](https://arch-center.azureedge.net/data-partitioning-strategies.vsdx) of this diagram.*
 
 - A **range shard map** associates a set of contiguous key values to a shardlet. For example, you can group the data for a set of tenants (each with their own key) within the same shardlet. This scheme is less expensive than the first, because tenants share data storage, but has less isolation.
 
-    ![Diagram that shows a range shard map to store data for a range of tenants in a shard.](./images/data-partitioning/range-shardlet.svg)
+  ![Diagram that shows a range shard map to store data for a range of tenants in a shard.](./images/data-partitioning/range-shardlet.svg)
 
-    *Download a [Visio file](https://arch-center.azureedge.net/data-partitioning-strategies.vsdx) of this diagram*
+  *Download a [Visio file](https://arch-center.azureedge.net/data-partitioning-strategies.vsdx) of this diagram*
 
 A single shard can contain the data for several shardlets. For example, you can use list shardlets to store data for different noncontiguous tenants in the same shard. You can also mix range shardlets and list shardlets in the same shard, although they're addressed through different maps. The following diagram shows this approach:
 
@@ -40,13 +40,13 @@ A single shard can contain the data for several shardlets. For example, you can 
 
 Elastic pools make it possible to add and remove shards as the volume of data shrinks and grows. Client applications can create and delete shards dynamically, and transparently update the shard map manager. However, removing a shard is a destructive operation that also requires deleting all the data in that shard.
 
-If an application needs to split a shard into two separate shards or combine shards, use the [split-merge tool](/azure/sql-database/sql-database-elastic-scale-overview-split-and-merge). This tool runs as an Azure web service, and migrates data safely between shards.
+If an application needs to split a shard into two separate shards or combine shards, use the [split-merge tool](/azure/azure-sql/database/elastic-scale-overview-split-and-merge). This tool runs as an Azure web service, and migrates data safely between shards.
 
 The partitioning scheme can significantly affect the performance of your system. It can also affect the rate at which shards have to be added or removed, or that data must be repartitioned across shards. Consider the following points:
 
 - Group data that is used together in the same shard, and avoid operations that access data from multiple shards. A shard is a SQL database in its own right, and cross-database joins must be performed on the client side.
 
-    Although SQL Database doesn't support cross-database joins, you can use the Elastic Database tools to perform [multi-shard queries](/azure/sql-database/sql-database-elastic-scale-multishard-querying). A multi-shard query sends individual queries to each database and merges the results.
+  Although SQL Database doesn't support cross-database joins, you can use the Elastic Database tools to perform [multi-shard queries](/azure/azure-sql/database/elastic-scale-multishard-querying). A multi-shard query sends individual queries to each database and merges the results.
 
 - Don't design a system that has dependencies between shards. Referential integrity constraints, triggers, and stored procedures in one database can't reference objects in another.
 
