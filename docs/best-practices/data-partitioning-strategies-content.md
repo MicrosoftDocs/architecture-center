@@ -196,11 +196,7 @@ The ability to search for data is often the primary method of navigation and exp
 
 AI Search stores searchable content as JSON documents in a database. You define indexes that specify the searchable fields in these documents and provide these definitions to AI Search. When a user submits a search request, AI Search uses the appropriate indexes to find matching items.
 
-To reduce contention, the storage that's used by AI Search can be divided into 1, 2, 3, 4, 6, or 12 partitions, and each partition can be replicated up to 12 times. The product of the number of partitions multiplied by the number of replicas is called the *search unit (SU)*. A single instance of AI Search can contain a maximum of 36 SUs (a database with 12 partitions only supports a maximum of 3 replicas).
-
-You're billed for each SU that is allocated to your service. As the volume of searchable content increases or the rate of search requests grows, you can add SUs to an existing instance of AI Search to handle the extra load. AI Search itself distributes the documents evenly across the partitions. No manual partitioning strategies are currently supported.
-
-Each partition can contain a maximum of 15 million documents or occupy 300 GB of storage space (whichever is smaller). You can create up to 50 indexes. The performance of the service varies and depends on the complexity of the documents, the available indexes, and the effects of network latency. On average, a single replica (1 SU) should be able to handle 15 queries per second (QPS), although we recommend performing benchmarking with your own data to obtain a more precise measure of throughput. For more information, see [Service limits in AI Search].
+AI Search manages partitioning for you. You scale a service by adding *partitions* to increase storage and *replicas* to increase query throughput and availability. The service distributes documents across partitions automatically, so you can't define a custom partition key or partitioning scheme within a single service. The main architectural decisions you control are the pricing tier you select and the number of partitions and replicas you allocate. The tier sets the upper bounds on storage, document count, and index count, so choose it based on your projected data volume and query load rather than on current needs alone. For the specific limits per tier, see [Service limits in AI Search](/azure/search/search-limits-quotas-capacity).
 
 > [!NOTE]
 > You can store a limited set of data types in searchable documents, including strings, Booleans, numeric data, datetime data, and some geographical data. For more information, see the page [Supported data types (AI Search)] on the Microsoft website.
@@ -305,7 +301,6 @@ For considerations about trade-offs between availability and consistency, see [A
 
 [Performing Entity Group Transactions]: /rest/api/storageservices/Performing-Entity-Group-Transactions
 [Service Bus quotas]: /azure/service-bus-messaging/service-bus-quotas
-[Service limits in AI Search]: /azure/search/search-limits-quotas-capacity
 [Supported Data Types (AI Search)]: /rest/api/searchservice/Supported-data-types
 [What is Event Hubs?]: /azure/event-hubs/event-hubs-what-is-event-hubs
 [What is AI Search?]: /azure/search/search-what-is-azure-search
