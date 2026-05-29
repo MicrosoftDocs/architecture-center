@@ -304,11 +304,9 @@ For considerations about trade-offs between availability and consistency, see [A
 [event-hubs]: /azure/event-hubs
 
 [Performing Entity Group Transactions]: /rest/api/storageservices/Performing-Entity-Group-Transactions
-[Redis cluster tutorial]: https://redis.io/topics/cluster-tutorial
 [Service Bus quotas]: /azure/service-bus-messaging/service-bus-quotas
 [Service limits in AI Search]: /azure/search/search-limits-quotas-capacity
 [Supported Data Types (AI Search)]: /rest/api/searchservice/Supported-data-types
-[Transactions]: https://redis.io/topics/transactions
 [What is Event Hubs?]: /azure/event-hubs/event-hubs-what-is-event-hubs
 [What is AI Search?]: /azure/search/search-what-is-azure-search
 [scalability targets]: /azure/storage/common/storage-scalability-targets
