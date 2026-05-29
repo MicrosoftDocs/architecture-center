@@ -4,7 +4,7 @@ metadata:
   description: Learn how to use Azure Cosmos DB and Azure SQL Database together in a polyglot persistence architecture that assigns each workload to its best-fit database.
   author: seesharprun
   ms.author: sidandrews
-  ms.date: 03/03/2026
+  ms.date: 05/29/2026
   ms.topic: solution-idea
   ms.subservice: solution-idea
   ms.custom: arb-data
