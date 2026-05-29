@@ -38,7 +38,7 @@ The diagram shows an application that has two subsystems. Subsystem A calls subs
 
 Consider the following points as you decide how to implement this pattern:
 
-- The anti-corruption layer might add latency to calls between the two systems.
+- The anti-corruption layer adds latency to calls between the two systems.
 
 - The anti-corruption layer adds an extra service that you must manage and maintain.
 
