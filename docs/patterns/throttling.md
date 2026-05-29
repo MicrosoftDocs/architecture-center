@@ -42,7 +42,6 @@ The following chart shows resource use (a combination of memory, CPU, bandwidth,
 A line graph plots resource utilization on the y-axis against time on the x-axis. Three colored lines represent Feature A, Feature B, and Feature C, with Feature A's line lowest, Feature B's line in the middle, and Feature C's line highest. A solid horizontal line near the top of the chart marks maximum capacity, and a dashed horizontal line below it marks the soft limit of resource utilization. Two vertical dashed lines mark times T1 and T2. Before T1, all three feature lines fluctuate, and Feature C's line rises and crosses the soft limit. At T1, Feature B's line drops to zero and stays at zero until T2 because Feature B is suspended to free resources for Feature A and Feature C. Feature C's line falls back below the soft limit between T1 and T2 while Feature A continues normally. At T2, Feature B resumes and all three lines continue to fluctuate below the soft limit.
 :::image-end:::
 
-
 The chart is a stacked area chart. The area below Feature A's line shows the resources that Feature A consumes, the area between Feature A's and Feature B's lines shows the resources that Feature B consumes, and the area between Feature B's and Feature C's lines shows the resources that Feature C consumes. Feature C's line sits at the top of the stack, so it also shows total system resource use over time.
 
 The chart shows graceful feature degradation. Just before time T1, total resource use approaches the threshold and risks exhausting available capacity. Feature B is less critical than Feature A or Feature C, so the system turns off Feature B and releases its resources. Between times T1 and T2, Feature A and Feature C continue normally. By time T2, total resource use drops enough to turn Feature B back on.
@@ -147,7 +146,7 @@ If this pattern introduces trade-offs within a pillar, consider them against the
 
 The following diagram shows throttling in a multitenant system.
 
-:::image type="complex" border="false" source="./_images/throttling-multi-tenant.png" alt-text="Diagram that shows throttling in a multitenant application." lightbox="./_images/throttling-multi-tenant.png":::
+:::image type="complex" border="false" source="./_images/throttling-multi-tenant.png" alt-text="Diagram that shows throttling in a multitenant application.":::
 Three labeled users on the left represent tenants of a multitenant Surveys application: Adatum, Fabrikam, and Contoso. Each user sends requests through a tenant-specific custom domain, which the application uses to identify the tenant. Adatum sends 5 requests per second through surveys.adatum.com, Fabrikam sends 10 requests per second through surveys.fabrikam.com, and Contoso sends 150 requests per second through surveys.contoso.com. On the right, the surveys application web role meters the per-second request rate for each tenant. The Adatum and Fabrikam request flows pass through to the application. The Contoso request flow is blocked by an Error: Throttled response because the rate exceeds the per-tenant limit.
 :::image-end:::
 
