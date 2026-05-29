@@ -22,7 +22,7 @@ It's difficult to replace an entire complex system. Instead, you can migrate to 
 
 After you identify new [service boundaries](/azure/architecture/microservices/model/tactical-domain-driven-design), use an incremental process to replace specific pieces of functionality with new applications and services. Customers continue to use the same interface and are unaware that a migration is in progress.
 
-:::image type="complex" source="./_images/strangler-fig-pattern.svg" alt-text="Diagrams that show the Strangler Fig pattern." lightbox="./_images/strangler-fig-pattern.svg":::
+:::image type="complex" source="./_images/strangler-fig-pattern.svg" alt-text="Diagrams that show the Strangler Fig pattern." lightbox="./_images/strangler-fig-pattern.svg" border="false":::
    Four diagrams that show the four phases of the Strangler Fig pattern. In the first diagram, a Strangler Fig façade routes client requests between the legacy system and the new system. The client app sends requests through the Strangler Fig façade, which routes some requests to the legacy system and other requests to the new system. In the second diagram, incremental decomposition shifts functionality from the legacy system to the new system. The client app sends requests through the Strangler Fig façade, which now routes a greater number of requests to the new system than to the legacy system. In the third diagram, the legacy system is fully decommissioned and has no dependencies. The client app sends requests through the Strangler Fig façade, which routes them all to the new system. In the fourth diagram, the Strangler Fig façade is removed, and the client interacts directly with the new system. The client app sends requests directly to the new system.
 :::image-end:::
 
@@ -50,7 +50,7 @@ Consider the following points as you decide how to implement this pattern:
 
 - Structure new applications and services so that you can easily intercept and replace them in future strangler fig migrations. For example, strive to have clear demarcations between parts of your solution so that you can migrate each part individually.
 
-- After the migration is complete, you typically remove the strangler fig façade. Alternatively, you can maintain the façade as an adaptor for legacy clients to use while you update the core system for newer clients.
+- After the migration is complete, you typically remove the strangler fig façade. Alternatively, you can maintain the façade as an adapter for legacy clients to use while you update the core system for newer clients.
 
   Conceptualize this as transitional architecture, and balance this architecture's risk mitigation benefits against its temporary infrastructural costs.
 
@@ -94,7 +94,7 @@ Consider any trade-offs against the goals of the other pillars that this pattern
 
 Legacy systems typically depend on a centralized monolithic database that serves multiple domains. Over time, this shared database becomes difficult to manage and improve because of its cross-domain dependencies. To address this challenge, the Strangler Fig pattern incrementally extracts domain-specific tables, stored procedures, and related data from the monolithic database into isolated domain databases. Each database contains only one domain. Repeat the extraction process until the monolithic database is fully decomposed.
 
-:::image type="complex" source="./_images/strangler-fig-database.svg" alt-text="Diagrams that show the Strangler Fig pattern applied to a database." lightbox="./_images/strangler-fig-database.svg":::
+:::image type="complex" source="./_images/strangler-fig-database.svg" alt-text="Diagrams that show the Strangler Fig pattern applied to a database." lightbox="./_images/strangler-fig-database.svg" border="false":::
    Three diagrams that show the Strangler Fig pattern applied to a database. The first diagram shows a new system integration. The client app sends requests to the new system, but not to the legacy system. The new system reads and writes to the legacy database via legacy system APIs or via direct access. The legacy database is monolithic and contains multiple data domains. The second diagram shows new database integration with the data copy. The client app sends requests to the new system, but not to the legacy system. The new system reads and writes to the legacy database and writes to the new domain database. The legacy database performs an initial load to the new domain database by using an extract, transform, and load (ETL) process. The legacy database syncs to the new domain database by using a change data capture (CDC) process. The new domain database contains the extracted, domain-specific tables, procedures, and functions (per bounded context). The third diagram shows the domain database cutover. The client app sends requests to the new system, but not to the legacy system. The new system reads and writes to the new domain database, but not to the legacy database. The legacy database's domain data and objects are removed. Next to the diagram, three notes explain that routing responsibility shifts from the legacy system to the new system, that data validation and consistency checks are complete, and that rollback is possible until the legacy database is fully decommissioned.
 :::image-end:::
 
@@ -108,7 +108,9 @@ Legacy systems typically depend on a centralized monolithic database that serves
 
 ## Contributors
 
-*Microsoft maintains this article. The following specialists contributed to this article.*
+*Microsoft maintains this article. The following contributors wrote this article.*
+
+Principal authors:
 
 - [Adnan Khan](https://www.linkedin.com/in/adnan-khan-04311939/) | Senior Cloud Solutions Architect
 - [Ovais Mehboob Ahmed Khan](https://www.linkedin.com/in/ovaismehboob/) | Senior Cloud Solution Architect
@@ -119,7 +121,7 @@ Legacy systems typically depend on a centralized monolithic database that serves
 
 - [Strangler Fig pattern application](https://martinfowler.com/bliki/StranglerFigApplication.html)
 
-## Related resource
+## Related resources
 
 - [Messaging Bridge pattern](./messaging-bridge.yml)
 - [Plan your workload migration from Amazon Web Services to Azure](/azure/migration/migrate-workload-from-aws-plan)
