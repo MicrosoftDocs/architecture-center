@@ -1,6 +1,6 @@
 [!INCLUDE [header_file](../../../includes/sol-idea-header.md)]
 
-Applications often handle diverse data workloads that have different characteristics. Structured, transactional data requires relational integrity and complex queries. Semistructured, rapidly changing, or high-volume data requires flexible schemas and horizontal scalability. Databases like Azure SQL Database and Azure Cosmos DB can support diverse workloads and multimodel requirements. However, in specific scenarios, organizations can achieve better outcomes by pairing SQL Database and Azure Cosmos DB through a polyglot persistence architecture.
+Applications often handle diverse data workloads that have different characteristics. Structured, transactional data requires relational integrity and complex queries. Semistructured, rapidly changing, or high-volume data requires flexible schemas and horizontal scalability. Databases like Azure SQL Database and Azure Cosmos DB can support diverse workloads and multimodel requirements. However, in specific scenarios, organizations can achieve better outcomes by pairing SQL Database and Azure Cosmos DB in a polyglot persistence architecture.
 
 Some workloads need the strict transactional guarantees and complex relational queries of a relational database, while other workloads need the flexible schemas and horizontal scalability of a NoSQL database. A polyglot approach assigns each workload to the platform designed for its dominant access pattern, rather than forcing a single platform to handle requirements it isn't optimized for. For more information, see [Data considerations for microservices](../../microservices/design/data-considerations.md).
 
@@ -18,7 +18,7 @@ With a domain-driven microservices approach, each service uses the database that
 
 ## Architecture
 
-:::image type="complex" source="_images/combine-relational-nosql/solution-diagram.svg" border="false" lightbox="_images/combine-relational-nosql/solution-diagram.svg" alt-text="Diagram that shows a polyglot persistence architecture where domain-driven microservices use Azure Cosmos DB or SQL Database by data requirements.":::
+:::image type="complex" source="_images/combine-relational-nosql/solution-diagram.svg" border="false" lightbox="_images/combine-relational-nosql/solution-diagram.svg" alt-text="Diagram that shows a polyglot persistence architecture where domain-driven microservices use Azure Cosmos DB or SQL Database, depending on data requirements.":::
    Diagram of an e-commerce polyglot persistence architecture. Users access the system through web and mobile clients, which connect to an Azure API Management gateway. The gateway routes requests to a microservices layer that contains seven domain-driven services connected by bidirectional arrows: User profile, user session, product catalog, shopping cart, order management, inventory, and payments. Each microservice connects to a dedicated database chosen by data requirements. The first four services use Azure Cosmos DB: profile, session state, product catalog, and shopping cart. Azure Cosmos DB is selected for flexible schemas, elastic scaling, and millisecond latency. The last three services use SQL Database: order management, inventory, and payment. SQL Database is selected for ACID compliance, relational queries, and transactional integrity.
 :::image-end:::
 
@@ -42,7 +42,7 @@ The following data flow corresponds to the previous diagram:
 
 - [Azure Cosmos DB](/azure/well-architected/service-guides/cosmos-db) is a globally distributed, multimodel database that enables applications to elastically and independently scale throughput and storage. In this architecture, it stores data for workloads that require flexible schemas, low-latency access, horizontal scalability, or global distribution. Examples include user profiles, session state, product catalogs, and shopping carts.
 
-- [SQL Database](/azure/well-architected/service-guides/azure-sql-database) is a fully managed, cloud-first relational database engine that typically includes capabilities ahead of the latest public version of SQL Server. Beyond relational data, it supports multimodel workloads, including JSON, graph, spatial, and vector data within the same database. In this architecture, it handles workloads that require ACID compliance, relational integrity, and complex query support. Examples include order management, inventory tracking, and payment processing.
+- [SQL Database](/azure/well-architected/service-guides/azure-sql-database) is a fully managed, cloud-first relational database engine that typically includes capabilities before they're available in the latest public version of SQL Server. Beyond relational data, it supports multimodel workloads, including JSON, graph, spatial, and vector data within the same database. In this architecture, it handles workloads that require ACID compliance, relational integrity, and complex query support. Examples include order management, inventory tracking, and payment processing.
 
 ## Scenario details
 
@@ -66,7 +66,7 @@ The following advantages help offset those challenges:
 
 SQL Database and Azure Cosmos DB have overlapping capabilities. Both services can store JSON and deliver low-latency responses when configured appropriately. The decision depends on which service's primary design strengths align with your workload's dominant access patterns:
 
-- Choose Azure Cosmos DB when your workload primarily requires schema-flexible document storage, automatic multiregion distribution with guaranteed single-digit millisecond reads, or elastic horizontal scaling across partitions. Azure Cosmos DB optimizes for these characteristics as its native strengths.
+- Choose Azure Cosmos DB when your workload primarily requires schema-flexible document storage, automatic multiregion distribution with guaranteed single-digit millisecond reads, or elastic horizontal scaling across partitions. These characteristics are native strengths of Azure Cosmos DB and represent its optimized path.
 
 - Choose SQL Database when your workload primarily requires enforced relational integrity across tables, multistatement ACID transactions, or complex joins and aggregations. These characteristics are native strengths of SQL Database and represent its optimized path.
 
