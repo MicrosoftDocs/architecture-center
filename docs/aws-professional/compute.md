@@ -114,7 +114,7 @@ You can use platform as a service (PaaS) services to deploy web apps, APIs, and 
 
 ### Hybrid and edge compute
 
-Services that extend cloud infrastructure and management to on-premises, edge, and customer-owned locations.
+Hybrid and edge compute refers to services that extend cloud infrastructure and management to on-premises, edge, and customer-owned locations.
 
 | AWS service | Azure service | Description |
 | --- | --- | --- |
@@ -156,6 +156,8 @@ Principal author:
 Other contributor:
 
 - [Juan Carlos Osorio](https://www.linkedin.com/in/juan-carlos-osorio-6252bba7/) | Cloud Solution Architect
+
+*To see nonpublic LinkedIn profiles, sign in to LinkedIn.*
 
 ## Next steps
 
