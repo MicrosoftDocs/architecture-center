@@ -31,7 +31,7 @@ Virtual machines (VMs) and servers help you deploy, manage, and maintain the OS 
 
 | AWS service | Azure service | Description |
 | --- | --- | --- |
-| [Amazon Lightsail](https://aws.amazon.com/lightsail/) | [Azure App Service](/azure/app-service/overview), [Azure Virtual Machines](/azure/virtual-machines/sizes-b-series-burstable) (B-series) | Amazon Lightsail provides simplified, predictably priced VMs with preconfigured application stacks. Azure doesn't have a dedicated equivalent, but you can achieve similar outcomes by using Azure App Service for web apps or Azure Virtual Machines configured with B-series burstable sizes and Microsoft Marketplace images. |
+| [Amazon Lightsail](https://aws.amazon.com/lightsail/) | [Azure App Service](/azure/app-service/overview), [Azure Virtual Machines](/azure/virtual-machines/sizes/general-purpose/bv1-series) (B-series) | Amazon Lightsail provides simplified, predictably priced VMs with preconfigured application stacks. Azure doesn't have a dedicated equivalent, but you can achieve similar outcomes by using Azure App Service for web apps or Azure Virtual Machines configured with B-series burstable sizes and Microsoft Marketplace images. |
 | [Amazon EC2 instance types](https://aws.amazon.com/ec2/instance-types/) | [Azure Virtual Machines](/azure/virtual-machines/overview) | AWS and Azure on-demand VMs bill per second used. AWS instance types and [Azure VM sizes](/azure/virtual-machines/sizes/overview) have similar categories, but the RAM, CPU, and storage capabilities differ. |
 | [AWS ParallelCluster](https://aws.amazon.com/hpc/parallelcluster/) | [Azure CycleCloud](/azure/cyclecloud/overview) | Create, manage, operate, and optimize high-performance computing (HPC) and large compute clusters of any scale. |
 
@@ -72,8 +72,8 @@ Several services provide different types of data storage for VM disks.
 
 | AWS service | Azure service | Description |
 | --- | --- | --- |
-| [Amazon Elastic Block Store (Amazon EBS)](https://aws.amazon.com/ebs/) | [Amazon managed disks](/azure/virtual-machines/managed-disks-overview) | Amazon managed disks provide persistent block-level storage for Azure VMs, similar to Amazon EBS for Amazon EC2. Azure provides the Azure Standard HDD, Azure Standard SSD, Azure Premium SSD, Premium SSD v2, and Azure Ultra Disk Storage performance tiers. These tiers correspond to Amazon EBS volume types such as gp2, gp3, io1, io2, st1, and sc1. |
-| [Amazon EC2 instance store](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/InstanceStorage.html) | [Azure VM local/temporary disks](/azure/virtual-machines/enable-nvme-temp-faqs) | Azure VM sizes that include a local disk (typically SKUs with a *d* in their name, such as the Ddsv5 or Ddsv6 series) provide local Non-Volatile Memory Express (NVMe) or solid-state drive (SSD) storage for low-latency temporary data, similar to Amazon EC2 instance store. Local storage is non-persistent and is lost when the VM is deallocated or relocated. |
+| [Amazon Elastic Block Store (Amazon EBS)](https://aws.amazon.com/ebs/) | [Azure managed disks](/azure/virtual-machines/managed-disks-overview) | Azure managed disks provide persistent block-level storage for Azure VMs, similar to Amazon EBS for Amazon EC2. Azure provides the Standard HDD, Standard SSD, Premium SSD, Premium SSD v2, and Ultra Disk Storage performance tiers. These tiers correspond to Amazon EBS volume types such as gp2, gp3, io1, io2, st1, and sc1. |
+| [Amazon EC2 instance store](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/InstanceStorage.html) | [Azure VM local/temporary disks](/azure/virtual-machines/enable-nvme-temp-faqs) | Azure VM sizes that include a local disk (typically SKUs with a *d* in their name, such as the Ddsv5 or Ddsv6 series) provide local Non-Volatile Memory Express (NVMe) or solid-state drive (SSD) storage for low-latency temporary data, similar to Amazon EC2 instance store. Local storage is nonpersistent and is lost when the VM is deallocated or relocated. |
 | [Amazon EBS provisioned IOPS volumes](https://aws.amazon.com/ebs/provisioned-iops/) (io1/io2, io2 Block Express, gp3) | [Premium SSD, Premium SSD v2, and Ultra Disk Storage](/azure/virtual-machines/disks-types) | Azure provides several high-performance managed disk tiers. Premium SSD v2 allows input/output operations per second (IOPS) and throughput to be configured independently from capacity, comparable to Amazon EBS gp3. Ultra Disk Storage provides submillisecond latency and high IOPS and throughput for the most demanding workloads, comparable to Amazon EBS io2 Block Express. For current limits, see [Scalability and performance targets for VM disks in Azure](/azure/virtual-machines/disks-scalability-targets). |
 | [Amazon Elastic File System (Amazon EFS)](https://aws.amazon.com/efs/) | [Azure Files](/azure/storage/files/storage-files-introduction) | Azure Files provides VMs with similar functionality to Amazon EFS. |
 
@@ -85,9 +85,9 @@ Both AWS and Azure services provide containerized application deployment and orc
 
 | AWS service | Azure service | Description |
 | --- | --- | --- |
-| [Amazon Elastic Container Service (Amazon ECS)](https://aws.amazon.com/ecs/) | [Azure Container Apps](/azure/container-apps/overview) | Amazon ECS is a container orchestration service for deploying and managing containerized applications. Azure Container Apps is a managed container platform with built-in scaling, service discovery, and traffic management. |
+| [Amazon Elastic Container Service (Amazon ECS)](https://aws.amazon.com/ecs/) | [Azure Container Apps](/azure/container-apps/overview) | Amazon ECS is a container orchestration service for deploying and managing containerized applications. Azure Container Apps is a managed container platform that provides built-in scaling, service discovery, and traffic management. |
 | [AWS Fargate](https://aws.amazon.com/fargate/) | [Azure Container Instances](/azure/container-instances/container-instances-overview), [Azure Container Apps](/azure/container-apps/overview) | AWS Fargate is a serverless compute engine that provides compute capacity for Amazon ECS tasks and Amazon EKS pods. [Azure Container Instances](/azure/container-instances/container-instances-overview) provides on-demand serverless container compute and integrates with Azure Kubernetes Service (AKS) through [virtual nodes](/azure/aks/virtual-nodes). Azure Container Apps also provides serverless infrastructure management with higher-level orchestration features. |
-| [Amazon Elastic Container Registry (Amazon ECR)](https://aws.amazon.com/ecr/) | [Azure Container Registry](/azure/container-registry/container-registry-intro) | Container registries store Docker formatted images and create all types of container deployments in the cloud. Both services support vulnerability scanning, geo-replication, and private networking. |
+| [Amazon Elastic Container Registry (Amazon ECR)](https://aws.amazon.com/ecr/) | [Azure Container Registry](/azure/container-registry/container-registry-intro) | Container registries store Docker-formatted images and create all types of container deployments in the cloud. Both services support vulnerability scanning, geo-replication, and private networking. |
 | [Amazon Elastic Kubernetes Service (Amazon EKS)](https://aws.amazon.com/eks/) | [Azure Kubernetes Service (AKS)](/azure/aks/what-is-aks) | You can use Amazon EKS and Azure Kubernetes Service (AKS) to orchestrate Docker containerized application deployments with Kubernetes. Azure Kubernetes Service (AKS) provides two modes: AKS Standard for full control and customization and [AKS Automatic](/azure/aks/intro-aks-automatic) for simplified, production-ready deployments with built-in best practices. For specifics about the hosting environment, see [Container runtime configuration](/azure/aks/core-aks-concepts#nodes). |
 | [Amazon ECS Anywhere](https://aws.amazon.com/ecs/anywhere/), [Amazon EKS Anywhere](https://aws.amazon.com/eks/eks-anywhere/) | [Azure Arc-enabled Kubernetes](/azure/azure-arc/kubernetes/overview), [AKS on Azure Arc](/azure/aks/aksarc/overview) | Both platforms support container orchestration services on-premises or in other cloud environments with centralized management from the respective cloud control planes. |
 | [Amazon ECS Service Connect](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/service-connect.html) | [Built-in service discovery in Azure Container Apps](/azure/container-apps/connect-apps), optionally with [Dapr service invocation](/azure/container-apps/dapr-overview) <br><br> [Istio add-on for AKS](/azure/aks/istio-about) | Service discovery and a service mesh for the managed container platform. ECS Service Connect is a feature of Amazon ECS. The Container Apps and AKS equivalents pair with their respective orchestrator (see the ECS and EKS rows above). |
@@ -108,7 +108,7 @@ You can use platform as a service (PaaS) services to deploy web apps, APIs, and 
 
 | AWS service | Azure service | Description |
 | --- | --- | --- |
-| [AWS Elastic Beanstalk](https://aws.amazon.com/elasticbeanstalk/) | [Azure App Service](/azure/app-service/overview) | Both services provide fully managed hosting for web apps and APIs in common runtimes (.NET, Java, Node.js, Python, PHP, Ruby). They handle capacity provisioning, load balancing, autoscaling, and health monitoring. |
+| [AWS Elastic Beanstalk](https://aws.amazon.com/elasticbeanstalk/) | [Azure App Service](/azure/app-service/overview) | Both services provide fully managed hosting for web apps and APIs in common runtimes like .NET, Java, Node.js, Python, PHP, and Ruby. They handle capacity provisioning, load balancing, autoscaling, and health monitoring. |
 | [AWS App Runner](https://aws.amazon.com/apprunner/) | [Azure App Service (Linux container)](/azure/app-service/configure-custom-container), [Azure Container Apps](/azure/container-apps/overview) | AWS App Runner automatically deploys containerized web apps and APIs from a source repository or container image. Azure provides equivalent capability through Azure App Service for Linux containers or Azure Container Apps for a container-first serverless experience. |
 | [AWS Amplify Hosting](https://aws.amazon.com/amplify/hosting/) | [Azure Static Web Apps](/azure/static-web-apps/overview) | Managed hosting for modern front-end web apps with built-in CI/CD from Git, global distribution, and serverless API integration. |
 
@@ -119,9 +119,9 @@ Services that extend cloud infrastructure and management to on-premises, edge, a
 | AWS service | Azure service | Description |
 | --- | --- | --- |
 | [AWS Outposts](https://aws.amazon.com/outposts/) (rack and servers) | [Azure Local](/azure/azure-local/overview) (formerly Azure Stack HCI) | Both services deliver cloud-managed, on-premises infrastructure for low-latency workloads and data-residency requirements. Azure Local provides a validated hyperconverged infrastructure (HCI) platform managed through the Azure portal. |
-| [AWS Systems Manager](https://aws.amazon.com/systems-manager/) for non-AWS resources | [Azure Arc](/azure/azure-arc/overview) | Azure Arc extends Azure management and services (such as policy, monitoring, role-based access control (RBAC), and GitOps) to servers, Kubernetes clusters, and data services across on-premises, multicloud, and edge environments. |
-| [AWS Wavelength](https://aws.amazon.com/wavelength/) | [Azure private multi‑access edge computing (MEC)](/azure/private-multi-access-edge-compute-mec/), [Azure public multi‑access edge computing (MEC) (Azure edge zones)](/azure/extended-zones/overview) | Edge compute for 5G and ultra-low-latency mobile workloads, available through partnerships with telecom carriers. |
-| [AWS local zones](https://aws.amazon.com/about-aws/global-infrastructure/localzones/) | [Azure edge zones](/azure/extended-zones/overview) | Extensions of cloud regions that place compute and storage closer to users in metropolitan areas for latency-sensitive workloads. |
+| [AWS Systems Manager](https://aws.amazon.com/systems-manager/) for non-AWS resources | [Azure Arc](/azure/azure-arc/overview) | Azure Arc extends Azure management and services, such as policy, monitoring, role-based access control (RBAC), and GitOps, to servers, Kubernetes clusters, and data services across on-premises, multicloud, and edge environments. |
+| [AWS Wavelength](https://aws.amazon.com/wavelength/) | [Azure private multiaccess edge compute](/azure/private-multi-access-edge-compute-mec/), [Azure public multiaccess edge compute (Azure edge zones)](/azure/extended-zones/overview) | Edge compute for 5G and ultra-low-latency mobile workloads, available through partnerships with telecom carriers. |
+| [AWS Local Zones](https://aws.amazon.com/about-aws/global-infrastructure/localzones/) | [Azure Edge Zone](/azure/extended-zones/overview) | Extensions of cloud regions that place compute and storage closer to users in metropolitan areas for latency-sensitive workloads. |
 
 ### Serverless computing
 
@@ -130,14 +130,14 @@ You can use serverless compute to integrate systems and run back-end processes w
 | AWS service | Azure service | Description |
 | --- | --- | --- |
 | [AWS Lambda](https://aws.amazon.com/lambda/) | [Azure Functions](/azure/azure-functions/functions-overview) | Both services provide serverless, event-driven code execution with pay-per-execution pricing and automatic scaling. |
-| [AWS Step Functions](https://aws.amazon.com/step-functions/) | [Azure durable functions](/azure/azure-functions/durable-functions/durable-functions-overview), [Azure Logic Apps](/azure/logic-apps/logic-apps-overview) | Azure durable functions extend Azure Functions with stateful workflows written in code. Logic Apps provides a low-code visual designer for workflow orchestration across software as a service (SaaS) and on-premises services. |
+| [AWS Step Functions](https://aws.amazon.com/step-functions/) | [Azure durable functions](/azure/azure-functions/durable-functions/durable-functions-overview), [Azure Logic Apps](/azure/logic-apps/logic-apps-overview) | Azure durable functions extend Azure Functions with stateful workflows written in code. Azure Logic Apps provides a low-code visual designer for workflow orchestration across software as a service (SaaS) and on-premises services. |
 | [AWS EventBridge](https://aws.amazon.com/eventbridge/) | [Azure Event Grid](/azure/event-grid/overview) | Managed event routing for event-driven architectures. |
 
 #### Example serverless architectures
 
 | Architecture | Description |
 | --- | --- |
-| [Cross-cloud scaling pattern](/azure-stack/user/pattern-cross-cloud-scale) | Learn how to improve cross-cloud scalability with a solution architecture that includes Azure Stack. A step-by-step flowchart details instructions for implementation. |
+| [Cross-cloud scaling pattern](/azure-stack/user/pattern-cross-cloud-scale) | Learn how to improve cross-cloud scalability by using a solution architecture that includes Azure Stack. A step-by-step flowchart details instructions for implementation. |
 
 [View all the serverless architectures](/azure/architecture/browse/?expanded=azure&products=azure-functions).
 
@@ -160,16 +160,16 @@ Other contributor:
 ## Next steps
 
 - [Quickstart: Create a Linux VM in the Azure portal](/azure/virtual-machines/linux/quick-create-portal)
-- [Create a Node.js web app in Azure](/azure/app-service/app-service-web-get-started-nodejs)
+- [Deploy a Node.js web app in Azure](/azure/app-service/quickstart-nodejs)
 - [Get started with Azure Functions](/azure/azure-functions/functions-get-started)
 - [Quickstart: Create an Azure Kubernetes Service (AKS) Automatic cluster](/azure/aks/automatic/quick-automatic-managed-network)
-- [Quickstart: Deploy your first container app with Azure Container Apps](/azure/container-apps/quickstart-portal)
+- [Quickstart: Deploy your first container app by using the Azure portal](/azure/container-apps/quickstart-portal)
 - [Azure Kubernetes Service (AKS) architecture design](/azure/architecture/reference-architectures/containers/aks-start-here)
 
 ## Related resources
 
 - [Baseline architecture for an Azure Kubernetes Service (AKS) cluster](../reference-architectures/containers/aks/baseline-aks.yml)
-- [Microservices architecture on Azure Kubernetes Service](../reference-architectures/containers/aks-microservices/aks-microservices.yml)
+- [Microservices architecture on Azure Kubernetes Service (AKS)](../reference-architectures/containers/aks-microservices/aks-microservices.yml)
 - [Run a Linux VM on Azure](../reference-architectures/n-tier/linux-vm.yml)
 - [Basic web application](../web-apps/app-service/architectures/basic-web-app.yml)
 - [Baseline Azure App Service web application with zone redundancy](../web-apps/app-service/architectures/baseline-zone-redundant.yml)
@@ -181,7 +181,7 @@ Other contributor:
 ### Container and Kubernetes architectures
 
 - [Baseline architecture for an Azure Kubernetes Service (AKS) cluster](../reference-architectures/containers/aks/baseline-aks.yml)
-- [Microservices architecture on Azure Kubernetes Service](../reference-architectures/containers/aks-microservices/aks-microservices.yml)
+- [Microservices architecture on Azure Kubernetes Service (AKS)](../reference-architectures/containers/aks-microservices/aks-microservices.yml)
 - [CI/CD pipeline for container-based workloads](/azure/devops/pipelines/architectures/devops-pipelines-baseline-architecture)
 
 ### VMs and web applications
