@@ -89,7 +89,6 @@ Learn more about [big data services in Azure](../data-guide/technology-choices/d
 | [Cloud Dataflow](https://cloud.google.com/products/dataflow) | [Azure Databricks](https://azure.microsoft.com/services/databricks/#documentation) <br><br> [Azure HDInsight](/azure/hdinsight/hdinsight-overview) | A managed platform for streaming and batch data processing by using Apache Beam. |
 | [Looker Studio](https://lookerstudio.google.com/overview) <br><br> [Looker](https://cloud.google.com/looker) | [Power BI](https://www.microsoft.com/power-platform/products/power-bi/) | BI tools that build visualizations, perform on-demand analysis, and develop business insights from data. |
 | [Cloud Search](https://cloud.google.com/products/search) | [Azure AI Search](https://azure.microsoft.com/products/ai-services/ai-search/) | Provides full-text search and related search analytics and capabilities. |
-| [BigQuery](https://cloud.google.com/bigquery) | [SQL Server Analysis Services](/analysis-services/analysis-services-overview) | Provides a serverless noncloud interactive query service that uses standard SQL for analyzing databases. |
 
 Learn more about [analytics and visualization services in Azure](../data-guide/technology-choices/analytical-data-stores.md).
 

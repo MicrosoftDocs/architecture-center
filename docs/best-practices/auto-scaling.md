@@ -132,7 +132,7 @@ Autoscaling isn't an instant solution. Adding resources to a system or running m
 
 - To prevent a system from attempting to scale out excessively, consider limiting the maximum number of instances that can be automatically added. This approach also avoids the costs associated with running many thousands of instances. Most autoscaling mechanisms allow you to specify the minimum and maximum number of instances for a rule. In addition, consider gracefully degrading the functionality that the system provides if you deploy the maximum number of instances and the system is still overloaded.
 
-- Keep in mind that autoscaling might not be the most appropriate mechanism to handle a sudden burst in workload. It takes time to set up and start new instances of a service or add resources to a system. And the peak demand might pass by the time these extra resources are available. In this scenario, it might be better to throttle the service. For more information, see [Throttling pattern](../patterns/throttling.yml).
+- Keep in mind that autoscaling might not be the most appropriate mechanism to handle a sudden burst in workload. It takes time to set up and start new instances of a service or add resources to a system. And the peak demand might pass by the time these extra resources are available. In this scenario, it might be better to throttle the service. For more information, see [Throttling pattern](../patterns/throttling.md).
 
 - Conversely, if you need the capacity to process all requests when the volume fluctuates rapidly, consider using an aggressive autoscaling strategy that starts extra instances more quickly. Ensure that cost isn't a major contributing factor. You can also use a scheduled policy that starts a sufficient number of instances to meet the maximum load before that load is expected.
 
@@ -142,7 +142,7 @@ Autoscaling isn't an instant solution. Adding resources to a system or running m
 
 The following patterns and guidance might also be relevant to your scenario when implementing autoscaling:
 
-- The [Throttling pattern](../patterns/throttling.yml) describes how an application can continue to function and meet SLAs when an increase in demand places an extreme load on resources. Throttling can be used with autoscaling to prevent a system from being overwhelmed while the system scales out.
+- The [Throttling pattern](../patterns/throttling.md) describes how an application can continue to function and meet SLAs when an increase in demand places an extreme load on resources. Throttling can be used with autoscaling to prevent a system from being overwhelmed while the system scales out.
 
 - The [Competing Consumers pattern](../patterns/competing-consumers.md) describes how to implement a pool of service instances that can handle messages from any application instance. Autoscaling can be used to start and stop service instances to match the anticipated workload. This approach enables a system to process multiple messages concurrently to optimize throughput, improve scalability and availability, and balance the workload.
 

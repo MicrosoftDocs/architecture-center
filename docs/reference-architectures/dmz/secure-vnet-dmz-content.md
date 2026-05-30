@@ -25,7 +25,9 @@ The architecture consists of the following aspects:
 
 - **Network security groups**. Use [security groups][nsg] to restrict network traffic within the virtual network. 
 
-- **Azure Bastion**. [Azure Bastion](/azure/bastion/) allows you to log into virtual machines (VMs) in the virtual network through SSH or remote desktop protocol (RDP) without exposing the VMs directly to the internet. Use Bastion to manage the VMs in the virtual network.
+- **Virtual machine scale sets**. [Virtual Machine Scale Sets](/azure/virtual-machine-scale-sets/overview) provide the compute tier in the spoke virtual networks. Scale sets deploy and manage a group of identical VMs behind the internal load balancer, and they support autoscaling to match demand.
+
+- **Azure Bastion**. [Azure Bastion](/azure/bastion/) provides secure SSH and RDP access to virtual machine scale set instances without exposing them to the internet. Use Bastion to manage the instances in the virtual network.
 
     Bastion [requires a dedicated subnet named **AzureBastionSubnet**](/azure/bastion/configuration-settings#subnet).
 
@@ -45,7 +47,7 @@ The following recommendations apply for most scenarios. Follow these recommendat
 
 Use [Azure role-based access control (Azure RBAC)][rbac] to manage the resources in your application. Consider creating the following [custom roles][rbac-custom-roles]:
 
-- A DevOps role with permissions to administer the infrastructure for the application, deploy the application components, and monitor and restart VMs.
+- A DevOps role with permissions to administer the infrastructure for the application, deploy the application components, and manage virtual machine scale set operations such as scaling, reimaging, and upgrades.
 
 - A centralized IT administrator role to manage and monitor network resources.
 
@@ -55,13 +57,13 @@ The IT administrator role shouldn't have access to the firewall resources. Acces
 
 ### Resource group recommendations
 
-Azure resources such as VMs, virtual networks, and load balancers can be managed by grouping them together into resource groups. Assign Azure roles to each resource group to restrict access.
+Azure resources such as virtual machine scale sets, virtual networks, and load balancers can be managed by grouping them together into resource groups. Assign Azure roles to each resource group to restrict access.
 
 We recommend creating the following resource groups:
 
-- A resource group containing the virtual network (excluding the VMs), NSGs, and the gateway resources for connecting to the on-premises network. Assign the centralized IT administrator role to this resource group.
-- A resource group containing the VMs for the Azure Firewall instance and the user-defined routes for the gateway subnet. Assign the security IT administrator role to this resource group.
-- Separate resource groups for each spoke virtual network that contains the load balancer and VMs.
+- A resource group containing the virtual network (excluding the compute resources), NSGs, and the gateway resources for connecting to the on-premises network. Assign the centralized IT administrator role to this resource group.
+- A resource group containing the resources for the Azure Firewall instance and the user-defined routes for the gateway subnet. Assign the security IT administrator role to this resource group.
+- Separate resource groups for each spoke virtual network that contains the load balancer and virtual machine scale sets.
 
 ### Networking recommendations
 
@@ -79,7 +81,7 @@ In this architecture, all inbound and outbound traffic between the on-premises n
 
 [Force-tunnel][azure-forced-tunneling] all outbound internet traffic through your on-premises network using the site-to-site VPN tunnel. The on-premises edge device performs SNAT to the internet on behalf of the Azure workloads, which routes outbound flows through your existing on-premises egress controls and audit pipeline. This design prevents accidental leakage of any confidential information and allows inspection and auditing of all outgoing traffic.
 
-Don't completely block internet traffic from the resources in the spoke network subnets. Blocking traffic will prevent these resources from using Azure PaaS services that rely on public IP addresses, such as VM diagnostics logging, downloading of VM extensions, and other functionality. Azure diagnostics also requires that components can read and write to an Azure Storage account.
+Don't completely block internet traffic from the resources in the spoke network subnets. Blocking traffic will prevent these resources from using Azure PaaS services that rely on public IP addresses, such as diagnostics logging, provisioning virtual machine extensions and their dependencies, and other platform functionality. Azure diagnostics also requires that components can read and write to an Azure Storage account.
 
 Verify that outbound internet traffic is force-tunneled correctly. If you're using a VPN connection with the [routing and remote access service][routing-and-remote-access-service] on an on-premises server, use a tool such as [WireShark][wireshark].
 
@@ -116,7 +118,7 @@ Traffic to and from resource subnets in spoke virtual networks is restricted by 
 
 #### DDoS protection
 
-[Azure DDoS Protection](/azure/ddos-protection/ddos-protection-overview), combined with application-design best practices, provides enhanced DDoS mitigation features to provide more defense against DDoS attacks. You should enable [Azure DDOS Protection](/azure/ddos-protection/ddos-protection-overview) on any perimeter virtual network.
+[Azure DDoS Protection](/azure/ddos-protection/ddos-protection-overview), combined with application-design best practices, provides enhanced mitigation against DDoS attacks. Enable Azure DDoS Protection on any perimeter virtual network.
 
 #### Use AVNM to create baseline Security Admin rules
 
@@ -145,27 +147,25 @@ When compared to network virtual appliances (NVAs), with Azure Firewall you can 
 
 #### Azure Bastion
 
-Azure Bastion securely connects to your virtual machine over RDP and SSH without having the need to configure a public IP on the virtual machine.
+Azure Bastion securely connects to virtual machine scale set instances over RDP and SSH without requiring a public IP on the instances.
 
 Bastion billing is comparable to a basic, low-level virtual machine configured as a jump box. Bastion is more cost effective than a jump box as it has built-in security features, and doesn't incur extra costs for storage and managing a separate server.
 
 #### Azure Virtual Network
 
-Azure Virtual Network is free. Every subscription is allowed to create up to 1,000 virtual networks across all regions. All traffic that occurs within the boundaries of a virtual network is free. For example, VMs in the same virtual network that talk to each other don't incur network traffic charges.
+Azure Virtual Network is free. Every subscription is allowed to create up to 1,000 virtual networks across all regions. All traffic that occurs within the boundaries of a virtual network is free. For example, traffic from the internal load balancer to the virtual machine scale set instances doesn't incur network traffic charges.
 
 #### Internal load balancer
 
-Basic load balancing between virtual machines that reside in the same virtual network is free.
-
-In this architecture, internal load balancers are used to load balance traffic inside a virtual network.
+In this architecture, internal load balancers are used to distribute traffic to the virtual machine scale set instances inside a virtual network. Standard Load Balancer is required for use with virtual machine scale sets.
 
 ### Operational Excellence
 
 Operational Excellence covers the operations processes that deploy an application and keep it running in production. For more information, see [Design review checklist for Operational Excellence](/azure/well-architected/operational-excellence/checklist).
 
-If gateway connectivity from your on-premises network to Azure is down, you can still reach the VMs in the Azure virtual network through Azure Bastion.
+If gateway connectivity from your on-premises network to Azure is down, you can still use Azure Bastion to access resources in the Azure virtual network for troubleshooting. Because virtual machine scale set instances are ephemeral, rely on centralized logging and monitoring through [Azure Monitor](/azure/azure-monitor/vm/vminsights-overview) and [boot diagnostics](/azure/virtual-machines/boot-diagnostics) rather than interactive remote sessions for routine operations.
 
-Each tier's subnet in the reference architecture is protected by NSG rules. You might need to create a rule to open port 3389 for remote desktop protocol (RDP) access on Windows VMs or port 22 for secure shell (SSH) access on Linux VMs. Other management and monitoring tools might require rules to open additional ports.
+Each tier's subnet in the reference architecture is protected by NSG rules. Management and monitoring tools might require rules to open additional ports.
 
 If you're using ExpressRoute to provide the connectivity between your on-premises datacenter and Azure, use the [Azure Connectivity Toolkit (AzureCT)][azurect] to monitor and troubleshoot connection issues.
 
@@ -174,6 +174,8 @@ You can find additional information about monitoring and managing VPN and Expres
 ### Performance Efficiency
 
 Performance Efficiency is the ability of your workload to scale to meet the demands placed on it by users in an efficient manner. For more information, see [Design review checklist for Performance Efficiency](/azure/well-architected/performance-efficiency/checklist).
+
+Virtual machine scale sets in the spoke networks support autoscaling. Configure [autoscale rules](/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-autoscale-overview) based on metrics such as CPU usage or request count so that instances are added or removed in response to demand. Choose an [orchestration mode and upgrade policy](/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-upgrade-policy) that matches your workload's tolerance for disruption during updates.
 
 For more information about the bandwidth limits of VPN Gateway, see [Gateway SKUs](/azure/vpn-gateway/vpn-gateway-about-vpngateways#gwsku). For higher bandwidths, consider upgrading to an ExpressRoute gateway. ExpressRoute provides up to 10-Gbps bandwidth with lower latency than a VPN connection.
 
@@ -187,34 +189,28 @@ For more information about managing virtual networks and NSGs at scale, see [Azu
 
 This deployment creates two resource groups; the first holds a mock on-premises network, the second a set of hub and spoke networks. The mock on-premises network and the hub network are connected using Azure Virtual Network gateways to form a site-to-site connection. This configuration is very similar to how you would connect your on-premises datacenter to Azure.
 
-This deployment can take up to 45 minutes to complete. The recommended deployment method is using the following portal option.
-
-#### [Azure portal](#tab/portal)
-
-Use the following button to deploy the reference using the Azure portal.
-
-[![Deploy to Azure](../../_images/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fmspnp%2Fsamples%2Fmain%2Fsolutions%2Fsecure-hybrid-network%2Fazuredeploy.json)
+This deployment can take up to 45 minutes to complete.
 
 #### [Azure CLI](#tab/cli)
 
 Run the following command to deploy two resource groups and the secure network reference architecture using the Azure CLI.
 
-When prompted, enter values for an admin user name and password. These values are used to log into the included virtual machines.
+When prompted, enter values for an admin user name, password, and a VPN shared key. The admin credentials are used as the default credentials for the virtual machine scale set instances. The shared key authenticates the site-to-site VPN connection between the gateways.
 
 ```azurecli
 az deployment sub create --location eastus \
-    --template-uri https://raw.githubusercontent.com/mspnp/samples/main/solutions/secure-hybrid-network/azuredeploy.json
+    --template-uri https://raw.githubusercontent.com/mspnp/samples/main/solutions/secure-hybrid-network/azuredeploy.bicep
 ```
 
 #### [PowerShell](#tab/powershell)
 
 Run the following command to deploy two resource groups and the secure network reference architecture using PowerShell.
 
-When prompted, enter values for an admin user name and password. These values are used to log into the included virtual machines.
+When prompted, enter values for an admin user name, password, and a VPN shared key. The admin credentials are used as the default credentials for the virtual machine scale set instances. The shared key authenticates the site-to-site VPN connection between the gateways.
 
 ```azurepowershell
 New-AzSubscriptionDeployment -Location eastus `
-    -TemplateUri https://raw.githubusercontent.com/mspnp/samples/main/solutions/secure-hybrid-network/azuredeploy.json
+    -TemplateUri https://raw.githubusercontent.com/mspnp/samples/main/solutions/secure-hybrid-network/azuredeploy.bicep
 ```
 
 ---
@@ -223,13 +219,41 @@ After the deployment finishes, verify site-to-site connectivity by looking at th
 
 ![Screenshot showing the status of connections.](./images/portal-connections.png)
 
-The IIS instance found in the spoke network can be accessed from the virtual machine located in the mock on-premises network. Create a connection to the virtual machine using the included Azure Bastion host, open a web browser, and navigate to the address of the application's network load balancer.
+### Add firewall DNAT rules
 
-For more information and other deployment options, see the Azure Resource Manager templates (ARM templates) used to deploy this solution: [Secure Hybrid Network](/samples/mspnp/samples/secure-hybrid-network/).
+After the site-to-site connection status shows **Connected**, update the hub firewall with DNAT rules so on-premises traffic can reach the spoke workloads.
+
+#### [Azure CLI](#tab/cli2)
+
+```azurecli
+FW_IP=$(az network firewall show -g rg-site-to-site-azure-network-eastus2 -n AzureFirewall --query "ipConfigurations[0].privateIPAddress" -o tsv)
+LB_IP=$(az network lb frontend-ip list -g rg-site-to-site-azure-network-eastus2 --lb-name lb-internal --query "[0].privateIPAddress" -o tsv)
+
+az deployment group create -n firewallDnat -g rg-site-to-site-azure-network-eastus2 \
+    --template-uri https://raw.githubusercontent.com/mspnp/samples/main/solutions/secure-hybrid-network/nestedtemplates/azure-network-azuredeploy-v2.bicep \
+    -p firewallName=AzureFirewall firewallPrivateIp=$FW_IP internalLoadBalancerPrivateIp=$LB_IP
+```
+
+#### [PowerShell](#tab/powershell2)
+
+```azurepowershell
+$fwIp = (Get-AzFirewall -ResourceGroupName rg-site-to-site-azure-network-eastus2 -Name AzureFirewall).IpConfigurations[0].PrivateIPAddress
+$lbIp = (Get-AzLoadBalancerFrontendIpConfig -LoadBalancer (Get-AzLoadBalancer -ResourceGroupName rg-site-to-site-azure-network-eastus2 -Name lb-internal))[0].PrivateIpAddress
+
+New-AzResourceGroupDeployment -Name firewallDnat -ResourceGroupName rg-site-to-site-azure-network-eastus2 `
+    -TemplateUri https://raw.githubusercontent.com/mspnp/samples/main/solutions/secure-hybrid-network/nestedtemplates/azure-network-azuredeploy-v2.bicep `
+    -firewallName AzureFirewall -firewallPrivateIp $fwIp -internalLoadBalancerPrivateIp $lbIp
+```
+
+---
+
+The IIS instance found in the spoke network can be accessed from the virtual machine located in the mock on-premises network. Create a connection to that virtual machine using the included Azure Bastion host, open a web browser, and navigate to the address of the application's internal load balancer.
+
+For more information and other deployment options, see the Bicep templates used to deploy this solution: [Secure Hybrid Network](/samples/mspnp/samples/secure-hybrid-network/).
 
 ## Next steps
 
-- [The virtual datacenter: A network perspective][cloud-services-network-security].
+- [Hub-spoke network topology in Azure][cloud-services-network-security].
 - [Azure security documentation][getting-started-with-azure-security].
 
 ## Related resources

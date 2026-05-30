@@ -2,7 +2,7 @@
 title: What's New in Azure Architecture Center
 description: New and updated articles in Azure Architecture Center
 author: claytonsiemens77
-ms.date: 05/04/2026
+ms.date: 05/18/2026
 ms.topic: whats-new
 ms.author: pnp
 ---
@@ -20,12 +20,34 @@ The following new and updated articles have recently been published in the Azure
 
 ## May 2026
 
+### New articles
+
+- [Use Deployment Scripts to Check Resource Properties](./guide/devops/deployment-scripts-property-check.md)
+
 ### Updated articles
 
+- [IoT Analytics with Azure Data Explorer and Azure IoT Hub](./solution-ideas/articles/iot-azure-data-explorer.yml) ([#6ba29f7bd1](https://github.com/MicrosoftDocs/architecture-center/commit/6ba29f7bd1))
+- [WordPress on App Service](./example-scenario/infrastructure/wordpress-app-service.yml) ([#c5a7b6905b](https://github.com/MicrosoftDocs/architecture-center/commit/c5a7b6905b))
+- [WordPress on Azure Kubernetes Service](./example-scenario/infrastructure/wordpress-container.yml) ([#c5a7b6905b](https://github.com/MicrosoftDocs/architecture-center/commit/c5a7b6905b))
+- [Hub-Spoke Network Topology That Uses Azure Virtual WAN](./networking/architecture/hub-spoke-virtual-wan-architecture.yml) ([#cb3d58ce6f](https://github.com/MicrosoftDocs/architecture-center/commit/cb3d58ce6f))
+- [Hub-Spoke Network Topology in Azure](./networking/architecture/hub-spoke.yml) ([#8ff78a0efe](https://github.com/MicrosoftDocs/architecture-center/commit/8ff78a0efe))
+- [Baseline Microsoft Foundry Chat Reference Architecture](./ai-ml/architecture/baseline-microsoft-foundry-chat.yml) ([#e2fcc980fa](https://github.com/MicrosoftDocs/architecture-center/commit/e2fcc980fa))
+- [Modern Data Platform Architecture for SMBs](./solution-ideas/articles/small-medium-modern-data-platform.yml) ([#2a0c9b8a98](https://github.com/MicrosoftDocs/architecture-center/commit/2a0c9b8a98))
+- [Azure for AWS Professionals](./aws-professional/index.md) ([#2f0698c441](https://github.com/MicrosoftDocs/architecture-center/commit/2f0698c441))
+- [Basic Microsoft Foundry Chat Reference Architecture](./ai-ml/architecture/basic-microsoft-foundry-chat.yml) ([#2aa38c4289](https://github.com/MicrosoftDocs/architecture-center/commit/2aa38c4289))
+- [Architectural Approaches for AI and Machine Learning in Multitenant Solutions](./guide/multitenant/approaches/ai-machine-learning.md) ([#29cc7616c2](https://github.com/MicrosoftDocs/architecture-center/commit/29cc7616c2))
+- [SAP S/4HANA in Linux on Azure](./guide/sap/sap-s4hana.md) ([#1c8b911f97](https://github.com/MicrosoftDocs/architecture-center/commit/1c8b911f97))
+- [Compare AWS and Azure Networking Options](./aws-professional/networking.md) ([#bebb9751a0](https://github.com/MicrosoftDocs/architecture-center/commit/bebb9751a0))
+- [AI Agent Orchestration Patterns](./ai-ml/guide/ai-agent-design-patterns.md) ([#4ff97f00f4](https://github.com/MicrosoftDocs/architecture-center/commit/4ff97f00f4))
+- [Use Azure IoT Hub to Privately Upload Files to an Azure Storage Account](./example-scenario/iot/iot-private-file-upload.yml) ([#5068d179ba](https://github.com/MicrosoftDocs/architecture-center/commit/5068d179ba))
+- [Modern Web App Pattern for .NET](./web-apps/guides/enterprise-app-patterns/modern-web-app/dotnet/guidance.yml) ([#cf74874555](https://github.com/MicrosoftDocs/architecture-center/commit/cf74874555))
+- [SAP HANA for Linux VMs in Scale-up Systems](./reference-architectures/sap/run-sap-hana-for-linux-virtual-machines.yml) ([#85220d681f](https://github.com/MicrosoftDocs/architecture-center/commit/85220d681f))
+- [Deploy IBM Maximo Application Suite (MAS) on Azure](./example-scenario/apps/deploy-ibm-maximo-application-suite.yml) ([#10c6cabdd2](https://github.com/MicrosoftDocs/architecture-center/commit/10c6cabdd2))
+- [Scalable Cloud Applications and SRE](./example-scenario/apps/scalable-apps-performance-modeling-site-reliability.yml) ([#10c6cabdd2](https://github.com/MicrosoftDocs/architecture-center/commit/10c6cabdd2))
+- [Quantum computing integration with classical apps](./example-scenario/quantum/quantum-computing-integration-with-classical-apps.yml) ([#cda8b43806](https://github.com/MicrosoftDocs/architecture-center/commit/cda8b43806))
+- [Guide to Private Link and DNS in Azure Virtual WAN](./networking/guide/private-link-virtual-wan-dns-guide.yml) ([#5f20c55643](https://github.com/MicrosoftDocs/architecture-center/commit/5f20c55643))
+- [Single region scenario - Private Link and DNS in Azure Virtual WAN](./networking/guide/private-link-virtual-wan-dns-single-region-workload.yml) ([#5f20c55643](https://github.com/MicrosoftDocs/architecture-center/commit/5f20c55643))
 - [Migrate IBM z/OS OLTP Workloads to Azure](./example-scenario/mainframe/ibm-zos-online-transaction-processing-azure.yml) ([#c63b4c52fc](https://github.com/MicrosoftDocs/architecture-center/commit/c63b4c52fc))
-- [SAP HANA for Linux VMs in Scale-up Systems](./reference-architectures/sap/run-sap-hana-for-linux-virtual-machines.yml) ([#c63b4c52fc](https://github.com/MicrosoftDocs/architecture-center/commit/c63b4c52fc))
-- [Hub-Spoke Network Topology in Azure](./networking/architecture/hub-spoke.yml) ([#74b5ef1d31](https://github.com/MicrosoftDocs/architecture-center/commit/74b5ef1d31))
-- [Hub-Spoke Network Topology That Uses Azure Virtual WAN](./networking/architecture/hub-spoke-virtual-wan-architecture.yml) ([#74b5ef1d31](https://github.com/MicrosoftDocs/architecture-center/commit/74b5ef1d31))
 - [Implement a secure hybrid network](./reference-architectures/dmz/secure-vnet-dmz.yml) ([#74b5ef1d31](https://github.com/MicrosoftDocs/architecture-center/commit/74b5ef1d31))
 - [Design a Hybrid Domain Name System (DNS) Solution by Using Azure](./hybrid/hybrid-dns-infra.yml) ([#36454644f4](https://github.com/MicrosoftDocs/architecture-center/commit/36454644f4))
 - [Guidance for Using Azure Database for PostgreSQL in a Multitenant Solution](./guide/multitenant/service/postgresql.md) ([#db7d7eea74](https://github.com/MicrosoftDocs/architecture-center/commit/db7d7eea74))

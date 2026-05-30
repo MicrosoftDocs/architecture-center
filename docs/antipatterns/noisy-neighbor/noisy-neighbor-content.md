@@ -26,7 +26,7 @@ Sharing a single resource inherently carries the risk of noisy neighbor problems
 
 ### Actions that clients can take
 
-- **Ensure that your application handles [service throttling](../../patterns/throttling.yml)** to reduce making unnecessary requests to the service. Ensure that your application follows best practices to [retry requests that received a transient failure response](../../patterns/retry.yml).
+- **Ensure that your application handles [service throttling](../../patterns/throttling.md)** to reduce making unnecessary requests to the service. Ensure that your application follows best practices to [retry requests that received a transient failure response](../../patterns/retry.yml).
 
 - **Purchase reserved capacity, if available.** For example, when you use Azure Cosmos DB, purchase [reserved throughput](/azure/cosmos-db/optimize-cost-throughput).
 
@@ -38,7 +38,7 @@ Sharing a single resource inherently carries the risk of noisy neighbor problems
 
 - **Monitor the resource usage for your system.** Monitor both the overall resource usage and the resources that each tenant uses. Configure alerts to detect spikes in resource usage. If possible, configure automation to automatically mitigate known problems by [scaling up or out](/azure/well-architected/performance-efficiency/scale-partition).
 
-- **Apply resource governance.** Consider applying policies that prevent a single tenant from overwhelming the system and reducing the capacity available to other tenants. This step might take the form of quota enforcement through the [Throttling pattern](../../patterns/throttling.yml) or the [Rate Limiting pattern](../../patterns/rate-limiting-pattern.yml).
+- **Apply resource governance.** Consider applying policies that prevent a single tenant from overwhelming the system and reducing the capacity available to other tenants. This step might take the form of quota enforcement through the [Throttling pattern](../../patterns/throttling.md) or the [Rate Limiting pattern](../../patterns/rate-limiting-pattern.yml).
 
 - **Provision more infrastructure.** This process might include scaling up by upgrading some of your solution components. Or it might include scaling out by provisioning extra shards if you follow the [Sharding pattern](../../patterns/sharding.md), or stamps if you follow the [Deployment Stamps pattern](../../patterns/deployment-stamp.md).
 
