@@ -189,16 +189,7 @@ For more information about managing virtual networks and NSGs at scale, see [Azu
 
 This deployment creates two resource groups; the first holds a mock on-premises network, the second a set of hub and spoke networks. The mock on-premises network and the hub network are connected using Azure Virtual Network gateways to form a site-to-site connection. This configuration is very similar to how you would connect your on-premises datacenter to Azure.
 
-This deployment can take up to 45 minutes to complete. The recommended deployment method is using the following portal option.
-
-#### [Azure portal](#tab/portal)
-
-Use the following button to deploy the reference using the Azure portal.
-
-[![Deploy to Azure](../../_images/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fmspnp%2Fsamples%2Fmain%2Fsolutions%2Fsecure-hybrid-network%2Fazuredeploy.json)
-
-> [!NOTE]
-> The portal deployment only deploys the base infrastructure. After the site-to-site connection is established, you still need to add the firewall DNAT rules using the Azure CLI or PowerShell as described in [Add firewall DNAT rules](#add-firewall-dnat-rules).
+This deployment can take up to 45 minutes to complete.
 
 #### [Azure CLI](#tab/cli)
 
