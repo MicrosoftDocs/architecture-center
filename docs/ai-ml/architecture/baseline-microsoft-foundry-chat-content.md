@@ -382,7 +382,7 @@ Treat creating new projects in a Foundry resource as a privileged action. Projec
 
 ##### Foundry project role assignments and connections
 
-To use Foundry Agent Service in Standard mode, the project must have administrative permissions on the Foundry Agent Service dependencies. Specifically, the project's managed identity must have elevated role assignments on the Storage account, AI Search, and the Azure Cosmos DB account. These permissions provide nearly full access to these resources, including the ability to read, write, modify, or delete data. To uphold least privilege access, isolate your workload resources from the Foundry Agent Service dependencies.
+To use Foundry Agent Service in Standard mode, the project must have data and control plane permissions on the Foundry Agent Service dependencies. Specifically, the project's managed identity must have elevated role assignments on the Storage account, AI Search, and the Azure Cosmos DB account. These permissions provide nearly full access to these resources, including the ability to read, write, modify, or delete data. To uphold least privilege access, isolate your workload resources from the Foundry Agent Service dependencies.
 
 All agents within a single Foundry project share the same managed identity. If your workload uses multiple agents that require access to different sets of resources, the principle of least privilege requires you to create a separate Foundry project for each distinct agent access pattern. This separation lets you assign only the minimum required permissions to each project's managed identity, which reduces the risk of excessive or unintended access.
 
