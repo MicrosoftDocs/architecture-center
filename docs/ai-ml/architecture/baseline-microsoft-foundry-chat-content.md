@@ -598,7 +598,7 @@ Use the following Cloud Workload Protection plans to cover the related resources
 | :--- | :------ |
 | Microsoft Defender for Servers | Detects vulnerabilities and monitors file integrity to help prevent highly privileged jump boxes and build agents from becoming threat vectors. |
 | Microsoft Defender for App Service | Monitors logs, host machines, and management interfaces for your chat UI components. |
-|Microsoft Defender for Azure Cosmos DB | Monitors database interactions for signs of potential misuse or unauthorized access to chat data and agent definitions. |
+| Microsoft Defender for Azure Cosmos DB | Monitors database interactions for signs of potential misuse or unauthorized access to chat data and agent definitions. |
 | Microsoft Defender for AI services | Alerts on jailbreaking attempts or data leakage based on agent requests and responses. If your organization uses Microsoft Purview, this plan also provides integration with [Microsoft Purview Data Security Posture Management for AI (DSPM for AI)](/azure/defender-for-cloud/ai-onboarding#enable-data-security-for-azure-ai-with-microsoft-purview). |
 
 If your organization uses a security information and event management (SIEM) solution or Microsoft Purview, ensure that any customer data replicated to those data stores, like prompts and responses, resides in a region that meets your workload's data sovereignty requirements.
