@@ -308,7 +308,7 @@ Foundry Agent Service doesn't provide built-in DR capabilities. It lacks capabil
 
 The following compensating controls, based on the [Foundry Agent Service DR guide](/azure/foundry/how-to/agent-service-disaster-recovery), reduce the likelihood and scope of data loss but don't eliminate it.
 
-- **Azure Cosmos DB:** Turn on [continuous backup](/azure/cosmos-db/online-backup-and-restore) for the `enterprise_memory` database. This setup provides point-in-time restore (PITR) with a seven-day RPO, which includes agent definitions and chat conversations. Test your restore process regularly to confirm that it meets your RTO and that the restored data remains available to the agent service. Always restore to the same account and database.
+- **Azure Cosmos DB:** Turn on [continuous backup](/azure/cosmos-db/online-backup-and-restore) for the `enterprise_memory` database, which includes agent definitions and chat conversations. Continuous backup provides point-in-time restore (PITR) to any moment within the retention window, which is the previous seven days. Test your restore process regularly to confirm that it meets your RTO and that the restored data remains available to the agent service. Always restore to the same account and database.
 
 - **AI Search:** AI Search lacks built-in restore capabilities and doesn't support direct index manipulation. If data loss or corruption occurs, you must contact Microsoft Support for assistance with index restoration options available. This limitation can significantly affect your RTO. If your chat UI doesn't support file uploads and you don't have agents that use static files as knowledge, you might not need a DR plan for AI Search.
 
