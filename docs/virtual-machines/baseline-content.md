@@ -545,6 +545,8 @@ The VMs use the [Key Vault VM extension](/azure/virtual-machines/extensions/key-
 
 Cost Optimization is about looking at ways to reduce unnecessary expenses and improve operational efficiencies. For more information, see [Design review checklist for Cost Optimization](/azure/well-architected/cost-optimization/checklist).
 
+Use the [preconfigured estimate in the Azure pricing calculator](https://azure.com/e/8594eedc1e5847178f6c6d27895e6f51) to get an approximation of the monthly cost of the infrastructure components used in this architecture. Adjust the values to match your expected traffic and workload characteristics.
+
 #### Component cost
 
 Select VM images that are optimized for the workload instead of using general-purpose images. In this architecture, relatively small VM images are chosen for both Windows and Linux, which are 30 GB each. With smaller images, VM SKUs with disks are also smaller, leading to lower costs, reduced resource consumption, and faster deployment and boot times. A benefit is enhanced security because of the reduced surface area.
