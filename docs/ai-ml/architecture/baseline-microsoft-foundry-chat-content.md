@@ -568,11 +568,9 @@ To control consumption model costs in this architecture, use a combination of th
 
   - Approve all model consumers. Don't expose models in a way that allows unrestricted access.
 
-  - Enforce token-limiting constraints like [`max_tokens` and `max_completion_tokens`](/azure/foundry/openai/reference#components) through agent logic. This control is only available in self-hosted orchestration. Foundry Agent Service doesn't support this functionality.
+  - Enforce token-limiting constraints on each response. When your application creates a response, set [`max_output_tokens`](/azure/foundry/openai/latest#create-response) to cap the tokens that the model generates. Use the [`truncation`](/azure/foundry/openai/latest#create-response) setting to control how much conversation history enters the model's context window on each turn.
 
-  - Optimize prompt input and response length. Longer prompts consume more tokens, which increases cost. Prompts that lack sufficient context reduce model effectiveness. Create concise prompts that provide enough context to allow the model to generate a useful response. Ensure that you optimize the limit of the response length.
-
-    This level of control is only available in self-hosted orchestration. Foundry Agent Service doesn't provide enough configuration to support this functionality.
+  - Optimize prompt input and response length. Longer prompts consume more tokens, which increases cost. Prompts that lack sufficient context reduce model effectiveness. Create concise prompts that provide enough context to allow the model to generate a useful response. Use `max_output_tokens` to bound response length when your scenario allows a fixed ceiling.
 
 - **Choose the right model for the agent.** Select the least expensive model that meets your agent's requirements. Avoid using higher cost models unless they're essential. For example, the reference implementation uses GPT-4.1 instead of a more expensive model and achieves sufficient results.
 
