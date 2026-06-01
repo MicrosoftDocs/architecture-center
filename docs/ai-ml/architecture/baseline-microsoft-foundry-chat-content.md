@@ -396,6 +396,12 @@ Foundry Agent Service doesn't enforce per-user authorization on conversations. T
 
 Your application server must enforce conversation ownership. Don't trust conversation identifiers from the client. On every request, verify that the authenticated user owns the referenced conversation before forwarding the request to Agent Service.
 
+#### Content safety
+
+Each model in your deployment should bind a [content-filter policy](/azure/foundry/openai/concepts/content-filter-prompt-shields) that screens prompts and model completions for harmful content.
+
+Evaluate the default Microsoft-managed policy against your workload's content-safety requirements. If the default thresholds don't meet those requirements, author a custom content-filter policy and bind it to the deployment. Manage the policy as code alongside the rest of your infrastructure so that content-safety configuration stays version controlled and consistent across environments.
+
 #### Networking
 
 In addition to identity-based access, this architecture requires network confidentiality.
