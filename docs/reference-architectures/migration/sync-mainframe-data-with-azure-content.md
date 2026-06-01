@@ -127,7 +127,7 @@ Data replication and sync scenarios that can benefit from this solution include:
 
 ## Contributors
 
-*This article is maintained by Microsoft. It was originally written by the following contributors.*
+*Microsoft maintains this article. The following contributors wrote this article.*
 
 Principal authors:
 

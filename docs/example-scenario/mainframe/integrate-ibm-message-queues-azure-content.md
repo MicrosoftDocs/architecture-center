@@ -100,14 +100,14 @@ The PaaS and IaaS architecture options both support many popular managed databas
 
 ## Contributors
 
-*This article is maintained by Microsoft. It was originally written by the following contributors.*
+*Microsoft maintains this article. The following contributors wrote this article.*
 
 Principal authors:
 
 - [Nithish Aruldoss](https://www.linkedin.com/in/nithish-aruldoss-b4035b2b/) | Engineering Architect
 - [Ashish Khandelwal](https://www.linkedin.com/in/ashish-khandelwal-839a851a3/) | Principal Engineering Architecture Manager
 
-*To see non-public LinkedIn profiles, sign in to LinkedIn.*
+*To see nonpublic LinkedIn profiles, sign in to LinkedIn.*
 
 ## Next steps
 
