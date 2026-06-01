@@ -119,7 +119,7 @@ Principal authors:
 
 ## Next step
 
-- [Strangler Fig pattern application](https://martinfowler.com/bliki/StranglerFigApplication.html)
+- Read Martin Fowler's blog post about [Strangler Fig pattern application](https://martinfowler.com/bliki/StranglerFigApplication.html)
 
 ## Related resources
 
