@@ -4425,9 +4425,14 @@
     },
     {
       "source_path": "docs/example-scenario/ai/data-obfuscation-with-delphix-in-azure-data-factory.yml",
-      "redirect_url": "/azure/architecture/databases/guide/data-obfuscation-with-delphix-in-azure-data-factory",
+      "redirect_url": "https://marketplace.microsoft.com/product/saas/delphix.delphix-compliance-services-for-azure-tb-model",
       "redirect_document_id": true
     },
+    {
+      "source_path": "docs/databases/guide/data-obfuscation-with-delphix-in-azure-data-factory.yml",
+      "redirect_url": "https://marketplace.microsoft.com/product/saas/delphix.delphix-compliance-services-for-azure-tb-model",
+      "redirect_document_id": true
+    },    
     {
       "source_path": "docs/example-scenario/ai/data-scrambling-for-sap-using-delphix-and-azure-data-factory.yml",
       "redirect_url": "/azure/architecture/databases/guide/data-scrambling-for-sap-using-delphix-and-azure-data-factory",
