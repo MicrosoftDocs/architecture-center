@@ -40,7 +40,7 @@ You can use monitoring to gain insight into how well a system functions. Monitor
 > [!NOTE]
 > This article focuses on the most common situations for monitoring. Other scenarios might be less common or specific to your environment.
 
-The following sections describe these scenarios in more detail. The information for each scenario is discussed in the following format:
+The following sections describe these scenarios in more detail.
 
 ## Health monitoring
 
@@ -186,7 +186,9 @@ Depending on your visualization requirements, it might be useful to generate and
 All commercial systems that include sensitive data must implement a security structure. The sensitivity of the data typically determines how complex the security mechanism is. In a system that requires users to be authenticated, record the following information:
 
 - All sign-in attempts and whether they fail or succeed
+
 - All operations performed by an authenticated user and the details of all resources that they access
+
 - When a user ends a session and signs out
 
 Monitoring might help detect attacks on the system. For example, several failed sign-in attempts might indicate a brute-force attack. An unexpected surge in requests might be the result of a distributed denial-of-service (DDoS) attack. Be prepared to monitor all requests to all resources regardless of their source. A system that has a sign-in vulnerability might accidentally expose resources without requiring a user to sign in.
@@ -345,8 +347,11 @@ Usage monitoring tracks how customers use an application's features and componen
 To examine system usage, you typically need the following information:
 
 - The number of requests that each subsystem processes and directs to each resource
+
 - The work that each user performs
+
 - The volume of data storage that each user occupies
+
 - The resources that each user accesses
 
 You should also be able to generate graphs. Common examples include graphs of users that consume the most resources and the most frequently accessed resources or system features.
@@ -437,7 +442,7 @@ The operating system on which the application runs can be a source of low-level,
 
 Also consider the underlying infrastructure and components on which your system runs. Virtual machines (VMs), virtual networks, and storage services can all be sources of important infrastructure-level performance counters and other diagnostic data.
 
-If your application uses other external services, such as a web server or database management system, these services might publish their own trace information, logs, and performance counters. For example, dynamic management views (DMVs) in SQL Server track operations performed against a SQL Server database. Application Insights trace logs for recording requests made to Azure App Service.
+If your application uses other external services, such as a web server or database management system, these services might publish their own trace information, logs, and performance counters. For example, dynamic management views (DMVs) in SQL Server track operations performed against a SQL Server database. Application Insights traces logs for recording requests made to Azure App Service.
 
 As you modify system components and deploy new versions, it's important that you can attribute problems, events, and metrics to each version. Associate this information with the release pipeline so that you can track and fix problems with a specific version of a component quickly.
 
@@ -662,9 +667,7 @@ An important part of monitoring and diagnostics is analyzing the gathered data t
 The data for each part of the system is typically captured locally, but then you need to combine it with data generated at other sites that participate in the system. Correlate this information carefully to ensure that data is combined accurately. For example, the usage data for an operation might span the following nodes:
 
 - A node that hosts a website that a user connects to
-
 - A node that runs a separate service accessed as part of this operation
-
 - A node that stores data storage
 
 You need to tie this information together to provide an overall view of the resource and processing usage for the operation. The node that captures the data might preprocess and filter it, but central nodes typically aggregate and format the data. For more information, see [Consolidate instrumentation data](#consolidate-instrumentation-data).
@@ -696,11 +699,8 @@ Ensure that the raw instrumentation data includes sufficient context and activit
 To diagnose problems, you need to do RCA to determine the cause of faults or unexpected behavior. You typically need the following information for the entire system or for a specific subsystem during a specified time window:
 
 - Detailed information from event logs and traces
-
 - Complete stack traces from exceptions and faults of any specified level
-
 - Crash dumps for any failed processes
-
 - Activity logs that record the operations that all users or select users perform
 
 To analyze data for troubleshooting purposes, you need a deep technical understanding of the system architecture and its components. You must interpret the data, establish the cause of problems, and recommend a strategy to correct them. Another strategy is to store a copy of this information in its original format and make it available for cold analysis by an expert.
@@ -713,7 +713,7 @@ Data presentation can take several forms, including visualization by using dashb
 
 ### Visualization by using dashboards
 
-The most common way to visualize data is to use dashboards that display information as a series of charts, graphs, or other illustrations. You can parameterize these items select the important parameters, such as the time period, for a specific situation.
+The most common way to visualize data is to use dashboards that display information as a series of charts, graphs, or other illustrations. You can parameterize these items and select the important parameters, such as the time period, for a specific situation.
 
 You can organize dashboards hierarchically. Top-level dashboards give an overall view of each aspect of the system and let you drill down to the details. For example, in a dashboard that depicts the overall disk I/O for the system, you can view the I/O rates for each individual disk to determine whether one or more specific devices account for a disproportionate volume of traffic. The dashboard should also display related information, such as the user or activity that generates this I/O. This information can help you spread the load more evenly across devices.
 
@@ -784,5 +784,7 @@ In many cases, batch processes can generate reports according to a defined sched
 ## Related resources
 
 - [Autoscaling guidance](../best-practices/auto-scaling.md) describes how to decrease management overhead by reducing the need to continually monitor system performance and make decisions to add or remove resources.
+
 - [Health Endpoint Monitoring pattern](../patterns/health-endpoint-monitoring.yml) describes how to implement functional checks within an application that external tools can access through exposed endpoints at regular intervals.
+
 - [Priority Queue pattern](../patterns/priority-queue.yml) describes how to prioritize queued messages so that systems receive and process urgent requests before less urgent messages.
