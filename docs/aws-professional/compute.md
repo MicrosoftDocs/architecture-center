@@ -3,7 +3,7 @@ title: Compare AWS and Azure Compute Services
 description: Compare the compute services in Azure and Amazon Web Services (AWS). Explore the differences in virtual machines (VMs), containers, and serverless technologies.
 author: juanosorioms
 ms.author: jcosorio
-ms.date: 05/29/2026
+ms.date: 06/01/2026
 ms.topic: concept-article
 ms.subservice: architecture-guide
 ms.collection:
@@ -43,7 +43,7 @@ You can use autoscaling to automatically change the number of compute instances 
 
 | AWS service | Azure service | Description |
 | --- | --- | --- |
-| [AWS Auto Scaling](https://aws.amazon.com/autoscaling/) | [Virtual machine scale sets](/azure/virtual-machine-scale-sets/overview), [Azure App Service autoscale](/azure/app-service/manage-scale-up) | In Azure, you can use virtual machine scale sets to deploy and manage identical sets of VMs. The number of sets can autoscale. You can use Azure App Service to autoscale Azure App Service applications. |
+| [AWS Auto Scaling](https://aws.amazon.com/autoscaling/) | [Azure Virtual Machine Scale Sets](/azure/virtual-machine-scale-sets/overview), [Azure App Service autoscaling](/azure/app-service/manage-scale-up) | In Azure, you can use virtual machine scale sets to deploy and manage identical sets of VMs. The number of sets can automatically scale. You can use Azure App Service to automatically scale Azure App Service applications. |
 
 [View all the autoscaling architectures](/azure/architecture/browse/?expanded=azure&products=azure-vm-scalesets).
 
