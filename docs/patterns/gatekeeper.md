@@ -3,7 +3,7 @@ title: Gatekeeper Pattern
 description: Learn how to use the Gatekeeper pattern to protect applications and services by using a dedicated host instance as a broker to validate requests and data.
 author: claytonsiemens77
 ms.author: pnp
-ms.date: 06/02/2026
+ms.date: 06/01/2026
 ms.topic: design-pattern
 ms.subservice: cloud-fundamentals
 ---
@@ -20,7 +20,7 @@ If a malicious user compromises the system and gains access to the application's
 
 ## Solution
 
-One solution to this problem is to decouple the code that implements public endpoints from the code that processes requests and accesses storage. Decouple the code by using a façade tier that interacts with clients and hands off approved requests through an internal endpoint, queue, or broker to the workload components that handle the business operation. The figure provides a high-level overview of this pattern.
+One solution to this problem is to decouple the code that implements public endpoints from the code that processes requests and accesses storage. Decouple the code by using a façade tier that interacts with clients and routes approved requests through an internal endpoint, queue, or broker to the workload components that handle the business operation. The diagram provides a high-level overview of this pattern.
 
 :::image type="complex" border="false" source="./_images/gatekeeper-diagram.png" alt-text="Diagram that shows a high-level overview of the Gatekeeper pattern." lightbox="./_images/gatekeeper-diagram.png":::
    The diagram shows client, gatekeeper, trusted host or key master, services, and data sections. The gatekeeper exposes endpoints to clients, then validates and sanitizes requests. The gatekeeper might then be decoupled from the trusted host or hosts. The trusted host accesses service and storage.
@@ -85,15 +85,15 @@ If this pattern introduces trade-offs within a pillar, consider them against the
 
 The Gatekeeper pattern typically implements a layered request path, where each layer has a specific responsibility and a limited trust scope.
 
-:::image type="complex" border="false" source="./_images/gatekeeper-example.png" alt-text="Diagram that shows the layered Gatekeeper pattern." lightbox="./_images/gatekeeper-example.png":::
-   The diagram shows an arrow labeled public IP that points to Azure Application Gateway in the virtual network. The virtual network includes Application Gateway, Azure API Management, a private endpoint, and three subnets. An arrow points from Application Gateway to API Management, from API Management to the private endpoint, and from the private endpoint to App Service. Azure Monitor is beneath Azure App Service.
+:::image type="complex" border="false" source="./_images/gatekeeper-example.svg" alt-text="Diagram that shows the layered Gatekeeper pattern." lightbox="./_images/gatekeeper-example.svg":::
+   The diagram shows an arrow labeled public IP that points to Azure Application Gateway in the virtual network. The virtual network includes Application Gateway, Azure API Management, a private endpoint, and three subnets. An arrow points from Application Gateway to API Management, from API Management to the private endpoint, and from the private endpoint to App Service. Azure App Service and Azure Monitor are both outside the virtual network.
 :::image-end:::
 
 In this design, [Azure Application Gateway with Azure Web Application Firewall](/azure/web-application-firewall/ag/ag-overview) is the outer gatekeeper. It inspects internet-facing traffic and applies security controls before traffic reaches the API tier. [Azure API Management](/azure/api-management/api-management-key-concepts) is the inner gatekeeper. It applies API-specific controls and forwards only approved traffic to private back ends.
 
 For example, Azure Web Application Firewall can detect and block SQL injection and cross-site scripting patterns, enforce protocol and request-size rules, and apply bot and IP-based filtering before requests reach API Management or private back ends.
 
-When you use API Management in the inner layer, it applies policies to inbound requests and outbound responses in the gateway pipeline. For the inbound/back-end/outbound model, see [Policies in API Management](/azure/api-management/api-management-howto-policies). For policy options such as JSON Web Token (JWT) validation, rate limiting, header transformation, and response shaping, see [API Management policy reference](/azure/api-management/api-management-policies).
+When you use API Management in the inner layer, it applies policies to inbound requests and outbound responses in the gateway pipeline. For more information about how API Management processes requests and responses, see [Policies in API Management](/azure/api-management/api-management-howto-policies). For policy options such as JSON Web Token (JWT) validation, rate limiting, header transformation, and response shaping, see [API Management policy reference](/azure/api-management/api-management-policies).
 
 Use [managed identities for Azure resources](/entra/identity/managed-identities-azure-resources/overview) consistently for service-to-service authentication in this path. For example, API Management can use the [authenticate with managed identity policy](/azure/api-management/authentication-managed-identity-policy) to get Microsoft Entra tokens for back-end calls without storing secrets.
 
