@@ -40,7 +40,7 @@ Each pattern in this catalog describes the problem that it addresses, considerat
 | Pattern | Summary | Well-Architected Framework pillars |
 | :------ | :------ | :-------------------------------------- |
 | [Ambassador](./ambassador.md) | Create helper services that send network requests on behalf of a consumer service or application. | - Reliability<br><br>- Security |
-| [Anti-Corruption Layer](./anti-corruption-layer.yml) | Implement a façade or adapter layer between a modern application and a legacy system. | - Operational&nbsp;Excellence |
+| [Anti-Corruption Layer](./anti-corruption-layer.md) | Implement a façade or adapter layer between a modern application and a legacy system. | - Operational&nbsp;Excellence |
 | [Asynchronous Request-Reply](asynchronous-request-reply.md) | Decouple back-end processing from a front-end host. This pattern is useful when back-end processing must be asynchronous, but the front end requires a clear and timely response. | - Performance&nbsp;Efficiency |
 | [Backends for Frontends](./backends-for-frontends.md) | Create separate backend services for specific frontend applications or interfaces. | - Reliability<br><br>- Security<br><br>- Performance&nbsp;Efficiency |
 | [Bulkhead](./bulkhead.md) | Isolate elements of an application into pools so that if one fails, the others continue to function. | - Reliability<br><br>- Security<br><br>- Performance&nbsp;Efficiency |
@@ -79,7 +79,7 @@ Each pattern in this catalog describes the problem that it addresses, considerat
 | [Sidecar](./sidecar.md) | Deploy components into a separate process or container to provide isolation and encapsulation. | - Security<br><br>- Operational&nbsp;Excellence |
 | [Static Content Hosting](./static-content-hosting.yml) | Deploy static content to a cloud-based storage service for direct client delivery. | - Cost&nbsp;Optimization |
 | [Strangler Fig](./strangler-fig.md) | Incrementally migrate a legacy system by gradually replacing pieces of functionality with new applications and services. | - Reliability<br><br>- Cost&nbsp;Optimization<br><br>- Operational&nbsp;Excellence |
-| [Throttling](./throttling.yml) | Control the consumption of resources from applications, tenants, or services. | - Reliability<br><br>- Security<br><br>- Cost&nbsp;Optimization<br><br>- Performance&nbsp;Efficiency |
+| [Throttling](./throttling.md) | Control the consumption of resources from applications, tenants, or services. | - Reliability<br><br>- Security<br><br>- Cost&nbsp;Optimization<br><br>- Performance&nbsp;Efficiency |
 | [Valet Key](./valet-key.yml) | Use a token or key to provide clients with restricted, direct access to a specific resource or service. | - Security<br><br>- Cost&nbsp;Optimization<br><br>- Performance&nbsp;Efficiency |
 
 ## AI agent orchestration patterns

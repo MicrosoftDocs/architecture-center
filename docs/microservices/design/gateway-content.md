@@ -37,8 +37,8 @@ An API gateway can be tailored to your application’s requirements by using spe
   - SSL termination
   - Mutual TLS
   - Authentication
-  - IP allowlist or blocklist
-  - Client rate limiting (throttling)
+  - IP allow list or blocklist
+  - Client [throttling](../../patterns/throttling.md)
   - Logging and monitoring
   - Response caching
   - Web application firewall
@@ -51,7 +51,9 @@ Here are some options for implementing an API gateway in your application.
 
 - **Reverse proxy server**. Nginx and HAProxy are open-source reverse proxy offerings. They support features such as load balancing, SSL termination, and layer-7 routing. They have free versions and paid editions that provide extra features and support options. These products are mature with rich feature sets, high performance, and extensible.
 
-- **[Service mesh ingress controller](/azure/aks/servicemesh-about/)**. If you use a service mesh, evaluate the ingress controller’s features specific to that service mesh. Check for AKS-supported add-ons like Istio and Open Service Mesh. Look for third-party open-source projects like Linkerd or Consul Connect. For example, the Istio ingress controller supports layer 7 routing, HTTP redirects, retries, and other features.
+- **Service mesh ingress gateway**. If you already run a service mesh, the mesh's own ingress gateway is a candidate for your API gateway. Using it means north-south traffic enters the mesh dataplane immediately and participates in the same mTLS, workload identity, authorization policy, and telemetry as east-west traffic. For AKS, the [Istio-based service mesh add-on](/azure/aks/istio-about) is the supported managed option and includes a managed [Istio ingress gateway](/azure/aks/istio-deploy-ingress). [Linkerd](https://linkerd.io/docs/tasks/using-ingress/) and [Consul](https://developer.hashicorp.com/consul/docs/north-south/api-gateway) are unmanaged alternatives.
+
+  Mesh ingress gateways typically have weaker capabilities than dedicated API gateways for web application firewall (WAF), API productization, request transformation, and global routing, so pair them with or replace them with Application Gateway, Front Door, or API Management when those capabilities are required.
 
 - **[Azure Application Gateway](/azure/application-gateway/)**. Application Gateway is a managed load balancing service. It provides perform layer-7 routing, SSL termination, and a web application firewall (WAF).
 
@@ -69,7 +71,7 @@ When selecting an API gateway, consider the following factors:
 
 - **Choose the right deployment model.** Use managed services like Azure Application Gateway and Azure API Management for reduced operational overhead. If you use general-purpose reverse proxies or load balancers, deploy them in a way that aligns with your architecture. You can deploy general-purpose API gateways to dedicated virtual machines or inside an AKS cluster in their Ingress Controller offerings. To isolate the API gateway from the workload, you can deploy them outside the cluster, but this deployment increases the management complexity.
 
-- **Manage changes.** When you update services or add new ones, you might need to update the gateway routing rules.  Implement processes or workflows to manage routing rules when adding or modifying services, SSL certificates, IP allowlists, and security configurations. Use infrastructure-as-code and automation tools to streamline API gateway management.
+- **Manage changes.** When you update services or add new ones, you might need to update the gateway routing rules.  Implement processes or workflows to manage routing rules when adding or modifying services, SSL certificates, IP allow lists, and security configurations. Use infrastructure-as-code and automation tools to streamline API gateway management.
 
 ## Next steps
 
