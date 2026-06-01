@@ -30,7 +30,7 @@ You can use the Gatekeeper pattern to protect storage, or you can use it as a mo
 
 - **Controlled validation:** The gatekeeper validates all requests, and rejects requests that don't meet validation requirements.
 
-- **Limited risk and exposure:** The gatekeeper limits risk and exposure by not accessing the credentials or keys that the trusted host uses to access storage and services. If the gatekeeper becomes compromised, attackers can't access these credentials or keys.
+- **Limited risk and exposure:** Risks and exposure are reduced because the gatekeeper doesn't access the credentials or keys that the trusted host uses to access storage and services. If the gatekeeper becomes compromised, attackers can't access these credentials or keys.
 
 - **Appropriate security:** The gatekeeper runs in a limited privilege mode, while the rest of the application runs in the full trust mode required to access storage and services. If the gatekeeper is compromised, it can't directly access the application services or data.
 
@@ -50,7 +50,7 @@ Consider the following points as you decide how to implement this pattern:
 
 - Adding the extra layer to implement the Gatekeeper pattern is likely to affect performance because of the extra processing and network communication required.
 
-- The gatekeeper can be a single point of failure (SPoF). To minimize the impact of a failure, consider deploying redundant instances and using an autoscaling mechanism to ensure capacity to maintain availability.
+- The gatekeeper can be a single point of failure (SPoF). To minimize the impact of a failure, consider deploying redundant instances and using an autoscaling mechanism to ensure capacity and maintain availability.
 
 ## When to use this pattern
 
@@ -86,7 +86,7 @@ If this pattern introduces trade-offs within a pillar, consider them against the
 The Gatekeeper pattern typically implements a layered request path, where each layer has a specific responsibility and a limited trust scope.
 
 :::image type="complex" border="false" source="./_images/gatekeeper-example.svg" alt-text="Diagram that shows the layered Gatekeeper pattern." lightbox="./_images/gatekeeper-example.svg":::
-   The diagram shows an arrow labeled public IP that points to Azure Application Gateway in the virtual network. The virtual network includes Application Gateway, Azure API Management, a private endpoint, and three subnets. An arrow points from Application Gateway to API Management, from API Management to the private endpoint, and from the private endpoint to App Service. Azure Monitor is below App Service.
+   Users connect to Azure Application Gateway, which is in a virtual network, via a public IP. The virtual network includes Application Gateway, Azure API Management, a private endpoint, and three subnets. An arrow points from Application Gateway to API Management, from API Management to the private endpoint, and from the private endpoint to Azure App Service. Azure Monitor is below App Service.
 :::image-end:::
 
 In this design, [Azure Application Gateway with Azure Web Application Firewall](/azure/web-application-firewall/ag/ag-overview) is the outer gatekeeper. It inspects internet-facing traffic and applies security controls before traffic reaches the API tier. [Azure API Management](/azure/api-management/api-management-key-concepts) is the inner gatekeeper. It applies API-specific controls and forwards only approved traffic to private back ends.
