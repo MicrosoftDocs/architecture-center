@@ -86,7 +86,7 @@ If this pattern introduces trade-offs within a pillar, consider them against the
 The Gatekeeper pattern typically implements a layered request path, where each layer has a specific responsibility and a limited trust scope.
 
 :::image type="complex" border="false" source="./_images/gatekeeper-example.svg" alt-text="Diagram that shows the layered Gatekeeper pattern." lightbox="./_images/gatekeeper-example.svg":::
-   The diagram shows an arrow labeled public IP that points to Azure Application Gateway in the virtual network. The virtual network includes Application Gateway, Azure API Management, a private endpoint, and three subnets. An arrow points from Application Gateway to API Management, from API Management to the private endpoint, and from the private endpoint to App Service. Azure App Service and Azure Monitor are both outside the virtual network.
+   The diagram shows an arrow labeled public IP that points to Azure Application Gateway in the virtual network. The virtual network includes Application Gateway, Azure API Management, a private endpoint, and three subnets. An arrow points from Application Gateway to API Management, from API Management to the private endpoint, and from the private endpoint to App Service. Azure Monitor is below App Service.
 :::image-end:::
 
 In this design, [Azure Application Gateway with Azure Web Application Firewall](/azure/web-application-firewall/ag/ag-overview) is the outer gatekeeper. It inspects internet-facing traffic and applies security controls before traffic reaches the API tier. [Azure API Management](/azure/api-management/api-management-key-concepts) is the inner gatekeeper. It applies API-specific controls and forwards only approved traffic to private back ends.
