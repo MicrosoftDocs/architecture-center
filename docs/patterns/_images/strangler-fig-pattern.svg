@@ -141,9 +141,9 @@
 			<text x="4.6" y="543.04" class="st4">The legacy system is fully decommissioned <tspan x="46.32" dy="1.2em" class="st6">and has no dependencies</tspan></text>		</g>
 		<g id="shape88-86" transform="translate(353.142,-274.018)">
 			<title>Sheet.88</title>
-			<desc>The Strangler Fig façade Is removed, and the client interacts...</desc>
+			<desc>The Strangler Fig façade is removed, and the client interacts...</desc>
 			<rect x="0" y="535.872" width="234" height="29" class="st10"/>
-			<text x="8.89" y="547.07" class="st4">The Strangler Fig façade Is removed, and the <tspan x="11.61" dy="1.2em"
+			<text x="9.03" y="547.07" class="st4">The Strangler Fig façade is removed, and the <tspan x="11.61" dy="1.2em"
 						class="st6">client interacts directly with the new system</tspan></text>		</g>
 		<g id="shape91-90" transform="translate(126,-80.6207)">
 			<title>Rectangle.91</title>
