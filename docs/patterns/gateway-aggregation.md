@@ -3,7 +3,7 @@ title: Gateway Aggregation pattern
 description: Learn about the Gateway Aggregation pattern, which uses a gateway to aggregate many individual requests into a single request.
 ms.author: pnp
 author: claytonsiemens77
-ms.date: 06/02/2026
+ms.date: 06/01/2026
 ms.topic: design-pattern
 ms.subservice: cloud-fundamentals
 ---
