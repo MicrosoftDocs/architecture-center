@@ -347,6 +347,10 @@ This architecture primarily uses system-assigned managed identities for service-
 
 - Use fit-for-purpose identity types. Where possible, use [workload identities](/entra/workload-id/workload-identities-overview) for applications and automation, and use [agent identities](/entra/agent-id/what-is-microsoft-entra-agent-id) for AI agents.
 
+##### Foundry resource sharing and isolation
+
+This architecture deploys a dedicated Foundry account for a single production workload. The Foundry resource is a network boundary and identity boundary for everything that runs inside it. A dedicated resource keeps this workload's compliance scope, blast radius, and quota separate from unrelated workloads and from your pre-production environments. This choice respects the published [AI platform sharing decision guidance](/azure/cloud-adoption-framework/ai/platform/ai-platform-sharing-isolation-colocation), which recommends that you default to a single AI platform instance per production workload.
+
 ##### Connections
 
 Connections define how a Foundry account or an individual project authenticates to and uses an [external dependency](/azure/foundry/how-to/connections-add#connection-types). Create connections at the project level when possible. Remove unused connections. Prefer Microsoft Entra ID-based authentication for all connections.
