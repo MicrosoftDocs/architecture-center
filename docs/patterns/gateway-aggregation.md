@@ -38,7 +38,7 @@ In the following diagram, the application sends a request to the gateway (1). Th
 
 Consider the following points as you decide how to implement this pattern:
 
-- The gateway should't introduce service coupling across the back-end services.
+- The gateway shouldn't introduce service coupling across the back-end services.
 
 - The gateway should be located near the back-end services to reduce latency as much as possible.
 
