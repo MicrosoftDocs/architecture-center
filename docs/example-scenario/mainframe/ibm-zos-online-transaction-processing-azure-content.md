@@ -90,7 +90,7 @@ Azure provides managed services that support more secure, scalable, and efficien
 
 - [Azure Functions](/azure/well-architected/service-guides/azure-functions) is a serverless compute service. It provides an environment for running small pieces of code, called functions, without having to establish an application infrastructure. You can use it to process bulk data, integrate systems, work with Internet of Things, and build simple APIs and microservices. Use microservices to create servers that connect to Azure services and are always up to date. In this architecture, it handles event-driven processing and lightweight business logic components migrated from mainframe transaction managers.
 
-- [Service Bus](/azure/well-architected/service-guides/azure-service-bus) is a reliable cloud messaging service for simple hybrid integration. Service Bus and Storage queues can connect the front end with the business logic in the migrated system. Azure Service Bus enables reliable messaging between distributed systems. In this architecture, it facilitates asynchronous communication between migrated mainframe components that previously used mainframe messaging systems.
+- [Service Bus](/azure/well-architected/service-guides/azure-service-bus) is a reliable cloud messaging service for simple hybrid integration. Service Bus and Storage queues can connect the front end with the business logic in the migrated system. Service Bus enables reliable messaging between distributed systems. In this architecture, it facilitates asynchronous communication between migrated mainframe components that previously used mainframe messaging systems.
 
 #### Storage and database
 

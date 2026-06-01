@@ -4,7 +4,7 @@ metadata:
   description: This example describes a data-first approach to middleware integration that enables IBM message queues (MQs).
   author: ashish-khandelwal-ms-zz
   ms.author: askhande
-  ms.date: 03/09/2026
+  ms.date: 05/29/2026
   ms.topic: solution-idea
   ms.subservice: solution-idea
   ai-usage: ai-assisted

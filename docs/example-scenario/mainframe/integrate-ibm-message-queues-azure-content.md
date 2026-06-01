@@ -14,7 +14,7 @@ When you use Azure as a modern data platform, you have your choice of platform a
 
 1. In a cloud-native approach, Azure Logic Apps uses the MQ connector to exchange messages with IBM MQ. The Scheduler feature orchestrates the Azure workflow, sending and receiving messages at [recurring intervals](/azure/logic-apps/concepts-schedule-automated-recurring-tasks-workflows) of one second.
 
-1. The MQ connector can send the messages it reads directly to storage through a connector or send them to be transformed first. Logic Apps includes several options for data transformation, such as an inline [JavaScript](/azure/logic-apps/logic-apps-add-run-inline-code) runtime that you can use to run simple JavaScript code snippets for data transformation, and [data operations](/azure/logic-apps/logic-apps-perform-data-operations) that perform transformations on JSON, CSV, and HTML table data. You can also create serverless, single-task functions by using [Azure Functions](/azure/logic-apps/logic-apps-azure-functions).
+1. The MQ connector can send the messages that it reads directly to storage through a connector or send them to be transformed first. Logic Apps includes several options for data transformation, such as an inline [JavaScript](/azure/logic-apps/logic-apps-add-run-inline-code) runtime that you can use to run simple JavaScript code snippets for data transformation, and [data operations](/azure/logic-apps/logic-apps-perform-data-operations) that perform transformations on JSON, CSV, and HTML table data. You can also create serverless, single-task functions by using [Azure Functions](/azure/logic-apps/logic-apps-azure-functions).
 
 1. Data is loaded into storage. Azure offers many managed data storage solutions, each providing different features and capabilities.
 
@@ -44,7 +44,7 @@ When you use Azure as a modern data platform, you have your choice of platform a
 
   [Azure SQL Managed Instance](https://azure.microsoft.com/products/azure-sql/managed-instance/). Part of the Azure SQL service family, SQL Managed Instance combines the broadest SQL Server engine compatibility with all the benefits of a fully managed PaaS.
 
-  [Azure SQL on Azure Virtual Machines](https://azure.microsoft.com/products/virtual-machines/sql-server/). Part of the Azure SQL family, this cost-effective option is designed for lifting and shifting SQL Server workloads to Azure. It combines the performance, security, and analytics of SQL Server with the flexibility and hybrid connectivity of Azure—with 100 percent code compatibility. Now includes SQL Server 2019 images.
+  [Azure SQL on Azure Virtual Machines](https://azure.microsoft.com/products/virtual-machines/sql-server/). Part of the Azure SQL family, this cost-effective option is designed for lifting and shifting SQL Server workloads to Azure. It combines the performance, security, and analytics of SQL Server with the flexibility and hybrid connectivity of Azure. It also provides 100% code compatibility and includes SQL Server 2019 images.
 
   [Azure Database for PostgreSQL](/azure/postgresql/overview). This fully managed relational database service is based on the community edition of the open-source PostgreSQL database engine. You can focus on application innovation instead of database management and easily scale your workloads.
 
@@ -88,13 +88,13 @@ Either of these approaches can be used to:
 
 ## Data loading
 
-You can use Logic Apps connectors to send messages directly to [Azure Storage](/azure/storage/common/storage-introduction) and [Data Lake Storage](/azure/storage/blobs/data-lake-storage-introduction). For example, Logic Apps includes the [Azure Blob Storage connector](/connectors/azureblob/), as the following diagram shows. The connector makes it easy to store massive amounts of unstructured data in [Blob Storage](/azure/storage/blobs/storage-blobs-introduction). Your data becomes accessible from anywhere in the world via HTTP or HTTPS.
+You can use Logic Apps connectors to send messages directly to [Azure Storage](/azure/storage/common/storage-introduction) and [Data Lake Storage](/azure/storage/blobs/data-lake-storage-introduction). For example, Logic Apps includes the [Azure Blob Storage connector](/connectors/azureblob/), as the following diagram shows. The connector makes it easy to store massive amounts of unstructured data in [Blob Storage](/azure/storage/blobs/storage-blobs-introduction). Your data becomes reachable from anywhere in the world via HTTP or HTTPS.
 
 :::image type="content" source="media/integrate-ibm-message-queues-azure-02.svg" alt-text="Diagram that shows an architecture for the relationship of IBM MQ and Azure Logic Apps workload." lightbox="media/integrate-ibm-message-queues-azure-02.svg" border="false":::
 
 *Download a [Visio file](https://arch-center.azureedge.net/integrate-ibm-message-queues-azure.vsdx) of this architecture.*
 
-Blob Storage also supports [Azure Data Lake Storage](/azure/storage/blobs/data-lake-storage-introduction), a big data analytics solution for the cloud. You can load data into storage by using [AzCopy](https://github.com/Azure/azure-storage-azcopy/wiki/azcopy), [Azure Data Factory](/azure/data-factory/introduction), or another solution that can connect to storage.
+Blob Storage also supports [Data Lake Storage](/azure/storage/blobs/data-lake-storage-introduction), a big data analytics solution for the cloud. You can load data into storage by using [AzCopy](https://github.com/Azure/azure-storage-azcopy/wiki/azcopy), [Azure Data Factory](/azure/data-factory/introduction), or another solution that can connect to storage.
 
 The PaaS and IaaS architecture options both support many popular managed database services. You can load data by using a custom-built loader, a vendor solution, or a managed service like [Data Factory](/azure/data-factory/introduction).
 
