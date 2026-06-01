@@ -44,7 +44,7 @@ Like most application landing zone implementations, the workload team primarily 
 
 The following resources remain mostly unchanged from the [baseline architecture](./baseline-microsoft-foundry-chat.yml#components).
 
-- **[Foundry resource](/azure/foundry/what-is-foundry)** and **[projects](/azure/foundry/how-to/create-projects)** are an application platform for AI developers and data scientists to build, evaluate, and deploy AI models and host agents. In this architecture, the Foundry resource enables the workload team to host generative AI models as a service (MaaS), implement content safety, and establish workload-specific connections to tools.
+- **[Foundry resource](/azure/foundry/what-is-foundry)** and its **[projects](/azure/foundry/how-to/create-projects)** is an AI application platform. On this platform, the workload's AI developers and data scientists evaluate and deploy AI models. They also use the platform to test and host agents. Each project exposes an endpoint that clients use to interact with the team's agents and models. In this architecture, the Foundry resource enables the workload team to host models as a service (MaaS), implement content safety, and establish agents that use workload-specific connections to tools.
 
   If your organization's AI Center of Excellence restricts access to AI model deployments, the workload team might not host models in their own Foundry resource. Instead, they might need to use [centralized AI resources](/azure/cloud-adoption-framework/scenarios/ai/plan) such as an AI hub. In this scenario, all model consumption usually flows through an AI gateway that your AI platform team provides.
 
@@ -480,9 +480,12 @@ It's expected that you'll be required to use the native integration of Microsoft
 
 Cost Optimization focuses on ways to reduce unnecessary expenses and improve operational efficiencies. For more information, see [Design review checklist for Cost Optimization](/azure/well-architected/cost-optimization/checklist).
 
-All [cost optimization strategies in the baseline architecture](./baseline-microsoft-foundry-chat.yml#cost-optimization) apply to the workload resources in this architecture.
+All [cost optimization strategies in the baseline architecture](./baseline-microsoft-foundry-chat.yml#cost-optimization) apply to the workload resources in this architecture. Use this [preconfigured estimate in the Azure pricing calculator](https://azure.com/e/ab9da2693b5046ed8dece535af402741) to understand the cost of the workload resources. Adjust the values to match your usage patterns and regional pricing.
 
 This architecture greatly benefits from Azure landing zone [platform resources](#platform-team-owned-resources). For example, resources such as Azure Firewall and DDoS Protection transition from workload to platform resources. Even if you use those resources through a chargeback model, the added security and cross-premises connectivity are more cost-effective than self-managing those resources. Take advantage of other centralized offerings from your platform team to extend those benefits to your workload without compromising its service-level objective, recovery time objective, or recovery point objective.
+
+> [!NOTE]
+> The preconfigured pricing estimate doesn't include shared platform infrastructure such as Azure Firewall, Azure Bastion, DDoS Protection, or hub networking resources. The platform team manages those resources in the platform subscriptions, and costs are shared across workloads.
 
 > [!IMPORTANT]
 > Don't try to optimize costs by consolidating Foundry dependencies as platform resources. These services must remain workload resources.
@@ -543,6 +546,7 @@ Learn how to collaborate on technical details with the platform team.
 > [!div class="nextstepaction"]
 > [Subscription vending](/azure/cloud-adoption-framework/ready/landing-zone/design-area/subscription-vending)
 
-## Related resource
+## Related resources
 
-- A Well-Architected Framework perspective on [AI workloads on Azure](/azure/well-architected/ai/get-started)
+- [A Well-Architected Framework perspective on AI workloads on Azure](/azure/well-architected/ai/get-started)
+- [Guardrails and controls](/azure/foundry/guardrails/guardrails-overview)

@@ -40,7 +40,7 @@ Each pattern in this catalog describes the problem that it addresses, considerat
 | Pattern | Summary | Well-Architected Framework pillars |
 | :------ | :------ | :-------------------------------------- |
 | [Ambassador](./ambassador.md) | Create helper services that send network requests on behalf of a consumer service or application. | - Reliability<br><br>- Security |
-| [Anti-Corruption Layer](./anti-corruption-layer.yml) | Implement a façade or adapter layer between a modern application and a legacy system. | - Operational&nbsp;Excellence |
+| [Anti-Corruption Layer](./anti-corruption-layer.md) | Implement a façade or adapter layer between a modern application and a legacy system. | - Operational&nbsp;Excellence |
 | [Asynchronous Request-Reply](asynchronous-request-reply.md) | Decouple back-end processing from a front-end host. This pattern is useful when back-end processing must be asynchronous, but the front end requires a clear and timely response. | - Performance&nbsp;Efficiency |
 | [Backends for Frontends](./backends-for-frontends.md) | Create separate backend services for specific frontend applications or interfaces. | - Reliability<br><br>- Security<br><br>- Performance&nbsp;Efficiency |
 | [Bulkhead](./bulkhead.md) | Isolate elements of an application into pools so that if one fails, the others continue to function. | - Reliability<br><br>- Security<br><br>- Performance&nbsp;Efficiency |
@@ -52,9 +52,9 @@ Each pattern in this catalog describes the problem that it addresses, considerat
 | [Competing Consumers](./competing-consumers.md) | Enable multiple concurrent consumers to process messages that they receive on the same messaging channel. | - Reliability<br><br>- Cost&nbsp;Optimization<br><br>- Performance&nbsp;Efficiency |
 | [Compute Resource Consolidation](./compute-resource-consolidation.md) | Consolidate multiple tasks or operations into a single computational unit. | - Cost&nbsp;Optimization<br><br>- Operational&nbsp;Excellence<br><br>- Performance&nbsp;Efficiency |
 | [CQRS](./cqrs.md) | Separate operations that read data from those that update data by using distinct interfaces. | - Performance&nbsp;Efficiency |
-| [Deployment Stamps](./deployment-stamp.yml) | Deploy multiple independent copies of application components, including data stores. | - Operational&nbsp;Excellence<br><br>- Performance&nbsp;Efficiency |
+| [Deployment Stamps](./deployment-stamp.md) | Deploy multiple independent copies of application components, including data stores. | - Operational&nbsp;Excellence<br><br>- Performance&nbsp;Efficiency |
 | [Event Sourcing](./event-sourcing.md) | Use an append-only store to record a full series of events that describe actions taken on data in a domain. | - Reliability<br><br>- Performance&nbsp;Efficiency |
-| [External Configuration Store](./external-configuration-store.yml) | Move configuration information out of an application deployment package to a centralized location. | - Operational&nbsp;Excellence |
+| [External Configuration Store](./external-configuration-store.md) | Move configuration information out of an application deployment package to a centralized location. | - Operational&nbsp;Excellence |
 | [Federated Identity](./federated-identity.yml) | Delegate authentication to an external identity provider. | - Reliability<br><br>- Security<br><br>- Performance&nbsp;Efficiency |
 | [Gatekeeper](./gatekeeper.md) | Protect applications and services by using a dedicated host instance to validate and sanitize requests before the gatekeeper forwards them to private back ends. | - Security<br><br>- Performance&nbsp;Efficiency |
 | [Gateway Aggregation](./gateway-aggregation.yml) | Use a gateway to aggregate multiple individual requests into a single request. | - Reliability<br><br>- Security<br><br>- Operational&nbsp;Excellence<br><br>- Performance&nbsp;Efficiency |
@@ -80,7 +80,7 @@ Each pattern in this catalog describes the problem that it addresses, considerat
 | [Sidecar](./sidecar.md) | Deploy components into a separate process or container to provide isolation and encapsulation. | - Security<br><br>- Operational&nbsp;Excellence |
 | [Static Content Hosting](./static-content-hosting.yml) | Deploy static content to a cloud-based storage service for direct client delivery. | - Cost&nbsp;Optimization |
 | [Strangler Fig](./strangler-fig.md) | Incrementally migrate a legacy system by gradually replacing pieces of functionality with new applications and services. | - Reliability<br><br>- Cost&nbsp;Optimization<br><br>- Operational&nbsp;Excellence |
-| [Throttling](./throttling.yml) | Control the consumption of resources from applications, tenants, or services. | - Reliability<br><br>- Security<br><br>- Cost&nbsp;Optimization<br><br>- Performance&nbsp;Efficiency |
+| [Throttling](./throttling.md) | Control the consumption of resources from applications, tenants, or services. | - Reliability<br><br>- Security<br><br>- Cost&nbsp;Optimization<br><br>- Performance&nbsp;Efficiency |
 | [Valet Key](./valet-key.yml) | Use a token or key to provide clients with restricted, direct access to a specific resource or service. | - Security<br><br>- Cost&nbsp;Optimization<br><br>- Performance&nbsp;Efficiency |
 
 ## AI agent orchestration patterns

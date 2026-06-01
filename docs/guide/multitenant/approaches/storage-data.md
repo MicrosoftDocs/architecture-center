@@ -88,7 +88,7 @@ Several design patterns from the Azure Architecture Center are relevant to multi
 
 ### Deployment Stamps pattern
 
-For more information about how to use the [Deployment Stamps pattern](../../../patterns/deployment-stamp.yml) to support a multitenant solution, see [Overview](overview.md#deployment-stamps-pattern).
+For more information about how to use the [Deployment Stamps pattern](../../../patterns/deployment-stamp.md) to support a multitenant solution, see [Overview](overview.md#deployment-stamps-pattern).
 
 > [!TIP]
 > In multitenant solutions, it's a good practice to create deployment stamps. This recommendation applies even when you use a multitenant database or sharded databases within a stamp. By modeling your solution as a stamp, you can easily redeploy it as new business opportunities arise.
@@ -107,7 +107,7 @@ However, when you work with shared infrastructure, consider the following drawba
 
 - **Scale limits:** When you rely on a single resource, consider the supported scale and limits of that resource. For example, if your architecture relies on a single shared database, the maximum size of a database or file store, or the maximum throughput limits, eventually become a hard blocker. Carefully consider the maximum scale that you need to achieve and compare it to your current and future limits before you select this pattern.
 
-- **Noisy neighbors:** The [noisy neighbor problem](../../../antipatterns/noisy-neighbor/noisy-neighbor.yml) might become a factor, especially if you have tenants that are busy or generate higher workloads than others. Consider applying the [Throttling pattern](../../../patterns/throttling.yml) or the [Rate Limiting pattern](../../../patterns/rate-limiting-pattern.yml) to mitigate these effects.
+- **Noisy neighbors:** The [noisy neighbor problem](../../../antipatterns/noisy-neighbor/noisy-neighbor.yml) might become a factor, especially if you have tenants that are busy or generate higher workloads than others. Consider applying the [Throttling pattern](../../../patterns/throttling.md) or the [Rate Limiting pattern](../../../patterns/rate-limiting-pattern.yml) to mitigate these effects.
 
 - **Measure tenants' consumption:** Consider whether you need to [measure the consumption](../considerations/measure-consumption.md) of each tenant. Some data services, such as Azure Cosmos DB, provide reporting on resource usage for each transaction. You can track this information and aggregate it to measure the consumption for each tenant. Other services don't provide the same level of detail. For example, when you use Azure Files with premium file shares, you can access metrics for file capacity for each file share dimension. The standard tier provides the metrics only at the storage account level.
 
@@ -176,7 +176,7 @@ For relational databases, these antipatterns include:
 
 There are some features that can be useful for multitenancy. However, these features aren't available in all database services. Consider whether you need the following features when you decide on the service to use for your scenario:
 
-- **Row-level security** can provide security isolation for specific tenants' data in a shared multitenant database. This feature is available in some databases, like SQL Database and Azure Database for PostgreSQL flexible server.
+- **Row-level security** can provide security isolation for specific tenants' data in a shared multitenant database. This feature is available in some databases, like SQL Database and Azure Database for PostgreSQL.
 
     When you use row-level security, you need to ensure that the user's identity and tenant identity are propagated through the application and into the data store with each query. This approach can be complex to design, implement, test, and maintain. Many multitenant solutions don't use row-level security because of those complexities.
 

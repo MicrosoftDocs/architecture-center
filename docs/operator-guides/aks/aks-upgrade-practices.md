@@ -220,8 +220,8 @@ The following output shows node image versions.
 ```output
 Name       NodeImageVersion
 ---------  ---------------------------------------------
-systempool  AKSUbuntu-2204gen2containerd-202601.13.0
-usernodepool  AKSUbuntu-2204gen2arm64containerd-202601.13.0
+systempool  AKSUbuntu-2404gen2containerd-202604.07.0
+usernodepool  AKSUbuntu-2404gen2arm64containerd-202604.07.0
 ```
 
 Use the [az aks nodepool get-upgrades](/cli/azure/aks/nodepool#az-aks-nodepool-get-upgrades) command to determine the latest available node image version for a specific node pool.
@@ -238,8 +238,8 @@ The following output shows the latest available node image versions for the node
 ```output
 Name    NodeImageVersion
 ------  -------------------------------------
-system  AKSAzureLinux-V3gen2-202601.13.0
-user    AKSAzureLinux-V3gen2arm64-202601.13.0
+system  AKSAzureLinux-V3gen2-202604.07.0
+user    AKSAzureLinux-V3gen2arm64-202604.07.0
 ```
 
 ## Cluster upgrades
@@ -423,7 +423,7 @@ Other contributors:
 - [AKS production upgrade strategies](/azure/aks/upgrade-cluster#production-upgrade-strategies)
 - [Deployment Safeguards](/azure/aks/deployment-safeguards)
 - [Define day-2 operations](https://dzone.com/articles/defining-day-2-operations)
-- [A practical guide for zone-redundant AKS clusters](https://techcommunity.microsoft.com/blog/fasttrackforazureblog/a-practical-guide-to-zone-redundant-aks-clusters-and-storage/4036254)
+- [Zone resiliency recommendations for AKS](/azure/aks/reliability-zone-resiliency-recommendations)
 
 ## Related resources
 

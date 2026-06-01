@@ -3,7 +3,7 @@ title: Azure Resource Manager Considerations for Multitenancy
 description: Learn how to use the features of Azure Resource Manager when you work with multitenant systems, and get links to guidance and examples.
 author: johndowns
 ms.author: pnp
-ms.date: 06/11/2025
+ms.date: 04/29/2026
 ms.topic: concept-article
 ms.subservice: architecture-guide
 ms.custom:

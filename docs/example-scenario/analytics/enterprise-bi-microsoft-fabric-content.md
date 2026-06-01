@@ -34,7 +34,7 @@ The following workflow corresponds to the previous diagram.
 
 ### Components
 
-- [Azure SQL Database](/azure/well-architected/service-guides/azure-sql-database-well-architected-framework) is an Azure-hosted PaaS SQL server. In this architecture, SQL Database provides the source data and demonstrates the flow of data for the migration scenario.
+- [Azure SQL Database](/azure/well-architected/service-guides/azure-sql-database) is an Azure-hosted PaaS SQL server. In this architecture, SQL Database provides the source data and demonstrates the flow of data for the migration scenario.
 
 - [OneLake](/fabric/onelake/onelake-overview) is a unified, cloud-based data lake for storing both structured and unstructured data across the organization. In this architecture, OneLake serves as the central storage layer. It uses artifacts such as Fabric Lakehouse, Fabric Warehouse, Fabric Eventhouse, and mirrored databases to persist and organize various types of data for analytics and reporting.
 
@@ -213,7 +213,10 @@ Consider the following common security concerns:
 
 Cost Optimization focuses on ways to reduce unnecessary expenses and improve operational efficiencies. For more information, see [Design review checklist for Cost Optimization](/azure/well-architected/cost-optimization/checklist).
 
-This section outlines pricing details for the various services used in the solution and explains the decisions made for this scenario by using a sample dataset. Use the starting configuration in the [Azure pricing calculator](https://azure.com/e/6cfedbbb9b894042aced62f518a77ec3) and adjust it to fit your scenario. For more information about Fabric SKUs, see [Fabric pricing overview](https://azure.microsoft.com/pricing/details/microsoft-fabric/). For more information about how to generate an estimate of overall Fabric consumption, see the [Fabric capacity estimator](https://www.microsoft.com/microsoft-fabric/capacity-estimator).
+This section outlines pricing details for the various services used in the solution and explains the decisions made for this scenario by using a sample dataset. Use the starting configuration in this [Azure pricing estimate](https://azure.com/e/c84b6daecf514022a3a04c21db9963ca) and adjust it to fit your scenario. For more information about Fabric SKUs, see [Fabric pricing overview](https://azure.microsoft.com/pricing/details/microsoft-fabric/). For more information about how to generate an estimate of overall Fabric consumption, see the [Fabric capacity estimator](https://www.microsoft.com/microsoft-fabric/capacity-estimator).
+
+> [!NOTE]
+> The estimate doesn't include Power BI Pro or Premium Per User licenses. These are per-user costs that are outside the scope of this infrastructure estimate but should be taken into account.
 
 #### Fabric scalable architecture
 

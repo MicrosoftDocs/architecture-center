@@ -38,7 +38,7 @@ The diagram shows the Microsoft Azure architecture that protects APIs by using A
 
 - [Application Gateway](/azure/well-architected/service-guides/azure-application-gateway) is a web traffic load balancer that manages traffic to web applications. This type of routing is known as *application layer (OSI Layer 7) load balancing*. In this architecture, the gateway provides routing and hosts a WAF to protect against common web-based attack vectors.
 
-- [API Management](/azure/well-architected/service-guides/api-management/reliability) is a hybrid, multicloud management platform for APIs across all environments. API Management creates consistent, modern API gateways for existing back-end services. In this architecture, API Management operates in a fully private mode to offload cross-cutting concerns from the API code and hosts.
+- [API Management](/azure/well-architected/service-guides/azure-api-management) is a hybrid, multicloud management platform for APIs across all environments. API Management creates consistent, modern API gateways for existing back-end services. In this architecture, API Management operates in a fully private mode to offload cross-cutting concerns from the API code and hosts.
 
 ### Alternatives
 
