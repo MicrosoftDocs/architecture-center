@@ -20,17 +20,16 @@ The following workflow corresponds to the previous diagram:
 
 1. The *metadata store* activity function saves the document type, location, and page range information for each document in an Azure Cosmos DB store.
 
-1. The *embedding* activity function uses Semantic Kernel's `TextChunker` to split each document into overlap-aware passages sized to the embedding model's context window. The function then calls a `text-embedding-3-large` model deployed in Microsoft Foundry to create vector embeddings for each chunk. The architecture uses `text-embedding-3-large` rather than `text-embedding-3-small` because the document corpus spans multiple document types and benefits from the higher retrieval quality that the larger embedding dimensions provide. The function writes the embeddings and associated content to a vector-enabled index in Azure AI Search and adds a correlation ID to each search document so that search results map back to the corresponding document metadata in Azure Cosmos DB.
+1. The *embedding* activity function uses the Semantic Kernel SDK's `TextChunker` to split each document into overlap-aware passages that are sized to the embedding model's context window. The function then calls a `text-embedding-3-large` model deployed in Microsoft Foundry to create vector embeddings for each chunk. The architecture uses `text-embedding-3-large` rather than `text-embedding-3-small` because the document corpus spans multiple document types and benefits from the higher retrieval quality that the larger embedding dimensions provide. The function writes the embeddings and associated content to a vector-enabled index in AI Search and adds a correlation ID to each search document so that search results map back to the corresponding document metadata in Azure Cosmos DB.
 
    > [!NOTE]
-   > Microsoft Agent Framework has replaced Semantic Kernel for most scenarios. Agent Framework doesn't include a text-splitting primitive, so this architecture uses `TextChunker` from Semantic Kernel for chunking only. Plan to replace `TextChunker` with the splitter when one ships with Agent Framework or another Foundry-aligned library to reduce the number of libraries used in your custom code.
+   > Microsoft Agent Framework replaces Semantic Kernel for most scenarios. Agent Framework doesn't include a text-splitting primitive, so this architecture uses `TextChunker` from Semantic Kernel for chunking only. To reduce the number of libraries used in your custom code, plan to replace `TextChunker` with another splitter when one releases in Agent Framework or another Foundry-aligned library.
 
-1. The web app calls a pre-deployed Microsoft Foundry Agent Service prompt agent through the Azure AI Projects SDK. The workload team deploys and versions the agent as part of its release pipeline. The web app doesn't create agents on the fly per user. The agent has the Azure AI Search tool attached and is configured to ground its responses in the indexed content and return inline citations. For code-first agent definition with custom multi-step orchestration, see the Microsoft Agent Framework alternative in the next section.
+1. The web app calls a pre-deployed Foundry Agent Service prompt agent by using the Azure AI Projects SDK. The workload team deploys and versions the agent as part of its release pipeline. The web app doesn't create agents on the fly per user. The AI Search tool is attached to the agent, and the agent is configured to ground its responses in the indexed content and return inline citations. For code-first agent definition with custom multi-step orchestration, see the Agent Framework alternative in the next section.
 
-1. The agent uses its Azure AI Search tool to run a hybrid (vector + keyword) query against the index, summarizes the retrieved chunks, and returns a cited response to the web app. The web app uses the correlation IDs from the citations to look up the corresponding records in Azure Cosmos DB, which include links to the original document file in Blob Storage.
+1. The agent uses its AI Search tool to run a hybrid (vector + keyword) query against the index, summarizes the retrieved chunks, and returns a cited response to the web app. The web app uses the correlation IDs from the citations to look up the corresponding records in Azure Cosmos DB, which include links to the original document file in Blob Storage.
 
 ### Components
-
 
 - [Durable functions](/azure/azure-functions/durable/durable-functions-overview) is a feature of [Azure Functions](/azure/well-architected/service-guides/azure-functions) that you can use to write stateful functions in a serverless compute environment. In this architecture, a message in a Service Bus queue triggers a durable functions instance. This instance then initiates and orchestrates the document-processing pipeline.
 
@@ -46,13 +45,13 @@ The following workflow corresponds to the previous diagram:
 
 - [AI Search](/azure/search/search-what-is-azure-search) provides a search experience for private, diverse content in web, mobile, and enterprise applications. In this architecture, AI Search [vector storage](/azure/search/vector-store) indexes embeddings of the extracted document content and metadata information so that users can search and retrieve documents by using NLP.
 
-- [Microsoft Foundry](/azure/foundry/what-is-foundry) is a platform that you use to build, test, and deploy AI solutions and models as a service (MaaS). In this architecture, Foundry hosts the chat model that powers the agent and the embedding model that the embedding activity calls.
+- [Foundry](/azure/foundry/what-is-foundry) is a platform that you use to build, test, and deploy AI solutions and models as a service (MaaS). In this architecture, Foundry hosts the chat model that powers the agent and the embedding model that the embedding activity calls.
 
-  - [Foundry projects](/azure/foundry/how-to/create-projects) are specialized workspaces that you use to establish connections to data sources, define agents, and invoke deployed models. This architecture uses a single Foundry project that has a connection to the Azure AI Search service.
+  - [Foundry projects](/azure/foundry/how-to/create-projects) are specialized workspaces that you use to establish connections to data sources, define agents, and invoke deployed models. This architecture uses a single Foundry project that has a connection to the AI Search service.
 
-  - [Foundry Models](/azure/foundry/concepts/foundry-models-overview) is a platform that deploys flagship models, including OpenAI models, from the Azure AI catalog in a Microsoft-hosted environment. This approach uses MaaS deployment. This architecture deploys models by using the [Global Standard](/azure/foundry/foundry-models/concepts/deployment-types#global-standard) configuration with a fixed quota.
+  - [Foundry Models](/azure/foundry/concepts/foundry-models-overview) is a platform that deploys flagship models, including OpenAI models, from the Azure AI catalog in a Microsoft-hosted environment. This approach uses MaaS deployment. The architecture deploys models by using the [Global Standard](/azure/foundry/foundry-models/concepts/deployment-types#global-standard) configuration with a fixed quota.
 
-  - [Foundry Agent Service](/azure/foundry/agents/overview) hosts the prompt agent that handles the chat-with-your-data experience. The web app calls the agent through the Azure AI Projects SDK. The agent uses the [Azure AI Search tool](/azure/foundry/agents/how-to/tools/ai-search) to retrieve grounding context from the vector index and to return responses with inline citations.
+  - [Foundry Agent Service](/azure/foundry/agents/overview) hosts the prompt agent that handles the chat-with-your-data experience. The web app calls the agent by using the AI Projects SDK. The agent uses the [AI Search tool](/azure/foundry/agents/how-to/tools/ai-search) to retrieve grounding context from the vector index and to return responses with inline citations.
 
 ### Alternatives
 
@@ -60,15 +59,15 @@ The following workflow corresponds to the previous diagram:
 
 - To trigger durable functions instances, you can use other messaging platforms, including [Azure Event Grid](/azure/event-grid/overview). Azure Functions supports several event-driven triggers, including HTTP, queues, timers, Blob Storage, and Event Grid. For blob-based processing, you can configure the [Blob Storage trigger to use Event Grid as its source](/azure/azure-functions/functions-event-grid-blob-trigger) by setting `BlobTriggerSource.EventGrid`. The Event Grid source has lower latency than the default polling-based source.
 
-- Instead of calling an embedding model directly from the embedding activity, you can use [AI Search integrated vectorization](/azure/search/vector-search-integrated-vectorization) to have AI Search call the embedding model through an indexer and skillset. This option removes the embedding activity from your Functions code. Choose integrated vectorization over the direct-call pattern in this architecture when:
+- Instead of calling an embedding model directly from the embedding activity, you can use [AI Search integrated vectorization](/azure/search/vector-search-integrated-vectorization) to have AI Search call the embedding model through an indexer and skillset. This option removes the embedding activity from your Functions code. Use integrated vectorization instead of the direct-call pattern in this architecture when:
 
-  - **Your source data is already addressable by an AI Search indexer** (Blob Storage, Azure SQL, Azure Cosmos DB, or Azure Data Lake Storage Gen2). The indexer pulls and chunks on a schedule or change feed without you owning the orchestration code.
-  - **You don't need per-document business logic between extraction and embedding.** This architecture's embedding activity attaches Azure Cosmos DB correlation IDs and applies custom chunk metadata. Integrated vectorization keeps you on the built-in skill set and limits per-chunk customization.
-  - **You want chunking and embedding versioning tied to the index schema.** Integrated vectorization centralizes the chunker, embedding model, and index in the AI Search resource, which simplifies reindexing when the model or chunk strategy changes.
+  - **Your source data is already addressable by an AI Search indexer** (Blob Storage, Azure SQL, Azure Cosmos DB, or Azure Data Lake Storage). The indexer pulls and chunks on a schedule or change feed without you owning the orchestration code.
+  - **You don't need per-document business logic between extraction and embedding.** This architecture's embedding activity attaches Azure Cosmos DB correlation IDs and applies custom chunk metadata. Integrated vectorization keeps you on the built-in skillset and limits per-chunk customization.
+  - **You want chunking and embedding versioning tied to the index schema.** Integrated vectorization centralizes the chunker, embedding model, and index in the AI Search resource, which simplifies re-indexing when the model or chunk strategy changes.
 
-- For code-based agent orchestration, you can build a Hosted agent (preview) with the [Microsoft Agent Framework](/agent-framework/overview/agent-framework-overview) and deploy it to Foundry Agent Service instead of using a prompt agent. Use this option when you need custom multi-step orchestration, multi-agent coordination, or full control over the agent loop.
+- For code-based agent orchestration, you can build a hosted agent (preview) by using the [Agent Framework](/agent-framework/overview/agent-framework-overview) and deploy it to Foundry Agent Service instead of using a prompt agent. Use this option when you need custom multi-step orchestration, multi-agent coordination, or full control over the agent loop.
 
-- To provide a natural language interface for users, you can substitute a different chat model in the Foundry Agent Service prompt agent. This architecture uses `gpt-4.1` as the default agent model. Foundry Models also offers models from Mistral, Meta, Cohere, and Hugging Face that you can swap in based on your quality, latency, and cost targets.
+- To provide a natural language interface for users, you can substitute a different chat model in the Foundry Agent Service prompt agent. This architecture uses `gpt-4.1` as the default agent model. Foundry Models also offers models from Mistral, Meta, Cohere, and Hugging Face that you can use instead of the default, depending on your quality, latency, and cost targets.
 
 ### Scenario details
 
@@ -82,7 +81,7 @@ Many of these custom solutions are based on the state machine workflow pattern. 
 
 Organizations need reliable, scalable, and resilient solutions to process and manage document identification and classification for their organization's document types. This solution can process millions of documents each day with full observability into the success or failure of the processing pipeline.
 
-Users interact with the system in a conversational manner through a Foundry Agent Service prompt agent grounded in the indexed document content. The agent uses retrieval-augmented generation (RAG) to ground answers in source documents and returns inline citations that users can follow back to the original file.
+Users interact with the system in a conversational manner by using a Foundry Agent Service prompt agent that's grounded in the indexed document content. The agent uses retrieval-augmented generation (RAG) to ground answers in source documents and returns inline citations that users can follow back to the original file.
 
 ### Potential use cases
 
@@ -106,9 +105,9 @@ To ensure reliability and high availability when you invoke models from Foundry 
 
 For learning and early proof-of-concept work, use a [Global Standard](/azure/foundry/foundry-models/concepts/deployment-types#global-standard) deployment. Global Standard is pay-as-you-go, provides the highest default quota, and uses the Azure global infrastructure to route each request to the most available region. This approach reduces the chance of encountering regional quota or capacity constraints while you experiment and aligns with the Microsoft guidance to use Global Standard as the default starting point.
 
-For production workloads, choose the [deployment type](/azure/foundry/foundry-models/concepts/deployment-types) along two axes:
+For production workloads, use the following considerations to choose a [deployment type](/azure/foundry/foundry-models/concepts/deployment-types):
 
-- **Data-processing location:** Use *Global* deployments (`GlobalStandard` or `GlobalProvisionedManaged`) when inferencing can occur in any Foundry region. Use *Data Zone* deployments (`DataZoneStandard` or `DataZoneProvisionedManaged`) when inferencing must stay within one of the data zone boundaries. Use *Standard* (`Standard`) or *Regional Provisioned* (`ProvisionedManaged`) when inferencing must stay in a single region. The data at rest in this architecture — document files in Blob Storage, document metadata in Azure Cosmos DB, and the vector index in AI Search — remains in your selected Azure geography for all deployment types. Only the model inference request and response can cross regions when you use Global or Data Zone deployments.
+- **Data-processing location:** Use *Global* deployments (`GlobalStandard` or `GlobalProvisionedManaged`) when inferencing can occur in any Foundry region. Use *Data Zone* deployments (`DataZoneStandard` or `DataZoneProvisionedManaged`) when inferencing must stay within one of the data zone boundaries. Use *Standard* (`Standard`) or *Regional Provisioned* (`ProvisionedManaged`) when inferencing must stay in a single region. The data at rest in this architecture (document files in Blob Storage, document metadata in Azure Cosmos DB, and the vector index in AI Search) remains in your selected Azure geography for all deployment types. Only the model inference request and response can cross regions when you use Global or Data Zone deployments.
 
 - **Throughput and cost model:** Use *Standard* deployment types for low-to-medium, bursty, or exploratory workloads. These types use pay-per-token billing with no reserved capacity. Use *Provisioned* deployment types for predictable, higher-volume workloads that need reserved throughput, lower latency variance, and the option to apply reservations for cost optimization.
 
@@ -136,7 +135,7 @@ To optimize costs, consider the following recommendations:
     - [Save costs with Foundry reservations](/azure/cost-management-billing/reservations/microsoft-foundry)
     - [Plan and manage Foundry costs](/azure/foundry/concepts/manage-costs)
 
-- **Use a [Batch deployment](/azure/foundry/openai/how-to/batch) for the embedding activity.** The embedding step runs in the backend pipeline and isn't user-interactive, which fits the asynchronous Batch model. Global Batch (`GlobalBatch`) and Data Zone Batch (`DataZoneBatch`) can cost less than Global Standard for the same model, with a 24-hour target turnaround.
+- **Use a [Batch deployment](/azure/foundry/openai/how-to/batch) for the embedding activity.** The embedding step runs in the back-end pipeline and isn't user-interactive, which fits the asynchronous Batch model. Global Batch (`GlobalBatch`) and Data Zone Batch (`DataZoneBatch`) can cost less than Global Standard for the same model and provide a 24-hour target turnaround.
 
 - **Plan for [regional deployments and operational scale-up scheduling](/azure/search/search-sku-manage-costs) in AI Search.**
 
