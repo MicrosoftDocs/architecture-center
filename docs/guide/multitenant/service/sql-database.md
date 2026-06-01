@@ -1,9 +1,9 @@
 ---
 title: Multitenancy and Azure SQL Database
-description: This article outlines Azure SQL Database features for designing a multitenant system. It provides guidance and examples for using Azure SQL in a multitenant solution.
+description: This article outlines Azure SQL Database features for designing a multitenant system and provides guidance and examples for using Azure SQL in multitenant solutions.
 author: johndowns
 ms.author: pnp
-ms.date: 05/28/2026
+ms.date: 06/01/2026
 ms.topic: concept-article
 ms.subservice: architecture-guide
 ms.custom: arb-saas
@@ -23,17 +23,17 @@ SQL Database includes many features that support multitenancy.
 
 ### Elastic pools
 
-Elastic pools enable you to share compute resources between multiple databases on the same server. By using elastic pools, you can achieve performance elasticity for each database. You can also maximize cost efficiency by sharing provisioned resources across multiple databases. Elastic pools provide built-in protections against the [noisy neighbor problem](../../../antipatterns/noisy-neighbor/noisy-neighbor.yml).
+Elastic pools support compute resource sharing across multiple databases on the same server. By using elastic pools, you can achieve performance elasticity for each database. You can also maximize cost efficiency by sharing provisioned resources across multiple databases. Elastic pools provide built-in protections against the [noisy neighbor problem](../../../antipatterns/noisy-neighbor/noisy-neighbor.yml).
 
-Hyperscale elastic pools extend the elastic pool model to the Hyperscale service tier. You can host many tenant databases in a single Hyperscale pool and scale the shared compute resources independently of per-tenant data size. Hyperscale pools also support higher storage limits for each database than other elastic pool tiers. Use them when individual tenant databases exceed the storage limits of non-Hyperscale pools. You can add read-scale replica pools to offload read workloads across tenants.
+Hyperscale elastic pools extend the elastic pool model to the Hyperscale service tier. You can host many tenant databases in a single Hyperscale pool and scale the shared compute resources independently of per-tenant data size. Hyperscale pools also support higher storage limits for each database than other elastic pool tiers. Use Hyperscale pools when individual tenant databases exceed the storage limits of non-Hyperscale pools. You can add read-scale replica pools to offload read workloads across tenants.
 
 For more information, see the following resources:
 
 - [SQL Database elastic pools](/azure/azure-sql/database/elastic-pool-overview)
 - [Resource management in dense elastic pools](/azure/azure-sql/database/elastic-pool-resource-management)
-- [Disaster recovery strategies for applications that use SQL Database elastic pools](/azure/azure-sql/database/disaster-recovery-strategies-for-applications-with-elastic-pool)
+- [Disaster recovery (DR) strategies for applications that use SQL Database elastic pools](/azure/azure-sql/database/disaster-recovery-strategies-for-applications-with-elastic-pool)
 - [Hyperscale elastic pools overview](/azure/azure-sql/database/hyperscale-elastic-pool-overview)
-- [Work with Hyperscale elastic pools using command-line tools](/azure/azure-sql/database/hyperscale-elastic-pool-command-line)
+- [Work with Hyperscale elastic pools by using command-line tools](/azure/azure-sql/database/hyperscale-elastic-pool-command-line)
 
 ### Elastic database tools
 
@@ -47,15 +47,11 @@ For more information, see:
 
 ### Row-level security
 
-[Row-level security](/sql/relational-databases/security/row-level-security) helps enforce tenant-level isolation in shared tables.
-
-For more information, see the following resources:
-
-- [Row-level security implementation on Azure SQL](https://www.youtube.com/watch?v=QQobIo-gfmk)
+[Row-level security](/sql/relational-databases/security/row-level-security) helps enforce tenant-level isolation in shared tables. For more information, see [Row-level security implementation on Azure SQL](https://www.youtube.com/watch?v=QQobIo-gfmk).
 
 ### Key management
 
-The Always Encrypted feature provides end-to-end encryption for your databases. If your tenants must supply their own encryption keys, consider deploying separate databases for each tenant and enabling the [Always Encrypted](/sql/relational-databases/security/encryption/always-encrypted-database-engine) feature.
+The [Always Encrypted](/sql/relational-databases/security/encryption/always-encrypted-database-engine) feature provides end-to-end encryption for your databases. If your tenants must supply their own encryption keys, consider deploying separate databases for each tenant and turning on Always Encrypted in those databases.
 
 ## Contributors
 
@@ -75,13 +71,13 @@ Other contributors:
 
 *To see nonpublic LinkedIn profiles, sign in to LinkedIn.*
 
-## Next step
+## Next steps
 
-- **Case study:** [Run one million databases on Azure SQL for a large SaaS provider: Dynamics 365 and Microsoft Power Platform](https://devblogs.microsoft.com/azure-sql/running-1m-databases-on-azure-sql-for-a-large-saas-provider-microsoft-dynamics-365-and-power-platform/)
-- **Video:** [Design patterns for SaaS applications on SQL Database](https://www.youtube.com/watch?v=jjNmcKBVjrc)
+- [Run one million databases on Azure SQL for a large SaaS provider: Dynamics 365 and Microsoft Power Platform](https://devblogs.microsoft.com/azure-sql/running-1m-databases-on-azure-sql-for-a-large-saas-provider-microsoft-dynamics-365-and-power-platform/)
+- [Design patterns for SaaS applications on SQL Database](https://www.youtube.com/watch?v=jjNmcKBVjrc)
+- [Architecture best practices for SQL Database](/azure/well-architected/service-guides/azure-sql-database)
 
 ## Related resources
 
-- [Architectural approaches for storage and data in multitenant solutions](../approaches/storage-data.md).
+- [Architectural approaches for storage and data in multitenant solutions](../approaches/storage-data.md)
 - [Data partitioning strategies for SQL Database](../../../best-practices/data-partitioning-strategies.yml#partitioning-azure-sql-database)
-- [Architecture best practices for Azure SQL Database](/azure/well-architected/service-guides/azure-sql-database)
