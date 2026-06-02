@@ -102,7 +102,7 @@ See [AKS Backup](#aks-backup) to learn about how AKS handles backup and snapshot
 
 You can use [AWS Secrets and Configuration Provider (ASCP) for the Kubernetes Secrets Store CSI driver](https://docs.aws.amazon.com/eks/latest/userguide/manage-secrets.html) to securely store and manage secrets in Secrets Manager and access them from applications that run on Amazon EKS. Access to secrets can be restricted to specific Kubernetes pods via IAM roles and policies. ASCP obtains the pod identity, maps it to an IAM role, assumes that role, and then retrieves only the secrets that the role is permitted to access.
 
-See [AKS and Key Vault](#aks-and-azure-key-vault) to learn about the Key Vault provider for the Secrets Store CSI driver.
+See [AKS and Key Vault](#aks-and-key-vault) to learn about the Key Vault provider for the Secrets Store CSI driver.
 
 ## AKS storage options
 
