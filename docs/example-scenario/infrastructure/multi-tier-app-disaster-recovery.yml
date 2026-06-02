@@ -12,11 +12,6 @@ metadata:
     - web
     - featured
   ms.custom:
-    - product-team
-    - bcdr
-    - web-apps
-    - application-development
-    - example-scenario
     - arb-web
 name: Multitier web application built for high availability and disaster recovery
 azureCategories:

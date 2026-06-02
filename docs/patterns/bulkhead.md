@@ -10,7 +10,10 @@ ms.subservice: cloud-fundamentals
 
 # Bulkhead pattern
 
-The Bulkhead pattern is a type of application design that's tolerant of failure. In a bulkhead architecture, also known as a *cell-based architecture*, elements of an application are isolated into pools so that if one fails, the other elements continue to function. The Bulkhead pattern is named after the sectioned partitions (bulkheads) of a ship's hull. If the hull of a ship is compromised, only the damaged section fills with water, which prevents the ship from sinking.
+Isolate the elements of an application into pools so that if one element fails, the others continue to function. This approach, also known as a *cell-based architecture*, makes an application tolerant of failure and stops a fault in one part of the system from cascading across the rest.
+
+> [!TIP]
+> This pattern is named after the sectioned partitions (bulkheads) of a ship's hull. If the hull of a ship is compromised, only the damaged section fills with water, which prevents the ship from sinking.
 
 ## Context and problem
 

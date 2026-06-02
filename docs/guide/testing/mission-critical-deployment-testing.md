@@ -6,7 +6,6 @@ ms.author: msimecek
 ms.date: 01/30/2025
 ms.topic: concept-article
 ms.subservice: architecture-guide
-ms.custom: mission-critical
 ---
 
 # Continuous validation with Azure Load Testing and Azure Chaos Studio

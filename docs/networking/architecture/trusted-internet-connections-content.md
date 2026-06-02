@@ -249,7 +249,7 @@ Principal author:
 - [How to find your Microsoft Entra tenant ID](/azure/active-directory-b2c/tenant-management-read-tenant-name)
 - [Collect Syslog events with Azure Monitor Agent](/azure/azure-monitor/vm/data-collection-syslog)
 - [Parse text data in Azure Monitor logs](/azure/azure-monitor/logs/parse-text)
-- [Introduction to flow logging for network security groups](/azure/network-watcher/network-watcher-nsg-flow-logging-overview)
+- [Virtual network flow logs](/azure/network-watcher/vnet-flow-logs-overview)
 - [What are managed identities for Azure resources?](/entra/identity/managed-identities-azure-resources/overview)
 - [Deploy and configure Azure Firewall using the Azure portal](/azure/firewall/tutorial-firewall-deploy-portal)
 

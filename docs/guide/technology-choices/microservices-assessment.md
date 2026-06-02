@@ -7,7 +7,6 @@ ms.date: 06/16/2025
 ms.topic: concept-article
 ms.reviewer: nasiddi
 ms.subservice: architecture-guide
-ms.custom: fcp
 ---
 
 # Microservices assessment and readiness 
