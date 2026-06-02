@@ -1,9 +1,9 @@
 ---
-title: Gateway Aggregation pattern
+title: Gateway Aggregation Pattern
 description: Learn about the Gateway Aggregation pattern, which uses a gateway to aggregate many individual requests into a single request.
 ms.author: pnp
 author: claytonsiemens77
-ms.date: 06/01/2026
+ms.date: 06/02/2026
 ms.topic: design-pattern
 ms.subservice: cloud-fundamentals
 ---
@@ -31,7 +31,7 @@ This pattern can reduce the number of requests that the application makes to bac
 In the following diagram, the application sends a request to the gateway (1). The request contains a package of extra requests. The gateway decomposes these requests and processes each request by sending it to the relevant service (2). Each service returns a response to the gateway (3). The gateway combines the responses from each service and sends the response to the application (4). The application makes a single request and receives only a single response from the gateway.
 
 :::image type="complex" border="false" source="./_images/gateway-aggregation.png" alt-text="A solution diagram for the Gateway Aggregation pattern." lightbox="./_images/gateway-aggregation.png":::
-   Diagram that shows a client sending one request to a gateway, which calls multiple back‑end services and returns an aggregated response. The application, the gateway, and three services appear. Three arrows point from the gateway to services 1, 2, and 3. Three arrows point from the services back to the gateway. One arrow points from the application to the gateway, and another arrow points from the gateway to the application.
+   The diagram shows an application sending one request to a gateway, which calls multiple back‑end services and returns an aggregated response. Three arrows point from the gateway to services 1, 2, and 3. Three arrows point from the services back to the gateway. One arrow points from the application to the gateway, and another arrow points from the gateway to the application.
 :::image-end:::
 
 ## Problems and considerations
@@ -44,7 +44,7 @@ Consider the following points as you decide how to implement this pattern:
 
 - The gateway service might introduce a single point of failure (SPoF). Ensure that the gateway is properly designed to meet your application's availability requirements.
 
-- The gateway might introduce a bottleneck. Ensure that the gateway has adequate performance to handle load and can be scaled to meet your anticipated growth.
+- The gateway might introduce a bottleneck. Ensure that the gateway has adequate performance to handle the current load and can be scaled to meet your anticipated growth.
 
 - Perform load testing against the gateway to ensure that you don't introduce cascading failures for services.
 
@@ -82,7 +82,7 @@ Evaluate how to use the Gateway Aggregation pattern in a workload's design to ad
 
 | Pillar | How this pattern supports pillar goals |
 | :----- | :------------------------------------- |
-| [Reliability](/azure/well-architected/reliability/checklist) design decisions help your workload become **resilient** to malfunction and ensure that it **recovers** to a fully functioning state after a failure occurs. | With this topology, you can shift transient fault handling from a distributed implementation across clients to a centralized implementation.<br><br> - [RE:07 Transient faults](/azure/well-architected/reliability/handle-transient-faults) |
+| [Reliability](/azure/well-architected/reliability/checklist) design decisions help your workload become **resilient** to malfunction and ensure that it **recovers** to a fully functioning state after a failure occurs. | With this topology, you can shift transient fault handling from a distributed implementation across clients to a centralized implementation.<br><br> - [Recommendations for handling transient faults](/azure/well-architected/design-guides/handle-transient-faults)|
 | [Security](/azure/well-architected/security/checklist) design decisions help ensure the **confidentiality**, **integrity**, and **availability** of your workload's data and systems. | This topology often reduces the number of touch points that a client has with a system, which reduces the public surface area and authentication points. The aggregated back ends can remain fully network-isolated from clients.<br><br> - [SE:04 Segmentation](/azure/well-architected/security/segmentation)<br> - [SE:08 Harden resources](/azure/well-architected/security/harden-resources) |
 | [Operational Excellence](/azure/well-architected/operational-excellence/checklist) helps deliver **workload quality** through **standardized processes** and team cohesion. | This pattern enables back-end logic to evolve independently from clients. This decoupling gives you the flexibility to change the chained service implementations, or even data sources, without needing to change client touchpoints.<br><br> - [OE:04 Tools and processes](/azure/well-architected/operational-excellence/tools-processes) |
 | [Performance Efficiency](/azure/well-architected/performance-efficiency/checklist) helps your workload **efficiently meet demands** through optimizations in scaling, data, and code. | This design can incur less latency than a design in which the client establishes multiple connections. Caching in aggregation implementations minimizes calls to back-end systems.<br><br> - [PE:03 Select services](/azure/well-architected/performance-efficiency/select-services)<br> - [PE:08 Data performance](/azure/well-architected/performance-efficiency/optimize-data-performance) |
@@ -103,7 +103,7 @@ You can implement this lightweight composition by using the API Management [send
    In the diagram, an arrow points from the customer to API Management. Another arrow points from API Management and splits into three arrows that point to order, shipment, and customer profile. An app environment is shown below and to the right of the customer profile. An arrow points from the payload summary to API Management.
 :::image-end:::
 
-The request flow is as follows:
+The request flow follows these steps:
 
 1. The client sends a request to an order summary endpoint exposed through API Management.
 
@@ -113,7 +113,7 @@ The request flow is as follows:
 
 1. API Management returns the aggregated response to the client.
 
-By introducing this aggregation layer, the solution reduces client-to-service round trips and simplifies client interactions. This layer becomes responsible for handling unresponsive back-end services gracefully and preventing failures from cascading across the aggregated response. Harden your API Management policies with per-request timeouts, conditional error handling, and [circuit breakers](/azure/api-management/backends?tabs=bicep#circuit-breaker).
+By introducing this aggregation layer, the solution reduces client-to-service round trips and simplifies client interactions. This layer becomes responsible for handling unresponsive back-end services gracefully and preventing failures from cascading across the aggregated response. Harden your API Management policies by using per-request timeouts, conditional error handling, and [circuit breakers](/azure/api-management/backends?tabs=bicep#circuit-breaker).
 
 If one of the back-end calls times out or returns an error, API Management can apply the behavior that best fits the operation. For example, it might return a partial response when missing data is acceptable, or it might fail the entire request when complete and consistent order data is required. Make this decision explicit in the policy design so that clients experience predictable behavior.
 
