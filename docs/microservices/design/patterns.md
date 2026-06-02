@@ -37,7 +37,7 @@ The design patterns in this article address these challenges directly. Each patt
 
 - [**Gateway Routing**](../../patterns/gateway-routing.yml) uses an API gateway as a reverse proxy to route client requests to different services based on the request. This approach gives clients a single endpoint instead of many.
 
-  [**Gateway Aggregation**](../../patterns/gateway-aggregation.yml) uses the gateway to combine multiple client requests into a single request. This approach reduces chattiness between clients and services.
+  [**Gateway Aggregation**](../../patterns/gateway-aggregation.md) uses the gateway to combine multiple client requests into a single request. This approach reduces chattiness between clients and services.
 
   [**Gateway Offloading**](../../patterns/gateway-offloading.yml) centralizes cross-cutting functionality, such as Secure Socket Layer (SSL) termination, authentication, and rate limiting, into the gateway so that individual services don't have to implement these concerns separately.
 
