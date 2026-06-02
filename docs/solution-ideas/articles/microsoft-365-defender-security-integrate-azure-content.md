@@ -49,7 +49,7 @@ The preceding services in this list are core services that work throughout Azure
 
 5.  **Network Watcher** provides tools to monitor, diagnose, view metrics, and enable or disable logs for resources in an Azure virtual network. For more information, see [What is Azure Network Watcher?](/azure/network-watcher/network-watcher-monitoring-overview).
 
-6.  **Traffic Analytics** is part of Network Watcher and works on top of logs from network security groups (NSGs). Traffic Analytics offers many dashboards that are capable of aggregating metrics from outbound and inbound connection in Azure Virtual Network. For more information, see [Traffic Analytics](/azure/network-watcher/traffic-analytics).
+6.  **Traffic Analytics** is part of Network Watcher and works on top of virtual network flow logs. Traffic Analytics offers many dashboards that can aggregate metrics for outbound and inbound connections in an Azure virtual network. For more information, see [Traffic Analytics](/azure/network-watcher/traffic-analytics).
 
 7.  **Application Insights** focuses on applications and provides extensible performance management and monitoring for live web apps, including support for a wide range of platforms like .NET, Node.js, Java, and Python. Application Insights is a feature of Azure Monitor. For more information, see [Application Insights overview](/azure/azure-monitor/app/app-insights-overview).
 
@@ -87,7 +87,7 @@ The following list provides information about how to access each of the services
 
 - **Azure Network Watcher**. To access Azure Network Watcher, search for *watcher* in the [Azure portal](https://portal.azure.com).
 
-- **Traffic Analytics**. Traffic Analytics is part of Network Watcher. You can access it from the menu on the left side in Network Watcher. It's a powerful network monitor that works based on your NSGs that are implemented on your individual network interfaces and subnets. Network Watcher requires collection of information from the NSGs. For instructions on how to collect that information, see [Tutorial: Log network traffic to and from a virtual machine using the Azure portal](/azure/network-watcher/network-watcher-nsg-flow-logging-portal).
+- **Traffic Analytics**. Traffic Analytics is part of Network Watcher. You can access it from the menu on the left side in Network Watcher. It's a network monitor that works on top of virtual network flow logs, which record IP traffic flowing through your virtual networks. Network Watcher requires collection of this flow log data. For instructions on how to collect that information, see [Tutorial: Log network traffic to and from a virtual network using the Azure portal](/azure/network-watcher/vnet-flow-logs-tutorial).
 
 - **Application Insight**. Application Insight is part of Azure Monitor. However, you must first create it for the application that you want to monitor. For some applications built on Azure, such as Web Apps, you can create Application Insight directly from the provisioning of Web Apps. To access it, search for *monitor* in the [Azure portal](https://portal.azure.com). In the **Monitor** page, select **Applications** in the menu on the left side.
 
