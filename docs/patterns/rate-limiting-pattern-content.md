@@ -1,4 +1,4 @@
-Control the rate at which your application sends requests to a service so that you stay within the service's [throttling](./throttling.md) and capability limits. This approach helps you avoid or minimize throttling errors and more accurately predict throughput.
+Control the rate at which your application sends requests to a service so that you stay within the service's [throttling](./throttling.md) limits and overall capacity. This approach helps you avoid or minimize throttling errors and more accurately predict throughput.
 
 Rate limiting is appropriate in many scenarios, but it's particularly helpful for large-scale repetitive automated tasks such as batch processing.
 
