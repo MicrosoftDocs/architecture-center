@@ -506,10 +506,9 @@ Choose a tool to back up persistent data. The tool should match your storage typ
 
 To create a volume snapshot in AKS, ensure that the snapshot controller is enabled, create a VolumeSnapshotClass, and then create a VolumeSnapshot that references your PVC. The [Azure Files CSI driver](/azure/aks/create-volume-azure-files) supports creating a volume snapshot from a PVC with Azure Files. The [Azure Disks CSI driver](/azure/aks/create-volume-azure-disk) supports creating a volume snapshot from a PVC with Azure Disks.
 
-### AKS and Azure Key Vault
+### AKS and Key Vault
 
-Just like EKS ASCP for the Kubernetes Secrets Store CSI Driver [Azure Key Vault provider for the Secrets Store CSI Driver](/azure/aks/csi-secrets-store-driver?pivots=azure-cli-create) enables Azure Key Vault to be integrated as a secure secret store for Azure Kubernetes Service (AKS) clusters through a CSI volume. It allows secrets, keys, and certificates to be mounted directly into Pods, supports CSI inline volumes, and enables multiple secret store objects to be mounted within a single volume. The provider also improves Pod portability through the SecretProviderClass Custom Resource Definition (CRD), supports Windows containers, synchronizes with Kubernetes secrets, and offers automatic rotation for both mounted content and synced Kubernetes secrets.
-
+Like EKS ASCP for the Kubernetes Secrets Store CSI driver, [Azure Key Vault provider for the Secrets Store CSI driver](/azure/aks/csi-secrets-store-driver?pivots=azure-cli-create) enables Key Vault to be integrated as a secure secret store for AKS clusters through a CSI volume. You can use it to mount secrets, keys, and certificates directly into Pods. It supports CSI inline volumes, and you can use it to mount multiple secret store objects in a single volume. The provider also improves Pod portability via the SecretProviderClass Custom Resource Definition (CRD), supports Windows containers, synchronizes with Kubernetes secrets, and provides automatic rotation for both mounted content and synced Kubernetes secrets.
 
 ### Cost optimization
 
@@ -521,9 +520,9 @@ To optimize Azure Storage costs, use Azure reservations if the [service supports
 
 Principal authors:
 
-- [Paolo Salvatori](https://www.linkedin.com/in/paolo-salvatori/) | Principal System Engineer
 - [Laura Nicolas](https://www.linkedin.com/in/lauranicolasd/) | Senior Cloud Solution Architect
 - [Pranab Paul](https://www.linkedin.com/in/pranabpaul/) | Senior Global Partner Solution Architect
+- [Paolo Salvatori](https://www.linkedin.com/in/paolo-salvatori/) | Principal System Engineer
 
 Other contributors:
 
