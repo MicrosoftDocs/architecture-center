@@ -153,7 +153,7 @@ To optimize costs, consider the following recommendations:
 
 Performance Efficiency refers to your workload's ability to scale to meet user demands efficiently. For more information, see [Design review checklist for Performance Efficiency](/azure/well-architected/performance-efficiency/checklist).
 
-This solution can expose performance bottlenecks when you process high volumes of data. To ensure proper performance efficiency for your solution, understand and plan for [Azure Functions scaling options](/azure/azure-functions/functions-scale#scale), [Azure AI services autoscaling](/azure/ai-services/autoscale), and [Azure Cosmos DB partitioning](/azure/cosmos-db/partitioning-overview).
+This solution can expose performance bottlenecks when you process high volumes of data. To ensure proper performance efficiency for your solution, understand and plan for [Azure Functions scaling options](/azure/azure-functions/functions-scale#scale), [Foundry Tools autoscaling](/azure/ai-services/autoscale), and [Azure Cosmos DB partitioning](/azure/cosmos-db/partitioning-overview).
 
 - **Apply scalable compute and orchestration** by using durable functions, which is part of Azure Functions, for the document-processing pipeline and tune its scaling behavior. For more information, see [Performance and scale in durable functions](/azure/azure-functions/durable/durable-functions-perf-and-scale).
 
@@ -171,13 +171,12 @@ Apply these practices to help ensure that your document classification solution 
 
 Principal author:
 
-- [Peter Lee](https://www.linkedin.com/in/peter-t-lee/) | Sr. Cloud Solution Architect
+- [Peter Lee](https://www.linkedin.com/in/peter-t-lee/) | Senior Cloud Solution Architect
  
 Other contributors:
 
 - [Kevin Kraus](https://www.linkedin.com/in/kevin-w-kraus) | Principal Solution Engineer
 - [Brian Swiger](https://www.linkedin.com/in/brianswiger) | Principal Solution Engineer
-
 
 *To see nonpublic LinkedIn profiles, sign in to LinkedIn.*
 
@@ -198,7 +197,7 @@ For product documentation, see the following resources:
 - [Document Intelligence documentation](/azure/ai-services/document-intelligence)
 - [AI Search documentation](/azure/search)
 - [Foundry Agent Service documentation](/azure/foundry/agents/overview)
-- [Microsoft Agent Framework documentation](/agent-framework/)
+- [Agent Framework documentation](/agent-framework/)
 
 ## Related resources
 
