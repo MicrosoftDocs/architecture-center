@@ -57,9 +57,9 @@
 			<text x="16.76" y="558.17" class="st4">Client app</text>		</g>
 		<g id="shape4-10" transform="translate(138.131,-430.234)">
 			<title>Rectangle.1005</title>
-			<desc>Stangler Fig façade</desc>
+			<desc>Strangler Fig façade</desc>
 			<rect x="0" y="527.807" width="82.9089" height="37.0652" class="st5"/>
-			<text x="12.64" y="543.04" class="st4">Stangler Fig <tspan x="25.48" dy="1.2em" class="st6">façade</tspan></text>		</g>
+			<text x="10.72" y="543.04" class="st4">Strangler Fig <tspan x="25.48" dy="1.2em" class="st6">façade</tspan></text>		</g>
 		<g id="shape5-14" transform="translate(221.04,-448.766)">
 			<title>Dynamic connector.1007</title>
 			<path d="M0 564.87 L31.01 564.87 L31.01 607.33" class="st7"/>
@@ -122,9 +122,9 @@
 			<text x="16.76" y="558.17" class="st4">Client app</text>		</g>
 		<g id="shape66-70" transform="translate(131.365,-186.046)">
 			<title>Rectangle.39</title>
-			<desc>Stangler Fig façade</desc>
+			<desc>Strangler Fig façade</desc>
 			<rect x="0" y="527.807" width="82.9089" height="37.0652" class="st5"/>
-			<text x="12.64" y="543.04" class="st4">Stangler Fig <tspan x="25.48" dy="1.2em" class="st6">façade</tspan></text>		</g>
+			<text x="10.72" y="543.04" class="st4">Strangler Fig <tspan x="25.48" dy="1.2em" class="st6">façade</tspan></text>		</g>
 		<g id="shape68-74" transform="translate(163.82,-241.5)">
 			<title>Dynamic connector.43</title>
 			<path d="M9 564.87 L9 576.22" class="st7"/>
