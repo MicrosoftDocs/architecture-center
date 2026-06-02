@@ -4,7 +4,7 @@ When you use Azure as a modern data platform, you have your choice of platform a
 
 ## Architecture
 
-:::image type="content" source="media/integrate-ibm-message-queues-azure-01.svg" alt-text="Diagram that shows an architecture for the Azure set-up for the IBM MQ workload." lightbox="media/integrate-ibm-message-queues-azure-01.svg" border="false":::
+:::image type="content" source="media/integrate-ibm-message-queues-azure-01.svg" alt-text="Diagram that shows the Azure setup for the IBM MQ workload." lightbox="media/integrate-ibm-message-queues-azure-01.svg" border="false":::
 
 *Download a [Visio file](https://arch-center.azureedge.net/integrate-ibm-message-queues-azure.vsdx) of this architecture.*
 
