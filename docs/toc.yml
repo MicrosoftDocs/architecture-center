@@ -40,7 +40,7 @@ items:
             href: guide/technology-choices/microservices-assessment.md
           - name: CI/CD for microservices
             displayName: continuous integration continuous delivery
-            href: microservices/ci-cd.yml
+            href: microservices/ci-cd.md
           - name: Domain modeling for microservices
             items:
             - name: Use domain analysis to model microservices
@@ -397,7 +397,7 @@ items:
     href: patterns/ambassador.md
   - name: Anti-Corruption Layer
     displayName: legacy system integration, system boundary translation
-    href: patterns/anti-corruption-layer.yml
+    href: patterns/anti-corruption-layer.md
   - name: Asynchronous Request-Reply
     href: patterns/asynchronous-request-reply.md
   - name: Backends for Frontends
@@ -503,7 +503,7 @@ items:
     displayName: migration, incremental modernization, facade
     href: patterns/strangler-fig.md
   - name: Throttling
-    href: patterns/throttling.yml
+    href: patterns/throttling.md
   - name: Valet Key
     displayName: SAS token, access token
     href: patterns/valet-key.yml
@@ -652,9 +652,9 @@ items:
       - name: Guides
         items:
         - name: SAP landscape architecture
-          href: guide/sap/sap-whole-landscape.yml
+          href: guide/sap/sap-whole-landscape.md
         - name: Inbound and outbound internet connections for SAP on Azure
-          href: guide/sap/sap-internet-inbound-outbound.yml
+          href: guide/sap/sap-internet-inbound-outbound.md
       - name: Architectures
         items:
         - name: SAP BW/4HANA in Linux on Azure
@@ -669,8 +669,6 @@ items:
           href: guide/sap/sap-s4hana.md
       - name: Solution ideas
         items:
-        - name: SAP S/4 HANA for Large Instances
-          href: solution-ideas/articles/sap-s4-hana-on-hli-with-ha-and-dr.yml
         - name: Automate SAP workloads by using SUSE on Azure
           href: solution-ideas/articles/sap-workload-automation-suse.yml
   - name: Containers
@@ -1127,7 +1125,7 @@ items:
         href: example-scenario/wsus/index.yml
       - name: Use the Azure Governance Visualizer
         displayName: ALZ, Azure landing zone
-        href: landing-zones/azure-governance-visualizer-accelerator.yml
+        href: landing-zones/azure-governance-visualizer-accelerator.md
     - name: Architectures
       items:
       - name: Hybrid management
@@ -1224,7 +1222,7 @@ items:
         - name: 'First layer of defense: Azure security'
           href: solution-ideas/articles/azure-security-build-first-layer-defense.yml
         - name: 'Second layer of defense: Defender'
-          href: solution-ideas/articles/microsoft-365-defender-build-second-layer-defense.yml
+          href: solution-ideas/articles/microsoft-defender-xdr-build-second-layer-defense.yml
         - name: Integrate Azure and Defender
           href: solution-ideas/articles/microsoft-365-defender-security-integrate-azure.yml
         - name: Microsoft Sentinel automated responses

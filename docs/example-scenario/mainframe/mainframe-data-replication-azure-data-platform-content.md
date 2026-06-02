@@ -32,7 +32,7 @@ The following data flow corresponds to the previous diagram:
 
 1. The scripts load the ASCII-converted data from sequential files into the target Azure relational database. The load scripts include DDL commands to create tables and other objects and SQL queries to load the data into those objects. Scale the load process horizontally across a cluster to maximize throughput as needed. Execution logs and detailed exception logs are stored in Blob Storage for further analysis.
 
-1. The mLogica LIBER*IRIS data migration service runs the load scripts to transform data from relational file format to NoSQL database format. You can load this NoSQL data to Azure Cosmos DB by using the Azure Cosmos DB SQL API.
+1. The mLogica LIBER*IRIS data migration service runs the load scripts to transform the data from relational rows into denormalized JSON documents and load them into Azure Cosmos DB for NoSQL.
 
 ### Components
 

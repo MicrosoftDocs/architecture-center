@@ -1,0 +1,25 @@
+### YamlMime:Architecture
+metadata:
+  title: Build the Second Layer of Defense by Using Microsoft Defender XDR
+  description: Enhance security in your IT environment by implementing Microsoft Defender XDR across applications and infrastructure to detect and respond to ransomware.
+  author: rudneir2
+  ms.author: ruoliveira
+  ms.custom: fcp
+  ms.date: 05/28/2026
+  ms.topic: solution-idea
+  ms.subservice: solution-idea
+  ai-usage: ai-assisted
+azureCategories:
+  - integration
+  - security
+products:
+  - defender-office365
+  - defender-for-cloud-apps
+  - defender-identity
+  - m365
+  - mem
+name: Build the second layer of defense by using Microsoft Defender XDR
+summary: Enhance security in your IT environment by implementing Microsoft Defender XDR across applications and infrastructure to detect and respond to ransomware.
+thumbnailUrl: /azure/architecture/browse/thumbs/microsoft-defender-xdr-build-second-layer-defense.png
+content: |
+  [!INCLUDE[](microsoft-defender-xdr-build-second-layer-defense-content.md)]

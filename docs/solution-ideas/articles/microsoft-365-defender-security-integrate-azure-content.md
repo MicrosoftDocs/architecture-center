@@ -8,7 +8,7 @@ This article builds on the previous articles in the series:
 
 2. [Build the first layer of defense with Azure Security services](./azure-security-build-first-layer-defense.yml) maps an example of some Azure security services that create the first layer of defense to protect your Azure environment according to Azure Security Benchmark version 3.
 
-3. [Build the second layer of defense with Microsoft Defender XDR Security services](./microsoft-365-defender-build-second-layer-defense.yml) describes an example of a series of attacks against your IT environment and how to add another layer of protection by using Microsoft Defender XDR.
+3. [Build the second layer of defense by using Microsoft Defender XDR Security services](./microsoft-defender-xdr-build-second-layer-defense.yml) describes an example of a series of attacks against your IT environment and how to add another layer of protection by using Microsoft Defender XDR.
 
 ## Architecture
 
@@ -49,7 +49,7 @@ The preceding services in this list are core services that work throughout Azure
 
 5.  **Network Watcher** provides tools to monitor, diagnose, view metrics, and enable or disable logs for resources in an Azure virtual network. For more information, see [What is Azure Network Watcher?](/azure/network-watcher/network-watcher-monitoring-overview).
 
-6.  **Traffic Analytics** is part of Network Watcher and works on top of logs from network security groups (NSGs). Traffic Analytics offers many dashboards that are capable of aggregating metrics from outbound and inbound connection in Azure Virtual Network. For more information, see [Traffic Analytics](/azure/network-watcher/traffic-analytics).
+6.  **Traffic Analytics** is part of Network Watcher and works on top of virtual network flow logs. Traffic Analytics offers many dashboards that can aggregate metrics for outbound and inbound connections in an Azure virtual network. For more information, see [Traffic Analytics](/azure/network-watcher/traffic-analytics).
 
 7.  **Application Insights** focuses on applications and provides extensible performance management and monitoring for live web apps, including support for a wide range of platforms like .NET, Node.js, Java, and Python. Application Insights is a feature of Azure Monitor. For more information, see [Application Insights overview](/azure/azure-monitor/app/app-insights-overview).
 
@@ -83,11 +83,11 @@ The following list provides information about how to access each of the services
 
 - **Microsoft Defender for Identity**. Defender for Identity is part of Microsoft 365. You access the service through [https://portal.atp.azure.com](https://portal.atp.azure.com). Although it's a cloud service, Defender for Identity is responsible for also protecting identity on on-premises systems.
 
-- **Microsoft Endpoint Manager**. Endpoint Manager is the new name for Intune, Configuration Manager, and other services. Access it through [https://endpoint.microsoft.com](https://endpoint.microsoft.com). To learn more about accessing the services that are provided by Microsoft Defender XDR and how each portal is related, see [Build the second layer of defense with Microsoft Defender XDR Security services](./microsoft-365-defender-build-second-layer-defense.yml).
+- **Microsoft Endpoint Manager**. Endpoint Manager is the new name for Intune, Configuration Manager, and other services. Access it through [https://endpoint.microsoft.com](https://endpoint.microsoft.com). To learn more about accessing the services that are provided by Microsoft Defender XDR and how each portal is related, see [Build the second layer of defense by using Microsoft Defender XDR Security services](./microsoft-defender-xdr-build-second-layer-defense.yml).
 
 - **Azure Network Watcher**. To access Azure Network Watcher, search for *watcher* in the [Azure portal](https://portal.azure.com).
 
-- **Traffic Analytics**. Traffic Analytics is part of Network Watcher. You can access it from the menu on the left side in Network Watcher. It's a powerful network monitor that works based on your NSGs that are implemented on your individual network interfaces and subnets. Network Watcher requires collection of information from the NSGs. For instructions on how to collect that information, see [Tutorial: Log network traffic to and from a virtual machine using the Azure portal](/azure/network-watcher/network-watcher-nsg-flow-logging-portal).
+- **Traffic Analytics**. Traffic Analytics is part of Network Watcher. You can access it from the menu on the left side in Network Watcher. It's a network monitor that works on top of virtual network flow logs, which record IP traffic flowing through your virtual networks. Network Watcher requires collection of this flow log data. For instructions on how to collect that information, see [Tutorial: Log network traffic to and from a virtual network using the Azure portal](/azure/network-watcher/vnet-flow-logs-tutorial).
 
 - **Application Insight**. Application Insight is part of Azure Monitor. However, you must first create it for the application that you want to monitor. For some applications built on Azure, such as Web Apps, you can create Application Insight directly from the provisioning of Web Apps. To access it, search for *monitor* in the [Azure portal](https://portal.azure.com). In the **Monitor** page, select **Applications** in the menu on the left side.
 
@@ -120,7 +120,7 @@ The example architecture in this article uses the following Azure components:
 Monitoring solutions on Azure might seem confusing at first, because Azure offers multiple monitoring services. However, each Azure monitoring service is important in the security and monitoring strategy that's described in this series. The articles in this series describe the various services and how to plan effective security for your IT environment.
 1. [Map threats to your IT environment](./map-threats-it-environment.yml)
 2. [Build the first layer of defense with Azure Security services](./azure-security-build-first-layer-defense.yml)
-3. [Build the second layer of defense with Microsoft Defender XDR Security services](./microsoft-365-defender-build-second-layer-defense.yml)
+3. [Build the second layer of defense by using Microsoft Defender XDR Security services](./microsoft-defender-xdr-build-second-layer-defense.yml)
 
 ### Potential use cases
 
@@ -162,7 +162,7 @@ For more information about this reference architecture, see the other articles i
 
 - Part 1: [Map threats to your IT environment](./map-threats-it-environment.yml)
 - Part 2: [Build the first layer of defense with Azure Security services](./azure-security-build-first-layer-defense.yml)
-- Part 3: [Build the second layer of defense with Microsoft Defender XDR Security services](./microsoft-365-defender-build-second-layer-defense.yml)
+- Part 3: [Build the second layer of defense by using Microsoft Defender XDR Security services](./microsoft-defender-xdr-build-second-layer-defense.yml)
 
 For related architectures on Azure Architecture Center, see the following article:
 

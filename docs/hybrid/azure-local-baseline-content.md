@@ -21,6 +21,8 @@ For more information about guidelines and recommendations for the five pillars o
    The architecture diagram shows an on-premises Azure Local environment connected to Azure. The on-premises environment contains a multi-node Azure Local cluster. The cluster is connected to dual ToR switches for network connectivity. The Azure environment shows several Azure services that integrate with Azure Local. These services include Azure Arc, Azure Monitor, Azure Key Vault, Azure Policy, Microsoft Defender for Cloud, Azure Update Manager, Azure Backup, and Azure Site Recovery.
 :::image-end:::
 
+*Download a [PowerPoint file](https://arch-center.azureedge.net/azure-local-baseline.pptx) of this architecture.*
+
 For more information, see [Related resources](#related-resources).
 
 ## Components
