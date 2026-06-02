@@ -100,7 +100,7 @@ See [AKS Backup](#aks-backup) to learn about how AKS handles backup and snapshot
 
 ### EKS and AWS Secrets Manager
 
-You can use [AWS Secrets and Configuration Provider (ASCP) for the Kubernetes Secrets Store CSI driver](https://docs.aws.amazon.com/eks/latest/userguide/manage-secrets.html) to securely store and manage secrets in Secrets Manager and access them from applications that run on Amazon EKS. Access to secrets can be restricted to specific Kubernetes Pods via IAM roles and policies. ASCP obtains the Pod identity, maps it to an IAM role, assumes that role, and then retrieves only the secrets that the role is permitted to access.
+You can use [AWS Secrets and Configuration Provider (ASCP) for the Kubernetes Secrets Store CSI driver](https://docs.aws.amazon.com/eks/latest/userguide/manage-secrets.html) to securely store and manage secrets in Secrets Manager and access them from applications that run on Amazon EKS. Access to secrets can be restricted to specific Kubernetes pods via IAM roles and policies. ASCP obtains the pod identity, maps it to an IAM role, assumes that role, and then retrieves only the secrets that the role is permitted to access.
 
 See [AKS and Key Vault](#aks-and-azure-key-vault) to learn about the Key Vault provider for the Secrets Store CSI driver.
 
@@ -414,7 +414,7 @@ Azure Container Storage uses existing Azure Storage offerings for actual data st
 
 - **[Local NVMe disk](/azure/storage/container-storage/use-container-storage-with-local-disk):** Use local NVMe storage resources on AKS nodes. NVMe is designed for high-speed data transfer between storage and CPU. It provides high IOPS and throughput.
 
-- **[Elastic SAN](/azure/storage/elastic-san/elastic-san-introduction):** Provision on-demand, fully managed resources. Elastic SAN suits general purpose databases, streaming and messaging services, continuous integration and continuous delivery environments, and other tier-1 or tier-2 workloads. Multiple clusters can access a single storage area network (SAN) concurrently. However persistent volumes can only be attached by one consumer at a time.
+- **[Elastic SAN](/azure/storage/elastic-san/elastic-san-introduction):** Provision on-demand, fully managed resources. Elastic SAN suits general purpose databases, streaming and messaging services, continuous integration and continuous delivery environments, and other tier-1 or tier-2 workloads. Multiple clusters can access a single storage area network (SAN) concurrently. However, persistent volumes can only be attached by one consumer at a time.
 
 Azure Container Storage suits the following scenarios:
 
@@ -469,7 +469,7 @@ AKS Automatic manages the storage lifecycle for you. AKS Standard gives you more
 | Category | Amazon EKS Auto Mode | Azure Kubernetes Service (AKS) Automatic |
 | --- | --- | --- |
 | Overall storage philosophy | Managed infrastructure automation, but storage configuration remains more explicit and user-driven. | Managed Kubernetes experience with storage preconfigured and ready to use. |
-| Default StorageClass availability | EKS Auto Mode does not create a default StorageClass. You must create one yourself. | AKS automatically creates and manages default storage classes for the cluster. |
+| Default StorageClass availability | EKS Auto Mode doesn't create a default StorageClass. You must create one yourself. | AKS automatically creates and manages default storage classes for the cluster. |
 | Default provisioning behavior | PVCs that require dynamic provisioning remain pending until a StorageClass is created and optionally marked as default. | PVCs work immediately without additional setup because a default storage class already exists. |
 | Underlying default block storage | Amazon EBS via the EBS CSI provisioner. | Azure managed disks via the Azure Disk CSI driver. |
 | CSI driver management | EBS CSI functionality is managed as part of EKS Auto Mode. | Azure Disk CSI driver is integrated and managed by AKS. |
@@ -508,7 +508,7 @@ To create a volume snapshot in AKS, ensure that the snapshot controller is enabl
 
 ### AKS and Key Vault
 
-Like EKS ASCP for the Kubernetes Secrets Store CSI driver, [Azure Key Vault provider for the Secrets Store CSI driver](/azure/aks/csi-secrets-store-driver?pivots=azure-cli-create) enables Key Vault to be integrated as a secure secret store for AKS clusters through a CSI volume. You can use it to mount secrets, keys, and certificates directly into Pods. It supports CSI inline volumes, and you can use it to mount multiple secret store objects in a single volume. The provider also improves Pod portability via the SecretProviderClass Custom Resource Definition (CRD), supports Windows containers, synchronizes with Kubernetes secrets, and provides automatic rotation for both mounted content and synced Kubernetes secrets.
+Like EKS ASCP for the Kubernetes Secrets Store CSI driver, [Azure Key Vault provider for the Secrets Store CSI driver](/azure/aks/csi-secrets-store-driver?pivots=azure-cli-create) enables Key Vault to be integrated as a secure secret store for AKS clusters through a CSI volume. You can use it to mount secrets, keys, and certificates directly into pods. It supports CSI inline volumes, and you can use it to mount multiple secret store objects in a single volume. The provider also improves pod portability via the SecretProviderClass Custom Resource Definition (CRD), supports Windows containers, synchronizes with Kubernetes secrets, and provides automatic rotation for both mounted content and synced Kubernetes secrets.
 
 ### Cost optimization
 
