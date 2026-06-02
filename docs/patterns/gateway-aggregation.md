@@ -103,6 +103,8 @@ You can implement this lightweight composition by using the API Management [send
    In the diagram, an arrow points from the customer to API Management. Another arrow points from API Management and splits into three arrows that point to order, shipment, and customer profile. An app environment is shown below and to the right of the customer profile. An arrow points from the payload summary to API Management.
 :::image-end:::
 
+*Download a [Visio file](https://arch-center.azureedge.net/gateway-aggregation-example.vsdx) of this architecture.*
+
 The request flow follows these steps:
 
 1. The client sends a request to an order summary endpoint exposed through API Management.
