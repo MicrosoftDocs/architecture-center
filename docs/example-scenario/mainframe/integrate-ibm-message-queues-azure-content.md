@@ -94,7 +94,7 @@ You can use Logic Apps connectors to send messages directly to [Azure Storage](/
 
 *Download a [Visio file](https://arch-center.azureedge.net/integrate-ibm-message-queues-azure.vsdx) of this architecture.*
 
-Blob Storage also supports [Data Lake Storage](/azure/storage/blobs/data-lake-storage-introduction), a big data analytics solution for the cloud. You can load data into storage by using [AzCopy](https://github.com/Azure/azure-storage-azcopy/wiki/azcopy), [Azure Data Factory](/azure/data-factory/introduction), or another solution that can connect to storage.
+Blob Storage also supports [Data Lake Storage](/azure/storage/blobs/data-lake-storage-introduction), a big data analytics solution for the cloud. You can load data into storage by using [AzCopy](/azure/storage/common/storage-use-azcopy-v10), [Azure Data Factory](/azure/data-factory/introduction), or another solution that can connect to storage.
 
 The PaaS and IaaS architecture options both support many popular managed database services. You can load data by using a custom-built loader, a vendor solution, or a managed service like [Data Factory](/azure/data-factory/introduction).
 
