@@ -2,7 +2,7 @@ This article presents a high-availability solution for a web application that ma
 
 ## Architecture
 
-:::image type="complex" border="false" source="_images/minimal-storage-change-feed-replicate-data.svg" alt-text="Diagram that shows the minimal storage architecture." lightbox="_images/minimal-storage-change-feed-replicate-data.svg":::
+:::image type="complex" border="false" source="images/minimal-storage-change-feed-replicate-data.svg" alt-text="Diagram that shows the minimal storage architecture." lightbox="images/minimal-storage-change-feed-replicate-data.svg":::
    Diagram that shows an internet icon that connects via dotted arrows to Microsoft Entra ID and Azure DNS and via a solid arrow to Azure Front Door. Azure Front Door then connects to two active regions. Each active region contains a box that contains the Azure App Service web app and Azure Functions, which connect via Azure Queue Storage. These boxes connect to an Azure Cosmos DB box. In the larger active region, Azure Cosmos DB connects to the change feed, and it connects via a dotted arrow to Azure Cosmos DB in the smaller active region. The dotted arrow is labeled geo-replication. Azure Cosmos DB loops back to the first box via Azure Managed Redis. In the larger active region, the Azure Cosmos DB box also connects to Azure Functions. Azure Functions periodically removes expired data from Azure Cosmos DB. Azure Functions connects to Azure Table Storage in both active regions. In the smaller active region, the first box connects to Azure Cosmos DB. After geo-replication, Azure Cosmos DB loops back to the smaller active region's first box via Azure Managed Redis. 
 :::image-end:::
 
