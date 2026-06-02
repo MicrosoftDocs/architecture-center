@@ -96,7 +96,7 @@ Azure provides managed services that support more secure, scalable, and efficien
 
 This architecture addresses scalable and secure cloud storage as well as managed databases for migrating mainframe data and supporting modern application requirements.
 
-- [Azure Cosmos DB](/azure/well-architected/service-guides/cosmos-db) is a fully managed NoSQL database service that you can use Azure Cosmos DB to migrate mainframe, nontabular data to Azure. In this architecture, it stores nonrelational data migrated from mainframe systems like VSAM files and provides global distribution for international user bases.
+- [Azure Cosmos DB](/azure/well-architected/service-guides/cosmos-db) is a fully managed NoSQL database service that you can use to migrate mainframe, nontabular data to Azure. In this architecture, it stores nonrelational data migrated from mainframe systems like VSAM files and provides global distribution for international user bases.
 
 - [Azure Database for MySQL](/azure/well-architected/service-guides/azure-database-for-mysql) is a fully managed MySQL database service. In this architecture, it supports applications that require open-source database compatibility during the mainframe modernization process.
 

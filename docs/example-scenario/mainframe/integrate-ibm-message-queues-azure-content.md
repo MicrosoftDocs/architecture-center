@@ -1,6 +1,6 @@
 [!INCLUDE [header_file](../../../includes/sol-idea-header.md)]
 
-When you use Azure as a modern data platform, you have your choice of platform as a service (PaaS) or infrastructure as a service (IaaS). PaaS provides cloud-native options for data ingestion, transformation, and storage. IaaS gives you greater control over your hybrid infrastructure, starting with the size and type of virtual machines (VM) you choose. With either approach, you can take advantage of a variety of fully managed relational, NoSQL, and in-memory databases, storage solutions, and analytics offerings that span proprietary and open-source engines. This example architecture shows both approaches.
+When you use Azure as a modern data platform, you have your choice of platform as a service (PaaS) or infrastructure as a service (IaaS). PaaS provides cloud-native options for data ingestion, transformation, and storage. IaaS gives you greater control over your hybrid infrastructure, starting with the size and type of virtual machines (VMs) you choose. With either approach, you can take advantage of a variety of fully managed relational, NoSQL, and in-memory databases, storage solutions, and analytics offerings that span proprietary and open-source engines. This example architecture shows both approaches.
 
 ## Architecture
 
@@ -90,7 +90,7 @@ Either of these approaches can be used to:
 
 You can use Logic Apps connectors to send messages directly to [Azure Storage](/azure/storage/common/storage-introduction) and [Data Lake Storage](/azure/storage/blobs/data-lake-storage-introduction). For example, Logic Apps includes the [Azure Blob Storage connector](/connectors/azureblob/), as the following diagram shows. The connector makes it easy to store massive amounts of unstructured data in [Blob Storage](/azure/storage/blobs/storage-blobs-introduction). Your data becomes reachable from anywhere in the world via HTTP or HTTPS.
 
-:::image type="content" source="media/integrate-ibm-message-queues-azure-02.svg" alt-text="Diagram that shows an architecture for the relationship of IBM MQ and Azure Logic Apps workload." lightbox="media/integrate-ibm-message-queues-azure-02.svg" border="false":::
+:::image type="content" source="media/integrate-ibm-message-queues-azure-02.svg" alt-text="Diagram that shows the relationship between IBM MQ and an Azure Logic Apps workload." lightbox="media/integrate-ibm-message-queues-azure-02.svg" border="false":::
 
 *Download a [Visio file](https://arch-center.azureedge.net/integrate-ibm-message-queues-azure.vsdx) of this architecture.*
 
