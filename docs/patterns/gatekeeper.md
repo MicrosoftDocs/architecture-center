@@ -89,6 +89,8 @@ The Gatekeeper pattern typically implements a layered request path, where each l
    Users connect to Azure Application Gateway, which is in a virtual network, via a public IP. The virtual network includes Application Gateway, Azure API Management, a private endpoint, and three subnets. An arrow points from Application Gateway to API Management, from API Management to the private endpoint, and from the private endpoint to Azure App Service. Azure Monitor is below App Service.
 :::image-end:::
 
+*Download a [Visio file](https://arch-center.azureedge.net/gatekeeper.vsdx) of this architecture.*
+
 In this design, [Azure Application Gateway with Azure Web Application Firewall](/azure/web-application-firewall/ag/ag-overview) is the outer gatekeeper. It inspects internet-facing traffic and applies security controls before traffic reaches the API tier. [Azure API Management](/azure/api-management/api-management-key-concepts) is the inner gatekeeper. It applies API-specific controls and forwards only approved traffic to private back ends.
 
 For example, Azure Web Application Firewall can detect and block SQL injection and cross-site scripting patterns, enforce protocol and request-size rules, and apply bot and IP-based filtering before requests reach API Management or private back ends.
