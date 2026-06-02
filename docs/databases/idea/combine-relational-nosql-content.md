@@ -4,7 +4,7 @@ Applications often handle diverse data workloads that have different characteris
 
 Some workloads need the strict transactional guarantees and complex relational queries of a relational database, while other workloads need the flexible schemas and horizontal scalability of a NoSQL database. A polyglot approach assigns each workload to the platform designed for its dominant access pattern, rather than forcing a single platform to handle requirements it isn't optimized for. For more information, see [Data considerations for microservices](../../microservices/design/data-considerations.md).
 
-:::image type="complex" source="_images/combine-relational-nosql/scenario-diagram.svg" lightbox="_images/combine-relational-nosql/scenario-diagram.svg" alt-text="Diagram that shows a client calling an API proxy that routes to two APIs and separate NoSQL and relational databases." border="false":::
+:::image type="complex" source="images/combine-relational-nosql/scenario-diagram.svg" lightbox="images/combine-relational-nosql/scenario-diagram.svg" alt-text="Diagram that shows a client calling an API proxy that routes to two APIs and separate NoSQL and relational databases." border="false":::
    The diagram shows a client sending requests to an API proxy. The API proxy routes requests to two back-end services, named API 1 and API 2. API 1 connects to a NoSQL database, and API 2 connects to a relational database. API 1 and API 2 are also connected to each other with a bidirectional relationship that indicates interaction or synchronization between the two services. The overall flow shows a split data architecture in which one API path uses NoSQL storage and the other API path uses relational storage. In this flow, the proxy serves as the entry point for client requests.
 :::image-end:::
 
@@ -18,7 +18,7 @@ With a domain-driven microservices approach, each service uses the database that
 
 ## Architecture
 
-:::image type="complex" source="_images/combine-relational-nosql/solution-diagram.svg" border="false" lightbox="_images/combine-relational-nosql/solution-diagram.svg" alt-text="Diagram that shows a polyglot persistence architecture where domain-driven microservices use Azure Cosmos DB or SQL Database, depending on data requirements.":::
+:::image type="complex" source="images/combine-relational-nosql/solution-diagram.svg" border="false" lightbox="images/combine-relational-nosql/solution-diagram.svg" alt-text="Diagram that shows a polyglot persistence architecture where domain-driven microservices use Azure Cosmos DB or SQL Database, depending on data requirements.":::
    Diagram of an e-commerce polyglot persistence architecture. Users access the system through web and mobile clients, which connect to an Azure API Management gateway. The gateway routes requests to a microservices layer that contains seven domain-driven services connected by bidirectional arrows: User profile, user session, product catalog, shopping cart, order management, inventory, and payments. Each microservice connects to a dedicated database chosen by data requirements. The first four services use Azure Cosmos DB: profile, session state, product catalog, and shopping cart. Azure Cosmos DB is selected for flexible schemas, elastic scaling, and millisecond latency. The last three services use SQL Database: order management, inventory, and payment. SQL Database is selected for ACID compliance, relational queries, and transactional integrity.
 :::image-end:::
 
