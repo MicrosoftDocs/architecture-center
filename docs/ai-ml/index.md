@@ -317,7 +317,7 @@ You can use Fabric Data Factory to ingest, prepare, and transform data from mult
 
 Data Factory supports code solutions and no-code or low-code solutions:
 
-- Use [data pipelines](/fabric/data-factory/pipeline-overview) to create workflow capabilities at cloud scale. Use the select-and-move interface to build workflows that can refresh your dataflow, move petabyte-size data, and define control-flow pipelines.
+- Use [data pipelines](/fabric/data-factory/pipeline-overview) to create workflow capabilities at cloud scale. Use the select-and-move interface to build workflows that can refresh your data flow, move petabyte-size data, and define control-flow pipelines.
 
 - Use [dataflows](/fabric/data-factory/dataflows-gen2-overview) as a low-code interface to ingest data from hundreds of data sources and transform it by using over 300 data transformations.
 

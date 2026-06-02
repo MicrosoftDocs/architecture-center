@@ -40,7 +40,7 @@ items:
             href: guide/technology-choices/microservices-assessment.md
           - name: CI/CD for microservices
             displayName: continuous integration continuous delivery
-            href: microservices/ci-cd.yml
+            href: microservices/ci-cd.md
           - name: Domain modeling for microservices
             items:
             - name: Use domain analysis to model microservices
@@ -397,7 +397,7 @@ items:
     href: patterns/ambassador.md
   - name: Anti-Corruption Layer
     displayName: legacy system integration, system boundary translation
-    href: patterns/anti-corruption-layer.yml
+    href: patterns/anti-corruption-layer.md
   - name: Asynchronous Request-Reply
     href: patterns/asynchronous-request-reply.md
   - name: Backends for Frontends
@@ -430,15 +430,12 @@ items:
     href: patterns/cqrs.md
   - name: Deployment Stamps
     displayName: Scale units, cell-based architecture
-    href: patterns/deployment-stamp.yml
-  - name: Edge Workload Configuration
-    displayName: IoT, device configuration
-    href: patterns/edge-workload-configuration.md
+    href: patterns/deployment-stamp.md
   - name: Event Sourcing
     displayName: Event store, append-only, audit trail
     href: patterns/event-sourcing.md
   - name: External Configuration Store
-    href: patterns/external-configuration-store.yml
+    href: patterns/external-configuration-store.md
   - name: Federated Identity
     displayName: Single sign-on, SSO
     href: patterns/federated-identity.yml
@@ -506,7 +503,7 @@ items:
     displayName: migration, incremental modernization, facade
     href: patterns/strangler-fig.md
   - name: Throttling
-    href: patterns/throttling.yml
+    href: patterns/throttling.md
   - name: Valet Key
     displayName: SAS token, access token
     href: patterns/valet-key.yml
@@ -632,44 +629,32 @@ items:
           href: example-scenario/mainframe/general-mainframe-refactor.yml
         - name: IBM z/OS migration with Avanade AMT
           href: example-scenario/mainframe/avanade-amt-zos-migration.yml
-        - name: IBM z/OS online transaction processing
-          href: example-scenario/mainframe/ibm-zos-online-transaction-processing-azure.yml
-        - name: Integrate IBM MQs with Azure
-          href: example-scenario/mainframe/integrate-ibm-message-queues-azure.yml
         - name: Migrate AIX workloads with Skytap
           href: example-scenario/mainframe/migrate-aix-workloads-to-azure-with-skytap.yml
-        - name: Migrate HP-UX workloads
-          href: example-scenario/mainframe/hp-ux-stromasys-charon-par.yml
         - name: Migrate IBM i series to Azure with Skytap
           href: example-scenario/mainframe/migrate-ibm-i-series-to-azure-with-skytap.yml
-        - name: Refactor mainframe with CloudFrame Renovate
-          href: example-scenario/mainframe/cloudframe-renovate-mainframe-refactor.yml
         - name: Refactor Adabas & Natural systems
           href: example-scenario/mainframe/refactor-adabas-aks.yml
         - name: Refactor mainframe with Raincode
           href: reference-architectures/app-modernization/raincode-reference-architecture.yml
         - name: Rehost Adabas & Natural applications
           href: example-scenario/mainframe/rehost-adabas-software-ag.yml
-        - name: Rehost IMS workloads by using IMSql
-          href: example-scenario/mainframe/imsql-rehost-ims.yml
-        - name: Solaris emulator on Azure VMs
-          href: solution-ideas/articles/solaris-azure.yml
         - name: Unisys ClearPath Forward OS 2200 enterprise server virtualization on Azure
           href: mainframe/virtualization-of-unisys-clearpath-forward-os-2200-enterprise-server-on-azure.yml
         - name: Unisys ClearPath MCP virtualization on Azure
           href: example-scenario/mainframe/unisys-clearpath-forward-mainframe-rehost.yml
-        - name: Unisys Dorado migration
-          href: example-scenario/mainframe/migrate-unisys-dorado-mainframe-apps-with-astadia-micro-focus.yml
-        - name: Unisys mainframe migration with Avanade AMT
-          href: reference-architectures/migration/unisys-mainframe-migration.yml
+    - name: Solution ideas
+      items:
+      - name: IBM z/OS online transaction processing
+        href: example-scenario/mainframe/ibm-zos-online-transaction-processing-azure.yml
     - name: SAP
       items:
       - name: Guides
         items:
         - name: SAP landscape architecture
-          href: guide/sap/sap-whole-landscape.yml
+          href: guide/sap/sap-whole-landscape.md
         - name: Inbound and outbound internet connections for SAP on Azure
-          href: guide/sap/sap-internet-inbound-outbound.yml
+          href: guide/sap/sap-internet-inbound-outbound.md
       - name: Architectures
         items:
         - name: SAP BW/4HANA in Linux on Azure
@@ -684,8 +669,6 @@ items:
           href: guide/sap/sap-s4hana.md
       - name: Solution ideas
         items:
-        - name: SAP S/4 HANA for Large Instances
-          href: solution-ideas/articles/sap-s4-hana-on-hli-with-ha-and-dr.yml
         - name: Automate SAP workloads by using SUSE on Azure
           href: solution-ideas/articles/sap-workload-automation-suse.yml
   - name: Containers
@@ -755,7 +738,7 @@ items:
           items:
           - name: Access an AKS API server
             displayName: Azure Kubernetes Service
-            href: guide/security/access-azure-kubernetes-service-cluster-api-server.yml
+            href: security/access-azure-kubernetes-service-cluster-api-server.md
           - name: AKS day-2 operations guide
             items:
             - name: Introduction
@@ -862,8 +845,6 @@ items:
         href: databases/guide/big-data-architectures.md
       - name: Governance
         items:
-        - name: Data obfuscation with Delphix
-          href: databases/guide/data-obfuscation-with-delphix-in-azure-data-factory.yml
         - name: Data scrambling for SAP with Delphix
           href: databases/guide/data-scrambling-for-sap-using-delphix-and-azure-data-factory.yml
         - name: Collection structure for a federated Microsoft Purview catalog
@@ -896,8 +877,6 @@ items:
           href: databases/architecture/azure-synapse-analytics-integrate-mongodb-atlas.yml
       - name: Mainframe
         items:
-        - name: Replicate and sync mainframe data
-          href: reference-architectures/migration/sync-mainframe-data-with-azure.yml
         - name: Mainframe data replication with Connect
           href: example-scenario/mainframe/mainframe-replication-precisely-connect.yml
         - name: Mainframe data replication with Qlik
@@ -939,8 +918,12 @@ items:
           href: solution-ideas/articles/secure-sql-managed-instance-managed-hardware-security-module.yml
       - name: NoSQL
         items:
-        - name: Minimal storage – change feed replication
+        - name: Minimal storage - change feed replication
           href: databases/idea/minimal-storage-change-feed-replicate-data.yml
+      - name: Mainframe
+        items:
+        - name: Replicate and sync mainframe data
+          href: reference-architectures/migration/sync-mainframe-data-with-azure.yml
   - name: DevOps
     items:
     - name: Get started
@@ -951,9 +934,9 @@ items:
         href: guide/azure-sandbox/azure-sandbox.md
       - name: DevSecOps on AKS
         displayName: Azure Kubernetes Service
-        href: guide/devsecops/devsecops-on-aks.yml
+        href: guide/devsecops/devsecops-on-aks.md
       - name: Use deployment scripts to check resource properties
-        href: guide/devops/deployment-scripts-property-check.yml
+        href: guide/devops/deployment-scripts-property-check.md
     - name: Architectures
       items:
       - name: Automate API deployments with APIOps
@@ -1096,6 +1079,10 @@ items:
         href: example-scenario/integration/queues-events.yml
       - name: Real-time monitoring and observable systems for media
         href: example-scenario/monitoring/monitoring-observable-systems-media.yml
+    - name: Solution ideas
+      items:
+      - name: Integrate IBM MQs with Azure
+        href: example-scenario/mainframe/integrate-ibm-message-queues-azure.yml
   - name: Internet of Things
     items:
     - name: Guides
@@ -1108,7 +1095,7 @@ items:
         href: guide/iot/scale-iot-solution-azure.md
       - name: Move IoT Hub solutions to production
         displayName: Internet of Things
-        href: example-scenario/iot/iot-move-to-production.yml
+        href: example-scenario/iot/iot-move-to-production.md
       - name: Multitenant IoT Hub-based solutions
         displayName: Internet of Things
         href: guide/multitenant/approaches/iot.md
@@ -1138,7 +1125,7 @@ items:
         href: example-scenario/wsus/index.yml
       - name: Use the Azure Governance Visualizer
         displayName: ALZ, Azure landing zone
-        href: landing-zones/azure-governance-visualizer-accelerator.yml
+        href: landing-zones/azure-governance-visualizer-accelerator.md
     - name: Architectures
       items:
       - name: Hybrid management
@@ -1207,7 +1194,7 @@ items:
   - name: Security
     items:
     - name: Get started
-      href: guide/security/security-start-here.yml
+      href: security/security-get-started.md
     - name: Guides
       items:
       - name: Virtual Network security options
@@ -1221,7 +1208,7 @@ items:
         href: ai-ml/architecture/secure-compute-for-research.yml
       - name: Computer forensics
         href: example-scenario/forensics/index.yml
-      - name: Certificate lifecycle management on Azure
+      - name: Certificate life cycle management on Azure
         href: example-scenario/certificate-lifecycle/index.yml
     - name: Solution ideas
       items:
@@ -1235,7 +1222,7 @@ items:
         - name: 'First layer of defense: Azure security'
           href: solution-ideas/articles/azure-security-build-first-layer-defense.yml
         - name: 'Second layer of defense: Defender'
-          href: solution-ideas/articles/microsoft-365-defender-build-second-layer-defense.yml
+          href: solution-ideas/articles/microsoft-defender-xdr-build-second-layer-defense.yml
         - name: Integrate Azure and Defender
           href: solution-ideas/articles/microsoft-365-defender-security-integrate-azure.yml
         - name: Microsoft Sentinel automated responses
@@ -1265,12 +1252,12 @@ items:
           href: example-scenario/file-storage/sql-server-azure-netapp-files.yml
       - name: Hybrid file services
         href: hybrid/hybrid-file-services.yml
-      - name: Mainframe
-        items:
-        - name: Mainframe file replication on Azure
-          href: solution-ideas/articles/mainframe-azure-file-replication.yml
-        - name: Move mainframe archive data to Azure
-          href: example-scenario/mainframe/move-archive-data-mainframes.yml
+      - name: Move mainframe archive data to Azure
+        href: example-scenario/mainframe/move-archive-data-mainframes.yml
+    - name: Solution ideas
+      items:
+      - name: Mainframe file replication on Azure
+        href: solution-ideas/articles/mainframe-azure-file-replication.yml
   - name: Virtual Desktop
     items:
     - name: Get started

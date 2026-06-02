@@ -6,7 +6,6 @@ ms.author: pnp
 ms.date: 06/30/2025
 ms.topic: concept-article
 ms.subservice: architecture-guide
-ms.custom: fcp
 ---
 
 # Microservices architecture style
@@ -28,6 +27,8 @@ Microservices are small, independent, and loosely coupled components that a sing
 In addition to the services themselves, other components appear in a typical microservices architecture:
 
 - **Management or orchestration:** This management component handles microservices orchestration. It schedules and deploys services across nodes, detects failures, recovers from failures, and enables autoscaling based on demand. A container orchestration platform like Kubernetes typically provides this functionality. In cloud-native environments, solutions such as Azure Container Apps provide managed orchestration and built-in scaling. These tools reduce deployment complexity and operational overhead.
+
+  For help evaluating these platforms, see [Choose an Azure compute option for microservices](../../microservices/design/compute-options.md).
 
 - **API gateway:** The API gateway serves as the entry point for clients. Clients send requests to the API gateway instead of calling services directly. The gateway forwards those requests to the appropriate back-end services. It also handles cross-cutting concerns such as authentication, logging, and load balancing. In cloud-native microservices architectures, lightweight service proxies like Envoy and Nginx support internal service-to-service communication. This type of internal traffic, known as east-west traffic, enables advanced routing and traffic control.
 
@@ -146,5 +147,5 @@ The following articles present a structured approach for designing, building, an
 ## Related resources
 
 - [Build a CI/CD pipeline for microservices on Kubernetes](../../microservices/ci-cd-kubernetes.yml)
-- [CI/CD for microservices architectures](../../microservices/ci-cd.yml)
+- [CI/CD for microservices architectures](../../microservices/ci-cd.md)
 - [Microservices architecture on Azure Kubernetes Service (AKS)](../../reference-architectures/containers/aks-microservices/aks-microservices.yml)

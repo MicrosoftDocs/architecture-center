@@ -377,7 +377,7 @@ Every architecture is susceptible to failures. The exercise of failure mode anal
 | Component | Risk | Likelihood | Effect/Mitigation/Note | Outage |
 |-----------|------|------------|------------------------|--------|
 | Microsoft Entra ID | Misconfiguration | Medium | Ops users unable to sign in. No downstream effect. Help desk reports configuration issue to identity team. | None |
-| Application Gateway | Misconfiguration | Medium | Misconfigurations should be caught during deployment. If these errors happen during a configuration update, DevOps team must roll back changes. Most deployments that use the v2 SKU take around 6 minutes to provision. However it can take longer depending on the type of deployment. For example, deployments across multiple availability zones with many instances can take more than 6 minutes. | Full |
+| Application Gateway | Misconfiguration | Medium | Misconfigurations should be caught during deployment. If these errors happen during a configuration update, DevOps team must roll back changes. Most deployments that use the v2 SKU take around six minutes to provision. However it can take longer depending on the type of deployment. For example, deployments across multiple availability zones with many instances can take more than six minutes. | Full |
 | Application Gateway | DDoS attack | Medium | Potential for disruption. Microsoft manages DDoS (L3 and L4) protection. Potential risk of effect from L7 attacks. | Full |
 | Virtual Machine Scale Sets | Service outage | Low | Potential workload outage if there are unhealthy VM instances that trigger autorepair. Dependent on Microsoft to remediate. | Potential outage |
 | Virtual Machine Scale Sets | Availability zone outage | Low | No effect. Scale sets are deployed as zone redundant. | None |
@@ -544,6 +544,8 @@ The VMs use the [Key Vault VM extension](/azure/virtual-machines/extensions/key-
 ### Cost Optimization
 
 Cost Optimization is about looking at ways to reduce unnecessary expenses and improve operational efficiencies. For more information, see [Design review checklist for Cost Optimization](/azure/well-architected/cost-optimization/checklist).
+
+Use the [preconfigured estimate in the Azure pricing calculator](https://azure.com/e/8594eedc1e5847178f6c6d27895e6f51) to get an approximation of the monthly cost of the infrastructure components used in this architecture. Adjust the values to match your expected traffic and workload characteristics.
 
 #### Component cost
 

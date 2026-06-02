@@ -61,7 +61,6 @@ AWS IAM temporary elevated access is an open-source security solution that grant
 
 [Microsoft Entra Privileged Identity Management (PIM)](/entra/id-governance/privileged-identity-management/pim-configure) provides just-in-time privileged access management. You use PIM to manage, control, and monitor access to important resources and critical permissions in your organization. PIM includes features such as role activation via approval workflows, time-bound access, and access reviews to ensure that privileged roles are only granted when necessary and are fully audited.
 
-
 | AWS service | Azure service | Description |
 |------------|---------------|-------------|
 | [AWS CloudTrail](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/cloudtrail-user-guide.html) | [Microsoft Entra privileged access audit](/entra/id-governance/privileged-identity-management/pim-how-to-use-audit-log) | Comprehensive audit logging for privileged access activities |
@@ -148,14 +147,17 @@ Both platforms provide identity services to secure application access and API au
 | [Cognito user pool Lambda triggers](https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-identity-pools-working-with-aws-lambda-triggers.html) | [Microsoft identity platform custom authentication extensions](/entra/identity-platform/custom-extension-overview) | Extensibility mechanisms for authentication flows |
 | [AWS Web Application Firewall with Cognito](https://docs.aws.amazon.com/cognito/latest/developerguide/user-pool-waf.html) | No direct equivalent | Security policies for access control |
 
+## Migration
+
+If you plan to migrate an AWS workload to Azure, see [Migrate security services from Amazon Web Services to Azure](/azure/migration/migrate-security-from-aws), which includes some specific [example migration scenarios](/azure/migration/migrate-security-from-aws#migration-scenarios) that might align to your use case.
+
 ## Contributors
 
 *Microsoft maintains this article. The following contributors wrote this article.*
 
 Principal author:
 
-- [Jerry Rhoads](https://www.linkedin.com/in/jerrymsft/) |
-Principal Partner Solutions Architect
+- [Jerry Rhoads](https://www.linkedin.com/in/jerrymsft/) | Principal Partner Solutions Architect
 
 Other contributor:
 

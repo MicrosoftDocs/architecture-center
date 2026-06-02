@@ -13,7 +13,6 @@ metadata:
     - integration
   ms.custom:
     - arb-data
-    - example-scenario
   ms.collection:
     - migration
     - onprem-to-azure

@@ -155,7 +155,7 @@ Low-level performance data for individual components in a system might be availa
 
 Much of the analysis work consists of aggregating performance data by user request type or the subsystem or service to which each request is sent. An example of a user request is adding an item to a shopping cart or performing the checkout process in an e-commerce system.
 
-Another common requirement is summarizing performance data in selected percentiles. For example, an operator might determine the response times for 99 percent of requests, 95 percent of requests, and 70 percent of requests. There might be SLA targets or other goals set for each percentile. The ongoing results should be reported in near real time to help detect immediate issues. The results should also be aggregated over the longer time for statistical purposes.
+Another common requirement is summarizing performance data in selected percentiles. For example, an operator might determine the response times for 99% of requests, 95% of requests, and 70% of requests. There might be SLA targets or other goals set for each percentile. The ongoing results should be reported in near real time to help detect immediate issues. The results should also be aggregated over the longer time for statistical purposes.
 
 In the case of latency issues affecting performance, an operator should be able to quickly identify the cause of the bottleneck by examining the latency of each step that each request performs. The performance data must therefore provide a means of correlating performance measures for each step to tie them to a specific request.
 
@@ -212,12 +212,12 @@ Many commercial systems that support paying customers make commitments about the
 
 SLAs are often defined in terms of:
 
-- Overall system availability. For example, an organization might commit to the system being available 99.9 percent of the time. This equates to no more than 9 hours of downtime per year, or approximately 10 minutes a week.
+- Overall system availability. For example, an organization might commit to the system being available 99.9% of the time. This equates to no more than nine hours of downtime per year, or approximately 10 minutes a week.
 - Operational throughput. This aspect is often expressed as one or more high-water marks, such as committing that the system can support up to 100,000 concurrent user requests or handle 10,000 concurrent business transactions.
-- Operational response time. The system might also make commitments for the rate at which requests are processed. An example is that 99 percent of all business transactions finish within two seconds, and no single transaction takes longer than 10 seconds.
+- Operational response time. The system might also make commitments for the rate at which requests are processed. An example is that 99% of all business transactions finish within 2 seconds, and no single transaction takes longer than 10 seconds.
 
 > [!NOTE]
-> Some contracts for commercial systems might also include SLAs for customer support. An example is that all help-desk requests elicit a response within five minutes, and that 99 percent of all problems are fully addressed within one working day. Effective [issue tracking](#issue-tracking) (described later in this section) is key to meeting SLAs such as these.
+> Some contracts for commercial systems might also include SLAs for customer support. An example is that all help-desk requests elicit a response within five minutes, and that 99% of all problems are fully addressed within one working day. Effective [issue tracking](#issue-tracking) (described later in this section) is key to meeting SLAs such as these.
 
 ### Requirements for SLA monitoring
 
@@ -700,7 +700,7 @@ Alerting usually depends on the following instrumentation data:
 
 Operators might receive alert information by using many delivery channels such as email, a pager device, or an SMS text message. An alert might also include an indication of how critical a situation is. Many alerting systems support subscriber groups, and all operators who are members of the same group can receive the same set of alerts.
 
-An alerting system should be customizable, and the appropriate values from the underlying instrumentation data can be provided as parameters. This approach enables an operator to filter data and focus on those thresholds or combinations of values that are of interest. In some cases, the raw instrumentation data can be provided to the alerting system. In other situations, it might be more appropriate to supply aggregated data. (For example, an alert can be triggered if the CPU utilization for a node has exceeded 90 percent over the last 10 minutes). The details provided to the alerting system should also include any appropriate summary and context information. This data can help reduce the possibility that false-positive events trip an alert.
+An alerting system should be customizable, and the appropriate values from the underlying instrumentation data can be provided as parameters. This approach enables an operator to filter data and focus on those thresholds or combinations of values that are of interest. In some cases, the raw instrumentation data can be provided to the alerting system. In other situations, it might be more appropriate to supply aggregated data. (For example, an alert can be triggered if the CPU utilization for a node has exceeded 90% over the last 10 minutes). The details provided to the alerting system should also include any appropriate summary and context information. This data can help reduce the possibility that false-positive events trip an alert.
 
 ### Reporting
 

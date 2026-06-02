@@ -242,7 +242,7 @@ Performance Efficiency is the ability of your workload to meet the demands place
 [azure-kubernetes-service-on-azs-hci-service-page]: /azure/aks/hybrid/overview
 [azure-arc-enabled-kubernetes-service-page]: /azure/azure-arc/kubernetes/overview
 [azure-arc-enabled-data-services-service-page]: /azure/azure-arc/data/overview
-[sql-managed-instance-service-page]: /azure/well-architected/service-guides/azure-sql-managed-instance/reliability
+[sql-managed-instance-service-page]: /azure/well-architected/service-guides/azure-sql-managed-instance
 [azure-arc-enabled-sql-managed-instance-service-page]: /azure/azure-arc/data/managed-instance-overview
 [azure-resource-manager-service-page]: /azure/azure-resource-manager/management/overview
 [azure-monitor-service-page]: /azure/azure-monitor/overview

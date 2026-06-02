@@ -87,7 +87,7 @@ Traffic to private endpoints uses the Azure network backbone and is encrypted. Y
 
 In this case, deploy private endpoints in your hub in a dedicated subnet. This setup provides the following benefits:
 
-- Simplifies your secure network address translation (SNAT) rule configuration. You can create a single SNAT rule in your network virtual appliance (NVA) for traffic to the dedicated subnet that contains your private endpoints. You can route traffic to other applications without applying SNAT.
+- Simplifies your source network address translation (SNAT) rule configuration. You can create a single SNAT rule in your network virtual appliance (NVA) for traffic to the dedicated subnet that contains your private endpoints. You can route traffic to other applications without applying SNAT.
 
 - Simplifies your route table configuration. For traffic that flows to private endpoints, you can add a rule to route that traffic through your NVA. You can reuse that rule across all spokes, virtual private network (VPN) gateways, and Azure ExpressRoute gateways.
 - Enables you to apply network security group rules for inbound traffic in the subnet that you dedicate to a private endpoint. These rules filter traffic to your resources. They provide a single place to control access to your resources.

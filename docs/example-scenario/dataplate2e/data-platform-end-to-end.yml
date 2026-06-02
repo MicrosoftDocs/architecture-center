@@ -12,8 +12,6 @@ metadata:
     - databases
   ms.custom:
     - arb-data
-    - data-analytics
-    - example-scenario
   ai-usage: ai-assisted
 name: Analytics end-to-end with Microsoft Fabric
 azureCategories:

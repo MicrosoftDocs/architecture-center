@@ -4,7 +4,7 @@ description: Learn how to securely develop and deploy efficient and scalable cod
 author: dbarkol
 ms.author: dabarkol
 ms.topic: concept-article
-ms.date: 07/03/2024
+ms.date: 04/22/2026
 ms.subservice: architecture-guide
 ---
 
@@ -60,7 +60,7 @@ Additionally, running in an Azure Functions Premium plan and consuming events fr
 
 Principal author:
 
- - [David Barkol](https://www.linkedin.com/in/davidbarkol/) | Principal Solution Specialist GBB
+ - [David Barkol](https://www.linkedin.com/in/davidbarkol/) | AI Apps GBB
 
 *To see non-public LinkedIn profiles, sign in to LinkedIn.*
 
