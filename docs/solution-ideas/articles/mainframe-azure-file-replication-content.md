@@ -18,7 +18,7 @@ The following data flow corresponds to the previous diagram:
 
 1. Transfer files to Azure:
 
-   - The easiest way to transfer files on-premises to Azure is by using [Secure File Transfer Protocol (SFTP)](https://en.wikipedia.org/wiki/SSH_File_Transfer_Protocol). You can host an SFTP server on an Azure virtual machine (VM). A simple SFTP job control language (JCL) sends files to Azure in binary format, which is essential to preserving mainframe and midrange computation and binary data types. You can store transmitted files in on-premises disks, Azure VM file storage, or Azure Blob Storage.
+   - The easiest way to transfer files on-premises to Azure is by using [Secure File Transfer Protocol (SFTP)](https://wikipedia.org/wiki/SSH_File_Transfer_Protocol). You can host an SFTP server on an Azure virtual machine (VM). A simple SFTP job control language (JCL) sends files to Azure in binary format, which is essential to preserving mainframe and midrange computation and binary data types. You can store transmitted files in on-premises disks, Azure VM file storage, or Azure Blob Storage.
 
    - You can also upload on-premises files to Blob Storage by using tools like [AzCopy](/azure/storage/common/storage-use-azcopy-v10).
 
