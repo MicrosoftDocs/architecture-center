@@ -12,12 +12,7 @@ metadata:
     - databases
   ms.custom:
     - arb-data
-    - acom-architecture
-    - data streaming scenario
-    - interactive-diagram
-    - data
     - arb-containers
-    - "https://azure.microsoft.com/solutions/architecture/data-streaming-scenario"
 name: Data streaming with AKS
 azureCategories:
   - databases

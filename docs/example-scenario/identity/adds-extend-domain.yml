@@ -8,7 +8,6 @@ metadata:
   ms.topic: example-scenario
   ms.subservice: example-scenario
   ms.custom:
-    - identity
     - e2e-hybrid
 name: Deploy AD DS in an Azure virtual network
 azureCategories:

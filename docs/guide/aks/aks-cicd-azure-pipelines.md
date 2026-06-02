@@ -11,10 +11,6 @@ ms.category:
  - devops
  - developer-tools
 ms.custom:
- - acom-architecture
- - microservices
- - devops
- - kubernetes
  - e2e-aks
  - arb-containers
 ai-usage: ai-assisted

@@ -8,7 +8,6 @@ metadata:
   ms.topic: example-scenario
   ms.subservice: example-scenario
   ms.custom:
-  - fcp
   - arb-hybrid
 azureCategories:
   - "security"

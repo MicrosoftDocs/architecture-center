@@ -50,7 +50,7 @@ The following resources remain mostly unchanged from the [baseline architecture]
 
   This article assumes that generative AI models in this scenario are workload owned and hosted resources. If they're not, the model host or an [AI gateway](/azure/api-management/genai-gateway-capabilities) becomes a workload dependency. The platform team must maintain reliable network connectivity from your virtual network to their virtual network or a private endpoint must be established.
 
-- **[Agent Service](/azure/foundry/agents/overview)** is a cloud-native runtime environment that enables intelligent agents to operate securely and autonomously. In this architecture, Agent Service provides the orchestration layer for chat interactions. It hosts and manages the chat agent that processes user requests. This architecture supports both prompt-based and containerized (hosted) agents.
+- **[Agent Service](/azure/foundry/agents/overview)** is a cloud-native runtime environment that enables intelligent agents to operate securely and autonomously. In this architecture, Agent Service provides the orchestration layer for chat interactions. It hosts and manages the [prompt agent](/azure/foundry/agents/overview#agent-types) that processes user requests, consistent with the baseline architecture. The landing zone networking and governance design in this article applies whether you deploy a prompt agent or a containerized hosted agent.
 
   Use the [standard agent setup](/azure/foundry/agents/concepts/standard-agent-setup) in this architecture. Connect your agent to a dedicated subnet in your spoke virtual network, and route egress traffic through your connectivity subscription.
 

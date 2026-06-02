@@ -63,7 +63,6 @@ The following articles help you evaluate and select the best database technologi
 
 **Data governance**
 
-- [Data obfuscation by using Delphix](../databases/guide/data-obfuscation-with-delphix-in-azure-data-factory.yml)
 - [Data scrambling for SAP by using Delphix](../databases/guide/data-scrambling-for-sap-using-delphix-and-azure-data-factory.yml)
 - [Collection structure for a federated Microsoft Purview catalog](../guide/data/collection-structure-federated-catalog.md)
 
