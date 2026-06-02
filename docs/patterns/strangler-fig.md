@@ -10,7 +10,7 @@ ms.subservice: cloud-fundamentals
 
 # Strangler Fig pattern
 
-This pattern incrementally migrates a legacy system by gradually replacing specific pieces of functionality with new applications and services. As you replace features from the legacy system, the new system eventually comprises all of the old system's features. This approach suppresses the old system so that you can decommission it.
+Incrementally migrate a legacy system by gradually replacing specific pieces of functionality with new applications and services. As you replace features from the legacy system, the new system eventually comprises all of the old system's features. This approach suppresses the old system so that you can decommission it.
 
 ## Context and problem
 

@@ -8,9 +8,9 @@ ms.topic: design-pattern
 ms.subservice: cloud-fundamentals
 ---
 
-# CQRS pattern
+# Command Query Responsibility Segregation (CQRS) pattern
 
-Command Query Responsibility Segregation (CQRS) is a design pattern that segregates read and write operations for a data store into separate data models. This approach allows each model to be optimized independently and can improve the performance, scalability, and security of an application.
+Segregate the read and write operations for a data store into separate data models. This approach allows you to optimize each model independently and can improve the performance, scalability, and security of an application.
 
 ## Context and problem
 

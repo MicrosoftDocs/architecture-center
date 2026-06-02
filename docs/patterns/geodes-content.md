@@ -1,4 +1,4 @@
-The Geode pattern involves deploying a collection of backend services into a set of **ge**ographical n**ode**s, each of which can service any request for any client in any region. This pattern allows serving requests in an *active-active* style, improving latency and increasing availability by distributing request processing around the globe.
+Deploy a collection of backend services into a set of **ge**ographical n**ode**s, each of which can service any request from any client in any region. This *active-active* approach distributes request processing around the globe to improve latency and increase availability.
 
 ![Geode map](./_images/geode.jpg)
 
