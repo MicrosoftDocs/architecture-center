@@ -12,7 +12,6 @@ metadata:
     - web
     - featured
   ms.custom:
-    - bcdr
     - arb-web
 name: Multitier web application built for high availability and disaster recovery
 azureCategories:

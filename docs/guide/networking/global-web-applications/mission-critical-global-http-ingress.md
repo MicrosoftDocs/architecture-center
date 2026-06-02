@@ -7,7 +7,6 @@ ms.reviewer: dburkhardt
 ms.date: 11/25/2025
 ms.topic: concept-article
 ms.subservice: architecture-guide
-ms.custom: guide
 ---
 
 # Mission-critical global HTTP ingress

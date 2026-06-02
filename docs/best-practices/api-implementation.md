@@ -6,8 +6,6 @@ author: claytonsiemens77
 ms.date: 07/25/2022
 ms.topic: best-practice
 ms.subservice: best-practice
-ms.custom:
-  - best-practice
 ---
 
 <!-- cSpell:ignore CNAME WADL hashedOrderEtag nonMatchEtags matchEtags -->
