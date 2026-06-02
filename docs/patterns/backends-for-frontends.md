@@ -10,7 +10,7 @@ ms.subservice: cloud-fundamentals
 
 # Backends for Frontends pattern
 
-This pattern describes how to decouple backend services from frontend implementations to tailor experiences for different client interfaces. This pattern is useful when you want to avoid customizing a backend that serves multiple interfaces. This pattern is based on the [Backends for Frontends pattern by Sam Newman](https://samnewman.io/patterns/architectural/bff/).
+Create a separate backend service for each frontend interface, instead of using a single general-purpose backend for all of them. This approach lets you tailor each backend to the needs of its frontend and avoids the bottleneck of a shared backend that serves multiple interfaces. It's based on the [Backends for Frontends pattern by Sam Newman](https://samnewman.io/patterns/architectural/bff/).
 
 ## Context and problem
 

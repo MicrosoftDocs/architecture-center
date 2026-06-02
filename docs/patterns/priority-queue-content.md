@@ -1,4 +1,4 @@
-The priority queue pattern enables a workload to process high-priority tasks more quickly than lower-priority tasks. This pattern uses messages sent to one or more queues and is useful in applications that offer different service level guarantees to individual clients.
+Prioritize requests sent to services so that a workload processes high-priority requests more quickly than lower-priority ones. This approach uses messages sent to one or more queues and is useful in applications that offer different service level guarantees to individual clients.
 
 ## Context and problem
 
