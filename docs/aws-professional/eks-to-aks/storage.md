@@ -46,7 +46,7 @@ The Amazon EC2 Instance Store CSI driver isn't supported in EKS Auto Mode.
 
 #### FSx for Lustre scratch volumes
 
-Although they're not managed as ephemeral Kubernetes storage, you can provision *scratch* type (Scratch_1, Scratch_2) [FSx for Lustre](https://docs.aws.amazon.com/eks/latest/userguide/fsx-csi.html) file systems on EKS. These file systems are designed for temporary, short-term data processing. They can be mounted via Persistent Volume Claims (PVCs), and the file system can be deleted when the compute job finishes.
+Although they're not managed as ephemeral Kubernetes storage, you can provision *scratch* type (Scratch_1, Scratch_2) [FSx for Lustre](https://aws.amazon.com/fsx/lustre/) file systems on EKS. These file systems are designed for temporary, short-term data processing. They can be mounted via Persistent Volume Claims (PVCs), and the file system can be deleted when the compute job finishes.
 
 ### Persistent volumes
 
