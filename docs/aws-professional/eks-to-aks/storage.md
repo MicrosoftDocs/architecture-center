@@ -508,7 +508,7 @@ To create a volume snapshot in AKS, ensure that the snapshot controller is enabl
 
 ### AKS and Key Vault
 
-Like EKS ASCP for the Kubernetes Secrets Store CSI driver, [Azure Key Vault provider for the Secrets Store CSI driver](/azure/aks/csi-secrets-store-driver?pivots=azure-cli-create) enables Key Vault to be integrated as a secure secret store for AKS clusters through a CSI volume. You can use it to mount secrets, keys, and certificates directly into pods. It supports CSI inline volumes, and you can use it to mount multiple secret store objects in a single volume. The provider also improves pod portability via the SecretProviderClass Custom Resource Definition (CRD), supports Windows containers, synchronizes with Kubernetes secrets, and provides automatic rotation for both mounted content and synced Kubernetes secrets.
+Like EKS ASCP for the Kubernetes Secrets Store CSI driver, [Azure Key Vault provider for the Secrets Store CSI driver](/azure/aks/csi-secrets-store-driver) enables Key Vault to be integrated as a secure secret store for AKS clusters through a CSI volume. You can use it to mount secrets, keys, and certificates directly into pods. It supports CSI inline volumes, and you can use it to mount multiple secret store objects in a single volume. The provider also improves pod portability via the SecretProviderClass Custom Resource Definition (CRD), supports Windows containers, synchronizes with Kubernetes secrets, and provides automatic rotation for both mounted content and synced Kubernetes secrets.
 
 ### Cost optimization
 
