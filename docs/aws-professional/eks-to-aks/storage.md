@@ -418,7 +418,7 @@ Azure Container Storage uses existing Azure Storage offerings for actual data st
 
 Azure Container Storage suits the following scenarios:
 
-- **Accelerate VM-to-container initiatives:** Azure Container Storage surfaces the full spectrum of Azure block storage offerings that were previously only available for VMs and makes them available for containers. This storage includes ephemeral disk storage, which provides extremely low latency for workloads like Cassandra. It also includes Elastic SAN, which provides native iSCSI and shared provisioned targets.
+- **Accelerate VM-to-container initiatives:** Azure Container Storage provides high-performance storage options for containers, including local NVMe disks (ultra-low latency) and Elastic SAN (durable, network-attached volumes).
 
 - **Simplify volume management with Kubernetes:** Azure Container Storage provides volume orchestration via the Kubernetes control plane. This feature simplifies the deployment and management of volumes within Kubernetes, without the need to switch between different control planes.
 
