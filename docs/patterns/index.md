@@ -33,6 +33,10 @@ These misconceptions can result in flawed workload designs. Design patterns don'
 
 Consider how to use these industry-standard design patterns as the core building blocks for a well-architected workload design. Each design pattern in the Azure Well-Architected Framework represents one or more of its pillars. Some patterns might introduce trade-offs that affect the goals of other pillars.
 
+## Select a pattern
+
+Choose a pattern based on the problem you need to solve, not the technology you want to use. Begin with a specific constraint or risk in your workload, such as a service that fails under load, a data store that can't keep up with read queries, or a dependency that you can't fully trust. A pattern is a good fit when its problem statement matches the challenge you face and when the trade-offs it introduces are ones you can accept in your workload.
+
 ## Pattern catalog
 
 Each pattern in this catalog describes the problem that it addresses, considerations for applying the pattern, and an example based on Microsoft Azure services and tools. Some patterns include code samples or snippets that show how to implement the pattern on Azure.
@@ -82,6 +86,19 @@ Each pattern in this catalog describes the problem that it addresses, considerat
 | [Strangler Fig](./strangler-fig.md) | Incrementally migrate a legacy system by gradually replacing pieces of functionality with new applications and services. | - Reliability<br><br>- Cost&nbsp;Optimization<br><br>- Operational&nbsp;Excellence |
 | [Throttling](./throttling.md) | Control the consumption of resources from applications, tenants, or services. | - Reliability<br><br>- Security<br><br>- Cost&nbsp;Optimization<br><br>- Performance&nbsp;Efficiency |
 | [Valet Key](./valet-key.yml) | Use a token or key to provide clients with restricted, direct access to a specific resource or service. | - Security<br><br>- Cost&nbsp;Optimization<br><br>- Performance&nbsp;Efficiency |
+
+### Combine patterns
+
+Patterns are composable. A single pattern addresses one problem, but a workload usually faces several problems at once, so you often apply multiple patterns together. Some patterns also build on others or pair naturally to cover a gap that one pattern leaves open. For example, here are some pattern compositions:
+
+- Pair [Retry](./retry.yml) with [Circuit Breaker](./circuit-breaker.md) so that an application retries transient faults but stops retrying when a fault persists.
+- Combine [Queue-Based Load Leveling](./queue-based-load-leveling.yml) with [Competing Consumers](./competing-consumers.md) to buffer load and then scale the processing of that load.
+- Layer the [Gateway Routing](./gateway-routing.yml), [Gateway Aggregation](./gateway-aggregation.md), and [Gateway Offloading](./gateway-offloading.yml) patterns behind a single gateway endpoint.
+- Build [Saga](./saga.yml) on [Compensating Transaction](./compensating-transaction.md) to maintain data consistency across services when a distributed operation fails partway through.
+
+### Antipatterns
+
+A design pattern describes a practice to apply. An antipattern describes a practice to avoid. Antipatterns often start as reasonable designs that work in testing or at low scale, but they degrade reliability or performance as load increases. Recognizing an antipattern helps you spot a problem in an existing design and choose a pattern that resolves it. For the full list, see [Antipatterns for cloud applications](../antipatterns/index.md).
 
 ## AI agent orchestration patterns
 
