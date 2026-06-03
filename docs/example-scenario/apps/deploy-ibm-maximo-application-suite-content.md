@@ -292,9 +292,10 @@ Before you start, we recommend that you review the [IBM Maximo Application Suite
 - High availability and disaster recovery requirements for your specific deployment
 - Configuration file, *install-config.yaml*, for the installer
 
-For a step-by-step guide for installing OpenShift and MAS on Azure, including how to address the prerequisites, see our [quickStart guide](https://github.com/Azure/maximo) on GitHub. 
+For a step-by-step guide for installing OpenShift and MAS on Azure, including how to address the prerequisites, see our [quickstart guide](https://github.com/Azure/maximo) on GitHub.
+
 > [!NOTE]
-> [QuickStart Guide: Maximo Application Suite on Azure](https://github.com/Azure/maximo) includes an example of an *install-config.yaml* file in [/src/ocp/](https://github.com/Azure/maximo/blob/main/src/ocp).
+> [Quickstart Guide: Maximo Application Suite on Azure](https://github.com/Azure/maximo) includes an example of an *install-config.yaml* file in [/src/ocp/](https://github.com/Azure/maximo/blob/main/src/ocp).
 
 ### Deployment considerations
 
