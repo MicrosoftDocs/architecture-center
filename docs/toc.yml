@@ -845,8 +845,6 @@ items:
         href: databases/guide/big-data-architectures.md
       - name: Governance
         items:
-        - name: Data scrambling for SAP with Delphix
-          href: databases/guide/data-scrambling-for-sap-using-delphix-and-azure-data-factory.yml
         - name: Collection structure for a federated Microsoft Purview catalog
           href: guide/data/collection-structure-federated-catalog.md
     - name: Architectures
