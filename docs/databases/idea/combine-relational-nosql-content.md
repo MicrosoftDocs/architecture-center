@@ -18,7 +18,7 @@ With a domain-driven microservices approach, each service uses the database that
 
 ## Architecture
 
-:::image type="complex" source="images/combine-relational-nosql/solution-diagram.svg" border="false" lightbox="images/combine-relational-nosql/solution-diagram.svg" alt-text="Diagram that shows a polyglot persistence architecture where domain-driven microservices use Azure Cosmos DB or SQL Database, depending on data requirements.":::
+:::image type="complex" source="images/combine-relational-nosql/solution-diagram.svg" border="false" alt-text="Diagram that shows a polyglot persistence architecture where domain-driven microservices use Azure Cosmos DB or SQL Database, depending on data requirements." lightbox="images/combine-relational-nosql/solution-diagram.svg":::
    Diagram of an e-commerce polyglot persistence architecture. Users access the system through web and mobile clients, which connect to an Azure API Management gateway. The gateway routes requests to a microservices layer that contains seven domain-driven services connected by bidirectional arrows: User profile, user session, product catalog, shopping cart, order management, inventory, and payments. Each microservice connects to a dedicated database chosen by data requirements. The first four services use Azure Cosmos DB: profile, session state, product catalog, and shopping cart. Azure Cosmos DB is selected for flexible schemas, elastic scaling, and millisecond latency. The last three services use SQL Database: order management, inventory, and payment. SQL Database is selected for ACID compliance, relational queries, and transactional integrity.
 :::image-end:::
 
