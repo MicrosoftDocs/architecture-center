@@ -213,6 +213,14 @@ Don't use Azure Blob Storage with CSI drivers, because it doesn't support hard l
 
 These considerations implement the pillars of the Azure Well-Architected Framework, which is a set of guiding tenets that you can use to improve the quality of a workload. For more information, see [Microsoft Azure Well-Architected Framework](/azure/well-architected/).
 
+### Reliability
+
+OpenShift has built-in capabilities for self-healing, scaling, and resilience to make sure OpenShift and MAS work successfully. OpenShift and MAS have been designed for parts that fail and recover. A key requirement for self-healing to work is that there are enough worker nodes. To recover from a zone failure within an Azure region, your control and worker nodes must be balanced across availability zones.
+
+MAS and OpenShift use storage to persist state outside of the Kubernetes cluster. To ensure that the storage dependencies continue to work during a failure, you should use [zone-redundant storage](/azure/virtual-machines/disks-deploy-zrs) whenever possible. This type of storage remains available when a zone fails.
+
+Because human error is common, you should deploy MAS by using as much automation as possible. In our [quickstart guide](https://github.com/Azure/maximo), we provide some sample scripts for setting up full, end-to-end automation.
+
 ### Security
 
 Security provides assurances against deliberate attacks and the abuse of your valuable data and systems. For more information, see [Overview of the security pillar](/azure/architecture/framework/security/overview).
@@ -255,10 +263,11 @@ Control access to the Azure resources that you deploy. Every Azure subscription 
 Cost optimization is about looking at ways to reduce unnecessary expenses and improve operational efficiencies. For more information, see [Overview of the cost optimization pillar](/azure/architecture/framework/cost/overview).
 
 A standard deployment of MAS consists of the following components:
- - Three control VMs
- - Six worker VMs
- - Three worker VMs for Db2 Warehouse
-   - You can substitute Azure SQL Managed Instance in some configurations, rather than use Db2 Warehouse.
+
+- Three control VMs
+- Six worker VMs
+- Three worker VMs for Db2 Warehouse
+  - You can substitute Azure SQL Managed Instance in some configurations, rather than use Db2 Warehouse.
 - Two Azure Storage accounts
 - Two DNS zones
 - Two Load balancers
@@ -267,14 +276,6 @@ A standard deployment of MAS consists of the following components:
   - This isn't required unless you plan to run Visual Inspection inside of MAS.
 
 You can review an example estimate by using our [cost calculator](https://azure.com/e/fae03e2386cf46149273a379966e95b1). Configurations vary, and you should verify your configuration with your IBM sizing team before finalizing your deployment.
-
-### Reliability
-
-OpenShift has built-in capabilities for self-healing, scaling, and resilience to make sure OpenShift and MAS work successfully. OpenShift and MAS have been designed for parts that fail and recover. A key requirement for self-healing to work is that there are enough worker nodes. To recover from a zone failure within an Azure region, your control and worker nodes must be balanced across availability zones.
-
-MAS and OpenShift use storage to persist state outside of the Kubernetes cluster. To ensure that the storage dependencies continue to work during a failure, you should use [zone-redundant storage](/azure/virtual-machines/disks-deploy-zrs) whenever possible. This type of storage remains available when a zone fails.
-
-Because human error is common, you should deploy MAS by using as much automation as possible. In our [quickstart guide](https://github.com/Azure/maximo), we provide some sample scripts for setting up full, end-to-end automation.
 
 ## Deploy this scenario
 
@@ -291,9 +292,10 @@ Before you start, we recommend that you review the [IBM Maximo Application Suite
 - High availability and disaster recovery requirements for your specific deployment
 - Configuration file, *install-config.yaml*, for the installer
 
-For a step-by-step guide for installing OpenShift and MAS on Azure, including how to address the prerequisites, see our [quickStart guide](https://github.com/Azure/maximo) on GitHub. 
+For a step-by-step guide for installing OpenShift and MAS on Azure, including how to address the prerequisites, see our [quickstart guide](https://github.com/Azure/maximo) on GitHub.
+
 > [!NOTE]
-> [QuickStart Guide: Maximo Application Suite on Azure](https://github.com/Azure/maximo) includes an example of an *install-config.yaml* file in [/src/ocp/](https://github.com/Azure/maximo/blob/main/src/ocp).
+> [Quickstart Guide: Maximo Application Suite on Azure](https://github.com/Azure/maximo) includes an example of an *install-config.yaml* file in [/src/ocp/](https://github.com/Azure/maximo/blob/main/src/ocp).
 
 ### Deployment considerations
 

@@ -287,7 +287,17 @@ This architecture's design doesn't include configuration for state concerns. If 
 
 If your workload utilizes a caching solution, ensure that you architect your caching services so that they remain functional even during failover events. Ensure that the workload itself is resilient to cache-related failover, and that the caching solutions are present on all regional AKS instances.
 
-### Operational excellence
+### Cost Optimization
+
+Cost Optimization is about looking at ways to reduce unnecessary expenses and improve operational efficiencies. For more information, see [Design review checklist for Cost Optimization](/azure/well-architected/cost-optimization/checklist).
+
+This [Azure pricing estimate](https://azure.com/e/2e3a4a64be264e8781f719bbd194e904) includes only the components in this architecture, so customize it to match your usage.
+
+Other best practices are described in the [Cost Optimization](/azure/well-architected/cost-optimization/) section in Microsoft Azure Well-Architected Framework, and specific cost-optimization configuration options in the [Optimize costs](/azure/aks/best-practices-cost) article.
+
+Consider enabling [AKS cost analysis](/azure/aks/cost-analysis) for granular cluster infrastructure cost allocation by Kubernetes-specific constructs.
+
+### Operational Excellence
 
 Operational Excellence covers the operations processes that deploy an application and keep it running in production. For more information, see [Design review checklist for Operational Excellence](/azure/well-architected/operational-excellence/checklist).
 
@@ -316,16 +326,6 @@ You can also collect [resource logs from the fleet resource](/azure/azure-monito
 In this reference architecture, Fleet Manager applies Kubernetes version updates and node image updates across your fleet. You can specify upgrade strategies that configure how upgrades are rolled out across your clusters. Also, Fleet Manager respects maintenance windows on each cluster, so it's a good practice to set the maintenance windows appropriate to each cluster. Maintenance windows on each cluster might be different when you use clusters across multiple geographies and therefore in different time zones.
 
 For more information, see [Update Kubernetes and node images across multiple member clusters](/azure/kubernetes-fleet/concepts-update-orchestration).
-
-### Cost Optimization
-
-Cost Optimization is about looking at ways to reduce unnecessary expenses and improve operational efficiencies. For more information, see [Design review checklist for Cost Optimization](/azure/well-architected/cost-optimization/checklist).
-
-This [Azure pricing estimate](https://azure.com/e/2e3a4a64be264e8781f719bbd194e904) includes only the components in this architecture, so customize it to match your usage. 
-
-Other best practices are described in the [Cost Optimization](/azure/well-architected/cost-optimization/) section in Microsoft Azure Well-Architected Framework, and specific cost-optimization configuration options in the [Optimize costs](/azure/aks/best-practices-cost) article.
-
-Consider enabling [AKS cost analysis](/azure/aks/cost-analysis) for granular cluster infrastructure cost allocation by Kubernetes-specific constructs.
 
 ## Next steps
 
