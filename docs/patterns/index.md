@@ -3,7 +3,7 @@ title: Cloud Design Patterns
 description: Learn about design patterns for building reliable, scalable, and more secure applications in the cloud with examples based on Microsoft Azure.
 ms.author: pnp
 author: claytonsiemens77
-ms.date: 12/11/2024
+ms.date: 05/03/2026
 ms.topic: design-pattern
 ms.subservice: cloud-fundamentals
 ---
@@ -38,10 +38,10 @@ Consider how to use these industry-standard design patterns as the core building
 Each pattern in this catalog describes the problem that it addresses, considerations for applying the pattern, and an example based on Microsoft Azure services and tools. Some patterns include code samples or snippets that show how to implement the pattern on Azure.
 
 | Pattern | Summary | Well-Architected Framework pillars |
-| :------ | :------ | :-------------------------------------- |
+| :------ | :------ | :--------------------------------- |
 | [Ambassador](./ambassador.md) | Create helper services that send network requests on behalf of a consumer service or application. | - Reliability<br><br>- Security |
 | [Anti-Corruption Layer](./anti-corruption-layer.md) | Implement a façade or adapter layer between a modern application and a legacy system. | - Operational&nbsp;Excellence |
-| [Asynchronous Request-Reply](asynchronous-request-reply.md) | Decouple back-end processing from a front-end host. This pattern is useful when back-end processing must be asynchronous, but the front end requires a clear and timely response. | - Performance&nbsp;Efficiency |
+| [Asynchronous Request-Reply](./asynchronous-request-reply.md) | Decouple back-end processing from a front-end host. This pattern is useful when back-end processing must be asynchronous, but the front end requires a clear and timely response. | - Performance&nbsp;Efficiency |
 | [Backends for Frontends](./backends-for-frontends.md) | Create separate backend services for specific frontend applications or interfaces. | - Reliability<br><br>- Security<br><br>- Performance&nbsp;Efficiency |
 | [Bulkhead](./bulkhead.md) | Isolate elements of an application into pools so that if one fails, the others continue to function. | - Reliability<br><br>- Security<br><br>- Performance&nbsp;Efficiency |
 | [Cache-Aside](./cache-aside.yml) | Load data on demand into a cache from a data store. | - Reliability<br><br>- Performance&nbsp;Efficiency |
@@ -87,7 +87,7 @@ Each pattern in this catalog describes the problem that it addresses, considerat
 
 The preceding cloud design patterns address common challenges in distributed systems, but AI workloads that use multiple autonomous agents require specialized coordination approaches. Traditional patterns like Scheduler Agent Supervisor or Choreography provide foundational concepts. However, AI agents introduce unique challenges such as nondeterministic outputs, dynamic reasoning capabilities, and the need for intelligent handoffs between specialized components.
 
-For AI workloads that include multiple autonomous agents, see [AI agent orchestration patterns](/azure/architecture/ai-ml/guide/ai-agent-design-patterns). These patterns complement the cloud design patterns in this catalog by addressing the specific coordination requirements of intelligent, autonomous components that work together to accomplish complex outcomes.
+For AI workloads that include multiple autonomous agents, see [AI agent orchestration patterns](../ai-ml/guide/ai-agent-design-patterns.md). These patterns complement the cloud design patterns in this catalog by addressing the specific coordination requirements of intelligent, autonomous components that work together to accomplish complex outcomes.
 
 ## Next steps
 
