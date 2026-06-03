@@ -251,9 +251,6 @@ conceptualContent:
         - text: Identity in multitenant architectures
           url: /azure/architecture/guide/multitenant/considerations/identity
           itemType: concept
-        - text: Integrate on-premises AD with Microsoft Entra ID
-          itemType: architecture
-          url: reference-architectures/identity/azure-ad.yml
         - text: Extend AD DS to Azure
           itemType: architecture
           url: reference-architectures/identity/adds-extend-domain.yml

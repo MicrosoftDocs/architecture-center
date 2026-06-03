@@ -1044,8 +1044,6 @@ items:
       - name: Extend on-premises AD FS to Azure
         displayName: Active Directory Federation Services
         href: reference-architectures/identity/adfs.yml
-      - name: On-premises AD domains with Microsoft Entra ID
-        href: reference-architectures/identity/azure-ad.yml
     - name: Solution ideas
       items:
       - name: Migrate cloud workloads across security tenants

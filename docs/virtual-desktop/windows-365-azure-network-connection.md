@@ -269,7 +269,7 @@ On-premises AD DS supports many configurations that have various levels of compl
 
 - For a Microsoft Entra hybrid join scenario, you can [deploy AD DS in Azure VMs](/azure/architecture/example-scenario/identity/adds-extend-domain). You can also use a hybrid network connection to provide a direct line of sight to your on-premises Microsoft Entra domain controller. For more information, see [Implement a secure hybrid network](/azure/architecture/reference-architectures/dmz/secure-vnet-dmz).
 
-- For a Microsoft Entra join scenario, follow the [reference architecture that integrates on-premises Active Directory domains with Microsoft Entra ID](/azure/architecture/reference-architectures/identity/azure-ad).
+- For a Microsoft Entra join scenario, see [Plan Microsoft Entra Cloud Sync topologies](/entra/identity/hybrid/cloud-sync/plan-cloud-sync-topologies) to integrate on-premises Active Directory domains with Microsoft Entra ID.
 - Windows 365 uses a watchdog service as part of automated testing. The service creates a test VM account that shows as disabled in the organizational unit that the Azure network connection configuration specifies. Don't delete this account.
 - Decommissioned Cloud PCs in the Microsoft Entra hybrid join model leave behind disabled computer accounts that require manual cleanup in AD DS.
 - Microsoft Entra Domain Services doesn't support Microsoft Entra hybrid join, so it can't function as the identity source in that setup.
