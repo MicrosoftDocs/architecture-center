@@ -82,7 +82,7 @@ A more advanced system might include a predictive element that performs a cold a
 - The response times of these requests
 - The volume of data that flows into and out of each service
 
-If the value of any metric exceeds a defined threshold, the system can raise an alert to scale up. You might also add resources,  restart failing services, or throttle lower-priority requests to maintain system health.
+If the value of any metric exceeds a defined threshold, the system can raise an alert to scale up. You might also add resources, restart failing services, or throttle lower-priority requests to maintain system health.
 
 ## Availability monitoring
 
