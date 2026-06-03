@@ -25,13 +25,13 @@ The following workflow corresponds to the previous diagram:
    > [!NOTE]
    > Microsoft Agent Framework replaces Semantic Kernel for most scenarios. Agent Framework doesn't include a text-splitting primitive, so this architecture uses `TextChunker` from Semantic Kernel for chunking only. To reduce the number of libraries used in your custom code, plan to replace `TextChunker` with another splitter when one releases in Agent Framework or another Foundry-aligned library.
 
-1. The web app calls a pre-deployed Foundry Agent Service prompt agent by using the Azure AI Projects SDK. The workload team deploys and versions the agent as part of its release pipeline. The web app doesn't create agents on the fly per user. The AI Search tool is attached to the agent, and the agent is configured to ground its responses in the indexed content and return inline citations. For code-first agent definition with custom multi-step orchestration, see the Agent Framework alternative in the next section.
+1. The web app calls a pre-deployed Agent Service prompt agent by using the Azure AI Projects SDK. The workload team deploys and versions the agent as part of its release pipeline. The web app doesn't create agents on the fly for each user. The AI Search tool is attached to the agent, and the agent is configured to ground its responses in the indexed content and return inline citations. For code-first agent definition with custom multistep orchestration, see the [Agent Framework alternative](#alternatives).
 
 1. The agent uses its AI Search tool to run a hybrid (vector + keyword) query against the index, summarizes the retrieved chunks, and returns a cited response to the web app. The web app uses the correlation IDs from the citations to look up the corresponding records in Azure Cosmos DB, which include links to the original document file in Blob Storage.
 
 ### Components
 
-- [Durable functions](/azure/azure-functions/durable/durable-functions-overview) is a feature of [Azure Functions](/azure/well-architected/service-guides/azure-functions) that you can use to write stateful functions in a serverless compute environment. In this architecture, a message in a Service Bus queue triggers a durable functions instance. This instance then initiates and orchestrates the document-processing pipeline.
+- [Durable functions](/azure/durable-task/durable-functions/durable-functions-overview) is a feature of [Azure Functions](/azure/well-architected/service-guides/azure-functions) that you can use to write stateful functions in a serverless compute environment. In this architecture, a message in a Service Bus queue triggers a durable functions instance. This instance then initiates and orchestrates the document-processing pipeline.
 
 - [Azure Cosmos DB](/azure/well-architected/service-guides/cosmos-db) is a globally distributed, multiple-model database that can scale throughput and storage capacity across any number of geographic regions. Comprehensive service-level agreements (SLAs) guarantee throughput, latency, availability, and consistency. In this architecture, Azure Cosmos DB serves as the metadata store for the document classification information.
 
@@ -51,7 +51,7 @@ The following workflow corresponds to the previous diagram:
 
   - [Foundry Models](/azure/foundry/concepts/foundry-models-overview) is a platform that deploys flagship models, including OpenAI models, from the Azure AI catalog in a Microsoft-hosted environment. This approach uses MaaS deployment. The architecture deploys models by using the [Global Standard](/azure/foundry/foundry-models/concepts/deployment-types#global-standard) configuration with a fixed quota.
 
-  - [Foundry Agent Service](/azure/foundry/agents/overview) hosts the prompt agent that handles the chat-with-your-data experience. The web app calls the agent by using the AI Projects SDK. The agent uses the [AI Search tool](/azure/foundry/agents/how-to/tools/ai-search) to retrieve grounding context from the vector index and to return responses with inline citations.
+  - [Agent Service](/azure/foundry/agents/overview) hosts the prompt agent that handles the chat-with-your-data experience. The web app calls the agent by using the AI Projects SDK. The agent uses the [AI Search tool](/azure/foundry/agents/how-to/tools/ai-search) to retrieve grounding context from the vector index and to return responses with inline citations.
 
 ### Alternatives
 
@@ -65,9 +65,9 @@ The following workflow corresponds to the previous diagram:
   - **You don't need per-document business logic between extraction and embedding.** This architecture's embedding activity attaches Azure Cosmos DB correlation IDs and applies custom chunk metadata. Integrated vectorization keeps you on the built-in skillset and limits per-chunk customization.
   - **You want chunking and embedding versioning tied to the index schema.** Integrated vectorization centralizes the chunker, embedding model, and index in the AI Search resource, which simplifies re-indexing when the model or chunk strategy changes.
 
-- For code-based agent orchestration, you can build a hosted agent (preview) by using the [Agent Framework](/agent-framework/overview/agent-framework-overview) and deploy it to Foundry Agent Service instead of using a prompt agent. Use this option when you need custom multi-step orchestration, multi-agent coordination, or full control over the agent loop.
+- For code-based agent orchestration, you can build a hosted agent (preview) by using the [Agent Framework](/agent-framework/overview) and deploy it to Agent Service instead of using a prompt agent. Use this option when you need custom multistep orchestration, multi-agent coordination, or full control over the agent loop.
 
-- To provide a natural language interface for users, you can substitute a different chat model in the Foundry Agent Service prompt agent. This architecture uses `gpt-4.1` as the default agent model. Foundry Models also offers models from Mistral, Meta, Cohere, and Hugging Face that you can use instead of the default, depending on your quality, latency, and cost targets.
+- To provide a natural language interface for users, you can substitute a different chat model in the Agent Service prompt agent. This architecture uses `gpt-4.1` as the default agent model. Foundry Models also offers models from Mistral, Meta, Cohere, and Hugging Face that you can use instead of the default, depending on your quality, latency, and cost targets.
 
 ### Scenario details
 
@@ -81,7 +81,7 @@ Many of these custom solutions are based on the state machine workflow pattern. 
 
 Organizations need reliable, scalable, and resilient solutions to process and manage document identification and classification for their organization's document types. This solution can process millions of documents each day with full observability into the success or failure of the processing pipeline.
 
-Users interact with the system in a conversational manner by using a Foundry Agent Service prompt agent that's grounded in the indexed document content. The agent uses retrieval-augmented generation (RAG) to ground answers in source documents and returns inline citations that users can follow back to the original file.
+Users interact with the system in a conversational manner by using an Agent Service prompt agent that's grounded in the indexed document content. The agent uses retrieval-augmented generation (RAG) to ground answers in source documents and returns inline citations that users can follow back to the original file.
 
 ### Potential use cases
 
