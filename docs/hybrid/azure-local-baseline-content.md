@@ -407,6 +407,8 @@ Cost Optimization focuses on ways to reduce unnecessary expenses and improve ope
 > [!TIP]
 > You can reduce costs through Azure Hybrid Benefit if you hold Windows Server Datacenter licenses that include active Software Assurance. For more information, see [Azure Hybrid Benefit for Azure Local][azs-hybrid-benefit].
 
+Use this [preconfigured estimate in the Azure pricing calculator](https://azure.com/e/1a14e3d5f8b74ec4989e53a543c13390) to understand the monthly cost of the Azure supporting services in this architecture, including monitoring, security, backup, and disaster recovery. The estimate assumes a three-node cluster with six workload VMs. Adjust the values to match your environment. The Azure Local per-core subscription fee is billed separately through Azure and isn't configurable in the pricing calculator. For per-core pricing details, see [Azure Local pricing](https://azure.microsoft.com/pricing/details/azure-local/).
+
 ### Operational Excellence
 
 Operational Excellence covers the operations processes that deploy an application and keep it running in production. For more information, see [Design review checklist for Operational Excellence](/azure/well-architected/operational-excellence/checklist).
