@@ -1,4 +1,4 @@
-This article describes the Messaging Bridge pattern, which is a technique that you can use to integrate disparate systems that are built on top of different messaging infrastructures.
+Connect messaging systems that are built on different messaging infrastructures and relay messages between them. This approach lets you integrate disparate systems without modifying the systems themselves.
 
 ## Context and problem
 

@@ -1,4 +1,4 @@
-To verify that applications and services are performing correctly, you can use the Health Endpoint Monitoring pattern. This pattern specifies the use of functional checks in an application. External tools can access these checks at regular intervals through exposed endpoints.
+Implement functional checks in an application that external tools can access at regular intervals through exposed endpoints. This approach helps you verify that applications and services are performing correctly.
 
 ## Context and problem
 
@@ -138,6 +138,6 @@ The following guidance is useful for implementing this pattern:
 - [External Configuration Store pattern](./external-configuration-store.md)
 - [Circuit Breaker pattern](./circuit-breaker.md)
 - [Gateway Routing pattern](./gateway-routing.yml)
-- [Gatekeeper pattern](./gatekeeper.yml)
+- [Gatekeeper pattern](./gatekeeper.md)
 
 [portal-alerts]: /azure/azure-monitor/alerts/alerts-create-new-alert-rule?tabs=metric

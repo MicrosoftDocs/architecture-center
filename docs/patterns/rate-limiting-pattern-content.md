@@ -1,6 +1,6 @@
-Many services use a [throttling pattern](./throttling.md) to control the resources they consume, imposing limits on the rate at which other applications or services can access them. You can use a rate limiting pattern to help you avoid or minimize throttling errors related to these throttling limits and to help you more accurately predict throughput.
+Control the rate at which your application sends requests to a service so that you stay within the service's [throttling](./throttling.md) limits and overall capacity. This approach helps you avoid or minimize throttling errors and more accurately predict throughput.
 
-A rate limiting pattern is appropriate in many scenarios, but it is particularly helpful for large-scale repetitive automated tasks such as batch processing.
+Rate limiting is appropriate in many scenarios, but it's particularly helpful for large-scale repetitive automated tasks such as batch processing.
 
 ## Context and problem
 

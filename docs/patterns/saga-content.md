@@ -1,4 +1,4 @@
-The Saga design pattern helps maintain data consistency in distributed systems by coordinating transactions across multiple services. A saga is a sequence of local transactions where each service performs its operation and initiates the next step through events or messages. If a step in the sequence fails, the saga performs compensating transactions to undo the completed steps. This approach helps maintain data consistency.
+Maintain data consistency in distributed systems by coordinating a sequence of local transactions across multiple services. Each service performs its operation and triggers the next step through events or messages. If a step fails, a series of compensating transactions undoes the changes that the completed steps made.
 
 ## Context and problem
 
