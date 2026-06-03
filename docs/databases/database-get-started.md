@@ -120,6 +120,10 @@ The following production-ready architectures demonstrate end-to-end database sol
 
 - [Replicate data by using a change feed to minimize storage](../databases/idea/minimal-storage-change-feed-replicate-data.yml)
 
+**Relational and NoSQL**
+
+- [Polyglot persistence with Azure Cosmos DB and Azure SQL Database](../databases/idea/combine-relational-nosql.yml)
+
 ## Learn about databases on Azure
 
 [Microsoft Learn](/training/?WT.mc_id=learnaka) provides free online training resources for Azure database technologies. The platform offers videos, tutorials, and interactive labs for specific products and services, along with learning paths organized by job role.
