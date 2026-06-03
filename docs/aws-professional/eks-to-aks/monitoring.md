@@ -136,10 +136,10 @@ Other contributors:
 - [Enable monitoring for Kubernetes clusters](/azure/azure-monitor/containers/kubernetes-monitoring-enable)
 - [Query logs from container insights](/azure/azure-monitor/containers/container-insights-log-query)
 - [Azure Monitor data source for Grafana](https://grafana.com/grafana/plugins/grafana-azure-monitor-datasource/)
-- [Training: Monitor and back up Azure resources](/learn/paths/az-104-monitor-backup-resources/)
-- [Training: Troubleshoot solutions by using Application Insights](/learn/paths/az-204-instrument-solutions-support-monitoring-logging/)
-- [Training: Design a solution to log and monitor Azure resources](/learn/modules/design-solution-to-log-monitor-azure-resources/)
-- [Training: Azure Monitor fundamentals](/learn/paths/monitor-usage-performance-availability-resources-azure-monitor)
+- [Training: Monitor and back up Azure resources](/training/paths/az-104-monitor-backup-resources/)
+- [Training: Troubleshoot solutions by using Application Insights](/training/paths/az-204-instrument-solutions-support-monitoring-logging/)
+- [Training: Design a solution to log and monitor Azure resources](/training/modules/design-solution-to-log-monitor-azure-resources/)
+- [Training: Azure Monitor fundamentals](/training/paths/monitor-usage-performance-availability-resources-azure-monitor)
 
 ## Related resources
 

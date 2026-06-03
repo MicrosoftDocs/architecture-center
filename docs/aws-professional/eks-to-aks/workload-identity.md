@@ -140,7 +140,7 @@ You also need to configure the Microsoft Entra applications to trust the Kuberne
 The following diagram shows how a Kubernetes cluster becomes a security token issuer that issues tokens to Kubernetes service accounts. You can configure these tokens to be trusted on Microsoft Entra applications. The tokens can then be exchanged for Microsoft Entra access tokens via the [Azure identity services SDKs](/dotnet/api/overview/azure/identity-readme) or the [Microsoft Authentication Library](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet).
 
 
-:::image type="complex" source="./media/message-flow.png" border="false" lightbox="./media/message-flow.png" alt-text="Diagram that shows a simplified workflow for a pod managed identity in Azure.":::
+:::image type="complex" source="./media/message-flow.png" border="false" lightbox="./media/message-flow.png" alt-text="Diagram that shows a simplified workflow for Microsoft Entra Workload ID in Azure.":::
 A sequence diagram shows the interaction between five components: Kubelet, Kubernetes workload, Microsoft Entra ID, OpenID discovery document, and Azure resources. The interactions are numbered from 1 to 5. Arrows indicate the direction of communication. An arrow from Kubelet to Kubernetes workload is labeled 1. An arrow from Kubernetes workload to Microsoft Entra ID is labeled 2. An arrow from Microsoft Entra ID to OpenID discovery document is labeled 3. An arrow from Microsoft Entra ID back to Kubernetes workload is labeled 4. An arrow from Kubernetes workload to Azure resources is labeled 5.
 :::image-end:::
 
@@ -221,7 +221,7 @@ Other contributors:
 
 - [Use a service principal with AKS](/azure/aks/kubernetes-service-principal)
 - [Use a managed identity in AKS](/azure/aks/use-managed-identity)
-- [Learning path: Manage identity and access in Microsoft Entra ID](/learn/paths/manage-identity-and-access)
+- [Learning path: Manage identity and access in Microsoft Entra ID](/training/paths/manage-identity-and-access)
 
 ## Related resources
 

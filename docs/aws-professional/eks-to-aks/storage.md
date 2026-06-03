@@ -195,7 +195,7 @@ metadata:
 spec:
   containers:
     - name: myfrontend
-      image: mcr.microsoft.com/oss/nginx/nginx:1.15.5-alpine
+      image: mcr.microsoft.com/oss/nginx/nginx:1.27.4-alpine
       volumeMounts:
       - mountPath: "/mnt/azure"
         name: volume
@@ -321,7 +321,7 @@ To optimize costs for Azure Files, purchase [Azure Files capacity reservations](
 
 - **Create Azure NetApp Files volumes statically.** Create volumes outside of AKS via the Azure CLI or the Azure portal. After creation, these volumes are exposed to Kubernetes by creating a `PersistentVolume`. Statically created Azure NetApp Files volumes have many limitations. For example, they can't be expanded and they need to be overprovisioned. We don't recommend statically created volumes for most use cases.
 
-- **Create Azure NetApp Files volumes dynamically** through Kubernetes. This is the **preferred** method to create multiple volumes directly through Kubernetes by using [Astra Trident](https://docs.netapp.com/us-en/trident/index.html). Astra Trident is a CSI-compliant dynamic storage orchestrator that helps provision volumes natively through Kubernetes.
+- **Create Azure NetApp Files volumes dynamically** through Kubernetes. This is the **preferred** method to create multiple volumes directly through Kubernetes by using [NetApp Trident](https://docs.netapp.com/us-en/trident/index.html). Trident is a CSI-compliant dynamic storage orchestrator that helps provision volumes natively through Kubernetes.
 
 For more information, see [Configure Azure NetApp Files for AKS](/azure/aks/azure-netapp-files).
 

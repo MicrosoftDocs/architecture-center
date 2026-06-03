@@ -236,7 +236,7 @@ The following recommendations help optimize your AKS cluster costs:
 
 - Choose the right [VM size](/azure/virtual-machines/sizes) for your AKS cluster node pools based on your workloads' CPU and memory needs. Azure provides many different VM instance types for a wide range of use cases. They have different combinations of CPU, memory, storage, and networking capacity. Every VM type comes in one or more sizes, so you can easily scale your resources.
 
-  You can use AKS to [deploy and manage containerized applications that run on Ampere Altra ARM-based processors](https://azure.microsoft.com/blog/now-in-preview-azure-virtual-machines-with-ampere-altra-armbased-processors).
+  You can use AKS to [deploy and manage containerized applications that run on Ampere Altra Arm-based processors](/azure/virtual-machines/dpsv5-dpdsv5-series).
 
 - Create multiple node pools that have different VM sizes for special purposes and workloads. Use Kubernetes [taints, tolerations](https://kubernetes.io/docs/concepts/scheduling-eviction/taint-and-toleration), and [node labels](https://kubernetes.io/docs/concepts/scheduling-eviction/assign-pod-node) to place resource-intensive applications on specific node pools to avoid noisy neighbor problems. Keep these node resources available for workloads that require them, and don't schedule other workloads on these nodes. To optimize costs, use different VM sizes for different node pools. For more information, see [Use multiple node pools in AKS](/azure/aks/use-multiple-node-pools).
 
@@ -290,7 +290,7 @@ Other contributors:
 - [Cost Management discipline overview](/azure/cloud-adoption-framework/govern/cost-management)
 - [Video: Can cloud native architectures lower your long-term costs?](https://www.youtube.com/watch?v=5KVz_rz3P3w)
 - [Azure pricing calculator](https://azure.microsoft.com/pricing/calculator)
-- [Plan and manage your Azure costs](/learn/modules/plan-manage-azure-costs)
+- [Plan and manage your Azure costs](/training/modules/plan-manage-azure-costs)
 - [AKS cost analysis](/azure/aks/cost-analysis)
 - [Webinar: Tools and tips for unparalleled cost transparency on AKS](https://www.youtube.com/watch?v=p15XAKy14WQ)
 - [OpenCost project on GitHub](https://github.com/opencost/opencost)
