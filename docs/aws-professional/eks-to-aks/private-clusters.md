@@ -3,7 +3,7 @@ title: Enhance Network Access Security to Kubernetes
 description: Understand networking options to help securely access the Kubernetes API server, and compare options in Amazon EKS and Azure Kubernetes Service (AKS).
 author: francisnazareth
 ms.author: fnazaret
-ms.date: 01/28/2025
+ms.date: 06/03/2026
 ms.topic: concept-article
 ms.subservice: architecture-guide
 ms.custom:
@@ -168,8 +168,8 @@ Other contributors:
 
 - [Create a private AKS cluster with a public DNS zone](https://github.com/Azure/azure-quickstart-templates/tree/master/demos/private-aks-cluster-with-public-dns-zone)
 - [Use Azure Firewall to help protect an AKS cluster](../../guide/aks/aks-firewall.yml)
-- [Training: Introduction to Private Link](/learn/modules/introduction-azure-private-link/)
-- [Training: Introduction to secure network infrastructure with Azure network security](/learn/paths/secure-networking-infrastructure)
+- [Training: Introduction to Private Link](/training/modules/introduction-azure-private-link/)
+- [Training: Introduction to secure network infrastructure with Azure network security](/training/paths/secure-networking-infrastructure)
 
 ## Related resources
 

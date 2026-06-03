@@ -3,7 +3,7 @@ title: Manage Kubernetes Nodes and Node Pools
 description: Understand Kubernetes nodes and node pools, how to handle Azure Kubernetes Service (AKS) nodes and node pools, and node pool options for Amazon EKS and AKS.
 author: francisnazareth
 ms.author: fnazaret
-ms.date: 01/28/2025
+ms.date: 06/03/2026
 ms.topic: concept-article
 ms.subservice: architecture-guide
 ms.custom:
@@ -294,7 +294,7 @@ In the **Virtual node usage** column:
 | `kubernetes.azure.com/storageprofile` | `<OS disk storage profile>` | `Managed` | N/A |
 | `kubernetes.azure.com/storagetier` | `<OS disk storage tier>` | `Premium_LRS` | N/A |
 | `kubernetes.azure.com/instance-sku` | `<SKU family>` | `Standard_N` | `Virtual` |
-| `kubernetes.azure.com/node-image-version` | `<VHD version>` | `AKSUbuntu-1804-2020.03.05` | Virtual node version |
+| `kubernetes.azure.com/node-image-version` | `<VHD version>` | `AKSUbuntu-2204-202501.27.0` | Virtual node version |
 | `kubernetes.azure.com/subnet` | `<nodepool subnet name>` | `subnetName` | Virtual node subnet name |
 | `kubernetes.azure.com/vnet` | `<nodepool virtual network name>` | `vnetName` | Virtual node virtual network |
 | `kubernetes.azure.com/ppg` | `<nodepool ppg name>` | `ppgName` | N/A |
@@ -542,10 +542,10 @@ Other contributors:
 
 - [AKS cluster best practices](/azure/aks/best-practices)
 - [Use Azure Firewall to help protect an AKS cluster](../../guide/aks/aks-firewall.yml)
-- [Training: Introduction to Kubernetes](/learn/modules/intro-to-kubernetes/)
-- [Training: Introduction to Kubernetes on Azure](/learn/paths/intro-to-kubernetes-on-azure/)
-- [Training: Develop and deploy applications on Kubernetes](/learn/paths/develop-deploy-applications-kubernetes/)
-- [Training: Optimize compute costs on AKS](/learn/modules/aks-optimize-compute-costs/)
+- [Training: Introduction to Kubernetes](/training/modules/intro-to-kubernetes/)
+- [Training: Introduction to Kubernetes on Azure](/training/paths/intro-to-kubernetes-on-azure/)
+- [Training: Develop and deploy applications on Kubernetes](/training/paths/develop-deploy-applications-kubernetes/)
+- [Training: Optimize compute costs on AKS](/training/modules/aks-optimize-compute-costs/)
 
 ## Related resources
 
