@@ -36,7 +36,7 @@ Some of these antipatterns might seem obvious when you read the descriptions, bu
 Here's the list of the antipatterns that we've identified:
 
 | Antipattern | Description |
-|-------------|-------------|
+| :---------- | :---------- |
 | [Busy Database][BusyDatabase] | Offloading too much processing to a data store. |
 | [Busy Front End][BusyFrontEnd] | Moving resource-intensive tasks onto background threads. |
 | [Chatty I/O][ChattyIO] | Continually sending many small network requests. |
@@ -50,7 +50,8 @@ Here's the list of the antipatterns that we've identified:
 
 ## Next steps
 
-For more about performance tuning, see [Performance efficiency in the Well Architected Framework](/azure/well-architected/performance-efficiency/)
+- For patterns that resolve these antipatterns, see [Cloud design patterns](../patterns/index.md).
+- For more about performance tuning, see [Performance efficiency in the Well-Architected Framework](/azure/well-architected/performance-efficiency/).
 
 <!-- links -->
 
