@@ -6,7 +6,6 @@ ms.author: pnp
 ms.date: 06/30/2025
 ms.topic: concept-article
 ms.subservice: architecture-guide
-ms.custom: fcp
 ---
 
 # Microservices architecture style
