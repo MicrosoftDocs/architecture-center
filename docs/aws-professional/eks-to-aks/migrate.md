@@ -3,7 +3,7 @@ title: Migrate from Amazon Elastic Kubernetes Service to Azure Kubernetes Servic
 description: Learn how to migrate stateless and stateful workloads from Amazon Elastic Kubernetes Service (EKS) to Azure Kubernetes Service (AKS).
 author: swgriffith
 ms.author: stgriffi
-ms.date: 06/03/2026
+ms.date: 01/28/2025
 ms.topic: concept-article
 ms.subservice: architecture-guide
 ms.custom:

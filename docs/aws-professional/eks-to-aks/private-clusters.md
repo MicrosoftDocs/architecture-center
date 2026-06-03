@@ -3,7 +3,7 @@ title: Enhance Network Access Security to Kubernetes
 description: Understand networking options to help securely access the Kubernetes API server, and compare options in Amazon EKS and Azure Kubernetes Service (AKS).
 author: francisnazareth
 ms.author: fnazaret
-ms.date: 06/03/2026
+ms.date: 01/28/2025
 ms.topic: concept-article
 ms.subservice: architecture-guide
 ms.custom:

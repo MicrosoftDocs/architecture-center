@@ -3,7 +3,7 @@ title: Storage Options for a Kubernetes Cluster
 description: Understand storage options for a Kubernetes cluster, and compare Amazon EKS and Azure Kubernetes Service (AKS) storage options.
 author: francisnazareth
 ms.author: fnazaret
-ms.date: 06/03/2026
+ms.date: 01/28/2025
 ms.topic: concept-article
 ms.subservice: architecture-guide
 ms.collection: 
@@ -321,7 +321,7 @@ To optimize costs for Azure Files, purchase [Azure Files capacity reservations](
 
 - **Create Azure NetApp Files volumes statically.** Create volumes outside of AKS via the Azure CLI or the Azure portal. After creation, these volumes are exposed to Kubernetes by creating a `PersistentVolume`. Statically created Azure NetApp Files volumes have many limitations. For example, they can't be expanded and they need to be overprovisioned. We don't recommend statically created volumes for most use cases.
 
-- **Create Azure NetApp Files volumes dynamically** through Kubernetes. This is the **preferred** method to create multiple volumes directly through Kubernetes by using [Trident](https://docs.netapp.com/us-en/trident/index.html). Trident is a CSI-compliant dynamic storage orchestrator that helps provision volumes natively through Kubernetes.
+- **Create Azure NetApp Files volumes dynamically** through Kubernetes. This is the **preferred** method to create multiple volumes directly through Kubernetes by using [NetApp Trident](https://docs.netapp.com/us-en/trident/index.html). Trident is a CSI-compliant dynamic storage orchestrator that helps provision volumes natively through Kubernetes.
 
 For more information, see [Configure Azure NetApp Files for AKS](/azure/aks/azure-netapp-files).
 
