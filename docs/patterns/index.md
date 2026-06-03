@@ -29,7 +29,7 @@ Cloud workloads are vulnerable to the [fallacies of distributed computing](https
 - Component versioning is simple.
 - Observability implementation can be delayed.
 
-These misconceptions can result in flawed workload designs. Design patterns don't eliminate these misconceptions but help raise awareness, provide compensation strategies, and provide mitigations. Each cloud design pattern has trade-offs. Focus on why you should choose a specific pattern instead of how to implement it.
+These misconceptions can result in flawed workload designs. Design patterns don't eliminate these misconceptions, but they help raise awareness, provide compensation strategies, and offer mitigations. Each cloud design pattern has trade-offs. Focus on why you should choose a specific pattern instead of how to implement it.
 
 Consider how to use these industry-standard design patterns as the core building blocks for a well-architected workload design. Each design pattern in the Azure Well-Architected Framework represents one or more of its pillars. Some patterns might introduce trade-offs that affect the goals of other pillars.
 
@@ -89,7 +89,7 @@ Each pattern in this catalog describes the problem that it addresses, considerat
 
 ### Combine patterns
 
-Patterns are composable. A single pattern addresses one problem, but a workload usually faces several problems at once, so you often apply multiple patterns together. Some patterns also build on others or pair naturally to cover a gap that one pattern leaves open. For example, here are some pattern compositions:
+Patterns are composable. A single pattern addresses one problem, but a workload usually faces several problems at once, so you often apply multiple patterns together. Some patterns also build on others or pair naturally to cover a gap that one pattern leaves open. Consider these examples:
 
 - Pair [Retry](./retry.yml) with [Circuit Breaker](./circuit-breaker.md) so that an application retries transient faults but stops retrying when a fault persists.
 - Combine [Queue-Based Load Leveling](./queue-based-load-leveling.yml) with [Competing Consumers](./competing-consumers.md) to buffer load and then scale the processing of that load.
