@@ -46,7 +46,7 @@ The Amazon EC2 Instance Store CSI driver isn't supported in EKS Auto Mode.
 
 #### FSx for Lustre scratch volumes
 
-Although they're not managed as ephemeral Kubernetes storage, you can provision *scratch* type (Scratch_1, Scratch_2) [FSx for Lustre](https://aws.amazon.com/fsx/lustre/) file systems on EKS. These file systems are designed for temporary, short-term data processing. They can be mounted via Persistent Volume Claims (PVCs), and you can be delete the file system when the compute job finishes.
+Although they're not managed as ephemeral Kubernetes storage, you can provision *scratch* type (Scratch_1, Scratch_2) [FSx for Lustre](https://aws.amazon.com/fsx/lustre/) file systems on EKS. These file systems are designed for temporary, short-term data processing. They can be mounted via Persistent Volume Claims (PVCs), and you can delete the file system when the compute job completes.
 
 ### Persistent volumes
 
@@ -474,7 +474,7 @@ AKS Automatic manages the storage lifecycle for you. AKS Standard gives you more
 | Underlying default block storage | Amazon EBS via the EBS CSI provisioner. | Azure managed disks via the Azure Disk CSI driver. |
 | CSI driver management | EBS CSI functionality is managed as part of EKS Auto Mode. | Azure Disk CSI driver is integrated and managed by AKS. |
 | Encryption defaults | Encryption is configurable in the StorageClass. | Azure platform-managed disk encryption is enabled transparently. |
-| Zone-aware provisioning | Uses WaitForFirstConsumer to provision EBS volumes in the correct Availability Zone. | AKS automatically handles zone-aware provisioning and ZRS support in multi-zone clusters. |
+| Zone-aware provisioning | Uses WaitForFirstConsumer to provision EBS volumes in the correct Availability Zone. | AKS automatically handles zone-aware provisioning and ZRS support in multiple-zone clusters. |
 
 ## Kubernetes storage considerations
 
@@ -508,7 +508,7 @@ To create a volume snapshot in AKS, ensure that the snapshot controller is enabl
 
 ### AKS and Key Vault
 
-Like EKS ASCP for the Kubernetes Secrets Store CSI driver, [Azure Key Vault provider for the Secrets Store CSI driver](/azure/aks/csi-secrets-store-driver) enables Key Vault to be integrated as a secure secret store for AKS clusters through a CSI volume. You can use it to mount secrets, keys, and certificates directly into pods. It supports CSI inline volumes, and you can use it to mount multiple secret store objects in a single volume. The provider also improves pod portability via the SecretProviderClass Custom Resource Definition (CRD), supports Windows containers, synchronizes with Kubernetes secrets, and provides automatic rotation for both mounted content and synced Kubernetes secrets.
+Like EKS ASCP for the Kubernetes Secrets Store CSI driver, [Azure Key Vault provider for the Secrets Store CSI driver](/azure/aks/csi-secrets-store-driver) enables Key Vault to be integrated as a secure secret store for AKS clusters through a CSI volume. You can use it to mount secrets, keys, and certificates directly into pods. It supports CSI inline volumes, and you can use it to mount multiple secret store objects in a single volume. The provider also improves pod portability via the `SecretProviderClass` Custom Resource Definition (CRD), supports Windows containers, synchronizes with Kubernetes secrets, and provides automatic rotation for both mounted content and synced Kubernetes secrets.
 
 ### Cost optimization
 
