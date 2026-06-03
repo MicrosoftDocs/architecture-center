@@ -46,7 +46,7 @@ The Amazon EC2 Instance Store CSI driver isn't supported in EKS Auto Mode.
 
 #### FSx for Lustre scratch volumes
 
-Although they're not managed as ephemeral Kubernetes storage, you can provision *scratch* type (Scratch_1, Scratch_2) [FSx for Lustre](https://aws.amazon.com/fsx/lustre/) file systems on EKS. These file systems are designed for temporary, short-term data processing. They can be mounted via Persistent Volume Claims (PVCs), and the file system can be deleted when the compute job finishes.
+Although they're not managed as ephemeral Kubernetes storage, you can provision *scratch* type (Scratch_1, Scratch_2) [FSx for Lustre](https://aws.amazon.com/fsx/lustre/) file systems on EKS. These file systems are designed for temporary, short-term data processing. They can be mounted via Persistent Volume Claims (PVCs), and you can be delete the file system when the compute job finishes.
 
 ### Persistent volumes
 
@@ -86,7 +86,7 @@ FSx for OpenZFS is supported in both EKS Standard and EKS Auto Mode.
 
 #### Amazon File Cache
 
-[Amazon File Cache](https://docs.aws.amazon.com/eks/latest/userguide/file-cache-csi.html) is a fully managed, high-speed AWS service that processes file data from any location. It  automatically loads files when they're needed and releases them when they aren't. The Amazon File Cache CSI driver enables Amazon EKS clusters to manage the lifecycle of these caches via a standard interface.
+[Amazon File Cache](https://docs.aws.amazon.com/eks/latest/userguide/file-cache-csi.html) is a fully managed, high-speed AWS service that processes file data from any location. It automatically loads files when they're needed and releases them when they aren't. The Amazon File Cache CSI driver enables Amazon EKS clusters to manage the lifecycle of these caches via a standard interface.
 
 Amazon File Cache is supported in both EKS Standard and EKS Auto Mode.
 
