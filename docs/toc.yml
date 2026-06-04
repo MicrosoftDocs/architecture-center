@@ -219,7 +219,7 @@ items:
     - name: Message encoding considerations
       href: best-practices/message-encode.md
     - name: Monitoring and diagnostics
-      href: best-practices/monitoring.yml
+      href: best-practices/monitoring.md
     - name: Transient fault handling
       displayName: Retry logic, temporary failure handling, exponential backoff
       href: best-practices/transient-faults.md
