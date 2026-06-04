@@ -267,7 +267,7 @@ Cost Optimization focuses on ways to reduce unnecessary expenses and improve ope
 To estimate costs, use this [preconfigured estimate in the Azure pricing calculator](https://azure.com/e/5b11662e04394a4da8bca4d0be2a6073). Adjust the values to see how your costs change based on your specific requirements. The ideal pricing tier and the total cost of each service in the architecture depend on the amount of data processed and stored and the expected performance level.
 
 > [!NOTE]
-> The pricing estimate doesn't include Azure DevOps, GitHub Enterprise, or Copilot in Fabric because these services have separate licensing. Azure Policy has no cost for core policy evaluation.
+> The pricing estimate doesn't include Azure DevOps, GitHub Enterprise, or Copilot in Fabric because these services have separate licensing. Core [Azure Policy](/azure/governance/policy/overview) evaluation is free, but some capabilities like regulatory compliance assessments might incur charges.
 
 Use the following guide to explore top cost optimization strategies for Fabric:
 
