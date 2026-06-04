@@ -184,14 +184,14 @@ AD DS is designed for scalability. You don't need to configure a load balancer o
 ## Related resources
 
 - [Create an AD DS resource forest in Azure][adds-resource-forest] 
-- [Extend on-premises AD FS to Azure][adfs] 
+- [Migrate from AD FS to cloud authentication][adfs] 
 
 <!-- links -->
 
 [aaf-cost]: /azure/architecture/framework/cost/overview
 [AAF-devops]: /azure/architecture/framework/devops/overview
 [adds-resource-forest]: ../../reference-architectures/identity/adds-forest.yml
-[adfs]: ../../reference-architectures/identity/adfs.yml
+[adfs]: /entra/identity/hybrid/connect/migrate-from-federation-to-cloud-authentication
 [dsc-overview]: /powershell/scripting/dsc/overview
 [ad-ds-operations-masters]: /windows-server/identity/ad-ds/plan/planning-operations-master-role-placement
 [ad-ds-ports]: /troubleshoot/windows-server/identity/config-firewall-for-ad-domains-and-trusts  

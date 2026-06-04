@@ -172,8 +172,6 @@ Identity is the primary security perimeter in cloud environments. In Azure, IAM 
 
 - [Deploy AD DS in an Azure virtual network](/azure/architecture/example-scenario/identity/adds-extend-domain): A reference architecture that extends an on-premises Active Directory domain to Azure to provide distributed authentication services.
 
-- [Extend on-premises AD FS to Azure](/azure/architecture/reference-architectures/identity/adfs): A reference architecture that implements Active Directory Federation Services (AD FS) authorization in Azure as part of a secure hybrid network.
-
 ### Threat protection
 
 Threat protection encompasses the tools, patterns, and practices that detect, prevent, and respond to security threats across Azure workloads. Azure provides layered threat protection through services such as Microsoft Defender for Cloud, Microsoft Sentinel, and Microsoft Entra ID Protection. These services use behavioral analytics, machine learning, and threat intelligence to detect threats across compute, storage, networking, identity, and application layers.

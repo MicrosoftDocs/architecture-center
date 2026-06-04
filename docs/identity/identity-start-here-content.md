@@ -83,7 +83,6 @@ These reference architectures provide baseline implementations for various scena
 
 - [Create an AD DS resource forest in Azure][Create an AD DS resource forest in Azure]
 - [Deploy AD DS in an Azure virtual network][Deploy AD DS in an Azure virtual network]
-- [Extend on-premises AD FS to Azure][Extend on-premises AD FS to Azure]
 
 ## Stay current with identity
 
@@ -133,7 +132,6 @@ The following resources provide practical recommendations and information for sp
 [Design a multi-tenant architecture for large institutions]: /microsoft-365/education/deploy/design-multi-tenant-architecture?toc=/azure/architecture/toc.json&bc=/azure/architecture/_bread/toc.json
 [Design Tenant Configuration]: /microsoft-365/education/deploy/design-tenant-configurations?toc=/azure/architecture/toc.json&bc=/azure/architecture/_bread/toc.json
 [Explore the Microsoft identity platform]: /training/modules/explore-microsoft-identity-platform?toc=/azure/architecture/toc.json&bc=/azure/architecture/_bread/toc.json
-[Extend on-premises AD FS to Azure]: ../reference-architectures/identity/adfs.yml
 [Four steps to a strong identity foundation with Microsoft Entra ID]: /entra/identity/hybrid/connect/four-steps?toc=/azure/architecture/toc.json&bc=/azure/architecture/_bread/toc.json
 [Google Cloud to Azure services comparison—Security and identity]: ../gcp-professional/services.md#security-and-identity
 [How Azure AD Delivers Cloud Governed Management for On-Premises Workloads]: /entra/identity/hybrid/connect/cloud-governed-management-for-on-premises?toc=/azure/architecture/toc.json&bc=/azure/architecture/_bread/toc.json
