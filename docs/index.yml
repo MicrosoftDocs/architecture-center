@@ -3,7 +3,7 @@ metadata:
   title: Azure Architecture Center
   description: The Azure Architecture Center provides guidance for designing and building solutions on Azure by using established patterns and practices.
   ms.topic: hub-page
-  ms.date: 08/27/2025
+  ms.date: 06/04/2026
   ms.collection: collection
   ms.author: pnp
   author: claytonsiemens77
@@ -57,7 +57,7 @@ productDirectory:
           text: Choose a compute service
         - url: /azure/architecture/guide/choose-azure-container-service
           text: Choose a container service
-        - url: /azure/architecture/data-guide/technology-choices/data-store-classification
+        - url: ./data-guide/technology-choices/understand-data-store-models.md
           text: Choose a data store
         - url: /azure/architecture/data-guide/technology-choices/ai-services
           text: Choose AI services
@@ -143,7 +143,7 @@ conceptualContent:
       links:
         - text: Analytics architecture design
           itemType: overview
-          url: ./solution-ideas/articles/analytics-get-started.md
+          url: ./analytics/analytics-get-started.md
         - text: Choose a data analytics technology
           itemType: quickstart
           url: ./data-guide/technology-choices/analysis-visualizations-reporting.md
@@ -207,7 +207,7 @@ conceptualContent:
 
     - title: Databases
       links:
-        - url: /azure/architecture/databases/
+        - url: ./databases/database-get-started.md
           itemType: overview
           text: Databases architecture design
         - url: /azure/architecture/databases/idea/topic-migrate-oracle-azure
@@ -253,7 +253,7 @@ conceptualContent:
           itemType: concept
         - text: Extend AD DS to Azure
           itemType: architecture
-          url: reference-architectures/identity/adds-extend-domain.yml
+          url: ./example-scenario/identity/adds-extend-domain.yml
         - text: Create an AD DS forest in Azure
           itemType: architecture
           url: reference-architectures/identity/adds-forest.yml
@@ -280,7 +280,7 @@ conceptualContent:
       links:
         - text: Security architecture design
           itemType: overview
-          url: /azure/architecture/guide/security/security-start-here
+          url: ./security/security-get-started.md
         - text: Azure security in AWS
           itemType: concept
           url: /azure/architecture/guide/aws/aws-azure-security-solutions
@@ -305,9 +305,9 @@ conceptualContent:
         - text: Protect APIs with Application Gateway and API Management
           itemType: concept
           url:  /azure/architecture/web-apps/api-management/architectures/protect-apis
-        - text: Serverless web application
-          itemType: concept
-          url:  /azure/architecture/web-apps/serverless/architectures/web-app
+        - text: Serverless event processing
+          itemType: architecture
+          url: ./serverless/event-hubs-functions/event-hubs-functions.yml
 
 tools:
   title: Cloud adoption and workload design
