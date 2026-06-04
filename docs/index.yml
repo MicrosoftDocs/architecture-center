@@ -324,7 +324,7 @@ conceptualContent:
           itemType: concept
           url: ./web-apps/api-management/architectures/protect-apis.yml
         - text: Serverless event processing
-          itemType: architecture
+          itemType: concept
           url: ./serverless/event-hubs-functions/event-hubs-functions.yml
 
 tools:
