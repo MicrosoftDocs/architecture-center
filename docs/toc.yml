@@ -1041,9 +1041,6 @@ items:
       - name: Deploy AD DS in an Azure virtual network
         displayName: Active Directory Domain Services, VNet
         href: example-scenario/identity/adds-extend-domain.yml
-      - name: Extend on-premises AD FS to Azure
-        displayName: Active Directory Federation Services
-        href: reference-architectures/identity/adfs.yml
     - name: Solution ideas
       items:
       - name: Migrate cloud workloads across security tenants
