@@ -77,9 +77,9 @@ After you deploy your workload on AKS, [day-2 operations](https://dzone.com/arti
 > [!div class="nextstepaction"]
 > [AKS day-2 operations guide](../../operator-guides/aks/day-2-operations-guide.md)
 
-## Monitoring AKS
- 
-Enable monitoring on your AKS clusters to collect telemetry, and then analyze, visualize, and respond to that data to maintain optimal health and performance. Use Azure Monitor with managed service for Prometheus, Container insights, and Azure Managed Grafana to provide end-to-end visibility across cluster and application layers.
+## Workload and cluster monitoring
+
+Enable monitoring on your AKS clusters to collect metrics and logs. Then analyze, visualize, and respond to that data to maintain optimal health and performance. Use Azure Monitor with managed service for Prometheus, Container insights, and Azure Managed Grafana to provide end-to-end visibility across cluster and application layers.
  
 > [!div class="nextstepaction"]
 > [Monitor AKS with Azure Monitor](/azure/aks/monitor-aks)
