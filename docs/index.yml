@@ -316,6 +316,9 @@ tools:
     - title: Cloud Adoption Framework for Azure
       imageSrc: /media/common/i_architecture.svg
       url: /azure/cloud-adoption-framework
+    - title: Azure Migration Hub
+      imageSrc: /media/common/i_get-started.svg
+      url: /azure/migration/
     - title: Azure Well-Architected Framework pillars
       imageSrc: ./_images/i-best-practices.png
       url: /azure/well-architected/pillars
