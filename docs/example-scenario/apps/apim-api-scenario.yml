@@ -8,11 +8,6 @@ metadata:
   ms.topic: example-scenario
   ms.subservice: example-scenario
   ms.custom:
-    - fasttrack
-    - web-apps
-    - app-modernization
-    - example-scenario
-    - internal-intro
     - arb-web
 azureCategories:
   - web

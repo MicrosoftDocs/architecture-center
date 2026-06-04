@@ -80,7 +80,7 @@ To address the many challenges listed in [Key challenges](#key-challenges), you 
 
 - Cross-cutting and cross-model monitoring.
 
-- Ability to introduce [gateway aggregation](../../patterns/gateway-aggregation.yml) and advanced [routing](../../patterns/gateway-routing.yml) to multiple services, like routing low priority messages to a queue for [queue-based load leveling](../../patterns/queue-based-load-leveling.yml) or to compute resources to handle tasks.
+- Ability to introduce [gateway aggregation](../../patterns/gateway-aggregation.md) and advanced [routing](../../patterns/gateway-routing.yml) to multiple services, like routing low priority messages to a queue for [queue-based load leveling](../../patterns/queue-based-load-leveling.yml) or to compute resources to handle tasks.
 
 - Load balancing that uses [health endpoint monitoring](../../patterns/health-endpoint-monitoring.yml) to route only to healthy endpoints by [circuit breaking](../../patterns/circuit-breaker.md) on unavailable or overloaded model deployments.
 
@@ -197,7 +197,7 @@ The use of non-Microsoft gateway technology, which is a product or service that 
 
 Learn about a specific scenario where deploying a gateway between an intelligent application and Azure Foundry deployments is used to address workload requirements:
 
-- [Load balancing or failover between multiple backend instances](./azure-openai-gateway-multi-backend.yml)
+- [Load balancing or failover between multiple backend instances](./azure-openai-gateway-multi-backend.md)
 - [Custom authentication and authorization for client applications](./azure-openai-gateway-custom-authentication.yml)
 - [Implement logging and monitoring for Azure OpenAI models](./azure-openai-gateway-monitoring.yml)
 

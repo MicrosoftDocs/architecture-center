@@ -6,7 +6,7 @@ Some features are commonly used across multiple services, and these features req
 
 Properly handling security issues (token validation, encryption, SSL certificate management) and other complex tasks can require team members to have highly specialized skills. For example, a certificate needed by an application must be configured and deployed on all application instances. With each new deployment, the certificate must be managed to ensure that it doesn't expire. Any common certificate that is due to expire must be updated, tested, and verified on every application deployment.
 
-Other common services such as authentication, authorization, logging, monitoring, or [throttling](./throttling.yml) can be difficult to implement and manage across a large number of deployments. It might be better to consolidate this type of functionality, in order to reduce overhead and the chance of errors.
+Other common services such as authentication, authorization, logging, monitoring, or [throttling](./throttling.md) can be difficult to implement and manage across a large number of deployments. It might be better to consolidate this type of functionality, in order to reduce overhead and the chance of errors.
 
 ## Solution
 
@@ -91,5 +91,5 @@ On Azure, this can be achieved by [setting up SSL termination on Application Gat
 ## Related resources
 
 - [Backends for Frontends pattern](./backends-for-frontends.md)
-- [Gateway Aggregation pattern](./gateway-aggregation.yml)
+- [Gateway Aggregation pattern](./gateway-aggregation.md)
 - [Gateway Routing pattern](./gateway-routing.yml)

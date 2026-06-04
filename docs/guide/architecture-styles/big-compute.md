@@ -6,7 +6,6 @@ ms.author: pnp
 ms.date: 07/26/2022
 ms.topic: concept-article
 ms.subservice: architecture-guide
-ms.custom: fcp
 ---
 
 # Big compute architecture style

@@ -132,6 +132,7 @@ Other contributors:
 
 *To see nonpublic LinkedIn profiles, sign in to LinkedIn.*
 
-## Related resource
+## Related resources
 
 - [Architectural approaches for storage and data in multitenant solutions](../approaches/storage-data.md)
+- [Architecture best practices for Azure Database for PostgreSQL](/azure/well-architected/service-guides/postgresql)

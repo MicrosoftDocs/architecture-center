@@ -126,7 +126,7 @@ You and Microsoft share responsibility for the reliability of most Azure service
 
 Cost Optimization focuses on ways to reduce unnecessary expenses and improve operational efficiencies. For more information, see [Design review checklist for Cost Optimization](/azure/well-architected/cost-optimization/checklist).
 
-- The [Azure pricing calculator](https://azure.microsoft.com/pricing/calculator/) lets you modify values to understand how your specific requirements affect costs. See a [pricing sample](https://azure.microsoft.com/pricing/calculator/?shared-estimate=0ed01ef7a1e54b9bba6f252ca145ea13) for a small or medium-sized business data warehousing scenario.
+- The [Azure pricing calculator](https://azure.microsoft.com/pricing/calculator/) lets you modify values to understand how your specific requirements affect costs. See a [preconfigured estimate in the Azure pricing calculator](https://azure.com/e/c61a8ea6d3954df6ba53ec743192cb2b) for a small or medium-sized business data warehousing scenario.
 
 - [SQL Database](https://azure.microsoft.com/pricing/details/azure-sql-database/single/) pricing depends on the compute tier, service tier, number of vCores, and database transaction units. The pricing sample uses a single database with provisioned compute and eight vCores to run stored procedures in SQL Database. You can reduce costs by using reserved capacity and [Azure Hybrid Benefits](/azure/azure-sql/azure-hybrid-benefit).
 

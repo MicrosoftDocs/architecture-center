@@ -1,4 +1,4 @@
-The Geode pattern involves deploying a collection of backend services into a set of **ge**ographical n**ode**s, each of which can service any request for any client in any region. This pattern allows serving requests in an *active-active* style, improving latency and increasing availability by distributing request processing around the globe.
+Deploy a collection of backend services into a set of **ge**ographical n**ode**s, each of which can service any request from any client in any region. This *active-active* approach distributes request processing around the globe to improve latency and increase availability.
 
 ![Geode map](./_images/geode.jpg)
 
@@ -32,7 +32,7 @@ The geode pattern occurs in big data architectures that use commodity hardware t
 
 Services can use this pattern over dozens or hundreds of geodes. Furthermore, the resiliency of the whole solution increases with each added geode, since any geodes can take over if a regional outage takes one or more geodes offline.
 
-It's also possible to augment local availability techniques, such as availability zones or paired regions, with the geode pattern for global availability. This increases complexity, but is useful if your architecture is underpinned by a storage engine such as blob storage that can only replicate to a paired region. You can deploy geodes into an zonal (single zone), multi-zone, or regional footprint, with a mind to regulatory or latency constraints on location.
+It's also possible to augment local availability techniques, such as availability zones or paired regions, with the geode pattern for global availability. This increases complexity, but is useful if your architecture is underpinned by a storage engine such as blob storage that can only replicate to a paired region. You can deploy geodes into a zonal (single zone), multi-zone, or regional footprint, with a mind to regulatory or latency constraints on location.
 
 ## Issues and considerations
 

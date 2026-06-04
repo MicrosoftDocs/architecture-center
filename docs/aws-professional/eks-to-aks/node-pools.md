@@ -294,7 +294,7 @@ In the **Virtual node usage** column:
 | `kubernetes.azure.com/storageprofile` | `<OS disk storage profile>` | `Managed` | N/A |
 | `kubernetes.azure.com/storagetier` | `<OS disk storage tier>` | `Premium_LRS` | N/A |
 | `kubernetes.azure.com/instance-sku` | `<SKU family>` | `Standard_N` | `Virtual` |
-| `kubernetes.azure.com/node-image-version` | `<VHD version>` | `AKSUbuntu-1804-2020.03.05` | Virtual node version |
+| `kubernetes.azure.com/node-image-version` | `<VHD version>` | `AKSUbuntu-2204-202501.27.0` | Virtual node version |
 | `kubernetes.azure.com/subnet` | `<nodepool subnet name>` | `subnetName` | Virtual node subnet name |
 | `kubernetes.azure.com/vnet` | `<nodepool virtual network name>` | `vnetName` | Virtual node virtual network |
 | `kubernetes.azure.com/ppg` | `<nodepool ppg name>` | `ppgName` | N/A |
@@ -534,7 +534,6 @@ Other contributors:
 
 - [Laura Nicolas](https://www.linkedin.com/in/lauranicolasd/) | Senior Software Engineer
 - [Chad Kittel](https://www.linkedin.com/in/chadkittel/) | Principal Software Engineer - Azure Patterns & Practices
-- [Ed Price](https://www.linkedin.com/in/priceed/) | Senior Content Program Manager
 - [Theano Petersen](https://www.linkedin.com/in/theanop/) | Technical Writer
 
 *To see nonpublic LinkedIn profiles, sign in to LinkedIn.*
@@ -543,10 +542,10 @@ Other contributors:
 
 - [AKS cluster best practices](/azure/aks/best-practices)
 - [Use Azure Firewall to help protect an AKS cluster](../../guide/aks/aks-firewall.yml)
-- [Training: Introduction to Kubernetes](/learn/modules/intro-to-kubernetes/)
-- [Training: Introduction to Kubernetes on Azure](/learn/paths/intro-to-kubernetes-on-azure/)
-- [Training: Develop and deploy applications on Kubernetes](/learn/paths/develop-deploy-applications-kubernetes/)
-- [Training: Optimize compute costs on AKS](/learn/modules/aks-optimize-compute-costs/)
+- [Training: Introduction to Kubernetes](/training/modules/intro-to-kubernetes/)
+- [Training: Introduction to Kubernetes on Azure](/training/paths/intro-to-kubernetes-on-azure/)
+- [Training: Develop and deploy applications on Kubernetes](/training/paths/develop-deploy-applications-kubernetes/)
+- [Training: Optimize compute costs on AKS](/training/modules/aks-optimize-compute-costs/)
 
 ## Related resources
 

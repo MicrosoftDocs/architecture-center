@@ -10,7 +10,7 @@ ms.subservice: cloud-fundamentals
 
 # Choreography pattern
 
-The Choreography pattern decentralizes workflow logic and distributes responsibilities to other components within a system. Instead of depending on a central orchestrator, services decide when and how to process a business operation.
+Have each service decide when and how to process a business operation, instead of depending on a central orchestrator. This approach decentralizes workflow logic and distributes responsibilities across the components of a system.
 
 ## Context and problem
 

@@ -6,8 +6,6 @@ ms.author: pnp
 ms.date: 08/08/2022
 ms.topic: reference-architecture
 ms.subservice: reference-architecture
-ms.custom:
-  - fcp
 ---
 
 <!-- cSpell:ignore fullheight netapp gluster cyclecloud hpcpack alces slurm mdcs cntk -->
@@ -159,7 +157,6 @@ There are many workload managers offered in the [Microsoft Marketplace](https://
 
 - [SUSE Linux Enterprise Server for HPC](https://www.suse.com/products/server/hpc/)
 - [Azure Data Science VM for Windows and Linux](/azure/machine-learning/data-science-virtual-machine/overview)
-- [UberCloud](https://marketplace.microsoft.com/product/ubercloud.ubercloud_platform_subscription_vm)
 
 ### Azure Batch
 

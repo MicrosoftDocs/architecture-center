@@ -160,7 +160,6 @@ Principal authors:
 Other contributors:
 
 - [Chad Kittel](https://www.linkedin.com/in/chadkittel/) | Principal Software Engineer - Azure Patterns & Practices
-- [Ed Price](https://www.linkedin.com/in/priceed/) | Senior Content Program Manager
 - [Theano Petersen](https://www.linkedin.com/in/theanop/) | Technical Writer
 
 *To see nonpublic LinkedIn profiles, sign in to LinkedIn.*
@@ -169,8 +168,8 @@ Other contributors:
 
 - [Create a private AKS cluster with a public DNS zone](https://github.com/Azure/azure-quickstart-templates/tree/master/demos/private-aks-cluster-with-public-dns-zone)
 - [Use Azure Firewall to help protect an AKS cluster](../../guide/aks/aks-firewall.yml)
-- [Training: Introduction to Private Link](/learn/modules/introduction-azure-private-link/)
-- [Training: Introduction to secure network infrastructure with Azure network security](/learn/paths/secure-networking-infrastructure)
+- [Training: Introduction to Private Link](/training/modules/introduction-azure-private-link/)
+- [Training: Introduction to secure network infrastructure with Azure network security](/training/paths/secure-networking-infrastructure)
 
 ## Related resources
 

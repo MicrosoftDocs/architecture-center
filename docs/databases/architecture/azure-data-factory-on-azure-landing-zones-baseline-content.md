@@ -260,6 +260,8 @@ To address cost optimization, this architecture:
 
 - Implements cost and budget alerting through [Cost Management](/azure/cost-management-billing/costs/cost-mgt-alerts-monitor-usage-spending) and [spending guardrails](/azure/well-architected/cost-optimization/set-spending-guardrails#use-governance-policies).
 
+To estimate the cost of this architecture, use this [preconfigured estimate in the Azure pricing calculator](https://azure.com/e/a05fc4de851943dc972f8f956c26594a). Adjust the values to match your expected data volumes, processing schedules, and service tiers. The estimate doesn't include shared platform resources such as Azure Firewall, Azure Bastion, Private DNS zones, or the hub virtual network, as those are typically managed by a central platform team and shared across workloads.
+
 ### Operational Excellence
 
 Operational Excellence covers the operations processes that deploy an application and keep it running in production. For more information, see [Design review checklist for Operational Excellence](/azure/well-architected/operational-excellence/checklist).

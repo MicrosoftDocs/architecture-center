@@ -6,8 +6,6 @@ author: claytonsiemens77
 ms.date: 03/27/2025
 ms.topic: best-practice
 ms.subservice: best-practice
-ms.custom:
-  - best-practice
 keywords:
   - "What is a web api"
   - "REST APIs"

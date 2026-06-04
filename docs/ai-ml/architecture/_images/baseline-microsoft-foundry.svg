@@ -2419,12 +2419,12 @@
 		</g>
 		<g id="shape1777-877" v:mID="1777" v:groupContext="shape" transform="translate(1328.99,-711.031)">
 			<title>Sheet.1777</title>
-			<desc>Microsoft Foundry account</desc>
+			<desc>Microsoft Foundry resource</desc>
 			<v:textBlock v:margins="rect(4,4,4,4)"/>
 			<v:textRect cx="28.7209" cy="842.813" width="57.45" height="19.125"/>
 			<rect x="0" y="833.25" width="57.4418" height="19.125" class="st9"/>
 			<text x="7.73" y="833.81" class="st13" v:langID="1033"><v:paragraph v:horizAlign="1"/><v:tabList/>Microsoft <tspan
-						x="10.59" dy="1.2em" class="st25">Foundry </tspan><tspan x="11.27" dy="1.2em" class="st25">account</tspan></text>		</g>
+						x="10.59" dy="1.2em" class="st25">Foundry </tspan><tspan x="11.27" dy="1.2em" class="st25">resource</tspan></text>		</g>
 		<g id="group1778-882" transform="translate(1342.3,-744.675)" v:mID="1778" v:groupContext="group">
 			<title>Sheet.1778</title>
 			<g id="shape1779-883" v:mID="1779" v:groupContext="shape" transform="translate(16.6794,-9.21145)">

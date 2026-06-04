@@ -176,7 +176,7 @@ A gateway provides several advantages in this scenario:
 
 - Enhance monitoring on metrics that are related to API requests. When you use a managed identity from a gateway, the traceability of the user and client application in Azure OpenAI logs doesn't improve. The gateway should provide logging associated with the request, such as the requesting client and user IDs.
 
-- Ensure that the gateway makes routing decisions to appropriate model deployments based on the client identity when you route multiple client application requests through a gateway to a shared Azure OpenAI instance. For more information, see [Use a gateway in front of multiple Azure OpenAI deployments](./azure-openai-gateway-multi-backend.yml).
+- Ensure that the gateway makes routing decisions to appropriate model deployments based on the client identity when you route multiple client application requests through a gateway to a shared Azure OpenAI instance. For more information, see [Use a gateway in front of multiple Azure OpenAI deployments](./azure-openai-gateway-multi-backend.md).
 
 ## Authenticate client applications that access multiple Azure OpenAI instances
 
@@ -218,7 +218,7 @@ An example of how a gateway is being used in Azure to offload identity to an int
 
 ### Recommendations for this scenario
 
-- Implement load balancing techniques to distribute the API requests across multiple instances of Azure OpenAI to handle high traffic and ensure high availability. For more information, see [Use a gateway in front of multiple Azure OpenAI deployments or instances](./azure-openai-gateway-multi-backend.yml).
+- Implement load balancing techniques to distribute the API requests across multiple instances of Azure OpenAI to handle high traffic and ensure high availability. For more information, see [Use a gateway in front of multiple Azure OpenAI deployments or instances](./azure-openai-gateway-multi-backend.md).
 
 - Correlate token usage for each tenant at the gateway when you implement multitenant scenarios with multiple Azure OpenAI instances. This approach ensures that you track total token usage, regardless of the back-end Azure OpenAI instance that the request is forwarded to.
 

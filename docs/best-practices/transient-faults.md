@@ -21,7 +21,7 @@ Transient faults can occur in any environment, on any platform or operating syst
 
 Cloud environments can provide higher overall availability because they distribute workloads across many servers and use redundancy, automatic failover, and dynamic resource allocation. But the nature of cloud environments makes transient faults more likely for several reasons:
 
-- Many resources in a cloud environment are shared, and access to these resources is subject to [throttling](../patterns/throttling.yml) to protect the resources. Some services refuse connections when the load reaches a specific level or maximum throughput rate. This approach lets the service process existing requests and maintain performance for all users. Throttling helps maintain the quality of service for neighbors and other tenants that use the shared resource.
+- Many resources in a cloud environment are shared, and access to these resources is subject to [throttling](../patterns/throttling.md) to protect the resources. Some services refuse connections when the load reaches a specific level or maximum throughput rate. This approach lets the service process existing requests and maintain performance for all users. Throttling helps maintain the quality of service for neighbors and other tenants that use the shared resource.
 
 - Cloud environments use large numbers of commodity hardware units. They deliver performance by dynamically distributing load across multiple computing units and infrastructure components. They deliver reliability by automatically recycling or replacing failed units. Because of this dynamic nature, transient faults and temporary connection failures might occasionally occur.
 

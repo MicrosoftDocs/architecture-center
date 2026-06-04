@@ -72,7 +72,10 @@ items:
         - name: Secure research for regulated data
           href: architecture/secure-compute-for-research.yml
     - name: Apply guidance
-      items:
+      items: 
+      - name: Dynamic AI agents at scale pattern
+        displayName: multi-agent systems, agent evaluation, semantic cache
+        href: ../solution-ideas/articles/ai-agents-at-scale.yml
       - name: Machine learning options
         displayName: comparison, Azure Machine Learning, model training
         href: guide/data-science-and-machine-learning.md
@@ -111,7 +114,7 @@ items:
           displayName: API, AI gateway, proxy, LLM gateway
           href: guide/azure-openai-gateway-guide.yml
         - name: A gateway for multiple models
-          href: guide/azure-openai-gateway-multi-backend.yml
+          href: guide/azure-openai-gateway-multi-backend.md
         - name: Provide custom authentication to models through a gateway
           href: guide/azure-openai-gateway-custom-authentication.yml
         - name: Implement advanced model monitoring through a gateway

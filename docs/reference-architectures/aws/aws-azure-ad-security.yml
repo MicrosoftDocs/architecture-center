@@ -8,8 +8,6 @@ metadata:
   ms.reviewer: joflore
   ms.topic: reference-architecture
   ms.subservice: reference-architecture
-  ms.custom:
-    - fcp
   keywords:
     - Azure active directory
     - aws identity management

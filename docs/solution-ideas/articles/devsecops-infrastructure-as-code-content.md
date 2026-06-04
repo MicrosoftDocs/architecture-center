@@ -1,6 +1,6 @@
 [!INCLUDE [header_file](../../../includes/sol-idea-header.md)]
 
-This solution idea illustrates the DevSecOps pipeline that uses GitHub for infrastructure as code (IaC). It also describes how to govern the workflow for operational excellence, security, and cost optimization.
+This solution idea illustrates the DevSecOps pipeline that uses GitHub for infrastructure as code (IaC). It also describes how to govern the workflow for security, cost optimization, and operational excellence.
 
 *Terraform is a trademark of Hashicorp. No endorsement is implied by the use of this mark.*
 

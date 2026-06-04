@@ -1,4 +1,4 @@
-Organizations increasingly adopt API-first design approaches while facing growing threats to web applications. You need a comprehensive security strategy to protect APIs, especially when exposing AI-powered APIs and implementing zero trust architecture principles. The [Gateway Routing pattern](../../../patterns/gateway-routing.yml) provides one approach to API security by protecting network traffic. The gateway restricts traffic source locations and traffic quality while supporting flexible routing rules. This article describes how to use Azure Application Gateway and Azure API Management to protect API access.
+Organizations increasingly adopt API-first design approaches while facing growing threats to web applications. You need a comprehensive security strategy to protect APIs, especially when exposing AI-powered APIs and implementing Zero Trust architecture principles. The [Gateway Routing pattern](../../../patterns/gateway-routing.yml) provides one approach to API security by protecting network traffic. The gateway restricts traffic source locations and traffic quality while supporting flexible routing rules. This article describes how to use Azure Application Gateway and Azure API Management to protect API access.
 
 ## Architecture
 
@@ -152,7 +152,7 @@ To design APIs, follow good [web API design](../../../best-practices/api-design.
 ## Related resources
 
 - [Gateway Routing pattern](../../../patterns/gateway-routing.yml): Route requests to multiple services by using a single endpoint.
-- [Gateway Aggregation pattern](../../../patterns/gateway-aggregation.yml): Aggregate multiple requests into a single request.
+- [Gateway Aggregation pattern](../../../patterns/gateway-aggregation.md): Aggregate multiple requests into a single request.
 - [Gateway Offloading pattern](../../../patterns/gateway-offloading.yml): Offload shared functionality to an API gateway.
 - [URL path-based routing overview](/azure/application-gateway/url-route-overview)
 - [Tutorial: Create an application gateway with URL path-based redirection by using the Azure CLI](/azure/application-gateway/tutorial-url-redirect-cli)

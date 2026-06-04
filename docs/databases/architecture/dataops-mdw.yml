@@ -11,9 +11,6 @@ metadata:
   ms.category:
     - databases
   ms.custom:
-    - fcp
-    - cse
-    - example-scenario
     - arb-data
 name: DataOps for the modern data warehouse
 azureCategories:

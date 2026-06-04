@@ -1,4 +1,4 @@
-The Claim-Check pattern allows workloads to transfer payloads without storing the payload in a messaging system. The pattern stores the payload in an external data store and uses a "claim check" to retrieve the payload. The claim check is a unique, obscure token or key. To retrieve the payload, applications need to present the claim-check token to the external data store.
+Store a large message payload in an external data store and send only a reference token, called a *claim check*, through a messaging system. The token is a unique, obscure key. Receiving applications present the token to the external data store to retrieve the payload. This approach lets workloads transfer large payloads without storing them in the messaging system.
 
 ## Context and problem
 

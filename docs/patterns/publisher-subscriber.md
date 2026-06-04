@@ -11,7 +11,7 @@ ms.subservice: cloud-fundamentals
 
 # Publisher-Subscriber pattern
 
-The Publisher-Subscriber pattern lets applications broadcast events asynchronously to multiple interested consumers without coupling the senders and the receivers. This approach is known as *pub/sub messaging*.
+Broadcast events asynchronously to multiple interested consumers through an intermediary, without coupling the senders to the receivers. This approach, known as *pub/sub messaging*, lets a sender publish events without knowing which consumers receive them.
 
 ## Context and problem
 

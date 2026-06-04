@@ -1,4 +1,4 @@
-This pattern loads data on demand into a cache from a data store. Use this pattern to improve performance and help maintain consistency between data in a cache and data in an underlying data store.
+Load data on demand into a cache from a data store. This approach can improve performance and helps maintain consistency between data held in the cache and data in the underlying data store.
 
 ## Context and problem
 

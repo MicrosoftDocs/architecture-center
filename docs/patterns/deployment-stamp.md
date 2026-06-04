@@ -11,7 +11,7 @@ ms.subservice: cloud-fundamentals
 # Deployment Stamps pattern
 
 <!-- cSpell:ignore myapi backplane Salvatori -->
-The Deployment Stamps pattern provisions, manages, and monitors a group of resources to host and operate multiple workloads or tenants. Each individual copy is called a *stamp*, or sometimes a *service unit*, *scale unit*, or *cell*. In a multitenant environment, each stamp serves a predefined number of tenants. You deploy multiple stamps to scale the solution almost linearly and serve an increasing number of tenants. This approach can improve the scalability of your solution, enable you to deploy instances across multiple regions, and separate your customer data.
+Deploy multiple independent copies of application components, including data stores, as a single group of resources. Each copy is called a *stamp*, or sometimes a *service unit*, *scale unit*, or *cell*. In a multitenant environment, each stamp serves a predefined number of tenants. Deploy more stamps to scale the solution almost linearly, serve an increasing number of tenants, deploy instances across multiple regions, and separate your customer data.
 
 > [!NOTE]
 > For more information, see [Architect multitenant solutions on Azure](../guide/multitenant/overview.md).

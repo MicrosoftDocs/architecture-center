@@ -1,4 +1,4 @@
-This solution uses an on-premises instance of Qlik to replicate on-premises data sources to Azure in real time.
+This solution uses an on-premises instance of Qlik software to replicate on-premises data sources to Azure in real time.
 
 > [!NOTE]
 > Pronounce "Qlik" like "click."
@@ -107,6 +107,8 @@ This solution might be appropriate for:
 
 - Data replication from various on-premises data stores to Azure for consolidation and analysis.
 
+- Organizations implementing phased migrations that require bi-directional data replication to ensure data consistency.
+
 ## Considerations
 
 These considerations implement the pillars of the Azure Well-Architected Framework, which is a set of guiding tenets that you can use to improve the quality of a workload. For more information, see [Well-Architected Framework](/azure/well-architected/).
@@ -151,7 +153,7 @@ Operational Excellence covers the operations processes that deploy an applicatio
 
 You can combine Application Insights and Log Analytics features to monitor the health of Azure resources. You can set alerts so that you can manage problems proactively.
 
-Fabric enables operational excellence by unifying governance, observability, and resilient engineering patterns. This unification occurs across OneLake, Fabric Data Warehouse, Fabric Data Engineer, Fabric Real-Time Intelligence, and other workloads.
+Fabric enables operational excellence by unifying governance, observability, and resilient engineering patterns. This unification occurs across OneLake, Fabric Data Warehouse, Fabric Data Engineering, Fabric Real-Time Intelligence, and other workloads.
 
 ### Performance Efficiency
 
@@ -178,7 +180,7 @@ Other contributors:
 
 ## Next steps
 
-- [Qlik Data Integration platform](https://www.qlik.com/us/data-integration/data-integration-platform)
+- [Qlik Data Integration](https://www.qlik.com/us/data-integration/data-integration-tool)
 - [Unleash new Azure analytics initiatives (PDF data sheet)](https://pages.qlik.com/rs/049-DKK-796/images/MSFT081021_TG_Azure-Mainframe-Data_Datasheet-US_V2.pdf)
 - [What is ExpressRoute?](/azure/expressroute/expressroute-introduction)
 - [Event Hubs: A real-time data streaming platform with native Apache Kafka support](/azure/event-hubs/event-hubs-about)

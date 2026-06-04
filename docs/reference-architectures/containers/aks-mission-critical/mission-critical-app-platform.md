@@ -76,6 +76,8 @@ Failures can also occur if images are deleted inadvertently, new compute nodes w
 
 It’s recommended that you use the Premium SKU to enable geo replication. The zone redundancy feature ensures resiliency and high availability within a specific region. In case of a regional outage, replicas in other regions are still available for data plane operations. With this SKU you can restrict access to images through private endpoints.
 
+When you push an image to a geo-replicated registry, Container Registry replicates the manifest and layers to each replica asynchronously. Each replica fires its own [webhook event](/azure/container-registry/container-registry-webhook) as replication completes locally, so a single push produces one webhook event per replica region, with staggered timing. Make any consumer of these webhooks (CD pipelines, GitOps reconcilers, autoscaler hooks) idempotent so repeated events don't trigger duplicate work.
+
 For more information, see [Best practices for Azure Container Registry](/azure/container-registry/container-registry-best-practices).
 
 ### Database
@@ -97,7 +99,7 @@ The system is likely to use other critical platform services that can cause the 
 Taking hard dependency on foundational services is inevitable because many Azure services depend on them. Expect disruption in the system if they are unavailable. For instance:
 
 - Azure Front Door uses Azure DNS to reach the backend and other global services.
-- Azure Container Registry uses Azure DNS to fail over requests to another region.
+- Azure Container Registry clients use Azure DNS to resolve the registry's global endpoint.
 
 In both cases, both Azure services will be affected if Azure DNS is unavailable. Name resolution for user requests from Front Door will fail; Docker images won't be pulled from the registry. Using an external DNS service as backup won't mitigate the risk because many Azure services don't allow such configuration and rely on internal DNS. Expect full outage.
 

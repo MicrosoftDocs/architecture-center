@@ -8,9 +8,6 @@ metadata:
   ms.topic: example-scenario
   ms.subservice: example-scenario
   ai-usage: ai-assisted
-  ms.custom:
-    - fcp
-    - example-scenario
 azureCategories:
   - compute
   - hybrid

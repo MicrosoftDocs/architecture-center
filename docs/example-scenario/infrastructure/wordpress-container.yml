@@ -11,9 +11,6 @@ metadata:
   ms.category:
     - web
   ms.custom:
-    - web-apps
-    - scalability
-    - example-scenario
     - arb-web
   social_image_url: /azure/architecture/example-scenario/infrastructure/media/wordpress-aks-azure-netapp-files.png
 name: WordPress on Azure Kubernetes Service

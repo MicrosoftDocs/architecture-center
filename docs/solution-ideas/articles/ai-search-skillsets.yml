@@ -9,11 +9,6 @@ metadata:
   ms.subservice: solution-idea
   ms.category:
     - ai-machine-learning
-  ms.custom:
-    - fcp
-    - internal-intro
-    - ai-machine-learning
-    - aml-project-improvement
   ai-usage: ai-assisted
 name: Use AI enrichment with image and text processing
 azureCategories:

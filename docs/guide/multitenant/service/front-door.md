@@ -366,4 +366,4 @@ Other contributors:
 - [Architect multitenant solutions on Azure](overview.md)
 - [Checklist for architecting and building multitenant solutions on Azure](../checklist.md)
 - [Tenancy models to consider for a multitenant solution](../considerations/tenancy-models.md)
-
+- [Architecture best practices for Azure Front Door](/azure/well-architected/service-guides/azure-front-door)
