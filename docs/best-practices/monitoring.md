@@ -6,7 +6,6 @@ author: claytonsiemens77
 ms.date: 03/27/2026
 ms.topic: best-practice
 ms.subservice: best-practice
-ms.custom: fcp
 ---
 
 <!-- cSpell:ignore SIEM SSDT -->
@@ -572,8 +571,6 @@ For Azure applications and services, Diagnostics provides one possible solution 
 - .NET EventSource
 - Manifest-based ETW
 
-For more information, see [Telemetry basics and troubleshooting](/archive/technet-wiki/18146.windows-azure-telemetry-basics-and-troubleshooting).
-
 ### Strategies for collecting instrumentation data
 
 Because of the elastic nature of the cloud, and to avoid manually retrieving telemetry data from every node in the system, arrange to consolidate the data and transfer it to a central location. In a system that spans multiple datacenters, you might want to collect, consolidate, and store data on a region-by-region basis first, and then aggregate the regional data into a single central system.
@@ -777,7 +774,6 @@ In many cases, batch processes can generate reports according to a defined sched
 - [Overview of alerts in Azure](/azure/azure-monitor/alerts/alerts-overview)
 - [Overview of Application Insights](/azure/azure-monitor/app/app-insights-overview)
 - [Performance diagnostics for Azure VMs](/azure/azure-monitor/vm/performance-diagnostics)
-- [Install SQL Server Data Tools (SSDT) for Visual Studio](/sql/ssdt/download-sql-server-data-tools-ssdt)
 
 ## Related resources
 
