@@ -19,16 +19,16 @@ highlightedContent:
   items:
     - title: Browse Azure architectures
       itemType: architecture
-      url: browse/index.yml
+      url: ./browse/index.yml
     - title: Build by using application architecture fundamentals
       itemType: concept
-      url: guide/index.md
+      url: ./guide/index.md
     - title: Make technology choices
       itemType: reference
-      url: guide/technology-choices/technology-choices-overview.md
+      url: ./guide/technology-choices/technology-choices-overview.md
     - title: Learn cloud design patterns
       itemType: concept
-      url: patterns/index.md
+      url: ./patterns/index.md
     - title: See what's new and updated
       url: ./changelog.md
       itemType: whats-new
@@ -45,7 +45,7 @@ productDirectory:
         - url: ./best-practices/index-best-practices.md
           text: Use best practices in cloud applications
         - url: ./antipatterns/index.md
-          text: Avoid performance anti-patterns
+          text: Avoid performance antipatterns
         - url: ./guide/responsible-innovation/index.md
           text: Use responsible engineering practices
         - url: ./patterns/index.md
@@ -89,7 +89,7 @@ productDirectory:
 
 conceptualContent:
   title: Technology areas
-  summary: Explore architectures and guides for different technologies.
+  summary: Explore architectures and guides by technology area.
   items:
     - title: Popular articles
       links:
@@ -150,7 +150,7 @@ conceptualContent:
         - text: Choose a Microsoft Fabric deployment pattern
           itemType: quickstart
           url: ./data-guide/technology-choices/fabric-deployment-patterns.md
-        - text: Analytics end-to-end with Microsoft Fabric 
+        - text: Analytics end-to-end with Microsoft Fabric
           itemType: architecture
           url: ./example-scenario/dataplate2e/data-platform-end-to-end.yml
         - text: Enterprise BI with Microsoft Fabric
@@ -256,25 +256,25 @@ conceptualContent:
           url: ./example-scenario/identity/adds-extend-domain.yml
         - text: Create an AD DS forest in Azure
           itemType: architecture
-          url: reference-architectures/identity/adds-forest.yml
+          url: ./reference-architectures/identity/adds-forest.yml
 
     - title: Networking
       links:
         - text: Choose a hybrid network architecture
           itemType: quickstart
-          url: reference-architectures/hybrid-networking/index.yml
+          url: ./reference-architectures/hybrid-networking/index.yml
         - text: Hub-spoke topology
           itemType: architecture
-          url: networking/architecture/hub-spoke.yml
+          url: ./networking/architecture/hub-spoke.yml
         - text: ExpressRoute with VPN failover
           itemType: architecture
-          url: reference-architectures/hybrid-networking/expressroute-vpn-failover.yml
+          url: ./reference-architectures/hybrid-networking/expressroute-vpn-failover.yml
         - text: Implement a secure hybrid network
           itemType: architecture
           url: ./reference-architectures/dmz/secure-vnet-dmz.yml
         - text: Highly available network virtual appliances
           itemType: concept
-          url: networking/guide/network-virtual-appliance-high-availability.md
+          url: ./networking/guide/network-virtual-appliance-high-availability.md
 
     - title: Security
       links:
@@ -284,7 +284,7 @@ conceptualContent:
         - text: Azure security in AWS
           itemType: concept
           url: ./guide/aws/aws-azure-security-solutions.md
-        - text: Zero-trust network with Azure Firewall and Application Gateway
+        - text: Azure Firewall and Application Gateway
           itemType: concept
           url: ./example-scenario/gateway/application-gateway-before-azure-firewall.md
         - text: Securely managed web applications
@@ -313,16 +313,16 @@ conceptualContent:
       links:
         - text: Enterprise web app patterns
           itemType: overview
-          url:  ./web-apps/guides/enterprise-app-patterns/overview.md
+          url: ./web-apps/guides/enterprise-app-patterns/overview.md
         - text: Basic web application
           itemType: architecture
-          url: web-apps/app-service/architectures/basic-web-app.yml
+          url: ./web-apps/app-service/architectures/basic-web-app.yml
         - text: Baseline zone-redundant web application
           itemType: architecture
-          url: web-apps/app-service/architectures/baseline-zone-redundant.yml
+          url: ./web-apps/app-service/architectures/baseline-zone-redundant.yml
         - text: Protect APIs with Application Gateway and API Management
           itemType: concept
-          url:  ./web-apps/api-management/architectures/protect-apis.yml
+          url: ./web-apps/api-management/architectures/protect-apis.yml
         - text: Serverless event processing
           itemType: architecture
           url: ./serverless/event-hubs-functions/event-hubs-functions.yml
