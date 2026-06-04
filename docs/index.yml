@@ -219,9 +219,9 @@ conceptualContent:
         - url: ./databases/architecture/azure-data-factory-on-azure-landing-zones-index.yml
           itemType: architecture
           text: Design a medallion lakehouse
-        - url: ./databases/idea/minimal-storage-change-feed-replicate-data.yml
-          itemType: architecture
-          text: Use change feed to replicate data
+        - url: ./databases/idea/combine-relational-nosql.yml
+          itemType: concept
+          text: Polyglot persistence with relational and NoSQL
     - title: Hybrid + multicloud
       links:
         - text: Hybrid architecture design
@@ -290,6 +290,24 @@ conceptualContent:
         - text: Securely managed web applications
           itemType: architecture
           url: ./example-scenario/apps/fully-managed-secure-apps.yml
+
+    - title: Storage
+      links:
+        - text: Storage architecture design
+          itemType: overview
+          url: ./storage/storage-get-started.md
+        - text: Choose an Azure storage service
+          itemType: quickstart
+          url: ./guide/technology-choices/storage-options.md
+        - text: Azure enterprise cloud file share
+          itemType: architecture
+          url: ./hybrid/azure-files-private.yml
+        - text: Azure file shares in a hybrid environment
+          itemType: architecture
+          url: ./hybrid/azure-file-share.yml
+        - text: Enterprise file shares with disaster recovery
+          itemType: architecture
+          url: ./example-scenario/file-storage/enterprise-file-shares-disaster-recovery.yml
 
     - title: Web apps
       links:
