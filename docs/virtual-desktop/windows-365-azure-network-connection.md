@@ -99,9 +99,7 @@ Windows 365 supports two network deployment models. We recommend Microsoft-hoste
 The recommendation can also be applied per provisioning policy. A single Windows 365 tenant can run Microsoft-hosted network and Azure network connection side-by-side for different user populations.
 
 > [!IMPORTANT]
-> On March 31, 2026, Azure retires default outbound access for new virtual networks. After that date, new virtual networks default to private subnets that have no implicit outbound internet path. Azure network connection deployments depend on outbound access for Cloud PC provisioning, agent updates, Windows activation, and Remote Desktop Protocol (RDP) brokering, so new Azure network connection virtual networks must have an explicit outbound method, such as a Network Address Translation (NAT) gateway, Azure Firewall, or load balancer outbound rules. Microsoft-hosted network deployments aren't affected because Microsoft manages egress for those networks. For more information, see [Default outbound access for virtual machines (VMs) in Azure will be retired](/azure/virtual-network/ip-services/default-outbound-access).
-
-If you operate an Azure network connection, audit your existing virtual networks for explicit outbound configuration before the retirement date. If you can migrate your scenario to a Microsoft-hosted network, migrate it to reduce operational overhead and eliminate the outbound-access dependency.
+> Virtual networks default to private subnets that have no implicit outbound internet path. Azure network connection deployments depend on outbound access for Cloud PC provisioning, agent updates, Windows activation, and Remote Desktop Protocol (RDP) brokering, so new Azure network connection virtual networks must have an explicit outbound method, such as a Network Address Translation (NAT) gateway, Azure Firewall, or load balancer outbound rules. Microsoft-hosted network deployments aren't affected because Microsoft manages egress for those networks. For more information, see [Default outbound access for virtual machines (VMs) in Azure will be retired](/azure/virtual-network/ip-services/default-outbound-access).
 
 ### Windows 365 service architecture
 
@@ -232,7 +230,7 @@ Consider the following factors when you design a virtual network architecture:
   - To use your existing on-premises DNS infrastructure, configure the IP addresses of one or more DNS servers for name resolution. For more information, see [DNS requirements](/windows-365/enterprise/requirements-network#dns-requirements).
 
   - Ensure that the DNS server IP addresses that you configure in the Azure virtual network reside in the same region as the Cloud PC. Avoid redirecting DNS registration requests to other regions. Redirection can result in delayed or failed deployments and Azure network connection health checks.
-  
+
   - For Azure DNS-based name resolution, use the public or private Azure DNS option or the Azure DNS Private Resolver option. For more information, see [Azure DNS documentation](/azure/dns/).
 
 - *Network topology:* Azure networking supports topologies to accommodate different use cases.
