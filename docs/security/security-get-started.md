@@ -164,15 +164,13 @@ Review the following key hybrid and multicloud security scenarios:
 
 Identity is the primary security perimeter in cloud environments. In Azure, IAM centers on Microsoft Entra ID as the cloud-based identity provider. Microsoft Entra Conditional Access serves as the Zero Trust policy engine. The following architectures and guides address IAM design patterns for Azure and multicloud environments:
 
-- [Integrate on-premises Active Directory domains with Microsoft Entra ID](/azure/architecture/reference-architectures/identity/azure-ad): A reference architecture that integrates on-premises Active Directory with Microsoft Entra ID to provide cloud-based identity authentication, including Microsoft Entra Connect Sync, Microsoft Entra application proxy, and Microsoft Entra Conditional Access.
+- [Plan Microsoft Entra Cloud Sync topologies](/entra/identity/hybrid/cloud-sync/plan-cloud-sync-topologies): Guidance for integrating on-premises Active Directory with Microsoft Entra ID for cloud-based identity authentication by using Microsoft Entra Connect Sync and Microsoft Entra cloud sync.
 
 - [Identity architecture design](/azure/architecture/identity/identity-start-here): A hub page for identity architecture in Azure that covers learning paths, design options, implementation guidance, and baseline identity implementations.
 
 - [Create an Active Directory Domain Services (AD DS) resource forest in Azure](/azure/architecture/reference-architectures/identity/adds-forest): A reference architecture that creates a separate Active Directory domain in Azure that domains in an on-premises Active Directory forest trust.
 
 - [Deploy AD DS in an Azure virtual network](/azure/architecture/example-scenario/identity/adds-extend-domain): A reference architecture that extends an on-premises Active Directory domain to Azure to provide distributed authentication services.
-
-- [Extend on-premises AD FS to Azure](/azure/architecture/reference-architectures/identity/adfs): A reference architecture that implements Active Directory Federation Services (AD FS) authorization in Azure as part of a secure hybrid network.
 
 ### Threat protection
 

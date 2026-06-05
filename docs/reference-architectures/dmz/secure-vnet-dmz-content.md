@@ -132,7 +132,7 @@ Use [Azure RBAC][rbac] to restrict the operations that DevOps can perform on eac
 
 Cost Optimization is about looking at ways to reduce unnecessary expenses and improve operational efficiencies. For more information, see [Design review checklist for Cost Optimization](/azure/well-architected/cost-optimization/checklist).
 
-Use this [Azure pricing estimate](https://azure.com/e/7e0622150a1e41ddbcf70b6e3ebf5ff4) as a starting point to estimate the costs for your scenario. It includes the networking components described in this article with example VMs.
+Use this [preconfigured estimate in the Azure pricing calculator](https://azure.com/e/085adf12ed034f3c8f7a2ee46d957fe1) as a starting point to estimate the costs for your scenario. It includes the networking components described in this article with example VMs.
 
 Here are cost considerations for the services used in this architecture.
 

@@ -113,12 +113,12 @@ Active Directory is automatically scalable for domain controllers that are part 
 ## Related resources
 
 - Learn the best practices for how to [extend your on-premises AD DS domain to Azure][adds-extend-domain].
-- Learn the best practices for how to [create an Active Directory Federation Services (AD FS) infrastructure][adfs] in Azure.
+- Learn the best practices for how to [migrate from AD FS to cloud authentication][adfs].
 
 <!-- links -->
 
 [adds-extend-domain]: ./adds-extend-domain.yml
-[adfs]: ./adfs.yml
+[adfs]: /entra/identity/hybrid/connect/migrate-from-federation-to-cloud-authentication
 [azure-gateway-charges]: https://azure.microsoft.com/pricing/details/vpn-gateway
 [azure-expressroute]: /azure/expressroute/expressroute-introduction
 [azure-vpn-gateway]: /azure/vpn-gateway/vpn-gateway-about-vpngateways

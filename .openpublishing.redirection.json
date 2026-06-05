@@ -7249,7 +7249,17 @@
     },
     {
       "source_path": "docs/reference-architectures/identity/index.yml",
-      "redirect_url": "/azure/architecture/reference-architectures/identity/azure-ad",
+      "redirect_url": "/entra/identity/hybrid/cloud-sync/plan-cloud-sync-topologies",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/reference-architectures/identity/azure-ad.yml",
+      "redirect_url": "/entra/identity/hybrid/cloud-sync/plan-cloud-sync-topologies",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/reference-architectures/identity/adfs.yml",
+      "redirect_url": "/entra/identity/hybrid/connect/migrate-from-federation-to-cloud-authentication",
       "redirect_document_id": false
     },
     {
