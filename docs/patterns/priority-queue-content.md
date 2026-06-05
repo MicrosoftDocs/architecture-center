@@ -1,4 +1,4 @@
-The priority queue pattern enables a workload to process high-priority tasks more quickly than lower-priority tasks. This pattern uses messages sent to one or more queues and is useful in applications that offer different service level guarantees to individual clients.
+Prioritize requests sent to services so that a workload processes high-priority requests more quickly than lower-priority ones. This approach uses messages sent to one or more queues and is useful in applications that offer different service level guarantees to individual clients.
 
 ## Context and problem
 
@@ -125,7 +125,7 @@ The following patterns might be helpful to you when you implement this pattern:
 
 - [Competing Consumers pattern](./competing-consumers.md): This pattern involves implementing multiple consumers that listen to the same queue and process tasks in parallel to increase throughput. Only one consumer processes each message. The article provides detailed information on the advantages and disadvantages of this approach.
 
-- [Throttling pattern](./throttling.yml): This pattern can be implemented using queues to manage request rates. By utilizing priority messaging, requests from critical applications or high-value customers can be prioritized over less important ones.
+- [Throttling pattern](./throttling.md): This pattern can be implemented using queues to manage request rates. By utilizing priority messaging, requests from critical applications or high-value customers can be prioritized over less important ones.
 
 <!-- links -->
 [priority-queues]: https://github.com/mspnp/cloud-design-patterns/tree/main/priority-queue

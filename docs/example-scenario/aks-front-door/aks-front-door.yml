@@ -10,8 +10,6 @@ metadata:
   ms.category:
     - containers
   ms.custom:
-    - fcp
-    - example-scenario
     - arb-web
     - arb-containers
 name: Use Azure Front Door to secure AKS workloads

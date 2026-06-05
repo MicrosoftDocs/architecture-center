@@ -10,8 +10,6 @@ metadata:
   ms.category:
     - containers
   ms.custom:
-    - microservices
-    - example-scenario
     - arb-containers
     - arb-web
 azureCategories:

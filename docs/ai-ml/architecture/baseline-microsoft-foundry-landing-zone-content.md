@@ -19,9 +19,9 @@ As a workload owner, you delegate shared resource management to platform teams s
 
 ## Article layout
 
-| Architecture | Design decisions | Azure Well-Architected Framework approach |
+| Architecture | Design decisions | Well-Architected Framework approach |
 | --- | --- | --- |
-|&#9642; [Architecture diagram](#architecture)<br>&#9642; [Workload resources](#workload-team-owned-resources)<br>&#9642; [Federated resources](#platform-team-owned-resources) |&#9642; [Subscription setup](#subscription-setup)<br>&#9642; [Networking](#networking)<br>&#9642; [Data scientist access](#data-scientist-and-agent-developer-access)<br>&#9642; [Monitor resources](#monitor-resources)<br>&#9642; [Organizational governance](#azure-policy)<br>&#9642; [Change management](#manage-changes-over-time)|&#9642; [Reliability](#reliability)<br>&#9642; [Security](#security)<br>&#9642; [Cost Optimization](#cost-optimization)<br>&#9642; [Operational Excellence](#operational-excellence)<br>&#9642; [Performance Efficiency](#performance-efficiency) |
+| &#9642; [Architecture diagram](#architecture)<br>&#9642; [Workload resources](#workload-team-owned-resources)<br>&#9642; [Federated resources](#platform-team-owned-resources) | &#9642; [Subscription setup](#subscription-setup)<br>&#9642; [Networking](#networking)<br>&#9642; [Data scientist access](#data-scientist-and-agent-developer-access)<br>&#9642; [Monitor resources](#monitor-resources)<br>&#9642; [Organizational governance](#azure-policy)<br>&#9642; [Change management](#manage-changes-over-time) | &#9642; [Reliability](#reliability)<br>&#9642; [Security](#security)<br>&#9642; [Cost&nbsp;Optimization](#cost-optimization)<br>&#9642; [Operational&nbsp;Excellence](#operational-excellence)<br>&#9642; [Performance&nbsp;Efficiency](#performance-efficiency) |
 
 > [!TIP]
 > :::image type="icon" source="../../_images/github.svg"::: The [Foundry Agent Service chat baseline reference implementation](https://github.com/Azure-Samples/microsoft-foundry-baseline-landing-zone) demonstrates the best practices described in this article. Review and try these deployment resources before you choose and implement your design decisions.
@@ -50,7 +50,7 @@ The following resources remain mostly unchanged from the [baseline architecture]
 
   This article assumes that generative AI models in this scenario are workload owned and hosted resources. If they're not, the model host or an [AI gateway](/azure/api-management/genai-gateway-capabilities) becomes a workload dependency. The platform team must maintain reliable network connectivity from your virtual network to their virtual network or a private endpoint must be established.
 
-- **[Agent Service](/azure/foundry/agents/overview)** is a cloud-native runtime environment that enables intelligent agents to operate securely and autonomously. In this architecture, Agent Service provides the orchestration layer for chat interactions. It hosts and manages the chat agent that processes user requests. This architecture supports both prompt-based and containerized (hosted) agents.
+- **[Agent Service](/azure/foundry/agents/overview)** is a cloud-native runtime environment that enables intelligent agents to operate securely and autonomously. In this architecture, Agent Service provides the orchestration layer for chat interactions. It hosts and manages the [prompt agent](/azure/foundry/agents/overview#agent-types) that processes user requests, consistent with the baseline architecture. The landing zone networking and governance design in this article applies whether you deploy a prompt agent or a containerized hosted agent.
 
   Use the [standard agent setup](/azure/foundry/agents/concepts/standard-agent-setup) in this architecture. Connect your agent to a dedicated subnet in your spoke virtual network, and route egress traffic through your connectivity subscription.
 

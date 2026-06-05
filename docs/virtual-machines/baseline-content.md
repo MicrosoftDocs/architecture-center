@@ -12,8 +12,8 @@ This architecture serves as a starting point for an infrastructure as a service 
 ## Article layout
 
 | Architecture | Design decision | Well-Architected Framework approach|
-|---|---|---|
-|&#9642; [Architecture diagram](#architecture) <br>&#9642; [Workload resources](#workload-resources) <br> &#9642; [Supporting resources](#workload-supporting-resources) <br> &#9642; [User flows](#user-flows) <br> |&#9642; [VM design choices](#vm-design-choices)<br> &#9642; [Disks](#disks) <br> &#9642; [Networking](#network-layout) <br> &#9642; [Monitoring](#monitoring) <br> &#9642; [Update management](#update-management) |  <br> &#9642; [Reliability](#reliability) <br> &#9642; [Security](#security) <br> &#9642; [Cost Optimization](#cost-optimization)|
+| --- | --- | --- |
+| &#9642; [Architecture diagram](#architecture) <br>&#9642; [Workload resources](#workload-resources) <br> &#9642; [Supporting resources](#workload-supporting-resources) <br> &#9642; [User flows](#user-flows) <br> | &#9642; [VM design choices](#vm-design-choices)<br> &#9642; [Disks](#disks) <br> &#9642; [Networking](#network-layout) <br> &#9642; [Monitoring](#monitoring) <br> &#9642; [Update management](#update-management) | <br> &#9642; [Reliability](#reliability) <br> &#9642; [Security](#security) <br> &#9642; [Cost&nbsp;Optimization](#cost-optimization) |
 
 > [!TIP]
 > ![GitHub logo](../_images/github.svg) This [reference implementation](https://github.com/mspnp/iaas-baseline) demonstrates the best practices described in this article.
@@ -544,6 +544,8 @@ The VMs use the [Key Vault VM extension](/azure/virtual-machines/extensions/key-
 ### Cost Optimization
 
 Cost Optimization is about looking at ways to reduce unnecessary expenses and improve operational efficiencies. For more information, see [Design review checklist for Cost Optimization](/azure/well-architected/cost-optimization/checklist).
+
+Use the [preconfigured estimate in the Azure pricing calculator](https://azure.com/e/8594eedc1e5847178f6c6d27895e6f51) to get an approximation of the monthly cost of the infrastructure components used in this architecture. Adjust the values to match your expected traffic and workload characteristics.
 
 #### Component cost
 

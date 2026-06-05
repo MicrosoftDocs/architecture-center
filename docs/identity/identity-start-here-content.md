@@ -68,11 +68,7 @@ When you've decided on an approach, implementation comes next. For deployment re
 
 - Some solutions use private endpoints in tenants to connect to Azure services. To see guidelines for security issues regarding private endpoints, see [Limit cross-tenant private endpoint connections in Azure][Limit cross-tenant private endpoint connections in Azure].
 
-- For recommendations for the following scenarios, see [Integrate on-premises AD domains with Microsoft Entra ID][Integrate on-premises AD domains with Azure AD]:
-
-  - Giving your organization's remote users access to your Azure web apps
-  - Implementing self-service capabilities for end users
-  - Using an on-premises network and a virtual network that aren't connected by a virtual private network (VPN) tunnel or ExpressRoute circuit
+- For guidance about how to integrate on-premises Active Directory with Microsoft Entra ID, including directory synchronization through Microsoft Entra Connect Sync and Microsoft Entra cloud sync, see [Plan Microsoft Entra Cloud Sync topologies][Integrate on-premises AD domains with Azure AD].
 
 - For general information and guidelines on migrating applications to Microsoft Entra ID, see these articles:
 
@@ -87,7 +83,6 @@ These reference architectures provide baseline implementations for various scena
 
 - [Create an AD DS resource forest in Azure][Create an AD DS resource forest in Azure]
 - [Deploy AD DS in an Azure virtual network][Deploy AD DS in an Azure virtual network]
-- [Extend on-premises AD FS to Azure][Extend on-premises AD FS to Azure]
 
 ## Stay current with identity
 
@@ -137,13 +132,12 @@ The following resources provide practical recommendations and information for sp
 [Design a multi-tenant architecture for large institutions]: /microsoft-365/education/deploy/design-multi-tenant-architecture?toc=/azure/architecture/toc.json&bc=/azure/architecture/_bread/toc.json
 [Design Tenant Configuration]: /microsoft-365/education/deploy/design-tenant-configurations?toc=/azure/architecture/toc.json&bc=/azure/architecture/_bread/toc.json
 [Explore the Microsoft identity platform]: /training/modules/explore-microsoft-identity-platform?toc=/azure/architecture/toc.json&bc=/azure/architecture/_bread/toc.json
-[Extend on-premises AD FS to Azure]: ../reference-architectures/identity/adfs.yml
 [Four steps to a strong identity foundation with Microsoft Entra ID]: /entra/identity/hybrid/connect/four-steps?toc=/azure/architecture/toc.json&bc=/azure/architecture/_bread/toc.json
 [Google Cloud to Azure services comparison—Security and identity]: ../gcp-professional/services.md#security-and-identity
 [How Azure AD Delivers Cloud Governed Management for On-Premises Workloads]: /entra/identity/hybrid/connect/cloud-governed-management-for-on-premises?toc=/azure/architecture/toc.json&bc=/azure/architecture/_bread/toc.json
 [Identity management in multitenant applications]: ../multitenant-identity/index.yml
 [Implement Microsoft identity – Associate]: /training/paths/m365-identity-associate?toc=/azure/architecture/toc.json&bc=/azure/architecture/_bread/toc.json
-[Integrate on-premises AD domains with Azure AD]: ../reference-architectures/identity/azure-ad.yml
+[Integrate on-premises AD domains with Azure AD]: /entra/identity/hybrid/cloud-sync/plan-cloud-sync-topologies
 [Introduction to Microsoft Entra ID Tenants]: /microsoft-365/education/deploy/intro-azure-active-directory?toc=/azure/architecture/toc.json&bc=/azure/architecture/_bread/toc.json
 [Limit cross-tenant private endpoint connections in Azure]: /azure/cloud-adoption-framework/ready/azure-best-practices/limit-cross-tenant-private-endpoint-connections?toc=/azure/architecture/toc.json&bc=/azure/architecture/_bread/toc.json
 [Microsoft Security, Compliance, and Identity Fundamentals: Describe the capabilities of Microsoft Identity and access management solutions]: /training/paths/describe-capabilities-of-microsoft-identity-access?toc=/azure/architecture/toc.json&bc=/azure/architecture/_bread/toc.json

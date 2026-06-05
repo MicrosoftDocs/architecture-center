@@ -1,6 +1,11 @@
 {
   "redirections": [
     {
+      "source_path": "docs/databases/guide/data-scrambling-for-sap-using-delphix-and-azure-data-factory.yml",
+      "redirect_url": "https://marketplace.microsoft.com/product/saas/delphix.delphix-compliance-services-for-azure-tb-model",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "docs/solution-ideas/articles/sap-s4-hana-on-hli-with-ha-and-dr.yml",
       "redirect_url": "/azure/architecture/guide/sap/sap-s4hana",
       "redirect_document_id": false
@@ -4339,6 +4344,11 @@
       "redirect_document_id": true
     },
     {
+      "source_path": "docs/solution-ideas/articles/microsoft-365-defender-build-second-layer-defense.yml",
+      "redirect_url": "/azure/architecture/solution-ideas/articles/microsoft-defender-xdr-build-second-layer-defense",
+      "redirect_document_id": true
+    },
+    {
       "source_path": "docs/example-scenario/data-warehouse/dataops-mdw.yml",
       "redirect_url": "/azure/architecture/databases/architecture/dataops-mdw",
       "redirect_document_id": true
@@ -4420,8 +4430,13 @@
     },
     {
       "source_path": "docs/example-scenario/ai/data-obfuscation-with-delphix-in-azure-data-factory.yml",
-      "redirect_url": "/azure/architecture/databases/guide/data-obfuscation-with-delphix-in-azure-data-factory",
-      "redirect_document_id": true
+      "redirect_url": "https://marketplace.microsoft.com/product/saas/delphix.delphix-compliance-services-for-azure-tb-model",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/databases/guide/data-obfuscation-with-delphix-in-azure-data-factory.yml",
+      "redirect_url": "https://marketplace.microsoft.com/product/saas/delphix.delphix-compliance-services-for-azure-tb-model",
+      "redirect_document_id": false
     },
     {
       "source_path": "docs/example-scenario/ai/data-scrambling-for-sap-using-delphix-and-azure-data-factory.yml",
@@ -7234,7 +7249,17 @@
     },
     {
       "source_path": "docs/reference-architectures/identity/index.yml",
-      "redirect_url": "/azure/architecture/reference-architectures/identity/azure-ad",
+      "redirect_url": "/entra/identity/hybrid/cloud-sync/plan-cloud-sync-topologies",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/reference-architectures/identity/azure-ad.yml",
+      "redirect_url": "/entra/identity/hybrid/cloud-sync/plan-cloud-sync-topologies",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/reference-architectures/identity/adfs.yml",
+      "redirect_url": "/entra/identity/hybrid/connect/migrate-from-federation-to-cloud-authentication",
       "redirect_document_id": false
     },
     {
