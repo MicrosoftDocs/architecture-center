@@ -134,7 +134,14 @@ GPU-enabled VMs are the largest cost driver in this architecture. Match VM SKUs 
 - Monitor VM utilization by using [Azure Monitor](/azure/azure-monitor/vm/vminsights-overview) to identify underutilized or oversized resources.
 - Review [Azure Advisor cost recommendations](/azure/advisor/advisor-cost-recommendations) regularly to identify optimization opportunities.
 
-To estimate costs for this scenario, use this [preconfigured estimate in the Azure pricing calculator](https://azure.com/e/ab6a1e4745014c639d4efffb50320941). Adjust the values to see how the cost changes for your use case. The estimate assumes two NV18ads_A10_v5 GPU-enabled session hosts, an 8-vCore SQL Managed Instance for the enterprise geodatabase, Azure NetApp Files for GIS data storage, and Application Gateway with WAF v2.
+To estimate costs for this scenario, use this [preconfigured estimate in the Azure pricing calculator](https://azure.com/e/ab6a1e4745014c639d4efffb50320941). The estimate uses the following defaults that align with the [multisession recommendations](#multisession-recommendations) for medium-to-heavy workloads:
+
+- Two NV18ads_A10_v5 GPU-enabled session hosts (Windows, multisession)
+- An 8-vCore General Purpose SQL Managed Instance for the enterprise geodatabase
+- Azure NetApp Files Standard tier (4 TiB) for GIS data storage
+- Application Gateway with WAF v2
+
+Adjust the values to match your workload requirements. You can also use the [Azure pricing calculator](https://azure.microsoft.com/pricing/calculator/) directly to build a custom estimate.
 
 ### Performance Efficiency
 
