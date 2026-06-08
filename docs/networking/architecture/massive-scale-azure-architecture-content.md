@@ -267,7 +267,7 @@ Other contributors:
 ## Next steps
 
 - [About virtual hub routing](/azure/virtual-wan/about-virtual-hub-routing)
-- [Route traffic through NVAs by using custom settings](/azure/virtual-wan/scenario-route-through-nvas-custom)
+- [Route traffic through NVAs by using custom settings](/azure/virtual-wan)
 - [About ExpressRoute connections in Azure Virtual WAN](/azure/virtual-wan/virtual-wan-expressroute-about)
 - [What is Azure Virtual WAN](/azure/virtual-wan/virtual-wan-about)
 
