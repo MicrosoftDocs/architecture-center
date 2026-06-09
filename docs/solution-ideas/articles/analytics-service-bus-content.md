@@ -208,7 +208,7 @@ The estimate includes the following services at their default configuration for 
 - **Microsoft Fabric F2 capacity** for eventstream, eventhouse, lakehouse, activator, data agents, and Power BI workloads.
 - **Microsoft Purview Data Governance** for data cataloging, classification, and lineage tracking.
 
-The estimate doesn't include Microsoft Foundry, which this architecture positions as an optional alternative when Copilot Studio can't meet requirements. Copilot Studio is also excluded because it's licensed per tenant through Microsoft 365 rather than as a pay-as-you-go Azure resource.
+The estimate doesn't include Microsoft Foundry, which this architecture positions as an optional alternative for app-based chat experiences when Copilot Studio can't meet requirements (see [AI capabilities](#ai-capabilities) in the workflow). Copilot Studio is also excluded because it's licensed per tenant through Microsoft 365 rather than as a pay-as-you-go Azure resource.
 
 ## Contributors
 
