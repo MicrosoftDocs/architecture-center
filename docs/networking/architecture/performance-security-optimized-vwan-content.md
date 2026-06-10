@@ -104,7 +104,7 @@ If self-hosting NVAs isn't a requirement, a simpler solution exists where the NV
 
 To deploy only a high-security NVA environment, you can follow this model: [Route traffic through an NVA](/azure/virtual-wan).
 
-To deploy a custom NVA model that supports both routing traffic to a dedicated firewall for the internet and routing branch traffic over an NVA, see [Route traffic through NVAs by using custom settings](/azure/virtual-wan).
+To deploy a custom NVA model that supports both routing traffic to a dedicated firewall for the internet and routing branch traffic over an NVA, see [Route traffic through NVAs by using custom settings](/azure/virtual-wan/hybrid-firewall-spoke-static).
 
  The previous alternative deploys a high-security environment behind an NVA and offers some capability to deploy a custom environment. But it differs from the use case described in this article in two ways. First, it shows the two models in isolation instead of in combination. Second, it doesn't support VNet-to-VNet traffic in the custom environment (what we call the *Performance-optimized environment* here).
 
