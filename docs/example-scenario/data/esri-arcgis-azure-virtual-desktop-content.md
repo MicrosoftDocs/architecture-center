@@ -141,7 +141,7 @@ To estimate costs for this scenario, use this [preconfigured estimate in the Azu
 - Azure NetApp Files Standard tier (4 TiB) for GIS data storage
 - Application Gateway with WAF v2
 
-Adjust the values to match your workload requirements. You can also use the [Azure pricing calculator](https://azure.microsoft.com/pricing/calculator/) directly to build a custom estimate.
+Adjust the values to match your workload requirements.
 
 ### Performance Efficiency
 
