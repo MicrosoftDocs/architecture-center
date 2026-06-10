@@ -27,8 +27,6 @@ Using Azure NetApp Files as a storage solution for Teamcenter PLM can help you e
 
 By using Azure NetApp Files volume placement and replication capabilities across multiple [Azure availability zones](/azure/reliability/availability-zones-overview#availability-zones), this solution enables high performance, data resilience, and fault tolerance. When you use Teamcenter PLM together with Azure NetApp Files, you can distribute and replicate data across availability zones to create a resilient PLM solution in the cloud.
 
-**AI-assisted engineering document search over Teamcenter data.** Organizations can use Azure NetApp Files to support AI-assisted search across Teamcenter-managed CAD files, specifications, bills of materials, and engineering documents. In this pattern, AI services access PLM and PDM data where it already resides by using the Azure NetApp Files object REST API, which avoids creating separate data copies for search or retrieval workflows. This approach can help engineering teams find relevant product information faster while continuing to use existing access controls and storage architecture. 
-
 ### Potential use cases
 
 **Mechanical design management:** Azure NetApp Files can provide high-speed access to large design files, allowing engineers to quickly iterate on designs and make necessary changes. For electronics and electrical CAD management, Azure NetApp Files can provide a centralized location for storing and managing CAD data.
@@ -47,7 +45,7 @@ By using Azure NetApp Files volume placement and replication capabilities across
 
 **Product visualization and desktop mockup:** Azure NetApp Files can provide high-speed access to large graphics files and simulations, enabling faster visualization and mockup times. For simulation process and data management, Azure NetApp Files can provide fast and reliable storage for simulation data, so engineers can quickly run simulations and analyze results.
 
-**Product visibility and insight:** Azure NetApp Files supports product visibility and insight by providing fast access to PLM data and analytics. This visibility can help organizations make informed decisions and optimize product development processes. For example, PLM analytics can provide insights into the performance of products and help identify areas for improvement. Sustainable product development can help organizations track the environmental effects of products and make more sustainable choices.
+**AI-assisted engineering document search:** Organizations can use Azure NetApp Files to support AI-assisted search across Teamcenter-managed CAD files, specifications, bills of materials, and engineering documents. Your AI services access PLM and PDM data where it already resides by using the Azure NetApp Files object REST API, which avoids creating separate data copies for search or retrieval workflows. This approach can help engineering teams find relevant product information faster while continuing to use existing access controls and storage architecture.
 
 ## Considerations
 
@@ -55,7 +53,7 @@ These considerations implement the pillars of the Azure Well-Architected Framewo
 
 ### Reliability
 
-Reliability ensures your application can meet the commitments you make to your customers. For more information, see [Design review checklist for Reliability](/azure/well-architected/reliability/checklist). 
+Reliability ensures your application can meet the commitments you make to your customers. For more information, see [Design review checklist for Reliability](/azure/well-architected/reliability/checklist).
 
 Azure NetApp Files provides HA with [built-in data replication, failover, and DR capabilities](/azure/azure-netapp-files/snapshots-introduction). These capabilities help ensure that your Teamcenter PLM database and CAD files are always available, even if there's a regional, zone, or software failure. Azure NetApp Files provides an [SLA](https://www.microsoft.com/licensing/docs/view/Service-Level-Agreements-SLA-for-Online-Services) for all tiers and all supported regions. It supports provisioning volumes in [availability zones](/azure/azure-netapp-files/use-availability-zones) that you choose, and HA deployments across zones.
 
@@ -111,14 +109,19 @@ This architecture shows a DR solution that uses cross-region replication:
 The following data flow corresponds to the previous diagram:
 
 1. The client tier, web app tier, enterprise tier, and resource tier in the production environment use the Azure NetApp Files instance in the storage tier.
+
 1. The applications in their respective tiers use application replication *if needed* to replicate data to an Azure DR region. We recommend that you use Azure NetApp Files cross-region replication if you can.
+
 1. Azure NetApp Files cross-region replication asynchronously replicates the data volumes, including all snapshots, to a DR region to facilitate failover if there's a regional disaster. To save money when you're not performing a DR failover, you can use Standard service levels for the destination volumes during replication.
+
 1. If there's a disaster, the client, web app, enterprise, and resource tiers in the *DR environment* use the Azure NetApp Files storage tier for data storage and performance in the DR environment. In a DR scenario, you should change the Azure NetApp Files volume in the DR environment to the Premium or Ultra tier that's required for running the applications.
+
 1. When the disaster is over, you can initiate a failback event to return the replicated data to its original region. The failback event replicates changes made to the data back to the original region in stages. The replication includes any new snapshots created on the DR site with critical data prioritized first. After replication is complete, applications can resume normal operations in the original region.
 
 **Configure database HA.**  You can combine SQL Server Always On availability groups or Oracle Data Guard with the Azure NetApp Files availability zone volume placement feature to build HA architectures for these applications.
 
 - **Use SQL Server Always On availability groups with Azure NetApp Files.** SQL Server Always On availability groups enable synchronous or asynchronous replication of SQL Server databases across availability zones. This replication ensures data redundancy and failover capabilities in the SQL Server ecosystem. Configure Azure NetApp Files to use availability zone volume placement. Availability zone placement locates the underlying storage for SQL Server databases in the same availability zone as the SQL Server instances.
+
 - **Use Oracle Data Guard with Azure NetApp Files.** Configure Oracle Data Guard to replicate Oracle databases between availability zones for data redundancy and HA. Use Azure NetApp Files with availability zone volume placement to ensure that the storage that supports the Oracle databases is located in the same availability zone as the Oracle database instances.
 
 ### Security
@@ -215,7 +218,9 @@ The VM type and performance tiers need to meet the storage needs of the Teamcent
 Azure NetApp Files provides several features that can help you scale on-demand for performance and cost. These features ensure changes are transparent to the applications using it:
 
 - [Dynamic service-level changes](/azure/azure-netapp-files/dynamic-change-volume-service-level). Azure NetApp Files allows you to change the service level of your volumes on demand, without any disruption to your applications. You can increase or decrease the performance or capacity of your volumes as required, without affecting the availability of your applications.
+
 - [Adjusting performance when you use auto QoS](/azure/azure-netapp-files/azure-netapp-files-service-levels#throughput-limit-examples-of-volumes-in-an-auto-qos-capacity-pool). By default, Azure NetApp Files automatically applies QoS to your volumes to ensure that they receive the required level of performance. When you resize your volumes, the QoS settings are automatically adjusted to reassign the level of performance. Your applications continue to receive the adjusted level of performance as the storage capacity changes.
+
 - [Adjusting performance when you use manual QoS](/azure/azure-netapp-files/azure-netapp-files-service-levels#throughput-limit-examples-of-volumes-in-a-manual-qos-capacity-pool). Azure NetApp Files also allows you to manually assign QoS policies to your volumes to ensure that they receive the required level of performance. Without resizing your volumes, you can adjust the QoS settings to optimize the performance and cost of your storage resources. You can fine-tune the performance of your applications based on your workload requirements.
 
 All these changes are transparent to the Teamcenter components that run on top of Azure NetApp Files. The applications continue to access the volumes in the same way, and the performance and availability are maintained at the required level. You can scale your storage resources on-demand for performance and cost without disrupting your business operations.
