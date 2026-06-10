@@ -279,10 +279,10 @@ Cost Optimization focuses on ways to reduce unnecessary expenses and improve ope
 
 For more information, see [Cost optimization](/azure/well-architected/service-guides/azure-kubernetes-service#cost-optimization) and [Optimize costs in AKS](/azure/aks/best-practices-cost).
 
-Use the [preconfigured estimate in the Azure pricing calculator](https://azure.com/e/5aeacce63c5d465abcab90953987dd71) to get a starting cost for this architecture. Adjust the values to match your requirements.
+Use the [preconfigured estimate in the Azure pricing calculator](https://azure.com/e/198f311cffad4fc4b5b45bbfac7aa1dd) to get a starting cost for this architecture. Adjust the values to match your requirements.
 
 > [!NOTE]
-> The pricing estimate doesn't include Azure Bastion, the jump box VM, Private DNS zones, or the boot diagnostics storage account because those are shared platform resources that are typically managed by a platform team and used across multiple workloads.
+> The pricing estimate doesn't include Azure Bastion or Private DNS zones because those are shared platform resources that are typically managed by a platform team and used across multiple workloads.
 
 ### Operational Excellence
 
