@@ -7268,6 +7268,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "docs/reference-architectures/identity/adds-forest.yml",
+      "redirect_url": "/entra/identity/domain-services/overview",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "docs/solution-ideas/articles/collaboration-microsoft-365.yml",
       "redirect_url": "/azure/azure-fluid-relay/overview/overview",
       "redirect_document_id": false

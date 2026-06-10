@@ -1033,9 +1033,6 @@ items:
         href: networking/guide/cross-tenant-secure-access-private-endpoints.md
     - name: Architectures
       items:
-      - name: AD DS resource forests in Azure
-        displayName: Active Directory Domain Services
-        href: reference-architectures/identity/adds-forest.yml
       - name: Microsoft Entra identity management for AWS
         href: reference-architectures/aws/aws-azure-ad-security.yml
       - name: Deploy AD DS in an Azure virtual network

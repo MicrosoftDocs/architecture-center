@@ -81,7 +81,6 @@ When you've decided on an approach, implementation comes next. For deployment re
 
 These reference architectures provide baseline implementations for various scenarios:
 
-- [Create an AD DS resource forest in Azure][Create an AD DS resource forest in Azure]
 - [Deploy AD DS in an Azure virtual network][Deploy AD DS in an Azure virtual network]
 
 ## Stay current with identity
@@ -123,7 +122,6 @@ The following resources provide practical recommendations and information for sp
 [Azure updates]: https://azure.microsoft.com/updates/?query=Azure%20AD
 [Choose the right authentication method for your Microsoft Entra ID hybrid identity solution]: /entra/identity/hybrid/connect/choose-ad-authn?toc=/azure/architecture/toc.json&bc=/azure/architecture/_bread/toc.json
 [Compare self-managed Active Directory Domain Services, Microsoft Entra ID, and managed Microsoft Entra Domain Services]: /entra/identity/domain-services/compare-identity-solutions?toc=/azure/architecture/toc.json&bc=/azure/architecture/_bread/toc.json
-[Create an AD DS resource forest in Azure]: ../reference-architectures/identity/adds-forest.yml
 [Deploy AD DS in an Azure virtual network]: ../reference-architectures/identity/adds-extend-domain.yml
 [Describe identity concepts]: /training/modules/describe-identity-principles-concepts?toc=/azure/architecture/toc.json&bc=/azure/architecture/_bread/toc.json
 [Design an account strategy]: /microsoft-365/education/deploy/design-account-strategy?toc=/azure/architecture/toc.json&bc=/azure/architecture/_bread/toc.json
