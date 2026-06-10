@@ -202,13 +202,13 @@ Consider the following use cases.
 
 The following [preconfigured estimate in the Azure pricing calculator](https://azure.com/e/72244c05056740bf9244c673a3211b77) reflects the default configuration described in this article. Adjust the values to match your expected event volumes, retention requirements, and capacity needs.
 
-The estimate includes the following services at their default configuration for this architecture:
+The estimate includes the following services for this architecture:
 
 - **Azure Service Bus Premium** with one messaging unit for reliable transactional event delivery with private networking support.
 - **Microsoft Fabric F2 capacity** for eventstream, eventhouse, lakehouse, activator, data agents, and Power BI workloads.
 - **Microsoft Purview Data Governance** for data cataloging, classification, and lineage tracking.
 
-The estimate doesn't include Microsoft Foundry, which this architecture positions as an optional alternative for app-based chat experiences when Copilot Studio can't meet requirements (see [AI capabilities](#ai-capabilities) in the workflow). Copilot Studio is also excluded because it's licensed per tenant through Microsoft 365 rather than as a pay-as-you-go Azure resource.
+Copilot Studio is excluded because it's licensed per tenant through Microsoft 365 rather than as a pay-as-you-go Azure resource.
 
 ## Contributors
 
