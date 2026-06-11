@@ -279,6 +279,8 @@ Cost Optimization focuses on ways to reduce unnecessary expenses and improve ope
 
 For more information, see [Cost optimization](/azure/well-architected/service-guides/azure-kubernetes-service#cost-optimization) and [Optimize costs in AKS](/azure/aks/best-practices-cost).
 
+Use the [preconfigured estimate in the Azure pricing calculator](https://azure.com/e/2668dfa253464aecbfed296014f40ff2) to get a starting cost for this architecture. Adjust the values to match your requirements, and consider removing resources like Azure Bastion and Private DNS zones if those are shared platform resources managed by a platform team in your organization.
+
 ### Operational Excellence
 
 Operational Excellence covers the operations processes that deploy an application and keep it running in production. For more information, see [Design review checklist for Operational Excellence](/azure/well-architected/operational-excellence/checklist).
