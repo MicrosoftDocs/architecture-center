@@ -234,8 +234,6 @@ Principal authors:
 - [What is ExpressRoute?](/azure/expressroute/expressroute-introduction)
 - [Microsoft Fabric documentation](/fabric)
 
-For more information, contact [Azure Data Engineering - Mainframe Modernization](mailto:mainframedatamod@microsoft.com).
-
 ## Related resources
 
 - [General mainframe refactor to Azure](general-mainframe-refactor.yml)

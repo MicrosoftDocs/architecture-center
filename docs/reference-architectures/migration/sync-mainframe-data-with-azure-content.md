@@ -144,5 +144,3 @@ Principal authors:
 
 - [Azure data architecture guide](/azure/architecture/databases/)
 - [Azure data platform end-to-end](/azure/architecture/example-scenario/data/greenfield-lakehouse-fabric)
-
-[Email address for information on Azure Data Engineering On-premises Modernization]: mailto:datasqlninja@microsoft.com

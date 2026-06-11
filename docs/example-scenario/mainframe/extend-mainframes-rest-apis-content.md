@@ -158,8 +158,6 @@ Other contributors:
 
 ## Next steps
 
-For more information, [contact the Legacy Migrations Engineering team](mailto:legacy2azure@microsoft.com).
-
 - [Azure DevOps services](https://azure.microsoft.com/products/devops)
 - [Azure DevOps for Z systems](https://www.ibm.com/support/pages/system/files/inline-files/Azure-DBB%20Integration%20v2g.pdf)
 - [Microsoft Power Platform](https://www.microsoft.com/power-platform)
