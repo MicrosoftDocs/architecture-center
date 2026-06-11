@@ -254,9 +254,6 @@ conceptualContent:
         - text: Extend AD DS to Azure
           itemType: architecture
           url: ./example-scenario/identity/adds-extend-domain.yml
-        - text: Create an AD DS forest in Azure
-          itemType: architecture
-          url: ./reference-architectures/identity/adds-forest.yml
 
     - title: Networking
       links:

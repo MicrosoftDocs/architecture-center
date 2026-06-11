@@ -168,8 +168,6 @@ Identity is the primary security perimeter in cloud environments. In Azure, IAM 
 
 - [Identity architecture design](/azure/architecture/identity/identity-start-here): A hub page for identity architecture in Azure that covers learning paths, design options, implementation guidance, and baseline identity implementations.
 
-- [Create an Active Directory Domain Services (AD DS) resource forest in Azure](/azure/architecture/reference-architectures/identity/adds-forest): A reference architecture that creates a separate Active Directory domain in Azure that domains in an on-premises Active Directory forest trust.
-
 - [Deploy AD DS in an Azure virtual network](/azure/architecture/example-scenario/identity/adds-extend-domain): A reference architecture that extends an on-premises Active Directory domain to Azure to provide distributed authentication services.
 
 ### Threat protection
