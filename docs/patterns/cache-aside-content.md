@@ -163,4 +163,4 @@ public async Task UpdateEntityAsync(MyEntity entity)
 
 - [Reliable Web App pattern](../web-apps/guides/enterprise-app-patterns/overview.md#reliable-web-app-pattern): This pattern applies the Cache-Aside pattern to web applications in the cloud.
 
-- [Caching guidance](../best-practices/caching.yml): This guidance provides more information about how to cache data in a cloud solution, and problems to consider when you implement a cache.
+- [Caching guidance](../best-practices/caching.md): This guidance provides more information about how to cache data in a cloud solution, and problems to consider when you implement a cache.

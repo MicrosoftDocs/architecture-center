@@ -146,7 +146,7 @@ Following best practices helps ensure your container solution on Azure is reliab
 
 - [Autoscaling best practices](../best-practices/auto-scaling.md) - Learn about dynamic scaling to right-size your infrastructure.
 - [Background jobs guidance](../best-practices/background-jobs.md) - Implement background processing for long-running tasks.
-- [Caching guidance](../best-practices/caching.yml) - Improve performance and reduce load on backend systems.
+- [Caching guidance](../best-practices/caching.md) - Improve performance and reduce load on backend systems.
 
 ### Cost optimization
 

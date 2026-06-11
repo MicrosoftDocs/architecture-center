@@ -118,7 +118,7 @@ Follow best practices to help ensure that your compute solution on Azure is reli
 
 - [Autoscaling best practices](../../best-practices/auto-scaling.md): Learn about dynamic scaling to rightsize your infrastructure.
 - [Background jobs guidance](../../best-practices/background-jobs.md): Implement background processing for long-running tasks.
-- [Caching guidance](../../best-practices/caching.yml): Improve performance and reduce load on back-end systems.
+- [Caching guidance](../../best-practices/caching.md): Improve performance and reduce load on back-end systems.
 - [Content delivery network guidance](../../best-practices/cdn.yml): Distribute content closer to users for better performance.
 
 ### Cost optimization

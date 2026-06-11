@@ -305,7 +305,7 @@ Tracing the SQL statement shows that all the data is fetched in a single SELECT 
 - [No Caching antipattern][no-cache]
 
 [api-design]: ../../best-practices/api-design.md
-[caching-guidance]: ../../best-practices/caching.yml
+[caching-guidance]: ../../best-practices/caching.md
 [data-consistency-guidance]: /previous-versions/msp-n-p/dn589800(v=pandp.10)
 [ef]: /ef
 [extraneous-fetching]: ../extraneous-fetching/index.md

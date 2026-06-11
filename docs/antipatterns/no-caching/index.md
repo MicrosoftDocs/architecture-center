@@ -209,7 +209,7 @@ The volume of successful tests still reaches a plateau, but at a higher user loa
 - [Circuit Breaker pattern][circuit-breaker]
 
 [cache-aside-pattern]: ../../patterns/cache-aside.yml
-[caching-guidance]: ../../best-practices/caching.yml
+[caching-guidance]: ../../best-practices/caching.md
 [circuit-breaker]: ../../patterns/circuit-breaker.md
 [api-implementation]: ../../best-practices/api-implementation.md#optimizing-client-side-data-access
 [NewRelic]: https://newrelic.com/partner/azure
