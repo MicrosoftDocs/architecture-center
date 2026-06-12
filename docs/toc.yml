@@ -205,7 +205,7 @@ items:
     - name: Background jobs
       href: best-practices/background-jobs.md
     - name: Caching
-      href: best-practices/caching.yml
+      href: best-practices/caching.md
     - name: Content Delivery Network
       displayName: CDN, edge, static content
       href: best-practices/cdn.yml

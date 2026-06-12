@@ -133,8 +133,6 @@ Principal authors:
 
 ## Next steps
 
-For more information, contact **[legacy2azure@microsoft.com](mailto:legacy2azure@microsoft.com)**, or see the following resources:
-
 - [Azure mainframe and midrange migration](https://azure.microsoft.com/migration/mainframe)
 - [Create, change, or delete a network interface](/azure/virtual-network/virtual-network-network-interface)
 - [ExpressRoute documentation](/azure/expressroute/expressroute-introduction)

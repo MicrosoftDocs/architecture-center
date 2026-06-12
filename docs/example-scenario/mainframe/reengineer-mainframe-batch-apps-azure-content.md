@@ -210,10 +210,9 @@ Principal author:
  
 *To see non-public LinkedIn profiles, sign in to LinkedIn.*
 
-## Next steps
+## Next step
 
-- For more information, contact datasqlninja@microsoft.com.
-- See the [Azure database migration guides](https://datamigration.microsoft.com).
+- [Azure Database Migration Guides](https://datamigration.microsoft.com)
 
 ## Related resource
 

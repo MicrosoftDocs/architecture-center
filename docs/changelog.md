@@ -177,7 +177,7 @@ The following new and updated articles have recently been published in the Azure
 - [AKS Day-2 Guide - Patch and Upgrade Guidance](./operator-guides/aks/aks-upgrade-practices.md) ([#d778b78dbe](https://github.com/MicrosoftDocs/architecture-center/commit/d778b78dbe))
 - [Best Practices for Background Jobs](./best-practices/background-jobs.md) ([#a680388ded](https://github.com/MicrosoftDocs/architecture-center/commit/a680388ded))
 - [Monitoring and diagnostics guidance](./best-practices/monitoring.md) ([#974cee33fe](https://github.com/MicrosoftDocs/architecture-center/commit/974cee33fe))
-- [Caching guidance](./best-practices/caching.yml) ([#43e7bb1b7b](https://github.com/MicrosoftDocs/architecture-center/commit/43e7bb1b7b))
+- [Caching guidance](./best-practices/caching.md) ([#43e7bb1b7b](https://github.com/MicrosoftDocs/architecture-center/commit/43e7bb1b7b))
 - [Azure AI Video Processing Guide](./data-guide/ai-services/image-video-processing.md) ([#5dbc809c58](https://github.com/MicrosoftDocs/architecture-center/commit/5dbc809c58))
 - [Choose an Azure Speech Recognition and Generation Technology](./data-guide/ai-services/speech-recognition-generation.md) ([#5dbc809c58](https://github.com/MicrosoftDocs/architecture-center/commit/5dbc809c58))
 - [Choose an Azure AI Targeted Language Processing Technology](./data-guide/ai-services/targeted-language-processing.md) ([#5dbc809c58](https://github.com/MicrosoftDocs/architecture-center/commit/5dbc809c58))

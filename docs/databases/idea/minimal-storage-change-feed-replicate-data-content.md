@@ -170,4 +170,4 @@ Other contributor:
 
 - [Web-Queue-Worker architecture style](../../guide/architecture-styles/web-queue-worker.md)
 - [RESTful web API design](../../best-practices/api-design.md)
-- [Caching guidance](../../best-practices/caching.yml)
+- [Caching guidance](../../best-practices/caching.md)

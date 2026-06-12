@@ -449,7 +449,7 @@ Database scaling involves many considerations beyond the scope of this architect
 
 - Review [subscription limits and quotas](/azure/azure-resource-manager/management/azure-subscription-service-limits) to ensure that services scale to demand.
 
-- Consider [caching](../../../best-practices/caching.yml) for the following kinds of data to increase performance and scalability:
+- Consider [caching](../../../best-practices/caching.md) for the following kinds of data to increase performance and scalability:
 
   - Semistatic transaction data
   - Session state

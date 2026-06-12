@@ -190,7 +190,6 @@ Other contributors:
 - [Introduction to Application Insights with OpenTelemetry](/azure/azure-monitor/app/app-insights-overview)
 - [Azure Monitor Logs overview](/azure/azure-monitor/logs/data-platform-logs)
 - [Log queries in Azure Monitor](/azure/azure-monitor/logs/log-query-overview)
-- [Contact us (select to create email)](mailto:mainframedatamod@microsoft.com)
 
 ### Related resources
 
