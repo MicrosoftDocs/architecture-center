@@ -117,4 +117,4 @@ For more information, see [Baseline highly available zone-redundant web applicat
 
 ## Related resource
 
-- [Queue-Based Load Leveling pattern](../../patterns/queue-based-load-leveling.yml)
+- [Queue-Based Load Leveling pattern](../../patterns/queue-based-load-leveling.md)

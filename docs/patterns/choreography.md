@@ -161,7 +161,7 @@ Consider these patterns in your design for choreography:
 
 - Modularize the business service by using the [Ambassador pattern](./ambassador.md).
 
-- Implement the [Queue-Based Load Leveling pattern](./queue-based-load-leveling.yml) to handle spikes in the workload.
+- Implement the [Queue-Based Load Leveling pattern](./queue-based-load-leveling.md) to handle spikes in the workload.
 
 - Use asynchronous distributed messaging through the [Publisher-Subscriber pattern](./publisher-subscriber.md).
 

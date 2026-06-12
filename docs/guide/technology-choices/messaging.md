@@ -99,7 +99,7 @@ Producers generate varying message volumes that can spike suddenly. Rather than 
 Three producers on the left point to a central message queue. A single arrow exits the queue to one consumer on the right. Below the diagram, a bar chart labeled requests received at a variable rate has uneven bars. Another bar chart labeled messages processed at a more constant rate has more uniform bars.
 :::image-end:::
 
-For more information, see [Queue-Based Load Leveling pattern](../../patterns/queue-based-load-leveling.yml).
+For more information, see [Queue-Based Load Leveling pattern](../../patterns/queue-based-load-leveling.md).
 
 ### Reliable messaging
 
@@ -322,7 +322,7 @@ Consider the following patterns when you implement asynchronous messaging:
 
 - [Priority Queue pattern](../../patterns/priority-queue.yml): When business logic requires prioritized message processing, this pattern describes how consumers process higher-priority messages before lower-priority messages.
 
-- [Queue-Based Load Leveling pattern](../../patterns/queue-based-load-leveling.yml): This pattern uses a message broker to act as a buffer between a producer and a consumer. This pattern helps minimize the impact of intermittent heavy loads on both the producer's and consumer's availability and responsiveness.
+- [Queue-Based Load Leveling pattern](../../patterns/queue-based-load-leveling.md): This pattern uses a message broker to act as a buffer between a producer and a consumer. This pattern helps minimize the impact of intermittent heavy loads on both the producer's and consumer's availability and responsiveness.
 
 - [Retry pattern](../../patterns/retry.yml): Producers or consumers might temporarily lose connection to a queue because of transient failures. This pattern describes how to retry operations during transient failures to maintain application resiliency.
 

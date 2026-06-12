@@ -136,13 +136,13 @@ Example: Users navigate "Containers > Guides > GitOps" but the URL shows `.../ex
 
 The Azure Architecture Center contains various content types that address needs of the readers at different points in their decision making. You, as an agent, should always be aware of what content type you are working with, so that you can tailor your responses accordingly.
 
-- **Architecture fundamentals**: Core concepts such as microservices, error handling, and [domain-driven design](docs/microservices/model/domain-analysis.md).
-- **Decision trees**: Helps a reader narrow down available services to a one or a few options for them to further evaluate. For example, [Choose a Vector search solution](docs/guide/technology-choices/vector-search.md).
-- **Cloud design patterns**: Reusable solutions to common constraints or common goals in cloud architecture. For example, the [Valet Key pattern](docs/patterns/valet-key-content.md).
-- **Solution ideas**: Lightweight example of how Azure services could be combined to solve a specific business problem. Does not typically address Well-Architected Framework concerns. Designed to spark an exploration by the reader. These are not production ready. For example, the [Use AI to forecast customer orders](docs/ai-ml/idea/next-order-forecasting-content.md) article.
+- **Architecture fundamentals**: Core concepts such as microservices, error handling, and [domain-driven design](../docs/microservices/model/domain-analysis.md).
+- **Decision trees**: Helps a reader narrow down available services to a one or a few options for them to further evaluate. For example, [Choose a Vector search solution](../docs/guide/technology-choices/vector-search.md).
+- **Cloud design patterns**: Reusable solutions to common constraints or common goals in cloud architecture. For example, the [Valet Key pattern](../docs/patterns/valet-key-content.md).
+- **Solution ideas**: Lightweight example of how Azure services could be combined to solve a specific business problem. Does not typically address Well-Architected Framework concerns. Designed to spark an exploration by the reader. These are not production ready. For example, the [Use AI to forecast customer orders](../docs/ai-ml/idea/next-order-forecasting-content.md) article.
 - **Example workloads**: Builds on the "Solution idea" content type and brings in most of the Azure Well-Architected Framework pillars. They must address Cost Optimization.
-- **Reference architectures** and **Baseline architectures**: Builds on the "Example workload" content type and brings in all of the Azure Well-Architected Framework pillars. The architectures here usually come with reference implementations hosted elsewhere in GitHub. These are production ready. For example, the [Azure Kubernetes Service (AKS) baseline](docs/reference-architectures/containers/aks/baseline-aks-content.md).
-- **Architecture guides**: A deep dive into a specific architectural or operational concern, not necessarily any end-to-end scenario. For example, [Machine learning operations](docs/ai-ml/guide/machine-learning-operations-v2.md).
+- **Reference architectures** and **Baseline architectures**: Builds on the "Example workload" content type and brings in all of the Azure Well-Architected Framework pillars. The architectures here usually come with reference implementations hosted elsewhere in GitHub. These are production ready. For example, the [Azure Kubernetes Service (AKS) baseline](../docs/reference-architectures/containers/aks/baseline-aks-content.md).
+- **Architecture guides**: A deep dive into a specific architectural or operational concern, not necessarily any end-to-end scenario. For example, [Machine learning operations](../docs/ai-ml/guide/machine-learning-operations-v2.md).
 
 These content types do not directly map to the file system. Their destinations are instead marked with metadata in the file. While there might be some patterns of usage, the filesystem is largely disorganized in relationship to the content types.
 
@@ -174,14 +174,14 @@ When an article is deleted, moved, or renamed, add a redirect entry to the top-l
 
 Set `redirect_document_id` to `true` if the article was moved or renamed (the content still exists at the new URL). Set it to `false` if the article was deleted (the redirect target is a different article).
 
-## Multi-agent usage
+## Consulting outside sources
 
-- Invoke the Learn MCP tool to query existing Microsoft Learn documentation as needed.
-- Invoke your Web Search tool to query general knowledge from the Internet as needed.
+- When you need to consult Microsoft Learn (to verify Azure product names, look up service guidance, check for deprecations, or fact-check claims before writing them into an article), follow the [`microsoft-learn-grounding`](./skills/microsoft-learn-grounding/SKILL.md) skill.
+- Invoke your Web Search tool to query general knowledge from the Internet as needed. Web search is not a substitute for the Learn grounding skill when the question is about Microsoft Learn content.
 
-## Sourcing policy
+### Sourcing policy
 
-- Prioritize Microsoft Learn as the primary source of truth. Specifically, content found in the Learn MCP server or directly from learn.microsoft.com.
+- Prioritize Microsoft Learn as the primary source of truth, accessed per the [`microsoft-learn-grounding`](./skills/microsoft-learn-grounding/SKILL.md) skill.
 - Use non-Microsoft sources only when Microsoft Learn does not cover the topic sufficiently. Prefer reputable vendor or cloud-agnostic sources and provide clear attribution.
 - Never use data from or link to the `azure.cn` domain. That site is a lagging, partial mirror of Microsoft Learn.
 

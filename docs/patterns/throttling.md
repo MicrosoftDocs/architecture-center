@@ -30,7 +30,7 @@ The system can implement several throttling or related strategies:
 
 - **Graceful feature degradation:** Turn off or degrade nonessential features so that essential features have enough resources. This strategy trades response completeness for availability. For example, a video-streaming application can drop to a lower resolution.
 
-- **Load leveling:** Smooth activity volume by [using a queue](./queue-based-load-leveling.yml). In a multitenant environment, leveling reduces performance for every tenant. When tenants have different service-level agreements (SLAs), process work for high-value tenants immediately and hold lower-priority work until the backlog eases. Implement this approach by using the [Priority Queue pattern](./priority-queue.yml) or by exposing separate endpoints for each priority tier.
+- **Load leveling:** Smooth activity volume by [using a queue](./queue-based-load-leveling.md). In a multitenant environment, leveling reduces performance for every tenant. When tenants have different service-level agreements (SLAs), process work for high-value tenants immediately and hold lower-priority work until the backlog eases. Implement this approach by using the [Priority Queue pattern](./priority-queue.yml) or by exposing separate endpoints for each priority tier.
 
 - **Priority-based deferral:** Defer operations on behalf of lower-priority applications or tenants. Suspend or limit operations, and return an exception that tells the tenant to retry later.
 
@@ -162,6 +162,6 @@ To prevent users from one tenant degrading responsiveness and availability for u
 
 - [Measure the consumption of each tenant](../guide/multitenant/considerations/measure-consumption.md)
 - [Autoscaling in Azure](../best-practices/auto-scaling.md)
-- [Queue-Based Load Leveling pattern](./queue-based-load-leveling.yml)
+- [Queue-Based Load Leveling pattern](./queue-based-load-leveling.md)
 - [Priority Queue pattern](./priority-queue.yml)
 - [External Configuration Store pattern](./external-configuration-store.md)

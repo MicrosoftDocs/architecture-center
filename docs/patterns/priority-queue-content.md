@@ -74,6 +74,8 @@ Consider the following recommendations when you decide how to implement the prio
 
 - *Consider queue costs.* Be aware of the financial and processing costs associated with checking queues. Some queue services charge fees for posting, retrieving, and querying messages, which can increase with the number of queues.
 
+- *Protect processors from demand peaks.* If the producer arrival rate can exceed consumer processing capacity, combine this pattern with the [Queue-Based Load Leveling pattern](./queue-based-load-leveling.md). This approach buffers burst traffic and helps prevent downstream processing resources from overloading.
+
 ### Multiple queues recommendations
 
 - *Monitor processing speeds.* To ensure that messages are processed at the expected rates, continuously monitor the processing speed of high and low-priority queues.
@@ -122,6 +124,8 @@ Here's an overview of the architecture:
 ## Related resources
 
 The following patterns might be helpful to you when you implement this pattern:
+
+- [Queue-Based Load Leveling pattern](./queue-based-load-leveling.md): This pattern uses a queue as a buffer between request intake and processing. Use it with the Priority Queue pattern when you need both burst protection and differentiated handling for high-priority versus low-priority work.
 
 - [Competing Consumers pattern](./competing-consumers.md): This pattern involves implementing multiple consumers that listen to the same queue and process tasks in parallel to increase throughput. Only one consumer processes each message. The article provides detailed information on the advantages and disadvantages of this approach.
 

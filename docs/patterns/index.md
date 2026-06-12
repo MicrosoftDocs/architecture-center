@@ -74,7 +74,7 @@ Each pattern in this catalog describes the problem that it addresses, considerat
 | [Priority Queue](./priority-queue.yml) | Prioritize requests sent to services so that requests with a higher priority are processed more quickly. | - Reliability<br><br>- Performance&nbsp;Efficiency |
 | [Publisher-Subscriber](./publisher-subscriber.md) | Enable an application to announce events to multiple consumers asynchronously, without coupling senders to receivers. | - Reliability<br><br>- Security<br><br>- Cost&nbsp;Optimization<br><br>- Operational&nbsp;Excellence<br><br>- Performance&nbsp;Efficiency |
 | [Quarantine](./quarantine.yml) | Ensure that external assets meet a team-agreed quality level before the workload consumes them. | - Security<br><br>- Operational&nbsp;Excellence |
-| [Queue-Based Load Leveling](./queue-based-load-leveling.yml) | Use a queue that creates a buffer between a task and a service to smooth intermittent heavy loads. | - Reliability<br><br>- Cost&nbsp;Optimization<br><br>- Performance&nbsp;Efficiency |
+| [Queue-Based Load Leveling](./queue-based-load-leveling.md) | Use a queue that creates a buffer between a task and a service to smooth intermittent heavy loads. | - Reliability<br><br>- Cost&nbsp;Optimization<br><br>- Performance&nbsp;Efficiency |
 | [Rate Limiting](./rate-limiting-pattern.yml) | Avoid or minimize throttling errors by controlling the consumption of resources. | - Reliability |
 | [Retry](./retry.yml) | Enable applications to handle anticipated temporary failures by retrying failed operations. | - Reliability |
 | [Saga](./saga.yml) | Manage data consistency across microservices in distributed transaction scenarios. | - Reliability |
@@ -92,7 +92,7 @@ Each pattern in this catalog describes the problem that it addresses, considerat
 Patterns are composable. A single pattern addresses one problem, but a workload usually faces several problems at once, so you often apply multiple patterns together. Some patterns also build on others or pair naturally to cover a gap that one pattern leaves open. Consider these examples:
 
 - Pair [Retry](./retry.yml) with [Circuit Breaker](./circuit-breaker.md) so that an application retries transient faults but stops retrying when a fault persists.
-- Combine [Queue-Based Load Leveling](./queue-based-load-leveling.yml) with [Competing Consumers](./competing-consumers.md) to buffer load and then scale the processing of that load.
+- Combine [Queue-Based Load Leveling](./queue-based-load-leveling.md) with [Competing Consumers](./competing-consumers.md) to buffer load and then scale the processing of that load.
 - Layer the [Gateway Routing](./gateway-routing.yml), [Gateway Aggregation](./gateway-aggregation.md), and [Gateway Offloading](./gateway-offloading.yml) patterns behind a single gateway endpoint.
 - Build [Saga](./saga.yml) on [Compensating Transaction](./compensating-transaction.md) to maintain data consistency across services when a distributed operation fails partway through.
 

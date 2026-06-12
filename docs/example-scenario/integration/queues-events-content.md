@@ -20,7 +20,7 @@ This version of the architecture adds two components that help make the system m
 
 This architecture uses asynchronous communication via a message broker instead of making direct, synchronous calls to back-end services. Asynchronous communication provides the following advantages:
 
-- Uses the [Queue-Based Load Leveling pattern](../../patterns/queue-based-load-leveling.yml) to handle bursts in workloads via load-leveling
+- Uses the [Queue-Based Load Leveling pattern](../../patterns/queue-based-load-leveling.md) to handle bursts in workloads via load-leveling
 
 - Uses the [Publisher-Subscriber pattern](../../patterns/publisher-subscriber.md) so that you can broadcast messages to multiple consumers
 - Tracks the progress of long-running workflows reliably, even when they involve multiple steps or multiple applications

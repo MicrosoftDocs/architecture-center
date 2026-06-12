@@ -478,7 +478,7 @@ items:
     href: patterns/quarantine.yml
   - name: Queue-Based Load Leveling
     displayName: Backpressure, buffering, load smoothing
-    href: patterns/queue-based-load-leveling.yml
+    href: patterns/queue-based-load-leveling.md
   - name: Rate Limiting
     href: patterns/rate-limiting-pattern.yml
   - name: Retry

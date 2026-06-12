@@ -38,7 +38,7 @@ A self-healing workload design is fundamental in the [Azure Well-Architected Fra
 
 **Isolate critical resources.** Failures in one subsystem can cascade if resources, such as threads or sockets, aren't released promptly, which can lead to resource exhaustion. Use the [Bulkhead pattern](../../patterns/bulkhead.md) to partition a system into isolated groups so that a failure in one partition doesn't affect the entire system.
 
-**Perform load leveling.** Applications can experience sudden spikes in traffic that overwhelm services on the back end. Use the [Queue-Based Load Leveling pattern](../../patterns/queue-based-load-leveling.yml) to queue work items to run asynchronously. The queue acts as a buffer that smooths out load peaks.
+**Perform load leveling.** Applications can experience sudden spikes in traffic that overwhelm services on the back end. Use the [Queue-Based Load Leveling pattern](../../patterns/queue-based-load-leveling.md) to queue work items to run asynchronously. The queue acts as a buffer that smooths out load peaks.
 
 **Fail over.** If an instance can't be reached, fail over to another instance. For stateless components like web servers, place multiple instances behind a load balancer or traffic manager. For stateful components like databases, use replicas and implement failover mechanisms. Depending on the data store and how it replicates, the application might need to handle eventual consistency.
 
