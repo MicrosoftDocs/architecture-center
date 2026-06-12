@@ -1,6 +1,11 @@
 {
   "redirections": [
     {
+      "source_path": "docs/industries/automotive/automotive-telemetry-analytics.yml",
+      "redirect_url": "/industry/mobility/architecture/ra-mobility-overview",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "docs/guide/migration/migration-start-here.md",
       "redirect_url": "/azure/migration/migrate-to-azure",
       "redirect_document_id": false

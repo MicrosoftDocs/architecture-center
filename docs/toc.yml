@@ -1093,10 +1093,6 @@ items:
       - name: Multitenant IoT Hub-based solutions
         displayName: Internet of Things
         href: guide/multitenant/approaches/iot.md
-    - name: Architectures
-      items:
-      - name: Automotive test data analytics
-        href: industries/automotive/automotive-telemetry-analytics.yml
     - name: Solution ideas
       items:
       - name: Azure Load Testing for IoT Hub
