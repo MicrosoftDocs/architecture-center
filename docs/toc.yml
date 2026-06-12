@@ -727,7 +727,7 @@ items:
           items:
           - name: High availability for multitier AKS apps
             displayName: Azure Kubernetes Service, HA
-            href: guide/aks/aks-high-availability.yml
+            href: guide/aks/aks-high-availability.md
           - name: CI/CD for AKS apps via Azure Pipelines
             displayName: Azure Kubernetes Service, continuous integration continuous delivery
             href: guide/aks/aks-cicd-azure-pipelines.md
