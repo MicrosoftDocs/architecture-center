@@ -47,7 +47,7 @@ You can initiate background jobs in several ways. They fall into one of the foll
 
 Event-driven invocation uses a trigger to start the background task. Examples of event-driven triggers include:
 
-- The UI or another job places a message in a queue. The message contains data about an action that occurred, like the user placing an order. The background task listens on this queue for new messages. It reads a message and uses the data as the input to the background job. This pattern is known as *[asynchronous message-based communication](/dotnet/architecture/microservices/architect-microservice-container-applications/asynchronous-message-based-communication)*.
+- The UI or another job places a message in a queue. The message contains data about an action that occurred, like the user placing an order. The background task listens on this queue for new messages. It reads a message and uses the data as the input to the background job. This pattern is known as *[asynchronous message-based communication](/dotnet/architecture/microservices/architect-microservice-container-applications/asynchronous-message-based-communication)*. If the request volume is bursty, use the [Queue-Based Load Leveling pattern](../patterns/queue-based-load-leveling.md) so that the queue buffers demand and the background task processes work at a controlled rate.
 
 - The UI or another job saves or updates a value in storage. The background task monitors the storage and detects changes. It reads the data and uses it as the input to the background job.
 
@@ -275,7 +275,7 @@ Background tasks must be resilient and recoverable to provide reliable services 
 
   Set up the platform's shutdown grace period long enough for your typical work item to complete. In Kubernetes, set `terminationGracePeriodSeconds` on the pod spec. In Functions Flex Consumption and Premium plans, the platform automatically provides up to 60 minutes for in-progress work to complete during [scale-in](/azure/azure-functions/event-driven-scaling#scale-in-behaviors).
 
-- When you use queues to communicate with background tasks, queues can function as a buffer to store requests while the application is under higher than usual load. This design lets tasks catch up with the UI during less busy periods. It also means that restarts don't block the UI. For more information, see the [Queue-Based Load Leveling pattern](../patterns/queue-based-load-leveling.yml). If some tasks are more important than others, consider implementing the [Priority Queue pattern](../patterns/priority-queue.yml) to ensure that these tasks run before less important tasks.
+- When you use queues to communicate with background tasks, queues can function as a buffer to store requests while the application is under higher than usual load. This design lets tasks catch up with the UI during less busy periods. It also means that restarts don't block the UI. For more information, see the [Queue-Based Load Leveling pattern](../patterns/queue-based-load-leveling.md). If some tasks are more important than others, consider implementing the [Priority Queue pattern](../patterns/priority-queue.yml) to ensure that these tasks run before less important tasks.
 
 - Background tasks that messages initiate or that process messages must handle inconsistencies, like messages that arrive out of order, messages that repeatedly cause an error (often known as *poison messages*), and messages that are delivered more than once. Consider the following factors:
 
@@ -331,7 +331,7 @@ Background tasks must keep pace with the rate at which work arrives. If tasks fa
 
 ## Related resources
 
-- [Queue-Based Load Leveling pattern](../patterns/queue-based-load-leveling.yml)
+- [Queue-Based Load Leveling pattern](../patterns/queue-based-load-leveling.md)
 - [Priority Queue pattern](../patterns/priority-queue.yml)
 - [Pipes and Filters pattern](../patterns/pipes-and-filters.yml)
 - [Scheduler Agent Supervisor pattern](../patterns/scheduler-agent-supervisor.yml)

@@ -33,7 +33,7 @@ Use a message queue to implement the communication channel between the applicati
 
 This solution has the following benefits:
 
-- It provides a load-leveled system that can handle wide variations in request volume from application instances. The queue functions as a buffer between application instances and consumer service instances. This buffer can minimize the effect on availability and responsiveness for both the application and service instances. For more information, see [Queue-based Load Leveling pattern](./queue-based-load-leveling.yml). A message that requires some long-running processing doesn't prevent other consumer service instances from processing other messages concurrently.
+- It provides a load-leveled system that can handle wide variations in request volume from application instances. The queue functions as a buffer between application instances and consumer service instances. This buffer can minimize the effect on availability and responsiveness for both the application and service instances. For more information, see [Queue-based Load Leveling pattern](./queue-based-load-leveling.md). A message that requires some long-running processing doesn't prevent other consumer service instances from processing other messages concurrently.
 
 - It improves reliability. If a producer communicates directly with a consumer instead of using this pattern and doesn't monitor the consumer, it faces a high probability of losing messages or failing to process them when the consumer fails. In this pattern, the system doesn't send messages to a specific service instance. A failed service instance doesn't block a producer, and any working service instance can process messages.
 
@@ -120,4 +120,4 @@ For more information about how to use the Service Bus client library for .NET to
 
 - [Compute Resource Consolidation pattern](./compute-resource-consolidation.md): You might be able to consolidate multiple instances of a consumer service into a single process to reduce costs and management overhead. The Compute Resource Consolidation pattern describes the benefits and trade-offs of this approach.
 
-- [Queue-based Load Leveling pattern](./queue-based-load-leveling.yml): A message queue can add resiliency to the system. Resiliency lets service instances handle widely varying volumes of requests from application instances. The message queue functions as a buffer that levels the load. The Queue-based Load Leveling pattern describes this scenario in more detail.
+- [Queue-based Load Leveling pattern](./queue-based-load-leveling.md): A message queue can add resiliency to the system. Resiliency lets service instances handle widely varying volumes of requests from application instances. The message queue functions as a buffer that levels the load. The Queue-based Load Leveling pattern describes this scenario in more detail.
