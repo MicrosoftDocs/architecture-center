@@ -57,6 +57,6 @@ items:
         - name: Deploy highly available NVAs
           displayName: firewall HA, network virtual appliance
           href: guide/network-virtual-appliance-high-availability.md
-        - name: SDWAN integration
+        - name: SD-WAN integration
           displayName: Software-defined WAN, SD-WAN
-          href: guide/sdwan-integration-in-hub-and-spoke-network-topologies.yml     
+          href: guide/sd-wan-integration-hub-spoke-network-topologies.md     

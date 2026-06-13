@@ -1,6 +1,11 @@
 {
   "redirections": [
     {
+      "source_path": "docs/industries/automotive/automotive-telemetry-analytics.yml",
+      "redirect_url": "/industry/mobility/architecture/ra-mobility-overview",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "docs/guide/migration/migration-start-here.md",
       "redirect_url": "/azure/migration/migrate-to-azure",
       "redirect_document_id": false
@@ -6098,6 +6103,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "docs/networking/guide/sdwan-integration-in-hub-and-spoke-network-topologies.md",
+      "redirect_url": "/azure/architecture/networking/guide/sd-wan-integration-hub-spoke-network-topologies",
+      "redirect_document_id": true
+    },
+    {      
       "source_path": "docs/guide/iot/azure-iot-migration-best-practices.md",
       "redirect_url": "/azure/iot/iot-introduction",
       "redirect_document_id": false

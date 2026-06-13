@@ -48,7 +48,7 @@ Azure Kubernetes Service (AKS) is the most comprehensive container platform on A
 
 - [Get started with AKS](../reference-architectures/containers/aks-start-here.md) - Introduction to AKS architecture and design.
 - [Choose a Kubernetes at the edge option](../operator-guides/aks/choose-kubernetes-edge-compute-option.md) - Compare options for running Kubernetes at the edge.
-- [High availability for multitier AKS apps](../guide/aks/aks-high-availability.yml) - Design patterns for highly available AKS applications.
+- [High availability for multitier AKS apps](../guide/aks/aks-high-availability.md) - Design patterns for highly available AKS applications.
 - [CI/CD for AKS apps via Azure Pipelines](../guide/aks/aks-cicd-azure-pipelines.md) - Implement continuous integration and deployment for AKS.
 - [GitOps for AKS](../example-scenario/gitops-aks/gitops-blueprint-aks.yml) - Use GitOps practices to manage AKS deployments.
 - [Access an AKS API server](../security/access-azure-kubernetes-service-cluster-api-server.md) - Secure access patterns for AKS API servers.
@@ -65,7 +65,7 @@ Azure Kubernetes Service (AKS) is the most comprehensive container platform on A
 - [CI/CD for microservices on Kubernetes](../microservices/ci-cd-kubernetes.yml) - Build robust CI/CD pipelines for Kubernetes microservices.
 - [Use Azure Red Hat OpenShift in the financial services industry](../reference-architectures/containers/aro/azure-redhat-openshift-financial-services-workloads.yml) - OpenShift for regulated financial workloads.
 - [Secure AKS workloads with Azure Front Door](../example-scenario/aks-front-door/aks-front-door.yml) - Global load balancing and security for AKS.
-- [Multitenancy with AKS and AGIC](../example-scenario/aks-agic/aks-agic.yml) - Multi-tenant architectures using Application Gateway Ingress Controller.
+- [Multitenancy with AKS and AGIC](../example-scenario/aks-agic/aks-agic.yml) - Multitenant architectures using Application Gateway Ingress Controller.
 
 **AKS solution ideas** - These solution ideas demonstrate AKS implementation patterns and possibilities to explore:
 
