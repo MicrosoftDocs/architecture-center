@@ -76,7 +76,7 @@ To address the many challenges listed in [Key challenges](#key-challenges), you 
 
 - Potential to implement [federated authentication](../../patterns/federated-identity.yml).
 
-- Ability to control pressure on models through [rate limiting](../../patterns/rate-limiting-pattern.yml).
+- Ability to control pressure on models through [rate limiting](../../patterns/rate-limiting-pattern.md).
 
 - Cross-cutting and cross-model monitoring.
 

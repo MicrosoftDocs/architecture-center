@@ -75,7 +75,7 @@ Each pattern in this catalog describes the problem that it addresses, considerat
 | [Publisher-Subscriber](./publisher-subscriber.md) | Enable an application to announce events to multiple consumers asynchronously, without coupling senders to receivers. | - Reliability<br><br>- Security<br><br>- Cost&nbsp;Optimization<br><br>- Operational&nbsp;Excellence<br><br>- Performance&nbsp;Efficiency |
 | [Quarantine](./quarantine.yml) | Ensure that external assets meet a team-agreed quality level before the workload consumes them. | - Security<br><br>- Operational&nbsp;Excellence |
 | [Queue-Based Load Leveling](./queue-based-load-leveling.md) | Use a queue that creates a buffer between a task and a service to smooth intermittent heavy loads. | - Reliability<br><br>- Cost&nbsp;Optimization<br><br>- Performance&nbsp;Efficiency |
-| [Rate Limiting](./rate-limiting-pattern.yml) | Avoid or minimize throttling errors by controlling the consumption of resources. | - Reliability |
+| [Rate Limiting](./rate-limiting-pattern.md) | Avoid or minimize throttling errors by controlling the consumption of resources. | - Reliability |
 | [Retry](./retry.yml) | Enable applications to handle anticipated temporary failures by retrying failed operations. | - Reliability |
 | [Saga](./saga.yml) | Manage data consistency across microservices in distributed transaction scenarios. | - Reliability |
 | [Scheduler Agent Supervisor](./scheduler-agent-supervisor.yml) | Coordinate a set of actions across distributed services and resources. | - Reliability<br><br>- Performance&nbsp;Efficiency |

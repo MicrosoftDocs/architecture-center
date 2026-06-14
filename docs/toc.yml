@@ -480,7 +480,7 @@ items:
     displayName: Backpressure, buffering, load smoothing
     href: patterns/queue-based-load-leveling.md
   - name: Rate Limiting
-    href: patterns/rate-limiting-pattern.yml
+    href: patterns/rate-limiting-pattern.md
   - name: Retry
     href: patterns/retry.yml
   - name: Saga
