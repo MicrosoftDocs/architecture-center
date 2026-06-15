@@ -38,7 +38,7 @@ Sharing a single resource inherently carries the risk of noisy neighbor problems
 
 - **Monitor the resource usage for your system.** Monitor both the overall resource usage and the resources that each tenant uses. Configure alerts to detect spikes in resource usage. If possible, configure automation to automatically mitigate known problems by [scaling up or out](/azure/well-architected/performance-efficiency/scale-partition).
 
-- **Apply resource governance.** Consider applying policies that prevent a single tenant from overwhelming the system and reducing the capacity available to other tenants. This step might take the form of quota enforcement through the [Throttling pattern](../../patterns/throttling.md) or the [Rate Limiting pattern](../../patterns/rate-limiting-pattern.yml).
+- **Apply resource governance.** Consider applying policies that prevent a single tenant from overwhelming the system and reducing the capacity available to other tenants. This step might take the form of quota enforcement through the [Throttling pattern](../../patterns/throttling.md) or the [Rate Limiting pattern](../../patterns/rate-limiting-pattern.md).
 
 - **Provision more infrastructure.** This process might include scaling up by upgrading some of your solution components. Or it might include scaling out by provisioning extra shards if you follow the [Sharding pattern](../../patterns/sharding.md), or stamps if you follow the [Deployment Stamps pattern](../../patterns/deployment-stamp.md).
 
