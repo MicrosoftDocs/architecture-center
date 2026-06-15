@@ -62,7 +62,7 @@ The following data flow corresponds to the previous diagram:
 
 [Azure Container Apps](/azure/container-apps/) is a managed serverless platform that delivers a Kubernetes-based experience without requiring infrastructure management. It serves as a simpler alternative to AKS for hosting microservices when you don't need direct access to Kubernetes or its APIs and don't require control over the cluster infrastructure.
 
-Instead of the application routing gateway API in AKS, you can use alternatives like [Istio service mesh add-on](/azure/aks/istio-about), or non-Microsoft solutions. For more information, see [Ingress in AKS](/azure/aks/concepts-network-ingress).
+Instead of the application routing gateway API implementation in AKS, you can use alternatives like [Istio service mesh add-on](/azure/aks/istio-about), or non-Microsoft solutions. For more information, see [Ingress in AKS](/azure/aks/concepts-network-ingress).
 
 You can store container images in non-Microsoft container registries like Docker Hub.
 
