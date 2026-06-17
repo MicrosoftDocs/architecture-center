@@ -2,12 +2,52 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id/>
     <title>Azure Architecture Center</title>
-    <updated>2026-06-08T19:21:51.689Z</updated>
+    <updated>2026-06-15T20:25:51.994Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <subtitle>Updated articles for Azure Architecture Center</subtitle>
     <rights>https://learn.microsoft.com/legal/termsofuse</rights>
     <category term="new"/>
     <category term="updated"/>
+    <entry>
+        <title type="html"><![CDATA[Rate Limiting Pattern]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/patterns/rate-limiting-pattern</id>
+        <link href="https://learn.microsoft.com/azure/architecture/patterns/rate-limiting-pattern"/>
+        <updated>2026-06-14T10:26:53.000Z</updated>
+        <summary type="html"><![CDATA[Control the rate at which your application sends requests to a service so that you stay within the service's throttling limits and overall capacity.]]></summary>
+        <category label="new" term="new"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[High Availability for Multitier AKS Applications]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/guide/aks/aks-high-availability</id>
+        <link href="https://learn.microsoft.com/azure/architecture/guide/aks/aks-high-availability"/>
+        <updated>2026-06-12T22:06:27.000Z</updated>
+        <summary type="html"><![CDATA[Read about high availability for multitier application deployment in AKS clusters. Includes a checklist to identify and eliminate points of failure.]]></summary>
+        <category label="new" term="new"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[SD-WAN Integration with Azure Hub-and-Spoke Network Topologies]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/networking/guide/sd-wan-integration-hub-spoke-network-topologies</id>
+        <link href="https://learn.microsoft.com/azure/architecture/networking/guide/sd-wan-integration-hub-spoke-network-topologies"/>
+        <updated>2026-06-12T20:06:59.000Z</updated>
+        <summary type="html"><![CDATA[Learn how to integrate SD-WAN with Azure hub-and-spoke networks by using Route Server, ExpressRoute, and network virtual appliances (NVAs) for hybrid connectivity.]]></summary>
+        <category label="new" term="new"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Queue-Based Load Leveling Pattern]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/patterns/queue-based-load-leveling</id>
+        <link href="https://learn.microsoft.com/azure/architecture/patterns/queue-based-load-leveling"/>
+        <updated>2026-06-12T16:14:30.000Z</updated>
+        <summary type="html"><![CDATA[Learn how to smooth intermittent heavy loads by using a queue that acts as a buffer between a task and the service that it invokes.]]></summary>
+        <category label="new" term="new"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Caching Guidance]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/best-practices/caching</id>
+        <link href="https://learn.microsoft.com/azure/architecture/best-practices/caching"/>
+        <updated>2026-06-11T19:54:20.000Z</updated>
+        <summary type="html"><![CDATA[Learn how caching can improve the performance and scalability of a system by copying frequently accessed data to fast storage close to the application.]]></summary>
+        <category label="new" term="new"/>
+    </entry>
     <entry>
         <title type="html"><![CDATA[Best Practices for Monitoring and Diagnostics]]></title>
         <id>https://learn.microsoft.com/azure/architecture/best-practices/monitoring</id>
@@ -46,6 +86,110 @@
         <link href="https://learn.microsoft.com/azure/architecture/patterns/strangler-fig"/>
         <updated>2026-06-02T10:57:18.000Z</updated>
         <summary type="html"><![CDATA[Learn how to incrementally migrate a legacy system by gradually replacing specific pieces of functionality with new applications and services.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Build a Conversation Knowledge Mining Solution by using Foundry Tools]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/ai-ml/idea/unlock-insights-from-conversational-data</id>
+        <link href="https://learn.microsoft.com/azure/architecture/ai-ml/idea/unlock-insights-from-conversational-data"/>
+        <updated>2026-06-15T19:52:02.000Z</updated>
+        <summary type="html"><![CDATA[Learn how to design a scalable conversation analytics system that extracts insights from conversational data by using Foundry Tools and Microsoft Foundry.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Build a Multiple-Agent Workflow Automation Solution by using Microsoft Agent Framework]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/ai-ml/idea/multiple-agent-workflow-automation</id>
+        <link href="https://learn.microsoft.com/azure/architecture/ai-ml/idea/multiple-agent-workflow-automation"/>
+        <updated>2026-06-12T16:06:56.000Z</updated>
+        <summary type="html"><![CDATA[Learn how to design and deploy scalable multi‑agent automation infrastructure by using Microsoft Agent Framework, Azure Container Apps, and Foundry Tools.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Use Azure Databricks to Orchestrate MLOps]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/ai-ml/idea/orchestrate-machine-learning-azure-databricks</id>
+        <link href="https://learn.microsoft.com/azure/architecture/ai-ml/idea/orchestrate-machine-learning-azure-databricks"/>
+        <updated>2026-06-11T18:14:07.000Z</updated>
+        <summary type="html"><![CDATA[Learn about an approach for machine learning operations (MLOps) that uses Azure Databricks to run model training and batch scoring.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Esri ArcGIS Platform on Azure Virtual Desktop]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/example-scenario/data/esri-arcgis-azure-virtual-desktop</id>
+        <link href="https://learn.microsoft.com/azure/architecture/example-scenario/data/esri-arcgis-azure-virtual-desktop"/>
+        <updated>2026-06-11T17:17:45.000Z</updated>
+        <summary type="html"><![CDATA[View a reference architecture that shows how to deploy ArcGIS Pro in Azure Virtual Desktop to support the hyperscale of Azure.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Real-Time Analytics with Azure Service Bus and Microsoft Fabric]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/solution-ideas/articles/analytics-service-bus</id>
+        <link href="https://learn.microsoft.com/azure/architecture/solution-ideas/articles/analytics-service-bus"/>
+        <updated>2026-06-11T17:16:49.000Z</updated>
+        <summary type="html"><![CDATA[Learn how to use Microsoft Fabric with Azure Service Bus for near real-time solutions at enterprise scale in production environments.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Use AI to Forecast Customer Orders]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/ai-ml/idea/next-order-forecasting</id>
+        <link href="https://learn.microsoft.com/azure/architecture/ai-ml/idea/next-order-forecasting"/>
+        <updated>2026-06-11T17:16:10.000Z</updated>
+        <summary type="html"><![CDATA[Learn how to use AI and machine learning to forecast a customer's future order quantity for a specific SKU. See the Azure services that you can use in this solution.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Build ETL pipelines with Azure Databricks and Delta Lake]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/solution-ideas/articles/ingest-etl-stream-with-adb</id>
+        <link href="https://learn.microsoft.com/azure/architecture/solution-ideas/articles/ingest-etl-stream-with-adb"/>
+        <updated>2026-06-11T17:15:34.000Z</updated>
+        <summary type="html"><![CDATA[Create ETL pipelines for batch and streaming data with Azure Databricks to simplify data lake ingestion at any scale.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Use Teamcenter PLM with Azure NetApp Files]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/example-scenario/manufacturing/teamcenter-plm-netapp-files</id>
+        <link href="https://learn.microsoft.com/azure/architecture/example-scenario/manufacturing/teamcenter-plm-netapp-files"/>
+        <updated>2026-06-11T17:11:55.000Z</updated>
+        <summary type="html"><![CDATA[Learn how to use Azure NetApp Files as a storage solution for Siemens Teamcenter product lifecycle management (PLM).]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Create a Modern Analytics Architecture by Using Azure Databricks]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/solution-ideas/articles/azure-databricks-modern-analytics-architecture</id>
+        <link href="https://learn.microsoft.com/azure/architecture/solution-ideas/articles/azure-databricks-modern-analytics-architecture"/>
+        <updated>2026-06-11T17:03:22.000Z</updated>
+        <summary type="html"><![CDATA[Learn how to create a modern analytics architecture by using Azure Databricks and Data Lake Storage. Unify data, analytics, and AI workloads at any scale.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Modern Data Platform Architecture for SMBs]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/solution-ideas/articles/small-medium-modern-data-platform</id>
+        <link href="https://learn.microsoft.com/azure/architecture/solution-ideas/articles/small-medium-modern-data-platform"/>
+        <updated>2026-06-10T14:56:30.000Z</updated>
+        <summary type="html"><![CDATA[Use Microsoft Fabric and Azure Databricks to build a modern data platform architecture designed for small and medium businesses.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Extract text from objects using Power Automate and AI Builder]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/example-scenario/ai/extract-object-text</id>
+        <link href="https://learn.microsoft.com/azure/architecture/example-scenario/ai/extract-object-text"/>
+        <updated>2026-06-10T14:54:12.000Z</updated>
+        <summary type="html"><![CDATA[Use AI Builder and Azure Document Intelligence in Foundry Tools in a Power Automate workflow to extract text from images, for indexing and retrieval.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Computer Forensics Chain of Custody in Azure]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/example-scenario/forensics/index</id>
+        <link href="https://learn.microsoft.com/azure/architecture/example-scenario/forensics/index"/>
+        <updated>2026-06-10T14:48:54.000Z</updated>
+        <summary type="html"><![CDATA[Learn how to create an infrastructure and workflow to help ensure a valid digital evidence chain of custody (CoC) for computer forensics in Azure.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[AKS baseline for multiregion clusters]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/reference-architectures/containers/aks-multi-region/aks-multi-cluster</id>
+        <link href="https://learn.microsoft.com/azure/architecture/reference-architectures/containers/aks-multi-region/aks-multi-cluster"/>
+        <updated>2026-06-10T14:47:10.000Z</updated>
+        <summary type="html"><![CDATA[Run Azure Kubernetes Service (AKS) cluster in multiple regions to achieve high availability.]]></summary>
         <category label="updated" term="updated"/>
     </entry>
     <entry>
@@ -102,14 +246,6 @@
         <link href="https://learn.microsoft.com/azure/architecture/guide/aks/aks-firewall"/>
         <updated>2026-06-03T17:23:30.000Z</updated>
         <summary type="html"><![CDATA[Deploy an AKS cluster in a hub-and-spoke network topology by using Terraform and Azure DevOps. Help protect inbound and outbound traffic by using Azure Firewall.]]></summary>
-        <category label="updated" term="updated"/>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[AKS baseline for multiregion clusters]]></title>
-        <id>https://learn.microsoft.com/azure/architecture/reference-architectures/containers/aks-multi-region/aks-multi-cluster</id>
-        <link href="https://learn.microsoft.com/azure/architecture/reference-architectures/containers/aks-multi-region/aks-multi-cluster"/>
-        <updated>2026-06-03T17:23:30.000Z</updated>
-        <summary type="html"><![CDATA[Run Azure Kubernetes Service (AKS) cluster in multiple regions to achieve high availability.]]></summary>
         <category label="updated" term="updated"/>
     </entry>
     <entry>
@@ -1214,14 +1350,6 @@
         <link href="https://learn.microsoft.com/azure/architecture/best-practices/background-jobs"/>
         <updated>2026-03-30T22:50:51.000Z</updated>
         <summary type="html"><![CDATA[Learn best practices for designing background jobs on Azure, including hosting options, reliability, and scaling for event-driven and scheduled jobs.]]></summary>
-        <category label="updated" term="updated"/>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[Caching guidance]]></title>
-        <id>https://learn.microsoft.com/azure/architecture/best-practices/caching</id>
-        <link href="https://learn.microsoft.com/azure/architecture/best-practices/caching"/>
-        <updated>2026-03-25T21:27:18.000Z</updated>
-        <summary type="html"><![CDATA[Learn how caching can improve the performance and scalability of a system by copying frequently accessed data to fast storage close to the application.]]></summary>
         <category label="updated" term="updated"/>
     </entry>
     <entry>

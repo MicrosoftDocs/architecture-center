@@ -2,7 +2,7 @@
 title: What's New in Azure Architecture Center
 description: New and updated articles in Azure Architecture Center
 author: claytonsiemens77
-ms.date: 06/08/2026
+ms.date: 06/15/2026
 ms.topic: whats-new
 ms.author: pnp
 ---
@@ -22,6 +22,11 @@ The following new and updated articles have recently been published in the Azure
 
 ### New articles
 
+- [Rate Limiting Pattern](./patterns/rate-limiting-pattern.md)
+- [High Availability for Multitier AKS Applications](./guide/aks/aks-high-availability.md)
+- [SD-WAN Integration with Azure Hub-and-Spoke Network Topologies](./networking/guide/sd-wan-integration-hub-spoke-network-topologies.md)
+- [Queue-Based Load Leveling Pattern](./patterns/queue-based-load-leveling.md)
+- [Caching Guidance](./best-practices/caching.md)
 - [Best Practices for Monitoring and Diagnostics](./best-practices/monitoring.md)
 - [Gatekeeper Pattern](./patterns/gatekeeper.md)
 - [Gateway Aggregation Pattern](./patterns/gateway-aggregation.md)
@@ -30,6 +35,19 @@ The following new and updated articles have recently been published in the Azure
 ### Updated articles
 
 - [Strangler Fig Pattern](./patterns/strangler-fig.md) ([#6fd2605be2](https://github.com/MicrosoftDocs/architecture-center/commit/6fd2605be2))
+- [Build a Conversation Knowledge Mining Solution by using Foundry Tools](./ai-ml/idea/unlock-insights-from-conversational-data.yml) ([#c1105ae071](https://github.com/MicrosoftDocs/architecture-center/commit/c1105ae071))
+- [Build a Multiple-Agent Workflow Automation Solution by using Microsoft Agent Framework](./ai-ml/idea/multiple-agent-workflow-automation.yml) ([#ade5a76e3a](https://github.com/MicrosoftDocs/architecture-center/commit/ade5a76e3a))
+- [Use Azure Databricks to Orchestrate MLOps](./ai-ml/idea/orchestrate-machine-learning-azure-databricks.yml) ([#b7835a08b3](https://github.com/MicrosoftDocs/architecture-center/commit/b7835a08b3))
+- [Esri ArcGIS Platform on Azure Virtual Desktop](./example-scenario/data/esri-arcgis-azure-virtual-desktop.yml) ([#1d8c19835e](https://github.com/MicrosoftDocs/architecture-center/commit/1d8c19835e))
+- [Real-Time Analytics with Azure Service Bus and Microsoft Fabric](./solution-ideas/articles/analytics-service-bus.yml) ([#ef3dc0b74b](https://github.com/MicrosoftDocs/architecture-center/commit/ef3dc0b74b))
+- [Use AI to Forecast Customer Orders](./ai-ml/idea/next-order-forecasting.yml) ([#30ddca63ba](https://github.com/MicrosoftDocs/architecture-center/commit/30ddca63ba))
+- [Build ETL pipelines with Azure Databricks and Delta Lake](./solution-ideas/articles/ingest-etl-stream-with-adb.yml) ([#2777e2bfb6](https://github.com/MicrosoftDocs/architecture-center/commit/2777e2bfb6))
+- [Use Teamcenter PLM with Azure NetApp Files](./example-scenario/manufacturing/teamcenter-plm-netapp-files.yml) ([#65dbdaf97b](https://github.com/MicrosoftDocs/architecture-center/commit/65dbdaf97b))
+- [Create a Modern Analytics Architecture by Using Azure Databricks](./solution-ideas/articles/azure-databricks-modern-analytics-architecture.yml) ([#60013f9801](https://github.com/MicrosoftDocs/architecture-center/commit/60013f9801))
+- [Modern Data Platform Architecture for SMBs](./solution-ideas/articles/small-medium-modern-data-platform.yml) ([#bedf3e9ad9](https://github.com/MicrosoftDocs/architecture-center/commit/bedf3e9ad9))
+- [Extract text from objects using Power Automate and AI Builder](./example-scenario/ai/extract-object-text.yml) ([#887cd29b18](https://github.com/MicrosoftDocs/architecture-center/commit/887cd29b18))
+- [Computer Forensics Chain of Custody in Azure](./example-scenario/forensics/index.yml) ([#4bac2701f8](https://github.com/MicrosoftDocs/architecture-center/commit/4bac2701f8))
+- [AKS baseline for multiregion clusters](./reference-architectures/containers/aks-multi-region/aks-multi-cluster.yml) ([#53679d5487](https://github.com/MicrosoftDocs/architecture-center/commit/53679d5487))
 - [Windows 365 Azure Network Connection](./virtual-desktop/windows-365-azure-network-connection.md) ([#ceebb78086](https://github.com/MicrosoftDocs/architecture-center/commit/ceebb78086))
 - [Analytics End-to-End with Microsoft Fabric](./example-scenario/dataplate2e/data-platform-end-to-end.yml) ([#56b84bb409](https://github.com/MicrosoftDocs/architecture-center/commit/56b84bb409))
 - [Azure Kubernetes Service (AKS) - Planning](./reference-architectures/containers/aks-start-here.md) ([#f04240ffb7](https://github.com/MicrosoftDocs/architecture-center/commit/f04240ffb7))
@@ -37,7 +55,6 @@ The following new and updated articles have recently been published in the Azure
 - [Automate Document Classification in Azure](./ai-ml/architecture/automate-document-classification-durable-functions.yml) ([#7adb42c9de](https://github.com/MicrosoftDocs/architecture-center/commit/7adb42c9de))
 - [Deploy IBM Maximo Application Suite (MAS) on Azure](./example-scenario/apps/deploy-ibm-maximo-application-suite.yml) ([#d374799158](https://github.com/MicrosoftDocs/architecture-center/commit/d374799158))
 - [Use Azure Firewall to help protect an AKS cluster](./guide/aks/aks-firewall.yml) ([#d374799158](https://github.com/MicrosoftDocs/architecture-center/commit/d374799158))
-- [AKS baseline for multiregion clusters](./reference-architectures/containers/aks-multi-region/aks-multi-cluster.yml) ([#d374799158](https://github.com/MicrosoftDocs/architecture-center/commit/d374799158))
 - [Cloud Design Patterns](./patterns/index.md) ([#3ade5bb0a0](https://github.com/MicrosoftDocs/architecture-center/commit/3ade5bb0a0))
 - [Migrate IBM z/OS OLTP Workloads to Azure](./example-scenario/mainframe/ibm-zos-online-transaction-processing-azure.yml) ([#a1aef96b01](https://github.com/MicrosoftDocs/architecture-center/commit/a1aef96b01))
 - [Integrate IBM mainframe and midrange message queues with Azure](./example-scenario/mainframe/integrate-ibm-message-queues-azure.yml) ([#a1aef96b01](https://github.com/MicrosoftDocs/architecture-center/commit/a1aef96b01))
@@ -200,7 +217,6 @@ The following new and updated articles have recently been published in the Azure
 - [Azure Virtual Desktop for Azure Local](./hybrid/azure-local-workload-virtual-desktop.yml) ([#6702dddcc8](https://github.com/MicrosoftDocs/architecture-center/commit/6702dddcc8))
 - [AKS Day-2 Guide - Patch and Upgrade Guidance](./operator-guides/aks/aks-upgrade-practices.md) ([#d778b78dbe](https://github.com/MicrosoftDocs/architecture-center/commit/d778b78dbe))
 - [Best Practices for Background Jobs](./best-practices/background-jobs.md) ([#a680388ded](https://github.com/MicrosoftDocs/architecture-center/commit/a680388ded))
-- [Caching guidance](./best-practices/caching.md) ([#43e7bb1b7b](https://github.com/MicrosoftDocs/architecture-center/commit/43e7bb1b7b))
 - [Azure AI Video Processing Guide](./data-guide/ai-services/image-video-processing.md) ([#5dbc809c58](https://github.com/MicrosoftDocs/architecture-center/commit/5dbc809c58))
 - [Choose an Azure Speech Recognition and Generation Technology](./data-guide/ai-services/speech-recognition-generation.md) ([#5dbc809c58](https://github.com/MicrosoftDocs/architecture-center/commit/5dbc809c58))
 - [Choose an Azure AI Targeted Language Processing Technology](./data-guide/ai-services/targeted-language-processing.md) ([#5dbc809c58](https://github.com/MicrosoftDocs/architecture-center/commit/5dbc809c58))
