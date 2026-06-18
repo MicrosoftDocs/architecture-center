@@ -1,9 +1,9 @@
 ---
 title: Develop a RAG Solution - Chunk Enrichment Phase
-description: Learn how to augment your chunks with metadata like title, summary, keywords, entities, and more and learn common cleaning methods that can improve vector matches.
+description: Learn how to augment your chunks with metadata like title, summary, keywords, and entities, and learn common cleaning methods that can improve vector matches.
 author: claytonsiemens77
 ms.author: pnp
-ms.date: 10/10/2025
+ms.date: 05/27/2026
 ms.topic: concept-article
 ms.collection: ce-skilling-ai-copilot
 ms.subservice: architecture-guide
@@ -17,7 +17,7 @@ After you break your documents into a collection of chunks, the next step is to 
 This article discusses various ways to augment your chunks, including some common cleaning operations that you can apply to chunks to improve vector comparisons. It also describes some common metadata fields that you can add to your chunks to augment your search index.
 
 > [!NOTE]
-> This article focuses only on vector-based retrieval-augmented generation (RAG) solutions. Strategies related to graph-based, agentic, tag-augmented generation (TAG), and other RAG solutions aren't in scope.
+> This article focuses on vector-based retrieval-augmented generation (RAG) solutions. Strategies related to graph-based, agentic, tag-augmented generation (TAG), and other RAG solutions aren't in scope.
 
 This article is part of a series. Read the [introduction](./rag-solution-design-and-evaluation-guide.md).
 
@@ -29,20 +29,20 @@ The following image shows a code sample of chunks that are enriched with data.
 
 ## Clean your data
 
-When you clean your data, it helps your workload find the most relevant chunks, typically through vectorizing those chunks and storing them in a vector database. An optimized vector search returns only the rows in the database that have the closest semantic matches to the query. The goal of cleaning the data is to support closeness matches by eliminating potential differences that aren't material to the semantics of the text.
+Cleaning your data helps your workload find the most relevant chunks, typically by vectorizing those chunks and storing them in a vector database. An optimized vector search returns only the rows in the database that have the closest semantic matches to the query. The goal of cleaning the data is to support closeness matches by eliminating potential differences that aren't material to the semantics of the text.
 
 > [!NOTE]
 > To return the original, uncleaned chunk as the query result, add an extra field to store the cleaned and vectorized data.
 
 Consider the following common cleaning procedures:
 
-- **Implement lowercasing strategies.** Lowercasing allows words that are capitalized, such as words at the beginning of a sentence, to match corresponding words within a sentence. Embeddings are typically case-sensitive, so "Cheetah" and "cheetah" would result in a different vector for the same logical word. For example, for the embedded query "what is faster, a cheetah or a puma?" the embedding "cheetahs are faster than pumas" is a closer match than "Cheetahs are faster than pumas." Some lowercasing strategies lowercase all words, including proper nouns, while other strategies lowercase only the first words in sentences.
+- **Implement lowercasing strategies.** Lowercasing allows words that are capitalized, such as words at the beginning of a sentence, to match corresponding words within a sentence. Embeddings are typically case-sensitive, so "Cheetah" and "cheetah" result in different vectors for the same logical word. For example, for the embedded query "what is faster, a cheetah or a puma?" the embedding "cheetahs are faster than pumas" is a closer match than "Cheetahs are faster than pumas." Some lowercasing strategies lowercase all words, including proper nouns, and other strategies lowercase only the first words in sentences.
 
 - **Guard against prompt injection attacks.** If an attacker knows that a content repository is processed for indexing, the attacker can try to add content to the repository that includes instructions for your language models and agents to evaluate. Never use the data from your content as a source of instructions during any processing tasks.
 
   Improve security with techniques like flagging or excluding media that contains embedded instructions. Consider using a language model with constrained decoding to classify and sanitize inputs.
 
-- **Remove stop words.** Stop words are words like "a," "an," and "the." You can remove stop words to reduce the dimensionality of the resulting vector. If you remove stop words in the previous example, "a cheetah is faster than a puma," and "the cheetah is faster than the puma," are vectorial equal to "cheetah faster puma." But it's important to understand that some stop words hold semantic meaning. For example, "not" might be considered a stop word, but it holds significant semantic meaning. You need to test to determine the effect of removing stop words.
+- **Remove stop words.** Stop words are words like "a," "an," and "the." You can remove stop words to reduce the dimensionality of the resulting vector. If you remove stop words in the previous example, "a cheetah is faster than a puma," and "the cheetah is faster than the puma," are vectorially equal to "cheetah faster puma." But it's important to understand that some stop words hold semantic meaning. For example, "not" might be considered a stop word, but it holds significant semantic meaning. You need to test to determine the effect of removing stop words.
 
 - **Fix spelling mistakes.** A misspelled word doesn't match with the correctly spelled word in the embedding model. For example, "cheatah" isn't the same as "cheetah" in the embedding. You should fix spelling mistakes to address this problem.
 
@@ -54,12 +54,12 @@ Consider the following common cleaning procedures:
 
 ## Augment your chunks
 
-Semantic searches against the vectorized chunks work well for some types of queries but not as well for others. Depending upon the query types that you need to support, you might need to augment your chunks with extra information. The extra metadata fields are all stored in the same row as your embeddings and can be used in the search solution either as filters or as part of a search.
+Semantic searches against the vectorized chunks work well for some types of queries but not as well for others. Depending on the query types that you need to support, you might need to augment your chunks with extra information. The extra metadata fields are all stored in the same row as your embeddings and can be used in the search solution either as filters or as part of a search.
 
 The following image shows the JSON of fully enriched content and describes how a search platform might use the metadata.
 
 :::image type="complex" border="true" source="./_images/augmented-metadata-usage-in-search.svg" lightbox="./_images/augmented-metadata-usage-in-search.png" alt-text="Diagram that shows the JSON of fully enriched content and how a search platform might use the metadata."::: 
-   The diagram shows a JSON for one chunk that has six fields: Chunk, CleanedChunk, Title, Summary, Keywords, and Questions. The chunk has the following name-value pairs: Chunk, CleanedChunk, Title, and Summary. It has the following arrays: Keywords and Questions. Each field points to a column in a table that shows its data type, usage, and query type. Each item contains the following values: Chunk (String, Return, Full Text), CleanedChunk (Vector: Float, Search, Vector), Title (String, Search/Return, Full Text), Summary (String, Search/Return, Full Text/Vector), Keywords (Collection of Strings, Search/Filter, Full Text), and Questions (Vector: Float, Search, Vector).
+   The diagram shows JSON for one chunk that has six fields: Chunk, CleanedChunk, Title, Summary, Keywords, and Questions. The chunk has the following name-value pairs: Chunk, CleanedChunk, Title, and Summary. It has the following arrays: Keywords and Questions. Each field points to a column in a table that shows its data type, usage, and query type. Each item contains the following values: Chunk (String, Return, Full Text), CleanedChunk (Vector: Float, Search, Vector), Title (String, Search/Return, Full Text), Summary (String, Search/Return, Full Text/Vector), Keywords (Collection of Strings, Search/Filter, Full Text), and Questions (Vector: Float, Search, Vector).
 :::image-end:::
 
 The metadata columns that you need to add depend on your problem domain, including the type of data you have and the types of queries you want to support. You need to analyze the user experience, available data, and result quality you're trying to achieve. From there, you can determine what metadata might help you address your workload's requirements.
@@ -68,7 +68,7 @@ The following list describes common metadata fields, the original chunk text, po
 
 - **ID.** An ID uniquely identifies a chunk. A unique ID is useful during processing to determine whether a chunk already exists in the store. An ID can be a hash of some key field. **Tools**: A hashing library.
 
-- **Title.** A title is a useful return value for a chunk. It provides a quick summary of the content in the chunk. The summary can also be useful to query with an indexed search because it can contain keywords for matching. **Tools:** A language model.
+- **Title.** A title is a useful return value for a chunk. It provides a quick summary of the content in the chunk. The title can also be useful to query with an indexed search because it can contain keywords for matching. **Tools:** A language model.
 - **Summary.** The summary is similar to the title in that it's a common return value and can be used in indexed searches. Summaries are often longer than titles. **Tools:** A language model.
 - **Rephrasing of the chunk.** Rephrasing of a chunk can be helpful as a vector search field because rephrasing captures variations in language, such as synonyms and paraphrasing. **Tools:** A language model.
 - **Keywords.** Keyword searches are useful for data that's noncontextual, for searching for an exact match, and when a specific term or value is important. For example, an auto manufacturer might have reviews or performance data for each of its models for multiple years. "Review for product X for year 2009" is semantically like "Review for product X for 2010" and "Review for product Y for 2009." In this case, it's more effective to match on keywords for the product and year. **Tools:** A language model, RAKE, KeyBERT, multi-rake.
@@ -79,12 +79,66 @@ The following list describes common metadata fields, the original chunk text, po
 - **Source.** The source of the chunk can be valuable as a return for queries. Returning the source allows the querier to cite the original source.
 - **Language.** The language of the chunk can be useful as a filter in queries.
 
+### Generate metadata by using Azure Content Understanding
+
+Many of the metadata fields described previously, such as titles, summaries, keywords, tags, and entities, traditionally require separate calls to language models, natural language processing libraries, or custom code. Each tool introduces its own integration, cost model, and maintenance overhead. As the number of metadata fields increases, so does the complexity of your enrichment pipeline.
+
+[Content Understanding](/azure/ai-services/content-understanding/overview) provides an alternative approach. Rather than orchestrating multiple tools, you can define a single analyzer with a field schema that specifies all the metadata that you need. Content Understanding then processes your content and returns the enriched fields in one API call. This unified approach is especially useful when your pipeline handles multiple content types, because the same service processes documents, images, video, and audio.
+
+Content Understanding supports three field extraction methods that map naturally to common metadata fields:
+
+- **Generate** produces new values from the input content. Use this method for fields like titles, summaries, keywords, questions, and rephrased text.
+- **Classify** categorizes content from a predefined set of categories that you define in the analyzer schema. Use this method for tags, document types, or sentiment labels.
+- **Extract** pulls specific values as they appear in the source content. Use this method for entities like names, dates, amounts, and other structured data points. This method is supported for documents only.
+
+For example, the following analyzer schema generates a title, a summary, and a list of keywords and classifies the document type, all in a single request:
+
+```json
+{
+  "baseAnalyzerId": "prebuilt-document",
+  "description": "Chunk enrichment analyzer",
+  "scenario": "document",
+  "fieldSchema": {
+    "fields": {
+      "Title": {
+        "type": "string",
+        "method": "generate",
+        "description": "A concise title for the content"
+      },
+      "Summary": {
+        "type": "string",
+        "method": "generate",
+        "description": "A one-paragraph summary of the content"
+      },
+      "Keywords": {
+        "type": "array",
+        "method": "generate",
+        "items": { "type": "string" },
+        "description": "Key terms and concepts in the content"
+      },
+      "DocumentType": {
+        "type": "string",
+        "method": "classify",
+        "description": "Category of the document",
+        "enum": ["invoice", "contract", "report", "correspondence", "other"]
+      }
+    }
+  }
+}
+```
+
+The RAG-optimized analyzers in Content Understanding also provide prebuilt enrichment. The `prebuilt-documentSearch` analyzer automatically generates a one-paragraph summary alongside the extracted content, without requiring you to define a field schema. Similarly, the `prebuilt-callCenter` audio analyzer produces summaries, sentiment, topics, and entity lists out of the box. For the full list of prebuilt analyzers and their built-in fields, see [Content Understanding prebuilt analyzers](/azure/ai-services/content-understanding/concepts/prebuilt-analyzers).
+
+Each extracted field value includes a [confidence score](/azure/ai-services/content-understanding/document/overview) (ranging from 0 to 1) and source grounding that traces the value back to its location in the source content. These capabilities help you assess the quality of enriched metadata and decide whether a value can be trusted for automated processing or requires human review.
+
 ### Consider multimodal enrichment recommendations
 
 When you work with video, image, or audio media, consider the following recommendations.
 
 - Generate descriptive text for each artifact and include localized translations.
 - Generate multiple representations for each artifact.
+
+The same Content Understanding approach described in the [Generate metadata by using Azure Content Understanding](#generate-metadata-by-using-azure-content-understanding) section extends to multimodal content. Content Understanding provides specialized prebuilt analyzers for each modality, including `prebuilt-imageSearch`, `prebuilt-videoSearch`, `prebuilt-audioSearch`, and `prebuilt-callCenter`. For details on the capabilities of each modality, see [Content Understanding document solutions](/azure/ai-services/content-understanding/document/overview), [image solutions](/azure/ai-services/content-understanding/image/overview), [video solutions](/azure/ai-services/content-understanding/video/overview), and [audio solutions](/azure/ai-services/content-understanding/audio/overview).
 
 ## Calculate the cost of augmenting
 
@@ -98,4 +152,8 @@ Some language models that augment chunks can be expensive. You need to calculate
 ## Related resources
 
 - [AI enrichment in Azure AI Search](/azure/search/cognitive-search-concept-intro)
-- [Skill set concepts in Azure AI Search](/azure/search/cognitive-search-working-with-skillsets)
+- [Skillset concepts in Azure AI Search](/azure/search/cognitive-search-working-with-skillsets)
+- [Azure Content Understanding overview](/azure/ai-services/content-understanding/overview)
+- [Content Understanding document solutions](/azure/ai-services/content-understanding/document/overview)
+- [Content Understanding prebuilt analyzers](/azure/ai-services/content-understanding/concepts/prebuilt-analyzers)
+- [Build a RAG solution by using Azure Content Understanding](/azure/ai-services/content-understanding/tutorial/build-rag-solution)
