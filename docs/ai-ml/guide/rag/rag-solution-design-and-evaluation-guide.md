@@ -108,9 +108,9 @@ Because of the number of steps and variables, it's important that you follow a s
 
 Principal authors:
 
-- [Harsha Vardhan Annapureddy](https://www.linkedin.com/in/harsha-vardhan-annapureddy/) | Sr Data Scientist
+- [Harsha Vardhan Annapureddy](https://www.linkedin.com/in/harsha-vardhan-annapureddy/) | Senior Data Scientist
 - [Prabal Deb](https://www.linkedin.com/in/prabaldeb/) | Principal Software Engineer
-- [Anish Ganguli](https://www.linkedin.com/in/anish-ganguli/) | Sr Data Scientist
+- [Anish Ganguli](https://www.linkedin.com/in/anish-ganguli/) | Senior Data Scientist
 - [Chad Kittel](https://www.linkedin.com/in/chadkittel/) | Principal Software Engineer - Azure Patterns & Practices
 - [Clayton Siemens](https://www.linkedin.com/in/clayton-siemens-3514896/) | Principal Content Developer - Azure Patterns & Practices
 - [Junwen Wu](https://www.linkedin.com/in/junwen-wu-85083a3/) | Principal Data Scientist
