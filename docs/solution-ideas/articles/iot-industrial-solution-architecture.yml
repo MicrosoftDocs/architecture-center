@@ -1,0 +1,24 @@
+### YamlMime:Architecture
+metadata:
+  title: Azure industrial IoT reference solution architecture
+  description: Industrial IoT reference solution architecture for condition monitoring, overall equipment effectiveness (OEE) calculation, forecasting, and anomaly detection.
+  author: barnstee
+  ms.author: erichb
+  ms.date: 06/15/2026
+  ms.topic: solution-idea
+  ms.subservice: solution-idea
+  ms.custom: arb-iot
+name: Azure industrial IoT reference solution architecture
+azureCategories:
+  - iot
+summary: Connect manufacturing production sites globally to a single industrial IoT platform on Azure that supports condition monitoring, OEE calculation, forecasting, and anomaly detection using OPC UA.
+products:
+  - azure-iot-operations
+  - azure-event-hubs
+  - azure-data-explorer
+  - azure-logic-apps
+  - azure-arc
+  - azure-managed-grafana
+thumbnailUrl: /azure/architecture/browse/thumbs/architecture-iiot-simple.png
+content: |
+   [!INCLUDE[](iot-industrial-solution-architecture-content.md)]

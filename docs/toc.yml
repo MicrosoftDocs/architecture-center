@@ -1081,6 +1081,18 @@ items:
     items:
     - name: Guides
       items:
+      - name: Connect on-premises SAP systems to Azure
+        displayName: Internet of Things
+        href: guide/iot/howto-connect-on-premises-sap-to-azure.md
+      - name: Enable an industrial dataspace on Azure
+        displayName: Internet of Things
+        href: guide/iot/howto-iot-industrial-dataspaces.md
+      - name: Connect Databricks to an Azure IoT solution 
+        displayName: Internet of Things
+        href: guide/iot/how-to-connect-databricks-to-solution.md 
+      - name: Connect Microsoft Fabric to an Azure IoT solution
+        displayName: Internet of Things
+        href: guide/iot/how-to-connect-fabric-to-solution.md  
       - name: Enable ML inference on IoT Edge
         displayName: Internet of Things
         href: guide/iot/machine-learning-inference-iot-edge.yml
@@ -1095,6 +1107,9 @@ items:
         href: guide/multitenant/approaches/iot.md
     - name: Solution ideas
       items:
+      - name: Azure industrial IoT reference solution architecture
+        displayName: Internet of Things
+        href: solution-ideas/articles/iot-industrial-solution-architecture.yml
       - name: Azure Load Testing for IoT Hub
         displayName: Internet of Things
         href: guide/testing/load-testing/load-testing-with-custom-plugins.md
