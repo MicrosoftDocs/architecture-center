@@ -40,7 +40,7 @@ The focus of this pattern is on refactoring areas of high demand by gradually de
 By facilitating independent development and flexible deployments, this pattern accelerates development cycles and boosts the overall performance of the application.
 
 >[!div class="nextstepaction"]
->[Modern Web App pattern for .NET](./modern-web-app/dotnet/guidance.yml)
+>[Modern Web App pattern for .NET](./modern-web-app/dotnet/guidance.md)
 
 >[!div class="nextstepaction"]
 >[Modern Web App pattern for Java](./modern-web-app/java/guidance.md)

@@ -110,7 +110,7 @@ The following new and updated articles have recently been published in the Azure
 - [Compare AWS and Azure Networking Options](./aws-professional/networking.md) ([#bebb9751a0](https://github.com/MicrosoftDocs/architecture-center/commit/bebb9751a0))
 - [AI Agent Orchestration Patterns](./ai-ml/guide/ai-agent-design-patterns.md) ([#4ff97f00f4](https://github.com/MicrosoftDocs/architecture-center/commit/4ff97f00f4))
 - [Use Azure IoT Hub to Privately Upload Files to an Azure Storage Account](./example-scenario/iot/iot-private-file-upload.yml) ([#5068d179ba](https://github.com/MicrosoftDocs/architecture-center/commit/5068d179ba))
-- [Modern Web App Pattern for .NET](./web-apps/guides/enterprise-app-patterns/modern-web-app/dotnet/guidance.yml) ([#cf74874555](https://github.com/MicrosoftDocs/architecture-center/commit/cf74874555))
+- [Modern Web App Pattern for .NET](./web-apps/guides/enterprise-app-patterns/modern-web-app/dotnet/guidance.md) ([#cf74874555](https://github.com/MicrosoftDocs/architecture-center/commit/cf74874555))
 - [Deploy IBM Maximo Application Suite (MAS) on Azure](./example-scenario/apps/deploy-ibm-maximo-application-suite.yml) ([#10c6cabdd2](https://github.com/MicrosoftDocs/architecture-center/commit/10c6cabdd2))
 - [Scalable Cloud Applications and SRE](./example-scenario/apps/scalable-apps-performance-modeling-site-reliability.yml) ([#10c6cabdd2](https://github.com/MicrosoftDocs/architecture-center/commit/10c6cabdd2))
 - [Quantum computing integration with classical apps](./example-scenario/quantum/quantum-computing-integration-with-classical-apps.yml) ([#cda8b43806](https://github.com/MicrosoftDocs/architecture-center/commit/cda8b43806))
