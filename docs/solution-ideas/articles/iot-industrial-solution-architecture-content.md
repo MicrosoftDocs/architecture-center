@@ -464,8 +464,8 @@ Principal authors:
 
 ## Next steps
 
-- [Connect on-premises SAP systems to Azure](/azure/iot/howto-connect-on-premises-sap-to-azure)
-- [Enable an industrial dataspace on Azure](/azure/iot/howto-iot-industrial-dataspaces)
+- [Connect on-premises SAP systems to Azure](/azure/architecture/guide/iot/howto-connect-on-premises-sap-to-azure)
+- [Enable an industrial dataspace on Azure](/azure/architecture/guide/iot/howto-iot-industrial-dataspaces)
 - [Connect Microsoft Fabric to the solution](/azure/architecture/guide/iot/how-to-connect-fabric-to-solution)
 - [Connect Azure Databricks to the solution](/azure/architecture/guide/iot/how-to-connect-databricks-to-solution)
 
