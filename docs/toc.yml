@@ -776,7 +776,7 @@ items:
             href: guide/aks/blue-green-deployment-for-aks.yml
           - name: Firewall protection for an AKS cluster
             displayName: Azure Kubernetes Service
-            href: guide/aks/aks-firewall.yml
+            href: guide/aks/aks-firewall.md
           - name: Secure AKS workloads with Azure Front Door
             displayName: Azure Kubernetes Service, AFD
             href: example-scenario/aks-front-door/aks-front-door.yml

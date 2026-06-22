@@ -541,7 +541,7 @@ Other contributors:
 ## Next steps
 
 - [AKS cluster best practices](/azure/aks/best-practices)
-- [Use Azure Firewall to help protect an AKS cluster](../../guide/aks/aks-firewall.yml)
+- [Use Azure Firewall to help protect an AKS cluster](../../guide/aks/aks-firewall.md)
 - [Training: Introduction to Kubernetes](/training/modules/intro-to-kubernetes/)
 - [Training: Introduction to Kubernetes on Azure](/training/paths/intro-to-kubernetes-on-azure/)
 - [Training: Develop and deploy applications on Kubernetes](/training/paths/develop-deploy-applications-kubernetes/)
