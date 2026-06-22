@@ -12,176 +12,180 @@ ms.custom:
 
 # Choose a Kubernetes at the edge compute option
 
-This document discusses the trade-offs for various options available for extending compute on the edge. The following considerations for each Kubernetes option are covered:
+This article compares the key trade-offs across Kubernetes options for extending compute to the edge. Use this comparison to choose the solution that best fits your environment and requirements. The article covers the following considerations for each Kubernetes option.
 
-- **Operational cost.** The expected labor required to maintain and operate the Kubernetes clusters.
+- **Operational cost:** The expected labor required to maintain and operate the Kubernetes clusters.
 
-- **Ease of configuration.** The level of difficulty to configure and deploy a Kubernetes cluster.
+- **Ease of configuration:** The level of difficulty involved in configuring and deploying a Kubernetes cluster.
 
-- **Flexibility.** A measure of how adaptable the Kubernetes option is to integrate a customized configuration with existing infrastructure at the edge.
+- **Flexibility:** How well the Kubernetes option supports custom configurations and integrates with existing edge infrastructure.
 
-- **Mixed node.** Ability to run a Kubernetes cluster with both Linux and Windows nodes.
+- **Mixed node:** The ability to run a Kubernetes cluster that includes both Linux and Windows nodes.
 
-**Assumptions:**
+This article makes the following assumptions.
 
-- You're a cluster operator looking to understand different options for running Kubernetes at the edge and managing clusters in Azure.
+- You're a cluster operator who wants to evaluate Kubernetes options for edge deployments and manage those clusters in Azure.
 
-- You have a good understanding of existing infrastructure and any other infrastructure requirements, including storage and networking requirements.
+- You're familiar with your existing infrastructure and its requirements, including storage and networking.
 
 This article helps you identify which option best fits your scenario and the environment required.
 
 ## Kubernetes choices at a glance
 
-|                                 | **Operational cost** | **Ease of configuration** | **Flexibility** | **Mixed node** | **Summary**                                                                                                                               |
-|---------------------------------|----------------------|---------------------------|-----------------|----------------|-------------------------------------------------------------------------------------------------------------------------------------------|
-| **Bare-metal Kubernetes**       | High\*\*             | Difficult\*\*             | High\*\*        | Yes            | A ground-up configuration on any available infrastructure at location with the option to use Azure Arc for added Azure capabilities |
-| **Kubernetes on Azure Stack Edge Pro** | Low                  | Easy                      | Low             | Linux only     | Kubernetes deployed on Azure Stack Edge appliance deployed at location                                                                   |
-| **Azure Kubernetes Service (AKS) hybrid**                  | Low                  | Easy                      | Medium          | Yes            | AKS deployed on Azure Local                                                                                   |
-| **AKS Edge Essentials**         | Low                  | Easy                      | Medium          | Yes            | Lightweight Kubernetes (K8s/K3s) on PC-class or "light" edge hardware with Azure Arc management |
+|                                 | **Operational cost** | **Ease of configuration** | **Flexibility** | **Mixed node** | **Summary** |
+|---------------------------------|----------------------|---------------------------|-----------------|---------------|-------------|
+| **Bare-metal Kubernetes**       | High\*               | Difficult\*               | High\*          | Yes            | A ground-up Kubernetes deployment on any infrastructure at a location, with optional Azure Arc integration for added capabilities |
+| **Kubernetes on Azure Stack Edge Pro** | Low           | Easy                      | Low             | Linux only     | Kubernetes deployed on an Azure Stack Edge appliance deployed at a location |
+| **Azure Kubernetes Service (AKS) hybrid** | Low        | Easy                      | Medium          | Yes            | AKS deployed on Azure Local |
+| **AKS Edge Essentials**         | Low                  | Easy                      | Medium          | Yes            | Lightweight Kubernetes on PC-class or *light* edge hardware with Azure Arc management |
 
-\*Other managed edge platforms, such as OpenShift and Tanzu, aren't in scope for this document.
-
-\*\*These values are based on using *kubeadm*, for the sake of simplicity. Different options for running bare-metal Kubernetes at the edge alter the rating in these categories.
+\*For the sake of simplicity, these values are based on using *kubeadm*. Different options for running bare-metal Kubernetes at the edge affect the values in these categories.
 
 ## Bare-metal Kubernetes
 
+Bare-metal Kubernetes refers to the deployment of a Kubernetes cluster directly on physical servers. This approach bypasses the need for virtualization.
+
 You can configure Kubernetes from the ground up by using tools like [kubeadm](https://kubernetes.io/docs/reference/setup-tools/kubeadm/) on any underlying infrastructure.
 
-The biggest constraints for bare-metal Kubernetes are around the specific needs and requirements of the organization. The opportunity to use any distribution, networking interface, and plugin means higher complexity and operational cost. But this option provides the most flexibility for customizing your cluster.
+The biggest constraints on a bare-metal Kubernetes deployment occur because of your organization's infrastructure requirements. The freedom to choose any distribution, networking interface, and plugin introduces greater complexity and higher operational cost. However, this option provides the most flexibility for customizing your cluster.
 
 ### Scenario
 
-Often, *edge* locations have specific requirements for running Kubernetes clusters that aren't met with the other Azure solutions described in this document. This option is typically best if you can't use managed services because of unsupported existing infrastructure or if you want maximum control of your clusters.
+Edge locations frequently have specific requirements that the other Azure solutions in this article can't meet. A bare-metal Kubernetes deployment is best if you can't use managed services because of unsupported existing infrastructure or if you want maximum control of your clusters.
 
-- This option can be especially difficult if you're new to Kubernetes, which is common for organizations that want to run edge clusters. Options like [MicroK8s](https://microk8s.io/docs) or [k3s](https://k3s.io/) aim to flatten that learning curve.
+- This option can be difficult, especially if you're new to Kubernetes. Lightweight Kubernetes options like [MicroK8s](https://canonical.com/microk8s/docs) and [K3s](https://k3s.io) aim to flatten that learning curve.
 
-- It's important to understand any underlying infrastructure and any integration that occurs up front. Then you can narrow down viable options and identify any gaps with the open-source tooling or plugins.
+- Before you start, thoroughly assess your existing infrastructure and integration points. This upfront evaluation helps you narrow viable options and identify any gaps in open-source tooling or plugin support early in the process.
 
-- You can enable clusters by using [Azure Arc](/azure/azure-arc/) as a simple way to manage your cluster from Azure alongside other resources. This approach also provides your cluster with other Azure capabilities, including [Azure Policy](/azure/governance/policy/), [Azure Monitor](/azure/azure-monitor/), [Microsoft Defender for Cloud](/azure/defender-for-cloud/defender-for-cloud-introduction), and other services.
+- You can connect your clusters to [Azure Arc](/azure/azure-arc/) to manage them from Azure alongside your other resources. Azure Arc also unlocks extra Azure capabilities for your cluster, such as [Azure Policy](/azure/governance/policy/), [Azure Monitor](/azure/azure-monitor/), and [Microsoft Defender for Cloud](/azure/defender-for-cloud/defender-for-cloud-introduction).
 
-- It's especially important to be mindful of continuous integration and continuous deployment (CI/CD) because cluster configuration isn't trivial. You must track and act on upstream changes of various plugins. Ensure that those changes don't affect the health of your cluster. It's important for you to have a strong CI/CD solution, strong testing, and monitoring in place.
+- Cluster configuration is complex and nontrivial, so a robust continuous integration and continuous deployment (CI/CD) strategy is essential. You need to monitor upstream plugin changes, validate that those changes don't affect the health of your cluster, and maintain strong testing throughout the cluster lifecycle.
 
 ### Tooling options
 
-Cluster bootstrap:
+**Cluster bootstrap tools:**
 
-- [kubeadm](https://kubernetes.io/docs/reference/setup-tools/kubeadm): Kubernetes tool for creating ground-up Kubernetes clusters. Good for standard compute resources, such as Linux or Windows.
+- [kubeadm](https://kubernetes.io/docs/reference/setup-tools/kubeadm): A Kubernetes tool for creating ground-up Kubernetes clusters. Good for standard compute resources, such as Linux or Windows.
 
-- [MicroK8s](https://microk8s.io/docs): Conformant Kubernetes distribution by Canonical that simplifies administration and configuration. It supports a low-operations approach.
+- [MicroK8s](https://canonical.com/microk8s/docs): A conformant Kubernetes distribution that simplifies administration and configuration. It supports a low-operations approach.
 
-- [k3s](https://k3s.io/): Certified Kubernetes distribution built for Internet of Things (IoT) and edge computing.
+- [K3s](https://k3s.io): A certified Kubernetes distribution built for Internet of Things (IoT) and edge computing.
 
-Storage:
+**Storage tools:**
 
-- [Container Storage Interface (CSI) drivers](https://kubernetes-csi.github.io/docs/drivers.html): Many options are available to fit your requirements from cloud to local file shares.
+- [Container Storage Interface (CSI) drivers](https://kubernetes-csi.github.io/docs/drivers.html): A wide range of drivers is available to support storage back ends, from cloud-based services to local file shares.
 
-Networking:
+**Networking tools:**
 
-- See the [full list of available add-ons](https://kubernetes.io/docs/concepts/cluster-administration/addons/#networking-and-network-policy). Some popular options include [Flannel](https://github.com/flannel-io/flannel#flannel), a simple overlay network, and [Calico](https://docs.projectcalico.org/), which provides a full networking stack.
+- See the [full list of available add-ons](https://kubernetes.io/docs/concepts/cluster-administration/addons/#networking-and-network-policy). Some popular options include [Flannel](https://github.com/flannel-io/flannel#flannel), which is a simple overlay network, and [Calico](https://docs.tigera.io), which provides a full networking stack.
 
 ### Considerations
 
-Operational cost:
+**Operational cost:**
 
-- Without the support that comes with managed services, it's up to the organization to maintain and operate the cluster as a whole, including storage, networking, upgrades, observability, and application management. It has a high operational cost.
+- Without a managed service to support the cluster, your organization is fully responsible for storage, networking, upgrades, observability, and application management. This responsibility results in a high operational cost.
 
-Ease of configuration:
+**Ease of configuration:**
 
-- You must evaluate the many open-source options at every stage of configuration, including networking, storage, and monitoring options, which can become complex. This approach requires more consideration for configuring a CI/CD for cluster configuration. Because of these concerns, configuration is more difficult.
+- Evaluating and selecting open-source options for networking, storage, and monitoring at every configuration stage adds significant complexity. CI/CD for cluster configuration also requires careful planning, which makes bare-metal Kubernetes considerably more difficult to configure than managed alternatives.
 
-Flexibility:
+**Flexibility:**
 
-- With the ability to use any open-source tool or plugin without any provider restrictions, bare-metal Kubernetes is highly flexible.
+- Bare-metal Kubernetes imposes no provider restrictions, so you have unrestricted choice of open-source tools and plugins.
 
-## Kubernetes on Azure Stack Edge
+## Kubernetes on Azure Stack Edge Pro
 
-Azure Stack Edge Pro devices deploy a Kubernetes cluster for you, including a primary virtual machine (VM) and a worker VM.
+[Azure Stack Edge Pro](/azure/databox-online/) devices automatically deploy a Kubernetes cluster, including a primary virtual machine (VM) and a worker VM.
 
-[Azure Stack Edge Pro](/azure/databox-online/) devices deliver Azure capabilities like compute, storage, networking, and hardware-accelerated machine learning to any edge location. Kubernetes clusters can be created after the compute role is enabled on any of the Pro-GPU, Pro-R, and Mini-R devices. Manage upgrades of the Kubernetes cluster by using standard updates available for the device.
+These devices bring Azure capabilities, such as compute, storage, networking, and hardware-accelerated machine learning, to any edge location. You can create Kubernetes clusters after the compute role is enabled on any of the Pro-GPU, Pro-R, and Mini-R devices. Manage upgrades of the Kubernetes cluster by using standard updates available for the device.
 
 ### Scenario
 
-This approach is ideal if you have existing (Linux) IoT workloads or you're upgrading your compute for machine learning at the edge. Use this option when you don't need more granular control over clusters.
+This approach is ideal if you have existing Linux IoT workloads or you're upgrading your compute for machine learning at the edge. Use this option when you don't need more granular control over clusters.
 
-- Admin permissions aren't granted by default. You can work with the product group to make certain exceptions, but it's difficult to have finer control of your cluster.
+- Admin permissions aren't granted by default. You can work with the product group to make certain exceptions, but it's difficult to have more fine-grained control of your cluster.
 
-- Extra [cost](https://azure.microsoft.com/pricing/details/azure-stack/edge/) applies if you don't have an existing Azure Stack Edge device. Explore [Azure Stack Edge devices](https://azure.microsoft.com/products/azure-stack/edge/#devices), and see if any fit your compute requirements.
+- Extra [cost](https://azure.microsoft.com/pricing/details/azure-stack/edge/) applies if you don't have an existing Azure Stack Edge device. Explore [Azure Stack Edge devices](https://azure.microsoft.com/products/azure-stack/edge/#devices) and see if any fit your compute requirements.
 
-- [Calico](https://docs.projectcalico.org/), [MetalLB](https://metallb.org/), and [CoreDNS](https://coredns.io/) are installed for Kubernetes networking on the device.
+- [Calico](https://docs.tigera.io), [MetalLB](https://metallb.org), and [CoreDNS](https://coredns.io) are installed for Kubernetes networking on the device.
 
-- Only **Linux** workloads are supported.
+- Only Linux workloads are supported.
 
-- In addition to Kubernetes, Azure Stack Edge also comes with the IoT runtime, which means that workloads might also be deployed to your Azure Stack Edge clusters via Azure IoT Edge.
+- In addition to Kubernetes, Azure Stack Edge comes with the IoT runtime. Workloads can be deployed to your Azure Stack Edge clusters via Azure IoT Edge.
 
-- Azure Stack Edge Pro GPU 2-node devices can support 2-node HA Kubernetes clusters (master failover).
+- Azure Stack Edge Pro GPU 2-node devices can support 2-node highly available (HA) Kubernetes clusters (master failover).
 
 ### Considerations
 
-Operational cost:
+**Operational cost:**
 
-- With the support that comes with the device, operational cost is minimal and is scoped to workload management.
+- The device's built-in support handles cluster operations, which keeps operational cost low and limits your team's focus to workload management.
 
-Ease of configuration:
+**Ease of configuration:**
 
-- Preconfigured and well-documented Kubernetes cluster deployment simplifies the configuration required compared to bare-metal Kubernetes.
+- The Kubernetes cluster deployment comes preconfigured and is backed by thorough documentation. These resources simplify the complexity of the configuration process compared to bare-metal Kubernetes.
 
-Flexibility:
+**Flexibility:**
 
-- Configuration is already set, and Admin permissions aren't granted by default. Product group involvement might be required beyond basic configuration. And the underlying infrastructure must be an Azure Stack Edge Pro device. This option has low flexibility.
+- The cluster configuration is already set, and admin permissions aren't granted by default. Any customization beyond basic settings might require product group involvement. Because the underlying infrastructure must be an Azure Stack Edge Pro device, this option has low flexibility.
 
 ## AKS hybrid
 
-AKS hybrid uses predefined settings and configurations to deploy one or more Kubernetes clusters. AKS on Azure Local (23H2+) now uses Azure CLI and Azure portal-based provisioning via Azure Arc.
+AKS hybrid uses predefined settings and configurations to deploy one or more Kubernetes clusters. AKS on Azure Local (version 23H2+) uses the Azure CLI and the Azure portal for provisioning through Azure Arc.
 
 ### Scenario
 
-This approach is ideal if you want a simplified and streamlined way to get a Microsoft-supported cluster on compatible devices, such as Azure Local. Operations and configuration complexity are reduced at the expense of flexibility when compared to the bare-metal Kubernetes option.
+This approach is ideal if you want a simplified and streamlined way to get a Microsoft-supported cluster on compatible devices, such as Azure Local. AKS hybrid reduces operations and configuration complexity at the expense of flexibility when compared to the bare-metal Kubernetes option.
 
-Azure Local also extends Azure governance into sovereign environments, enabling Kubernetes-based applications to run within Government, Defense, or regulated industry data boundaries while maintaining Azure-aligned policy and lifecycle control. For more information, see [Azure Local overview](/azure/azure-local/).
+Azure Local also extends Azure governance into sovereign environments. Kubernetes-based workloads can operate within Government, Defense, or regulated industry data boundaries while still benefiting from Azure-aligned policy and lifecycle management. For more information, see [Azure Local overview](/azure/azure-local/).
 
 ### Considerations
 
-Operational cost:
+**Operational cost:**
 
 - A Microsoft-supported cluster minimizes operational costs.
 
-Ease of configuration:
+**Ease of configuration:**
 
-- Preconfigured and well-documented Kubernetes cluster deployment simplifies the configuration required compared to bare-metal Kubernetes.
+- The Kubernetes cluster deployment comes preconfigured and is backed by thorough documentation, which simplifies the configuration required compared to bare-metal Kubernetes.
 
-Flexibility:
+**Flexibility:**
 
-- The cluster configuration itself is set, but Admin permissions are granted. The underlying infrastructure must be Azure Local (23H2 or later). This option is more flexible than Kubernetes on Azure Stack Edge and less flexible than bare-metal Kubernetes.
+- The cluster configuration is set, but you get admin permissions. The underlying infrastructure must be Azure Local (23H2 or later). This option is more flexible than Kubernetes on Azure Stack Edge and less flexible than bare-metal Kubernetes.
 
 ## AKS Edge Essentials
 
-[AKS Edge Essentials](/azure/aks/aksarc/aks-edge-overview) is an on-premises Kubernetes implementation of Azure Kubernetes Service (AKS) designed for lightweight, PC-class, or constrained edge hardware. It includes a Microsoft-supported Kubernetes platform with a small footprint and simple installation experience, making it well suited for IoT, retail, and industrial edge scenarios.
+[AKS Edge Essentials](/azure/aks/aksarc/aks-edge-overview) is an on-premises Kubernetes implementation of AKS designed for lightweight, PC-class, or constrained edge hardware. It includes a Microsoft-supported Kubernetes platform that has a small footprint and simple installation experience. This design makes it well suited for IoT, retail, and industrial edge scenarios.
 
-AKS Edge Essentials supports both a CNCF-conformant K8s distribution and a lightweight K3s distribution. Each machine in a cluster can run one Linux VM, one Windows VM, or both. Unlike AKS hybrid, AKS Edge Essentials uses static, predefined VM configurations and doesn't support dynamic VM creation or cluster lifecycle management, which keeps the resource overhead low.
+AKS Edge Essentials supports both a Cloud Native Computing Foundation (CNCF)-conformant Kubernetes distribution and a lightweight K3s distribution. Each machine in a cluster can run one Linux VM, one Windows VM, or both. Unlike AKS hybrid, AKS Edge Essentials uses static, predefined VM configurations and doesn't support dynamic VM creation or cluster lifecycle management, which keeps the resource overhead low.
 
 ### Scenario
 
-This approach is ideal if you need to run Kubernetes on resource-constrained devices such as industrial PCs, point-of-sale terminals, or IoT gateways. Use this option when your hardware doesn't meet the requirements for server-class solutions like AKS hybrid.
+This approach is ideal if you need to run Kubernetes on resource-constrained devices, such as industrial PCs, point-of-sale terminals, or IoT gateways. Use this option when your hardware doesn't meet the requirements for server-class solutions like AKS hybrid.
 
-- AKS Edge Essentials has minimal compute and memory requirements (4 GB RAM and 2 vCPUs), making it suitable for PC-class or "light" edge hardware.
-- It supports both Linux and Windows containers running side-by-side with native Windows applications, enabling interoperability without introducing a separate Linux management plane.
-- Clusters can be connected to [Azure Arc](/azure/azure-arc/) for centralized management from the Azure portal, including [Azure Policy](/azure/governance/policy/), [Azure Monitor](/azure/azure-monitor/), and [GitOps](/azure/azure-arc/kubernetes/conceptual-gitops-flux2)-based application deployments.
-- Installation and cluster creation are performed by using PowerShell cmdlets, supporting both single-machine and multi-machine cluster topologies.
-- The Microsoft-managed Linux VM image is based on [Azure Linux](/azure/azure-linux/intro-azure-linux) and receives monthly security updates. Kubernetes distribution updates are also managed by Microsoft.
+- AKS Edge Essentials has minimal compute and memory requirements (4 GB RAM and 2 vCPUs), which makes it suitable for PC-class or *light* edge hardware.
+
+- It supports both Linux and Windows containers that run side-by-side with native Windows applications, which provides cross-OS interoperability without introducing a separate Linux management plane.
+
+- You can connect clusters to [Azure Arc](/azure/azure-arc/) for centralized management from the Azure portal, including [Azure Policy](/azure/governance/policy/), [Azure Monitor](/azure/azure-monitor/), and [GitOps](/azure/azure-arc/kubernetes/conceptual-gitops-flux2)-based application deployments.
+
+- PowerShell cmdlets handle both installation and cluster creation, with support for single-machine and multiple-machine topologies.
+
+- The Microsoft-managed Linux VM image is based on [Azure Linux](/azure/azure-linux/azure-linux-aks-overview) and receives monthly security updates. Microsoft also manages Kubernetes distribution updates.
 
 ### Considerations
 
-Operational cost:
+**Operational cost:**
 
-- Microsoft manages the Kubernetes distribution and VM images, which minimizes the operational burden. Cluster updates and security patches are delivered automatically.
+- Microsoft manages the Kubernetes distribution and VM images, which reduces the operational burden. Cluster updates and security patches are delivered automatically.
 
-Ease of configuration:
+**Ease of configuration:**
 
-- PowerShell-based installation and preconfigured VM images simplify setup compared to bare-metal Kubernetes. The static configuration model reduces the complexity of cluster management.
+- PowerShell-based installation and preconfigured VM images simplify setup compared to bare-metal Kubernetes deployments. The static configuration model reduces the complexity of cluster management.
 
-Flexibility:
+**Flexibility:**
 
-- The static VM allocation model limits dynamic scaling. Customization is possible but constrained compared to bare-metal Kubernetes. The underlying infrastructure must be a Windows 10/11 or Windows Server device. This option is more flexible than Kubernetes on Azure Stack Edge and comparable to AKS hybrid for most edge scenarios.
+- The static VM allocation model limits dynamic scaling. Customization is possible but constrained compared to bare-metal Kubernetes deployments. The underlying infrastructure must be a Windows 10, Windows 11, or Windows Server device. This option is more flexible than Kubernetes on Azure Stack Edge and comparable to AKS hybrid for most edge scenarios.
 
 ## Contributors
 
@@ -202,6 +206,6 @@ Principal authors:
 - [Deploy a Kubernetes stateless application via kubectl on your Azure Stack Edge Pro GPU device](/azure/databox-online/azure-stack-edge-gpu-deploy-stateless-application-kubernetes)
 - [Use Kubernetes dashboard to monitor your Azure Stack Edge Pro GPU device](/azure/databox-online/azure-stack-edge-gpu-monitor-kubernetes-dashboard)
 
-## Related resources
+## Related resource
 
 - [Build a CI/CD pipeline for microservices on Kubernetes](../../microservices/ci-cd-kubernetes.yml)
