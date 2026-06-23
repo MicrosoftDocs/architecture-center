@@ -1,6 +1,6 @@
 ---
-title: Use a Gateway in Front of Multiple Azure OpenAI Deployments or Instances
-description: Learn how to add a gateway in front of multiple Azure OpenAI model deployments or instances.
+title: Use a Gateway in Front of Foundry Model Deployments or Instances
+description: Learn how to add a gateway in front of multiple model deployments or instances in Microsoft Foundry.
 author: claytonsiemens77
 ms.author: pnp
 ms.date: 05/20/2026
@@ -9,7 +9,7 @@ ms.subservice: architecture-guide
 ms.custom: arb-aiml
 ---
 
-# Use a gateway in front of multiple Azure OpenAI deployments or instances
+# Use a gateway in front of multiple model deployments or instances
 
 Workload architectures that use a hosted model platform (for example, Microsoft Foundry) can be as simple as one or more client applications calling a single model endpoint directly. Some workloads, however, require multiple clients, multiple model deployments, or multiple model-host instances. In those cases, a gateway can act as a programmable routing layer in front of your model back ends.
 
@@ -259,7 +259,7 @@ For business-critical architectures that must survive a complete regional outage
 #### Use API Management (single-region deployment)
 
 :::image type="complex" source="_images/multiple-regions-api-management-single-after.svg" alt-text="Architecture diagram of a client connecting to model-host instances in both West US and East US." lightbox="_images/multiple-regions-api-management-single-after.svg" border="false":::
-   Architecture diagram that shows a client connecting to an API Management instance. That API Management instance is in a resource group called rg-gateway that's in West US. The API Management instance connects to two private endpoints. One private endpoint is in a resource group called rg-aoai-westus in the West US region. The other private endpoint is in a resource group called rg-aoai-eastus in the East US region. The rg-aoai-westus and rg-aoai-east resource groups also contain Azure OpenAI instances, both labeled Active, and each contains a gpt-4 standard deployment.
+   Architecture diagram that shows a client connecting to an API Management instance. That API Management instance is in a resource group called rg-gateway that's in West US. The API Management instance connects to two private endpoints. One private endpoint is in a resource group called rg-aoai-westus in the West US region. The other private endpoint is in a resource group called rg-aoai-eastus in the East US region. The rg-aoai-westus and rg-aoai-east resource groups also contain model instances, both labeled Active, and each contains a gpt-4 standard deployment.
 :::image-end:::
 
 In this topology, API Management is used specifically for the gateway technology. API Management is deployed into a single region. From that gateway instance, you use active-active load balancing across regions. The policies in your gateway reference all of your model-host instances. The gateway requires network line of sight to each back end across regions, either through cross-region virtual network peering or private endpoints. Calls from this gateway to an instance in another region incur more network latency and egress charges.
@@ -400,7 +400,7 @@ Whether you use API Management or build a custom solution, as mentioned in the [
   - [Scaling with API Management](https://github.com/Azure/aoai-apim/) contains sample policy code and instructions for provisioned and standard spillover.
   - The [GenAI gateway toolkit](https://github.com/Azure-Samples/apim-genai-gateway-toolkit) contains example API Management policies together with a load-testing setup for testing the behavior of the policies.
 
-- **Custom code** 
+- **Custom code**
   - [Smart load balancing by using Azure Container Apps](https://github.com/Azure-Samples/openai-aca-lb) contains sample C# code and instructions for building the container and deploying it into your subscription.
 
 ## Multi-back-end routing for other models
