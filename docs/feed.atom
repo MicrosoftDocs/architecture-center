@@ -2,12 +2,20 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id/>
     <title>Azure Architecture Center</title>
-    <updated>2026-06-15T20:25:51.994Z</updated>
+    <updated>2026-06-22T20:09:41.206Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <subtitle>Updated articles for Azure Architecture Center</subtitle>
     <rights>https://learn.microsoft.com/legal/termsofuse</rights>
     <category term="new"/>
     <category term="updated"/>
+    <entry>
+        <title type="html"><![CDATA[Modern Web App Pattern for .NET]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/web-apps/guides/enterprise-app-patterns/modern-web-app/dotnet/guidance</id>
+        <link href="https://learn.microsoft.com/azure/architecture/web-apps/guides/enterprise-app-patterns/modern-web-app/dotnet/guidance"/>
+        <updated>2026-06-22T17:14:37.000Z</updated>
+        <summary type="html"><![CDATA[Implement the Modern Web App pattern for .NET. Modernize web apps in the cloud by using prescriptive architecture, code, and configuration guidance.]]></summary>
+        <category label="new" term="new"/>
+    </entry>
     <entry>
         <title type="html"><![CDATA[Rate Limiting Pattern]]></title>
         <id>https://learn.microsoft.com/azure/architecture/patterns/rate-limiting-pattern</id>
@@ -73,6 +81,46 @@
         <category label="new" term="new"/>
     </entry>
     <entry>
+        <title type="html"><![CDATA[Connect Azure Databricks to the Reference Solution]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/guide/iot/how-to-connect-databricks-to-solution</id>
+        <link href="https://learn.microsoft.com/azure/architecture/guide/iot/how-to-connect-databricks-to-solution"/>
+        <updated>2026-06-19T22:00:39.000Z</updated>
+        <summary type="html"><![CDATA[Learn how to ingest and analyze OPC UA PubSub industrial IoT data in Azure Databricks using Delta Lake and Structured Streaming.]]></summary>
+        <category label="new" term="new"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Connect Microsoft Fabric to the Reference Solution]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/guide/iot/how-to-connect-fabric-to-solution</id>
+        <link href="https://learn.microsoft.com/azure/architecture/guide/iot/how-to-connect-fabric-to-solution"/>
+        <updated>2026-06-19T22:00:39.000Z</updated>
+        <summary type="html"><![CDATA[Learn how to ingest and analyze OPC UA PubSub industrial IoT data using Microsoft Fabric and KQL databases.]]></summary>
+        <category label="new" term="new"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Connect an on-premises SAP system to Azure]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/guide/iot/howto-connect-on-premises-sap-to-azure</id>
+        <link href="https://learn.microsoft.com/azure/architecture/guide/iot/howto-connect-on-premises-sap-to-azure"/>
+        <updated>2026-06-19T22:00:39.000Z</updated>
+        <summary type="html"><![CDATA[Step by step guide that shows how to connect an on-premises SAP Enterprise Resource Planning system to Azure.]]></summary>
+        <category label="new" term="new"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Enable an industrial dataspace on Azure]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/guide/iot/howto-iot-industrial-dataspaces</id>
+        <link href="https://learn.microsoft.com/azure/architecture/guide/iot/howto-iot-industrial-dataspaces"/>
+        <updated>2026-06-19T22:00:39.000Z</updated>
+        <summary type="html"><![CDATA[Step by step guide that shows how to enable an industrial dataspace on Azure based on open-source reference implementations.]]></summary>
+        <category label="new" term="new"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Azure industrial IoT reference solution architecture]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/solution-ideas/articles/iot-industrial-solution-architecture</id>
+        <link href="https://learn.microsoft.com/azure/architecture/solution-ideas/articles/iot-industrial-solution-architecture"/>
+        <updated>2026-06-19T22:00:39.000Z</updated>
+        <summary type="html"><![CDATA[Industrial IoT reference solution architecture for condition monitoring, overall equipment effectiveness (OEE) calculation, forecasting, and anomaly detection.]]></summary>
+        <category label="new" term="new"/>
+    </entry>
+    <entry>
         <title type="html"><![CDATA[Polyglot Persistence with Azure Cosmos DB and Azure SQL Database]]></title>
         <id>https://learn.microsoft.com/azure/architecture/databases/idea/combine-relational-nosql</id>
         <link href="https://learn.microsoft.com/azure/architecture/databases/idea/combine-relational-nosql"/>
@@ -86,6 +134,94 @@
         <link href="https://learn.microsoft.com/azure/architecture/patterns/strangler-fig"/>
         <updated>2026-06-02T10:57:18.000Z</updated>
         <summary type="html"><![CDATA[Learn how to incrementally migrate a legacy system by gradually replacing specific pieces of functionality with new applications and services.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Choose a Kubernetes at the Edge Compute Option]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/operator-guides/aks/choose-kubernetes-edge-compute-option</id>
+        <link href="https://learn.microsoft.com/azure/architecture/operator-guides/aks/choose-kubernetes-edge-compute-option"/>
+        <updated>2026-06-22T17:19:24.000Z</updated>
+        <summary type="html"><![CDATA[Learn about trade-offs and considerations for various Kubernetes options available for extending compute on the edge.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Run SAP BW/4HANA with Linux Virtual Machines]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/reference-architectures/sap/run-sap-bw4hana-with-linux-virtual-machines</id>
+        <link href="https://learn.microsoft.com/azure/architecture/reference-architectures/sap/run-sap-bw4hana-with-linux-virtual-machines"/>
+        <updated>2026-06-22T15:47:29.000Z</updated>
+        <summary type="html"><![CDATA[Learn about the SAP BW/4HANA application tier and how it's suitable for a high availability, small-scale production environment of SAP BW/4HANA on Azure.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Compare AWS and Azure Accounts]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/aws-professional/accounts</id>
+        <link href="https://learn.microsoft.com/azure/architecture/aws-professional/accounts"/>
+        <updated>2026-06-22T15:39:46.000Z</updated>
+        <summary type="html"><![CDATA[Learn the differences between Azure and AWS accounts and subscriptions. Understand the types of administrator accounts in Azure.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Baseline Microsoft Foundry Chat Reference Architecture]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/ai-ml/architecture/baseline-microsoft-foundry-chat</id>
+        <link href="https://learn.microsoft.com/azure/architecture/ai-ml/architecture/baseline-microsoft-foundry-chat"/>
+        <updated>2026-06-18T22:22:41.000Z</updated>
+        <summary type="html"><![CDATA[Learn how to build network-secured, highly available, and zone-redundant enterprise chat applications by using Microsoft Foundry tools and Azure App Service.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Baseline Microsoft Foundry Chat Reference Architecture in an Azure Landing Zone]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/ai-ml/architecture/baseline-microsoft-foundry-landing-zone</id>
+        <link href="https://learn.microsoft.com/azure/architecture/ai-ml/architecture/baseline-microsoft-foundry-landing-zone"/>
+        <updated>2026-06-18T22:22:41.000Z</updated>
+        <summary type="html"><![CDATA[Learn about deploying the baseline Microsoft Foundry, Foundry Agent Service, Azure OpenAI in Foundry Models, and Azure App Service chat architecture in an Azure landing zone.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Design a Secure Research Environment for Regulated Data]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/ai-ml/architecture/secure-compute-for-research</id>
+        <link href="https://learn.microsoft.com/azure/architecture/ai-ml/architecture/secure-compute-for-research"/>
+        <updated>2026-06-18T19:42:06.000Z</updated>
+        <summary type="html"><![CDATA[Learn how to design an architecture on Azure for a regulated environment that allows researchers to access sensitive data.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Develop a RAG Solution - Chunking Phase]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/ai-ml/guide/rag/rag-chunking-phase</id>
+        <link href="https://learn.microsoft.com/azure/architecture/ai-ml/guide/rag/rag-chunking-phase"/>
+        <updated>2026-06-18T16:40:38.000Z</updated>
+        <summary type="html"><![CDATA[Learn about the various chunking strategies, like boundary based, custom code, and document analysis models.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Develop a RAG Solution - Chunk Enrichment Phase]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/ai-ml/guide/rag/rag-enrichment-phase</id>
+        <link href="https://learn.microsoft.com/azure/architecture/ai-ml/guide/rag/rag-enrichment-phase"/>
+        <updated>2026-06-18T16:40:38.000Z</updated>
+        <summary type="html"><![CDATA[Learn how to augment your chunks with metadata like title, summary, keywords, and entities, and learn common cleaning methods that can improve vector matches.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Develop a RAG Solution - Generate Embeddings Phase]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/ai-ml/guide/rag/rag-generate-embeddings</id>
+        <link href="https://learn.microsoft.com/azure/architecture/ai-ml/guide/rag/rag-generate-embeddings"/>
+        <updated>2026-06-18T16:40:38.000Z</updated>
+        <summary type="html"><![CDATA[Learn how embeddings work, how to choose an embedding model, and how your embedding model can affect your vector search results.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Choose an Analytical Data Store in Azure]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/data-guide/technology-choices/analytical-data-stores</id>
+        <link href="https://learn.microsoft.com/azure/architecture/data-guide/technology-choices/analytical-data-stores"/>
+        <updated>2026-06-17T17:31:45.000Z</updated>
+        <summary type="html"><![CDATA[Evaluate analytical data store options for big data by reviewing key selection criteria and a capability matrix to compare database models and features.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Deploy AD DS in an Azure Virtual Network]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/example-scenario/identity/adds-extend-domain</id>
+        <link href="https://learn.microsoft.com/azure/architecture/example-scenario/identity/adds-extend-domain"/>
+        <updated>2026-06-16T22:09:30.000Z</updated>
+        <summary type="html"><![CDATA[Learn how to extend an on-premises Active Directory domain to Azure to provide distributed authentication services in hybrid cloud environments.]]></summary>
         <category label="updated" term="updated"/>
     </entry>
     <entry>
@@ -294,14 +430,6 @@
         <link href="https://learn.microsoft.com/azure/architecture/guide/multitenant/service/sql-database"/>
         <updated>2026-06-02T19:08:57.000Z</updated>
         <summary type="html"><![CDATA[This article outlines Azure SQL Database features for designing a multitenant system and provides guidance and examples for using Azure SQL in multitenant solutions.]]></summary>
-        <category label="updated" term="updated"/>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[Baseline Microsoft Foundry Chat Reference Architecture]]></title>
-        <id>https://learn.microsoft.com/azure/architecture/ai-ml/architecture/baseline-microsoft-foundry-chat</id>
-        <link href="https://learn.microsoft.com/azure/architecture/ai-ml/architecture/baseline-microsoft-foundry-chat"/>
-        <updated>2026-06-01T22:05:09.000Z</updated>
-        <summary type="html"><![CDATA[Learn how to build network-secured, highly available, and zone-redundant enterprise chat applications by using Microsoft Foundry tools and Azure App Service.]]></summary>
         <category label="updated" term="updated"/>
     </entry>
     <entry>
@@ -622,14 +750,6 @@
         <link href="https://learn.microsoft.com/azure/architecture/example-scenario/iot/iot-private-file-upload"/>
         <updated>2026-05-08T14:45:19.000Z</updated>
         <summary type="html"><![CDATA[Learn how to use the Azure IoT Hub file upload feature to privately upload files to an Azure Storage account exposed through a firewall and custom domain.]]></summary>
-        <category label="updated" term="updated"/>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[Modern Web App Pattern for .NET]]></title>
-        <id>https://learn.microsoft.com/azure/architecture/web-apps/guides/enterprise-app-patterns/modern-web-app/dotnet/guidance</id>
-        <link href="https://learn.microsoft.com/azure/architecture/web-apps/guides/enterprise-app-patterns/modern-web-app/dotnet/guidance"/>
-        <updated>2026-05-07T17:04:09.000Z</updated>
-        <summary type="html"><![CDATA[Implement the Modern Web App pattern for .NET. Modernize web apps in the cloud with prescriptive architecture, code, and configuration guidance.]]></summary>
         <category label="updated" term="updated"/>
     </entry>
     <entry>
