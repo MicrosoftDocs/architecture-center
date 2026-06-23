@@ -53,7 +53,7 @@ Azure Kubernetes Service (AKS) is the most comprehensive container platform on A
 - [GitOps for AKS](../example-scenario/gitops-aks/gitops-blueprint-aks.yml) - Use GitOps practices to manage AKS deployments.
 - [Access an AKS API server](../security/access-azure-kubernetes-service-cluster-api-server.md) - Secure access patterns for AKS API servers.
 - [Blue-green deployment of AKS clusters](../guide/aks/blue-green-deployment-for-aks.yml) - Implement zero-downtime deployments with blue-green strategies.
-- [Firewall protection for an AKS cluster](../guide/aks/aks-firewall.yml) - Secure AKS clusters with Azure Firewall.
+- [Firewall protection for an AKS cluster](../guide/aks/aks-firewall.md) - Secure AKS clusters with Azure Firewall.
 - [Use Azure Kubernetes Service to host GPU-based workloads](../reference-architectures/containers/aks-gpu/gpu-aks.md) - Run GPU workloads on AKS for AI/ML scenarios.
 
 **AKS architectures** - These production-ready architectures demonstrate end-to-end AKS solutions that you can deploy and customize:

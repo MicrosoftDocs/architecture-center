@@ -167,7 +167,7 @@ Other contributors:
 ## Next steps
 
 - [Create a private AKS cluster with a public DNS zone](https://github.com/Azure/azure-quickstart-templates/tree/master/demos/private-aks-cluster-with-public-dns-zone)
-- [Use Azure Firewall to help protect an AKS cluster](../../guide/aks/aks-firewall.yml)
+- [Use Azure Firewall to help protect an AKS cluster](../../guide/aks/aks-firewall.md)
 - [Training: Introduction to Private Link](/training/modules/introduction-azure-private-link/)
 - [Training: Introduction to secure network infrastructure with Azure network security](/training/paths/secure-networking-infrastructure)
 

@@ -476,14 +476,14 @@ We recommend that you deploy your AKS cluster as a private cluster. All control 
 
 Private traffic to a private AKS cluster might originate from the spoke virtual network, from peered networks, or from private endpoints in remote networks. Although the AKS nodes naturally live in the spoke, operators doing administrative tasks require a dedicated network path to reach the AKS API server privately. You can establish this connectivity in the following ways:
 
-- **Tunnelling:** Use Azure Bastion to [open a tunnel directly to the cluster's API server](/azure/bastion/bastion-connect-to-aks-private-cluster).
+- **Tunneling:** Use Azure Bastion to [open a tunnel directly to the cluster's API server](/azure/bastion/bastion-connect-to-aks-private-cluster).
 - **Jump-box:** Provision a jump-box VM, and use Azure Bastion to connect to it through SSH or RDP. From there, the operator makes requests against the cluster's API server through its private IP address.
 
 In the reference implementation, we use Azure Bastion to tunnel to the AKS API server when performing cluster management operations. In general, this approach is simpler to manage, less costly than deploying and managing a jump-box VM, and less complex to coordinate among multiple operators. However, you might choose to use a jump-box VM if you have any of these requirements:
 
 - **Operators use insecure devices.** A jump-box VM can provide stronger security hardening if your client devices aren't trusted.
 - **Operators connect through unstable networks.** A jump-box VM can provide a more stable connection to the cluster, especially for long-running or batch management operations.
-- **Operators use advanced diagnostic tooling.** Some types of diagnostic tooling, like packet capture, might not work well with tunnelling approaches.
+- **Operators use advanced diagnostic tooling.** Some types of diagnostic tooling, like packet capture, might not work well with tunneling approaches.
 
 ## Add secret management
 
@@ -999,6 +999,6 @@ For more information, see [AKS pricing](https://azure.microsoft.com/pricing/deta
 
 - [Advanced AKS microservices architecture](../aks-microservices/aks-microservices-advanced.yml)
 - [Microservices architecture on AKS](../aks-microservices/aks-microservices.yml)
-- [Use Azure Firewall to help protect an AKS cluster](../../../guide/aks/aks-firewall.yml)
+- [Use Azure Firewall to help protect an AKS cluster](../../../guide/aks/aks-firewall.md)
 - [GitOps for AKS](../../../example-scenario/gitops-aks/gitops-blueprint-aks.yml)
 - [Data streaming by using AKS](../../../solution-ideas/articles/data-streaming-scenario.yml)
