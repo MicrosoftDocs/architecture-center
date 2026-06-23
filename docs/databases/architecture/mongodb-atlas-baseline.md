@@ -1,4 +1,4 @@
---- 
+---
 title: Deploy MongoDB Atlas in Azure
 description: Deploy MongoDB Atlas in Azure with secure private connectivity by using single-region and multi-region architectures for scalable workloads.
 author: cloud-architect-dev
