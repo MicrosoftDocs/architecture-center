@@ -84,7 +84,7 @@ Choose the example that suits your needs and follow the provided link to view th
 
 - [Asynchronous Request-Reply Pattern](asynchronous-request-reply.md)
 - [Competing Consumers pattern](./competing-consumers.md)
-- [Sequential Convoy pattern](./sequential-convoy.yml)
+- [Sequential Convoy pattern](./sequential-convoy.md)
 
 <!-- links -->
 [aggregator]: https://www.enterpriseintegrationpatterns.com/patterns/messaging/Aggregator.html

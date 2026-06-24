@@ -490,7 +490,7 @@ items:
     href: patterns/scheduler-agent-supervisor.yml
   - name: Sequential Convoy
     displayName: FIFO, message ordering
-    href: patterns/sequential-convoy.yml
+    href: patterns/sequential-convoy.md
   - name: Sharding
     displayName: Horizontal partitioning, database partitioning
     href: patterns/sharding.md
