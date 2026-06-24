@@ -114,7 +114,7 @@ An architect can adapt a reference architecture that isn't designed specifically
 | [Mission-critical workloads](../reference-architectures/containers/aks-mission-critical/mission-critical-intro.yml) | Addresses how to design a mission-critical workload to run within an application landing zone. |
 | [SAP workloads](/azure/cloud-adoption-framework/scenarios/sap/enterprise-scale-landing-zone) | Provides guidance and recommendations for SAP workloads that align with Azure landing zone best practices. Provides recommendations for how to create infrastructure components like compute, networking, storage, monitoring, and SAP system builds. |
 
-Workloads often consist of different technologies and classifications. Review related reference materials for all technologies in your workload. For example, the guidance from Azure OpenAI chat and API Management helps you check whether your generative AI scenario benefits from an API gateway.
+Workloads often consist of different technologies and classifications. Review related reference materials for all technologies in your workload. For example, the guidance from Microsoft Foundry baseline and API Management architecture helps you check whether your generative AI scenario benefits from an API gateway.
 
 ## Related resource
 

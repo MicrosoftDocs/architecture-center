@@ -1,6 +1,6 @@
 Intelligent applications that use Azure OpenAI in Foundry Models through Azure-native services provide user authentication and authorization. However, some scenarios are complex and require different architecture designs. These scenarios include topologies that have client applications that aren't hosted on Azure, use external identity providers, and deploy multiple clients that access the same Azure OpenAI instances. In these scenarios, introducing a gateway in front of Azure OpenAI can significantly improve security by adding a layer that ensures consistent authentication to deployed instances.
 
-This article describes key scenarios that provide authentication to Azure OpenAI:
+This article describes key scenarios that provide authentication to Foundry Models:
 
 - [Authenticate client applications via an external identity provider](#authenticate-client-applications-via-an-external-identity-provider)
 
