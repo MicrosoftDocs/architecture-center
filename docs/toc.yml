@@ -883,7 +883,7 @@ items:
           href: example-scenario/mainframe/mainframe-data-replication-azure-rdrs.yml
         - name: Migrate mainframe data tier to Azure with mLogica LIBER*IRIS
           href: example-scenario/mainframe/mainframe-data-replication-azure-data-platform.yml
-        - name: Modernize mainframe midrange data
+        - name: Modernize mainframe and midrange data
           href: example-scenario/mainframe/modernize-mainframe-data-to-azure.yml
         - name: Reengineer mainframe batch apps
           href: example-scenario/mainframe/reengineer-mainframe-batch-apps-azure.yml
