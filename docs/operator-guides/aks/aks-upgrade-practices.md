@@ -313,6 +313,9 @@ usernodepool  1.32.4
 
 To minimize disruptions and help ensure a smooth upgrade for your AKS cluster, take this upgrade approach:
 
+> [!NOTE]
+> These manual steps apply to system and user node pools that you manage. On [AKS Automatic clusters that have managed system node pools](/azure/aks/automatic/aks-automatic-managed-system-node-pools-about), Azure upgrades the system node pool for you. Manually upgrading it is unsupported, so skip the system node pool step on those clusters and upgrade only your user node pools.
+
 1. **Upgrade the AKS control plane.** Upgrade the control plane components that are responsible for managing and orchestrating your cluster. Upgrade the control plane first to help ensure compatibility and stability before you upgrade the individual node pools.
 
 1. **Upgrade your system node pool.** After you upgrade the control plane, upgrade the system node pool in your AKS cluster. Node pools consist of the VM instances that run your application workloads. Upgrade node pools separately to maintain control and apply changes to the underlying infrastructure that supports your applications.
