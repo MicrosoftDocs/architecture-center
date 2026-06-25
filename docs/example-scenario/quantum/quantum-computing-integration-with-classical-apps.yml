@@ -2,8 +2,8 @@
 metadata:
   title: Quantum computing integration with classical apps
   description:  Learn how to use Azure Quantum to implement hybrid quantum applications
-  author: hsirtl
-  ms.author: hsirtl
+  author: achocron
+  ms.author: alchocro
   ms.date: 06/07/2024
   ms.topic: example-scenario
   ms.subservice: example-scenario
