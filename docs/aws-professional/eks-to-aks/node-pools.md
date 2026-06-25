@@ -20,7 +20,7 @@ Kubernetes architecture consists of two layers: the [control plane](/azure/aks/c
 
 [!INCLUDE [eks-aks](includes/eks-aks-include.md)]
 
-In both Amazon EKS and AKS, the cloud platform provides and manages the control plane layer, and you manage the node layer. The following diagram shows the relationship between the control plane and nodes in AKS Kubernetes architecture.
+In both Amazon EKS and AKS, the cloud platform provides and manages the control plane layer, and you manage the workload node layer. The following diagram shows the relationship between the control plane and nodes in AKS Kubernetes architecture.
 
 :::image type="complex" source="./media/control-plane-and-nodes.svg" border="false" lightbox="./media/control-plane-and-nodes.svg" alt-text="Diagram that shows the control plane and nodes in AKS architecture.":::
 The diagram is divided into two sections: Azure-managed and Customer-managed. The Azure-managed section includes the control plane, which has the components: the API server, scheduler, etcd (a key-value store), and controller manager. The API server connects to the other three components. The Customer-managed section includes nodes that have the components: kubelet, container runtime, kube-proxy, and a container. The scheduler in the control plane connects to kubelet. Kubelet connects to container runtime, which connects to the container. 
