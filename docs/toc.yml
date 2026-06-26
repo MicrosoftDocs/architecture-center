@@ -1122,7 +1122,7 @@ items:
   - name: Management + Governance
     items:
     - name: Get started
-      href: guide/management-governance/management-governance-start-here.md
+      href: guide/management-governance/management-governance-get-started.md
     - name: Guides
       items:
       - name: Update Windows VMs in Azure
