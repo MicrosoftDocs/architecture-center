@@ -137,6 +137,30 @@ The following table shows an example network schema.
 | Subnet          | PrivateEndpointsSubnet | 10.0.2.0/27   |
 | Subnet          | AgentsSubnet           | 10.0.2.32/27  |
 
+#### Segment subnets further by application tier
+
+This baseline uses a shared App Service integration subnet and a shared private endpoints subnet. This layout keeps the architecture reusable and simple to operate, and it remains a secure default for a single web application. If your workload separates a frontend, a backend API, and a data tier, or if you run multiple unrelated applications in the same virtual network, you can subdivide these subnets to create stricter isolation boundaries. This approach is optional and adds operational overhead.
+
+Consider this segmentation when one or more of the following conditions apply:
+
+- You want to constrain east-west traffic so that each tier reaches only the dependencies that it requires.
+
+- You host an internal API that other services consume privately and that the internet never reaches directly.
+
+- You share the virtual network across applications that have different owners or trust levels.
+
+When you implement tier-based segmentation, apply the following guidance:
+
+- Create a dedicated App Service integration subnet for each tier that needs outbound virtual network access. A frontend that serves only static content, such as a single-page application that runs in the browser, doesn't need virtual network integration because the browser calls the backend through Application Gateway rather than through a server-to-server path. Each integration subnet must be delegated to `Microsoft.Web/serverFarms`. For more information, see [Enable virtual network integration](/azure/app-service/configure-vnet-integration-enable).
+
+- Keep public network access disabled on backing services like SQL Database and any internal API, and expose them only through private endpoints. Place private endpoints in dedicated subnets that you group by purpose, such as one subnet for data services and one subnet for internal APIs.
+
+- Use NSGs to allow each integration subnet to reach only the private endpoints and platform destinations that the tier requires, and deny outbound traffic to endpoints that the tier must never call. For example, allow the backend subnet to reach the SQL and internal API private endpoints, and deny the internal API subnet from initiating connections to the backend or data tier.
+
+Network controls are necessary but not sufficient. Enforce application-level identity and authorization, such as Microsoft Entra ID and managed identities, so that unauthorized calls fail even if a network rule drifts over time. For more information, see [Identity and access management](#identity-and-access-management).
+
+This stricter model increases isolation, but it requires more governance: address-space planning, NSG rule lifecycle ownership, consistent routing and DNS, and recurring access reviews. As a middle ground for a shared virtual network, use one App Service integration subnet per application domain, which is a small set of related apps, rather than one subnet per app or one subnet for every service in the network. This approach reduces address-space fragmentation while it preserves isolation between unrelated applications. For subnet sizing requirements, see [App Service virtual network integration subnet requirements](/azure/app-service/overview-vnet-integration#subnet-requirements).
+
 ## Considerations
 
 These considerations implement the pillars of the Azure Well-Architected Framework, which is a set of guiding tenets that you can use to improve the quality of a workload. For more information, see [Well-Architected Framework](/azure/well-architected/).
