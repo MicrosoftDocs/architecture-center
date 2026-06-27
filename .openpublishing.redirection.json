@@ -1,6 +1,11 @@
 {
   "redirections": [
     {
+      "source_path": "docs/guide/management-governance/management-governance-start-here.md",
+      "redirect_url": "/azure/architecture/guide/management-governance/management-governance-get-started",
+      "redirect_document_id": true
+    },
+    {
       "source_path": "docs/industries/automotive/automotive-telemetry-analytics.yml",
       "redirect_url": "/industry/mobility/architecture/ra-mobility-overview",
       "redirect_document_id": false
