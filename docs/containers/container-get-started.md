@@ -5,7 +5,7 @@ author: anaharris-ms
 ms.author: anaharris
 ms.date: 02/02/2026
 ms.topic: concept-article
-ms.subservice: architecture-guide
+ms.subservice: category-get-started
 ai-usage: ai-assisted
 ---
 

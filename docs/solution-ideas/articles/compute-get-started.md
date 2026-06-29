@@ -6,7 +6,7 @@ ms.author: anaharris
 ms.date: 03/10/2026
 ms.update-cycle: 1095-days
 ms.topic: concept-article
-ms.subservice: architecture-guide
+ms.subservice: category-get-started
 ai-usage: ai-assisted
 ms.custom: arb-compute
 ---
