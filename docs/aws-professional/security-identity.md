@@ -6,6 +6,7 @@ ms.author: gerhoads
 ms.date: 10/01/2025
 ms.topic: concept-article
 ms.subservice: architecture-guide
+ai-usage: ai-assisted
 ms.collection: 
  - migration
  - aws-to-azure
@@ -80,6 +81,8 @@ Both platforms provide solutions to manage hybrid identity scenarios that integr
 
 Both platforms provide identity services to secure application access and API authentication. These services manage user authentication, application permissions, and API access controls through identity-based mechanisms. The [Microsoft identity platform](/entra/identity-platform/) serves as the Azure unified framework for authentication and authorization across applications, APIs, and services. It implements standards like OAuth 2.0 and OIDC. AWS provides similar capabilities through [Amazon Cognito](https://aws.amazon.com/cognito/) as part of its identity suite.
 
+[Workload identity federation](/entra/workload-id/workload-identity-federation) in Microsoft Entra ID can trust tokens from external workload identity providers. For workloads running in AWS, you can configure this trust with an identity provider such as Amazon Cognito, then exchange OIDC tokens for Microsoft identity platform access tokens. This approach provides short-lived credentials for cross-cloud workload-to-Azure API calls and avoids long-lived client secrets. For example, an AWS workload, such as an Amazon EC2 instance or AWS Lambda function, can call an Azure-protected endpoint. The endpoint might be an Azure Function that uses [App Service authentication](/azure/app-service/overview-authentication-authorization) with the Microsoft identity provider. The AWS workload presents a bearer access token that it obtains through federation.
+
 | AWS service | Microsoft service | Description |
 |-------------|------------------|-------------|
 |[Amazon Cognito](https://aws.amazon.com/cognito/) <br><br> [AWS Amplify Authentication](https://aws.amazon.com/amplify/authentication/) <br><br> [AWS Security Token Service (STS)](https://docs.aws.amazon.com/STS/latest/APIReference/welcome.html) |[Microsoft identity platform](/entra/identity-platform/v2-overview) | Comprehensive identity platform that provides authentication, authorization, and user management for applications and APIs. Both options implement OAuth 2.0 and OIDC standards but have different architectural approaches. |
@@ -126,7 +129,7 @@ Both platforms provide identity services to secure application access and API au
 | AWS service | Microsoft or Azure service | Description |
 |-------------|------------------|-------------|
 | [Cognito app client configuration](https://docs.aws.amazon.com/cognito/latest/developerguide/user-pool-settings-client-apps.html) | [Microsoft Entra app registrations](/entra/identity-platform/quickstart-register-app) | Registration and configuration of applications by using the identity platform |
-| [AWS IAM roles for applications](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_use_switch-role-ec2.html) | [Microsoft Entra Workload ID](/entra/workload-id/) | Managed identities for application code resource access |
+| [AWS IAM roles for applications](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_use_switch-role-ec2.html) | [Microsoft Entra Workload ID](/entra/workload-id/) | Managed identities for application code resource access. Microsoft Entra Workload ID also supports [workload identity federation](/entra/workload-id/workload-identity-federation), so non-Azure workloads, such as AWS EC2 instances and AWS Lambda functions, can use federated credentials instead of long-lived client secrets. |
 | [Cognito resource servers](https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-pools-define-resource-servers.html) | [Microsoft identity platform API permissions](/entra/identity-platform/how-to-add-credentials) | Configuration of protected resources and scopes |
 
 ### Developer experience
