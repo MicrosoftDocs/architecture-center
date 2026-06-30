@@ -25,6 +25,7 @@ The other articles in this series cover the following considerations:
 - How to configure the search index
 - How to determine which searches, like vector, full text, hybrid, and manual multiple searches, that you should run
 - How to evaluate each step
+- When to consider agentic RAG and how to implement it
 
 ## RAG architecture
 
@@ -49,6 +50,12 @@ The following workflow describes a high-level flow for a data pipeline that supp
    1. Enrich chunks: Adds metadata fields that the pipeline creates based on the content in the chunks. The data pipeline categorizes the metadata into discrete fields, such as title, summary, and keywords.
    1. Embed chunks: Uses an embedding model to vectorize the chunk and any other metadata fields that are used for vector searches.
    1. Persist chunks: Stores the chunks in the search index.
+
+## Standard RAG vs. agentic RAG
+
+This article describes an architecture that represents a standard RAG pipeline. The orchestrator follows a fixed sequence. It accepts a user query, runs a search, assembles context, and calls the language model. The orchestrator doesn't decide *whether* to search, *which* indexes to query, or *how many* retrieval steps to take. You make these decisions when you design the solution.
+
+Standard RAG works well for queries that map to a single search against a single index. But some scenarios, such as multistep reasoning, dynamic source selection, query decomposition at runtime, and combining retrieval with actions, exceed what a fixed pipeline can handle. In these cases, consider [agentic RAG](./rag-agentic.md). In agentic RAG, an AI agent treats retrieval as a tool that it can invoke on demand.
 
 ## RAG design and evaluation considerations
 
@@ -115,12 +122,13 @@ Principal authors:
 - [Clayton Siemens](https://www.linkedin.com/in/clayton-siemens-3514896/) | Principal Content Developer - Azure Patterns & Practices
 - [Junwen Wu](https://www.linkedin.com/in/junwen-wu-85083a3/) | Principal Data Scientist
 
-*To see non-public LinkedIn profiles, sign in to LinkedIn.*
+*To see nonpublic LinkedIn profiles, sign in to LinkedIn.*
 
 ## Next steps
 
 - [Retrieval Augmented Generation (RAG) in Azure AI Search](/azure/search/retrieval-augmented-generation-overview)
 - [Retrieval augmented generation and indexes](/azure/ai-foundry/concepts/retrieval-augmented-generation)
+- [Agentic RAG](./rag-agentic.md)
 
 ## Related resources
 

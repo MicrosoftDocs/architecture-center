@@ -65,7 +65,7 @@ Azure Kubernetes Service (AKS) is the most comprehensive container platform on A
 - [CI/CD for microservices on Kubernetes](../microservices/ci-cd-kubernetes.yml) - Build robust CI/CD pipelines for Kubernetes microservices.
 - [Use Azure Red Hat OpenShift in the financial services industry](../reference-architectures/containers/aro/azure-redhat-openshift-financial-services-workloads.yml) - OpenShift for regulated financial workloads.
 - [Secure AKS workloads with Azure Front Door](../example-scenario/aks-front-door/aks-front-door.yml) - Global load balancing and security for AKS.
-- [Multitenancy with AKS and AGIC](../example-scenario/aks-agic/aks-agic.yml) - Multitenant architectures using Application Gateway Ingress Controller.
+- [Multitenancy with AKS and Application Gateway for Containers](../example-scenario/aks-agic/aks-agc.yml) - Multitenant architectures that use Application Gateway for Containers.
 
 **AKS solution ideas** - These solution ideas demonstrate AKS implementation patterns and possibilities to explore:
 

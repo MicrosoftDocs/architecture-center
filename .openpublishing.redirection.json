@@ -6,6 +6,11 @@
       "redirect_document_id": true
     },
     {
+      "source_path": "docs/networking/index.md",
+      "redirect_url": "/azure/architecture/networking/get-started",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "docs/industries/automotive/automotive-telemetry-analytics.yml",
       "redirect_url": "/industry/mobility/architecture/ra-mobility-overview",
       "redirect_document_id": false
@@ -3401,6 +3406,11 @@
     {
       "source_path": "docs/example-scenario/aks-firewall/aks-firewall.yml",
       "redirect_url": "/azure/architecture/guide/aks/aks-firewall",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "docs/example-scenario/aks-agic/aks-agic.yml",
+      "redirect_url": "/azure/architecture/example-scenario/aks-agic/aks-agc",
       "redirect_document_id": true
     },
     {

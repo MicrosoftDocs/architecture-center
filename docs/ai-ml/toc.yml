@@ -98,6 +98,8 @@ items:
           href: guide/rag/rag-information-retrieval.md
         - name: Model end-to-end evaluation phase
           href: guide/rag/rag-llm-evaluation-phase.md
+        - name: Agentic RAG
+          href: guide/rag/rag-agentic.md
       - name: Design a secure multitenant RAG inferencing solution
         href: guide/secure-multitenant-rag.md
       - name: MLOps
