@@ -3,7 +3,7 @@ title: Multitenancy and Azure Event Hubs
 description: Learn about Azure Event Hubs features and isolation models that you can use to implement an event-driven architecture for a multitenant system.
 author: PlagueHO
 ms.author: dascottr
-ms.date: 06/15/2025
+ms.date: 07/01/2026
 ms.topic: concept-article
 ms.subservice: architecture-guide
 ms.custom:
@@ -86,6 +86,7 @@ The following features of Event Hubs support multitenancy:
 - [Microsoft Entra authentication](#azure-ad-authentication)
 - [SAS](#sas)
 - [Customer-managed keys](#customer-managed-keys)
+- [Confidential computing](#confidential-computing)
 - [Event Hubs capture](#event-hubs-capture)
 - [Geo-replication and geo-disaster recovery](#geo-replication-and-geo-disaster-recovery)
 - [IP firewall rules](#ip-firewall-rules)
@@ -94,9 +95,11 @@ The following sections describe these features.
 
 ### Application groups
 
-An application group consists of one or more client applications that interact with the Event Hubs data plane. You can apply quota and access management policies to the group, which applies them to all applications in the group.
+An application group consists of one or more client applications that interact with the Event Hubs data plane. You apply quota and access management policies to the group, and Event Hubs applies them to all applications in the group.
 
-You can scope each application group to a single Event Hubs namespace or a single event hub. The application group should use a unique identifying condition for the client applications, such as a security context like a Microsoft Entra application ID or a SAS.
+In a multitenant solution, you can map an application group to a tenant by using that tenant's security context, such as a Microsoft Entra application ID or a SAS policy. You then attach throttling policies that cap the tenant's ingress and egress throughput. This approach mitigates [noisy neighbor problems](../../../antipatterns/noisy-neighbor/noisy-neighbor.yml) in a shared namespace because one tenant can't consume a disproportionate share of namespace resources.
+
+You can scope each application group to a single Event Hubs namespace or a single event hub. Application groups are available only in the premium and dedicated tiers, so you can't use them to govern tenant workloads in a Standard-tier shared namespace.
 
 For more information, see [Resource governance with application groups](/azure/event-hubs/resource-governance-overview).
 
@@ -135,6 +138,14 @@ If your tenants require their own keys to encrypt and decrypt events, you can co
 This feature requires that you use either an [Event Hubs Premium tier namespace](/azure/event-hubs/event-hubs-premium-overview) or [Event Hubs Dedicated tier namespace](/azure/event-hubs/event-hubs-dedicated-overview). You can enable encryption only for new or empty namespaces.
 
 For more information, see [Configure customer-managed keys to encrypt Event Hubs data at rest](/azure/event-hubs/configure-customer-managed-key).
+
+### Confidential computing
+
+Azure Event Hubs [Dedicated tier](/azure/event-hubs/event-hubs-dedicated-overview) supports confidential computing to protect event data while it's processed. Confidential computing uses hardware-based trusted execution environments to prevent unauthorized access to events in memory, which extends protection beyond encryption at rest and in transit.
+
+If you isolate tenants in regulated industries on dedicated namespaces, you can enable confidential computing to add hardware-level isolation at the compute layer. This capability helps you meet tenant compliance requirements that mandate data-in-use protection, and it prevents access to tenant events even from privileged infrastructure operators. You don't need to change your application or event processing code. For the strongest isolation, combine confidential computing with [customer-managed keys](/azure/event-hubs/configure-customer-managed-key).
+
+For more information, see [Azure Event Hubs confidential computing overview](/azure/event-hubs/confidential-computing).
 
 ### Event Hubs capture
 
