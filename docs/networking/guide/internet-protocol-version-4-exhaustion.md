@@ -280,5 +280,5 @@ Principal authors:
 
 ## Related resources
 
-- [Networking architecture design](../../networking/index.md)
+- [Networking architecture design](../../networking/get-started.md)
 - [Architectural approaches for networking in multitenant solutions](../../guide/multitenant/approaches/networking.md)

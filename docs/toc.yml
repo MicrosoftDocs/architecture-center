@@ -1141,7 +1141,7 @@ items:
         - name: Hybrid availability and monitoring
           href: hybrid/hybrid-perf-monitoring.yml
   - name: Networking
-    href: networking/index.md
+    href: networking/get-started.md
   - name: Security
     items:
     - name: Get started

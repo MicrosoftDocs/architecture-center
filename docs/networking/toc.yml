@@ -1,14 +1,19 @@
 items:
 - name: Networking
-  href: index.md
+  href: get-started.md
   items: 
-    - name: Design architectures
+    - name: Architectures
       items:
-      - name: Network topology
+      - name: Networking foundation
         items: 
         - name: Hub-spoke network topology in Azure
           displayName: Hub and spoke, star, spoke-hub, VNet
           href: architecture/hub-spoke.yml
+        - name: Azure DNS Private Resolver
+          displayName: DNS forwarding, hybrid DNS resolution
+          href: architecture/azure-dns-private-resolver.yml
+      - name: Hybrid connectivity
+        items:
         - name: Hub-spoke topology with Virtual WAN
           displayName: VWAN
           href: architecture/hub-spoke-virtual-wan-architecture.yml
@@ -18,25 +23,28 @@ items:
         - name: Virtual WAN optimized for requirements
           displayName: VWAN
           href: architecture/performance-security-optimized-vwan.yml
-        - name: Azure DNS Private Resolver
-          displayName: DNS forwarding, hybrid DNS resolution
-          href: architecture/azure-dns-private-resolver.yml
+        - name: Connect an on-premises network to Azure
+          href: ../reference-architectures/hybrid-networking/index.yml
+        - name: Connect on-premises with ExpressRoute
+          href: ../reference-architectures/hybrid-networking/expressroute-vpn-failover.yml
       - name: Network security
-        items:        
+        items:
         - name: TIC 3.0 compliance
           displayName: Trusted Internet Connections, FedRAMP
           href: architecture/trusted-internet-connections.yml
-    - name: Apply guidance
+        - name: Implement a secure hybrid network
+          displayName: DMZ, perimeter network, Azure Firewall
+          href: ../reference-architectures/dmz/secure-vnet-dmz.yml
+    - name: Guides
       items:
-      - name: Network security
+      - name: Networking foundation
         items:
-        - name: Use a split-brain DNS configuration to host a web app
-          href: ../example-scenario/networking/split-brain-dns.yml        
-      - name: Private link
-        items:
+        - name: Virtual network connectivity options
+          displayName: peering, spoke-to-spoke
+          href: ../reference-architectures/hybrid-networking/virtual-network-peering.yml
         - name: Private Link in hub-and-spoke network
           href: guide/private-link-hub-spoke-network.md
-        - name: Guide to Private Link and DNS with Azure Virtual WAN
+        - name: Private Link and DNS with Azure Virtual WAN
           items:
           - name: Guide overview
             href: guide/private-link-virtual-wan-dns-guide.yml
@@ -44,19 +52,38 @@ items:
             href: guide/private-link-virtual-wan-dns-virtual-hub-extension-pattern.yml
           - name: Single region accessing single resource
             href: guide/private-link-virtual-wan-dns-single-region-workload.yml
-      - name: Adopt IPv6
+        - name: Adopt IPv6
+          items:
+          - name: Prevent IPv4 exhaustion
+            href: guide/internet-protocol-version-4-exhaustion.md
+          - name: IPv6 hub-spoke network topology
+            href: guide/ipv6-architecture.yml
+          - name: Conceptual planning for IPv6 networking
+            href: guide/ipv6-ip-planning.md
+        - name: Design a hybrid DNS solution
+          href: ../hybrid/hybrid-dns-infra.yml
+      - name: Load balancing and content delivery
         items:
-        - name: Prevent IPv4 exhaustion
-          href: guide/internet-protocol-version-4-exhaustion.md
-        - name: IPv6 hub-spoke network topology
-          href: guide/ipv6-architecture.yml
-        - name: Conceptual planning for IPv6 networking
-          href: guide/ipv6-ip-planning.md
-      - name: Resource organization
+        - name: Load balancing options
+          href: ../guide/technology-choices/load-balancing-overview.md
+      - name: Hybrid connectivity
         items:
+        - name: SD-WAN integration
+          displayName: Software-defined WAN, SD-WAN
+          href: guide/sdwan-integration-in-hub-and-spoke-network-topologies.md
+        - name: Troubleshoot a hybrid VPN connection
+          displayName: virtual private network
+          href: ../reference-architectures/hybrid-networking/troubleshoot-vpn.yml
+      - name: Network security
+        items:
+        - name: Use a split-brain DNS configuration to host a web app
+          href: ../example-scenario/networking/split-brain-dns.yml
         - name: Deploy highly available NVAs
           displayName: firewall HA, network virtual appliance
           href: guide/network-virtual-appliance-high-availability.md
+        - name: Cross-tenant secure access to apps
+          displayName: private endpoints
+          href: guide/cross-tenant-secure-access-private-endpoints.md
         - name: SD-WAN integration
           displayName: Software-defined WAN, SD-WAN
           href: guide/sd-wan-integration-hub-spoke-network-topologies.md     
