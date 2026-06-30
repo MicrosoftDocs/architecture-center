@@ -7908,6 +7908,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "docs/web-apps/index.md",
+      "redirect_url": "/azure/architecture/web-apps/web-apps-get-started",
+      "redirect_document_id": true
+    },
+    {
       "source_path": "docs/databases/index.yml",
       "redirect_url": "/azure/architecture/databases/database-get-started",
       "redirect_document_id": true
