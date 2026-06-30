@@ -1,7 +1,7 @@
 ---
 title: Choose an Analytical Data Store in Microsoft Fabric
 description: Evaluate analytical data store options in Microsoft Fabric based on data volumes, types, compute engine, ingestion, transformation, and query patterns.
-author: vltrofim
+author: slavatrofimov
 ms.author: vltrofim
 ms.date: 06/26/2026
 ms.topic: concept-article
