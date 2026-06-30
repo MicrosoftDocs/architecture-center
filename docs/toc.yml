@@ -929,7 +929,7 @@ items:
   - name: DevOps
     items:
     - name: Get started
-      href: guide/devops/devops-start-here.md
+      href: guide/devops/devops-get-started.md
     - name: Guides
       items:
       - name: Azure Sandbox

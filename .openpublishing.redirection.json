@@ -4724,6 +4724,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "docs/guide/devops/devops-start-here.md",
+      "redirect_url": "/azure/architecture/guide/devops/devops-get-started",
+      "redirect_document_id": true      
+    },
+    {
       "source_path": "docs/data-science-process/agile-development.md",
       "redirect_url": "/azure/architecture/data-science-process/overview",
       "redirect_document_id": false
