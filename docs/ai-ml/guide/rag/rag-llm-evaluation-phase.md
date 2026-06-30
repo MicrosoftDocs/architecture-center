@@ -18,6 +18,9 @@ This grounding data forms the context for the prompt that you send to the langua
 
 This article doesn't attempt to provide an exhaustive list of language model metrics or similarity and evaluation metrics. The key takeaway is that different metrics serve specific use cases. Only you have a holistic understanding of your workload. You and your data scientists must determine what you want to measure and which metrics are the most appropriate.
 
+> [!NOTE]
+> If you use [agentic RAG](./rag-agentic.md), more evaluation dimensions apply. Agentic RAG introduces tool selection accuracy, retrieval efficiency (the number of tool calls per request), and end-to-end latency across reasoning steps. For guidance about how to evaluate agentic RAG solutions, see [Evaluate agentic RAG](./rag-agentic.md#evaluate-agentic-rag).
+
 This article is part of a series. Read the [introduction](./rag-solution-design-and-evaluation-guide.md) first.
 
 ## Language model evaluation metrics
