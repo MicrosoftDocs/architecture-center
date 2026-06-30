@@ -247,7 +247,7 @@ conceptualContent:
       links:
         - text: Identity architecture design
           itemType: overview
-          url: ./identity/identity-start-here.yml
+          url: ./identity/identity-get-started.md
         - text: Identity in multitenant architectures
           url: ./guide/multitenant/considerations/identity.md
           itemType: concept

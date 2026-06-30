@@ -254,7 +254,7 @@ The following new and updated articles have recently been published in the Azure
 - [Azure API Management Landing Zone Architecture](./example-scenario/integration/app-gateway-internal-api-management-function.yml) ([#bfa30f6edb](https://github.com/MicrosoftDocs/architecture-center/commit/bfa30f6edb))
 - [Enhanced-security hybrid messaging for client access](./example-scenario/hybrid/secure-hybrid-messaging-client.yml) ([#864bbfff71](https://github.com/MicrosoftDocs/architecture-center/commit/864bbfff71))
 - [Enhanced-security hybrid messaging for mobile access](./example-scenario/hybrid/secure-hybrid-messaging-mobile.yml) ([#864bbfff71](https://github.com/MicrosoftDocs/architecture-center/commit/864bbfff71))
-- [Identity architecture design](./identity/identity-start-here.yml) ([#864bbfff71](https://github.com/MicrosoftDocs/architecture-center/commit/864bbfff71))
+- [Identity architecture design](./identity/identity-get-started.md) ([#864bbfff71](https://github.com/MicrosoftDocs/architecture-center/commit/864bbfff71))
 
 
 ## Azure updates

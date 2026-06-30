@@ -1026,7 +1026,7 @@ items:
   - name: Identity
     items:
     - name: Get started
-      href: identity/identity-start-here.yml
+      href: identity/identity-get-started.md
     - name: Guides
       items:
       - name: Cross-tenant secure access to apps
