@@ -780,9 +780,9 @@ items:
           - name: Secure AKS workloads with Azure Front Door
             displayName: Azure Kubernetes Service, AFD
             href: example-scenario/aks-front-door/aks-front-door.yml
-          - name: Multitenancy with AKS and AGIC
+          - name: Multitenancy with AKS and AGC
             displayName: Azure Kubernetes Service
-            href: example-scenario/aks-agic/aks-agic.yml
+            href: example-scenario/aks-agic/aks-agc.yml
           - name: Use Azure Kubernetes Service to host GPU-based workloads
             displayName: AKS
             href: reference-architectures/containers/aks-gpu/gpu-aks.md

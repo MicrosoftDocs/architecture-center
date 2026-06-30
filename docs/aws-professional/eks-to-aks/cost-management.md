@@ -163,11 +163,13 @@ Several Azure networking tools can provide access to your applications that run 
 
   - The amount of inbound and outbound processed data, independent of rules. There's no hourly charge for a load balancer that has no rules configured.
 
-- [Azure Application Gateway](https://azure.microsoft.com/pricing/details/application-gateway): AKS often uses Application Gateway through [Application Gateway Ingress Controller](/azure/application-gateway/ingress-controller-overview). Or you can front a different ingress controller with a manually managed Application Gateway instance. Application Gateway supports gateway routing, Transport Layer Security (TLS) termination, and Web Application Firewall functionality. Application Gateway charges are based on:
+- [Application Gateway for Containers](/azure/application-gateway/for-containers/overview): AKS workloads can use Application Gateway for Containers as a managed layer-7 load balancer and ingress solution. It's an Azure-managed service that's separate from Azure Application Gateway and provides gateway routing, Transport Layer Security (TLS) termination, and Web Application Firewall (WAF) functionality through security policy resources.
+
+- [Application Gateway](https://azure.microsoft.com/pricing/details/application-gateway): Another approach is to deploy Application Gateway and front a different ingress controller in the cluster. Application Gateway supports gateway routing, TLS termination, and WAF functionality. Application Gateway charges are based on:
 
   - A fixed price. You pay for each hour or partial hour that Application Gateway runs.
   
-  - A capacity unit price. You pay an extra consumption-based cost depending on the resources that Application Gateway uses. Each capacity unit has up to one compute unit, 2,500 persistent connections, and 2.22-Mbps throughput.
+  - A capacity unit (CU) price. You pay an extra consumption-based cost depending on the resources that Application Gateway uses. Each capacity unit has up to one compute unit, 2,500 persistent connections, and 2.22-Mbps throughput.
 
 - [Public IP addresses](https://azure.microsoft.com/pricing/details/ip-addresses): Public IP addresses have an associated cost that depends on:
 

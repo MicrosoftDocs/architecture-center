@@ -3404,6 +3404,11 @@
       "redirect_document_id": true
     },
     {
+      "source_path": "docs/example-scenario/aks-agic/aks-agic.yml",
+      "redirect_url": "/azure/architecture/example-scenario/aks-agic/aks-agc",
+      "redirect_document_id": true
+    },
+    {
       "source_path": "docs/example-scenario/apps/devops-with-aks.yml",
       "redirect_url": "/azure/architecture/guide/aks/aks-cicd-github-actions-and-gitops",
       "redirect_document_id": true
