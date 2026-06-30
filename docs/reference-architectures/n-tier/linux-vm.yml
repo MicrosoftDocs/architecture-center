@@ -1,7 +1,7 @@
 ### YamlMime:Architecture
 metadata:
   title: Run a Linux VM on Azure
-  description: Learn the best practices for running a Linux virtual machine on Azure, which requires some additional components, including networking and storage resources.
+  description: Learn about best practices for running a Linux virtual machine on Azure, which requires some extra components, including networking and storage resources.
   author: DTInTheCloud
   ms.author: dtrumpower
   ms.date: 04/29/2026
@@ -13,7 +13,7 @@ metadata:
 name: Run a Linux VM on Azure
 azureCategories:
   - compute
-summary: Learn the best practices for running a Linux virtual machine on Azure, which requires some additional components, including networking and storage resources.
+summary: Learn about best practices for running a Linux virtual machine on Azure, which requires some extra components, including networking and storage resources.
 products:
   - azure-backup
   - azure-bastion
@@ -23,4 +23,4 @@ products:
   - azure-virtual-machines
 thumbnailUrl: /azure/architecture/browse/thumbs/single-vm-diagram.png
 content: |
-   [!include[](linux-vm-content.md)]
+   [!INCLUDE[](linux-vm-content.md)]
