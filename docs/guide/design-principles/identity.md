@@ -124,4 +124,4 @@ Other contributors:
 
 - [Authenticate using Microsoft Entra ID and OpenID Connect](../../multitenant-identity/authenticate.yml)
 - [Federated identity pattern](../../patterns/federated-identity.yml)
-- [Identity architecture design](../../identity/identity-start-here.yml)
+- [Identity architecture design](../../identity/identity-get-started.md)

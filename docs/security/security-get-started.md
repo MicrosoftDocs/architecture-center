@@ -166,7 +166,7 @@ Identity is the primary security perimeter in cloud environments. In Azure, IAM 
 
 - [Plan Microsoft Entra Cloud Sync topologies](/entra/identity/hybrid/cloud-sync/plan-cloud-sync-topologies): Guidance for integrating on-premises Active Directory with Microsoft Entra ID for cloud-based identity authentication by using Microsoft Entra Connect Sync and Microsoft Entra cloud sync.
 
-- [Identity architecture design](/azure/architecture/identity/identity-start-here): A hub page for identity architecture in Azure that covers learning paths, design options, implementation guidance, and baseline identity implementations.
+- [Identity architecture design](../identity/identity-get-started.md): A hub page for identity architecture in Azure that covers learning paths, design options, implementation guidance, and baseline identity implementations.
 
 - [Deploy AD DS in an Azure virtual network](/azure/architecture/example-scenario/identity/adds-extend-domain): A reference architecture that extends an on-premises Active Directory domain to Azure to provide distributed authentication services.
 

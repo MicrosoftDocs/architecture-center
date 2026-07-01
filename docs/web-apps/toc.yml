@@ -1,6 +1,6 @@
 items:
-- name: Web applications
-  href: index.md
+- name: Web apps
+  href: web-apps-get-started.md
   items: 
     - name: Explore ideas about
       items: 

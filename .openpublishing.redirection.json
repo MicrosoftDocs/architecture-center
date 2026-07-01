@@ -6,6 +6,11 @@
       "redirect_document_id": true
     },
     {
+      "source_path": "docs/identity/identity-start-here.yml",
+      "redirect_url": "/azure/architecture/identity/identity-get-started",
+      "redirect_document_id": true
+    },
+    {
       "source_path": "docs/networking/index.md",
       "redirect_url": "/azure/architecture/networking/get-started",
       "redirect_document_id": false
@@ -4724,6 +4729,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "docs/guide/devops/devops-start-here.md",
+      "redirect_url": "/azure/architecture/guide/devops/devops-get-started",
+      "redirect_document_id": true      
+    },
+    {
       "source_path": "docs/data-science-process/agile-development.md",
       "redirect_url": "/azure/architecture/data-science-process/overview",
       "redirect_document_id": false
@@ -7274,7 +7284,7 @@
     },
     {
       "source_path": "docs/guide/resilience/resilience-overview.yml",
-      "redirect_url": "/azure/architecture/identity/identity-start-here",
+      "redirect_url": "/azure/architecture/identity/identity-get-started", 
       "redirect_document_id": false
     },
     {
@@ -7901,6 +7911,11 @@
       "source_path": "docs/solution-ideas/articles/analytics-start-here.yml",
       "redirect_url": "/azure/architecture/solution-ideas/articles/analytics-get-started",
       "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/web-apps/index.md",
+      "redirect_url": "/azure/architecture/web-apps/web-apps-get-started",
+      "redirect_document_id": true
     },
     {
       "source_path": "docs/databases/index.yml",
