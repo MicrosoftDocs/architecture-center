@@ -1,14 +1,11 @@
 This scenario shows an existing workload originally designed for Kubernetes, which is replatformed to run in Azure Container Apps. Container Apps supports brownfield workloads where teams want to simplify infrastructure and container orchestration.
 
-The example workload is a containerized microservices application. It reuses the same workload defined in [Microservices architecture on Azure Kubernetes Service (AKS)](../../reference-architectures/containers/aks-microservices/aks-microservices.yml). This architecture rehosts the workload in Container Apps as its application platform.
+The example workload is a containerized microservices application. It reuses the same workload defined in [Microservices architecture on Azure Kubernetes Service (AKS)](../../reference-architectures/containers/aks-microservices/aks-microservices.yml), which this article refers to as *the Kubernetes approach*. This architecture rehosts the workload in Container Apps as its application platform.
 
 > [!IMPORTANT]
-> This architecture focuses on minimizing application code changes and approaching the transition from AKS to Container Apps as a platform migration. The goal is to replicate the existing implementation and defer code or infrastructure optimizations that can compromise the migration.
+> This architecture focuses on minimizing application code changes and approaching the transition from AKS to Container Apps as a platform migration. The goal is to replicate the existing approach as much as possible, and defer code or infrastructure optimizations that can compromise the migration.
 >
 > For a greenfield workload, see [Deploy microservices by using Container Apps and Dapr](./microservices-with-container-apps-dapr.yml).
-
-> [!TIP]
-> :::image type="icon" source="../../_images/github.png"::: An [example implementation](https://github.com/mspnp/container-apps-fabrikam-dronedelivery) supports this architecture and illustrates some of the design choices described in this article.
 
 ## Architecture
 
@@ -42,7 +39,7 @@ The workload uses the following Azure services in coordination with each other:
 
 - [Container Apps](/azure/well-architected/service-guides/azure-container-apps) is a serverless container platform that simplifies container orchestration and management. In this architecture, Container Apps serves as the primary hosting platform for all microservices.
 
-  The following features replace many of the capabilities of the previous AKS architecture:
+  The following features replace many of the capabilities of the Kubernetes approach:
 
   - Built-in service discovery
   - Managed HTTP and HTTP/2 endpoints
@@ -51,7 +48,7 @@ The workload uses the following Azure services in coordination with each other:
   - Autoscaling based on HTTP traffic or events powered by Kubernetes-based Event Driven Autoscaling (KEDA)
   - Application upgrades and versioning
 
-- [Container Registry](/azure/container-registry/container-registry-intro) is a managed registry service for storing and managing private container images. In this architecture, it's the source of all container images that are deployed to the Container Apps environment. The registry is the same one used in the AKS implementation.
+- [Container Registry](/azure/container-registry/container-registry-intro) is a managed registry service for storing and managing private container images. In this architecture, it's the source of all container images that are deployed to the Container Apps environment. The registry is the same one used in the Kubernetes approach.
 
 - [Azure Cosmos DB](/azure/well-architected/service-guides/cosmos-db) is a globally distributed, multiple-model database service.  In this architecture, the drone scheduler service uses Azure Cosmos DB as its data store.
 
@@ -79,9 +76,9 @@ Fabrikam, Inc., a fictional company, implements a drone delivery workload where 
 
 The microservices application was deployed to an AKS cluster. But the Fabrikam team wasn't taking advantage of the advanced or platform-specific AKS features. They migrated the application to Container Apps, which enabled them to do the following actions:
 
-- Employ minimal code changes when you move the application from AKS to Container Apps. The code changes were related to observability libraries that augmented logs and metrics with Kubernetes node information, which aren't relevant in the new environment.
+- Employ minimal code changes when they moved the application from AKS to Container Apps. The code changes were related to observability libraries that augmented logs and metrics with Kubernetes node information, which aren't relevant in the new environment.
 
-- Deploy both infrastructure and the workload with Bicep templates: No Kubernetes YAML manifests were needed to deploy their application containers.
+- Deploy both infrastructure and the workload with Bicep files: No Kubernetes YAML manifests were needed to deploy their application containers.
 - Expose the application through managed ingress. Built-in support for external, HTTPS-based ingress to expose the ingestion service removed the need to configure their own ingress.
 - Pull container images from Container Registry. Container Apps is compatible with any Linux base image stored in any available repository.
 - Use the revision feature to support application life cycle needs. They could run multiple revisions of a particular container app and traffic-split across them for A/B testing or blue/green deployment scenarios.
@@ -158,7 +155,7 @@ Container Apps helps you deploy, manage, maintain, and monitor the applications 
 
   Performance monitoring helps you evaluate the application under load. Metrics and logs provide data to recognize trends, investigate failures, and perform root-cause analysis.
 
-- Use [health and readiness probes](/azure/container-apps/health-probes) to handle slow-starting containers and avoid sending traffic before they're ready. The Kubernetes implementation includes these endpoints. Continue to use them if they provide effective signals.
+- Use [health and readiness probes](/azure/container-apps/health-probes) to handle slow-starting containers and avoid sending traffic before they're ready. The Kubernetes approach includes these endpoints. Continue to use them if they provide effective signals.
 
 - When a service unexpectedly terminates, Container Apps automatically restarts it. Service discovery is enabled so that the workflow service can discover its downstream microservices. Use [resiliency policies](/azure/container-apps/service-discovery-resiliency) to handle timeouts and introduce circuit breaker logic without needing to further adjust the code.
 
@@ -168,7 +165,7 @@ Container Apps helps you deploy, manage, maintain, and monitor the applications 
 
 - Avoid storing state directly within the Container Apps environment, because all state is lost when the replica shuts down. Externalize state to a dedicated state store for each microservice. This architecture distributes state across three distinct stores: Azure Managed Redis, Azure Cosmos DB for NoSQL, and Azure DocumentDB.
 
-- Deploy all resources, including Container Apps, by using a multi-zone topology. For more information, see [Availability zone support in Container Apps](/azure/reliability/reliability-azure-container-apps#availability-zone-support).
+- Deploy all resources, including Container Apps, by using a multi-zone topology. For more information, see [Availability zone support in Container Apps](/azure/reliability/reliability-azure-container-apps#resilience-to-availability-zone-failures).
 
   Set the minimum replica count for nontransient applications to at least one replica for each availability zone. During typical operating conditions, replicas are reliably distributed and balanced across availability zones in the region.
 
@@ -194,17 +191,17 @@ Security provides assurances against deliberate attacks and the misuse of your v
 
 For more information about network topology options, including private endpoint support for ingress, see [Networking architecture in Container Apps](/azure/container-apps/networking).
 
-#### Workload identities
+#### Identities for workloads
 
 - Container Apps supports Microsoft Entra managed identities that enable your app to authenticate itself to other resources protected by Microsoft Entra ID, such as Key Vault, without managing credentials in your container app. A container app can use system-assigned identities, user-assigned identities, or both. For services that don't support Microsoft Entra ID authentication, store secrets in Key Vault and use a managed identity to access the secrets.
 
 - Use one dedicated, user-assigned managed identity for Container Registry access. Container Apps supports using a different managed identity for workload operation than for container registry access. This approach provides granular access control. If your workload has multiple Container Apps environments, don't share the identity across instances.
 
-- Use system-assigned managed identities for workload identities to tie the identity life cycle to the workload component life cycle.
+- Use system-assigned managed identities for workloads, to tie the identity life cycle to the workload component life cycle.
 
 #### More security recommendations
 
-- The Kubernetes implementation of this workload provides protection by using [Microsoft Defender for Containers capabilities](/azure/defender-for-cloud/defender-for-containers-introduction). In this architecture, Defender for Containers only [assesses vulnerability](/azure/defender-for-cloud/agentless-vulnerability-assessment-azure#how-vulnerability-assessment-for-images-and-containers-works) of the containers in your Container Registry. Defender for Containers doesn't provide runtime protection for Container Apps. Evaluate supplementing with non-Microsoft security solutions if runtime protection is a requirement.
+- The Kubernetes approach to this workload provides protection by using [Microsoft Defender for Containers capabilities](/azure/defender-for-cloud/defender-for-containers-introduction). In this architecture, Defender for Containers only [assesses vulnerability](/azure/defender-for-cloud/agentless-vulnerability-assessment-azure#how-vulnerability-assessment-for-images-and-containers-works) of the containers in your Container Registry. Defender for Containers doesn't provide runtime protection for Container Apps. Evaluate supplementing with non-Microsoft security solutions if runtime protection is a requirement.
 
 - Don't run the workload in a shared Container Apps environment. Segment it from other workloads or components that don't need access to these microservices. Create separate Container Apps environments. Apps and jobs that run in a Container Apps environment can discover and reach any service that runs in the environment with internal ingress enabled.
 
@@ -236,7 +233,7 @@ Operational Excellence covers the operations processes that deploy an applicatio
 
 - Use an imperative approach to creating, updating, and removing container apps from the environment. It's especially important if you're dynamically adjusting traffic-shifting logic between revisions. Use a [GitHub action](https://github.com/marketplace/actions/azure-container-apps-build-and-deploy) or [Azure Pipelines task](https://github.com/microsoft/azure-pipelines-tasks/tree/master/Tasks/AzureContainerAppsV1) in your deployment workflows. This imperative approach can be based on [YAML](/azure/container-apps/azure-resource-manager-api-spec?tabs=yaml#container-app-examples) app definitions. To minimize health check failures, always make sure your pipeline populates your container registry with the new container image before deploying the container app.
 
-  An important change from the Kubernetes implementation is the shift from managing Kubernetes manifest files, such as defining `Deployment` Kubernetes objects. Kubernetes provides an atomic *succeeds together* or *fails together* approach to microservice deployment, through this manifest object. In Container Apps, each microservice is deployed independently. Your deployment pipelines become responsible for orchestrating any sequencing and rollback strategy necessary to have a safe deployment.
+  An important change from the Kubernetes approach is the shift from managing Kubernetes manifest files, such as defining `Deployment` Kubernetes objects. Kubernetes provides an atomic *succeeds together or fails together* approach to microservice deployment, through this manifest object. In Container Apps, each microservice is deployed independently. Your deployment pipelines become responsible for orchestrating any sequencing and rollback strategy necessary to have a safe deployment.
 
 ### Performance Efficiency
 
@@ -253,10 +250,6 @@ Performance Efficiency refers to your workload's ability to scale to meet user d
 - Requests are dynamically load balanced to available replicas of a revision. 
 
 - Metrics, including utilization of CPU, memory, bandwidth information, and storage, are available through Azure Monitor.
-
-## Deploy this scenario
-
-Follow the [steps in the README.md in the Container Apps example scenario repository](https://github.com/mspnp/container-apps-fabrikam-dronedelivery).
 
 ## Contributors
 
