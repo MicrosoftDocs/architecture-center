@@ -3,7 +3,7 @@ title: Multitenancy and Azure Storage
 description: This article describes the features of Azure Storage that benefit multitenant systems. It includes links to guidance and examples.
 author: PlagueHO
 ms.author: dascottr
-ms.date: 06/15/2025
+ms.date: 07/01/2026
 ms.topic: concept-article
 ms.subservice: architecture-guide
 ms.custom: arb-saas
@@ -30,6 +30,12 @@ You can use a SAS to restrict the scope of operations that a client can perform 
 Use the [Valet Key pattern](../../../patterns/valet-key.yml) to issue constrained and scoped SAS tokens from your application tier. For example, if your multitenant application allows users to upload videos, your API or application tier can authenticate the client by using your application's authentication system. You can then provide a SAS that allows the client to upload a video file to a specific blob path within a designated container. The client then uploads the file directly to the storage account, which reduces bandwidth and load on your API. If the client tries to read data from the blob container or write data to another container in the storage account, Storage blocks the request. The SAS expires after a configurable time period.
 
 [Stored access policies](/rest/api/storageservices/define-stored-access-policy) extend the SAS functionality, which enables you to define a single policy to use when you issue multiple signatures.
+
+### User delegation signatures
+
+A standard SAS is signed with one of your storage account keys, so any component that creates a SAS needs access to those keys. A [user delegation SAS](/rest/api/storageservices/create-user-delegation-sas) is signed with Microsoft Entra credentials instead. Your application tier requests a user delegation key by using its own managed identity, then signs scoped, time-limited tokens for each tenant. You don't distribute or store account keys, and you can revoke access by removing the Microsoft Entra role assignment that grants the delegation key. Microsoft recommends a user delegation SAS over an account-key SAS when your design supports it.
+
+In a multitenant solution, combine a user delegation SAS with the [Valet Key pattern](../../../patterns/valet-key.yml) to issue tenant-scoped tokens that your identity provider backs. You can bind each token to a specific delegated user and include a correlation ID that links your application's audit logs to the Storage audit logs, which helps you attribute each request to a tenant. For more information, see [Grant limited access to Azure Storage resources by using shared access signatures](/azure/storage/common/storage-sas-overview).
 
 ### Identity-based access control
 
@@ -131,9 +137,9 @@ When you create a container for each tenant, you can use Storage access control,
 The following table summarizes the differences between the main tenancy isolation models for Storage files.
 
 | Consideration | Shared file shares | File shares for each tenant | Storage accounts for each tenant |
-|---|---|---|---|
+| --- | --- | --- | --- |
 | **Data isolation** | Medium-high. Apply authorization rules for tenant-specific files and directories. | Medium-high | High |
-| **Performance isolation** | Low | Low-medium. Most quotas and limits apply to the entire storage account, but you should set size quotas for each file share. | High |
+| **Performance isolation** | Low | Low-medium. Most quotas and limits apply to the entire storage account. Set size quotas for each file share, or use [provisioned v2 SSD shares](/azure/storage/files/understanding-billing#provisioned-v2-model) to provision IOPS and throughput for each share. | High |
 | **Deployment complexity** | Low | Medium | High |
 | **Operational complexity** | Low | Medium | High |
 | **Example scenario** | An application controls all access to files. | Tenants access their own files. | Each tenant has its own deployment stamp. |
@@ -143,11 +149,11 @@ The following table summarizes the differences between the main tenancy isolatio
 When you work with file shares, you might use a shared file share that includes file paths to separate the data for each tenant.
 
 | Tenant ID | Example file path |
-|-|-|
+| --- | --- |
 | `tenant-a` | `https://contoso.file.core.windows.net/share/tenant-a/blob1.mp4` |
 | `tenant-b` | `https://contoso.file.core.windows.net/share/tenant-b/blob2.mp4` |
 
-When your application communicates via the Server Message Block (SMB) protocol and you use Active Directory Domain Services either on-premises or in Azure, file shares [support authorization](/azure/storage/files/storage-files-active-directory-overview) at both the share level and the directory or file level.
+When your application communicates via the Server Message Block (SMB) protocol, Azure Files [supports identity-based authorization](/azure/storage/files/storage-files-active-directory-overview) at both the share level and the directory or file level. You can use on-premises Active Directory Domain Services, Microsoft Entra Domain Services, or [Microsoft Entra Kerberos for hybrid and cloud-only identities](/azure/storage/files/storage-files-identity-auth-hybrid-identities-enable). Microsoft Entra Kerberos lets cloud-only identities access a share without a domain controller, which removes the on-premises dependency when you authorize each tenant's users. Applications and virtual machines can also use [managed identities to access SMB shares](/azure/storage/files/files-managed-identities) without storage account keys. Each storage account supports only one identity source, so if your tenants require different identity sources, isolate those tenants in separate storage accounts.
 
 In other scenarios, consider using SAS to grant access to specific file shares or files. SAS doesn't support granting access to directories.
 
@@ -157,7 +163,15 @@ When you use shared file shares, consider whether you need to track the data and
 
 You can create individual file shares for each tenant within a single storage account. There's no limit to the number of file shares that you can create within a storage account.
 
-For this scenario, you can use Storage access control, including SAS, to manage access for each tenant's data. You can also easily monitor the capacity that each file share uses.
+For this scenario, you can use Storage access control, including SAS, to manage access for each tenant's data. You can also monitor the capacity that each file share uses.
+
+For SSD file shares, the [provisioned v2 model](/azure/storage/files/understanding-billing#provisioned-v2-model) lets you provision storage, IOPS, and throughput independently for each share. This capability improves performance isolation between tenants because one tenant's activity doesn't consume the throughput that you provision for another tenant's share. It also supports per-tenant cost tracking because Storage bills each share for its provisioned capacity.
+
+#### File shares as standalone resources
+
+You can create a file share as a standalone, top-level Azure resource by using the [`Microsoft.FileShares` resource provider](/azure/storage/files/create-file-share), which deploys a share without a storage account. Each share has its own performance, redundancy, networking, and billing settings, so you get stronger isolation and predictable performance for each tenant without managing shared storage account limits. The [number of file shares that you can deploy for each subscription in each region](/azure/storage/files/storage-files-scale-targets#file-share-scale-targets-microsoftfileshares) is significantly higher than the number of storage accounts allowed in a subscription, which extends the share-per-tenant model to more tenants than the storage-account-per-tenant model supports.
+
+This resource provider currently only supports NFS 4.1 SSD shares that use the [provisioned v2 billing model](/azure/storage/files/understanding-billing#provisioned-v2-model), and it doesn't support the SMB protocol. If your tenants need SMB access, the identity-based authorization options described earlier, or HDD storage, use file shares within a storage account instead. For the full list of differences, see [Comparison of the Microsoft.Storage and Microsoft.FileShares providers](/azure/storage/files/storage-files-planning#comparing-resource-providers-microsoftstorage-versus-microsoftfileshares).
 
 ### Table storage isolation models
 
