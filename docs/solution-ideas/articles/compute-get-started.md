@@ -2,7 +2,7 @@
 title: Get Started with Compute Architecture Design
 description: Learn about Azure compute technologies, from virtual machines to serverless functions. Review guidance, solution ideas, and reference architectures.
 author: anaharris-ms
-ms.author: anaharris
+ms.author: pnp
 ms.date: 03/10/2026
 ms.update-cycle: 1095-days
 ms.topic: concept-article

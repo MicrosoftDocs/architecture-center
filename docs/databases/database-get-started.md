@@ -2,7 +2,7 @@
 title: Get Started with Database Architecture Design
 description: Learn about database architecture design on Azure, including technology choices, solution ideas, and reference architectures for your workloads.
 author: anaharris-ms
-ms.author: anaharris
+ms.author: pnp
 ms.date: 03/05/2026
 ms.topic: concept-article
 ms.custom: arb-data

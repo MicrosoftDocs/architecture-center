@@ -1,7 +1,7 @@
 ---
 title: Get Started with Container Architecture Design
 description: Get an overview of Azure container technologies, guidance offerings, solution ideas, and reference architectures for container workloads on Azure.
-ms.author: anaharris
+ms.author: pnp
 author: anaharris-ms
 ms.update-cycle: 1095-days
 ms.topic: concept-article
