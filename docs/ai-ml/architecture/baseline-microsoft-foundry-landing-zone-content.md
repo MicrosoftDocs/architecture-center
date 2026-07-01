@@ -23,9 +23,6 @@ As a workload owner, you delegate shared resource management to platform teams s
 | --- | --- | --- |
 | &#9642; [Architecture diagram](#architecture)<br>&#9642; [Workload resources](#workload-team-owned-resources)<br>&#9642; [Federated resources](#platform-team-owned-resources) | &#9642; [Subscription setup](#subscription-setup)<br>&#9642; [Networking](#networking)<br>&#9642; [Data scientist access](#data-scientist-and-agent-developer-access)<br>&#9642; [Monitor resources](#monitor-resources)<br>&#9642; [Organizational governance](#azure-policy)<br>&#9642; [Change management](#manage-changes-over-time) | &#9642; [Reliability](#reliability)<br>&#9642; [Security](#security)<br>&#9642; [Cost&nbsp;Optimization](#cost-optimization)<br>&#9642; [Operational&nbsp;Excellence](#operational-excellence)<br>&#9642; [Performance&nbsp;Efficiency](#performance-efficiency) |
 
-> [!TIP]
-> :::image type="icon" source="../../_images/github.svg"::: The [Foundry Agent Service chat baseline reference implementation](https://github.com/Azure-Samples/microsoft-foundry-baseline-landing-zone) demonstrates the best practices described in this article. Review and try these deployment resources before you choose and implement your design decisions.
-
 ## Architecture
 
 :::image type="complex" source="./_images/baseline-microsoft-foundry-landing-zone.svg" lightbox="./_images/baseline-microsoft-foundry-landing-zone.svg" alt-text="Architecture diagram of the workload, including select platform subscription resources." border="false":::
@@ -519,13 +516,6 @@ The [performance efficiency considerations in the baseline architecture](./basel
 
 - Egress and cross-premises latency
 - SKU limitations from cost containment governance
-
-## Deploy this scenario
-
-Deploy a landing zone implementation of this reference architecture.
-
-> [!div class="nextstepaction"]
-> [Agent Service chat baseline reference implementation](https://github.com/Azure-Samples/microsoft-foundry-baseline-landing-zone)
 
 ## Contributors
 
