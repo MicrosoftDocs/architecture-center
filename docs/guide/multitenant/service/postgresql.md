@@ -30,7 +30,7 @@ The following options are available for Azure Database for PostgreSQL and are su
 - [Azure Cosmos DB for PostgreSQL](/azure/cosmos-db/postgresql/) is an Azure-managed database service designed for solutions that require a high level of scale, like multitenant applications. This service is part of the Azure Cosmos DB family of products.
 
   > [!IMPORTANT]
-  > Azure Cosmos DB for PostgreSQL is on a retirement path and no longer recommended for new projects. The service retires on March 31, 2029. Migrate existing workloads to [Azure Database for PostgreSQL elastic clusters](/azure/cosmos-db/postgresql/migrate-postgresql-elastic-cluster) before that date.
+  > Azure Cosmos DB for PostgreSQL is on a retirement path and isn't recommended for new projects. The service retires on March 31, 2029. Migrate existing workloads to [Azure Database for PostgreSQL elastic clusters](/azure/cosmos-db/postgresql/migrate-postgresql-elastic-cluster) before that date.
 
 ## Azure Database for PostgreSQL features that support multitenancy
 
