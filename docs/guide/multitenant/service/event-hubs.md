@@ -145,6 +145,11 @@ Azure Event Hubs [Dedicated tier](/azure/event-hubs/event-hubs-dedicated-overvie
 
 If you isolate tenants in regulated industries on dedicated namespaces, you can enable confidential computing to add hardware-level isolation at the compute layer. This capability helps you meet tenant compliance requirements that mandate data-in-use protection, and it prevents access to tenant events even from privileged infrastructure operators. You don't need to change your application or event processing code. For the strongest isolation, combine confidential computing with [customer-managed keys](/azure/event-hubs/configure-customer-managed-key).
 
+Plan your tenant isolation strategy around the following constraints:
+
+- You must enable confidential computing when you create the namespace. You can't enable it on an existing namespace.
+- Confidential computing is available in select regions only. Confirm that your tenants' required regions are supported before you commit to this isolation model.
+
 For more information, see [Azure Event Hubs confidential computing overview](/azure/event-hubs/confidential-computing).
 
 ### Event Hubs capture
