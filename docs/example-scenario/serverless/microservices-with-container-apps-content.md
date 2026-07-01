@@ -7,9 +7,6 @@ The example workload is a containerized microservices application. It reuses the
 >
 > For a greenfield workload, see [Deploy microservices by using Container Apps and Dapr](./microservices-with-container-apps-dapr.yml).
 
-> [!TIP]
-> :::image type="icon" source="../../_images/github.png"::: An [example implementation](https://github.com/mspnp/container-apps-fabrikam-dronedelivery) supports this architecture and illustrates some of the design choices described in this article.
-
 ## Architecture
 
 :::image type="complex" border="false" source="./media/microservices-with-container-apps.svg" alt-text="Diagram that shows the runtime architecture for the solution." lightbox="./media/microservices-with-container-apps.svg":::
@@ -253,10 +250,6 @@ Performance Efficiency refers to your workload's ability to scale to meet user d
 - Requests are dynamically load balanced to available replicas of a revision. 
 
 - Metrics, including utilization of CPU, memory, bandwidth information, and storage, are available through Azure Monitor.
-
-## Deploy this scenario
-
-Follow the [steps in the README.md in the Container Apps example scenario repository](https://github.com/mspnp/container-apps-fabrikam-dronedelivery).
 
 ## Contributors
 
