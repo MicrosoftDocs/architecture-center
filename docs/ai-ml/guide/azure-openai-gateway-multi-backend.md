@@ -337,9 +337,9 @@ Don't implement a unified gateway across geopolitical regions when data residenc
 
 Don't implement a unified gateway solely to increase quota. Use [Global Standard](/azure/ai-foundry/foundry-models/concepts/deployment-types#global-standard) deployments that use Azure's global infrastructure to dynamically route requests to datacenters that have the best capacity for each request.
 
-If clients aren't expected to fail over between regions and you can assign each client to a specific, instead use multiple gateways, one per region, and follow the guidance in one of the previous sections. Don't tie the availability of other regions to the region that contains your gateway as a single point of failure.
+If clients aren't expected to fail over between regions and you can assign each client to a specific region, instead use multiple gateways, one per region, and follow the guidance in one of the previous sections. Don't tie the availability of other regions to the region that contains your gateway as a single point of failure.
 
-Don't implement a unified gateway if your model and version isn't available in all regions exposed by the gateway. Clients need to be routed to the same model and the same model version. For multi-region load-balanced and failover gateways, you need to pick a common model and model version that's available across all affected regions. For more information, see [Model availability](/azure/ai-foundry/foundry-models/concepts/models-sold-directly-by-azure#model-summary-table-and-region-availability). If you can't standardize on model and model version, the benefit of the gateway is limited.
+Don't implement a unified gateway if your model and version aren't available in all regions exposed by the gateway. Clients need to be routed to the same model and the same model version. For multi-region load-balanced and failover gateways, you need to pick a common model and model version that's available across all affected regions. For more information, see [Model availability](/azure/ai-foundry/foundry-models/concepts/models-sold-directly-by-azure#model-summary-table-and-region-availability). If you can't standardize on model and model version, the benefit of the gateway is limited.
 
 ## General recommendations
 
@@ -393,7 +393,7 @@ Although this consideration isn't specific to multiple back ends, each region's 
 
 Azure doesn't provide a complete turnkey solution or reference architecture for building a gateway that's focused on routing traffic across multiple back ends. However, API Management is preferred because the service provides a PaaS-based solution that uses built-in features such as back-end pools, circuit-breaking policies, and custom policies if needed. To evaluate what's available in that service for your workload's multi-back-end needs, see [AI gateway in API Management](/azure/api-management/genai-gateway-capabilities).
 
-Whether you use API Management or build a custom solution, as mentioned in the [introduction article](./azure-openai-gateway-guide.yml#implementation-options), your workload team must build and operate the gateway. The following examples cover some of the previously mentioned use cases. Consider referring to these samples when you build your own proof of concept by using API Management or custom code.
+Whether you use API Management or build a custom solution, as mentioned in the [introduction article](./azure-openai-gateway-guide.md#implementation-options), your workload team must build and operate the gateway. The following examples cover some of the previously mentioned use cases. Consider referring to these samples when you build your own proof of concept by using API Management or custom code.
 
 - **API Management**
   - [Smart load balancing by using API Management](https://github.com/Azure-Samples/openai-apim-lb) contains sample policy code and instructions.
@@ -415,7 +415,7 @@ By using these built-in capabilities, you can significantly reduce the amount of
 
 ## Next step
 
-Having a gateway implementation for your workload provides benefits beyond the tactical multiple-back-end routing benefit described in this article. To learn about the other challenges a gateway can solve, see [Key challenges](./azure-openai-gateway-guide.yml#key-challenges).
+Having a gateway implementation for your workload provides benefits beyond the tactical multiple-back-end routing benefit described in this article. To learn about the other challenges a gateway can solve, see [Key challenges](./azure-openai-gateway-guide.md#key-challenges).
 
 ## Related resources
 

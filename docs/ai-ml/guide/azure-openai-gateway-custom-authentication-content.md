@@ -264,7 +264,7 @@ If your API gateway is responsible for caching completions or other inferencing 
 
 ## Gateway implementations
 
-Azure doesn't provide a complete turnkey solution or reference architecture to build the gateway in this article, so you must build and operate the gateway. Azure API management can be used to build a PaaS based solution through built-in and custom policies. Azure also provides examples of community-supported implementations that cover the use cases in this article. Reference these samples when you build your own gateway solution. For more information, see the video [Learn Live: Azure OpenAI application identity and security](https://www.youtube.com/live/pDjXsNWYmvo).
+Azure doesn't provide a complete turnkey solution or reference architecture to build the gateway in this article, so you must build and operate the gateway. You can use API Management to build a PaaS-based solution through built-in and custom policies. Azure also provides examples of community-supported implementations that cover the use cases in this article. Reference these samples when you build your own gateway solution. For more information, see the video [Learn Live: Azure OpenAI application identity and security](https://www.youtube.com/live/pDjXsNWYmvo).
 
 ## Contributors
 
@@ -289,5 +289,5 @@ Principal authors:
 
 ## Related resources
 
-- [Access Azure OpenAI and other language models through a gateway](./azure-openai-gateway-guide.yml#key-challenges)
+- [Access Azure OpenAI and other language models through a gateway](./azure-openai-gateway-guide.md#key-challenges)
 - [Design a well-architected AI workload](/azure/well-architected/ai/get-started)
