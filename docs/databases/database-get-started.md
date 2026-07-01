@@ -98,6 +98,10 @@ The following production-ready architectures demonstrate end-to-end database sol
 - [Rehost IMS Data Communication (IMS DC) and IMS Database (IMS DB)](../example-scenario/mainframe/rehost-ims-raincode-imsql.yml)
 - [Implement SMA OpCon in Azure](../example-scenario/integration/sma-opcon-azure.yml)
 
+**In-memory data stores**
+
+- [Write-through caching with Azure Managed Redis and Azure SQL Database](../databases/architecture/write-through-caching-azure-sql-managed-redis.yml)
+
 **Relational**
 
 - [Oracle Database with Azure NetApp Files](../example-scenario/file-storage/oracle-azure-netapp-files.yml)

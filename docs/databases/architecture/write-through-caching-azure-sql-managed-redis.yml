@@ -1,0 +1,26 @@
+### YamlMime:Architecture
+metadata:
+  title: Write-Through Caching with Azure Managed Redis and Azure SQL Database
+  description: Learn how to design a write-through caching workload that uses Azure App Service, Azure Functions, Azure SQL Database, and Azure Managed Redis.
+  author: redis-phil
+  ms.author: b-philipl
+  ms.date: 06/30/2026
+  ms.topic: example-scenario
+  ms.subservice: example-scenario
+  ai-usage: ai-assisted
+  ms.custom:
+    - arb-web
+name: Write-through caching with Azure Managed Redis and Azure SQL Database
+azureCategories:
+  - databases
+  - web
+summary: Design an application-managed write-through caching workload that uses Azure Functions to coordinate writes to Azure SQL Database and Azure Managed Redis.
+products:
+  - azure-app-service
+  - azure-functions
+  - azure-sql-database
+  - azure-managed-redis
+  - azure-monitor
+thumbnailUrl: /azure/architecture/browse/thumbs/write-through-caching-functions-azure-sql-managed-redis.png
+content: |
+  [!INCLUDE[](write-through-caching-azure-sql-managed-redis-content.md)]
