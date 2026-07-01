@@ -22,7 +22,7 @@ The following options are available for Azure Database for PostgreSQL and are su
 
 - Azure Database for PostgreSQL [elastic clusters](/azure/postgresql/elastic-clusters/concepts-elastic-clusters) provides horizontal scaling within a managed service. It's suitable for multitenant applications that need to scale from a few tenants to high numbers of tenants.
 
-- [Azure HorizonDB](/azure/horizondb/overview) is a cloud-native, fully managed PostgreSQL platform with a disaggregated compute and storage architecture. It provides a read-write primary endpoint and a load-balanced read-replica pool, which enables per-tenant read scale-out. Microsoft positions HorizonDB for SaaS backends and high-throughput transactional workloads.
+- [Azure HorizonDB](/azure/horizondb/overview) is a cloud-native, fully managed PostgreSQL platform with a disaggregated compute and storage architecture. It provides a read-write primary endpoint and a load-balanced read-replica pool, which enables per-tenant read scale-out. HorizonDB is intended for SaaS backends and high-throughput transactional workloads.
 
   > [!IMPORTANT]
   > Azure HorizonDB is in preview and isn't recommended for production workloads.
