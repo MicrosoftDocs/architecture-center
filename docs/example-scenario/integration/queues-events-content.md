@@ -103,9 +103,9 @@ You're charged for all API Management instances when they run. If you scale up, 
 
 For light usage workloads, consider the [Consumption tier](/azure/api-management/api-management-features), which is a low-cost, serverless option. The Consumption tier is billed per API call. Other tiers are billed per hour.
 
-#### Logic Apps
+#### Logic Apps Standard
 
-Logic Apps uses a [serverless model](/azure/logic-apps/logic-apps-serverless-overview). Billing is calculated based on the number of actions and connector calls. For more information, see [Logic Apps pricing](https://azure.microsoft.com/pricing/details/logic-apps/).
+Logic Apps Standard uses a [elastic compute model](/azure/logic-apps/logic-apps-serverless-overview). Billing is calculated based number of CPUs and memory used per hour. For more information, see [Logic Apps pricing](https://azure.microsoft.com/pricing/details/logic-apps/).
 
 #### Service Bus queues, topics, and subscriptions
 
