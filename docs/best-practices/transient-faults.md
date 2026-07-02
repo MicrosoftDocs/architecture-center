@@ -11,9 +11,9 @@ ms.subservice: best-practice
 
 # Best practices for transient fault handling
 
-All applications that communicate with remote services and resources must detect and recover from transient faults. This requirement is especially true for applications that run in the cloud. Because of the nature of the cloud environment and connectivity over the internet, your application is likely to encounter transient faults more often. Transient faults include the momentary loss of network connectivity to components and services, the temporary unavailability of a service, and timeouts that occur when a service is busy. These faults typically resolve themselves without intervention, so the action is likely to succeed if the application retries it after a suitable delay.
+All applications that communicate with remote services and resources must detect and recover from transient faults. This requirement is especially true for applications that run in the cloud. Because of the nature of the cloud environment and connectivity over the internet, your application is likely to encounter transient faults more often. Transient faults include the momentary loss of network connectivity to components and services, the temporary unavailability of a service, and time-outs that occur when a service is busy. These faults typically resolve themselves without intervention, so the action is likely to succeed if the application retries it after a suitable delay.
 
-[Transient fault handling](/azure/well-architected/design-guides/handle-transient-faults) is a key resiliency technique within the [Reliability pillar](/azure/well-architected/reliability/) of the Azure Well-Architected Framework. If you detect and recover from transient faults at the application level, you reduce the chance of cascading failures that might trigger broader incident response or [disaster recovery (DR)](/azure/well-architected/reliability/disaster-recovery) procedures. Effective transient fault handling helps your workload tolerate routine disruptions and maintain availability without escalation to infrastructure-level recovery procedures.
+[Transient fault handling](/azure/well-architected/design-guides/handle-transient-faults) is a key resiliency technique within the [Reliability pillar](/azure/well-architected/reliability/) of the Azure Well-Architected Framework. If you detect and recover from transient faults at the application level, you help prevent cascading failures that might trigger broader incident response or [disaster recovery (DR)](/azure/well-architected/reliability/disaster-recovery) procedures. Effective transient fault handling helps your workload tolerate routine disruptions and maintain availability without escalation to infrastructure-level recovery procedures.
 
 ## Why do transient faults occur in the cloud?
 
@@ -35,7 +35,7 @@ Transient faults can significantly affect the perceived availability of an appli
 
 - The application must be able to detect faults when they occur and determine whether the faults are transient, long-lasting, or terminal failures. Different resources typically return different responses when a fault occurs. These responses can also vary depending on the context of the operation. For example, the response for an error when the application reads from storage might differ from the response for an error when it writes to storage. 
 
-   Many resources and services have well-documented transient-failure contracts. When this information isn't available, it becomes much harder to determine the nature of the fault and whether it's likely to be transient.
+   Many resources and services have well-documented transient-failure contracts. When this information isn't available, it becomes harder to determine the nature of the fault and whether it's likely to be transient.
 
 - The application must be able to retry the operation if it determines that the fault is likely to be transient. It also needs to track the number of times that it retries the operation.
 
@@ -55,7 +55,7 @@ Azure services each handle transient faults differently. Some services provide S
 
 ### Check whether retrying suits the operation
 
-Retry tasks only when the faults are transient, which the nature of the error typically indicates, and when the operation might succeed when retried. For HTTP-based services, status code 429 (Too Many Requests) and 5xx server errors are typical retry candidates. Most 4xx client errors, like 400, 401, 403, and 404, indicate problems that a retry won't resolve. Don't retry tasks that attempt an operation that can't succeed, like a database update to an item that doesn't exist or a request to a service or resource that encountered a fatal error.
+Retry tasks only when the faults are transient, which the nature of the error typically indicates, and when the operation might succeed when retried. For HTTP-based services, status code 429 (Too Many Requests) and 5xx server errors are typical retry candidates. Most 4xx client errors, like 400, 401, 403, and 404, indicate problems that a retry doesn't resolve. Don't retry operations that can't succeed, like updating a database item that doesn't exist or calling a service that returned a fatal error.
 
 In general, implement retries only when you can determine their full effect and when you understand and can validate the conditions. Otherwise, let the calling code implement retries. Errors returned from resources and services outside your control might evolve over time, and you might need to revisit your transient fault detection logic.
 

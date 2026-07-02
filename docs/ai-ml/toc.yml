@@ -114,7 +114,7 @@ items:
         items:
         - name: Use a gateway in front of generative models
           displayName: API, AI gateway, proxy, LLM gateway
-          href: guide/azure-openai-gateway-guide.yml
+          href: guide/azure-openai-gateway-guide.md
         - name: A gateway for multiple models
           href: guide/azure-openai-gateway-multi-backend.md
         - name: Provide custom authentication to models through a gateway

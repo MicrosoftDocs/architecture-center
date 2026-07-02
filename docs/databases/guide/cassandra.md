@@ -15,7 +15,7 @@ ms.custom:
 # Run Apache Cassandra on Azure VMs
 
 > [!CAUTION]
-> This article references CentOS, a Linux distribution that is End Of Life (EOL). Please consider your use and plan accordingly. For more information, see the [CentOS End Of Life guidance](/azure/virtual-machines/workloads/centos/centos-end-of-life).
+> This article references CentOS, a Linux distribution that reached end of support. Consider your use and plan accordingly. For more information, see the [CentOS end of support guidance](/azure/virtual-machines/workloads/centos/centos-end-of-life).
 
 This article describes performance considerations for running Apache Cassandra on Azure Virtual Machines.
 
@@ -31,7 +31,7 @@ Cassandra workloads on Azure commonly use either [Standard_DS14_v2][dsv2], [Stan
 
 For durability, data and commit logs are commonly stored on a stripe set of two to four 1-TB [Premium SSDs](/azure/virtual-machines/windows/disks-types#premium-ssd) (P30).
 
-Cassandra nodes shouldn't be too data-dense. We recommend having at most 1 &ndash; 2 TB of data per VM and enough free space for compaction. To achieve the highest possible combined throughput and IOPS using Premium SSDs, we recommend creating a stripe set from a few 1-TB disks, instead of using a single 2-TB or 4-TB disk. For example, on a DS14_v2 VM, four 1-TB disks have a maximum IOPS of 4 &times; 5000 = 20 K, versus 7.5 K for a single 4-TB disk.
+Cassandra nodes shouldn't be too data-dense. We recommend having at most 1 to 2 TB of data per VM and enough free space for compaction. To achieve the highest possible combined throughput and IOPS using Premium SSDs, we recommend creating a stripe set from a few 1-TB disks, instead of using a single 2-TB or 4-TB disk. For example, on a DS14_v2 VM, four 1-TB disks have a maximum IOPS of 4 &times; 5000 = 20 K, versus 7.5 K for a single 4-TB disk.
 
 Evaluate [Azure Ultra Disks](/azure/virtual-machines/linux/disks-enable-ultra-ssd) for Cassandra workloads that need smaller disk capacity. They can provide higher IOPS/throughput and lower latency on VM sizes like [Standard_E16s_v5][esv5] and [Standard_D16s_v5][dsv5].
 
@@ -67,7 +67,7 @@ To minimize unnecessary lookahead, set the Linux block device read-ahead setting
 
 Configure 8 KB read-ahead for all block devices in the stripe set and on the array device itself (for example, `/dev/md0`).
 
-For more information, see [Comparing impact of disk read-ahead settings](https://github.com/Azure-Samples/cassandra-on-azure-vms-performance-experiments/blob/master/docs/cassandra-read-ahead.md) (GitHub).
+For more information, see [Comparing impact of disk read-ahead settings](https://github.com/Azure-Samples/cassandra-on-azure-vms-performance-experiments/blob/master/docs/cassandra-read-ahead.md).
 
 ## Disk array mdadm chunk size
 
@@ -91,7 +91,7 @@ Based on our tests, Cassandra on CentOS 7.x might have *lower* write performance
 
 For more information, see [Observations on ext4 and xfs file systems and compressed commit logs](https://github.com/Azure-Samples/cassandra-on-azure-vms-performance-experiments/blob/master/docs/cassandra-commitlogs-xfs-ext4.md) (GitHub).
 
-## Measuring baseline VM performance
+## Measure baseline VM performance
 
 After deploying the VMs for the Cassandra ring, run a few synthetic tests to establish baseline network and disk performance. Use these tests to confirm that performance is in line with expectations, based on the [VM size](/azure/virtual-machines/linux/sizes).
 
@@ -117,7 +117,7 @@ When Cassandra's Java code reads data files, it uses regular file I/O and benefi
 
 For this reason, when executing read performance tests against the same data, the second and subsequent reads then appear to be much faster than the original read, which needed to access data on the remote data disk or from the host cache when ReadOnly is enabled. To get similar performance measurements on subsequent runs, clear the Linux page cache and restart the Cassandra service to clear its internal memory. When ReadOnly caching is enabled, the data might be in the host cache, and subsequent reads are faster even after clearing the OS page cache and restarting the Cassandra service.
 
-For more information, see [Observations on Cassandra usage of Linux page caching](https://github.com/Azure-Samples/cassandra-on-azure-vms-performance-experiments/blob/master/docs/cassandra-linux-page-caching.md) (GitHub).
+For more information, see [Observations on Cassandra usage of Linux page caching](https://github.com/Azure-Samples/cassandra-on-azure-vms-performance-experiments/blob/master/docs/cassandra-linux-page-caching.md).
 
 ## Multi-datacenter replication
 
@@ -141,7 +141,7 @@ For more information, see [Observations on hinted handoff in cross-region replic
 
 ## Contributors
 
-*This article is maintained by Microsoft. It was originally written by the following contributors.*
+*Microsoft maintains this article. The following contributors wrote this article.*
 
 Principal author:
 
@@ -151,7 +151,7 @@ Other contributor:
 
 - [Theo van Kraay](https://www.linkedin.com/in/theo-van-kraay-3388b130/) | Senior Program Manager
 
-*To see non-public LinkedIn profiles, sign in to LinkedIn.*
+*To see nonpublic LinkedIn profiles, sign in to LinkedIn.*
 
 ## Next steps
 

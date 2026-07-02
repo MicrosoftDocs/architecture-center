@@ -10,62 +10,80 @@ ms.subservice: architecture-guide
 
 # Disaster recovery for an Azure data platform
 
-This series provides an illustrative example of how an organization could design a disaster recovery (DR) strategy for an Azure enterprise data platform.
+This series provides an illustrative example of how an organization can design a disaster recovery (DR) strategy for an Azure enterprise data platform.
 
-- This series of articles complements the guidance provided by Microsoft's [Cloud Adoption Framework](/azure/cloud-adoption-framework/ready/landing-zone/design-area/management-business-continuity-disaster-recovery), the Azure [Well-Architected Framework](/azure/well-architected/reliability/disaster-recovery) and [Business Continuity Management](/azure/reliability/business-continuity-management-program).
+This series of articles complements the guidance in the [Cloud Adoption Framework for Azure](/azure/cloud-adoption-framework/ready/landing-zone/design-area/management-business-continuity-disaster-recovery), the [Azure Well-Architected Framework](/azure/well-architected/reliability/disaster-recovery), and [Business Continuity Management](/azure/reliability/business-continuity-management-program).
 
-Azure provides a broad range of reliability options that can provide service continuity in the event of a disaster. But higher service levels can introduce complexity and a cost premium. The trade-off of cost versus reliability versus complexity is the key decision-making factor for most customers regarding DR.
+Azure provides a broad range of reliability options that can provide service continuity during a disaster. But higher service levels can introduce complexity and a cost premium. The trade-off of cost, reliability, and complexity is the key decision-making factor for most customers regarding DR.
 
-While occasional point failures do happen across the Azure platform, Microsoft's Azure datacenters and Azure services have multiple layers of redundancy built-in. Any failure is normally limited in scope and is typically remediated within a matter of hours. Historically, it's far more likely that a key service such as identity management experiences a service issue rather than an entire Azure region going offline.
+Occasional point failures happen across the Azure platform, but Microsoft Azure datacenters and Azure services have multiple layers of redundancy built in. Any failure is normally limited in scope and is typically remediated within hours. Historically, a key service such as identity management is far more likely to experience a problem than an entire Azure region is to go offline.
 
-It should also be acknowledged that cyber-attacks, particularly ransomware, pose a tangible threat to any modern data ecosystem and can result in a data platform outage. While this is out-of-scope for this series, customers are advised to implement controls against such attacks as part of any data platform's security and reliability design.
+Cyberattacks, particularly ransomware, pose a tangible threat to any modern data ecosystem and can result in a data platform outage. This threat is out of scope for this series, but you should implement controls against such attacks as part of your data platform's security and reliability design.
 
-- Microsoft guidance on ransomware protection is available in the Azure [Cloud Fundamentals](/azure/security/fundamentals/backup-plan-to-protect-against-ransomware)
+For more information about ransomware protection, see [Cloud fundamentals](/azure/security/fundamentals/backup-plan-to-protect-against-ransomware).
 
 ## Scope
 
 The scope of this article series includes:
 
-- The service recovery of an Azure data platform from a physical disaster for an illustrative persona of the customer. This illustrative customer is:
-    - A mid-large organization with a defined operational support function, following an Information Technology Infrastructure Library (ITIL) based service management methodology.
-    - Not cloud-native, with its core enterprise, shared services like access and authentication management and incident management remaining on-premises.
-    - On the journey of cloud migration to Azure, enabled by automation.
-- The data platform implements the following designs within the customer's Azure environment:
-    - The [enterprise landing zone](/azure/cloud-adoption-framework/ready/landing-zone/#azure-landing-zone-conceptual-architecture) provides the platform foundation, including networking, monitoring, security, and other capabilities.
-    - The [Azure analytics platform](/azure/architecture/example-scenario/dataplate2e/data-platform-end-to-end) provides the data components that support the various solutions and data products that the service provides.
-- The processes described in this article should be performed by an individual that has the following level of knowledge/skills:
-    - [Azure Fundamentals](/certifications/exams/az-900) – working knowledge of Azure, its core services, and data components.
-    - Working knowledge of Azure DevOps. Able to navigate source control and execute pipeline deployments.
-- The processes described in this article cover service failover operations, from the primary to the secondary region.
+- Recovering an Azure data platform from a physical disaster, based on an illustrative customer persona. This customer:
+
+    - Is a medium-to-large organization with a defined operational support function that follows an Information Technology Infrastructure Library (ITIL)-based service management methodology.
+
+    - Isn't cloud-native. Core enterprise shared services, such as access and authentication management and incident management, remain on-premises.
+
+    - Is migrating to Azure by using automation.
+
+- The Azure environment that the data platform uses, which includes:
+
+    - An [enterprise landing zone](/azure/cloud-adoption-framework/ready/landing-zone/#azure-landing-zone-conceptual-architecture) that provides the platform foundation, including networking, monitoring, and security.
+
+    - An [Azure analytics platform](/azure/architecture/example-scenario/dataplate2e/data-platform-end-to-end) that provides the data components that support the solutions and data products that the service provides.
+
+- Service failover operations from the primary region to the secondary region.
+
+The individual who performs the processes in this article should have the following knowledge and skills:
+
+- [Azure Fundamentals](/certifications/exams/az-900): Working knowledge of Azure, its core services, and data components.
+
+- Working knowledge of Azure DevOps, including the ability to navigate source control and run pipeline deployments.
 
 ## Out of scope
 
-The following items are considered out-of-scope for this article series:
+This article series doesn't cover:
 
-- The fallback process, from the secondary region back to the primary region.
-- Any non-Azure applications, components, or systems, including but not limited to on-premises systems, other cloud vendors, and third-party web services.
-- Recovery of any upstream services, such as on-premises networks, gateways, enterprise shared services, and others, regardless of any dependencies on these services.
-- Recovery of any downstream services, such as on-premises operational systems, third party reporting systems, data modeling or data science applications, and others, regardless of any dependencies on these services.
-- Data loss scenarios, including recovery from [ransomware or similar data security incidents](/azure/security/fundamentals/backup-plan-to-protect-against-ransomware)
-- Data backup strategies and data restoration plans
-- Establishing the root cause of a DR event.
-    - For Azure service/component incidents, Microsoft publishes a "Root Cause Analysis" within the [Status – History webpage](https://azure.status.microsoft/status/history/)
+- Fallback from the secondary region to the primary region.
+
+- Non-Azure applications, components, or systems, such as on-premises systems, other cloud vendors, and external web services.
+
+- Recovery of upstream services, such as on-premises networks, gateways, and enterprise shared services, regardless of any dependencies on these services.
+
+- Recovery of downstream services, such as on-premises operational systems, external reporting systems, and data modeling or data science applications, regardless of any dependencies on these services.
+
+- Data loss scenarios, including recovery from [ransomware or similar data security incidents](/azure/security/fundamentals/backup-plan-to-protect-against-ransomware).
+
+- Data backup strategies and data restoration plans.
+
+- Root cause analysis of a DR event. For Azure service or component incidents, Microsoft publishes a root cause analysis on the [Azure status history page](https://azure.status.microsoft/status/history/).
 
 ## Key assumptions
 
-The key assumptions for this DR worked example are:
+This example assumes that:
 
-- The Organization follows an ITIL based service management methodology for operational support of the Azure data platform.
-- The Organization has an existing disaster recovery process as part of its service restoration framework for IT assets.
-- [Infrastructure as Code (IaC)](/azure/architecture/framework/devops/automation-infrastructure) has been used to deploy the Azure data platform enabled by an automation service, such as Azure DevOps or similar.
-- Each solution hosted by the Azure data platform has completed a Business Impact Assessment or similar, providing clear service requirements for recovery point objective (RPO), recovery time objective (RTO) and mean time to recover (MTTR) metrics.
+- The organization follows an ITIL-based service management methodology to operate the Azure data platform.
+
+- The organization has an existing DR process as part of its service restoration framework for IT assets.
+
+- The Azure data platform is deployed by using [infrastructure as code (IaC)](/azure/architecture/framework/devops/automation-infrastructure) through an automation service like Azure DevOps.
+
+- Each solution that the Azure data platform hosts has a completed Business Impact Assessment or equivalent. This assessment defines service requirements for recovery point objective (RPO), recovery time objective (RTO), and mean time to recover (MTTR).
 
 ## Next steps
 
-After you review the scenario at a high level, proceed to the [architecture](../disaster-recovery/dr-for-azure-data-platform-architecture.md) for this use case.
+After you review the scenario, proceed to the [architecture](../disaster-recovery/dr-for-azure-data-platform-architecture.md).
 
 ## Related resources
 
-- [DR for Azure Data Platform - Architecture](dr-for-azure-data-platform-architecture.md)
-- [DR for Azure Data Platform - Scenario details](dr-for-azure-data-platform-scenario-details.md)
-- [DR for Azure Data Platform - Recommendations](dr-for-azure-data-platform-recommendations.md)
+- [DR for an Azure data platform - Architecture](dr-for-azure-data-platform-architecture.md)
+- [DR for an Azure data platform - Scenario details](dr-for-azure-data-platform-scenario-details.md)
+- [DR for an Azure data platform - Recommendations](dr-for-azure-data-platform-recommendations.md)

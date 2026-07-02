@@ -124,7 +124,7 @@ conceptualContent:
         url: ./ai-ml/architecture/baseline-microsoft-foundry-chat.yml
         itemType: architecture
       - text: Build a generative AI gateway
-        url: ./ai-ml/guide/azure-openai-gateway-guide.yml
+        url: ./ai-ml/guide/azure-openai-gateway-guide.md
         itemType: how-to-guide
       - text: AI agent orchestration patterns
         url: ./ai-ml/guide/ai-agent-design-patterns.md

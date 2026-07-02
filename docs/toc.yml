@@ -891,6 +891,11 @@ items:
           href: example-scenario/mainframe/rehost-ims-raincode-imsql.yml
         - name: Implement SMA OpCon in Azure
           href: example-scenario/integration/sma-opcon-azure.yml
+      - name: In-memory data stores
+        items:
+        - name: Write-through caching with Azure Managed Redis and Azure SQL Database
+          displayName: cache, write-through, Azure Functions, Azure SQL Database, Azure Managed Redis, Redis
+          href: databases/architecture/write-through-caching-azure-sql-managed-redis.yml
       - name: Relational
         items:
         - name: Oracle Database with Azure NetApp Files

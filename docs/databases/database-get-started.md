@@ -2,7 +2,7 @@
 title: Get Started with Database Architecture Design
 description: Learn about database architecture design on Azure, including technology choices, solution ideas, and reference architectures for your workloads.
 author: anaharris-ms
-ms.author: anaharris
+ms.author: pnp
 ms.date: 03/05/2026
 ms.topic: concept-article
 ms.custom: arb-data
@@ -97,6 +97,10 @@ The following production-ready architectures demonstrate end-to-end database sol
 - [Reengineer mainframe batch apps](../example-scenario/mainframe/reengineer-mainframe-batch-apps-azure.yml)
 - [Rehost IMS Data Communication (IMS DC) and IMS Database (IMS DB)](../example-scenario/mainframe/rehost-ims-raincode-imsql.yml)
 - [Implement SMA OpCon in Azure](../example-scenario/integration/sma-opcon-azure.yml)
+
+**In-memory data stores**
+
+- [Write-through caching with Azure Managed Redis and Azure SQL Database](../databases/architecture/write-through-caching-azure-sql-managed-redis.yml)
 
 **Relational**
 

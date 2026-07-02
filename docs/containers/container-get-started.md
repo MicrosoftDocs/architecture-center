@@ -1,196 +1,205 @@
 ---
-title: Container architecture design
-description: Get an overview of Azure container technologies, guidance offerings, solution ideas, and reference architectures.
+title: Get Started with Container Architecture Design
+description: Get an overview of Azure container technologies, guidance offerings, solution ideas, and reference architectures for container workloads on Azure.
+ms.author: pnp
 author: anaharris-ms
-ms.author: anaharris
-ms.date: 02/02/2026
+ms.update-cycle: 1095-days
 ms.topic: concept-article
 ms.subservice: category-get-started
 ai-usage: ai-assisted
+ms.date: 02/02/2026
 ---
 
 # Get started with container architecture design
 
-Containers have become the standard for packaging and deploying modern applications. Azure provides a comprehensive set of container services that range from fully managed Kubernetes clusters to serverless container platforms. Whether you're modernizing existing applications, building cloud-native microservices, or running stateful workloads, Azure container services offer the flexibility, portability, and scalability your organization needs.
+Containers are the standard for packaging and deploying modern applications. Azure provides a comprehensive set of container services that range from fully managed Kubernetes clusters to serverless container platforms. Whether you're modernizing existing applications, building cloud-native microservices, or running stateful workloads, Azure container services provide the flexibility, portability, and scalability that your organization needs.
 
-Choosing the right container platform depends on your workload requirements, operational expertise, and business goals. Key considerations include orchestration complexity, scaling requirements, networking needs, and the level of control you want over the underlying infrastructure. Azure's container portfolio spans infrastructure as a service (IaaS), platform as a service (PaaS), and serverless models, allowing you to select the approach that best fits your architecture.
+Choosing the right container platform depends on your workload requirements, operational expertise, and business goals. Key considerations include orchestration complexity, scaling requirements, networking needs, and the level of control that you want over the underlying infrastructure. Azure containers span infrastructure as a service (IaaS), platform as a service (PaaS), and serverless models, so you can select the approach that best suits your architecture.
 
+## Azure services for containers
+
+Azure provides a range of services for containers:
+
+- [Azure Kubernetes Service (AKS)](/azure/aks/intro-kubernetes): Fully managed Kubernetes service for deploying and managing containerized applications with enterprise-grade security and governance.
+
+- [Azure Container Apps](/azure/container-apps/overview): Serverless container platform for running microservices and containerized applications without managing infrastructure.
+
+- [Azure Container Instances](/azure/container-instances/container-instances-overview): Fast and simple way to run containers without orchestration for event-driven applications and batch jobs.
+
+- [Azure Container Registry](/azure/container-registry/container-registry-intro): Private registry service for building, storing, and managing container images and artifacts.
+
+- [Azure Red Hat OpenShift](/azure/openshift/intro-openshift): Fully managed OpenShift service for enterprises that require Red Hat support and additional platform capabilities.
 
 ## Architecture
 
-
 :::image type="complex" border="false" source="../reference-architectures/containers/aks/images/aks-baseline-architecture.svg" alt-text="Diagram that shows the container solution journey on Azure." lightbox="../reference-architectures/containers/aks/images/aks-baseline-architecture.svg":::
-   Diagram showing typical approach to implementing container solutions on Azure starts with learning and organizational readiness, then moves to choosing the appropriate container platform based on workload requirements, followed by implementation best practices and production deployment.
+   The diagram shows a typical approach for implementing container solutions on Azure. At the top left, Azure Bastion creates a secure tunnel from the local kubectl client. The hub virtual network includes the Azure Bastion subnet (management), the Azure Firewall subnet (outbound), and the gateway subnet (to on-premises). An arrow labeled private IP address points from the Azure Bastion subnet to the internal load balancer in the spoke virtual network. An arrow points from the on-premises network to the gateway subnet. A double-sided arrow labeled virtual network peering connects the hub virtual network and the spoke (remote office). Virtual network peering connects the hub and spoke networks. Arrows point from Azure Key Vault and Azure Container Registry to the Azure Private Link endpoints subnet. The spoke virtual network includes the API server virtual network integration delegated subnet, the ingress resources subnet, and the Azure Application Gateway subnet. An arrow points from the internet to the Application Gateway subnet. The spoke virtual network section also includes the cluster nodes subnet. Azure Kubernetes Service (AKS), system node pool, and user node pool are in this cluster. The system node pool includes CoreDNS and metric-server. The user node pool includes Traefik ingress controller and the workload. An arrow points from the cluster nodes subnet to a section that includes Azure Monitor workspace, metrics, and Managed Prometheus.
 :::image-end:::
 
 *Download a [Visio file](https://arch-center.azureedge.net/aks-baseline-architecture.vsdx) of this architecture.*
-Refer to the [architectures](#explore-container-architectures-and-guides) provided in this section to find real-world solutions that you can build in Azure.
 
+The previous diagram demonstrates a typical basic or baseline container implementation. For real-world solutions that you can build in Azure, see [Container architectures](#container-architectures).
 
-## Explore container architectures and guides
+## Explore container guides, architectures, and solution ideas
 
-The articles in this section include fully developed architectures that you can deploy in Azure and expand to production-grade solutions and guides. These can help you make important decisions about how you use container technologies in Azure. Solution ideas demonstrate implementation patterns and possibilities to consider as you plan your container implementation.
+The articles in this section include guides and fully developed architectures that you can deploy in Azure and expand to production-grade solutions. Solution ideas demonstrate implementation patterns and possibilities to consider as you plan your container proof-of-concept (POC) development. These articles can help you decide how to use container technologies in Azure.
 
-### Container architecture guides
+### Container guides
 
-**Technology choices** - These articles help you evaluate and select the right container platform for your workload requirements:
+The following articles help you evaluate and select the best container technologies for your workload requirements:
 
-- [Choose an Azure container service](../guide/choose-azure-container-service.md) - Decision tree for selecting the right container platform.
-- [Azure container service considerations](../guide/container-service-general-considerations.md) - Detailed considerations for container service selection.
-- [Microservices architecture style](../guide/architecture-styles/microservices.md) - Design principles for microservices.
-- [Design a microservices architecture](../microservices/design/index.md) - Step-by-step guidance for microservices design.
+- [Choose an Azure container service](../guide/choose-azure-container-service.md): Decision tree for selecting the right container platform.
 
-### AKS
+- [Azure container service considerations](../guide/container-service-general-considerations.md): Detailed considerations for container service selection.
 
-Azure Kubernetes Service (AKS) is the most comprehensive container platform on Azure. See the following resources for AKS:
+- [Microservices architecture style](../guide/architecture-styles/microservices.md): Design principles for microservices.
 
-**AKS guides** - These articles provide detailed guidance for designing and implementing AKS solutions:
+- [Design a microservices architecture](../microservices/design/index.md): Step-by-step guidance for microservices design.
 
-- [Get started with AKS](../reference-architectures/containers/aks-start-here.md) - Introduction to AKS architecture and design.
-- [Choose a Kubernetes at the edge option](../operator-guides/aks/choose-kubernetes-edge-compute-option.md) - Compare options for running Kubernetes at the edge.
-- [High availability for multitier AKS apps](../guide/aks/aks-high-availability.md) - Design patterns for highly available AKS applications.
-- [CI/CD for AKS apps via Azure Pipelines](../guide/aks/aks-cicd-azure-pipelines.md) - Implement continuous integration and deployment for AKS.
-- [GitOps for AKS](../example-scenario/gitops-aks/gitops-blueprint-aks.yml) - Use GitOps practices to manage AKS deployments.
-- [Access an AKS API server](../security/access-azure-kubernetes-service-cluster-api-server.md) - Secure access patterns for AKS API servers.
-- [Blue-green deployment of AKS clusters](../guide/aks/blue-green-deployment-for-aks.yml) - Implement zero-downtime deployments with blue-green strategies.
-- [Firewall protection for an AKS cluster](../guide/aks/aks-firewall.md) - Secure AKS clusters with Azure Firewall.
-- [Use Azure Kubernetes Service to host GPU-based workloads](../reference-architectures/containers/aks-gpu/gpu-aks.md) - Run GPU workloads on AKS for AI/ML scenarios.
+Resources for getting started with Azure Kubernetes Service (AKS):
 
-**AKS architectures** - These production-ready architectures demonstrate end-to-end AKS solutions that you can deploy and customize:
+- [Get started with AKS](../reference-architectures/containers/aks-start-here.md): Introduction to AKS architecture and design.
 
-- [AKS baseline cluster](../reference-architectures/containers/aks/baseline-aks.yml) - Production-ready baseline architecture for AKS.
-- [AKS baseline for multi-region clusters](../reference-architectures/containers/aks-multi-region/aks-multi-cluster.yml) - Deploy AKS across multiple regions for high availability.
-- [Microservices architecture on AKS](../reference-architectures/containers/aks-microservices/aks-microservices.yml) - Design and deploy microservices on AKS.
-- [Advanced microservices on AKS](../reference-architectures/containers/aks-microservices/aks-microservices-advanced.yml) - Advanced patterns for complex microservices workloads.
-- [CI/CD for microservices on Kubernetes](../microservices/ci-cd-kubernetes.yml) - Build robust CI/CD pipelines for Kubernetes microservices.
-- [Use Azure Red Hat OpenShift in the financial services industry](../reference-architectures/containers/aro/azure-redhat-openshift-financial-services-workloads.yml) - OpenShift for regulated financial workloads.
-- [Secure AKS workloads with Azure Front Door](../example-scenario/aks-front-door/aks-front-door.yml) - Global load balancing and security for AKS.
-- [Multitenancy with AKS and Application Gateway for Containers](../example-scenario/aks-agic/aks-agc.yml) - Multitenant architectures that use Application Gateway for Containers.
+- [Choose a Kubernetes at the edge option](../operator-guides/aks/choose-kubernetes-edge-compute-option.md): Compare options for running Kubernetes at the edge.
 
-**AKS solution ideas** - These solution ideas demonstrate AKS implementation patterns and possibilities to explore:
+- [High availability (HA) for multitier AKS apps](../guide/aks/aks-high-availability.md): Design patterns for highly available AKS applications.
 
-- [Data streaming with AKS](../solution-ideas/articles/data-streaming-scenario.yml) - Real-time data streaming architectures using AKS.
+- [Continuous integration and continuous deployment (CI/CD) for AKS apps via Azure Pipelines](../guide/aks/aks-cicd-azure-pipelines.md): Implement CI/CD for AKS.
 
-### PaaS container hosting
+- [GitOps for AKS](../example-scenario/gitops-aks/gitops-blueprint-aks.yml): Use GitOps practices to manage AKS deployments.
 
-Azure Container Apps and Azure Container Instances provide serverless container platforms that abstract infrastructure management.
+- [Access an AKS API server](../security/access-azure-kubernetes-service-cluster-api-server.md): Secure access patterns for AKS API servers.
 
-**PaaS architectures** - These architectures demonstrate serverless container solutions:
+- [Blue-green deployment of AKS clusters](../guide/aks/blue-green-deployment-for-aks.yml): Implement zero-downtime deployments by using blue-green strategies.
 
-- [Microservices with Container Apps](../example-scenario/serverless/microservices-with-container-apps.yml) - Build microservices using Azure Container Apps.
-- [Microservices with Dapr and KEDA](../example-scenario/serverless/microservices-with-container-apps-dapr.yml) - Event-driven microservices with Dapr and KEDA on Container Apps.
+- [Firewall protection for an AKS cluster](../guide/aks/aks-firewall.md): Secure AKS clusters by using Azure Firewall.
 
-## Learn about containers on Azure
+- [Use AKS to host GPU-based workloads](../reference-architectures/containers/aks-gpu/gpu-aks.md): Run GPU workloads on AKS for AI and machine learning scenarios.
 
-[Microsoft Learn](/training/?WT.mc_id=learnaka) provides free online training resources for Azure container technologies. The platform offers videos, tutorials, and hands-on labs for specific products and services, along with learning paths organized by job role.
+Operational guidance for running and maintaining AKS in production:
 
-The following resources provide foundational knowledge for container implementations on Azure:
+- [Triage practices](../operator-guides/aks/aks-triage-practices.md): Systematic approach to troubleshooting AKS problems.
 
-- [Introduction to Kubernetes on Azure](/training/paths/intro-to-kubernetes-on-azure/)
-- [Introduction to Azure Kubernetes Service](/training/modules/intro-to-azure-kubernetes-service/)
-- [Deploy a containerized application on Azure Kubernetes Service](/training/modules/aks-deploy-container-app/)
-- [Introduction to Docker containers](/training/modules/intro-to-docker-containers/)
-- [Deploy and run a containerized web app with Azure App Service](/training/modules/deploy-run-container-app-service/)
-- [Implement Azure Container Apps](/training/modules/implement-azure-container-apps/)
+- [Backup and recovery for AKS](../operator-guides/aks/aks-backup-and-recovery.md): Protect your cluster configuration and workloads.
 
-### Learning paths by role
+- [Patch and upgrade worker nodes](../operator-guides/aks/aks-upgrade-practices.md): Keep clusters secure and up-to-date.
 
-- **Solutions architect**: [Architect compute infrastructure in Azure](/training/paths/architect-compute-infrastructure/)
-- **Developer**: [Deploy containers by using Azure Kubernetes Service](/training/paths/deploy-manage-containers-azure-kubernetes-service/)
-- **Developer**: [Implement containerized solutions](/training/paths/az-204-implement-iaas-solutions/)
-- **DevOps engineer**: [Develop and deploy applications on Kubernetes](/training/paths/develop-deploy-applications-kubernetes/)
+- [Troubleshoot networking](../operator-guides/aks/troubleshoot-network-aks.md): Diagnose and resolve network problems.
 
+- [Monitor AKS by using Azure Monitor](/azure/aks/monitor-aks): Collect and analyze telemetry from your clusters.
 
+### Container architectures
+
+The following production-ready architectures demonstrate end-to-end container solutions that you can deploy and customize.
+
+Foundational AKS architectures that cover baseline production setups, multiple-region resiliency, security front ends, and multitenancy patterns:
+
+- [AKS baseline cluster](../reference-architectures/containers/aks/baseline-aks.yml): Production-ready baseline architecture for AKS.
+
+- [AKS baseline for multiple-region clusters](../reference-architectures/containers/aks-multi-region/aks-multi-cluster.yml): Deploy AKS across multiple regions for HA.
+
+- [Secure AKS workloads by using Azure Front Door](../example-scenario/aks-front-door/aks-front-door.yml): Global load balancing and security for AKS.
+
+- [Multitenancy that uses AKS and Application Gateway Ingress Controller (AGIC)](../example-scenario/aks-agic/aks-agic.yml): Multitenant architectures that use AGIC.
+
+Architectures and pipelines for designing, deploying, and operating microservices workloads on AKS and Kubernetes:
+
+- [Microservices architecture on AKS](../reference-architectures/containers/aks-microservices/aks-microservices.yml): Design and deploy microservices on AKS.
+
+- [Advanced microservices on AKS](../reference-architectures/containers/aks-microservices/aks-microservices-advanced.yml): Advanced patterns for complex microservices workloads.
+
+- [CI/CD for microservices on Kubernetes](../microservices/ci-cd-kubernetes.yml): Build robust CI/CD pipelines for Kubernetes microservices.
+
+Architecture tailored for regulated industries or alternative Kubernetes platforms:
+
+- [Use Azure Red Hat OpenShift in the financial services industry](../reference-architectures/containers/aro/azure-redhat-openshift-financial-services-workloads.yml): OpenShift for regulated financial workloads.
+
+### Container solution ideas
+
+The following container solution ideas demonstrate implementation patterns and possibilities to explore:
+
+- [Data streaming that uses AKS](../solution-ideas/articles/data-streaming-scenario.yml): Real-time data streaming architectures that use AKS.
+
+Azure Container Apps and Azure Container Instances provide serverless container platforms that abstract infrastructure management:
+
+- [Microservices that use Container Apps](../example-scenario/serverless/microservices-with-container-apps.yml): Build microservices by using Container Apps.
+
+- [Microservices that use Dapr and KEDA](../example-scenario/serverless/microservices-with-container-apps-dapr.yml): Event-driven microservices that use Dapr and KEDA on Container Apps.
 
 ## Organizational readiness
 
-To help assure the quality of your container solution on Azure, we recommend following the [Azure Well-Architected Framework (WAF)](/azure/well-architected/). WAF provides prescriptive guidance for organizations seeking architectural excellence and discusses how to design, provision, and monitor cost-optimized Azure solutions.
+Organizations at the beginning of the cloud adoption process can use the [Cloud Adoption Framework for Azure](/azure/cloud-adoption-framework/) to access proven guidance that accelerates cloud adoption.
 
-For container-specific guidance, see the Azure Well-Architected Framework service guides for:
+To help ensure the quality of your container solution on Azure, follow the guidance in the [Azure Well-Architected Framework](/azure/well-architected/). The Well-Architected Framework provides prescriptive guidance for organizations that seek architectural excellence and describes how to design, provision, and monitor cost-optimized Azure solutions. For container-specific guidance, see the following Well-Architected Framework service guides:
 
-- [Azure Container Apps](/azure/well-architected/service-guides/azure-container-apps)
-- [Azure Kubernetes Service](/azure/well-architected/service-guides/azure-kubernetes-service)
-
-
-## Operations guide
-
-Deploying your workload on Azure is a significant milestone, and this is when [day-2 operations](https://dzone.com/articles/defining-day-2-operations) become critical.
-
-### AKS operations
-
-The **AKS day-2 operations guide** helps ensure you're ready to meet operational demands for Kubernetes workloads.
-
-> [!div class="nextstepaction"]
-> [AKS day-2 operations guide](../operator-guides/aks/day-2-operations-guide.md)
-
-Key AKS operational areas:
-
-- [Triage practices](../operator-guides/aks/aks-triage-practices.md) - Systematic approach to troubleshooting AKS issues.
-- [Backup and recovery for AKS](../operator-guides/aks/aks-backup-and-recovery.md) - Protect your cluster configuration and workloads.
-- [Patch and upgrade worker nodes](../operator-guides/aks/aks-upgrade-practices.md) - Keep clusters secure and up to date.
-- [Troubleshoot networking](../operator-guides/aks/troubleshoot-network-aks.md) - Diagnose and resolve network issues.
-- [Monitor AKS with Azure Monitor](/azure/aks/monitor-aks) - Collect and analyze telemetry from your clusters.
-
-### Container Apps operations
-
-Azure Container Apps reduces operational overhead with managed infrastructure, but you still need to monitor and manage your applications:
-
-- [Monitor Container Apps](/azure/container-apps/observability) - Use Azure Monitor, Log Analytics, and Application Insights for observability.
-- [Health probes](/azure/container-apps/health-probes) - Configure liveness, readiness, and startup probes for container health.
-- [Revisions and traffic splitting](/azure/container-apps/revisions-manage) - Manage application versions and implement blue-green deployments.
-- [Quotas and limits](/azure/container-apps/quotas) - Understand service limits and plan capacity accordingly.
+- [Container Apps](/azure/well-architected/service-guides/azure-container-apps)
+- [AKS](/azure/well-architected/service-guides/azure-kubernetes-service)
 
 ## Best practices
 
-Following best practices helps ensure your container solution on Azure is reliable, secure, and cost-effective.
+Follow these best practices to improve the reliability, security, cost effectiveness, performance, and operational quality of your container workloads on Azure:
 
-- [Autoscaling best practices](../best-practices/auto-scaling.md) - Learn about dynamic scaling to right-size your infrastructure.
-- [Background jobs guidance](../best-practices/background-jobs.md) - Implement background processing for long-running tasks.
-- [Caching guidance](../best-practices/caching.md) - Improve performance and reduce load on backend systems.
+- [Autoscaling best practices](../best-practices/auto-scaling.md): Learn about dynamic scaling to rightsize your infrastructure.
 
-### Cost optimization
+- [Background jobs guidance](../best-practices/background-jobs.md): Implement background processing for long-running tasks.
 
-Managing container costs on Azure requires understanding your usage patterns and selecting the right pricing models:
+- [Caching guidance](../best-practices/caching.md): Improve performance and reduce load on back-end systems.
 
-- [Azure Reservations](/azure/cost-management-billing/reservations/save-compute-costs-reservations) - Save up to 72% on AKS node VMs with 1-year or 3-year commitments.
-- [Azure Spot VMs for AKS](/azure/aks/spot-node-pool) - Use spot node pools for interruptible workloads at significant discounts.
-- [Azure Savings Plan for Compute](/azure/cost-management-billing/savings-plan/savings-plan-overview) - Flexible pricing across VMs, Container Instances, and other compute services.
-- [Right-size resources](/azure/advisor/advisor-cost-recommendations) - Use Azure Advisor recommendations to identify underutilized nodes and optimize pod resource requests.
-- [Container Apps consumption plan](/azure/container-apps/billing) - Pay only for resources consumed during request processing.
+### Cost Optimization
+
+Managing container costs on Azure requires you to understand your usage patterns and select the right pricing models:
+
+- [Azure Reservations](/azure/cost-management-billing/reservations/save-compute-costs-reservations): Save up to 72% on AKS node virtual machines (VMs) with one-year or three-year commitments.
+
+- [Azure spot VMs for AKS](/azure/aks/spot-node-pool): Use spot node pools for interruptible workloads at significant discounts.
+
+- [Azure savings plan for compute](/azure/cost-management-billing/savings-plan/savings-plan-overview): Flexible pricing across VMs, Container Instances, and other compute services.
+
+- [Rightsize resources](/azure/advisor/advisor-cost-recommendations): Use Azure Advisor recommendations to identify underutilized nodes and optimize pod resource requests.
+
+- [Container Apps consumption plan](/azure/container-apps/billing): Pay only for resources consumed during request processing.
+
+### Container Apps operations
+
+Container Apps reduces operational overhead with managed infrastructure, but you need to monitor and manage your applications:
+
+- [Monitor Container Apps](/azure/container-apps/observability): Use Azure Monitor, Log Analytics, and Application Insights for observability.
+
+- [Health probes](/azure/container-apps/health-probes): Configure liveness, readiness, and startup probes for container health.
+
+- [Revisions and traffic splitting](/azure/container-apps/revisions-manage): Manage application versions and implement blue-green deployments.
+
+- [Quotas and limits](/azure/container-apps/quotas): Understand service limits and plan capacity accordingly.
 
 ## Stay current with containers
 
-Azure container services are evolving to address modern application challenges. Stay informed about the latest updates and planned features.
+Azure container services evolve to address modern application challenges. Stay informed about the latest [updates and features](https://azure.microsoft.com/updates/).
 
-Get the latest updates on [Azure products and features](https://azure.microsoft.com/updates/).
-
-To stay current with key container services, see:
+To stay current with key container services, see the following articles:
 
 - [AKS release notes](/azure/aks/release-tracker)
-- [What's new in Azure Container Apps](/azure/container-apps/whats-new)
+- [What's new in Container Apps](/azure/container-apps/whats-new)
 
-## Additional resources
+## Other resources
 
-Containers is a broad category and covers a range of solutions. The following resources can help you discover more about Azure.
+The following resources can help you discover more about containers.
 
-### Hybrid and multicloud
+- [Azure Arc-enabled Kubernetes](/azure/azure-arc/kubernetes/overview): Manage Kubernetes clusters that run anywhere by using Azure Arc.
 
-Many organizations need a hybrid approach to containers because they have workloads running both on-premises and in the cloud. Azure provides services to extend your container platforms across environments:
+- [AKS enabled by Azure Arc](/azure/aks/hybrid/aks-hybrid-options-overview): Run AKS on Azure Local and Windows Server.
 
-- [Azure Arc-enabled Kubernetes](/azure/azure-arc/kubernetes/overview) - Manage Kubernetes clusters running anywhere with Azure Arc.
-- [AKS enabled by Azure Arc](/azure/aks/hybrid/aks-hybrid-options-overview) - Run AKS on Azure Local and Windows Server.
-- [Azure Arc hybrid management and deployment for Kubernetes clusters](../hybrid/arc-hybrid-kubernetes.yml) - Manage Kubernetes clusters across environments.
+- [Azure Arc hybrid management and deployment for Kubernetes clusters](../hybrid/arc-hybrid-kubernetes.yml): Manage Kubernetes clusters across environments.
 
-Key hybrid container scenarios:
+- [Hybrid architecture design](../hybrid/hybrid-start-here.md): Overview of hybrid solutions on Azure.
 
-- [Hybrid architecture design](../hybrid/hybrid-start-here.md) - Overview of hybrid solutions on Azure.
-- [AKS on Azure Local baseline architecture](../example-scenario/hybrid/aks-baseline.yml) - Production-ready AKS on Azure Local deployment.
+- [AKS on Azure Local baseline architecture](../example-scenario/hybrid/aks-baseline.yml): Production-ready AKS on Azure Local deployment.
 
+## Amazon Web Services (AWS) or Google Cloud professionals
 
-## AWS or Google Cloud professionals
+To help you get started quickly, the following articles compare Azure container options to other cloud services and provide migration guidance:
 
-These articles can help you ramp up quickly by comparing Azure container options to other cloud services:
+- [Containers and container orchestrators on Azure and AWS](../aws-professional/compute.md#containers-and-container-orchestrators): Compare Azure and AWS container services.
 
-- [Containers and container orchestrators on Azure and AWS](../aws-professional/compute.md#containers-and-container-orchestrators) - Compare Azure and AWS container services.
-- [Azure for AWS professionals](../aws-professional/index.md) - Overview of Azure for those familiar with AWS.
-- [Google Cloud to Azure services comparison](../gcp-professional/services.md#compute) - Compare Azure and Google Cloud container services.
+- [Azure for AWS professionals](../aws-professional/index.md): Overview of Azure for professionals familiar with AWS.
+
+- [Google Cloud to Azure services comparison](../gcp-professional/services.md#compute): Compare Azure and Google Cloud container services.
