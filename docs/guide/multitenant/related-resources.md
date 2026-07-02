@@ -31,7 +31,7 @@ The following [cloud design patterns](../../patterns/index.md) are frequently us
 | Pattern | Summary |
 | ------- | ------- |
 | [Deployment Stamps pattern](../../patterns/deployment-stamp.md) | Deploy multiple independent copies (or scale units) of application components, including data stores. |
-| [Federated Identity](../../patterns/federated-identity.yml) | Delegate authentication to an external identity provider. |
+| [Federated Identity](../../patterns/federated-identity.md) | Delegate authentication to an external identity provider. |
 | [Gatekeeper](../../patterns/gatekeeper.md) | Protect applications and services by using a dedicated host instance that serves as a broker between clients and the application or service, validates and sanitizes requests, and passes requests and data between them. |
 | [Queue-Based Load Leveling](../../patterns/queue-based-load-leveling.md) | Use a queue that serves as a buffer between a task and a service that it invokes in order to smooth intermittent heavy loads. |
 | [Sharding](../../patterns/sharding.md) | Divide a data store into a set of horizontal partitions or shards. |

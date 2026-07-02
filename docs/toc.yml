@@ -438,7 +438,7 @@ items:
     href: patterns/external-configuration-store.md
   - name: Federated Identity
     displayName: Single sign-on, SSO
-    href: patterns/federated-identity.yml
+    href: patterns/federated-identity.md
   - name: Gatekeeper
     href: patterns/gatekeeper.md
   - name: Gateway Aggregation
