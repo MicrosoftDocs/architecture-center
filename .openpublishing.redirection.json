@@ -72,7 +72,7 @@
     },
     {
       "source_path": "docs/guide/networking/global-web-applications/mission-critical-app-service.yml",
-      "redirect_url": "/azure/architecture/web-apps/guides/enterprise-app-patterns/overview",
+      "redirect_url": "/azure/architecture/web-apps/app-service/architectures/baseline-zone-redundant",
       "redirect_document_id": false
     },
     {
@@ -3660,48 +3660,73 @@
     },
     {
       "source_path": "docs/reference-architectures/reliable-web-app/dotnet/pattern-overview.yml",
-      "redirect_url": "/azure/architecture/web-apps/guides/reliable-web-app/pattern-overview",
-      "redirect_document_id": true
+      "redirect_url": "/azure/architecture/web-apps/app-service/architectures/baseline-zone-redundant",
+      "redirect_document_id": false
     },
     {
       "source_path": "docs/web-apps/guides/reliable-web-app/dotnet/plan-implementation.yml",
-      "redirect_url": "/azure/architecture/web-apps/guides/enterprise-app-patterns/reliable-web-app/dotnet/guidance",
+      "redirect_url": "/azure/architecture/web-apps/app-service/architectures/baseline-zone-redundant",
       "redirect_document_id": false
     },
     {
       "source_path": "docs/web-apps/guides/reliable-web-app/java/apply-pattern.yml",
-      "redirect_url": "/azure/architecture/web-apps/guides/enterprise-app-patterns/reliable-web-app/java/guidance",
+      "redirect_url": "/azure/architecture/web-apps/app-service/architectures/baseline-zone-redundant",
       "redirect_document_id": false
     },
     {
       "source_path": "docs/web-apps/guides/reliable-web-app/java/plan-implementation.yml",
-      "redirect_url": "/azure/architecture/web-apps/guides/enterprise-app-patterns/reliable-web-app/java/guidance",
+      "redirect_url": "/azure/architecture/web-apps/app-service/architectures/baseline-zone-redundant",
       "redirect_document_id": false
     },
     {
       "source_path": "docs/reference-architectures/reliable-web-app/dotnet/apply-pattern.yml",
-      "redirect_url": "/azure/architecture/web-apps/guides/enterprise-app-patterns/reliable-web-app/dotnet/guidance",
-      "redirect_document_id": true
+      "redirect_url": "/azure/architecture/web-apps/app-service/architectures/baseline-zone-redundant",
+      "redirect_document_id": false
     },
     {
       "source_path": "docs/web-apps/guides/reliable-web-app/dotnet/apply-pattern.yml",
-      "redirect_url": "/azure/architecture/web-apps/guides/enterprise-app-patterns/reliable-web-app/dotnet/guidance",
+      "redirect_url": "/azure/architecture/web-apps/app-service/architectures/baseline-zone-redundant",
       "redirect_document_id": false
     },
     {
       "source_path": "docs/web-apps/guides/reliable-web-app/pattern-overview.yml",
-      "redirect_url": "/azure/architecture/web-apps/guides/enterprise-app-patterns/overview",
+      "redirect_url": "/azure/architecture/web-apps/app-service/architectures/baseline-zone-redundant",
       "redirect_document_id": false
     },
     {
       "source_path": "docs/web-apps/guides/reliable-web-app/apply-pattern.yml",
-      "redirect_url": "/azure/architecture/web-apps/guides/enterprise-app-patterns/reliable-web-app/dotnet/guidance",
+      "redirect_url": "/azure/architecture/web-apps/app-service/architectures/baseline-zone-redundant",
       "redirect_document_id": false
     },
     {
       "source_path": "docs/web-apps/guides/reliable-web-app/overview.md",
-      "redirect_url": "/azure/architecture/web-apps/guides/enterprise-app-patterns/overview",
-      "redirect_document_id": true
+      "redirect_url": "/azure/architecture/web-apps/app-service/architectures/baseline-zone-redundant",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/web-apps/guides/enterprise-app-patterns/overview.md",
+      "redirect_url": "/azure/architecture/web-apps/app-service/architectures/baseline-zone-redundant",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/web-apps/guides/enterprise-app-patterns/reliable-web-app/dotnet/guidance.yml",
+      "redirect_url": "/azure/architecture/web-apps/app-service/architectures/baseline-zone-redundant",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/web-apps/guides/enterprise-app-patterns/reliable-web-app/java/guidance.md",
+      "redirect_url": "/azure/architecture/web-apps/app-service/architectures/baseline-zone-redundant",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/web-apps/guides/enterprise-app-patterns/modern-web-app/dotnet/guidance.md",
+      "redirect_url": "/azure/architecture/web-apps/app-service/architectures/baseline-zone-redundant",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/web-apps/guides/enterprise-app-patterns/modern-web-app/java/guidance.md",
+      "redirect_url": "/azure/architecture/web-apps/app-service/architectures/baseline-zone-redundant",
+      "redirect_document_id": false
     },
     {
       "source_path": "docs/example-scenario/serverless/automation-application-gateway.yml",
@@ -6169,7 +6194,7 @@
     },
     {
       "source_path": "docs/example-scenario/apps/ecommerce-scenario.yml",
-      "redirect_url": "/azure/architecture/web-apps/guides/reliable-web-app/overview",
+      "redirect_url": "/azure/architecture/web-apps/app-service/architectures/baseline-zone-redundant",
       "redirect_document_id": false
     },
     {
@@ -7519,7 +7544,7 @@
     },
     {
       "source_path": "docs/web-apps/app-service/architectures/multi-region.yml",
-      "redirect_url": "/azure/architecture/web-apps/guides/enterprise-app-patterns/reliable-web-app/dotnet/guidance",
+      "redirect_url": "/azure/architecture/web-apps/app-service/architectures/baseline-zone-redundant",
       "redirect_document_id": false
     },
     {
@@ -7908,6 +7933,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "docs/ai-ml/index.md",
+      "redirect_url": "/azure/architecture/ai-ml/ai-get-started",
+      "redirect_document_id": true
+    },
+    {
       "source_path": "docs/solution-ideas/articles/analytics-start-here.yml",
       "redirect_url": "/azure/architecture/solution-ideas/articles/analytics-get-started",
       "redirect_document_id": false
@@ -7945,6 +7975,11 @@
     {
       "source_path": "docs/guide/security/security-start-here.yml",
       "redirect_url": "/azure/architecture/security/security-get-started",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "docs/integration/integration-start-here.yml",
+      "redirect_url": "/azure/architecture/integration/integration-get-started",
       "redirect_document_id": true
     },
     {

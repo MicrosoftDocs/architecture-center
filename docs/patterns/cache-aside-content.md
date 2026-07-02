@@ -21,9 +21,7 @@ An application can emulate the functionality of read-through caching by implemen
 2. If the item isn't in the cache, also known as a *cache miss*, the application retrieves the item from the data store.
 3. The application adds the item to the cache and then returns it to the caller.
 
-If an application updates information, it can follow the write-through strategy by making the modification to the data store and invalidating the corresponding item in the cache.
-
-When the item is needed again, the Cache-Aside pattern retrieves the updated data from the data store and adds it to the cache.
+When an application updates information, it writes the change to the data store and then invalidates the corresponding item in the cache. When the item is needed again, the Cache-Aside pattern retrieves the updated data from the data store and adds it to the cache.
 
 ## Problems and considerations
 
@@ -38,6 +36,8 @@ Consider the following points as you decide how to implement this pattern:
 - **Priming the cache:** Many solutions prepopulate the cache with data that an application likely requires as part of the startup processing. The Cache-Aside pattern remains useful when some of this data expires or gets evicted.
 
 - **Consistency:** The Cache-Aside pattern doesn't guarantee consistency between the data store and the cache. For example, an external process can change an item in the data store at any time. This change doesn't appear in the cache until the item loads again. In a system that replicates data across data stores, frequent synchronization can make consistency challenging.
+
+- **Staleness after writes:** The Cache-Aside pattern invalidates the cached entry on write and repopulates it on the next read. Between the write and the next read, a reader can experience a cache miss or briefly see stale data. This behavior distinguishes the Cache-Aside pattern from write-through caching, which updates the data store and the cache in the same write operation so that readers see the new value immediately after a successful write. If read-heavy paths need read-after-write freshness, consider [write-through caching](../databases/architecture/write-through-caching-azure-sql-managed-redis.yml) instead.
 
 - **Local caching:** A cache can be local to an application instance and be stored in-memory. Cache-aside works well in this environment if an application repeatedly accesses the same data. But a local cache is private, so different application instances can each have a copy of the same cached data. This data can quickly become inconsistent between caches, so you might need to expire data in a private cache and refresh it more frequently. In these scenarios, consider using a shared or distributed caching mechanism.
 
@@ -160,7 +160,5 @@ public async Task UpdateEntityAsync(MyEntity entity)
 - [Use Azure Managed Redis as a semantic cache](/azure/redis/tutorial-semantic-cache): This tutorial shows you how to implement semantic caching by using Azure Managed Redis.
 
 ## Related resources
-
-- [Reliable Web App pattern](../web-apps/guides/enterprise-app-patterns/overview.md#reliable-web-app-pattern): This pattern applies the Cache-Aside pattern to web applications in the cloud.
 
 - [Caching guidance](../best-practices/caching.md): This guidance provides more information about how to cache data in a cloud solution, and problems to consider when you implement a cache.

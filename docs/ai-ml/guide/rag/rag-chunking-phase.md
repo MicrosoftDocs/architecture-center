@@ -1,5 +1,5 @@
 ---
-title: Develop a RAG Solution - Chunking Phase
+title: Develop a RAG Solution on Azure - Chunking Phase
 description: Learn about the various chunking strategies, like boundary based, custom code, and document analysis models.
 author: claytonsiemens77
 ms.author: pnp

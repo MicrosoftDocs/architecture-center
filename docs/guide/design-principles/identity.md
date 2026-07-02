@@ -37,7 +37,7 @@ Regardless of how you protect the individual credentials, maintaining a database
 
 Modern identity protocols are complex. Industry experts have designed OAuth 2, OpenID Connect, and other protocols to ensure that they mitigate real-world attacks and vulnerabilities. The protocols also evolve to adapt to changes in technologies, attack strategies, and user expectations. Identity specialists, with expertise in the protocols and how they're used, are in the best position to implement and validate systems that follow these protocols. For more information about the protocols and the platform, see [OAuth 2.0 and OpenID Connect (OIDC) in the Microsoft identity platform](/entra/identity-platform/v2-protocols).
 
-It's also common to federate identity systems. Identity federation protocols are complex to establish, manage, and maintain, and they require specialist knowledge and experience. IDaaS providers typically provide federation capabilities in their products for you to use. For more information about federation, see the [Federated identity pattern](../../patterns/federated-identity.yml).
+It's also common to federate identity systems. Identity federation protocols are complex to establish, manage, and maintain, and they require specialist knowledge and experience. IDaaS providers typically provide federation capabilities in their products for you to use. For more information about federation, see the [Federated identity pattern](../../patterns/federated-identity.md).
 
 ### Adopt modern identity features
 
@@ -76,7 +76,7 @@ Similarly, an identity system must perform well and be able to scale to the leve
 
 ### Test your security and apply tight controls
 
-If you run an identity system, it's your responsibility to keep it secured. Examples of the controls you need to consider implementing include:
+If you run an identity system, it's your responsibility to keep it secure. Examples of the controls you need to consider implementing include:
 
 * Periodic penetration testing, which requires specialized expertise.
 * Vetting of employees and anybody else with access to the system.
@@ -123,5 +123,5 @@ Other contributors:
 ## Related resources
 
 - [Authenticate using Microsoft Entra ID and OpenID Connect](../../multitenant-identity/authenticate.yml)
-- [Federated identity pattern](../../patterns/federated-identity.yml)
+- [Federated identity pattern](../../patterns/federated-identity.md)
 - [Identity architecture design](../../identity/identity-get-started.md)

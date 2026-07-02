@@ -1,20 +1,21 @@
 ---
-title: Develop a RAG Solution—Information-Retrieval Phase
+title: Develop a RAG Solution on Azure - Information-Retrieval Phase
 description: Learn about how to configure a search index, the types of searches that you can run, how to break queries into subqueries, and why and how to rerank queries.
 author: claytonsiemens77
 ms.author: pnp
-ms.date: 04/21/2026
+ms.date: 06/22/2026
 ms.topic: concept-article
 ms.collection: ce-skilling-ai-copilot
 ms.subservice: architecture-guide
 ms.custom: arb-aiml
+show_latex: true
 ---
 
 <!-- cSpell:ignore softmax -->
 
 # Information retrieval
 
-In the previous step of your Retrieval-Augmented Generation (RAG) solution, you generated the embeddings for your chunks. In this step, you generate the index in the vector database and experiment to determine your optimal searches. This article covers configuration options for a search index, types of searches, and reranking strategies.
+In the previous step of your retrieval-augmented generation (RAG) solution, you generated the embeddings for your chunks. In this step, you generate the index in the vector database and experiment to determine your optimal searches. This article covers configuration options for a search index, types of searches, and reranking strategies.
 
 This article is part of a series. Read the [introduction](./rag-solution-design-and-evaluation-guide.md).
 
@@ -27,9 +28,9 @@ The search index in your store has a column for every field in your data. Search
 
 Consider the following [vector search configurations](/azure/search/vector-search-how-to-create-index#add-a-vector-search-configuration) that you can apply to vector fields:
 
-- **Vector search algorithm:** The [vector search algorithm](/azure/search/vector-search-ranking) searches for relative matches. AI Search has a brute-force algorithm option, called exhaustive k-nearest neighbors (KNN), that scans the entire vector space. It also has a more performant algorithm option, called Hierarchical Navigable Small World (HNSW), that performs an [approximate nearest neighbor (ANN)](/azure/search/vector-search-overview#approximate-nearest-neighbors) search.
+- **Vector search algorithm:** The [vector search algorithm](/azure/search/vector-search-ranking) searches for relative matches. AI Search has a brute-force algorithm option, called exhaustive k-nearest neighbors (KNN), that scans the entire vector space. It also has a more performant algorithm option, called hierarchical navigable small world (HNSW), that performs an approximate nearest neighbor (ANN) search.
 
-- **Similarity metric:** The algorithm uses a [similarity metric](/azure/search/vector-search-ranking#similarity-metrics-used-to-measure-nearness) to calculate nearness. The types of metrics in AI Search include cosine, dot product, and Euclidean. If you use embedding models in Azure OpenAI in Foundry Models, choose cosine.
+- **Similarity metric:** The algorithm uses a [similarity metric](/azure/search/vector-search-ranking#similarity-metrics-used-to-measure-nearness) to calculate nearness. The types of metrics in AI Search include cosine, dot product, and Euclidean. If you use embedding models in Azure OpenAI, choose cosine.
 - **The `efConstruction` parameter:** This parameter is used during the construction of an HNSW index. It determines the number of nearest neighbors that are connected to a vector during indexing. A larger `efConstruction` value results in a better-quality index than a smaller number. But a larger value requires more time, storage, and compute. For a large number of chunks, set the `efConstruction` value higher. For a low number of chunks, set the value lower. To determine the optimal value, experiment with your data and expected queries.
 - **The `efSearch` parameter:** This parameter is used during query time to set the number of nearest neighbors, or similar chunks, that the search uses.
 - **The `m` parameter:** This parameter is the bidirectional link count. The range is 4 to 10. Lower numbers return less noise in the results.
@@ -63,7 +64,7 @@ Search platforms generally support full-text and vector searches. Some platforms
 > [!NOTE]
 > You can run a vector search against multiple vector fields in the same query. In AI Search, this practice is considered a hybrid search. For more information, see [Hybrid search](#hybrid-search).
 
-The following sample code performs a vector search against the contentVector field. 
+The following sample code performs a vector search against the contentVector field.
 
 ```python
 embedding = embedding_model.generate_embedding(
@@ -110,16 +111,19 @@ formatted_search_results = format_results(results)
 
 AI Search supports [hybrid queries](/azure/search/hybrid-search-ranking) that contain one or more text searches and one or more vector searches. The platform performs each query, gets the intermediate results, reranks the results by using [Reciprocal Rank Fusion](/azure/search/hybrid-search-ranking#how-rrf-ranking-works), and returns the top *N* results.
 
-The following sample code performs a full-text search against the title, content, and summary fields. It also performs vector searches against the contentVector and questionVector fields. AI Search runs all the queries in parallel, reranks the results, and returns the top *retrieve_num_of_documents*.
+You can set a `weight` on each vector query to control its influence on the [RRF score](/azure/search/hybrid-search-ranking#weighted-scores). The default weight is 1.0. For more information, see [Vector weighting](/azure/search/vector-search-how-to-query#vector-weighting).
+
+The following sample code performs a full-text search and two weighted vector searches. AI Search runs all the queries in parallel, reranks the results, and returns the top *retrieve_num_of_documents*.
 
 ```python
- embedding = embedding_model.generate_embedding(
+embedding = embedding_model.generate_embedding(
     chunk=str(pre_process.preprocess(query))
 )
 vector1 = RawVectorQuery(
     k=retrieve_num_of_documents,
     fields="contentVector",
     vector=embedding,
+    weight=2.0,
 )
 vector2 = RawVectorQuery(
     k=retrieve_num_of_documents,
@@ -142,8 +146,13 @@ You can run multiple queries, such as a vector search and a keyword full-text se
 - You use a search platform that doesn't support hybrid searches. You use manual multiple queries to run your own hybrid search.
 
 - You want to run full-text searches against different queries. For example, you might extract keywords from the query and run a full-text search against your keywords metadata field. You might then extract entities and run a query against the entities metadata field.
+
 - You want to control the reranking process.
+
 - The query requires that you run [decomposed subqueries](#decomposition) to retrieve grounding data from multiple sources.
+
+> [!NOTE]
+> If your workload requires complex multi-step queries that need dynamic source selection or iterative refinement at runtime, consider [agentic RAG](./rag-agentic.md). In agentic RAG, an AI agent decides which searches to run, evaluates intermediate results, and iterates until it gathers sufficient context.
 
 ### Query translation
 
@@ -155,9 +164,9 @@ Query augmentation is a translation step that simplifies the query, improves usa
 
 When you augment a query, you maintain the original query but add more context. Don't remove or alter the original query, and don't change the nature of the query.
 
-You can use a language model to augment a query. But you can't augment all queries. If you have context, you can pass it along to your language model to augment the query. If you don't have context, you have to determine whether your language model has information that you can use to augment the query. For example, if you use a large language model, like a GPT model, you can determine whether information about the query is readily available on the internet. If so, you can use the model to augment the query. Otherwise, you shouldn't augment the query.
+You can use a language model to augment a query. But you can't augment all queries. If you have context, you can pass it along to your language model to augment the query. If you don't have context, you have to determine whether your language model has information that you can use to augment the query. For example, if you use a large language model, like a GPT model, you can determine whether information about the query is readily available on the internet. If it is, you can use the model to augment the query. Otherwise, don't augment the query.
 
-In the following prompt, a language model augments a query. This prompt includes examples for when the query has context and doesn't. For more information, see [RAG experiment accelerator GitHub repository](https://github.com/microsoft/rag-experiment-accelerator/).
+In the following prompt, a language model augments a query. This prompt includes examples for when the query has context and when it doesn't. For more information, see [RAG experiment accelerator GitHub repository](https://github.com/microsoft/rag-experiment-accelerator/).
 
 ```text
 Input Processing:
@@ -216,9 +225,12 @@ Augmented Query:
 
 #### Decomposition
 
-Complex queries require more than one collection of data to ground the model. For example, the query "How do electric cars work, and how do they compare to internal combustion engine (ICE) vehicles?" likely requires grounding data from multiple sources. One source might describe how electric cars work, where another compares them to ICE vehicles.
+Complex queries require more than one collection of data to ground the model. For example, the query "How do electric cars work, and how do they compare to internal combustion engine (ICE) vehicles?" likely requires grounding data from multiple sources. One source might describe how electric cars work, and another might compare them to ICE vehicles.
 
-Decomposition is the process of breaking down a complex query into multiple smaller and simpler subqueries. You run each of the decomposed queries independently and aggregate the top results of all the decomposed queries as accumulated context. You then run the original query, which passes the accumulated context to the language model.
+> [!NOTE]
+> The decomposition technique described in this section follows a fixed flow that you define in your orchestrator. The orchestrator decides whether to decompose a query before it runs any searches, and it doesn't revise that decision based on what the searches return. If your workload requires the agent to decide at runtime whether and how to decompose queries based on reasoning about intermediate results, see [Agentic RAG](./rag-agentic.md).
+
+Decomposition is the process of breaking a complex query into multiple smaller and simpler subqueries. You run each of the decomposed queries independently and aggregate the top results of all the decomposed queries as accumulated context. You then run the original query, which passes the accumulated context to the language model.
 
 You should determine whether the query requires multiple searches before you run any searches. If you require multiple subqueries, you can run [manual multiple queries](#manual-multiple-queries) for all the queries. Use a language model to determine whether multiple subqueries are recommended.
 
@@ -321,7 +333,7 @@ Rewrite the given query to optimize it for both keyword-based and semantic-simil
 - Maintain the original meaning and intent of the query.
 - Include specific keywords that are likely to appear in relevant documents.
 - Incorporate natural language phrasing to capture semantic meaning.
-- Include domain-specific terminology if applicable to the query's context.
+- Include domain-specific terminology if it's applicable to the query's context.
 - Ensure that the rewritten query covers both broad and specific aspects of the topic.
 - Remove ambiguous or unnecessary words that might confuse the search.
 - Combine all elements into a single, coherent paragraph that flows naturally.
@@ -334,46 +346,48 @@ query: {original_query}
 
 #### The HyDE technique
 
-[HyDE](https://medium.com/towards-data-science/how-to-use-hyde-for-better-llm-rag-retrieval-a0aa5d0e23e8) is an alternate information-retrieval technique for RAG solutions. Rather than converting a query into embeddings and using those embeddings to find the closest matches in a vector database, HyDE uses a language model to generate answers from the query. These answers are converted into embeddings, which are used to find the closest matches. This process enables HyDE to run answer-to-answer embedding-similarity searches.
+[HyDE](https://medium.com/data-science/how-to-use-hyde-for-better-llm-rag-retrieval-a0aa5d0e23) is an alternative information-retrieval technique for RAG solutions. Rather than converting a query into embeddings and using those embeddings to find the closest matches in a vector database, HyDE uses a language model to generate answers from the query. These answers are converted into embeddings, which are used to find the closest matches. This process enables HyDE to run answer-to-answer embedding-similarity searches.
 
 ### Combine query translations into a pipeline
 
 You can use multiple query translations. You can even use all four of these translations in conjunction. The following diagram shows an example of how you can combine these translations into a pipeline.
 
 :::image type="complex" source="./_images/rag-query-transformation.svg" lightbox="./_images/rag-query-transformation.svg" alt-text="Diagram that shows a RAG pipeline that has query transformers." border="false":::
-    The diagram shows a pipeline that has four steps. The original query is passed to the first step, a box called query augmenter. The query augmenter outputs the original query and an augmented query. The augmented query is passed to the second step, a box called query decomposer. The query decomposer outputs the original query, an augmented query, and four decomposed queries. The decomposed queries are passed to the third step. The third step has a box that says For each decomposed query. That box has three substeps: Query rewriter, query executor, and reranker. The output of step three is the original query, an augmented query, four decomposed queries, and the accumulated context. The original query and the accumulated context are passed to the fourth step. The fourth step has three substeps: Query rewriter, query executor, and reranker. The result of step four is the final result.
+    The diagram shows a pipeline that contains four steps. The original query is passed to the first step, a query augmenter. The query augmenter outputs the original query and an augmented query. The augmented query is passed to the second step, a query decomposer. The query decomposer outputs the original query, an augmented query, and four decomposed queries. The decomposed queries are passed to the third step. The third step has a box that says for each decomposed query. That box has three substeps: Query rewriter, query executor, and reranker. The output of step three is the original query, an augmented query, four decomposed queries, and the accumulated context. The original query and the accumulated context are passed to the fourth step. The fourth step has three substeps: Query rewriter, query executor, and reranker. The result of step four is the final result.
 :::image-end:::
 
-The pipeline has the following steps:
+The pipeline contains the following steps:
 
 1. The optional query augmenter step receives the original query. This step outputs the original query and the augmented query.
 
 1. The optional query decomposer step receives the augmented query. This step outputs the original query, the augmented query, and the decomposed queries.
+
 1. Each decomposed query performs three substeps. After all the decomposed queries go through the substeps, the output includes the original query, the augmented query, the decomposed queries, and an accumulated context. The accumulated context includes the aggregation of the top *N* results from all the decomposed queries that go through the substeps. The substeps include the following tasks:
 
     1. The optional query rewriter rewrites the decomposed query.
     1. The search index processes the rewritten query or the original query. It runs the query by using search types, such as vector, full text, hybrid, or manual multiple. The search index can also use advanced query capabilities, such as HyDE.
     1. The results are reranked. The top *N* reranked results are added to the accumulated context.
+
 1. The original query, along with the accumulated context, goes through the same three substeps as each decomposed query. But only one query goes through the steps, and the caller receives the top *N* results.
 
 ### Pass images in queries
 
 Some multimodal models, such as GPT-4V and GPT-4o, can interpret images. If you use these models, you can avoid chunking your images and pass the image as part of the prompt to the multimodal model. You should experiment to determine how this approach performs compared to chunking the images with and without passing extra context. You should also compare the cost difference and do a cost-benefit analysis.
 
-Another approach is to use [Azure Content Understanding in Foundry Tools](/azure/ai-services/content-understanding/overview) to generate rich text descriptions of images during the chunking or enrichment phases. Content Understanding's [document analyzers](/azure/ai-services/content-understanding/document/overview) detect figures (charts, diagrams, pictures) within documents and generate detailed textual descriptions. The `prebuilt-documentSearch` analyzer provides figure descriptions with structured output (Chart.js syntax for charts, Mermaid syntax for diagrams) that you can index and search. This approach avoids passing raw images at inference time and makes the visual content searchable through text-based and vector queries. For more information, see [Content Understanding prebuilt analyzers](/azure/ai-services/content-understanding/concepts/prebuilt-analyzers).
+Another approach is to use [Azure Content Understanding](/azure/ai-services/content-understanding/overview) to generate rich text descriptions of images during the chunking or enrichment phases. The Azure Content Understanding [document analyzers](/azure/ai-services/content-understanding/document/overview) detect figures (charts, diagrams, and pictures) within documents and generate detailed textual descriptions. The `prebuilt-documentSearch` analyzer provides figure descriptions with structured output (Chart.js syntax for charts, Mermaid syntax for diagrams) that you can index and search. This approach avoids passing raw images at inference time and makes the visual content searchable through text-based and vector queries. For more information, see [Content Understanding prebuilt analyzers](/azure/ai-services/content-understanding/concepts/prebuilt-analyzers).
 
 ### Filter queries
 
-To filter queries, you can use fields in the search store that are configured as filterable. Consider filtering keywords and entities for queries that use those fields to help narrow down the result. Use filtering to eliminate irrelevant data. Retrieve only the data that satisfies specific conditions from an index. This practice improves the overall performance of the query and provides more relevant results. To determine whether filtering benefits your scenario, do experiments and tests. Consider factors such as queries that don't have keywords or have inaccurate keywords, abbreviations, or acronyms.
+To filter queries, you can use fields in the search store that are configured as filterable. Consider filtering keywords and entities for queries that use those fields to help narrow the result. Use filtering to eliminate irrelevant data. Retrieve only the data that satisfies specific conditions from an index. This practice improves the overall performance of the query and provides more relevant results. To determine whether filtering benefits your scenario, run experiments and tests. Consider factors such as queries that don't have keywords or that have inaccurate keywords, abbreviations, or acronyms.
 
 ### Weight fields
 
-In AI Search, you can weight fields to influence the ranking of results based on criteria. 
+In AI Search, you can weight fields to influence the ranking of results based on criteria.
 
 > [!NOTE]
 > This section describes AI Search weighting capabilities. If you use a different data platform, research the weighting capabilities of that platform.
 
-AI Search supports scoring profiles that contain [parameters for weighted fields and functions for numeric data](/azure/search/index-add-scoring-profiles#key-points-about-scoring-profiles). Scoring profiles only apply to nonvector fields. Support for vector and hybrid search is in preview. You can create multiple scoring profiles on an index and optionally choose to use one on a per-query basis.
+AI Search supports scoring profiles that contain [parameters for weighted fields and functions for numeric data](/azure/search/index-add-scoring-profiles#rules-for-scoring-profiles). Scoring profiles only apply to nonvector fields. Support for vector and hybrid search is in preview. You can create multiple scoring profiles on an index and optionally choose to use one on a per-query basis.
 
 The fields that you weight depend on the type of query and the use case. For example, if the query is keyword-centric, such as "Where is Microsoft headquartered?", you want a scoring profile that weights entity or keyword fields higher. You might use different profiles for different users, allow users to choose their focus, or choose profiles based on the application.
 
@@ -381,88 +395,223 @@ In production systems, you should only maintain profiles that you actively use i
 
 ### Use reranking
 
-Use reranking to run one or more queries, aggregate the results, and rank those results. Consider the following scenarios that benefit from reranking search results:
+Retrieval optimizes for recall, returning as many potentially relevant chunks as possible. But broad recall often includes chunks that are only marginally relevant. If you pass those marginally relevant chunks to the language model, you dilute the context with noise and risk inaccurate or unfocused responses. Reranking optimizes for precision, reordering retrieved candidates so the most relevant chunks surface first.
 
-- You performed [manual multiple searches](#manual-multiple-queries), and you want to aggregate the results and rank them.
+Without reranking, you rely entirely on the retrieval score. Vector similarity measures like cosine distance capture general semantic relatedness, but they don't evaluate whether a specific chunk actually answers the query. Keyword scores rank by term frequency and don't account for semantic meaning. Reranking provides a deeper, query-aware evaluation that addresses these gaps.
 
-- Vector and keyword searches aren't always accurate. You want to increase the count of documents that you return from your search, which can include valid results that might otherwise be ignored, and use reranking to evaluate the results.
+> [!CAUTION]
+> Reranking adds more latency to your search pipeline than standard, vector, or hybrid searches. Each reranking method, whether it uses a language model, a cross-encoder, or semantic ranking, requires extra processing after the initial search completes. Factor this added latency into your design, especially for latency-sensitive workloads.
 
-You can use a language model or cross‑encoder to rerank results. Some platforms, like AI Search, have proprietary methods to rerank results. You can evaluate these options for your data to determine what works best for your scenario. The following sections provide details about these methods.
+Consider reranking in the following scenarios:
+
+- **You ran hybrid or multiple searches.** When you combine vector search and keyword search, each search produces its own ranking. Reranking provides a unified ordering across result sets.
+
+- **You intentionally retrieved a large candidate set.** When you retrieve a larger set of candidates (for example, top 50 instead of top 10) to improve recall, reranking helps you filter down to the most relevant subset.
+
+- **Your index contains varied content.** When your index contains documents of different structures, lengths, or topics, initial retrieval scores might not be directly comparable. A reranker normalizes relevance across these variations.
+
+- **Accuracy is more important than latency in your scenario.** Reranking adds processing time. Apply it when the improvement in answer quality justifies the added latency for your use case.
+
+You can use more than one approach in a pipeline. For example, you might use Reciprocal Rank Fusion to merge results from multiple search types and then apply a cross-encoder to rerank the merged set. The following sections describe common reranking approaches.
+
+> [!IMPORTANT]
+> Your reranking approach affects the quality and cost of every query in your RAG solution. Before you adopt a strategy for production, thoroughly compare the approaches against your test queries. Benchmark both relevance metrics and latency to find the right balance for your workload.
+
+#### Cross-encoder reranking
+
+A cross-encoder takes both the query and a candidate chunk as a single input pair and produces a relevance score. Unlike a bi-encoder, which encodes the query and the chunk independently, a cross-encoder captures the full interaction between the two texts. This full-interaction approach yields higher accuracy at the cost of higher latency.
+
+Cross-encoders are practical for reranking because the candidate set is already narrowed by the retrieval step. Running a cross-encoder over tens of candidates is feasible, but running it over an entire corpus is not. When you choose a cross-encoder model, consider model size and latency. Smaller models like `ms-marco-MiniLM-L6-v2` are faster but less accurate. Larger models like `ms-marco-MiniLM-L12-v2` provide better relevance scores at the cost of increased inference time. If your domain uses specialized vocabulary, consider fine-tuning a cross-encoder on your own query-document pairs.
+
+Cross-encoder scores are relative, not absolute. Use them for ordering, not for thresholding. If you need a relevance threshold, establish it empirically against your test data.
+
+The following example uses a [cross-encoder from Hugging Face](https://huggingface.co/cross-encoder) to rerank retrieved chunks:
+
+```python
+from sentence_transformers import CrossEncoder
+import numpy as np
+
+model = CrossEncoder("cross-encoder/ms-marco-MiniLM-L12-v2")
+
+pairs = [[query, chunk] for chunk in retrieved_chunks]
+scores = model.predict(pairs)
+scores = np.asarray(scores)
+
+ranked_indices = scores.argsort()[::-1][:retrieve_num_of_documents]
+reranked_chunks = [retrieved_chunks[i] for i in ranked_indices]
+```
 
 #### Language model reranking
 
-The following sample language model prompt reranks results. For more information, see [RAG experiment accelerator](https://github.com/microsoft/rag-experiment-accelerator/blob/development/rag_experiment_accelerator/llm/prompt/prompt.py).
+You can use a language model to score and reorder candidates. This approach sends the query and each candidate to a language model with a prompt that asks the model to assess relevance. The model returns a relevance score or a ranked list.
+
+Language model reranking is flexible because you can customize the prompt to capture domain-specific relevance criteria, apply qualitative reasoning, or evaluate complex multifactor relevance. It's also more expensive per call than a cross-encoder, so reserve it for scenarios where cross-encoders don't provide sufficient accuracy or where you need reasoning about why a chunk is relevant.
+
+When you use language model reranking, consider the following:
+
+- **Batch where possible.** Some language model APIs support sending multiple query-chunk pairs in a single request. Batching reduces round-trip overhead.
+
+- **Set a token budget.** Long chunks consume tokens for both input and output. Truncate or summarize excessively long chunks before sending them to the model.
+
+- **Validate scores.** Language models occasionally output unexpected values. Parse and validate the returned scores programmatically before using them for sorting.
+
+The following sample prompt reranks results. For more information, see [RAG experiment accelerator](https://github.com/microsoft/rag-experiment-accelerator/blob/development/rag_experiment_accelerator/llm/prompt/prompt.py).
 
 ```text
-Each document in the following list has a number next to it along with a summary of the document. A question is also provided.
-Respond with the numbers of the documents that you should consult to answer the question, in order of relevance, and the relevance score as a JSON string based on JSON format as shown in the schema section. The relevance score is a number from 1 to 10 based on how relevant you think the document is to the question. The relevance score can be repetitive. Don't output any other text, explanation, or metadata apart from the JSON string. Just output the JSON string, and strip every other text. Strictly remove the last comma from the nested JSON elements if it's present.
-Don't include any documents that aren't relevant to the question. There should be exactly one document element.
+Each document in the following list has a number next to it along with a summary
+of the document. A question is also provided.
+Respond with the numbers of the documents that you should consult to answer the
+question, in order of relevance, and the relevance score as a JSON string based
+on the schema section. The relevance score is a number from 1 to 10 based on how
+relevant you think the document is to the question.
+Output only valid JSON with no surrounding text.
+Only include documents that are relevant to the question.
+Return at most 5 documents.
 
-Example format:
 Document 1:
-content of document 1
+<content of document 1>
 Document 2:
-content of document 2
-Document 3:
-content of document 3
-Document 4:
-content of document 4
-Document 5:
-content of document 5
-Document 6:
-content of document 6
-Question: user-defined question
+<content of document 2>
+
+Question: <user query>
 
 schema:
 {
     "documents": {
-        "document_1": "Relevance",
-        "document_2": "Relevance"
-    }
-}
+        "document_<number>": "Relevance"
 ```
 
-#### Cross-encoder reranking
+#### Reciprocal Rank Fusion
 
-The following example uses a [cross encoder provided by Hugging Face](https://huggingface.co/cross-encoder) to load the Roberta model. It iterates over each chunk and uses the model to calculate similarity, which provides a value. It sorts the results and returns the top *N* results. For more information, see [RAG experiment accelerator GitHub repository](https://github.com/microsoft/rag-experiment-accelerator/blob/development/rag_experiment_accelerator/reranking/reranker.py).
+Reciprocal Rank Fusion (RRF) is a score-free method for merging ranked result lists from different search approaches. It doesn't rely on the absolute scores from each search. Instead, it uses the rank position of each result. The formula for a result across multiple lists is:
 
-```python
-from sentence_transformers import CrossEncoder
-...
+$$
+\text{RRF}(d) = \sum_{r \in R} \frac{1}{c + r(d)}
+$$
 
-model_name = 'cross-encoder/stsb-roberta-base'
-model = CrossEncoder(model_name)
+In this formula, $R$ is the set of rank lists, $r(d)$ is the rank of document $d$ in a given list, and $c$ is a constant (commonly 60) that mitigates the impact of high rankings in individual lists.
 
-cross_scores_ques = model.predict(
-    [[user_prompt, item] for item in documents],
-    apply_softmax=True,
-    convert_to_numpy=True,
-)
+RRF is useful when you combine results from searches that produce inherently different score distributions, such as a BM25 keyword search and a cosine-similarity vector search. Because RRF only uses rank positions, the incompatibility of raw scores across search types isn't an issue. RRF is lightweight and adds negligible latency, which makes it a practical first-stage reranker before a more expensive model-based reranker.
 
-top_indices_ques = cross_scores_ques.argsort()[-k:][::-1]
-sub_context = []
-for idx in list(top_indices_ques):
-    sub_context.append(documents[idx])
-```
+AI Search uses RRF automatically when you run [hybrid queries](/azure/search/hybrid-search-ranking). If you run manual multiple queries outside of a hybrid search, implement RRF yourself to merge the results before applying a secondary reranker.
 
 #### Semantic ranking
 
-AI Search has a proprietary feature called [semantic ranking](/azure/search/semantic-search-overview). This feature uses deep learning models that were adapted from Microsoft Bing that promote the most semantically relevant results. For more information, see [How semantic ranker works](/azure/search/semantic-search-overview#how-semantic-ranker-works).
+AI Search provides a built-in [semantic ranking](/azure/search/semantic-search-overview) feature. Semantic ranking uses deep learning models adapted from Microsoft Bing to promote the most semantically relevant results. To use it, configure semantic ranking on your index and set `queryType=semantic` in your queries.
+
+Semantic ranking works as a secondary reranking step after the initial BM25 or hybrid search. It takes the top 50 results from the initial ranking, summarizes each document's content based on the fields you configure (title, keywords, and content), and then uses a language understanding model to rescore each result for semantic relevance to the query. The rescored results include a `@search.rerankerScore` that ranges from 0 to 4, where 4 indicates the highest relevance.
+
+In addition to reranking, semantic ranking provides two other capabilities:
+
+- **Semantic captions and highlights.** The model extracts verbatim sentences and phrases from your documents that best summarize the content, with highlighted key passages. You can render these captions on a search results page.
+
+- **Semantic answers.** When the query resembles a question and a document contains answer-like text, the model returns a direct answer extracted from the document.
+
+For more information, see [How semantic ranker works](/azure/search/semantic-search-overview#how-semantic-ranker-works).
+
+#### Non-Microsoft reranking APIs
+
+Non-Microsoft reranking APIs, such as [Cohere Rerank](https://cohere.com/rerank), provide hosted cross-encoder-style reranking models. You send a query and a list of documents to the API, and it returns reranked results with relevance scores. When you use these services, you don't need to host or manage your own reranking model.
+
+Evaluate non-Microsoft APIs for their relevance to your domain, their pricing model, and their latency. Also evaluate whether your security and compliance requirements permit sending document content to an external service.
+
+#### Design a reranking pipeline
+
+In practice, you often combine multiple reranking strategies in a pipeline. A common pattern involves four steps:
+
+1. **Retrieve broadly.** Run one or more searches (vector, keyword, hybrid) and retrieve a large candidate set (for example, top 50).
+
+1. **Merge results.** If you ran multiple searches, merge the result sets by using RRF.
+
+1. **Rerank with a model-based reranker.** Pass the merged results through a cross-encoder, semantic ranking, or language model to produce a refined ordering.
+
+1. **Truncate.** Keep only the top *N* reranked chunks (for example, top 5 or top 10) and pass them to the language model for generation.
+
+Consider the following parameters when you tune your pipeline:
+
+- **Candidate set size.** Larger candidate sets give the reranker more material to work with but increase latency and cost. Start with a moderate size (20–50) and adjust based on your evaluation metrics.
+
+- **Reranker model selection.** Choose a model that balances accuracy and latency for your scenario. Benchmark multiple models against your test queries.
+
+- **Final top *N*.** The number of chunks that you pass to the language model affects both token cost and response quality. Using fewer chunks reduces cost and noise. Using more chunks reduces the chance of missing relevant information. Use your evaluation metrics to find the right balance.
 
 ### Consider other search guidance
 
 Consider the following general guidance when you implement your search solution:
 
-- Return the title, summary, source, and the raw uncleaned content fields from a search.
+- Return the title, summary, source, and raw uncleaned content fields from a search.
 
-- Determine up front whether you need to break down a query into subqueries.
+- Determine up front whether you need to break a query into subqueries.
+
 - Run vector and text queries on multiple fields. When you receive a query, you don't know whether vector search or text search is better. And you don't know the ideal fields that the vector search or keyword search should search. You can search on multiple fields, potentially with multiple queries, rerank the results, and return the results that have the highest scores.
-- Filter on keyword and entity fields to narrow down results.
+
+- Filter on keyword and entity fields to narrow results.
+
 - Use keywords along with vector searches. The keywords filter the results to a smaller subset. The vector store works against that subset to find the best matches.
+
+## Extend retrieval by using Foundry IQ and Work IQ
+
+The search approaches in this article focus on data that you index and manage directly. Microsoft also provides managed intelligence layers that extend retrieval to broader organizational data. Some features in these services are currently in preview.
+
+### Foundry IQ
+
+[Foundry IQ](/azure/foundry/agents/concepts/what-is-foundry-iq) is a managed knowledge layer that connects agents to enterprise data across Azure Blob Storage, SharePoint, OneLake, and public web sources. It automates chunking, embedding generation, and permission enforcement through AI Search. Its agentic retrieval engine decomposes complex queries into subqueries, runs them in parallel, and reranks results, similar to the [decomposition](#decomposition) and [reranking](#use-reranking) techniques described earlier in this article but managed as a service.
+
+The following example queries a Foundry IQ knowledge base from a Foundry agent:
+
+```python
+from azure.ai.projects import AIProjectClient
+from azure.ai.projects.models import PromptAgentDefinition, MCPTool
+from azure.identity import DefaultAzureCredential
+
+# Provide agent configuration details
+mcp_endpoint = "{search_service_endpoint}/knowledgebases/{knowledge_base_name}/mcp?api-version=2025-11-01-preview"
+project_connection_id = "{project_connection_id}"
+project_endpoint = "{project_endpoint}"
+instructions = "{instructions}"
+
+# Create project client
+project_client = AIProjectClient(
+    endpoint=project_endpoint,
+    credential=DefaultAzureCredential()
+)
+
+# Create MCP tool with knowledge base connection
+mcp_kb_tool = MCPTool(
+    server_label="knowledge-base",
+    server_url=mcp_endpoint,
+    require_approval="never",
+    allowed_tools=["knowledge_base_retrieve"],
+    project_connection_id=project_connection_id
+)
+
+# Create agent with MCP tool
+agent = project_client.agents.create_version(
+    agent_name="{agent_name}",
+    definition=PromptAgentDefinition(
+        model="{deployed_LLM}",
+        instructions=instructions,
+        tools=[mcp_kb_tool]
+    )
+)
+```
+
+### Work IQ
+
+[Work IQ](/microsoft-365/copilot/extensibility/work-iq) exposes Microsoft 365 Copilot data, such as emails, meetings, documents, and Teams messages, through a CLI and a Model Context Protocol (MCP) server. Use it when your RAG solution needs grounding data from collaboration sources that aren't in a search index.
+
+```bash
+# Retrieve meeting context to ground an agent response
+workiq ask -q "What requirements were shared about the authentication feature for the customer portal?"
+```
+
+Work IQ can also run as an MCP server that AI assistants query contextually during development. It respects user-level permissions and doesn't store your data.
+
+You can use Foundry IQ and Work IQ together to extend your retrieval phase to data that a single search index can't reach.
 
 ## Evaluate your search results
 
-In the preparation phase, you [gathered test queries along with test document information](./rag-preparation-phase.md#gather-test-query-output). You can use the following information that you gathered in that phase to evaluate your search results:
+In the preparation phase, you [gathered test queries along with test document information](./rag-preparation-phase.md#gather-test-query-output). You can use the following information that you gathered in that phase to evaluate your search results.
 
 - The query: The sample query
 - The context: The collection of all the text in the test documents that address the sample query
@@ -472,7 +621,8 @@ To evaluate your search solution, you can use the following well-established ret
 - **Precision at K:** The percentage of correctly identified relevant items out of the total search results. This metric focuses on the accuracy of your search results.
 
 - **Recall at K:** The percentage of relevant items in the top *K* out of the total possible relative items. This metric focuses on search results coverage.
-- **Mean Reciprocal Rank (MRR):** The average of the reciprocal ranks of the first relevant answer in your ranked search results. This metric focuses on where the first relevant result occurs in the search results.
+
+- **Mean reciprocal rank (MRR):** The average of the reciprocal ranks of the first relevant answer in your ranked search results. This metric focuses on where the first relevant result occurs in the search results.
 
 You should test positive and negative examples. For the positive examples, you want the metrics to be as close to 1 as possible. For the negative examples, where your data shouldn't be able to address the queries, you want the metrics to be as close to 0 as possible. You should test all your test queries. Average the positive query results and the negative query results to understand how your search results behave in aggregate.
 
@@ -483,7 +633,7 @@ You should test positive and negative examples. For the positive examples, you w
 
 ## Related resources
 
-- [Quickstart: Chat with Azure OpenAI models by using your own data](/azure/ai-services/openai/use-your-data-quickstart)
+- [Quickstart: Get started with Microsoft Foundry SDK](/azure/foundry/quickstarts/get-started-code)
 - [Hybrid search via vectors and full text in AI Search](/azure/search/hybrid-search-overview)
 - [Build a RAG solution with Azure Content Understanding](/azure/ai-services/content-understanding/tutorial/build-rag-solution)
 - [Visual document search with Content Understanding](https://github.com/Azure-Samples/azure-ai-search-with-content-understanding-python)

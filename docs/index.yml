@@ -119,7 +119,7 @@ conceptualContent:
       links:
       - text: AI architecture design
         itemType: overview
-        url: ./ai-ml/index.md
+        url: ./ai-ml/ai-get-started.md
       - text: Microsoft Foundry chat baseline architecture
         url: ./ai-ml/architecture/baseline-microsoft-foundry-chat.yml
         itemType: architecture
@@ -308,9 +308,6 @@ conceptualContent:
 
     - title: Web apps
       links:
-        - text: Enterprise web app patterns
-          itemType: overview
-          url: ./web-apps/guides/enterprise-app-patterns/overview.md
         - text: Basic web application
           itemType: architecture
           url: ./web-apps/app-service/architectures/basic-web-app.yml
@@ -323,6 +320,9 @@ conceptualContent:
         - text: Serverless event processing
           itemType: concept
           url: ./serverless/event-hubs-functions/event-hubs-functions.yml
+        - text: Write-through caching for web applications
+          itemType: architecture
+          url: ./databases/architecture/write-through-caching-azure-sql-managed-redis.yml
 
 tools:
   title: Cloud adoption and workload design

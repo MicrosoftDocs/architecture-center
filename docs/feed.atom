@@ -9,14 +9,6 @@
     <category term="new"/>
     <category term="updated"/>
     <entry>
-        <title type="html"><![CDATA[Modern Web App Pattern for .NET]]></title>
-        <id>https://learn.microsoft.com/azure/architecture/web-apps/guides/enterprise-app-patterns/modern-web-app/dotnet/guidance</id>
-        <link href="https://learn.microsoft.com/azure/architecture/web-apps/guides/enterprise-app-patterns/modern-web-app/dotnet/guidance"/>
-        <updated>2026-06-22T17:14:37.000Z</updated>
-        <summary type="html"><![CDATA[Implement the Modern Web App pattern for .NET. Modernize web apps in the cloud by using prescriptive architecture, code, and configuration guidance.]]></summary>
-        <category label="new" term="new"/>
-    </entry>
-    <entry>
         <title type="html"><![CDATA[Rate Limiting Pattern]]></title>
         <id>https://learn.microsoft.com/azure/architecture/patterns/rate-limiting-pattern</id>
         <link href="https://learn.microsoft.com/azure/architecture/patterns/rate-limiting-pattern"/>
@@ -830,14 +822,6 @@
         <link href="https://learn.microsoft.com/azure/architecture/reference-architectures/ibm/deploy-ibm-sterling-oms"/>
         <updated>2026-05-01T20:26:45.000Z</updated>
         <summary type="html"><![CDATA[Run IBM Sterling Order Management Software (OMS) on Azure. Design and implement cloud solutions for Sterling OMS that use Azure.]]></summary>
-        <category label="updated" term="updated"/>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[Reliable Web App Pattern for Java]]></title>
-        <id>https://learn.microsoft.com/azure/architecture/web-apps/guides/enterprise-app-patterns/reliable-web-app/java/guidance</id>
-        <link href="https://learn.microsoft.com/azure/architecture/web-apps/guides/enterprise-app-patterns/reliable-web-app/java/guidance"/>
-        <updated>2026-05-01T20:26:45.000Z</updated>
-        <summary type="html"><![CDATA[Implement the Reliable Web App pattern for Java. Get essential guidance for migrating web apps to the cloud. Learn how to replatform web apps.]]></summary>
         <category label="updated" term="updated"/>
     </entry>
     <entry>

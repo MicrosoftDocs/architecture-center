@@ -1,5 +1,5 @@
 ---
-title: Develop a RAG Solution - Chunk Enrichment Phase
+title: Develop a RAG Solution on Azure - Chunk Enrichment Phase
 description: Learn how to augment your chunks with metadata like title, summary, keywords, and entities, and learn common cleaning methods that can improve vector matches.
 author: claytonsiemens77
 ms.author: pnp

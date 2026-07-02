@@ -1,5 +1,5 @@
 ---
-title: Design and Develop a RAG Solution
+title: Design and Develop a RAG Solution on Azure
 description: Learn about what to consider when you design a large language model RAG solution, including each step of the development process and how to evaluate those steps.
 author: claytonsiemens77
 ms.author: pnp

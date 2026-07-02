@@ -207,6 +207,7 @@ The volume of successful tests still reaches a plateau, but at a higher user loa
 - [Cache-Aside pattern][cache-aside-pattern]
 - [Caching best practices][caching-guidance]
 - [Circuit Breaker pattern][circuit-breaker]
+- [Write-through caching](../../databases/architecture/write-through-caching-azure-sql-managed-redis.yml)
 
 [cache-aside-pattern]: ../../patterns/cache-aside.yml
 [caching-guidance]: ../../best-practices/caching.md

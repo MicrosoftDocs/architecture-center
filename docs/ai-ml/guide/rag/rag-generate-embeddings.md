@@ -1,5 +1,5 @@
 ---
-title: Develop a RAG Solution - Generate Embeddings Phase
+title: Develop a RAG Solution on Azure - Generate Embeddings Phase
 description: Learn how embeddings work, how to choose an embedding model, and how your embedding model can affect your vector search results.
 author: claytonsiemens77
 ms.author: pnp

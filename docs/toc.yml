@@ -438,7 +438,7 @@ items:
     href: patterns/external-configuration-store.md
   - name: Federated Identity
     displayName: Single sign-on, SSO
-    href: patterns/federated-identity.yml
+    href: patterns/federated-identity.md
   - name: Gatekeeper
     href: patterns/gatekeeper.md
   - name: Gateway Aggregation
@@ -510,7 +510,9 @@ items:
 - name: Azure categories
   items:
   - name: AI + Machine Learning
-    href: ai-ml/index.md
+    items:
+    - name: Get started
+      href: ai-ml/ai-get-started.md
   - name: Analytics
     items:
     - name: Get started
@@ -1050,7 +1052,7 @@ items:
   - name: Integration
     items:
     - name: Get started
-      href: integration/integration-start-here.yml
+      href: integration/integration-get-started.md
     - name: Guides
       items:
       - name: Event Hubs with Azure Functions
@@ -1084,6 +1086,8 @@ items:
         href: example-scenario/mainframe/integrate-ibm-message-queues-azure.yml
   - name: Internet of Things
     items:
+    - name: Get started
+      href: guide/iot/iot-get-started.md
     - name: Guides
       items:
       - name: Connect on-premises SAP systems to Azure

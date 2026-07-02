@@ -22,7 +22,6 @@ The following new and updated articles have recently been published in the Azure
 
 ### New articles
 
-- [Modern Web App Pattern for .NET](./web-apps/guides/enterprise-app-patterns/modern-web-app/dotnet/guidance.md)
 - [Rate Limiting Pattern](./patterns/rate-limiting-pattern.md)
 - [High Availability for Multitier AKS Applications](./guide/aks/aks-high-availability.md)
 - [SD-WAN Integration with Azure Hub-and-Spoke Network Topologies](./networking/guide/sd-wan-integration-hub-spoke-network-topologies.md)
@@ -136,7 +135,6 @@ The following new and updated articles have recently been published in the Azure
 - [Guidance for Using Azure Database for PostgreSQL in a Multitenant Solution](./guide/multitenant/service/postgresql.md) ([#db7d7eea74](https://github.com/MicrosoftDocs/architecture-center/commit/db7d7eea74))
 - [Choose an Azure Service for Vector Search](./guide/technology-choices/vector-search.md) ([#db7d7eea74](https://github.com/MicrosoftDocs/architecture-center/commit/db7d7eea74))
 - [Deploy IBM Sterling Order Management Software (OMS) on Azure](./reference-architectures/ibm/deploy-ibm-sterling-oms.yml) ([#db7d7eea74](https://github.com/MicrosoftDocs/architecture-center/commit/db7d7eea74))
-- [Reliable Web App Pattern for Java](./web-apps/guides/enterprise-app-patterns/reliable-web-app/java/guidance.md) ([#db7d7eea74](https://github.com/MicrosoftDocs/architecture-center/commit/db7d7eea74))
 - [Azure Data Factory enterprise hardened architecture](./databases/architecture/azure-data-factory-enterprise-hardened.yml) ([#d3087681b9](https://github.com/MicrosoftDocs/architecture-center/commit/d3087681b9))
 
 ## April 2026
