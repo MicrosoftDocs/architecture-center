@@ -9,6 +9,7 @@ ms.subservice: architecture-guide
 ms.custom:
   - devx-track-js
   - arb-web
+ai-usage: ai-assisted
 ---
 
 # Use API Management to Protect Access Tokens in Single-Page Applications
@@ -36,13 +37,13 @@ Because the back end handles token acquisition, no other code or library, like [
 
 1. A user selects **Sign in** in the single-page application.
 
-1. The single-page application invokes Authorization Code Flow via a redirect to the Microsoft Entra authorization endpoint.
+1. The single-page application navigates to the `/auth/login` API Management endpoint. The inbound policy generates a cryptographically random `state` value, stores it in the API Management cache, and redirects to the Microsoft Entra authorization endpoint.
 
 1. Users authenticate themselves.
 
 1. An Authorization Code Flow response that includes an authorization code is redirected to the API Management callback endpoint.
 
-1. The API Management policy exchanges the authorization code for an access token by calling the Microsoft Entra token endpoint.
+1. The API Management policy verifies the `state` parameter and exchanges the authorization code for an access token by calling the Microsoft Entra token endpoint.
 
 1. The API Management policy redirects to the application and places the encrypted access token in an `HttpOnly` cookie.
 
@@ -84,13 +85,46 @@ This process uses the [OAuth2 Authorization Code Flow](/entra/architecture/auth-
 
 The flow contains the following steps:
 
-1. To obtain an access token to allow the single-page application to access the API, users must first authenticate themselves. The user selects **Sign in** in the single-page application, which redirects them to the Microsoft identity platform authorization endpoint. The `redirect_uri` is set to the `/auth/callback` API endpoint of the API Management gateway.
+1. To obtain an access token, users must first authenticate themselves. The user selects **Sign in** in the single-page application, which navigates to the `/auth/login` API Management endpoint. The inbound policy of this endpoint generates a cryptographically random `state` value, stores it in the API Management cache with a 300-second time-to-live, and redirects the browser to the Microsoft identity platform authorization endpoint. The `redirect_uri` is set to the `/auth/callback` API endpoint of the API Management gateway. The `state` value is included in the redirect:
+
+   ```XML
+   <set-variable name="state" value="@{
+       var rng = new RNGCryptoServiceProvider();
+       var bytes = new byte[32];
+       rng.GetBytes(bytes);
+       return Convert.ToBase64String(bytes).Replace("+", "-").Replace("/", "_").TrimEnd('=');
+   }" />
+   <cache-store-value key="@($"oauth-state-{context.Variables.GetValueOrDefault<string>("state")}")"
+    value="true" duration="300" />
+   <return-response>
+       <set-status code="302" reason="Found" />
+       <set-header name="Location" exists-action="override">
+           <value>@($"https://login.microsoftonline.com/{{tenant-id}}/oauth2/v2.0/authorize?client_id={{client-id}}&response_type=code&redirect_uri=https://{context.Request.OriginalUrl.Host}/auth/callback&scope={{scope}}&state={context.Variables.GetValueOrDefault<string>("state")}")</value>
+       </set-header>
+   </return-response>
+   ```
 
 1. Users are prompted to authenticate themselves. If authentication succeeds, Microsoft identity platform responds with a redirect.
 
 1. The browser is redirected to the `redirect_uri`, which is the API Management callback endpoint. The authorization code is passed to the callback endpoint.
 
-1. The inbound policy of the callback endpoint is invoked. The policy exchanges the authorization code for an access token by issuing a request to the Microsoft Entra token endpoint. It passes the required information, like the client ID, client secret, and authorization code:
+1. The inbound policy of the callback endpoint is invoked. The policy verifies the `state` parameter to prevent CSRF attacks. It retrieves the `state` value from the query string, checks whether it exists in the API Management cache, and returns a `403` response if it doesn't. When the verification succeeds, the policy removes the `state` value from the cache to prevent reuse:
+
+   ```XML
+   <set-variable name="state" value="@(context.Request.OriginalUrl.Query.GetValueOrDefault("state"))" />
+   <cache-lookup-value key="@($"oauth-state-{context.Variables.GetValueOrDefault<string>("state")}")"
+    variable-name="state_valid" default-value="false" />
+   <choose>
+       <when condition="@(context.Variables.GetValueOrDefault<bool>("state_valid") == false)">
+           <return-response>
+               <set-status code="403" reason="Invalid state" />
+           </return-response>
+       </when>
+   </choose>
+   <cache-remove-value key="@($"oauth-state-{context.Variables.GetValueOrDefault<string>("state")}")" />
+   ```
+
+1. The policy exchanges the authorization code for an access token by issuing a request to the Microsoft Entra token endpoint. It passes the required information, like the client ID, client secret, and authorization code:
 
    ```XML
    <send-request ignore-error="false" timeout="20" response-variable-name="response" mode="new">
@@ -209,8 +243,6 @@ This solution isn't production-ready. It's meant to demonstrate what you can do 
    Instead of using a single access token, this approach stores access tokens in a cache and retrieves them based on the API that's being called and a key that's provided in the cookie. You can implement this approach by using the API Management [cache](/azure/api-management/api-management-howto-cache) or an external [Redis cache](/azure/api-management/api-management-howto-cache-external).
 
 - This example demonstrates the retrieval of data only via a GET request, so it doesn't provide protection against [Cross-site request forgery (CSRF)](https://owasp.org/www-community/attacks/csrf) attacks. If you use other HTTP methods, like POST, PUT, PATCH, or DELETE, this protection is required.
-
-- This example doesn't include a `state` parameter in the authorization request to the Microsoft Entra authorization endpoint. As a result, the `/auth/callback` endpoint accepts any authorization code that arrives from Microsoft Entra ID, which leaves the OAuth redirect itself open to CSRF attacks as described in [RFC 6749 section 10.12](https://datatracker.ietf.org/doc/html/rfc6749#section-10.12). In production, generate a cryptographically random `state` value when initiating the flow, persist it server-side (for example, in the API Management [cache](/azure/api-management/api-management-howto-cache) with a short time-to-live), include it on the authorization request, and verify that the value returned to `/auth/callback` matches the stored value before exchanging the code. If you persist `state` in a cookie instead, use `SameSite=Lax`, not `SameSite=Strict`, because a `Strict` cookie isn't sent on the top-level cross-site redirect from `login.microsoftonline.com` back to the callback endpoint.
 
 - This example uses the bare OAuth 2.0 authorization code flow with a client secret. Because API Management acts as a confidential client and holds the `client_secret`, an intercepted authorization code can't be redeemed by another party, so this design isn't directly exposed to the authorization code interception attack that [Proof Key for Code Exchange (PKCE)](https://datatracker.ietf.org/doc/html/rfc7636) was created to mitigate. As defense in depth, Microsoft Entra ID [recommends PKCE for all application types, including confidential clients](/entra/identity-platform/v2-oauth2-auth-code-flow). If you decide to add PKCE, generate the `code_verifier` and `code_challenge` server-side and persist the verifier in the API Management [cache](/azure/api-management/api-management-howto-cache) keyed by `state` rather than in a browser cookie.
 
