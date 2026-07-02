@@ -1,6 +1,9 @@
 items:
 - name: AI + Machine Learning
-  href: index.md
+  href: ai-get-started.md
+- name: AI technology overview
+  href: ai-overview.md
+- name: Explore ideas about
   items:
     - name: Explore ideas about
       items:

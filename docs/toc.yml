@@ -510,7 +510,9 @@ items:
 - name: Azure categories
   items:
   - name: AI + Machine Learning
-    href: ai-ml/index.md
+    items:
+    - name: Get started
+      href: ai-ml/ai-get-started.md
   - name: Analytics
     items:
     - name: Get started

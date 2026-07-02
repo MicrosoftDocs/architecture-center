@@ -119,7 +119,7 @@ conceptualContent:
       links:
       - text: AI architecture design
         itemType: overview
-        url: ./ai-ml/index.md
+        url: ./ai-ml/ai-get-started.md
       - text: Microsoft Foundry chat baseline architecture
         url: ./ai-ml/architecture/baseline-microsoft-foundry-chat.yml
         itemType: architecture
