@@ -85,7 +85,7 @@ This process uses the [OAuth2 Authorization Code Flow](/entra/architecture/auth-
 
 The flow contains the following steps:
 
-1. To obtain an access token, users must first authenticate themselves. The user selects **Sign in** in the single-page application, which navigates to the `/auth/login` API Management endpoint. The inbound policy of this endpoint generates a cryptographically random `state` value, stores it in the API Management cache with a 300-second time-to-live, and redirects the browser to the Microsoft identity platform authorization endpoint. The `redirect_uri` is set to the `/auth/callback` API endpoint of the API Management gateway. The `state` value is included in the redirect:
+1. To get an access token, users must first authenticate. The user selects **Sign in** in the single-page application, which navigates to the `/auth/login` API Management endpoint. The inbound policy of this endpoint generates a cryptographically random `state` value, stores it in the API Management cache with a 300-second time-to-live, and redirects the browser to the Microsoft identity platform authorization endpoint. The `redirect_uri` is set to the `/auth/callback` API endpoint of the API Management gateway. The `state` value is included in the redirect:
 
    ```XML
    <set-variable name="state" value="@{
