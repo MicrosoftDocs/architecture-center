@@ -12,9 +12,9 @@ As a workload owner, you can offload the management of shared resources to centr
 
 ## Article layout
 
-|Architecture| Design decision |Azure Well-Architected Framework approach|
-|---|---|---|
-|&#9642; [Architecture diagram](#architecture) <br>&#9642; [Workload resources](#workload-team-owned-resources) <br> &#9642; [Federated resources](#platform-team-owned-resources)  |&#9642; [Subscription setup](#subscription-setup)<br> &#9642; [Networking requirements](#workload-requirements-and-fulfillments) <br> &#9642; [Network design changes from the baseline](#networking)<br> &#9642; [Monitoring](#monitoring) <br> &#9642; [Patch compliance](#patch-compliance-and-os-upgrades) <br> &#9642; [Organizational governance](#azure-policy) <br> &#9642; [Change management](#manage-changes-over-time)|<br> &#9642; [Reliability](#reliability) <br> &#9642; [Security](#security) <br> &#9642; [Cost Optimization](#cost-optimization)|
+| Architecture | Design decision | Well-Architected Framework approach |
+| --- | --- | --- |
+| &#9642; [Architecture diagram](#architecture) <br>&#9642; [Workload resources](#workload-team-owned-resources) <br> &#9642; [Federated resources](#platform-team-owned-resources) | &#9642; [Subscription setup](#subscription-setup)<br> &#9642; [Networking requirements](#workload-requirements-and-fulfillments) <br> &#9642; [Network design changes from the baseline](#networking)<br> &#9642; [Monitoring](#monitoring) <br> &#9642; [Patch compliance](#patch-compliance-and-os-upgrades) <br> &#9642; [Organizational governance](#azure-policy) <br> &#9642; [Change management](#manage-changes-over-time) | &#9642; [Reliability](#reliability) <br> &#9642; [Security](#security) <br> &#9642; [Cost&nbsp;Optimization](#cost-optimization) |
 
 > [!TIP]
 > ![GitHub logo.](../_images/github.svg) This [reference implementation](https://github.com/mspnp/iaas-landing-zone-baseline) demonstrates the best practices described in this article.
@@ -95,7 +95,7 @@ The workload team and platform teams share two main responsibilities: management
 
 - **The deployment region**: It's important to specify the regions where the workload will be deployed. The platform team can use this information to ensure that the spoke-and-hub virtual networks are provisioned in the same region. Networks across different regions can lead to latency issues due to traffic crossing regional boundaries and can also incur extra bandwidth costs.
 
-- **The workload characteristics and design choices**: Communicate your design choices, components, and characteristics to your platform team. For instance, if you expect your workload to generate a high number of concurrent connections to the internet (*chatty*), the platform team should ensure that there are sufficient ports available to prevent exhaustion. They can add IP addresses to the centralized firewall to support the traffic or set up a Network Address Translation (NAT) gateway to route the traffic through an alternate path.
+- **The workload characteristics and design choices**: Communicate your design choices, components, and characteristics to your platform team. For instance, if you expect your workload to generate a high number of concurrent connections to the internet (*chatty*), the platform team should ensure that there are sufficient source network address translation (SNAT) ports available to prevent exhaustion. They can add public IP addresses to the centralized firewall to expand the SNAT port pool, or attach an Azure NAT Gateway to scale SNAT capacity further.
 
     Conversely, if you expect your workload to generate minimal network traffic (*background noise*), the platform team should use resources efficiently across the organization.
 
@@ -180,7 +180,7 @@ Controlling egress traffic is more than just making sure that the expected traff
 >
 > Encourage the platform team to use IP groups in Azure Firewall. This practice ensures that your workload's egress traffic needs are accurately represented with tight scoping only to the source subnets. For instance, a rule that allows workload VMs to reach `api.example.org` doesn't necessarily imply that supporting resources within the same virtual network can access the same endpoint. This level of granular control can enhance the security posture of your network.
 
-Communicate any unique egress traffic requirements to the platform team. For instance, if your workload establishes numerous concurrent connections to external network endpoints, inform the platform team. Then the platform team can either provision an appropriate Azure NAT Gateway implementation or add more public IPs on the regional firewall for mitigation.
+Communicate any unique egress traffic requirements to the platform team. The firewall applies source network address translation (SNAT) to egress flows, replacing the workload's source IP with one of its public IP addresses, and the number of attached IPs caps the SNAT port budget. If your workload establishes numerous concurrent outbound connections, inform the platform team so they can mitigate SNAT port exhaustion by attaching an Azure NAT Gateway or adding more public IPs on the regional firewall. Also share the firewall's public IP set with downstream partners so allowlists cover the full range of possible source IPs.
 
 Your organization might have requirements that discourage the use of architecture patterns, which use workload-owned public IPs for egress. In that case, you can use Azure Policy to deny public IPs on VM network interface cards (NICs) and any other public IPs, other than your well-known ingress points.
 

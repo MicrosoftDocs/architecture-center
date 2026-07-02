@@ -1,6 +1,6 @@
 items:
-- name: Web applications
-  href: index.md
+- name: Web apps
+  href: web-apps-get-started.md
   items: 
     - name: Explore ideas about
       items: 
@@ -28,7 +28,7 @@ items:
         - name: Protect APIs by using Application Gateway and API Management
           displayName: APIM
           href: api-management/architectures/protect-apis.yml
-        - name: Migrate a web app with APIM
+        - name: Migrate a web app by using API Management
           displayName: API Management
           href: ../example-scenario/apps/apim-api-scenario.yml
     - name: Apply guidance
@@ -42,24 +42,6 @@ items:
         - name: Single-page application authorization
           displayName: SPA, OAuth
           href: guides/security/secure-single-page-application-authorization.md
-      - name: Application development guidance for web apps
-        items:
-        - name: Enterprise web app patterns
-          items:
-          - name: Overview
-            href: guides/enterprise-app-patterns/overview.md
-          - name: Reliable Web App pattern
-            items:
-            - name: .NET
-              href: guides/enterprise-app-patterns/reliable-web-app/dotnet/guidance.yml
-            - name: Java
-              href: guides/enterprise-app-patterns/reliable-web-app/java/guidance.md
-          - name: Modern Web App pattern
-            items:
-            - name: .NET
-              href: guides/enterprise-app-patterns/modern-web-app/dotnet/guidance.yml
-            - name: Java
-              href: guides/enterprise-app-patterns/modern-web-app/java/guidance.md
       - name: Disaster recovery for web apps
         items:
         - name: Multi-region App Service apps for disaster recovery
@@ -69,7 +51,7 @@ items:
       items:
       - name: Overview
         href: ../guide/infrastructure/wordpress-overview.yml
-      - name: Container hosting (AKS)
+      - name: AKS hosting (containers)
         displayName: Azure Kubernetes Service
         href: ../example-scenario/infrastructure/wordpress-container.yml
       - name: App Service hosting

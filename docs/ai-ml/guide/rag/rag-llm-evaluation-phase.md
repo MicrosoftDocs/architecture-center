@@ -1,5 +1,5 @@
 ---
-title: Develop a RAG Solution - Large Language Model End-to-End Evaluation Phase
+title: Develop a RAG Solution on Azure - Large Language Model End-to-End Evaluation Phase
 description: Learn about how to evaluate your RAG solution from end to end by calculating and evaluating key large language model and similarity metrics.
 author: claytonsiemens77
 ms.author: pnp
@@ -17,6 +17,9 @@ In this phase, you evaluate your retrieval-augmented generation (RAG) solution b
 This grounding data forms the context for the prompt that you send to the language model to address the user's query. [Prompt engineering strategies](https://platform.openai.com/docs/guides/prompt-engineering) are beyond the scope of this article. This article addresses the evaluation of the engineered call to the language model from the perspective of the grounding data. This article covers common language model evaluation metrics and specific similarity and evaluation metrics that you can use in model evaluation calculations or as standalone metrics.
 
 This article doesn't attempt to provide an exhaustive list of language model metrics or similarity and evaluation metrics. The key takeaway is that different metrics serve specific use cases. Only you have a holistic understanding of your workload. You and your data scientists must determine what you want to measure and which metrics are the most appropriate.
+
+> [!NOTE]
+> If you use [agentic RAG](./rag-agentic.md), more evaluation dimensions apply. Agentic RAG introduces tool selection accuracy, retrieval efficiency (the number of tool calls per request), and end-to-end latency across reasoning steps. For guidance about how to evaluate agentic RAG solutions, see [Evaluate agentic RAG](./rag-agentic.md#evaluate-agentic-rag).
 
 This article is part of a series. Read the [introduction](./rag-solution-design-and-evaluation-guide.md) first.
 
@@ -167,7 +170,7 @@ Utilization and completeness metrics together help evaluate the effectiveness of
 
 ### Groundedness, utilization, and similarity
 
-Groundedness, utilization, and similarity metrics together help identify how well the system maintains truth while transforming information. High groundedness (0.9) and utilization (.9) with low similarity (0.3) indicates that the system is using accurate grounding data, but paraphrasing poorly. To address this scenario, evaluate your prompt. Modify the prompt and test the results.
+Groundedness, utilization, and similarity metrics together help identify how well the system maintains truth while transforming information. High groundedness (0.9) and utilization (0.9) with low similarity (0.3) indicate that the system is using accurate grounding data, but paraphrasing poorly. To address this scenario, evaluate your prompt. Modify the prompt and test the results.
 
 ## Documentation, reporting, and aggregation
 

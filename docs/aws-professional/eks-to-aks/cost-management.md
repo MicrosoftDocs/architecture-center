@@ -138,7 +138,7 @@ If you run workloads that use CSI persistent volumes on your AKS cluster, consid
 
   - The service, such as Azure Blob Storage, Azure Files, Azure Queue Storage, Azure Table Storage, or managed disks
 
-  - The Storage account type, such as GPv1, GPv2, blob, or premium blob
+  - The [Storage account type](/azure/storage/common/storage-account-overview#types-of-storage-accounts), such as standard general-purpose v2 for standard file shares or premium FileStorage for premium file shares
   - The level of resiliency, such as locally redundant storage (LRS), zone-redundant storage (ZRS), geo-redundant storage (GRS), or read-access geo-redundant storage (RA-GRS)
   - The access tier, such as hot, cool, or archive
   - Operations and data transfers
@@ -163,11 +163,13 @@ Several Azure networking tools can provide access to your applications that run 
 
   - The amount of inbound and outbound processed data, independent of rules. There's no hourly charge for a load balancer that has no rules configured.
 
-- [Azure Application Gateway](https://azure.microsoft.com/pricing/details/application-gateway): AKS often uses Application Gateway through [Application Gateway Ingress Controller](/azure/application-gateway/ingress-controller-overview). Or you can front a different ingress controller with a manually managed Application Gateway instance. Application Gateway supports gateway routing, Transport Layer Security (TLS) termination, and Web Application Firewall functionality. Application Gateway charges are based on:
+- [Application Gateway for Containers](/azure/application-gateway/for-containers/overview): AKS workloads can use Application Gateway for Containers as a managed layer-7 load balancer and ingress solution. It's an Azure-managed service that's separate from Azure Application Gateway and provides gateway routing, Transport Layer Security (TLS) termination, and Web Application Firewall (WAF) functionality through security policy resources.
+
+- [Application Gateway](https://azure.microsoft.com/pricing/details/application-gateway): Another approach is to deploy Application Gateway and front a different ingress controller in the cluster. Application Gateway supports gateway routing, TLS termination, and WAF functionality. Application Gateway charges are based on:
 
   - A fixed price. You pay for each hour or partial hour that Application Gateway runs.
   
-  - A capacity unit price. You pay an extra consumption-based cost depending on the resources that Application Gateway uses. Each capacity unit has up to one compute unit, 2,500 persistent connections, and 2.22-Mbps throughput.
+  - A capacity unit (CU) price. You pay an extra consumption-based cost depending on the resources that Application Gateway uses. Each capacity unit has up to one compute unit, 2,500 persistent connections, and 2.22-Mbps throughput.
 
 - [Public IP addresses](https://azure.microsoft.com/pricing/details/ip-addresses): Public IP addresses have an associated cost that depends on:
 
@@ -236,7 +238,7 @@ The following recommendations help optimize your AKS cluster costs:
 
 - Choose the right [VM size](/azure/virtual-machines/sizes) for your AKS cluster node pools based on your workloads' CPU and memory needs. Azure provides many different VM instance types for a wide range of use cases. They have different combinations of CPU, memory, storage, and networking capacity. Every VM type comes in one or more sizes, so you can easily scale your resources.
 
-  You can use AKS to [deploy and manage containerized applications that run on Ampere Altra ARM-based processors](https://azure.microsoft.com/blog/now-in-preview-azure-virtual-machines-with-ampere-altra-armbased-processors).
+  You can use AKS to [deploy and manage containerized applications that run on Ampere Altra Arm-based processors](/azure/virtual-machines/dpsv5-dpdsv5-series).
 
 - Create multiple node pools that have different VM sizes for special purposes and workloads. Use Kubernetes [taints, tolerations](https://kubernetes.io/docs/concepts/scheduling-eviction/taint-and-toleration), and [node labels](https://kubernetes.io/docs/concepts/scheduling-eviction/assign-pod-node) to place resource-intensive applications on specific node pools to avoid noisy neighbor problems. Keep these node resources available for workloads that require them, and don't schedule other workloads on these nodes. To optimize costs, use different VM sizes for different node pools. For more information, see [Use multiple node pools in AKS](/azure/aks/use-multiple-node-pools).
 
@@ -280,18 +282,17 @@ Principal authors:
 Other contributors:
 
 - [Chad Kittel](https://www.linkedin.com/in/chadkittel/) | Principal Software Engineer - Azure Patterns & Practices
-- [Ed Price](https://www.linkedin.com/in/priceed/) | Senior Content Program Manager
 - [Theano Petersen](https://www.linkedin.com/in/theanop/) | Technical Writer
 
 *To see nonpublic LinkedIn profiles, sign in to LinkedIn.*
 
 ## Next steps
 
-- [Cost governance with Kubecost](/azure/cloud-adoption-framework/scenarios/app-platform/aks/cost-governance-with-kubecost)
+- [AKS cost analysis](/azure/aks/cost-analysis)
 - [Cost Management discipline overview](/azure/cloud-adoption-framework/govern/cost-management)
 - [Video: Can cloud native architectures lower your long-term costs?](https://www.youtube.com/watch?v=5KVz_rz3P3w)
 - [Azure pricing calculator](https://azure.microsoft.com/pricing/calculator)
-- [Plan and manage your Azure costs](/learn/modules/plan-manage-azure-costs)
+- [Plan and manage your Azure costs](/training/modules/plan-manage-azure-costs)
 - [AKS cost analysis](/azure/aks/cost-analysis)
 - [Webinar: Tools and tips for unparalleled cost transparency on AKS](https://www.youtube.com/watch?v=p15XAKy14WQ)
 - [OpenCost project on GitHub](https://github.com/opencost/opencost)

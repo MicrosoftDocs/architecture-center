@@ -1,0 +1,33 @@
+### YamlMime:Architecture
+metadata:
+  title: Use Application Gateway for Containers with a Multitenant Azure Kubernetes Service Cluster
+  description: Learn how to use Application Gateway for Containers with your AKS cluster to expose microservice-based applications to the internet.
+  author: Vyshnavi-MSFT
+  ms.author: vnamani
+  ms.date: 06/25/2026
+  ms.topic: example-scenario
+  ms.subservice: example-scenario
+  ai-usage: ai-assisted
+  ms.category:
+    - containers
+  ms.custom:
+    - arb-saas
+    - arb-containers
+    - arb-web
+name: Use Application Gateway for Containers with a multitenant Azure Kubernetes Service cluster
+azureCategories:
+  - containers
+  - networking
+summary: Learn how to use Application Gateway for Containers (AGC) with your AKS cluster to expose microservice-based applications to the internet.
+products:
+  - azure-application-gateway
+  - azure-front-door
+  - azure-private-link
+  - azure-web-application-firewall
+  - azure-key-vault
+  - azure-container-registry
+  - azure-kubernetes-service
+  - azure-bastion
+thumbnailUrl: /azure/architecture/browse/thumbs/aks-agc.png
+content: |
+   [!INCLUDE[](aks-agc-content.md)]

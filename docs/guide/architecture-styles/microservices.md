@@ -6,7 +6,6 @@ ms.author: pnp
 ms.date: 06/30/2025
 ms.topic: concept-article
 ms.subservice: architecture-guide
-ms.custom: fcp
 ---
 
 # Microservices architecture style
@@ -28,6 +27,8 @@ Microservices are small, independent, and loosely coupled components that a sing
 In addition to the services themselves, other components appear in a typical microservices architecture:
 
 - **Management or orchestration:** This management component handles microservices orchestration. It schedules and deploys services across nodes, detects failures, recovers from failures, and enables autoscaling based on demand. A container orchestration platform like Kubernetes typically provides this functionality. In cloud-native environments, solutions such as Azure Container Apps provide managed orchestration and built-in scaling. These tools reduce deployment complexity and operational overhead.
+
+  For help evaluating these platforms, see [Choose an Azure compute option for microservices](../../microservices/design/compute-options.md).
 
 - **API gateway:** The API gateway serves as the entry point for clients. Clients send requests to the API gateway instead of calling services directly. The gateway forwards those requests to the appropriate back-end services. It also handles cross-cutting concerns such as authentication, logging, and load balancing. In cloud-native microservices architectures, lightweight service proxies like Envoy and Nginx support internal service-to-service communication. This type of internal traffic, known as east-west traffic, enables advanced routing and traffic control.
 
@@ -63,7 +64,7 @@ The benefits of microservices come with trade-offs. Consider the following chall
 
 - **Lack of governance:** The decentralized approach to building microservices has advantages, but it can also result in problems. You might end up with so many different languages and frameworks that the application becomes hard to maintain. It might be useful to put some project-wide standards in place, without overly restricting teams' flexibility. This method especially applies to cross-cutting functionality such as logging.
 
-- **Network congestion and latency:** The use of many small, granular services can result in more interservice communication. Also, if the chain of service dependencies gets too long (service A calls B, which calls C...), the extra latency can become a problem. You need to design APIs carefully. Avoid overly chatty APIs, think about serialization formats, and look for places to use asynchronous communication patterns like the [Queue-Based Load Leveling pattern](../../patterns/queue-based-load-leveling.yml).
+- **Network congestion and latency:** The use of many small, granular services can result in more interservice communication. Also, if the chain of service dependencies gets too long (service A calls B, which calls C...), the extra latency can become a problem. You need to design APIs carefully. Avoid overly chatty APIs, think about serialization formats, and look for places to use asynchronous communication patterns like the [Queue-Based Load Leveling pattern](../../patterns/queue-based-load-leveling.md).
 
 - **Data integrity:** Each microservice is responsible for its own data persistence. As a result, data consistency across multiple services can be a challenge. Different services persist data at different times, using different technology, and with potentially different levels of success. When more than one microservice is involved in persisting new or changed data, it's unlikely that the complete data change could be considered an atomic, consistent, isolated, and durable (ACID) transaction. Instead, the technique is more aligned to Basically Available, Soft State, Eventual Consistency (BASE). Embrace eventual consistency where possible.
 
@@ -139,12 +140,12 @@ The following articles present a structured approach for designing, building, an
 1. [Use tactical DDD to design microservices](../../microservices/model/tactical-domain-driven-design.md).
 1. [Identify microservice boundaries](../../microservices/model/microservice-boundaries.yml).
 
-**Design the services:** Microservices require a decentralized and agile approach to designing and building applications. For more information, see [Design a microservices architecture](../../microservices/design/index.md).
+**Design the services:** Microservices require a decentralized and agile approach to designing and building applications. For more information, see [Design a microservices architecture](../../microservices/design/index.md) and [Design patterns for microservices](../../microservices/design/patterns.md).
 
 **Operate in production:** Because microservices architectures are distributed, you must have robust operations for deployment and monitoring.
 
 ## Related resources
 
 - [Build a CI/CD pipeline for microservices on Kubernetes](../../microservices/ci-cd-kubernetes.yml)
-- [CI/CD for microservices architectures](../../microservices/ci-cd.yml)
+- [CI/CD for microservices architectures](../../microservices/ci-cd.md)
 - [Microservices architecture on Azure Kubernetes Service (AKS)](../../reference-architectures/containers/aks-microservices/aks-microservices.yml)

@@ -1,4 +1,4 @@
-This architecture shows a microservices application deployed to Azure Kubernetes Service (AKS). It describes a basic AKS configuration that you can use as the starting point for most deployments. This article assumes that you have a basic understanding of Kubernetes. It highlights the infrastructure and developer operations (DevOps) aspects of how to manage microservices on AKS. For production deployments, this architecture recommends that you use Azure CNI powered by Cilium as the networking solution. This service provides improved performance, built-in network policy enforcement, and enhanced observability through its Extended Berkeley Packet Filter (eBPF)-based data plane. For more information about how to design microservices, see [Microservices architecture design](../../../guide/architecture-styles/microservices.md).
+This architecture shows a microservices application deployed to Azure Kubernetes Service (AKS). It describes a basic AKS configuration that you can use as the starting point for most deployments. This article assumes that you have a basic understanding of Kubernetes. It highlights the infrastructure and developer operations (DevOps) aspects of how to manage microservices on AKS. For production deployments, this architecture recommends that you use Azure CNI powered by Cilium as the networking solution. Azure CNI powered by Cilium provides improved performance, built-in network policy enforcement, and enhanced observability through its Extended Berkeley Packet Filter (eBPF)-based data plane. For more information about how to design microservices, see [Microservices architecture design](../../../guide/architecture-styles/microservices.md).
 
 ## Architecture
 
@@ -14,7 +14,7 @@ For an example of a more advanced microservice that's built on the [AKS baseline
 
 ### Data flow
 
-This request flow implements the [Publisher-Subscriber](../../../patterns/publisher-subscriber.md), [Competing Consumers](/azure/architecture/patterns/competing-consumers), and [Gateway Routing](/azure/architecture/patterns/gateway-routing) cloud design patterns.
+This request flow implements the [Publisher-Subscriber](../../../patterns/publisher-subscriber.md), [Competing Consumers](../../../patterns/competing-consumers.md), and [Gateway Routing](/azure/architecture/patterns/gateway-routing) cloud design patterns.
 
 The following data flow corresponds to the previous diagram:
 
@@ -42,9 +42,9 @@ The following data flow corresponds to the previous diagram:
 
 - [Azure CNI powered by Cilium](/azure/aks/azure-cni-powered-by-cilium) is the recommended networking solution to connect directly to an Azure virtual network. In this architecture, it assigns IP addresses from the virtual network to pods and provides built-in network policy capabilities and traffic visibility.
 
-- An ingress server exposes HTTP and HTTPS routes to services inside a cluster. In this architecture, a [managed NGINX-based ingress controller](/azure/aks/app-routing) is used through an application routing add-on. The ingress controller implements the [API gateway](#api-gateway) pattern for microservices.
+- An ingress server exposes HTTP and HTTPS routes to services inside a cluster. In this architecture, [application routing Gateway API implementation](/azure/aks/app-routing-gateway-api) is used as the ingress controller. The ingress controller implements the [API gateway](#api-gateway) pattern for microservices.
 
-- External data stores, like [Azure SQL Database](/azure/well-architected/service-guides/azure-sql-database-well-architected-framework) or [Azure Cosmos DB](/azure/well-architected/service-guides/cosmos-db), are used by stateless microservices to write their data and other state information. In this architecture, [Azure Cosmos DB](/azure/cosmos-db/), [Azure Managed Redis](/azure/redis/overview), [Azure DocumentDB](/azure/documentdb/overview) and [Service Bus](/azure/service-bus-messaging/service-bus-messaging-overview) serve as data stores or places to store state.
+- External data stores, like [Azure SQL Database](/azure/well-architected/service-guides/azure-sql-database) or [Azure Cosmos DB](/azure/well-architected/service-guides/cosmos-db), are used by stateless microservices to write their data and other state information. In this architecture, [Azure Cosmos DB](/azure/cosmos-db/), [Azure Managed Redis](/azure/redis/overview), [Azure DocumentDB](/azure/documentdb/overview) and [Service Bus](/azure/service-bus-messaging/service-bus-messaging-overview) serve as data stores or places to store state.
 
 - [Microsoft Entra ID](/entra/fundamentals/whatis) is a cloud-based identity and access management service that provides authentication and authorization capabilities for the AKS cluster and deployed workloads. AKS requires Microsoft Entra ID integration to provide a [managed identity](/azure/aks/use-managed-identity) for accessing Azure Container Registry and provisioning Azure resources like load balancers and managed disks. Each workload deployed on the AKS cluster requires an identity to access Microsoft Entra-protected resources, like Azure Key Vault and Microsoft Graph. This architecture uses [Microsoft Entra Workload ID](/azure/aks/workload-identity-overview) to integrate with Kubernetes and provide secure identities for workloads. Alternatively, you can use managed identities or application credentials for workload authentication.
 
@@ -62,7 +62,7 @@ The following data flow corresponds to the previous diagram:
 
 [Azure Container Apps](/azure/container-apps/) is a managed serverless platform that delivers a Kubernetes-based experience without requiring infrastructure management. It serves as a simpler alternative to AKS for hosting microservices when you don't need direct access to Kubernetes or its APIs and don't require control over the cluster infrastructure.
 
-Instead of the managed ingress gateway in AKS, you can use alternatives like Application Gateway for Containers, an Istio ingress gateway, or non-Microsoft solutions. For more information, see [Ingress in AKS](/azure/aks/concepts-network-ingress).
+Instead of the application routing Gateway API implementation in AKS, you can use alternatives like [Application Gateway for Containers](/azure/application-gateway/for-containers/overview), the [Istio service mesh add-on](/azure/aks/istio-about), or non-Microsoft solutions. For more information, see [Ingress in AKS](/azure/aks/concepts-network-ingress).
 
 You can store container images in non-Microsoft container registries like Docker Hub.
 
@@ -136,7 +136,7 @@ In Kubernetes, an ingress controller primarily handles the functionality of an A
 
 - Offload functionality from the back-end services, like SSL termination, authentication, IP address restrictions, or client rate limiting (known as *throttling*).
 
-There are ingress controllers for reverse proxies, which include NGINX, HAProxy, Traefik, and Azure Application Gateway. AKS provides multiple managed ingress options. You can choose from a [managed NGINX-based ingress controller](/azure/aks/app-routing) through the application routing add-on or Application Gateway for Containers. Or you can choose an Istio ingress gateway as the ingress controller. For more information, see [Ingress in AKS](/azure/aks/concepts-network-ingress).
+There are ingress controllers for reverse proxies. AKS provides multiple managed ingress options. You can choose between [Kubernetes Gateway API via the application routing add-on](/azure/aks/app-routing-gateway-api) or [Application Gateway for Containers](/azure/application-gateway/for-containers/overview). Or you can choose an [Istio-based service mesh add-on](/azure/aks/istio-about) as the ingress controller. For more information, see [Ingress in AKS](/azure/aks/concepts-network-ingress).
 
 Kubernetes has replaced ingress resources with the more advanced and versatile Gateway API. Ingress controllers and the Gateway API are Kubernetes objects that manage traffic routing and load balancing. Designed to be generic, expressive, extensible, and role oriented, the Gateway API is a modern set of APIs for defining level-4 and level-7 routing rules in Kubernetes.
 
@@ -297,7 +297,7 @@ Consider the following goals of a robust CI/CD process for a microservices archi
 
 - For containerized workloads, you can trust the container images that are deployed to production.
 
-For more information about the challenges, see [CI/CD for microservices architectures](../../../microservices/ci-cd.yml).
+For more information about the challenges, see [CI/CD for microservices architectures](../../../microservices/ci-cd.md).
 
 Using a service mesh like Istio can help with CI/CD processes, like canary deployments, A/B testing of microservices, and staged rollouts with percentage-based traffic splits.
 
@@ -307,7 +307,7 @@ For more information about specific recommendations and best practices, see [Bui
 
 Cost Optimization focuses on ways to reduce unnecessary expenses and improve operational efficiencies. For more information, see [Design review checklist for Cost Optimization](/azure/well-architected/cost-optimization/checklist).
 
-Use the [Azure pricing calculator](https://azure.microsoft.com/pricing/calculator) to estimate costs.
+To estimate the cost of the resources in this architecture, use this [preconfigured estimate in the Azure pricing calculator](https://azure.com/e/0891dc227092472cbee8913965fae933). Adjust the values to see how the cost changes based on your specific requirements.
 
 Consider the following points for some of the services used in this architecture.
 
@@ -323,19 +323,17 @@ Consider the following points for some of the services used in this architecture
 
 - Review the [cost optimization best practices for AKS](/azure/aks/best-practices-cost).
 
-- To estimate the cost of the required resources, use the [AKS calculator](https://azure.microsoft.com/pricing/calculator/?service=kubernetes-service).
-
 #### Azure Load Balancer
 
-You're charged only for the number of configured load-balancing and outbound rules. Inbound network address translation rules are free. There's no hourly charge for Load Balancer when no rules are configured. For more information, see [Azure Load Balancer pricing](https://azure.microsoft.com/pricing/details/load-balancer).
+- You're charged only for the number of configured load-balancing and outbound rules. Inbound NAT rules are free. There's no hourly charge for Load Balancer when no rules are configured.
 
 #### Azure Pipelines
 
-This reference architecture uses Azure Pipelines for CI/CD tasks. Azure provides the pipeline as an individual service. You're allowed a free Microsoft-hosted job with 1,800 minutes for each month for CI/CD and one self-hosted job with unlimited minutes for each month. Extra jobs incur more costs. For more information, see [Azure DevOps services pricing](https://azure.microsoft.com/pricing/details/devops/azure-devops-services).
+- This reference architecture uses Azure Pipelines for CI/CD tasks. You're allowed a free Microsoft-hosted job with 1,800 minutes for each month and one self-hosted job with unlimited minutes. Extra jobs incur more costs.
 
 #### Azure Monitor
 
-For Log Analytics, you're charged for data ingestion and retention. For more information, see [Azure Monitor pricing](https://azure.microsoft.com/pricing/details/monitor).
+- You're charged for data ingestion and retention. The preconfigured estimate includes Log Analytics, Prometheus metrics, and Application Insights.
 
 ### Operational Excellence
 
@@ -371,5 +369,5 @@ Other contributors:
 ## Related resources
 
 - [Advanced AKS microservices architecture](./aks-microservices-advanced.yml).
-- [CI/CD for microservices architectures](../../../microservices/ci-cd.yml)
+- [CI/CD for microservices architectures](../../../microservices/ci-cd.md)
 - [CI/CD for microservices on Kubernetes](../../../microservices/ci-cd-kubernetes.yml)

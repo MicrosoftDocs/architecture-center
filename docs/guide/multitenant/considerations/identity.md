@@ -22,7 +22,7 @@ Your customers might also wish to authorize external applications to access thei
 > [!CAUTION]
 > Authentication and authorization services within multitenant and software as a service (SaaS) applications are typically provided by an external identity provider (IdP). An IdP is usually an integral part of a managed identity platform.
 >
-> Building your own IdP is complex, expensive, and challenging to secure. It's considered an [antipattern](../approaches/identity.md#building-or-running-your-own-identity-system), and we don't recommend it.
+> Building your own IdP is complex, expensive, and challenging to secure. It's considered an [antipattern](../approaches/identity.md#self-administered-identity-systems), and we don't recommend it.
 
 Before you define a multitenant identity strategy, first consider the following high-level identity requirements for your service:
 
@@ -69,7 +69,7 @@ In a multitenant solution, you need to consider where to store several types of 
 - Tenant-specific information, such as tenant roles and permissions, for authorization.
 
 > [!CAUTION]
-> We don't recommend building authentication processes yourself. Modern IdPs provide these authentication services to your application, and they also include other important features, such as MFA and conditional access. [Building your own identity provider is an antipattern](../approaches/identity.md#building-or-running-your-own-identity-system). We don't recommend it.
+> We don't recommend building authentication processes yourself. Modern IdPs provide these authentication services to your application, and they also include other important features, such as MFA and conditional access. [Building your own identity provider is an antipattern](../approaches/identity.md#self-administered-identity-systems). We don't recommend it.
 
 Consider the following options for storing identity information:
 
@@ -257,3 +257,4 @@ Other contributors:
 ## Next step
 
 Learn about [considerations when you work with domain names in a multitenant application](domain-names.md).
+

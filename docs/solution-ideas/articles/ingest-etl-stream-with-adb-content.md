@@ -10,7 +10,9 @@ Your organization needs to ingest data of any format, size, and speed into the c
 
 *Download a [Visio file](https://arch-center.azureedge.net/ingest-etl-and-stream-processing-with-azure-databricks.vsdx) of this architecture.*
 
-### Dataflow
+### Data flow
+
+The following data flow corresponds to the previous diagram:
 
 1. Data is ingested in the following ways:
 
@@ -37,10 +39,10 @@ With the medallion pattern, consisting of Bronze, Silver, and Gold storage layer
 
 ### Components
 
-- [Event Hubs](/azure/well-architected/service-guides/event-hubs) is a big data streaming platform and event ingestion service designed to handle millions of events per second. In this architecture, it parses and scores streaming messages from various sources, including on-premises systems, and provides real-time data to Azure Databricks for processing.
+- [Event Hubs](/azure/well-architected/service-guides/azure-event-hubs) is a big data streaming platform and event ingestion service designed to handle millions of events per second. In this architecture, it parses and scores streaming messages from various sources, including on-premises systems, and provides real-time data to Azure Databricks for processing.
 - [Azure Data Factory](/azure/data-factory/introduction) is a data integration service that orchestrates and automates data movement and transformation. In this architecture, it manages scheduled or triggered pipelines that ingest, prepare, and transform data from diverse sources into the data lake.
 - [Data Lake Storage](/azure/storage/blobs/data-lake-storage-introduction) is a scalable data storage service for structured and unstructured data. In this architecture, it serves as the underlying infrastructure for Delta Lake. It stores raw, curated, and enriched data across Bronze, Silver, and Gold layers.
-- [Azure Databricks](/azure/well-architected/service-guides/azure-databricks-security) is an Apache Spark–based analytics platform optimized for Azure that supports collaborative data engineering, data science, and machine learning. In this architecture, Azure Databricks processes incoming data from Event Hubs and Azure Data Factory, cleans and transforms it, and loads it into Delta Lake tables.
+- [Azure Databricks](/azure/well-architected/service-guides/azure-databricks) is an Apache Spark–based analytics platform optimized for Azure that supports collaborative data engineering, data science, and machine learning. In this architecture, Azure Databricks processes incoming data from Event Hubs and Azure Data Factory, cleans and transforms it, and loads it into Delta Lake tables.
 - [IoT Hub](/azure/well-architected/service-guides/iot-hub) is a managed service that enables secure and reliable communication between IoT applications and devices. In this architecture, it streams telemetry data from connected devices into Azure Databricks for real-time processing and enrichment.
 - [Delta Lake](/azure/databricks/delta/) is an open-source storage layer that provides reliability to data lakes through ACID transactions and scalable metadata handling. In this architecture, Delta Lake on Data Lake Storage ensures consistent, efficient ingestion and querying of data across the Bronze, Silver, and Gold layers.
 
@@ -62,6 +64,14 @@ This solution is inspired by the system that Providence Health Care built for re
 - Finance
 - Healthcare and life sciences
 - Energy suppliers
+
+## Cost Optimization
+
+Cost Optimization focuses on ways to reduce unnecessary expenses and improve operational efficiencies. For more information, see [Design review checklist for Cost Optimization](/azure/well-architected/cost-optimization/checklist).
+
+To estimate the cost of this architecture, use the [preconfigured estimate in the Azure pricing calculator](https://azure.com/e/95d70fad3eaf46c48ccbf2f47c271655). Adjust the values to match your expected data volumes, cluster sizes, and pipeline run frequency.
+
+Azure Databricks compute is the primary cost driver in this architecture. Configure cluster auto-termination and use jobs compute instead of all-purpose compute for production workloads to reduce costs.
 
 ## Next steps
 

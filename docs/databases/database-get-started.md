@@ -2,10 +2,11 @@
 title: Get Started with Database Architecture Design
 description: Learn about database architecture design on Azure, including technology choices, solution ideas, and reference architectures for your workloads.
 author: anaharris-ms
-ms.author: anaharris
+ms.author: pnp
 ms.date: 03/05/2026
 ms.topic: concept-article
-ms.subservice: architecture-guide
+ms.custom: arb-data
+ms.subservice: category-get-started
 ai-usage: ai-assisted
 ---
 
@@ -62,8 +63,6 @@ The following articles help you evaluate and select the best database technologi
 
 **Data governance**
 
-- [Data obfuscation by using Delphix](../databases/guide/data-obfuscation-with-delphix-in-azure-data-factory.yml)
-- [Data scrambling for SAP by using Delphix](../databases/guide/data-scrambling-for-sap-using-delphix-and-azure-data-factory.yml)
 - [Collection structure for a federated Microsoft Purview catalog](../guide/data/collection-structure-federated-catalog.md)
 
 ### Database architectures
@@ -99,6 +98,10 @@ The following production-ready architectures demonstrate end-to-end database sol
 - [Rehost IMS Data Communication (IMS DC) and IMS Database (IMS DB)](../example-scenario/mainframe/rehost-ims-raincode-imsql.yml)
 - [Implement SMA OpCon in Azure](../example-scenario/integration/sma-opcon-azure.yml)
 
+**In-memory data stores**
+
+- [Write-through caching with Azure Managed Redis and Azure SQL Database](../databases/architecture/write-through-caching-azure-sql-managed-redis.yml)
+
 **Relational**
 
 - [Oracle Database with Azure NetApp Files](../example-scenario/file-storage/oracle-azure-netapp-files.yml)
@@ -106,7 +109,7 @@ The following production-ready architectures demonstrate end-to-end database sol
 
 **Big data**
 
-- [Microsoft Fabric deployment patterns](../analytics/architecture/fabric-deployment-patterns.yml)
+- [Microsoft Fabric deployment patterns](../data-guide/technology-choices/fabric-deployment-patterns.md)
 
 ### Database solution ideas
 
@@ -120,6 +123,10 @@ The following production-ready architectures demonstrate end-to-end database sol
 **NoSQL**
 
 - [Replicate data by using a change feed to minimize storage](../databases/idea/minimal-storage-change-feed-replicate-data.yml)
+
+**Relational and NoSQL**
+
+- [Polyglot persistence with Azure Cosmos DB and Azure SQL Database](../databases/idea/combine-relational-nosql.yml)
 
 ## Learn about databases on Azure
 
@@ -144,7 +151,7 @@ For more role-based training, [browse other learning paths](/training/browse/?re
 
 ## Organizational readiness
 
-Organizations that are beginning their cloud adoption can use the [Cloud Adoption Framework for Azure](/azure/cloud-adoption-framework/) for proven guidance designed to accelerate cloud adoption. For cloud-scale analytics and data management guidance, see [Cloud-scale analytics](/azure/cloud-adoption-framework/scenarios/cloud-scale-analytics).
+Organizations that are beginning their cloud adoption can use the [Cloud Adoption Framework for Azure](/azure/cloud-adoption-framework/) for proven guidance designed to accelerate cloud adoption. For guidance on creating an executive strategy for a unified data platform, see [Executive strategy for unifying your data](/azure/cloud-adoption-framework/data/executive-strategy-unify-data-platform).
 
 To help ensure the quality of your database solution on Azure, follow the [Azure Well-Architected Framework](/azure/well-architected/). The Well-Architected Framework provides prescriptive guidance for organizations that seek architectural excellence and describes how to design, provision, and monitor cost-optimized Azure solutions.
 
@@ -224,9 +231,3 @@ Principal authors:
 - [Mohit Agarwal](https://www.linkedin.com/in/mohitagarwal01/) | Principal Cloud Solution Architect
 
 *To see nonpublic LinkedIn profiles, sign in to LinkedIn.*
-
-## Related resources
-
-- [Adatum Corporation scenario for cloud-scale analytics in Azure](/azure/cloud-adoption-framework/scenarios/cloud-scale-analytics/architectures/reference-architecture-adatum)
-- [Lamna Healthcare scenario for data management and analytics in Azure](/azure/cloud-adoption-framework/scenarios/cloud-scale-analytics/architectures/reference-architecture-lamna)
-- [Relecloud scenario for data management and analytics in Azure](/azure/cloud-adoption-framework/scenarios/cloud-scale-analytics/architectures/reference-architecture-multizone)

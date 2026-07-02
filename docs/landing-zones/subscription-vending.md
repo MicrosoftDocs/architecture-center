@@ -1,8 +1,8 @@
 ---
 title: Subscription Vending Implementation Guidance
 description: Learn how to implement subscription vending to standardize the process for automatic subscription creation and deploy workloads faster.
-author: jtracey93
-ms.author: jatracey
+author: piyushdhore-microsoft
+ms.author: piyushdhore
 ms.date: 12/15/2025
 ms.topic: concept-article
 ms.subservice: architecture-guide

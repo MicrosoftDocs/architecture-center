@@ -1,4 +1,4 @@
-The Geode pattern involves deploying a collection of backend services into a set of **ge**ographical n**ode**s, each of which can service any request for any client in any region. This pattern allows serving requests in an *active-active* style, improving latency and increasing availability by distributing request processing around the globe.
+Deploy a collection of backend services into a set of **ge**ographical n**ode**s, each of which can service any request from any client in any region. This *active-active* approach distributes request processing around the globe to improve latency and increase availability.
 
 ![Geode map](./_images/geode.jpg)
 
@@ -18,7 +18,7 @@ Modern cloud infrastructure has evolved to enable geographic load balancing of f
 
 Deploy the service into multiple satellite deployments spread around the globe, each of which is called a *geode*. The geode pattern harnesses key features of Azure to route traffic via the shortest path to a nearby geode, which improves latency and performance. Each geode is behind a global load balancer, and uses a geo-replicated read-write service like [Azure Cosmos DB](/azure/cosmos-db/introduction) to host the data plane, ensuring cross-geode data consistency. Data replication services ensure that data stores are identical across geodes, so *all* requests can be served from *all* geodes.
 
-The key difference between a [deployment stamp](./deployment-stamp.yml) and a geode is that geodes never exist in isolation. There should always be more than one geode in a production platform.
+The key difference between a [deployment stamp](./deployment-stamp.md) and a geode is that geodes never exist in isolation. There should always be more than one geode in a production platform.
 
 ![Geode overview](./_images/geode-dist.png)
 
@@ -32,7 +32,7 @@ The geode pattern occurs in big data architectures that use commodity hardware t
 
 Services can use this pattern over dozens or hundreds of geodes. Furthermore, the resiliency of the whole solution increases with each added geode, since any geodes can take over if a regional outage takes one or more geodes offline.
 
-It's also possible to augment local availability techniques, such as availability zones or paired regions, with the geode pattern for global availability. This increases complexity, but is useful if your architecture is underpinned by a storage engine such as blob storage that can only replicate to a paired region. You can deploy geodes into an zonal (single zone), multi-zone, or regional footprint, with a mind to regulatory or latency constraints on location.
+It's also possible to augment local availability techniques, such as availability zones or paired regions, with the geode pattern for global availability. This increases complexity, but is useful if your architecture is underpinned by a storage engine such as blob storage that can only replicate to a paired region. You can deploy geodes into a zonal (single zone), multi-zone, or regional footprint, with a mind to regulatory or latency constraints on location.
 
 ## Issues and considerations
 
@@ -64,7 +64,7 @@ Use this pattern:
 
 This pattern might not be suitable for
 
-- Architectures that have constraints so that all geodes can't be equal for data storage. For example, there might be data residency requirements, an application that needs to maintain temporary state for a particular session, or a heavy weighting of requests towards a single region. In this case, consider using [deployment stamps](./deployment-stamp.yml) in combination with a global routing plane that is aware of where a user's data sits, such as the traffic routing component described within the [deployment stamps pattern](./deployment-stamp.yml).
+- Architectures that have constraints so that all geodes can't be equal for data storage. For example, there might be data residency requirements, an application that needs to maintain temporary state for a particular session, or a heavy weighting of requests towards a single region. In this case, consider using [deployment stamps](./deployment-stamp.md) in combination with a global routing plane that is aware of where a user's data sits, such as the traffic routing component described within the [deployment stamps pattern](./deployment-stamp.md).
 - Situations where there's no geographical distribution required. Instead, consider availability zones and paired regions for clustering.
 - Situations where a legacy platform needs to be retrofitted. This pattern works for cloud-native development only, and can be difficult to retrofit.
 - Simple architectures and requirements, where geo-redundancy and geo-distribution aren't required or advantageous.

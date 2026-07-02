@@ -33,7 +33,7 @@ The numbered circles in the diagram correspond to the numbered steps in the foll
 
 - [Azure Cosmos DB](/azure/well-architected/service-guides/cosmos-db) is a globally distributed multiple-model NoSQL database that has open APIs for any scale. In this architecture, Azure Cosmos DB provides scalable NoSQL storage for batch processing metadata and working data.
 
-- [Azure Databricks](/azure/well-architected/service-guides/azure-databricks-security) is an Apache Spark-based analytics platform that provides big data analytics services. In this architecture, Azure Databricks can be used for advanced analytics and machine learning on batch processing results.
+- [Azure Databricks](/azure/well-architected/service-guides/azure-databricks) is an Apache Spark-based analytics platform that provides big data analytics services. In this architecture, Azure Databricks can be used for advanced analytics and machine learning on batch processing results.
 
 - [Azure ExpressRoute](/azure/well-architected/service-guides/azure-expressroute) is a connectivity service that provides private connections between Azure datacenters and on-premises infrastructure. In this architecture, ExpressRoute enables high-bandwidth, low-latency connectivity for batch processing applications that need to access on-premises data sources.
 
@@ -43,7 +43,7 @@ The numbered circles in the diagram correspond to the numbered steps in the foll
 
 - [Load Balancer](/azure/well-architected/service-guides/azure-load-balancer) is a load balancing service that provides low-latency layer-4 (TCP, UDP) load balancing capabilities to balance traffic between VMs, and across multitiered hybrid apps. In this architecture, Load Balancer distributes incoming traffic among healthy batch processing instances to optimize performance.
 
-- [Azure Managed Disks](/azure/virtual-machines/managed-disks-overview) are high-performance, highly durable block storage volumes for VMs. There are three disk storage options for the cloud: Azure Ultra Disk Storage, Azure Premium SSD, and Azure Standard SSD. In this architecture, Azure Managed Disks provide persistent storage for batch processing applications and temporary data.
+- [Azure managed disks](/azure/virtual-machines/managed-disks-overview) are high-performance, highly durable block storage volumes for VMs. There are three disk storage options for the cloud: Azure Ultra Disk Storage, Azure Premium SSD, and Azure Standard SSD. In this architecture, Azure managed disks provide persistent storage for batch processing applications and temporary data.
 
 - [Azure network interface](/azure/networking/fundamentals/networking-overview) is a component that connects a VM to the internet and to Azure and on-premises resources. You can give each child VM its own network interface and IP address. In this architecture, network interfaces enable connectivity between batch processing VMs and the Service Bus messaging system. For more information about network interfaces, see [Create, change, or delete a network interface](/azure/virtual-network/virtual-network-network-interface).
 
@@ -61,9 +61,9 @@ The numbered circles in the diagram correspond to the numbered steps in the foll
 
 - [Log Analytics](/azure/well-architected/service-guides/azure-log-analytics) is a tool in the Azure portal that you can use to edit and run log queries on [Azure Monitor](/azure/azure-monitor/overview) logs. In this architecture, Log Analytics provides centralized logging and monitoring capabilities for batch processing operations.
 
-- [Service Bus](/azure/well-architected/service-guides/service-bus/reliability) is a cloud messaging service that provides reliable cloud messaging as a service (MaaS) and simple hybrid integration. In this architecture, Service Bus delivers transaction messages to AKS clusters and ensures reliable message processing for batch workloads.
+- [Service Bus](/azure/well-architected/service-guides/azure-service-bus) is a cloud messaging service that provides reliable cloud messaging as a service (MaaS) and simple hybrid integration. In this architecture, Service Bus delivers transaction messages to AKS clusters and ensures reliable message processing for batch workloads.
 
-- [SQL Managed Instance](/azure/well-architected/service-guides/azure-sql-managed-instance/reliability) is a managed database service that provides a secure and always up-to-date SQL instance in the cloud. In this architecture, SQL Managed Instance provides high-availability database services with a business-critical performance tier for permanent data storage.
+- [SQL Managed Instance](/azure/well-architected/service-guides/azure-sql-managed-instance) is a managed database service that provides a secure and always up-to-date SQL instance in the cloud. In this architecture, SQL Managed Instance provides high-availability database services with a business-critical performance tier for permanent data storage.
 
 - [Stream Analytics](/azure/stream-analytics/stream-analytics-introduction) is a service that provides real-time analytics for fast-moving streams of data from applications and devices. In this architecture, Stream Analytics processes streaming data from batch operations for real-time monitoring and analytics.
 
@@ -111,12 +111,12 @@ Here are pricing considerations for specific components:
 
 - Most enterprises already have a Microsoft Active Directory implementation. If not, [Microsoft Entra ID P1 or P2](https://azure.microsoft.com/services/active-directory/) is low cost.
 - [Windows VM pricing](https://azure.microsoft.com/pricing/details/virtual-machines/windows/) and [Linux VM pricing](https://azure.microsoft.com/pricing/details/virtual-machines/linux/) depend on your compute capacity.
-- For Premium SSD or Ultra managed storage disks pricing, see [Managed Disks pricing](https://azure.microsoft.com/pricing/details/managed-disks/).
+- For Premium SSD or Ultra managed storage disks pricing, see [managed disks pricing](https://azure.microsoft.com/pricing/details/managed-disks/).
 - There are no upfront costs for [Azure SQL Database](https://azure.microsoft.com/pricing/details/sql-database/single/); you pay for resources as used.
 - For [ExpressRoute](https://azure.microsoft.com/pricing/details/expressroute/), you pay a monthly port fee and outbound data transfer charges.
 - [Azure Storage](https://azure.microsoft.com/pricing/details/storage/) costs depend on data redundancy options and volume.
 - [Azure Files](https://azure.microsoft.com/pricing/details/storage/files/) pricing depends on many factors: data volume, data redundancy, transaction volume, and the number of file sync servers that you use.
-- For SSD managed disk pricing, see [Managed Disks](https://azure.microsoft.com/pricing/details/managed-disks/) pricing.
+- For SSD managed disk pricing, see [managed disks](https://azure.microsoft.com/pricing/details/managed-disks/) pricing.
 - For [Site Recovery](https://azure.microsoft.com/pricing/details/site-recovery/), you pay for each protected instance.
 - These services are free with your Azure subscription, but you pay for usage and traffic:
   - [Load Balancer](https://azure.microsoft.com/pricing/details/load-balancer/).
@@ -151,6 +151,4 @@ Performance Efficiency is the ability of your workload to scale to meet the dema
   - [Use geo-redundancy to design highly available applications](/azure/storage/common/geo-redundant-design?tabs=current)
   - [What are ARM templates?](/azure/azure-resource-manager/templates/overview)
 
-- Azure reference architecture:
-
-  - [Unisys mainframe migration](../../reference-architectures/migration/unisys-mainframe-migration.yml)
+ 

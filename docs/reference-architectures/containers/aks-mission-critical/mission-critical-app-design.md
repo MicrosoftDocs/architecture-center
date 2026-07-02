@@ -42,7 +42,7 @@ Other supporting components that run in the cluster include:
 
 - **Secrets Store CSI Driver**: The Azure Key Vault provider for Secrets Store CSI Driver securely reads secrets, such as connection strings from Key Vault.
 
-- **Monitoring agent**: The default OMSAgentForLinux configuration is adjusted to reduce the amount of monitoring data that's sent to the Azure Monitor Logs workspace.
+- **Monitoring agent**: The default Azure Monitor Agent configuration is adjusted to reduce the amount of monitoring data that's sent to the Azure Monitor Logs workspace.
 
 ## Database connection
 
@@ -59,7 +59,7 @@ For mission-critical applications that prioritize availability over performance,
 
 Use Azure Storage to temporarily store state in the stamp for Azure Event Hubs checkpointing.
 
-All workload components use the Azure Cosmos DB .NET Core SDK to communicate with the database. The SDK includes robust logic to maintain database connections and handle failures. Key configuration settings include:
+All workload components use the Azure Cosmos DB .NET SDK to communicate with the database. The SDK includes robust logic to maintain database connections and handle failures. Key configuration settings include:
 
 - **Direct connectivity mode**: This setting is a default for .NET SDK v3 because it offers better performance. Direct connectivity mode has fewer network hops compared to Gateway mode, which uses HTTP.
 
@@ -85,7 +85,7 @@ The key characteristics of asynchronous messaging include:
 
 - End-to-end tracing requires complex orchestration.
 
-We recommend that you use well-known design patterns, such as the [Queue-Based Load Leveling pattern](/azure/architecture/patterns/queue-based-load-leveling) and [Competing Consumers pattern](/azure/architecture/patterns/competing-consumers). These patterns distribute the load from the producer to the consumers and enable asynchronous processing by consumers. For example, the worker lets the API accept the request and quickly return to the caller, and the worker processes a database write operation separately.
+We recommend that you use well-known design patterns, such as the [Queue-Based Load Leveling pattern](/azure/architecture/patterns/queue-based-load-leveling) and [Competing Consumers pattern](../../../patterns/competing-consumers.md). These patterns distribute the load from the producer to the consumers and enable asynchronous processing by consumers. For example, the worker lets the API accept the request and quickly return to the caller, and the worker processes a database write operation separately.
 
 Event Hubs brokers messages between the API and worker.
 
@@ -169,7 +169,7 @@ To demonstrate practical request traceability, every successful and unsuccessful
 
 ### Kubernetes monitoring implementation details
 
-You can use diagnostic settings to send AKS logs and metrics to Azure Monitor Logs. You can also use the container insights feature with AKS. Enable container insights to deploy the OMSAgentForLinux through a Kubernetes DaemonSet on each of the nodes in AKS clusters. The OMSAgentForLinux can collect more logs and metrics from within the Kubernetes cluster and send them to its corresponding Azure Monitor Logs workspace. This workspace contains granular data about pods, deployments, services, and the overall health of the cluster.
+You can use diagnostic settings to send AKS logs and metrics to Azure Monitor Logs. You can also use the container insights feature with AKS. Enable container insights to deploy Azure Monitor Agent through the `ama-logs` Kubernetes DaemonSet on each of the nodes in AKS clusters. The agent collects more logs and metrics from within the Kubernetes cluster and sends them to its corresponding Azure Monitor Logs workspace. This workspace contains granular data about pods, deployments, services, and the overall health of the cluster.
 
 Extensive logging can negatively affect cost and doesn't provide benefits. For this reason, *stdout* log collection and Prometheus scraping are disabled for the workload pods in the container insights configuration because all traces are already captured through Application Insights, which generates duplicate records.
 

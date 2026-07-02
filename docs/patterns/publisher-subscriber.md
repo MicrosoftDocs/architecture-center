@@ -11,7 +11,7 @@ ms.subservice: cloud-fundamentals
 
 # Publisher-Subscriber pattern
 
-The Publisher-Subscriber pattern lets applications broadcast events asynchronously to multiple interested consumers without coupling the senders and the receivers. This approach is known as *pub/sub messaging*.
+Broadcast events asynchronously to multiple interested consumers through an intermediary, without coupling the senders to the receivers. This approach, known as *pub/sub messaging*, lets a sender publish events without knowing which consumers receive them.
 
 ## Context and problem
 
@@ -112,7 +112,7 @@ Consider the following points as you decide how to implement this pattern:
 
 - **Correlation:** The broker decouples publishers from subscribers, which makes it harder to trace the end-to-end flow of a message. Include a correlation ID in every message so that subscribers and logging systems can connect related operations into a single trace.
 
-- **Backpressure and scaling:** When subscribers can't keep up, unprocessed messages accumulate in the broker and can deplete its resources. Use broker flow control settings to limit unacknowledged messages for each subscriber. Scale out subscribers by using the [Competing Consumers pattern](competing-consumers.yml) when flow control alone isn't sufficient.
+- **Backpressure and scaling:** When subscribers can't keep up, unprocessed messages accumulate in the broker and can deplete its resources. Use broker flow control settings to limit unacknowledged messages for each subscriber. Scale out subscribers by using the [Competing Consumers pattern](competing-consumers.md) when flow control alone isn't sufficient.
 
 ## When to use this pattern
 

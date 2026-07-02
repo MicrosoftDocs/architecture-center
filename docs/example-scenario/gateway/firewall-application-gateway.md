@@ -14,7 +14,7 @@ To help secure Azure application workloads, use protective measures such as auth
 
 - [DDoS Protection](/azure/ddos-protection/ddos-protection-overview), combined with application design best practices, provides enhanced DDoS mitigation features that improve defense against DDoS attacks. You should activate DDoS Protection on every perimeter virtual network.
 
-- [Azure Firewall][azfw-overview] is a managed, next-generation firewall that provides [network address translation (NAT)][nat] capabilities. Azure Firewall filters packets based on IP addresses and Transmission Control Protocol (TCP) or User Datagram Protocol (UDP) ports. It can filter traffic by using application-based attributes, such as HTTP(S) and SQL. Azure Firewall also applies Microsoft threat intelligence to help identify malicious IP addresses. For more information, see [Azure Firewall documentation][azfw-docs].
+- [Azure Firewall][azfw-overview] is a managed, next-generation firewall that provides [network address translation (NAT)][nat] capabilities, including destination network address translation (DNAT) to publish private workloads on the firewall's public IP addresses and source network address translation (SNAT) to translate egress flows to those same public IPs. Azure Firewall filters packets based on IP addresses and Transmission Control Protocol (TCP) or User Datagram Protocol (UDP) ports. It can filter traffic by using application-based attributes, such as HTTP(S) and SQL. Azure Firewall also applies Microsoft threat intelligence to help identify malicious IP addresses. For more information, see [Azure Firewall documentation][azfw-docs].
 
 - [Azure Firewall Premium][azfw-premium-features] includes all the functionality of Azure Firewall Standard, in addition to features like Transport Layer Security (TLS) inspection and an intrusion detection and prevention system (IDPS).
 
@@ -84,7 +84,7 @@ The following packet walk example shows how a client accesses a VM-hosted applic
 
 - In this example, Azure Firewall automatically deploys several instances with the front-end IP address `192.168.100.4` and internal addresses within the range `192.168.100.0/26`. Normally, these instances aren't visible to the Azure administrator. However, being aware of them can be helpful for troubleshooting network problems.
 
-- If traffic comes from an on-premises virtual private network (VPN) or [Azure ExpressRoute][expressroute] gateway instead of the internet, the client starts the connection to the VM's IP address. It doesn't start the connection to the firewall's IP address, and the firewall doesn't do source network address translation (NAT) by default.
+- If traffic comes from an on-premises virtual private network (VPN) or [Azure ExpressRoute][expressroute] gateway instead of the internet, the client starts the connection to the VM's IP address. It doesn't start the connection to the firewall's IP address, and the firewall doesn't perform source network address translation (SNAT) by default.
 
 ### Architecture
 
@@ -428,7 +428,7 @@ For more information, see the [design guide to integrate API Management and Appl
 
 ### AKS
 
-For workloads that run on an AKS cluster, you can deploy Application Gateway independently of the cluster. Or you can integrate it with the AKS cluster by using the [Application Gateway Ingress Controller][agic_overview]. When you configure specific objects at the Kubernetes levels, such as services and ingresses, Application Gateway automatically adapts without needing extra manual steps.
+For workloads that run on an AKS cluster, integrate them by using [Application Gateway for Containers][agc_overview]. Application Gateway for Containers is an Azure-managed layer-7 load balancer and ingress solution for AKS. The in-cluster application load balancer controller watches Kubernetes Gateway API and Ingress resources and configures Application Gateway for Containers accordingly. It also keeps the data plane in sync with Kubernetes changes without extra manual steps.
 
 Azure Firewall plays an important role in AKS cluster security. It provides the required functionality to filter egress traffic from the AKS cluster based on FQDN, not only the IP address. For more information, see [Limit network traffic by using Azure Firewall in AKS][aks-egress].
 
@@ -487,7 +487,7 @@ Explore related architectures:
 
 [afd-overview]: /azure/frontdoor/front-door-overview  
 [afd-vs-appgw]: /azure/frontdoor/front-door-faq#what-is-the-difference-between-azure-front-door-and-azure-application-gateway  
-[agic_overview]: /azure/application-gateway/ingress-controller-overview  
+[agc_overview]: /azure/application-gateway/for-containers/overview  
 [aks-egress]: /azure/aks/limit-egress-traffic  
 [aks-secure-baseline]: /azure/architecture/reference-architectures/containers/aks/secure-baseline-aks  
 [api-management]: https://azure.microsoft.com/services/api-management/  

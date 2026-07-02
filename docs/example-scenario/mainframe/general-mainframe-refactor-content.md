@@ -104,7 +104,7 @@ This example features the following Azure components. Several of these component
 
 - [Azure Storage](/azure/storage/common/storage-introduction) is a cloud-based service that provides scalable, secure cloud storage for all your data, applications, and workloads. In this architecture, Storage provides the necessary storage infrastructure for various data types and applications.
 
-  - [Azure Disk Storage](/azure/virtual-machines/managed-disks-overview) is a high-performance, durable block storage service for business-critical applications. Azure Managed Disks are block-level storage volumes that Azure manages on Azure VMs. The available types of disks are Ultra Disk Storage, Premium SSD, and Azure Standard SSD. This architecture uses either Premium SSDs or Ultra Disk Storage.
+  - [Azure Disk Storage](/azure/virtual-machines/managed-disks-overview) is a high-performance, durable block storage service for business-critical applications. Azure managed disks are block-level storage volumes that Azure manages on Azure VMs. The available types of disks are Ultra Disk Storage, Premium SSD, and Azure Standard SSD. This architecture uses either Premium SSDs or Ultra Disk Storage.
 
   - [Azure Files](/azure/well-architected/service-guides/azure-files) is a fully managed cloud-based file storage service that provides file shares in the cloud. These file shares are accessible via the industry-standard Server Message Block (SMB) protocol. In this architecture, Azure Files provides managed file shares for cloud and on-premises deployments. Cloud and on-premises Windows, Linux, and macOS deployments can mount Azure Files file shares concurrently.
 
@@ -114,9 +114,9 @@ This example features the following Azure components. Several of these component
 
 - [Azure databases](https://azure.microsoft.com/product-categories/databases) provide a choice of fully managed relational and NoSQL databases to fit modern application needs. Automated infrastructure management provides scalability, availability, and security.
 
-  - [SQL Database](/azure/well-architected/service-guides/azure-sql-database-well-architected-framework) is a fully managed PaaS database engine. In this architecture, it provides scalable and highly available data storage to share across multiple compute resources in a cluster. SQL Database always runs on the latest stable version of SQL Server and a patched operating system that has 99.99% availability. Built-in PaaS database management capabilities include upgrading, patching, backups, and monitoring. You can use SQL Database to focus on domain-specific, business-critical database administration and optimization.
+  - [SQL Database](/azure/well-architected/service-guides/azure-sql-database) is a fully managed PaaS database engine. In this architecture, it provides scalable and highly available data storage to share across multiple compute resources in a cluster. SQL Database always runs on the latest stable version of SQL Server and a patched operating system that has 99.99% availability. Built-in PaaS database management capabilities include upgrading, patching, backups, and monitoring. You can use SQL Database to focus on domain-specific, business-critical database administration and optimization.
 
-  - [Azure Database for PostgreSQL](/azure/well-architected/service-guides/postgresql) is a fully managed database based on the open-source Postgres relational database engine. In this architecture, it provides the [Hyperscale (Citus) deployment option](https://techcommunity.microsoft.com/blog/adforpostgresql/when-to-use-hyperscale-citus-to-scale-out-postgres/1958269), which scales queries across multiple machines by using sharding. This capability is helpful for applications that require greater scale and performance.
+  - [Azure Database for PostgreSQL](/azure/well-architected/service-guides/postgresql) is a fully managed database based on the open-source Postgres relational database engine. In this architecture, it uses the [Elastic clusters](/azure/postgresql/elastic-clusters/concepts-elastic-clusters) capability, which scales queries across multiple machines by using sharding. This capability is helpful for applications that require greater scale and performance.
 
   - [Azure Cosmos DB](/azure/well-architected/service-guides/cosmos-db) is a fully managed, fast NoSQL database that has open APIs for any scale. In this architecture, Azure Cosmos DB provides scalable and highly available data storage for various applications.
 
@@ -201,10 +201,9 @@ Principal author:
 
 ## Next steps
 
-- For more information, contact [legacy2azure@microsoft.com](mailto:legacy2azure@microsoft.com).
 - [What is ExpressRoute?](/azure/expressroute/expressroute-introduction)
 - [What is Virtual Network?](/azure/virtual-network/virtual-networks-overview)
-- [Introduction to Azure Managed Disks](/azure/virtual-machines/managed-disks-overview)
+- [Introduction to Azure managed disks](/azure/virtual-machines/managed-disks-overview)
 - [What is Private Link?](/azure/private-link/private-link-overview)
 - [What is SQL Database?](/azure/azure-sql/database/sql-database-paas-overview)
 - [What is Azure Files?](/azure/storage/files/storage-files-introduction)
@@ -212,7 +211,6 @@ Principal author:
 ## Related resources
 
 - [Rehost mainframe applications to Azure with Raincode compilers](../../reference-architectures/app-modernization/raincode-reference-architecture.yml)
-- [Unisys mainframe migration](../../reference-architectures/migration/unisys-mainframe-migration.yml)
 - [IBM z/OS mainframe migration with Avanade AMT](avanade-amt-zos-migration.yml)
 - [High-volume batch transaction processing](process-batch-transactions.yml)
 - [Modernize mainframe and midrange data](/azure/architecture/example-scenario/mainframe/modernize-mainframe-data-to-azure)

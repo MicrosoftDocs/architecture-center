@@ -6,8 +6,6 @@ ms.author: pnp
 ms.date: 08/08/2022
 ms.topic: reference-architecture
 ms.subservice: reference-architecture
-ms.custom:
-  - fcp
 ---
 
 <!-- cSpell:ignore fullheight netapp gluster cyclecloud hpcpack alces slurm mdcs cntk -->
@@ -159,7 +157,6 @@ There are many workload managers offered in the [Microsoft Marketplace](https://
 
 - [SUSE Linux Enterprise Server for HPC](https://www.suse.com/products/server/hpc/)
 - [Azure Data Science VM for Windows and Linux](/azure/machine-learning/data-science-virtual-machine/overview)
-- [UberCloud](https://marketplace.microsoft.com/product/ubercloud.ubercloud_platform_subscription_vm)
 
 ### Azure Batch
 
@@ -242,7 +239,7 @@ In addition to the network configurations available in the [Cloud Bursting](#hyb
             href="/azure/architecture/reference-architectures/hybrid-networking/hub-spoke">
             <article class="card has-outline-hover is-relative is-fullheight">
                     <figure class="image has-margin-right-none has-margin-left-none has-margin-top-none has-margin-bottom-none">
-                        <img role="presentation" alt="Diagram showing how to implement a hub-spoke network topology in Azure." src="../../networking/architecture/_images/hub-spoke.png">
+                        <img role="presentation" alt="Diagram showing how to implement a hub-spoke network topology in Azure." src="../../networking/architecture/_images/hub-spoke-network-topology-architecture.svg">
                     </figure>
                 <div class="card-content has-text-overflow-ellipsis">
                     <div class="has-padding-bottom-none">

@@ -4,7 +4,7 @@ description: Learn how to develop resilient and scalable code that runs on Azure
 author: dbarkol
 ms.author: dabarkol
 ms.topic: concept-article
-ms.date: 07/03/2024
+ms.date: 04/22/2026
 ms.subservice: architecture-guide
 ---
 
@@ -18,7 +18,7 @@ Azure provides three main messaging services that can be used with Azure Functio
 
 Understanding the benefits and drawbacks of streams helps you appreciate how a service like [Event Hubs](/azure/event-hubs/event-hubs-about) operates. You also need this context when making significant architectural decisions, troubleshooting issues, and optimizing for performance. Consider the following key concepts about solutions featuring both Event Hubs and Functions:
 
-- **Streams aren't queues:** Event Hubs, Kafka, and other similar offerings that are built on the partitioned consumer model don't intrinsically support some of the principal features in a message broker like [Service Bus](/azure/service-bus-messaging/service-bus-messaging-overview). Perhaps the biggest indicator of these differences is the fact that reads are **non-destructive**. This ensures that the data read by the Functions host remains available afterwards. Instead, messages are immutable and remain for other consumers to read, including potentially the same consumer reading it again. For this reason, solutions that implement patterns such as [competing consumers](/azure/architecture/patterns/competing-consumers) might be better served with a message broker such as Service Bus.
+- **Streams aren't queues:** Event Hubs, Kafka, and other similar offerings that are built on the partitioned consumer model don't intrinsically support some of the principal features in a message broker like [Service Bus](/azure/service-bus-messaging/service-bus-messaging-overview). Perhaps the biggest indicator of these differences is the fact that reads are **non-destructive**. This ensures that the data read by the Functions host remains available afterwards. Instead, messages are immutable and remain for other consumers to read, including potentially the same consumer reading it again. For this reason, solutions that implement patterns such as [Competing Consumers](../../patterns/competing-consumers.md) might be better served with a message broker such as Service Bus.
 
 - **Missing inherent dead-letter support:** A dead-letter channel isn't a native feature in Event Hubs or Kafka. Often, the *concept* of dead-lettering is integrated into a streaming solution to account for data that cannot be processed. This functionality is intentionally not an innate element in Event Hubs and is only added on the consumer side to manufacture a similar behavior or effect. If you need dead-letter support, you should potentially review your choice of a streaming message service.
 
@@ -110,7 +110,7 @@ In the end, there isn't a perfect solution and the consequences and tradeoffs of
 
 Principal author:
 
- - [David Barkol](https://www.linkedin.com/in/davidbarkol/) | Principal Solution Specialist GBB
+ - [David Barkol](https://www.linkedin.com/in/davidbarkol/) | AI Apps GBB
  
 *To see non-public LinkedIn profiles, sign in to LinkedIn.*
 

@@ -213,8 +213,4 @@ Other contributors:
 ## Next steps
 
 - [Bring your own AI models to intelligent apps on AKS by using the AI toolchain operator](/shows/learn-live/intelligent-apps-on-aks-ep02-bring-your-own-ai-models-to-intelligent-apps-on-aks-with-kaito)
-- [Deploy the AI toolchain operator on AKS by using Terraform](https://techcommunity.microsoft.com/t5/azure-for-isv-and-startups/deploy-kaito-on-aks-using-terraform/ba-p/4108930)
-
-## Related resource
-
 - [Baseline architecture for an AKS cluster](../aks/baseline-aks.yml)

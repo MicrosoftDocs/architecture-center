@@ -1,4 +1,4 @@
-This article provides a basic architecture to help you learn how to run chat applications by using [Microsoft Foundry](/azure/ai-foundry/what-is-foundry) and [Azure OpenAI in Foundry Models](/azure/ai-foundry/foundry-models/concepts/models-sold-directly-by-azure#azure-openai-in-azure-ai-foundry-models). The architecture includes a client user interface (UI) that runs in Azure App Service. To fetch grounding data for the language model, the UI uses an agent hosted in Foundry Agent Service to orchestrate the workflow from incoming prompts to data stores. The architecture runs in a single region.
+This article provides a basic architecture to help you learn how to run chat applications by using [Microsoft Foundry](/azure/foundry/what-is-foundry) and [Azure OpenAI in Foundry Models](/azure/foundry/foundry-models/concepts/models-sold-directly-by-azure#azure-openai-in-microsoft-foundry-models). The architecture includes a client user interface (UI) that runs in Azure App Service. To fetch grounding data for the language model, the UI uses a [prompt agent](/azure/foundry/agents/overview#agent-types) hosted in Foundry Agent Service to orchestrate the workflow from incoming prompts to data stores. The architecture runs in a single region.
 
 > [!IMPORTANT]
 > This architecture isn't for production. It's an introductory architecture for learning and proof of concept (POC) purposes. When you design production chat applications, use the [Baseline Foundry chat reference architecture](baseline-microsoft-foundry-chat.yml), which adds production design decisions.
@@ -11,7 +11,7 @@ This article provides a basic architecture to help you learn how to run chat app
 :::image type="complex" source="./_images/openai-end-to-end-basic.svg" lightbox="./_images/openai-end-to-end-basic.svg" alt-text="Diagram that shows a basic end-to-end chat architecture." border= "false":::
   The diagram presents a flow of a basic chat application. To initiate interaction, an application user accesses a URL https://domainname.azurewebsites.net, which is labeled number 1. This request flows into an App Service instance that uses built-in authentication, which is labeled number 2. App Service has a component labeled managed identity, which indicates that the application uses managed identities for secure authentication.
 
-    App Service points to Agent Service, which is labeled number 3. Agent Service is in the same subsection as Foundry project and managed identities. This subsection is in a larger section named Foundry. The Foundry section also contains a Foundry account and an Azure OpenAI model. The Foundry account has a dotted line that points to Agent Service. Agent Service points to an Azure OpenAI model, which is labeled number 5. An arrow points from the Foundry project subsection to Azure AI Search, which falls outside of all sections. It's labeled number 4.
+    App Service points to Agent Service, which is labeled number 3. Agent Service is in the same subsection as Foundry project and managed identities. This subsection is in a larger section named Foundry. The Foundry section also contains a Foundry resource and an Azure OpenAI model. The Foundry resource has a dotted line that points to Agent Service. Agent Service points to an Azure OpenAI model, which is labeled number 5. An arrow points from the Foundry project subsection to Azure AI Search, which falls outside of all sections. It's labeled number 4.
 
     A separate subsection called monitoring contains Application Insights and Azure Monitor. This subsection is labeled number 6.
 :::image-end:::
@@ -25,8 +25,8 @@ The following workflow corresponds to the previous diagram:
 1. An application user interacts with a web application that contains chat functionality. They issue an HTTPS request to the App Service default domain on `azurewebsites.net`. This domain automatically points to the App Service built-in public IP address. The Transport Layer Security connection is established from the client directly to App Service. Azure fully manages the certificate.
 
 1. The App Service feature called Easy Auth ensures that the user who accesses the website is authenticated via Microsoft Entra ID.
-1. The application code deployed to App Service handles the request and renders a chat UI for the application user. The chat UI code connects to APIs hosted in the same App Service instance. The API code connects to an agent in Agent Service by using the [Azure AI Persistent Agents SDK](/dotnet/api/overview/azure/ai.agents.persistent-readme).
-1. Agent Service connects to Azure AI Search or requests up-to-date public knowledge to fetch grounding data for the query. The grounding data is added to the prompt that's sent to the model in the next step.
+1. The application code deployed to App Service handles the request and renders a chat UI for the application user. The chat UI code connects to APIs hosted in the same App Service instance. The API code connects to an agent in Agent Service by using the [Microsoft Agent Framework](/agent-framework/overview/).
+1. Agent Service uses its configured tools to fetch grounding data for the query. In this architecture, those tools include an Azure AI Search index and a web search capability for up-to-date public knowledge. The grounding data is added to the prompt that's sent to the model in the next step.
 1. Agent Service connects to an Azure OpenAI model that's deployed in Foundry and sends the prompt that includes relevant grounding data and chat context.
 1. Application Insights logs information about the original request to App Service and agent interactions.
 
@@ -34,21 +34,21 @@ The following workflow corresponds to the previous diagram:
 
 Many of this architecture's components are the same as the [basic App Service web application architecture](../../web-apps/app-service/architectures/basic-web-app.yml) because the chat UI is based on that architecture. This section highlights data services, components that you can use to build and orchestrate chat flows, and services that expose language models.
 
-- [Foundry](/azure/ai-foundry/what-is-foundry) is a platform that you use to build, test, and deploy AI solutions and models as a service (MaaS). This architecture uses Foundry to deploy an Azure OpenAI model.
+- [Foundry](/azure/foundry/what-is-foundry) is a platform that you use to build, test, deploy, and host agents that consume models as a service (MaaS). This architecture uses Foundry to host an agent and to run inferencing against an Azure OpenAI model.
 
-  - [Foundry projects](/azure/ai-foundry/how-to/create-projects) establish connections to data sources, define agents, and invoke deployed models, including Azure OpenAI models. This architecture has only one Foundry project within the Foundry account.
+  - [Foundry projects](/azure/foundry/how-to/create-projects) are containers within a Foundry resource where you configure agents, model deployments, and connections to data sources. Each project exposes an endpoint that client applications use to interact with the project's agents and models. This architecture has only one Foundry project within the Foundry resource.
 
-  - [Agent Service](/azure/ai-foundry/agents/overview) is a capability hosted in Foundry. You use this service to define and host agents to handle chat requests. It manages chat threads, orchestrates tool calls, enforces content safety, and integrates with identity, networking, and observability systems. In this architecture, Agent Service orchestrates the flow that fetches grounding data from AI Search and other connected knowledge sources and passes it with the prompt to the deployed model.
+  - [Agent Service](/azure/foundry/agents/overview) is a capability hosted in Foundry. You use this service to define and host agents to handle chat requests. It manages the chat conversation history, orchestrates tool calls, enforces content safety, and integrates with identity, networking, and observability systems. In this architecture, Agent Service orchestrates the flow that fetches grounding data from AI Search and other connected tools and passes it with the prompt to the deployed model.
 
-    The agents defined in Agent Service are codeless and effectively nondeterministic. Your agent's system prompt, combined with `temperature` and `top_p` parameters, and constrained knowledge connections define how the agent behave for all requests.
+    This architecture uses a prompt agent, which you define declaratively. The agent's system prompt, combined with `temperature` and `top_p` parameters, and constrained knowledge connections define how the agent behaves for all requests.
   
-  - [Foundry Models](/azure/ai-foundry/foundry-models/how-to/deploy-foundry-models) allow you to deploy flagship models, including OpenAI models, from the Azure AI catalog in a Microsoft-hosted environment. This approach is considered a MaaS deployment. This architecture deploys models by using the [Global Standard](/azure/ai-foundry/foundry-models/concepts/deployment-types#global-standard) configuration with a fixed quota.
+  - [Foundry Models](/azure/foundry/foundry-models/how-to/deploy-foundry-models) allow you to deploy flagship models, including OpenAI models, from the Azure AI catalog in a Microsoft-hosted environment. This approach is considered a MaaS deployment. This architecture deploys models by using the [Global Standard](/azure/foundry/foundry-models/concepts/deployment-types#global-standard) configuration with a fixed quota.
 
 - [AI Search](/azure/search/search-what-is-azure-search) is a cloud search service that supports [full-text search](/azure/search/search-lucene-query-architecture), [semantic search](/azure/search/semantic-search-overview), [vector search](/azure/search/vector-search-overview), and [hybrid search](/azure/search/hybrid-search-overview). This architecture includes AI Search because it's commonly used in orchestrations behind chat applications. You use AI Search to retrieve indexed data relevant to user queries. AI Search serves as the knowledge store for the [Retrieval Augmented Generation](/azure/search/retrieval-augmented-generation-overview) pattern. This pattern extracts a query from a prompt, queries AI Search, and uses the results as grounding data for a model.
 
 ## Considerations
 
-These considerations implement the pillars of the Azure Well-Architected Framework, which is a set of guiding tenets that you can use to improve the quality of a workload. For more information, see [Microsoft Azure Well-Architected Framework](/azure/well-architected/).
+These considerations implement the pillars of the Azure Well-Architected Framework, which is a set of guiding tenets that you can use to improve the quality of a workload. For more information, see [Azure Well-Architected Framework](/azure/well-architected/).
 
 This basic architecture isn't intended for production. It favors simplicity and cost efficiency over functionality so that you can learn how to build end-to-end chat applications. The following sections outline deficiencies and recommendations. These omissions are deliberate to minimize setup time. Don't use this topology in production; each omission increases risk.
 
@@ -67,7 +67,7 @@ The following list outlines critical reliability features that this architecture
   > [!NOTE]
   > The AI Search instance in the components section and diagram is different from the instance that's a dependency of Agent Service. The instance in the components section stores your grounding data. The dependency does real-time chunking of files that are uploaded within a chat session or as part of an agent's definition.
 
-- For learning, use the Global Standard model deployment type. Before production, estimate throughput and data residency needs. If you require reserved throughput, choose a [Data Zone Provisioned](/azure/ai-foundry/foundry-models/concepts/deployment-types#data-zone-provisioned) or Global Provisioned deployment type. Use Data Zone Provisioned for explicit residency requirements.
+- For learning, use the Global Standard model deployment type. Before production, estimate throughput and data residency needs. If you require reserved throughput, choose a [Data Zone Provisioned](/azure/foundry/foundry-models/concepts/deployment-types#data-zone-provisioned) or Global Provisioned deployment type. Use Data Zone Provisioned for explicit residency requirements.
 
 - This architecture uses the AI Search Basic tier, which doesn't support [Azure availability zones](/azure/reliability/availability-zones-overview). For zone redundancy, use the Standard tier or higher in a zone-enabled region and deploy three or more replicas.
 
@@ -81,15 +81,15 @@ This section describes key recommendations that this architecture implements. Th
 
 #### Content filtering and abuse monitoring
 
-Foundry includes a [content filtering system](/azure/ai-foundry/concepts/content-filtering) that uses a combination of classification models. This filtering detects and blocks specific categories of potentially harmful content in input prompts and output completions. This potentially harmful content includes hate, sexual content, self-harm, violence, profanity, and jailbreak (content designed to bypass language model restrictions) categories. You can configure the filtering strictness for each category by using low, medium, or high options. This reference architecture uses the `DefaultV2` content filter when deploying models. You should adjust the settings according to your requirements.
+Foundry includes a [guardrails and content filtering system](/azure/foundry/guardrails/guardrails-overview) that uses a combination of classification models. This filtering detects and blocks specific categories of potentially harmful content in input prompts and output completions. This potentially harmful content includes hate, sexual content, self-harm, violence, profanity, and jailbreak (content designed to bypass language model restrictions) categories. You can configure the filtering strictness for each category by using low, medium, or high options. This reference architecture uses the `DefaultV2` content filter when deploying models. You should adjust the settings according to your requirements.
 
 #### Identity and access management
 
-The following guidance expands on the [identity and access management guidance](/azure/architecture/web-apps/app-service/architectures/baseline-zone-redundant#identity-and-access-management) in the App Service baseline architecture. The chat UI uses its managed identity to authenticate the chat UI API code to Agent Service by using the Azure AI Persistent Agents SDK.
+The following guidance expands on the [identity and access management guidance](/azure/architecture/web-apps/app-service/architectures/baseline-zone-redundant#identity-and-access-management) in the App Service baseline architecture. The chat UI authenticates to Agent Service by using its managed identity. The Microsoft Agent Framework uses the Azure.Identity library to authenticate using the managed identity assigned to the App Service instance.
 
 The Foundry project also has a managed identity. This identity authenticates to services such as AI Search through connection definitions. The project makes those connections available to Agent Service.
 
-A Foundry account can contain multiple Foundry projects. Each project should use its own managed identity. If different workload components require isolated access to connected data sources, create separate Foundry projects within the same account and avoid sharing connections across them. If your workload doesn't require isolation, use a single project.
+A Foundry resource can contain multiple Foundry projects. Each project should use its own managed identity. If different workload components require isolated access to connected data sources, create separate Foundry projects within the same resource and avoid sharing connections across them. If your workload doesn't require isolation, use a single project.
 
 #### Role-based access roles
 
@@ -97,9 +97,9 @@ You're responsible for creating the required role assignments for the managed id
 
 | Resource | Role | Scope |
 | --- | --- | --- |
-| App Service | Azure AI User | Foundry account |
+| App Service | Foundry User | Foundry resource |
 | Foundry project | Search Index Data Reader | AI Search |
-| Portal user (for each individual) | Azure AI Developer | Foundry account |
+| Portal user (for each individual) | Foundry User | Foundry resource |
 
 #### Network security
 
@@ -109,7 +109,7 @@ This architecture also doesn't restrict egress traffic. For example, an agent ca
 
 For more information about network security as an extra perimeter in your architecture, see [networking in the baseline architecture](baseline-microsoft-foundry-chat.yml#networking).
 
-If you want some network security during your evaluation of this solution, you should use the [network security perimeter support](/azure/ai-foundry/how-to/add-foundry-to-network-security-perimeter) on your Foundry project. This approach provides ingress and egress control before you implement virtual network resources in your architecture. When the Agent Service is configured for standard, private deployment, the network security perimeter is replaced with Private Link connections.
+If you want some network security during your evaluation of this solution, you should use the [network security perimeter support](/azure/foundry/how-to/add-foundry-to-network-security-perimeter) on your Foundry project. This approach provides ingress and egress control before you implement virtual network resources in your architecture. When the Agent Service is configured for standard, private deployment, the network security perimeter is replaced with Private Link connections.
 
 #### Microsoft Defender for Cloud
 
@@ -127,7 +127,7 @@ This basic architecture doesn't represent the costs for a production-ready solut
 
 - This architecture assumes limited model calls. Use the Global Standard deployment type (pay-as-you-go) instead of provisioned throughput. As you move toward production, follow the [cost optimization guidance](baseline-microsoft-foundry-chat.yml#cost-optimization) in the baseline architecture.
 
-- Agent Service incurs costs for files uploaded during chat interactions. Don't make file upload functionality available to application users if it's not part of the desired user experience. Extra knowledge connections, such as the [Grounding with Bing tool](https://www.microsoft.com/bing/apis/grounding-pricing), have their own pricing structures.
+- Agent Service incurs costs for files uploaded during chat interactions. Don't make file upload functionality available to application users if it's not part of the desired user experience. Extra knowledge connections, such as the [Web Search tool](https://www.microsoft.com/bing/apis/grounding-pricing), have their own pricing structures.
 
   Agent Service is a no-code solution. You can't deterministically control which tools or knowledge sources each request invokes. In cost modeling, assume maximum usage of each connection.
 
@@ -137,7 +137,7 @@ This basic architecture doesn't represent the costs for a production-ready solut
 
 - This architecture doesn't include cost governance or containment controls. Set Azure budgets and alerts early to guard against unexpected token or tool usage.
 
-  For budgeting, modify the [pricing calculator estimate](https://azure.com/e/6324d7c192ae4fd59092d5c2c60c07d9) of this architecture to fit your scenario.
+  For budgeting, modify the [preconfigured estimate in the Azure pricing calculator](https://azure.com/e/d43fd2e27fdc4766a125818efd56294e) of this architecture to fit your scenario.
 
 ### Operational Excellence
 
@@ -147,18 +147,18 @@ Operational Excellence covers the operations processes that deploy an applicatio
 
 This architecture configures diagnostics for all services. App Service captures `AppServiceHTTPLogs`, `AppServiceConsoleLogs`, `AppServiceAppLogs`, and `AppServicePlatformLogs`. Foundry captures `RequestResponse`. During the POC phase, inventory available logs and metrics. Before production, remove sources that don't add value.
 
-To use the monitoring capabilities in Foundry, [connect an Application Insights resource to your Foundry project](/azure/ai-foundry/how-to/monitor-applications#how-to-enable-monitoring).
+To use the monitoring capabilities in Foundry, [connect an Application Insights resource to your Foundry project](/azure/foundry/observability/how-to/trace-agent-setup#connect-application-insights-to-your-foundry-project).
 
 This integration enables monitoring of:
 
 - Real-time monitoring of token usage, including prompt, completion, and total tokens
 - Detailed request-response telemetry, including latency, exceptions, and response quality
 
-You can also [trace agents by using OpenTelemetry](/azure/ai-foundry/how-to/develop/trace-agents-sdk) for distributed diagnostics.
+You can also [trace agents by using OpenTelemetry](/azure/foundry/observability/how-to/trace-agent-setup) for distributed diagnostics.
 
 #### Model operations
 
-This architecture is optimized for learning and isn't intended for production. Plan for model lifecycle management and [model deprecation and retirement](/azure/ai-foundry/concepts/model-lifecycle-retirement) before promoting workloads.
+This architecture is optimized for learning and isn't intended for production. Plan for model lifecycle management and [model deprecation and retirement](/azure/foundry/openai/concepts/model-retirement-schedule) before promoting workloads.
 
 ##### Development
 
@@ -166,7 +166,7 @@ For the basic architecture, you can create agents by using the browser-based exp
 
 ##### Evaluation
 
-Evaluate your generative application in Foundry. Learn how to [use evaluators](/azure/ai-foundry/concepts/evaluation-evaluators/general-purpose-evaluators). This helps ensure model, prompt, and data quality meet design requirements.
+Evaluate your generative application in Foundry. Learn how to [use evaluators](/azure/foundry/concepts/evaluation-evaluators/general-purpose-evaluators). This helps ensure model, prompt, and data quality meet design requirements.
 
 ### Performance Efficiency
 
@@ -176,7 +176,7 @@ This architecture isn't designed for production deployments, so it omits critica
 
 - Use POC results to choose the right App Service product. Meet demand through horizontal scaling (adjust instance count). Avoid designs that require changing the product tier to handle routine demand.
 
-- This architecture uses pay-as-you-go components. Best-effort resource allocation can introduce noisy neighbor effects. Decide whether you need [provisioned throughput](/azure/ai-foundry/openai/how-to/provisioned-throughput-onboarding) to reserve capacity and achieve predictable performance.
+- This architecture uses pay-as-you-go components. Best-effort resource allocation can introduce noisy neighbor effects. Decide whether you need [provisioned throughput](/azure/foundry/openai/concepts/provisioned-throughput) to reserve capacity and achieve predictable performance.
 
 ### Other design recommendations
 
@@ -194,6 +194,6 @@ Architects should design AI and machine learning workloads, such as this one, wi
 ## Related resources
 
 - [A Well-Architected Framework perspective on AI workloads on Azure](/azure/well-architected/ai/get-started)
-- [Deploy AI models in the Foundry portal](/azure/ai-foundry/concepts/deployments-overview)
-- [Explore Models](/azure/ai-foundry/concepts/foundry-models-overview)
-- [What is Agent Service?](/azure/ai-foundry/agents/overview)
+- [Guardrails and controls](/azure/foundry/guardrails/guardrails-overview)
+- [Azure OpenAI models](/azure/foundry/foundry-models/concepts/models-sold-directly-by-azure)
+- [What is Agent Service?](/azure/foundry/agents/overview)

@@ -15,7 +15,7 @@ Microservices are a popular architectural style for building cloud applications 
 
 This set of articles explores how to build a microservices architecture on Azure. It includes the following guidance:
 
-- [Compute options for microservices](./compute-options.md): Evaluate Azure compute services for microservices, including Azure Kubernetes Service (AKS), Azure Container Apps, and Azure Functions. Learn when to use each service based on your requirements for scalability, management overhead, and deployment models.
+- [Compute options for microservices](./compute-options.md): Compare Azure compute platforms for microservices, including Azure Kubernetes Service (AKS), Azure Container Apps, Azure Functions, Azure App Service, and Azure Red Hat OpenShift. Evaluate each platform based on inter-service communication, independent scaling, and deployability.
 
 - [Interservice communication](./interservice-communication.yml): Design effective communication patterns between microservices by using synchronous and asynchronous approaches. Learn about REST APIs, messaging patterns, [event-driven architectures](../../guide/architecture-styles/event-driven.md), and service mesh technologies for reliable service-to-service communication.
 
@@ -27,7 +27,7 @@ This set of articles explores how to build a microservices architecture on Azure
 
 - [Container orchestration](./orchestration.yml): Deploy and manage containerized microservices at scale by using container orchestrators. Understand how platforms like Kubernetes automate deployment, scaling, load balancing, and health management to maintain desired system state in production environments.
 
-- [Design patterns](./patterns.yml): Apply proven design patterns specific to microservices, including the Ambassador pattern for offloading connectivity tasks, the Bulkhead pattern for resource isolation, and the Strangler Fig pattern for incremental application refactoring.
+- [Design patterns](./patterns.md): Apply proven design patterns to common microservices challenges, including the Saga pattern for distributed data consistency, the Bulkhead pattern for failure isolation, and the Strangler Fig pattern for incremental application refactoring.
 
 ## Prerequisites
 
@@ -70,4 +70,4 @@ This architecture uses Kubernetes with [AKS](/azure/aks/). But many of the high-
 - [Use API gateways in microservices](./gateway.yml)
 - [Data considerations for microservices](./data-considerations.md)
 - [Container orchestration for microservices](./orchestration.yml)
-- [Design patterns for microservices](./patterns.yml)
+- [Design patterns for microservices](./patterns.md)

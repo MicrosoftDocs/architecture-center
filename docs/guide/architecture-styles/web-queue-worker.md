@@ -71,7 +71,7 @@ Consider this architecture for the following use cases:
 
 - Scale automatically to handle changes in load. For more information, see [Autoscaling best practices](../../best-practices/auto-scaling.md).
 
-- Cache semistatic data. For more information, see [Caching best practices](../../best-practices/caching.yml).
+- Cache semistatic data. For more information, see [Caching best practices](../../best-practices/caching.md).
 
 - Use a content delivery network to host static content. For more information, see [Content delivery network best practices](../../best-practices/cdn.yml).
 
@@ -117,4 +117,4 @@ For more information, see [Baseline highly available zone-redundant web applicat
 
 ## Related resource
 
-- [Queue-Based Load Leveling pattern](../../patterns/queue-based-load-leveling.yml)
+- [Queue-Based Load Leveling pattern](../../patterns/queue-based-load-leveling.md)

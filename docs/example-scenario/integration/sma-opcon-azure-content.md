@@ -160,7 +160,7 @@ If you want to take advantage of the SMA service offering later, you can seamles
 
 - [SQL Database](/azure/well-architected/service-guides/azure-sql-database) is a fully managed relational database service for the cloud. It provides high availability, scalability, and built-in intelligence for single databases or elastic pools.
 
-  [SQL Managed Instance](/azure/well-architected/service-guides/azure-sql-managed-instance/reliability) is a fully managed SQL Server instance in the cloud that provides almost complete compatibility with on-premises SQL Server.
+  [SQL Managed Instance](/azure/well-architected/service-guides/azure-sql-managed-instance) is a fully managed SQL Server instance in the cloud that provides almost complete compatibility with on-premises SQL Server.
 
   In these architectures, the OpCon database is hosted in a SQL Database instance and accessed through a private endpoint. The OpCon back end can use either SQL Database or SQL Managed Instance to manage OpCon entries.
 
@@ -322,12 +322,9 @@ Other contributor:
 
 *To see nonpublic LinkedIn profiles, sign in to LinkedIn.*
 
-## Next steps
+## Next step
 
-For more information about this solution:
-
-- Contact the [Legacy Migrations Engineering team](mailto:legacy2azure@microsoft.com).
-- Contact [SMA](https://smatechnologies.com/contact-us). [SMA Technologies](https://smatechnologies.com) is a Microsoft Gold-level partner in the IT automation space.
+- For more information about this solution, contact [SMA Technologies](https://smatechnologies.com/contact-us), a Microsoft Gold-level partner in the IT automation space.
 
 ## Related resources
 

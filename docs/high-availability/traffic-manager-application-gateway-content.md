@@ -58,6 +58,8 @@ Some workloads accept traffic over protocols other than HTTP(S), like Secure Fil
 
 Outbound traffic flows for VM patch updates or other internet-bound traffic go from the workload VMs to Azure Firewall through UDRs. Azure Firewall enforces connectivity rules by using web categories and network and application rules to prevent workloads from accessing disallowed content or exfiltrating data.
 
+Approved flows leave the firewall source network address translated (SNAT) to one of its public IP addresses, which Azure Firewall selects randomly per flow. The number of attached public IPs caps the SNAT port budget and defines the egress identity that downstream partners need to allowlist; use a [public IP address prefix](/azure/virtual-network/ip-services/public-ip-address-prefix) to express that set as a contiguous range.
+
 ### Components
 
 - [Azure Firewall](/azure/well-architected/service-guides/azure-firewall) is a cloud service from Microsoft that provides next-generation firewall capabilities, including deep packet inspection for north-south and east-west traffic flows. In this architecture, Azure Firewall provides network security for both web and non-web traffic. It uses TLS inspection to inspect inbound HTTP(S) flows from Application Gateway, handles inbound non-HTTP(S) flows from the public internet, and inspects outbound flows from VMs to prevent data exfiltration.
@@ -258,7 +260,7 @@ Cost Optimization focuses on ways to reduce unnecessary expenses and improve ope
 
 - **Multiregion baseline cost:** This architecture deploys a full infrastructure stamp in each region, including Virtual Machine Scale Sets across three tiers, Application Gateway, Azure Firewall Premium, and load balancers. The secondary region incurs cost whether it serves traffic or not. In an active-passive configuration, scale the secondary region's Virtual Machine Scale Sets instances to the minimum required for a timely failover rather than run them at full production capacity.
 
-- **VMs:** VMs are the primary cost driver because every tier in both regions runs compute continuously. Use [Azure Reserved Virtual Machine Instances](/azure/virtual-machines/prepay-reserved-vm-instances) or [Azure savings plans for compute](/azure/cost-management-billing/savings-plan/savings-plan-compute-overview). Reserved instances work well for the minimum always-on capacity, while savings plans provide flexibility if VM sizes change over time.
+- **VMs:** VMs are the primary cost driver because every tier in both regions runs compute continuously. Use [Azure Reserved Virtual Machine Instances](/azure/virtual-machines/prepay-reserved-vm-instances) or [Azure savings plans for compute](/azure/cost-management-billing/savings-plan/savings-plan-overview). Reserved instances work well for the minimum always-on capacity, while savings plans provide flexibility if VM sizes change over time.
 
 - **Azure Firewall Premium:** Azure Firewall Premium has a fixed per-deployment-unit hourly charge plus variable per-gigabyte (GB) processing fees, and it runs in both regions. If your workload doesn't require intrusion detection and prevention system (IDPS) or TLS inspection, determine whether [Azure Firewall Standard](/azure/firewall/choose-firewall-sku) meets your security requirements at a lower price point.
 

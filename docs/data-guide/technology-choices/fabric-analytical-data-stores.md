@@ -6,8 +6,6 @@ ms.author: slavatrofimov
 ms.date: 04/15/2025
 ms.topic: concept-article
 ms.subservice: architecture-guide
-ms.custom:
-  - guide
 ---
 
 # Choose an analytical data store in Microsoft Fabric

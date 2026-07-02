@@ -250,7 +250,7 @@ Use [Unified Catalog health management](/purview/unified-catalog-data-health-man
 
 ### Platform services
 
-Fabric supports several [deployment patterns](/azure/architecture/analytics/architecture/fabric-deployment-patterns) that help organizations align their data architecture with business needs, governance models, and performance requirements. These patterns are defined at the tenant, capacity, workspace, and item levels of deployment. Each pattern provides different trade-offs in scalability, isolation, cost, and operational complexity.
+Fabric supports several [deployment patterns](/azure/architecture/data-guide/technology-choices/fabric-deployment-patterns) that help organizations align their data architecture with business needs, governance models, and performance requirements. These patterns are defined at the tenant, capacity, workspace, and item levels of deployment. Each pattern provides different trade-offs in scalability, isolation, cost, and operational complexity.
 
 The design incorporates several foundational Azure services. Microsoft Entra ID provides identity services, single sign-on (SSO), and multifactor authentication across Azure workloads. Cost Management delivers financial governance for your Azure workloads. Key Vault manages credentials and certificates securely. When you configure a [key vault in Fabric](/fabric/data-factory/azure-key-vault-reference-overview), you can retrieve credentials and certificates from the Key Vault service. Use these credentials to access data stores that don't support integrated authentication, like on-premises or external sources.
 
@@ -264,7 +264,12 @@ These considerations implement the pillars of the Azure Well-Architected Framewo
 
 Cost Optimization focuses on ways to reduce unnecessary expenses and improve operational efficiencies. For more information, see [Design review checklist for Cost Optimization](/azure/well-architected/cost-optimization/checklist).
 
-To estimate costs, see [Pricing](https://azure.microsoft.com/pricing/details/microsoft-fabric/). The ideal pricing tier and the total cost of each service in the architecture depend on the amount of data processed and stored and the expected performance level. Use the following guide to explore top cost optimization strategies for Fabric:
+To estimate costs, use this [preconfigured estimate in the Azure pricing calculator](https://azure.com/e/5b11662e04394a4da8bca4d0be2a6073). Adjust the values to see how your costs change based on your specific requirements. The ideal pricing tier and the total cost of each service in the architecture depend on the amount of data processed and stored and the expected performance level.
+
+> [!NOTE]
+> The pricing estimate doesn't include Azure DevOps, GitHub Enterprise, or Copilot in Fabric because these services have separate licensing. Core [Azure Policy](/azure/governance/policy/overview) evaluation is free, but some capabilities like regulatory compliance assessments might incur charges.
+
+Use the following guide to explore top cost optimization strategies for Fabric:
 
 - Fabric capacity is a shared pool that powers all Fabric capabilities, from data engineering and data warehousing to data modeling, BI, and AI experiences. Microsoft prices capacity units (CUs) by the hour with pay-as-you-go or reservation options. Pay-as-you-go provides flexibility to pay only for the hours that you use Fabric capacity. You can pause capacities when not in use to manage costs, without needing a monthly or yearly commitment. [Reservations](/azure/cost-management-billing/reservations/fabric-capacity) provide predictable billing and typically deliver savings for stable workloads. [OneLake storage](/fabric/onelake/onelake-overview) provides a single copy of data across all the analytical engines without the need to move or duplicate data.
 

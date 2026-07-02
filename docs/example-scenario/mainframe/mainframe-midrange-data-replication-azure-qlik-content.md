@@ -1,4 +1,4 @@
-This solution uses an on-premises instance of Qlik to replicate on-premises data sources to Azure in real time.
+This solution uses an on-premises instance of Qlik software to replicate on-premises data sources to Azure in real time.
 
 > [!NOTE]
 > Pronounce "Qlik" like "click."
@@ -61,17 +61,15 @@ Azure and Fabric provide managed services that enable scalable cloud storage and
 
 - [Azure Cosmos DB](/azure/well-architected/service-guides/cosmos-db) is a globally distributed NoSQL database service. In this architecture, it stores nontabular data migrated from mainframe systems and supports low-latency access across regions.
 
-- [Azure Database for MySQL](/azure/well-architected/service-guides/azure-db-mysql-cost-optimization) is a fully managed MySQL database service designed for scalability and high availability. In this architecture, it supports open-source relational workloads.
+- [Azure Database for MySQL](/azure/well-architected/service-guides/azure-database-for-mysql) is a fully managed MySQL database service designed for scalability and high availability. In this architecture, it supports open-source relational workloads.
 
 - [Azure Database for PostgreSQL](/azure/well-architected/service-guides/postgresql) is a fully managed, intelligent, and scalable PostgreSQL that has native connectivity with Azure services. In this architecture, it hosts relational data that benefits from advanced indexing, analytics, and compatibility with open-source tools.
 
 - [Azure SQL](/azure/azure-sql/) is a family of cloud-based SQL database services that support migration, modernization, and development. This family includes the following offerings:
 
-  - [Azure SQL Edge](/azure/azure-sql-edge/overview) is a lightweight SQL engine optimized for IoT and edge deployments. In this architecture, it processes and stores data close to devices in disconnected or latency-sensitive environments.
-
-  - [Azure SQL Managed Instance](/azure/well-architected/service-guides/azure-sql-managed-instance/reliability) is a fully managed SQL Server instance with near 100% compatibility with on-premises SQL Server. In this architecture, it hosts migrated databases that benefit from simplified management and built-in high availability.
+  - [Azure SQL Managed Instance](/azure/well-architected/service-guides/azure-sql-managed-instance) is a fully managed SQL Server instance with near 100% compatibility with on-premises SQL Server. In this architecture, it hosts migrated databases that benefit from simplified management and built-in high availability.
   
-  - [SQL Database](/azure/well-architected/service-guides/azure-sql-database-well-architected-framework) is a fully managed relational database optimized for scalability and performance. In this architecture, it supports modernized workloads with elastic compute and built-in intelligence.
+  - [SQL Database](/azure/well-architected/service-guides/azure-sql-database) is a fully managed relational database optimized for scalability and performance. In this architecture, it supports modernized workloads with elastic compute and built-in intelligence.
 
   - [SQL Server on Azure Virtual Machines](/azure/azure-sql/virtual-machines/windows/sql-server-on-azure-vm-iaas-what-is-overview) is a full-featured SQL Server instance that runs on Azure infrastructure. In this architecture, it supports legacy workloads that require full control over the operating system and database engine.
 
@@ -108,6 +106,8 @@ This solution might be appropriate for:
 - Online database migration from Db2 to an Azure SQL database with little downtime.
 
 - Data replication from various on-premises data stores to Azure for consolidation and analysis.
+
+- Organizations implementing phased migrations that require bi-directional data replication to ensure data consistency.
 
 ## Considerations
 
@@ -153,7 +153,7 @@ Operational Excellence covers the operations processes that deploy an applicatio
 
 You can combine Application Insights and Log Analytics features to monitor the health of Azure resources. You can set alerts so that you can manage problems proactively.
 
-Fabric enables operational excellence by unifying governance, observability, and resilient engineering patterns. This unification occurs across OneLake, Fabric Data Warehouse, Fabric Data Engineer, Fabric Real-Time Intelligence, and other workloads.
+Fabric enables operational excellence by unifying governance, observability, and resilient engineering patterns. This unification occurs across OneLake, Fabric Data Warehouse, Fabric Data Engineering, Fabric Real-Time Intelligence, and other workloads.
 
 ### Performance Efficiency
 
@@ -180,7 +180,7 @@ Other contributors:
 
 ## Next steps
 
-- [Qlik Data Integration platform](https://www.qlik.com/us/data-integration/data-integration-platform)
+- [Qlik Data Integration](https://www.qlik.com/us/data-integration/data-integration-tool)
 - [Unleash new Azure analytics initiatives (PDF data sheet)](https://pages.qlik.com/rs/049-DKK-796/images/MSFT081021_TG_Azure-Mainframe-Data_Datasheet-US_V2.pdf)
 - [What is ExpressRoute?](/azure/expressroute/expressroute-introduction)
 - [Event Hubs: A real-time data streaming platform with native Apache Kafka support](/azure/event-hubs/event-hubs-about)
@@ -190,7 +190,6 @@ Other contributors:
 - [Introduction to Application Insights with OpenTelemetry](/azure/azure-monitor/app/app-insights-overview)
 - [Azure Monitor Logs overview](/azure/azure-monitor/logs/data-platform-logs)
 - [Log queries in Azure Monitor](/azure/azure-monitor/logs/log-query-overview)
-- [Contact us (select to create email)](mailto:mainframedatamod@microsoft.com)
 
 ### Related resources
 

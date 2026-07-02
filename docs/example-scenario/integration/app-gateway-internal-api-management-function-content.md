@@ -2,9 +2,6 @@ APIs have become increasingly integral to how organizations and their customers 
 
 Azure Application Gateway serves as a security checkpoint for APIs. Instead of allowing users to connect directly over the internet, you route all traffic through an application gateway. This setup adds extra access controls to help protect your APIs. With this approach, you can use a single API Management instance to support both internal APIs within your organization and external APIs outside your organization, while keeping any publicly exposed APIs secured behind the gateway.
 
-> [!NOTE]
-> This architecture serves as the foundation of the guidance for [API Management in an Azure landing zone](/azure/cloud-adoption-framework/scenarios/app-platform/api-management/landing-zone-accelerator) in the Cloud Adoption Framework for Azure.
-
 ## Architecture
 
 :::image type="complex" border="false" source="./media/app-gateway-internal-api-management-function.svg" lightbox="./media/app-gateway-internal-api-management-function.svg" alt-text="The diagram shows a secure baseline architecture for API Management.":::
@@ -29,7 +26,7 @@ This architecture assumes that the policies are in place from the [Azure landing
 
 ### Components
 
-- [API Management](/azure/well-architected/service-guides/api-management/reliability) is a managed service that allows you to manage services across hybrid and multicloud environments. It provides control and security for API observability and consumption by both internal and external users. In this architecture, API Management serves as a facade to abstract the back-end architecture.
+- [API Management](/azure/well-architected/service-guides/azure-api-management) is a managed service that allows you to manage services across hybrid and multicloud environments. It provides control and security for API observability and consumption by both internal and external users. In this architecture, API Management serves as a facade to abstract the back-end architecture.
 
 - [Application Gateway](/azure/well-architected/service-guides/azure-application-gateway) is a managed service that serves as a layer-7 load balancer and [WAF](/azure/web-application-firewall/ag/ag-overview). Application Gateway protects the internal API Management instance, which enables the use of both internal and external modes. In this architecture, API Management secures APIs, and Application Gateway adds complementary capabilities such as WAF.
 
@@ -45,7 +42,7 @@ This architecture assumes that the policies are in place from the [Azure landing
 
 For the back-end services that the API Management instance connects to, several alternatives are available:
 
-- [Azure App Service](/azure/app-service/overview) is a fully managed HTTP-based service that builds, deploys, and scales web apps. It supports .NET, .NET Core, Java, Ruby, Node.js, PHP, and Python. Applications can run and scale in either Windows or Linux-based environments.
+- [Azure App Service](/azure/app-service/overview) is a fully managed HTTP-based service that builds, deploys, and scales web apps. It supports .NET, Java, Ruby, Node.js, PHP, and Python. Applications can run and scale in either Windows or Linux-based environments.
 
 - [Azure Kubernetes Service (AKS)](/azure/aks/intro-kubernetes) is a managed Kubernetes offering that delivers fully managed clusters. It enables integrated continuous integration and continuous delivery (CI/CD), along with built-in governance and security.
 
@@ -114,7 +111,7 @@ For some additional recommendations on how to preserve data such as host headers
 
 Cost Optimization focuses on ways to reduce unnecessary expenses and improve operational efficiencies. For more information, see [Design review checklist for Cost Optimization](/azure/well-architected/cost-optimization/checklist).
 
-- This deployment uses the [Premium plan](https://azure.microsoft.com/pricing/details/functions/) to support availability zone and virtual network capabilities. If you don't require dedicated instances, you can also use [Flex Consumption](/azure/azure-functions/flex-consumption-plan), which supports both network access and availability zones. Review the [pricing calculator](https://azure.com/e/802ca3c87e13413580e49bab4a9f67ea) for this deployment.
+- This deployment uses the [Premium plan](https://azure.microsoft.com/pricing/details/functions/) to support availability zone and virtual network capabilities. If you don't require dedicated instances, you can also use [Flex Consumption](/azure/azure-functions/flex-consumption-plan), which supports both network access and availability zones. Review the [preconfigured estimate in the Azure pricing calculator](https://azure.com/e/dad036fd924945f7ad6d302b718ba2d6) for this deployment.
 
 - For proof of concepts or prototypes, we recommend that you use other API Management tiers, such as Developer or Standard.
 
@@ -149,7 +146,6 @@ Principal authors:
 
 ## Next steps
 
-- [Cloud Adoption Framework guidance for adopting API Management in an Azure landing zone](/azure/cloud-adoption-framework/scenarios/app-platform/api-management/landing-zone-accelerator)
 - [API Management terminology](/azure/api-management/api-management-terminology)
 - [Application Gateway documentation](/azure/application-gateway/overview)
 

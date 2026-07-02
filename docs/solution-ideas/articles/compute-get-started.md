@@ -2,11 +2,11 @@
 title: Get Started with Compute Architecture Design
 description: Learn about Azure compute technologies, from virtual machines to serverless functions. Review guidance, solution ideas, and reference architectures.
 author: anaharris-ms
-ms.author: anaharris
+ms.author: pnp
 ms.date: 03/10/2026
 ms.update-cycle: 1095-days
 ms.topic: concept-article
-ms.subservice: architecture-guide
+ms.subservice: category-get-started
 ai-usage: ai-assisted
 ms.custom: arb-compute
 ---
@@ -57,7 +57,6 @@ The following production-ready architectures demonstrate comprehensive compute s
 
 - [AIX UNIX to Azure Linux migration](../../example-scenario/unix-migration/migrate-aix-azure-linux.yml): Migrate IBM AIX workloads to Azure Linux.
 - [General mainframe refactor to Azure](../../example-scenario/mainframe/general-mainframe-refactor.yml): Modernize mainframe applications by using Azure services.
-- [Solaris emulator on Azure virtual machines](./solaris-azure.yml): Emulate legacy Sun SPARC systems on Azure virtual machines.
 
 ### SAP
 
@@ -65,8 +64,8 @@ SAP workloads have specific architecture requirements. See the following resourc
 
 #### SAP guides
 
-- [SAP landscape architecture](../../guide/sap/sap-whole-landscape.yml): Review guidance about SAP landscapes on Azure.
-- [Inbound and outbound internet connections for SAP on Azure](../../guide/sap/sap-internet-inbound-outbound.yml): See a network architecture for SAP internet connectivity.
+- [SAP landscape architecture](../../guide/sap/sap-whole-landscape.md): Review guidance about SAP landscapes on Azure.
+- [Inbound and outbound internet connections for SAP on Azure](../../guide/sap/sap-internet-inbound-outbound.md): See a network architecture for SAP internet connectivity.
 
 #### SAP architectures
 
@@ -76,12 +75,9 @@ SAP workloads have specific architecture requirements. See the following resourc
 - [SAP NetWeaver in Windows on Azure](../../guide/sap/sap-netweaver.md): Deploy SAP NetWeaver on Windows VMs.
 - [SAP S/4HANA in Linux on Azure](../../guide/sap/sap-s4hana.md): Run SAP S/4HANA on Azure Linux VMs.
 
-#### SAP solution ideas
+#### SAP solution idea
 
-The following solution ideas demonstrate implementation patterns and possibilities to explore:
-
-- [SAP S/4HANA for Azure Large Instances for Epic](./sap-s4-hana-on-hli-with-ha-and-dr.yml): Deploy SAP S/4HANA on Azure Large Instances for Epic with HA/DR.
-- [Automate SAP workloads by using SUSE on Azure](./sap-workload-automation-suse.yml): Automate SAP deployment and operations by using SUSE tools.
+You can [automate SAP workloads by using SUSE tools on Azure](./sap-workload-automation-suse.yml).
 
 ## Learn about compute on Azure
 
@@ -103,7 +99,7 @@ The following resources provide foundational knowledge for compute implementatio
 
 ## Organizational readiness
 
-Organizations that start their cloud adoption can use the [Cloud Adoption Framework for Azure](/azure/cloud-adoption-framework/) to access proven guidance that accelerates cloud adoption. For cloud-scale compute guidance, see [Cloud-scale analytics](/azure/cloud-adoption-framework/scenarios/cloud-scale-analytics).
+Organizations that start their cloud adoption can use the [Cloud Adoption Framework for Azure](/azure/cloud-adoption-framework/) to access proven guidance that accelerates cloud adoption.
 
 To help ensure the quality of your compute solution on Azure, follow the [Azure Well-Architected Framework](/azure/well-architected/). The Well-Architected Framework provides prescriptive guidance for organizations that seek architectural excellence and describes how to design, provision, and monitor cost-optimized Azure solutions.
 
@@ -122,7 +118,7 @@ Follow best practices to help ensure that your compute solution on Azure is reli
 
 - [Autoscaling best practices](../../best-practices/auto-scaling.md): Learn about dynamic scaling to rightsize your infrastructure.
 - [Background jobs guidance](../../best-practices/background-jobs.md): Implement background processing for long-running tasks.
-- [Caching guidance](../../best-practices/caching.yml): Improve performance and reduce load on back-end systems.
+- [Caching guidance](../../best-practices/caching.md): Improve performance and reduce load on back-end systems.
 - [Content delivery network guidance](../../best-practices/cdn.yml): Distribute content closer to users for better performance.
 
 ### Cost optimization

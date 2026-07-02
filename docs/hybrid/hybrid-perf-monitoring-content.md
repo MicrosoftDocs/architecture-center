@@ -34,7 +34,7 @@ This reference architecture shows how to use Azure Monitor to monitor the perfor
 
 The architecture consists of the following components:
 
-- [Azure Event Hubs](/azure/well-architected/service-guides/event-hubs) is a real-time data ingestion service for streaming events. In this architecture, it connects Azure Monitor to external SIEM tools by streaming logs and metrics for advanced analytics and long-term retention.
+- [Azure Event Hubs](/azure/well-architected/service-guides/azure-event-hubs) is a real-time data ingestion service for streaming events. In this architecture, it connects Azure Monitor to external SIEM tools by streaming logs and metrics for advanced analytics and long-term retention.
 
 - [Azure Monitor](/azure/azure-monitor/overview) is a unified platform for collecting and analyzing telemetry across environments. In this architecture, it serves as the central monitoring solution for performance, availability, and diagnostics across Azure, on-premises, and third-party cloud resources.
 

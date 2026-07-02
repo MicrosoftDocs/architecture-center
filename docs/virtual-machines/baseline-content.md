@@ -12,8 +12,8 @@ This architecture serves as a starting point for an infrastructure as a service 
 ## Article layout
 
 | Architecture | Design decision | Well-Architected Framework approach|
-|---|---|---|
-|&#9642; [Architecture diagram](#architecture) <br>&#9642; [Workload resources](#workload-resources) <br> &#9642; [Supporting resources](#workload-supporting-resources) <br> &#9642; [User flows](#user-flows) <br> |&#9642; [VM design choices](#vm-design-choices)<br> &#9642; [Disks](#disks) <br> &#9642; [Networking](#network-layout) <br> &#9642; [Monitoring](#monitoring) <br> &#9642; [Update management](#update-management) |  <br> &#9642; [Reliability](#reliability) <br> &#9642; [Security](#security) <br> &#9642; [Cost Optimization](#cost-optimization)|
+| --- | --- | --- |
+| &#9642; [Architecture diagram](#architecture) <br>&#9642; [Workload resources](#workload-resources) <br> &#9642; [Supporting resources](#workload-supporting-resources) <br> &#9642; [User flows](#user-flows) <br> | &#9642; [VM design choices](#vm-design-choices)<br> &#9642; [Disks](#disks) <br> &#9642; [Networking](#network-layout) <br> &#9642; [Monitoring](#monitoring) <br> &#9642; [Update management](#update-management) | <br> &#9642; [Reliability](#reliability) <br> &#9642; [Security](#security) <br> &#9642; [Cost&nbsp;Optimization](#cost-optimization) |
 
 > [!TIP]
 > ![GitHub logo](../_images/github.svg) This [reference implementation](https://github.com/mspnp/iaas-baseline) demonstrates the best practices described in this article.
@@ -377,7 +377,7 @@ Every architecture is susceptible to failures. The exercise of failure mode anal
 | Component | Risk | Likelihood | Effect/Mitigation/Note | Outage |
 |-----------|------|------------|------------------------|--------|
 | Microsoft Entra ID | Misconfiguration | Medium | Ops users unable to sign in. No downstream effect. Help desk reports configuration issue to identity team. | None |
-| Application Gateway | Misconfiguration | Medium | Misconfigurations should be caught during deployment. If these errors happen during a configuration update, DevOps team must roll back changes. Most deployments that use the v2 SKU take around 6 minutes to provision. However it can take longer depending on the type of deployment. For example, deployments across multiple availability zones with many instances can take more than 6 minutes. | Full |
+| Application Gateway | Misconfiguration | Medium | Misconfigurations should be caught during deployment. If these errors happen during a configuration update, DevOps team must roll back changes. Most deployments that use the v2 SKU take around six minutes to provision. However it can take longer depending on the type of deployment. For example, deployments across multiple availability zones with many instances can take more than six minutes. | Full |
 | Application Gateway | DDoS attack | Medium | Potential for disruption. Microsoft manages DDoS (L3 and L4) protection. Potential risk of effect from L7 attacks. | Full |
 | Virtual Machine Scale Sets | Service outage | Low | Potential workload outage if there are unhealthy VM instances that trigger autorepair. Dependent on Microsoft to remediate. | Potential outage |
 | Virtual Machine Scale Sets | Availability zone outage | Low | No effect. Scale sets are deployed as zone redundant. | None |
@@ -386,7 +386,7 @@ Every architecture is susceptible to failures. The exercise of failure mode anal
 
 #### Reliability targets
 
-To make design decisions, it's important to calculate the reliability targets, such as the composite service-level objectives (SLOs) of the workload. Doing so involves understanding the service-level agreements (SLAs) provided by Azure services used in the architecture. Workload SLOs must not be higher than the SLAs guaranteed by Azure. Carefully examine each component, from VMs and their dependencies, networking, and storage options.
+To make design decisions, it's important to calculate the reliability targets, such as the composite service-level objectives (SLOs) of the workload. Doing so involves understanding the [service-level agreements (SLAs)](/azure/reliability/concept-service-level-agreements) provided by Azure services used in the architecture. Workload SLOs must not exceed the commitments defined in Azure SLAs. Carefully examine each component, from VMs and their dependencies, networking, and storage options.
 
 Here's an example calculation where the main goal is to provide an approximate composite SLO. While this is a rough guideline, you should arrive at something similar. You shouldn't get a higher maximum composite SLO for the same flows unless you make modifications to the architecture.
 
@@ -412,7 +412,7 @@ Here's an example calculation where the main goal is to provide an approximate c
 
 In the preceding example, reliability of VMs and the dependencies are included, such as disks associated with VMs. The SLAs associated with disk storage affect the overall reliability.
 
-There are some challenges when calculating the composite SLO. Different service tiers might have different SLAs, and these SLAs often include financially backed guarantees that set reliability targets. Finally, there might be components of the architecture that don't have SLAs defined. For example, in terms of networking, NICs and virtual networks don't have their own SLAs.
+There are some challenges when calculating the composite SLO. Different service tiers might have different SLAs, and these SLAs often include financially backed commitments that set reliability targets. Finally, there might be components of the architecture that don't have SLAs defined. For example, in terms of networking, NICs and virtual networks don't have their own SLAs.
 
 The business requirements and their targets must be clearly defined and factored into the calculation. Be aware of the service limits and other constraints imposed by the organization. Sharing your subscription with other workloads could affect the resources available for your VMs. The workload might be allowed to use a limited number of cores available for the VMs. Understanding the resource usage of your subscription can help you design your VMs more effectively.
 
@@ -448,7 +448,7 @@ Although Azure Virtual Machine Scale Sets in Flexible mode supports heterogeneou
 
 Consider other aspects such as bootstrapping, graceful shutdowns, installing the workload and all its dependencies, and disk management when creating or deleting VMs instances. 
 
-Stateful workloads might require extra management for managed disks that need to live beyond a workload instance. Design your workload for data management under scaling events for consistency, synchronization, replication, and integrity of the workload’s data. For those scenarios, consider [adding prepopulated disks to scale sets](/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-attached-disks#adding-pre-populated-data-disks-to-an-existing-scale-set). For use cases where scaling is used to prevent bottlenecks when accessing data, plan for partitioning and sharding. For more information, see [Autoscale best practices](/azure/azure-monitor/autoscale/autoscale-best-practices#autoscale-best-practices).
+Stateful workloads might require extra management for managed disks that need to live beyond a workload instance. Design your workload for data management under scaling events for consistency, synchronization, replication, and integrity of the workload’s data. For those scenarios, consider [adding prepopulated disks to scale sets](/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-attached-disks#adding-pre-populated-data-disks-to-an-existing-scale-set). For use cases where scaling is used to prevent bottlenecks when accessing data, plan for [partitioning](../best-practices/data-partitioning.yml) and [sharding](../patterns/sharding.md). For more information, see [Autoscale best practices](/azure/azure-monitor/autoscale/autoscale-best-practices#autoscale-best-practices).
 
 > Refer to Well-Architected Framework: [RE:06 - Recommendations for designing a reliable scaling strategy](/azure/well-architected/reliability/scaling).
 
@@ -544,6 +544,8 @@ The VMs use the [Key Vault VM extension](/azure/virtual-machines/extensions/key-
 ### Cost Optimization
 
 Cost Optimization is about looking at ways to reduce unnecessary expenses and improve operational efficiencies. For more information, see [Design review checklist for Cost Optimization](/azure/well-architected/cost-optimization/checklist).
+
+Use the [preconfigured estimate in the Azure pricing calculator](https://azure.com/e/8594eedc1e5847178f6c6d27895e6f51) to get an approximation of the monthly cost of the infrastructure components used in this architecture. Adjust the values to match your expected traffic and workload characteristics.
 
 #### Component cost
 

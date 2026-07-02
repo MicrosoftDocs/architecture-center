@@ -60,7 +60,7 @@ The Unisys enterprise servers trace their heritage to the first commercially ava
 
 A Unisys transition moves the entire Dorado system from today's hardware to Azure via a VM. The 2200 Exec OS and all processors, libraries, and data appear as they did on the physical environment. The OS requires a license from Unisys. The architecture includes support VMs, which handle functions such as virtual tapes operations, automation and workload management (OpCon), web services, and other support functions. The architecture also uses Azure storage features, including:
 
-- [Azure Managed Disks](/azure/virtual-machines/managed-disks-overview) are block-level storage volumes that Azure manages and Virtual Machines uses. The available types of disks are Azure Ultra Disks, Azure Premium SSDs, and Azure Standard SSDs. For this architecture, you should use either Premium SSDs or Ultra Disks.
+- [Azure managed disks](/azure/virtual-machines/managed-disks-overview) are block-level storage volumes that Azure manages and Virtual Machines uses. The available types of disks are Azure Ultra Disks, Azure Premium SSDs, and Azure Standard SSDs. For this architecture, you should use either Premium SSDs or Ultra Disks.
 
 - [Azure Files](https://azure.microsoft.com/services/storage/files/) is a service that you can use to fully manage file shares in the cloud that are accessible by using the industry-standard Server Message Block protocol. Cloud or on-premises deployments of Windows, Linux, and macOS can mount Azure file shares concurrently.
 
@@ -112,7 +112,7 @@ Operational Excellence covers the operations processes that deploy an applicatio
 
 Unisys demonstrates operational excellence by maintaining a familiar environment to the staff, while including new services like Site Recovery to provide DR failover.
 
-You can optimize your operational efficiency by deploying your solution with Azure Resource Manager templates and by using Azure Monitor to measure and improve your performance. For more information, see [DevOps architecture design](/azure/architecture/guide/devops/devops-start-here).
+You can optimize your operational efficiency by deploying your solution with Azure Resource Manager templates and by using Azure Monitor to measure and improve your performance. For more information, see [DevOps architecture design](/azure/architecture/guide/devops/devops-get-started).
 
 ### Performance Efficiency
 
@@ -133,12 +133,10 @@ Principal authors:
 
 ## Next steps
 
-For more information, contact **[legacy2azure@microsoft.com](mailto:legacy2azure@microsoft.com)**, or see the following resources:
-
 - [Azure mainframe and midrange migration](https://azure.microsoft.com/migration/mainframe)
 - [Create, change, or delete a network interface](/azure/virtual-network/virtual-network-network-interface)
 - [ExpressRoute documentation](/azure/expressroute/expressroute-introduction)
-- [Introduction to Azure Managed Disks](/azure/virtual-machines/managed-disks-overview)
+- [Introduction to Azure managed disks](/azure/virtual-machines/managed-disks-overview)
 - [Mainframe rehosting on Virtual Machines](/azure/virtual-machines/workloads/mainframe-rehosting/overview)
 - [SMA OpCon in Azure](/azure/architecture/example-scenario/integration/sma-opcon-azure)
 - [Unisys cloud management](https://www.unisys.com/solutions/cloud-management)

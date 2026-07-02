@@ -251,7 +251,7 @@ This graph shows the results of load testing. Median response time is measured i
 ![Key indicators load-test results for the chatty I/O sample application][key-indicators-chatty-io]
 
 > [!NOTE]
-> The application was deployed as an Azure App Service web app, using Azure SQL Database. The load test used a simulated step workload of up to 1000 concurrent users. The database was configured with a connection pool supporting up to 1000 concurrent connections, to reduce the chance that contention for connections would affect the results.
+> The application was deployed as an Azure App Service web app, using Azure SQL Database. The load test used a simulated step workload of up to 1,000 concurrent users. The database was configured with a connection pool supporting up to 1,000 concurrent connections, to reduce the chance that contention for connections would affect the results.
 
 ### Monitor the application
 
@@ -305,7 +305,7 @@ Tracing the SQL statement shows that all the data is fetched in a single SELECT 
 - [No Caching antipattern][no-cache]
 
 [api-design]: ../../best-practices/api-design.md
-[caching-guidance]: ../../best-practices/caching.yml
+[caching-guidance]: ../../best-practices/caching.md
 [data-consistency-guidance]: /previous-versions/msp-n-p/dn589800(v=pandp.10)
 [ef]: /ef
 [extraneous-fetching]: ../extraneous-fetching/index.md

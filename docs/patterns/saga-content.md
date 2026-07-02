@@ -1,4 +1,4 @@
-The Saga design pattern helps maintain data consistency in distributed systems by coordinating transactions across multiple services. A saga is a sequence of local transactions where each service performs its operation and initiates the next step through events or messages. If a step in the sequence fails, the saga performs compensating transactions to undo the completed steps. This approach helps maintain data consistency.
+Maintain data consistency in distributed systems by coordinating a sequence of local transactions across multiple services. Each service performs its operation and triggers the next step through events or messages. If a step fails, a series of compensating transactions undoes the changes that the completed steps made.
 
 ## Context and problem
 
@@ -141,9 +141,9 @@ This pattern might not be suitable when:
 
 The following patterns might be relevant when you implement this pattern:
 
-- The [Choreography pattern](./choreography.yml) has each component of the system participate in the decision-making process about the workflow of a business transaction, instead of relying on a central point of control.
+- The [Choreography pattern](./choreography.md) has each component of the system participate in the decision-making process about the workflow of a business transaction, instead of relying on a central point of control.
 
-- The [Compensating Transaction pattern](./compensating-transaction.yml) undoes work performed by a series of steps, and eventually defines a consistent operation if one or more steps fail. Cloud-hosted applications that implement complex business processes and workflows often follow this *eventual consistency model*.
+- The [Compensating Transaction pattern](./compensating-transaction.md) undoes work performed by a series of steps, and eventually defines a consistent operation if one or more steps fail. Cloud-hosted applications that implement complex business processes and workflows often follow this *eventual consistency model*.
 
 - The [Retry pattern](./retry.yml) lets an application handle transient failures when it tries to connect to a service or network resource by transparently retrying the failed operation. This pattern can improve the stability of the application.
 
