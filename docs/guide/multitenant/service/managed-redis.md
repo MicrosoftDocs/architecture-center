@@ -117,5 +117,6 @@ Other contributor:
 
 - [Architectural approaches for storage and data in multitenant solutions](../approaches/storage-data.md)
 - [Cache-Aside pattern](../../../patterns/cache-aside.yml)
+- [Write-through caching with Azure Managed Redis and Azure SQL Database](../../../databases/architecture/write-through-caching-azure-sql-managed-redis.yml)
 - [Sharding pattern](../../../patterns/sharding.md)
 - [Migrate from Azure Cache for Redis to Azure Managed Redis](/azure/redis/migrate/migrate-basic-standard-premium-overview)

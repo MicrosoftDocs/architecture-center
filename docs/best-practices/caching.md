@@ -92,6 +92,18 @@ Caching can also be used to avoid repeating computations while the application i
 
 An application can modify data that's in a cache. However, think of the cache as a transient data store that could disappear at any time. Don't store valuable data in the cache only; make sure that you maintain the information in the original data store as well. This approach minimizes the chance of losing data if the cache becomes unavailable.
 
+### Keep the cache consistent on writes
+
+When your application changes data that it also caches, decide how the cache stays consistent with the system of record. Two approaches are common:
+
+- **Invalidate on write:** Write the change to the data store, and then remove the affected cache entry. The next read repopulates the cache from the data store. This approach keeps the write path simple, but a reader can experience a cache miss or briefly see stale data immediately after a write. The [Cache-Aside pattern](../patterns/cache-aside.yml) describes this approach.
+
+- **Write-through:** Update the data store and the cache as part of the same write operation, and return the write response only after both updates succeed. This approach gives readers the updated value immediately after a successful write, at the cost of higher write latency and more coordination logic.
+
+  For an end-to-end example that uses Azure Functions to coordinate write-through updates to Azure SQL Database and Azure Managed Redis, see [Write-through caching with Azure Managed Redis and Azure SQL Database](../databases/architecture/write-through-caching-azure-sql-managed-redis.yml).
+
+Use write-through only for read-heavy access paths that need read-after-write freshness. For data that's rarely read after it's written or that changes constantly, invalidate on write or bypass the cache.
+
 ### Cache highly dynamic data
 
 Storing rapidly changing information in a persistent data store can impose an overhead on the system. For example, consider a device that continually reports status or some other measurement. If an application chooses not to cache this data on the basis that the cached information is usually outdated, the same consideration could be true when storing and retrieving this information from the data store. In the time it takes to save and fetch this data, it might change.
