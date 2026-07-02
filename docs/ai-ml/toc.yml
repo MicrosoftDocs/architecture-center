@@ -99,6 +99,8 @@ items:
           href: guide/rag/rag-generate-embeddings.md
         - name: Information-retrieval phase
           href: guide/rag/rag-information-retrieval.md
+        - name: Prompt engineering
+          href: guide/rag/rag-prompt-engineering.md
         - name: Model end-to-end evaluation phase
           href: guide/rag/rag-llm-evaluation-phase.md
         - name: Agentic RAG

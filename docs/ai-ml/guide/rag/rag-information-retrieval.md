@@ -1,5 +1,5 @@
 ---
-title: Develop a RAG Solution - Information Retrieval Phase
+title: Develop a RAG Solution on Azure - Information-Retrieval Phase
 description: Learn about how to configure a search index, the types of searches that you can run, how to break queries into subqueries, and why and how to rerank queries.
 author: claytonsiemens77
 ms.author: pnp

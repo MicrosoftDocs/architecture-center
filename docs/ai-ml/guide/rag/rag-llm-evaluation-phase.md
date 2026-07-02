@@ -1,5 +1,5 @@
 ---
-title: Develop a RAG Solution - Large Language Model End-to-End Evaluation Phase
+title: Develop a RAG Solution on Azure - Large Language Model End-to-End Evaluation Phase
 description: Learn about how to evaluate your RAG solution from end to end by calculating and evaluating key large language model and similarity metrics.
 author: claytonsiemens77
 ms.author: pnp

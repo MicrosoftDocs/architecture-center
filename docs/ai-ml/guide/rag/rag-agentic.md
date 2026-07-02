@@ -1,5 +1,5 @@
 ---
-title: Develop an Agentic RAG Solution
+title: Develop an Agentic RAG Solution on Azure
 description: Learn how to shift from a standard RAG pipeline to an agentic RAG architecture to enable dynamic query planning, multistep reasoning, and autonomous data gathering.
 author: claytonsiemens77
 ms.author: pnp
