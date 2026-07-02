@@ -94,7 +94,7 @@ The flow contains the following steps:
        rng.GetBytes(bytes);
        return Convert.ToBase64String(bytes).Replace("+", "-").Replace("/", "_").TrimEnd('=');
    }" />
-   <cache-store-value key="@($"oauth-state-{context.Variables.GetValueOrDefault<string>("state")}")"
+   <cache-store-value key='@($"oauth-state-{context.Variables.GetValueOrDefault<string>("state")}")'
     value="true" duration="300" />
    <return-response>
        <set-status code="302" reason="Found" />
