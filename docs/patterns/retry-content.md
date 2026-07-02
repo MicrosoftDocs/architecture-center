@@ -101,8 +101,6 @@ Refer to the [Implement a retry policy with .NET](/azure/storage/blobs/storage-r
 
 ## Related resources
 
-- [Reliable web app pattern](../web-apps/guides/enterprise-app-patterns/overview.md#reliable-web-app-pattern) shows you how to apply the retry pattern to web applications converging on the cloud.
-
 - For most Azure services, the client SDKs include built-in retry logic.
 
 - [Circuit Breaker pattern](./circuit-breaker.md). If a failure is expected to be more long lasting, it might be more appropriate to implement the Circuit Breaker pattern. Combining the Retry and Circuit Breaker patterns provides a comprehensive approach to handling faults.

@@ -50,18 +50,6 @@ The articles in this section include guides and fully developed architectures th
 
 The following articles help you evaluate and select the best web app technologies for your workload requirements.
 
-#### Application development
-
-- [Enterprise web app patterns](/azure/architecture/web-apps/guides/enterprise-app-patterns/overview): An overview of the Reliable Web App and Modern Web App patterns. These patterns provide structured guidance for cloud migration and modernization of web apps.
-
-- [Reliable Web App pattern for .NET](/azure/architecture/web-apps/guides/enterprise-app-patterns/reliable-web-app/dotnet/guidance): Prescriptive guidance for replatforming ASP.NET web apps to Azure, including architecture, code, and configuration recommendations.
-
-- [Reliable Web App pattern for Java](/azure/architecture/web-apps/guides/enterprise-app-patterns/reliable-web-app/java/guidance): Prescriptive guidance for replatforming Java web apps to Azure.
-
-- [Modern Web App pattern for .NET](/azure/architecture/web-apps/guides/enterprise-app-patterns/modern-web-app/dotnet/guidance): Guidance for modernizing cloud-based .NET web apps by decoupling high-demand areas into standalone services.
-
-- [Modern Web App pattern for Java](/azure/architecture/web-apps/guides/enterprise-app-patterns/modern-web-app/java/guidance): Guidance for modernizing cloud-based Java web apps by decoupling high-demand areas into standalone services.
-
 #### Networking
 
 - [Improved-security access to Azure App Service web apps from an on-premises network](/azure/architecture/web-apps/guides/networking/access-multitenant-web-app-from-on-premises): An architecture for setting up private connectivity to Azure App Service from on-premises networks by using Azure Private Link, virtual network integration, and private endpoints.

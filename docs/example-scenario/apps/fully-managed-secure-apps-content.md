@@ -102,9 +102,11 @@ Reliability helps ensure that your application can meet the commitments that you
 - Consider using [geo-distributed scale with App Service Environments][design-geo-distributed-ase] for greater resiliency and scalability.
 
 - Review the [typical design patterns for resiliency](/azure/well-architected/reliability/design-patterns) and implement them where appropriate.
+
 - Consider using active [geo-replication][sql-geo-replication] for the data tier and [geo-redundant][storage-geo-redudancy] storage for images and queues.
+
 - For more information, see the following resources:
-  - [Enterprise web app patterns][docs-web-app-patterns]
+
   - [Reliability in App Service Environment][docs-reliability-ase]
   - [Configure App Service Environment for zone redundancy][docs-zone-redundancy-ase]
 
@@ -193,7 +195,6 @@ Principal author:
 [docs-azure-scale-ase]: /azure/app-service/environment/using#how-scale-works
 [docs-kubernetes-service]: /azure/aks
 [docs-container-apps]: /azure/container-apps
-[docs-web-app-patterns]: /azure/architecture/web-apps/guides/enterprise-app-patterns/overview
 [docs-reliability-ase]: /azure/reliability/reliability-app-service-environment
 [docs-zone-redundancy-ase]: /azure/app-service/environment/configure-zone-redundancy-environment
 

@@ -462,6 +462,4 @@ Database scaling involves many considerations beyond the scope of this architect
 
 ## Related resources
 
-- [Enterprise web app patterns](../../../web-apps/guides/enterprise-app-patterns/overview.md)
 - [Guide to Private Link in Azure Virtual WAN](../../../networking/guide/private-link-virtual-wan-dns-guide.yml)
-
