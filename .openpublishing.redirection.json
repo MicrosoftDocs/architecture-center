@@ -7978,6 +7978,11 @@
       "redirect_document_id": true
     },
     {
+      "source_path": "docs/integration/integration-start-here.yml",
+      "redirect_url": "/azure/architecture/integration/integration-get-started",
+      "redirect_document_id": true
+    },
+    {
       "source_path": "docs/guide/virtual-desktop/start-here.md",
       "redirect_url": "/azure/architecture/virtual-desktop/virtual-desktop-get-started",
       "redirect_document_id": false

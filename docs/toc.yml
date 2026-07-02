@@ -1052,7 +1052,7 @@ items:
   - name: Integration
     items:
     - name: Get started
-      href: integration/integration-start-here.yml
+      href: integration/integration-get-started.md
     - name: Guides
       items:
       - name: Event Hubs with Azure Functions
