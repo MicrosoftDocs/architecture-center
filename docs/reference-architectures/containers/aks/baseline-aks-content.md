@@ -4,6 +4,11 @@ This architecture doesn't focus on a workload. It concentrates on the AKS cluste
 
 Your business requirements influence the target architecture and can vary between application contexts. Consider the architecture as your starting point for preproduction and production stages.
 
+> [!TIP]
+> This article covers extensive design considerations for AKS clusters. [AKS Automatic](/azure/aks/intro-aks-automatic) implements many design decisions to reduce the number of considerations you need to evaluate and to optimize for common use cases. For example, AKS Automatic provisions and operates a [managed system node pool](/azure/aks/automatic/aks-automatic-managed-system-node-pools-about), so the system node pool sizing, isolation, and upgrade decisions in this article don't apply to that platform.
+>
+> Even if your workload is going to be hosted in an AKS Automatic environment, knowing the foundations for a self-managed AKS cluster can help you make the right choices as your workload changes.
+
 Kubernetes is a broad ecosystem that extends beyond Azure and Microsoft technologies. When you deploy an AKS cluster, you're responsible for many decisions about how to design and operate the cluster. Running an AKS cluster involves closed-source components from various vendors, including Microsoft, along with open-source components from the Kubernetes ecosystem. The landscape changes frequently, so revisit decisions regularly. When you adopt Kubernetes, you acknowledge that your workload needs its capabilities and that your workload team is prepared to invest on an ongoing basis.
 
 You can use an implementation of this architecture on [GitHub: AKS baseline reference implementation](https://github.com/mspnp/aks-baseline) as an alternative starting point and configure it to meet your needs.
@@ -352,7 +357,7 @@ The ingress controller is a critical component of the cluster. Consider the foll
 >
 > Traefik is an open-source option for a Kubernetes cluster and is in this architecture for illustrative purposes. It shows non-Microsoft product integration with Azure services. For example, the implementation shows how to integrate Traefik with Microsoft Entra Workload ID and Key Vault.
 >
-> You can also use [Application Gateway Ingress Controller](/azure/application-gateway/ingress-controller-overview), which integrates well with AKS. Application Gateway provides benefits beyond its role as an ingress controller. It serves as the virtual network entry point for your cluster and can observe traffic entering the cluster. Use Application Gateway if your application requires a web application firewall. It also enables TLS termination.
+> You can also use [Application Gateway for Containers](/azure/application-gateway/for-containers/overview), which integrates well with AKS. Application Gateway provides benefits beyond its role as an ingress controller. It serves as the virtual network entry point for your cluster and can observe traffic that enters the cluster. Use Application Gateway if your application requires a web application firewall. It also enables TLS termination.
 
 ### Router settings
 
@@ -473,14 +478,14 @@ We recommend that you deploy your AKS cluster as a private cluster. All control 
 
 Private traffic to a private AKS cluster might originate from the spoke virtual network, from peered networks, or from private endpoints in remote networks. Although the AKS nodes naturally live in the spoke, operators doing administrative tasks require a dedicated network path to reach the AKS API server privately. You can establish this connectivity in the following ways:
 
-- **Tunnelling:** Use Azure Bastion to [open a tunnel directly to the cluster's API server](/azure/bastion/bastion-connect-to-aks-private-cluster).
+- **Tunneling:** Use Azure Bastion to [open a tunnel directly to the cluster's API server](/azure/bastion/bastion-connect-to-aks-private-cluster).
 - **Jump-box:** Provision a jump-box VM, and use Azure Bastion to connect to it through SSH or RDP. From there, the operator makes requests against the cluster's API server through its private IP address.
 
 In the reference implementation, we use Azure Bastion to tunnel to the AKS API server when performing cluster management operations. In general, this approach is simpler to manage, less costly than deploying and managing a jump-box VM, and less complex to coordinate among multiple operators. However, you might choose to use a jump-box VM if you have any of these requirements:
 
 - **Operators use insecure devices.** A jump-box VM can provide stronger security hardening if your client devices aren't trusted.
 - **Operators connect through unstable networks.** A jump-box VM can provide a more stable connection to the cluster, especially for long-running or batch management operations.
-- **Operators use advanced diagnostic tooling.** Some types of diagnostic tooling, like packet capture, might not work well with tunnelling approaches.
+- **Operators use advanced diagnostic tooling.** Some types of diagnostic tooling, like packet capture, might not work well with tunneling approaches.
 
 ## Add secret management
 
@@ -655,6 +660,14 @@ VMware [Velero](https://velero.io/) is an example of a common Kubernetes backup 
 The reference implementation doesn't implement backup, which involves extra Azure resources to manage, monitor, purchase, and secure. These resources might include an Azure Storage account, an Azure Backup vault and configuration, and the [trusted access feature](/azure/aks/trusted-access-feature). Instead, GitOps combined with the intent to run stateless workload is the recovery solution.
 
 Choose and validate a backup solution that meets your business objective, which includes your defined recovery-point objective and recovery-time objective. Define your recovery process in a team runbook and practice it for all business-critical workloads.
+
+If you must support stateful workloads and adopt [AKS Backup](/azure/backup/azure-kubernetes-service-backup-overview), use Azure Policy to enforce that backup is configured on your cluster. Azure Monitor surfaces backup job health through the same observability stack already established in this architecture. Beyond that governance, account for the following architectural considerations in your design:
+
+- **Backup scope.** Decide whether you back up the entire cluster or specific namespaces. AKS Backup stores data in a blob container and as disk or file snapshots. Define this scope early because it determines your storage account sizing, retention policies, and recovery granularity for scenarios such as operational recovery, environment cloning, and cluster upgrades.
+- **Trusted access.** AKS Backup requires [trusted access](/azure/aks/trusted-access-feature) between the Backup vault and the AKS cluster, regardless of whether the cluster is public, private, or IP-restricted.
+- **RBAC permissions.** The Backup vault's managed identity requires a set of permissions on the AKS cluster to configure and execute backups. The backup extension also creates a user identity with permissions on the storage account where backups are stored.
+- **Network egress.** The backup extension communicates with Azure Backup services from within the cluster. Account for the required outbound endpoints in your Azure Firewall and NSG rules.
+- **In-cluster footprint.** The extension deploys pods onto your nodes. Plan for the additional compute and memory consumption in your node resource budgets, and include the extension namespace in your network policy governance.
 
 ### Kubernetes API server SLA
 
@@ -988,6 +1001,6 @@ For more information, see [AKS pricing](https://azure.microsoft.com/pricing/deta
 
 - [Advanced AKS microservices architecture](../aks-microservices/aks-microservices-advanced.yml)
 - [Microservices architecture on AKS](../aks-microservices/aks-microservices.yml)
-- [Use Azure Firewall to help protect an AKS cluster](../../../guide/aks/aks-firewall.yml)
+- [Use Azure Firewall to help protect an AKS cluster](../../../guide/aks/aks-firewall.md)
 - [GitOps for AKS](../../../example-scenario/gitops-aks/gitops-blueprint-aks.yml)
 - [Data streaming by using AKS](../../../solution-ideas/articles/data-streaming-scenario.yml)

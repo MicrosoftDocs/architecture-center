@@ -12,9 +12,6 @@ metadata:
     - integration
     - developer-tools
   ms.custom:
-    - integration-services
-    - example-scenario
-    - internal-intro
     - arb-integrations
 name: Use a message broker and events to integrate enterprise systems
 azureCategories:

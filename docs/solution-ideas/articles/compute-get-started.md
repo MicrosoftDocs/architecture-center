@@ -2,11 +2,11 @@
 title: Get Started with Compute Architecture Design
 description: Learn about Azure compute technologies, from virtual machines to serverless functions. Review guidance, solution ideas, and reference architectures.
 author: anaharris-ms
-ms.author: anaharris
+ms.author: pnp
 ms.date: 03/10/2026
 ms.update-cycle: 1095-days
 ms.topic: concept-article
-ms.subservice: architecture-guide
+ms.subservice: category-get-started
 ai-usage: ai-assisted
 ms.custom: arb-compute
 ---
@@ -64,7 +64,7 @@ SAP workloads have specific architecture requirements. See the following resourc
 
 #### SAP guides
 
-- [SAP landscape architecture](../../guide/sap/sap-whole-landscape.yml): Review guidance about SAP landscapes on Azure.
+- [SAP landscape architecture](../../guide/sap/sap-whole-landscape.md): Review guidance about SAP landscapes on Azure.
 - [Inbound and outbound internet connections for SAP on Azure](../../guide/sap/sap-internet-inbound-outbound.md): See a network architecture for SAP internet connectivity.
 
 #### SAP architectures
@@ -118,7 +118,7 @@ Follow best practices to help ensure that your compute solution on Azure is reli
 
 - [Autoscaling best practices](../../best-practices/auto-scaling.md): Learn about dynamic scaling to rightsize your infrastructure.
 - [Background jobs guidance](../../best-practices/background-jobs.md): Implement background processing for long-running tasks.
-- [Caching guidance](../../best-practices/caching.yml): Improve performance and reduce load on back-end systems.
+- [Caching guidance](../../best-practices/caching.md): Improve performance and reduce load on back-end systems.
 - [Content delivery network guidance](../../best-practices/cdn.yml): Distribute content closer to users for better performance.
 
 ### Cost optimization

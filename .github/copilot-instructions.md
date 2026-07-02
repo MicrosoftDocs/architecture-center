@@ -1,12 +1,61 @@
 # Copilot instructions for the Azure Architecture Center on Microsoft Learn
 
+These instructions define a unified style and process standard for authoring and maintaining learn.microsoft.com documentation with GitHub Copilot or other AI assistance.
+
+## Learn-wide Instructions
+
+Below are instructions that apply to all Microsoft Learn documentation authored with AI assistance.
+
+### AI usage & disclosure
+
+All Markdown content created or substantially modified with AI assistance must include an `ai-usage` front matter entry:
+- `ai-usage: ai-generated` – AI produced the initial draft with minimal human authorship
+- `ai-usage: ai-assisted` – Human-directed, reviewed, and edited with AI support
+- Omit only for purely human-authored legacy content
+
+If missing, **add it**. However, do not add or update the ai-usage tag if the changes proposed are confined solely to:
+- Links (link text and/or URLs)
+- Single words or short phrases, such as entries in table cells
+- Less than 5% of the article's word count
+
+### Writing style
+
+Follow [Microsoft Writing Style Guide](https://learn.microsoft.com/style-guide/welcome/) with these specifics:
+
+#### Voice and Tone
+
+- Active voice, second person addressing reader directly
+- Conversational tone with contractions
+- Present tense for instructions/descriptions
+- Imperative mood for instructions ("Call the method" not "You should call the method")
+- Use "might" instead of "may" for possibility
+- Avoid "we"/"our" referring to documentation authors
+
+#### Structure and Format
+
+- Sentence case headings (no gerunds in titles)
+- Be concise, break up long sentences
+- Oxford comma in lists
+- Number all ordered list items as "1." (not sequential numbering like "1.", "2.", "3.", etc.)
+- Complete sentences with proper punctuation in all list items
+- Avoid "etc." or "and so on" - provide complete lists or use "for example"
+- No consecutive headings without content between them
+
+#### Formatting Conventions
+
+- **Bold** for UI elements
+- `Code style` for file names, folders, custom types, non-localizable text
+- Raw URLs in angle brackets
+
+## About this repository
+
 This repository contains the source data for the Azure Architecture Center articles published as official Microsoft documentation on Microsoft Learn. The data is stored mostly as Markdown files with some YAML files supporting the Markdown. These Markdown and YAML files get converted to HTML for presentation on Microsoft Learn. This repo contains some configuration files, mostly JSON, that support that transformation.
 
-## Audience and how they use this data
+### Audience and how they use this data
 
 The data in the repo helps professional cloud architects and software engineers design good cloud infrastructure for workloads and workload features. These readers learn the fundamentals of cloud architecture, such as cloud design patterns and cloud application design. They also use the decision trees to help them make Azure technology selection. Lastly, the users study example and reference architectures related to scenarios that are applicable to them. With this data, they compose design patterns, cloud fundamentals, and Azure technology to design a solution that fulfills the functional and non functional requirements of their workload.
 
-## Repository facts
+### Repository facts
 
 - This data gets published at <https://learn.microsoft.com/azure/architecture>.
 - This is not a repository for software development.
@@ -22,13 +71,13 @@ The data in the repo helps professional cloud architects and software engineers 
 - This data is truthful, even while being opinionated.
 - This data does not showcase deprecated technology or solution approaches. It focuses on what durable greenfield success looks like. Deprecation notices are never a valid workaround.
 
-## Repository structure
+### Repository structure
 
 - This is the **private repository** (`-pr` suffix) for internal Microsoft authoring.
 - A corresponding **public repository** exists at <https://github.com/MicrosoftDocs/architecture-center>.
 - The `main` branch is for development; the `live` branch reflects published content.
 
-## Your behavior
+### Your behavior
 
 - If I tell you that you are wrong, think about whether or not you think that's true and respond with facts.
 - If you discover information later in a session that contradicts something you previously stated, proactively flag the contradiction, name what you said before, and correct it. Do not quietly revise your position or hope the earlier statement gets forgotten. Surfacing your own mistakes is required, not optional.
@@ -39,11 +88,11 @@ The data in the repo helps professional cloud architects and software engineers 
 - When you use facts from existing content on Microsoft Learn, especially the Well-Architected Framework and the Cloud Adoption Framework, you'll link to those sources.
 - You'll never invent Azure products or services.
 - You'll never invent Microsoft products or services.
-- You'll ensure that any recommended components are used maximizing their compliance to the [Well-Architected service guide](https://learn.microsoft.com/en-us/azure/well-architected/service-guides/) for that service.
+- You'll ensure that any recommended components are used maximizing their compliance to the [Well-Architected service guide](https://learn.microsoft.com/azure/well-architected/service-guides/) for that service.
 
-## How you'll write
+### How you'll write
 
-If you're asked to create data that goes into the Markdown files in this repo. Use the following writing style constraints.
+If you're asked to create data that goes into the Markdown files in this repo. Use the following writing style constraints. These constraints extend the Learn-wide Writing Style above.
 
 - Use clear language.
 - Prefer simple sentences over those with dependent clauses.
@@ -51,9 +100,9 @@ If you're asked to create data that goes into the Markdown files in this repo. U
 - Avoid the passive voice. Use "you" as the subject where necessary.
 - Avoid generalizations, marketing terms, or weasel words. Words you should generally avoid: seamless, seamlessly, fast, quick, quickly, easy, effortless, effortlessly, simple, simply, world-class, cutting-edge, cheap. You don't know the constraints of the reader or their situation, so you shouldn't make general statements like these. Instead present the facts/metrics/limits in a way that will help an architect make an informed decision.
 
-## Folder and file structure
+### Folder and file structure
 
-### Directory organization reality
+#### Directory organization reality
 
 - The root folder for articles is `docs/`.
 - **The directory structure maps directly to published URLs** - moving files breaks links, so the structure is effectively immutable.
@@ -61,7 +110,7 @@ If you're asked to create data that goes into the Markdown files in this repo. U
 - Don't create new folders or move files without understanding the URL impact and redirect requirements.
 - **The directory structure does NOT determine how content is navigated** - see "Table of Contents system" below.
 
-### Three file patterns for articles
+#### Three file patterns for articles
 
 Articles use one of three patterns:
 
@@ -85,18 +134,18 @@ Articles use one of three patterns:
 
 The same folder can mix all three patterns. Always check which pattern an article uses before editing.
 
-### Metadata location
+#### Metadata location
 
 - Pattern 1: Edit metadata in `.yml` file, content in `-content.md` file
 - Pattern 2: Edit metadata (frontmatter) and content in same `.md` file
 - Pattern 3: Everything in `.yml` file
 - Never update metadata unless requested
 
-## Table of Contents (TOC) system
+### Table of Contents (TOC) system
 
 The TOC system defines how users navigate content, and it's completely decoupled from the directory structure.
 
-### TOC hierarchy
+#### TOC hierarchy
 
 The repository uses the following TOC files:
 
@@ -108,7 +157,7 @@ The repository uses the following TOC files:
 - `docs/guide/saas-multitenant-solution-architecture/toc.yml` - SaaS/Multitenancy guidance
 - `docs/_bread/toc.yml` - Breadcrumb navigation metadata
 
-### How TOCs work
+#### How TOCs work
 
 - The **main TOC** references some workload sub-TOCs by pointing to their index pages (e.g., `href: ai-ml/index.md`)
 - When users navigate to these sections, they switch to the **sub-TOC** for specialized navigation
@@ -116,7 +165,7 @@ The repository uses the following TOC files:
 - TOCs can reference content from **anywhere in the repository** using relative paths (e.g., `../example-scenario/`)
 - The same article can appear in multiple places in the TOC (or not appear at all)
 
-### Navigation vs. URL disconnect
+#### Navigation vs. URL disconnect
 
 **Users experience both realities simultaneously:**
 
@@ -132,21 +181,21 @@ Example: Users navigate "Containers > Guides > GitOps" but the URL shows `.../ex
 - Content can be in `guide/` folder but appear under a workload section in the TOC
 - Metadata (`ms.topic`) determines content type, not folder or TOC placement
 
-## Content types
+### Content types
 
 The Azure Architecture Center contains various content types that address needs of the readers at different points in their decision making. You, as an agent, should always be aware of what content type you are working with, so that you can tailor your responses accordingly.
 
-- **Architecture fundamentals**: Core concepts such as microservices, error handling, and [domain-driven design](docs/microservices/model/domain-analysis.md).
-- **Decision trees**: Helps a reader narrow down available services to a one or a few options for them to further evaluate. For example, [Choose a Vector search solution](docs/guide/technology-choices/vector-search.md).
-- **Cloud design patterns**: Reusable solutions to common constraints or common goals in cloud architecture. For example, the [Valet Key pattern](docs/patterns/valet-key-content.md).
-- **Solution ideas**: Lightweight example of how Azure services could be combined to solve a specific business problem. Does not typically address Well-Architected Framework concerns. Designed to spark an exploration by the reader. These are not production ready. For example, the [Use AI to forecast customer orders](docs/ai-ml/idea/next-order-forecasting-content.md) article.
+- **Architecture fundamentals**: Core concepts such as microservices, error handling, and [domain-driven design](../docs/microservices/model/domain-analysis.md).
+- **Decision trees**: Helps a reader narrow down available services to a one or a few options for them to further evaluate. For example, [Choose a Vector search solution](../docs/guide/technology-choices/vector-search.md).
+- **Cloud design patterns**: Reusable solutions to common constraints or common goals in cloud architecture. For example, the [Valet Key pattern](../docs/patterns/valet-key-content.md).
+- **Solution ideas**: Lightweight example of how Azure services could be combined to solve a specific business problem. Does not typically address Well-Architected Framework concerns. Designed to spark an exploration by the reader. These are not production ready. For example, the [Use AI to forecast customer orders](../docs/ai-ml/idea/next-order-forecasting-content.md) article.
 - **Example workloads**: Builds on the "Solution idea" content type and brings in most of the Azure Well-Architected Framework pillars. They must address Cost Optimization.
-- **Reference architectures** and **Baseline architectures**: Builds on the "Example workload" content type and brings in all of the Azure Well-Architected Framework pillars. The architectures here usually come with reference implementations hosted elsewhere in GitHub. These are production ready. For example, the [Azure Kubernetes Service (AKS) baseline](docs/reference-architectures/containers/aks/baseline-aks-content.md).
-- **Architecture guides**: A deep dive into a specific architectural or operational concern, not necessarily any end-to-end scenario. For example, [Machine learning operations](docs/ai-ml/guide/machine-learning-operations-v2.md).
+- **Reference architectures** and **Baseline architectures**: Builds on the "Example workload" content type and brings in all of the Azure Well-Architected Framework pillars. The architectures here usually come with reference implementations hosted elsewhere in GitHub. These are production ready. For example, the [Azure Kubernetes Service (AKS) baseline](../docs/reference-architectures/containers/aks/baseline-aks-content.md).
+- **Architecture guides**: A deep dive into a specific architectural or operational concern, not necessarily any end-to-end scenario. For example, [Machine learning operations](../docs/ai-ml/guide/machine-learning-operations-v2.md).
 
 These content types do not directly map to the file system. Their destinations are instead marked with metadata in the file. While there might be some patterns of usage, the filesystem is largely disorganized in relationship to the content types.
 
-## Thumbnail images and Browse experience
+### Thumbnail images and Browse experience
 
 Articles using Pattern 1 (YAML + Markdown pair) must include a **`thumbnailUrl`** field in the YAML metadata:
 
@@ -160,7 +209,7 @@ thumbnailUrl: /azure/architecture/browse/thumbs/article-name.png
 - Typically the thumbnail is a PNG export of the main article diagram (which is often SVG)
 - When updating diagrams, both the article image and browse thumbnail may need updates
 
-## Redirections
+### Redirections
 
 When an article is deleted, moved, or renamed, add a redirect entry to the top-level `redirections` array in `.openpublishing.redirection.json` at the repository root. Each entry maps the old `source_path` (relative to the repo root) to a `redirect_url` (either a site-relative path starting with `/` or an absolute URL). Without this entry, readers following old URLs get a 404.
 
@@ -174,23 +223,23 @@ When an article is deleted, moved, or renamed, add a redirect entry to the top-l
 
 Set `redirect_document_id` to `true` if the article was moved or renamed (the content still exists at the new URL). Set it to `false` if the article was deleted (the redirect target is a different article).
 
-## Multi-agent usage
+### Consulting outside sources
 
-- Invoke the Learn MCP tool to query existing Microsoft Learn documentation as needed.
-- Invoke your Web Search tool to query general knowledge from the Internet as needed.
+- When you need to consult Microsoft Learn (to verify Azure product names, look up service guidance, check for deprecations, or fact-check claims before writing them into an article), follow the [`microsoft-learn-grounding`](./skills/microsoft-learn-grounding/SKILL.md) skill.
+- Invoke your Web Search tool to query general knowledge from the Internet as needed. Web search is not a substitute for the Learn grounding skill when the question is about Microsoft Learn content.
 
-## Sourcing policy
+### Sourcing policy
 
-- Prioritize Microsoft Learn as the primary source of truth. Specifically, content found in the Learn MCP server or directly from learn.microsoft.com.
+- Prioritize Microsoft Learn as the primary source of truth, accessed per the [`microsoft-learn-grounding`](./skills/microsoft-learn-grounding/SKILL.md) skill.
 - Use non-Microsoft sources only when Microsoft Learn does not cover the topic sufficiently. Prefer reputable vendor or cloud-agnostic sources and provide clear attribution.
 - Never use data from or link to the `azure.cn` domain. That site is a lagging, partial mirror of Microsoft Learn.
 
-## Proactive edits (scope)
+### Proactive edits (scope)
 
 - Allowed without asking: copyedits that do not change meaning (grammar, spelling, concision), removal of weasel words, and minor structure cleanups (headings, lists) that preserve meaning.
 - Not allowed without request: content rewrites and adding/removing sections
 
-## Freshness updates
+### Freshness updates
 
 Data in this repository must be periodically updated to reflect modern approaches and modern technology, usually once a year. Data that receives a full freshness pass gets its `ms.date` metadata updated to reflect this. `ms.date` is never to be updated unless a full freshness pass is performed. Do not proactively perform a full freshness pass; instead, when you detect content that appears outdated or divergent, leave files unchanged and output a message to the human-in-the-loop indicating that a freshness pass is recommended and why.
 

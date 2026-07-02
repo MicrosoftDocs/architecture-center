@@ -3,7 +3,7 @@ title: Develop a RAG Solution—Information-Retrieval Phase
 description: Learn about how to configure a search index, the types of searches that you can run, how to break queries into subqueries, and why and how to rerank queries.
 author: claytonsiemens77
 ms.author: pnp
-ms.date: 10/10/2025
+ms.date: 04/21/2026
 ms.topic: concept-article
 ms.collection: ce-skilling-ai-copilot
 ms.subservice: architecture-guide
@@ -360,6 +360,8 @@ The pipeline has the following steps:
 
 Some multimodal models, such as GPT-4V and GPT-4o, can interpret images. If you use these models, you can avoid chunking your images and pass the image as part of the prompt to the multimodal model. You should experiment to determine how this approach performs compared to chunking the images with and without passing extra context. You should also compare the cost difference and do a cost-benefit analysis.
 
+Another approach is to use [Azure Content Understanding in Foundry Tools](/azure/ai-services/content-understanding/overview) to generate rich text descriptions of images during the chunking or enrichment phases. Content Understanding's [document analyzers](/azure/ai-services/content-understanding/document/overview) detect figures (charts, diagrams, pictures) within documents and generate detailed textual descriptions. The `prebuilt-documentSearch` analyzer provides figure descriptions with structured output (Chart.js syntax for charts, Mermaid syntax for diagrams) that you can index and search. This approach avoids passing raw images at inference time and makes the visual content searchable through text-based and vector queries. For more information, see [Content Understanding prebuilt analyzers](/azure/ai-services/content-understanding/concepts/prebuilt-analyzers).
+
 ### Filter queries
 
 To filter queries, you can use fields in the search store that are configured as filterable. Consider filtering keywords and entities for queries that use those fields to help narrow down the result. Use filtering to eliminate irrelevant data. Retrieve only the data that satisfies specific conditions from an index. This practice improves the overall performance of the query and provides more relevant results. To determine whether filtering benefits your scenario, do experiments and tests. Consider factors such as queries that don't have keywords or have inaccurate keywords, abbreviations, or acronyms.
@@ -483,3 +485,5 @@ You should test positive and negative examples. For the positive examples, you w
 
 - [Quickstart: Chat with Azure OpenAI models by using your own data](/azure/ai-services/openai/use-your-data-quickstart)
 - [Hybrid search via vectors and full text in AI Search](/azure/search/hybrid-search-overview)
+- [Build a RAG solution with Azure Content Understanding](/azure/ai-services/content-understanding/tutorial/build-rag-solution)
+- [Visual document search with Content Understanding](https://github.com/Azure-Samples/azure-ai-search-with-content-understanding-python)

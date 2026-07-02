@@ -61,6 +61,8 @@ Configure the VM network interface (NIC) for each domain controller with a stati
 > [!NOTE]
 > Don't configure the VM NIC for any AD DS by using a public IP address. For more information, see [Security considerations][security-considerations].
 
+For administrative access to the domain controller and management VMs, use [Azure Bastion](/azure/bastion/bastion-overview) instead of exposing a jump box through a public IP address. Azure Bastion provides secure RDP and SSH connectivity over TLS directly from the Azure portal, which removes the need for public IP addresses on your VMs and reduces the attack surface.
+
 The Active Directory subnet NSG requires rules to permit incoming traffic from on-premises and outgoing traffic to on-premises. For more information, see [Configure a firewall for Active Directory domains and trusts][ad-ds-ports].
 
 If the new domain controller VMs also have the role of Domain Name System (DNS) servers, we recommend that you configure them as custom DNS servers at the virtual network level, as explained in [Change DNS servers](/azure/virtual-network/manage-virtual-network#change-dns-servers). You should apply this configuration for the virtual network that hosts the new domain controllers and peered networks where other VMs must resolve Active Directory domain names. For more information, see [Name resolution for resources in Azure virtual networks](/azure/virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances).
@@ -85,7 +87,7 @@ We also recommend that you give at least two of the new Azure domain controllers
 
 ### Monitoring
 
-Monitor the resources of the domain controller VMs and AD DS and create a plan to correct any problems quickly. For more information, see [Monitor Active Directory][monitoring-ad]. You can also install tools like [Microsoft Systems Center][microsoft-systems-center] on the monitoring server to help perform these tasks.
+Monitor the resources of the domain controller VMs and AD DS and create a plan to correct any problems quickly. For more information, see [Monitor Active Directory][monitoring-ad]. You can also install tools like [System Center Operations Manager][scom] on the monitoring server to help perform these tasks.
 
 ## Considerations
 
@@ -183,15 +185,15 @@ AD DS is designed for scalability. You don't need to configure a load balancer o
 
 ## Related resources
 
-- [Create an AD DS resource forest in Azure][adds-resource-forest] 
-- [Extend on-premises AD FS to Azure][adfs] 
+- [Microsoft Entra Domain Services overview][entra-domain-services-overview] 
+- [Migrate from AD FS to cloud authentication][adfs] 
 
 <!-- links -->
 
 [aaf-cost]: /azure/architecture/framework/cost/overview
 [AAF-devops]: /azure/architecture/framework/devops/overview
-[adds-resource-forest]: ../../reference-architectures/identity/adds-forest.yml
-[adfs]: ../../reference-architectures/identity/adfs.yml
+[entra-domain-services-overview]: /entra/identity/domain-services/overview
+[adfs]: /entra/identity/hybrid/connect/migrate-from-federation-to-cloud-authentication
 [dsc-overview]: /powershell/scripting/dsc/overview
 [ad-ds-operations-masters]: /windows-server/identity/ad-ds/plan/planning-operations-master-role-placement
 [ad-ds-ports]: /troubleshoot/windows-server/identity/config-firewall-for-ad-domains-and-trusts  
@@ -206,9 +208,9 @@ AD DS is designed for scalability. You don't need to configure a load balancer o
 [azure-expressroute]: /azure/expressroute/expressroute-introduction
 [azure-gateway-charges]: https://azure.microsoft.com/pricing/details/vpn-gateway
 [azure-vpn-gateway]: /azure/vpn-gateway/vpn-gateway-about-vpngateways
-[capacity-planning-for-adds]: https://social.technet.microsoft.com/wiki/contents/articles/14355.capacity-planning-for-active-directory-domain-services.aspx
+[capacity-planning-for-adds]: /windows-server/administration/performance-tuning/role/active-directory-server/capacity-planning-for-active-directory-domain-services
 [azure-pricing-calculator]: https://azure.microsoft.com/pricing/calculator
-[microsoft-systems-center]: https://www.microsoft.com/download/details.aspx?id=50013
+[scom]: /system-center/scom/welcome
 [monitoring-ad]: /windows-server/identity/ad-ds/plan/security-best-practices/monitoring-active-directory-for-signs-of-compromise
 [security-considerations]: #security
 [set-a-static-ip-address]: /azure/virtual-network/virtual-networks-static-private-ip-arm-pportal

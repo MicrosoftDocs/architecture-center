@@ -12,9 +12,6 @@ metadata:
     - event-driven
     - transactions
     - microservices
-  ms.custom:
-    - fcp
-    - design-pattern
 name: Saga distributed transactions pattern
 azureCategories:
   - databases

@@ -118,7 +118,7 @@ Network security groups restrict access to each tier. For example, the database 
 - [Messaging in an N-tier architecture style on Azure](https://docs.particular.net/architecture/azure/n-tier)
 
 [autoscaling]: ../../best-practices/auto-scaling.md
-[caching]: ../../best-practices/caching.yml
+[caching]: ../../best-practices/caching.md
 [ha-nva]: ../../networking/guide/network-virtual-appliance-high-availability.md
 [hybrid-network]: ../../reference-architectures/hybrid-networking/index.yml
 [sql-always-on]: /sql/database-engine/availability-groups/windows/always-on-availability-groups-sql-server

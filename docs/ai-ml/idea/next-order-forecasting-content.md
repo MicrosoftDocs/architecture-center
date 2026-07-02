@@ -168,6 +168,20 @@ For more information about security for this architecture, see the following res
 - [Integrate Azure services with virtual networks for network isolation](/azure/virtual-network/vnet-integration-for-azure-services)
 - [Enterprise security and governance for Machine Learning](/azure/machine-learning/concept-enterprise-security)
  
+### Cost Optimization
+
+Cost Optimization focuses on ways to reduce unnecessary expenses and improve operational efficiencies. For more information, see [Design review checklist for Cost Optimization](/azure/well-architected/cost-optimization/checklist).
+
+To estimate the cost of this solution, use the [preconfigured estimate in the Azure pricing calculator](https://azure.com/e/037a835bf7494403b19ef3f0d2ad226b). Adjust the values to match your expected data volumes and compute requirements.
+
+The following factors affect the cost of this solution:
+
+- **Microsoft Fabric capacity.** The F2 capacity unit in this estimate assumes you configure scheduled pausing during non-business hours to reduce costs. This optimization requires setting up automation or manual pause/resume routines. Scale up or use larger SKUs based on the volume of data science and analytics workloads.
+- **Azure Machine Learning compute.** Training costs depend on the number of parallel nodes, VM size, and training hours. Scale compute clusters based on the number of customer-SKU combinations and retraining frequency.
+- **Data Lake Storage.** Costs scale with the amount of ingested data, the number of read/write operations, and storage capacity. Consider lifecycle management policies to move infrequently accessed data to cooler tiers.
+
+This estimate doesn't include per-user licensing costs for Power BI Pro or Power Apps, which are licensed separately.
+
 ### Operational Excellence
 
 Operational Excellence covers the operations processes that deploy an application and keep it running in production. For more information, see [Design review checklist for Operational Excellence](/azure/well-architected/operational-excellence/checklist). Observability, monitoring, and diagnostic settings are important considerations to highlight under this pillar.

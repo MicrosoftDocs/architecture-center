@@ -1,6 +1,6 @@
 Intelligent applications that use Azure OpenAI in Foundry Models through Azure-native services provide user authentication and authorization. However, some scenarios are complex and require different architecture designs. These scenarios include topologies that have client applications that aren't hosted on Azure, use external identity providers, and deploy multiple clients that access the same Azure OpenAI instances. In these scenarios, introducing a gateway in front of Azure OpenAI can significantly improve security by adding a layer that ensures consistent authentication to deployed instances.
 
-This article describes key scenarios that provide authentication to Azure OpenAI:
+This article describes key scenarios that provide authentication to Foundry Models:
 
 - [Authenticate client applications via an external identity provider](#authenticate-client-applications-via-an-external-identity-provider)
 
@@ -264,7 +264,7 @@ If your API gateway is responsible for caching completions or other inferencing 
 
 ## Gateway implementations
 
-Azure doesn't provide a complete turnkey solution or reference architecture to build the gateway in this article, so you must build and operate the gateway. Azure API management can be used to build a PaaS based solution through built-in and custom policies. Azure also provides examples of community-supported implementations that cover the use cases in this article. Reference these samples when you build your own gateway solution. For more information, see the video [Learn Live: Azure OpenAI application identity and security](https://www.youtube.com/live/pDjXsNWYmvo).
+Azure doesn't provide a complete turnkey solution or reference architecture to build the gateway in this article, so you must build and operate the gateway. You can use API Management to build a PaaS-based solution through built-in and custom policies. Azure also provides examples of community-supported implementations that cover the use cases in this article. Reference these samples when you build your own gateway solution. For more information, see the video [Learn Live: Azure OpenAI application identity and security](https://www.youtube.com/live/pDjXsNWYmvo).
 
 ## Contributors
 
@@ -289,5 +289,5 @@ Principal authors:
 
 ## Related resources
 
-- [Access Azure OpenAI and other language models through a gateway](./azure-openai-gateway-guide.yml#key-challenges)
+- [Access Azure OpenAI and other language models through a gateway](./azure-openai-gateway-guide.md#key-challenges)
 - [Design a well-architected AI workload](/azure/well-architected/ai/get-started)

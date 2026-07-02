@@ -183,7 +183,7 @@ For more information about pricing for specific components, see the following re
 - [Machine Learning pricing](https://azure.microsoft.com/pricing/details/machine-learning/#overview)
 - [Azure OpenAI pricing](https://azure.microsoft.com/pricing/details/cognitive-services/openai-service/)
 
-Use the [Azure pricing calculator](https://azure.microsoft.com/pricing/calculator) to add the component options that you choose and estimate the overall cost of the solution.
+To estimate the cost of this solution, use this [preconfigured estimate in the Azure pricing calculator](https://azure.com/e/a87d001c7a4f49b28939a000899c1eed). Adjust the values to match your expected document processing volumes, model training frequency, and inference workload.
 
 ### Performance Efficiency
 

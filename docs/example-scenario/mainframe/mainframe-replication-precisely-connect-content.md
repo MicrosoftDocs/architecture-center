@@ -149,7 +149,6 @@ Other contributor:
 - [What is Azure ExpressRoute?](/azure/expressroute/expressroute-introduction)
 - [What is VPN Gateway?](/azure/vpn-gateway/vpn-gateway-about-vpngateways)
 - [What is SQL Database?](/azure/azure-sql/database/sql-database-paas-overview)
-- Contact the [Mainframe Data Modernization Engineering team at Microsoft](mailto:mainframedatamod@microsoft.com).
 
 ## Related resources
 

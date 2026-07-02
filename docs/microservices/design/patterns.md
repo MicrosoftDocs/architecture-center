@@ -25,7 +25,7 @@ The design patterns in this article address these challenges directly. Each patt
 
 ## Common design patterns
 
-- [**Anti-Corruption Layer**](../../patterns/anti-corruption-layer.yml) implements a facade or adapter layer between subsystems that don't share the same semantics. This pattern translates requests between subsystems and prevents dependencies on legacy systems or other services that have incompatible domain models from limiting a new service's design.
+- [**Anti-Corruption Layer**](../../patterns/anti-corruption-layer.md) implements a facade or adapter layer between subsystems that don't share the same semantics. This pattern translates requests between subsystems and prevents dependencies on legacy systems or other services that have incompatible domain models from limiting a new service's design.
 
 - [**Backends for Frontends**](../../patterns/backends-for-frontends.md) creates separate backend services for different types of clients, such as desktop and mobile. When you take this approach, a single backend service doesn't need to handle the conflicting requirements of various client types. This pattern helps keep each microservice simple by separating client-specific concerns.
 
@@ -37,7 +37,7 @@ The design patterns in this article address these challenges directly. Each patt
 
 - [**Gateway Routing**](../../patterns/gateway-routing.yml) uses an API gateway as a reverse proxy to route client requests to different services based on the request. This approach gives clients a single endpoint instead of many.
 
-  [**Gateway Aggregation**](../../patterns/gateway-aggregation.yml) uses the gateway to combine multiple client requests into a single request. This approach reduces chattiness between clients and services.
+  [**Gateway Aggregation**](../../patterns/gateway-aggregation.md) uses the gateway to combine multiple client requests into a single request. This approach reduces chattiness between clients and services.
 
   [**Gateway Offloading**](../../patterns/gateway-offloading.yml) centralizes cross-cutting functionality, such as Secure Socket Layer (SSL) termination, authentication, and rate limiting, into the gateway so that individual services don't have to implement these concerns separately.
 

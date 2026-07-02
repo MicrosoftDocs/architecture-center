@@ -1,4 +1,4 @@
-This pattern loads data on demand into a cache from a data store. Use this pattern to improve performance and help maintain consistency between data in a cache and data in an underlying data store.
+Load data on demand into a cache from a data store. This approach can improve performance and helps maintain consistency between data held in the cache and data in the underlying data store.
 
 ## Context and problem
 
@@ -163,4 +163,4 @@ public async Task UpdateEntityAsync(MyEntity entity)
 
 - [Reliable Web App pattern](../web-apps/guides/enterprise-app-patterns/overview.md#reliable-web-app-pattern): This pattern applies the Cache-Aside pattern to web applications in the cloud.
 
-- [Caching guidance](../best-practices/caching.yml): This guidance provides more information about how to cache data in a cloud solution, and problems to consider when you implement a cache.
+- [Caching guidance](../best-practices/caching.md): This guidance provides more information about how to cache data in a cloud solution, and problems to consider when you implement a cache.

@@ -150,10 +150,6 @@ Contributor:
 
 ## Next steps
 
-For more information, contact [legacy2azure@microsoft.com](mailto:legacy2azure@microsoft.com).
-
-Here are some additional resources:
-
 - [Adabas & Natural](https://www.softwareag.com/en_corporate/platform/adabas-natural.html)
 - [Azure Kubernetes Service](/azure/aks/intro-kubernetes)
 - [Azure NetApp Files documentation](/azure/azure-netapp-files)

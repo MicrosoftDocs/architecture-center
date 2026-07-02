@@ -281,6 +281,8 @@ Use the [Virtual WAN pricing page](https://azure.microsoft.com/pricing/details/v
 
 For more information about pricing that aligns with common networking scenarios, see [About Virtual WAN pricing](/azure/virtual-wan/pricing-concepts#pricing).
 
+To explore a starting-point cost for this two-hub architecture, open this [preconfigured estimate in the Azure pricing calculator](https://azure.com/e/7b824244c8924d188049f8db757ee6ee). Adjust the values to match your expected traffic volumes, number of spokes, and gateway scale units.
+
 ### Operational Excellence
 
 Operational Excellence covers the operations processes that deploy an application and keep it running in production. For more information, see [Design review checklist for Operational Excellence](/azure/well-architected/operational-excellence/checklist).

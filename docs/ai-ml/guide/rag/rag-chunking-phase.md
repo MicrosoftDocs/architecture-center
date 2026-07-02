@@ -1,9 +1,9 @@
 ---
 title: Develop a RAG Solution - Chunking Phase
-description: Learn about the various chunking strategies like boundary based, custom code, and document analysis models. Also learn about how the document structure should influence your chunking strategy.
+description: Learn about the various chunking strategies, like boundary based, custom code, and document analysis models.
 author: claytonsiemens77
 ms.author: pnp
-ms.date: 10/10/2025 
+ms.date: 05/27/2026
 ms.topic: concept-article
 ms.collection: ce-skilling-ai-copilot
 ms.subservice: architecture-guide
@@ -12,7 +12,7 @@ ms.custom: arb-aiml
 
 # RAG chunking phase
 
-After you gather your test documents and queries and do a document analysis during the [preparation phase](./rag-preparation-phase.md), you move to the next phase, which is chunking. Chunking is where you break documents into appropriately sized chunks that each contain semantically relevant content. It's crucial to a successful retrieval-augmented generation (RAG) implementation. If you try to pass entire documents or oversized chunks, it's expensive, might overwhelm the token limits of the model, and doesn't produce the best results. Also, if you pass information to a language model that's irrelevant to the query, it can result in inaccurate or unrelated responses. You must use effective chunking and searching strategies to optimize the process, pass relevant information, and remove irrelevant information. This approach minimizes false positives and false negatives, and maximizes true positives and true negatives.
+After you gather your test documents and queries and complete a document analysis during the [preparation phase](./rag-preparation-phase.md), move to the next phase, which is chunking. *Chunking* is breaking documents into appropriately sized chunks that each contain semantically relevant content. It's crucial to a successful retrieval-augmented generation (RAG) implementation. If you try to pass entire documents or oversized chunks, it's expensive, might overwhelm the token limits of the model, and doesn't produce the best results. Also, if you pass information to a language model that's not relevant to the query, you can get inaccurate or unrelated responses. You must use effective chunking and searching strategies to optimize the process, pass relevant information, and remove irrelevant information. This approach minimizes false positives and false negatives, and maximizes true positives and true negatives.
 
 Chunks that are too small and don't contain sufficient context to address the query can result in poor outcomes. Relevant context that exists across multiple chunks might not be captured. The key is to implement effective chunking approaches for your specific document types and their specific structures and content. There are various chunking approaches to consider, each with their own cost implications and effectiveness, depending on the type and structure of the document that you apply them to.
 
@@ -28,19 +28,46 @@ The following sections examine the economics of chunking images and the overall 
 
 ### Understand image chunking economics
 
-A language model that generates a description of an image that you chunk incurs extra cost. For example, cloud-based services such as Azure OpenAI in Foundry Models either charge on a per-transaction basis or on a prepaid provisioning basis. Larger images incur a larger cost. Through your document analysis, you determine which images are valuable to chunk and which images to ignore. From there, you need to understand the number and sizes of the images in your solution. You then weigh the value of chunking the image descriptions against the cost to generate those descriptions.
+A language model that generates a description of an image that you chunk incurs extra cost. For example, cloud-based services such as Azure OpenAI either charge on a per-transaction basis or on a prepaid provisioning basis. Larger images incur a higher cost. Through your document analysis, you determine which images are valuable to chunk and which images to ignore. From there, you need to understand the number and sizes of the images in your solution. You then weigh the value of chunking the image descriptions against the cost to generate those descriptions.
 
-Use a service such as [Azure Vision in Foundry Tools](/azure/ai-services/computer-vision) to determine which images you want to process. You can classify images, tag images, or do logo detection. You can use the results and confidence indicators to determine whether the image adds meaningful, contextual value and should be processed. Calls to Vision might be less expensive than calls to language models, so this approach could result in cost savings. Experiment to determine what confidence levels and classifications or tags provide the best results for your data. Also consider the following alternatives:
+Use a service such as [Azure Vision](/azure/ai-services/computer-vision) to determine which images you want to process. You can classify images, tag images, or do logo detection. You can use the results and confidence indicators to determine whether the image adds meaningful, contextual value and should be processed. Calls to Vision might be less expensive than calls to language models, so this approach could save you money. Experiment to determine what confidence levels and classifications or tags provide the best results for your data. Also consider the following alternatives:
 
-- Build your own classifier model. If you take this approach, be sure you consider the costs to build, host, and maintain your own model.
+- Use [Azure Content Understanding](/azure/ai-services/content-understanding/overview) because it natively processes images as a multimodal service. It can generate figure descriptions, detect charts, diagrams, and pictures, and provide structured output with confidence scores. This approach can simplify your pipeline by handling image classification and description generation in a single service, eliminating the need for separate Vision and language model calls. Content Understanding also provides [prebuilt image analyzers](/azure/ai-services/content-understanding/concepts/prebuilt-analyzers), such as `prebuilt-imageSearch`, that generate descriptions and insights that are optimized for RAG workflows.
+
+  The following example shows a Content Understanding image analyzer schema that classifies the chart type and generates a description of the image:
+
+  ```json
+
+  {
+    "description": "Image chart and diagram analysis",
+    "scenario": "image",
+    "fieldSchema": {
+      "fields": {
+        "ChartType": {
+          "type": "string",
+          "method": "classify",
+          "description": "Type of chart or diagram",
+          "enum": ["bar", "line", "pie", "scatter", "diagram", "other"]
+        },
+        "Description": {
+          "type": "string",
+          "method": "generate",
+          "description": "Detailed description of the image content"
+        }
+      }
+    }
+  }
+  ```
+
+- Build your own classifier model. If you take this approach, be sure to consider the costs to build, host, and maintain your own model.
 
 - Use a language model to classify and tag images. This approach gives you more flexibility in your design but can be less predictable than using Vision. When possible, experiment with both approaches and compare the results.
 
-Another cost optimization strategy is to cache by using the [Cache-Aside pattern](/azure/architecture/patterns/cache-aside). You can generate a key that you base on the hash of the image. As a first step, check to see if you have a cached result from a prior run or previously processed document. If you do, you can use that result. This approach eliminates the costs of calling a classifier or a language model. If there's no cache, when you call to the classifier or language model, you cache the result. Future calls for this image use the cache.
+Another cost optimization strategy is to cache by using the [Cache-Aside pattern](/azure/architecture/patterns/cache-aside). You can generate a key that you base on the hash of the image. As a first step, check to see whether you have a cached result from a prior run or previously processed document. If you do, you can use that result. This approach eliminates the costs of calling a classifier or a language model. If there's no cache, when you call to the classifier or language model, you cache the result. Future calls for this image use the cache.
 
 The following workflow integrates these cost optimization processes:
 
-1. Check to see if the image processing is cached. If so, use the cached results.
+1. Check to see whether the image processing is cached. If it is, use the cached results.
 
 1. Run your classifier to determine whether you should process the image. Cache the classification result. If your classification logic determines that the image adds value, proceed to the next step.
 
@@ -50,9 +77,9 @@ The following workflow integrates these cost optimization processes:
 
 Consider the following factors when you assess the cost of your overall solution:
 
-- **Number of unique chunking implementations:** Each unique implementation has engineering and maintenance costs. Consider the number of unique document types in your collection and the cost versus quality trade-offs of unique implementations for each.
+- **Number of unique chunking implementations:** Each unique implementation incurs engineering and maintenance costs. Consider the number of unique document types in your collection and the cost versus quality trade-offs of unique implementations for each.
 
-- **Per-document cost of each implementation:** Some chunking approaches might result in better quality chunks but have a higher financial and temporal cost to generate those chunks. For example, using a prebuilt model in Azure Document Intelligence in Foundry Tools likely has a higher per-document cost than a pure text parsing implementation, but might result in better chunks.
+- **Per-document cost of each implementation:** Some chunking approaches might result in better quality chunks but incur a higher financial and temporal cost to generate the chunks. For example, using a prebuilt model in Azure Document Intelligence probably incurs a higher per-document cost than a pure text parsing implementation, but might result in better chunks.
 
 - **Number of initial documents:** The number of initial documents that you need to process to launch your solution.
 
@@ -64,17 +91,17 @@ During chunking, you must first load the document into memory in some format. Th
 
 ### Separate loading and chunking
 
-There are several reasons why you would choose to separate the loading and chunking phases. You might want to encapsulate logic in the loading code. You might want to persist the result of the loading code before chunking, especially when you experiment with various chunking permutations to save on processing time or cost. Lastly, you might want to run the loading and chunking code in separate processes for architectural reasons, such as process bulkheading or security segmentation that involves removing personal data.
+There are several reasons why you might choose to separate the loading and chunking phases. You might want to encapsulate logic in the loading code. You might want to persist the result of the loading code before chunking, especially when you experiment with various chunking permutations to save on processing time or cost. Lastly, you might want to run the loading and chunking code in separate processes for architectural reasons, such as process bulkheading or security segmentation that involves removing personal data.
 
 #### Encapsulate logic in the loading code
 
-You can choose to encapsulate preprocessing logic in the loading phase. This approach simplifies the chunking code because it doesn't require any preprocessing. Preprocessing can be as simple as removing or annotating parts of the document that you want to ignore in document analysis. For example, you might want to remove watermarks, headers, and footers. Or preprocessing can involve more complex tasks such as reformatting the document. For example, you can include the following preprocessing tasks in the loading phase:
+You can choose to encapsulate preprocessing logic in the loading phase. This approach simplifies the chunking code because that code then doesn't require any preprocessing. Preprocessing can be as simple as removing or annotating parts of the document that you want to ignore during document analysis. For example, you might want to remove watermarks, headers, and footers. Or preprocessing can involve more complex tasks such as reformatting the document. For example, you can include the following preprocessing tasks during the loading phase:
 
 - Remove or annotate items that you want to ignore.
 
-- Replace image references with image descriptions. During this phase, you use a large language model to generate a description for an image and update the document with that description. If during document analysis, you find surrounding text that provides valuable context, you can pass the text and the image to the large language model.
+- Replace image references with image descriptions. During this phase, use a large language model to generate a description for an image and update the document with that description. If, during document analysis, you find surrounding text that provides valuable context, you can pass the text and the image to the large language model.
 
-- Download or copy images to file storage like Azure Data Lake Storage to be processed separately from the document text. If during document analysis, you find surrounding text that provides valuable context to the image, you can store this text along with the image in file storage.
+- Download or copy images to file storage like Azure Data Lake Storage to be processed separately from the document text. If, during document analysis, you find surrounding text that provides valuable context to the image, you can store this text along with the image in file storage.
 
 - Reformat tables so that they're more easily processed.
 
@@ -82,7 +109,7 @@ You can choose to encapsulate preprocessing logic in the loading phase. This app
 
 #### Persist the result of the loading code
 
-There are multiple reasons why you might choose to persist the result of the loading code. If you want the ability to inspect the documents after they're loaded and preprocessed, but before the chunking logic runs. Or you want to run different chunking logic against the same preprocessed code while it's in development or in production. Persisting the loaded code speeds up the process.
+There are multiple reasons why you might choose to persist the result of the loading code. For example, if you want the ability to inspect the documents after they're loaded and preprocessed, but before the chunking logic runs. Or if you want to run different chunking logic against the same preprocessed code while it's in development or in production. Persisting the loaded code speeds up the process.
 
 #### Run loading and chunking code in separate processes
 
@@ -90,7 +117,7 @@ When you separate the processes, it helps you run multiple chunking implementati
 
 #### Combine loading and chunking
 
-In most cases, combining your loading and chunking code is a simpler implementation. Many preprocessing operations that you might consider doing in a separate loading phase can run during the chunking phase. For example, instead of replacing image URLs with a description in the loading phase, the chunking logic can make calls to the large language model to get a text description and chunk the description.
+In most cases, combining your loading and chunking code is a simpler implementation. Many preprocessing operations that you might consider doing in a separate loading phase can run during the chunking phase. For example, instead of replacing image URLs with a description during the loading phase, the chunking logic can make calls to the large language model to get a text description and chunk the description.
 
 When you have document formats like HTML that contain tags with references to images, ensure that the reader or parser that the chunking code uses doesn't remove the tags. The chunking code must be able to identify image references.
 
@@ -104,7 +131,7 @@ Consider the following recommendations on whether to combine or separate your ch
 
 ## Review the chunking approaches
 
-This section provides an overview of common chunking approaches. You can use multiple approaches in implementation, such as combining the use of a language model to get a text representation of an image with many of the listed approaches.
+This section provides an overview of common chunking approaches. You can use multiple approaches in implementation, such as combining the use of a language model to get a text representation of an image with many of the approaches described.
 
 A summarized decision-making matrix accompanies each approach. The matrix highlights the tools, associated costs, and more. The engineering effort and processing costs described here are subjective and included for relative comparison.
 
@@ -113,9 +140,9 @@ A summarized decision-making matrix accompanies each approach. The matrix highli
 
 ### Fixed-size parsing, with overlap
 
-This approach breaks down a document into chunks based on a fixed number of characters or tokens and allows overlap of characters between chunks. This approach has many of the same advantages and disadvantages as sentence-based parsing. One advantage of this approach over sentence-based parsing is the ability to obtain chunks with semantic meanings that span multiple sentences.
+This approach breaks a document into chunks based on a fixed number of characters or tokens and allows overlap of characters between chunks. This approach has many of the same advantages and disadvantages as sentence-based parsing. One advantage of this approach over sentence-based parsing is the ability to obtain chunks with semantic meanings that span multiple sentences.
 
-You must choose the fixed size of the chunks and the amount of overlap. Because the results vary for different document types, it's best to use a tool like the Hugging Face chunk visualizer to do exploratory analysis. You can use tools like this to visualize how your documents are chunked based on your decisions. You should use bidirectional encoder representations from transformers (BERT) tokens instead of character counts when you use fixed-sized parsing. BERT tokens are based on meaningful units of language, so they preserve more semantic information than character counts.
+You must choose the fixed size of the chunks and the amount of overlap. Because the results vary for different document types, use a tool like the Hugging Face chunk visualizer to do exploratory analysis. You can use tools like this one to visualize how your documents are chunked based on your decisions. Use bidirectional encoder representations from transformers (BERT) tokens instead of character counts when you use fixed-size parsing. BERT tokens are based on meaningful units of language, so they preserve more semantic information than character counts.
 
 **Tools:** [LangChain recursive text splitter](https://docs.langchain.com/oss/javascript/integrations/splitters/index#text-splitters), [Hugging Face chunk visualizer](https://huggingface.co/spaces/m-ric/chunk_visualizer)  
 **Engineering effort:** Low  
@@ -125,9 +152,9 @@ You must choose the fixed size of the chunks and the amount of overlap. Because 
 
 ### Semantic chunking
 
-This approach uses embeddings to group conceptually similar content across a document to create chunks. Semantic chunking can produce easily understandable chunks that closely align to the content's subjects. The logic for this approach can search a document or set of documents to find recurring information and create chunks that group the mentions or sections together. This approach can be more costly because it requires you to develop complex custom logic.
+This approach uses embeddings to group conceptually similar content across a document to create chunks. Semantic chunking can produce easily understandable chunks that closely align to the content's subjects. The logic for this approach can search a document or set of documents to find recurring information and create chunks that group the mentions or sections together. This approach can be more expensive because it requires you to develop complex custom logic.
 
-**Tools:** Custom implementation. Natural language processing (NLP) tools like spaCy can help with sentence-based parsing.  
+**Tools:** Custom implementation. Natural language processing tools like spaCy can help with sentence-based parsing.  
 **Engineering effort:** High  
 **Processing cost:** High  
 **Use cases:** Documents that have topical overlap throughout their sections  
@@ -145,7 +172,7 @@ This approach parses documents by using custom code to create chunks. The custom
 
 ### Language model augmentation
 
-You can use language models to create chunks. For example, use a large language model, such as GPT-4, to generate textual representations of images or summaries of tables that become chunks. Language model augmentation is often used with other chunking approaches such as custom code.
+You can use language models to create chunks. For example, use a large language model, such as GPT-4, to generate textual representations of images or summaries of tables that become chunks. Language model augmentation is often used with other chunking approaches, such as custom code.
 
 If your document analysis determines that the text before or after the image helps [answer some requirement questions](./rag-preparation-phase.md#determine-your-image-preprocessing-requirements), pass this extra context to the language model. It's important to experiment to determine whether this extra context improves the performance of your solution.
 
@@ -157,9 +184,79 @@ If your chunking logic splits the image description into multiple chunks, includ
 **Use cases:** Images, tables  
 **Examples:** Generate text representations of tables and images, summarize transcripts from meetings, speeches, interviews, or podcasts
 
+### Azure Content Understanding
+
+[Azure Content Understanding](/azure/ai-services/content-understanding/overview) is a multimodal service that uses generative AI to process and transform documents, images, video, and audio into structured, actionable output. Content Understanding provides a unified approach to chunking across content types, combining content extraction, field extraction, and segmentation in a single API call. This approach eliminates the need to chain together multiple services (such as an OCR service, a language model for descriptions, and a separate classifier) and simplifies your chunking pipeline.
+
+Content Understanding offers three field extraction methods that are useful for chunking:
+
+- **Extract:** Directly extract values, such as dates from receipts or line items from invoices, as they appear in the input content.
+- **Classify:** Classify content from a predefined set of categories, such as document type or content category, to route content to the appropriate chunking strategy.
+- **Generate:** Generate new values from input data, such as summaries, descriptions, or chapter overviews.
+
+Content Understanding also provides segmentation that divides documents or videos into logical sections for targeted processing. For documents, segmentation can split content by document type. For video, segmentation breaks footage into scenes based on topic shifts, scene changes, or custom criteria that you describe in natural language.
+
+The following example shows a Content Understanding analyzer schema that generates a summary and title, extracts keywords, and classifies document type:
+
+```json
+{
+  "baseAnalyzerId": "prebuilt-document",
+  "description": "Document chunking with metadata enrichment",
+  "scenario": "document",
+  "config": {
+    "returnDetails": true
+  },
+  "fieldSchema": {
+    "fields": {
+      "Summary": {
+        "type": "string",
+        "method": "generate",
+        "description": "A one-paragraph summary of the content"
+      },
+      "Title": {
+        "type": "string",
+        "method": "generate",
+        "description": "A concise title for the content"
+      },
+      "DocumentCategory": {
+        "type": "string",
+        "method": "classify",
+        "description": "Category of the document",
+        "enum": ["invoice", "contract", "report", "correspondence", "other"]
+      },
+      "KeyTopics": {
+        "type": "array",
+        "method": "generate",
+        "items": { "type": "string" },
+        "description": "Key topics discussed in the document"
+      }
+    }
+  }
+}
+```
+
+Content Understanding outputs structured results in both Markdown (for search and retrieval) and JSON (for automation and analytics). The Markdown output preserves document structure, including headers, paragraphs, tables, and figure descriptions, which makes it ready for downstream chunking with text splitters. The JSON output includes extracted field values with confidence scores and source grounding that traces each value back to its location in the source content.
+
+For multimodal content, Content Understanding provides specialized processing:
+
+- **Video:** Transcribes speech, extracts key frames, performs shot detection, and generates scene descriptions. The `prebuilt-videoSearch` analyzer automatically segments videos and outputs RAG-ready Markdown with inline transcripts in WebVTT format. For more information, see [Content Understanding video solutions](/azure/ai-services/content-understanding/video/overview).
+- **Audio:** Transcribes conversational audio with speaker diarization and role detection. The `prebuilt-callCenter` analyzer extracts summaries, sentiment, topics, and entities from call recordings. For more information, see [Content Understanding audio solutions](/azure/ai-services/content-understanding/audio/overview).
+- **Images:** Generates descriptions and insights from images. The `prebuilt-imageSearch` analyzer extracts visual content for search and retrieval. For more information, see [Content Understanding image solutions](/azure/ai-services/content-understanding/image/overview).
+
+For an end-to-end example of building a RAG solution with Content Understanding, see the [Build a RAG solution tutorial](/azure/ai-services/content-understanding/tutorial/build-rag-solution) and the [Python code samples](https://github.com/Azure-Samples/azure-ai-search-with-content-understanding-python).
+
+> [!NOTE]
+> Content Understanding is a cloud-based service that requires you to upload your documents, images, audio, or video. You must ensure that your security and compliance regulations enable you to upload content to such services.
+
+**Tools:** [Azure Content Understanding](/azure/ai-services/content-understanding/overview), [Content Understanding Studio](https://aka.ms/cu-studio), [Content Understanding prebuilt analyzers](/azure/ai-services/content-understanding/concepts/prebuilt-analyzers)  
+**Engineering effort:** Low to medium  
+**Processing cost:** Medium  
+**Use cases:** Documents, images, video, and audio across structured, semi-structured, and unstructured content. Multimodal RAG pipelines that need a unified processing approach.  
+**Examples:** Invoices, contracts, training videos, call recordings, product images, research papers, regulatory documents, and mixed-media collections
+
 ### Document layout analysis
 
-Document layout analysis libraries and services combine optical character recognition (OCR) capabilities with deep learning models to extract both the structure and text of documents. Structural elements can include headers, footers, titles, section headings, tables, and figures. The goal is to provide better semantic meaning to content that the documents contain.
+Document layout analysis libraries and services combine optical character recognition (OCR) capabilities with deep learning models to extract both the structure and the text of documents. Structural elements can include headers, footers, titles, section headings, tables, and figures. The goal is to provide better semantic meaning to content that the documents contain.
 
 Document layout analysis libraries and services expose a model that represents the structural and textual content of the document. You still have to write code that interacts with the model.
 
@@ -184,9 +281,33 @@ Graph-based chunking is an iterative approach that involves using a language mod
 
 ### Prebuilt model
 
-Services such as Document Intelligence provide prebuilt models that you can use for various document types. Some models are trained for specific document types, such as the U.S. W-2 tax form, while others target a broader genre of document types such as invoices.
+Services such as Document Intelligence and Azure Content Understanding provide prebuilt models that you can use for various document types. Some models are trained for specific document types, such as the U.S. W-2 tax form. Others target a broader genre of document types, such as invoices.
 
-**Tools:** [Document Intelligence prebuilt models](/azure/ai-services/document-intelligence/overview#prebuilt-models), [Power Automate intelligent document processing](https://www.microsoft.com/power-platform/products/power-automate/topics/business-process/intelligent-document-processing), [LayoutLMv3](https://huggingface.co/microsoft/layoutlmv3-base)  
+Content Understanding provides an extensive set of [prebuilt analyzers](/azure/ai-services/content-understanding/concepts/prebuilt-analyzers) across multiple categories:
+
+- **RAG analyzers:** `prebuilt-documentSearch`, `prebuilt-imageSearch`, `prebuilt-audioSearch`, and `prebuilt-videoSearch` are optimized for search and retrieval scenarios and output content as Markdown ready for indexing.
+- **Domain-specific analyzers:** `prebuilt-invoice`, `prebuilt-receipt`, `prebuilt-tax.us.w2`, `prebuilt-idDocument`, `prebuilt-contract`, `prebuilt-mortgage.us.1003`, and many more are preconfigured for common document categories.
+- **Content extraction analyzers:** `prebuilt-read` and `prebuilt-layout` provide OCR and layout analysis as foundational processing without requiring a language model.
+
+You can use prebuilt analyzers directly via the REST API:
+
+```http
+POST https://{endpoint}/contentunderstanding/analyzers/prebuilt-invoice:analyze?api-version=2025-11-01
+Content-Type: application/json
+Ocp-Apim-Subscription-Key: {key}
+
+{
+  "inputs": [
+    {
+      "url": "https://your-storage.blob.core.windows.net/documents/invoice.pdf"
+    }
+  ]
+}
+```
+
+The response returns structured JSON with extracted fields (such as vendor name, items, and amounts), confidence scores, and source grounding that traces each value back to its location in the document.
+
+**Tools:** [Azure Content Understanding prebuilt analyzers](/azure/ai-services/content-understanding/concepts/prebuilt-analyzers), [Document Intelligence prebuilt models](/azure/ai-services/document-intelligence/overview#prebuilt-models), [Power Automate intelligent document processing](https://www.microsoft.com/power-platform/products/power-automate/topics/business-process/intelligent-document-processing), [LayoutLMv3](https://huggingface.co/microsoft/layoutlmv3-base)  
 **Engineering effort:** Low  
 **Processing cost:** Medium/High  
 **Use cases:** Structured documents where a prebuilt model exists  
@@ -194,46 +315,46 @@ Services such as Document Intelligence provide prebuilt models that you can use 
 
 ### Custom model
 
-For highly structured documents where no prebuilt model exists, you might have to build a custom model. This approach can be effective for images or documents that are highly structured, which makes using text parsing techniques difficult.
+For highly structured documents where no prebuilt model exists, you might need to build a custom model. This approach can be effective for images or documents that are highly structured, which makes using text parsing techniques difficult.
 
-**Tools:** [Document Intelligence custom models](/azure/ai-services/document-intelligence/overview#custom-models), [Tesseract](https://github.com/tesseract-ocr/tessdoc)  
+**Tools:** [Azure Content Understanding custom analyzers](/azure/ai-services/content-understanding/tutorial/create-custom-analyzer), [Document Intelligence custom models](/azure/ai-services/document-intelligence/overview#custom-models), [Tesseract](https://github.com/tesseract-ocr/tessdoc)  
 **Engineering effort:** High  
-**Processing cost:** Medium/High  
+**Processing cost:** Medium to high
 **Use cases:** Structured documents where a prebuilt model doesn't exist  
 **Examples:** Automotive repair and maintenance schedules, academic transcripts, records, technical manuals, operational procedures, and maintenance guidelines
 
 ### Sentence-based parsing
 
-Sentence-based parsing is a straightforward approach that breaks text documents into chunks, which are composed of complete sentences. Use this approach as a fallback solution if none of the other approaches described here fit your use case. The advantages of this approach include its low implementation and processing costs and its applicability to any text-based document that contains prose or full sentences. One drawback of this approach is that each chunk might not capture the full context of an idea or meaning. Multiple sentences must often be taken together to capture the semantic meaning.
+Sentence-based parsing is a straightforward approach that breaks text documents into chunks that are composed of complete sentences. Use this approach as a fallback solution if none of the other approaches described here fit your use case. The advantages of this approach include its low implementation and processing costs and its applicability to any text-based document that contains prose or full sentences. One drawback of this approach is that each chunk might not capture the full context of an idea or meaning. Multiple sentences must often be taken together to capture the semantic meaning.
 
 **Tools:** [spaCy sentence tokenizer](https://spacy.io/api/tokenizer), [LangChain recursive text splitter](https://docs.langchain.com/oss/javascript/integrations/splitters/index#text-splitters), [NLTK sentence tokenizer](https://www.nltk.org/api/nltk.tokenize.html)  
-**Engineering effort:** Low  
+**Engineering effort:** Low
 **Processing cost:** Low  
 **Use cases:** Unstructured documents written in prose or full sentences. Your collection of documents contains a prohibitive number of different document types, which require individual chunking strategies  
 **Examples:** User-generated content like open-ended feedback from surveys, forum posts, reviews, email messages, novels, or essays
 
 ## Document structure
 
-Documents vary in their type of structure. Some documents, like government forms, have a complex and well-known structure, such as a U.S. W-2 tax form. At the other end of the spectrum are unstructured documents like free-form notes. The degree of structure in a document type is a good starting point to determine an effective chunking approach. While there are no specific rules, this section provides you with some guidelines to follow.
+Documents vary in their type of structure. Some documents, like government forms, have a complex and well-known structure, such as U.S. W-2 tax forms. At the other end of the spectrum are unstructured documents like free-form notes. The degree of structure in a document type is a good starting point to determine an effective chunking approach. Although there are no specific rules, this section provides some guidelines to follow.
 
 :::image type="complex" source="./_images/chunking-approaches-by-document-structure.png" lightbox="_images/chunking-approaches-by-document-structure.png" alt-text="Diagram that shows chunking approaches by document structure." border="false":::
-   The diagram shows document structure from high to low on the X axis. It ranges from (high) structured, semi-structured, inferred, and unstructured (low). The next line up shows examples with W-2 between high and structured. It shows an invoice between structured and semi-structured. It shows a web page between semi-structured and inferred. It shows European Union (EU) regulation between inferred and unstructured, and lastly, field notes between unstructured and low. Over the X axis are six chunking approaches. Each approach indicates where it's most effective. Prebuilt models are most effective for structured documents. Custom models are most effective for semi-structured documents. Document analysis models are most effective for semi-structured to inferred documents. Custom code is most effective for semi-structured to inferred documents. Boundary-based approaches are most effective for inferred to unstructured documents. Sentence-based approaches are most effective for unstructured documents.
+   The diagram shows document structure from high to low on the X axis. It ranges from (high) structured, to semi-structured, to inferred, to unstructured (low). The line above that shows examples, with W-2 between high and structured. It shows an invoice between structured and semi-structured. It shows a web page between semi-structured and inferred. It shows European Union (EU) regulation between inferred and unstructured, and lastly, field notes between unstructured and low. Over the X axis are six chunking approaches. Each approach indicates where it's most effective. Prebuilt models are most effective for structured documents. Custom models are most effective for semi-structured documents. Document analysis models are most effective for semi-structured to inferred documents. Custom code is most effective for semi-structured to inferred documents. Boundary-based approaches are most effective for inferred to unstructured documents. Sentence-based approaches are most effective for unstructured documents.
 :::image-end:::
 
 ### Structured documents
 
-Structured documents, sometimes referred to as fixed-format documents, contain defined layouts. The data in these documents is located at fixed locations. For example, the date, or customer family name, is in the same location of every document that has the same fixed format.
+Structured documents, sometimes referred to as *fixed-format documents*, contain defined layouts. The data in these documents is located at fixed locations. For example, the date or customer family name appears in the same location of every document that uses the same fixed format.
 
 Fixed-format documents might be scanned images of original documents that are hand-filled or have complex layout structures. This format makes them difficult to process by using a basic text parsing approach. A typical approach to processing complex document structures is to use machine learning models to extract data and apply semantic meaning to that data, when possible.
 
-**Examples:** W-2 form and insurance card  
+**Examples:** W-2 forms, insurance cards
 **Typical approaches:** Prebuilt models and custom models
 
 ### Semi-structured documents
 
-Semi-structured documents don't have a fixed format or schema, like the W-2 form, but they provide consistency regarding format or schema. For example, invoices vary in layout, but they generally have a consistent schema. You can expect an invoice to have an *invoice number* and some form of *bill to* and *ship to* name and address, among other data. A web page might not have schema consistencies, but they have similar structural or layout elements, such as *body*, *title*, *H1*, and *p* that can add semantic meaning to the surrounding text.
+Semi-structured documents don't have a fixed format or schema, like W-2 forms, but they provide consistency regarding format or schema. For example, invoices vary in layout, but they generally have a consistent schema. You can expect an invoice to have an *invoice number* and some form of *bill to* and *ship to* name and address, among other data. A web page might not have schema consistencies, but it has similar structural or layout elements, such as *body*, *title*, *H1*, and *p* that can add semantic meaning to the surrounding text.
 
-Like structured documents, semi-structured documents that have complex layout structures are difficult to process by using text parsing. For these document types, machine learning models are a good approach. There are prebuilt models for certain domains that have consistent schemas like invoices, contracts, or health insurance documents. Consider building custom models for complex structures where no prebuilt model exists.
+Like structured documents, semi-structured documents that have complex layout structures are difficult to process by using text parsing. For these document types, machine learning models are a good approach. There are prebuilt models for certain domains that have consistent schemas, like invoices, contracts, or health insurance documents. Consider building custom models for complex structures when no prebuilt model exists.
 
 **Examples:** Invoices, receipts, web pages, and Markdown files  
 **Typical approaches:** Document analysis models
@@ -253,7 +374,7 @@ Because you can clearly understand the structure of the document, and there are 
 
 ### Unstructured documents
 
-A good approach for documents that have little to no structure are sentence-based or fixed-size with overlap.
+Good approaches for documents that have little or no structure are sentence-based or fixed-size with overlap.
 
 **Examples:** User-generated content like open-ended feedback from surveys, forum posts, reviews, email messages, personal notes, and research notes  
 **Typical approaches:** Sentence-based or boundary-based with overlap
@@ -271,3 +392,6 @@ This article describes the most suitable chunking approaches for each document t
 
 - [Chunking large documents for vector search solutions in Azure AI Search](/azure/search/vector-search-how-to-chunk-documents)
 - [Integrated data chunking and embedding in Azure AI Search](/azure/search/vector-search-integrated-vectorization)
+- [Azure Content Understanding overview](/azure/ai-services/content-understanding/overview)
+- [Build a RAG solution with Azure Content Understanding](/azure/ai-services/content-understanding/tutorial/build-rag-solution)
+- [Content Understanding prebuilt analyzers](/azure/ai-services/content-understanding/concepts/prebuilt-analyzers)

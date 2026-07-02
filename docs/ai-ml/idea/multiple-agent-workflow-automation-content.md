@@ -9,7 +9,7 @@ This article focuses on the infrastructure and DevOps aspects of managing multip
 ## Architecture
 
 :::image type="complex" border="false" source="./_images/multiple-agent-workflow-automation.svg" alt-text="Diagram that shows a typical multiple-agent architecture." lightbox="./_images/multiple-agent-workflow-automation.svg":::
-   The diagram shows six numbered workflow steps across multiple Azure services. In step one, users access the Azure App Service website to submit automation requests. In step two, the App Service website sends requests to the Container Apps API agent orchestration layer, which breaks down tasks and determines the required AI agents. Step three shows how the Container Apps API connects to the Microsoft Foundry GPT-4o model to coordinate specialized AI agents that collaborate on task operations. In step four, the Container Apps API stores and retrieves task data, plans, and historical information in Azure Cosmos DB for persistence and learning. In step five, the GitHub source repository triggers automated builds that create Docker container images. In step six, Docker builds are pushed to Azure Container Registry, which stores versioned images for both the App Service website and the Container Apps API components.
+   The diagram shows six numbered workflow steps across multiple Azure services. In step one, users access the Azure App Service website to submit automation requests. In step two, the App Service website sends requests to the Container Apps API agent orchestration layer, which breaks down tasks and determines the required AI agents. Step three shows how the Container Apps API connects to the Microsoft Foundry GPT-4.1 model to coordinate specialized AI agents that collaborate on task operations. In step four, the Container Apps API stores and retrieves task data, plans, and historical information in Azure Cosmos DB for persistence and learning. In step five, the GitHub source repository triggers automated builds that create Docker container images. In step six, Docker builds are pushed to Azure Container Registry, which stores versioned images for both the App Service website and the Container Apps API components.
 :::image-end:::
 
 *Download a [Visio file](https://arch-center.azureedge.net/multiple-agent-workflow-automation.vsdx) of this architecture.*
@@ -22,7 +22,7 @@ The following workflow corresponds to the previous diagram:
 
 1. The Azure App Service website receives the user request from the front end and calls an API hosted in Container Apps. The API processes the incoming task and determines which specialized AI agents to use. The API separates the task into component parts for multiple-agent coordination.
 
-1. The Container Apps API connects to a Microsoft Foundry-hosted GPT-4o model. The API orchestrates multiple specialized AI agents to handle different aspects of the task. Agents collaborate to plan, perform, and validate the required tasks.
+1. The Container Apps API connects to a Microsoft Foundry-hosted GPT-4.1 model. The API orchestrates multiple specialized AI agents to handle different aspects of the task. Agents collaborate to plan, perform, and validate the required tasks.
 
 1. Azure Cosmos DB stores all data related to current and past plans and solutions. It maintains historical task data and patterns for learning and optimization purposes. It also persists agent decisions and outcomes for future reference.
 
@@ -36,9 +36,9 @@ The following workflow corresponds to the previous diagram:
 
 - [Container Apps](/azure/well-architected/service-guides/azure-container-apps) is a serverless container platform that lets you run microservices and containerized applications on a serverless platform. In this architecture, the Container Apps API serves as the central orchestration layer that processes user requests, coordinates multiple AI agents, and manages the completion state of tasks. It hosts the custom code that your software team develops by using Agent Framework.
 
-- [Foundry](/azure/ai-foundry/what-is-foundry) is a unified Azure PaaS offering for enterprise AI operations, model builders, and application development. It combines production-grade infrastructure with developer-friendly interfaces, which lets developers focus on building applications rather than managing infrastructure. In this architecture, Foundry provides the foundation for deploying and managing AI models in a chat interface and serves as the gateway to connected Foundry Tools, like Foundry Agent Service.
+- [Foundry](/azure/foundry/what-is-foundry) is a unified Azure PaaS offering for enterprise AI operations, model builders, and application development. It combines production-grade infrastructure with developer-friendly interfaces, which lets developers focus on building applications rather than managing infrastructure. In this architecture, Foundry provides the foundation for deploying and managing AI models in a chat interface and serves as the gateway to connected Foundry Tools.
 
-  [Foundry Agent Service](/azure/ai-foundry/agents/overview) is a managed runtime service that connects the core pieces of Foundry, like models, tools, and frameworks, into a single agentic runtime. It manages conversations, orchestrates tool calls, enforces content safety, and integrates with identity, networking, and observability systems. In this architecture, the application invokes Foundry Agent Service to power the agent conversations.
+  [Foundry Agent Service](/azure/foundry/agents/overview) is a managed runtime service that connects the core pieces of Foundry, like models, tools, and frameworks, into a single agentic runtime. It manages conversations, orchestrates tool calls, enforces content safety, and integrates with identity, networking, and observability systems. In this architecture, the application invokes Foundry Agent Service to power the agent conversations.
 
 - [Azure Cosmos DB](/azure/well-architected/service-guides/cosmos-db) is a globally distributed, multiple-model database service that provides low latency and elastic scalability. In this architecture, Azure Cosmos DB stores all data related to current and past automation plans and solutions. The Container Apps API writes data when it creates new plans or runs tasks. The API reads data when users access their automation history via the App Service website.
 
@@ -170,5 +170,5 @@ Other contributors:
 
 ## Next steps
 
-- [Overview of the Agent Framework architecture](/semantic-kernel/frameworks/agent/agent-architecture)
-- [Foundry Agent Service documentation](/azure/ai-foundry/agents/overview)
+- [Overview of the Agent Framework workflows](/agent-framework/workflows/)
+- [Foundry Agent Service documentation](/azure/foundry/agents/overview)

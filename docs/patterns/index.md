@@ -3,7 +3,7 @@ title: Cloud Design Patterns
 description: Learn about design patterns for building reliable, scalable, and more secure applications in the cloud with examples based on Microsoft Azure.
 ms.author: pnp
 author: claytonsiemens77
-ms.date: 12/11/2024
+ms.date: 05/03/2026
 ms.topic: design-pattern
 ms.subservice: cloud-fundamentals
 ---
@@ -29,19 +29,23 @@ Cloud workloads are vulnerable to the [fallacies of distributed computing](https
 - Component versioning is simple.
 - Observability implementation can be delayed.
 
-These misconceptions can result in flawed workload designs. Design patterns don't eliminate these misconceptions but help raise awareness, provide compensation strategies, and provide mitigations. Each cloud design pattern has trade-offs. Focus on why you should choose a specific pattern instead of how to implement it.
+These misconceptions can result in flawed workload designs. Design patterns don't eliminate these misconceptions, but they help raise awareness, provide compensation strategies, and offer mitigations. Each cloud design pattern has trade-offs. Focus on why you should choose a specific pattern instead of how to implement it.
 
 Consider how to use these industry-standard design patterns as the core building blocks for a well-architected workload design. Each design pattern in the Azure Well-Architected Framework represents one or more of its pillars. Some patterns might introduce trade-offs that affect the goals of other pillars.
+
+## Select a pattern
+
+Choose a pattern based on the problem you need to solve, not the technology you want to use. Begin with a specific constraint or risk in your workload, such as a service that fails under load, a data store that can't keep up with read queries, or a dependency that you can't fully trust. A pattern is a good fit when its problem statement matches the challenge you face and when the trade-offs it introduces are ones you can accept in your workload.
 
 ## Pattern catalog
 
 Each pattern in this catalog describes the problem that it addresses, considerations for applying the pattern, and an example based on Microsoft Azure services and tools. Some patterns include code samples or snippets that show how to implement the pattern on Azure.
 
 | Pattern | Summary | Well-Architected Framework pillars |
-| :------ | :------ | :-------------------------------------- |
+| :------ | :------ | :--------------------------------- |
 | [Ambassador](./ambassador.md) | Create helper services that send network requests on behalf of a consumer service or application. | - Reliability<br><br>- Security |
-| [Anti-Corruption Layer](./anti-corruption-layer.yml) | Implement a façade or adapter layer between a modern application and a legacy system. | - Operational&nbsp;Excellence |
-| [Asynchronous Request-Reply](asynchronous-request-reply.md) | Decouple back-end processing from a front-end host. This pattern is useful when back-end processing must be asynchronous, but the front end requires a clear and timely response. | - Performance&nbsp;Efficiency |
+| [Anti-Corruption Layer](./anti-corruption-layer.md) | Implement a façade or adapter layer between a modern application and a legacy system. | - Operational&nbsp;Excellence |
+| [Asynchronous Request-Reply](./asynchronous-request-reply.md) | Decouple back-end processing from a front-end host. This pattern is useful when back-end processing must be asynchronous, but the front end requires a clear and timely response. | - Performance&nbsp;Efficiency |
 | [Backends for Frontends](./backends-for-frontends.md) | Create separate backend services for specific frontend applications or interfaces. | - Reliability<br><br>- Security<br><br>- Performance&nbsp;Efficiency |
 | [Bulkhead](./bulkhead.md) | Isolate elements of an application into pools so that if one fails, the others continue to function. | - Reliability<br><br>- Security<br><br>- Performance&nbsp;Efficiency |
 | [Cache-Aside](./cache-aside.yml) | Load data on demand into a cache from a data store. | - Reliability<br><br>- Performance&nbsp;Efficiency |
@@ -56,7 +60,8 @@ Each pattern in this catalog describes the problem that it addresses, considerat
 | [Event Sourcing](./event-sourcing.md) | Use an append-only store to record a full series of events that describe actions taken on data in a domain. | - Reliability<br><br>- Performance&nbsp;Efficiency |
 | [External Configuration Store](./external-configuration-store.md) | Move configuration information out of an application deployment package to a centralized location. | - Operational&nbsp;Excellence |
 | [Federated Identity](./federated-identity.yml) | Delegate authentication to an external identity provider. | - Reliability<br><br>- Security<br><br>- Performance&nbsp;Efficiency |
-| [Gateway Aggregation](./gateway-aggregation.yml) | Use a gateway to aggregate multiple individual requests into a single request. | - Reliability<br><br>- Security<br><br>- Operational&nbsp;Excellence<br><br>- Performance&nbsp;Efficiency |
+| [Gatekeeper](./gatekeeper.md) | Protect applications and services by using a dedicated host instance to validate and sanitize requests before forwarding them to private back ends. | - Security<br><br>- Performance&nbsp;Efficiency |
+| [Gateway Aggregation](./gateway-aggregation.md) | Use a gateway to aggregate multiple individual requests into a single request. | - Reliability<br><br>- Security<br><br>- Operational&nbsp;Excellence<br><br>- Performance&nbsp;Efficiency |
 | [Gateway Offloading](./gateway-offloading.yml) | Offload shared or specialized service functionality to a gateway proxy. | - Reliability<br><br>- Security<br><br>- Cost&nbsp;Optimization<br><br>- Operational&nbsp;Excellence<br><br>- Performance&nbsp;Efficiency |
 | [Gateway Routing](./gateway-routing.yml) | Route requests to multiple services by using a single endpoint. | - Reliability<br><br>- Operational&nbsp;Excellence<br><br>- Performance&nbsp;Efficiency |
 | [Geode](./geodes.yml) | Deploy back-end services across geographically distributed nodes. Each node can handle client requests from any region. | - Reliability<br><br>- Performance&nbsp;Efficiency |
@@ -69,24 +74,37 @@ Each pattern in this catalog describes the problem that it addresses, considerat
 | [Priority Queue](./priority-queue.yml) | Prioritize requests sent to services so that requests with a higher priority are processed more quickly. | - Reliability<br><br>- Performance&nbsp;Efficiency |
 | [Publisher-Subscriber](./publisher-subscriber.md) | Enable an application to announce events to multiple consumers asynchronously, without coupling senders to receivers. | - Reliability<br><br>- Security<br><br>- Cost&nbsp;Optimization<br><br>- Operational&nbsp;Excellence<br><br>- Performance&nbsp;Efficiency |
 | [Quarantine](./quarantine.yml) | Ensure that external assets meet a team-agreed quality level before the workload consumes them. | - Security<br><br>- Operational&nbsp;Excellence |
-| [Queue-Based Load Leveling](./queue-based-load-leveling.yml) | Use a queue that creates a buffer between a task and a service to smooth intermittent heavy loads. | - Reliability<br><br>- Cost&nbsp;Optimization<br><br>- Performance&nbsp;Efficiency |
-| [Rate Limiting](./rate-limiting-pattern.yml) | Avoid or minimize throttling errors by controlling the consumption of resources. | - Reliability |
+| [Queue-Based Load Leveling](./queue-based-load-leveling.md) | Use a queue that creates a buffer between a task and a service to smooth intermittent heavy loads. | - Reliability<br><br>- Cost&nbsp;Optimization<br><br>- Performance&nbsp;Efficiency |
+| [Rate Limiting](./rate-limiting-pattern.md) | Avoid or minimize throttling errors by controlling the consumption of resources. | - Reliability |
 | [Retry](./retry.yml) | Enable applications to handle anticipated temporary failures by retrying failed operations. | - Reliability |
 | [Saga](./saga.yml) | Manage data consistency across microservices in distributed transaction scenarios. | - Reliability |
 | [Scheduler Agent Supervisor](./scheduler-agent-supervisor.yml) | Coordinate a set of actions across distributed services and resources. | - Reliability<br><br>- Performance&nbsp;Efficiency |
-| [Sequential Convoy](./sequential-convoy.yml) | Process a set of related messages in a defined order without blocking other message groups. | - Reliability |
+| [Sequential Convoy](./sequential-convoy.md) | Process a set of related messages in a defined order without blocking other message groups. | - Reliability |
 | [Sharding](./sharding.md) | Divide a data store into a set of horizontal partitions or shards. | - Reliability<br><br>- Cost&nbsp;Optimization |
 | [Sidecar](./sidecar.md) | Deploy components into a separate process or container to provide isolation and encapsulation. | - Security<br><br>- Operational&nbsp;Excellence |
 | [Static Content Hosting](./static-content-hosting.yml) | Deploy static content to a cloud-based storage service for direct client delivery. | - Cost&nbsp;Optimization |
 | [Strangler Fig](./strangler-fig.md) | Incrementally migrate a legacy system by gradually replacing pieces of functionality with new applications and services. | - Reliability<br><br>- Cost&nbsp;Optimization<br><br>- Operational&nbsp;Excellence |
-| [Throttling](./throttling.yml) | Control the consumption of resources from applications, tenants, or services. | - Reliability<br><br>- Security<br><br>- Cost&nbsp;Optimization<br><br>- Performance&nbsp;Efficiency |
+| [Throttling](./throttling.md) | Control the consumption of resources from applications, tenants, or services. | - Reliability<br><br>- Security<br><br>- Cost&nbsp;Optimization<br><br>- Performance&nbsp;Efficiency |
 | [Valet Key](./valet-key.yml) | Use a token or key to provide clients with restricted, direct access to a specific resource or service. | - Security<br><br>- Cost&nbsp;Optimization<br><br>- Performance&nbsp;Efficiency |
+
+### Combine patterns
+
+Patterns are composable. A single pattern addresses one problem, but a workload usually faces several problems at once, so you often apply multiple patterns together. Some patterns also build on others or pair naturally to cover a gap that one pattern leaves open. Consider these examples:
+
+- Pair [Retry](./retry.yml) with [Circuit Breaker](./circuit-breaker.md) so that an application retries transient faults but stops retrying when a fault persists.
+- Combine [Queue-Based Load Leveling](./queue-based-load-leveling.md) with [Competing Consumers](./competing-consumers.md) to buffer load and then scale the processing of that load.
+- Layer the [Gateway Routing](./gateway-routing.yml), [Gateway Aggregation](./gateway-aggregation.md), and [Gateway Offloading](./gateway-offloading.yml) patterns behind a single gateway endpoint.
+- Build [Saga](./saga.yml) on [Compensating Transaction](./compensating-transaction.md) to maintain data consistency across services when a distributed operation fails partway through.
+
+### Antipatterns
+
+A design pattern describes a practice to apply. An antipattern describes a practice to avoid. Antipatterns often start as reasonable designs that work in testing or at low scale, but they degrade reliability or performance as load increases. Recognizing an antipattern helps you spot a problem in an existing design and choose a pattern that resolves it. For the full list, see [Antipatterns for cloud applications](../antipatterns/index.md).
 
 ## AI agent orchestration patterns
 
 The preceding cloud design patterns address common challenges in distributed systems, but AI workloads that use multiple autonomous agents require specialized coordination approaches. Traditional patterns like Scheduler Agent Supervisor or Choreography provide foundational concepts. However, AI agents introduce unique challenges such as nondeterministic outputs, dynamic reasoning capabilities, and the need for intelligent handoffs between specialized components.
 
-For AI workloads that include multiple autonomous agents, see [AI agent orchestration patterns](/azure/architecture/ai-ml/guide/ai-agent-design-patterns). These patterns complement the cloud design patterns in this catalog by addressing the specific coordination requirements of intelligent, autonomous components that work together to accomplish complex outcomes.
+For AI workloads that include multiple autonomous agents, see [AI agent orchestration patterns](../ai-ml/guide/ai-agent-design-patterns.md). These patterns complement the cloud design patterns in this catalog by addressing the specific coordination requirements of intelligent, autonomous components that work together to accomplish complex outcomes.
 
 ## Next steps
 
