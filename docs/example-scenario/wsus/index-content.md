@@ -42,47 +42,38 @@ After you either identify the Azure virtual network to use or determine you need
 
 There are two approaches you can use to set up your WSUS server:
 
-- If you want to automatically set up a server that's configured to handle a typical workload with minimal administration required, you can use the PowerShell automation script.
-- If you need to handle thousands of clients that run many different operating systems and languages, or if you want to configure WSUS in a way that the PowerShell script can't handle, you can set up WSUS manually. Both approaches are described later in this article.
+- If you manage many servers or want repeatable, hands-off deployments, automate the setup by writing your own PowerShell script. This approach configures a server to handle a typical workload with minimal administration required.
+- If you need to handle thousands of clients that run many different operating systems and languages, or if you want to configure WSUS in a way that a script can't handle, set up WSUS manually. Both approaches are described later in this article.
 
-You can also combine the two approaches by using the automation script to do most of the work and then using the WSUS administrative console to fine-tune the server settings.
+You can also combine the two approaches by using a script to do most of the work and then using the WSUS administrative console to fine-tune the server settings.
 
 ### Set up WSUS by using an automation script
 
-The `Configure-WSUSServer` script allows you to set up a WSUS server that will automatically synchronize and approve updates for a chosen set of products and languages.
+To automate this scenario, author a PowerShell script. WSUS exposes a PowerShell surface that you can use to install the role and configure synchronization, products, classifications, languages, and update approvals without using the administrative console. For the cmdlets that a script uses, see the [WSUS PowerShell reference (UpdateServices module)](/powershell/module/updateservices/).
 
 > [!NOTE]
-> The script always sets up WSUS to use Windows Internal Database to store its update data. This speeds up setup and reduces administration complexity. But if your server will support thousands of client computers, especially if you also need to support a wide range of products and languages, you should set up WSUS manually instead so that you can use SQL Server as the database.
+> An install approach that uses Windows Internal Database speeds up setup and reduces administration complexity. But if your server will support thousands of client computers, especially if you also need to support a wide range of products and languages, set up WSUS manually instead so that you can use SQL Server as the database.
 
-The latest version of this script is [available on GitHub](https://github.com/mspnp/wsus-configuration).
+Design your script and its configuration to be idempotent, so that a rerun doesn't disrupt a running server. Store your settings in a separate configuration file, such as JSON, so that operators can change values without editing the script logic. A robust script handles these responsibilities:
 
-You configure the script by using a JSON file. You can currently configure these options:
+- Install the WSUS server role and management tools, then run the required post-installation step to set the content directory.
+- Set the upstream source that the server synchronizes from, such as Microsoft Update or another WSUS server.
+- Set whether update payloads are stored locally (and where) or left on the Microsoft servers.
+- Select which products, update classifications, and languages are available on the server.
+- Set whether the server automatically approves updates for installation or leaves them unapproved unless an administrator approves them.
+- Set whether the server automatically retrieves new updates from Microsoft, and, if so, how often.
+- Set whether Express update packages are used. Express update packages reduce server-to-client bandwidth at the expense of client CPU and disk usage and server-to-server bandwidth.
+- Guard against unintended reconfiguration. For example, record that the script already ran and skip subsequent runs unless an override value is set, so that you avoid inadvertent changes that might disrupt server operation.
 
-- Whether update payloads should be stored locally (and, if so, where they should be stored), or left on the Microsoft servers.
-- Which products, update classifications, and languages should be available on the server.
-- Whether the server should automatically approve updates for installation or leave updates unapproved unless an administrator approves them.
-- Whether the server should automatically retrieve new updates from Microsoft, and, if so, how often.
-- Whether Express update packages should be used. (Express update packages reduce server-to-client bandwidth at the expense of client CPU/disk usage and server-to-server bandwidth.)
-- Whether the script should overwrite its previous settings. (Normally, to avoid inadvertent reconfiguration that might disrupt server operation, the script will run only once on a given server.)
+You can run your script in one of two ways:
 
-Copy the script and its configuration file to local storage, and edit the configuration file to suit your needs.
-
-> [!WARNING]
-> Be careful when you edit the configuration file. The syntax used for JSON configuration files is strict. If you inadvertently change the structure of the file rather than just the parameter values, the configuration file won't load.
-
-You can run this script in one of two ways:
-
-- You can run the script manually, from the WSUS VM.
-
-  The following command, run from an elevated Command Prompt window, will install and configure WSUS. It will use the script and configuration file in the current directory.
-
-    `powershell.exe -ExecutionPolicy Unrestricted -File .\Configure-WSUSServer.ps1 -WSUSConfigJson .\WSUS-Config.json`
+- Run the script manually from the WSUS VM. Run it from an elevated command prompt to install and configure WSUS.
 
 - You can use the [Custom Script Extension for Windows](/azure/virtual-machines/extensions/custom-script-windows).
 
-  Copy the script and the JSON configuration file to your own storage container that has private network line of sight to the WSUS VM.
+  Copy your script and its configuration file to your own storage container that has private network line of sight to the WSUS VM.
 
-  In typical VM and Azure Virtual Network configurations, the Custom Script Extension needs only the following two parameters to run the script correctly. (You need to replace the values shown here with the URLs for your storage locations.)
+  In typical VM and Azure Virtual Network configurations, the Custom Script Extension needs only the following two parameters to run the script correctly. Replace the values shown here with the URLs for your storage locations and the names of your files.
 
   ```bicep
   settings: {
@@ -94,7 +85,7 @@ You can run this script in one of two ways:
   }
   ```
 
-The script will start the initial synchronization needed to make updates available to client computers. But it won't wait for that synchronization to complete. Depending on the products, classifications, and languages you've selected, the initial synchronization might take several hours. All synchronizations after that should be faster.
+Have your script start the initial synchronization that makes updates available to client computers, but don't require it to wait for that synchronization to complete. Depending on the products, classifications, and languages you select, the initial synchronization might take several hours. All synchronizations after that should be faster.
 
 ### Set up WSUS manually
 
