@@ -3,7 +3,7 @@ title: Use API Management to Protect Access Tokens in Single-Page Applications
 description: Learn how to use Azure API Management to implement a JavaScript single-page application that doesn't store tokens in the browser session or local storage.
 author: irarainey
 ms.author: irarainey
-ms.date: 05/27/2026
+ms.date: 07/02/2026
 ms.topic: concept-article
 ms.subservice: architecture-guide
 ms.custom:
