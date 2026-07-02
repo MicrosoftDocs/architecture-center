@@ -1,4 +1,4 @@
-This architecture is based on the [basic enterprise integration][basic-enterprise-integration] architecture but includes how to integrate enterprise back-end systems. This architecture uses message brokers and events to decouple services for greater scalability and reliability. Ensure that you're familiar with the design and components in the basic integration architecture. These elements provide foundational information about the core components of this architecture.
+This architecture is based on the [basic enterprise integration][basic-enterprise-integration] architecture but includes how to integrate enterprise back-end systems. This architecture uses message brokers and events to decouple services for greater scalability and reliability. Make sure you're familiar with the design and components in the basic integration architecture. These elements provide foundational information about the core components of this architecture.
 
 ## Architecture
 
@@ -28,9 +28,9 @@ This architecture uses asynchronous communication via a message broker instead o
 - Integrates with existing message-based systems
 - Provides the ability to queue messages when a back-end system isn't available
 
-Use Event Grid so that various components in the system can react to events when they happen, rather than relying on polling or scheduled tasks. Similar to a message queue and topics, Event Grid helps decouple applications and services. If an application or service publishes events, any interested subscribers are notified. You can add new subscribers without updating the sender.
+Use Azure Event Grid so that various components in the system can react to events when they happen, rather than relying on polling or scheduled tasks. Similar to a message queue and topics, Event Grid helps decouple applications and services. If an application or service publishes events, any interested subscribers are notified. You can add new subscribers without updating the sender.
 
-Many Azure services support sending events to Event Grid. For example, a logic app can listen for an event when new files are added to a blob store. This pattern creates reactive workflows in which uploading a file or putting a message on a queue starts a series of processes. The processes might run in parallel or in a specific sequence.
+Many Azure services support sending events to Event Grid. For example, a Azure Logic Apps can listen for an event when new files are added to a blob store. This pattern creates reactive workflows in which uploading a file or putting a message on a queue starts a series of processes. The processes might run in parallel or in a specific sequence.
 
 ## Recommendations
 
@@ -38,13 +38,13 @@ Consider the following recommendations. For more recommendations, see [Basic ent
 
 ### Service Bus
 
-Service Bus has two delivery models, the *pull* model and the *proxied push* model:
+Service Bus offers two delivery models: the *pull* model and the *proxied push* model.
 
 - **Pull model:** The receiver continuously polls for new messages. If you need to manage multiple queues and polling times, polling might be inefficient. But this model can simplify your architecture because it removes extra components and data hops.
 
 - **Proxied push model:** The receiver initially subscribes to a specific event type on an Event Grid topic. When a new message is available, Service Bus raises and sends an event through Event Grid. This event then triggers the receiver to pull the next batch of messages from Service Bus. This model allows systems to receive messages almost in real time but without using resources to continuously poll for new messages. This architecture uses extra components that you must deploy, manage, and secure.
 
-When you create a Standard Logic Apps workflow that consumes Service Bus messages, we recommend that you use the Service Bus built-in connector triggers. The built-in connector triggers abstract most of the pull model configuration without adding extra cost. This capability provides the right balance between cost, surface area management, and security because the connector continuously loops within the Logic Apps runtime engine. For more information, see [Service Bus built-in connector triggers](/azure/connectors/connectors-create-api-servicebus#service-bus-built-in-connector-triggers).
+When you create a Standard Logic Apps workflow that consumes Service Bus messages, use the Service Bus built-in connector triggers. The built-in connector triggers abstract most of the pull model configuration without adding extra cost. This capability provides the right balance between cost, surface area management, and security because the connector continuously loops within the Logic Apps runtime engine. For more information, see [Service Bus built-in connector triggers](/azure/connectors/connectors-create-api-servicebus#service-bus-built-in-connector-triggers).
 
 Use [PeekLock mode](/azure/service-bus-messaging/message-transfers-locks-settlement#peeklock) to access a group of messages. When you use PeekLock, the logic app can perform steps to validate each message before completing or abandoning the message. This approach prevents accidental message loss.
 
@@ -62,20 +62,21 @@ Reliability helps ensure that your application can meet the commitments that you
 
 - **Microsoft Entra ID** is a globally distributed, highly available SaaS platform.
 
-- You can deploy **API Management** in several highly available configurations, according to business requirements and cost tolerance. For more information, see [Ensure API Management availability and reliability](/azure/api-management/high-availability).
+- You can deploy **Azure API Management** in several highly available configurations, according to business requirements and cost tolerance. For more information, see [Ensure API Management availability and reliability](/azure/api-management/high-availability).
 - The **Logic Apps** Consumption tier supports geo-redundant storage. For more information, see [Business continuity and disaster recovery for Logic Apps](/azure/logic-apps/business-continuity-disaster-recovery-guidance).
 - **Event Grid** resource definitions for topics, system topics, domains, and event subscriptions and event data are automatically replicated across [availability zones](/azure/reliability/availability-zones-overview) in a region. When there's a failure in one of the availability zones, Event Grid resources automatically fail over to another availability zone without any human intervention. For more information, see [Cross-region disaster recovery and business continuity](/azure/reliability/reliability-event-grid#cross-region-disaster-recovery-and-business-continuity).
-- **Service Bus** Premium supports [geo-disaster recovery](/azure/service-bus-messaging/service-bus-outages-disasters#geo-disaster-recovery) and [availability zones](/azure/service-bus-messaging/service-bus-outages-disasters#availability-zones). Service Bus Standard supports [replication](/azure/service-bus-messaging/service-bus-outages-disasters#protection-against-outages-and-disasters). 
+- All **Service Bus** tiers support [availability zones](/azure/service-bus-messaging/service-bus-outages-disasters#availability-zones).
+- **Service Bus** Premium supports [geo-disaster recovery](/azure/service-bus-messaging/service-bus-outages-disasters#geo-disaster-recovery) and Service Bus Standard supports [replication](/azure/service-bus-messaging/service-bus-outages-disasters#protection-against-outages-and-disasters).
 
 For information about guaranteed availability details of each service, see [SLAs for online services](https://www.microsoft.com/licensing/docs/view/Service-Level-Agreements-SLA-for-Online-Services).
 
 ### Security
 
-Security provides assurances against deliberate attacks and the misuse of your valuable data and systems. For more information, see [Design review checklist for Security](/azure/well-architected/security/checklist).
+Security provides protections against deliberate attacks and the misuse of your valuable data and systems. For more information, see [Design review checklist for Security](/azure/well-architected/security/checklist).
 
-To help secure Service Bus, pair [Microsoft Entra authentication](/azure/service-bus-messaging/service-bus-authentication-and-authorization#azure-active-directory) with [managed identities](/azure/service-bus-messaging/service-bus-managed-service-identity). Microsoft Entra ID integration for Service Bus resources provides Azure role-based access control (Azure RBAC) for fine-grained control over a client's access to resources. You can use Azure RBAC to grant permissions to a security principal, such as a user, a group, or an application service principal. The application service principal in this scenario is a managed identity.
+To help secure Service Bus, pair [Microsoft Entra authentication](/azure/service-bus-messaging/service-bus-authentication-and-authorization#azure-active-directory) with [managed identities](/azure/service-bus-messaging/service-bus-managed-service-identity). Entra ID integration for Service Bus resources provides Azure role-based access control (Azure RBAC) for fine-grained control over a client's access to resources. You can use Azure RBAC to grant permissions to a security principal, such as a user, a group, or an application service principal. The application service principal in this scenario is a managed identity.
 
-If you can't use Microsoft Entra ID, use [shared access signature (SAS) authentication](/azure/service-bus-messaging/service-bus-authentication-and-authorization#shared-access-signature) to [grant users access and specific rights](/azure/service-bus-messaging/service-bus-sas) to Service Bus resources.
+If you can't use Entra ID, use [shared access signature (SAS) authentication](/azure/service-bus-messaging/service-bus-authentication-and-authorization#shared-access-signature) to [grant users access and specific rights](/azure/service-bus-messaging/service-bus-sas) to Service Bus resources.
 
 If you need to expose a Service Bus queue or topic as an HTTP endpoint, for example, to post new messages, use API Management to help secure the queue by fronting the endpoint. You can then use certificates or OAuth authentication to help secure the endpoint. The easiest way to help secure an endpoint is to use a logic app that has an HTTP request or response trigger as an intermediary.
 
@@ -87,7 +88,7 @@ Consider network security throughout your design.
 
 - You can bind [Service Bus Premium](/azure/service-bus-messaging/network-security) to a virtual network subnet service endpoint. This configuration helps secure the namespace because it only accepts traffic from authorized virtual networks. You can also use [Azure Private Link](/azure/private-link/private-link-overview) to only allow private traffic to your virtual network via [private endpoints](/azure/service-bus-messaging/network-security#private-endpoints).
 
-- You can configure [Logic Apps Standard and Premium](/azure/logic-apps/secure-single-tenant-workflow-virtual-network-private-endpoint) to accept inbound traffic through [private endpoints](/azure/logic-apps/secure-single-tenant-workflow-virtual-network-private-endpoint#set-up-inbound-traffic-through-private-endpoints) and to send outbound traffic through [virtual network integration](/azure/logic-apps/secure-single-tenant-workflow-virtual-network-private-endpoint#set-up-outbound-traffic-using-virtual-network-integration).
+- You can configure [Logic Apps Standard](/azure/logic-apps/secure-single-tenant-workflow-virtual-network-private-endpoint) to accept inbound traffic through [private endpoints](/azure/logic-apps/secure-single-tenant-workflow-virtual-network-private-endpoint#set-up-inbound-traffic-through-private-endpoints) and to send outbound traffic through [virtual network integration](/azure/logic-apps/secure-single-tenant-workflow-virtual-network-private-endpoint#set-up-outbound-traffic-using-virtual-network-integration).
 - You can use an Azure virtual network to help secure access to your API Management instance and APIs. This method supports [private endpoints](/azure/api-management/virtual-network-concepts#inbound-private-endpoint). For more information, see [Use a virtual network with API Management](/azure/api-management/virtual-network-concepts).
 
 ### Cost Optimization
