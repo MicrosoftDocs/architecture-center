@@ -1084,6 +1084,8 @@ items:
         href: example-scenario/mainframe/integrate-ibm-message-queues-azure.yml
   - name: Internet of Things
     items:
+    - name: Get started
+      href: guide/iot/iot-get-started.md
     - name: Guides
       items:
       - name: Connect on-premises SAP systems to Azure
