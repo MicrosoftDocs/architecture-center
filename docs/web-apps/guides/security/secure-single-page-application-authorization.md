@@ -111,17 +111,17 @@ The flow contains the following steps:
 1. The inbound policy of the callback endpoint is invoked. The policy verifies the `state` parameter to prevent CSRF attacks. It retrieves the `state` value from the query string, checks whether it exists in the API Management cache, and returns a `403` response if it doesn't. When the verification succeeds, the policy removes the `state` value from the cache to prevent reuse:
 
    ```XML
-   <set-variable name="state" value="@(context.Request.OriginalUrl.Query.GetValueOrDefault("state"))" />
-   <cache-lookup-value key="@($"oauth-state-{context.Variables.GetValueOrDefault<string>("state")}")"
+   <set-variable name="state" value='@(context.Request.OriginalUrl.Query.GetValueOrDefault("state"))' />
+   <cache-lookup-value key='@($"oauth-state-{context.Variables.GetValueOrDefault<string>("state")}")'
     variable-name="state_valid" default-value="false" />
    <choose>
-       <when condition="@(context.Variables.GetValueOrDefault<bool>("state_valid") == false)">
+       <when condition='@(context.Variables.GetValueOrDefault<bool>("state_valid") == false)'>
            <return-response>
                <set-status code="403" reason="Invalid state" />
            </return-response>
        </when>
    </choose>
-   <cache-remove-value key="@($"oauth-state-{context.Variables.GetValueOrDefault<string>("state")}")" />
+   <cache-remove-value key='@($"oauth-state-{context.Variables.GetValueOrDefault<string>("state")}")' />
    ```
 
 1. The policy exchanges the authorization code for an access token by issuing a request to the Microsoft Entra token endpoint. It passes the required information, like the client ID, client secret, and authorization code:
