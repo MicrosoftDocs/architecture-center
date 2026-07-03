@@ -13,9 +13,7 @@ The architecture consists of the following aspects:
 - **On-premises network**. A private local-area network implemented in an organization.
 - **Azure virtual network**. The virtual network hosts the solution components and other resources running in Azure.
 
-    [Virtual network routes][udr-overview] define the flow of IP traffic within the Azure virtual network. In the diagram, there are two user-defined route tables.
-
-    In the gateway subnet, traffic is routed through the Azure Firewall instance.
+    [Virtual network routes][udr-overview] define the flow of IP traffic within the Azure virtual network. In this architecture, there are two user-defined route tables, which both route traffic through the Azure Firewall instance. One of the route tables is associated with the hub network's gateway subnet, and the other is associated with the subnet in the spoke network.
 
     > [!NOTE]
     > Depending on the requirements of your VPN connection, you can configure Border Gateway Protocol (BGP) routes to implement the forwarding rules that direct traffic back through the on-premises network.
@@ -33,7 +31,7 @@ The architecture consists of the following aspects:
 
 ## Potential use cases
 
-This architecture requires a connection to your on-premises datacenter, using either a [VPN gateway][ra-vpn-failover] or an ExpressRoute connection. Typical uses for this architecture include:
+This architecture requires a [connection to your on-premises datacenter][ra-hybrid-networking], using either a VPN gateway or an ExpressRoute connection. Typical uses for this architecture include:
 
 - Hybrid applications where workloads run partly on-premises and partly in Azure.
 - Infrastructure that requires granular control over traffic entering an Azure virtual network from an on-premises datacenter.
@@ -53,7 +51,7 @@ Use [Azure role-based access control (Azure RBAC)][rbac] to manage the resources
 
 - A security IT administrator role to manage secure network resources such as the firewall.
 
-The IT administrator role shouldn't have access to the firewall resources. Access should be restricted to the security IT administrator role.
+The centralized IT administrator role shouldn't have access to the firewall resources. Restrict access to the security IT administrator role.
 
 ### Resource group recommendations
 
@@ -185,72 +183,6 @@ For more information about the scalability of Azure gateways, see the scalabilit
 
 For more information about managing virtual networks and NSGs at scale, see [Azure Virtual Network Manager (AVNM): Create a secured hub and spoke network](/azure/virtual-network-manager/tutorial-create-secured-hub-and-spoke) to create new (and onboard existing) hub and spoke virtual network topologies for central management of connectivity and NSG rules.
 
-## Deploy this scenario
-
-This deployment creates two resource groups; the first holds a mock on-premises network, the second a set of hub and spoke networks. The mock on-premises network and the hub network are connected using Azure Virtual Network gateways to form a site-to-site connection. This configuration is very similar to how you would connect your on-premises datacenter to Azure.
-
-This deployment can take up to 45 minutes to complete.
-
-#### [Azure CLI](#tab/cli)
-
-Run the following command to deploy two resource groups and the secure network reference architecture using the Azure CLI.
-
-When prompted, enter values for an admin user name, password, and a VPN shared key. The admin credentials are used as the default credentials for the virtual machine scale set instances. The shared key authenticates the site-to-site VPN connection between the gateways.
-
-```azurecli
-az deployment sub create --location eastus \
-    --template-uri https://raw.githubusercontent.com/mspnp/samples/main/solutions/secure-hybrid-network/azuredeploy.bicep
-```
-
-#### [PowerShell](#tab/powershell)
-
-Run the following command to deploy two resource groups and the secure network reference architecture using PowerShell.
-
-When prompted, enter values for an admin user name, password, and a VPN shared key. The admin credentials are used as the default credentials for the virtual machine scale set instances. The shared key authenticates the site-to-site VPN connection between the gateways.
-
-```azurepowershell
-New-AzSubscriptionDeployment -Location eastus `
-    -TemplateUri https://raw.githubusercontent.com/mspnp/samples/main/solutions/secure-hybrid-network/azuredeploy.bicep
-```
-
----
-
-After the deployment finishes, verify site-to-site connectivity by looking at the newly created connection resources. In the Azure portal, search for *connections* and check the status of each connection.
-
-![Screenshot showing the status of connections.](./images/portal-connections.png)
-
-### Add firewall DNAT rules
-
-After the site-to-site connection status shows **Connected**, update the hub firewall with DNAT rules so on-premises traffic can reach the spoke workloads.
-
-#### [Azure CLI](#tab/cli2)
-
-```azurecli
-FW_IP=$(az network firewall show -g rg-site-to-site-azure-network-eastus2 -n AzureFirewall --query "ipConfigurations[0].privateIPAddress" -o tsv)
-LB_IP=$(az network lb frontend-ip list -g rg-site-to-site-azure-network-eastus2 --lb-name lb-internal --query "[0].privateIPAddress" -o tsv)
-
-az deployment group create -n firewallDnat -g rg-site-to-site-azure-network-eastus2 \
-    --template-uri https://raw.githubusercontent.com/mspnp/samples/main/solutions/secure-hybrid-network/nestedtemplates/azure-network-azuredeploy-v2.bicep \
-    -p firewallName=AzureFirewall firewallPrivateIp=$FW_IP internalLoadBalancerPrivateIp=$LB_IP
-```
-
-#### [PowerShell](#tab/powershell2)
-
-```azurepowershell
-$fwIp = (Get-AzFirewall -ResourceGroupName rg-site-to-site-azure-network-eastus2 -Name AzureFirewall).IpConfigurations[0].PrivateIPAddress
-$lbIp = (Get-AzLoadBalancerFrontendIpConfig -LoadBalancer (Get-AzLoadBalancer -ResourceGroupName rg-site-to-site-azure-network-eastus2 -Name lb-internal))[0].PrivateIpAddress
-
-New-AzResourceGroupDeployment -Name firewallDnat -ResourceGroupName rg-site-to-site-azure-network-eastus2 `
-    -TemplateUri https://raw.githubusercontent.com/mspnp/samples/main/solutions/secure-hybrid-network/nestedtemplates/azure-network-azuredeploy-v2.bicep `
-    -firewallName AzureFirewall -firewallPrivateIp $fwIp -internalLoadBalancerPrivateIp $lbIp
-```
-
----
-
-The IIS instance found in the spoke network can be accessed from the virtual machine located in the mock on-premises network. Create a connection to that virtual machine using the included Azure Bastion host, open a web browser, and navigate to the address of the application's internal load balancer.
-
-For more information and other deployment options, see the Bicep templates used to deploy this solution: [Secure Hybrid Network](/samples/mspnp/samples/secure-hybrid-network/).
-
 ## Next steps
 
 - [Hub-spoke network topology in Azure][cloud-services-network-security].
@@ -277,6 +209,7 @@ For more information and other deployment options, see the Bicep templates used 
 [guidance-vpn-gateway-scalability]: /azure/expressroute/expressroute-howto-coexist-resource-manager#scalability-considerations
 [guidance-vpn-gateway-security]: /azure/expressroute/expressroute-howto-coexist-resource-manager#security-considerations
 [nsg]: /azure/virtual-network/security-overview
+[ra-hybrid-networking]: ../hybrid-networking/index.yml
 [ra-vpn-failover]: ../hybrid-networking/expressroute-vpn-failover.yml
 [rbac-custom-roles]: /azure/role-based-access-control/custom-roles
 [rbac]: /azure/role-based-access-control/role-assignments-portal
