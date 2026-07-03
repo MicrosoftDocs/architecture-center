@@ -3803,11 +3803,11 @@
 		</g>
 		<g id="shape1338-839" v:mID="1338" v:groupContext="shape" transform="translate(-1054.41,484.209) rotate(-90)">
 			<title>Sheet.1338</title>
-			<desc>Microsoft Sentinel</desc>
+			<desc>Microsoft Sentinel in Defender portal</desc>
 			<v:textBlock v:margins="rect(4,4,4,4)"/>
 			<v:textRect cx="80.2599" cy="1156.4" width="160.52" height="13.8127"/>
 			<rect x="0" y="1149.49" width="160.52" height="13.8127" class="st11"/>
-			<text x="32.74" y="1159.7" class="st16" v:langID="1033"><v:paragraph v:horizAlign="1"/><v:tabList/>Microsoft Sentinel</text>		</g>
+			<text x="12.5" y="1159.7" class="st16" v:langID="1033"><v:paragraph v:horizAlign="1"/><v:tabList/>Microsoft Sentinel in Defender portal</text>		</g>
 		<g id="shape1339-842" v:mID="1339" v:groupContext="shape" transform="translate(81.8963,-670.657)">
 			<title>Sheet.1339</title>
 			<desc>9</desc>
