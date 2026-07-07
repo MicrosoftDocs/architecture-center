@@ -84,11 +84,11 @@ The following Event Hubs features can be useful in a multitenant solution.
 
 ### Application groups
 
-An application group consists of one or more client applications that interact with the Event Hubs data plane. You apply quota and access management policies to the group, and Event Hubs applies them to all applications in the group.
+An application group consists of one or more client applications that interact with the Event Hubs data plane. You apply quota and access management policies to the group, and Event Hubs applies them to all applications in the group. Application groups are available only in the premium and dedicated tiers.
 
 In a multitenant solution, you can map an application group to a tenant by using that tenant's security context, such as a Microsoft Entra application ID or a SAS policy. You then attach throttling policies that cap the tenant's ingress and egress throughput. This approach mitigates [noisy neighbor problems](../../../antipatterns/noisy-neighbor/noisy-neighbor.yml) in a shared namespace because one tenant can't consume a disproportionate share of namespace resources.
 
-You can scope each application group to a single Event Hubs namespace or a single event hub. Application groups are available only in the premium and dedicated tiers, so you can't use them to govern tenant workloads in a Standard-tier shared namespace.
+You can scope each application group to a single Event Hubs namespace or a single event hub.
 
 For more information, see [Resource governance with application groups](/azure/event-hubs/resource-governance-overview).
 
@@ -132,7 +132,7 @@ For more information, see [Configure customer-managed keys to encrypt Event Hubs
 
 Azure Event Hubs [Dedicated tier](/azure/event-hubs/event-hubs-dedicated-overview) supports confidential computing to protect event data while it's processed. Confidential computing uses hardware-based trusted execution environments to prevent unauthorized access to events in memory, which extends protection beyond encryption at rest and in transit.
 
-If you isolate tenants in regulated industries on dedicated namespaces, you can enable confidential computing to add hardware-level isolation at the compute layer. This capability helps you meet tenant compliance requirements that mandate data-in-use protection, and it prevents access to tenant events even from privileged infrastructure operators. You don't need to change your application or event processing code. For the strongest isolation, combine confidential computing with [customer-managed keys](/azure/event-hubs/configure-customer-managed-key).
+In regulated industries, if you isolate tenants by using dedicated namespaces, you can enable confidential computing to add hardware-level isolation at the compute layer. This capability helps you meet tenant compliance requirements that mandate data-in-use protection, and it prevents access to tenant events even from privileged infrastructure operators. You don't need to change your application or event processing code. For the strongest isolation, combine confidential computing with [customer-managed keys](/azure/event-hubs/configure-customer-managed-key).
 
 Plan your tenant isolation strategy around the following constraints:
 
