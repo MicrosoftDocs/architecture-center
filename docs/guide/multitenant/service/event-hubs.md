@@ -3,7 +3,7 @@ title: Multitenancy and Azure Event Hubs
 description: Learn about Azure Event Hubs features and isolation models that you can use to implement an event-driven architecture for a multitenant system.
 author: PlagueHO
 ms.author: dascottr
-ms.date: 07/01/2026
+ms.date: 07/07/2026
 ms.topic: concept-article
 ms.subservice: architecture-guide
 ms.custom:
