@@ -1170,6 +1170,9 @@ items:
         href: example-scenario/forensics/index.yml
       - name: Certificate life cycle management on Azure
         href: example-scenario/certificate-lifecycle/index.yml
+      - name: Ransomware-resilient backups
+        displayName: recovery vault
+        href: security/ransomware-resilient-backup-architecture/index.md
     - name: Solution ideas
       items:
       - name: Multilayered protection for Azure VMs
