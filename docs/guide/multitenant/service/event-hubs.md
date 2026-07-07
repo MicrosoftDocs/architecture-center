@@ -80,18 +80,7 @@ But a shared namespace can lead to [noisy neighbor problems](../../../antipatter
 
 ## Features of Event Hubs that support multitenancy
 
-The following features of Event Hubs support multitenancy:
-
-- [Application groups](#application-groups)
-- [Microsoft Entra authentication](#azure-ad-authentication)
-- [SAS](#sas)
-- [Customer-managed keys](#customer-managed-keys)
-- [Confidential computing](#confidential-computing)
-- [Event Hubs capture](#event-hubs-capture)
-- [Geo-replication and geo-disaster recovery](#geo-replication-and-geo-disaster-recovery)
-- [IP firewall rules](#ip-firewall-rules)
-
-The following sections describe these features.
+The following Event Hubs features can be useful in a multitenant solution.
 
 ### Application groups
 
