@@ -31,7 +31,7 @@ Use the [Valet Key pattern](../../../patterns/valet-key.yml) to issue constraine
 
 [Stored access policies](/rest/api/storageservices/define-stored-access-policy) extend the SAS functionality, which enables you to define a single policy to use when you issue multiple signatures.
 
-### User delegation SAS
+#### User delegation SAS
 
 A standard SAS is signed with one of your storage account keys, so any component that creates a SAS needs access to those keys. A [user delegation SAS](/rest/api/storageservices/create-user-delegation-sas) is signed with Microsoft Entra credentials instead. Your application tier requests a user delegation key by using its own managed identity, then signs scoped, time-limited tokens for each tenant. You don't distribute or store account keys, and you can revoke access by removing the Microsoft Entra role assignment that grants the delegation key. Microsoft recommends a user delegation SAS over an account-key SAS when your design supports it.
 
