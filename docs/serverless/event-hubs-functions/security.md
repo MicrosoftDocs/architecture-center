@@ -8,68 +8,68 @@ ms.date: 04/22/2026
 ms.subservice: architecture-guide
 ---
 
-# Secure Azure Functions with Event Hubs
+# Secure Azure Functions with Azure Event Hubs
 
-When configuring access to resources in Azure, you should apply fine-grained control over permissions to resources. Access to these resources should be based on *need to know* and *least privilege* security principles to make sure that clients can only perform the limited set of actions granted to them.
+When you configure access to resources in Azure, apply fine-grained control over permissions to resources. Base access to these resources on *need to know* and *least privilege* security principles to make sure that clients can only perform the limited set of actions granted to them.
 
-## Authorizing Access to Event Hubs
+## Authorizing access to Event Hubs
 
-Authorizing access to Azure Event Hubs resources can be done using the following security constructs:
+You can authorize access to Azure Event Hubs resources by using the following security constructs:
 
-- **Microsoft Entra ID:** Microsoft Entra ID provides Azure role-based access control (Azure RBAC) for granular control over a client's access to Event Hubs resources. Based on roles and permissions granted, Microsoft Entra ID will authorize requests using an OAuth 2.0 access token.
+- **Microsoft Entra ID:** Microsoft Entra ID provides Azure role-based access control (Azure RBAC) for granular control over a client's access to Event Hubs resources. Based on roles and permissions granted, Microsoft Entra ID authorizes requests by using an OAuth 2.0 access token.
 
-- **Shared access signature:** A shared access signature (SAS) offers the ability to protect Event Hubs resources based on authorization rules. You define authorization policies by selecting one or more [policy rules](/azure/event-hubs/authorize-access-shared-access-signature#shared-access-authorization-policies), such as the ability to send messages, listen to messages, and manage the entities in the namespace.
+- **Shared access signature:** You can use a shared access signature to protect Event Hubs resources based on authorization rules. You define authorization policies by selecting one or more [policy rules](/azure/event-hubs/authorize-access-shared-access-signature#shared-access-authorization-policies), such as the ability to send messages, listen to messages, and manage the entities in the namespace.
 
-### Shared access signature considerations
+### Considerations for using a shared access signature
 
-When you use a shared access signature with Azure Functions and Event Hubs, the following considerations should be reviewed:
+Take into account the following considerations when you use a shared access signature with Azure Functions and Event Hubs:
 
-- **Avoid the Manage right:** In addition to being able to manage the entities in an Event Hubs namespace, the Manage right includes both Send and Listen rights. Ideally, a function app should only be granted a combination of the Send and Listen rights, based on the actions they perform.
+- **Avoid the Manage right:** In addition to providing the ability to manage the entities in an Event Hubs namespace, the Manage right provides both Send and Listen rights. Ideally, a function app should only be granted a combination of the Send and Listen rights, depending on the actions it performs.
 
-- **Don't use the default Manage rule**: Avoid using the default policy rule named *RootManageSharedAccessKey* unless it's needed by your function app, which should be an uncommon scenario. Another caveat to this default rule is that it's created at the namespace level and grants permissions to all underlying event hubs.
+- **Don't use the default Manage rule:** Avoid using the default policy rule named *RootManageSharedAccessKey*, unless it's needed by your function app, which should be an uncommon scenario. Another caveat to this default rule is that it's created at the namespace level and grants permissions to all underlying event hubs.
 
-- **Review shared access policy scopes:** Shared access policies can be created at the namespace level and per event hub. Consider creating granular access policies that are tailored for each client to limit their range and permissions.
+- **Review shared access policy scopes:** Shared access policies can be created at the namespace level and at the event hub level. Consider creating granular access policies that are tailored for each client to limit the range and permissions of clients.
 
 ### Managed identity
 
-An Active Directory identity can be assigned to a managed resource in Azure such as a function app or web app. Once an identity is assigned, it has the capabilities to work with other resources that use Microsoft Entra ID for authorization, much like a [service principal](/entra/identity-platform/app-objects-and-service-principals).
+An identity can be assigned to a managed resource in Azure, like a function app or web app. After you assign an identity, it can interact with other resources that use Microsoft Entra ID for authorization, much like a [service principal](/entra/identity-platform/app-objects-and-service-principals).
 
-Function apps can be assigned a [managed identity](/azure/app-service/overview-managed-identity) and take advantage of identity-based connections for a subset of services, including Event Hubs. Identity-based connections provide support for both the trigger and output binding extensions and must use the [Event Hubs extension 5.x and higher](/azure/azure-functions/functions-bindings-event-hubs#event-hubs-extension-5x-and-higher) for support.
+Function apps can be assigned a [managed identity](/azure/app-service/overview-managed-identity) and take advantage of identity-based connections for a subset of services, including Event Hubs. Identity-based connections provide support for both the trigger and output binding extensions.
 
 ## Network
 
-By default, Event Hubs namespaces are accessible from the internet, so long as the request comes with valid authentication and authorization. There are three options for limiting network access to Event Hubs namespaces:
+By default, Event Hubs namespaces can be accessed from the internet, as long as the request provides valid authentication and authorization. To limit network access to Event Hubs namespaces, consider these three options:
 
 - [Allow access from specific IP addresses](/azure/event-hubs/event-hubs-ip-filtering)
 - [Allow access from specific virtual networks (service endpoints)](/azure/event-hubs/event-hubs-service-endpoints)
 - [Allow access via private endpoints](/azure/event-hubs/private-link-service)
 
-In all cases, at least one IP firewall rule or virtual network rule for the namespace is specified. Otherwise, if no IP address or virtual network rule is specified, the namespace is accessible over the public internet (using the access key).
+In all cases, at least one IP firewall rule or virtual network rule for the namespace is specified. Otherwise, if no IP address or virtual network rule is specified, the namespace can be accessed over the public internet (via the access key).
 
-Azure Functions can be configured to consume events from or publish events to event hubs, which are set up with either service endpoints or private endpoints. Regional virtual network integration is needed for your function app to connect to an event hub using a service endpoint or a private endpoint.
+You can configure Azure Functions to consume events from or publish events to event hubs that are set up with either service endpoints or private endpoints. Your function app requires regional virtual network integration to connect to an event hub through a service endpoint or private endpoint.
 
 When you integrate Functions with a virtual network and enable `vnetRouteAllEnabled`, all outbound traffic from the function app is forced through the virtual network. This configuration is especially important for scenarios where you want to secure your function app by ensuring that all traffic, including traffic to Azure services, goes through your virtual network for inspection and control. If you want to fully lock down your function app, you also need to [restrict your storage account](/azure/azure-functions/configure-networking-how-to#restrict-your-storage-account-to-a-virtual-network).
 
-To trigger (consume) events in a virtual network environment, the function app needs to be hosted in a Premium plan, a Dedicated (App Service) plan, or an App Service Environment (ASE).
+To consume events in a virtual network environment, you need to host the function app in a Premium plan, a Dedicated (App Service) plan, or an App Service Environment.
 
-Additionally, running in an Azure Functions Premium plan and consuming events from a virtual network restricted Event Hub requires virtual network trigger support, also referred to as [runtime scale monitoring](/azure/azure-functions/functions-networking-options#virtual-network-triggers-non-http). Runtime scale monitoring can be configured via the Azure portal, Azure CLI, or other deployment solutions. Runtime scale monitoring isn't available when the function is running in a Dedicated (App Service) plan or an ASE.
+Additionally, running in an Azure Functions Premium plan and consuming events from a virtual-network-restricted Event Hub requires virtual network trigger support, also referred to as [runtime scale monitoring](/azure/azure-functions/functions-networking-options#virtual-network-triggers-non-http). You can configure runtime scale monitoring by using the Azure portal, the Azure CLI, or other deployment solutions. Runtime scale monitoring isn't available when the function is running in a Dedicated (App Service) plan or an App Service Environment.
 
 ## Contributors
 
-*This article is maintained by Microsoft. It was originally written by the following contributors.* 
+*Microsoft maintains this article. The following contributors wrote this article.*
 
 Principal author:
 
- - [David Barkol](https://www.linkedin.com/in/davidbarkol/) | AI Apps GBB
+- [David Barkol](https://www.linkedin.com/in/davidbarkol/) | AI Apps GBB
 
-*To see non-public LinkedIn profiles, sign in to LinkedIn.*
+*To see nonpublic LinkedIn profiles, sign in to LinkedIn.*
 
 ## Next steps
 
-Before continuing, consider reviewing these related articles:
+Before you continue, consider reviewing these related articles:
 
 - [Authorize access with Microsoft Entra ID](/azure/event-hubs/authorize-access-azure-active-directory)
-- [Authorize access with a shared access signature in Azure Event Hubs](/azure/event-hubs/authorize-access-shared-access-signature)
+- [Authorize access by using a shared access signature in Event Hubs](/azure/event-hubs/authorize-access-shared-access-signature)
 - [Configure an identity-based resource](/azure/azure-functions/functions-reference#configure-an-identity-based-connection)
 
 > [!div class="nextstepaction"]
