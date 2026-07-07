@@ -28,8 +28,7 @@ The following options are available for Azure Database for PostgreSQL and are su
   > Azure HorizonDB is in preview and isn't recommended for production workloads.
 
 
-> [!IMPORTANT]
-> Azure Cosmos DB for PostgreSQL is on a retirement path and isn't recommended for new projects. The service retires on March 31, 2029. Migrate existing workloads to [Azure Database for PostgreSQL elastic clusters](/azure/cosmos-db/postgresql/migrate-postgresql-elastic-cluster) before that date.
+Azure Cosmos DB for PostgreSQL is on a retirement path and isn't recommended for new projects. The service retires on March 31, 2029. Migrate existing workloads to [Azure Database for PostgreSQL elastic clusters](/azure/cosmos-db/postgresql/migrate-postgresql-elastic-cluster) before that date.
 
 ## Azure Database for PostgreSQL features that support multitenancy
 
