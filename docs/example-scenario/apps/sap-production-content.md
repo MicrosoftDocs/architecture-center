@@ -4,7 +4,7 @@ The first diagram shows a reference architecture for SAP on Oracle in Azure. We 
 
 [![Diagram of the architecture of a production SAP system on Oracle in Azure.](./media/sap-oracle-architecture.png)](./media/sap-oracle-architecture.png#lightbox)
 
-*Download a [Visio file](https://architecture.learning.sap.com/) of this architecture and related architectures.*
+*Download a [Visio file](https://arch-center.azureedge.net/sap-oracle-architecture-availability-zone.vsdx) of this architecture and related architectures.*
 
 > [!NOTE]
 > To deploy this reference architecture, you need the appropriate licensing of SAP products and other non-Microsoft technologies.
@@ -128,7 +128,7 @@ The following diagram shows the architecture of a production SAP system on Oracl
 
 [ ![Diagram that shows an architecture of a production SAP system on Oracle in Azure.](./media/sap-oracle-disaster-recovery.png)](./media/sap-oracle-disaster-recovery.png#lightbox)
 
-*Download a [Visio file](https://architecture.learning.sap.com/) of this architecture and related architectures.*
+*Download a [Visio file](https://arch-center.azureedge.net/sap-oracle-architecture-availability-zone.vsdx) of this architecture and related architectures.*
 
 Every architectural layer in the SAP application stack uses a different approach to provide DR protection. For DR strategies and implementation details, see [Disaster recovery overview and infrastructure guidelines for SAP workload](/azure/sap/workloads/disaster-recovery-overview-guide) and [Disaster recovery guidelines for SAP application](/azure/sap/workloads/disaster-recovery-sap-guide?tabs=linux).
 
