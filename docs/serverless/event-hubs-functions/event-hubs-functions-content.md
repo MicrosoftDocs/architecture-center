@@ -74,6 +74,6 @@ Principal author:
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Performance and scale](./performance-scale.yml)
+> [Performance and scale](./performance-scale.md)
 
 [EventProcessorHost]: /dotnet/api/microsoft.servicebus.messaging.eventprocessorhost

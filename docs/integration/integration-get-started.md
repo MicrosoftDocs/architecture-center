@@ -60,7 +60,7 @@ The following articles help you evaluate and select the best integration technol
 
 - [Integrate Azure Event Hubs with serverless functions on Azure](../serverless/event-hubs-functions/event-hubs-functions.yml): Guidance for how to effectively integrate Azure Event Hubs with Azure Functions for performance, resiliency, security, and scale.
 
-- [Performance and scale guidance for Azure Event Hubs and Azure Functions](../serverless/event-hubs-functions/performance-scale.yml): Optimize scalability and performance when you use Azure Event Hubs and Azure Functions together.
+- [Performance and scale guidance for Azure Event Hubs and Azure Functions](../serverless/event-hubs-functions/performance-scale.md): Optimize scalability and performance when you use Azure Event Hubs and Azure Functions together.
 
 - [Resilient Azure Event Hubs and Azure Functions design](../serverless/event-hubs-functions/resilient-design.md): Implement error handling, idempotency, and retry behavior for functions that Azure Event Hubs triggers.
 
@@ -106,7 +106,7 @@ Follow these best practices to improve the reliability, security, cost effective
 
 - [Integrate Event Hubs with serverless functions on Azure](../serverless/event-hubs-functions/event-hubs-functions.yml): Guidance for how to effectively integrate Azure Event Hubs with Azure Functions for performance, resiliency, security, observability, and scale.
 
-- [Performance and scale guidance for Azure Event Hubs and Azure Functions](../serverless/event-hubs-functions/performance-scale.yml): Optimize scalability and performance when you use Azure Event Hubs and Azure Functions together.
+- [Performance and scale guidance for Azure Event Hubs and Azure Functions](../serverless/event-hubs-functions/performance-scale.md): Optimize scalability and performance when you use Azure Event Hubs and Azure Functions together.
 
 - [Monitor Azure Functions and Azure Event Hubs](../serverless/event-hubs-functions/observability.yml): Use Application Insights to monitor the behavior and health of Azure Event Hubs and Azure Functions solutions.
 
