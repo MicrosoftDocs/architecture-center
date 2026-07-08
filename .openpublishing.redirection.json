@@ -7883,6 +7883,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "docs/reference-architectures/ibm/deploy-ibm-sterling-oms.yml",
+      "redirect_url": "https://marketplace.microsoft.com/product/azure-applications/ibm-usa-ny-armonk-hq-6275750-ibmcloud-asperia.ibm-sterling-order-management-byol?tab=Overview",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "docs/resiliency/failure-mode-analysis.md",
       "redirect_url": "/azure/well-architected/reliability/failure-mode-analysis",
       "redirect_document_id": false

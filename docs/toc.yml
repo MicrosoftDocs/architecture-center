@@ -604,8 +604,6 @@ items:
         href: example-scenario/infrastructure/multi-tier-app-disaster-recovery.yml
       - name: Deploy IBM Maximo Application Suite
         href: example-scenario/apps/deploy-ibm-maximo-application-suite.yml
-      - name: Deploy IBM Sterling Order Management
-        href: reference-architectures/ibm/deploy-ibm-sterling-oms.yml
       - name: Manage virtual machine compliance
         displayName: VM
         href: example-scenario/security/virtual-machine-compliance.yml
