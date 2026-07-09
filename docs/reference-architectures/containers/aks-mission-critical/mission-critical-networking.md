@@ -3,7 +3,7 @@ title: Networking and connectivity for mission-critical workloads on Azure
 description: Networking decisions for the architecture of a mission-critical workload on Azure. 
 author: asudbring
 ms.author: allensu
-ms.date: 11/30/2023
+ms.date: 07/08/2026
 ms.topic: reference-architecture
 ms.subservice: reference-architecture
 summary: Networking decisions for the architecture of a mission-critical workload on Azure.
@@ -15,7 +15,7 @@ The regional distribution of resources in a mission-critical architecture requir
 
 A globally distributed design is recommended where Azure services come together to provide a highly available application. The global load balancer combined with regional stamps provides that guarantee through reliable connectivity.
 
-Design regional deployment stamps as the deployable units for mission-critical workloads. The ability to efficiently deploy new deployment stamps provides scalability and supports high availability. Design deployment stamps with an isolated [virtual network design](/azure/architecture/framework/mission-critical/mission-critical-networking-connectivity#isolated-virtual-networks). Cross-stamp traffic isn't recommended. Virtual network peerings or VPN connections between deployment stamps aren't required.
+Design regional deployment stamps as the deployable units for mission-critical workloads. The ability to efficiently deploy new deployment stamps provides scalability and supports high availability. Design deployment stamps with an isolated [virtual network design](/azure/well-architected/mission-critical/mission-critical-networking-connectivity#isolated-virtual-networks). Cross-stamp traffic isn't recommended. Virtual network peerings or VPN connections between deployment stamps aren't required.
 
 The architecture is intentional in defining the regional stamps as short-lived. The global state of the infrastructure is stored in the global resources.
 
@@ -55,7 +55,7 @@ Azure Web Application Firewall, integrated with Azure Front Door, is used to pre
 
 Use Azure Virtual Networks as the traffic isolation boundary for mission-critical APIs. Components in one virtual network can't communicate directly with components in another virtual network.
 
-The standard external Azure Load Balancer distributes requests to the application platform. It checks that traffic reaching the load balancer was routed via Azure Front Door, ensuring Azure WAF inspects all traffic.
+The external Azure Load Balancer distributes requests to the application platform. Use the [Standard SKU load balancer](/azure/load-balancer/load-balancer-overview); the Basic Load Balancer was retired on September 30, 2025, and mission-critical workloads require the availability-zone and outbound-rule capabilities of the Standard SKU. The load balancer checks that traffic reaching it was routed via Azure Front Door, ensuring Azure WAF inspects all traffic.
 
 Build agents used for operations and deployment must be able to reach into the isolated network. The isolated network can be opened up to allow the agents to communicate. Alternatively, deploy self-hosted agents in the virtual network.
 
