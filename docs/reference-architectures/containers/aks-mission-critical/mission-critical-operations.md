@@ -3,7 +3,7 @@ title: Operations for mission-critical workloads on Azure
 description: Guidance for operations for the architecture of a mission-critical workload on Azure. 
 author: asudbring
 ms.author: allensu
-ms.date: 07/08/2026
+ms.date: 11/30/2023
 ms.topic: reference-architecture
 ms.subservice: reference-architecture
 summary: Guidance for operations for the architecture of a mission-critical workload on Azure.  
@@ -161,3 +161,4 @@ Principal author:
 
 > [!div class="nextstepaction"]
 > [Well-Architected Framework: Mission-critical workloads](/azure/well-architected/mission-critical/mission-critical-overview)
+
