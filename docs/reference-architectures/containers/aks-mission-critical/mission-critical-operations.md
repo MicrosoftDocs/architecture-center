@@ -3,7 +3,7 @@ title: Operations for mission-critical workloads on Azure
 description: Guidance for operations for the architecture of a mission-critical workload on Azure. 
 author: asudbring
 ms.author: allensu
-ms.date: 11/30/2023
+ms.date: 07/08/2026
 ms.topic: reference-architecture
 ms.subservice: reference-architecture
 summary: Guidance for operations for the architecture of a mission-critical workload on Azure.  
@@ -64,6 +64,9 @@ Rotating (renewing) keys and secrets should be a standard procedure in any workl
 Because expired or invalid secrets can cause outages to the application [(see Failure Analysis)](/azure/architecture/reference-architectures/containers/aks-mission-critical/mission-critical-health-modeling#failure-analysis), it's important to have a clearly defined and proven process in place. For Azure Mission-Critical, stamps are only expected to live for a few weeks. Because of that, rotating secrets of stamp resources isn't a concern. If secrets in one stamp expire, the application as a whole would continue to function.
 
 Management of secrets to access long-living global resources, however, are critical. A notable example is the Azure Cosmos DB API keys. If Azure Cosmos DB API keys expire, all stamps are affected simultaneously and cause a complete outage of the application.
+
+> [!TIP]
+> To reduce this risk, prefer [Microsoft Entra ID (RBAC) data-plane authentication for Azure Cosmos DB](/azure/cosmos-db/how-to-setup-rbac) over account keys. Authenticating with a managed identity removes long-lived keys from the workload, eliminates the coordinated key-rotation process described in this section, and reduces the blast radius of a compromised or expired secret.
 
 The following approach is an Azure mission critical tested and documented approach for rotating Azure Cosmos DB keys without causing downtime to services running in Azure Kubernetes Service.
 
@@ -142,7 +145,7 @@ Restoring from a periodic backup can only be accomplished via a support case. Th
 Azure subscriptions have quota limits. Deployments can fail when these limits are reached. Some quotas are adjustable. For adjustable quotas, you can request an increase from the <b>My quotas</b> page on the Azure portal. For nonadjustable quotas you, need to submit a support request. The Azure support team works with you to find a solution.
 
 > [!IMPORTANT]
-> See [Operational procedures for mission-critical workloads on Azure](/azure/architecture/framework/mission-critical/mission-critical-operational-procedures) for operational design considerations and recommendations.
+> See [Operational procedures for mission-critical workloads on Azure](/azure/well-architected/mission-critical/mission-critical-operational-procedures) for operational design considerations and recommendations.
 
 ## Contributors
 
