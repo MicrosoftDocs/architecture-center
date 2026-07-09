@@ -3,7 +3,7 @@ title: Deployment and testing for mission-critical workloads on Azure
 description: Reference architecture for a workload that is accessed over a public endpoint without extra dependencies to other company resources - Deployment and Testing.
 author: asudbring
 ms.author: allensu
-ms.date: 11/30/2023
+ms.date: 07/08/2026
 ms.topic: reference-architecture
 ms.subservice: reference-architecture
 ---
@@ -32,7 +32,7 @@ The deployment of mission-critical infrastructure depends upon the following pro
 
 :::image type="content" source="./images/mission-critical-ref-flowchart.png" alt-text="Diagram of flowchart of deployment process.":::
 
-For more information, see [Deployment and testing for mission-critical workloads on Azure: Design considerations](/azure/architecture/framework/mission-critical/mission-critical-deployment-testing#design-considerations)
+For more information, see [Deployment and testing for mission-critical workloads on Azure: Design considerations](/azure/well-architected/mission-critical/mission-critical-deployment-testing#design-considerations)
 
 ## Deployment: DevOps
 
@@ -48,7 +48,7 @@ For more information about Azure Pipelines, see [What is Azure Pipelines?](/azur
 
 :::image type="content" source="./images/deployment-pipeline-prod.png" alt-text="Diagram of flowchart of DevOps pipeline." lightbox="./images/deployment-pipeline-prod-big.png":::
 
-For more information, see [Deployment and testing for mission-critical workloads on Azure: Infrastructure-as-Code deployments](/azure/architecture/framework/mission-critical/mission-critical-deployment-testing#infrastructure-as-code-deployments)
+For more information, see [Deployment and testing for mission-critical workloads on Azure: Infrastructure-as-Code deployments](/azure/well-architected/mission-critical/mission-critical-deployment-testing#infrastructure-as-code-deployments)
 
 ## Deployment: Zero downtime updates
 
@@ -72,7 +72,7 @@ In many systems, there's an assumption that application updates are more frequen
 
 * **Elimination of manual changes and configuration drift** - Every environment is a fresh deployment.
 
-For more information, see [Deployment and testing for mission-critical workloads on Azure: Ephemeral blue/green deployments](/azure/architecture/framework/mission-critical/mission-critical-deployment-testing#ephemeral-bluegreen-deployments)
+For more information, see [Deployment and testing for mission-critical workloads on Azure: Ephemeral blue/green deployments](/azure/well-architected/mission-critical/mission-critical-deployment-testing#ephemeral-bluegreen-deployments)
 
 ### Branching strategy
 
@@ -84,7 +84,7 @@ The foundation of the update strategy is the use of branches within the Git repo
 | **`main`** | The stable, continuously forward-moving branch. Mostly used for integration testing. Changes to **`main`** are made only through pull requests. A branch policy prohibits direct writes. Nightly releases against the permanent **`integration (int)`** environment are automatically executed from the **`main`** branch. The **`main`** branch is considered stable. It should be safe to assume that at any given time, a release can be created from it. |
 | **`release/*`** | Release branches are only created from the **`main`** branch. The branches follow the format **`release/2021.7.X`**. Branch policies are used so that only repo administrators are allowed to create **`release/*`** branches. Only these branches are used to deploy to the **`prod`** environment.
 
-For more information, see [Deployment and testing for mission-critical workloads on Azure: Branching strategy](/azure/architecture/framework/mission-critical/mission-critical-deployment-testing#branching-strategy)
+For more information, see [Deployment and testing for mission-critical workloads on Azure: Branching strategy](/azure/well-architected/mission-critical/mission-critical-deployment-testing#branching-strategy)
 
 ### Hotfixes
 
@@ -208,7 +208,7 @@ These tests include:
 
 * **Failure injection tests** - These tests can be automated or executed manually. Automated testing in the architecture integrates Azure Chaos Studio as part of the deployment pipelines.
 
-For more information, see [Deployment and testing for mission-critical workloads on Azure: Continuous validation and testing](/azure/architecture/framework/mission-critical/mission-critical-deployment-testing#continuous-validation-and-testing)
+For more information, see [Deployment and testing for mission-critical workloads on Azure: Continuous validation and testing](/azure/well-architected/mission-critical/mission-critical-deployment-testing#continuous-validation-and-testing)
 
 ## Testing: Frameworks
 
