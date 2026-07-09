@@ -3,7 +3,7 @@ title: Health modeling for mission-critical workloads on Azure
 description: Reference architecture for a workload that is accessed over a public endpoint without extra dependencies to other company resources - Health modeling.
 author: asudbring
 ms.author: allensu
-ms.date: 11/30/2023
+ms.date: 07/08/2026
 ms.topic: reference-architecture
 ms.subservice: reference-architecture
 summary: Reference architecture for a workload that is accessed over a public endpoint without extra dependencies to other company resources.
@@ -30,7 +30,7 @@ Health modeling can be expanded into the following operational tasks for the mis
 
 These tasks make up a comprehensive health model for the mission-critical infrastructure. Development of a health model can and should be an exhaustive and integral part of any mission-critical deployment.
 
-For more information, see [Health modeling and observability of mission-critical workloads on Azure](/azure/architecture/framework/mission-critical/mission-critical-health-modeling).
+For more information, see [Health modeling and observability of mission-critical workloads on Azure](/azure/well-architected/mission-critical/mission-critical-health-modeling).
 
 ## Application Health Service
 
@@ -104,17 +104,17 @@ await AddNewRatingAsync(testRating);
 
 ## Monitoring
 
-Azure Log Analytics is used as the central store fo logs and metrics for all application and infrastructure components. Azure Application Insights is used for all application monitoring data. Each stamp in the infrastructure has a dedicated Log Analytics workspace and Application Insights instance. A separate Log Analytics workspace is used for the globally shared resources such as Front Door and Azure Cosmos DB.
+Azure Log Analytics is used as the central store for logs and metrics for all application and infrastructure components. Azure Application Insights is used for all application monitoring data. Each stamp in the infrastructure has a dedicated Log Analytics workspace and Application Insights instance. A separate Log Analytics workspace is used for the globally shared resources such as Front Door and Azure Cosmos DB.
 
 All stamps are short-lived and continuously replaced with each new release. The per-stamp Log Analytics workspaces are deployed as a global resource in a separate monitoring resource group as the stamp Log Analytics resources. These resources don't share the lifecycle of a stamp.
 
-For more information, see [Unified data sink for correlated analysis](/azure/architecture/framework/mission-critical/mission-critical-health-modeling#unified-data-sink-for-correlated-analysis).
+For more information, see [Unified data sink for correlated analysis](/azure/well-architected/mission-critical/mission-critical-health-modeling#unified-data-sink-for-correlated-analysis).
 
 ## Monitoring: Data sources
 
 - **Diagnostic settings**: Configure all Azure services used for mission-critical workloads to send all their diagnostic data including logs and metrics to the deployment-specific (global or stamp) Log Analytics Workspace. This process should happen automatically as part of infrastructure as code deployment. New options should be identified automatically and added as part of infrastructure updates.
 
-- **Kubernetes monitoring**: Diagnostic settings are used to send Azure Kubernetes Service (AKS) logs and metrics to Log Analytics. AKS is configured to use **Container Insights**. Container Insights deploys **Azure Monitor Agent** through the `ama-logs` Kubernetes DaemonSet on each node in the AKS clusters. The agent collects extra logs and metrics from within the Kubernetes cluster and sends them to its corresponding Log Analytics workspace. These extra logs and metrics contain more granular data about pods, deployments, services, and the overall cluster health. To gain more insights from the various components like ingress-nginx, cert-manager, and other components deployed to Kubernetes next to the mission-critical workload, it's possible to use [Prometheus scraping](/azure/azure-monitor/containers/container-insights-prometheus-integration). Prometheus scraping configures the agent to scrape Prometheus metrics from various endpoints within the cluster.
+- **Kubernetes monitoring**: Diagnostic settings are used to send Azure Kubernetes Service (AKS) logs and metrics to Log Analytics. AKS is configured to use **Container Insights**. Container Insights deploys **Azure Monitor Agent** through the `ama-logs` Kubernetes DaemonSet on each node in the AKS clusters. The agent collects extra logs and metrics from within the Kubernetes cluster and sends them to its corresponding Log Analytics workspace. These extra logs and metrics contain more granular data about pods, deployments, services, and the overall cluster health. To gain more insights from the various components like ingress-nginx, cert-manager, and other components deployed to Kubernetes next to the mission-critical workload, enable [Azure Monitor managed service for Prometheus](/azure/azure-monitor/metrics/prometheus-metrics-overview). This fully managed service scrapes Prometheus metrics from endpoints across the cluster and stores them in an Azure Monitor workspace, so you don't have to run and maintain your own Prometheus server.
 
 - **Application Insights data monitoring**: Application Insights is used to collect monitoring data from the application. The code is instrumented to collect data on the performance of the application with the [Azure Monitor OpenTelemetry Distro](/azure/azure-monitor/app/opentelemetry-enable). Critical information, such as the resulting status code and duration of dependency calls and counters for unhandled exceptions is collected. This information is used in the Health Model and is available for alerting and troubleshooting.
 
@@ -134,9 +134,9 @@ This approach separates the query logic from the visualization layer. The Log An
 
 ## Monitoring: Visualization
 
-We use Grafana to visualize the results of our Log Analytics health queries. Grafana shows the results of Log Analytics queries and contains no logic itself. We release the Grafana stack separately from the solution's deployment lifecycle.
+We use Grafana to visualize the results of our Log Analytics health queries. [Azure Managed Grafana](/azure/managed-grafana/overview) provides a fully managed Grafana instance that removes the operational overhead of hosting your own Grafana stack and integrates with both Azure Monitor Log Analytics and the Azure Monitor workspace used for managed Prometheus. Grafana shows the results of Log Analytics queries and contains no logic itself. We release the Grafana stack separately from the solution's deployment lifecycle.
 
-For more information, see [Visualization](/azure/architecture/framework/mission-critical/mission-critical-health-modeling#visualization).
+For more information, see [Visualization](/azure/well-architected/mission-critical/mission-critical-health-modeling#visualization).
 
 ## Alerting
 
@@ -144,7 +144,7 @@ Alerts are an important part of the overall operations strategy. Proactive monit
 
 These alerts form an extension of the health model, by alerting the operator to a change in health state, either to degraded/yellow state or to unhealthy/red state. By setting the alert to the root node of the Health Model, the operator is immediately aware of any business level affect to the state of the solution: After all, this root node will turn yellow or red if any of the underlying user flows or resources report yellow or red metrics. The operator can direct their attention to the Health Model visualization for troubleshooting.
 
-For more information, see [Automated incident response](/azure/architecture/framework/mission-critical/mission-critical-health-modeling#automated-incident-response).
+For more information, see [Automated incident response](/azure/well-architected/mission-critical/mission-critical-health-modeling#automated-incident-response).
 
 ## Failure analysis
 
