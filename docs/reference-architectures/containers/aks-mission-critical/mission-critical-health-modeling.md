@@ -3,7 +3,7 @@ title: Health modeling for mission-critical workloads on Azure
 description: Reference architecture for a workload that is accessed over a public endpoint without extra dependencies to other company resources - Health modeling.
 author: asudbring
 ms.author: allensu
-ms.date: 07/08/2026
+ms.date: 11/30/2023
 ms.topic: reference-architecture
 ms.subservice: reference-architecture
 summary: Reference architecture for a workload that is accessed over a public endpoint without extra dependencies to other company resources.
@@ -189,3 +189,4 @@ The following table lists example failure cases of the various components of the
 
 > [!div class="nextstepaction"]
 > [Mission-critical: Security](mission-critical-security.md)
+
