@@ -3,7 +3,7 @@ title: Deployment and testing for mission-critical workloads on Azure
 description: Reference architecture for a workload that is accessed over a public endpoint without extra dependencies to other company resources - Deployment and Testing.
 author: asudbring
 ms.author: allensu
-ms.date: 07/08/2026
+ms.date: 11/30/2023
 ms.topic: reference-architecture
 ms.subservice: reference-architecture
 ---
@@ -260,3 +260,4 @@ Two examples of failure injection tests performed against the architecture are:
 
 > [!div class="nextstepaction"]
 > [Mission-critical: Health modeling](mission-critical-health-modeling.md)
+
