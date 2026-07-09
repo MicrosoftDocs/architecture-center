@@ -135,7 +135,7 @@ This approach separates the query logic from the visualization layer. The Log An
 
 ## Monitoring: Visualization
 
-Use Grafana to visualize the results of your Log Analytics health queries. [Azure Managed Grafana](/azure/managed-grafana/overview) provides a fully managed Grafana instance that removes the operational overhead of hosting your own Grafana stack and integrates with both Azure Monitor Log Analytics and the Azure Monitor workspace used for managed Prometheus. Grafana shows the results of Log Analytics queries and contains no logic itself. Release the Grafana stack separately from the solution's deployment lifecycle.
+Use [Azure Managed Grafana](/azure/managed-grafana/overview) to visualize the results of your Log Analytics health queries. Grafana shows the results of Log Analytics queries and contains no logic itself. Release the Grafana stack separately from the solution's deployment lifecycle.
 
 For more information, see [Visualization](/azure/well-architected/mission-critical/mission-critical-health-modeling#visualization).
 
