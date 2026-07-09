@@ -153,9 +153,9 @@ When you implement tier-based segmentation, apply the following guidance:
 
 - Create a dedicated App Service integration subnet for each tier that needs outbound virtual network access.
 
-  For example, A frontend that serves only static content, such as a single-page application that runs in the browser, doesn't need virtual network integration because the browser calls the backend through Application Gateway rather than through a server-to-server path. Each integration subnet must be delegated to `Microsoft.Web/serverFarms`.
+  For example, A frontend that serves only static content, such as a single-page application that runs in the browser, doesn't need virtual network integration because the browser calls the backend through Application Gateway rather than through a server-to-server path. 
 
-  For more information, see [Enable virtual network integration](/azure/app-service/configure-vnet-integration-enable).
+  Each integration subnet must be delegated to `Microsoft.Web/serverFarms`. For more information, see [Enable virtual network integration](/azure/app-service/configure-vnet-integration-enable).
 
 - Keep public network access disabled on backing services like SQL Database and any internal API, and expose them only through private endpoints. Place private endpoints in dedicated subnets that you group by access pattern, such as one subnet for data services and one subnet for internal APIs.
 
