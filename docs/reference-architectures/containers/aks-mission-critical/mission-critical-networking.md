@@ -3,7 +3,7 @@ title: Networking and connectivity for mission-critical workloads on Azure
 description: Networking decisions for the architecture of a mission-critical workload on Azure. 
 author: asudbring
 ms.author: allensu
-ms.date: 07/08/2026
+ms.date: 11/30/2023
 ms.topic: reference-architecture
 ms.subservice: reference-architecture
 summary: Networking decisions for the architecture of a mission-critical workload on Azure.
@@ -111,3 +111,4 @@ Use self-hosted build agents for deployment stamp operations. The management of 
 
 > [!div class="nextstepaction"]
 > [Mission-critical: Data platform](mission-critical-data-platform.md)
+
