@@ -55,7 +55,7 @@ Azure Web Application Firewall, integrated with Azure Front Door, is used to pre
 
 Use Azure Virtual Networks as the traffic isolation boundary for mission-critical APIs. Components in one virtual network can't communicate directly with components in another virtual network.
 
-The external Azure Load Balancer distributes requests to the application platform. Mission-critical workloads require the availability-zone and outbound-rule capabilities of the [Standard SKU](/azure/load-balancer/load-balancer-overview). The application platform checks that Azure Front Door routed all traffic, ensuring Azure WAF inspects all traffic.
+The external Azure Load Balancer distributes requests to the application platform. Mission-critical workloads require the availability zone and outbound rule capabilities of the [Standard SKU](/azure/load-balancer/load-balancer-overview). The application platform checks that Azure Front Door routed all traffic, ensuring Azure WAF inspects all traffic.
 
 Build agents used for operations and deployment must be able to reach into the isolated network. The isolated network can be opened up to allow the agents to communicate. Alternatively, deploy self-hosted agents in the virtual network.
 
