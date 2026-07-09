@@ -65,6 +65,9 @@ Because expired or invalid secrets can cause outages to the application [(see Fa
 
 Management of secrets to access long-living global resources, however, are critical. A notable example is the Azure Cosmos DB API keys. If Azure Cosmos DB API keys expire, all stamps are affected simultaneously and cause a complete outage of the application.
 
+> [!TIP]
+> To reduce this risk, prefer [Microsoft Entra ID (RBAC) data-plane authentication for Azure Cosmos DB](/azure/cosmos-db/how-to-setup-rbac) over account keys. Authenticating with a managed identity removes long-lived keys from the workload, eliminates the coordinated key-rotation process described in this section, and reduces the blast radius of a compromised or expired secret.
+
 The following approach is an Azure mission critical tested and documented approach for rotating Azure Cosmos DB keys without causing downtime to services running in Azure Kubernetes Service.
 
 1. Update stamps with secondary key. By default, the primary API key for Azure Cosmos DB is stored as a secret in Azure Key Vault in each stamp. Create a PR that updates the IaC template code that uses the secondary Azure Cosmos DB API key. Run this change through the normal PR review and update procedure to get deployed as a new release or as a hotfix.
@@ -142,7 +145,7 @@ Restoring from a periodic backup can only be accomplished via a support case. Th
 Azure subscriptions have quota limits. Deployments can fail when these limits are reached. Some quotas are adjustable. For adjustable quotas, you can request an increase from the <b>My quotas</b> page on the Azure portal. For nonadjustable quotas you, need to submit a support request. The Azure support team works with you to find a solution.
 
 > [!IMPORTANT]
-> See [Operational procedures for mission-critical workloads on Azure](/azure/architecture/framework/mission-critical/mission-critical-operational-procedures) for operational design considerations and recommendations.
+> See [Operational procedures for mission-critical workloads on Azure](/azure/well-architected/mission-critical/mission-critical-operational-procedures) for operational design considerations and recommendations.
 
 ## Contributors
 
@@ -158,3 +161,4 @@ Principal author:
 
 > [!div class="nextstepaction"]
 > [Well-Architected Framework: Mission-critical workloads](/azure/well-architected/mission-critical/mission-critical-overview)
+
