@@ -15,7 +15,7 @@ The regional distribution of resources in a mission-critical architecture requir
 
 A globally distributed design is recommended where Azure services come together to provide a highly available application. The global load balancer combined with regional stamps provides that guarantee through reliable connectivity.
 
-Design regional deployment stamps as the deployable units for mission-critical workloads. The ability to efficiently deploy new deployment stamps provides scalability and supports high availability. Design deployment stamps with an isolated [virtual network design](/azure/architecture/framework/mission-critical/mission-critical-networking-connectivity#isolated-virtual-networks). Cross-stamp traffic isn't recommended. Virtual network peerings or VPN connections between deployment stamps aren't required.
+Design regional deployment stamps as the deployable units for mission-critical workloads. The ability to efficiently deploy new deployment stamps provides scalability and supports high availability. Design deployment stamps with an isolated [virtual network design](/azure/well-architected/mission-critical/mission-critical-networking-connectivity#virtual-network-integration). Avoid cross-stamp traffic. You don't need virtual network peerings or VPN connections between deployment stamps.
 
 The architecture is intentional in defining the regional stamps as short-lived. The global state of the infrastructure is stored in the global resources.
 
@@ -55,7 +55,7 @@ Azure Web Application Firewall, integrated with Azure Front Door, is used to pre
 
 Use Azure Virtual Networks as the traffic isolation boundary for mission-critical APIs. Components in one virtual network can't communicate directly with components in another virtual network.
 
-The standard external Azure Load Balancer distributes requests to the application platform. It checks that traffic reaching the load balancer was routed via Azure Front Door, ensuring Azure WAF inspects all traffic.
+The external Azure Load Balancer distributes requests to the application platform. Mission-critical workloads require the availability zone and outbound rule capabilities of the [Standard SKU](/azure/load-balancer/load-balancer-overview). The application platform checks that Azure Front Door routed all traffic, ensuring Azure WAF inspects all traffic.
 
 Build agents used for operations and deployment must be able to reach into the isolated network. The isolated network can be opened up to allow the agents to communicate. Alternatively, deploy self-hosted agents in the virtual network.
 

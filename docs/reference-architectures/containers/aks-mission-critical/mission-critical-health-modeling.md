@@ -30,7 +30,7 @@ Health modeling can be expanded into the following operational tasks for the mis
 
 These tasks make up a comprehensive health model for the mission-critical infrastructure. Development of a health model can and should be an exhaustive and integral part of any mission-critical deployment.
 
-For more information, see [Health modeling and observability of mission-critical workloads on Azure](/azure/architecture/framework/mission-critical/mission-critical-health-modeling).
+For more information, see [Health modeling and observability of mission-critical workloads on Azure](/azure/well-architected/mission-critical/mission-critical-health-modeling).
 
 ## Application Health Service
 
@@ -104,17 +104,18 @@ await AddNewRatingAsync(testRating);
 
 ## Monitoring
 
-Azure Log Analytics is used as the central store fo logs and metrics for all application and infrastructure components. Azure Application Insights is used for all application monitoring data. Each stamp in the infrastructure has a dedicated Log Analytics workspace and Application Insights instance. A separate Log Analytics workspace is used for the globally shared resources such as Front Door and Azure Cosmos DB.
+Use Azure Log Analytics as the central store for logs and metrics for all application and infrastructure components. Use Azure Application Insights for all application monitoring data. Each stamp in the infrastructure has a dedicated Log Analytics workspace and Application Insights instance. Use a separate Log Analytics workspace for the globally shared resources such as Front Door and Azure Cosmos DB.
+
 
 All stamps are short-lived and continuously replaced with each new release. The per-stamp Log Analytics workspaces are deployed as a global resource in a separate monitoring resource group as the stamp Log Analytics resources. These resources don't share the lifecycle of a stamp.
 
-For more information, see [Unified data sink for correlated analysis](/azure/architecture/framework/mission-critical/mission-critical-health-modeling#unified-data-sink-for-correlated-analysis).
+For more information, see [Unified data sink for correlated analysis](/azure/well-architected/mission-critical/mission-critical-health-modeling#unified-data-sink-for-correlated-analysis).
 
 ## Monitoring: Data sources
 
 - **Diagnostic settings**: Configure all Azure services used for mission-critical workloads to send all their diagnostic data including logs and metrics to the deployment-specific (global or stamp) Log Analytics Workspace. This process should happen automatically as part of infrastructure as code deployment. New options should be identified automatically and added as part of infrastructure updates.
 
-- **Kubernetes monitoring**: Diagnostic settings are used to send Azure Kubernetes Service (AKS) logs and metrics to Log Analytics. AKS is configured to use **Container Insights**. Container Insights deploys **Azure Monitor Agent** through the `ama-logs` Kubernetes DaemonSet on each node in the AKS clusters. The agent collects extra logs and metrics from within the Kubernetes cluster and sends them to its corresponding Log Analytics workspace. These extra logs and metrics contain more granular data about pods, deployments, services, and the overall cluster health. To gain more insights from the various components like ingress-nginx, cert-manager, and other components deployed to Kubernetes next to the mission-critical workload, it's possible to use [Prometheus scraping](/azure/azure-monitor/containers/container-insights-prometheus-integration). Prometheus scraping configures the agent to scrape Prometheus metrics from various endpoints within the cluster.
+- **Kubernetes monitoring**: Use diagnostic settings to send Azure Kubernetes Service (AKS) logs and metrics to Log Analytics. Configure AKS to use **Container Insights**. Container Insights deploys **Azure Monitor Agent** through the `ama-logs` Kubernetes DaemonSet on each node in the AKS clusters. The agent collects extra logs and metrics from within the Kubernetes cluster and sends them to its corresponding Log Analytics workspace. These extra logs and metrics contain more granular data about pods, deployments, services, and the overall cluster health. To gain more insights from the various components like ingress-nginx, cert-manager, and other components deployed to Kubernetes next to the mission-critical workload, enable [Prometheus metrics](/azure/azure-monitor/containers/kubernetes-monitoring-enable?tabs=azure-cli#prometheus-metrics-and-container-insights) scraping and send the data to an [Azure Managed Grafana](/azure/managed-grafana/quickstart-managed-grafana-portal) workspace.
 
 - **Application Insights data monitoring**: Application Insights is used to collect monitoring data from the application. The code is instrumented to collect data on the performance of the application with the [Azure Monitor OpenTelemetry Distro](/azure/azure-monitor/app/opentelemetry-enable). Critical information, such as the resulting status code and duration of dependency calls and counters for unhandled exceptions is collected. This information is used in the Health Model and is available for alerting and troubleshooting.
 
@@ -134,9 +135,9 @@ This approach separates the query logic from the visualization layer. The Log An
 
 ## Monitoring: Visualization
 
-We use Grafana to visualize the results of our Log Analytics health queries. Grafana shows the results of Log Analytics queries and contains no logic itself. We release the Grafana stack separately from the solution's deployment lifecycle.
+Use [Azure Managed Grafana](/azure/managed-grafana/overview) to visualize the results of your Log Analytics health queries. Grafana shows the results of Log Analytics queries and contains no logic itself. Release the Grafana stack separately from the solution's deployment lifecycle.
 
-For more information, see [Visualization](/azure/architecture/framework/mission-critical/mission-critical-health-modeling#visualization).
+For more information, see [Visualization](/azure/well-architected/mission-critical/mission-critical-health-modeling#visualization).
 
 ## Alerting
 
@@ -144,7 +145,7 @@ Alerts are an important part of the overall operations strategy. Proactive monit
 
 These alerts form an extension of the health model, by alerting the operator to a change in health state, either to degraded/yellow state or to unhealthy/red state. By setting the alert to the root node of the Health Model, the operator is immediately aware of any business level affect to the state of the solution: After all, this root node will turn yellow or red if any of the underlying user flows or resources report yellow or red metrics. The operator can direct their attention to the Health Model visualization for troubleshooting.
 
-For more information, see [Automated incident response](/azure/architecture/framework/mission-critical/mission-critical-health-modeling#automated-incident-response).
+For more information, see [Automated incident response](/azure/well-architected/mission-critical/mission-critical-health-modeling#automated-incident-response).
 
 ## Failure analysis
 
@@ -165,7 +166,7 @@ The following table lists example failure cases of the various components of the
 | **Azure Cosmos DB** | Partition full | Azure Cosmos DB logical partition size limit is 20 GB. If data for a partition key within a container reaches this size, extra write requests fail with the error "Partition key reached maximum size." | Partial (DB writes disabled) |
 | **Azure Container Registry** | Regional outage | A geo-replicated registry's global endpoint (`<registry>.azurecr.io`) uses internal, per-registry, health-aware failover to automatically reroute traffic away from a degraded replica region. Reroute takes effect on the order of minutes, requires no customer action, and has no cooldown on failback. At worst, image pulls experience elevated latency or transient errors for a few minutes while the reroute and DNS update propagate. | No |
 | **Azure Container Registry** | Image or Images deleted | No images can be pulled. This outage should only affect newly spawned/rebooted nodes. Existing nodes should have the images cached. *Mitigation*: If detected quickly rerunning the latest build pipelines should bring the images back into the registry. | No |
-| **Azure Container Registry** | Throttling | Throttling can delay scale-out operations which can result in a temporarily degraded performance. **Mitigation: Azure Mission-Critical uses the Premium SKU, which provides 10k read operations per minute.** Container images are optimized and have only small numbers of layers. ImagePullPolicy is set to IfNotPresent to use locally cached versions first. *Comment*: Pulling a container image consists of multiple read operations, depending on the number of layers. The number of read operations per minute is limited and depends on the [ACR SKU size](/azure/container-registry/container-registry-skus#service-tier-features-and-limits). | No |
+| **Azure Container Registry** | Throttling | Throttling can delay scale-out operations which can result in a temporarily degraded performance. **Mitigation: Azure Mission-Critical uses the Premium SKU, which allows up to 20,000 read requests per minute per registry (10,000 per minute per identity per registry). These limits are best-effort and aren't backed by an SLA.** Container images are optimized and have only small numbers of layers. ImagePullPolicy is set to IfNotPresent to use locally cached versions first. *Comment*: Pulling a container image consists of multiple read operations, depending on the number of layers. The number of read operations per minute is limited and depends on the [ACR SKU size](/azure/container-registry/container-registry-skus#service-tier-features-and-limits). | No |
 | **Azure Kubernetes Service** | Cluster upgrade fails | AKS Node upgrades should occur at different times across the stamps. if one upgrade fails, the other cluster shouldn't be affected. Cluster upgrades should deploy in a rolling fashion across the nodes to prevent all nodes from becoming unavailable. | No |
 | **Azure Kubernetes Service** | Application pod is killed when serving request. | This outcome could result in end user facing errors and poor user experience. *Mitigation:* Kubernetes by default removes pods in a graceful way. Pods are removed from services first and the workload receives a SIGTERM with a grace period to finish open requests and write data before terminating. **The application code needs to understand SIGTERM and the grace period might need to be adjusted if the workload takes longer to shutdown.** | No |
 | **Azure Kubernetes Service** | Compute capacity unavailable in region to add more nodes. | Scale up/out operations fails, but it shouldn’t affect existing nodes and their operation. Ideally traffic should shift automatically to other regions for load balancing. | No |
@@ -179,7 +180,7 @@ The following table lists example failure cases of the various components of the
 | **Storage account** | Static website encounters issues. | If the static website encounters issues, Front Door detects this failure. Traffic isn't sent to this storage account. Caching at Front Door can also alleviate this issue. | No |
 | **Key Vault** | Key Vault unavailable for `GetSecret` operations. | At the start of new pods, the AKS CSI driver fetches all secrets from Key Vault and fail. Pods are unable to start. There's an automatic update currently every five minutes. The update fails. Errors should show up in `kubectl describe pod` but the pod keeps working. | No |
 | **Key Vault** | Key Vault unavailable for `GetSecret` or `SetSecret` operations. | New deployments can't be executed. Currently, this failure might cause the entire deployment pipeline to stop, even if only one region is affected. | No |
-| **Key Vault**  | Key Vault throttling | Key Vault has a limit of 1,000 operations per 10 seconds. Because of the automatic update of secrets, you could in theory hit this limit if you had many (thousands) of pods in a stamp. **Possible mitigation: Decrease update frequency even further or turn it off completely.** | No |
+| **Key Vault**  | Key Vault throttling | Key Vault throttles secret transactions at 4,000 requests per 10 seconds, per vault per region (with a subscription-wide limit of five times that value). Because of the automatic update of secrets, a stamp with thousands of pods could approach this limit, so cache secrets in the pod and stagger refresh intervals. | No |
 | **Application** | Misconfiguration | Incorrect connection strings or secrets injected to the app. Mitigated by automated deployment (pipeline handles configuration automatically) and blue-green rollout of updates. | No |
 | **Application** | Expired credentials (stamp resource) | If for example, the event hub SAS token or storage account key was changed without properly updating them in Key Vault so that the pods can use them, the respective application component fails. This failure should then affect the Health Service, and the stamp should be taken out of rotation automatically. **Mitigation: Use Microsoft Entra ID-based authentication for all services which support it.** AKS requires pods to authenticate using Microsoft Entra Workload ID. | No |
 | **Application** | Expired credentials (globally shared resource) | If for example, the Azure Cosmos DB API key was changed without properly updating it in all stamp Key Vaults so that the pods can use them, the respective application components fail. This failure would bring all stamps down at same time and cause a workload-wide outage. For a possible way around the need for keys and secrets using Microsoft Entra auth, see the previous item. | Full |
@@ -189,3 +190,4 @@ The following table lists example failure cases of the various components of the
 
 > [!div class="nextstepaction"]
 > [Mission-critical: Security](mission-critical-security.md)
+
