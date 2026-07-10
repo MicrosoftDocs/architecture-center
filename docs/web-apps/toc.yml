@@ -44,9 +44,9 @@ items:
           href: guides/security/secure-single-page-application-authorization.md
       - name: Disaster recovery for web apps
         items:
-        - name: Multi-region App Service apps for disaster recovery
+        - name: Multiple-region App Service apps for disaster recovery
           displayName: DR
-          href: guides/multi-region-app-service/multi-region-app-service.yml
+          href: guides/multi-region-app-service/multi-region-app-service.md
     - name: Hosting WordPress on Azure
       items:
       - name: Overview
