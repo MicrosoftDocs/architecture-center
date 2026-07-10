@@ -2,7 +2,7 @@
 title: What's New in Azure Architecture Center
 description: New and updated articles in Azure Architecture Center
 author: claytonsiemens77
-ms.date: 06/22/2026
+ms.date: 07/10/2026
 ms.topic: whats-new
 ms.author: pnp
 ---
@@ -17,6 +17,32 @@ The Azure Architecture Center (AAC) helps you design, build, and operate solutio
 > [!VIDEO 9f9fdf91-3dcd-455f-b64e-8ec0802dd5db]
 
 The following new and updated articles have recently been published in the Azure Architecture Center.
+
+## July 2026
+
+### New articles
+
+- [Design a Ransomware-Resilient Backup Architecture by Using Azure Backup](./security/ransomware-resilient-backup-architecture/index.md)
+
+### Updated articles
+
+- [Health modeling for mission-critical workloads on Azure](./reference-architectures/containers/aks-mission-critical/mission-critical-health-modeling.md) ([#6fc1dc435f](https://github.com/MicrosoftDocs/architecture-center/commit/6fc1dc435f))
+- [Networking and connectivity for mission-critical workloads on Azure](./reference-architectures/containers/aks-mission-critical/mission-critical-networking.md) ([#cb614df1c0](https://github.com/MicrosoftDocs/architecture-center/commit/cb614df1c0))
+- [Deployment and testing for mission-critical workloads on Azure](./reference-architectures/containers/aks-mission-critical/mission-critical-deploy-test.md) ([#9d133a383a](https://github.com/MicrosoftDocs/architecture-center/commit/9d133a383a))
+- [Operations for mission-critical workloads on Azure](./reference-architectures/containers/aks-mission-critical/mission-critical-operations.md) ([#a60a5d5a25](https://github.com/MicrosoftDocs/architecture-center/commit/a60a5d5a25))
+- [Baseline Architecture for an AKS Cluster](./reference-architectures/containers/aks/baseline-aks.yml) ([#f566df4ad6](https://github.com/MicrosoftDocs/architecture-center/commit/f566df4ad6))
+- [Use Azure Kubernetes Service to Host GPU-Based Workloads](./reference-architectures/containers/aks-gpu/gpu-aks.md) ([#a4102f390a](https://github.com/MicrosoftDocs/architecture-center/commit/a4102f390a))
+- [SAP deployment in Azure using an Oracle database](./example-scenario/apps/sap-production.yml) ([#432a13bfe3](https://github.com/MicrosoftDocs/architecture-center/commit/432a13bfe3))
+- [Secure Azure Functions with Event Hubs](./serverless/event-hubs-functions/security.md) ([#454f94aa8f](https://github.com/MicrosoftDocs/architecture-center/commit/454f94aa8f))
+- [Performance and Scale Guidance for Event Hubs with Azure Functions](./serverless/event-hubs-functions/performance-scale.md) ([#ad7919e079](https://github.com/MicrosoftDocs/architecture-center/commit/ad7919e079))
+- [Image Classification on Azure](./ai-ml/idea/intelligent-apps-image-processing.yml) ([#58306041b8](https://github.com/MicrosoftDocs/architecture-center/commit/58306041b8))
+- [Resilient Design Guidance for Event Hubs and Functions](./serverless/event-hubs-functions/resilient-design.md) ([#ad613d7e5b](https://github.com/MicrosoftDocs/architecture-center/commit/ad613d7e5b))
+- [Use a Message Broker and Events to Integrate Enterprise Systems](./example-scenario/integration/queues-events.yml) ([#d598d341fe](https://github.com/MicrosoftDocs/architecture-center/commit/d598d341fe))
+- [Build the Second Layer of Defense by Using Microsoft Defender XDR](./solution-ideas/articles/microsoft-defender-xdr-build-second-layer-defense.yml) ([#1ecd89d0e5](https://github.com/MicrosoftDocs/architecture-center/commit/1ecd89d0e5))
+- [Multitenancy and Azure Event Hubs](./guide/multitenant/service/event-hubs.md) ([#21ad4a1cbc](https://github.com/MicrosoftDocs/architecture-center/commit/21ad4a1cbc))
+- [Multitenancy and Azure Storage](./guide/multitenant/service/storage.md) ([#c819e80719](https://github.com/MicrosoftDocs/architecture-center/commit/c819e80719))
+- [Guidance for Using Azure Database for PostgreSQL in a Multitenant Solution](./guide/multitenant/service/postgresql.md) ([#bdf00d4fc9](https://github.com/MicrosoftDocs/architecture-center/commit/bdf00d4fc9))
+- [Implement a secure hybrid network](./reference-architectures/dmz/secure-vnet-dmz.yml) ([#3ce9fb5abe](https://github.com/MicrosoftDocs/architecture-center/commit/3ce9fb5abe))
 
 ## June 2026
 
@@ -199,60 +225,6 @@ The following new and updated articles have recently been published in the Azure
 - [AKS for Amazon EKS Professionals](./aws-professional/eks-to-aks/index.md) ([#2714794667](https://github.com/MicrosoftDocs/architecture-center/commit/2714794667))
 - [Storage Options for a Kubernetes Cluster](./aws-professional/eks-to-aks/storage.md) ([#3e8aa15ecf](https://github.com/MicrosoftDocs/architecture-center/commit/3e8aa15ecf))
 - [Create a Modern Analytics Architecture by Using Azure Databricks](./solution-ideas/articles/azure-databricks-modern-analytics-architecture.yml) ([#184027cbb1](https://github.com/MicrosoftDocs/architecture-center/commit/184027cbb1))
-
-## March 2026
-
-### New articles
-
-- [Get Started with Storage Architecture Design](./storage/storage-get-started.md)
-- [Design Patterns for Microservices](./microservices/design/patterns.md)
-- [Event Sourcing Pattern](./patterns/event-sourcing.md)
-- [Get Started with Database Architecture Design](./databases/database-get-started.md)
-- [Multiregion BCDR for Azure Virtual Desktop](./example-scenario/azure-virtual-desktop/azure-virtual-desktop-multi-region-bcdr.md)
-- [Run SAP NetWeaver in Windows on Azure](./guide/sap/sap-netweaver.md)
-- [Ambassador Pattern](./patterns/ambassador.md)
-- [Set Up Real-Time Sync of MongoDB Atlas Data Changes to Microsoft Fabric](./example-scenario/analytics/sync-mongodb-atlas-fabric-analytics.yml)
-- [Bulkhead Pattern](./patterns/bulkhead.md)
-- [Get Started with Compute Architecture Design](./solution-ideas/articles/compute-get-started.md)
-- [Multiregion Load Balancing](./high-availability/traffic-manager-application-gateway.yml)
-- [Asynchronous Request-Reply Pattern](./patterns/asynchronous-request-reply.md)
-- [Publisher-Subscriber Pattern](./patterns/publisher-subscriber.md)
-- [Host Name Preservation](./best-practices/host-name-preservation.md)
-
-### Updated articles
-
-- [Migrate a Web App by Using Azure API Management](./example-scenario/apps/apim-api-scenario.yml) ([#4ca16194d7](https://github.com/MicrosoftDocs/architecture-center/commit/4ca16194d7))
-- [Scalable Cloud Applications and SRE](./example-scenario/apps/scalable-apps-performance-modeling-site-reliability.yml) ([#21f5db9233](https://github.com/MicrosoftDocs/architecture-center/commit/21f5db9233))
-- [High-volume batch transaction processing](./example-scenario/mainframe/process-batch-transactions.yml) ([#87db146580](https://github.com/MicrosoftDocs/architecture-center/commit/87db146580))
-- [Azure DNS Private Resolver](./networking/architecture/azure-dns-private-resolver.yml) ([#4e5ee92451](https://github.com/MicrosoftDocs/architecture-center/commit/4e5ee92451))
-- [Esri ArcGIS Platform on Azure Virtual Desktop](./example-scenario/data/esri-arcgis-azure-virtual-desktop.yml) ([#91840bcb67](https://github.com/MicrosoftDocs/architecture-center/commit/91840bcb67))
-- [Real-Time Analytics with Azure Service Bus and Microsoft Fabric](./solution-ideas/articles/analytics-service-bus.yml) ([#b435877fde](https://github.com/MicrosoftDocs/architecture-center/commit/b435877fde))
-- [Azure Virtual Desktop for Azure Local](./hybrid/azure-local-workload-virtual-desktop.yml) ([#6702dddcc8](https://github.com/MicrosoftDocs/architecture-center/commit/6702dddcc8))
-- [AKS Day-2 Guide - Patch and Upgrade Guidance](./operator-guides/aks/aks-upgrade-practices.md) ([#d778b78dbe](https://github.com/MicrosoftDocs/architecture-center/commit/d778b78dbe))
-- [Best Practices for Background Jobs](./best-practices/background-jobs.md) ([#a680388ded](https://github.com/MicrosoftDocs/architecture-center/commit/a680388ded))
-- [Azure AI Video Processing Guide](./data-guide/ai-services/image-video-processing.md) ([#5dbc809c58](https://github.com/MicrosoftDocs/architecture-center/commit/5dbc809c58))
-- [Choose an Azure Speech Recognition and Generation Technology](./data-guide/ai-services/speech-recognition-generation.md) ([#5dbc809c58](https://github.com/MicrosoftDocs/architecture-center/commit/5dbc809c58))
-- [Choose an Azure AI Targeted Language Processing Technology](./data-guide/ai-services/targeted-language-processing.md) ([#5dbc809c58](https://github.com/MicrosoftDocs/architecture-center/commit/5dbc809c58))
-- [Choose an Azure AI Technology](./data-guide/technology-choices/ai-services.md) ([#5dbc809c58](https://github.com/MicrosoftDocs/architecture-center/commit/5dbc809c58))
-- [AKS Backup and Recovery](./operator-guides/aks/aks-backup-and-recovery.md) ([#b9a40efebf](https://github.com/MicrosoftDocs/architecture-center/commit/b9a40efebf))
-- [Best Practices in Cloud Applications](./best-practices/index-best-practices.md) ([#83e35e956d](https://github.com/MicrosoftDocs/architecture-center/commit/83e35e956d))
-- [Azure Enterprise Cloud File Share](./hybrid/azure-files-private.yml) ([#601b6bfec1](https://github.com/MicrosoftDocs/architecture-center/commit/601b6bfec1))
-- [Event-Driven Architecture Style](./guide/architecture-styles/event-driven.md) ([#21c2b2898f](https://github.com/MicrosoftDocs/architecture-center/commit/21c2b2898f))
-- [Run a Linux VM on Azure](./reference-architectures/n-tier/linux-vm.yml) ([#bf45694826](https://github.com/MicrosoftDocs/architecture-center/commit/bf45694826))
-- [Choose an Azure storage service](./guide/technology-choices/storage-options.md) ([#3f6a26375d](https://github.com/MicrosoftDocs/architecture-center/commit/3f6a26375d))
-- [Prepare to Choose a Data Store in Azure](./guide/technology-choices/data-stores-getting-started.md) ([#c1a5c84f2d](https://github.com/MicrosoftDocs/architecture-center/commit/c1a5c84f2d))
-- [Use Azure Firewall to help protect an AKS cluster](./guide/aks/aks-firewall.md) ([#99f9d081b4](https://github.com/MicrosoftDocs/architecture-center/commit/99f9d081b4))
-- [Guidance for using Azure Private Link service in a multitenant solution](./guide/multitenant/service/private-link.md) ([#99f9d081b4](https://github.com/MicrosoftDocs/architecture-center/commit/99f9d081b4))
-- [SAP S/4HANA in Linux on Azure](./guide/sap/sap-s4hana.md) ([#99f9d081b4](https://github.com/MicrosoftDocs/architecture-center/commit/99f9d081b4))
-- [No-Caching antipattern](./antipatterns/no-caching/index.md) ([#b1a7cae5ab](https://github.com/MicrosoftDocs/architecture-center/commit/b1a7cae5ab))
-- [CDN guidance](./best-practices/cdn.yml) ([#b1a7cae5ab](https://github.com/MicrosoftDocs/architecture-center/commit/b1a7cae5ab))
-- [Data partitioning guidance](./best-practices/data-partitioning.yml) ([#b1a7cae5ab](https://github.com/MicrosoftDocs/architecture-center/commit/b1a7cae5ab))
-- [Data partitioning strategies](./best-practices/data-partitioning-strategies.yml) ([#b1a7cae5ab](https://github.com/MicrosoftDocs/architecture-center/commit/b1a7cae5ab))
-- [Administer SQL Server with Azure Arc](./hybrid/azure-arc-sql-server.yml) ([#9073ba5a49](https://github.com/MicrosoftDocs/architecture-center/commit/9073ba5a49))
-- [Azure API Management Landing Zone Architecture](./example-scenario/integration/app-gateway-internal-api-management-function.yml) ([#bfa30f6edb](https://github.com/MicrosoftDocs/architecture-center/commit/bfa30f6edb))
-- [Enhanced-security hybrid messaging for client access](./example-scenario/hybrid/secure-hybrid-messaging-client.yml) ([#864bbfff71](https://github.com/MicrosoftDocs/architecture-center/commit/864bbfff71))
-- [Enhanced-security hybrid messaging for mobile access](./example-scenario/hybrid/secure-hybrid-messaging-mobile.yml) ([#864bbfff71](https://github.com/MicrosoftDocs/architecture-center/commit/864bbfff71))
-- [Identity architecture design](./identity/identity-get-started.md) ([#864bbfff71](https://github.com/MicrosoftDocs/architecture-center/commit/864bbfff71))
 
 
 ## Azure updates
