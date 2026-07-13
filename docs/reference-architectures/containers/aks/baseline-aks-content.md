@@ -494,10 +494,12 @@ Private traffic to a private AKS cluster might originate from the spoke virtual 
 - **Tunneling:** Use Azure Bastion to [open a tunnel directly to the cluster's API server](/azure/bastion/bastion-connect-to-aks-private-cluster).
 - **Jump-box:** Provision a jump-box VM, and use Azure Bastion to connect to it through SSH or RDP. From there, the operator makes requests against the cluster's API server through its private IP address.
 
-This architecture uses Azure Bastion to tunnel to the AKS API server for cluster management operations. This approach is recommended here because it keeps the management path fully private while remaining simpler and less costly to operate than a jump-box VM. The Bastion tunnel connects from an operator's local machine to the private API server endpoint, so operators run their usual `kubectl` and Helm tooling without deploying and maintaining a jump-box VM and without opening inbound NSG rules or assigning public IPs to a management VM. It's also less complex to coordinate among multiple operators. You establish the tunnel through the Azure CLI integration between AKS and Azure Bastion, alongside `az aks get-credentials` to obtain the cluster context. The linked how-to article provides the detailed commands. However, you might choose to use a jump-box VM if you have any of these requirements:
+This architecture uses Azure Bastion to tunnel to the AKS API server for cluster management operations. This approach is recommended here because it keeps the management path fully private while remaining simpler and less costly to operate than a jump-box VM. It's also less complex to coordinate among multiple operators. You establish the tunnel through the Azure CLI integration between AKS and Azure Bastion.
 
-- **Operators use insecure devices.** A jump-box VM can provide stronger security hardening if your client devices aren't trusted.
-- **Operators connect through unstable networks.** A jump-box VM can provide a more stable connection to the cluster, especially for long-running or batch management operations.
+However, you might choose to use a jump box if you have any of these requirements:
+
+- **Operators use insecure devices.** A jump box can provide stronger security hardening if your client devices aren't trusted.
+- **Operators connect through unstable networks.** A jump box can provide a more stable connection to the cluster, especially for long-running or batch management operations.
 - **Operators use advanced diagnostic tooling.** Some types of diagnostic tooling, like packet capture, might not work well with tunneling approaches.
 
 ## Add secret management
