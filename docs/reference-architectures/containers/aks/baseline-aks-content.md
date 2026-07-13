@@ -499,7 +499,9 @@ This architecture uses Azure Bastion to tunnel to the AKS API server for cluster
 However, you might choose to use a jump box if you have any of these requirements:
 
 - **Operators use insecure devices.** A jump box can provide stronger security hardening if your client devices aren't trusted.
+
 - **Operators connect through unstable networks.** A jump box can provide a more stable connection to the cluster, especially for long-running or batch management operations.
+
 - **Operators use advanced diagnostic tooling.** Some types of diagnostic tooling, like packet capture, might not work well with tunneling approaches.
 
 ## Add secret management
