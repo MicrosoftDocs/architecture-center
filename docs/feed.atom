@@ -2,12 +2,20 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id/>
     <title>Azure Architecture Center</title>
-    <updated>2026-07-09T18:12:58.000Z</updated>
+    <updated>2026-07-10T16:54:09.000Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <subtitle>Updated articles for Azure Architecture Center</subtitle>
     <rights>https://learn.microsoft.com/legal/termsofuse</rights>
     <category term="new"/>
     <category term="updated"/>
+    <entry>
+        <title type="html"><![CDATA[Multiple-region Architectures for Azure App Service Disaster Recovery]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/web-apps/guides/multi-region-app-service/multi-region-app-service</id>
+        <link href="https://learn.microsoft.com/azure/architecture/web-apps/guides/multi-region-app-service/multi-region-app-service"/>
+        <updated>2026-07-10T16:54:09.000Z</updated>
+        <summary type="html"><![CDATA[Learn about multiple-region architectures and how you can use them to deploy web apps across multiple regions for disaster recovery and replication.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
     <entry>
         <title type="html"><![CDATA[Design a Ransomware-Resilient Backup Architecture by Using Azure Backup]]></title>
         <id>https://learn.microsoft.com/azure/architecture/security/ransomware-resilient-backup-architecture</id>

@@ -26,6 +26,7 @@ The following new and updated articles have recently been published in the Azure
 
 ### Updated articles
 
+- [Multiple-region Architectures for Azure App Service Disaster Recovery](./web-apps/guides/multi-region-app-service/multi-region-app-service.md) ([#0ab9711527](https://github.com/MicrosoftDocs/architecture-center/commit/0ab9711527))
 - [Health modeling for mission-critical workloads on Azure](./reference-architectures/containers/aks-mission-critical/mission-critical-health-modeling.md) ([#6fc1dc435f](https://github.com/MicrosoftDocs/architecture-center/commit/6fc1dc435f))
 - [Networking and connectivity for mission-critical workloads on Azure](./reference-architectures/containers/aks-mission-critical/mission-critical-networking.md) ([#cb614df1c0](https://github.com/MicrosoftDocs/architecture-center/commit/cb614df1c0))
 - [Deployment and testing for mission-critical workloads on Azure](./reference-architectures/containers/aks-mission-critical/mission-critical-deploy-test.md) ([#9d133a383a](https://github.com/MicrosoftDocs/architecture-center/commit/9d133a383a))
