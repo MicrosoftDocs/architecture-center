@@ -42,9 +42,9 @@ This diagram shows how you can migrate the legacy architecture to Azure by using
 
 1. **Application compute clusters.** The architecture supports applications that run in a container that can be deployed in Azure Kubernetes Service (AKS). Adabas & Natural components can run inside Linux-based containers. You can re-architect your legacy applications to modern container-based architectures and operate on top of AKS.
 
-1. **ApplinX terminal emulation** (Software AG). ApplinX is a server-based technology that provides web connectivity and integration into core system applications without requiring changes to the applications. **Natural Online** enables online users to connect to Natural applications via a web browser. Without ApplinX, users need to connect with terminal emulation software by using SSH. Both systems run in containers.
+1. **ApplinX terminal emulation** (IBM). ApplinX is a server-based technology that provides web connectivity and integration into core system applications without requiring changes to the applications. **Natural Online** enables online users to connect to Natural applications via a web browser. Without ApplinX, users need to connect with terminal emulation software by using SSH. Both systems run in containers.
 
-1. **EntireX** (Software AG). EntireX enables you to easily connect services that run on Integration Server to mission-critical programs that are written in languages like COBOL and Natural. **Natural Business Services** enables API access to business functions that are programmed in Natural. Both systems run in containers.
+1. **EntireX** (IBM). EntireX enables you to easily connect services that run on Integration Server to mission-critical programs that are written in languages like COBOL and Natural. **Natural Business Services** enables API access to business functions that are programmed in Natural. Both systems run in containers.
 
 1. **Adabas** (Software AG). Adabas is a high performance NoSQL database management system. **Natural batch** (Software AG) is a dedicated component for running batch jobs. Natural batch jobs, which are scheduled by a batch job scheduling system that you choose, should run on the same node as the Adabas database to avoid performance impact.
 
