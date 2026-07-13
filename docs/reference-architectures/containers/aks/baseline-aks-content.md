@@ -494,7 +494,7 @@ Private traffic to a private AKS cluster might originate from the spoke virtual 
 - **Tunneling:** Use Azure Bastion to [open a tunnel directly to the cluster's API server](/azure/bastion/bastion-connect-to-aks-private-cluster).
 - **Jump box:** Provision a jump-box VM, and use Azure Bastion to connect to it through SSH or RDP. From there, the operator makes requests against the cluster's API server through its private IP address.
 
-This architecture uses Azure Bastion to tunnel to the AKS API server for cluster management operations. This approach is recommended here because it keeps the management path fully private while remaining simpler and less costly to operate than a jump-box VM. It's also less complex to coordinate among multiple operators. You establish the tunnel through the Azure CLI.
+This architecture uses Azure Bastion native client tunneling to connect an operator's local machine to the private AKS API server through Azure CLI commands. The tunnel supports direct `kubectl` and Helm workflows without a jump box. This approach is recommended here because it keeps the AKS API endpoint private while remaining simpler and less costly to operate than a jump box. It's also less complex to coordinate among multiple operators.
 
 However, you might choose to use a jump box if you have any of these requirements:
 
