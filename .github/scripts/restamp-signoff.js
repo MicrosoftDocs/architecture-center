@@ -44,13 +44,39 @@ module.exports = async ({ github, context, core }) => {
    * @param {string} sha
    * @param {'error' | 'failure' | 'pending' | 'success'} state
    * @param {string} description
+   * @param {string} [targetUrl]
    */
-  async function setStatus(sha, state, description) {
+  async function setStatus(sha, state, description, targetUrl) {
     await github.rest.repos.createCommitStatus({
       owner, repo, sha, state,
       context: STATUS_CONTEXT,
       description: description.slice(0, 140),
+      ...(targetUrl ? { target_url: targetUrl } : {}),
     });
+  }
+
+  const ZERO_SHA = '0000000000000000000000000000000000000000';
+
+  /**
+   * Look up the prior "Patterns & Practices sign off" status on a commit so its
+   * description ("Signed off by <user>") and target_url (the link to the sign-off
+   * comment) can be copied forward onto the new head commit. Returns undefined
+   * when there is no usable predecessor, letting the caller fall back to a generic
+   * description.
+   *
+   * @param {string | undefined} sha
+   * @returns {Promise<{ description: string, targetUrl: string | undefined } | undefined>}
+   */
+  async function findPriorSignOffStatus(sha) {
+    if (!sha || sha === ZERO_SHA) return undefined;
+    const { data: statuses } = await github.rest.repos.listCommitStatusesForRef({
+      owner, repo, ref: sha, per_page: 100,
+    });
+    // The API returns statuses newest first, so the first context match is the
+    // most recent sign-off status set on that commit.
+    const prior = statuses.find((/** @type {{ context: string, state: string }} */ s) => s.context === STATUS_CONTEXT && s.state === 'success');
+    if (!prior) return undefined;
+    return { description: prior.description || '', targetUrl: prior.target_url || undefined };
   }
 
   let headSha;
@@ -71,8 +97,12 @@ module.exports = async ({ github, context, core }) => {
       return;
     }
 
-    await setStatus(headSha, 'success', 'PR previously signed off; carried forward after update.');
-    core.info('Re-stamped success on the current head commit after a prior sign-off.');
+    const prior =
+      await findPriorSignOffStatus(headSha)
+      ?? await findPriorSignOffStatus(context.payload.before);
+    const description = prior?.description || 'PR previously signed off; carried forward after update.';
+    await setStatus(headSha, 'success', description, prior?.targetUrl);
+    core.info(`Re-stamped success on the current head commit after a prior sign-off. Description: "${description}".`);
   } catch (error) {
     // Fail closed: on an unexpected error, do not carry the sign-off forward.
     const message = error instanceof Error ? error.message : String(error);

@@ -47,6 +47,8 @@ module.exports = async ({ github, context, core }) => {
   let commenter;
   /** @type {string} */
   let commentBody;
+  /** @type {string | undefined} */
+  let signOffUrl;
   if (context.eventName === 'issue_comment') {
     const { issue, comment } = context.payload;
     if (!issue || !comment) {
@@ -56,6 +58,7 @@ module.exports = async ({ github, context, core }) => {
     prNumber = issue.number;
     commenter = comment.user.login;
     commentBody = comment.body || '';
+    signOffUrl = comment.html_url;
   } else if (context.eventName === 'pull_request_review') {
     const { pull_request: reviewedPr, review } = context.payload;
     if (!reviewedPr || !review) {
@@ -65,6 +68,7 @@ module.exports = async ({ github, context, core }) => {
     prNumber = reviewedPr.number;
     commenter = review.user.login;
     commentBody = review.body || '';
+    signOffUrl = review.html_url;
   } else {
     core.info(`Unhandled event '${context.eventName}'. Nothing to do.`);
     return;
@@ -87,12 +91,14 @@ module.exports = async ({ github, context, core }) => {
    * @param {string} sha
    * @param {'error' | 'failure' | 'pending' | 'success'} state
    * @param {string} description
+   * @param {string} [targetUrl]
    */
-  async function setStatus(sha, state, description) {
+  async function setStatus(sha, state, description, targetUrl) {
     await github.rest.repos.createCommitStatus({
       owner, repo, sha, state,
       context: STATUS_CONTEXT,
       description: description.slice(0, 140),
+      ...(targetUrl ? { target_url: targetUrl } : {}),
     });
   }
 
@@ -164,8 +170,7 @@ cc: @MicrosoftDocs/patterns-and-practices-team-pr-reviewers`;
     core.info(`Commenter ${commenter} has permission '${permission}', canPush: ${canPush}.`);
 
     if (canPush) {
-      await setStatus(headSha, 'success', `Signed off by ${commenter}.`);
-      // Mark the PR signed off so restamp-signoff.js keeps later commits green.
+      await setStatus(headSha, 'success', `Signed off by ${commenter}.`, signOffUrl);
       await github.rest.issues.addLabels({
         owner, repo, issue_number: prNumber, labels: [SIGNED_OFF_LABEL],
       }).catch((/** @type {Error} */ e) => core.warning(`Could not add ${SIGNED_OFF_LABEL}: ${e.message}`));
