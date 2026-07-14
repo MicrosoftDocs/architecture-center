@@ -6,12 +6,10 @@
  *
  * Runs on pull_request_target (synchronize/reopened). Commit statuses attach to
  * a specific head SHA, so a new commit drops the "Patterns & Practices sign off"
- * status. It fetches the PR's live head and labels (not the immutable event
- * payload, which can predate a concurrent sign-off run adding the label); if the
- * PR carries the pnp-signed-off label (applied by an authorized #sign-off), it
- * re-stamps success on the current head so the sign-off persists without another
- * comment. If the label is absent, it does nothing and the required check stays
- * unreported until an authorized sign-off.
+ * status. The workflow if: gates this job on the pnp-signed-off label (applied by
+ * an authorized #sign-off), so reaching this script means the PR is signed off.
+ * It fetches the PR's live head and re-stamps success on the current head so the
+ * sign-off persists without another comment.
  *
  * Invoked from actions/github-script, which injects `github`, `context`, and
  * `core`.
@@ -22,10 +20,9 @@
  * @param {typeof import('@actions/core')} args.core Actions core toolkit.
  */
 module.exports = async ({ github, context, core }) => {
-  // Must stay identical to the values in gate-signoff.js. STATUS_CONTEXT must
-  // also match the required status check name in branch protection.
+  // Must stay identical to the value in gate-signoff.js and match the required
+  // status check name in branch protection.
   const STATUS_CONTEXT = 'Patterns & Practices sign off';
-  const SIGNED_OFF_LABEL = 'pnp-signed-off';
 
   const { owner, repo } = context.repo;
   const defaultBranch = context.payload.repository?.default_branch;
@@ -56,6 +53,16 @@ module.exports = async ({ github, context, core }) => {
   }
 
   const ZERO_SHA = '0000000000000000000000000000000000000000';
+
+  /**
+   * Normalize a caught value to a string message.
+   *
+   * @param {unknown} e
+   * @returns {string}
+   */
+  function toMessage(e) {
+    return e instanceof Error ? e.message : String(e);
+  }
 
   /**
    * Look up the prior "Patterns & Practices sign off" status on a commit so its
@@ -90,13 +97,6 @@ module.exports = async ({ github, context, core }) => {
       return;
     }
 
-    // Carry the sign-off forward only if the PR currently has the label.
-    const signedOff = (pr.labels || []).some((/** @type {{ name: string }} */ label) => label.name === SIGNED_OFF_LABEL);
-    if (!signedOff) {
-      core.info(`PR has no ${SIGNED_OFF_LABEL} label. Leaving status unset until an authorized sign-off.`);
-      return;
-    }
-
     const prior =
       await findPriorSignOffStatus(headSha)
       ?? await findPriorSignOffStatus(context.payload.before);
@@ -105,14 +105,12 @@ module.exports = async ({ github, context, core }) => {
     core.info(`Re-stamped success on the current head commit after a prior sign-off. Description: "${description}".`);
   } catch (error) {
     // Fail closed: on an unexpected error, do not carry the sign-off forward.
-    const message = error instanceof Error ? error.message : String(error);
-    core.setFailed(`Carry-forward error: ${message}`);
+    core.setFailed(`Carry-forward error: ${toMessage(error)}`);
     if (headSha) {
       try {
         await setStatus(headSha, 'pending', 'Sign-off carry-forward error. Blocked pending review.');
       } catch (statusError) {
-        const statusMessage = statusError instanceof Error ? statusError.message : String(statusError);
-        core.warning(`Failed to set pending status after error: ${statusMessage}`);
+        core.warning(`Failed to set pending status after error: ${toMessage(statusError)}`);
       }
     }
   }

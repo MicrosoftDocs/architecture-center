@@ -76,7 +76,8 @@ jobs:
       pull-requests: read
     if: >-
       github.event_name == 'pull_request_target' &&
-      github.event.repository.visibility != 'public'
+      github.event.repository.visibility != 'public' &&
+      contains(github.event.pull_request.labels.*.name, 'pnp-signed-off')
     steps:
       - name: Check out workflow scripts
         uses: actions/checkout@9c091bb21b7c1c1d1991bb908d89e4e9dddfe3e0 # v7.0.0

@@ -41,47 +41,47 @@ module.exports = async ({ github, context, core }) => {
   // Extract the sign-off request from whichever event fired: a PR conversation
   // comment (issue_comment) or a submitted PR review body (pull_request_review).
   // The job `if:` already screened for the token and a non-bot author.
-  /** @type {number} */
-  let prNumber;
-  /** @type {string} */
-  let commenter;
-  /** @type {string} */
-  let commentBody;
-  /** @type {string | undefined} */
-  let signOffUrl;
-  if (context.eventName === 'issue_comment') {
-    const { issue, comment } = context.payload;
-    if (!issue || !comment) {
-      core.info('Comment payload is missing issue or comment data. Nothing to do.');
-      return;
-    }
-    prNumber = issue.number;
-    commenter = comment.user.login;
-    commentBody = comment.body || '';
-    signOffUrl = comment.html_url;
-  } else if (context.eventName === 'pull_request_review') {
-    const { pull_request: reviewedPr, review } = context.payload;
-    if (!reviewedPr || !review) {
-      core.info('Review payload is missing pull_request or review data. Nothing to do.');
-      return;
-    }
-    prNumber = reviewedPr.number;
-    commenter = review.user.login;
-    commentBody = review.body || '';
-    signOffUrl = review.html_url;
-  } else {
-    core.info(`Unhandled event '${context.eventName}'. Nothing to do.`);
-    return;
-  }
+  const signOff = extractSignOff();
+  if (!signOff) return;
+  const { prNumber, commenter, commentBody, signOffUrl } = signOff;
 
   // ---- Helpers ----
 
   /**
-   * @param {string} body
-   * @returns {boolean}
+   * Extract the sign-off request from whichever event fired. Returns null when
+   * the payload is malformed or the event is unhandled.
+   *
+   * @returns {{ prNumber: number, commenter: string, commentBody: string, signOffUrl: string | undefined } | null}
    */
-  function isSignOffComment(body) {
-    return SIGN_OFF_PATTERN.test(body);
+  function extractSignOff() {
+    if (context.eventName === 'issue_comment') {
+      const { issue, comment } = context.payload;
+      if (!issue || !comment) {
+        core.info('Comment payload is missing issue or comment data. Nothing to do.');
+        return null;
+      }
+      return { prNumber: issue.number, commenter: comment.user.login, commentBody: comment.body || '', signOffUrl: comment.html_url };
+    }
+    if (context.eventName === 'pull_request_review') {
+      const { pull_request: reviewedPr, review } = context.payload;
+      if (!reviewedPr || !review) {
+        core.info('Review payload is missing pull_request or review data. Nothing to do.');
+        return null;
+      }
+      return { prNumber: reviewedPr.number, commenter: review.user.login, commentBody: review.body || '', signOffUrl: review.html_url };
+    }
+    core.info(`Unhandled event '${context.eventName}'. Nothing to do.`);
+    return null;
+  }
+
+  /**
+   * Normalize a caught value to a string message.
+   *
+   * @param {unknown} e
+   * @returns {string}
+   */
+  function toMessage(e) {
+    return e instanceof Error ? e.message : String(e);
   }
 
   /**
@@ -149,7 +149,7 @@ cc: @MicrosoftDocs/patterns-and-practices-team-pr-reviewers`;
 
   // ---- Main ----
 
-  if (!isSignOffComment(commentBody)) {
+  if (!SIGN_OFF_PATTERN.test(commentBody)) {
     core.info('Comment has no standalone #sign-off token. Nothing to do.');
     return;
   }
@@ -182,14 +182,12 @@ cc: @MicrosoftDocs/patterns-and-practices-team-pr-reviewers`;
   } catch (error) {
     // Fail closed: on an unexpected error, do not approve. Leaving the gate
     // blocked prevents an induced failure from bypassing authorization.
-    const message = error instanceof Error ? error.message : String(error);
-    core.setFailed(`Sign-off gate error: ${message}`);
+    core.setFailed(`Sign-off gate error: ${toMessage(error)}`);
     if (headSha) {
       try {
         await setStatus(headSha, 'pending', 'Sign-off gate error. Blocked pending review.');
       } catch (statusError) {
-        const statusMessage = statusError instanceof Error ? statusError.message : String(statusError);
-        core.warning(`Failed to set pending status after error: ${statusMessage}`);
+        core.warning(`Failed to set pending status after error: ${toMessage(statusError)}`);
       }
     }
   }
