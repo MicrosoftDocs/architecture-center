@@ -137,6 +137,32 @@ The following table shows an example network schema.
 | Subnet          | PrivateEndpointsSubnet | 10.0.2.0/27   |
 | Subnet          | AgentsSubnet           | 10.0.2.32/27  |
 
+#### Segment subnets further by application tier
+
+This architecture uses a shared App Service integration subnet and a shared private endpoints subnet, which is a good starting point for a single web application with dependencies owned by the same team. If your workload is broken into distinct tiers or you run multiple unrelated applications in the same virtual network, you can subdivide these subnets to create stricter isolation boundaries. This approach is optional and adds operational overhead.
+
+Consider this segmentation when one or more of the following conditions apply:
+
+- You want to constrain east-west traffic so that each tier reaches only the dependencies that it requires.
+
+- You host an internal API that other services consume privately and that the internet never reaches directly.
+
+- You share the virtual network across applications that have different owners or trust levels.
+
+When you implement tier-based segmentation, apply the following guidance:
+
+- Create a dedicated App Service integration subnet for each tier that needs outbound virtual network access. An App Service plan supports virtual network integrations with at most two subnets or virtual networks. For more information, see [How virtual network integration works](/azure/app-service/overview-vnet-integration#how-virtual-network-integration-works). Use separate plans when more than two tiers require dedicated integration subnets.
+
+  For example, a frontend that serves only static content, such as a single-page application that runs in the browser, doesn't need virtual network integration because the browser calls the backend through Application Gateway rather than through a server-to-server path.
+
+  Each integration subnet must be delegated to `Microsoft.Web/serverFarms`. For more information, see [Enable virtual network integration](/azure/app-service/configure-vnet-integration-enable).
+
+- Keep public network access disabled on backing services that support this setting, such as SQL Database, and expose them only through private endpoints. For internal APIs hosted in App Service that you expose via private endpoints, disable public network access for the app. Place private endpoints in dedicated subnets that you group by access pattern, such as one subnet for data services and one subnet for internal APIs.
+
+- Use NSGs to allow each integration subnet to reach only the private endpoints and platform destinations that the tier requires, and deny routed outbound traffic to endpoints that the tier must never call. These rules apply only to traffic that App Service sends through virtual network integration. Because this baseline doesn't enable all traffic routing, internet-bound traffic bypasses the subnet NSG. Enable all traffic routing if the isolation boundary must also cover public destinations.
+
+  For example, allow the backend subnet to reach the SQL and internal API private endpoints, and deny the internal API subnet from initiating connections to the backend or data tier.
+
 ## Considerations
 
 These considerations implement the pillars of the Azure Well-Architected Framework, which is a set of guiding tenets that you can use to improve the quality of a workload. For more information, see [Well-Architected Framework](/azure/well-architected/).
@@ -167,7 +193,7 @@ Deploy Application Gateway in a zone-redundant configuration with a minimum scal
 
 - Create separate storage accounts for deployments, web assets, and other data to manage and configure each account independently.
 
-#### SQL Database  
+#### SQL Database
 
 - Deploy SQL Database in the General Purpose, Premium, or Business Critical tier with zone redundancy turned on. These tiers support [zone redundancy](/azure/azure-sql/database/high-availability-sla-local-zone-redundancy#general-purpose-service-tier).
 
