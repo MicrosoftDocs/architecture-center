@@ -157,7 +157,7 @@ When you implement tier-based segmentation, apply the following guidance:
 
   Each integration subnet must be delegated to `Microsoft.Web/serverFarms`. For more information, see [Enable virtual network integration](/azure/app-service/configure-vnet-integration-enable).
 
-- Keep public network access disabled on backing services like SQL Database and any internal API, and expose them only through private endpoints. Place private endpoints in dedicated subnets that you group by access pattern, such as one subnet for data services and one subnet for internal APIs.
+- Keep public network access disabled on backing services that support this setting, such as SQL Database, and expose them only through private endpoints. For internal APIs hosted in App Service that you expose via private endpoints, disable public access for the app. Place private endpoints in dedicated subnets that you group by access pattern, such as one subnet for data services and one subnet for internal APIs.
 
 - Use NSGs to allow each integration subnet to reach only the private endpoints and platform destinations that the tier requires, and deny outbound traffic to endpoints that the tier must never call.
 
