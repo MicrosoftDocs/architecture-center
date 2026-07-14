@@ -139,7 +139,7 @@ The following table shows an example network schema.
 
 #### Segment subnets further by application tier
 
-This architecture uses a shared App Service integration subnet and a shared private endpoints subnet which is good starting point for a single web application with dependencies owned by the same team. If your workload is broken into distinct tiers or if you run multiple unrelated applications in the same virtual network, you can subdivide these subnets to create stricter isolation boundaries. This approach is optional and adds operational overhead.
+This architecture uses a shared App Service integration subnet and a shared private endpoints subnet, which is a good starting point for a single web application with dependencies owned by the same team. If your workload is broken into distinct tiers or you run multiple unrelated applications in the same virtual network, you can subdivide these subnets to create stricter isolation boundaries. This approach is optional and adds operational overhead.
 
 Consider this segmentation when one or more of the following conditions apply:
 
