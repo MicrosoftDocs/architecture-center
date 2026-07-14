@@ -153,7 +153,7 @@ When you implement tier-based segmentation, apply the following guidance:
 
 - Create a dedicated App Service integration subnet for each tier that needs outbound virtual network access. An App Service plan supports virtual network integrations with at most two subnets or virtual networks, so use separate plans when more than two tiers require dedicated integration subnets.
 
-  For example, a frontend that serves only static content, such as a single-page application that runs in the browser, doesn't need virtual network integration because the browser calls the backend through Application Gateway rather than through a server-to-server path. 
+  For example, a frontend that serves only static content, such as a single-page application that runs in the browser, doesn't need virtual network integration because the browser calls the backend through Application Gateway rather than through a server-to-server path.
 
   Each integration subnet must be delegated to `Microsoft.Web/serverFarms`. For more information, see [Enable virtual network integration](/azure/app-service/configure-vnet-integration-enable).
 
