@@ -151,7 +151,7 @@ Consider this segmentation when one or more of the following conditions apply:
 
 When you implement tier-based segmentation, apply the following guidance:
 
-- Create a dedicated App Service integration subnet for each tier that needs outbound virtual network access.
+- Create a dedicated App Service integration subnet for each tier that needs outbound virtual network access. An App Service plan supports virtual network integrations with at most two subnets or virtual networks, so use separate plans when more than two tiers require dedicated integration subnets.
 
   For example, a frontend that serves only static content, such as a single-page application that runs in the browser, doesn't need virtual network integration because the browser calls the backend through Application Gateway rather than through a server-to-server path. 
 
