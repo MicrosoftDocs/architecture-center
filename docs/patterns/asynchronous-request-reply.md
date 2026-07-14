@@ -160,7 +160,7 @@ The following code shows excerpts from an application that uses Azure Functions 
    In step 1, a client calls an API. In step 2, the API places a message in a queue. In step 3, the API returns a status endpoint to the client. In step 4, a worker receives the message from the queue. In step 5, the worker processes the message and writes the result to blob storage. In step 6, the client calls the status endpoint. In step 7, the status endpoint checks for the result in blob storage.
 :::image-end:::
 
-![GitHub logo.](../_images/github.png) This sample is available on [GitHub](https://github.com/mspnp/cloud-design-patterns/tree/main/async-request-reply).
+![GitHub logo.](../_images/github.png) This sample is available on [GitHub](https://github.com/Azure-Samples/cloud-design-patterns/tree/main/async-request-reply).
 
 The implementation uses managed identity to authenticate with Azure Service Bus and Azure Blob Storage, which avoids storing connection strings or account keys. Dependencies are registered in `Program.cs` by using `DefaultAzureCredential` and are injected through primary constructors.
 
