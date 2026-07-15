@@ -1,5 +1,5 @@
-name: Azure patterns & practices review
-run-name: "Patterns & Practices hold-off check (PR #${{ github.event.issue.number }})"
+name: Sign off audit
+run-name: "Hold-off check (PR #${{ github.event.issue.number }})"
 
 # Contributors trigger the org merge bot by commenting "#sign-off". Merge approval
 # is granted separately: an authorized patterns & practices reviewer adds the
