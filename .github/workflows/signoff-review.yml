@@ -1,56 +1,43 @@
 name: Azure patterns & practices review
+run-name: "Patterns & Practices hold-off check (PR #${{ github.event.issue.number }})"
 
-# Only authorized users (repository write access or higher) may sign off a pull
-# request by commenting "#sign-off". This workflow controls the required
-# "Patterns & Practices sign off" commit status check. An authorized sign-off
-# stamps the head commit success and applies the pnp-signed-off label; an
-# unauthorized one leaves it pending and posts a "#hold-off" comment, which the
-# merge bot acts on to remove ready-to-merge and add do-not-merge.
+# Contributors trigger the org merge bot by commenting "#sign-off". Merge approval
+# is granted separately: an authorized patterns & practices reviewer adds the
+# pnp-sign-off label by hand, which the required "Patterns & Practices approval"
+# check (signoff-approval-check.yml) enforces.
 #
-# Commit statuses are per-commit, so a second job re-stamps success on new
-# commits when the PR already carries the pnp-signed-off label, letting a sign-off
-# carry forward across pushes without another #sign-off.
-#
-# The commit status check is the authoritative gate and must be a required
-# status check in branch protection for the default branch.
+# This workflow handles a "#sign-off" that arrives before that approval: it posts
+# the "#hold-off" comment, which the merge bot acts on to remove ready-to-merge and
+# add do-not-merge, and which cc's the review team. If the PR is already approved
+# (pnp-sign-off label present) it does nothing, so the #sign-off proceeds.
 
 on:
   issue_comment:
     types: [created]
-  pull_request_review:
-    types: [submitted]
-  pull_request_target:
-    types: [synchronize, reopened]
+
+permissions: {}
 
 concurrency:
-  group: signoff-${{ github.event.issue.number || github.event.pull_request.number }}
+  group: signoff-${{ github.event.issue.number }}
   cancel-in-progress: false
   queue: max
 
 jobs:
-  gate-signoff:
-    name: Approval check
+  signoff-holdoff:
+    name: Sign-off hold-off
     runs-on: ubuntu-slim
+    timeout-minutes: 5
     permissions:
       contents: read
-      statuses: write
+      pull-requests: read
       issues: write
-      pull-requests: write
     if: >-
       github.event.repository.visibility != 'public' &&
-      (
-        (
-          github.event_name == 'issue_comment' &&
-          github.event.comment.user.type != 'Bot' &&
-          github.event.issue.pull_request &&
-          contains(github.event.comment.body, '#sign-off')
-        ) ||
-        (
-          github.event_name == 'pull_request_review' &&
-          github.event.review.user.type != 'Bot' &&
-          contains(github.event.review.body, '#sign-off')
-        )
-      )
+      github.event_name == 'issue_comment' &&
+      github.event.comment.user.type != 'Bot' &&
+      github.event.issue.pull_request &&
+      contains(github.event.comment.body, '#sign-off') &&
+      !contains(github.event.issue.labels.*.name, 'pnp-sign-off')
     steps:
       - name: Check out workflow scripts
         uses: actions/checkout@9c091bb21b7c1c1d1991bb908d89e4e9dddfe3e0 # v7.0.0
@@ -59,37 +46,10 @@ jobs:
           persist-credentials: false
           sparse-checkout: .github/scripts
           sparse-checkout-cone-mode: false
-      - name: Evaluate sign-off authorization
+      - name: Post hold-off if not yet approved
         uses: actions/github-script@3a2844b7e9c422d3c10d287c895573f7108da1b3 # v9.0.0
         with:
           retries: 3
           script: |
             const gateSignOff = require('./.github/scripts/gate-signoff.js');
             await gateSignOff({ github, context, core });
-
-  restamp-signoff:
-    name: Carry sign-off forward
-    runs-on: ubuntu-slim
-    permissions:
-      contents: read
-      statuses: write
-      pull-requests: read
-    if: >-
-      github.event_name == 'pull_request_target' &&
-      github.event.repository.visibility != 'public' &&
-      contains(github.event.pull_request.labels.*.name, 'pnp-signed-off')
-    steps:
-      - name: Check out workflow scripts
-        uses: actions/checkout@9c091bb21b7c1c1d1991bb908d89e4e9dddfe3e0 # v7.0.0
-        with:
-          ref: ${{ github.event.repository.default_branch }}
-          persist-credentials: false
-          sparse-checkout: .github/scripts
-          sparse-checkout-cone-mode: false
-      - name: Re-stamp sign-off status
-        uses: actions/github-script@3a2844b7e9c422d3c10d287c895573f7108da1b3 # v9.0.0
-        with:
-          retries: 3
-          script: |
-            const restampSignOff = require('./.github/scripts/restamp-signoff.js');
-            await restampSignOff({ github, context, core });
