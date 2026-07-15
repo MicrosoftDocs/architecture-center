@@ -1,0 +1,57 @@
+name: Patterns & Practices approval check
+run-name: "Patterns & Practices approval (PR #${{ github.event.pull_request.number }})"
+
+# The required merge gate. It publishes the "Patterns & Practices approval" commit
+# status on the pull request head: success when the pull request carries the
+# pnp-sign-off label (applied by hand by an authorized reviewer), pending
+# otherwise. It re-runs on label changes and on every push, so it re-evaluates
+# automatically and reapplies the current approval status to each new commit.
+#
+# It uses pull_request_target (which runs from the default branch) so fork pull
+# requests from read-access contributors do not need per-contributor workflow
+# approval. That event runs against the default branch SHA, so the status is set
+# explicitly on the pull request head SHA, which is the commit branch protection
+# evaluates.
+#
+# The status context "Patterns & Practices approval" must be added as a required
+# status check in branch protection for the default branch.
+
+on:
+  pull_request_target:
+    types: [opened, reopened, synchronize, labeled, unlabeled]
+
+concurrency:
+  group: pnp-approval-${{ github.event.pull_request.number }}
+  cancel-in-progress: false
+  
+jobs:
+  publish-approval-status:
+    name: Publish approval status
+    runs-on: ubuntu-slim
+    timeout-minutes: 5
+    if: github.event.repository.visibility != 'public'
+    permissions:
+      statuses: write
+      pull-requests: read
+    steps:
+      - name: Publish approval status on the PR head
+        uses: actions/github-script@3a2844b7e9c422d3c10d287c895573f7108da1b3 # v9.0.0
+        with:
+          retries: 3
+          script: |
+            const { data: pr } = await github.rest.pulls.get({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              pull_number: context.payload.pull_request.number,
+            });
+            const approved = (pr.labels || []).some((label) => label.name === 'pnp-sign-off');
+            await github.rest.repos.createCommitStatus({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              sha: pr.head.sha,
+              context: 'Patterns & Practices approval',
+              state: approved ? 'success' : 'pending',
+              description: approved
+                ? 'Approved by the Azure Patterns & Practices team.'
+                : 'Awaiting Azure Patterns & Practices approval (pnp-sign-off label).',
+            });
