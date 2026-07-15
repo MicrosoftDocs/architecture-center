@@ -1,5 +1,5 @@
-name: Patterns & Practices approval check
-run-name: "Patterns & Practices approval (PR #${{ github.event.pull_request.number }})"
+name: Business team approval
+run-name: "Approval check (PR #${{ github.event.pull_request.number }})"
 
 # The required merge gate. It publishes the "Patterns & Practices approval" commit
 # status on the pull request head: success when the pull request carries the
@@ -51,7 +51,5 @@ jobs:
               sha: pr.head.sha,
               context: 'Patterns & Practices approval',
               state: approved ? 'success' : 'pending',
-              description: approved
-                ? 'Approved by the Azure Patterns & Practices team.'
-                : 'Awaiting Azure Patterns & Practices approval (pnp-sign-off label).',
+              description: approved ? 'Approved' : 'Awaiting approval'
             });
