@@ -28,8 +28,8 @@ module.exports = async ({ github, context, core }) => {
   // The approval label an authorized reviewer applies by hand. Must stay identical
   // to the label required by signoff-approval-check.yml.
   const SIGNED_OFF_LABEL = 'pnp-sign-off';
-  // Match a standalone token so "#sign-off-later" or "#sign-offs" do not trigger.
-  const SIGN_OFF_PATTERN = /#sign-off(?![\w-])/i;
+  // Match a standalone #sign-off token.
+  const SIGN_OFF_PATTERN = /(?<![`\w"'-])#sign-off(?![\w-])|(?<![\w-])#sign-off(?![`\w"'-])/i;
 
   const { owner, repo } = context.repo;
   const defaultBranch = context.payload.repository?.default_branch;
