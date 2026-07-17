@@ -160,7 +160,7 @@ For more information about Workload ID, see the following resources:
 - [Minimal Workload ID federation](https://cookbook.geuer-pollmann.de/azure/workload-identity-federation)
 - [Workload ID documentation](https://azure.github.io/azure-workload-identity/docs/introduction.html)
 - [Workload ID quick start](https://azure.github.io/azure-workload-identity/docs/quick-start.html)
-- [Use Workload ID for Kubernetes with a user-assigned managed identity in a .NET Standard application](/samples/azure-samples/azure-ad-workload-identity-mi/azure-ad-workload-identity-mi/)
+- [Use Workload ID for Kubernetes with a user-assigned managed identity in a .NET Standard application](/azure/aks/workload-identity-overview)
 
 ### Example workload
 
