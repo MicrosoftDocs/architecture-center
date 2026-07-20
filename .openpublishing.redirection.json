@@ -282,17 +282,17 @@
     },
     {
       "source_path": "docs/ai-ml/architecture/customer-lifecycle-churn.yml",
-      "redirect_url": "/azure/architecture/ai-ml",
+      "redirect_url": "/azure/architecture/ai-ml/ai-get-started",
       "redirect_document_id": false
     },
     {
       "source_path": "docs/ai-ml/idea/customer-feedback-and-analytics.yml",
-      "redirect_url": "/azure/architecture/ai-ml",
+      "redirect_url": "/azure/architecture/ai-ml/ai-get-started",
       "redirect_document_id": false
     },
     {
       "source_path": "docs/ai-ml/idea/customer-churn-prediction.yml",
-      "redirect_url": "/azure/architecture/ai-ml",
+      "redirect_url": "/azure/architecture/ai-ml/ai-get-started",
       "redirect_document_id": false
     },
     {
@@ -2745,7 +2745,7 @@
     },
     {
       "source_path": "docs/reference-architectures/ai/realtime-scoring-python.yml",
-      "redirect_url": "/azure/architecture/ai-ml/",
+      "redirect_url": "/azure/architecture/ai-ml/ai-get-started",
       "redirect_document_id": false
     },
     {
@@ -3490,28 +3490,23 @@
     },
     {
       "source_path": "docs/solution-ideas/articles/simple-branded-website.yml",
-      "redirect_url": "/azure/architecture/web-apps/",
+      "redirect_url": "/azure/architecture/web-apps/web-apps-get-started",
       "redirect_document_id": false
     },
     {
       "source_path": "docs/solution-ideas/articles/modern-customer-support-portal-powered-by-an-agile-business-process.yml",
-      "redirect_url": "/azure/architecture/web-apps/",
+      "redirect_url": "/azure/architecture/web-apps/web-apps-get-started",
       "redirect_document_id": false
     },
     {
       "source_path": "docs/solution-ideas/articles/digital-marketing-smb.yml",
-      "redirect_url": "/azure/architecture/web-apps/",
+      "redirect_url": "/azure/architecture/web-apps/web-apps-get-started",
       "redirect_document_id": false
     },
     {
       "source_path": "docs/solution-ideas/articles/webapps.yml",
-      "redirect_url": "/azure/architecture/web-apps/",
+      "redirect_url": "/azure/architecture/web-apps/web-apps-get-started",
       "redirect_document_id": false
-    },
-    {
-      "source_path": "docs/guide/web/web-start-here.md",
-      "redirect_url": "/azure/architecture/web-apps/index",
-      "redirect_document_id": true
     },
     {
       "source_path": "docs/reference-architectures/app-service-web-app/basic-web-app.yml",
@@ -3545,7 +3540,7 @@
     },
     {
       "source_path": "docs/serverless-quest/validate-commit-serverless-adoption.yml",
-      "redirect_url": "/azure/architecture/web-apps/",
+      "redirect_url": "/azure/architecture/web-apps/web-apps-get-started",
       "redirect_document_id": false
     },
     {
@@ -3555,42 +3550,42 @@
     },
     {
       "source_path": "docs/serverless-quest/application-assessment.md",
-      "redirect_url": "/azure/architecture/web-apps/",
+      "redirect_url": "/azure/architecture/web-apps/web-apps-get-started",
       "redirect_document_id": false
     },
     {
       "source_path": "docs/serverless-quest/application-development.md",
-      "redirect_url": "/azure/architecture/web-apps/",
+      "redirect_url": "/azure/architecture/web-apps/web-apps-get-started",
       "redirect_document_id": false
     },
     {
       "source_path": "docs/serverless-quest/functions-app-operations.md",
-      "redirect_url": "/azure/architecture/web-apps/",
+      "redirect_url": "/azure/architecture/web-apps/web-apps-get-started",
       "redirect_document_id": false
     },
     {
       "source_path": "docs/serverless-quest/functions-app-security.md",
-      "redirect_url": "/azure/architecture/web-apps/",
+      "redirect_url": "/azure/architecture/web-apps/web-apps-get-started",
       "redirect_document_id": false
     },
     {
       "source_path": "docs/serverless-quest/poc-pilot.md",
-      "redirect_url": "/azure/architecture/web-apps/",
+      "redirect_url": "/azure/architecture/web-apps/web-apps-get-started",
       "redirect_document_id": false
     },
     {
       "source_path": "docs/serverless-quest/reference-architectures.md",
-      "redirect_url": "/azure/architecture/web-apps/",
+      "redirect_url": "/azure/architecture/web-apps/web-apps-get-started",
       "redirect_document_id": false
     },
     {
       "source_path": "docs/serverless-quest/serverless-overview.md",
-      "redirect_url": "/azure/architecture/web-apps/",
+      "redirect_url": "/azure/architecture/web-apps/web-apps-get-started",
       "redirect_document_id": false
     },
     {
       "source_path": "docs/serverless-quest/technical-training.md",
-      "redirect_url": "/azure/architecture/web-apps/",
+      "redirect_url": "/azure/architecture/web-apps/web-apps-get-started",
       "redirect_document_id": false
     },
     {
@@ -3600,7 +3595,7 @@
     },
     {
       "source_path": "docs/web-apps/hosting-applications/medium-umbraco-web-app.yml",
-      "redirect_url": "/azure/architecture/web-apps/",
+      "redirect_url": "/azure/architecture/web-apps/web-apps-get-started",
       "redirect_document_id": false
     },
     {
@@ -3780,7 +3775,7 @@
     },
     {
       "source_path": "docs/data-guide/big-data/ai-overview.md",
-      "redirect_url": "/azure/architecture/ai-ml/index",
+      "redirect_url": "/azure/architecture/ai-ml/ai-overview",
       "redirect_document_id": true
     },
     {
@@ -3790,12 +3785,12 @@
     },
     {
       "source_path": "docs/ai-ml/idea/ai-at-the-edge.yml",
-      "redirect_url": "/azure/architecture/ai-ml/",
+      "redirect_url": "/azure/architecture/ai-ml/ai-get-started",
       "redirect_document_id": false
     },
     {
       "source_path": "docs/ai-ml/idea/ai-at-the-edge-disconnected.yml",
-      "redirect_url": "/azure/architecture/ai-ml/",
+      "redirect_url": "/azure/architecture/ai-ml/ai-get-started",
       "redirect_document_id": false
     },
     {
@@ -3805,7 +3800,7 @@
     },
     {
       "source_path": "docs/solution-ideas/articles/customer-feedback-and-analytics.yml",
-      "redirect_url": "/azure/architecture/ai-ml",
+      "redirect_url": "/azure/architecture/ai-ml/ai-get-started",
       "redirect_document_id": false
     },
     {
@@ -3865,12 +3860,12 @@
     },
     {
       "source_path": "docs/web-apps/hosting-applications/digital-marketing-sitecore.yml",
-      "redirect_url": "/azure/architecture/web-apps/",
+      "redirect_url": "/azure/architecture/web-apps/web-apps-get-started",
       "redirect_document_id": false
     },
     {
       "source_path": "docs/solution-ideas/articles/customer-churn-prediction.yml",
-      "redirect_url": "/azure/architecture/ai-ml",
+      "redirect_url": "/azure/architecture/ai-ml/ai-get-started",
       "redirect_document_id": false
     },
     {
@@ -4115,7 +4110,7 @@
     },
     {
       "source_path": "docs/example-scenario/ai/analyze-browser-info-for-security-insights.yml",
-      "redirect_url": "/azure/architecture/ai-ml/",
+      "redirect_url": "/azure/architecture/ai-ml/ai-get-started",
       "redirect_document_id": false
     },
     {
@@ -4135,7 +4130,7 @@
     },
     {
       "source_path": "docs//data-guide/big-data/baseball-ml-workload.yml",
-      "redirect_url": "/azure/architecture/ai-ml/",
+      "redirect_url": "/azure/architecture/ai-ml/ai-get-started",
       "redirect_document_id": false
     },
     {
@@ -4145,7 +4140,7 @@
     },
     {
       "source_path": "docs/example-scenario/ai/multiline-model-deployment.yml",
-      "redirect_url": "/azure/architecture/ai-ml/",
+      "redirect_url": "/azure/architecture/ai-ml/ai-get-started",
       "redirect_document_id": false
     },
     {
@@ -4155,17 +4150,17 @@
     },
     {
       "source_path": "docs/reference-architectures/ai/training-deep-learning.yml",
-      "redirect_url": "/azure/architecture/ai-ml/",
+      "redirect_url": "/azure/architecture/ai-ml/ai-get-started",
       "redirect_document_id": false
     },
     {
       "source_path": "docs/example-scenario/ai/training-python-models.yml",
-      "redirect_url": "/azure/architecture/ai-ml/",
+      "redirect_url": "/azure/architecture/ai-ml/ai-get-started",
       "redirect_document_id": false
     },
     {
       "source_path": "docs/reference-architectures/ai/real-time-scoring-machine-learning-models.yml",
-      "redirect_url": "/azure/architecture/ai-ml/",
+      "redirect_url": "/azure/architecture/ai-ml/ai-get-started",
       "redirect_document_id": false
     },
     {
@@ -4210,7 +4205,7 @@
     },
     {
       "source_path": "docs/reference-architectures/ai/realtime-scoring-r.yml",
-      "redirect_url": "/azure/architecture/ai-ml/",
+      "redirect_url": "/azure/architecture/ai-ml/ai-get-started",
       "redirect_document_id": false
     },
     {
@@ -4240,7 +4235,7 @@
     },
     {
       "source_path": "docs/ai-ml/guide/conversation-summarization.yml",
-      "redirect_url": "/azure/architecture/ai-ml/",
+      "redirect_url": "/azure/architecture/ai-ml/ai-get-started",
       "redirect_document_id": false
     },
     {
@@ -4280,7 +4275,7 @@
     },
     {
       "source_path": "docs/data-guide/big-data/machine-learning-at-scale.md",
-      "redirect_url": "/azure/architecture/ai-ml/",
+      "redirect_url": "/azure/architecture/ai-ml/ai-get-started",
       "redirect_document_id": false
     },
     {
@@ -4310,7 +4305,7 @@
     },
     {
       "source_path": "docs/example-scenario/mlops/aml-decision-tree.yml",
-      "redirect_url": "/azure/architecture/ai-ml/",
+      "redirect_url": "/azure/architecture/ai-ml/ai-get-started",
       "redirect_document_id": false
     },
     {
@@ -4756,7 +4751,7 @@
     {
       "source_path": "docs/guide/devops/devops-start-here.md",
       "redirect_url": "/azure/architecture/guide/devops/devops-get-started",
-      "redirect_document_id": true      
+      "redirect_document_id": true
     },
     {
       "source_path": "docs/data-science-process/agile-development.md",
@@ -4835,7 +4830,7 @@
     },
     {
       "source_path": "docs/solution-ideas/articles/security-compliance-blueprint-hipaa-hitrust-health-data-ai.yml",
-      "redirect_url": "/azure/architecture/ai-ml/",
+      "redirect_url": "/azure/architecture/ai-ml/ai-get-started",
       "redirect_document_id": false
     },
     {
@@ -4975,7 +4970,7 @@
     },
     {
       "source_path": "docs/ai-ml/architecture/build-deploy-social-media-analytics-solution.yml",
-      "redirect_url": "/azure/architecture/ai-ml/",
+      "redirect_url": "/azure/architecture/ai-ml/ai-get-started",
       "redirect_document_id": false
     },
     {
@@ -5259,7 +5254,7 @@
     },
     {
       "source_path": "docs/guide/networking/networking-start-here.md",
-      "redirect_url": "/azure/architecture/networking/",
+      "redirect_url": "/azure/architecture/networking/get-started",
       "redirect_document_id": true
     },
     {
@@ -5324,7 +5319,7 @@
     },
     {
       "source_path": "docs/ai-ml/idea/process-audio-files.yml",
-      "redirect_url": "/azure/architecture/ai-ml/",
+      "redirect_url": "/azure/architecture/ai-ml/ai-get-started",
       "redirect_document_id": false
     },
     {
@@ -6079,7 +6074,7 @@
     },
     {
       "source_path": "docs/web-apps/hosting-applications/digital-marketing-episerver.yml",
-      "redirect_url": "/azure/architecture/web-apps/",
+      "redirect_url": "/azure/architecture/web-apps/web-apps-get-started",
       "redirect_document_id": false
     },
     {
@@ -6157,7 +6152,7 @@
       "redirect_url": "/azure/architecture/networking/guide/sd-wan-integration-hub-spoke-network-topologies",
       "redirect_document_id": true
     },
-    {      
+    {
       "source_path": "docs/guide/iot/azure-iot-migration-best-practices.md",
       "redirect_url": "/azure/iot/iot-introduction",
       "redirect_document_id": false
@@ -6184,7 +6179,7 @@
     },
     {
       "source_path": "docs/ai-ml/idea/personalized-marketing.yml",
-      "redirect_url": "/azure/architecture/ai-ml/",
+      "redirect_url": "/azure/architecture/ai-ml/ai-get-started",
       "redirect_document_id": false
     },
     {
@@ -6334,7 +6329,7 @@
     },
     {
       "source_path": "docs/ai-ml/architecture/real-time-recommendation.yml",
-      "redirect_url": "/azure/architecture/ai-ml",
+      "redirect_url": "/azure/architecture/ai-ml/ai-get-started",
       "redirect_document_id": false
     },
     {
@@ -6454,7 +6449,7 @@
     },
     {
       "source_path": "docs/ai-ml/idea/azure-machine-learning-solution-architecture.yml",
-      "redirect_url": "/azure/architecture/ai-ml",
+      "redirect_url": "/azure/architecture/ai-ml/ai-get-started",
       "redirect_document_id": false
     },
     {
@@ -6924,7 +6919,7 @@
     },
     {
       "source_path": "docs/industries/retail/migrate-ecommerce-solution.md",
-      "redirect_url": "/azure/architecture/web-apps/",
+      "redirect_url": "/azure/architecture/web-apps/web-apps-get-started",
       "redirect_document_id": false
     },
     {
@@ -7229,7 +7224,7 @@
     },
     {
       "source_path": "docs/example-scenario/ai/loan-credit-risk-analyzer-default-modeling.yml",
-      "redirect_url": "/azure/architecture/ai-ml/",
+      "redirect_url": "/azure/architecture/ai-ml/ai-get-started",
       "redirect_document_id": false
     },
     {
@@ -7309,7 +7304,7 @@
     },
     {
       "source_path": "docs/guide/resilience/resilience-overview.yml",
-      "redirect_url": "/azure/architecture/identity/identity-get-started", 
+      "redirect_url": "/azure/architecture/identity/identity-get-started",
       "redirect_document_id": false
     },
     {
@@ -7669,7 +7664,7 @@
     },
     {
       "source_path": "docs/data-guide/scenarios/advanced-analytics.md",
-      "redirect_url": "/azure/architecture/ai-ml/",
+      "redirect_url": "/azure/architecture/ai-ml/ai-get-started",
       "redirect_document_id": false
     },
     {
@@ -8005,6 +8000,11 @@
     {
       "source_path": "docs/guide/multitenant/service/cache-redis.md",
       "redirect_url": "/azure/architecture/guide/multitenant/service/managed-redis",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/guide/web/web-start-here.md",
+      "redirect_url": "/azure/architecture/web-apps/app-service/architectures/basic-web-app",
       "redirect_document_id": false
     }
   ]
