@@ -80,7 +80,7 @@ There's no commonly accepted definition for the terms *small data* and *big data
 || Parsing of unstructured data | ❌ | ❌ | ✅ | ⚠️ |
 || SQL support (any dialect) | ✅ | ✅ | ✅ | ⚠️ |
 || SQL surface area (any dialect) | Broad | Broad | Broad | Limited<sup>2</sup> |
-|| T-SQL surface area  | Broad | Moderate | Limited<sup>2</sup> | Limited<sup>2</sup> |
+|| T-SQL surface area  | Broad | Broad | Limited<sup>2</sup> | Limited<sup>2</sup> |
 || Python support | ❌ | ❌ | ✅ | ⚠️ |
 || Spark support (PySpark, Spark SQL, Scala, R) | ❌ | ❌ | ✅ | ❌ |
 || KQL support | ❌ | ❌ | ⚠️<sup>3</sup> | ✅ |
