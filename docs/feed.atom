@@ -2,12 +2,68 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id/>
     <title>Azure Architecture Center</title>
-    <updated>2026-07-10T16:54:09.000Z</updated>
+    <updated>2026-07-16T14:56:17.000Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <subtitle>Updated articles for Azure Architecture Center</subtitle>
     <rights>https://learn.microsoft.com/legal/termsofuse</rights>
     <category term="new"/>
     <category term="updated"/>
+    <entry>
+        <title type="html"><![CDATA[Implement a Zero Trust Network for Web Applications by Using Azure Firewall and Azure Application Gateway]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/example-scenario/gateway/application-gateway-before-azure-firewall</id>
+        <link href="https://learn.microsoft.com/azure/architecture/example-scenario/gateway/application-gateway-before-azure-firewall"/>
+        <updated>2026-07-16T14:56:17.000Z</updated>
+        <summary type="html"><![CDATA[Protect web apps by implementing Zero Trust security in virtual networks. Use Azure Firewall and Azure Application Gateway in networks to maximize protection.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Baseline Highly Available Zone-Redundant App Services Web Application]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/web-apps/app-service/architectures/baseline-zone-redundant</id>
+        <link href="https://learn.microsoft.com/azure/architecture/web-apps/app-service/architectures/baseline-zone-redundant"/>
+        <updated>2026-07-14T12:48:02.000Z</updated>
+        <summary type="html"><![CDATA[Learn about a baseline reference architecture for a network secured, highly available, and zone-redundant Azure App Service web application.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Refactor mainframe computer systems that run Adabas & Natural]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/example-scenario/mainframe/refactor-adabas-aks</id>
+        <link href="https://learn.microsoft.com/azure/architecture/example-scenario/mainframe/refactor-adabas-aks"/>
+        <updated>2026-07-13T15:04:30.000Z</updated>
+        <summary type="html"><![CDATA[Learn how to modernize mainframe computer systems that run Adabas & Natural and move them to the cloud.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Baseline Architecture for an AKS Cluster]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/reference-architectures/containers/aks/baseline-aks</id>
+        <link href="https://learn.microsoft.com/azure/architecture/reference-architectures/containers/aks/baseline-aks"/>
+        <updated>2026-07-13T14:02:24.000Z</updated>
+        <summary type="html"><![CDATA[Learn about the reference architecture for the recommended baseline infrastructure that deploys an Azure Kubernetes Service (AKS) cluster.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Siemens Teamcenter baseline architecture on Azure]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/example-scenario/manufacturing/teamcenter-baseline</id>
+        <link href="https://learn.microsoft.com/azure/architecture/example-scenario/manufacturing/teamcenter-baseline"/>
+        <updated>2026-07-10T21:04:02.000Z</updated>
+        <summary type="html"><![CDATA[Learn about the Siemens Teamcenter product lifecycle management (PLM) solution architecture on Azure.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Generate Documents from Your Data]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/ai-ml/idea/generate-documents-from-your-data</id>
+        <link href="https://learn.microsoft.com/azure/architecture/ai-ml/idea/generate-documents-from-your-data"/>
+        <updated>2026-07-10T21:03:46.000Z</updated>
+        <summary type="html"><![CDATA[Learn how to build a simple system to generate documents. It combines retrieval, summarization, and generation to support faster document drafting by using AI.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Enhance Network Access Security to Kubernetes]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/aws-professional/eks-to-aks/private-clusters</id>
+        <link href="https://learn.microsoft.com/azure/architecture/aws-professional/eks-to-aks/private-clusters"/>
+        <updated>2026-07-10T19:45:40.000Z</updated>
+        <summary type="html"><![CDATA[Understand networking options to help securely access the Kubernetes API server, and compare options in Amazon EKS and Azure Kubernetes Service (AKS).]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
     <entry>
         <title type="html"><![CDATA[Multiple-region Architectures for Azure App Service Disaster Recovery]]></title>
         <id>https://learn.microsoft.com/azure/architecture/web-apps/guides/multi-region-app-service/multi-region-app-service</id>
@@ -54,14 +110,6 @@
         <link href="https://learn.microsoft.com/azure/architecture/reference-architectures/containers/aks-mission-critical/mission-critical-operations"/>
         <updated>2026-07-09T17:12:11.000Z</updated>
         <summary type="html"><![CDATA[Guidance for operations for the architecture of a mission-critical workload on Azure.]]></summary>
-        <category label="updated" term="updated"/>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[Baseline Architecture for an AKS Cluster]]></title>
-        <id>https://learn.microsoft.com/azure/architecture/reference-architectures/containers/aks/baseline-aks</id>
-        <link href="https://learn.microsoft.com/azure/architecture/reference-architectures/containers/aks/baseline-aks"/>
-        <updated>2026-07-08T22:35:41.000Z</updated>
-        <summary type="html"><![CDATA[Learn about the reference architecture for the recommended baseline infrastructure that deploys an Azure Kubernetes Service (AKS) cluster.]]></summary>
         <category label="updated" term="updated"/>
     </entry>
     <entry>
