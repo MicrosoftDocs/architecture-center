@@ -154,8 +154,8 @@ The repository uses the following TOC files:
 
 #### How TOCs work
 
-- The **main TOC** (`docs/toc.yml`) contains all site navigation, including workload sections
-- The TOC can reference content from **anywhere in the repository** using relative paths (e.g., `../example-scenario/`)
+- The main TOC (`docs/toc.yml`) contains all site navigation for the Azure Architecture Center
+- The TOC can reference content from anywhere in the repository using paths (e.g., `./example-scenario/`) relative to the TOC location.
 - The same article can appear in multiple places in the TOC (or not appear at all)
 
 #### Navigation vs. URL disconnect
