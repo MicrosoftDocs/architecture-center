@@ -1,15 +1,14 @@
 ---
 title: Run SAP NetWeaver in Windows on Azure
 description: Learn proven practices for running SAP NetWeaver in a Windows environment on Azure to achieve high availability and disaster recovery.
-author: bqtrinh
-ms.author: bentrin
+author: Cameron-MSFT-SAP
+ms.author: cgardin
 ms.date: 02/18/2026
 ms.topic: concept-article
 ms.subservice: architecture-guide
 ms.category:
-   - databases
-   - management-and-governance
-ms.custom: arb-sap
+  - databases
+  - management-and-governance
 ---
 
 # Run SAP NetWeaver in Windows on Azure

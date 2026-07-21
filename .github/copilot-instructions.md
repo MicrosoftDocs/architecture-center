@@ -150,19 +150,12 @@ The TOC system defines how users navigate content, and it's completely decoupled
 The repository uses the following TOC files:
 
 - `docs/toc.yml` - Main navigation for the entire site
-- `docs/ai-ml/toc.yml` - AI + Machine Learning workload navigation
-- `docs/databases/toc.yml` - Databases workload navigation
-- `docs/networking/toc.yml` - Networking workload navigation
-- `docs/web-apps/toc.yml` - Web applications workload navigation
-- `docs/guide/saas-multitenant-solution-architecture/toc.yml` - SaaS/Multitenancy guidance
 - `docs/_bread/toc.yml` - Breadcrumb navigation metadata
 
 #### How TOCs work
 
-- The **main TOC** references some workload sub-TOCs by pointing to their index pages (e.g., `href: ai-ml/ai-get-started.md`)
-- When users navigate to these sections, they switch to the **sub-TOC** for specialized navigation
-- Most sub-TOCs follow a common **"Explore ideas | Design architectures | Apply guidance"** pattern
-- TOCs can reference content from **anywhere in the repository** using relative paths (e.g., `../example-scenario/`)
+- The main TOC (`docs/toc.yml`) contains all site navigation for the Azure Architecture Center
+- The TOC can reference content from anywhere in the repository using paths (e.g., `./example-scenario/`) relative to the TOC location.
 - The same article can appear in multiple places in the TOC (or not appear at all)
 
 #### Navigation vs. URL disconnect
@@ -176,7 +169,7 @@ Example: Users navigate "Containers > Guides > GitOps" but the URL shows `.../ex
 
 **When working with content:**
 
-- Check **both main and sub-TOCs** to see where content appears in navigation
+- Check the **main TOC** (`docs/toc.yml`) to see where content appears in navigation
 - Don't infer content organization from folder location - check the TOC
 - Content can be in `guide/` folder but appear under a workload section in the TOC
 - Metadata (`ms.topic`) determines content type, not folder or TOC placement
