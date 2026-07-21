@@ -84,7 +84,7 @@ The following production-ready architectures demonstrate end-to-end database sol
 **NoSQL**
 
 - [Deploy MongoDB Atlas on Azure](../databases/architecture/mongodb-atlas-baseline.md)
-- [Analyze MongoDB Atlas data](../databases/architecture/azure-synapse-analytics-integrate-mongodb-atlas.yml)
+- [Set up real-time sync of MongoDB Atlas data changes to Microsoft Fabric](../example-scenario/analytics/sync-mongodb-atlas-fabric-analytics.yml)
 
 **Mainframe**
 
