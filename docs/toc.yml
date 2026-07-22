@@ -213,6 +213,9 @@ items:
       href: guide/design-principles/design-for-evolution.md
     - name: Build for the needs of business
       href: guide/design-principles/build-for-business.md
+  - name: Technology choices
+    displayName: comparison, decision tree, flowchart, choose
+    href: guide/technology-choices/technology-choices-overview.md
   - name: Best practices for cloud applications
     items:
     - name: Overview
