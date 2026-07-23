@@ -2,8 +2,8 @@
 title: Choose an Analytical Data Store in Microsoft Fabric
 description: Evaluate analytical data store options in Microsoft Fabric based on data volumes, types, compute engine, ingestion, transformation, and query patterns.
 author: slavatrofimov
-ms.author: slavatrofimov
-ms.date: 04/15/2025
+ms.author: vltrofim
+ms.date: 06/26/2026
 ms.topic: concept-article
 ms.subservice: architecture-guide
 ---
@@ -14,7 +14,7 @@ Analytical data stores are essential for storing, processing, and serving data t
 
 ## Overview of primary analytical data stores in Microsoft Fabric
 
-This article covers SQL databases, data warehouses, lakehouses, and eventhouses as the primary analytical data stores in Microsoft Fabric. Microsoft Fabric also has other items that can store data but aren't treated as primary analytical data stores. For example, Power BI semantic models can store data, but they're typically used as a semantic layer. Other Power BI items, like Power BI Dataflows Gen 1, store data for Power BI solutions only. Similarly, Fabric Cosmos DB stores data physically but is typically optimized for operational workloads rather than analytical workloads.
+This article covers SQL databases, data warehouses, lakehouses, and eventhouses as the primary analytical data stores in Microsoft Fabric. Microsoft Fabric also has other items that can store or cache data but aren't treated as primary analytical data stores. For example, semantic models, ontologies, and graph models serve as an intelligence layer over enterprise data, but aren't used as a physical data store. Cosmos DB in Microsoft Fabric stores data physically but is typically optimized for operational rather than analytical workloads. Mirrored databases in Microsoft Fabric offer a turnkey solution for continuously replicating data (and metadata) to support analytical workloads and provide a rich set of query, retrieval, and sharing capabilities. However, they're excluded from this comparison because they only offer read access to mirrored data and can't be used as a general-purpose data store.
 
 ### SQL databases
 
@@ -79,8 +79,8 @@ There's no commonly accepted definition for the terms *small data* and *big data
 || Parsing of semi-structured data | ⚠️ | ⚠️ | ✅ | ✅ |
 || Parsing of unstructured data | ❌ | ❌ | ✅ | ⚠️ |
 || SQL support (any dialect) | ✅ | ✅ | ✅ | ⚠️ |
-|| SQL surface area (any dialect) | Broad | Moderate | Broad | Limited<sup>2</sup> |
-|| T-SQL surface area  | Broad | Moderate | Limited<sup>2</sup> | Limited<sup>2</sup> |
+|| SQL surface area (any dialect) | Broad | Broad | Broad | Limited<sup>2</sup> |
+|| T-SQL surface area  | Broad | Broad | Limited<sup>2</sup> | Limited<sup>2</sup> |
 || Python support | ❌ | ❌ | ✅ | ⚠️ |
 || Spark support (PySpark, Spark SQL, Scala, R) | ❌ | ❌ | ✅ | ❌ |
 || KQL support | ❌ | ❌ | ⚠️<sup>3</sup> | ✅ |
@@ -105,7 +105,7 @@ There's no commonly accepted definition for the terms *small data* and *big data
 || Access data via shortcuts | No | Yes<sup>13</sup> | Yes | Yes |
 || Cross-warehouse and lakehouse queries | Yes<sup>14</sup>| Yes | Yes | Yes<sup>12</sup> |
 | **Compute management** ||||||
-|| Ability to customize size and configuration of compute resources | Low | Low | High | Low |
+|| Ability to customize size and configuration of compute resources | Low | Moderate | High | Moderate |
 | | Administrative skillset needed to manage or tune compute resources | Low | Low | Moderate-high | Low |
 
 **Notes:**
@@ -128,7 +128,7 @@ There's no commonly accepted definition for the terms *small data* and *big data
 
 <sup>9</sup> Partial object-level security is implemented by using restricted view access policies.
 
-<sup>10</sup> Granular access controls are available for the SQL analytics endpoint.
+<sup>10</sup> Granular access controls are available for the SQL analytics endpoint or can be configured using OneLake security.
 
 <sup>11</sup> OneLake integration is implemented via automatic database mirroring.
 
