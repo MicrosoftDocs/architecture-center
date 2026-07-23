@@ -2,9 +2,8 @@
 metadata:
   title: AIX UNIX on-premises to Azure Linux migration
   description: Migrate an on-premises IBM AIX system and web application to a highly available, secure RedHat Enterprise Linux solution in Azure.
-  author: bhbandam
-  ms.author: bhbandam
-  ms.reviewer: vramakrishna
+  author: swread
+  ms.author: sread
   ms.date: 07/09/2024
   ms.topic: example-scenario
   ms.subservice: example-scenario
@@ -26,4 +25,4 @@ name: AIX UNIX on-premises to Azure Linux migration
 summary: Migrate an on-premises IBM AIX system and web application to a highly available, secure RedHat Enterprise Linux system in Azure.
 thumbnailUrl: /azure/architecture/browse/thumbs/rhel-azure-system.png
 content: |
-  [!include[](migrate-aix-azure-linux-content.md)]
+  [!INCLUDE[](migrate-aix-azure-linux-content.md)]
