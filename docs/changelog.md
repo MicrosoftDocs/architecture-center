@@ -2,7 +2,7 @@
 title: What's New in Azure Architecture Center
 description: New and updated articles in Azure Architecture Center
 author: claytonsiemens77
-ms.date: 07/17/2026
+ms.date: 07/24/2026
 ms.topic: whats-new
 ms.author: pnp
 ---
@@ -26,6 +26,10 @@ The following new and updated articles have recently been published in the Azure
 
 ### Updated articles
 
+- [DevSecOps for infrastructure as code (IaC)](./solution-ideas/articles/devsecops-infrastructure-as-code.yml) ([#3f78e1fdc7](https://github.com/MicrosoftDocs/architecture-center/commit/3f78e1fdc7))
+- [SAP deployment on Azure by using an Oracle database](./example-scenario/apps/sap-production.yml) ([#8c020be27f](https://github.com/MicrosoftDocs/architecture-center/commit/8c020be27f))
+- [Choose an Analytical Data Store in Microsoft Fabric](./data-guide/technology-choices/fabric-analytical-data-stores.md) ([#ae8b8ce412](https://github.com/MicrosoftDocs/architecture-center/commit/ae8b8ce412))
+- [AKS Triage—Node and Pod Health](./operator-guides/aks/aks-triage-node-health.md) ([#52bd2b3bd4](https://github.com/MicrosoftDocs/architecture-center/commit/52bd2b3bd4))
 - [Implement a Zero Trust Network for Web Applications by Using Azure Firewall and Azure Application Gateway](./example-scenario/gateway/application-gateway-before-azure-firewall.md) ([#5ab4e55062](https://github.com/MicrosoftDocs/architecture-center/commit/5ab4e55062))
 - [Baseline Highly Available Zone-Redundant App Services Web Application](./web-apps/app-service/architectures/baseline-zone-redundant.yml) ([#44f1a85aab](https://github.com/MicrosoftDocs/architecture-center/commit/44f1a85aab))
 - [Refactor mainframe computer systems that run Adabas & Natural](./example-scenario/mainframe/refactor-adabas-aks.yml) ([#64d0300a7d](https://github.com/MicrosoftDocs/architecture-center/commit/64d0300a7d))
@@ -39,7 +43,6 @@ The following new and updated articles have recently been published in the Azure
 - [Deployment and testing for mission-critical workloads on Azure](./reference-architectures/containers/aks-mission-critical/mission-critical-deploy-test.md) ([#9d133a383a](https://github.com/MicrosoftDocs/architecture-center/commit/9d133a383a))
 - [Operations for mission-critical workloads on Azure](./reference-architectures/containers/aks-mission-critical/mission-critical-operations.md) ([#a60a5d5a25](https://github.com/MicrosoftDocs/architecture-center/commit/a60a5d5a25))
 - [Use Azure Kubernetes Service to Host GPU-Based Workloads](./reference-architectures/containers/aks-gpu/gpu-aks.md) ([#a4102f390a](https://github.com/MicrosoftDocs/architecture-center/commit/a4102f390a))
-- [SAP deployment in Azure using an Oracle database](./example-scenario/apps/sap-production.yml) ([#432a13bfe3](https://github.com/MicrosoftDocs/architecture-center/commit/432a13bfe3))
 - [Secure Azure Functions with Event Hubs](./serverless/event-hubs-functions/security.md) ([#454f94aa8f](https://github.com/MicrosoftDocs/architecture-center/commit/454f94aa8f))
 - [Performance and Scale Guidance for Event Hubs with Azure Functions](./serverless/event-hubs-functions/performance-scale.md) ([#ad7919e079](https://github.com/MicrosoftDocs/architecture-center/commit/ad7919e079))
 - [Image Classification on Azure](./ai-ml/idea/intelligent-apps-image-processing.yml) ([#58306041b8](https://github.com/MicrosoftDocs/architecture-center/commit/58306041b8))
