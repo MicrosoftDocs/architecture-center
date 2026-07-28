@@ -1265,9 +1265,9 @@ items:
           href: hybrid/hybrid-perf-monitoring.yml
     - name: Guides
       items:
-      - name: Update Windows VMs in Azure
-        displayName: virtual machines
-        href: example-scenario/wsus/index.yml
+      - name: Windows VM patch management
+        displayName: virtual machine, updates, Update Manager, hotpatching
+        href: virtual-machines/patch-management.md
       - name: Use the Azure Governance Visualizer
         displayName: ALZ, Azure landing zone
         href: landing-zones/azure-governance-visualizer-accelerator.md

@@ -152,9 +152,9 @@ Consider these points when you develop your architecture:
 
 - Use [Microsoft Defender for Cloud](/azure/defender-for-cloud/defender-for-cloud-introduction) to get a central view of the security state of your Azure resources. Defender for Cloud monitors potential security problems and provides a comprehensive picture of the security health of your deployment. Configure Defender for Cloud per Azure subscription and [enable security data collection](/azure/defender-for-cloud/connect-azure-subscription). Defender for Cloud automatically scans VMs created under that subscription.
 
-   - **Patch management:** When enabled, Defender for Cloud identifies missing security and critical updates. Use [Group Policy settings](/windows-server/administration/windows-server-update-services/deploy/4-configure-group-policy-settings-for-automatic-updates) on the VM to enable automatic system updates.
+  - **Patch management:** When enabled, Defender for Cloud identifies missing security and critical updates. To operationalize OS updates, use Azure Update Manager. For a detailed approach for Windows VMs, see [Scalable Windows virtual machine patch management](../../virtual-machines/patch-management.md).
 
-   - **Anti-malware:** When enabled, Defender for Cloud checks whether anti-malware software is installed. You can also use Defender for Cloud to install anti-malware software directly from the Azure portal.
+  - **Anti-malware:** When enabled, Defender for Cloud checks whether anti-malware software is installed. You can also use Defender for Cloud to install anti-malware software directly from the Azure portal.
 
 - Use [Azure role-based access control (Azure RBAC)](/azure/role-based-access-control/overview) to control access to Azure resources. With Azure RBAC, you grant users only the permissions that they need to do their job. For example, the Reader role can view Azure resources but can't create, manage, or delete them. Some permissions are specific to an Azure resource type. For example, the Virtual Machine Contributor role can restart or deallocate a VM, reset the administrator password, and create a new VM. Other [built-in roles](/azure/role-based-access-control/built-in-roles) that might be useful for this architecture include [DevTest Labs User](/azure/role-based-access-control/built-in-roles#devtest-labs-user) and [Network Contributor](/azure/role-based-access-control/built-in-roles#network-contributor).
 
@@ -215,7 +215,7 @@ Consider these points when you develop your architecture:
 
 Principal author:
 
-- [Donnie Trumpower](https://www.linkedin.com/in/dtrumpower) | Senior Cloud & AI Solutions Architect
+- [Donnie Trumpower](https://www.linkedin.com/in/dtrumpower/) | Senior Cloud & AI Solutions Architect
 
 *To see nonpublic LinkedIn profiles, sign in to LinkedIn.*
 
@@ -230,6 +230,5 @@ Principal author:
 ## Related resources
 
 - [Run a Linux VM on Azure](linux-vm.yml)
-- [Plan deployment for updating Windows VMs in Azure](../../example-scenario/wsus/index.yml)
 - [Virtual Machines baseline architecture in an Azure landing zone](../../virtual-machines/baseline-landing-zone.yml)
 - [Multitier web application built for HA/DR](../../example-scenario/infrastructure/multi-tier-app-disaster-recovery.yml)

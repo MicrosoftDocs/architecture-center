@@ -1,6 +1,11 @@
 {
   "redirections": [
     {
+      "source_path": "docs/example-scenario/wsus/index.yml",
+      "redirect_url": "/azure/architecture/virtual-machines/patch-management",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "docs/guide/management-governance/management-governance-start-here.md",
       "redirect_url": "/azure/architecture/guide/management-governance/management-governance-get-started",
       "redirect_document_id": true

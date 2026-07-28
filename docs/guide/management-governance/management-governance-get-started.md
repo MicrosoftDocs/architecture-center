@@ -52,12 +52,11 @@ The previous diagram demonstrates a typical basic or baseline management and gov
 
 The articles in this section include guides and fully developed architectures that you can deploy in Azure and expand to production-grade solutions. These articles can help you decide how to use management and governance technologies in Azure.
 
-
 ### Management and governance guides
 
 The following articles help you evaluate and select the best management and governance technologies for your workload requirements:
 
-- [Plan deployment for updating Windows VMs in Azure](../../example-scenario/wsus/index.yml): Provides guidance on how to use Windows Server Update Services in Azure to securely update virtual machines (VMs) in locked-down virtual networks.
+- [Scalable Windows virtual machine patch management](../../virtual-machines/patch-management.md): Provides guidance on how to operationalize operating system updates for Windows VMs by using Azure Update Manager, including staged patching schedules, dynamic scoping, and compliance reporting.
 
 - [Use Azure Governance Visualizer to optimize cloud governance](../../landing-zones/azure-governance-visualizer-accelerator.md): Describes how to deploy and automate Azure Governance Visualizer to capture management group hierarchy, policy information, and Azure role-based access control (Azure RBAC) insights across your Azure tenant.
 
