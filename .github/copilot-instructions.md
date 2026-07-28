@@ -34,6 +34,9 @@ Follow [Microsoft Writing Style Guide](https://learn.microsoft.com/style-guide/w
 #### Structure and Format
 
 - Sentence case headings (no gerunds in titles)
+- Case titles properly:
+  - Title Case for SEO metadata titles: `metadata.title` in YAML and frontmatter `title:` in Markdown
+  - Sentence case for the on-page H1 and the YAML `name:` field
 - Be concise, break up long sentences
 - Oxford comma in lists
 - Number all ordered list items as "1." (not sequential numbering like "1.", "2.", "3.", etc.)
