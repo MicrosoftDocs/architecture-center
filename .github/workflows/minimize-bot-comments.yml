@@ -1,0 +1,40 @@
+# Learn build and validation bots re-post the same report on every push, leaving a
+# stack of stale copies on each PR. This scheduled job groups each bot's comments
+# by report type and collapses every copy except the newest as OUTDATED.
+
+name: Minimize outdated bot comments
+
+on:
+  schedule:
+    - cron: "0 7 * * *"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pull-requests: write
+
+concurrency:
+  group: minimize-bot-comments
+  cancel-in-progress: false
+
+jobs:
+  minimize:
+    name: Minimize superseded bot comments
+    runs-on: ubuntu-slim
+    timeout-minutes: 10
+    if: github.repository == 'MicrosoftDocs/architecture-center-pr'
+    steps:
+      - name: Check out workflow scripts
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          ref: ${{ github.event.repository.default_branch }}
+          persist-credentials: false
+          sparse-checkout: .github/scripts
+          sparse-checkout-cone-mode: false
+      - name: Minimize superseded bot comments on open PRs
+        uses: actions/github-script@3a2844b7e9c422d3c10d287c895573f7108da1b3 # v9.0.0
+        with:
+          retries: 3
+          script: |
+            const minimizeBotComments = require('./.github/scripts/minimize-bot-comments.js');
+            await minimizeBotComments({ github, context, core });
