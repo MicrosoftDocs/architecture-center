@@ -32,8 +32,8 @@ module.exports = async ({ github, context, core }) => {
 
   // Only inspect PRs updated within this window. Bot comments bump a PR's
   // updated_at, so anything older has no new activity to reconcile. The window is
-  // wider than the daily schedule so a missed or delayed run still catches up.
-  const ACTIVITY_WINDOW_HOURS = 30;
+  // wider than the 6-hour schedule so a missed or delayed run still catches up.
+  const ACTIVITY_WINDOW_HOURS = 18;
 
   // Only reconcile PRs targeting this base branch.
   const BASE_BRANCH = 'main';
@@ -63,6 +63,7 @@ module.exports = async ({ github, context, core }) => {
   function reportType(body) {
     if (body.includes('Learn Build status updates')) return 'build-status';
     if (body.includes('PoliCheck Scan Report')) return 'policheck';
+    if (body.includes('PRMerger Results')) return 'prmerger';
     return null;
   }
 
