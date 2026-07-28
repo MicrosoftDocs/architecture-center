@@ -102,14 +102,6 @@ module.exports = async ({ github, context, core }) => {
   }
   core.info(`Found ${prs.length} open PRs targeting ${BASE_BRANCH} updated in the last ${ACTIVITY_WINDOW_HOURS}h`);
 
-  // TEMPORARY (testing): restrict the work to a single PR. Remove this block and
-  // the TEST_ONLY_PR constant once testing is complete.
-  const TEST_ONLY_PR = 14669;
-  const scoped = prs.filter((pr) => pr.number === TEST_ONLY_PR);
-  core.warning(`TEST MODE: restricting work to PR #${TEST_ONLY_PR} (${scoped.length} of ${prs.length} PRs match)`);
-  prs.length = 0;
-  prs.push(...scoped);
-
   let minimized = 0;
   let skipped = 0;
 
