@@ -64,6 +64,7 @@ module.exports = async ({ github, context, core }) => {
     if (body.includes('Learn Build status updates')) return 'build-status';
     if (body.includes('PoliCheck Scan Report')) return 'policheck';
     if (body.includes('PRMerger Results')) return 'prmerger';
+    if (body.includes('Style and writing quality report')) return 'learn-authoring-assistant';
     return null;
   }
 
