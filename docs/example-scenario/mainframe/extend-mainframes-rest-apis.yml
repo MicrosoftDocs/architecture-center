@@ -2,8 +2,8 @@
 metadata:
   title: Extend Mainframes to Digital Channels by Using Standards-Based REST APIs
   description: Learn how the digital transformation architecture extends mainframe applications to Azure without disruptions or modifications to existing applications.
-  author: bhbandam
-  ms.author: bhbandam
+  author: swread
+  ms.author: sread
   ms.date: 03/20/2025
   ms.topic: example-scenario
   ms.subservice: example-scenario

@@ -1,8 +1,33 @@
 {
   "redirections": [
     {
+      "source_path": "docs/guide/iot/how-to-connect-powerbi-to-the-solution.md",
+      "redirect_url": "/azure/architecture/guide/iot/how-to-connect-power-bi-to-the-solution",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "docs/example-scenario/wsus/index.yml",
+      "redirect_url": "/azure/architecture/virtual-machines/patch-management",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "docs/guide/management-governance/management-governance-start-here.md",
       "redirect_url": "/azure/architecture/guide/management-governance/management-governance-get-started",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "docs/guide/iot/howto-connect-on-premises-sap-to-azure.md",
+      "redirect_url": "/azure/architecture/guide/iot/how-to-connect-on-premises-sap-to-the-solution",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "docs/guide/iot/howto-iot-industrial-dataspaces.md",
+      "redirect_url": "/azure/architecture/guide/iot/how-to-enable-industrial-dataspaces",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "docs/solution-ideas/articles/iot-industrial-solution-architecture.yml",
+      "redirect_url": "/azure/architecture/guide/iot/iot-industrial-solution-architecture",
       "redirect_document_id": true
     },
     {

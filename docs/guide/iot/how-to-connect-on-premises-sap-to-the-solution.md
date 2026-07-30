@@ -1,31 +1,37 @@
 ---
-title: "Connect an on-premises SAP system to Azure"
+title: "Connect an on-premises SAP system to the reference solution"
 description: "Step by step guide that shows how to connect an on-premises SAP Enterprise Resource Planning system to Azure."
 author: barnstee
 ms.author: erichb
 ms.service: azure-iot
 ms.topic: how-to #Don't change.
-ms.date: 12/10/2024
-
-#customer intent: As an owner of on-premises SAP systems, I want connect them to Azure so that I can add data from these SAP systems to my cloud analytics.
-
+ms.date: 07/22/2026
 ---
 
-# Connect on-premises SAP systems to Azure
+# Connect on-premises SAP systems to the reference solution
 
 Many manufacturers use on-premises SAP Enterprise Resource Planning (ERP) systems. Often, manufacturers connect SAP systems to Industrial IoT solutions, and use the connected system to retrieve data for manufacturing processes, customer orders, and inventory status. This article describes how to connect these SAP-based ERP systems.
+
+>[!IMPORTANT]
+>In order for this solution to be deployed, you must first perform the [Azure Data Explorer deployment](how-to-connect-azure-data-explorer-to-solution.md).
 
 This solution uses [IEC 62541. Open Platform Communications (OPC) Unified Architecture (UA)](https://opcfoundation.org) for all operational technology data.
 
 The following diagram shows an overview of the solution:
 
-:::image type="content" source="media/howto-connect-on-premises-sap-to-azure/architecture-iiot-sap.png" alt-text="Diagram of a simple IIoT architecture that shows all components." lightbox="media/howto-connect-on-premises-sap-to-azure/architecture-iiot-sap.png" border="false" :::
+:::image type="complex" source="media/sap-solution-architecture.png" alt-text="Architecture diagram that shows SAP ERP integration with the OPC UA reference solution through Azure Logic Apps and Azure Data Explorer." lightbox="media/sap-solution-architecture.png" border="false" :::
+The diagram is organized from left to right across ISA-95 layers and cloud services. On the left, simulated production lines, OPC UA-enabled assets, and non-OPC UA assets feed an edge gateway. Non-OPC UA assets connect through a WoT connectivity solution, while OPC UA assets connect directly by OPC UA client-server. A manufacturing execution system exchanges information with an SAP ERP system in the resource-planning layer.
 
-To learn more about the components in the solution, see the [Azure Industrial IoT solution idea](/azure/architecture/solution-ideas/articles/iot-industrial-solution-architecture) tutorial.
+At the center, the SAP ERP system uses an SAP connector and RFC workflow trigger to call a data gateway at the edge. Inside the Linux-based edge gateway, Azure IoT Operations runs on Kubernetes and includes the OPC UA connector, message queue, dataflows, schema registry, and a UA Cloud Action component. Management flows connect Azure Arc and Azure IoT Operations Experience to the edge environment.
+
+On the right, Azure Logic Apps receives an HTTP workflow trigger from the edge-management path and sends workflow actions into Azure Data Explorer. Telemetry from Azure IoT Operations flows through Azure Event Hubs as the message broker and is stored in Azure Data Explorer as a time-series database. Azure Data Explorer also returns query results that Logic Apps can use to drive actions, linking operational telemetry with SAP-driven business workflows.
+:::image-end:::
+
+To learn more about the components in the solution, see the [OPC UA reference solution](iot-industrial-solution-architecture.md) tutorial.
 
 ## Prerequisites
 
-To complete the SAP connection as described in this article, you need an Azure Industrial IoT solution deployed in an Azure subscription as described in [Azure Industrial IoT solution idea](/azure/architecture/solution-ideas/articles/iot-industrial-solution-architecture)
+To complete the SAP connection as described in this article, you need an Azure Industrial IoT solution deployed in an Azure subscription as described in [OPC UA reference solution](iot-industrial-solution-architecture.md).
 
 ## Connect the reference solution to on-premises SAP systems
 
@@ -80,11 +86,11 @@ To configure an on-premises SAP system to send data to your Logic Apps workflow,
 
 1. Select **Log On** and sign in with your username and password:
 
-    :::image type="content" source="media/howto-connect-on-premises-sap-to-azure/log-on.png" alt-text="Screenshot that shows an SAP sign-in form." lightbox="media/howto-connect-on-premises-sap-to-azure/log-on.png" border="false" :::
+    :::image type="content" source="media/log-on.png" alt-text="Screenshot that shows an SAP sign-in form." lightbox="media/log-on.png" border="false" :::
 
 1. In the search box, enter **SM59**. This displays the **Configuration of RFC Connections** screen:
 
-    :::image type="content" source="media/howto-connect-on-premises-sap-to-azure/sm95-search.png" alt-text="Screenshot that shows configuration of RFC connections and search for SM95." lightbox="media/howto-connect-on-premises-sap-to-azure/sm95-search.png" border="false" :::
+    :::image type="content" source="media/sm95-search.png" alt-text="Screenshot that shows configuration of RFC connections and search for SM59." lightbox="media/sm95-search.png" border="false" :::
 
 1. Select **Edit > Create** in the application menu.
 
@@ -92,13 +98,13 @@ To configure an on-premises SAP system to send data to your Logic Apps workflow,
 
 1. In the **Connection Type** dropdown, select **HTTP Connection to external server**. To save your changes, select the green check mark:
 
-    :::image type="content" source="media/howto-connect-on-premises-sap-to-azure/connection-logic-app.png" alt-text="Screenshot that shows the details of a connection logic app." lightbox="media/howto-connect-on-premises-sap-to-azure/connection-logic-app.png" border="false" :::
+    :::image type="content" source="media/connection-logic-app.png" alt-text="Screenshot that shows the details of a connection logic app." lightbox="media/connection-logic-app.png" border="false" :::
 
 1. Enter *LOGICAPP* in **Description 1**.
 
 1. Select the **Technical Settings** tab and enter the first part of **HTTP GET URL** from your Logic app workflow in the **Host** field. For example: `https://example-18.westeurope.logic.azure.com`. Enter *41* as the **Port**. In **Path Prefix** enter the rest of the **HTTP GET URL** starting with */workflows/...*:
 
-    :::image type="content" source="media/howto-connect-on-premises-sap-to-azure/add-get-url.png" alt-text="Screenshot that shows how to add a get url." lightbox="media/howto-connect-on-premises-sap-to-azure/add-get-url.png" border="false" :::
+    :::image type="content" source="media/add-get-url.png" alt-text="Screenshot that shows how to add a get url." lightbox="media/add-get-url.png" border="false" :::
 
 1. Select the **Login & Security** tab.
 
@@ -116,7 +122,7 @@ To configure an on-premises SAP system to send data to your Logic Apps workflow,
 
 1. To save your changes, select the green check mark:
 
-    :::image type="content" source="media/howto-connect-on-premises-sap-to-azure/port-select-logic-app.png" alt-text="Screenshot that shows port selection for a Logic App." lightbox="media/howto-connect-on-premises-sap-to-azure/port-select-logic-app.png" border="false" :::
+    :::image type="content" source="media/port-select-logic-app.png" alt-text="Screenshot that shows port selection for a Logic App." lightbox="media/port-select-logic-app.png" border="false" :::
 
 1. In the search box, enter **WE20**. The **Partner profiles** screen displays.
 
@@ -126,11 +132,11 @@ To configure an on-premises SAP system to send data to your Logic Apps workflow,
 
 1. Select the **Create Outbound Parameter** button:
 
-    :::image type="content" source="media/howto-connect-on-premises-sap-to-azure/outbound.png" alt-text="Screenshot that shows creation of an outbound parameter." lightbox="media/howto-connect-on-premises-sap-to-azure/outbound.png" border="false":::
+    :::image type="content" source="media/outbound.png" alt-text="Screenshot that shows creation of an outbound parameter." lightbox="media/outbound.png" border="false":::
 
 1. In the **Partner Profiles: Outbound Parameters** dialog, enter *INTERNAL_ORDER* as the **Message Type**. In the **Outbound Options** tab, enter **LOGICAPP** in the **Receiver port** field. Select the **Pass IDoc Immediately** radio button. For the **Basic type**, enter *INTERNAL_ORDER01*. Select the **Save** button:
 
-    :::image type="content" source="media/howto-connect-on-premises-sap-to-azure/outbound-parameters.png" alt-text="Screenshot that shows outbound parameters." lightbox="media/howto-connect-on-premises-sap-to-azure/outbound-parameters.png" border="false" :::
+    :::image type="content" source="media/outbound-parameters.png" alt-text="Screenshot that shows outbound parameters." lightbox="media/outbound-parameters.png" border="false" :::
 
 ### Test your SAP to Azure Logic App Workflow
 
@@ -150,7 +156,7 @@ To test your SAP to Azure Logic App workflow, follow these steps:
 
 1. To save your changes, select the green check mark:
 
-    :::image type="content" source="media/howto-connect-on-premises-sap-to-azure/test-tool-idoc-processing.png" alt-text="Screenshot that shows the test tool for IDoc processing." lightbox="media/howto-connect-on-premises-sap-to-azure/test-tool-idoc-processing.png" border="false" :::
+    :::image type="content" source="media/test-tool-idoc-processing.png" alt-text="Screenshot that shows the test tool for IDoc processing." lightbox="media/test-tool-idoc-processing.png" border="false" :::
 
 1. Select **Standard Outbound Processing** tab at the top of the screen.
 

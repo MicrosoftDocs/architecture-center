@@ -2,8 +2,8 @@
 metadata:
   title: Refactor mainframe computer systems that run Adabas & Natural
   description: Learn how to modernize mainframe computer systems that run Adabas & Natural and move them to the cloud.
-  author: bhbandam
-  ms.author: bhbandam
+  author: swread
+  ms.author: sread
   ms.date: 02/12/2026
   ms.topic: example-scenario
   ms.subservice: example-scenario
@@ -24,4 +24,4 @@ name: Refactor mainframe computer systems that run Adabas & Natural
 summary: Learn how to modernize mainframe computer systems that run Adabas & Natural and move them to the cloud.
 thumbnailUrl: /azure/architecture/browse/thumbs/mainframe-software-ag-azure-refactor.png
 content: |
-  [!include[](refactor-adabas-aks-content.md)]
+  [!INCLUDE[](refactor-adabas-aks-content.md)]

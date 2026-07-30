@@ -8,7 +8,7 @@ Enterprise chat applications let employees interact with AI agents through natur
 
 - A persisted orchestration definition or long-lived agent that oversees the interactions between data sources, language models, and the user.
 
-This article provides a baseline architecture to help you build and deploy enterprise chat applications by using [Foundry](/azure/foundry/what-is-foundry) and [Azure OpenAI models](/azure/foundry/foundry-models/concepts/models-sold-directly-by-azure). This architecture uses a [prompt agent](/azure/foundry/agents/overview#agent-types) persisted in Foundry Agent Service. You define the prompt agent declaratively through its instructions, model selection, and connected tools, and Agent Service handles its hosting. The agent receives user messages and then queries data stores to retrieve grounding information for the language model.
+This article provides a baseline architecture to help you build and deploy enterprise chat applications by using [Foundry](/azure/foundry/what-is-foundry) and [Azure OpenAI models](/azure/foundry/foundry-models/concepts/models-sold-directly-by-azure). This architecture uses a [prompt agent](/azure/foundry/agents/overview#agent-types) persisted in Foundry Agent Service, but supports [hosted agents](/azure/foundry/agents/concepts/hosted-agents) as well. You define the prompt agent declaratively through its instructions, model selection, and connected tools, and Agent Service handles its hosting. The agent receives user messages and then queries data stores to retrieve grounding information for the language model.
 
 The chat UI follows the [baseline Azure App Service web application](../../web-apps/app-service/architectures/baseline-zone-redundant.yml) guidance about how to deploy a secure, zone-redundant, and highly available web application on App Service. In that architecture, App Service communicates with the Azure platform as a service (PaaS) solution through virtual network integration over private endpoints. In the chat UI architecture, App Service communicates with the agent over a private endpoint. This architecture blocks public access to the Foundry portal and agents.
 
@@ -89,7 +89,15 @@ This architecture includes multiple components that you can substitute with othe
 
 **Current approach:** This architecture uses [Foundry Agent Service](/azure/foundry/agents/overview) to orchestrate prompt agent execution flows, including fetching grounding data through connected tools, invoking AI models, and enforcing consistent response behavior based on the agent's system-level instructions and conversational history. Foundry Agent Service provides codeless, nondeterministic orchestration for conversational AI workloads. It manages chat requests, conversation state, tool invocation, content safety, and integration with identity, networking, and observability. The service supports persistence of conversational context and agent state through a predefined data model deployed into a database within your subscription.
 
-**Alternative approach:** You can host agents and implement custom execution logic by using frameworks like the [Agent Framework](/agent-framework/overview/), [Semantic Kernel](/semantic-kernel/overview/), [LangChain](/azure/foundry/how-to/develop/langchain), or custom code that adheres to the Foundry protocol. In this alternative, Foundry Agent Service continues to manage conversation orchestration and state, while your agent code augments or extends the execution behavior within those protocol boundaries. Use hosted agents to deploy and run containerized, deterministic, code-driven agent execution on Foundry Agent Service. The platform manages infrastructure and core orchestration capabilities.
+**Alternative approach:** You can implement custom execution logic in a hosted agent, which is your own deterministic, code-driven agent orchestration logic that runs in a container on Foundry Agent Service. A hosted agent must implement the [Foundry runtime contract](/azure/foundry/agents/concepts/hosted-agent-contract) so the platform can invoke it. You meet that contract by using an SDK adapter or by implementing the contract yourself, and you build the agent's own logic with a framework like the [Agent Framework](/agent-framework/overview/). You [deploy that code](/azure/foundry/agents/how-to/deploy-hosted-agent) as a container image that you build and push to Azure Container Registry you own and govern.
+
+In this alternative, your agent code handles the orchestration, and what the platform manages depends on the protocol your agent exposes.
+
+- With the *Responses* protocol, the platform manages conversation history and session lifecycle, and your code augments the execution behavior within that contract.
+
+- With the *Invocations* protocol, your code manages session state directly, and the platform provides no conversation history.
+
+Each hosted agent gets a [dedicated endpoint path](/azure/foundry/agents/concepts/hosted-agents#agent-identity-and-endpoint) at deployment that carries its own routing, access control, and monitoring scope.
 
 Consider hosted agents instead of prompt agents when your workload requires one or more of the following capabilities:
 
@@ -101,15 +109,13 @@ Consider hosted agents instead of prompt agents when your workload requires one 
 
 - Agent code auditing, inspection, or certification for security, compliance, or regulatory purposes
 
-- Advanced client request routing for experimentation
+- Per-agent identity and endpoint isolation, so you can scope least-privilege access, access control, and monitoring to each agent without separating agents into different projects
 
-- Safe deployment practices beyond the standard hosted agents life cycle
-
-- Fine-tuned agent runtime configuration, including CPU and memory allocation or autoscaling settings
+- Fine-tuned agent runtime configuration, including CPU and memory allocation for each agent session's sandbox
 
 - Extended memory stored in a separate database alongside the native Foundry Agent Service conversation state
 
-Self-hosted orchestration increases operational complexity and requires you to manage compute, scaling, and security.
+Hosted agents still run on Foundry-managed compute, so the platform continues to handle scaling and the core runtime. Self-hosted orchestration is a further step in which you run the orchestration layer on compute that you operate, outside Foundry Agent Service. When you run your own infrastructure, you're responsible for all runtime characteristics, capacity, and security.
 
 #### Application tier components
 
@@ -386,7 +392,7 @@ Treat creating new projects in a Foundry resource as a privileged action. Projec
 
 To use Foundry Agent Service in Standard mode, the project must have data and control plane permissions on the Foundry Agent Service dependencies. Specifically, the project's managed identity must have elevated role assignments on the Storage account, AI Search, and the Azure Cosmos DB account. These permissions provide nearly full access to these resources, including the ability to read, write, modify, or delete data. To uphold least privilege access, isolate your workload resources from the Foundry Agent Service dependencies.
 
-All agents within a single Foundry project share the same managed identity. If your workload uses multiple agents that require access to different sets of resources, the principle of least privilege requires you to create a separate Foundry project for each distinct agent access pattern. This separation lets you assign only the minimum required permissions to each project's managed identity, which reduces the risk of excessive or unintended access.
+All agents within a single Foundry project share the same managed identity. If your workload uses multiple agents that require access to different sets of resources, follow the principle of least privilege and create a separate Foundry project for each distinct agent access pattern. This separation lets you assign only the minimum required permissions to each project's managed identity, which reduces the risk of excessive or unintended access. This shared-identity model applies to the prompt agents in this architecture. A deployed hosted agent instead receives its own [Microsoft Entra agent identity](/azure/foundry/agents/concepts/agent-identity) at deployment, so you can grant and audit its access to tools and downstream resources per agent without separating access patterns into different projects.
 
 When you establish [connections](/azure/foundry/how-to/connections-add) to external resources from within Foundry, use Microsoft Entra ID-based authentication if available. This approach eliminates the need to maintain preshared secrets. Scope each connection so that only the owning project can use it. If multiple projects require access to the same resource, create a separate connection in each project rather than sharing a single connection across projects. This practice enforces strict access boundaries and prevents future projects from inheriting access that they don't require.
 
@@ -397,6 +403,12 @@ Avoid creating connections at the Foundry resource level because resource-level 
 Foundry Agent Service doesn't enforce per-user authorization on conversations. The application server's identity has project-level credentials that can read from or write to any conversation by supplying its ID. If the chat UI application passes a client-supplied conversation ID directly to Agent Service without validation, a user can access or inject messages into another user's conversation. This is a [Broken Object Level Authorization](https://owasp.org/API-Security/editions/2023/en/0xa1-broken-object-level-authorization/) vulnerability.
 
 Your application server must enforce conversation ownership. Don't trust conversation identifiers from the client. On every request, verify that the authenticated user owns the referenced conversation before forwarding the request to Agent Service.
+
+Hosted agents offer a [per-user session isolation](/azure/foundry/agents/how-to/isolate-sessions-per-user) model, but this architecture's topology determines whether it applies. The web application calls the agent with its own workload identity on behalf of every signed-in user, so the platform sees a single caller identity and can't distinguish one end user from another. Under that pattern, your application server remains the trust boundary and must enforce conversation ownership as described earlier.
+
+The isolation becomes applicable when the request to the hosted agent's endpoint carries the end user's identity rather than only the application's identity. Either the caller authenticates directly with their own Microsoft Entra token, or your application server passes the end user's stable identifier to the platform. When the request identifies the end user, the platform scopes conversations, sessions, stored data, and the per-session `$HOME` filesystem to the identity on the request. When each caller presents their own identity, this separates one user's data from another's. With delegated identities, the platform doesn't separate one delegated user from another, so the same application-server enforcement described earlier still applies.
+
+When your application server delegates end-user identities, it can also pool many users onto a bounded set of agent sessions rather than opening one agent session per user. The platform caps [concurrent agent sessions per subscription and region](/azure/foundry/agents/concepts/agents-networking-deep-dive#subnet-size-and-concurrent-sessions), and that cap counts only agent sessions that actively process a request. When users share an agent session, the platform still isolates each user's conversation state, but any data the agent container stores itself, like files, database rows, or a cache, isn't partitioned automatically. Your code must key that data by both the agent session and the end-user identity. Otherwise users in the same pooled session can read each other's stored data. For the mapping strategies and this per-user partitioning, see [Multiplex multiple users in one hosted agent session](/azure/foundry/agents/how-to/multiplex-session-users).
 
 #### Content safety
 
@@ -458,11 +470,13 @@ The following diagram shows how an AI developer connects through Azure Bastion t
 
 ##### Control traffic from the Foundry agent subnet
 
-This architecture routes outbound (egress) network traffic from the Foundry Agent Service capability through a delegated subnet within your virtual network. For prompt agents, a [single-tenant data proxy](/azure/foundry/agents/concepts/agents-networking-deep-dive#prompt-agents-networking-behavior) runs in this delegated subnet and handles all outbound connectivity on the agent's behalf. Foundry Agent Service deploys one data proxy for each project, and all prompt agents in that project share it. The data proxy is the egress point for the agent's required service dependencies and for most external knowledge sources or tool connections that the agent uses. This design helps reduce data exfiltration attempts from within the orchestration logic.
+This architecture routes outbound (egress) network traffic from the Foundry Agent Service capability through a delegated subnet within your virtual network.
 
-This delegated subnet is delegated to `Microsoft.App/environments` and should use a `/24` CIDR range. This size accommodates the data proxy, the addresses that the subnet delegation reserves, and future use of hosted agents. For subnet sizing and IP allocations, see [Deep dive into Foundry Agent Service networking](/azure/foundry/agents/concepts/agents-networking-deep-dive#recommended-subnet-size). A Foundry resource can't share its agent subnet with another Foundry resource, although if your workload requires multiple Foundry resources they can share the same virtual network.
+For prompt agents, a [single-tenant data proxy](/azure/foundry/agents/concepts/agents-networking-deep-dive#prompt-agents-networking-behavior) runs in this delegated subnet and handles all outbound connectivity on the agent's behalf. Foundry Agent Service deploys one data proxy for each project, and all prompt agents in that project share it. The data proxy is the egress point for the agent's required service dependencies and for most external knowledge sources or tool connections that the agent uses.
 
-By forcing this egress path, you gain full control over outbound traffic. You can apply granular NSG rules, custom routing, and DNS control to all agent traffic that leaves the service.
+For [hosted agents](/azure/foundry/agents/concepts/agents-networking-deep-dive#hosted-agents-networking-behavior), the control point shifts: each hosted agent session runs in compute that has a dedicated network interface in this subnet, so the agent's own outbound traffic leaves directly through that interface rather than through the data proxy, although its tool calls still route through the data proxy.
+
+By forcing this egress path, you gain full control over outbound traffic. You can apply granular NSG rules, custom routing, and DNS control to all agent traffic that leaves the service. This design helps reduce data exfiltration attempts from within the orchestration logic.
 
 The agent service uses the virtual network's DNS configuration to resolve private endpoint records and required external FQDNs. This setup ensures that the agent's requests generate DNS logs, which support auditing and troubleshooting.
 
@@ -470,7 +484,7 @@ The NSG attached to the agent egress subnet blocks all inbound traffic because n
 
 To further restrict internet traffic, this architecture applies a UDR to the subnet, which directs all HTTPS traffic through Azure Firewall. The firewall controls which FQDNs the agent can reach through HTTPS connections. For example, if the agent connects to an MCP server at `https://contoso.com/mcp` or calls an external API through an OpenAPI tool definition, configure Azure Firewall to allow traffic to those specific FQDNs on port 443 from this subnet and ensure that the NSG allows that traffic.
 
-The agent runtime also needs outbound access to its own platform dependencies, not just to the FQDNs that your agents use. Allow the `AzureActiveDirectory` service tag so that the agent compute can authenticate. Don't apply TLS inspection in Azure Firewall to this traffic. The certificate used during inspection can break the agents' connections.
+The agent runtime also needs outbound access to its own platform dependencies, not just to the FQDNs that your agents use. Allow the `AzureActiveDirectory` service tag so that the agent compute can authenticate. A hosted agent that reaches external endpoints requires you to allow those [FQDNs through your firewall](/azure/foundry/agents/how-to/deploy-hosted-agent-code#firewall-requirements-for-private-virtual-networks). Don't apply TLS inspection in Azure Firewall to this traffic. The certificate used during inspection can break the agents' connections.
 
 > [!NOTE]
 > Not all knowledge tools connected to your agents egress through this subnet. For example, the [web search tool](/azure/foundry/agents/how-to/tools/web-search) calls `api.bing.microsoft.com`, which you might expect to route through Azure Firewall by allowing port 443 from this subnet. But Agent Service invokes this tool through an internal mechanism that bypasses the egress subnet entirely. Test all built-in knowledge and tool connections for your workload to verify whether they align with your network egress control policies.
@@ -586,7 +600,7 @@ To control consumption model costs in this architecture, use a combination of th
 
     This level of control is only available in self-hosted orchestration. Foundry Agent Service doesn't provide enough configuration to support this functionality.
 
-- **Choose the right model for the agent.** Select the least expensive model that meets your agent's requirements. Avoid using higher cost models unless they're essential. For example, the reference implementation uses GPT-4.1 instead of a more expensive model and achieves sufficient results.
+- **Choose the right model for the agent.** Select the least expensive model that meets your agent's requirements. Avoid using higher cost models unless they're essential. For example, the reference implementation uses a GPT-5 series model that meets the scenario's requirements.
 
 - **Monitor and manage usage.** Use [Microsoft Cost Management](/azure/foundry/concepts/manage-costs) and model-usage metrics to track token usage, set budgets, and create alerts for anomalies. Regularly review usage patterns and adjust quotas or client access as needed.
 
@@ -625,9 +639,9 @@ When you plan your experimentation, testing, and production environments, establ
 
 #### Agent compute
 
-Microsoft manages the serverless compute platform for Foundry Agent Service REST APIs and the orchestration implementation logic. A [self-hosted orchestration](#alternatives) provides more control over runtime characteristics and capacity, but you must directly manage the day-2 operations for that platform. Evaluate the constraints and responsibilities of your approach to understand which day-2 operations you must implement to support your orchestration layer.
+Microsoft manages the serverless compute platform for Foundry Agent Service REST APIs and the orchestration implementation logic. A [hosted agent](#chat-orchestration) runs your own orchestration code on this Foundry-managed compute. Self-hosted orchestration goes further and provides more control over runtime characteristics and capacity, but you must directly manage the day-2 operations for that platform. Evaluate the constraints and responsibilities of your approach to understand which day-2 operations you must implement to support your orchestration layer.
 
-In both approaches, you must manage state storage, like chat history and agent configuration for durability, backup, and recovery.
+State management responsibility follows your protocol configuration, not your compute approach. Prompt agents and hosted agents both support service-managed conversations, where the platform persists chat history, or client-managed conversations, where your code carries state forward. Self-hosted orchestration always manages its own state. In every case, the durable stores for chat history and agent configuration reside in your subscription, so you own their durability, backup, and recovery.
 
 #### Agent interaction SDK
 
@@ -671,6 +685,8 @@ To prevent service disruptions, ensure safe and controlled agent deployment by i
 
   Foundry natively supports immutable agent versions. Each time you make changes to an agent definition, Foundry creates a new version snapshot that preserves the prior configuration. Use this built-in version history for audit trails and rollback targets.
 
+  For hosted agents, shipping an update means more than creating a configuration snapshot. You build and push a container image first, and the Foundry agent version references it. Rolling back only re-points the agent endpoint's version selector to an earlier version, with no rebuild and no new image. The source control, testing, and CI/CD practices earlier in this section apply to both prompt and hosted agents. Because you author a hosted agent's code, it adds one step that prompt agents don't have, which is a local build-and-debug inner loop for that executable code before it enters those shared pipelines.
+
   Not every runtime variation requires a new version. [Structured inputs](/azure/foundry/agents/how-to/structured-inputs) parameterize agent definitions. The client supplies actual values at request time, so a single agent version can serve user-specific or context-specific configurations without redeployment.
 
   > [!NOTE]
@@ -700,7 +716,7 @@ If index server-tuning alone doesn't resolve all bottlenecks, consider the follo
 
 - Replace the direct connection to AI Search with a connection to an API that you own. This API can implement code optimized for your agent's retrieval patterns.
 
-- Redesign the orchestration layer to use the [self-hosted alternative](#chat-orchestration) so that you can define and optimize queries in your own orchestrator code.
+- Redesign the orchestration layer to run your own orchestration code, either as a [hosted agent](#chat-orchestration) on Foundry-managed compute or as self-hosted orchestration that you operate, so that you can define and optimize queries in your own orchestrator code.
 
 #### Performance efficiency in model deployments
 
@@ -723,6 +739,12 @@ Azure AI agents run on a serverless compute back end that doesn't support custom
 - Design system prompts that guide the agent to use connections efficiently. For example, instruct the agent to query grounding data tools only when needed, or to avoid redundant tool invocations.
 
 - Monitor for service limits or quotas that might affect performance during peak usage. Watch for throttling indicators like HTTP 429 or 503 responses, even though serverless compute scales automatically.
+
+#### Foundry agent subnet capacity
+
+The Foundry agent subnet must have room for the agent infrastructure. It's delegated to `Microsoft.App/environments` and should use a `/24` CIDR range. This size accommodates the data proxy, the addresses that the subnet delegation reserves. Foundry deploys one single-tenant data proxy for each project, and each proxy scales out with traffic, so more projects and higher load consume more subnet IPs. If you adopt hosted agents, the platform runs each concurrently active agent session in its own compute that consumes a subnet IP. An agent session is the isolated sandbox that the platform provisions to process a user's requests. The platform provisions an agent session on the first request. Because this architecture uses service-managed conversations, the platform binds that agent session to the conversation and reuses it on later turns. A separate concurrent conversation consumes a separate agent session in its own compute. An agent session consumes a subnet IP only while its compute runs, so size the subnet for the peak number of agent sessions that run concurrently, not for the number of agents you deploy.
+
+Deploying a new hosted agent revision temporarily consumes extra IPs because the old and new revisions run in parallel during rollout. For subnet sizing and IP allocations, see [Deep dive into Foundry Agent Service networking](/azure/foundry/agents/concepts/agents-networking-deep-dive#recommended-subnet-size). A Foundry resource can't share its agent subnet with another Foundry resource, although if your workload requires multiple Foundry resources they can share the same virtual network.
 
 ## Deploy this scenario
 
