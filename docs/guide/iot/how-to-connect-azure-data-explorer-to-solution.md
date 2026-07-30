@@ -61,7 +61,7 @@ opcua_metadata_lkv
     | where Name == "Status"
     | where Timestamp > _startTime and Timestamp < _endTime
 ) on Subject
-| extend energy = todouble(Value)
+|  extend status = toint(Value)
 | project Timestamp1, status
 | sort by Timestamp1 desc
 | render linechart
