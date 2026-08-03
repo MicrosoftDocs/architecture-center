@@ -1,8 +1,8 @@
 ---
 title: Multiple-region Architectures for Azure App Service Disaster Recovery
 description: Learn about multiple-region architectures and how you can use them to deploy web apps across multiple regions for disaster recovery and replication.
-author: changsam
-ms.author: pnp
+author: samchang-msft
+ms.author: changsam
 ms.date: 07/09/2026
 ms.topic: concept-article
 ms.subservice: architecture-guide
