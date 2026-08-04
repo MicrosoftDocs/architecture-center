@@ -15,7 +15,7 @@ The chat UI follows the [baseline Azure App Service web application](../../web-a
 > [!IMPORTANT]
 > This article doesn't describe the components or architecture decisions from the [baseline App Service web application architecture](../../web-apps/app-service/architectures/baseline-zone-redundant.yml). For guidance about how to host the web application that contains your chat UI, see that article.
 
-This architecture uses the [Foundry Agent Service standard agent setup](/azure/foundry/agents/concepts/standard-agent-setup) to provide enterprise-grade security, compliance, and control. In this configuration, you bring your own (BYO) virtual network for network isolation and your own Azure resources to store chat and agent state. All communication between application components and Azure services occurs over private endpoints. This approach ensures that data traffic remains within your workload's virtual network. Outbound traffic from the agents strictly routes through Azure Firewall, which enforces egress rules.
+This architecture uses the [Foundry Agent Service standard agent setup](/azure/foundry/agents/concepts/standard-agent-setup) to provide enterprise-grade security, compliance, and control. In this configuration, you bring your own (BYO) virtual network for network isolation and your own Azure resources to store chat and agent state. Application components access Azure services over private endpoints, and agents access workload-owned MCP servers through private network connectivity. This approach ensures that data traffic remains within your workload's virtual network. Outbound traffic from the agents strictly routes through Azure Firewall, which enforces egress rules.
 
 > [!TIP]
 > :::image type="icon" source="../../_images/github.svg"::: The [Foundry Agent Service reference implementation](https://github.com/Azure-Samples/microsoft-foundry-baseline) showcases a baseline end-to-end chat implementation on Azure. It serves as a foundation to develop custom solutions as you move toward production.
@@ -38,7 +38,7 @@ This architecture uses the [Foundry Agent Service standard agent setup](/azure/f
 
 1. The agent connects to Azure AI Search through the AI Search tool in the private network via a private endpoint.
 
-1. Requests to most external tools, like web search or custom API tools, traverse Azure Firewall for inspection and egress policy enforcement.
+1. Requests to most external tools, like public MCP servers or custom API tools, traverse Azure Firewall for inspection and egress policy enforcement. Requests to private MCP servers or APIs remain within the virtual network.
 
 1. The agent connects to its configured language model and passes relevant context.
 
@@ -201,7 +201,7 @@ Consider a multiagent approach when your workload exhibits the following charact
 
 Multiagent approaches introduce coordination complexity and increased latency because of communication between agents. For well‑defined scenarios without strict access‑isolation requirements, a single agent that uses one model and appropriate tools meets the requirements.
 
-Foundry Agent Service supports connecting agents to external agents and tools through standard protocols. You can connect to tools hosted on [Model Context Protocol (MCP) servers](/azure/foundry/agents/how-to/tools/model-context-protocol) and to other agents through [Agent-to-Agent (A2A) endpoints](/azure/foundry/agents/how-to/tools/agent-to-agent). Both connection types behave as external HTTP endpoints from the agent's perspective. They require firewall rules for egress and appropriate authentication configuration.
+Foundry Agent Service supports connecting agents to external agents and tools through standard protocols. You can connect to tools hosted on [Model Context Protocol (MCP) servers](/azure/foundry/agents/how-to/tools/model-context-protocol) and to other agents through [Agent-to-Agent (A2A) endpoints](/azure/foundry/agents/how-to/tools/agent-to-agent). Public MCP server endpoints require firewall rules for egress. Private MCP server endpoints require the standard agent setup with private networking and a dedicated subnet. Configure appropriate authentication for each endpoint.
 
 For more information about how to implement multiple coordinated agents, see [AI agent orchestration patterns](../guide/ai-agent-design-patterns.md). This article covers sequential, concurrent, group chat, handoff, and magentic orchestration approaches. You can implement some patterns within Foundry Agent Service. Other patterns require self-hosted orchestration by using an SDK like Agent Framework.
 
@@ -369,6 +369,8 @@ Use this key vault only for Foundry. Don't share it with other workload componen
 
 This architecture includes two API-key-based connections: Application Insights for Foundry metrics and the web search tool. As you extend this architecture with tools that call external HTTP endpoints, like [MCP servers](/azure/foundry/agents/how-to/tools/model-context-protocol) or OpenAPI-defined APIs, each tool adds a project connection that carries its authentication credentials.
 
+When you connect an MCP server, restrict the available tools by using `allowed_tools`. Require and log approval for high-risk operations, such as tools that write data or change resources, and review the tool name and arguments before approval. For more information, see [MCP best practices](/azure/foundry/agents/how-to/tools/model-context-protocol#best-practices).
+
 If you use customer-managed keys for encryption, you can host both the customer-managed keys and the connection secrets in the same dedicated vault, if your security governance policies allow colocation of encryption keys and secrets.
 
 ##### Foundry portal employee access
@@ -482,12 +484,18 @@ The agent service uses the virtual network's DNS configuration to resolve privat
 
 The NSG attached to the agent egress subnet blocks all inbound traffic because no legitimate ingress should occur. Outbound NSG rules allow access only to private endpoint subnets within the virtual network and to Transmission Control Protocol (TCP) port 443 for internet-bound traffic. The NSG denies all other traffic.
 
-To further restrict internet traffic, this architecture applies a UDR to the subnet, which directs all HTTPS traffic through Azure Firewall. The firewall controls which FQDNs the agent can reach through HTTPS connections. For example, if the agent connects to an MCP server at `https://contoso.com/mcp` or calls an external API through an OpenAPI tool definition, configure Azure Firewall to allow traffic to those specific FQDNs on port 443 from this subnet and ensure that the NSG allows that traffic.
+To further restrict internet traffic, this architecture applies a UDR to the subnet, which directs all HTTPS traffic through Azure Firewall. The firewall controls which FQDNs the agent can reach through HTTPS connections. For example, if the agent connects to a public MCP server at `https://contoso.com/mcp` or calls an external API through an OpenAPI tool definition, configure Azure Firewall to allow traffic to those specific FQDNs on port 443 from this subnet and ensure that the NSG allows that traffic.
 
 The agent runtime also needs outbound access to its own platform dependencies, not just to the FQDNs that your agents use. Allow the `AzureActiveDirectory` service tag so that the agent compute can authenticate. A hosted agent that reaches external endpoints requires you to allow those [FQDNs through your firewall](/azure/foundry/agents/how-to/deploy-hosted-agent-code#firewall-requirements-for-private-virtual-networks). Don't apply TLS inspection in Azure Firewall to this traffic. The certificate used during inspection can break the agents' connections.
 
 > [!NOTE]
 > Not all knowledge tools connected to your agents egress through this subnet. For example, the [web search tool](/azure/foundry/agents/how-to/tools/web-search) calls `api.bing.microsoft.com`, which you might expect to route through Azure Firewall by allowing port 443 from this subnet. But Agent Service invokes this tool through an internal mechanism that bypasses the egress subnet entirely. Test all built-in knowledge and tool connections for your workload to verify whether they align with your network egress control policies.
+
+###### Accessing workload-owned MCP servers
+
+If you host a private MCP server for your workload, place a dedicated MCP subnet in the same virtual network that your agent subnet is. Allow outbound TCP ports 443 and 31443 from the agent subnet to the MCP subnet, and allow the matching inbound traffic on the MCP subnet. Configure private DNS so that the Container Apps environment's default or custom domain resolves to its static IP address within the virtual network. In this topology, agent calls to MCP servers use private addressing and remain within the virtual network. For implementation guidance, see [Connect agents to Model Context Protocol servers](/azure/foundry/agents/how-to/tools/model-context-protocol#public-and-private-mcp-server-endpoints).
+
+Assuming your MCP server is hosted on Container Apps, the MCP subnet NSG must also allow the [required Container Apps network traffic](/azure/container-apps/firewall-integration#nsg-allow-rules). Route internet-bound traffic from your workload MCP servers through Azure Firewall.
 
 ##### Virtual network segmentation and security
 
@@ -500,7 +508,8 @@ The following table summarizes the NSG and firewall configuration for each subne
 | Private endpoints <br> `snet-privateEndpoints` | Virtual network | No traffic allowed | Yes | No traffic allowed |
 | Application Gateway <br> `snet-appGateway` | Chat UI user source IP addresses, like the public internet, and required sources for the service | Private endpoint subnet and required items for the service | No | - |
 | App Service <br> `snet-appServicePlan` | No traffic allowed | Private endpoints and Azure Monitor | Yes | To Azure Monitor |
-| Foundry Agent Service <br> `snet-agentsEgress` | No traffic allowed | Private endpoints and the internet | Yes | Only public FQDNs that you allow your agents to use |
+| Foundry Agent Service <br> `snet-agentsEgress` | No traffic allowed | Private endpoints, MCP subnet, and the internet | Yes | Only public FQDNs that you allow your agents to use |
+| Private MCP servers <br> `snet-mcpServers` | TCP ports 443 and 31443 from the Foundry Agent Service subnet and required sources for the host | required entries for the service | Yes | Required platform FQDNs and only public FQDNs that the MCP servers require |
 | Jump box VMs <br> `snet-jumpBoxes` | Azure Bastion subnet | Private endpoints and the internet | Yes | As needed by the VM |
 | Build agents <br> `snet-buildAgents` | Azure Bastion subnet | Private endpoints and the internet | Yes | As needed by the VM |
 | Azure Bastion <br> `AzureBastionSubnet` | See [NSG access and Azure Bastion](/azure/bastion/bastion-nsg) | See [NSG access and Azure Bastion](/azure/bastion/bastion-nsg) | No | - |
@@ -706,7 +715,7 @@ To prevent service disruptions, ensure safe and controlled agent deployment by i
 
 Performance Efficiency refers to your workload's ability to scale to meet user demands efficiently. For more information, see [Design review checklist for Performance Efficiency](/azure/well-architected/performance-efficiency/checklist).
 
-This section addresses performance efficiency for AI Search, model deployments, and Foundry.
+This section addresses performance efficiency for the AI Search, model deployments, MCP server subnet, and Foundry.
 
 #### Performance efficiency in AI Search
 
@@ -739,6 +748,10 @@ Azure AI agents run on a serverless compute back end that doesn't support custom
 - Design system prompts that guide the agent to use connections efficiently. For example, instruct the agent to query grounding data tools only when needed, or to avoid redundant tool invocations.
 
 - Monitor for service limits or quotas that might affect performance during peak usage. Watch for throttling indicators like HTTP 429 or 503 responses, even though serverless compute scales automatically.
+
+#### MCP server subnet capacity
+
+This architecture reserves a dedicated `/24` subnet that's delegated to `Microsoft.App/environments` so you can later deploy an internal Azure Container Apps workload profiles environment that hosts MCP servers to extend your agents.
 
 #### Foundry agent subnet capacity
 
