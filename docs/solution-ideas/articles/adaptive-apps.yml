@@ -1,0 +1,23 @@
+### YamlMime:Architecture
+metadata:
+  title: Build Portable Applications with Adaptive Apps
+  description: See how adaptive apps can operate across diverse environments and conditions, including disconnected, sovereign cloud, on-premises, and hybrid topologies.
+  author: Haishi2016
+  ms.author: hbai
+  ms.date: 08/03/2026
+  ms.topic: solution-idea
+  ms.subservice: solution-idea
+  ms.custom: arb-hybrid
+azureCategories:
+  - hybrid
+  - open-source
+  - migration
+products:
+  - azure-kubernetes-service
+  - azure-arc
+  - azure-local
+name: Build portable applications with adaptive apps
+summary: The adaptive apps solution enables applications to adapt across diverse environments and operational conditions, including disconnected environments, sovereign cloud deployments, on-premises infrastructure, and hybrid topologies.
+thumbnailUrl: /azure/architecture/browse/thumbs/adaptive-apps.png
+content: |
+  [!INCLUDE[](adaptive-apps-content.md)]

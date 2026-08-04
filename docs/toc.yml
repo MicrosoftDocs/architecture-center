@@ -1080,6 +1080,8 @@ items:
       items:
       - name: Adaptive cloud
         items:
+        - name: Build adaptive applications
+          href: solution-ideas/articles/adaptive-apps.yml
         - name: Azure Arc solutions
           items:
           - name: Manage Kubernetes by using Azure Arc
