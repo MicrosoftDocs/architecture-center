@@ -2,7 +2,7 @@
 title: What's New in Azure Architecture Center
 description: New and updated articles in Azure Architecture Center
 author: claytonsiemens77
-ms.date: 07/24/2026
+ms.date: 07/31/2026
 ms.topic: whats-new
 ms.author: pnp
 ---
@@ -22,10 +22,22 @@ The following new and updated articles have recently been published in the Azure
 
 ### New articles
 
+- [Agentic AI for the reference solution](./guide/iot/agentic-ai-for-the-solution.md)
+- [Connect Azure Data Explorer to the reference solution](./guide/iot/how-to-connect-azure-data-explorer-to-solution.md)
+- [Connect Microsoft Dynamics 365 Field Service to the reference solution](./guide/iot/how-to-connect-dynamics-field-service-to-the-solution.md)
+- [Connect Azure Managed Grafana to the reference solution](./guide/iot/how-to-connect-grafana-to-solution.md)
+- [Connect Power BI to the reference solution](./guide/iot/how-to-connect-power-bi-to-the-solution.md)
+- [Import OPC UA Information Models from the UA Cloud Library](./guide/iot/import-opc-ua-information-models-from-ua-cloud-library.md)
+- [Scalable Windows Virtual Machine Patch Management](./virtual-machines/patch-management.md)
 - [Design a Ransomware-Resilient Backup Architecture by Using Azure Backup](./security/ransomware-resilient-backup-architecture/index.md)
 
 ### Updated articles
 
+- [Connect Azure Databricks to the reference solution](./guide/iot/how-to-connect-databricks-to-solution.md) ([#2b8d7058e9](https://github.com/MicrosoftDocs/architecture-center/commit/2b8d7058e9))
+- [Connect Microsoft Fabric to the reference solution](./guide/iot/how-to-connect-fabric-to-solution.md) ([#2b8d7058e9](https://github.com/MicrosoftDocs/architecture-center/commit/2b8d7058e9))
+- [Siemens Teamcenter Baseline Architecture on Azure](./example-scenario/manufacturing/teamcenter-baseline.yml) ([#dc89526a03](https://github.com/MicrosoftDocs/architecture-center/commit/dc89526a03))
+- [Choreography Pattern](./patterns/choreography.md) ([#ec74a8d712](https://github.com/MicrosoftDocs/architecture-center/commit/ec74a8d712))
+- [Baseline Microsoft Foundry Chat Reference Architecture](./ai-ml/architecture/baseline-microsoft-foundry-chat.yml) ([#667e8fe868](https://github.com/MicrosoftDocs/architecture-center/commit/667e8fe868))
 - [DevSecOps for infrastructure as code (IaC)](./solution-ideas/articles/devsecops-infrastructure-as-code.yml) ([#3f78e1fdc7](https://github.com/MicrosoftDocs/architecture-center/commit/3f78e1fdc7))
 - [SAP deployment on Azure by using an Oracle database](./example-scenario/apps/sap-production.yml) ([#8c020be27f](https://github.com/MicrosoftDocs/architecture-center/commit/8c020be27f))
 - [Choose an Analytical Data Store in Microsoft Fabric](./data-guide/technology-choices/fabric-analytical-data-stores.md) ([#ae8b8ce412](https://github.com/MicrosoftDocs/architecture-center/commit/ae8b8ce412))
@@ -34,7 +46,6 @@ The following new and updated articles have recently been published in the Azure
 - [Baseline Highly Available Zone-Redundant App Services Web Application](./web-apps/app-service/architectures/baseline-zone-redundant.yml) ([#44f1a85aab](https://github.com/MicrosoftDocs/architecture-center/commit/44f1a85aab))
 - [Refactor mainframe computer systems that run Adabas & Natural](./example-scenario/mainframe/refactor-adabas-aks.yml) ([#64d0300a7d](https://github.com/MicrosoftDocs/architecture-center/commit/64d0300a7d))
 - [Baseline Architecture for an AKS Cluster](./reference-architectures/containers/aks/baseline-aks.yml) ([#1eeebb67af](https://github.com/MicrosoftDocs/architecture-center/commit/1eeebb67af))
-- [Siemens Teamcenter baseline architecture on Azure](./example-scenario/manufacturing/teamcenter-baseline.yml) ([#2bb9a0a290](https://github.com/MicrosoftDocs/architecture-center/commit/2bb9a0a290))
 - [Generate Documents from Your Data](./ai-ml/idea/generate-documents-from-your-data.yml) ([#b09bbee823](https://github.com/MicrosoftDocs/architecture-center/commit/b09bbee823))
 - [Enhance Network Access Security to Kubernetes](./aws-professional/eks-to-aks/private-clusters.md) ([#755315aaeb](https://github.com/MicrosoftDocs/architecture-center/commit/755315aaeb))
 - [Multiple-region Architectures for Azure App Service Disaster Recovery](./web-apps/guides/multi-region-app-service/multi-region-app-service.md) ([#0ab9711527](https://github.com/MicrosoftDocs/architecture-center/commit/0ab9711527))
