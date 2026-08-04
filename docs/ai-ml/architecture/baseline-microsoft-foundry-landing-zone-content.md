@@ -172,7 +172,7 @@ Because of this division of management and ownership, the workload team must cle
 
 ### Virtual network subnets
 
-In the spoke virtual network, you create and allocate the subnets based on the workload requirements. To provide segmentation, apply controls that restrict traffic into and out of the subnets. This architecture doesn't add subnets beyond the [subnets in the baseline architecture](./baseline-microsoft-foundry-chat.yml#virtual-network-segmentation-and-security). The landing zone network architecture no longer requires the `AzureBastionSubnet` or `AzureFirewallSubnet` subnets because the platform team likely hosts these capabilities in platform subscriptions.
+In the spoke virtual network, you create and allocate subnets based on the workload requirements. To provide segmentation, apply controls that restrict traffic into and out of the subnets. This architecture doesn't add subnets beyond the [subnets in the baseline architecture](./baseline-microsoft-foundry-chat.yml#virtual-network-segmentation-and-security). The landing zone network architecture no longer requires the `AzureBastionSubnet` or `AzureFirewallSubnet` subnets because the platform team likely hosts these capabilities in platform subscriptions.
 
 You still need to implement local network controls when you deploy your workload in an Azure landing zone. Your organization might impose further network restrictions to safeguard against data exfiltration and ensure visibility for the central security operations center and the IT network team.
 
