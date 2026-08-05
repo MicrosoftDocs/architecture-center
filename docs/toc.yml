@@ -839,7 +839,7 @@ items:
             href: reference-architectures/containers/aro/azure-redhat-openshift-financial-services-workloads.yml
           - name: CI/CD for microservices on Kubernetes
             displayName: continuous integration continuous delivery
-            href: microservices/ci-cd-kubernetes.yml
+            href: microservices/ci-cd-kubernetes.md
       - name: Guides
         items:
         - name: Application

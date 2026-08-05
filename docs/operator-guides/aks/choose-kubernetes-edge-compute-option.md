@@ -208,4 +208,4 @@ Principal authors:
 
 ## Related resource
 
-- [Build a CI/CD pipeline for microservices on Kubernetes](../../microservices/ci-cd-kubernetes.yml)
+- [Build a CI/CD pipeline for microservices on Kubernetes](../../microservices/ci-cd-kubernetes.md)
