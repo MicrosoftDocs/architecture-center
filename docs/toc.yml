@@ -839,7 +839,7 @@ items:
             href: reference-architectures/containers/aro/azure-redhat-openshift-financial-services-workloads.yml
           - name: CI/CD for microservices on Kubernetes
             displayName: continuous integration continuous delivery
-            href: microservices/ci-cd-kubernetes.yml
+            href: microservices/ci-cd-kubernetes.md
       - name: Guides
         items:
         - name: Application
@@ -1197,7 +1197,7 @@ items:
       - name: Event Hubs with Azure Functions
         items:
         - name: Overview
-          href: serverless/event-hubs-functions/event-hubs-functions.yml
+          href: serverless/event-hubs-functions/event-hubs-functions.md
         - name: Performance and scale
           href: serverless/event-hubs-functions/performance-scale.md
         - name: Resilient design

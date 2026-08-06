@@ -108,7 +108,7 @@ Architectures and pipelines for designing, deploying, and operating microservice
 
 - [Advanced microservices on AKS](../reference-architectures/containers/aks-microservices/aks-microservices-advanced.yml): Advanced patterns for complex microservices workloads.
 
-- [CI/CD for microservices on Kubernetes](../microservices/ci-cd-kubernetes.yml): Build robust CI/CD pipelines for Kubernetes microservices.
+- [CI/CD for microservices on Kubernetes](../microservices/ci-cd-kubernetes.md): Build robust CI/CD pipelines for Kubernetes microservices.
 
 Architecture tailored for regulated industries or alternative Kubernetes platforms:
 

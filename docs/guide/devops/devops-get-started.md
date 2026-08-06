@@ -60,7 +60,7 @@ The following articles help you evaluate and select the best DevOps technologies
 
 - [Build a CI/CD pipeline for Azure Kubernetes Service (AKS) apps by using Azure Pipelines](../aks/aks-cicd-azure-pipelines.md): Implement CI/CD for Azure Kubernetes Service (AKS) applications by using Azure Pipelines with security scanning and monitoring.
 
-- [Build a CI/CD pipeline for microservices on Kubernetes with Azure DevOps and Helm](../../microservices/ci-cd-kubernetes.yml): Design CI/CD pipelines for microservices architectures on Azure Kubernetes Service (AKS) by using Azure DevOps and Helm charts.
+- [Build a CI/CD pipeline for microservices on Kubernetes with Azure DevOps and Helm](../../microservices/ci-cd-kubernetes.md): Design CI/CD pipelines for microservices architectures on Azure Kubernetes Service (AKS) by using Azure DevOps and Helm charts.
 
 #### DevSecOps
 

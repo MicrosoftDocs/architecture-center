@@ -146,6 +146,6 @@ The following articles present a structured approach for designing, building, an
 
 ## Related resources
 
-- [Build a CI/CD pipeline for microservices on Kubernetes](../../microservices/ci-cd-kubernetes.yml)
+- [Build a CI/CD pipeline for microservices on Kubernetes](../../microservices/ci-cd-kubernetes.md)
 - [CI/CD for microservices architectures](../../microservices/ci-cd.md)
 - [Microservices architecture on Azure Kubernetes Service (AKS)](../../reference-architectures/containers/aks-microservices/aks-microservices.yml)

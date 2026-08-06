@@ -301,7 +301,7 @@ For more information about the challenges, see [CI/CD for microservices architec
 
 Using a service mesh like Istio can help with CI/CD processes, like canary deployments, A/B testing of microservices, and staged rollouts with percentage-based traffic splits.
 
-For more information about specific recommendations and best practices, see [Build a CI/CD pipeline for microservices on Kubernetes with Azure DevOps and Helm](../../../microservices/ci-cd-kubernetes.yml).
+For more information about specific recommendations and best practices, see [Build a CI/CD pipeline for microservices on Kubernetes with Azure DevOps and Helm](../../../microservices/ci-cd-kubernetes.md).
 
 ### Cost Optimization
 
@@ -370,4 +370,4 @@ Other contributors:
 
 - [Advanced AKS microservices architecture](./aks-microservices-advanced.yml).
 - [CI/CD for microservices architectures](../../../microservices/ci-cd.md)
-- [CI/CD for microservices on Kubernetes](../../../microservices/ci-cd-kubernetes.yml)
+- [CI/CD for microservices on Kubernetes](../../../microservices/ci-cd-kubernetes.md)

@@ -142,7 +142,7 @@ For teams that operate many microservices on Kubernetes, a GitOps pull-based mod
 
 ## Related resources
 
-- [CI/CD for microservices on Kubernetes](./ci-cd-kubernetes.yml)
+- [CI/CD for microservices on Kubernetes](./ci-cd-kubernetes.md)
 - [GitOps for AKS](../example-scenario/gitops-aks/gitops-blueprint-aks.yml)
 - [Design a microservices architecture](../guide/architecture-styles/microservices.md)
 - [Use domain analysis to model microservices](model/domain-analysis.md)
