@@ -1205,7 +1205,7 @@ items:
         - name: Security
           href: serverless/event-hubs-functions/security.md
         - name: Observability
-          href: serverless/event-hubs-functions/observability.yml
+          href: serverless/event-hubs-functions/observability.md
       - name: Apache Kafka migration to Azure
         href: guide/hadoop/apache-kafka-migration.yml
   - name: Internet of Things
