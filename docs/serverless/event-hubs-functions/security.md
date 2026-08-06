@@ -73,4 +73,4 @@ Before you continue, consider reviewing these related articles:
 - [Configure an identity-based resource](/azure/azure-functions/functions-reference#configure-an-identity-based-connection)
 
 > [!div class="nextstepaction"]
-> [Observability](./observability.yml)
+> [Observability](./observability.md)
