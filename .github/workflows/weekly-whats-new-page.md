@@ -103,6 +103,8 @@ You're the sole generator of these two files. No other script maintains them, so
 
 - Use the style of the current page to guide how you add new entries or update existing ones.
 
+- Order months in reverse chronological order, newest first. The most recent month is always the topmost `##` section on the page. When a new month begins, add its section above the previous month's section, never below it. Within each month, keep the `### New articles` subsection before the `### Updated articles` subsection.
+
 - Use the "Sentence case" version of each article's title, not the "Book Title" case.
 
 - When you link to a commit, link to the `architecture-center` mirror, not the `architecture-center-pr` repo. Both repos share the same commit SHAs, so reuse the same SHA in the mirror URL.
@@ -111,13 +113,15 @@ You're the sole generator of these two files. No other script maintains them, so
 
 - In `docs/feed.atom`, use each article's `description` front matter as the entry's `<summary>`.
 
+- Give each `docs/feed.atom` entry a globally unique, stable `<id>`. An Atom `<id>` identifies the entry, not the destination page, so two entries must never share an `<id>`, even when they point at the same article. When you add an entry for an article that already has an entry in the feed (for example, a later update to a previously logged article), don't reuse the plain page URL as the `<id>`. Append that change's commit SHA to the page URL as a fragment to keep the `<id>` unique and stable, for example `https://learn.microsoft.com/azure/architecture/patterns/choreography#ec74a8d712`. Keep the `<link href>` as the plain page URL. Before you finish, confirm every `<id>` in the feed is unique.
+
 - Validate the feed's XML syntax. For example, run `xmllint --noout docs/feed.atom`. Fix any issues that were introduced.
 
 - Only change `ms.date` when you're already making content changes to the page. Never bump `ms.date` on its own, because a date change alone must not trigger a PR.
 
 ## Rolling window
 
-The page keeps a rolling history of the four most recent months. When a new month begins, remove the oldest month that rolls off, along with its RSS feed entries.
+The page keeps a rolling history of the four most recent months, ordered newest first. When a new month begins, add its section at the top of the page (above the previously newest month) and remove the oldest month that rolls off the bottom, along with its RSS feed entries.
 
 ## The exclusion ledger
 
