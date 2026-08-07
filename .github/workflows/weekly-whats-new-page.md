@@ -17,7 +17,7 @@ permissions:
   pull-requests: read
   copilot-requests: write
 
-model: opus
+model: sonnet
 engine:
   id: copilot
   copilot-sdk: true
@@ -61,7 +61,7 @@ tools:
     retention-days: 90
     allowed-extensions: [".json"]
 
-timeout-minutes: 15
+timeout-minutes: 20
 ---
 
 # Update AAC's "What's New" page
