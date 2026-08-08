@@ -17,7 +17,7 @@ permissions:
   pull-requests: read
   copilot-requests: write
 
-model: opus
+model: sonnet
 engine:
   id: copilot
   copilot-sdk: true
@@ -61,7 +61,7 @@ tools:
     retention-days: 90
     allowed-extensions: [".json"]
 
-timeout-minutes: 15
+timeout-minutes: 20
 ---
 
 # Update AAC's "What's New" page
@@ -74,10 +74,12 @@ You're the sole generator of these two files. No other script maintains them, so
 
 1. Load the exclusion ledger described in [The exclusion ledger](#the-exclusion-ledger).
 2. List the pull requests merged into `main` in the last 30 days.
-   - Fetch every pull request in the window, not just the first page. List APIs and `gh pr list` might not contain all results, so paginate through all results or approach with high limits.
+   - Fetch every pull request in the window, not just the first page. `gh pr list --search` can silently drop results, so page through the REST API by using `gh api` (following pagination) or use high limits.
+   - For each pull request, capture its number, merge commit SHA, and `merged_at` date. You need `merged_at` later to place each entry under the month the pull request actually merged.
 3. Decide what to do with each pull request:
    - If its PR number is already in the ledger, skip it. You already evaluated it and excluded it.
    - Otherwise, if its merge commit SHA already appears in `docs/changelog.md`, skip it. It's already logged.
+   - Otherwise, if the pull request changes no article file under `docs/`, skip it. A pull request that only touches repository tooling, GitHub workflows, or this page's own files (`docs/changelog.md` and `docs/feed.atom`) can't represent an article change.
    - Otherwise, evaluate it and classify it as described in [Classifying changes](#classifying-changes). Either log it, or exclude it as minor or renamed.
 4. For every pull request you're logging, add or update its entries in `docs/changelog.md` and `docs/feed.atom` as described in [Writing the entries](#writing-the-entries).
 5. Trim the page to its rolling window as described in [Rolling window](#rolling-window).
@@ -103,6 +105,10 @@ You're the sole generator of these two files. No other script maintains them, so
 
 - Use the style of the current page to guide how you add new entries or update existing ones.
 
+- Order months in reverse chronological order, newest first. The most recent month is always the topmost `##` section on the page. When a new month begins, add its section above the previous month's section, never below it. Within each month, keep the `### New articles` subsection before the `### Updated articles` subsection.
+
+- Place each entry under the month its pull request merged, based on the `merged_at` date you captured. Don't assume every pull request belongs to the current month; a single run often spans two months, so some entries land in the previous month's section.
+
 - Use the "Sentence case" version of each article's title, not the "Book Title" case.
 
 - When you link to a commit, link to the `architecture-center` mirror, not the `architecture-center-pr` repo. Both repos share the same commit SHAs, so reuse the same SHA in the mirror URL.
@@ -111,13 +117,17 @@ You're the sole generator of these two files. No other script maintains them, so
 
 - In `docs/feed.atom`, use each article's `description` front matter as the entry's `<summary>`.
 
+- Keep the feed's top-level `<updated>` element current. After you add entries, set it to the newest entry's `<updated>` timestamp.
+
+- Give each `docs/feed.atom` entry a globally unique, stable `<id>`. An Atom `<id>` identifies the entry, not the destination page, so two entries must never share an `<id>`, even when they point at the same article. When you add an entry for an article that already has an entry in the feed (for example, a later update to a previously logged article), don't reuse the plain page URL as the `<id>`. Append that change's commit SHA to the page URL as a fragment to keep the `<id>` unique and stable, for example `https://learn.microsoft.com/azure/architecture/patterns/choreography#ec74a8d712`. Keep the `<link href>` as the plain page URL. Before you finish, confirm every `<id>` in the feed is unique.
+
 - Validate the feed's XML syntax. For example, run `xmllint --noout docs/feed.atom`. Fix any issues that were introduced.
 
 - Only change `ms.date` when you're already making content changes to the page. Never bump `ms.date` on its own, because a date change alone must not trigger a PR.
 
 ## Rolling window
 
-The page keeps a rolling history of the four most recent months. When a new month begins, remove the oldest month that rolls off, along with its RSS feed entries.
+The page keeps a rolling history of the four most recent months, ordered newest first. When a new month begins, add its section at the top of the page (above the previously newest month) and remove the oldest month that rolls off the bottom, along with its RSS feed entries.
 
 ## The exclusion ledger
 
