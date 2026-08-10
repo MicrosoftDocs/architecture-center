@@ -1,12 +1,14 @@
 ### YamlMime:Architecture
 metadata:
   title: Deploy IBM Maximo Application Suite (MAS) on Azure
-  description: Learn how to run IBM Maximo Application Suite (MAS) on Azure. See guidance for designing and implementing cloud solutions with MAS 8.5 and up that use Azure.
+  description: Learn how to run IBM Maximo Application Suite (MAS) on Azure by using Azure Red Hat OpenShift or self-managed Red Hat OpenShift.
   author: ranieuwe
   ms.author: ronieuwe
-  ms.date: 11/22/2024
-  ms.topic: concept-article
-  ms.subservice: architecture-guide
+  ms.date: 08/06/2026
+  ms.update-cycle: 1095-days
+  ai-usage: ai-assisted
+  ms.topic: example-scenario
+  ms.subservice: example-scenario
   ms.custom:
     - linux-related-content
 azureCategories:
@@ -22,7 +24,7 @@ products:
   - azure-virtual-machines
   - azure-virtual-network
 name: Deploy IBM Maximo Application Suite on Azure
-summary: Learn how to run IBM Maximo Application Suite (MAS) on Azure. See guidance for designing and implementing cloud solutions with Maximo 8.5 and up that use Azure.
-thumbnailUrl: /azure/architecture/browse/thumbs/deploy-ibm-maximo-application-suite-thumbnail.png
+summary: Learn how to run IBM Maximo Application Suite (MAS) on Azure by using Azure Red Hat OpenShift or self-managed Red Hat OpenShift.
+thumbnailUrl: /azure/architecture/browse/thumbs/deploy-ibm-maximo-application-suite.png
 content: |
   [!INCLUDE[](deploy-ibm-maximo-application-suite-content.md)]
