@@ -273,7 +273,7 @@ Keep it short, professional, and encouraging. You're raising awareness of a poss
 
 - Don't explain your reasoning or criteria. The value is the mention and the hint, not a description of your process.
 
-- Always close by offering help: if the person the PR is waiting on is unsure how to proceed, they can reach out to @ckittel or @claytonsiemens77 on Microsoft Teams for support. Skip that offer for whichever of them the PR is already waiting on.
+- Always close by offering help: if the person the PR is waiting on is unsure how to proceed, they can reach out to @ckittel or @claytonsiemens77 on Microsoft Teams for support. Offer both by default. Drop one of them only when the outstanding action is directly waiting on that specific person; in every other case, keep both.
 
 ## Never
 
