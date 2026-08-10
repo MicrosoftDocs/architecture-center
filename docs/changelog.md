@@ -2,7 +2,7 @@
 title: What's New in Azure Architecture Center
 description: New and updated articles in Azure Architecture Center
 author: claytonsiemens77
-ms.date: 08/07/2026
+ms.date: 08/09/2026
 ms.topic: whats-new
 ms.author: pnp
 ---
@@ -34,6 +34,10 @@ The following new and updated articles have recently been published in the Azure
 - [Baseline architecture for an Azure Kubernetes Service (AKS) cluster](./reference-architectures/containers/aks/baseline-aks.yml) ([#0127319561](https://github.com/MicrosoftDocs/architecture-center/commit/0127319561))
 - [High availability enterprise deployment that uses App Service Environment](./web-apps/app-service-environment/architectures/app-service-environment-high-availability-deployment.yml) ([#814696e1be](https://github.com/MicrosoftDocs/architecture-center/commit/814696e1be))
 - [Build and deploy custom document processing models on Azure](./ai-ml/architecture/build-deploy-custom-models.yml) ([#a63a83cbe8](https://github.com/MicrosoftDocs/architecture-center/commit/a63a83cbe8))
+- [Choose an Azure service for vector search](./guide/technology-choices/vector-search.md) ([#0071e2e4fb](https://github.com/MicrosoftDocs/architecture-center/commit/0071e2e4fb))
+- [Integrate Event Hubs with serverless functions on Azure](./serverless/event-hubs-functions/event-hubs-functions.md) ([#dd0d085b45](https://github.com/MicrosoftDocs/architecture-center/commit/dd0d085b45))
+- [Monitor Azure Functions and Event Hubs](./serverless/event-hubs-functions/observability.md) ([#b390884633](https://github.com/MicrosoftDocs/architecture-center/commit/b390884633))
+- [SAP HANA for Linux VMs in scale-up systems](./reference-architectures/sap/run-sap-hana-for-linux-virtual-machines.yml) ([#4a6765ec98](https://github.com/MicrosoftDocs/architecture-center/commit/4a6765ec98))
 
 ## July 2026
 

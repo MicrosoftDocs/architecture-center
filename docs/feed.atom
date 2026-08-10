@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id/>
     <title>Azure Architecture Center</title>
-    <updated>2026-08-05T21:38:36.000Z</updated>
+    <updated>2026-08-07T20:37:56.000Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <subtitle>Updated articles for Azure Architecture Center</subtitle>
     <rights>https://learn.microsoft.com/legal/termsofuse</rights>
@@ -78,6 +78,38 @@
         <link href="https://learn.microsoft.com/azure/architecture/ai-ml/architecture/build-deploy-custom-models"/>
         <updated>2026-08-03T19:10:59.000Z</updated>
         <summary type="html"><![CDATA[Learn more about Azure options for orchestrating, storing, building, deploying, and using custom document processing models.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Choose an Azure service for vector search]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/guide/technology-choices/vector-search#0071e2e4fb</id>
+        <link href="https://learn.microsoft.com/azure/architecture/guide/technology-choices/vector-search"/>
+        <updated>2026-08-04T17:56:22.000Z</updated>
+        <summary type="html"><![CDATA[Compare capabilities, indexing methods, and integration options to determine which Azure vector search service best fits your application.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Integrate Event Hubs with serverless functions on Azure]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/serverless/event-hubs-functions/event-hubs-functions</id>
+        <link href="https://learn.microsoft.com/azure/architecture/serverless/event-hubs-functions/event-hubs-functions"/>
+        <updated>2026-08-05T21:22:33.000Z</updated>
+        <summary type="html"><![CDATA[Learn how to architect, develop, and deploy efficient and scalable code that runs on Azure Functions and responds to Event Hubs events.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Monitor Azure Functions and Event Hubs]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/serverless/event-hubs-functions/observability</id>
+        <link href="https://learn.microsoft.com/azure/architecture/serverless/event-hubs-functions/observability"/>
+        <updated>2026-08-06T14:48:18.000Z</updated>
+        <summary type="html"><![CDATA[Learn how to monitor an Azure Functions topology that uses Event Hubs.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[SAP HANA for Linux VMs in scale-up systems]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/reference-architectures/sap/run-sap-hana-for-linux-virtual-machines#4a6765ec98</id>
+        <link href="https://learn.microsoft.com/azure/architecture/reference-architectures/sap/run-sap-hana-for-linux-virtual-machines"/>
+        <updated>2026-08-07T20:37:56.000Z</updated>
+        <summary type="html"><![CDATA[Learn about proven practices for running SAP HANA in a high-availability scale-up environment that supports disaster recovery on Azure.]]></summary>
         <category label="updated" term="updated"/>
     </entry>
     <entry>
