@@ -27,6 +27,6 @@ jobs:
           persist-credentials: false
       - name: Install gh-aw extension
         if: github.repository == 'MicrosoftDocs/architecture-center-pr'
-        uses: github/gh-aw-actions/setup-cli@2709137ea6c5b0e19aa621454dc643ea8dc526b1 # v0.85.4
+        uses: github/gh-aw-actions/setup-cli@8914f47b6c1bb8a802c7549f5ac1a81434b66403 # v0.86.1
         with:
           version: v0.85.4
