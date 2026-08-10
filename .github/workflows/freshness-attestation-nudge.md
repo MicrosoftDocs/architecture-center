@@ -124,9 +124,16 @@ Updated Visio diagram link: <https://microsoft-my.sharepoint.com/INSERT-HERE>
 Use the `update-pull-request` safe output with the target PR's number and the full, rebuilt body.
 
 - If the attestation block is entirely missing, prepend the block to the top of the existing body, then add a blank line, and then add the author's original body content. Preserve all of the author's existing content.
+
 - If the block is present but incomplete or malformed, bring it into line with the canonical block while preserving every other part of the author's body.
+
 - Never remove or alter content the author wrote outside the attestation block.
-- Idempotency guard: before you emit an update, compare your rebuilt body against the current PR body. Emit the `update-pull-request` output only when they differ in a way that matters: the block was added, a checkbox state changed, or a link line changed. If your rebuilt body would be functionally equivalent to the current one, emit no output for that PR and post no comment. Because you re-evaluate every in-window PR each run, this guard is what prevents repeat edits and duplicate comments.
+
+- Idempotency guard: before you emit an update, compare your rebuilt body against the current PR body. Emit the `update-pull-request` output only when they differ in a way that matters: the block was added, a checkbox state changed, or a link line changed.
+
+  - Both plain `AB#12345` and the rendered form `[AB#12345](https://dev.azure.com/.../_workitems/edit/12345)` are already-correct, final states for the same work item. Never rewrite one into the other. The Azure Boards app renders the plain form into the link form on its own, so converting the link form back to plain text only causes it to be re-rendered, which produces a pointless edit and comment on every run.
+
+  - If your rebuilt body would be functionally equivalent to the current one, emit no output for that PR and post no comment. Because you re-evaluate every in-window PR each run, this guard is what prevents repeat edits and duplicate comments.
 
 ### Checkbox rules
 
@@ -137,7 +144,7 @@ Use the `update-pull-request` safe output with the target PR's number and the fu
 
 ### Link line rules
 
-- `Azure DevOps work item link:` — if the author already provided a real work item reference (for example `AB#12345`), keep it.  If the author copy and pasted an Azure DevOps link, convert it to the AB#12345 style so that it gets auto-linked to our Azure DevOps instance. Otherwise leave the `AB#NNNNN` placeholder.
+- `Azure DevOps work item link:` — if the line already identifies a real work item, leave it exactly as it is. Both the plain `AB#12345` reference and its rendered link form `[AB#12345](https://dev.azure.com/.../_workitems/edit/12345)` are valid, finished states. Only when the author pasted some other Azure DevOps work item URL (one that isn't already an `AB#12345` reference or its rendered link) do you convert it to the `AB#12345` style. Otherwise leave the `AB#NNNNN` placeholder.
 - `Updated Visio diagram link:` — if the author already provided a SharePoint link, keep it. Otherwise, if the PR didn't change the article in a way that affects the diagram (no image file updates, no changes to text that appears on the diagram, and no diagram branding updates needed), set this line to exactly `Updated Visio diagram link: None needed` with no further explanation. If a diagram update might be warranted and no link is present, leave the `INSERT-HERE` placeholder. Sometimes contributors leave a link to the Visio in a comment in the PR instead of the PR body. If you find that link, copy that link up to the line in the PR body accordingly.
 
 ## How to comment
