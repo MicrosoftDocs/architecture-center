@@ -11,6 +11,9 @@ on:
 
 if: github.repository == 'MicrosoftDocs/architecture-center-pr'
 
+imports:
+  - shared/safe-comment-body.md
+
 permissions:
   contents: read
   issues: read
