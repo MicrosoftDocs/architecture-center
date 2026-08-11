@@ -434,4 +434,4 @@ Consider the following points when you plan for scalability:
 - [Baseline architecture for an AKS cluster](../aks/baseline-aks.yml)
 - [Design, build, and operate microservices on Azure with Kubernetes](../../../guide/architecture-styles/microservices.md)
 - [Microservices architecture on AKS](./aks-microservices.yml)
-- [Build a CI/CD pipeline for microservices on Kubernetes](../../../microservices/ci-cd-kubernetes.yml)
+- [Build a CI/CD pipeline for microservices on Kubernetes](../../../microservices/ci-cd-kubernetes.md)

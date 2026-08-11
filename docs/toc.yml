@@ -839,7 +839,7 @@ items:
             href: reference-architectures/containers/aro/azure-redhat-openshift-financial-services-workloads.yml
           - name: CI/CD for microservices on Kubernetes
             displayName: continuous integration continuous delivery
-            href: microservices/ci-cd-kubernetes.yml
+            href: microservices/ci-cd-kubernetes.md
       - name: Guides
         items:
         - name: Application
@@ -1080,6 +1080,8 @@ items:
       items:
       - name: Adaptive cloud
         items:
+        - name: Build adaptive applications
+          href: solution-ideas/articles/adaptive-apps.yml
         - name: Azure Arc solutions
           items:
           - name: Manage Kubernetes by using Azure Arc
@@ -1195,7 +1197,7 @@ items:
       - name: Event Hubs with Azure Functions
         items:
         - name: Overview
-          href: serverless/event-hubs-functions/event-hubs-functions.yml
+          href: serverless/event-hubs-functions/event-hubs-functions.md
         - name: Performance and scale
           href: serverless/event-hubs-functions/performance-scale.md
         - name: Resilient design
@@ -1203,7 +1205,7 @@ items:
         - name: Security
           href: serverless/event-hubs-functions/security.md
         - name: Observability
-          href: serverless/event-hubs-functions/observability.yml
+          href: serverless/event-hubs-functions/observability.md
       - name: Apache Kafka migration to Azure
         href: guide/hadoop/apache-kafka-migration.yml
   - name: Internet of Things

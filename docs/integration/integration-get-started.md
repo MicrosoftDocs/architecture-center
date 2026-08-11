@@ -58,7 +58,7 @@ The following articles help you evaluate and select the best integration technol
 
 #### Azure Event Hubs with Azure Functions
 
-- [Integrate Azure Event Hubs with serverless functions on Azure](../serverless/event-hubs-functions/event-hubs-functions.yml): Guidance for how to effectively integrate Azure Event Hubs with Azure Functions for performance, resiliency, security, and scale.
+- [Integrate Azure Event Hubs with serverless functions on Azure](../serverless/event-hubs-functions/event-hubs-functions.md): Guidance for how to effectively integrate Azure Event Hubs with Azure Functions for performance, resiliency, security, and scale.
 
 - [Performance and scale guidance for Azure Event Hubs and Azure Functions](../serverless/event-hubs-functions/performance-scale.md): Optimize scalability and performance when you use Azure Event Hubs and Azure Functions together.
 
@@ -66,7 +66,7 @@ The following articles help you evaluate and select the best integration technol
 
 - [Secure Azure Functions and Azure Event Hubs](../serverless/event-hubs-functions/security.md): Apply fine-grained access control and network security for Azure Event Hubs and Azure Functions.
 
-- [Monitor Azure Functions and Azure Event Hubs](../serverless/event-hubs-functions/observability.yml): Use Application Insights to monitor the behavior and health of Azure Event Hubs and Azure Functions solutions.
+- [Monitor Azure Functions and Azure Event Hubs](../serverless/event-hubs-functions/observability.md): Use Application Insights to monitor the behavior and health of Azure Event Hubs and Azure Functions solutions.
 
 #### Migration
 
@@ -104,11 +104,11 @@ For integration-specific guidance, see the following Azure Well-Architected Fram
 
 Follow these best practices to improve the reliability, security, cost effectiveness, performance, and operational quality of your integration workloads on Azure:
 
-- [Integrate Event Hubs with serverless functions on Azure](../serverless/event-hubs-functions/event-hubs-functions.yml): Guidance for how to effectively integrate Azure Event Hubs with Azure Functions for performance, resiliency, security, observability, and scale.
+- [Integrate Event Hubs with serverless functions on Azure](../serverless/event-hubs-functions/event-hubs-functions.md): Guidance for how to effectively integrate Azure Event Hubs with Azure Functions for performance, resiliency, security, observability, and scale.
 
 - [Performance and scale guidance for Azure Event Hubs and Azure Functions](../serverless/event-hubs-functions/performance-scale.md): Optimize scalability and performance when you use Azure Event Hubs and Azure Functions together.
 
-- [Monitor Azure Functions and Azure Event Hubs](../serverless/event-hubs-functions/observability.yml): Use Application Insights to monitor the behavior and health of Azure Event Hubs and Azure Functions solutions.
+- [Monitor Azure Functions and Azure Event Hubs](../serverless/event-hubs-functions/observability.md): Use Application Insights to monitor the behavior and health of Azure Event Hubs and Azure Functions solutions.
 
 - [Multiple-region deployments for disaster recovery (DR) in Azure Logic Apps](/azure/logic-apps/multi-region-disaster-recovery): Set up deployments in multiple regions for Azure Logic Apps to protect data and maintain business continuity (BC).
 

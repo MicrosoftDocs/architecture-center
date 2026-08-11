@@ -319,7 +319,7 @@ conceptualContent:
           url: ./web-apps/api-management/architectures/protect-apis.yml
         - text: Serverless event processing
           itemType: concept
-          url: ./serverless/event-hubs-functions/event-hubs-functions.yml
+          url: ./serverless/event-hubs-functions/event-hubs-functions.md
         - text: Write-through caching for web applications
           itemType: architecture
           url: ./databases/architecture/write-through-caching-azure-sql-managed-redis.yml
