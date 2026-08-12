@@ -3,7 +3,7 @@ title: Caching Guidance
 description: Learn how caching can improve the performance and scalability of a system by copying frequently accessed data to fast storage close to the application.
 author: claytonsiemens77
 ms.author: pnp
-ms.date: 03/25/2026
+ms.date: 08/12/2026
 ms.topic: concept-article
 ms.subservice: architecture-guide
 ---
@@ -603,7 +603,7 @@ When you serialize values as Redis strings instead, common format options includ
 
 - [Protocol Buffers](https://protobuf.dev) (protobuf) - A schema-based binary format that produces compact payloads. Requires `.proto` definition files and a compilation step to generate language-specific code.
 
-- [BSON](https://bsonspec.org) - A binary format that extends JSON with more types, such as dates and raw binary data. Payloads are comparable in size to JSON. A practical choice when your application already uses BSON elsewhere, such as with MongoDB.
+- [BSON](https://bsonspec.org) - A binary format that extends JSON with more types, such as dates and raw binary data. Payloads are comparable in size to JSON. A practical choice when your application already uses BSON elsewhere, such as with [Azure DocumentDB (with MongoDB compatibility)](https://learn.microsoft.com/azure/documentdb/) or MongoDB.
 
 ## Related resources
 
