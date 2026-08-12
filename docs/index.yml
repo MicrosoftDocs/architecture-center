@@ -232,7 +232,7 @@ conceptualContent:
           url: ./guide/technology-choices/hybrid-considerations.yml
         - text: Connect a cross-premises network to Azure
           itemType: architecture
-          url: ./reference-architectures/hybrid-networking/index.yml
+          url: ./reference-architectures/hybrid-networking/hybrid-connectivity-options.md
         - text: Azure Local baseline architecture
           itemType: architecture
           url: ./hybrid/azure-local-baseline.yml
@@ -259,13 +259,13 @@ conceptualContent:
       links:
         - text: Choose a hybrid network architecture
           itemType: quickstart
-          url: ./reference-architectures/hybrid-networking/index.yml
+          url: reference-architectures/hybrid-networking/hybrid-connectivity-options.md
         - text: Hub-spoke topology
           itemType: architecture
           url: ./networking/architecture/hub-spoke.yml
         - text: ExpressRoute with VPN failover
           itemType: architecture
-          url: ./reference-architectures/hybrid-networking/expressroute-vpn-failover.yml
+          url: reference-architectures/hybrid-networking/expressroute-vpn-failover.md
         - text: Implement a secure hybrid network
           itemType: architecture
           url: ./reference-architectures/dmz/secure-vnet-dmz.yml

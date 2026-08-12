@@ -348,4 +348,5 @@ Principal author:
 - [Design a hybrid DNS solution by using Azure](../../hybrid/hybrid-dns-infra.yml)
 - [Implement a secure hybrid network](../../reference-architectures/dmz/secure-vnet-dmz.yml)
 - [Hub-spoke network topology in Azure](../architecture/hub-spoke.yml)
+- [Connect an on-premises network to Azure by using ExpressRoute](../../reference-architectures/hybrid-networking/expressroute-vpn-failover.md)
 - [Firewall and Application Gateway for virtual networks](../../example-scenario/gateway/firewall-application-gateway.md)

@@ -183,7 +183,7 @@ The following new and updated articles have recently been published in the Azure
 - [SAP deployment in Azure using an Oracle database](./example-scenario/apps/sap-production.yml) ([#53392222cb](https://github.com/MicrosoftDocs/architecture-center/commit/53392222cb))
 - [SAP HANA for Linux VMs in Scale-up Systems](./reference-architectures/sap/run-sap-hana-for-linux-virtual-machines.yml) ([#53392222cb](https://github.com/MicrosoftDocs/architecture-center/commit/53392222cb))
 - [Get Started with Analytics Architecture Design](./analytics/analytics-get-started.md) ([#c1d9a38be0](https://github.com/MicrosoftDocs/architecture-center/commit/c1d9a38be0))
-- [Connect an On-Premises Network to Azure by Using ExpressRoute with VPN Failover](./reference-architectures/hybrid-networking/expressroute-vpn-failover.yml) ([#26d509a3cc](https://github.com/MicrosoftDocs/architecture-center/commit/26d509a3cc))
+- [Connect an On-Premises Network to Azure by Using ExpressRoute with VPN Failover](./reference-architectures/hybrid-networking/expressroute-vpn-failover.md) ([#26d509a3cc](https://github.com/MicrosoftDocs/architecture-center/commit/26d509a3cc))
 - [Architectural Approaches for Identity in Multitenant Solutions](./guide/multitenant/approaches/identity.md) ([#4adfeda2a5](https://github.com/MicrosoftDocs/architecture-center/commit/4adfeda2a5))
 - [AKS for Amazon EKS Professionals](./aws-professional/eks-to-aks/index.md) ([#d20643d84b](https://github.com/MicrosoftDocs/architecture-center/commit/d20643d84b))
 - [Hub-Spoke Network Topology That Uses Azure Virtual WAN](./networking/architecture/hub-spoke-virtual-wan-architecture.yml) ([#cb3d58ce6f](https://github.com/MicrosoftDocs/architecture-center/commit/cb3d58ce6f))
