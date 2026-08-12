@@ -412,7 +412,17 @@
     },
     {
       "source_path": "docs/blueprints/hybrid-networking/index.md",
-      "redirect_url": "/azure/architecture/reference-architectures/hybrid-networking/",
+      "redirect_url": "/azure/architecture/reference-architectures/hybrid-networking/hybrid-connectivity-options",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/reference-architectures/hybrid-networking/index.yml",
+      "redirect_url": "/azure/architecture/reference-architectures/hybrid-networking/hybrid-connectivity-options",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "azure/architecture/reference-architectures/hybrid-networking/",
+      "redirect_url": "/azure/architecture/reference-architectures/hybrid-networking/hybrid-connectivity-options",
       "redirect_document_id": true
     },
     {

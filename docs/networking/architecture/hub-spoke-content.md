@@ -235,7 +235,7 @@ Use [availability zones](/azure/reliability/availability-zones-overview) for Azu
 
 We recommend that you use at least one hub per region and that you connect only spokes from the same region to those hubs. This configuration helps bulkhead regions to avoid failures in one region's hub that could cause widespread network routing failures in unrelated regions.
 
-For higher availability, you can use ExpressRoute and a VPN for failover. For more information, see [Connect an on-premises network to Azure by using ExpressRoute with VPN failover](../../reference-architectures/hybrid-networking/expressroute-vpn-failover.yml) and [Design and architect ExpressRoute for resiliency](/azure/expressroute/design-architecture-for-resiliency).
+For higher availability, you can use ExpressRoute and a VPN for failover. For more information, see [Connect an on-premises network to Azure by using ExpressRoute with VPN failover](../../reference-architectures/hybrid-networking/expressroute-vpn-failover.md) and [Design and architect ExpressRoute for resiliency](/azure/expressroute/design-architecture-for-resiliency).
 
 Because of how Azure Firewall implements FQDN application rules, ensure that all resources that egress through the firewall use the same DNS provider as the firewall itself. Otherwise, Azure Firewall might block legitimate traffic because the firewall's IP resolution of the FQDN differs from the traffic originator's IP resolution of the same FQDN. You can include Azure Firewall proxy in the spoke DNS resolution to keep FQDNs in sync with the traffic originator and with Azure Firewall.
 

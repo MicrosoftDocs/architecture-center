@@ -44,7 +44,7 @@ Disaster recovery (DR) isn't covered in this architecture. For the network desig
 
    Separation into subnets by workload makes it easier to use network security groups (NSGs) to set security rules for application VMs or deployed Azure services.
 
-- A [zone-redundant gateway](/azure/reliability/reliability-virtual-network-gateway) connects distinct networks, extending your on-premises network to the Azure virtual network. We recommend that you use [ExpressRoute](/azure/well-architected/service-guides/azure-expressroute) to create private connections that don't use the public internet. You can also use a [site-to-site](../../reference-architectures/hybrid-networking/expressroute-vpn-failover.yml) connection. Use [zone-redundant Azure ExpressRoute](/azure/vpn-gateway/about-zone-redundant-vnet-gateways) or VPN gateways to guard against zone failures.
+- A [zone-redundant gateway](/azure/reliability/reliability-virtual-network-gateway) connects distinct networks, extending your on-premises network to the Azure virtual network. We recommend that you use [ExpressRoute](/azure/well-architected/service-guides/azure-expressroute) to create private connections that don't use the public internet. You can also use a [site-to-site](../../reference-architectures/hybrid-networking/expressroute-vpn-failover.md) connection. Use [zone-redundant Azure ExpressRoute](/azure/vpn-gateway/about-zone-redundant-vnet-gateways) or VPN gateways to guard against zone failures.
 
 - [NSGs](/azure/virtual-network/tutorial-filter-network-traffic-cli) are used to restrict network traffic to and from the virtual network. Create NSGs and assign them to specific subnets. Provide security for individual subnets by using workload-specific NSGs.
 

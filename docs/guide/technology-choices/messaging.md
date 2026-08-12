@@ -320,7 +320,7 @@ Consider the following patterns when you implement asynchronous messaging:
 
 - [Competing Consumers pattern](../../patterns/competing-consumers.md): Multiple consumers might need to compete to read messages from a queue. This pattern explains how to process multiple messages concurrently to optimize throughput, improve scalability and availability, and balance the workload.
 
-- [Priority Queue pattern](../../patterns/priority-queue.yml): When business logic requires prioritized message processing, this pattern describes how consumers process higher-priority messages before lower-priority messages.
+- [Priority Queue pattern](../../patterns/priority-queue.md): When business logic requires prioritized message processing, this pattern describes how consumers process higher-priority messages before lower-priority messages.
 
 - [Queue-Based Load Leveling pattern](../../patterns/queue-based-load-leveling.md): This pattern uses a message broker to act as a buffer between a producer and a consumer. This pattern helps minimize the impact of intermittent heavy loads on both the producer's and consumer's availability and responsiveness.
 

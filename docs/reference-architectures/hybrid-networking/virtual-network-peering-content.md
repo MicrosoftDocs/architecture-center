@@ -291,7 +291,7 @@ Other contributors:
 ## Next steps
 
 - [Plan virtual networks](/azure/virtual-network/virtual-network-vnet-plan-design-arm)
-- [Choose a solution to connect an on-premises network to Azure](./index.yml)
+- [Choose a solution to connect an on-premises network to Azure](./hybrid-connectivity-options.md)
 - [Create a virtual network peering by using the Azure portal](/azure/virtual-network/tutorial-connect-virtual-networks-portal)
 - [Virtual Network Manager](/azure/virtual-network-manager/overview)
 - [Hub-spoke network topology in Azure](/azure/architecture/reference-architectures/hybrid-networking/hub-spoke)
