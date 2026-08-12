@@ -152,7 +152,7 @@ Principal author:
 
 - [Queue-Based Load Leveling pattern](./queue-based-load-leveling.md): A queue buffers work between producers and consumers to absorb bursts and smooth uneven load. The Sequential Convoy pattern builds on this buffering by adding session-based partitioning, so that the queue both levels load across categories and preserves FIFO ordering within each category.
 
-- [Priority Queue pattern](./priority-queue.yml): Messages are routed to separate queues or given priority within a queue so that higher-priority work is processed before lower-priority work. When ordering within a priority level must also be preserved, the Sequential Convoy pattern can be combined with priority queuing to enforce FIFO processing within each priority-keyed session.
+- [Priority Queue pattern](./priority-queue.md): Messages are routed to separate queues or given priority within a queue so that higher-priority work is processed before lower-priority work. When ordering within a priority level must also be preserved, the Sequential Convoy pattern can be combined with priority queuing to enforce FIFO processing within each priority-keyed session.
 
 - [Peek-Lock Message (Non-Destructive Read)](/rest/api/servicebus/peek-lock-message-non-destructive-read): This operation atomically retrieves and locks a message from a queue or subscription for processing.
 

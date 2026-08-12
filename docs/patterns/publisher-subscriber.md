@@ -88,7 +88,7 @@ Consider the following points as you decide how to implement this pattern:
 
 - **Message ordering:** The order in which subscribers receive messages isn't guaranteed and doesn't necessarily reflect the order in which the sender created them. If ordering matters, the broker might support ordered delivery within a partition or session, but that constrains scalability. Design subscribers to handle messages independently of arrival order.
 
-- **Message priority:** Some workloads require that specific messages be processed before others. The [Priority Queue pattern](priority-queue.yml) provides a mechanism to route higher-priority messages before lower-priority messages.
+- **Message priority:** Some workloads require that specific messages be processed before others. The [Priority Queue pattern](priority-queue.md) provides a mechanism to route higher-priority messages before lower-priority messages.
 
 - **Poison messages:** A malformed message, or a task that requires access to unavailable resources, can cause a service instance to fail. Capture and store these message details elsewhere for analysis. Some message brokers, like Service Bus, support this process through [dead-letter queues](/azure/service-bus-messaging/service-bus-dead-letter-queues).
 
