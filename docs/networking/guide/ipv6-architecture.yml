@@ -4,7 +4,7 @@ metadata:
   description: Learn how to transition a hub-and-spoke network topology in Azure so it supports IPv6, which creates a dual-stack network.
   author: WernerRall147
   ms.author: weral
-  ms.date: 2/09/2024
+  ms.date: 02/09/2024
   ms.topic: concept-article
   ms.subservice: architecture-guide
   ai-usage: ai-assisted
@@ -15,10 +15,11 @@ azureCategories:
   - management-and-governance
 summary: Learn how to transition a hub-and-spoke network topology in Azure so it supports IPv6, which creates a dual-stack network.
 products:
-  - azure-firewall
   - azure-virtual-network
-  - azure-virtual-wan
+  - azure-expressroute
+  - azure-load-balancer
+  - azure-firewall
   - azure-vpn-gateway
-thumbnailUrl: ../../browse/thumbs/ipv6-hub-spoke-network-topology.png
+thumbnailUrl: /azure/architecture/browse/thumbs/ipv6-hub-spoke-network-topology.png
 content: |
    [!include[](ipv6-architecture-content.md)]
