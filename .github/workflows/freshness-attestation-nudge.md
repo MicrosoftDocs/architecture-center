@@ -11,6 +11,9 @@ on:
 
 if: github.repository == 'MicrosoftDocs/architecture-center-pr'
 
+imports:
+  - shared/safe-comment-body.md
+
 permissions:
   contents: read
   issues: read
@@ -62,6 +65,11 @@ tools:
     mode: gh-proxy
     toolsets: [default]
   bash: true
+
+steps:
+  # Workaround for github/gh-aw#52327
+  - name: Force a fresh Copilot CLI install (gh-aw#52327)
+    run: sudo rm -rf "${RUNNER_TOOL_CACHE}/copilot-cli"
 
 timeout-minutes: 20
 ---

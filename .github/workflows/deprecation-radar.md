@@ -64,6 +64,9 @@ tools:
     allowed-extensions: [".json"]
 
 steps:
+  # Workaround for github/gh-aw#52327
+  - name: Force a fresh Copilot CLI install (gh-aw#52327)
+    run: sudo rm -rf "${RUNNER_TOOL_CACHE}/copilot-cli"
   - name: Build the round-robin batch worklist
     uses: actions/github-script@3a2844b7e9c422d3c10d287c895573f7108da1b3 # v9.0.0
     with:

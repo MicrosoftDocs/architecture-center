@@ -265,5 +265,5 @@ Principal authors:
 
 ## Related resources
 
-- [Connect an on-premises network to Azure by using ExpressRoute](../../reference-architectures/hybrid-networking/expressroute-vpn-failover.yml)
+- [Connect an on-premises network to Azure by using ExpressRoute](../../reference-architectures/hybrid-networking/expressroute-vpn-failover.md)
 - [Deploy highly available NVAs](network-virtual-appliance-high-availability.md)
