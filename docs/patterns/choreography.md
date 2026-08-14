@@ -72,7 +72,7 @@ Consider the following points when deciding how to implement this pattern:
 
 - **Event schema evolution.** Event schema evolution can cause breaking changes in consumers over time. In this pattern, multiple independent services consume the same events. If a producer changes the data structure of an event, it can break downstream consumers that depend on the old schema. Use a schema registry to manage event contracts and use backward-compatible evolution as services evolve independently.
 
-- **Idempotency and event ordering.** At-least-once delivery and retries can produce duplicate messages, and concurrent consumers can process messages out of order. Design consumers to be idempotent by tracking stable message identifiers. When ordered processing is required, use broker features such as Service Bus sessions or include sequence or version data that lets consumers reject stale events and detect gaps.
+- **Idempotency and event ordering.** At-least-once delivery and retries can produce duplicate messages, and concurrent consumers can process messages out of order. Design consumers to be [idempotent](./idempotent-consumer.md) by tracking stable message identifiers. When ordered processing is required, use broker features such as Service Bus sessions or include sequence or version data that lets consumers reject stale events and detect gaps.
 
 - **Atomic state and event publication.** A service that updates its data store and publishes an event in separate operations can commit one operation while the other fails. Use the [Transactional Outbox pattern](/azure/architecture/databases/guide/transactional-outbox-cosmos) or an equivalent atomic mechanism to persist the state change and event together before a separate process publishes the event.
 

@@ -11,7 +11,7 @@ ms.custom: arb-data
 
 # Implement the Transactional Outbox pattern by using Azure Cosmos DB
 
-Implementing reliable messaging in distributed systems can be challenging. This article describes how to use the Transactional Outbox pattern for reliable messaging and guaranteed delivery of events, which is an important part of supporting [idempotent message processing](/azure/architecture/reference-architectures/containers/aks-mission-critical/mission-critical-data-platform#idempotent-message-processing). This pattern uses Azure Cosmos DB transactional batches, the change feed, and Azure Service Bus.
+Implementing reliable messaging in distributed systems can be challenging. This article describes how to use the Transactional Outbox pattern for reliable messaging and guaranteed delivery of events, which is an important part of supporting [idempotent message processing](/azure/architecture/patterns/idempotent-consumer). This pattern uses Azure Cosmos DB transactional batches, the change feed, and Azure Service Bus.
 
 ## Overview
 
@@ -608,7 +608,7 @@ Principal authors:
 
 ## Related resources
 
-- [Idempotent message processing](../../reference-architectures/containers/aks-mission-critical/mission-critical-data-platform.md#idempotent-message-processing)
+- [Idempotent Consumer pattern](../../patterns/idempotent-consumer.md)
 - [Use tactical DDD to design microservices](../../microservices/model/tactical-ddd.yml)
 - [CQRS pattern](../../patterns/cqrs.md)
 - [Materialized View pattern](../../patterns/materialized-view.yml)

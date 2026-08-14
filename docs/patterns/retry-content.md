@@ -49,7 +49,7 @@ If a request still fails after a significant number of retries, it's better for 
 
 ### Idempotency
 
-Consider whether the operation is idempotent. If so, it's inherently safe to retry. Otherwise, retries could cause the operation to be executed more than once, with unintended side effects. For example, a service might receive the request, process the request successfully, but fail to send a response. At that point, the retry logic might re-send the request, assuming that the first request wasn't received.
+Consider whether the operation is idempotent. If so, it's inherently safe to retry. Otherwise, retries could cause the operation to be executed more than once, with unintended side effects. For example, a service might receive the request, process the request successfully, but fail to send a response. At that point, the retry logic might re-send the request, assuming that the first request wasn't received. For consumers that process redelivered messages, see the [Idempotent Consumer pattern](./idempotent-consumer.md).
 
 ### Exception type
 
