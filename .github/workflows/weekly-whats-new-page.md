@@ -61,11 +61,6 @@ tools:
     retention-days: 90
     allowed-extensions: [".json"]
 
-steps:
-  # Workaround for github/gh-aw#52327
-  - name: Force a fresh Copilot CLI install (gh-aw#52327)
-    run: sudo rm -rf "${RUNNER_TOOL_CACHE}/copilot-cli"
-
 timeout-minutes: 20
 ---
 
