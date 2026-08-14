@@ -104,7 +104,7 @@ These considerations implement the pillars of the Azure Well-Architected Framewo
 
 Reliability helps ensure that your application can meet the commitments that you make to your customers. For more information, see [Design review checklist for Reliability](/azure/well-architected/reliability/checklist).
 
-- The Azure Cosmos DB change feed guarantees at-least-once delivery. Design your replication function to be idempotent so that duplicate events don't generate inconsistent data in Table Storage.
+- The Azure Cosmos DB change feed guarantees at-least-once delivery. Design your replication function to be [idempotent](../../patterns/idempotent-consumer.md#idempotent-processing-beyond-messaging) so that duplicate events don't generate inconsistent data in Table Storage.
 
 - Azure Front Door provides automatic regional failover. If the primary region becomes unavailable, traffic routes to the standby region without manual intervention.
 

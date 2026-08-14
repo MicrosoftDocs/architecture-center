@@ -58,4 +58,4 @@ Azure SQL Database and SQL Server support optimistic concurrency through [snapsh
 [sas-pattern]: ../../patterns/scheduler-agent-supervisor.yml
 [sql-snapshot-isolation]: /sql/t-sql/statements/set-transaction-isolation-level-transact-sql
 [storage-concurrency]: https://azure.microsoft.com/blog/managing-concurrency-in-microsoft-azure-storage-2
-[idempotent]: /azure/architecture/reference-architectures/containers/aks-mission-critical/mission-critical-data-platform#idempotent-message-processing
+[idempotent]: /azure/architecture/patterns/idempotent-consumer
