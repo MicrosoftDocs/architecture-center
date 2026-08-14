@@ -15,9 +15,9 @@ This article provides a standards-based industrial IoT reference solution that u
 > [!NOTE]
 > This article describes a Microsoft OPC UA reference solution that demonstrates how to send telemetry from OPC UA-enabled industrial assets to Azure. The solution is provided as reference guidance and sample implementation content to help architects and developers understand one possible approach.
 >
-> This reference solution is not a Microsoft-supported product offering and should be evaluated carefully before use in production environments. Organizations are responsible for validating that the architecture, components, and operational requirements meet their specific business and technical needs.
+> This reference solution isn't a Microsoft-supported product offering. Evaluate it carefully before use in production environments. Organizations are responsible for validating that the architecture, components, and operational requirements meet their specific business and technical needs.
 >
-> For most new production deployments, Microsoft recommends using Azure IoT Operations, which provides a fully supported platform for connecting, managing, and processing industrial telemetry, including data from OPC UA sources. Azure IoT Operations can be used with OPC UA-enabled environments as well as broader industrial and edge scenarios.
+> For most new production deployments, Microsoft recommends using Azure IoT Operations, which provides a fully supported platform for connecting, managing, and processing industrial telemetry, including data from OPC UA sources. You can use Azure IoT Operations with OPC UA-enabled environments as well as broader industrial and edge scenarios.
 >
 > To learn more, see the [**Azure IoT Operations Overview**](/azure/iot-operations/overview-iot-operations#architecture-overview).
 
