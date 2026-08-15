@@ -46,7 +46,7 @@ Consider these important points:
 
 This approach is similar to the [Saga distributed transactions pattern](./saga.yml).
 
-Compensating transactions are eventually consistent operations and can fail. The system should record progress so that it can resume the compensating transaction from the point of failure. A step might run multiple times when retried, so design each step as an [idempotent command](/azure/architecture/reference-architectures/containers/aks-mission-critical/mission-critical-data-platform#idempotent-message-processing).
+Compensating transactions are eventually consistent operations and can fail. The system should record progress so that it can resume the compensating transaction from the point of failure. A step might run multiple times when retried, so design each step as an [idempotent command](./idempotent-consumer.md).
 
 Sometimes manual intervention is the only way to recover from a failed step. In these situations, the system should raise an alert that includes detailed information about the reason for the failure.
 

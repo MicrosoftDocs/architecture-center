@@ -135,6 +135,9 @@ items:
     - name: Health Endpoint Monitoring
       displayName: Health check, liveness probe, readiness probe
       href: patterns/health-endpoint-monitoring.yml
+    - name: Idempotent Consumer
+      displayName: message, deduplication, exactly-once
+      href: patterns/idempotent-consumer.md
     - name: Index Table
       displayName: Secondary index, query optimization
       href: patterns/index-table.yml

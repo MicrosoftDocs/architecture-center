@@ -66,6 +66,7 @@ Each pattern in this catalog describes the problem that it addresses, considerat
 | [Gateway Routing](./gateway-routing.yml) | Route requests to multiple services by using a single endpoint. | - Reliability<br><br>- Operational&nbsp;Excellence<br><br>- Performance&nbsp;Efficiency |
 | [Geode](./geodes.yml) | Deploy back-end services across geographically distributed nodes. Each node can handle client requests from any region. | - Reliability<br><br>- Performance&nbsp;Efficiency |
 | [Health Endpoint Monitoring](./health-endpoint-monitoring.yml) | Implement functional checks in an application that external tools can access through exposed endpoints at regular intervals. | - Reliability<br><br>- Operational&nbsp;Excellence<br><br>- Performance&nbsp;Efficiency |
+| [Idempotent Consumer](./idempotent-consumer.md) | Handle duplicate message delivery so that processing a message multiple times has the same effect as processing it once. | - Reliability |
 | [Index Table](./index-table.yml) | Create indexes over the fields in data stores that queries frequently reference. | - Reliability<br><br>- Performance&nbsp;Efficiency |
 | [Leader Election](./leader-election.yml) | Coordinate actions in a distributed application by electing one instance as the leader. The leader manages a collection of collaborating task instances. | - Reliability |
 | [Materialized View](./materialized-view.yml) | Generate prepopulated views over the data in one or more data stores when the data is poorly formatted for required query operations. | - Performance&nbsp;Efficiency |

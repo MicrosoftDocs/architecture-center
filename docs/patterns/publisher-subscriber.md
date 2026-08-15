@@ -102,7 +102,7 @@ Consider the following points as you decide how to implement this pattern:
 
   - *Exactly-once delivery* removes duplicates but adds coordination overhead and latency, and its availability depends on the messaging infrastructure.
 
-  If your broker doesn't provide deduplication, design subscribers to [handle messages idempotently](../reference-architectures/containers/aks-mission-critical/mission-critical-data-platform.md#idempotent-message-processing). Different subscribers in the same workload might require different guarantees.
+  If your broker doesn't provide deduplication, design subscribers to [handle messages idempotently](./idempotent-consumer.md). Different subscribers in the same workload might require different guarantees.
 
 - **Message expiration:** Some messages have a limited lifetime. If a receiver doesn't process a message within that period, the message becomes irrelevant and the system discards it. Set an expiration timestamp in the message data so that receivers can check its relevance before they process it.
 
@@ -168,5 +168,5 @@ The following diagram shows an enterprise integration architecture that uses Ser
 ## Related resources
 
 - [Event-driven architecture style](../guide/architecture-styles/event-driven.md)
-- [Idempotent message processing](../reference-architectures/containers/aks-mission-critical/mission-critical-data-platform.md#idempotent-message-processing)
+- [Idempotent Consumer pattern](./idempotent-consumer.md)
 - [Enterprise integration on Azure by using message queues and events](../example-scenario/integration/queues-events.yml)

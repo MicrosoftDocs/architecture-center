@@ -91,7 +91,7 @@ If you require a background task to communicate with the calling task to indicat
 
 ## Design for idempotency
 
-Background jobs are especially prone to running more than once for the same logical work item. Queues deliver messages at least once, schedulers can overlap if a job runs longer than the timer interval, and infrastructure restarts can replay partially completed work. Design every background job so that the same input produces the same outcome when the job runs multiple times. For more information, see [Idempotent message processing](../reference-architectures/containers/aks-mission-critical/mission-critical-data-platform.md#idempotent-message-processing).
+Background jobs are especially prone to running more than once for the same logical work item. Queues deliver messages at least once, schedulers can overlap if a job runs longer than the timer interval, and infrastructure restarts can replay partially completed work. Design every background job so that the same input produces the same outcome when the job runs multiple times. For more information, see [Idempotent Consumer pattern](../patterns/idempotent-consumer.md).
 
 ## Hosting environment
 
