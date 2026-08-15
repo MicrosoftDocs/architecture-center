@@ -47,7 +47,7 @@ This solution has the following benefits:
 
 Consider the following points as you decide how to implement this pattern:
 
-- **Message ordering:** The order in which consumer service instances receive messages isn't guaranteed and doesn't necessarily show the order in which the messages were created. Design the system so that it [processes messages idempotently](/azure/architecture/reference-architectures/containers/aks-mission-critical/mission-critical-data-platform#idempotent-message-processing). This design helps eliminate processing order dependencies.
+- **Message ordering:** The order in which consumer service instances receive messages isn't guaranteed and doesn't necessarily show the order in which the messages were created. Design the system so that it [processes messages idempotently](./idempotent-consumer.md). This design helps eliminate processing order dependencies.
 
   Azure Service Bus can implement guaranteed first-in-first-out ordering of messages and other patterns by using [message sessions](/azure/service-bus-messaging/message-sessions).
 

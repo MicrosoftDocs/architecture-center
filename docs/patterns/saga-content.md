@@ -88,7 +88,7 @@ Consider the following points as you decide how to implement this pattern:
 
 - **Irreversible local database changes:** Data can't be rolled back because saga participants commit changes to their respective databases.
 
-- **Handling transient failures and idempotence:** The system must handle transient failures effectively and ensure idempotence, when repeating the same operation doesn't alter the outcome. For more information, see [Idempotent message processing](/azure/architecture/reference-architectures/containers/aks-mission-critical/mission-critical-data-platform#idempotent-message-processing).
+- **Handling transient failures and idempotence:** The system must handle transient failures effectively and ensure idempotence, when repeating the same operation doesn't alter the outcome. For more information, see [Idempotent Consumer pattern](./idempotent-consumer.md).
 
 - **Need for monitoring and tracking sagas:** Monitoring and tracking the workflow of a saga are essential tasks to maintain operational oversight.
 

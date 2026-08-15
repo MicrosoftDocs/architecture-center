@@ -81,7 +81,7 @@ The key characteristics of asynchronous messaging include:
 
 - Downstream failures don't affect client transactions.
 
-- Transactional integrity is difficult to maintain because data creation and persistence occur in separate services. Transactional integrity is a challenge across messaging and persistence services. For more information, see [Idempotent message processing](/azure/architecture/reference-architectures/containers/aks-mission-critical/mission-critical-data-platform#idempotent-message-processing).
+- Transactional integrity is difficult to maintain because data creation and persistence occur in separate services. Transactional integrity is also a challenge across messaging and persistence services. Use the [Transactional Outbox pattern](/azure/architecture/databases/guide/transactional-outbox-cosmos) to atomically persist a state change and its outgoing message, and use the [Idempotent Consumer pattern](/azure/architecture/patterns/idempotent-consumer) to tolerate duplicate delivery.
 
 - End-to-end tracing requires complex orchestration.
 
