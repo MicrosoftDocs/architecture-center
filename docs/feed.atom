@@ -329,38 +329,6 @@
         <category label="new" term="new"/>
     </entry>
     <entry>
-        <title type="html"><![CDATA[Health modeling for mission-critical workloads on Azure]]></title>
-        <id>https://learn.microsoft.com/azure/architecture/reference-architectures/containers/aks-mission-critical/mission-critical-health-modeling</id>
-        <link href="https://learn.microsoft.com/azure/architecture/reference-architectures/containers/aks-mission-critical/mission-critical-health-modeling"/>
-        <updated>2026-07-09T18:12:58.000Z</updated>
-        <summary type="html"><![CDATA[Reference architecture for a workload that is accessed over a public endpoint without extra dependencies to other company resources - Health modeling.]]></summary>
-        <category label="updated" term="updated"/>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[Networking and connectivity for mission-critical workloads on Azure]]></title>
-        <id>https://learn.microsoft.com/azure/architecture/reference-architectures/containers/aks-mission-critical/mission-critical-networking</id>
-        <link href="https://learn.microsoft.com/azure/architecture/reference-architectures/containers/aks-mission-critical/mission-critical-networking"/>
-        <updated>2026-07-09T17:34:28.000Z</updated>
-        <summary type="html"><![CDATA[Networking decisions for the architecture of a mission-critical workload on Azure.]]></summary>
-        <category label="updated" term="updated"/>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[Deployment and testing for mission-critical workloads on Azure]]></title>
-        <id>https://learn.microsoft.com/azure/architecture/reference-architectures/containers/aks-mission-critical/mission-critical-deploy-test</id>
-        <link href="https://learn.microsoft.com/azure/architecture/reference-architectures/containers/aks-mission-critical/mission-critical-deploy-test"/>
-        <updated>2026-07-09T17:16:44.000Z</updated>
-        <summary type="html"><![CDATA[Reference architecture for a workload that is accessed over a public endpoint without extra dependencies to other company resources - Deployment and Testing.]]></summary>
-        <category label="updated" term="updated"/>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[Operations for mission-critical workloads on Azure]]></title>
-        <id>https://learn.microsoft.com/azure/architecture/reference-architectures/containers/aks-mission-critical/mission-critical-operations</id>
-        <link href="https://learn.microsoft.com/azure/architecture/reference-architectures/containers/aks-mission-critical/mission-critical-operations"/>
-        <updated>2026-07-09T17:12:11.000Z</updated>
-        <summary type="html"><![CDATA[Guidance for operations for the architecture of a mission-critical workload on Azure.]]></summary>
-        <category label="updated" term="updated"/>
-    </entry>
-    <entry>
         <title type="html"><![CDATA[Use Azure Kubernetes Service to Host GPU-Based Workloads]]></title>
         <id>https://learn.microsoft.com/azure/architecture/reference-architectures/containers/aks-gpu/gpu-aks</id>
         <link href="https://learn.microsoft.com/azure/architecture/reference-architectures/containers/aks-gpu/gpu-aks"/>
