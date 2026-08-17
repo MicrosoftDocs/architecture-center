@@ -721,7 +721,7 @@ You should also create and run performance tests to check that the web API opera
 
 On Azure, consider using [Azure API Management](/azure/api-management) to publish and manage a web API. Using this facility, you can generate a service that acts as a façade for one or more web APIs. The service is itself a scalable web service that you can create and configure by using the Azure portal. You can use this service to publish and manage a web API as follows:
 
-1. Deploy the web API to a website, Azure cloud service, or Azure virtual machine.
+1. Deploy the web API to a hosting platform such as Azure App Service, Azure Container Apps, Azure Kubernetes Service (AKS), or Azure Virtual Machines.
 
 1. Connect the API management service to the web API. Requests sent to the URL of the management API are mapped to URIs in the web API. The same API management service can route requests to more than one web API. This enables you to aggregate multiple web APIs into a single management service. Similarly, the same web API can be referenced from more than one API management service if you need to restrict or partition the functionality available to different applications.
 
