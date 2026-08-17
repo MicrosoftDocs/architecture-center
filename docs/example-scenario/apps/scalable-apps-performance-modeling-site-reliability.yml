@@ -11,6 +11,7 @@ metadata:
 azureCategories:
   - web
   - developer-tools
+  - open-source
 products:
   - azure-front-door
   - azure-api-management

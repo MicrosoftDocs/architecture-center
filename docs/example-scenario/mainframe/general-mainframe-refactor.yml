@@ -13,6 +13,7 @@ metadata:
 azureCategories:
   - hybrid
   - migration
+  - open-source
 products:
   - azure-files
   - azure-load-balancer

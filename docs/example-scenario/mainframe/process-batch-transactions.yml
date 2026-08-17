@@ -12,6 +12,7 @@ azureCategories:
   - compute
   - hybrid
   - migration
+  - open-source
 name: High-volume batch transaction processing
 summary: Use Azure Kubernetes Service (AKS) and Azure Service Bus to implement high-volume batch transaction processing.
 products:

@@ -15,6 +15,7 @@ metadata:
 name: AKS baseline for multiregion clusters
 azureCategories:
   - containers
+  - open-source
 summary: A design for baseline infrastructure that deploys an Azure Kubernetes Service (AKS) cluster to multiple regions.
 products:
   - azure-kubernetes-service

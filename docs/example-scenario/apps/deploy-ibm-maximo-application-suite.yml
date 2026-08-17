@@ -17,6 +17,7 @@ azureCategories:
   - storage
   - analytics
   - iot
+  - open-source
 products:
   - azure-files
   - azure-load-balancer
