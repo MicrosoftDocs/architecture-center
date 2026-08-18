@@ -12,9 +12,9 @@ As a workload owner, you can offload the management of shared resources to centr
 
 ## Article layout
 
-|Architecture| Design decision |Azure Well-Architected Framework approach|
-|---|---|---|
-|&#9642; [Architecture diagram](#architecture) <br>&#9642; [Workload resources](#workload-team-owned-resources) <br> &#9642; [Federated resources](#platform-team-owned-resources)  |&#9642; [Subscription setup](#subscription-setup)<br> &#9642; [Networking requirements](#workload-requirements-and-fulfillments) <br> &#9642; [Network design changes from the baseline](#networking)<br> &#9642; [Monitoring](#monitoring) <br> &#9642; [Patch compliance](#patch-compliance-and-os-upgrades) <br> &#9642; [Organizational governance](#azure-policy) <br> &#9642; [Change management](#manage-changes-over-time)|<br> &#9642; [Reliability](#reliability) <br> &#9642; [Security](#security) <br> &#9642; [Cost Optimization](#cost-optimization)|
+| Architecture | Design decision | Well-Architected Framework approach |
+| --- | --- | --- |
+| &#9642; [Architecture diagram](#architecture) <br>&#9642; [Workload resources](#workload-team-owned-resources) <br> &#9642; [Federated resources](#platform-team-owned-resources) | &#9642; [Subscription setup](#subscription-setup)<br> &#9642; [Networking requirements](#workload-requirements-and-fulfillments) <br> &#9642; [Network design changes from the baseline](#networking)<br> &#9642; [Monitoring](#monitoring) <br> &#9642; [Patch compliance](#patch-compliance-and-os-upgrades) <br> &#9642; [Organizational governance](#azure-policy) <br> &#9642; [Change management](#manage-changes-over-time) | &#9642; [Reliability](#reliability) <br> &#9642; [Security](#security) <br> &#9642; [Cost&nbsp;Optimization](#cost-optimization) |
 
 > [!TIP]
 > ![GitHub logo.](../_images/github.svg) This [reference implementation](https://github.com/mspnp/iaas-landing-zone-baseline) demonstrates the best practices described in this article.

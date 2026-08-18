@@ -4,6 +4,11 @@ This architecture doesn't focus on a workload. It concentrates on the AKS cluste
 
 Your business requirements influence the target architecture and can vary between application contexts. Consider the architecture as your starting point for preproduction and production stages.
 
+> [!TIP]
+> This article covers extensive design considerations for AKS clusters. [AKS Automatic](/azure/aks/intro-aks-automatic) implements many design decisions to reduce the number of considerations you need to evaluate and to optimize for common use cases. For example, AKS Automatic provisions and operates a [managed system node pool](/azure/aks/automatic/aks-automatic-managed-system-node-pools-about), so the system node pool sizing, isolation, and upgrade decisions in this article don't apply to that platform.
+>
+> Even if your workload is going to be hosted in an AKS Automatic environment, knowing the foundations for a self-managed AKS cluster can help you make the right choices as your workload changes.
+
 Kubernetes is a broad ecosystem that extends beyond Azure and Microsoft technologies. When you deploy an AKS cluster, you're responsible for many decisions about how to design and operate the cluster. Running an AKS cluster involves closed-source components from various vendors, including Microsoft, along with open-source components from the Kubernetes ecosystem. The landscape changes frequently, so revisit decisions regularly. When you adopt Kubernetes, you acknowledge that your workload needs its capabilities and that your workload team is prepared to invest on an ongoing basis.
 
 You can use an implementation of this architecture on [GitHub: AKS baseline reference implementation](https://github.com/mspnp/aks-baseline) as an alternative starting point and configure it to meet your needs.
@@ -17,7 +22,7 @@ You can use an implementation of this architecture on [GitHub: AKS baseline refe
       #### Networking configuration
       [Network topology](#network-topology)\
       [Plan the IP addresses](#plan-the-ip-addresses)\
-      [Deploy ingress resources](#deploy-ingress-resources)
+      [Application routing](#application-routing)
     :::column-end:::
     :::column:::
 
@@ -61,7 +66,7 @@ You can use an implementation of this architecture on [GitHub: AKS baseline refe
 ## Architecture
 
 :::image type="complex" border="false" source="images/aks-baseline-architecture.svg" alt-text="Architecture diagram that shows a hub-and-spoke network topology." lightbox="images/aks-baseline-architecture.svg":::
-   The diagram shows two connected virtual networks. The hub virtual network contains Azure Firewall, Azure Bastion, and a gateway subnet connected to on-premises. The spoke virtual network contains several subnets, the AKS cluster, and node pools. Virtual network peering connects the hub and spoke virtual networks through a bidirectional link. Arrows point from Key Vault and Container Registry to Private Link endpoints subnet. An arrow points from Azure Bastion subnet (management) to the internal load balancer in the spoke virtual network. An arrow points from the on-premises network to the on-premises gateway. A bidirectional arrow labeled virtual network peering points from the hub virtual network to the remote office spoke. An arrow points from the internet to the Azure Application Gateway subnet. An arrow points form the AKS cluster to the Azure Monitor workspace section that includes metrics and Managed Prometheus.
+   The diagram shows two connected virtual networks. The hub virtual network contains Azure Firewall, Azure Bastion, and a gateway subnet connected to on-premises. The spoke virtual network contains several subnets, the AKS cluster, and node pools. Virtual network peering connects the hub and spoke virtual networks through a bidirectional link. Arrows point from Key Vault and Container Registry to Private Link endpoints subnet. An arrow points from Azure Bastion subnet (management) to the internal load balancer in the spoke virtual network. An arrow points from the on-premises network to the on-premises gateway. A bidirectional arrow labeled virtual network peering points from the hub virtual network to the remote office spoke. An arrow points from the internet to the Azure Application Gateway subnet. An arrow points from the AKS cluster to the Azure Monitor workspace section that includes metrics and managed Prometheus.
 :::image-end:::
 
 *Download a [Visio file](https://arch-center.azureedge.net/aks-baseline-architecture.vsdx) of this architecture.*
@@ -112,7 +117,7 @@ This subnet is a placeholder for a VPN gateway or an Azure ExpressRoute gateway.
 
 #### Subnet to host Azure Bastion
 
-This subnet is used for [Azure Bastion](/azure/bastion/bastion-overview). You can use Azure Bastion to securely access Azure resources without exposing the resources to the internet. This architecture uses Azure Bastion to securely connect to the AKS cluster's API server for management operations. The subnet is for management and operations only.
+This subnet is used for [Azure Bastion](/azure/bastion/bastion-overview). You can use Azure Bastion to securely access Azure resources without exposing the resources to the internet. This architecture uses Azure Bastion to securely connect to the AKS cluster's API server for management operations. The subnet is for management operations only.
 
 ### Spoke virtual network
 
@@ -122,17 +127,21 @@ The spoke virtual network contains the AKS cluster and other related resources. 
 
 [Azure Application Gateway](/azure/application-gateway/overview) is a web traffic load balancer that operates at Layer 7. The reference implementation uses the Application Gateway v2 SKU that enables [Azure Web Application Firewall](/azure/web-application-firewall/ag/ag-overview). Web Application Firewall secures incoming traffic from common web traffic attacks, including bots. The instance has a public front-end IP configuration that receives user requests. By design, Application Gateway requires a dedicated subnet.
 
-#### Subnet to host the ingress resources
+#### Subnet for internal load balancer IPs
 
-To route and distribute traffic, [Traefik](https://doc.traefik.io/traefik/) is the ingress controller that fulfills the Kubernetes ingress resources. The Azure internal load balancers exist in this subnet. For more information, see [Use an internal load balancer with AKS](/azure/aks/internal-lb).
+This subnet provides the address space for the internal load balancer front-end IPs. Application Gateway sends traffic to the assigned private internal load balancer IP, and the load balancer distributes traffic to any node in the cluster.
+
+The kube-proxy agent on the receiving node forwards the packet to the gateway proxy pod in the system node pool, potentially adding an extra network hop. The proxy terminates Transport Layer Security (TLS) and forwards requests to workload pods over HTTP.
+
+By using a dedicated subnet for the front-end load balancer IPs, you can apply network security group (NSG) rules that scope inbound traffic to the load balancer without affecting the node subnet. For more information, see [Use an internal load balancer with AKS](/azure/aks/internal-lb).
 
 #### Subnet to host the cluster nodes
 
-AKS maintains two node pools, which are separate groups of nodes. The system node pool hosts pods that run core cluster services. The user node pool runs your workload and the ingress controller to enable inbound communication to the workload.
+This architecture uses two node pools, which are separate groups of nodes. The system node pool hosts pods that run core cluster services, including the gateway proxy that routes traffic to the workload. The user node pool runs the workload.
 
 #### Subnet to host Azure Private Link endpoints
 
-Create Azure Private Link connections for [Azure Container Registry](/azure/container-registry/container-registry-intro) and [Azure Key Vault](/azure/key-vault/general/overview) so that users can access these services via a [private endpoint](/azure/private-link/private-endpoint-overview) within the spoke virtual network. Private endpoints don't require a dedicated subnet. You can also place private endpoints in the hub virtual network. In the baseline implementation, the endpoints are deployed to a dedicated subnet within the spoke virtual network. This approach reduces traffic that passes through the peered network connection. It keeps the resources that belong to the cluster in the same virtual network. You can also apply granular security rules at the subnet level by using network security groups (NSGs).
+Create Azure Private Link connections for [Azure Container Registry](/azure/container-registry/container-registry-intro) and [Azure Key Vault](/azure/key-vault/general/overview) so that users can access these services via a [private endpoint](/azure/private-link/private-endpoint-overview) within the spoke virtual network. Private endpoints don't require a dedicated subnet. You can also place private endpoints in the hub virtual network. In the baseline implementation, the endpoints are deployed to a dedicated subnet within the spoke virtual network. This approach reduces traffic that passes through the peered network connection, and keeps the resources that belong to the cluster in the same virtual network. You can also apply granular security rules at the subnet level by using NSGs.
 
 For more information, see [Private Link deployment options](../../../networking/guide/private-link-hub-spoke-network.md#choose-the-best-private-link-deployment-configuration).
 
@@ -140,23 +149,23 @@ For more information, see [Private Link deployment options](../../../networking/
 
 You can configure an AKS cluster to use [API server virtual network integration](/azure/aks/api-server-vnet-integration), which projects the cluster's API server endpoint into a delegated subnet in your virtual network. This configuration is called a *private cluster* because it ensures that all traffic between the API server, node pools, and connected clients remain entirely within your private network.
 
-All communication between the AKS-managed Kubernetes API server and clients (both cluster-internal and external clients) is restricted to a trusted network.
+All communication between the AKS-managed Kubernetes API server and both cluster-internal and external clients is restricted to a trusted network.
 
 With a private cluster, you can use NSGs and other built-in network controls to secure your environment. This configuration prohibits any unauthorized public access between the internet and the environment. For more information, see [Create a private AKS cluster](/azure/aks/private-clusters).
 
 ## Plan the IP addresses
 
-:::image type="complex" border="false" source="images/aks-baseline-network-topology.svg" alt-text="Diagram that shows the network topology of the AKS cluster." lightbox="images/aks-baseline-network-topology.svg":::
-  The diagram shows a simple AKS hub-and-spoke network topology. The hub has Azure Firewall, Azure Bastion, and a gateway. The spoke has subnets for Application Gateway, ingress, nodes, API server, and private endpoints. Arrows show inbound traffic from the internet to Application Gateway, then to the internal load balancer, ingress controller, and workload pods. Outbound arrows go from the cluster to Azure Firewall. Arrows from private endpoints go to Azure services like Container Registry and Key Vault.
+:::image type="complex" border="false" source="images/aks-baseline-network-topology.svg" alt-text="Diagram that shows a simple AKS hub-and-spoke network topology." lightbox="images/aks-baseline-network-topology.svg":::
+  The diagram shows a simple AKS hub-and-spoke network topology. The hub virtual network has Azure Firewall, Azure Bastion, and a gateway subnet. The spoke virtual network has subnets for Application Gateway, ingress, nodes, private endpoints, and a private cluster. Arrows show peering connections from spoke networks to the hub network.
 :::image-end:::
 
 *Download a [Visio file](https://arch-center.azureedge.net/aks-baseline-network-topology.vsdx) of this architecture.*
 
-This reference architecture uses multiple networking approaches, each of which requires an IP address space:
+This reference architecture uses the following networking approaches, which each require a separate IP address space.
 
-- Your Azure virtual network that you use for resources like cluster nodes, the cluster's API server, private endpoints for Azure services, and Application Gateway.
+- Your Azure virtual network that you use for resources like cluster nodes, the cluster API server, private endpoints for Azure services, and Application Gateway.
 
-- The cluster uses [Azure Container Networking Interface (CNI) Overlay](/azure/aks/azure-cni-overlay), which allocates IP addresses to pods from a separate address space to your Azure virtual network.
+- The [Azure Container Networking Interface (CNI) Overlay](/azure/aks/azure-cni-overlay), which the cluster uses to allocate IP addresses to pods from an address space that's separate from your Azure virtual network.
 
 ### Virtual network IP address space
 
@@ -178,13 +187,13 @@ The address space of your Azure virtual network should be large enough to hold a
 
 The preceding list isn't exhaustive. If your design has other resources that affect the number of available IP addresses, accommodate those addresses.
 
-This architecture is designed for a single workload. In a production AKS cluster, always separate the system node pool from the user node pool. When you run multiple workloads on the cluster, you might want to isolate the user node pools from each other. This isolation results in more subnets that are smaller in size. The ingress resource might also be more complex. As a result, you might need multiple ingress controllers that each require extra IP addresses.
+This architecture is designed for a single workload. In a production AKS cluster, always separate the system node pool from the user node pool. When you run multiple workloads on the cluster, you might also want to isolate the user node pools from each other. This isolation results in more, smaller subnets. The gateway topology might also expand because each Gateway resource produces its own gateway proxy deployment and load balancer front-end IP. Plan subnet address space accordingly.
 
 ### Pod IP address space
 
 Azure CNI Overlay assigns IP addresses to pods by using a dedicated address space, which is separate from the address space that you use in your virtual network. Use an IP address space that doesn't overlap with your virtual network or any peered virtual networks. But if you create multiple AKS clusters, you can safely use the same pod address space on each cluster.
 
-Azure CNI Overlay assigns each node a /24 address space for its pods. It's important to ensure that the pod address space is sufficiently large. Allow for as many /24 blocks as you need for the number of nodes in your cluster. Remember to include any temporary nodes created during upgrades or scale-out operations. For example, if you use a /16 address space for your classless inter-domain routing (CIDR) range, your cluster can grow to a maximum of about 250 nodes.
+Azure CNI Overlay assigns each node a /24 address space for its pods. It's important to ensure that the pod address space is sufficiently large. Allow for as many /24 blocks as you need for the number of nodes in your cluster. Remember to include any temporary nodes created during upgrades or scale-out operations. For example, if you use a /16 address space for your Classless Inter-Domain Routing (CIDR) range, your cluster can grow to a maximum of about 250 nodes.
 
 Each node supports up to 250 pods, and this limit includes any pods that are temporarily created during upgrades.
 
@@ -200,13 +209,15 @@ Kubernetes and AKS continuously evolve, with faster release cycles than software
 
 - The AKS team describes preview features as *shipped and improving* because many of the preview features stay in that state for only a few months before they move to the general availability (GA) phase.
 
-- AKS [add-ons and extensions](/azure/aks/integrations#add-ons) provide extra, supported functionality. AKS manages their installation, configuration, and life cycle.
+- AKS [add-ons and extensions](/azure/aks/integrations#add-ons) provide extra, supported functionality. AKS manages their installation, configuration, and lifecycle.
 
-The baseline architecture doesn't include every preview feature or add-on. Instead, it includes only the ones that add significant value to a general-purpose cluster. As these features come out of preview, this baseline architecture is revised accordingly. There are some other preview features or AKS add-ons that you might want to evaluate in preproduction clusters. These features can improve your security, manageability, or other requirements. With non-Microsoft add-ons, you must install and maintain them, which includes tracking available versions and installing updates after you upgrade a cluster's Kubernetes version.
+The baseline architecture doesn't include every preview feature or add-on, but only the ones that add significant value to a general-purpose cluster. As these features come out of preview, this baseline architecture is revised accordingly.
+
+You might want to evaluate some other preview features or AKS add-ons in preproduction clusters. These features can improve your security, manageability, or other requirements. You must install and maintain any non-Microsoft add-ons, which includes tracking available versions and installing updates after you upgrade a cluster's Kubernetes version.
 
 ## Container image reference
 
-The cluster might contain the workload and several other images, like the ingress controller. Some of those images might reside in public registries. Consider the following points when you pull the images into your cluster:
+The cluster might contain the workload and several other images, like self-managed gateway infrastructure or a utility container that syncs TLS certificates from Key Vault. Some of those images might reside in public registries, but it's a good practice to keep them scanned, audited, and stored in a dedicated private registry like Azure Container Registry. Consider the following points when you pull the images into your cluster:
 
 - Authenticate the cluster to pull the image.
 
@@ -217,13 +228,13 @@ The cluster might contain the workload and several other images, like the ingres
   - You can access image pull logs to monitor activities and triage connectivity problems.
   - You can take advantage of integrated container scanning and image compliance.
 
-- Pull images from authorized registries. You can enforce this restriction through Azure Policy. In this reference implementation, the cluster only pulls images from the dedicated Azure Container Registry instance that deploys with the cluster.
+- Pull images from authorized registries. You can enforce this restriction through Azure Policy. In the reference implementation, the cluster pulls images only from the dedicated Azure Container Registry instance that deploys with the cluster.
 
 ## Configure compute for the base cluster
 
 In AKS, each node pool usually maps to a virtual machine scale set. Nodes are virtual machines (VMs) in each node pool.
 
-Consider using a smaller VM size for the system node pool to minimize costs. This reference implementation deploys the system node pool with three D2dv5 nodes. That size is sufficient to meet the expected load of the system pods. The operating system ephemeral disk is 64 GB.
+Consider using a smaller VM size for the system node pool to minimize costs. The reference implementation deploys the system node pool with three D2dv5 nodes. That size is sufficient to meet the expected load of the system pods. The operating system ephemeral disk is 64 GB.
 
 When you plan capacity for a user node pool, consider the following recommendations:
 
@@ -235,45 +246,63 @@ When you plan capacity for a user node pool, consider the following recommendati
 
 - Plan the actual node sizes for your workload based on the requirements that your design team determines. Based on the business requirements, this architecture uses the D4dv5 SKU for the production workload.
 
-- Assume that your workload consumes up to 80% of each node when you plan capacity for your cluster. The remaining 20% is reserved for AKS services.
+- When you plan capacity for your cluster, assume that your workload consumes up to 80% of each node. The remaining 20% is reserved for AKS services.
 
 - Set the maximum pods for each node based on your capacity planning. If you try to establish a capacity baseline, start with a value of 30. Adjust that value based on the requirements of the workload, the node size, and your IP address constraints.
 
 ### Select an operating system
 
-Most AKS clusters use Linux as the operating system for their node pools. In this reference implementation, we use [Azure Linux](/azure/aks/use-azure-linux), which is a lightweight, hardened Linux distribution that's tuned for Azure. You can choose another Linux distribution like Ubuntu if you prefer or if Azure Linux doesn't meet your requirements. If you choose a different operating system, ensure that the OS disk is sized appropriately for that image. Some distributions require more space than Azure Linux, so you might need to increase the disk size to avoid deployment or runtime problems.
+Most AKS clusters use Linux as the operating system for their node pools. The reference implementation uses [Azure Linux](/azure/aks/use-azure-linux), which is a lightweight, hardened Linux distribution that's tuned for Azure. You can choose another Linux distribution like Ubuntu if you prefer or if Azure Linux doesn't meet your requirements. If you choose a different operating system, ensure that the OS disk is sized appropriately for that image. Some distributions require more space than Azure Linux, so you might need to increase the disk size to avoid problems with deployment or runtime.
 
-If your workload is composed of mixed technologies, you can use different operating systems in different node pools. But if you don't need different operating systems, we recommend that you use a single operating system for all workload node pools to reduce operational complexity.
+If your workload is composed of mixed technologies, you can use different operating systems in different node pools. If you don't need different operating systems, we recommend that you use a single operating system for all workload node pools to reduce operational complexity.
 
 ## Integrate Microsoft Entra ID for the cluster
 
-Securing access to and from the cluster is critical. Use the cluster's perspective to understand the difference between inside-out and outside-in traffic:
+Securing access to and from the cluster is critical. Use the cluster's perspective to understand the difference between *inside-out* and *outside-in* traffic.
 
-- *Inside-out access:* Consider AKS access to Azure components like networking infrastructure, Container Registry, and Key Vault. Authorize only the resources that the cluster should be allowed to access.
+- **Inside-out access:** Consider AKS access to Azure components like networking infrastructure, Container Registry, and Key Vault. Authorize only the resources that the cluster should be allowed to access.
 
-- *Outside-in access:* Provide identities access to the Kubernetes cluster. Authorize only those external entities that are allowed access to the Kubernetes API server and Azure Resource Manager.
+- **Outside-in access:** Provide identities with access to the Kubernetes cluster. Authorize only those external entities that are allowed access to the Kubernetes API server and Azure Resource Manager.
 
 ### AKS access to Azure components
 
 There are two ways to manage AKS to Azure access through Microsoft Entra ID: *service principals* or *managed identities* for Azure resources.
 
-Of the two methods to manage AKS access to Azure, we recommend managed identities. With service principals, you must manage and rotate secrets, either manually or programmatically. With managed identities, Microsoft Entra ID manages and performs the authentication and timely rotation of secrets for you.
+Of the two methods to manage AKS access to Azure, we recommend managed identities. For service principals, you must manage and rotate secrets, either manually or programmatically. For managed identities, Microsoft Entra ID manages and performs the authentication and timely rotation of secrets.
 
 We recommend that you enable and use [managed identities in AKS](/azure/aks/use-managed-identity) so that the cluster can interact with external Azure resources through Microsoft Entra ID. If you don't use Microsoft Entra ID integration immediately, you can add it later.
 
-By default, the cluster uses two primary identities: the *cluster identity* and the *kubelet identity*. The AKS control plane components use the *cluster identity* to manage cluster resources, including ingress load balancers, and AKS managed public IP addresses. The *kubelet identity* authenticates with Container Registry. Some add-ons also support authentication by using a managed identity.
+By default, the cluster uses two primary identities: the *cluster identity* and the *kubelet identity*. The AKS control plane components use the cluster identity to manage cluster resources, including ingress load balancers, and AKS managed public IP addresses. The kubelet identity authenticates with Container Registry. Some add-ons also support authentication by using a managed identity.
 
-You should use managed identities when the cluster needs to pull images from a container registry. This action requires the cluster to get the registry credentials, which you do by granting `AcrPull` access to the kubelet managed identity of the cluster to your registry. If you don't use a managed identity, you might store that information in a Kubernetes secret and use `imagePullSecrets` to retrieve it. We don't recommend this approach because it introduces security complexities, including the need to know the secret in advance and to store it in the DevOps pipeline. It also adds operational overhead because you must rotate the secret.
+You should use a managed identity when the cluster needs to pull images from a container registry. This action requires the cluster to get the registry credentials, which you allow by granting the cluster's kubelet managed identity `AcrPull` access to your registry. If you don't use a managed identity, you can store that information in a Kubernetes secret and use `imagePullSecrets` to retrieve it. We don't recommend this approach because it introduces security complexities, such as needing to know the secret in advance and store it in the DevOps pipeline. It also adds operational overhead because you must rotate the secret.
 
-In this architecture, the cluster accesses Azure resources that Microsoft Entra ID secures and the cluster performs operations that support managed identities. Assign Azure role-based access control (Azure RBAC) and permissions to the cluster's managed identities, depending on the operations that the cluster does. The cluster authenticates itself to Microsoft Entra ID and then is allowed or denied access based on the roles assigned to it. Here are some examples from this reference implementation where Azure built-in roles are assigned to the cluster:
+In this architecture, the cluster accesses Azure resources that Microsoft Entra ID secures, and the cluster performs operations that support managed identities. Assign Azure role-based access control (Azure RBAC) roles and permissions to the cluster's managed identities, depending on the operations that the cluster does. The cluster authenticates itself to Microsoft Entra ID and is allowed or denied access based on the roles assigned to it. The following examples from the reference implementation show Azure built-in roles that are assigned to the cluster:
 
-- The [Network Contributor role](/azure/role-based-access-control/built-in-roles#network-contributor) manages the cluster's ability to control the spoke virtual network. With this role assignment, the AKS cluster system-assigned identity can work with the dedicated subnet for the internal ingress controller service and AKS private API server.
+- The [Network Contributor role](/azure/role-based-access-control/built-in-roles#network-contributor) manages the cluster's ability to control the spoke virtual network. With this role assignment, the AKS cluster system-assigned identity can interact with the dedicated subnet for the internal load balancer that fronts the gateway proxy and the AKS private API server.
 
-- The [Private DNS Zone Contributor role](/azure/role-based-access-control/built-in-roles/networking#private-dns-zone-contributor) manages the cluster's ability to link the zone directly to the spoke virtual network that hosts the cluster. A private cluster keeps DNS records off the public internet by using a private DNS zone. But it's still possible to create a private AKS cluster with a public DNS address. We recommend that you *explicitly* prohibit this feature by setting `enablePrivateClusterPublicFQDN` to `false` to prevent disclosure of your control plane's private IP address. Consider using Azure Policy to enforce the use of private clusters without public DNS records.
+- The [Private DNS Zone Contributor role](/azure/role-based-access-control/built-in-roles/networking#private-dns-zone-contributor) manages the cluster's ability to link the zone directly to the spoke virtual network that hosts the cluster. A private cluster keeps DNS records off the public internet by using a private DNS zone, but it's still possible to create a private AKS cluster with a public DNS address. We recommend that you explicitly prohibit this feature by setting `enablePrivateClusterPublicFQDN` to `false` to prevent disclosure of your control plane's private IP address. Consider using Azure Policy to enforce the use of private clusters without public DNS records.
 
 - The [Monitoring Metrics Publisher role](/azure/role-based-access-control/built-in-roles#monitoring-metrics-publisher) manages the cluster's ability to send metrics to Azure Monitor.
 
 - The [AcrPull role](/azure/role-based-access-control/built-in-roles#acrpull) manages the cluster's ability to pull images from the specified Container Registry instances.
+
+Two AKS add-ons provision additional managed identities that require role assignments. The *Secrets Store CSI Driver add-on* identity retrieves TLS certificates from Key Vault. The *application routing add-on* identity manages DNS records and Gateway reconciliation.
+
+Grant these two identities the following access to the resources they interact with:
+
+- The Secrets Store CSI Driver add-on managed identity needs the [Key Vault Certificate User](/azure/role-based-access-control/built-in-roles#key-vault-certificate-user) role on your key vault so the driver can retrieve TLS certificates.
+
+  > [!NOTE]
+  > As an alternative, you can replace the CSI Driver add-on managed identity with [Microsoft Entra Workload Identity](/azure/aks/workload-identity-overview) for Key Vault access. When you use Workload Identity, you bind a user-assigned managed identity to a Kubernetes ServiceAccount by using federated credentials, and reference the ServiceAccount in the gateway listener's TLS options. The application routing add-on then creates the SecretProviderClass automatically.
+  >
+  > You typically choose either the add-on's managed identity or Workload Identity for Key Vault access through the CSI driver. Workload Identity provides namespace-scoped identity isolation and reduces manual resource management at the cost of added identity hardening through federated credentials.
+
+- The application routing add-on managed identity needs the [Key Vault Secrets User](/azure/role-based-access-control/built-in-roles#key-vault-secrets-user) and [Key Vault Reader](/azure/role-based-access-control/built-in-roles#key-vault-reader) roles on your key vault. For the built-in DNS component to reconcile gateway resources, this identity also needs the [Private DNS Zone Contributor](/azure/role-based-access-control/built-in-roles/networking#private-dns-zone-contributor) role on the ingress private DNS zone.
+
+  > [!NOTE]
+  > The built-in DNS component deployed with the add-on doesn't automatically reconcile DNS records. For Gateway API records, use the Workload Identity approach.
+
+For more information, see [Configure Azure DNS and TLS with the application routing Gateway API implementation](/azure/aks/app-routing-gateway-api-dns-tls).
 
 ### Cluster access
 
@@ -305,92 +334,101 @@ For more information, see [Azure RBAC for Kubernetes authorization](/azure/aks/m
 
 AKS supports native [Kubernetes user authentication](https://kubernetes.io/docs/reference/access-authn-authz/authentication/#users-in-kubernetes). We don't recommend that you use this method to provide user access to clusters. This method is certificate-based and performed externally to your primary identity provider, which makes your centralized user access control and governance difficult. Always manage access to your cluster by using Microsoft Entra ID, and configure your cluster to explicitly prohibit local account access.
 
-In this reference implementation, local cluster accounts access is explicitly prohibited when the system deploys the cluster.
+In the reference implementation, local cluster accounts access is explicitly prohibited when the system deploys the cluster.
 
 ## Integrate Microsoft Entra ID for the workload
 
-Similar to having an Azure system-assigned managed identity for the entire cluster, you can assign managed identities at the pod level. A workload identity enables the hosted workload to access resources through Microsoft Entra ID. For example, suppose that the workload stores files in Azure Storage. When it needs to access those files, the pod authenticates itself against the resource as an Azure managed identity.
+Similar to having an Azure system-assigned managed identity for the entire cluster, you can assign managed identities at the pod level. A workload identity enables the hosted workload to access resources through Microsoft Entra ID. For example, the workload can store files in Azure Storage. When the pod needs to access those files, it authenticates itself against the resource as an Azure managed identity.
 
-In this reference implementation, [Microsoft Entra Workload ID on AKS](/azure/aks/workload-identity-overview) provides the managed identities for pods. This approach integrates with the Kubernetes-native capabilities to federate with external identity providers. For more information, see [Workload identity federation](/entra/workload-id/workload-identity-federation).
+In the reference implementation, [Microsoft Entra Workload ID on AKS](/azure/aks/workload-identity-overview) provides the managed identities for pods. This approach integrates with the Kubernetes-native capabilities to federate with external identity providers. For more information, see [Workload identity federation](/entra/workload-id/workload-identity-federation).
 
 ## Select a networking model
 
-AKS provides Container Networking Interface (CNI) plugins in two networking models: **overlay** and **flat**. Both models support network policies for in-cluster traffic control.
+AKS provides CNI plugins in two networking models: *overlay* and *flat*. Both models support network policies for in-cluster traffic control.
 
-With a flat networking plugin, such as Azure CNI Pod Subnet, every pod gets an IP address from the virtual network subnet. Resources in the same network or peered networks can access pods directly by their IP address without network address translation (NAT). Use a flat networking model when your workload requires pods to be directly routable from the virtual network.
+With a flat networking plugin, such as Azure CNI Pod Subnet, every pod gets an IP address from the virtual network subnet. Resources in the same network or peered networks can access pods directly by their IP addresses without network address translation (NAT). Use a flat networking model when your workload requires pods to be directly routable from the virtual network.
 
-This reference implementation uses Azure CNI Overlay, which is an overlay networking plugin. It allocates virtual network IP addresses only to nodes and assigns pod IPs from a separate CIDR range. Because Azure CNI Overlay consumes far fewer virtual network IP addresses than flat models, we recommend it for most deployments.
+This implementation uses Azure CNI Overlay, an overlay networking plugin that allocates virtual network IP addresses only to nodes and assigns pod IPs from a separate CIDR range. Because Azure CNI Overlay consumes far fewer virtual network IP addresses than flat models, we recommend it for most deployments.
 
 For more information about the models, see [AKS CNI networking overview](/azure/aks/concepts-network-cni-overview) and [Best practices for network connectivity and security in AKS](/azure/aks/operator-best-practices-network#choose-the-appropriate-network-model).
 
-## Deploy ingress resources
+## Application routing
 
-Kubernetes ingress resources handle routing and distributing for incoming traffic to the cluster. There are two parts of ingress resources:
+This architecture uses the [application routing add-on with the Kubernetes Gateway API](/azure/aks/app-routing-gateway-api). The application routing add-on is an AKS cluster configuration that declares the cluster should include managed gateway infrastructure. The [Gateway API](https://gateway-api.sigs.k8s.io/) is a set of Kubernetes custom resource definitions (CRDs), including `GatewayClass`, `Gateway`, `HTTPRoute`, and others. The Kubernetes community designated the Gateway API as the successor to the previous Ingress API. The Gateway API provides a standardized, role-oriented, and extensible framework for traffic management.
 
-- **The internal load balancer that AKS manages:** The load balancer exposes the ingress controller through a private static IP address. It serves as single point of contact that receives inbound flows.
+The Gateway API components deploy at the following lifecycle stages:
 
-  This architecture uses Azure Load Balancer. Load Balancer is outside the cluster in a subnet dedicated for ingress resources. It receives traffic from Application Gateway and that communication is over transport layer security (TLS). For more information about TLS encryption for inbound traffic, see the [Ingress traffic flow](#ingress-traffic-flow) section.
+- **Cluster design.** The application team decides which gateway controller should manage ingress traffic and how to manage that controller's lifecycle. Gateway controllers typically bundle together their data-plane proxies, so this decision also determines which proxy handles the traffic path. This architecture enables managed Gateway API CRDs. It configures the add-on to use managed Istio as the gateway controller, which pairs with Envoy as the gateway proxy. Although you can also use Istio as a service mesh, this architecture uses Istio only as the gateway controller and doesn't enable its service mesh capabilities.
 
-- **The ingress controller:** This example uses Traefik. It runs in the user node pool in the cluster. It receives traffic from the internal load balancer, terminates TLS, and forwards it to the workload pods over HTTP.
+  If the team requires a different implementation, they can use other Gateway API controllers, such as NGINX Gateway Fabric, Envoy Gateway, and Traefik. Self-managing these controllers requires owning manifests, anti-affinity, node placement, probes, RBAC scoping, scaling policies, source IP restrictions, and version lifecycle. In return, teams gain full governance over proxy behavior, version pinning independent of cluster upgrades, and unconstrained configuration.
 
-The ingress controller is a critical component of the cluster. Consider the following points when you configure this component.
+- **Cluster provisioning.** No design decisions occur at this stage. AKS installs the Gateway API CRDs, Istio gateway controller pods in the `aks-istio-system` namespace, and the `approuting-istio` GatewayClass. At this stage, no data-plane pods for the gateway proxy exist.
 
-- Constrain the ingress controller to a specific scope of operations as part of your design decisions. For example, you might allow the controller to only interact with the pods that run a specific workload.
+- **Cluster bootstrapping.** The workload team defines whether the gateway proxy is exposed via internal or external load balancer, which subnet hosts the load balancer front-end IP, and in which namespace the gateway proxy runs. In this architecture, the gateway proxy is exposed on an internal load balancer. There's a dedicated [subnet for load balancer IPs](#subnet-for-internal-load-balancer-ips), and the gateway proxy is deployed in the `a0008` workload namespace.
 
-- Avoid placing replicas on the same node to spread out the load and help ensure business continuity if a node fails. Use `podAntiAffinity` for this purpose.
+  A Gateway resource referencing the `approuting-istio` GatewayClass expresses these decisions. The gateway controller reconciles the resource into Envoy gateway proxy deployments, a LoadBalancer service, a HorizontalPodAutoscaler, and a PodDisruptionBudget in the same namespace as the Gateway resource.
 
-- Constrain pods to be scheduled only on the user node pool by using `nodeSelectors`. This setting isolates workload and system pods.
+  When a private DNS zone is attached to the add-on, the add-on's DNS component can manage DNS A records so you don't have to maintain static records in your infrastructure as code (IaC) templates. Bootstrapping also deploys the TLS certificate sync resources described in [Access cluster secrets](#access-cluster-secrets).
 
-- Open ports and protocols that let specific entities send traffic to the ingress controller. In this architecture, Traefik only receives traffic from Application Gateway.
+  > [!NOTE]
+  > The built-in DNS component deployed with the add-on doesn't automatically reconcile DNS records when you use Gateway API resources. To enable automatic private DNS record reconciliation, deploy a [ClusterExternalDNS or ExternalDNS](/azure/aks/app-routing-gateway-api-dns-tls) custom resource. The application routing operator component then deploys a managed `external-dns` instance that watches Gateway and HTTPRoute resources and publishes A records to the attached DNS zone.
+  >
+  > Because writing to the DNS zone requires RBAC permissions, this integration requires Microsoft Entra Workload Identity, including a user-assigned managed identity with DNS Zone Contributor on the target zone, federated identity credentials that trust the cluster's OpenID Connect (OIDC) issuer, and a dedicated Kubernetes ServiceAccount. Evaluate the additional identity infrastructure requirements against your security and operational needs.
 
-- Configure `readinessProbe` and `livenessProbe` settings that monitor the health of the pods at the specified interval. The ingress controller should send signals that indicate the health of pods.
+- **Workload deployment.** The application team defines which hostnames, paths, and back ends should receive traffic. HTTPRoute resources, which bind to the gateway, express these routing decisions. The gateway controller pushes the declared routing behavior to the Envoy pods.
 
-- Consider restricting the ingress controller's access to specific resources and limiting the actions that it can perform. You can implement that restriction through Kubernetes RBAC permissions. For example, in this architecture, Traefik is granted permissions to watch, get, and list services and endpoints by using rules in the Kubernetes `ClusterRole` object.
+- **Ongoing maintenance:** The add-on ties the Istio gateway controller version to the AKS cluster version, so upgrades happen alongside cluster upgrades rather than requiring independent lifecycle management. This add-on uses Istio solely for gateway proxy management. It doesn't enable sidecar injection or the full Istio service mesh, which is a separate add-on.
 
 > [!NOTE]
-> Choose an appropriate ingress controller based on your requirements, workload, team's skill set, and the supportability of the technology options. Most importantly, your ingress controller must meet your SLO expectation.
->
-> Traefik is an open-source option for a Kubernetes cluster and is in this architecture for illustrative purposes. It shows non-Microsoft product integration with Azure services. For example, the implementation shows how to integrate Traefik with Microsoft Entra Workload ID and Key Vault.
->
-> You can also use [Application Gateway Ingress Controller](/azure/application-gateway/ingress-controller-overview), which integrates well with AKS. Application Gateway provides benefits beyond its role as an ingress controller. It serves as the virtual network entry point for your cluster and can observe traffic entering the cluster. Use Application Gateway if your application requires a web application firewall. It also enables TLS termination.
+> Choose self-management when your workload requires capabilities that the add-on doesn't yet support, such as TLSRoute for Server Name Indication (SNI) passthrough, advanced traffic transformations through custom Lua or Wasm plugins, or when compliance mandates a specific proxy product. Also choose self-management if you need to version the proxy independent from cluster upgrades, or if your cluster already uses the Istio service mesh add-on, because the two add-ons can't coexist.
 
-### Router settings
+### Apply Gateway and HTTPRoute resources
 
-The ingress controller uses routes to determine where to send traffic. Routes specify the source port at which the traffic is received and information about the destination ports and protocols.
+This architecture uses the [application routing add-on with the Kubernetes Gateway API](/azure/aks/app-routing-gateway-api) for ingress traffic management. This section covers the cluster bootstrapping and workload deployment stages described in the preceding section. At this point, the gateway controller is running and waiting for Gateway API resources to reconcile.
 
-Here's an example from this architecture:
+The Gateway API is a vendor-neutral standard that expresses TLS policy, header-based routing, and traffic splitting as native API fields rather than implementation-specific annotations. Because your routing configuration doesn't depend on any particular proxy technology, you can change the underlying implementation later without rewriting it. The application routing add-on dictates the gateway controller and proxy lifecycle, which removes the need to manage upgrades, security patches, scaling configuration, and RBAC scoping.
 
-Traefik uses the Kubernetes provider to configure routes. The `annotations`, `tls`, and `entrypoints` options indicate that routes are served over HTTPS. The `middlewares` option specifies that only traffic from the Application Gateway subnet is allowed. The responses use gzip encoding if the client accepts. Because Traefik does TLS termination, communication with the back-end services is over HTTP.
+The Gateway API separates ingress into two resources that change independently:
 
-```yaml
-apiVersion: networking.k8s.io/v1
-kind: Ingress
-metadata:
-  name: aspnetapp-ingress
-  namespace: a0008
-  annotations:
-    kubernetes.io/ingress.allow-http: "false"
-    kubernetes.io/ingress.class: traefik-internal
-    traefik.ingress.kubernetes.io/router.entrypoints: websecure
-    traefik.ingress.kubernetes.io/router.tls: "true"
-    traefik.ingress.kubernetes.io/router.tls.options: default
-    traefik.ingress.kubernetes.io/router.middlewares: app-gateway-snet@file, gzip-compress@file
-spec:
-  tls:
-  - hosts:
-      - bu0001a0008-00.aks-ingress.contoso.com
-  rules:
-  - host: bu0001a0008-00.aks-ingress.contoso.com
-    http:
-      paths:
-      - path: /
-        pathType: Prefix
-        backend:
-          service:
-            name: aspnetapp-service
-            port:
-              number: 80
-```
+- **The Gateway resource** declares the network surface, including which ports and protocols to expose, TLS certificates, and the subnet for the internal load balancer. This resource changes infrequently and affects all routes attached to it.
+
+- **The HTTPRoute resource** declares routing logic, or which hosts, paths, and headers map to which back-end services. This resource changes with each deployment and is scoped to individual services.
+
+This architecture reduces the risk of a routing change disrupting network configuration or vice versa, because each resource has a different change cadence and blast radius. It also removes several dependencies. 
+
+- Your routing configuration isn't tied to a specific proxy technology.
+- The proxy version moves with your AKS cluster version rather than requiring independent tracking.
+- Each Gateway resource gets its own proxy deployment rather than sharing a single controller across all routes.
+
+As described in the lifecycle stages section, when you apply a Gateway resource that references the configured GatewayClass, the gateway controller reconciles it into gateway proxy deployment resources and supporting resources. You control subnet placement through infrastructure annotations on the Gateway resource.
+
+This declarative model removes the need to manage Helm charts, container images, or deployment manifests for the proxy. You express intent through Gateway API resource configuration, and the gateway controller converges the proxy towards your desired state.
+
+Typically, a managed gateway controller provisions the gateway proxy with production-oriented defaults, including readiness and liveness probes, RBAC permissions, replica scaling with CPU-based autoscaling, and a PodDisruptionBudget that maintains at least one available pod during voluntary disruptions.
+
+#### Add-on scheduling topology
+
+AKS add-ons place managed components on node pools based on scheduling decisions that the application team doesn't control. Before sizing system and user node pools, determine where each enabled add-on schedules its pods. Some add-ons tolerate system node pool taints and therefore run only on the system pool. Other add-ons target user pools. This topology directly affects the capacity required in each pool.
+
+The managed Envoy gateway proxy runs on the system node pool by design, not the user node pool. Size the system pool to account for the proxy's additional resource footprint. If this default topology doesn't meet your organization's requirements, for example if you need the proxy on user pools for cost isolation, network segmentation, or compliance reasons, switch to a self-managed gateway controller where you can make node placement decisions.
+
+Even with a managed gateway controller, the application team can configure pod anti-affinity to spread proxy replicas across nodes. You configure these settings through allowlisted gateway customization settings. For more information, see [Gateway resource customization](/azure/aks/istio-gateway-api#configmap-customizations).
+
+Because the gateway proxy runs on the system node pool and the workload runs on the user node pool, the scheduler treats them as independent scheduling domains. The gateway proxy and workload services communicate frequently, because every inbound request flows through the proxy before reaching the workload. No built-in mechanism correlates zone placement between pods on different node pools. Without explicit guidance, the scheduler might place workload pods in zones where no proxy replica exists, forcing traffic to cross an availability zone boundary and adding latency and cross-zone data transfer costs.
+
+To reduce this cross-zone traffic, configure [preferred pod affinity](https://kubernetes.io/docs/concepts/scheduling-eviction/assign-pod-node/#inter-pod-affinity-and-anti-affinity) on your workload to co-locate with the proxy replicas at the zone level. This co-location is the closest you can achieve when the proxy and workload run on separate node pools, because node-level affinity has no effect across pools. Be aware that interpod affinity adds processing overhead to the scheduler and might slow scheduling in large clusters.
+
+#### Add-on resource requirements in governance policies
+
+AKS add-ons deploy managed components whose resource requirements are defined and controlled by AKS, not by the application team. When the cluster enforces container resource limit policies in *Deny* mode through Azure Policy and Open Policy Agent (OPA) Gatekeeper, the policies must accommodate every enabled add-on. Otherwise, Gatekeeper silently blocks managed pod creation, which disables platform capabilities such as ingress, secrets synchronization, and observability without showing any obvious deployment error.
+
+Treat add-on resource profiling as a prerequisite to policy authoring. Before you define container CPU, memory, volume type, or security context constraints, inventory every enabled add-on and determine its runtime resource requirements. Use load testing or controlled deployments in a preproduction environment to capture actual resource consumption under realistic traffic conditions. Then set your policy limits to accommodate both the add-on components and your workload containers. This approach ensures that your governance guardrails protect the cluster without interfering with platform-managed infrastructure.
+
+For example, the managed Envoy gateway proxy requires up to 2 CPU cores and 1 GiB of memory per replica. These values probably exceed the needs of a small or low-resource workload. Set your policy limits to accommodate the gateway proxy along with your application containers. Without this adjustment, Gatekeeper denies the gateway proxy pods and the entire ingress pipeline fails to materialize.
+
+#### In-cluster gateway TLS termination and HTTPS enforcement
+
+This architecture configures the gateway with HTTPS on port 443 using a TLS certificate synced from Key Vault, and an HTTP listener on port 80 for redirect. Infrastructure annotations on the gateway place the load balancer in the ingress subnet and make it internal. A redirect HTTPRoute bound to the HTTP listener returns `301 Moved Permanently` to upgrade all HTTP requests to HTTPS. The application HTTPRoute binds to the HTTPS listener and routes traffic to the workload service over HTTP. Because the gateway proxy performs TLS termination, communication with the back-end services is unencrypted.
 
 ## Secure the network flow
 
@@ -400,12 +438,12 @@ In this architecture, the network flow includes the following types of traffic:
 
 - **Egress traffic** from a pod or node in the cluster to an external service.
 
-- **Pod-to-pod traffic** between pods. This traffic includes communication between the ingress controller and the workload. If your workload is composed of multiple applications deployed to the cluster, communication between those applications also falls into this category.
+- **Pod-to-pod traffic** between pods, which includes communication between the gateway proxy and the workload. If your workload is composed of multiple applications deployed to the cluster, communication between those applications also falls into this category.
 
 - **Management traffic** between the client and the Kubernetes API server.
 
 :::image type="complex" border="false" source="images/traffic-flow.svg" alt-text="Diagram that shows the cluster traffic flow." lightbox="images/traffic-flow.svg":::
-  The diagram illustrates three distinct traffic patterns within the architecture. The hub network has Azure Firewall, Azure Bastion, a gateway, and Azure Monitor. The spoke network has the AKS cluster with Application Gateway at the entry. Green arrows show inbound traffic from the internet through Application Gateway, internal load balancer, ingress controller, and to workload pods. Orange arrows show pod-to-pod traffic within the cluster. Red arrows show outbound traffic from the cluster to Azure Firewall. Arrows from private endpoints point to Container Registry and Key Vault.
+  The diagram illustrates four distinct traffic patterns within the architecture. One box contains the hub network with a subnet box containing Azure Firewall. A separate box contains the spoke network and has subnet boxes for Web Application Firewall (WAF), the AKS-managed internal load balancer, and AKS. A bidirectional black arrow shows virtual network peering between the two networks. Solid green arrows show user-initiated request traffic from the public internet to WAF in the spoke network, from the WAF subnet to the internal load balancer subnet, and from there to the AKS subnet. Solid orange arrows show cluster-initiated request traffic from the AKS subnet of the spoke network to the hub network, and outbound from the Azure Firewall subnet of the hub network to the public internet. Dotted orange arrows show returning response traffic from the public internet to the Azure Firewall subnet of the hub network, and from the hub network to the AKS subnet of the spoke network. Green dotted arrows show response traffic from the AKS subnet to the load balancer subnet and then to the WAF subnet of the spoke network, and from the WAF subnet of the spoke network back to the public internet.
 :::image-end:::
 
 *Download a [Visio file](https://arch-center.azureedge.net/secure-baseline-aks-traffic-flow.vsdx) of this architecture.*
@@ -414,25 +452,29 @@ This architecture has several layers of security to secure all types of traffic.
 
 ### Ingress traffic flow
 
-The architecture only accepts TLS encrypted requests from the client. TLS v1.2 is the minimum allowed version with a restricted set of ciphers. Server Name Indication (SNI) strict matching is enabled. End-to-end TLS is set up through Application Gateway by using two different TLS certificates, as shown in the following diagram.
+The architecture accepts only TLS-encrypted requests from the client. TLS v1.2 is the minimum allowed version, and allows a restricted set of ciphers. SNI strict matching is enabled. End-to-end TLS is set up through Application Gateway by using two different TLS certificates, as shown in the following diagram.
 
 :::image type="complex" border="false" source="images/tls-termination.svg" alt-text="Diagram that shows TLS termination." lightbox="images/tls-termination.svg":::
-  The diagram shows an end-to-end TLS traffic flow from client to workload. A client sends HTTPS traffic to Application Gateway. An arrow from Key Vault to Application Gateway shows certificate retrieval. Application Gateway terminates TLS, then re-encrypts traffic (HTTPS) to the internal load balancer. Another arrow from Key Vault to the ingress controller shows certificate retrieval via CSI driver. The internal load balancer forwards encrypted traffic to the ingress controller, which terminates TLS. A final arrow shows HTTP traffic from the ingress controller to workload pods. Each TLS termination point is marked.
+  The diagram shows an end-to-end TLS traffic flow from client to workload. Step 1 shows a user sending HTTPS traffic to Application Gateway. In step 2, an arrow goes from Application Gateway to the Envoy proxy in the AKS cluster. Step 3 shows an arrow pointing from the Envoy proxy to the workload in the AKS cluster. Step 4 shows lines going from Application Gateway and the Envoy proxy to Key Vault, which contains two certificates, bicycle.contoso.com and *.aks-ingress.contoso.com. Each TLS termination point is marked with a lock icon.
 :::image-end:::
 
 *Download a [Visio file](https://arch-center.azureedge.net/secure-baseline-aks-tls-termination.vsdx) of this architecture.*
 
-1. The client sends an HTTPS request to the domain name: `bicycle.contoso.com`. That name is associated with a DNS A record to the public IP address of Application Gateway. This traffic is encrypted to help ensure that the traffic between the client browser and gateway can't be inspected or changed.
+1. The client sends an HTTPS request to the domain name: `bicycle.contoso.com`, a name associated with a DNS A record to the public IP address of Application Gateway. This traffic is encrypted to help ensure that the traffic between the client browser and gateway can't be inspected or changed. Application Gateway has an integrated web application firewall and negotiates the TLS handshake for `bicycle.contoso.com`, allowing only secure ciphers.
 
-1. Application Gateway has an integrated web application firewall and negotiates the TLS handshake for `bicycle.contoso.com`, allowing only secure ciphers. Application Gateway is a TLS termination point, which is important because Application Gateway's web application firewall needs to inspect the plaintext request and response. Key Vault stores the TLS certificate. The cluster accesses it with a user-assigned managed identity that integrates with Application Gateway. For more information, see [TLS termination with Key Vault certificates](/azure/application-gateway/key-vault-certs).
+   Application Gateway is a TLS termination point, which is important because Application Gateway's web application firewall needs to inspect the plaintext request and response.
 
-   Application Gateway processes web application firewall inspection rules and runs routing rules that forward the traffic to the configured back end.
+1. Application Gateway processes web application firewall inspection rules and runs routing rules that forward the traffic to the configured back end.
 
-1. As traffic moves from Application Gateway to the back end, it's encrypted again with another TLS certificate, which is a wildcard for `*.aks-ingress.contoso.com`, because it forwards to the internal load balancer. This re-encryption helps ensure that unsecured traffic doesn't flow into the cluster subnet.
+   As traffic moves from Application Gateway to the back end, it's encrypted again with another TLS certificate, which is a wildcard for `*.aks-ingress.contoso.com`, because it forwards to the internal load balancer. This re-encryption helps ensure that unsecured traffic doesn't flow into the cluster subnet.
 
-1. The ingress controller receives the encrypted traffic through the load balancer. The controller is another TLS termination point for `*.aks-ingress.contoso.com` and forwards the traffic to the workload pods over HTTP. The certificates are stored in Key Vault, and the Container Storage Interface (CSI) driver mounts them into the cluster. For more information, see [Add secret management](#add-secret-management).
+1. The gateway proxy receives the encrypted traffic through the load balancer. The proxy is another TLS termination point for `*.aks-ingress.contoso.com` and forwards the traffic to the workload pods over HTTP.
 
-You can implement end-to-end TLS traffic at every hop through the workload pod. Be sure to measure the performance, latency, and operational effects when making the decision to secure pod-to-pod traffic. For most single-tenant clusters, with proper control plane RBAC and mature software development life cycle practices, it's sufficient to TLS encrypt up to the ingress controller and protect with Web Application Firewall. This approach minimizes overhead in workload management and overhead because of poor network performance. Your workload and compliance requirements dictate where you perform [TLS termination](/azure/application-gateway/ssl-overview#tls-termination).
+1. Both TLS certificates are stored in Key Vault.
+
+   The cluster accesses the `bicycle.contoso.com` certificate with a user-assigned managed identity that integrates with Application Gateway. For more information, see [TLS termination with Key Vault certificates](/azure/application-gateway/key-vault-certs). The TLS certificate for `*.aks-ingress.contoso.com` is synced into the cluster as a Kubernetes Secret that the Gateway resource references. For more information, see [Add secret management](#add-secret-management).
+
+You can implement end-to-end TLS traffic at every hop. Be sure to consider the performance, latency, and operational effects of any decisions to secure pod-to-pod traffic. For most single-tenant clusters that have proper control plane RBAC and mature software development lifecycle practices, it's sufficient to TLS encrypt up to the gateway proxy and protect with Web Application Firewall. This approach minimizes overhead from workload management and poor network performance. Your workload and compliance requirements dictate where you perform [TLS termination](/azure/application-gateway/ssl-overview#tls-termination).
 
 ### Egress traffic flow
 
@@ -449,15 +491,17 @@ An exception to the Zero Trust control is when the cluster needs to communicate 
 
 The advantage of using Private Link is that specific subnets reach the service directly, and the traffic between the cluster and the services doesn't go over the internet. A downside is that Private Link needs extra configuration instead of using the target service over its public endpoint. Also, not all Azure services or products support Private Link. For those cases, consider enabling a [virtual network service endpoint](/azure/virtual-network/virtual-network-service-endpoints-overview) on the subnet to access the service.
 
+For Container Registry specifically, use [dedicated data endpoints](/azure/container-registry/container-registry-dedicated-data-endpoints). Without them, image-layer downloads redirect to a `*.blob.core.windows.net` endpoint rather than the registry's private endpoint and your egress firewall rules would need to allow a dangerous Blob storage wildcard. This rule would permit node egress to *any* Azure Storage account. Dedicated data endpoints replace the wildcard with registry-specific FQDNs (`<registry>.<region>.data.azurecr.io`) that resolve through Private Link to your private endpoint, keeping image-layer traffic on the private path and letting you scope egress rules to your cluster's registry.
+
 If Private Link or service endpoints aren't an option, you can reach other services through their public endpoints and control access through Azure Firewall rules and the firewall built into the target service. The firewall applies source network address translation (SNAT) to egress flows, replacing the pod IP with one of its attached public IP addresses per flow, and the selection isn't deterministic. Add the entire set of attached public IPs to the target service's IP allowlist, or use a [public IP address prefix](/azure/virtual-network/ip-services/public-ip-address-prefix) to express that set as a contiguous range.
 
 One downside of connecting to Azure services through public endpoints is that Azure Firewall then needs more rules to make sure it allows only traffic from a specific subnet. The number of attached public IPs also caps the SNAT port pool and therefore the cluster's concurrent outbound connection ceiling. Plan for [multiple IP addresses on Azure Firewall](/azure/firewall/quick-create-multiple-ip-bicep) before you reach port exhaustion. For clusters that open large numbers of concurrent outbound connections, [attach an Azure NAT Gateway to the `AzureFirewallSubnet`](/azure/nat-gateway/tutorial-hub-spoke-nat-firewall) to significantly expand the SNAT port pool while keeping all egress traffic under firewall inspection.
 
 ### Pod-to-pod traffic
 
-By default, a pod can accept traffic from any other pod in the cluster. Use Kubernetes `NetworkPolicy` to restrict network traffic between pods. Apply policies carefully, or you might have a situation where a critical network flow is blocked. *Only* allow specific communication paths, as needed, like traffic between the ingress controller and workload. For more information, see [Network policies](/azure/aks/use-network-policies).
+By default, a pod can accept traffic from any other pod in the cluster. Use Kubernetes `NetworkPolicy` to restrict network traffic between pods. Apply policies carefully to prevent blocking critical network flows. Allow only specific communication paths, like traffic between the gateway proxy and workload, as needed. Because the gateway proxy runs in the same namespace as the workload, target it by pod label rather than by namespace selector. For more information, see [Network policies](/azure/aks/use-network-policies).
 
-Enable network policy when you set up the cluster because you can't add it later. You have a few choices for technologies that implement `NetworkPolicy`. We recommend Azure network policy, which requires Azure CNI. Other options include Calico network policy, a well-known open-source option. Consider Calico if you need to manage cluster-wide network policies. Calico isn't covered under standard Azure support.
+Enable network policy when you set up the cluster, because you can't add it later. You have a few choices for technologies that implement `NetworkPolicy`. Azure network policy requires Azure CNI. Other options include Calico network policy, a well-known open-source option. Consider Calico if you need to manage cluster-wide network policies. Calico isn't covered under standard Azure support.
 
 For more information, see [Differences between Azure network policy engines](/azure/aks/use-network-policies#differences-between-network-policy-engines-cilium-azure-npm-and-calico).
 
@@ -467,32 +511,40 @@ As part of running the cluster, the Kubernetes API server receives traffic from 
 
 For more information, see [Define API server-authorized IP ranges](/azure/aks/api-server-authorized-ip-ranges).
 
-We recommend that you deploy your AKS cluster as a private cluster. All control plane and node pool traffic remain on your private network and isn't exposed to the public internet. This reference implementation sets up a private cluster by using API server virtual network integration. Lower environments might consider relaxing this private cluster recommendation for convenience. But production AKS clusters should always be deployed as private clusters for a secure deployment baseline.
+We recommend that you deploy your AKS cluster as a private cluster. All control plane and node pool traffic remains on your private network and isn't exposed to the public internet. The reference implementation sets up a private cluster by using API server virtual network integration. Lower environments might consider relaxing this private cluster recommendation for convenience, but production AKS clusters should always be deployed as private clusters for a secure deployment baseline.
 
 Private traffic to a private AKS cluster might originate from the spoke virtual network, from peered networks, or from private endpoints in remote networks. Although the AKS nodes naturally live in the spoke, operators doing administrative tasks require a dedicated network path to reach the AKS API server privately. You can establish this connectivity in the following ways:
 
-- **Tunnelling:** Use Azure Bastion to [open a tunnel directly to the cluster's API server](/azure/bastion/bastion-connect-to-aks-private-cluster).
-- **Jump-box:** Provision a jump-box VM, and use Azure Bastion to connect to it through SSH or RDP. From there, the operator makes requests against the cluster's API server through its private IP address.
+- **Tunneling:** Use Azure Bastion to [open a tunnel directly to the cluster's API server](/azure/bastion/bastion-connect-to-aks-private-cluster).
+- **Jump box:** Provision a jump-box VM, and use Azure Bastion to connect to it through SSH or RDP. From there, the operator makes requests against the cluster's API server through its private IP address.
 
-In the reference implementation, we use Azure Bastion to tunnel to the AKS API server when performing cluster management operations. In general, this approach is simpler to manage, less costly than deploying and managing a jump-box VM, and less complex to coordinate among multiple operators. However, you might choose to use a jump-box VM if you have any of these requirements:
+This architecture uses Azure Bastion native client tunneling to connect an operator's local machine to the private AKS API server through Azure CLI commands. The tunnel supports direct kubectl and Helm workflows without a jump box. This approach is recommended because it keeps the AKS API endpoint private while remaining simpler and less costly to operate than a jump box. It's also less complex to coordinate among multiple operators.
 
-- **Operators use insecure devices.** A jump-box VM can provide stronger security hardening if your client devices aren't trusted.
-- **Operators connect through unstable networks.** A jump-box VM can provide a more stable connection to the cluster, especially for long-running or batch management operations.
-- **Operators use advanced diagnostic tooling.** Some types of diagnostic tooling, like packet capture, might not work well with tunnelling approaches.
+However, you might choose to use a jump box if you have any of these requirements:
+
+- **Operators use insecure devices.** A jump box can provide stronger security hardening if your client devices aren't trusted.
+
+- **Operators connect through unstable networks.** A jump box can provide a more stable connection to the cluster, especially for long-running or batch management operations.
+
+- **Operators use advanced diagnostic tooling.** Some types of diagnostic tooling, like packet capture, might not work well with tunneling approaches.
 
 ## Add secret management
 
-Store secrets in a managed key store, like Key Vault. The advantage is that a managed key store handles secret rotation. It provides strong encryption and an access audit log. It also keeps core secrets out of the deployment pipeline. In this architecture, a Key Vault firewall is enabled and configured, and Private Link is used to connect to Azure resources, like for Key Vault to access secrets and certificates.
+Store secrets in a managed key store like Key Vault. Advantages are that a managed key store handles secret rotation, provides strong encryption and an access audit log, and keeps core secrets out of the deployment pipeline. In this architecture, a Key Vault firewall is enabled and configured, and Private Link is used to connect to Azure resources, such as accessing secrets and certificates.
 
 Key Vault is well integrated with other Azure services. Use the built-in feature of those services to access secrets. For more information about how Application Gateway accesses TLS certificates for the ingress flow, see the [Ingress traffic flow](#ingress-traffic-flow) section.
 
-The Azure RBAC permission model for Key Vault enables you to assign the workload identities to either the Key Vault Secrets User or Key Vault Reader role assignment, and access the secrets. For more information, see [Access Key Vault by using Azure RBAC](/azure/key-vault/general/rbac-guide).
+The Azure RBAC permission model for Key Vault enables you to assign the workload identities either the Key Vault Secrets User or Key Vault Reader role assignment to access the secrets. For more information, see [Access Key Vault by using Azure RBAC](/azure/key-vault/general/rbac-guide).
 
 ### Access cluster secrets
 
 You must use workload identities to allow a pod to access secrets from a specific store. To facilitate the retrieval process, use a [secrets store CSI driver](https://github.com/kubernetes-sigs/secrets-store-csi-driver). When the pod needs a secret, the driver connects with the specified store, retrieves a secret on a volume, and mounts that volume in the cluster. The pod can then get the secret from the volume file system.
 
-The CSI driver has many providers to support various managed stores. This implementation uses the [Key Vault with secrets store CSI driver](/azure/aks/csi-secrets-store-driver). The add-on retrieves the TLS certificate from Key Vault and loads the driver in the pod that runs the ingress controller. This operation occurs during pod creation, and the volume stores both public and the private keys.
+The CSI driver has many providers to support various managed stores. This implementation uses the [Key Vault with Secrets Store CSI driver](/azure/aks/csi-secrets-store-driver) with the manual TLS configuration approach. A SecretProviderClass resource defines which Key Vault certificates to sync into the cluster as Kubernetes Secrets. The CSI driver requires at least one pod to mount the corresponding CSI volume to create and maintain the synced Secret. If you delete all mounted pods, the driver garbage-collects the Secret, which means that the gateway loses its TLS certificate. To prevent this, deploy a dedicated, always-running pod that keeps the CSI volume mounted independently of your workload pods' lifecycles.
+
+This architecture uses the busybox container image, which runs a lightweight container with a dummy task. Import the container image into Azure Container Registry before cluster creation, because Flux deploys it during bootstrapping. Enable secret rotation and set a rotation poll interval like two minutes on the CSI add-on, so that Key Vault certificate renewals propagate automatically. The Gateway resource references the synced TLS Secret for HTTPS termination. For more information, see [Secure ingress traffic with the application routing Gateway API implementation](/azure/aks/app-routing-gateway-api-tls).
+
+As noted in [AKS access to Azure components](#aks-access-to-azure-components), you can replace this manual configuration with the [operator-managed TLS approach](/azure/aks/app-routing-gateway-api-dns-tls). With that approach, you declare the Key Vault certificate URI and a Workload Identity ServiceAccount directly on the gateway listener. The application routing operator then creates the SecretProviderClass and patches the Gateway certificate reference automatically, which eliminates the need to author those resources during cluster bootstrapping or create a dedicated TLS sync pod. Both approaches rely on the CSI driver's rotation mechanism to pick up certificate renewals from Key Vault.
 
 ## Workload storage
 
@@ -502,7 +554,7 @@ For more information, see [Storage options for applications in AKS](/azure/aks/c
 
 ## Policy management
 
-An effective way to manage an AKS cluster is to enforce governance through policies. Kubernetes implements policies through Open Policy Agent (OPA) Gatekeeper. For AKS, deliver policies through Azure Policy. Each policy applies to all clusters in its scope. OPA Gatekeeper handles policy enforcement in the cluster and it logs all policy checks. The policy changes aren't immediately reflected in your cluster, so expect some delays.
+An effective way to manage an AKS cluster is to enforce governance through policies. Kubernetes implements policies through OPA Gatekeeper. For AKS, deliver policies through Azure Policy. Each policy applies to all clusters in its scope. OPA Gatekeeper handles policy enforcement in the cluster and logs all policy checks. The policy changes aren't immediately reflected in your cluster, so expect some delays.
 
 To manage your AKS clusters, you can use Azure Policy in several ways:
 
@@ -514,21 +566,21 @@ A common example of where a policy can be useful is around governance and valida
 
 When you set policies, apply them based on the requirements of the workload. Consider these factors:
 
-- Decide whether to set a collection of policies, known as *initiatives*, or to choose individual policies. Azure Policy provides two built-in initiatives: basic and restricted. Each initiative is a collection of built-in policies applicable to an AKS cluster. We recommend that you select an initiative *and* choose other policies for the cluster and the resources, like Container Registry, Application Gateway, or Key Vault, which interact with the cluster. Choose policies based on the requirements of your organization.
+- Decide whether to set a collection of policies, known as *initiatives*, or to choose individual policies. Azure Policy provides two built-in initiatives: basic and restricted. Each initiative is a collection of built-in policies applicable to an AKS cluster. We recommend that you select an initiative and choose other policies for the cluster and the resources, like Container Registry, Application Gateway, or Key Vault, which interact with the cluster. Choose policies based on the requirements of your organization.
 
-- Decide if you want to **Audit** or **Deny** the action. In **Audit** mode, the action is allowed but flagged as **Non-Compliant**. Have processes to check noncompliant states at a regular cadence and take necessary action. In **Deny** mode, the action is blocked because it violates the policy. Be careful when you choose Deny mode because it can be too restrictive for the workload to function.
+- Decide if you want to *Audit* or *Deny* the action. In Audit mode, the action is allowed but flagged as **Non-Compliant**. Have processes to check noncompliant states at a regular cadence and take necessary action. In Deny mode, the action is blocked because it violates the policy. Be careful when you choose Deny mode, because it can be too restrictive for the workload to function.
 
-- Decide if you have areas in your workload that shouldn't be compliant by design. Azure Policy can specify Kubernetes namespaces that are exempt from policy enforcement. We recommend that you still apply policies in **Audit** mode so that you're aware of those instances.
+- Decide if you have areas in your workload that shouldn't be compliant by design. Azure Policy can specify Kubernetes namespaces that are exempt from policy enforcement. We recommend that you still apply policies in Audit mode so that you're aware of those instances.
 
 - Decide if you have requirements that aren't covered by the built-in policies. You can create a custom Azure Policy definition that applies your custom OPA Gatekeeper policies. Don't apply custom policies directly to the cluster. For more information, see [Create and assign custom policy definitions](/azure/aks/use-azure-policy#create-and-assign-a-custom-policy-definition).
 
 - Decide if you have organization-wide requirements. If so, add those policies at the management group level. Your cluster should also assign its own workload-specific policies, even if your organization has generic policies.
 
-- Decide if you must assign Azure policies to specific scopes. Ensure that the *production* policies are also validated against your *preproduction* environment. Otherwise, when you deploy to your production environment, you might run into unexpected extra restrictions that you didn't account for in preproduction.
+- Decide if you must assign Azure policies to specific scopes. Ensure that the production policies are also validated against your preproduction environment. Otherwise, when you deploy to your production environment, you might run into unexpected extra restrictions that you didn't account for in preproduction.
 
-This reference implementation enables Azure Policy when the AKS cluster is created. The restrictive initiative is assigned in **Audit** mode to gain visibility into noncompliance.
+The reference implementation enables Azure Policy when the AKS cluster is created. The restrictive initiative is assigned in Audit mode to gain visibility into noncompliance.
 
-The implementation also sets extra policies that aren't part of any built-in initiatives. Those policies are set in **Deny** mode. For example, there's a policy in place to make sure images are only pulled from the deployed Container Registry instance.
+The implementation also sets extra policies that aren't part of any built-in initiatives. Those policies are set in Deny mode. For example, there's a policy in place to make sure images are only pulled from the deployed Container Registry instance.
 
 Consider creating your own custom initiatives. Combine the policies that are applicable for your workload into a single assignment.
 
@@ -552,7 +604,7 @@ The [Horizontal Pod Autoscaler (HPA)](https://kubernetes.io/docs/concepts/worklo
 
 In the HPA resource, we recommend that you set the minimum and maximum replica count. The values constrain the autoscaling bounds.
 
-  The HPA can scale based on CPU usage, memory usage, and custom metrics. Only CPU usage is provided natively. The `HorizontalPodAutoscaler` definition specifies target values for the metrics. For instance, the spec sets the target CPU usage. While pods are running, the HPA controller uses the Kubernetes Metrics API to check each pod's CPU usage. It compares that value against the target usage and calculates a ratio. It then uses the ratio to determine whether pods are overallocated or underallocated. It relies on the Kubernetes scheduler to assign new pods to nodes or remove pods from nodes.
+The HPA can scale based on CPU usage, memory usage, and custom metrics. Only CPU usage is provided natively. The `HorizontalPodAutoscaler` definition specifies target values for the metrics. For instance, the spec sets the target CPU usage. While pods are running, the HPA controller uses the Kubernetes Metrics API to check each pod's CPU usage. It compares that value against the target usage and calculates a ratio. It then uses the ratio to determine whether pods are overallocated or underallocated. It relies on the Kubernetes scheduler to assign new pods to nodes or remove pods from nodes.
 
 A race condition might occur, like when the HPA checks before a scaling operation finishes. So, the outcome could be an incorrect ratio calculation. For more information, see [Cooldown of scaling events](/azure/aks/concepts-scale#cooldown-of-scaling-events).
 
@@ -564,7 +616,7 @@ The [cluster autoscaler](/azure/aks/cluster-autoscaler) is an AKS add-on compone
 
 The Kubernetes scheduler triggers the cluster autoscaler. When the Kubernetes scheduler fails to schedule a pod because of resource constraints, the autoscaler automatically sets up a new node in the node pool. Conversely, the cluster autoscaler checks the unused capacity of the nodes. If the node doesn't run at an expected capacity, the pods are moved to another node, and the unused node is removed.
 
-When you enable the autoscaler, set the maximum and minimum node count. The recommended values depend on the performance expectation of the workload, how much you want the cluster to grow, and cost implications. The minimum number is the reserved capacity for that node pool. In this reference implementation, the minimum value is set to two because of the simplicity of the workload.
+When you enable the autoscaler, set the maximum and minimum node count. The recommended values depend on the performance expectation of the workload, how much you want the cluster to grow, and cost implications. The minimum number is the reserved capacity for that node pool. In the reference implementation, the minimum value is set to two because of the simplicity of the workload.
 
 For the system node pool, the recommended minimum value is three.
 
@@ -605,9 +657,9 @@ To protect against some types of outages, use [availability zones](/azure/aks/av
 
 - **Entire infrastructure:** Choose a region that supports availability zones. For more information, see [Limitations](/azure/aks/reliability-availability-zones-configure#limitations). To have an uptime SLA, you need to choose the Standard or Premium tier. The uptime SLA is greater when you use availability zones.
 
-- **Cluster:** You can only set availability zones when you create the node pool. They can't be changed later. The node sizes should be supported in all zones so that the expected distribution is possible. The underlying virtual machine scale set provides the same hardware configuration across zones.
+- **Cluster:** You can set availability zones only when you create the node pool. They can't be changed later. The node sizes should be supported in all zones so that the expected distribution is possible. The underlying virtual machine scale set provides the same hardware configuration across zones.
 
-    Zone redundancy not only applies to node pools, but the control plane as well. The AKS control plane spans the zones requested, like the node pools. If you don't use zone support in your cluster, the control plane components aren't guaranteed to spread across availability zones.
+  Zone redundancy not only applies to node pools, but also to the control plane. The AKS control plane spans the zones requested, like the node pools. If you don't use zone support in your cluster, the control plane components aren't guaranteed to spread across availability zones.
 
 - **Dependent resources:** To achieve the resiliency benefit of using availability zones, all service dependencies must also support zones. If a dependent service doesn't support zones, it's possible that a zone failure can cause that service to fail.
 
@@ -638,7 +690,7 @@ Ideally, if a failure occurs in the primary region, you can quickly switch to an
 
 - Integrate the recovery strategy, like replicating to another region, as part of the DevOps pipeline to meet your SLO.
 
-- Set up each Azure service by using features that support disaster recovery. For example, in this architecture, Container Registry is enabled for geo-replication. If a region fails, you can still pull images from the replicated region.
+- Set up each Azure service by using features that support disaster recovery. For example, in this architecture, Container Registry is enabled for geo-replication. If a region fails, ACR's health-aware failover automatically reroutes pulls to a healthy replica through the global endpoint without requiring a change to your cluster's configuration.
 
 - Deploy your infrastructure as code, including your AKS cluster and any other components you need. If you need to deploy into another region, you can reuse the scripts or templates to create an identical instance.
 
@@ -653,6 +705,14 @@ VMware [Velero](https://velero.io/) is an example of a common Kubernetes backup 
 The reference implementation doesn't implement backup, which involves extra Azure resources to manage, monitor, purchase, and secure. These resources might include an Azure Storage account, an Azure Backup vault and configuration, and the [trusted access feature](/azure/aks/trusted-access-feature). Instead, GitOps combined with the intent to run stateless workload is the recovery solution.
 
 Choose and validate a backup solution that meets your business objective, which includes your defined recovery-point objective and recovery-time objective. Define your recovery process in a team runbook and practice it for all business-critical workloads.
+
+If you must support stateful workloads and adopt [AKS Backup](/azure/backup/azure-kubernetes-service-backup-overview), use Azure Policy to enforce that backup is configured on your cluster. Azure Monitor surfaces backup job health through the same observability stack already established in this architecture. Beyond that governance, account for the following architectural considerations in your design:
+
+- **Backup scope.** Decide whether you back up the entire cluster or specific namespaces. AKS Backup stores data in a blob container and as disk or file snapshots. Define this scope early because it determines your storage account sizing, retention policies, and recovery granularity for scenarios such as operational recovery, environment cloning, and cluster upgrades.
+- **Trusted access.** AKS Backup requires [trusted access](/azure/aks/trusted-access-feature) between the Backup vault and the AKS cluster, regardless of whether the cluster is public, private, or IP-restricted.
+- **RBAC permissions.** The Backup vault's managed identity requires a set of permissions on the AKS cluster to configure and execute backups. The backup extension also creates a user identity with permissions on the storage account where backups are stored.
+- **Network egress.** The backup extension communicates with Azure Backup services from within the cluster. Account for the required outbound endpoints in your Azure Firewall and NSG rules.
+- **In-cluster footprint.** The extension deploys pods onto your nodes. Plan for the additional compute and memory consumption in your node resource budgets, and include the extension namespace in your network policy governance.
 
 ### Kubernetes API server SLA
 
@@ -841,6 +901,8 @@ You can configure the bootstrapping process by using one of the following method
 
 One of the main advantages of using the GitOps Flux v2 cluster extension for AKS is that there's effectively no gap between a provisioned cluster and a bootstrapped cluster. It sets up the environment with a solid management foundation going forward, and it also supports including the bootstrapping as resource templates to align with your IaC strategy.
 
+When bootstrapped manifests require values that are known only at deployment time, such as a container registry URL, a Key Vault name, or an identity client ID, use Flux variable substitution in the [kustomization](/azure/azure-arc/kubernetes/conceptual-gitops-flux2#kustomization) configuration. A kustomization defines which path in the Git repository to reconcile and which post-build variable substitutions to apply. You configure kustomizations as part of the Flux extension deployment in your IaC template, where you define the substitution variables so that values are resolved from the deployed resources at cluster creation time. This approach eliminates timing issues that arise when a ConfigMap must exist before the first reconciliation, and it avoids requiring users to fork the repository solely to customize environment-specific values. The Flux extension agent translates this IaC configuration into Kubernetes custom resources that the Flux Kustomize controller reconciles, applying the variable replacements when it processes each path.
+
 Finally, when you use the GitOps Flux v2 cluster extension, kubectl isn't required for any part of the bootstrapping process. You can reserve kubectl-based access for emergency break-fix situations. Between templates for Azure resource definitions and the bootstrapping of manifests via the GitOps extension, you can perform all normal configuration activities without the need to use kubectl.
 
 ### Isolate workload responsibilities
@@ -922,7 +984,7 @@ Advanced deployment techniques, like [blue-green deployment](https://martinfowle
 
 Start by reviewing the cost optimization design checklist and list of recommendations outlined in [Well-Architected Framework for AKS](/azure/well-architected/service-guides/azure-kubernetes-service#cost-optimization). For general workload recommendations, see the [Design review checklist for Cost Optimization](/azure/well-architected/cost-optimization/checklist).
 
-You can find a cost estimate for the components used in this baseline architecture in the [Azure pricing calculator](https://azure.com/e/16fc0fecb81e49ddadc91f2a0d0ecffc). Modify your estimate to include the components required for your use case.
+You can find a cost estimate for the components used in this baseline architecture in the [Azure pricing calculator](https://azure.com/e/ea5647f88d244aa0be33d46cc36447b3). Modify your estimate to include the components required for your use case. This estimate covers spoke-level resources that are directly associated with the cluster. Shared hub infrastructure, such as Azure Firewall, hub virtual networks, and Azure Private DNS zones, isn't included because those resources are typically owned and managed by a central platform team.
 
 Consider using [AKS cost analysis](/azure/aks/cost-analysis) for granular cluster infrastructure cost allocation by Kubernetes-specific constructs.
 
@@ -986,6 +1048,6 @@ For more information, see [AKS pricing](https://azure.microsoft.com/pricing/deta
 
 - [Advanced AKS microservices architecture](../aks-microservices/aks-microservices-advanced.yml)
 - [Microservices architecture on AKS](../aks-microservices/aks-microservices.yml)
-- [Use Azure Firewall to help protect an AKS cluster](../../../guide/aks/aks-firewall.yml)
+- [Use Azure Firewall to help protect an AKS cluster](../../../guide/aks/aks-firewall.md)
 - [GitOps for AKS](../../../example-scenario/gitops-aks/gitops-blueprint-aks.yml)
 - [Data streaming by using AKS](../../../solution-ideas/articles/data-streaming-scenario.yml)

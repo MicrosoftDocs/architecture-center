@@ -172,7 +172,7 @@ Messaging allows for asynchronous, loosely coupled communication between systems
 
 When you use messaging as part of an integration with your tenants' systems, consider whether you should use [SAS tokens for Service Bus](/azure/service-bus-messaging/service-bus-sas) or [Event Hubs](/azure/event-hubs/authorize-access-shared-access-signature). SAS tokens grant limited access to your messaging resources to external users or systems without enabling them to access the rest of your messaging subsystem.
 
-In some scenarios, you might provide different service-level agreements or quality of service guarantees to different tenants. For example, a subset of your tenants might expect to have their data export requests processed more quickly than others. By using the [Priority Queue pattern](../../../patterns/priority-queue.yml), you can create separate queues for different levels of priority. Then, you can use different worker instances to prioritize them accordingly.
+In some scenarios, you might provide different service-level agreements or quality of service guarantees to different tenants. For example, a subset of your tenants might expect to have their data export requests processed more quickly than others. By using the [Priority Queue pattern](../../../patterns/priority-queue.md), you can create separate queues for different levels of priority. Then, you can use different worker instances to prioritize them accordingly.
 
 ### Composable integration components
 
@@ -190,7 +190,7 @@ When you work with complex multitenant integration scenarios, it's helpful to de
 
 Similarly, you might need to import data from tenants who use a different data format or different transport than others. A good approach for this scenario is to build tenant-specific *connectors*. Connectors are workflows that normalize and import the data into a standardized format and location. They then trigger your main shared import process.
 
-If you need to build tenant-specific logic or code, consider following the [Anti-Corruption Layer pattern](../../../patterns/anti-corruption-layer.yml). This pattern helps you encapsulate tenant-specific components and keeps the rest of your solution unaware of the added complexity.
+If you need to build tenant-specific logic or code, consider following the [Anti-Corruption Layer pattern](../../../patterns/anti-corruption-layer.md). This pattern helps you encapsulate tenant-specific components and keeps the rest of your solution unaware of the added complexity.
 
 If you use a [tiered pricing model](../considerations/pricing-models.md#feature--and-service-level-based-pricing), you might require that tenants at low pricing tiers follow a standard approach with a limited set of data formats and transports. Tenants at higher pricing tiers might have access to more customization or flexibility in the integration components that you provide.
 

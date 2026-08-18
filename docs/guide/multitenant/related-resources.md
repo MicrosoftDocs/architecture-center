@@ -21,7 +21,7 @@ The following articles provide examples of multitenant architectures on Azure.
 
 | Architecture | Summary | Technology focus |
 | ------- | ------- | ------- |
-| [Use Application Gateway Ingress Controller (AGIC) with a multitenant Azure Kubernetes Service (AKS) cluster](../../example-scenario/aks-agic/aks-agic.yml) | Example for how to implement multitenancy with AKS and AGIC | Kubernetes |
+| [Use Application Gateway for Containers with a multitenant Azure Kubernetes Service (AKS) cluster](../../example-scenario/aks-agic/aks-agc.yml) | Example for how to implement multitenancy with AKS and Application Gateway for Containers| Kubernetes |
 | [All multitenant architectures](../../browse/index.yml?terms=multitenant) | Lists all the architectures that include multitenancy | Multiple |
 
 ## Cloud design patterns
@@ -31,11 +31,11 @@ The following [cloud design patterns](../../patterns/index.md) are frequently us
 | Pattern | Summary |
 | ------- | ------- |
 | [Deployment Stamps pattern](../../patterns/deployment-stamp.md) | Deploy multiple independent copies (or scale units) of application components, including data stores. |
-| [Federated Identity](../../patterns/federated-identity.yml) | Delegate authentication to an external identity provider. |
-| [Gatekeeper](../../patterns/gatekeeper.yml) | Protect applications and services by using a dedicated host instance that serves as a broker between clients and the application or service, validates and sanitizes requests, and passes requests and data between them. |
-| [Queue-Based Load Leveling](../../patterns/queue-based-load-leveling.yml) | Use a queue that serves as a buffer between a task and a service that it invokes in order to smooth intermittent heavy loads. |
+| [Federated Identity](../../patterns/federated-identity.md) | Delegate authentication to an external identity provider. |
+| [Gatekeeper](../../patterns/gatekeeper.md) | Protect applications and services by using a dedicated host instance that serves as a broker between clients and the application or service, validates and sanitizes requests, and passes requests and data between them. |
+| [Queue-Based Load Leveling](../../patterns/queue-based-load-leveling.md) | Use a queue that serves as a buffer between a task and a service that it invokes in order to smooth intermittent heavy loads. |
 | [Sharding](../../patterns/sharding.md) | Divide a data store into a set of horizontal partitions or shards. |
-| [Throttling](../../patterns/throttling.yml) | Control the consumption of resources that an application instance, an individual tenant, or an entire service uses. |
+| [Throttling](../../patterns/throttling.md) | Control the consumption of resources that an application instance, an individual tenant, or an entire service uses. |
 
 ## Antipatterns
 
@@ -81,7 +81,7 @@ Use the following resources to help you build multitenant architectures on Azure
 
 #### Web
 
-- [Claims-based routing for SaaS solutions](https://techcommunity.microsoft.com/t5/fasttrack-for-azure/claims-based-routing-for-saas-solutions/ba-p/3865707): This article describes the usage of a reverse proxy to facilitate tenant routing and mapping requests to tenants, enhancing the management of back-end services in SaaS solutions.
+- [Map requests to tenants in a multitenant solution](considerations/map-requests.yml): This article describes approaches to identify tenants from incoming requests, including using reverse proxies and claims-based routing in SaaS solutions.
   
 ### Storage and data
 

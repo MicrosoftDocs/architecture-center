@@ -3,7 +3,7 @@ title: Guidance for Using Azure Database for PostgreSQL in a Multitenant Solutio
 description: Learn about the Azure Database for PostgreSQL features that are useful when you work with multitenant systems. Explore guidance and examples.
 author: PlagueHO
 ms.author: dascottr
-ms.date: 01/23/2026
+ms.date: 07/07/2026
 ms.update-cycle: 180-days
 ms.topic: concept-article
 ms.subservice: architecture-guide
@@ -22,10 +22,13 @@ The following options are available for Azure Database for PostgreSQL and are su
 
 - Azure Database for PostgreSQL [elastic clusters](/azure/postgresql/elastic-clusters/concepts-elastic-clusters) provides horizontal scaling within a managed service. It's suitable for multitenant applications that need to scale from a few tenants to high numbers of tenants.
 
-- [Azure Cosmos DB for PostgreSQL](/azure/cosmos-db/postgresql/) is an Azure-managed database service designed for solutions that require a high level of scale, like multitenant applications. This service is part of the Azure Cosmos DB family of products.
+- [Azure HorizonDB (preview)](/azure/horizondb/overview) is a cloud-native, fully managed PostgreSQL platform with a disaggregated compute and storage architecture. It provides a read-write primary endpoint and a load-balanced read-replica pool, which enables per-tenant read scale-out. HorizonDB is a good fit for SaaS backends and high-throughput transactional workloads.
 
   > [!IMPORTANT]
-  > Azure Cosmos DB for PostgreSQL is on a retirement path and no longer recommended for new projects.
+  > Azure HorizonDB is in preview and isn't recommended for production workloads.
+
+
+Azure Cosmos DB for PostgreSQL is on a retirement path and isn't recommended for new projects. The service retires on March 31, 2029. Migrate existing workloads to [Azure Database for PostgreSQL elastic clusters](/azure/cosmos-db/postgresql/migrate-postgresql-elastic-cluster) before that date.
 
 ## Azure Database for PostgreSQL features that support multitenancy
 
@@ -88,7 +91,7 @@ For more information, see the following articles:
 
 - [PgBouncer in Azure Database for PostgreSQL](/azure/postgresql/connectivity/concepts-pgbouncer)
 - [Connection pooling in Azure Cosmos DB for PostgreSQL](/azure/cosmos-db/postgresql/concepts-connection-pool)
-- [Steps to install and set up PgBouncer connection pooling proxy with Azure Database for PostgreSQL](https://techcommunity.microsoft.com/t5/azure-database-for-postgresql/steps-to-install-and-setup-pgbouncer-connection-pooling-proxy/ba-p/730555)
+- [Connection pooling strategy for Azure Database for PostgreSQL by using PgBouncer](/azure/postgresql/connectivity/concepts-connection-pooling-best-practices)
 
 ### Microsoft Entra authentication
 
@@ -132,6 +135,7 @@ Other contributors:
 
 *To see nonpublic LinkedIn profiles, sign in to LinkedIn.*
 
-## Related resource
+## Related resources
 
 - [Architectural approaches for storage and data in multitenant solutions](../approaches/storage-data.md)
+- [Architecture best practices for Azure Database for PostgreSQL](/azure/well-architected/service-guides/postgresql)

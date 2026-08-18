@@ -151,6 +151,4 @@ Performance Efficiency is the ability of your workload to scale to meet the dema
   - [Use geo-redundancy to design highly available applications](/azure/storage/common/geo-redundant-design?tabs=current)
   - [What are ARM templates?](/azure/azure-resource-manager/templates/overview)
 
-- Azure reference architecture:
-
-  - [Unisys mainframe migration](../../reference-architectures/migration/unisys-mainframe-migration.yml)
+ 

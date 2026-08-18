@@ -4,7 +4,7 @@ description: Download official Azure icons, Azure logo files, and Azure architec
 ms.author: pnp
 author: claytonsiemens77
 ms.reviewer: chkittel
-ms.date: 11/07/2025
+ms.date: 07/09/2026
 ms.subservice: architecture-guide
 ms.topic: concept-article
 ---
@@ -39,13 +39,13 @@ To learn more about communicating design intent, see [Architecture design diagra
 
 ## Icon updates
 
-|Month|Change description|
-|--------------|--------------|
-|November 2025|Added 13 new icons, including Azure Kubernetes Service (AKS) Network Policy, Azure Local, Azure Linux, and Azure PubSub.|
-|August 2025|Added 10 new icons, including Azure Service Groups, Microsoft Planetary Computer Pro, and Prometheus along with a few icons used in Azure portal hub experiences.|
-|March 2025|Added six new icons, including SQL Database Fleet manager and Microsoft Engage Center (Services Hub) along with a few non-service icons.|
-|November 2024|Added 10 new icons such as Microsoft Foundry, Azure landing zone, Azure VPN client, and Azure Managed Redis.|
-|July 2024|Rebranded more Microsoft Entra ID icons. Added new icons such as AI Content Safety, AKS Automatic, Application Gateway for Containers, and Azure Monitor Pipeline.|
+| Month | Change description |
+| :---- | :----------------- |
+| July 2026 | Added over 10 new icons, including Azure DocumentDB, Azure Resiliency, AI Gateway, and Azure DDoS custom policies. Additionally, this batch includes 10 new or updated Microsoft Foundry icons, including Foundry Models, Foundry Projects, and Foundry Agent Service. |
+| November 2025 | Added 13 new icons, including Azure Kubernetes Service (AKS) Network Policy, Azure Local, Azure Linux, and Azure PubSub. |
+| August 2025 | Added 10 new icons, including Azure Service Groups, Microsoft Planetary Computer Pro, and Prometheus along with a few icons used in Azure portal hub experiences. |
+| March 2025 | Added six new icons, including SQL Database Fleet manager and Microsoft Engage Center (Services Hub) along with a few non-service icons. |
+| November 2024 | Added 10 new icons such as Microsoft Foundry, Azure landing zone, Azure VPN client, and Azure Managed Redis. |
 
 ## Icon terms
 
@@ -56,7 +56,7 @@ I agree to the above terms.
 </div>
 
 > [!div class="button"]
-> [Download SVG icons](https://arch-center.azureedge.net/icons/Azure_Public_Service_Icons_V23.zip)
+> [Download SVG icons](https://arch-center.azureedge.net/icons/Azure_Public_Service_Icons_V24.zip)
 
 ## Use in Microsoft Visio
 

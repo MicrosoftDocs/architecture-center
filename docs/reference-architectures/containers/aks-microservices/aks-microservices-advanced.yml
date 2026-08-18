@@ -11,11 +11,11 @@ metadata:
     - containers
   ms.subservice: reference-architecture
   ms.custom:
-    - microservices
     - arb-containers
 name: Advanced Azure Kubernetes Service (AKS) microservices architecture
 azureCategories:
   - containers
+  - open-source
 summary: Learn about a scalable, secure AKS microservices architecture that builds on recommended AKS microservices baseline architectures and implementations.
 products:
   - azure-application-gateway

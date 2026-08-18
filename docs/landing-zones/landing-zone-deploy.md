@@ -1,8 +1,8 @@
 ---
 title: Deploy Azure Landing Zones
 description: Learn about deployment options for both platform and application landing zones in Azure to help ensure governance at scale.
-author: jtracey93
-ms.author: jatracey
+author: piyushdhore-microsoft
+ms.author: piyushdhore
 ms.date: 12/15/2025
 ms.topic: concept-article
 ms.subservice: architecture-guide
@@ -72,7 +72,7 @@ After you deploy the platform landing zone, you need to operate and maintain it.
 
 ### Azure governance visualizer
 
-[Azure governance visualizer](./azure-governance-visualizer-accelerator.yml) can help you get a holistic overview of your technical Azure governance implementation by contextualizing data and providing sophisticated reports.
+[Azure governance visualizer](./azure-governance-visualizer-accelerator.md) can help you get a holistic overview of your technical Azure governance implementation by contextualizing data and providing sophisticated reports.
 
 ## Subscription vending
 
@@ -111,10 +111,10 @@ An architect can adapt a reference architecture that isn't designed specifically
 | [Azure VMware Solution](/azure/cloud-adoption-framework/scenarios/azure-vmware/enterprise-scale-landing-zone) | ARM templates, Bicep templates, and Terraform templates that you can use to help design Azure VMware Solution deployments. These deployments include Azure VMware Solution private cloud, jump box, networking, and monitoring. |
 | [Citrix on Azure](/azure/cloud-adoption-framework/scenarios/azure-virtual-desktop/landing-zone-citrix/citrix-enterprise-scale-landing-zone) | Design guidelines for the Cloud Adoption Framework for Citrix Cloud in an Azure enterprise-scale landing zone that includes many design areas. |
 | [Red Hat Enterprise Linux (RHEL) on Azure](/azure/cloud-adoption-framework/scenarios/app-platform/azure-red-hat-enterprise-linux/landing-zone-accelerator) | An open-source collection of architectural guidance and reference implementation recommendations that you can use to design RHEL-based workloads on Azure. |
-| [Mission-critical workloads](../reference-architectures/containers/aks-mission-critical/mission-critical-intro.yml) | Addresses how to design a mission-critical workload to run within an application landing zone. |
+| [Mission-critical workloads](/azure/well-architected/mission-critical/mission-critical-architecture-pattern#baseline-architectures-for-mission-critical-workloads) | Addresses how to design a mission-critical workload to run within an application landing zone. |
 | [SAP workloads](/azure/cloud-adoption-framework/scenarios/sap/enterprise-scale-landing-zone) | Provides guidance and recommendations for SAP workloads that align with Azure landing zone best practices. Provides recommendations for how to create infrastructure components like compute, networking, storage, monitoring, and SAP system builds. |
 
-Workloads often consist of different technologies and classifications. Review related reference materials for all technologies in your workload. For example, the guidance from Azure OpenAI chat and API Management helps you check whether your generative AI scenario benefits from an API gateway.
+Workloads often consist of different technologies and classifications. Review related reference materials for all technologies in your workload. For example, the guidance from Microsoft Foundry baseline and API Management architecture helps you check whether your generative AI scenario benefits from an API gateway.
 
 ## Related resource
 

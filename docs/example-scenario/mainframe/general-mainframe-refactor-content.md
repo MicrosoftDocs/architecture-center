@@ -201,7 +201,6 @@ Principal author:
 
 ## Next steps
 
-- For more information, contact [legacy2azure@microsoft.com](mailto:legacy2azure@microsoft.com).
 - [What is ExpressRoute?](/azure/expressroute/expressroute-introduction)
 - [What is Virtual Network?](/azure/virtual-network/virtual-networks-overview)
 - [Introduction to Azure managed disks](/azure/virtual-machines/managed-disks-overview)
@@ -212,7 +211,6 @@ Principal author:
 ## Related resources
 
 - [Rehost mainframe applications to Azure with Raincode compilers](../../reference-architectures/app-modernization/raincode-reference-architecture.yml)
-- [Unisys mainframe migration](../../reference-architectures/migration/unisys-mainframe-migration.yml)
 - [IBM z/OS mainframe migration with Avanade AMT](avanade-amt-zos-migration.yml)
 - [High-volume batch transaction processing](process-batch-transactions.yml)
 - [Modernize mainframe and midrange data](/azure/architecture/example-scenario/mainframe/modernize-mainframe-data-to-azure)

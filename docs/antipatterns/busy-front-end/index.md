@@ -210,7 +210,7 @@ The following graph shows the results of a load test. The overall volume of requ
 [AppDynamics]: https://www.appdynamics.com
 [autoscaling]: ../../best-practices/auto-scaling.md
 [background-jobs]: ../../best-practices/background-jobs.md
-[load-leveling]: ../../patterns/queue-based-load-leveling.yml
+[load-leveling]: ../../patterns/queue-based-load-leveling.md
 [sync-io]: ../synchronous-io/index.md
 [web-queue-worker]: ../../guide/architecture-styles/web-queue-worker.md
 

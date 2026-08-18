@@ -125,7 +125,7 @@ Focus on the entire stack by securing both the host and its containers.
 
 - Use BitLocker Drive Encryption to encrypt Storage Spaces Direct volumes at rest.
 
-- Use Defender for Cloud to manage security settings for servers and clusters. It provides threat protection for your Azure Arc-enabled Kubernetes clusters. The Defender for Cloud extension collects data from nodes in the cluster and sends it to the Azure Defender for Kubernetes back end in the cloud for further analysis.
+- Use Defender for Cloud to manage security settings for servers and clusters. It provides threat protection for your Azure Arc-enabled Kubernetes clusters. The [Microsoft Defender for Containers](/azure/defender-for-cloud/defender-for-containers-introduction) extension collects data from nodes in the cluster and sends it to the Defender for Containers backend in the cloud for further analysis.
 
 - Use [Azure role-based access control (Azure RBAC)][] for role assignments and to manage access to the AKS cluster.
 

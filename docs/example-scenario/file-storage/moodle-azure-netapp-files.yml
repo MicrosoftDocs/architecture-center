@@ -7,13 +7,12 @@ metadata:
   ms.date: 11/11/2024
   ms.topic: example-scenario
   ms.subservice: example-scenario
-  ms.custom:
-    - fcp
   ai-usage: ai-assisted
 azureCategories:
   - databases
   - networking
   - storage
+  - open-source
 products:
   - azure-application-gateway
   - azure-managed-redis

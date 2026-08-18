@@ -9,8 +9,8 @@ For more information about guidelines and recommendations for the five pillars o
 ## Article layout
 
 | Architecture | Design decisions | Well-Architected Framework approach |
-|---|---|---|
-|&#9642; [Architecture](#architecture) <br>&#9642; [Components](#components) <br>&#9642; [Platform resources](#platform-resources) <br>&#9642; [Platform-supporting resources](#platform-supporting-resources) <br>&#9642; [Scenario details](#scenario-details) <br>&#9642; [Use Azure Arc with Azure Local](#use-azure-arc-with-azure-local) <br>&#9642; [Take advantage of the Azure Local default security configuration](#take-advantage-of-the-azure-local-default-security-configuration) <br>&#9642; [Potential use cases](#potential-use-cases) <br>&#9642; [Deploy this scenario](#deploy-this-scenario) <br>|&#9642; [Cluster design choices](#cluster-design-choices)<br> &#9642; [Physical disk drives](#physical-disk-drives) <br> &#9642; [Network design](#network-design) <br> &#9642; [Monitoring](#monitoring) <br> &#9642; [Update management](#update-management)|&#9642; [Reliability](#reliability) <br> &#9642; [Security](#security) <br> &#9642; [Cost Optimization](#cost-optimization) <br> &#9642; [Operational Excellence](#operational-excellence) <br> &#9642; [Performance Efficiency](#performance-efficiency)|
+| --- | --- | --- |
+| &#9642; [Architecture](#architecture) <br>&#9642; [Components](#components) <br>&#9642; [Platform resources](#platform-resources) <br>&#9642; [Platform-supporting resources](#platform-supporting-resources) <br>&#9642; [Scenario details](#scenario-details) <br>&#9642; [Use Azure Arc with Azure Local](#use-azure-arc-with-azure-local) <br>&#9642; [Take advantage of the Azure Local default security configuration](#take-advantage-of-the-azure-local-default-security-configuration) <br>&#9642; [Potential use cases](#potential-use-cases) <br>&#9642; [Deploy this scenario](#deploy-this-scenario) <br> | &#9642; [Cluster design choices](#cluster-design-choices)<br> &#9642; [Physical disk drives](#physical-disk-drives) <br> &#9642; [Network design](#network-design) <br> &#9642; [Monitoring](#monitoring) <br> &#9642; [Update management](#update-management) | &#9642; [Reliability](#reliability) <br> &#9642; [Security](#security) <br> &#9642; [Cost&nbsp;Optimization](#cost-optimization) <br> &#9642; [Operational&nbsp;Excellence](#operational-excellence) <br> &#9642; [Performance&nbsp;Efficiency](#performance-efficiency) |
 
 > [!TIP]
 > ![GitHub logo](../_images/github.svg) This [Azure local template](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.azurestackhci/create-cluster-2-node-switched-custom-storageip) demonstrates how to use an Azure Resource Manager template (ARM template) and parameter file to deploy a switched multi-server deployment of Azure Local. Alternatively, the [Bicep example](https://github.com/Azure/azure-quickstart-templates/blob/master/quickstarts/microsoft.azurestackhci/create-cluster-with-prereqs/) demonstrates how to use a Bicep template to deploy an Azure Local instance and its prerequisites resources.
@@ -20,6 +20,8 @@ For more information about guidelines and recommendations for the five pillars o
 :::image type="complex" source="images/azure-local-baseline.png" alt-text="Diagram that shows a multi-node Azure Local instance reference architecture with dual top-of-rack (ToR) switches for external north-south connectivity." lightbox="images/azure-local-baseline.png" border="false":::
    The architecture diagram shows an on-premises Azure Local environment connected to Azure. The on-premises environment contains a multi-node Azure Local cluster. The cluster is connected to dual ToR switches for network connectivity. The Azure environment shows several Azure services that integrate with Azure Local. These services include Azure Arc, Azure Monitor, Azure Key Vault, Azure Policy, Microsoft Defender for Cloud, Azure Update Manager, Azure Backup, and Azure Site Recovery.
 :::image-end:::
+
+*Download a [PowerPoint file](https://arch-center.azureedge.net/azure-local-baseline.pptx) of this architecture.*
 
 For more information, see [Related resources](#related-resources).
 
@@ -404,6 +406,8 @@ Cost Optimization focuses on ways to reduce unnecessary expenses and improve ope
 
 > [!TIP]
 > You can reduce costs through Azure Hybrid Benefit if you hold Windows Server Datacenter licenses that include active Software Assurance. For more information, see [Azure Hybrid Benefit for Azure Local][azs-hybrid-benefit].
+
+Use this [preconfigured estimate in the Azure pricing calculator](https://azure.com/e/1a14e3d5f8b74ec4989e53a543c13390) to understand the monthly cost of the Azure supporting services in this architecture, including monitoring, security, backup, and disaster recovery. The estimate assumes a three-node cluster with six workload VMs. Adjust the values to match your environment. The Azure Local per-core subscription fee is billed separately through Azure and isn't configurable in the pricing calculator. For per-core pricing details, see [Azure Local pricing](https://azure.microsoft.com/pricing/details/azure-local/).
 
 ### Operational Excellence
 

@@ -20,7 +20,7 @@ Kubernetes architecture consists of two layers: the [control plane](/azure/aks/c
 
 [!INCLUDE [eks-aks](includes/eks-aks-include.md)]
 
-In both Amazon EKS and AKS, the cloud platform provides and manages the control plane layer, and the customer manages the node layer. The following diagram shows the relationship between the control plane and nodes in AKS Kubernetes architecture.
+In both Amazon EKS and AKS, the cloud platform provides and manages the control plane layer, and you manage the workload node layer. The following diagram shows the relationship between the control plane and nodes in AKS Kubernetes architecture.
 
 :::image type="complex" source="./media/control-plane-and-nodes.svg" border="false" lightbox="./media/control-plane-and-nodes.svg" alt-text="Diagram that shows the control plane and nodes in AKS architecture.":::
 The diagram is divided into two sections: Azure-managed and Customer-managed. The Azure-managed section includes the control plane, which has the components: the API server, scheduler, etcd (a key-value store), and controller manager. The API server connects to the other three components. The Customer-managed section includes nodes that have the components: kubelet, container runtime, kube-proxy, and a container. The scheduler in the control plane connects to kubelet. Kubelet connects to container runtime, which connects to the container. 
@@ -90,9 +90,9 @@ For more information about how to use AWS EKS to run containers on EC2 dedicated
 
 When you create an AKS cluster automatically, it creates and configures a control plane, which provides [core Kubernetes services](https://kubernetes.io/docs/concepts/overview/components) and application workload orchestration. The Azure platform provides the AKS control plane at no cost as a managed Azure resource. The control plane and its resources exist only in the region where you create the cluster.
 
-The [nodes](/azure/aks/concepts-clusters-workloads#nodes), also called *agent nodes* or *worker nodes*, host the workloads and applications. In AKS, you fully manage and pay for the agent nodes that are attached to the AKS cluster.
+The [nodes](/azure/aks/concepts-clusters-workloads#nodes), also called *agent nodes* or *worker nodes*, host the workloads and applications. In standard AKS clusters, you fully manage and pay for the agent nodes that are attached to the AKS cluster. In AKS Automatic clusters, Azure provisions and operates the system node pool for you.
 
-To run applications and supporting services, an AKS cluster needs at least one node, which is an Azure VM that runs the Kubernetes node components and container runtime. Every AKS cluster must contain at least one [system node pool](/azure/aks/use-system-pools) that has at least one node.
+To run applications and supporting services, an AKS cluster needs at least one node, which is an Azure VM that runs the Kubernetes node components and container runtime. Every AKS cluster must contain at least one [system node pool](/azure/aks/use-system-pools) that has at least one node. In standard AKS clusters, you create and manage this system node pool. In AKS Automatic clusters, the platform manages the system node pool lifecycle on your behalf.
 
 AKS combines nodes of the same configuration into node pools of VMs that run AKS workloads. Use system node pools to host critical system pods, such as CoreDNS. Use user node pools to host workload pods. If you want only one node pool in your AKS cluster, for example in a development environment, you can schedule application pods on the system node pool.
 
@@ -294,7 +294,7 @@ In the **Virtual node usage** column:
 | `kubernetes.azure.com/storageprofile` | `<OS disk storage profile>` | `Managed` | N/A |
 | `kubernetes.azure.com/storagetier` | `<OS disk storage tier>` | `Premium_LRS` | N/A |
 | `kubernetes.azure.com/instance-sku` | `<SKU family>` | `Standard_N` | `Virtual` |
-| `kubernetes.azure.com/node-image-version` | `<VHD version>` | `AKSUbuntu-1804-2020.03.05` | Virtual node version |
+| `kubernetes.azure.com/node-image-version` | `<VHD version>` | `AKSUbuntu-2204-202501.27.0` | Virtual node version |
 | `kubernetes.azure.com/subnet` | `<nodepool subnet name>` | `subnetName` | Virtual node subnet name |
 | `kubernetes.azure.com/vnet` | `<nodepool virtual network name>` | `vnetName` | Virtual node virtual network |
 | `kubernetes.azure.com/ppg` | `<nodepool ppg name>` | `ppgName` | N/A |
@@ -398,8 +398,6 @@ Deploy applications on separate clusters or node pools to help isolate the tenan
 Pod Sandboxing can help you isolate tenant applications on the same cluster nodes without needing to run these workloads in separate clusters or node pools. Other methods might require that you recompile your code, or they might create other compatibility problems. Pod Sandboxing in AKS can run any unmodified container inside an enhanced security VM boundary.
 
 Pod Sandboxing is based on [Kata Containers](https://katacontainers.io/) that runs on the [Azure Linux container host for AKS stack](/azure/aks/use-azure-linux) to provide hardware-enforced isolation. Kata Containers on AKS is built on a security-hardened Azure hypervisor. It achieves isolation for each pod via a nested, lightweight Kata VM that uses resources from a parent VM node. In this model, each Kata pod gets its own kernel in a nested Kata guest VM. Use this model to place several Kata containers in a single guest VM while continuing to run containers in the parent VM. This model provides a strong isolation boundary in a shared AKS cluster.
-
-For more information, see [Support for Kata VM isolated containers on AKS for Pod Sandboxing](https://techcommunity.microsoft.com/t5/apps-on-azure-blog/preview-support-for-kata-vm-isolated-containers-on-aks-for-pod/ba-p/3751557).
 
 ### Azure Dedicated Host
 
@@ -536,7 +534,6 @@ Other contributors:
 
 - [Laura Nicolas](https://www.linkedin.com/in/lauranicolasd/) | Senior Software Engineer
 - [Chad Kittel](https://www.linkedin.com/in/chadkittel/) | Principal Software Engineer - Azure Patterns & Practices
-- [Ed Price](https://www.linkedin.com/in/priceed/) | Senior Content Program Manager
 - [Theano Petersen](https://www.linkedin.com/in/theanop/) | Technical Writer
 
 *To see nonpublic LinkedIn profiles, sign in to LinkedIn.*
@@ -544,11 +541,11 @@ Other contributors:
 ## Next steps
 
 - [AKS cluster best practices](/azure/aks/best-practices)
-- [Use Azure Firewall to help protect an AKS cluster](../../guide/aks/aks-firewall.yml)
-- [Training: Introduction to Kubernetes](/learn/modules/intro-to-kubernetes/)
-- [Training: Introduction to Kubernetes on Azure](/learn/paths/intro-to-kubernetes-on-azure/)
-- [Training: Develop and deploy applications on Kubernetes](/learn/paths/develop-deploy-applications-kubernetes/)
-- [Training: Optimize compute costs on AKS](/learn/modules/aks-optimize-compute-costs/)
+- [Use Azure Firewall to help protect an AKS cluster](../../guide/aks/aks-firewall.md)
+- [Training: Introduction to Kubernetes](/training/modules/intro-to-kubernetes/)
+- [Training: Introduction to Kubernetes on Azure](/training/paths/intro-to-kubernetes-on-azure/)
+- [Training: Develop and deploy applications on Kubernetes](/training/paths/develop-deploy-applications-kubernetes/)
+- [Training: Optimize compute costs on AKS](/training/modules/aks-optimize-compute-costs/)
 
 ## Related resources
 

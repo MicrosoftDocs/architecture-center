@@ -8,8 +8,7 @@ metadata:
   ms.topic: example-scenario
   ms.subservice: example-scenario
   ms.custom:
-  - fcp
-  - arb-hybrid
+    - arb-hybrid
   ai-usage: ai-assisted
 azureCategories:
   - hybrid

@@ -102,9 +102,11 @@ Reliability helps ensure that your application can meet the commitments that you
 - Consider using [geo-distributed scale with App Service Environments][design-geo-distributed-ase] for greater resiliency and scalability.
 
 - Review the [typical design patterns for resiliency](/azure/well-architected/reliability/design-patterns) and implement them where appropriate.
+
 - Consider using active [geo-replication][sql-geo-replication] for the data tier and [geo-redundant][storage-geo-redudancy] storage for images and queues.
+
 - For more information, see the following resources:
-  - [Enterprise web app patterns][docs-web-app-patterns]
+
   - [Reliability in App Service Environment][docs-reliability-ase]
   - [Configure App Service Environment for zone redundancy][docs-zone-redundancy-ase]
 
@@ -175,7 +177,7 @@ Principal author:
 [azure-networking]: /azure/well-architected/service-guides/virtual-network
 [sql-service-endpoint]: /azure/sql-database/sql-database-vnet-service-endpoint-rule-overview
 [ase-dns-configuration]: /azure/app-service/environment/how-to-custom-domain-suffix?pivots=experience-azp#dns-configuration
-[secure-default-hostnames]: https://techcommunity.microsoft.com/blog/appsonazureblog/secure-unique-default-hostnames-ga-on-app-service-web-apps-and-public-preview-on/4303571
+[secure-default-hostnames]: /azure/app-service/reference-dangling-subdomain-prevention
 [small-pricing]: https://azure.com/e/9563539d508a4b68853a6b3c5168431e
 [medium-pricing]: https://azure.com/e/c3fb0809853c4cbabdcecae279dafe1f
 [large-pricing]: https://azure.com/e/42f54342044846e3bfb42f9f66847054
@@ -193,7 +195,6 @@ Principal author:
 [docs-azure-scale-ase]: /azure/app-service/environment/using#how-scale-works
 [docs-kubernetes-service]: /azure/aks
 [docs-container-apps]: /azure/container-apps
-[docs-web-app-patterns]: /azure/architecture/web-apps/guides/enterprise-app-patterns/overview
 [docs-reliability-ase]: /azure/reliability/reliability-app-service-environment
 [docs-zone-redundancy-ase]: /azure/app-service/environment/configure-zone-redundancy-environment
 

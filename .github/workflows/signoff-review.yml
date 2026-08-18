@@ -1,0 +1,53 @@
+name: Sign off audit
+run-name: "Hold-off check (PR #${{ github.event.issue.number }})"
+
+# Contributors trigger the org merge bot by commenting "#sign-off". Merge approval
+# is granted separately: an authorized patterns & practices reviewer adds the
+# pnp-sign-off label by hand, which the required "Patterns & Practices approval"
+# check (signoff-approval-check.yml) enforces.
+#
+# This workflow handles a "#sign-off" that arrives before that approval: it posts
+# the "#hold-off" comment, which the merge bot acts on to remove ready-to-merge and
+# add do-not-merge, and which cc's the review team. If the PR is already approved
+# (pnp-sign-off label present) it does nothing, so the #sign-off proceeds.
+
+on:
+  issue_comment:
+    types: [created]
+
+concurrency:
+  group: signoff-${{ github.event.issue.number }}
+  cancel-in-progress: false
+  queue: max
+
+jobs:
+  signoff-holdoff:
+    name: Sign-off hold-off
+    runs-on: ubuntu-slim
+    timeout-minutes: 5
+    permissions:
+      contents: read
+      pull-requests: write
+      issues: write
+    if: >-
+      github.event.repository.visibility != 'public' &&
+      github.event_name == 'issue_comment' &&
+      github.event.comment.user.type != 'Bot' &&
+      github.event.issue.pull_request &&
+      contains(github.event.comment.body, '#sign-off') &&
+      !contains(github.event.issue.labels.*.name, 'pnp-sign-off')
+    steps:
+      - name: Check out workflow scripts
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          ref: ${{ github.event.repository.default_branch }}
+          persist-credentials: false
+          sparse-checkout: .github/scripts
+          sparse-checkout-cone-mode: false
+      - name: Post hold-off if not yet approved
+        uses: actions/github-script@3a2844b7e9c422d3c10d287c895573f7108da1b3 # v9.0.0
+        with:
+          retries: 3
+          script: |
+            const gateSignOff = require('./.github/scripts/gate-signoff.js');
+            await gateSignOff({ github, context, core });

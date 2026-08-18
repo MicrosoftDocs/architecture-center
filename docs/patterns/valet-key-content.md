@@ -128,7 +128,7 @@ Using the Valet Key pattern addresses the security, cost optimization, and perfo
 
 The API generates these tokens to authorized clients using a *user delegation key* based on the API's own Microsoft Entra ID managed identity. Logging is enabled on both the storage account(s) and the token generation API allow correlation between token requests and token usage. The API can use client authentication information or other data available to it to decide which storage account or container to use, such as in a multitenant situation.
 
-A complete sample is available on GitHub at [Valet Key pattern example](https://github.com/mspnp/cloud-design-patterns/tree/main/valet-key). The following code snippets are adapted from that example. This first one shows how the Azure Function (found in **ValetKey.Web**) generates a user delegated shared access signature token using the Azure Function's own managed identity.
+A complete sample is available on GitHub at [Valet Key pattern example](https://github.com/Azure-Samples/cloud-design-patterns/tree/main/valet-key). The following code snippets are adapted from that example. This first snippet shows how the Azure Function (found in **ValetKey.Web**) generates a user delegated shared access signature token using the Azure Function's own managed identity.
 
 ```csharp
 [Function("FileServices")]
@@ -217,7 +217,7 @@ using (var stream = await GetFileToUploadAsync(cancellationToken))
 
 The following guidance might be relevant when implementing this pattern:
 
-- The implementation of the example is available on GitHub at [Valet Key pattern example](https://github.com/mspnp/cloud-design-patterns/tree/main/valet-key).
+- The implementation of the example is available on GitHub at [Valet Key pattern example](https://github.com/Azure-Samples/cloud-design-patterns/tree/main/valet-key).
 - [Grant limited access to Azure Storage resources using shared access signatures (SAS)](/azure/storage/common/storage-sas-overview)
 - [Shared Access Signature Authentication with Service Bus](/azure/service-bus-messaging/service-bus-sas)
 
@@ -225,5 +225,5 @@ The following guidance might be relevant when implementing this pattern:
 
 The following patterns might also be relevant when implementing this pattern:
 
-- [Gatekeeper pattern](./gatekeeper.yml). This pattern can be used in conjunction with the Valet Key pattern to protect applications and services by using a dedicated host instance that acts as a broker between clients and the application or service. The gatekeeper validates and sanitizes requests, and passes requests and data between the client and the application. Can provide an additional layer of security, and reduce the attack surface of the system.
+- [Gatekeeper pattern](./gatekeeper.md). This pattern can be used in conjunction with the Valet Key pattern to protect applications and services by using a dedicated host instance that acts as a broker between clients and the application or service. The gatekeeper validates and sanitizes requests, and passes requests and data between the client and the application. Can provide an additional layer of security, and reduce the attack surface of the system.
 - [Static Content Hosting pattern](./static-content-hosting.yml). Describes how to deploy static resources to a cloud-based storage service that can deliver these resources directly to the client to reduce the requirement for expensive compute instances. Where the resources aren't intended to be publicly available, the Valet Key pattern can be used to secure them.

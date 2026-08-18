@@ -117,8 +117,6 @@ Learn more about the different Migration and Deployment options with the [Skytap
 
 ## Next steps
 
-To learn more about Skytap on Azure, contact <legacy2azure@microsoft.com> or check out the following resources:
-
 - See the [Cloud Migration for Apps Running IBM Power](https://techcommunity.microsoft.com/t5/video-hub/skytap-on-azure-cloud-migration-for-apps-running-ibm-power/m-p/1693588) demo.
 
 - Learn how to [accelerate your cloud strategy with Skytap on Azure](https://azure.microsoft.com/blog/accelerate-your-cloud-strategy-with-skytap-on-azure/).

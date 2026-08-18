@@ -10,13 +10,12 @@ metadata:
   ms.category:
     - containers
   ms.custom:
-    - microservices
-    - example-scenario
     - arb-containers
     - arb-web
 azureCategories:
   - containers
   - web
+  - open-source
 products:
   - azure-container-apps
   - dotnet

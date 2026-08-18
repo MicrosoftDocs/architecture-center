@@ -6,8 +6,6 @@ author: claytonsiemens77
 ms.date: 07/25/2022
 ms.topic: best-practice
 ms.subservice: best-practice
-ms.custom:
-  - best-practice
 ---
 
 <!-- cSpell:ignore CNAME WADL hashedOrderEtag nonMatchEtags matchEtags -->
@@ -25,7 +23,7 @@ Consider the following points when you implement the code to handle requests.
 The code that implements these requests should not impose any side-effects. The same request repeated over the same resource should result in the same state. For example, sending multiple DELETE requests to the same URI should have the same effect, although the HTTP status code in the response messages might be different. The first DELETE request might return status code 204 (No Content), while a subsequent DELETE request might return status code 404 (Not Found).
 
 > [!NOTE]
-> For implementation guidance, see [Idempotent message processing](../reference-architectures/containers/aks-mission-critical/mission-critical-data-platform.md#idempotent-message-processing). In practice, first identify whether an operation is naturally idempotent, and if not, apply artificial idempotency by tracking processed message IDs and handling duplicates proactively or reactively.
+> For implementation guidance, see [Idempotent Consumer pattern](../patterns/idempotent-consumer.md#idempotent-processing-beyond-messaging). In practice, first identify whether an operation is naturally idempotent, and if not, apply artificial idempotency by tracking processed message IDs and handling duplicates proactively or reactively.
 
 ### POST actions that create new resources should not have unrelated side-effects
 
@@ -651,7 +649,7 @@ Each request should be considered atomic. There should be no dependencies betwee
 
 ### Track clients and implement throttling to reduce the chances of DoS attacks
 
-If a specific client makes a large number of requests within a given period of time, it might monopolize the service and affect the performance of other clients. To mitigate this issue, a web API can monitor calls from client applications either by tracking the IP address of all incoming requests or by logging each authenticated access. You can use this information to limit resource access. If a client exceeds a defined limit, the web API can return a response message with status 503 (Service Unavailable) and include a Retry-After header that specifies when the client can send the next request without it being declined. This strategy can help to reduce the chances of a Denial Of Service (DoS) attack from a set of clients stalling the system.
+If a specific client makes a large number of requests within a given period of time, it might monopolize the service and affect the performance of other clients. To mitigate this issue, a web API can monitor calls from client applications either by tracking the IP address of all incoming requests or by logging each authenticated access. You can use this information to limit resource access. If a client exceeds a defined limit, the web API can return a response message with status 503 (Service Unavailable) and include a Retry-After header that specifies when the client can send the next request without it being declined. This strategy can help to reduce the chances of a Denial Of Service (DoS) attack from a set of clients stalling the system. For more information, see the [Throttling pattern](../patterns/throttling.md).
 
 ### Manage persistent HTTP connections carefully
 
@@ -723,7 +721,7 @@ You should also create and run performance tests to check that the web API opera
 
 On Azure, consider using [Azure API Management](/azure/api-management) to publish and manage a web API. Using this facility, you can generate a service that acts as a façade for one or more web APIs. The service is itself a scalable web service that you can create and configure by using the Azure portal. You can use this service to publish and manage a web API as follows:
 
-1. Deploy the web API to a website, Azure cloud service, or Azure virtual machine.
+1. Deploy the web API to a hosting platform such as Azure App Service, Azure Container Apps, Azure Kubernetes Service (AKS), or Azure Virtual Machines.
 
 1. Connect the API management service to the web API. Requests sent to the URL of the management API are mapped to URIs in the web API. The same API management service can route requests to more than one web API. This enables you to aggregate multiple web APIs into a single management service. Similarly, the same web API can be referenced from more than one API management service if you need to restrict or partition the functionality available to different applications.
 
@@ -811,7 +809,7 @@ You can use this information to determine whether a particular web API or operat
 
 - [ASP.NET Web API OData](https://www.asp.net/web-api/overview/odata-support-in-aspnet-web-api) contains examples and further information on implementing an OData web API by using ASP.NET.
 - [Introducing batch support in Web API and Web API OData](https://blogs.msdn.microsoft.com/webdev/2013/11/01/introducing-batch-support-in-web-api-and-web-api-odata) describes how to implement batch operations in a web API by using OData.
-- [Idempotent message processing](../reference-architectures/containers/aks-mission-critical/mission-critical-data-platform.md#idempotent-message-processing) provides implementation guidance for tracking processed message IDs and handling duplicate delivery.
+- [Idempotent Consumer pattern](../patterns/idempotent-consumer.md#idempotent-processing-beyond-messaging) provides implementation guidance for tracking processed message IDs and handling duplicate delivery.
 - [Status code definitions](https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html) on the W3C website contains a full list of HTTP status codes and their descriptions.
 - [Run background tasks with WebJobs](/azure/app-service-web/web-sites-create-web-jobs) provides information and examples on using WebJobs to perform background operations.
 - [Azure Notification Hubs notify users](/azure/notification-hubs/notification-hubs-aspnet-backend-windows-dotnet-wns-notification) shows how to use an Azure Notification Hub to push asynchronous responses to client applications.

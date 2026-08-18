@@ -19,6 +19,6 @@ products:
   - azure-app-service
   - azure-monitor
   - azure-sql-database
-thumbnailUrl: /azure/architecture/browse/thumbs/basic-app-service-architecture.png
+thumbnailUrl: /azure/architecture/browse/thumbs/basic-app-service-architecture-flow.png
 content: |
    [!INCLUDE[](basic-web-app-content.md)]

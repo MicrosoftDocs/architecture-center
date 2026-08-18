@@ -10,14 +10,13 @@ metadata:
   ms.category:
     - containers
   ms.custom:
-    - fcp
-    - example-scenario
     - arb-web
     - arb-containers
 name: Use Azure Front Door to secure AKS workloads
 azureCategories:
   - containers
   - networking
+  - open-source
 summary: Learn how to secure AKS workloads by using end-to-end TLS encryption, Azure Front Door Premium, an Azure Private Link service, and the NGINX ingress controller.
 products:
   - azure-front-door

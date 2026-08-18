@@ -10,6 +10,7 @@ metadata:
   ms.custom: arb-integrations
 azureCategories:
   - migration
+  - open-source
 products:
   - azure-hdinsight
   - azure-cosmos-db

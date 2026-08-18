@@ -4,7 +4,7 @@ metadata:
   description: Learn more about Azure options for orchestrating, storing, building, deploying, and using custom document processing models.
   author: jyravi
   ms.author: jyravi
-  ms.date: 09/16/2025
+  ms.date: 07/29/2026
   ms.topic: example-scenario
   ms.collection: ce-skilling-ai-copilot
   ms.subservice: example-scenario
@@ -21,6 +21,6 @@ products:
   - azure-storage
 name: Build and deploy custom document processing models on Azure
 summary: Learn more about Azure options for orchestrating, storing, building, deploying, and using custom document processing models.
-thumbnailUrl: /azure/architecture/browse/thumbs/build-deploy-custom-models-thumb.png
+thumbnailUrl: /azure/architecture/browse/thumbs/build-deploy-custom-models.png
 content: |
   [!INCLUDE[](build-deploy-custom-models-content.md)]

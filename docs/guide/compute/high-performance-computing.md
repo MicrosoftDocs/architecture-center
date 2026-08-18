@@ -6,8 +6,6 @@ ms.author: pnp
 ms.date: 08/08/2022
 ms.topic: reference-architecture
 ms.subservice: reference-architecture
-ms.custom:
-  - fcp
 ---
 
 <!-- cSpell:ignore fullheight netapp gluster cyclecloud hpcpack alces slurm mdcs cntk -->
@@ -110,7 +108,7 @@ Building an HPC system from scratch on Azure offers a significant amount of flex
 
 If you have an existing on-premises HPC system that you'd like to connect to Azure, there are several resources to help get you started.
 
-First, review the [Options for connecting an on-premises network to Azure](../../reference-architectures/hybrid-networking/index.yml) article in the documentation. From there, you can find additional information on these connectivity options:
+First, review the [Options for connecting an on-premises network to Azure](../../reference-architectures/hybrid-networking/hybrid-connectivity-options.md) article in the documentation. From there, you can find additional information on these connectivity options:
 
 <ul class="columns is-multiline has-margin-left-none has-margin-bottom-none has-padding-top-medium">
     <li class="column is-one-third has-padding-top-small-mobile has-padding-bottom-small">
@@ -159,7 +157,6 @@ There are many workload managers offered in the [Microsoft Marketplace](https://
 
 - [SUSE Linux Enterprise Server for HPC](https://www.suse.com/products/server/hpc/)
 - [Azure Data Science VM for Windows and Linux](/azure/machine-learning/data-science-virtual-machine/overview)
-- [UberCloud](https://marketplace.microsoft.com/product/ubercloud.ubercloud_platform_subscription_vm)
 
 ### Azure Batch
 

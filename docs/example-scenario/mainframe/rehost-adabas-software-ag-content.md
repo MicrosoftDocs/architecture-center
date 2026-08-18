@@ -144,8 +144,6 @@ Principal author:
 
 ## Next steps  
 
-For more information, contact the [Legacy Migrations Engineering team](mailto:legacy2azure@microsoft.com).  
-
 - [What is Virtual Network?](/azure/virtual-network/virtual-networks-overview)
 - [Set up virtual networks](/training/modules/configure-virtual-networks/)
 - [What is ExpressRoute?](/azure/expressroute/expressroute-introduction)

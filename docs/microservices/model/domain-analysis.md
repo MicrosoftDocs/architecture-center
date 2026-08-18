@@ -107,7 +107,7 @@ DDD classifies subdomains into three categories, and this classification helps p
 At this point in the process, Fabrikam hasn't made any decisions about implementation or technologies. Some of the subsystems might involve external software systems or non-Microsoft services. But the application needs to interact with these systems and services, so Fabrikam includes them in the domain model.
 
 > [!NOTE]
-> When an application depends on an external system, the external system's data schema or API might leak into the application. This leakage can compromise the architectural design. It's especially common in legacy systems that don't follow modern best practices and might use convoluted data schemas or outdated APIs. In these cases, establish a well-defined boundary between the external system and the application. Consider using the [Strangler Fig pattern](../../patterns/strangler-fig.md) or the [Anti-Corruption Layer pattern](../../patterns/anti-corruption-layer.yml) to enforce this boundary.
+> When an application depends on an external system, the external system's data schema or API might leak into the application. This leakage can compromise the architectural design. It's especially common in legacy systems that don't follow modern best practices and might use convoluted data schemas or outdated APIs. In these cases, establish a well-defined boundary between the external system and the application. Consider using the [Strangler Fig pattern](../../patterns/strangler-fig.md) or the [Anti-Corruption Layer pattern](../../patterns/anti-corruption-layer.md) to enforce this boundary.
 
 ## Define bounded contexts
 
@@ -131,7 +131,7 @@ Fabrikam identifies these interactions and creates a *context map* that document
 
 - [Open Host Service](https://ddd-practitioners.com/home/glossary/bounded-context/bounded-context-relationship/open-host-service/) and [Published Language](https://ddd-practitioners.com/home/glossary/bounded-context/bounded-context-relationship/published-language/): The upstream context exposes a well-defined API (Open Host Service) described in a shared format (Published Language) that downstream contexts consume.
 
-- [Anti-corruption Layer](https://ddd-practitioners.com/home/glossary/bounded-context/bounded-context-relationship/anticorruption-layer/): The downstream team builds a [translation layer](../../patterns/anti-corruption-layer.yml) to protect its model from upstream model changes.
+- [Anti-corruption Layer](https://ddd-practitioners.com/home/glossary/bounded-context/bounded-context-relationship/anticorruption-layer/): The downstream team builds a [translation layer](../../patterns/anti-corruption-layer.md) to protect its model from upstream model changes.
 
 - [Separate Ways](https://ddd-practitioners.com/home/glossary/bounded-context/bounded-context-relationship/separate-ways/): Two contexts have no integration. Each context evolves independently.
 

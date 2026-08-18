@@ -322,12 +322,9 @@ Other contributor:
 
 *To see nonpublic LinkedIn profiles, sign in to LinkedIn.*
 
-## Next steps
+## Next step
 
-For more information about this solution:
-
-- Contact the [Legacy Migrations Engineering team](mailto:legacy2azure@microsoft.com).
-- Contact [SMA](https://smatechnologies.com/contact-us). [SMA Technologies](https://smatechnologies.com) is a Microsoft Gold-level partner in the IT automation space.
+- For more information about this solution, contact [SMA Technologies](https://smatechnologies.com/contact-us), a Microsoft Gold-level partner in the IT automation space.
 
 ## Related resources
 

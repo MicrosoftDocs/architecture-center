@@ -86,6 +86,8 @@ The implementation of this architecture that's described in [Deploy this scenari
 
 Cost Optimization is about looking at ways to reduce unnecessary expenses and to improve operational efficiencies. For more information, see [Design review checklist for Cost Optimization](/azure/well-architected/cost-optimization/checklist).
 
+To estimate the cost of this architecture, use the [preconfigured estimate in the Azure pricing calculator](https://azure.com/e/f61b2ee9c5074abb90abfd2fae368bcf). Adjust the values to match your expected document processing volumes.
+
 Here are some guidelines for optimizing costs:
 
 - Use the pay-as-you-go strategy for your architecture, and [scale out](/azure/architecture/framework/cost/optimize-autoscale) as needed rather than investing in large-scale resources at the start.

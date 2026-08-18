@@ -255,7 +255,7 @@ The cost of Key Vault depends on various factors, including Standard or Premium 
 
 Similar considerations for Key Vault configuration apply to the storage account. In this scenario, a Standard SKU with locally redundant storage replication is sufficient for the storage account. Generally, the cost of the storage account queue is minimal.
 
-To estimate the cost of implementing this solution, use the [Azure pricing calculator](https://azure.microsoft.com/pricing/calculator). Input the services described in this article.
+To estimate the cost of implementing this solution, use this [preconfigured estimate in the Azure pricing calculator](https://azure.com/e/26618385c85d4e3e91a13bbcc5a07aa3). Adjust the values to match your certificate volume and operational requirements.
 
 ### Operational Excellence
 

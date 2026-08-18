@@ -36,7 +36,7 @@ To simulate a data source, this reference architecture uses the [New York City T
 
 <span id="note1">[1]</span> Donovan, Brian; Work, Dan (2016): New York City Taxi Trip Data (2010-2013). University of Illinois at Urbana-Champaign. <https://doi.org/10.13012/J8PN93H8>
 
-The data generator is a .NET Core application that reads the records and sends them to Azure Event Hubs. The generator sends ride data in JSON format and fare data in CSV format.
+The data generator is a .NET application that reads the records and sends them to Azure Event Hubs. The generator sends ride data in JSON format and fare data in CSV format.
 
 Event Hubs uses [partitions](/azure/event-hubs/event-hubs-features#partitions) to segment the data. Partitions allow a consumer to read each partition in parallel. When you send data to Event Hubs, you can specify the partition key explicitly. Otherwise, records are assigned to partitions in round-robin fashion.
 
@@ -238,9 +238,9 @@ Use the Stream Analytics [job diagram](/azure/stream-analytics/stream-analytics-
 
 #### Azure Cosmos DB
 
-Throughput capacity for Azure Cosmos DB is measured in [Request Units (RUs)](/azure/cosmos-db/request-units). In order to scale an Azure Cosmos DB container past 10,000 RU, you must specify a [partition key](/azure/cosmos-db/partition-data) when you create the container, and include the partition key in every document.
+Throughput capacity for Azure Cosmos DB is measured in [Request Units (RUs)](/azure/cosmos-db/request-units). Every Azure Cosmos DB container requires a [partition key](/azure/cosmos-db/partition-data), and each document must include that key. A single physical partition serves up to 10,000 RU/s, so Azure Cosmos DB distributes data across multiple physical partitions based on the partition key to scale beyond that limit. Choose a partition key that spreads both storage and request volume evenly to avoid hot partitions.
 
-In this reference architecture, new documents are created only once per minute (the hopping window interval), so the throughput requirements are quite low. For that reason, there's no need to assign a partition key in this scenario.
+In this reference architecture, new documents are created only once per minute (the hopping window interval), so the throughput requirements are low. Even so, select a partition key that supports your expected query patterns and growth.
 
 ## Related resources
 

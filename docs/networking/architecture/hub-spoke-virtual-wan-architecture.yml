@@ -1,18 +1,23 @@
 ### YamlMime:Architecture
 metadata:
-  title: Hub-Spoke Network Topology That Uses Azure Virtual WAN
-  description: Learn how to implement a hub-spoke network topology by using Azure Virtual WAN. Create a hub virtual network and spoke virtual networks that peer with the hub.
+  title: Hub-Spoke Network Topology Using Azure Virtual WAN
+  description: Implement a hub-spoke topology that uses Azure Virtual WAN as the Microsoft-managed hub and has spoke virtual networks, branches, and remote users.
   author: yemrea
   ms.author: yemrea
-  ms.date: 04/24/2026
+  ms.date: 08/12/2026
   ms.topic: example-scenario
   ms.subservice: example-scenario
-  ms.custom:
-    - example-scenario
+azureCategories:
+  - networking
+  - hybrid
+  - security
 products:
   - azure-virtual-wan
-name: Hub-spoke network topology that uses Azure Virtual WAN
-summary: Learn how to implement a hub-spoke network topology by using Azure Virtual WAN. Create a hub virtual network and spoke virtual networks that peer with the hub.
+  - azure-virtual-network
+  - azure-expressroute
+  - azure-firewall
+name: Hub-spoke network topology using Azure Virtual WAN
+summary: Implement a hub-spoke topology that uses Azure Virtual WAN as the Microsoft-managed hub and has spoke virtual networks, branches, and remote users.
 thumbnailUrl: /azure/architecture/browse/thumbs/hub-spoke-virtual-wan-architecture.png
 content: |
   [!INCLUDE[](hub-spoke-virtual-wan-architecture-content.md)]

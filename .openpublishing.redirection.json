@@ -1,6 +1,91 @@
 {
   "redirections": [
     {
+      "source_path": "docs/guide/iot/how-to-connect-powerbi-to-the-solution.md",
+      "redirect_url": "/azure/architecture/guide/iot/how-to-connect-power-bi-to-the-solution",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "docs/example-scenario/wsus/index.yml",
+      "redirect_url": "/azure/architecture/virtual-machines/patch-management",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/guide/management-governance/management-governance-start-here.md",
+      "redirect_url": "/azure/architecture/guide/management-governance/management-governance-get-started",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "docs/guide/iot/howto-connect-on-premises-sap-to-azure.md",
+      "redirect_url": "/azure/architecture/guide/iot/how-to-connect-on-premises-sap-to-the-solution",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "docs/guide/iot/howto-iot-industrial-dataspaces.md",
+      "redirect_url": "/azure/architecture/guide/iot/how-to-enable-industrial-dataspaces",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "docs/solution-ideas/articles/iot-industrial-solution-architecture.yml",
+      "redirect_url": "/azure/architecture/guide/iot/iot-industrial-solution-architecture",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "docs/identity/identity-start-here.yml",
+      "redirect_url": "/azure/architecture/identity/identity-get-started",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "docs/networking/index.md",
+      "redirect_url": "/azure/architecture/networking/get-started",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/industries/automotive/automotive-telemetry-analytics.yml",
+      "redirect_url": "/industry/mobility/architecture/ra-mobility-overview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/guide/migration/migration-start-here.md",
+      "redirect_url": "/azure/migration/migrate-to-azure",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/databases/guide/data-scrambling-for-sap-using-delphix-and-azure-data-factory.yml",
+      "redirect_url": "https://marketplace.microsoft.com/product/saas/delphix.delphix-compliance-services-for-azure-tb-model",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/solution-ideas/articles/sap-s4-hana-on-hli-with-ha-and-dr.yml",
+      "redirect_url": "/azure/architecture/guide/sap/sap-s4hana",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/example-scenario/mainframe/hp-ux-stromasys-charon-par.yml",
+      "redirect_url": "https://www.stromasys.com/resources/breaking-down-hp-ux-lift-and-shift-migration-on-azure/",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/example-scenario/mainframe/imsql-rehost-ims.yml",
+      "redirect_url": "https://marketplace.microsoft.com/product/raincode.raincode_360",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/example-scenario/mainframe/cloudframe-renovate-mainframe-refactor.yml",
+      "redirect_url": "https://marketplace.microsoft.com/product/cloudframeinc1615321281795.cfrenovate",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/reference-architectures/migration/unisys-mainframe-migration.yml",
+      "redirect_url": "/azure/architecture/mainframe/virtualization-of-unisys-clearpath-forward-os-2200-enterprise-server-on-azure",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/solution-ideas/articles/solaris-azure.yml",
+      "redirect_url": "https://www.stromasys.com/resources/running-solaris-on-azure-vms/",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "docs/example-scenario/data/azure-nifi.yml",
       "redirect_url": "/azure/architecture/data-guide/technology-choices/pipeline-orchestration-data-movement",
       "redirect_document_id": false
@@ -12,7 +97,7 @@
     },
     {
       "source_path": "docs/guide/networking/global-web-applications/mission-critical-app-service.yml",
-      "redirect_url": "/azure/architecture/web-apps/guides/enterprise-app-patterns/overview",
+      "redirect_url": "/azure/architecture/web-apps/app-service/architectures/baseline-zone-redundant",
       "redirect_document_id": false
     },
     {
@@ -222,17 +307,17 @@
     },
     {
       "source_path": "docs/ai-ml/architecture/customer-lifecycle-churn.yml",
-      "redirect_url": "/azure/architecture/ai-ml",
+      "redirect_url": "/azure/architecture/ai-ml/ai-get-started",
       "redirect_document_id": false
     },
     {
       "source_path": "docs/ai-ml/idea/customer-feedback-and-analytics.yml",
-      "redirect_url": "/azure/architecture/ai-ml",
+      "redirect_url": "/azure/architecture/ai-ml/ai-get-started",
       "redirect_document_id": false
     },
     {
       "source_path": "docs/ai-ml/idea/customer-churn-prediction.yml",
-      "redirect_url": "/azure/architecture/ai-ml",
+      "redirect_url": "/azure/architecture/ai-ml/ai-get-started",
       "redirect_document_id": false
     },
     {
@@ -327,7 +412,17 @@
     },
     {
       "source_path": "docs/blueprints/hybrid-networking/index.md",
-      "redirect_url": "/azure/architecture/reference-architectures/hybrid-networking/",
+      "redirect_url": "/azure/architecture/reference-architectures/hybrid-networking/hybrid-connectivity-options",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/reference-architectures/hybrid-networking/index.yml",
+      "redirect_url": "/azure/architecture/reference-architectures/hybrid-networking/hybrid-connectivity-options",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "azure/architecture/reference-architectures/hybrid-networking/",
+      "redirect_url": "/azure/architecture/reference-architectures/hybrid-networking/hybrid-connectivity-options",
       "redirect_document_id": true
     },
     {
@@ -2685,7 +2780,7 @@
     },
     {
       "source_path": "docs/reference-architectures/ai/realtime-scoring-python.yml",
-      "redirect_url": "/azure/architecture/ai-ml/",
+      "redirect_url": "/azure/architecture/ai-ml/ai-get-started",
       "redirect_document_id": false
     },
     {
@@ -3354,6 +3449,11 @@
       "redirect_document_id": true
     },
     {
+      "source_path": "docs/example-scenario/aks-agic/aks-agic.yml",
+      "redirect_url": "/azure/architecture/example-scenario/aks-agic/aks-agc",
+      "redirect_document_id": true
+    },
+    {
       "source_path": "docs/example-scenario/apps/devops-with-aks.yml",
       "redirect_url": "/azure/architecture/guide/aks/aks-cicd-github-actions-and-gitops",
       "redirect_document_id": true
@@ -3425,28 +3525,23 @@
     },
     {
       "source_path": "docs/solution-ideas/articles/simple-branded-website.yml",
-      "redirect_url": "/azure/architecture/web-apps/",
+      "redirect_url": "/azure/architecture/web-apps/web-apps-get-started",
       "redirect_document_id": false
     },
     {
       "source_path": "docs/solution-ideas/articles/modern-customer-support-portal-powered-by-an-agile-business-process.yml",
-      "redirect_url": "/azure/architecture/web-apps/",
+      "redirect_url": "/azure/architecture/web-apps/web-apps-get-started",
       "redirect_document_id": false
     },
     {
       "source_path": "docs/solution-ideas/articles/digital-marketing-smb.yml",
-      "redirect_url": "/azure/architecture/web-apps/",
+      "redirect_url": "/azure/architecture/web-apps/web-apps-get-started",
       "redirect_document_id": false
     },
     {
       "source_path": "docs/solution-ideas/articles/webapps.yml",
-      "redirect_url": "/azure/architecture/web-apps/",
+      "redirect_url": "/azure/architecture/web-apps/web-apps-get-started",
       "redirect_document_id": false
-    },
-    {
-      "source_path": "docs/guide/web/web-start-here.md",
-      "redirect_url": "/azure/architecture/web-apps/index",
-      "redirect_document_id": true
     },
     {
       "source_path": "docs/reference-architectures/app-service-web-app/basic-web-app.yml",
@@ -3480,7 +3575,7 @@
     },
     {
       "source_path": "docs/serverless-quest/validate-commit-serverless-adoption.yml",
-      "redirect_url": "/azure/architecture/web-apps/",
+      "redirect_url": "/azure/architecture/web-apps/web-apps-get-started",
       "redirect_document_id": false
     },
     {
@@ -3490,42 +3585,42 @@
     },
     {
       "source_path": "docs/serverless-quest/application-assessment.md",
-      "redirect_url": "/azure/architecture/web-apps/",
+      "redirect_url": "/azure/architecture/web-apps/web-apps-get-started",
       "redirect_document_id": false
     },
     {
       "source_path": "docs/serverless-quest/application-development.md",
-      "redirect_url": "/azure/architecture/web-apps/",
+      "redirect_url": "/azure/architecture/web-apps/web-apps-get-started",
       "redirect_document_id": false
     },
     {
       "source_path": "docs/serverless-quest/functions-app-operations.md",
-      "redirect_url": "/azure/architecture/web-apps/",
+      "redirect_url": "/azure/architecture/web-apps/web-apps-get-started",
       "redirect_document_id": false
     },
     {
       "source_path": "docs/serverless-quest/functions-app-security.md",
-      "redirect_url": "/azure/architecture/web-apps/",
+      "redirect_url": "/azure/architecture/web-apps/web-apps-get-started",
       "redirect_document_id": false
     },
     {
       "source_path": "docs/serverless-quest/poc-pilot.md",
-      "redirect_url": "/azure/architecture/web-apps/",
+      "redirect_url": "/azure/architecture/web-apps/web-apps-get-started",
       "redirect_document_id": false
     },
     {
       "source_path": "docs/serverless-quest/reference-architectures.md",
-      "redirect_url": "/azure/architecture/web-apps/",
+      "redirect_url": "/azure/architecture/web-apps/web-apps-get-started",
       "redirect_document_id": false
     },
     {
       "source_path": "docs/serverless-quest/serverless-overview.md",
-      "redirect_url": "/azure/architecture/web-apps/",
+      "redirect_url": "/azure/architecture/web-apps/web-apps-get-started",
       "redirect_document_id": false
     },
     {
       "source_path": "docs/serverless-quest/technical-training.md",
-      "redirect_url": "/azure/architecture/web-apps/",
+      "redirect_url": "/azure/architecture/web-apps/web-apps-get-started",
       "redirect_document_id": false
     },
     {
@@ -3535,7 +3630,7 @@
     },
     {
       "source_path": "docs/web-apps/hosting-applications/medium-umbraco-web-app.yml",
-      "redirect_url": "/azure/architecture/web-apps/",
+      "redirect_url": "/azure/architecture/web-apps/web-apps-get-started",
       "redirect_document_id": false
     },
     {
@@ -3595,48 +3690,73 @@
     },
     {
       "source_path": "docs/reference-architectures/reliable-web-app/dotnet/pattern-overview.yml",
-      "redirect_url": "/azure/architecture/web-apps/guides/reliable-web-app/pattern-overview",
-      "redirect_document_id": true
+      "redirect_url": "/azure/architecture/web-apps/app-service/architectures/baseline-zone-redundant",
+      "redirect_document_id": false
     },
     {
       "source_path": "docs/web-apps/guides/reliable-web-app/dotnet/plan-implementation.yml",
-      "redirect_url": "/azure/architecture/web-apps/guides/enterprise-app-patterns/reliable-web-app/dotnet/guidance",
+      "redirect_url": "/azure/architecture/web-apps/app-service/architectures/baseline-zone-redundant",
       "redirect_document_id": false
     },
     {
       "source_path": "docs/web-apps/guides/reliable-web-app/java/apply-pattern.yml",
-      "redirect_url": "/azure/architecture/web-apps/guides/enterprise-app-patterns/reliable-web-app/java/guidance",
+      "redirect_url": "/azure/architecture/web-apps/app-service/architectures/baseline-zone-redundant",
       "redirect_document_id": false
     },
     {
       "source_path": "docs/web-apps/guides/reliable-web-app/java/plan-implementation.yml",
-      "redirect_url": "/azure/architecture/web-apps/guides/enterprise-app-patterns/reliable-web-app/java/guidance",
+      "redirect_url": "/azure/architecture/web-apps/app-service/architectures/baseline-zone-redundant",
       "redirect_document_id": false
     },
     {
       "source_path": "docs/reference-architectures/reliable-web-app/dotnet/apply-pattern.yml",
-      "redirect_url": "/azure/architecture/web-apps/guides/enterprise-app-patterns/reliable-web-app/dotnet/guidance",
-      "redirect_document_id": true
+      "redirect_url": "/azure/architecture/web-apps/app-service/architectures/baseline-zone-redundant",
+      "redirect_document_id": false
     },
     {
       "source_path": "docs/web-apps/guides/reliable-web-app/dotnet/apply-pattern.yml",
-      "redirect_url": "/azure/architecture/web-apps/guides/enterprise-app-patterns/reliable-web-app/dotnet/guidance",
+      "redirect_url": "/azure/architecture/web-apps/app-service/architectures/baseline-zone-redundant",
       "redirect_document_id": false
     },
     {
       "source_path": "docs/web-apps/guides/reliable-web-app/pattern-overview.yml",
-      "redirect_url": "/azure/architecture/web-apps/guides/enterprise-app-patterns/overview",
+      "redirect_url": "/azure/architecture/web-apps/app-service/architectures/baseline-zone-redundant",
       "redirect_document_id": false
     },
     {
       "source_path": "docs/web-apps/guides/reliable-web-app/apply-pattern.yml",
-      "redirect_url": "/azure/architecture/web-apps/guides/enterprise-app-patterns/reliable-web-app/dotnet/guidance",
+      "redirect_url": "/azure/architecture/web-apps/app-service/architectures/baseline-zone-redundant",
       "redirect_document_id": false
     },
     {
       "source_path": "docs/web-apps/guides/reliable-web-app/overview.md",
-      "redirect_url": "/azure/architecture/web-apps/guides/enterprise-app-patterns/overview",
-      "redirect_document_id": true
+      "redirect_url": "/azure/architecture/web-apps/app-service/architectures/baseline-zone-redundant",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/web-apps/guides/enterprise-app-patterns/overview.md",
+      "redirect_url": "/azure/architecture/web-apps/app-service/architectures/baseline-zone-redundant",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/web-apps/guides/enterprise-app-patterns/reliable-web-app/dotnet/guidance.yml",
+      "redirect_url": "/azure/architecture/web-apps/app-service/architectures/baseline-zone-redundant",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/web-apps/guides/enterprise-app-patterns/reliable-web-app/java/guidance.md",
+      "redirect_url": "/azure/architecture/web-apps/app-service/architectures/baseline-zone-redundant",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/web-apps/guides/enterprise-app-patterns/modern-web-app/dotnet/guidance.md",
+      "redirect_url": "/azure/architecture/web-apps/app-service/architectures/baseline-zone-redundant",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/web-apps/guides/enterprise-app-patterns/modern-web-app/java/guidance.md",
+      "redirect_url": "/azure/architecture/web-apps/app-service/architectures/baseline-zone-redundant",
+      "redirect_document_id": false
     },
     {
       "source_path": "docs/example-scenario/serverless/automation-application-gateway.yml",
@@ -3690,7 +3810,7 @@
     },
     {
       "source_path": "docs/data-guide/big-data/ai-overview.md",
-      "redirect_url": "/azure/architecture/ai-ml/index",
+      "redirect_url": "/azure/architecture/ai-ml/ai-overview",
       "redirect_document_id": true
     },
     {
@@ -3700,12 +3820,12 @@
     },
     {
       "source_path": "docs/ai-ml/idea/ai-at-the-edge.yml",
-      "redirect_url": "/azure/architecture/ai-ml/",
+      "redirect_url": "/azure/architecture/ai-ml/ai-get-started",
       "redirect_document_id": false
     },
     {
       "source_path": "docs/ai-ml/idea/ai-at-the-edge-disconnected.yml",
-      "redirect_url": "/azure/architecture/ai-ml/",
+      "redirect_url": "/azure/architecture/ai-ml/ai-get-started",
       "redirect_document_id": false
     },
     {
@@ -3715,7 +3835,7 @@
     },
     {
       "source_path": "docs/solution-ideas/articles/customer-feedback-and-analytics.yml",
-      "redirect_url": "/azure/architecture/ai-ml",
+      "redirect_url": "/azure/architecture/ai-ml/ai-get-started",
       "redirect_document_id": false
     },
     {
@@ -3775,12 +3895,12 @@
     },
     {
       "source_path": "docs/web-apps/hosting-applications/digital-marketing-sitecore.yml",
-      "redirect_url": "/azure/architecture/web-apps/",
+      "redirect_url": "/azure/architecture/web-apps/web-apps-get-started",
       "redirect_document_id": false
     },
     {
       "source_path": "docs/solution-ideas/articles/customer-churn-prediction.yml",
-      "redirect_url": "/azure/architecture/ai-ml",
+      "redirect_url": "/azure/architecture/ai-ml/ai-get-started",
       "redirect_document_id": false
     },
     {
@@ -4025,7 +4145,7 @@
     },
     {
       "source_path": "docs/example-scenario/ai/analyze-browser-info-for-security-insights.yml",
-      "redirect_url": "/azure/architecture/ai-ml/",
+      "redirect_url": "/azure/architecture/ai-ml/ai-get-started",
       "redirect_document_id": false
     },
     {
@@ -4045,7 +4165,7 @@
     },
     {
       "source_path": "docs//data-guide/big-data/baseball-ml-workload.yml",
-      "redirect_url": "/azure/architecture/ai-ml/",
+      "redirect_url": "/azure/architecture/ai-ml/ai-get-started",
       "redirect_document_id": false
     },
     {
@@ -4055,7 +4175,7 @@
     },
     {
       "source_path": "docs/example-scenario/ai/multiline-model-deployment.yml",
-      "redirect_url": "/azure/architecture/ai-ml/",
+      "redirect_url": "/azure/architecture/ai-ml/ai-get-started",
       "redirect_document_id": false
     },
     {
@@ -4065,17 +4185,17 @@
     },
     {
       "source_path": "docs/reference-architectures/ai/training-deep-learning.yml",
-      "redirect_url": "/azure/architecture/ai-ml/",
+      "redirect_url": "/azure/architecture/ai-ml/ai-get-started",
       "redirect_document_id": false
     },
     {
       "source_path": "docs/example-scenario/ai/training-python-models.yml",
-      "redirect_url": "/azure/architecture/ai-ml/",
+      "redirect_url": "/azure/architecture/ai-ml/ai-get-started",
       "redirect_document_id": false
     },
     {
       "source_path": "docs/reference-architectures/ai/real-time-scoring-machine-learning-models.yml",
-      "redirect_url": "/azure/architecture/ai-ml/",
+      "redirect_url": "/azure/architecture/ai-ml/ai-get-started",
       "redirect_document_id": false
     },
     {
@@ -4120,7 +4240,7 @@
     },
     {
       "source_path": "docs/reference-architectures/ai/realtime-scoring-r.yml",
-      "redirect_url": "/azure/architecture/ai-ml/",
+      "redirect_url": "/azure/architecture/ai-ml/ai-get-started",
       "redirect_document_id": false
     },
     {
@@ -4150,7 +4270,7 @@
     },
     {
       "source_path": "docs/ai-ml/guide/conversation-summarization.yml",
-      "redirect_url": "/azure/architecture/ai-ml/",
+      "redirect_url": "/azure/architecture/ai-ml/ai-get-started",
       "redirect_document_id": false
     },
     {
@@ -4190,7 +4310,7 @@
     },
     {
       "source_path": "docs/data-guide/big-data/machine-learning-at-scale.md",
-      "redirect_url": "/azure/architecture/ai-ml/",
+      "redirect_url": "/azure/architecture/ai-ml/ai-get-started",
       "redirect_document_id": false
     },
     {
@@ -4220,7 +4340,7 @@
     },
     {
       "source_path": "docs/example-scenario/mlops/aml-decision-tree.yml",
-      "redirect_url": "/azure/architecture/ai-ml/",
+      "redirect_url": "/azure/architecture/ai-ml/ai-get-started",
       "redirect_document_id": false
     },
     {
@@ -4309,6 +4429,11 @@
       "redirect_document_id": true
     },
     {
+      "source_path": "docs/solution-ideas/articles/microsoft-365-defender-build-second-layer-defense.yml",
+      "redirect_url": "/azure/architecture/solution-ideas/articles/microsoft-defender-xdr-build-second-layer-defense",
+      "redirect_document_id": true
+    },
+    {
       "source_path": "docs/example-scenario/data-warehouse/dataops-mdw.yml",
       "redirect_url": "/azure/architecture/databases/architecture/dataops-mdw",
       "redirect_document_id": true
@@ -4390,8 +4515,13 @@
     },
     {
       "source_path": "docs/example-scenario/ai/data-obfuscation-with-delphix-in-azure-data-factory.yml",
-      "redirect_url": "/azure/architecture/databases/guide/data-obfuscation-with-delphix-in-azure-data-factory",
-      "redirect_document_id": true
+      "redirect_url": "https://marketplace.microsoft.com/product/saas/delphix.delphix-compliance-services-for-azure-tb-model",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/databases/guide/data-obfuscation-with-delphix-in-azure-data-factory.yml",
+      "redirect_url": "https://marketplace.microsoft.com/product/saas/delphix.delphix-compliance-services-for-azure-tb-model",
+      "redirect_document_id": false
     },
     {
       "source_path": "docs/example-scenario/ai/data-scrambling-for-sap-using-delphix-and-azure-data-factory.yml",
@@ -4654,6 +4784,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "docs/guide/devops/devops-start-here.md",
+      "redirect_url": "/azure/architecture/guide/devops/devops-get-started",
+      "redirect_document_id": true
+    },
+    {
       "source_path": "docs/data-science-process/agile-development.md",
       "redirect_url": "/azure/architecture/data-science-process/overview",
       "redirect_document_id": false
@@ -4730,7 +4865,7 @@
     },
     {
       "source_path": "docs/solution-ideas/articles/security-compliance-blueprint-hipaa-hitrust-health-data-ai.yml",
-      "redirect_url": "/azure/architecture/ai-ml/",
+      "redirect_url": "/azure/architecture/ai-ml/ai-get-started",
       "redirect_document_id": false
     },
     {
@@ -4870,7 +5005,7 @@
     },
     {
       "source_path": "docs/ai-ml/architecture/build-deploy-social-media-analytics-solution.yml",
-      "redirect_url": "/azure/architecture/ai-ml/",
+      "redirect_url": "/azure/architecture/ai-ml/ai-get-started",
       "redirect_document_id": false
     },
     {
@@ -4985,12 +5120,57 @@
     },
     {
       "source_path": "docs/reference-architectures/containers/aks-mission-critical/mission-critical-network-architecture.yml",
-      "redirect_url": "/azure/architecture/reference-architectures/containers/aks-mission-critical/mission-critical-intro",
+      "redirect_url": "/azure/well-architected/mission-critical/mission-critical-networking-connectivity",
       "redirect_document_id": false
     },
     {
       "source_path": "docs/reference-architectures/containers/aks-mission-critical/mission-critical-landing-zone.yml",
-      "redirect_url": "/azure/architecture/reference-architectures/containers/aks-mission-critical/mission-critical-intro",
+      "redirect_url": "/azure/well-architected/mission-critical/mission-critical-architecture-pattern",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/reference-architectures/containers/aks-mission-critical/mission-critical-intro.yml",
+      "redirect_url": "/azure/well-architected/mission-critical/mission-critical-overview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/reference-architectures/containers/aks-mission-critical/mission-critical-app-platform.md",
+      "redirect_url": "/azure/well-architected/mission-critical/mission-critical-application-platform",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/reference-architectures/containers/aks-mission-critical/mission-critical-app-design.md",
+      "redirect_url": "/azure/well-architected/mission-critical/mission-critical-application-design",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/reference-architectures/containers/aks-mission-critical/mission-critical-networking.md",
+      "redirect_url": "/azure/well-architected/mission-critical/mission-critical-networking-connectivity",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/reference-architectures/containers/aks-mission-critical/mission-critical-data-platform.md",
+      "redirect_url": "/azure/well-architected/mission-critical/mission-critical-data-platform",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/reference-architectures/containers/aks-mission-critical/mission-critical-deploy-test.md",
+      "redirect_url": "/azure/well-architected/mission-critical/mission-critical-deployment-testing",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/reference-architectures/containers/aks-mission-critical/mission-critical-health-modeling.md",
+      "redirect_url": "/azure/well-architected/mission-critical/mission-critical-health-modeling",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/reference-architectures/containers/aks-mission-critical/mission-critical-security.md",
+      "redirect_url": "/azure/well-architected/mission-critical/mission-critical-security",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/reference-architectures/containers/aks-mission-critical/mission-critical-operations.md",
+      "redirect_url": "/azure/well-architected/mission-critical/mission-critical-operational-procedures",
       "redirect_document_id": false
     },
     {
@@ -5154,7 +5334,7 @@
     },
     {
       "source_path": "docs/guide/networking/networking-start-here.md",
-      "redirect_url": "/azure/architecture/networking/",
+      "redirect_url": "/azure/architecture/networking/get-started",
       "redirect_document_id": true
     },
     {
@@ -5219,7 +5399,7 @@
     },
     {
       "source_path": "docs/ai-ml/idea/process-audio-files.yml",
-      "redirect_url": "/azure/architecture/ai-ml/",
+      "redirect_url": "/azure/architecture/ai-ml/ai-get-started",
       "redirect_document_id": false
     },
     {
@@ -5974,7 +6154,7 @@
     },
     {
       "source_path": "docs/web-apps/hosting-applications/digital-marketing-episerver.yml",
-      "redirect_url": "/azure/architecture/web-apps/",
+      "redirect_url": "/azure/architecture/web-apps/web-apps-get-started",
       "redirect_document_id": false
     },
     {
@@ -6048,6 +6228,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "docs/networking/guide/sdwan-integration-in-hub-and-spoke-network-topologies.md",
+      "redirect_url": "/azure/architecture/networking/guide/sd-wan-integration-hub-spoke-network-topologies",
+      "redirect_document_id": true
+    },
+    {
       "source_path": "docs/guide/iot/azure-iot-migration-best-practices.md",
       "redirect_url": "/azure/iot/iot-introduction",
       "redirect_document_id": false
@@ -6074,7 +6259,7 @@
     },
     {
       "source_path": "docs/ai-ml/idea/personalized-marketing.yml",
-      "redirect_url": "/azure/architecture/ai-ml/",
+      "redirect_url": "/azure/architecture/ai-ml/ai-get-started",
       "redirect_document_id": false
     },
     {
@@ -6084,7 +6269,7 @@
     },
     {
       "source_path": "docs/example-scenario/apps/ecommerce-scenario.yml",
-      "redirect_url": "/azure/architecture/web-apps/guides/reliable-web-app/overview",
+      "redirect_url": "/azure/architecture/web-apps/app-service/architectures/baseline-zone-redundant",
       "redirect_document_id": false
     },
     {
@@ -6224,7 +6409,7 @@
     },
     {
       "source_path": "docs/ai-ml/architecture/real-time-recommendation.yml",
-      "redirect_url": "/azure/architecture/ai-ml",
+      "redirect_url": "/azure/architecture/ai-ml/ai-get-started",
       "redirect_document_id": false
     },
     {
@@ -6344,7 +6529,7 @@
     },
     {
       "source_path": "docs/ai-ml/idea/azure-machine-learning-solution-architecture.yml",
-      "redirect_url": "/azure/architecture/ai-ml",
+      "redirect_url": "/azure/architecture/ai-ml/ai-get-started",
       "redirect_document_id": false
     },
     {
@@ -6814,7 +6999,7 @@
     },
     {
       "source_path": "docs/industries/retail/migrate-ecommerce-solution.md",
-      "redirect_url": "/azure/architecture/web-apps/",
+      "redirect_url": "/azure/architecture/web-apps/web-apps-get-started",
       "redirect_document_id": false
     },
     {
@@ -7119,7 +7304,7 @@
     },
     {
       "source_path": "docs/example-scenario/ai/loan-credit-risk-analyzer-default-modeling.yml",
-      "redirect_url": "/azure/architecture/ai-ml/",
+      "redirect_url": "/azure/architecture/ai-ml/ai-get-started",
       "redirect_document_id": false
     },
     {
@@ -7199,12 +7384,27 @@
     },
     {
       "source_path": "docs/guide/resilience/resilience-overview.yml",
-      "redirect_url": "/azure/architecture/identity/identity-start-here",
+      "redirect_url": "/azure/architecture/identity/identity-get-started",
       "redirect_document_id": false
     },
     {
       "source_path": "docs/reference-architectures/identity/index.yml",
-      "redirect_url": "/azure/architecture/reference-architectures/identity/azure-ad",
+      "redirect_url": "/entra/identity/hybrid/cloud-sync/plan-cloud-sync-topologies",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/reference-architectures/identity/azure-ad.yml",
+      "redirect_url": "/entra/identity/hybrid/cloud-sync/plan-cloud-sync-topologies",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/reference-architectures/identity/adfs.yml",
+      "redirect_url": "/entra/identity/hybrid/connect/migrate-from-federation-to-cloud-authentication",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/reference-architectures/identity/adds-forest.yml",
+      "redirect_url": "/entra/identity/domain-services/overview",
       "redirect_document_id": false
     },
     {
@@ -7419,7 +7619,7 @@
     },
     {
       "source_path": "docs/web-apps/app-service/architectures/multi-region.yml",
-      "redirect_url": "/azure/architecture/web-apps/guides/enterprise-app-patterns/reliable-web-app/dotnet/guidance",
+      "redirect_url": "/azure/architecture/web-apps/app-service/architectures/baseline-zone-redundant",
       "redirect_document_id": false
     },
     {
@@ -7544,7 +7744,7 @@
     },
     {
       "source_path": "docs/data-guide/scenarios/advanced-analytics.md",
-      "redirect_url": "/azure/architecture/ai-ml/",
+      "redirect_url": "/azure/architecture/ai-ml/ai-get-started",
       "redirect_document_id": false
     },
     {
@@ -7758,6 +7958,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "docs/reference-architectures/ibm/deploy-ibm-sterling-oms.yml",
+      "redirect_url": "https://marketplace.microsoft.com/product/azure-applications/ibm-usa-ny-armonk-hq-6275750-ibmcloud-asperia.ibm-sterling-order-management-byol?tab=Overview",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "docs/resiliency/failure-mode-analysis.md",
       "redirect_url": "/azure/well-architected/reliability/failure-mode-analysis",
       "redirect_document_id": false
@@ -7808,9 +8013,19 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "docs/ai-ml/index.md",
+      "redirect_url": "/azure/architecture/ai-ml/ai-get-started",
+      "redirect_document_id": true
+    },
+    {
       "source_path": "docs/solution-ideas/articles/analytics-start-here.yml",
       "redirect_url": "/azure/architecture/solution-ideas/articles/analytics-get-started",
       "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/web-apps/index.md",
+      "redirect_url": "/azure/architecture/web-apps/web-apps-get-started",
+      "redirect_document_id": true
     },
     {
       "source_path": "docs/databases/index.yml",
@@ -7843,6 +8058,11 @@
       "redirect_document_id": true
     },
     {
+      "source_path": "docs/integration/integration-start-here.yml",
+      "redirect_url": "/azure/architecture/integration/integration-get-started",
+      "redirect_document_id": true
+    },
+    {
       "source_path": "docs/guide/virtual-desktop/start-here.md",
       "redirect_url": "/azure/architecture/virtual-desktop/virtual-desktop-get-started",
       "redirect_document_id": false
@@ -7860,6 +8080,11 @@
     {
       "source_path": "docs/guide/multitenant/service/cache-redis.md",
       "redirect_url": "/azure/architecture/guide/multitenant/service/managed-redis",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/guide/web/web-start-here.md",
+      "redirect_url": "/azure/architecture/web-apps/app-service/architectures/basic-web-app",
       "redirect_document_id": false
     }
   ]

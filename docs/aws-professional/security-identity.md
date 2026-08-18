@@ -6,6 +6,7 @@ ms.author: gerhoads
 ms.date: 10/01/2025
 ms.topic: concept-article
 ms.subservice: architecture-guide
+ai-usage: ai-assisted
 ms.collection: 
  - migration
  - aws-to-azure
@@ -61,7 +62,6 @@ AWS IAM temporary elevated access is an open-source security solution that grant
 
 [Microsoft Entra Privileged Identity Management (PIM)](/entra/id-governance/privileged-identity-management/pim-configure) provides just-in-time privileged access management. You use PIM to manage, control, and monitor access to important resources and critical permissions in your organization. PIM includes features such as role activation via approval workflows, time-bound access, and access reviews to ensure that privileged roles are only granted when necessary and are fully audited.
 
-
 | AWS service | Azure service | Description |
 |------------|---------------|-------------|
 | [AWS CloudTrail](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/cloudtrail-user-guide.html) | [Microsoft Entra privileged access audit](/entra/id-governance/privileged-identity-management/pim-how-to-use-audit-log) | Comprehensive audit logging for privileged access activities |
@@ -80,6 +80,8 @@ Both platforms provide solutions to manage hybrid identity scenarios that integr
 ## Application and API user authentication and authorization
 
 Both platforms provide identity services to secure application access and API authentication. These services manage user authentication, application permissions, and API access controls through identity-based mechanisms. The [Microsoft identity platform](/entra/identity-platform/) serves as the Azure unified framework for authentication and authorization across applications, APIs, and services. It implements standards like OAuth 2.0 and OIDC. AWS provides similar capabilities through [Amazon Cognito](https://aws.amazon.com/cognito/) as part of its identity suite.
+
+[Workload identity federation](/entra/workload-id/workload-identity-federation) in Microsoft Entra ID can trust tokens from external workload identity providers. For workloads running in AWS, you can configure this trust with an identity provider such as Amazon Cognito, then exchange OIDC tokens for Microsoft identity platform access tokens. This approach provides short-lived credentials for cross-cloud workload-to-Azure API calls and avoids long-lived client secrets. For example, an AWS workload, such as an Amazon EC2 instance or AWS Lambda function, can call an Azure-protected endpoint. The endpoint might be an Azure Function that uses [App Service authentication](/azure/app-service/overview-authentication-authorization) with the Microsoft identity provider. The AWS workload presents a bearer access token that it obtains through federation.
 
 | AWS service | Microsoft service | Description |
 |-------------|------------------|-------------|
@@ -127,7 +129,7 @@ Both platforms provide identity services to secure application access and API au
 | AWS service | Microsoft or Azure service | Description |
 |-------------|------------------|-------------|
 | [Cognito app client configuration](https://docs.aws.amazon.com/cognito/latest/developerguide/user-pool-settings-client-apps.html) | [Microsoft Entra app registrations](/entra/identity-platform/quickstart-register-app) | Registration and configuration of applications by using the identity platform |
-| [AWS IAM roles for applications](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_use_switch-role-ec2.html) | [Microsoft Entra Workload ID](/entra/workload-id/) | Managed identities for application code resource access |
+| [AWS IAM roles for applications](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_use_switch-role-ec2.html) | [Microsoft Entra Workload ID](/entra/workload-id/) | Managed identities for application code resource access. Microsoft Entra Workload ID also supports [workload identity federation](/entra/workload-id/workload-identity-federation), so non-Azure workloads, such as AWS EC2 instances and AWS Lambda functions, can use federated credentials instead of long-lived client secrets. |
 | [Cognito resource servers](https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-pools-define-resource-servers.html) | [Microsoft identity platform API permissions](/entra/identity-platform/how-to-add-credentials) | Configuration of protected resources and scopes |
 
 ### Developer experience
@@ -148,14 +150,17 @@ Both platforms provide identity services to secure application access and API au
 | [Cognito user pool Lambda triggers](https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-identity-pools-working-with-aws-lambda-triggers.html) | [Microsoft identity platform custom authentication extensions](/entra/identity-platform/custom-extension-overview) | Extensibility mechanisms for authentication flows |
 | [AWS Web Application Firewall with Cognito](https://docs.aws.amazon.com/cognito/latest/developerguide/user-pool-waf.html) | No direct equivalent | Security policies for access control |
 
+## Migration
+
+If you plan to migrate an AWS workload to Azure, see [Migrate security services from Amazon Web Services to Azure](/azure/migration/migrate-security-from-aws), which includes some specific [example migration scenarios](/azure/migration/migrate-security-from-aws#migration-scenarios) that might align to your use case.
+
 ## Contributors
 
 *Microsoft maintains this article. The following contributors wrote this article.*
 
 Principal author:
 
-- [Jerry Rhoads](https://www.linkedin.com/in/jerrymsft/) |
-Principal Partner Solutions Architect
+- [Jerry Rhoads](https://www.linkedin.com/in/jerrymsft/) | Principal Partner Solutions Architect
 
 Other contributor:
 

@@ -254,4 +254,6 @@ docs/.vscode/settings.json
 .gitignore
 .temp
 .env
+.kaleidoscope/*
+.pandora/*
 

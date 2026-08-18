@@ -1,7 +1,7 @@
 ### YamlMime:Architecture
 metadata:
-  title: Image classification on Azure
-  description: Learn how to build image classification into your applications by using Azure services such as Azure AI Content Understanding and Azure Functions.
+  title: Image Classification on Azure
+  description: Learn how to build image classification into your applications by using Azure services such as Azure Content Understanding and Azure Functions.
   author: ananyagc5
   ms.author: ananyag
   ms.date: 04/29/2026
@@ -12,7 +12,6 @@ metadata:
     - ai-machine-learning
     - media
   ms.custom:
-    - ai-machine-learning
     - arb-telco
     - arb-aiml
   ai-usage: ai-assisted
@@ -20,9 +19,10 @@ name: Image classification on Azure
 azureCategories:
   - ai-machine-learning
   - media
-summary: Learn how to build image classification into your applications by using Azure services such as Azure AI Content Understanding and Azure Functions.
+summary: Learn how to build image classification into your applications by using Azure services such as Azure Content Understanding and Azure Functions.
 products:
-  - azure-ai-foundry-sdk
+  - foundry-tools
+  - foundry-sdk
   - azure-blob-storage
   - azure-cosmos-db
   - azure-event-grid

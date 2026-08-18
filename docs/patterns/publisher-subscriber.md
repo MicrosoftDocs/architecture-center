@@ -11,7 +11,7 @@ ms.subservice: cloud-fundamentals
 
 # Publisher-Subscriber pattern
 
-The Publisher-Subscriber pattern lets applications broadcast events asynchronously to multiple interested consumers without coupling the senders and the receivers. This approach is known as *pub/sub messaging*.
+Broadcast events asynchronously to multiple interested consumers through an intermediary, without coupling the senders to the receivers. This approach, known as *pub/sub messaging*, lets a sender publish events without knowing which consumers receive them.
 
 ## Context and problem
 
@@ -88,7 +88,7 @@ Consider the following points as you decide how to implement this pattern:
 
 - **Message ordering:** The order in which subscribers receive messages isn't guaranteed and doesn't necessarily reflect the order in which the sender created them. If ordering matters, the broker might support ordered delivery within a partition or session, but that constrains scalability. Design subscribers to handle messages independently of arrival order.
 
-- **Message priority:** Some workloads require that specific messages be processed before others. The [Priority Queue pattern](priority-queue.yml) provides a mechanism to route higher-priority messages before lower-priority messages.
+- **Message priority:** Some workloads require that specific messages be processed before others. The [Priority Queue pattern](priority-queue.md) provides a mechanism to route higher-priority messages before lower-priority messages.
 
 - **Poison messages:** A malformed message, or a task that requires access to unavailable resources, can cause a service instance to fail. Capture and store these message details elsewhere for analysis. Some message brokers, like Service Bus, support this process through [dead-letter queues](/azure/service-bus-messaging/service-bus-dead-letter-queues).
 
@@ -102,7 +102,7 @@ Consider the following points as you decide how to implement this pattern:
 
   - *Exactly-once delivery* removes duplicates but adds coordination overhead and latency, and its availability depends on the messaging infrastructure.
 
-  If your broker doesn't provide deduplication, design subscribers to [handle messages idempotently](../reference-architectures/containers/aks-mission-critical/mission-critical-data-platform.md#idempotent-message-processing). Different subscribers in the same workload might require different guarantees.
+  If your broker doesn't provide deduplication, design subscribers to [handle messages idempotently](./idempotent-consumer.md). Different subscribers in the same workload might require different guarantees.
 
 - **Message expiration:** Some messages have a limited lifetime. If a receiver doesn't process a message within that period, the message becomes irrelevant and the system discards it. Set an expiration timestamp in the message data so that receivers can check its relevance before they process it.
 
@@ -168,5 +168,5 @@ The following diagram shows an enterprise integration architecture that uses Ser
 ## Related resources
 
 - [Event-driven architecture style](../guide/architecture-styles/event-driven.md)
-- [Idempotent message processing](../reference-architectures/containers/aks-mission-critical/mission-critical-data-platform.md#idempotent-message-processing)
+- [Idempotent Consumer pattern](./idempotent-consumer.md)
 - [Enterprise integration on Azure by using message queues and events](../example-scenario/integration/queues-events.yml)

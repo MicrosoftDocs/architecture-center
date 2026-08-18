@@ -10,12 +10,11 @@ metadata:
   ms.category:
     - web
   ms.custom:
-    - web-apps
-    - scalability
     - arb-web
 name: WordPress on Azure
 azureCategories:
   - web
+  - open-source
 summary: Learn about multiple options for hosting WordPress on Azure. See guidance and tips for deploying a secure, scalable, and cost-effective WordPress installation.
 products:
   - azure-app-service

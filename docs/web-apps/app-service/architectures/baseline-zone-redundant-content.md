@@ -137,6 +137,32 @@ The following table shows an example network schema.
 | Subnet          | PrivateEndpointsSubnet | 10.0.2.0/27   |
 | Subnet          | AgentsSubnet           | 10.0.2.32/27  |
 
+#### Segment subnets further by application tier
+
+This architecture uses a shared App Service integration subnet and a shared private endpoints subnet, which is a good starting point for a single web application with dependencies owned by the same team. If your workload is broken into distinct tiers or you run multiple unrelated applications in the same virtual network, you can subdivide these subnets to create stricter isolation boundaries. This approach is optional and adds operational overhead.
+
+Consider this segmentation when one or more of the following conditions apply:
+
+- You want to constrain east-west traffic so that each tier reaches only the dependencies that it requires.
+
+- You host an internal API that other services consume privately and that the internet never reaches directly.
+
+- You share the virtual network across applications that have different owners or trust levels.
+
+When you implement tier-based segmentation, apply the following guidance:
+
+- Create a dedicated App Service integration subnet for each tier that needs outbound virtual network access. An App Service plan supports virtual network integrations with at most two subnets or virtual networks. For more information, see [How virtual network integration works](/azure/app-service/overview-vnet-integration#how-virtual-network-integration-works). Use separate plans when more than two tiers require dedicated integration subnets.
+
+  For example, a frontend that serves only static content, such as a single-page application that runs in the browser, doesn't need virtual network integration because the browser calls the backend through Application Gateway rather than through a server-to-server path.
+
+  Each integration subnet must be delegated to `Microsoft.Web/serverFarms`. For more information, see [Enable virtual network integration](/azure/app-service/configure-vnet-integration-enable).
+
+- Keep public network access disabled on backing services that support this setting, such as SQL Database, and expose them only through private endpoints. For internal APIs hosted in App Service that you expose via private endpoints, disable public network access for the app. Place private endpoints in dedicated subnets that you group by access pattern, such as one subnet for data services and one subnet for internal APIs.
+
+- Use NSGs to allow each integration subnet to reach only the private endpoints and platform destinations that the tier requires, and deny routed outbound traffic to endpoints that the tier must never call. These rules apply only to traffic that App Service sends through virtual network integration. Because this baseline doesn't enable all traffic routing, internet-bound traffic bypasses the subnet NSG. Enable all traffic routing if the isolation boundary must also cover public destinations.
+
+  For example, allow the backend subnet to reach the SQL and internal API private endpoints, and deny the internal API subnet from initiating connections to the backend or data tier.
+
 ## Considerations
 
 These considerations implement the pillars of the Azure Well-Architected Framework, which is a set of guiding tenets that you can use to improve the quality of a workload. For more information, see [Well-Architected Framework](/azure/well-architected/).
@@ -167,7 +193,7 @@ Deploy Application Gateway in a zone-redundant configuration with a minimum scal
 
 - Create separate storage accounts for deployments, web assets, and other data to manage and configure each account independently.
 
-#### SQL Database  
+#### SQL Database
 
 - Deploy SQL Database in the General Purpose, Premium, or Business Critical tier with zone redundancy turned on. These tiers support [zone redundancy](/azure/azure-sql/database/high-availability-sla-local-zone-redundancy#general-purpose-service-tier).
 
@@ -262,7 +288,7 @@ The App Service baseline architecture configures authentication and authorizatio
 
   Replace `<application-gateway-endpoint>` with either the public IP address or custom domain name of your application gateway. Replace `<provider>` with your authentication provider, like `aad` for Microsoft Entra ID.
   
-  For setup instructions, see [Azure Front Door considerations](/azure/app-service/overview-authentication-authorization#considerations-for-using-azure-front-door) or [Set up Application Gateway](https://techcommunity.microsoft.com/blog/appsonazureblog/setting-up-application-gateway-with-an-app-service-that-uses-azure-active-direct/392490).
+  For setup instructions, see [Azure Front Door considerations](/azure/app-service/overview-authentication-authorization#considerations-for-using-azure-front-door) or [Application Gateway integration with App Service](/azure/app-service/overview-app-gateway-integration#authentication-easy-auth).
 
 ##### Workload identities
 
@@ -274,7 +300,7 @@ The App Service baseline architecture configures authentication and authorizatio
 
 Cost Optimization focuses on ways to reduce unnecessary expenses and improve operational efficiencies. For more information, see [Design review checklist for Cost Optimization](/azure/well-architected/cost-optimization/checklist).
 
-This [Azure pricing estimate](https://azure.com/e/04fa6a287c1d47f9af40c91e4202f238) includes only the components in this architecture, including those components that are carried over from the [Basic web application](./basic-web-app.yml#components). Modify it with any architecture changes that your use case requires.
+This [preconfigured estimate in the Azure pricing calculator](https://azure.com/e/a1d3157fee6842b188bedd045f8374dc) includes only the components in this architecture, including those components that are carried over from the [Basic web application](./basic-web-app.yml#components). Modify it with any architecture changes that your use case requires.
 
 ### Operational Excellence
 
@@ -449,7 +475,7 @@ Database scaling involves many considerations beyond the scope of this architect
 
 - Review [subscription limits and quotas](/azure/azure-resource-manager/management/azure-subscription-service-limits) to ensure that services scale to demand.
 
-- Consider [caching](../../../best-practices/caching.yml) for the following kinds of data to increase performance and scalability:
+- Consider [caching](../../../best-practices/caching.md) for the following kinds of data to increase performance and scalability:
 
   - Semistatic transaction data
   - Session state
@@ -462,6 +488,4 @@ Database scaling involves many considerations beyond the scope of this architect
 
 ## Related resources
 
-- [Enterprise web app patterns](../../../web-apps/guides/enterprise-app-patterns/overview.md)
 - [Guide to Private Link in Azure Virtual WAN](../../../networking/guide/private-link-virtual-wan-dns-guide.yml)
-

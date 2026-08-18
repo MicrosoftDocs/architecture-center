@@ -4,17 +4,14 @@ metadata:
   description: Learn how to integrate enterprise back-end systems by using a message broker and events to decouple services for greater scalability and reliability.
   author: wsilveiranz
   ms.author: wsilveira
-  ms.reviewer: estfan, azla
-  ms.date: 11/06/2024
+  ms.reviewer: estfan
+  ms.date: 03/30/2026
   ms.topic: concept-article
   ms.subservice: example-scenario
   ms.category:
     - integration
     - developer-tools
   ms.custom:
-    - integration-services
-    - example-scenario
-    - internal-intro
     - arb-integrations
 name: Use a message broker and events to integrate enterprise systems
 azureCategories:

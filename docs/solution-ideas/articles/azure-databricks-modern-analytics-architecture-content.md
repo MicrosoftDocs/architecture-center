@@ -176,6 +176,12 @@ Use this architecture if you:
 
 - Need to maintain consistent governance, security, and access controls across engineering and BI workloads.
 
+## Cost
+
+Use the Azure pricing calculator to estimate costs for your specific scenario. For a starting point, see a [preconfigured estimate in the Azure pricing calculator](https://azure.com/e/6a6901def01b465ba14ed3cef1e3e9d3) that includes the core Azure services in this architecture.
+
+The estimate doesn't include Microsoft Fabric, Power BI, Microsoft Purview, or Azure DevOps because those services use per-capacity or per-user licensing that varies by organization.
+
 ## Contributors
 
 *Microsoft maintains this article. The following contributors wrote this article.*
@@ -195,7 +201,7 @@ Other contributor:
 - [Build an extract, transform, and load (ETL) pipeline by using change data capture][Build an ETL pipeline using change data capture]
 - [Create an end-to-end pipeline by using Data Factory](/fabric/data-factory/tutorial-end-to-end-pipeline)
 - [Use Direct Lake for high‑performance analytics on OneLake data][Direct Lake]
-- [Understand supported Databricks and Fabric integration patterns](https://techcommunity.microsoft.com/blog/analyticsonazure/approaches-to-integrating-azure-databricks-with-microsoft-fabric-the-better-toge/4453643)
+- [Integrate OneLake with Azure Databricks](/fabric/onelake/onelake-azure-databricks)
 
 ## Related resources
 

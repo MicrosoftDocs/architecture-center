@@ -1,11 +1,11 @@
 ---
 title: Get Started with Virtual Desktop Architecture Design
 description: Get an overview of Azure virtual desktop technologies and cloud desktop design, including architecture guidance, solution ideas, and reference architectures.
-ms.author: anaharris
+ms.author: pnp
 author: anaharris-ms
 ms.update-cycle: 1095-days
 ms.topic: concept-article
-ms.subservice: architecture-guide
+ms.subservice: category-get-started
 ms.date: 03/26/2026
 ai-usage: ai-assisted
 ---

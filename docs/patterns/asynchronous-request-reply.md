@@ -31,7 +31,7 @@ These factors can add latency to the response. You can mitigate some factors by 
 
 In some scenarios, the back end does work that's long-running and takes a few seconds. In other scenarios, the back end does long-running background work for minutes or for extended periods. In these cases, you can't wait for the work to finish before you send a response. This situation can create a problem for synchronous request-reply patterns. For guidance about designing the back-end processing, see [Background jobs](../best-practices/background-jobs.md).
 
-Some architectures solve this problem by using a message broker to separate the request and response stages. Many systems achieve this separation through the [Queue-Based Load Leveling pattern](./queue-based-load-leveling.yml). This separation lets the client process and the back-end API scale independently. It also introduces extra complexity when the client requires success notification because that step must also become asynchronous.
+Some architectures solve this problem by using a message broker to separate the request and response stages. Many systems achieve this separation through the [Queue-Based Load Leveling pattern](./queue-based-load-leveling.md). This separation lets the client process and the back-end API scale independently. It also introduces extra complexity when the client requires success notification because that step must also become asynchronous.
 
 Many of the same considerations that apply to client applications also apply to server-to-server REST API calls in distributed systems, like in a microservices architecture.
 
@@ -160,7 +160,7 @@ The following code shows excerpts from an application that uses Azure Functions 
    In step 1, a client calls an API. In step 2, the API places a message in a queue. In step 3, the API returns a status endpoint to the client. In step 4, a worker receives the message from the queue. In step 5, the worker processes the message and writes the result to blob storage. In step 6, the client calls the status endpoint. In step 7, the status endpoint checks for the result in blob storage.
 :::image-end:::
 
-![GitHub logo.](../_images/github.png) This sample is available on [GitHub](https://github.com/mspnp/cloud-design-patterns/tree/main/async-request-reply).
+![GitHub logo.](../_images/github.png) This sample is available on [GitHub](https://github.com/Azure-Samples/cloud-design-patterns/tree/main/async-request-reply).
 
 The implementation uses managed identity to authenticate with Azure Service Bus and Azure Blob Storage, which avoids storing connection strings or account keys. Dependencies are registered in `Program.cs` by using `DefaultAzureCredential` and are injected through primary constructors.
 

@@ -12,8 +12,8 @@ This architecture serves as a starting point for an infrastructure as a service 
 ## Article layout
 
 | Architecture | Design decision | Well-Architected Framework approach|
-|---|---|---|
-|&#9642; [Architecture diagram](#architecture) <br>&#9642; [Workload resources](#workload-resources) <br> &#9642; [Supporting resources](#workload-supporting-resources) <br> &#9642; [User flows](#user-flows) <br> |&#9642; [VM design choices](#vm-design-choices)<br> &#9642; [Disks](#disks) <br> &#9642; [Networking](#network-layout) <br> &#9642; [Monitoring](#monitoring) <br> &#9642; [Update management](#update-management) |  <br> &#9642; [Reliability](#reliability) <br> &#9642; [Security](#security) <br> &#9642; [Cost Optimization](#cost-optimization)|
+| --- | --- | --- |
+| &#9642; [Architecture diagram](#architecture) <br>&#9642; [Workload resources](#workload-resources) <br> &#9642; [Supporting resources](#workload-supporting-resources) <br> &#9642; [User flows](#user-flows) <br> | &#9642; [VM design choices](#vm-design-choices)<br> &#9642; [Disks](#disks) <br> &#9642; [Networking](#network-layout) <br> &#9642; [Monitoring](#monitoring) <br> &#9642; [Update management](#update-management) | <br> &#9642; [Reliability](#reliability) <br> &#9642; [Security](#security) <br> &#9642; [Cost&nbsp;Optimization](#cost-optimization) |
 
 > [!TIP]
 > ![GitHub logo](../_images/github.svg) This [reference implementation](https://github.com/mspnp/iaas-baseline) demonstrates the best practices described in this article.
@@ -322,7 +322,7 @@ You can use [Azure Update Management](/azure/update-manager/overview) to manage 
 
 ### Guest OS patching
 
-Azure VMs provide the option of automatic VM guest patching. When this service is enabled, VMs are evaluated periodically and available patches are classified. It's recommended that Assessment Mode is enabled to allow daily evaluation for pending patches. On-demand assessment can be done, however, that doesn't trigger application of patches. If Assessment Mode isn't enabled, have manual ways of detecting pending updates.
+Azure VMs provide the option of [automatic VM guest patching](/azure/virtual-machines/automatic-vm-guest-patching). When you enable this service, it periodically evaluates VMs and classifies available patches. Enable Assessment Mode to allow daily evaluation for pending patches. You can also perform on-demand assessment, but that action doesn't trigger application of patches. If you don't enable Assessment Mode, use manual methods to detect pending updates.
 
 Only the patches that are classified as *critical* or *security* are applied automatically across all Azure regions. Define custom update management processes that apply other patches.
 
@@ -336,7 +336,7 @@ Health checks are included as part of automatic VM guest patching. These checks 
 
 If there are custom processes for applying patches, use private repositories for patch sources. Doing so gives you better control in testing the patches to make sure the update doesn't negatively affect performance or security.
 
-For more information, see [Automatic VM guest patching for Azure VMs](/azure/virtual-machines/automatic-vm-guest-patching).
+For Windows VMs, follow the guidance in [Scalable Windows virtual machine patch management](patch-management.md) for a staged, governed patching process that uses Azure Update Manager scheduled patching, dynamic scoping, and compliance reporting.
 
 ## Considerations
 
@@ -544,6 +544,8 @@ The VMs use the [Key Vault VM extension](/azure/virtual-machines/extensions/key-
 ### Cost Optimization
 
 Cost Optimization is about looking at ways to reduce unnecessary expenses and improve operational efficiencies. For more information, see [Design review checklist for Cost Optimization](/azure/well-architected/cost-optimization/checklist).
+
+Use the [preconfigured estimate in the Azure pricing calculator](https://azure.com/e/8594eedc1e5847178f6c6d27895e6f51) to get an approximation of the monthly cost of the infrastructure components used in this architecture. Adjust the values to match your expected traffic and workload characteristics.
 
 #### Component cost
 

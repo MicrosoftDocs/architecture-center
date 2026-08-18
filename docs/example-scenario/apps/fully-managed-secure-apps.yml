@@ -11,10 +11,6 @@ metadata:
     - security
     - web
   ms.custom:
-    - fasttrack
-    - security
-    - web-apps
-    - example-scenario
     - arb-web
 name: Securely managed web applications
 azureCategories:

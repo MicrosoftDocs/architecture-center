@@ -164,3 +164,4 @@ Other contributors:
 - [Resources for architects and developers of multitenant solutions](../related-resources.md)
 - [Architect multitenant solutions on Azure](../overview.md)
 - [Checklist for architecting and building multitenant solutions on Azure](../checklist.md)
+- [Architecture best practices for Azure Container Apps](/azure/well-architected/service-guides/azure-container-apps)

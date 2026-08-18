@@ -4,12 +4,10 @@ metadata:
   description: This example describes a data-first approach to middleware integration that enables IBM message queues (MQs).
   author: ashish-khandelwal-ms-zz
   ms.author: askhande
-  ms.date: 06/07/2024
-  ms.topic: example-scenario
-  ms.subservice: example-scenario
+  ms.date: 05/29/2026
+  ms.topic: solution-idea
+  ms.subservice: solution-idea
   ai-usage: ai-assisted
-  ms.custom:
-    - fcp
 azureCategories:
   - hybrid
   - integration
@@ -23,4 +21,4 @@ name: Integrate IBM mainframe and midrange message queues with Azure
 summary: This example describes a data-first approach to middleware integration that enables IBM message queues (MQs).
 thumbnailUrl: /azure/architecture/browse/thumbs/integrate-ibm-message-queues-azure.png
 content: |
-  [!include[](integrate-ibm-message-queues-azure-content.md)]
+  [!INCLUDE[](integrate-ibm-message-queues-azure-content.md)]

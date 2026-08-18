@@ -12,15 +12,11 @@ metadata:
     - databases
   ms.custom:
     - arb-data
-    - acom-architecture
-    - data streaming scenario
-    - interactive-diagram
-    - data
     - arb-containers
-    - "https://azure.microsoft.com/solutions/architecture/data-streaming-scenario"
 name: Data streaming with AKS
 azureCategories:
   - databases
+  - open-source
 summary: Use AKS to easily ingest and process a real-time data stream, with millions of data points collected via sensors.
 products:
   - azure-app-service

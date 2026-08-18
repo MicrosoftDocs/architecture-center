@@ -46,6 +46,17 @@ Use cases include:
 - Complicated engineering schematic diagrams that contain various types of objects. By using this solution, you can quickly search for specific components on a diagram. Having access to embedded text in objects is helpful for investigations, exposing shortages, or looking for recall and failure notices.
 - Industrial diagrams that show the components in a manufacturing assembly. This solution promptly identifies pumps, valves, automated switches, and other components. Identifying components helps with preventative maintenance, isolating hazardous components, and increasing the visibility of risk management in your organization.
 
+### Cost
+
+Use the [preconfigured estimate in the Azure pricing calculator](https://azure.com/e/97bc706f51b14769bc69f9084af3e2e8) to get an approximation of the Azure service costs for this architecture. Adjust the values to match your expected document volumes.
+
+The estimate includes:
+
+- Azure Document Intelligence (S0 tier) for OCR processing
+- Azure Functions (Consumption plan) for pixel coordinate matching logic
+
+This estimate covers only the Azure services in the architecture. Power Platform components (AI Builder, Power Automate) and Microsoft 365 services (SharePoint, OneDrive, Teams) are licensed separately and aren't included.
+
 ## Contributors
 
 *This article is maintained by Microsoft. It was originally written by the following contributors.*

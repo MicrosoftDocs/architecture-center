@@ -83,7 +83,6 @@ Not all workloads benefit from GPU-enabled agent nodes. In some cases, CPUs are 
 
 Many Microsoft customers take advantage of GPU workloads to innovate for their customers. Consider the following examples:
 
-- [Royal Bank of Canada (RBC) accelerates inference at scale by using the AI toolchain operator and GPUs on AKS](https://ignite.microsoft.com/sessions/6322e0f4-63f1-4e57-b311-d230e1f63995)
 - [NBA players improve performance with AI on Azure AI infrastructure](https://www.microsoft.com/customers/story/1769559716293357869-nba-azure-kubernetes-service-media-and-entertainment-en-united-states?msockid=0495d219989b64dc145fc4a799fd65d1)
 - [An AI company called Mr. Turing uses AI and AKS to make company information searchable](https://www.microsoft.com/customers/story/1696908458386008536-misterturing-azure-kubernetes-service-brazil?msockid=0495d219989b64dc145fc4a799fd65d1)
 
@@ -213,8 +212,4 @@ Other contributors:
 ## Next steps
 
 - [Bring your own AI models to intelligent apps on AKS by using the AI toolchain operator](/shows/learn-live/intelligent-apps-on-aks-ep02-bring-your-own-ai-models-to-intelligent-apps-on-aks-with-kaito)
-- [Deploy the AI toolchain operator on AKS by using Terraform](https://techcommunity.microsoft.com/t5/azure-for-isv-and-startups/deploy-kaito-on-aks-using-terraform/ba-p/4108930)
-
-## Related resource
-
 - [Baseline architecture for an AKS cluster](../aks/baseline-aks.yml)

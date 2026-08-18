@@ -158,6 +158,14 @@ As more organizations use large language models for specialized tasks, they must
 
 This approach lets teams maintain high MLOps maturity while using the flexibility and power of foundation models. For more information, see [Foundation model fine-tuning](/azure/databricks/large-language-models/foundation-model-training).
 
+## Cost Optimization
+
+Cost Optimization focuses on ways to reduce unnecessary expenses and improve operational efficiencies. For more information, see [Design review checklist for Cost Optimization](/azure/well-architected/cost-optimization/checklist).
+
+For more information about the costs to run this scenario, see the [preconfigured estimate in the Azure pricing calculator](https://azure.com/e/6dd05b9ac79a42ff8f76b1a146ee73eb). This estimate represents a single production-like environment. Adjust the estimate to include additional environments, operational tooling, and scale to match your requirements.
+
+Azure Databricks is the primary cost driver in this architecture. Costs depend on the VM tier, number of nodes, and Databricks Units (DBU) consumed by your jobs and interactive workloads. Data Lake Storage costs are driven by storage capacity and transaction volume.
+
 ## Contributors
 
 *Microsoft maintains this article. The following contributors wrote this article.*

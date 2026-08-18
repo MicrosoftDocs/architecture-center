@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head><meta charset="utf-8"></head>
+<body style="font-family:Segoe UI,Arial,sans-serif;font-size:14px;color:#222;">
+  <p style="margin-top:0;"><b>Subject:</b></p>
+  <p style="font-family:Consolas,monospace;">{{Subject}}</p>
+  <hr>
+  <p>Hi,</p>
+  <p>As part of Microsoft Learn publishing compliance, you're receiving this email because you're the author of one or more Microsoft Learn articles that have already expired or will expire in {{TargetLabel}}. <strong>You need to perform a freshness pass and get your pull request merged before the end of {{TargetLabel}}.</strong></p>
+  <ul>
+    <li>If you already have a pull request open to address your freshness responsibility, thank you!</li>
+    <li>If your article hasn't expired yet, use this lead time to schedule the freshness pass into your {{NextMonthLabel}} work.</li>
+    <li>If your article is expired, address it ASAP.</li>
+  </ul>
+  <p>Maintaining your articles is part of the agreement for publishing on Microsoft Learn, and it's mandatory. You're responsible for delivering a high-quality article: one that reflects modern approaches to your guidance and delivers what the title promises the learner will learn. Expired content reflects poorly on Microsoft, the quality of the Azure Architecture Center, and you as the author. More importantly, stale data puts Microsoft customers at risk.</p>
+  <p><strong>Make sure your content is accurate, current, and worthy of your reader's trust by following these <a href="https://learn.microsoft.com/en-us/help/contribute/patterns-practices-content/maintain-articles">maintenance instructions</a> <em>(if 404, sign in)</em>.</strong></p>
+  <table style="border-collapse:collapse;border:1px solid #ccc;">
+    <thead>
+      <tr>
+        <th style="border:1px solid #ccc;padding:6px 10px;text-align:left;vertical-align:top;background:#f2f2f2;font-weight:bold;">Article</th>
+        <th style="border:1px solid #ccc;padding:6px 10px;text-align:left;vertical-align:top;background:#f2f2f2;font-weight:bold;">Owner</th>
+        <th style="border:1px solid #ccc;padding:6px 10px;text-align:right;vertical-align:top;background:#f2f2f2;font-weight:bold;">Expires</th>
+        <th style="border:1px solid #ccc;padding:6px 10px;text-align:left;vertical-align:top;background:#f2f2f2;font-weight:bold;">Status</th>
+      </tr>
+    </thead>
+    <tbody>
+{{TableRows}}
+    </tbody>
+  </table>
+  <p style="border-left:4px solid #d9534f;background:#fdf3f2;padding:10px 14px;margin-top:16px;"><strong>Important:</strong> If you can't address this yourself, you must arrange for a new owner to take over your article.</p>
+  <p>Thanks for keeping your content current,</p>
+  <p>
+    Clayton Siemens (Azure Architecture Center, portfolio owner)<br>
+    Chad Kittel (Azure Architecture Center, Azure architect)<br>
+    Casie Oxford (Azure patterns &amp; practices manager)
+  </p>
+  <hr>
+  <p style="margin-top:16px;"><b>CC list:</b></p>
+  <p style="font-family:Consolas,monospace;">{{Cc}}</p>
+  <p style="margin-top:16px;"><b>BCC list:</b></p>
+  <p style="font-family:Consolas,monospace;">{{Bcc}}</p>
+</body>
+</html>

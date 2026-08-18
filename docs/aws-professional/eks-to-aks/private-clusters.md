@@ -6,6 +6,7 @@ ms.author: fnazaret
 ms.date: 01/28/2025
 ms.topic: concept-article
 ms.subservice: architecture-guide
+ai-usage: ai-assisted
 ms.custom:
   - arb-containers
 ms.collection:
@@ -112,11 +113,13 @@ Use the Azure CLI to run the [az aks command invoke](/cli/azure/aks/command#az-a
 
 In the Azure portal, you can use the `Run command` feature to run commands on your private cluster. This feature employs the `command invoke` functionality to run commands on your cluster. The pod that the `Run command` feature creates provides `kubectl` and `helm` tools to manage your cluster. The `Run command` also provides a Bash environment within the pod that includes tools like `jq`, `xargs`, `grep`, and `awk`.
 
-You can use [Azure Bastion](/azure/bastion/bastion-overview) in the same virtual network or a peered virtual network to connect to a jump box management VM. Azure Bastion is a fully managed platform as a service (PaaS) that you can use to connect to a VM via your browser and the Azure portal. Azure Bastion provides Remote Desktop Protocol (RDP) or SSH VM connectivity over Transport Layer Security (TLS) directly from the Azure portal. When VMs connect via Azure Bastion, they don't need a public IP address, agent, or special client software.
+You can use [Azure Bastion](/azure/bastion/bastion-overview) in two ways to work with a private cluster. Azure Bastion is a platform as a service (PaaS) that provides secure access to resources in a virtual network without exposing them to the public internet. The first way is to connect to a jump box management VM in the same virtual network or a peered virtual network. Azure Bastion provides Remote Desktop Protocol (RDP) or SSH VM connectivity from the Azure portal. When you connect to VMs through Azure Bastion, those VMs don't need a public IP address, agent, or special client software. This approach resembles an Amazon EC2 bastion host that you sign in to and run `kubectl` from, but you don't manage the connectivity to the VM yourself.
+
+The second way is to use Azure Bastion native client tunneling. Azure Bastion must be deployed in a virtual network that can reach the private API server endpoint. Azure Bastion establishes an encrypted TLS tunnel by using outbound connectivity on port 443 and forwards a local port to the private API server endpoint. Your local tools, such as `kubectl` and `helm`, then run against the private cluster through this tunnel as if the API server were directly reachable.
 
 ### API Server VNet Integration
 
-An AKS cluster that's configured with [API Server VNet Integration](https://techcommunity.microsoft.com/blog/fasttrackforazureblog/create-an-azure-kubernetes-service-aks-cluster-with-api-server-vnet-integration-/3644002) projects the API server endpoint directly into a delegated subnet. The subnet is in the virtual network where AKS is deployed. API Server VNet Integration enables network communication between the API server and the cluster nodes, without a private link or tunnel. The API server is available behind an internal load balancer VIP that's in the delegated subnet. The nodes are configured to use the internal load balancer VIP. Use API Server VNet Integration to ensure that network traffic between your API server and your node pools remains on the private network only.
+An AKS cluster that's configured with API Server VNet Integration projects the API server endpoint directly into a delegated subnet. The subnet is in the virtual network where AKS is deployed. API Server VNet Integration enables network communication between the API server and the cluster nodes, without a private link or tunnel. The API server is available behind an internal load balancer VIP that's in the delegated subnet. The nodes are configured to use the internal load balancer VIP. Use API Server VNet Integration to ensure that network traffic between your API server and your node pools remains on the private network only.
 
 The control plane or API server is in an AKS-managed Azure subscription. Your cluster or node pool is in your Azure subscription. The server and the VMs that make up the cluster nodes can communicate with each other through the API server VIP and pod IP addresses that are projected into the delegated subnet.
 
@@ -160,7 +163,6 @@ Principal authors:
 Other contributors:
 
 - [Chad Kittel](https://www.linkedin.com/in/chadkittel/) | Principal Software Engineer - Azure Patterns & Practices
-- [Ed Price](https://www.linkedin.com/in/priceed/) | Senior Content Program Manager
 - [Theano Petersen](https://www.linkedin.com/in/theanop/) | Technical Writer
 
 *To see nonpublic LinkedIn profiles, sign in to LinkedIn.*
@@ -168,9 +170,9 @@ Other contributors:
 ## Next steps
 
 - [Create a private AKS cluster with a public DNS zone](https://github.com/Azure/azure-quickstart-templates/tree/master/demos/private-aks-cluster-with-public-dns-zone)
-- [Use Azure Firewall to help protect an AKS cluster](../../guide/aks/aks-firewall.yml)
-- [Training: Introduction to Private Link](/learn/modules/introduction-azure-private-link/)
-- [Training: Introduction to secure network infrastructure with Azure network security](/learn/paths/secure-networking-infrastructure)
+- [Use Azure Firewall to help protect an AKS cluster](../../guide/aks/aks-firewall.md)
+- [Training: Introduction to Private Link](/training/modules/introduction-azure-private-link/)
+- [Training: Introduction to secure network infrastructure with Azure network security](/training/paths/secure-networking-infrastructure)
 
 ## Related resources
 

@@ -10,7 +10,10 @@ ms.subservice: cloud-fundamentals
 
 # Bulkhead pattern
 
-The Bulkhead pattern is a type of application design that's tolerant of failure. In a bulkhead architecture, also known as a *cell-based architecture*, elements of an application are isolated into pools so that if one fails, the other elements continue to function. The Bulkhead pattern is named after the sectioned partitions (bulkheads) of a ship's hull. If the hull of a ship is compromised, only the damaged section fills with water, which prevents the ship from sinking.
+Isolate the elements of an application into pools so that if one element fails, the others continue to function. This approach, also known as a *cell-based architecture*, makes an application tolerant of failure and stops a fault in one part of the system from cascading across the rest.
+
+> [!TIP]
+> This pattern is named after the sectioned partitions (bulkheads) of a ship's hull. If the hull of a ship is compromised, only the damaged section fills with water, which prevents the ship from sinking.
 
 ## Context and problem
 
@@ -70,7 +73,7 @@ Consider the following points as you decide how to implement this pattern:
 
 - Use built-in platform controls, such as Azure API Management rate limits, Azure Cosmos DB request unit (RU) isolation, and resource limits in Azure Kubernetes Service (AKS) or Azure Container Apps. Don't re-create these throttling and isolation mechanisms in your application code.
 
-- AI and inference workloads often require strict bulkheads because of deployment-level quotas and concurrency limits, for example, isolating Azure OpenAI deployments per workload or per tenant.
+- AI and inference workloads often require strict bulkheads because of deployment-level quotas and concurrency limits. For example, isolate model deployments or Foundry resources per workload or per tenant.
 
 ## When to use this pattern
 
@@ -130,4 +133,4 @@ spec:
 
 - [Circuit Breaker pattern](./circuit-breaker.md)
 - [Retry pattern](./retry.yml)
-- [Throttling pattern](./throttling.yml)
+- [Throttling pattern](./throttling.md)

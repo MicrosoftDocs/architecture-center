@@ -91,7 +91,7 @@ The following steps describe the message flow for a request that an external cli
 
 - [Azure Front Door Premium](/azure/frontdoor/front-door-overview) is a Layer-7 global load balancer and modern cloud content delivery network. It provides fast, reliable, and enhanced security access between your users' and your applications' static and dynamic web content across the globe. You can use Azure Front Door to deliver your content by using the Microsoft global edge network. The network has hundreds of [global and local points of presence](/azure/frontdoor/edge-locations-by-region) distributed around the world. So you can use points of presence that are close to your enterprise and consumer customers. 
 
-   In this solution, Azure Front Door is used to expose an AKS-hosted sample web application via a [Private Link service](/azure/private-link/private-link-service-overview) and the [NGINX ingress controller](https://docs.nginx.com/nginx-ingress-controller/intro/overview/). Azure Front Door is configured to expose a custom domain for the Azure Front Door endpoint. The custom domain is configured to use the Azure Front Door secret that contains a TLS certificate that's read from [Key Vault](/azure/key-vault/general/overview).
+  In this solution, Azure Front Door is used to expose an AKS-hosted sample web application via a [Private Link service](/azure/private-link/private-link-service-overview) and the [NGINX ingress controller](https://docs.nginx.com/nginx-ingress-controller/intro/overview/). Azure Front Door is configured to expose a custom domain for the Azure Front Door endpoint. The custom domain is configured to use the Azure Front Door secret that contains a TLS certificate that's read from [Key Vault](/azure/key-vault/general/overview).
 
 - [Azure Web Application Firewall](/azure/web-application-firewall/afds/afds-overview) protects the AKS-hosted applications that are exposed via [Azure Front Door](/azure/frontdoor/front-door-overview) from common web-based attacks, such as the [Open Web Application Security Project (OWASP)](https://owasp.org) vulnerabilities, SQL injections, and cross-site scripting. This cloud-native, pay-as-you-use technology doesn't require licensing. Azure Web Application Firewall provides protection for your web applications and defends your web services against common exploits and vulnerabilities.
 
@@ -278,6 +278,8 @@ Cost Optimization focuses on ways to reduce unnecessary expenses and improve ope
 - Use Azure tags to associate AKS resources with specific workloads or tenants to improve cost tracking and management.
 
 For more information, see [Cost optimization](/azure/well-architected/service-guides/azure-kubernetes-service#cost-optimization) and [Optimize costs in AKS](/azure/aks/best-practices-cost).
+
+Use the [preconfigured estimate in the Azure pricing calculator](https://azure.com/e/2668dfa253464aecbfed296014f40ff2) to get a starting cost for this architecture. Adjust the values to match your requirements, and consider removing resources like Azure Bastion and Private DNS zones if those are shared platform resources managed by a platform team in your organization.
 
 ### Operational Excellence
 

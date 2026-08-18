@@ -1,6 +1,6 @@
 ---
-title: Azure for Google Cloud professionals
-description: Learn the basics of Microsoft Azure accounts, platform, and services, and key similarities and differences between the Google Cloud and Azure platforms.
+title: Azure for Google Cloud Professionals
+description: Learn how Microsoft Azure accounts, services, and resources compare to Google Cloud, and learn the key differences between the two platforms.
 author: juanlldc
 ms.author: juanll
 ms.date: 4/28/2026
@@ -11,143 +11,148 @@ ms.collection:
  - gcp-to-azure
 ---
 
-# Azure for Google Cloud Professionals
+# Azure for Google Cloud professionals
 
-This article helps Google Cloud experts understand the basics of Microsoft Azure accounts, platform, and services. It also covers key similarities and differences between the Google Cloud and Azure platforms. 
+This article helps Google Cloud experts understand the basics of Microsoft Azure accounts, services, and resources. It also covers key similarities and differences between the Google Cloud and Azure platforms.
 
 > [!NOTE]
 > Google Cloud was previously known as *Google Cloud Platform (GCP)*.
 
-You'll learn:
+In this article, you learn:
 
 - How accounts and resources are organized in Azure.
 - How available solutions are structured in Azure.
 - How the major Azure services differ from Google Cloud services.
 
-Azure and Google Cloud built their capabilities independently over time so that each has important implementation and design differences.
+Azure and Google Cloud built their capabilities independently over time, so they have significant implementation and design differences.
 
-## Azure for Google Cloud overview
+## Similarities between Azure and Google Cloud
 
-Like Google Cloud, Microsoft Azure is built around a core set of compute, storage, database, and networking services. In many cases, both platforms offer a basic equivalence between the products and services they offer. Both Google Cloud and Azure allow you to build highly available solutions based on Linux or Windows hosts. So, if you're used to development using Linux and OSS technology, both platforms can do the job.
+Like Google Cloud, Microsoft Azure is built around a core set of compute, storage, database, and networking services. In many cases, both platforms offer comparable capabilities and support highly available solutions on Linux or Windows hosts. If you're used to development using Linux and open-source software, both platforms can do the job.
 
-While the capabilities of both platforms are similar, the resources that provide those capabilities are often organized differently. Exact one-to-one relationships between the services required to build a solution aren't always clear. In other cases, a particular service might be offered on one platform, but not the other.
+Although the platforms share similar capabilities, the resources that provide those capabilities are often organized differently. Direct service-to-service mappings aren't always clear, and some services are available only on one platform.
 
-## Managing accounts and subscription
+## Manage accounts and subscriptions
 
-Azure has a hierarchy of management groups and subscriptions and resource groups to manage resources effectively. This is similar to the Folders and Project hierarchy for resources in Google Cloud.
+Azure provides a hierarchy of management groups, subscriptions, and resource groups to help you manage resources effectively. This hierarchy is similar to the folders and project structure for resources in Google Cloud. The following diagram shows the hierarchy of management scope in Azure:
 
-![Diagram shows a tree structure with management groups as the root, then subscriptions, then resource groups as leaf nodes.](./images/subscription_hierarchy.png)
-
-Azure levels of management scope
+:::image type="complex" source="./images/subscription-hierarchy.png" border="false" lightbox="./images/subscription-hierarchy.png" alt-text="Diagram that shows a tree structure with management groups as the root, then subscriptions, then resource groups as leaf nodes.":::
+   The tree diagram shows the four-level Azure management hierarchy. At the top sits a single management group labeled corporate IT. Directly below corporate IT, three child management groups branch out horizontally from left to right: production, development, and QA. Connecting lines indicate that policies and access controls defined at the corporate IT level are inherited by all three. Below the production management group, three subscriptions are arranged from left to right: mission critical, protected data, other production. Below the development management group is a single subscription labeled non-production. Below the QA management group is a single subscription labeled staging. At the bottom level, resource groups contain application resources.
+:::image-end:::
 
 - **Management groups:** These groups are containers that help you manage access, policy, and compliance for multiple subscriptions. All subscriptions in a management group automatically inherit the conditions applied to the management group.
-- **Subscriptions:** A subscription logically associates user accounts and the resources that were created by those user accounts. Each subscription has limits or quotas on the amount of resources you can create and use. Organizations can use subscriptions to manage costs and the resources that are created by users, teams, or projects.
-- **Resource groups:** A resource group is a logical container into which Azure resources like web apps, databases, and storage accounts are deployed and managed.
-- **Resources:** Resources are instances of services that you create, like virtual machines, storage, or SQL databases.
 
-Azure services can be purchased using several pricing options, depending on your organization's size and needs. For more information, see the [pricing overview](https://azure.microsoft.com/pricing) page.
+- **Subscriptions:** A [subscription](/azure/cost-management-billing/manage/cloud-subscription) logically associates user accounts and the resources that those user accounts create. Each subscription has limits or quotas on the number of resources you can create and use. Organizations can use subscriptions to manage costs and the resources that users, teams, or projects create.
 
-[Azure subscriptions](/azure/cost-management-billing/manage/cloud-subscription) are groupings of resources with an assigned owner responsible for billing and permissions management.
+    You can create an unlimited number of Azure subscriptions. Each subscription links to a single Microsoft Entra tenant (an *account*, in Google Cloud terms). A tenant can contain an unlimited number of subscriptions, whereas Google Cloud has a default soft limit that varies per account and can be increased through a request.
 
-A Google Cloud *project* is conceptually similar to the Azure subscription, in terms of billing, quotas, and limits. However, from a functional perspective, a Google Cloud project is more like a resource group in Azure. It's a logical unit that cloud resources are deployed to.
+    A Google Cloud *project* is conceptually similar to the Azure subscription, in terms of billing, quotas, and limits. However, in function, a Google Cloud project more closely resembles an Azure resource group—a logical container into which cloud resources are deployed.
 
-There is no maximum number of Azure subscriptions that you can create. Each Azure subscription is linked to a single Microsoft Entra tenant (an *account*, in Google Cloud terms). A Microsoft Entra tenant can contain an unlimited number of subscriptions, whereas Google Cloud has a default soft limit that varies per account and can be increased through a request.
+- **Resource groups:** A resource group is a logical container into which you deploy and manage Azure resources like web apps, databases, and storage accounts.
 
-Access management to Azure resources is accomplished through Azure role-based access control ([Azure RBAC](/azure/role-based-access-control/rbac-and-directory-admin-roles)), which includes over 100 built-in roles. You can also create your own custom roles.
+- **Resources:** Resources are instances of services that you create, like virtual machines (VMs), storage, or SQL databases.
 
-Subscriptions contain an additional role, Account Administrator, which represents the subscription owner and the account billed for the resources used in the subscription. The account administrator can only be changed by transferring ownership of the subscription. 
+Azure offers several purchasing options to fit organizations of different sizes and needs. For more information, see the [pricing overview](https://azure.microsoft.com/pricing).
+
+You manage access to Azure resources through [Azure role-based access control (Azure RBAC)](/azure/role-based-access-control/rbac-and-directory-admin-roles), which includes more than 100 built-in roles. You can also create your own custom roles.
+
+Each subscription also has an account administrator, which represents the subscription owner and the account billed for the resources used in the subscription. You can only change the account administrator by transferring ownership of the subscription.
 
 Beneath the subscription level, you can assign user roles and individual permissions to specific resources. In Azure, all user accounts are associated with either a Microsoft Account or Organizational Account (an account managed through Microsoft Entra ID).
 
-Subscriptions have default service quotas and limits. For a full list of these limits, see [Azure subscription and service limits, quotas, and constraints](/azure/azure-subscription-service-limits). These limits can be increased up to the maximum by [filing a support request in the management portal](/azure/azure-resource-manager/troubleshooting/error-resource-quota?tabs=azure-cli#solution).
+Subscriptions have default service quotas and limits. For a full list of these limits, see [Azure subscription and service limits, quotas, and constraints](/azure/azure-subscription-service-limits). You can increase some of these limits by [filing a support request in the management portal](/azure/azure-resource-manager/troubleshooting/error-resource-quota).
 
-### See also
+To learn more about managing accounts and subscriptions, see the following resources:
 
-- [How to add or change Azure administrator roles](/azure/billing/billing-add-change-azure-subscription-administrator)
-- [How to download your Azure billing invoice and daily usage data](/azure/billing/billing-download-azure-invoice-daily-usage-date)
+- [Add or change Azure subscription administrators](/azure/billing/billing-add-change-azure-subscription-administrator)
+- [Download or view your Azure billing invoice](/azure/billing/billing-download-azure-invoice-daily-usage-date)
 
 ## Resource management
 
-The term "resource" in Azure means any compute instance, storage object, networking device, or other entity you can create or configure within the platform.
+In Azure, a resource is any compute instance, storage object, networking device, or other entity that you can create or configure within the platform.
 
-Azure resources are deployed and managed using [Azure Resource Manager](/azure/azure-resource-manager/resource-group-overview).
+You can deploy and manage Azure resources by using [Azure Resource Manager](/azure/azure-resource-manager/management/overview).
 
 ### Resource groups
 
-Azure additionally has an entity called [resource groups](/azure/azure-resource-manager/resource-group-overview#resource-groups) that organize resources such as VMs, storage, and virtual networking devices. An Azure resource is always associated with one resource group. A resource created in one resource group can be moved to another group but can only be in one resource group at a time. For more information, see [Move Azure resources across resource groups, subscriptions, or regions](/azure/azure-resource-manager/management/move-resources-overview). Resource groups are the fundamental grouping used by Azure Resource Manager.
+Azure also provides [resource groups](/azure/azure-resource-manager/management/overview#resource-groups) that organize resources such as VMs, storage, and virtual networking devices. You always associate an Azure resource with one resource group. You can move a resource from one resource group to another, but it can only be in one resource group at a time. For more information, see [Move Azure resources to a new resource group or subscription](/azure/azure-resource-manager/management/move-resource-group-and-subscription). Azure Resource Manager uses resource groups as the fundamental grouping.
 
-Resources can also be organized using [tags](/azure/azure-resource-manager/resource-group-using-tags). Tags are key-value pairs that allow you to group resources across your subscription irrespective of resource group membership.
+You can also organize resources by using [tags](/azure/azure-resource-manager/management/tag-resources). Tags are key-value pairs that you can use to group resources across your subscription regardless of resource group membership.
 
 ### Management interfaces
 
 Azure offers several ways to manage your resources:
 
-- [Web interface](/azure/azure-resource-manager/resource-group-portal). The Azure portal provides a full web-based management interface for Azure resources.
-- [REST API](/rest/api/resources). The Azure Resource Manager REST API provides programmatic access to most of the features available in the Azure portal.
-- [Command Line](/cli/azure/install-azure-cli?view=azure-cli-latest&preserve-view=true). The Azure CLI provides a command-line interface capable of creating and managing Azure resources. The Azure CLI is available for [Windows, Linux, and macOS](/cli/azure).
-- [PowerShell](/azure/azure-resource-manager/powershell-azure-resource-manager). The Azure modules for PowerShell allow you to execute automated management tasks using a script. PowerShell is available for [Windows, Linux, and macOS](/powershell/scripting/install/installing-powershell).
-- [Templates](/azure/azure-resource-manager/resource-group-authoring-templates). Azure Resource Manager templates provide JSON template-based resource management capabilities.
-- [SDK](https://azure.microsoft.com/downloads). The SDKs are a collection of libraries that allows users to programmatically manage and interact with Azure services.
+- [Azure portal](/azure/azure-resource-manager/management/manage-resources-portal): The Azure portal provides a full web-based management interface for Azure resources.
+- [REST API](/rest/api/resources): The Azure Resource Manager REST API provides programmatic access to most of the features available in the Azure portal.
+- [Command line](/cli/azure/install-azure-cli): The Azure CLI provides a command-line interface capable of creating and managing Azure resources. The Azure CLI is available for [Windows, Linux, and macOS](/cli/azure).
+- [PowerShell](/azure/azure-resource-manager/management/manage-resources-powershell): You can use the Azure modules for PowerShell to run automated management tasks by using a script. PowerShell is available for [Windows, Linux, and macOS](/powershell/scripting/install/install-powershell).
+- [Templates](/azure/azure-resource-manager/templates/syntax): Azure Resource Manager templates provide template-based resource management capabilities. These templates are typically written in Bicep or Terraform.
+- [Azure SDKs](/azure/developer/#azure-sdks): The SDKs are a collection of libraries that you can use to programmatically manage and interact with Azure services.
 
-In each of these interfaces, the resource group is central to how Azure resources get created, deployed, or modified.
+Across all these interfaces, the resource group is central to creating, deploying, and managing Azure resources.
 
-In addition, many third-party management tools, like [Hashicorp's Terraform](https://www.terraform.io/docs/providers/azurerm) and [Spinnaker](https://www.spinnaker.io/), are also available on Azure.
+In addition, many non-Microsoft management tools, like [HashiCorp's Terraform](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs) and [Spinnaker](https://spinnaker.io), are available on Azure.
 
-## Regions and Availability Zones
+## Regions and availability zones
 
-Failures can vary in the scope of their impact. Localized hardware failures or configuration issues can affect individual resources or groups of resources in a workload. Less common are failures that disrupt a whole datacenter, such as loss of power in a datacenter. In rare situations, an entire region could become unavailable.
+Cloud failures vary widely in scope and severity. Localized hardware failures or configuration problems can affect individual resources or groups of resources in a workload. Less common are failures that disrupt a whole datacenter, such as loss of power in a datacenter. In rare situations, an entire region can become unavailable.
 
 One of the main ways to make an application resilient is through redundancy. However, you need to plan for this redundancy when you design the application. Also, the level of redundancy that you need depends on your business requirements. Not every application needs redundancy across regions to guard against a regional outage. In general, a tradeoff exists between greater redundancy and reliability versus higher cost and complexity.
 
-In Google Cloud, a region has two or more Availability Zones. An Availability Zone corresponds with a physically isolated datacenter in the geographic region. Azure has numerous features for providing application redundancy at every level of potential failure, including **availability zones** and **paired regions**.
+In Google Cloud, a region has two or more availability zones. An availability zone corresponds with a physically isolated datacenter in the geographic region. Azure has numerous features for providing application redundancy at every level of potential failure, including *availability zones* and *paired regions*.
 
 The following table summarizes each option.
 
-| | **Availability Zone** | **Paired region** |
+| | **Availability zone** | **Paired region** |
 | --- | --- | --- |
 | **Scope of failure** | Datacenter | Region |
-| **Request routing** | Cross-zone Load Balancer | Traffic Manager |
+| **Request routing** | Cross-zone Azure Load Balancer | Azure Traffic Manager |
 | **Network latency** | Low | Mid to high |
-| **Virtual networking** | VNet | Cross-region VNet peering |
+| **Virtual networking** | Virtual network | Cross-region virtual network peering |
 
-### Availability Zones
+### Availability zones
 
-Like Google Cloud, Azure regions can have Availability zones. An [Availability Zone](/azure/reliability/availability-zones-overview) is a physically separate zone within an Azure region. Each Availability Zone has a distinct power source, network, and cooling. Deploying VMs across availability zones helps to protect an application against datacenter-wide failures.
+Like Google Cloud, Azure regions can have [availability zones](/azure/reliability/availability-zones-overview), which are physically separate zones within an Azure region. Each availability zone has a distinct power source, network, and cooling. Deploying VMs across availability zones helps protect an application against datacenter-wide failures.
 
-![Diagram showing a zone redundant virtual machine deployment with a Region that contains three zones with a subnet that crosses all three zones.](./images/availability_zones.png)
+:::image type="complex" source="./images/availability-zones.png" border="false" lightbox="./images/availability-zones.png" alt-text="Diagram that shows a zone-redundant virtual machine deployment across three availability zones within a single Azure region.":::
+   Diagram that shows a zone-redundant virtual machine deployment within a single Azure region. A large outer rectangle labeled region contains the entire layout. Inside the region, three horizontal rectangular zones are stacked vertically from top to bottom, labeled zone 1, zone 2, and zone 3. Each zone contains one virtual machine. A vertical dashed rectangle overlays the virtual machines in all three zones. This dashed rectangle represents a single subnet that spans all three availability zones simultaneously. The label subnet appears at the bottom edge of the dashed rectangle. The layout illustrates that deploying virtual machines in each zone, connected through a shared subnet, provides redundancy in case of a failure in one zone.
+:::image-end:::
 
-Zone redundant VM deployment on Azure
-
-For more information, see - [Recommendations for using availability zones and regions](/azure/well-architected/reliability/regions-availability-zones).
+To learn more about availability zones and regions, see [Architecture strategies for using availability zones and regions](/azure/well-architected/reliability/regions-availability-zones).
 
 ### Paired regions
 
-To protect an application against a regional outage, you can deploy the application across multiple regions, using [Azure Traffic Manager](/azure/traffic-manager) to distribute internet traffic to the different regions. Each Azure region is paired with another region. Together, these form a [regional pair](/azure/best-practices-availability-paired-regions). With the exception of Brazil South, regional pairs are located within the same geography in order to meet data residency requirements for tax and law enforcement jurisdiction purposes.
+To protect an application against a regional outage, deploy the application across multiple regions and use [Azure Traffic Manager](/azure/traffic-manager) to distribute internet traffic to different regions. Each Azure region pairs with another region. Together, these regions form a [region pair](/azure/reliability/regions-paired). Except for Brazil South, region pairs are located within the same geography to meet data residency requirements for tax and law enforcement jurisdiction purposes.
 
-Unlike Availability Zones, which are physically separate datacenters but might be in relatively nearby geographic areas, paired regions are typically separated by at least 300 miles. This design ensures that large-scale disasters only affect one of the regions in the pair. Neighboring pairs can be set to sync database and storage service data, and are configured so that platform updates are rolled out to only one region in the pair at a time.
+Unlike availability zones, which are physically separate datacenters but might be in relatively nearby geographic areas, paired regions are typically separated by at least 300 miles. This design ensures that large-scale disasters only affect one of the regions in the pair. You can set neighboring pairs to sync database and storage service data. They're configured so that platform updates roll out to only one region in the pair at a time.
 
-Azure [geo-redundant storage](/azure/storage/common/storage-redundancy-grs) is automatically backed up to the appropriate paired region. For all other resources, creating a fully redundant solution using paired regions means creating a full copy of your solution in both regions.
+Azure [geo-redundant storage](/azure/storage/common/storage-redundancy-grs) automatically backs up to the appropriate paired region. For all other resources, you need to deploy a complete copy of your solution in each region to achieve full redundancy.
 
-![Diagram shows region pairs in Azure, where Geography contains a Region Pair, which contains two Regions, which each contain Datacenters.](./images/region_pairs.png)
-
-Region Pairs in Azure
+:::image type="complex" source="./images/region-pairs.png" border="false" alt-text="Diagram that shows the nested containment relationship between a geography, a region pair, two regions, and their datacenters.":::
+   Diagram that shows the nested containment hierarchy of Azure region pairs. The outermost rectangle represents a geography. Nested inside the geography is a region pair. Inside the region pair, two regions sit side by side. Within each region is a datacenter. The nesting of the shapes illustrates the containment relationships: datacenters are physically located inside regions, two regions together form a region pair, and a region pair belongs to a single geography.
+:::image-end:::
 
 ### Reliability guides by service
 
-To explore reliability recommendations in detail for each different Azure service, you can use the [Service Reliability Guides](/azure/reliability/overview-reliability-guidance).
+To explore reliability recommendations for each Azure service, see [Reliability guides by service](/azure/reliability/overview-reliability-guidance).
 
-### See also
+To learn more, see the following resources:
 
 - [High availability for Azure applications](../example-scenario/infrastructure/multi-tier-app-disaster-recovery.yml)
-- [Failure and disaster recovery for Azure applications](/azure/architecture/framework/resiliency/backup-and-recovery)
+- [Architecture strategies for disaster recovery](/azure/well-architected/reliability/disaster-recovery)
 
 ## Services
 
-For a listing of how services map between platforms, see [Google Cloud to Azure services](./services.md) comparison.
+To see how Google Cloud services map to their Azure equivalents, see [Google Cloud to Azure services comparison](./services.md).
 
-Not all Azure products and services are available in all regions. For more information, see [Products by region](https://azure.microsoft.com/global-infrastructure/services). You can find the uptime guarantees and downtime credit policies for each Azure product or service in the [Service Level Agreements for Microsoft Online Services](https://www.microsoft.com/licensing/docs/view/Service-Level-Agreements-SLA-for-Online-Services) document.
+Not all Azure products and services are available in all regions. For more information, see [Products by region](https://azure.microsoft.com/global-infrastructure/services). You can find the uptime guarantees and downtime credit policies for each Azure product or service in the [Service-level agreements for online services](https://www.microsoft.com/licensing/docs/view/Service-Level-Agreements-SLA-for-Online-Services) document.
 
-## Next steps
+## Next step
 
-- [Get started with Azure](https://azure.microsoft.com/get-started)
-- [Azure Reference Architectures](../browse/index.yml)
+> [!div class="nextstepaction"]
+> [Get started with Azure](https://azure.microsoft.com/get-started)
+
+## Related content
+
+- [Azure reference architectures](../browse/index.yml)

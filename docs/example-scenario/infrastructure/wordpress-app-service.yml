@@ -11,14 +11,12 @@ metadata:
   ms.category:
     - web
   ms.custom:
-    - web-apps
-    - scalability
-    - example-scenario
     - arb-web
   social_image_url: /azure/architecture/example-scenario/infrastructure/media/wordpress-app-service.png
 name: WordPress on App Service
 azureCategories:
   - web
+  - open-source
 summary: Learn how to use Azure Front Door, Azure App Service, and other Azure services to deploy a highly scalable and secure installation of WordPress.
 products:
   - azure-front-door

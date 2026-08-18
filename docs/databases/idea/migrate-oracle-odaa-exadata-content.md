@@ -4,7 +4,7 @@ This article describes how to use Oracle Zero Downtime Migration (ZDM) to migrat
 
 The following diagram shows an example of this scenario.
 
-:::image type="content" source="_images/migrate-oracle-odaa-exadata/oracle-migration-odaa.svg" alt-text="Diagram that shows an architecture to migrate an on-premises database to ODAA." border="false" lightbox="_images/migrate-oracle-odaa-exadata/oracle-migration-odaa.svg":::
+:::image type="content" source="images/migrate-oracle-odaa-exadata/oracle-migration-odaa.svg" alt-text="Diagram that shows an architecture to migrate an on-premises database to ODAA." border="false" lightbox="images/migrate-oracle-odaa-exadata/oracle-migration-odaa.svg":::
 
 *Download a [Visio file](https://arch-center.azureedge.net/oracle-migration-odaa.vsdx) of this architecture.*
 
@@ -39,7 +39,7 @@ Use the following configuration to create an Azure route table, and associate it
 
 The following diagram shows the updated network configuration.
 
-:::image type="content" source="_images/migrate-oracle-odaa-exadata/oracle-migration-odaa-destination.svg" alt-text="Diagram that shows an architecture to migrate a database to ODAA and includes the destination." border="false" lightbox="_images/migrate-oracle-odaa-exadata/oracle-migration-odaa-destination.svg":::
+:::image type="content" source="images/migrate-oracle-odaa-exadata/oracle-migration-odaa-destination.svg" alt-text="Diagram that shows an architecture to migrate a database to ODAA and includes the destination." border="false" lightbox="images/migrate-oracle-odaa-exadata/oracle-migration-odaa-destination.svg":::
 
 Do the following steps to verify connectivity:
 
@@ -62,7 +62,7 @@ Do the following steps to verify connectivity:
 
 The following diagram shows the updated configuration, including the ZDM migration node.
 
-:::image type="content" source="_images/migrate-oracle-odaa-exadata/oracle-migration-odaa-zero-downtime.svg" alt-text="Diagram that shows an architecture to migrate a database to ODAA and includes the ZDM migration node." border="false" lightbox="_images/migrate-oracle-odaa-exadata/oracle-migration-odaa-zero-downtime.svg":::
+:::image type="content" source="images/migrate-oracle-odaa-exadata/oracle-migration-odaa-zero-downtime.svg" alt-text="Diagram that shows an architecture to migrate a database to ODAA and includes the ZDM migration node." border="false" lightbox="images/migrate-oracle-odaa-exadata/oracle-migration-odaa-zero-downtime.svg":::
 
 ## Do post-migration activities
 

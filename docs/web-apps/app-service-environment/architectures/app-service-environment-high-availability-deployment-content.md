@@ -1,11 +1,8 @@
-> [!NOTE]
-> [App Service Environment](/azure/app-service/environment/overview) version 3 is the main component of this architecture. Versions 1 and 2 were [retired on August 31, 2024](https://azure.microsoft.com/updates/app-service-environment-v1-and-v2-retirement-announcement).
+[Availability zones](/azure/reliability/availability-zones-overview) are physically separated collections of datacenters in a specific region. You can deploy resources across zones to ensure that outages limited to a zone don't affect the availability of your applications. This architecture describes how to improve the resiliency of an App Service Environment deployment by deploying it in a zone-redundant architecture. These zones don't relate to proximity. They can map to [different physical locations for different subscriptions](/azure/reliability/availability-zones-overview#physical-and-logical-availability-zones). The architecture assumes a single-subscription deployment.
 
-[Availability zones](/azure/reliability/availability-zones-overview) are physically separated collections of datacenters in a specific region. You can deploy resources across zones to ensure that outages limited to a zone don't affect the availability of your applications. This architecture describes how to improve the resiliency of an App Service Environment deployment by deploying it in a zone-redundant architecture. These zones don't relate to proximity. They can map to different physical locations for different subscriptions. The architecture assumes a single-subscription deployment.
+Azure services that support availability zones can be zonal, zone redundant, or both. You can deploy zonal services to a specific zone, and you can automatically deploy zone-redundant services across zones. For more information, see [Types of availability zone support](/azure/reliability/availability-zones-overview#types-of-availability-zone-support). App Service Environment supports [zone-redundant deployments](/azure/reliability/reliability-app-service-environment).
 
-Azure services that support availability zones can be zonal, zone redundant, or both. You can deploy zonal services to a specific zone, and you can automatically deploy zone-redundant services across zones. For more information, see [Availability zone support](/azure/reliability/availability-zones-service-support). App Service Environment supports [zone-redundant deployments](/azure/reliability/reliability-app-service-environment).
-
-When you configure an App Service Environment for zone redundancy, the platform automatically deploys instances of the Azure App Service plan in the maximum number of available zones in the selected region. At least two zones must be available in the region to enable zone redundancy. As a result, the minimum App Service plan instance count is always two. The platform determines the number of zones available for an App Service Environment.
+When you configure an App Service Environment for zone redundancy, the platform automatically distributes instances of the Azure App Service plan across the available zones in the selected region. A zone-redundant plan uses at least two zones and requires at least two instances. The number of zones available to a plan varies by region.
 
 ## Architecture
 
@@ -15,9 +12,7 @@ When you configure an App Service Environment for zone redundancy, the platform 
 
 *Download a [Visio file](https://arch-center.azureedge.net/app-service-environment-high-availability.vsdx) of this architecture.*
 
-![GitHub logo](../../../_images/github.png) A reference implementation for this architecture is available on [GitHub](https://github.com/mspnp/app-service-environments-ILB-deployments).
-
-The resources in the App Service Environment subnets in this reference implementation match the resources in the [standard App Service Environment deployment architecture](app-service-environment-standard-deployment.yml). This reference implementation uses the zone-redundant capabilities of App Service Environment v3 and Azure Managed Redis to provide higher availability. The scope of this reference architecture is limited to a single region.
+The resources in the App Service Environment subnets in this architecture match the resources in the [standard App Service Environment deployment architecture](app-service-environment-standard-deployment.yml). This architecture uses the zone-redundant capabilities of App Service Environment v3 and Azure Managed Redis to provide higher availability. The scope of this reference architecture is limited to a single region.
 
 ### Components
 
@@ -29,7 +24,7 @@ The resources in the App Service Environment subnets in this reference implement
 
 - [Azure Firewall](/azure/well-architected/service-guides/azure-firewall) is a cloud-native, managed network security service that includes built-in support for high availability. It can use multiple zones without extra configuration. In this architecture, Azure Firewall provides managed, high-availability network security to control and monitor outbound traffic for resources in the virtual network.
 
-  You can also configure a specific availability zone when you deploy the firewall. For more information, see [Azure Firewall availability zone support](/azure/reliability/reliability-firewall#availability-zone-support). The reference architecture doesn't use this configuration.
+  You can also configure a specific availability zone when you deploy the firewall. For more information, see [Azure Firewall availability zone support](/azure/reliability/reliability-firewall#resilience-to-availability-zone-failures). The reference architecture doesn't use this configuration.
 
 - [Microsoft Entra ID](/entra/fundamentals/what-is-entra) is a highly available, highly redundant global service that spans availability zones and regions. For more information, see [Advance Microsoft Entra ID availability](https://azure.microsoft.com/blog/advancing-azure-active-directory-availability/). In this architecture, Microsoft Entra ID provides highly available, redundant identity and access management services for authentication and authorization across all components.
 
@@ -49,13 +44,13 @@ Reliability helps ensure that your application can meet the commitments that you
 
 #### Jump boxes
 
-This reference implementation uses the same production-level CI/CD pipeline as the standard deployment, with only one jump box VM. But you can use one jump box for each of the three zones. This architecture uses only one jump box because the jump box doesn't affect the availability of the app. The jump box supports deployment and testing.
+This architecture uses the same production-level CI/CD pipeline as the standard deployment, with only one jump box VM. But you can use one jump box for each of the three zones. This architecture uses only one jump box because the jump box doesn't affect the availability of the app. The jump box supports deployment and testing.
 
 #### App Service Environment
 
 You can deploy App Service Environment across availability zones to provide resiliency and reliability for business-critical workloads. This configuration is also known as *zone redundancy*.
 
-When you implement zone redundancy, the platform automatically deploys the instances of the App Service plan across two or more zones in the selected region. As a result, the minimum App Service plan instance count is always two.
+When you enable zone redundancy on an App Service plan, the platform automatically deploys its instances across two or more zones in the selected region. A zone-redundant plan requires at least two instances.
 
 - You can [configure availability zones](/azure/app-service/environment/configure-zone-redundancy-environment) when you create your App Service Environment or at any point in the life cycle of the environment.
 
@@ -63,11 +58,13 @@ When you implement zone redundancy, the platform automatically deploys the insta
 
 - Only a [subset of regions](/azure/reliability/availability-zones-region-support) support availability zones.
 
-For more information, see [Reliability in App Service](/azure/reliability/reliability-app-service-environment).
+- Provision enough instances for the plan to handle the expected load if one availability zone fails. The platform uses best-effort zone balancing, so instance counts might not be distributed evenly across zones. A zone outage can also affect nonruntime operations, including scaling, app creation, configuration, and publishing.
+
+For more information, see [Reliability in App Service Environment](/azure/reliability/reliability-app-service-environment).
 
 #### Resiliency
 
-The applications that run in the App Service Environment form the [back-end pool](/azure/application-gateway/application-gateway-components#backend-pools) for Application Gateway. When a request to the application comes from the public internet, the gateway forwards the request to the application that runs in the App Service Environment. This reference architecture implements [health checks](/aspnet/core/host-and-deploy/health-checks?view=aspnetcore-3.1) within the main web front end known as `votingApp`. This health probe checks the health status of the web API and the Redis cache.
+The applications that run in the App Service Environment form the [back-end pool](/azure/application-gateway/application-gateway-components#backend-pools) for Application Gateway. When a request to the application comes from the public internet, the gateway forwards the request to the application that runs in the App Service Environment. You can implement [health checks](/aspnet/core/host-and-deploy/health-checks) in your application, and you can implement health probes to check the health of dependent resources like caches. To add a health check in a C# application, use code similar to the following:
 
 ```csharp
 var uriBuilder = new UriBuilder(Configuration.GetValue<string>("ConnectionEndpoints:VotingDataAPIBaseUri"))
@@ -80,27 +77,27 @@ services.AddHealthChecks()
     .AddRedis(Configuration.GetValue<string>("ConnectionEndpoints:RedisConnectionEndpoint"));
 ```
 
-If any components, including the web front end, the API, or the cache, fail the health probe, Application Gateway routes the request to the other application in the back-end pool. This configuration ensures that the request always routes to the application in a completely available App Service Environment subnet.
+If a target fails the health probe, Application Gateway marks the target as unhealthy and stops routing requests to it. If all targets in the back-end pool are unhealthy, Application Gateway returns an HTTP 502 response. An *Unknown* status in the back-end health report indicates that the control plane can't determine the target's health and doesn't necessarily mean that Application Gateway stopped routing traffic. Health probes detect failures, but they don't provide another application or App Service Environment for failover.
 
-The standard reference implementation also uses the health probe. In that implementation, the gateway returns an error if the health probe fails. But the highly available implementation improves the resiliency of the application and the quality of the user experience.
+Zone redundancy improves resiliency to an availability-zone failure by distributing App Service plan instances across zones. It doesn't protect against a regional outage or failures that affect every instance, such as an application defect or an unavailable dependency. For protection from regional outages, deploy the workload across multiple regions and use a global load-balancing service to route traffic to a healthy regional deployment. For more information, see [Multiple-region architectures for Azure App Service disaster recovery](../../guides/multi-region-app-service/multi-region-app-service.md).
+
+#### Azure Managed Redis
+
+Configure Azure Managed Redis for high availability so that it deploys at least two nodes across availability zones. During a zone failure, Azure Managed Redis automatically redirects traffic to healthy nodes. The failover might cause 10 to 15 seconds of downtime, and data that hasn't replicated to another zone might be lost. Applications should retry transient failures and use the [Cache-Aside pattern](../../../patterns/cache-aside.yml) so that they can fall back to the primary data store when the cache is unavailable. For more information, see [Reliability in Azure Managed Redis](/azure/reliability/reliability-managed-redis).
 
 ### Cost Optimization
 
 Cost Optimization focuses on ways to reduce unnecessary expenses and improve operational efficiencies. For more information, see [Design review checklist for Cost Optimization](/azure/well-architected/cost-optimization/checklist).
 
-The cost considerations for the high availability architecture are similar to the standard deployment.
+The cost considerations for the high availability architecture are similar to the standard architecture.
 
 The following differences can affect the cost:
 
 - Availability zone support doesn't incur extra charges. You pay only for the instances that you use. For more information, see [App Service Environment pricing](/azure/app-service/environment/overview#pricing).
 
-- Azure Managed Redis becomes a zone-redundant service in regions that have multiple availability zones when high availability is enabled. A zone-redundant cache runs on nodes deployed across multiple availability zones within a region to provide higher resilience and availability.
+- Azure Managed Redis becomes a zone-redundant service in regions that have multiple availability zones when high availability is enabled. A zone-redundant cache runs on nodes deployed across multiple availability zones within a region to provide higher resilience and availability. For more information, see [Reliability in Azure Managed Redis](/azure/reliability/reliability-managed-redis).
 
-The trade-off for a highly available, resilient, and highly secure system includes increased cost for some Azure services. To evaluate your requirements and estimate costs, use the [Azure pricing calculator](https://azure.microsoft.com/pricing/calculator/).
-
-## Deploy this scenario
-
-To deploy the reference implementation for this architecture, see the [GitHub readme](https://github.com/mspnp/app-service-environments-ILB-deployments/blob/master/README.md). Use the script for high-availability deployment.
+The trade-off for a highly available, resilient, and highly secure system includes increased cost for some Azure services. Review the [sample cost estimate](https://azure.com/e/13fd976b80da472787d2330ef892420a) for this architecture, and adjust the service tiers and usage assumptions to match your workload.
 
 ## Contributors
 

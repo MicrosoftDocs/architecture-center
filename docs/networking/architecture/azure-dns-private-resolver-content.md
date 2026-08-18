@@ -239,6 +239,8 @@ DNS Private Resolver addresses these obstacles by providing the following featur
 
 - Conditional forwarding for Azure DNS to on-premises servers. The outbound endpoint provides this capability, which wasn't previously available. Workloads in Azure no longer require direct connections to on-premises DNS servers. Azure workloads instead connect to the outbound IP address of DNS Private Resolver.
 
+DNS Private Resolver is a recursive resolver and conditional forwarding service, not an authoritative name server. So you reach Azure private DNS zones from on-premises through conditional forwarding to the inbound endpoint, not by delegating a zone with name server (NS) records. If your DNS system requires an authoritative reply for a delegated subdomain, host your own authoritative DNS servers on virtual machines instead. For more information, see [Resolve Azure and on-premises domains](/azure/dns/private-resolver-hybrid-dns).
+
 ### Potential use cases
 
 This solution simplifies private DNS resolution in hybrid networks. It applies to the following scenarios:

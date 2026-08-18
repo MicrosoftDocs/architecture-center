@@ -60,13 +60,13 @@ The following workflow corresponds to the previous diagram:
 
 - [ArcGIS Pro](https://www.esri.com/arcgis/products/arcgis-pro/overview) is the Esri professional desktop GIS application for spatial analysis, mapping, and data editing. In this architecture, ArcGIS Pro runs on GPU-enabled Azure Virtual Desktop VMs, which help users perform advanced 2D and 3D geospatial tasks and publish services. ArcGIS Pro runs best on Azure high-performance computing (HPC) VMs, like the NV-Series. You can use Azure Virtual Desktop to scale ArcGIS usage.
 
-- [ArcGIS Enterprise](https://enterprise.arcgis.com/en/get-started/latest/windows/what-is-arcgis-enterprise-.htm) is a comprehensive GIS platform for managing and sharing spatial data and services. In this architecture, you can add ArcGIS Enterprise to extend capabilities for hosting maps, apps, and spatial analytics across the organization. ArcGIS Enterprise works with ArcGIS Pro.
+- [ArcGIS Enterprise](https://doc.esri.com/en/arcgis-enterprise/latest/introduction/what-is-arcgis-enterprise-.html?pivots=os-windows) is a comprehensive GIS platform for managing and sharing spatial data and services. In this architecture, you can add ArcGIS Enterprise to extend capabilities for hosting maps, apps, and spatial analytics across the organization. ArcGIS Enterprise works with ArcGIS Pro.
 
-- [Portal for ArcGIS](https://enterprise.arcgis.com/en/portal) is a web-based interface for sharing and managing GIS content within ArcGIS Enterprise. In this architecture, Portal for ArcGIS helps users create, organize, and share maps, scenes, and apps securely within the organization. Portal for ArcGIS is part of the base deployment.
+- [Portal for ArcGIS](https://enterprise.arcgis.com/en/portal/) is a web-based interface for sharing and managing GIS content within ArcGIS Enterprise. In this architecture, Portal for ArcGIS helps users create, organize, and share maps, scenes, and apps securely within the organization. Portal for ArcGIS is part of the base deployment.
 
-- [ArcGIS Server](https://enterprise.arcgis.com/en/server/latest/get-started/windows/what-is-arcgis-for-server-.htm) is back-end server software that's deployed with ArcGIS Enterprise or in a standalone deployment with ArcGIS Enterprise. In this architecture, ArcGIS Server handles requests from users and applications, such as to draw maps, run tools, or query data. ArcGIS Server configuration and data are stored in Azure NetApp Files. Administrators can use the ArcGIS Server management plane to start, stop, and delete services.
+- [ArcGIS Server](https://doc.esri.com/en/arcgis-enterprise/latest/plan/what-is-arcgis-server.html?pivots=os-windows) is back-end server software that's deployed with ArcGIS Enterprise or in a standalone deployment with ArcGIS Enterprise. In this architecture, ArcGIS Server handles requests from users and applications, such as to draw maps, run tools, or query data. ArcGIS Server configuration and data are stored in Azure NetApp Files. Administrators can use the ArcGIS Server management plane to start, stop, and delete services.
 
-- An [Enterprise geodatabase](https://enterprise.arcgis.com/en/server/latest/manage-data/windows/enterprise-geodatabases-and-arcgis-enterprise.htm) is a multiuser spatial database that supports versioning, replication, and advanced data models. You can deploy this database in many database management systems. In this architecture, Enterprise geodatabase is hosted in SQL Managed Instance and is the authoritative data source for ArcGIS Pro and other GIS tools.
+- An [Enterprise geodatabase](https://doc.esri.com/en/arcgis-enterprise/latest/administer/enterprise-geodatabases-and-arcgis-enterprise.html?pivots=os-windows) is a multiuser spatial database that supports versioning, replication, and advanced data models. You can deploy this database in many database management systems. In this architecture, Enterprise geodatabase is hosted in SQL Managed Instance and is the authoritative data source for ArcGIS Pro and other GIS tools.
 
 ## Scenario details
 
@@ -134,7 +134,14 @@ GPU-enabled VMs are the largest cost driver in this architecture. Match VM SKUs 
 - Monitor VM utilization by using [Azure Monitor](/azure/azure-monitor/vm/vminsights-overview) to identify underutilized or oversized resources.
 - Review [Azure Advisor cost recommendations](/azure/advisor/advisor-cost-recommendations) regularly to identify optimization opportunities.
 
-For a cost estimate based on your specific requirements, use the [Azure pricing calculator](https://azure.microsoft.com/pricing/calculator/).
+To estimate costs for this scenario, use this [preconfigured estimate in the Azure pricing calculator](https://azure.com/e/ab6a1e4745014c639d4efffb50320941). The estimate uses the following defaults that align with the [multisession recommendations](#multisession-recommendations) for medium-to-heavy workloads:
+
+- Two NV18ads_A10_v5 GPU-enabled session hosts (Windows, multisession)
+- An 8-vCore General Purpose SQL Managed Instance for the enterprise geodatabase
+- Azure NetApp Files Standard tier (4 TiB) for GIS data storage
+- Application Gateway with WAF v2
+
+Adjust the values to match your workload requirements.
 
 ### Performance Efficiency
 
@@ -217,7 +224,7 @@ Principal authors:
 
 - You can use the [ArcGIS Pro for Mission Landing Zone](https://github.com/Azure/missionlz/tree/main/src/add-ons/arcgis-pro) to deploy ArcGIS Pro on Azure Virtual Desktop. The implementation in the repository includes Secure Cloud Computing Architecture (SCCA)-compliant infrastructure, GPU-enabled VMs, Azure NetApp Files, and FSLogix preconfigured for rapid proof-of-concept deployments.
 
-- You can use [ArcGIS Enterprise Builder](https://enterprise.arcgis.com/en/get-started/latest/windows/arcgis-enterprise-builder.htm) to set up a base ArcGIS Enterprise deployment on a single machine or multiple machines.
+- You can use [ArcGIS Enterprise Builder](https://doc.esri.com/en/arcgis-enterprise/latest/deploy/arcgis-enterprise-builder.html?pivots=os-windows) to set up a base ArcGIS Enterprise deployment on a single machine or multiple machines.
 
 ## Related resource
 

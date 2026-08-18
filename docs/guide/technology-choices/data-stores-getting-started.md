@@ -1,4 +1,4 @@
---- 
+---
 title: Prepare to Choose a Data Store in Azure
 description: Learn how to choose the right Azure data store for your workloads by evaluating functional, performance, cost, and security requirements.
 author: claytonsiemens77

@@ -11,15 +11,13 @@ metadata:
   ms.category:
     - web
   ms.custom:
-    - web-apps
-    - scalability
-    - example-scenario
     - arb-web
   social_image_url: /azure/architecture/example-scenario/infrastructure/media/wordpress-aks-azure-netapp-files.png
 name: WordPress on Azure Kubernetes Service
 azureCategories:
   - web
   - containers
+  - open-source
 summary: Learn how to use Azure Kubernetes Service (AKS) to deploy a highly scalable and secure installation of WordPress for large, storage-intensive applications.
 products:
   - azure-managed-redis

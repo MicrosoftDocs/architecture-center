@@ -1,15 +1,14 @@
 ---
 title: Run SAP NetWeaver in Windows on Azure
 description: Learn proven practices for running SAP NetWeaver in a Windows environment on Azure to achieve high availability and disaster recovery.
-author: bqtrinh
-ms.author: bentrin
+author: Cameron-MSFT-SAP
+ms.author: cgardin
 ms.date: 02/18/2026
 ms.topic: concept-article
 ms.subservice: architecture-guide
 ms.category:
-   - databases
-   - management-and-governance
-ms.custom: arb-sap
+  - databases
+  - management-and-governance
 ---
 
 # Run SAP NetWeaver in Windows on Azure
@@ -73,7 +72,7 @@ The following workflow corresponds to the previous diagram:
 
 - [Virtual network peering](/azure/virtual-network/virtual-network-peering-overview) is a networking feature that provides transparent connectivity between virtual networks through the Microsoft backbone network. It avoids performance penalties when you deploy it within a single region. In this architecture, peering connects multiple virtual networks in a hub-and-spoke topology. This topology provides network segmentation and isolation for services deployed on Azure. The virtual network is divided into separate subnets for the application tier (SAP NetWeaver), the database tier, and shared services such as Azure Bastion and a non-Microsoft backup solution.
 
-- A network gateway is a hybrid connectivity service that connects distinct networks and extends your on-premises network to Azure virtual networks. In this architecture, we recommend [ExpressRoute](../../reference-architectures/hybrid-networking/expressroute-vpn-failover.yml) to create private connections that don't traverse the public internet, but you can also use a [site-to-site VPN](/azure/vpn-gateway/vpn-gateway-about-vpngateways) connection. To reduce latency or increase throughput, consider [ExpressRoute Global Reach](/azure/expressroute/expressroute-global-reach) and [ExpressRoute FastPath](/azure/expressroute/about-fastpath), as described later in this article.
+- A network gateway is a hybrid connectivity service that connects distinct networks and extends your on-premises network to Azure virtual networks. In this architecture, we recommend [ExpressRoute](../../reference-architectures/hybrid-networking/expressroute-vpn-failover.md) to create private connections that don't traverse the public internet, but you can also use a [site-to-site VPN](/azure/vpn-gateway/vpn-gateway-about-vpngateways) connection. To reduce latency or increase throughput, consider [ExpressRoute Global Reach](/azure/expressroute/expressroute-global-reach) and [ExpressRoute FastPath](/azure/expressroute/about-fastpath), as described later in this article.
 
 - A bastion host or jump box is a secure access solution that provides administrative access to VMs in a virtual network. In this architecture, administrators connect to VMs through a bastion host deployed as part of shared services. If Secure Shell (SSH) and Remote Desktop Protocol (RDP) are your only server administration protocols, use an [Azure Bastion](/azure/bastion/bastion-overview) host. If you use other management tools like SQL Server Management Studio or SAP Frontend, use a traditional, self-deployed jump box.
 
@@ -90,7 +89,7 @@ The following workflow corresponds to the previous diagram:
   - Your traffic type, like HTTP or SAP GUI
   - The network services that you need, like Secure Sockets Layer (SSL) termination
 
-  For more information, see [Inbound and outbound internet connections for SAP on Azure](./sap-internet-inbound-outbound.yml).
+  For more information, see [Inbound and outbound internet connections for SAP on Azure](./sap-internet-inbound-outbound.md).
 
   Standard Load Balancer supports multiple front-end virtual IP addresses.
 

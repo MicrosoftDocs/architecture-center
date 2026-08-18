@@ -99,7 +99,7 @@ Producers generate varying message volumes that can spike suddenly. Rather than 
 Three producers on the left point to a central message queue. A single arrow exits the queue to one consumer on the right. Below the diagram, a bar chart labeled requests received at a variable rate has uneven bars. Another bar chart labeled messages processed at a more constant rate has more uniform bars.
 :::image-end:::
 
-For more information, see [Queue-Based Load Leveling pattern](../../patterns/queue-based-load-leveling.yml).
+For more information, see [Queue-Based Load Leveling pattern](../../patterns/queue-based-load-leveling.md).
 
 ### Reliable messaging
 
@@ -131,7 +131,7 @@ Service Bus uses a peek-lock mechanism. When a consumer retrieves a message, Ser
 
 The consumer must report the message's processing status. When the consumer marks the message as consumed, Service Bus removes the message from the queue. If a failure, timeout, or crash occurs, Service Bus unlocks the message so that other consumers can retrieve it. This approach prevents message loss during transfer.
 
-A producer might accidentally send the same message twice. For example, a producer instance fails after it sends a message. Another producer replaces the original instance and sends the message again. Service Bus queues provide a [built-in deduping capability](/azure/service-bus-messaging/duplicate-detection) that detects and removes duplicate messages. Service Bus might still deliver a message twice. For example, if a consumer fails while processing, Service Bus returns the message to the queue, and the same consumer or another consumer retrieves it again. The consumer's message-processing logic should be idempotent so that repeated processing doesn't change the system state.
+A producer might accidentally send the same message twice. For example, a producer instance fails after it sends a message. Another producer replaces the original instance and sends the message again. Service Bus queues provide a [built-in deduping capability](/azure/service-bus-messaging/duplicate-detection) that detects and removes duplicate messages. Service Bus might still deliver a message twice. For example, if a consumer fails while processing, Service Bus returns the message to the queue, and the same consumer or another consumer retrieves it again. The consumer's message-processing logic should be [idempotent](../../patterns/idempotent-consumer.md) so that repeated processing doesn't change the system state.
 
 #### Message ordering
 
@@ -320,9 +320,9 @@ Consider the following patterns when you implement asynchronous messaging:
 
 - [Competing Consumers pattern](../../patterns/competing-consumers.md): Multiple consumers might need to compete to read messages from a queue. This pattern explains how to process multiple messages concurrently to optimize throughput, improve scalability and availability, and balance the workload.
 
-- [Priority Queue pattern](../../patterns/priority-queue.yml): When business logic requires prioritized message processing, this pattern describes how consumers process higher-priority messages before lower-priority messages.
+- [Priority Queue pattern](../../patterns/priority-queue.md): When business logic requires prioritized message processing, this pattern describes how consumers process higher-priority messages before lower-priority messages.
 
-- [Queue-Based Load Leveling pattern](../../patterns/queue-based-load-leveling.yml): This pattern uses a message broker to act as a buffer between a producer and a consumer. This pattern helps minimize the impact of intermittent heavy loads on both the producer's and consumer's availability and responsiveness.
+- [Queue-Based Load Leveling pattern](../../patterns/queue-based-load-leveling.md): This pattern uses a message broker to act as a buffer between a producer and a consumer. This pattern helps minimize the impact of intermittent heavy loads on both the producer's and consumer's availability and responsiveness.
 
 - [Retry pattern](../../patterns/retry.yml): Producers or consumers might temporarily lose connection to a queue because of transient failures. This pattern describes how to retry operations during transient failures to maintain application resiliency.
 

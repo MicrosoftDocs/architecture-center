@@ -181,6 +181,8 @@ For more information, see [Security in Fabric](/fabric/security/security-overvie
 
 Cost Optimization focuses on ways to reduce unnecessary expenses and improve operational efficiencies. For more information, see [Design review checklist for Cost Optimization](/azure/well-architected/cost-optimization/checklist).
 
+Use the [preconfigured estimate in the Azure pricing calculator](https://azure.com/e/2c3bbe1a61044297a4c1db3a2537d44d) to get a starting cost for this architecture. Adjust the values to match your expected workload.
+
 Fabric provides [capacity reservations](/azure/cost-management-billing/reservations/fabric-capacity) for a given number of capacity units (CUs). A one-year reservation can help reduce cost for your Fabric capacity usage.
 
 To maximize the utilization of your Fabric capacity, consider the following recommendations:
