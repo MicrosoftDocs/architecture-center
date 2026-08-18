@@ -18,6 +18,7 @@ name: Migrate an Oracle database to an Azure virtual machine
 azureCategories:
   - databases
   - migration
+  - open-source
 summary: Learn how to migrate an Oracle database to an Azure virtual machine by using Oracle Data Guard and Azure networking.
 products:
   - azure-virtual-machines

@@ -12,6 +12,7 @@ azureCategories:
   - databases
   - networking
   - storage
+  - open-source
 products:
   - azure-application-gateway
   - azure-managed-redis

@@ -17,6 +17,7 @@ name: Azure Arc hybrid management and deployment for Kubernetes clusters
 azureCategories:
   - hybrid
   - management-and-governance
+  - open-source
 summary: Learn how Azure Arc extends Kubernetes cluster management and configuration across customer data centers, edge locations, and multiple cloud environments.
 products:
   - azure-arc

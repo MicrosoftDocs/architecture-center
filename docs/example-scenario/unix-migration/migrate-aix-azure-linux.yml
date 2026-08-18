@@ -15,6 +15,7 @@ metadata:
 azureCategories:
   - migration
   - networking
+  - open-source
 products:
   - azure-netapp-files
   - azure-site-recovery

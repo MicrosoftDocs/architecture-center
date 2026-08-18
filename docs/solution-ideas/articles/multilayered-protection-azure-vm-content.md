@@ -66,6 +66,21 @@ This solution uses the following components:
 
 - [Azure Virtual Machines][Azure Virtual Machines] is an infrastructure as a service (IaaS) offering that provides scalable compute resources. In this architecture, Azure VMs host production workloads while minimizing exposure to threats through layered security controls.
 
+  Azure Virtual machines (VMs) include built-in protections that are enabled by default or recommended as baseline:
+  - Trusted Launch includes Secure Boot, vTPM, and integrity monitoring for supported Generation 2 VMs
+  - The Azure hypervisor enforces isolation between VMs.
+  - Confidential VMs provide hardware-enforced isolation for sensitive workloads, but require supported VM sizes, operating systems, and regions.
+  These capabilities make security intrinsic to compute rather than an add-on.
+
+- [Azure Virtual Network][] is a logically isolated, customizable network in Azure that serves as your private network space, enabling secure communication between Azure resources, the internet, and on‑premises networks.
+
+  Implement a deny-by-default network security model explicitly:
+  - Associate an NSG with each workload subnet or VM network interface.
+  - Add only the inbound rules that the workload requires.
+  - Use Network Security Groups (NSGs) to provide stateful filtering
+  - Azure Firewall enables centralized policy enforcement
+  - Leverage Private endpoints to provide private connectivity to supported Azure services. Disable public network access on each target service when you need to prevent access through its public endpoint.
+
 - [Microsoft Entra ID][Microsoft Entra ID] is a cloud-based identity service that manages access to Azure and other cloud applications. In this architecture, it authenticates users and enforces access policies to ensure secure entry into Azure resources.
 
 - [Microsoft Entra PIM][Privileged Identity Management (PIM)] is a service that controls and monitors privileged access to resources. In this architecture, PIM limits permanent admin access to standard and custom privileged roles and enables just-in-time (JIT) identity-based access to custom roles.
@@ -80,11 +95,15 @@ This solution uses the following components:
 
 - [Microsoft Entra Conditional Access][Microsoft Entra Conditional Access] is a policy-based access control tool. In this architecture, Conditional Access ensures that only authenticated users from trusted devices or locations can access Azure resources. Conditional Access policies support the [Zero Trust][Zero Trust] security model.
 
-- [Azure Bastion][Azure Bastion] is a managed service that provides RDP and SSH connectivity to VMs over HTTPS. In this architecture, Azure Bastion connects users who use Microsoft Edge or another internet browser for HTTPS, or secured traffic on port 443. Azure Bastion sets up the RDP connection to the VM. RDP and SSH ports aren't exposed to the internet or the user's origin.
+- [Azure Bastion][Azure Bastion] is a managed service that provides RDP and SSH connectivity to VMs over HTTPS. In this architecture, Azure Bastion connects users who use Microsoft Edge or another internet browser for HTTPS, or secured traffic on port 443. Azure Bastion sets up the RDP connection to the VM. RDP and SSH ports on the target VM aren't exposed to the internet.
 
-  Azure Bastion is optional in this solution. Users can connect directly to Azure VMs by using the RDP protocol. If you do configure Azure Bastion in an Azure virtual network, set up a separate subnet called `AzureBastionSubnet`. Then associate a network security group with that subnet. In that group, specify a source for HTTPS traffic such as the user's on-premises IP classless inter-domain routing (CIDR) block. This configuration blocks connections that don't come from the user's on-premises environment.
+   If you configure Azure Bastion in a virtual network by using Basic, Standard, or Premium SKU, deploy it in a dedicated subnet named `AzureBastionSubnet` that's `/26` or larger.
+
+   Azure Bastion is optional in this solution, especially if access to the Azure Virtual Network is private through VPN or ExpressRoute. Users can connect directly to Azure VMs by using RDP or SSH over the private connection.
+   
+   If you do configure Azure Bastion in an Azure virtual network, set up a separate subnet called `AzureBastionSubnet` that's `/26` or larger. Then associate a network security group with that subnet. In that group, specify a source for HTTPS traffic such as the user's on-premises IP classless inter-domain routing (CIDR) block address space. This configuration blocks connections that don't come from the user's on-premises environment.
   
-- [Key Vault][Azure Key Vault] is a service for storing secrets, keys, and certificates. In this architecture, Key Vault stores VM passwords as secrets and integrates with Azure Bastion to allow retrieval by authorized users. You should configure the secret Azure RBAC so that only the user account that accesses the VM can retrieve it. Retrieving the password value from the key vault can be done through Azure APIs (such as using the Azure CLI) or from the Azure portal.
+- [Key Vault][Azure Key Vault] is a service for storing secrets, keys, and certificates. In this architecture, Key Vault stores VM passwords as secrets and integrates with Azure Bastion to allow retrieval by authorized users. Configure Azure RBAC so that only the user account that accesses the VM can retrieve the secret, and set secret expiration and rotation practices for local administrator credentials. Users can retrieve the secret through Azure APIs (such as the Azure CLI) or from the Azure portal.
 
   ## Contributors
 
@@ -92,7 +111,7 @@ This solution uses the following components:
 
 Principal author:
 
- - [Husam Hilal](https://www.linkedin.com/in/husamhilal/) | Senior Cloud Solution Architect
+ - [Husam Hilal](https://www.linkedin.com/in/husamhilal/) | Principal Cloud Solution Architect
  
 *To see non-public LinkedIn profiles, sign in to LinkedIn.*
 
@@ -115,6 +134,7 @@ Principal author:
 [Azure RBAC]: /azure/role-based-access-control/overview
 [Azure RBAC custom roles]: /azure/role-based-access-control/custom-roles
 [Azure Virtual Machines]: /azure/well-architected/service-guides/virtual-machines
+[Azure Virtual Network]: /azure/virtual-network
 [Configure Bastion and connect to a Windows VM through a browser]: /azure/bastion/tutorial-create-host-portal
 [Just-in-time (JIT) VM access]: /azure/security-center/security-center-just-in-time
 [Privileged Identity Management (PIM)]: /entra/id-governance/privileged-identity-management/

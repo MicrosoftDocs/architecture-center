@@ -18,6 +18,7 @@ name: Use Application Gateway for Containers with a multitenant Azure Kubernetes
 azureCategories:
   - containers
   - networking
+  - open-source
 summary: Learn how to use Application Gateway for Containers (AGC) with your AKS cluster to expose microservice-based applications to the internet.
 products:
   - azure-application-gateway
