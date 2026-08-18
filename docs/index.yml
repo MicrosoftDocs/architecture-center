@@ -79,8 +79,8 @@ productDirectory:
           text: Architecture for startups
         - url: ./guide/saas-multitenant-solution-architecture/index.md
           text: Architecture for SaaS and multitenant applications
-        - url: ./reference-architectures/containers/aks-mission-critical/mission-critical-intro.yml
-          text: Build mission-critical workloads
+        - url: ./guide/compute/high-performance-computing.md
+          text: High-performance computing (HPC) workloads
         - url: ./aws-professional/index.md
           text: Azure for AWS professionals
         - url: ./gcp-professional/services.md

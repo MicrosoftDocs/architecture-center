@@ -23,8 +23,8 @@ Sometimes new instances of a class are continually created, when it's meant to b
 Many libraries provide abstractions of external resources. Internally, these classes typically manage their own connections to the resource, acting as brokers that clients can use to access the resource. Here are some examples of broker classes that are relevant to Azure applications:
 
 - `System.Net.Http.HttpClient`. Communicates with a web service using HTTP.
-- `Microsoft.ServiceBus.Messaging.QueueClient`. Posts and receives messages to a Service Bus queue.
-- `Microsoft.Azure.Documents.Client.DocumentClient`. Connects to an Azure Cosmos DB instance.
+- `Azure.Messaging.ServiceBus.ServiceBusClient`. Connects to Azure Service Bus for sending and receiving messages.
+- `Microsoft.Azure.Cosmos.CosmosClient`. Connects to an Azure Cosmos DB instance.
 - `StackExchange.Redis.ConnectionMultiplexer`. Connects to Redis, including Azure Managed Redis.
 
 These classes are intended to be instantiated once and reused throughout the lifetime of an application. However, it's a common misunderstanding that these classes should be acquired only as necessary and released quickly. (The ones listed here happen to be .NET libraries, but the pattern isn't unique to .NET.) The following ASP.NET example creates an instance of `HttpClient` to communicate with a remote service.
@@ -96,6 +96,9 @@ public class SingleHttpClientInstanceController : ApiController
 }
 ```
 
+> [!NOTE]
+> In modern .NET applications, the recommended approach for managing `HttpClient` instances is to use [`IHttpClientFactory`](/dotnet/core/extensions/httpclient-factory), which manages handler lifetimes and ensures timely DNS updates. The static singleton pattern shown above remains valid for simpler scenarios or non-DI environments, especially when combined with `PooledConnectionLifetime`.
+
 ## Considerations
 
 - The key element of this antipattern is repeatedly creating and destroying instances of a *shareable* object. If a class isn't shareable (not thread-safe), then this antipattern doesn't apply.
@@ -108,7 +111,7 @@ public class SingleHttpClientInstanceController : ApiController
 
 - Some resource types are scarce and should not be held onto. Database connections are an example. Holding an open database connection that isn't required might prevent other concurrent users from gaining access to the database.
 
-- In the .NET Framework, many objects that establish connections to external resources are created by using static factory methods of other classes that manage these connections. These objects are intended to be saved and reused, rather than disposed and re-created. For example, in Azure Service Bus, the `QueueClient` object is created through a `MessagingFactory` object. Internally, the `MessagingFactory` manages connections. For more information, see [Best Practices for performance improvements using Service Bus Messaging][service-bus-messaging].
+- In .NET, many objects that establish connections to external resources manage those connections internally. These objects are intended to be saved and reused, rather than disposed and re-created. For example, in Azure Service Bus, the `ServiceBusClient` object manages the AMQP connection to the namespace and is used to create `ServiceBusSender` and `ServiceBusReceiver` instances. Create one `ServiceBusClient` and reuse it for the lifetime of the application. For more information, see [Best Practices for performance improvements using Service Bus Messaging][service-bus-messaging].
 
 ## How to detect improper instantiation antipattern
 

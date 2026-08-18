@@ -168,7 +168,7 @@ Gather high-level performance data, such as throughput, the number of concurrent
 
 If possible, capture performance data for any external systems that the application uses. These external systems might provide their own performance counters or other features for requesting performance data. If this method isn't possible, record information such as the start time and end time of each request to an external system and the success, fail, or warning status of the operation.
 
-Low-level performance data for individual components in a system might be available through features and services such as Windows performance counters and Azure Diagnostics.
+Low-level performance data for individual components in a system might be available through features and services such as Windows performance counters that the Azure Monitor Agent collects.
 
 ### Analyze performance data
 
@@ -559,17 +559,13 @@ A collection service that runs autonomously from the application that generates 
 
 This diagram shows a simplified view of data collection. The collection service typically comprises many parts that run on different machines. If you need to analyze telemetry data quickly, use local components that operate outside the collection service. After analytical processing, the components send the results directly to the visualization and alerting subsystem. Data subject to warm or cold analysis is held in storage while it waits for processing. For more information, see [Support hot, warm, and cold analysis](#support-hot-warm-and-cold-analysis).
 
-For Azure applications and services, Diagnostics provides one possible solution for capturing data. Diagnostics gathers data from the following sources for each compute node, aggregates it, and then uploads it to Azure Storage:
+For Azure applications and services that run on virtual machines, the [Azure Monitor Agent](/azure/azure-monitor/agents/azure-monitor-agent-overview) provides a solution for capturing data. You define [data collection rules (DCRs)](/azure/azure-monitor/essentials/data-collection-rule-overview) that specify the data to gather from each compute node and the Log Analytics workspace in Azure Monitor to send it to. The agent can collect data from the following sources:
 
 - Internet Information Services (IIS) logs
-- IIS failed request logs
 - Windows event logs
 - Performance counters
-- Crash dumps
-- Diagnostics infrastructure logs
-- Custom error logs
-- .NET EventSource
-- Manifest-based ETW
+- Syslog from Linux nodes
+- Text and JSON logs that applications write
 
 ### Strategies for collecting instrumentation data
 
@@ -581,7 +577,7 @@ To optimize bandwidth use, you can transfer less urgent data as batches. Don't d
 
 The instrumentation data-collection subsystem can actively retrieve instrumentation data from the various logs and other sources for each instance of the application. This method is called the *pull model*. Or it can act as a passive receiver that waits for the components that constitute each instance of the application to send the data. This method is called the *push model*.
 
-One approach to the pull model is to use monitoring agents that run locally with each instance of the application. A monitoring agent is a separate process that periodically retrieves telemetry data collected at the local node and writes this information directly to centralized storage that all instances of the application share. The [Azure Monitor agent](/azure/azure-monitor/agents/azure-monitor-agent-overview) implements this mechanism. You can configure each compute instance to capture diagnostic and other trace information stored locally. The monitoring agent that runs alongside each instance collects the specified data and sends it to Azure Monitor. Some elements, such as IIS logs, crash dumps, and custom error logs, are written to blob storage. Data from the Windows event log, ETW events, and performance counters is recorded in table storage. The following diagram shows an example of this architecture.
+One approach to the pull model is to use monitoring agents that run locally with each instance of the application. A monitoring agent is a separate process that periodically retrieves telemetry data collected at the local node and writes this information to centralized storage that all instances of the application share. The [Azure Monitor Agent](/azure/azure-monitor/agents/azure-monitor-agent-overview) implements this mechanism. You configure the data to collect from each compute instance through a data collection rule. The monitoring agent that runs alongside each instance collects the specified data, such as IIS logs, Windows event logs, and performance counters, and sends it to a Log Analytics workspace in Azure Monitor, where you can query and analyze it. The following diagram shows an example of this architecture.
 
 :::image type="complex" source="./images/monitoring/pull-model.png" border="false" lightbox="./images/monitoring/pull-model.png" alt-text="Diagram that shows how a monitoring agent pulls information and writes to shared storage.":::
     The diagram illustrates the pull model for collecting instrumentation data across two compute nodes. The two nodes are arranged vertically, and each follows an identical structure. Each node consists of four stacked rectangles that represent local log stores, including ETL files, OS event logs, application trace logs, and custom trace logs. Arrows that represent incoming application activity point from the left edge of the diagram to each node. To the right of the log stores, arrows point from a monitoring agent to each of the log stores. Arrows point from the monitoring agent to shared storage on the far right.

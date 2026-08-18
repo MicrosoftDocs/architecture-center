@@ -430,42 +430,6 @@ items:
             href: guide/multitenant/checklist.md
           - name: Related resources
             href: guide/multitenant/related-resources.md
-  - name: Mission-critical applications
-    items:
-    - name: Mission-critical architecture design
-      href: reference-architectures/containers/aks-mission-critical/mission-critical-intro.yml
-    - name: Design areas
-      items:
-      - name: Application platform
-        href: reference-architectures/containers/aks-mission-critical/mission-critical-app-platform.md
-      - name: Application design
-        href: reference-architectures/containers/aks-mission-critical/mission-critical-app-design.md
-      - name: Networking and connectivity platform
-        href: reference-architectures/containers/aks-mission-critical/mission-critical-networking.md
-      - name: Data platform
-        href: reference-architectures/containers/aks-mission-critical/mission-critical-data-platform.md
-      - name: Deployment and testing
-        href: reference-architectures/containers/aks-mission-critical/mission-critical-deploy-test.md
-      - name: Health modeling
-        href: reference-architectures/containers/aks-mission-critical/mission-critical-health-modeling.md
-      - name: Security
-        href: reference-architectures/containers/aks-mission-critical/mission-critical-security.md
-      - name: Operational procedures
-        href: reference-architectures/containers/aks-mission-critical/mission-critical-operations.md
-    - name: Guides
-      items:
-      - name: Continuous validation
-        href: guide/testing/mission-critical-deployment-testing.md
-    - name: Mitigation strategies
-      items:
-        - name: Global routing redundancy for highly available web applications
-          items:
-          - name: Overview
-            href: guide/networking/global-web-applications/overview.md
-          - name: Content delivery
-            href: guide/networking/global-web-applications/mission-critical-content-delivery.md
-          - name: Global HTTP ingress
-            href: guide/networking/global-web-applications/mission-critical-global-http-ingress.md
 - name: Azure landing zone
   items:
   - name: Deployment options
@@ -1300,6 +1264,9 @@ items:
       - name: Use the Azure Governance Visualizer
         displayName: ALZ, Azure landing zone
         href: landing-zones/azure-governance-visualizer-accelerator.md
+      - name: Continuous validation with Load Testing and Chaos Studio
+        displayName: ci, cd, resiliency, fault injection, deployment
+        href: guide/testing/mission-critical-deployment-testing.md
   - name: Networking
     items: 
       - name: Get started
@@ -1505,6 +1472,14 @@ items:
           items:
           - name: Securing access to multitenant web apps from on-premises
             href: web-apps/guides/networking/access-multitenant-web-app-from-on-premises.yml
+          - name: Global routing redundancy for highly available web applications
+            items:
+            - name: Overview
+              href: guide/networking/global-web-applications/overview.md
+            - name: Content delivery
+              href: guide/networking/global-web-applications/mission-critical-content-delivery.md
+            - name: Global HTTP ingress
+              href: guide/networking/global-web-applications/mission-critical-global-http-ingress.md
         - name: Security guidance for web apps
           items:
           - name: Single-page application authorization
