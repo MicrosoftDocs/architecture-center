@@ -66,20 +66,20 @@ This solution uses the following components:
 
 - [Azure Virtual Machines][Azure Virtual Machines] is an infrastructure as a service (IaaS) offering that provides scalable compute resources. In this architecture, Azure VMs host production workloads while minimizing exposure to threats through layered security controls.
 
-  Virtual machines include built-in protections that are enabled by default or recommended as baseline:
-  - Trusted Launch (secure boot, vTPM, integrity monitoring)
-  - Hypervisor-enforced isolation between VMs
-  - Confidential computing for sensitive workloads
-  These capabilities ensure that security is intrinsic to compute rather than added later.
+  Azure Virtual machines (VMs) include built-in protections that are enabled by default or recommended as baseline:
+  - Trusted Launch includes Secure Boot, vTPM, and integrity monitoring for supported Generation 2 VMs
+  - The Azure hypervisor enforces isolation between VMs.
+  - Confidential VMs provide hardware-enforced isolation for sensitive workloads, but require supported VM sizes, operating systems, and regions.
+  These capabilities make security intrinsic to compute rather than an add-on.
 
 - [Azure Virtual Network][] is a logically isolated, customizable network in Azure that serves as your private network space, enabling secure communication between Azure resources, the internet, and on‑premises networks.
 
-  Network security in Azure follows a deny-by-default model:
-  - Virtual networks are isolated by default
-  - Inbound traffic is blocked unless explicitly allowed
-  - Network Security Groups (NSGs) provide stateful filtering
+  Implement a deny-by-default network security model explicitly:
+  - Associate an NSG with each workload subnet or VM network interface.
+  - Add only the inbound rules that the workload requires.
+  - Use Network Security Groups (NSGs) to provide stateful filtering
   - Azure Firewall enables centralized policy enforcement
-  - Private endpoints eliminate exposure to the public internet
+  - Leverage Private endpoints to provide private connectivity to supported Azure services. Disable public network access on each target service when you need to prevent access through its public endpoint.
 
 - [Microsoft Entra ID][Microsoft Entra ID] is a cloud-based identity service that manages access to Azure and other cloud applications. In this architecture, it authenticates users and enforces access policies to ensure secure entry into Azure resources.
 
@@ -99,7 +99,7 @@ This solution uses the following components:
 
    If you configure Azure Bastion in a virtual network by using Basic, Standard, or Premium SKU, deploy it in a dedicated subnet named `AzureBastionSubnet` that's `/26` or larger.
 
-   Azure Bastion is optional in this solution, especially if access to the Azure Virtual Network is private through VPN or ExpressRoute. Users can connect directly to Azure VMs by using the RDP protocol.
+   Azure Bastion is optional in this solution, especially if access to the Azure Virtual Network is private through VPN or ExpressRoute. Users can connect directly to Azure VMs by using RDP or SSH over the private connection.
    
    If you do configure Azure Bastion in an Azure virtual network, set up a separate subnet called `AzureBastionSubnet` that's `/26` or larger. Then associate a network security group with that subnet. In that group, specify a source for HTTPS traffic such as the user's on-premises IP classless inter-domain routing (CIDR) block address space. This configuration blocks connections that don't come from the user's on-premises environment.
   
