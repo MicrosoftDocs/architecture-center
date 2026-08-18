@@ -15,7 +15,6 @@ azureCategories:
   - compute
   - networking
 products:
-  - azure-virtual-machines
   - azure-bastion
   - azure-rbac
   - defender-for-cloud
