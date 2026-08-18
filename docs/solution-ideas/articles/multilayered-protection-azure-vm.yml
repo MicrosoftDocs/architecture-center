@@ -16,7 +16,6 @@ azureCategories:
   - compute
   - networking
 products:
-  - entra-permissions-management
   - azure-virtual-machines
   - azure-bastion
   - azure-rbac
