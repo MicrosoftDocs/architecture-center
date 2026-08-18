@@ -49,7 +49,7 @@ Consider the following options when you need scripted and programmatic data tran
 
 - [Apache Sqoop](/azure/hdinsight/hadoop/hdinsight-use-sqoop) is an Apache project and part of the Hadoop ecosystem. It comes preinstalled on all HDInsight clusters. Sqoop transfers data between an HDInsight cluster and relational databases like SQL, Oracle, and MySQL. It's a collection of related tools, including import and export tools, and works with HDInsight clusters by using either Blob Storage or Data Lake Storage attached storage.
 
-- [PolyBase](/sql/relational-databases/polybase/get-started-with-polybase) is a technology that accesses data outside a database through the T-SQL language. Use it to import and export data between SQL Server and external data sources such as Azure Blob Storage, Data Lake Storage, S3-compatible object storage, Oracle, Teradata, MongoDB, and generic ODBC sources.
+- [PolyBase](/sql/relational-databases/polybase/get-started-with-polybase) is a technology that accesses data outside a database through the T-SQL language. Use it to query external data sources such as Azure Blob Storage, Data Lake Storage, S3-compatible object storage, Oracle, Teradata, MongoDB, and generic ODBC sources. For SQL Server 2022 and later versions, use PolyBase to import data from and export data to Azure Storage and S3-compatible object storage.
 
 - The [Hadoop command line](/azure/hdinsight/hdinsight-upload-data#hadoop-command-line) is a tool that you can use when your data resides on an HDInsight cluster head node. You can use the `hadoop fs -copyFromLocal` command to copy that data to your cluster's attached storage, like Blob Storage or Data Lake Storage. To use the Hadoop command, you must first connect to the head node. After it's connected, you can upload a file to storage.
 
@@ -129,7 +129,7 @@ The following table includes general-purpose data transfer tools.
 | Copy to Data Lake Storage | No | Yes | Yes | Yes |
 | Copy from Data Lake Storage | No | No | Yes | Yes |
 
-<sup>1</sup> <span id="note1"></span> You can [improve PolyBase performance](/sql/relational-databases/polybase/polybase-guide#performance) by scaling up the SQL Server instance and by using partitioned external tables to parallelize reads and writes across its supported external data sources.
+<sup>1</sup> <span id="note1"></span> Review the current [PolyBase performance considerations](/sql/relational-databases/polybase/polybase-performance) for guidance on statistics, partitioned data, and other supported optimizations.
 
 ### Graphical interfaces, data sync, and data pipelines
 
