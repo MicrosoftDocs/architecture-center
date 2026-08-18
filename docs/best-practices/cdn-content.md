@@ -6,9 +6,10 @@ CDNs are typically used to deliver static content such as images, style sheets, 
 
 ![CDN diagram](./images/cdn/CDN.png)
 
-In Azure, the [Azure Content Delivery Network](/azure/cdn/cdn-overview) is a global CDN solution for delivering high-bandwidth content that is hosted in Azure or any other location. Using Azure Content Delivery Network, you can cache publicly available objects loaded from Azure blob storage, a web application, virtual machine, any publicly accessible web server.
+In Azure, [Azure Front Door](/azure/frontdoor/front-door-overview) is the global CDN solution for delivering high-bandwidth content that's hosted in Azure or any other location. You can configure the Azure Front Door Standard and Premium tiers to cache content at the network edge. You can cache objects that are loaded from Azure Blob Storage, a web application, a virtual machine, or even any publicly accessible web server.
 
-This topic describes some general best practices and considerations when you use a CDN. For more information, see [Azure CDN](/azure/cdn).
+
+This article describes some general best practices and considerations for when you use a CDN. For more information, see the [Caching with Azure Front Door](/azure/frontdoor/front-door-caching) documentation.
 
 ## How and why a CDN is used
 
@@ -22,7 +23,7 @@ Typical uses for a CDN include:
 
 - Streaming video files to the client on demand. Video benefits from the low latency and reliable connectivity available from the globally located datacenters that offer CDN connections.
 
-- Generally improving the experience for users, especially those located far from the datacenter hosting the application. These users might otherwise experience higher latency. A large proportion of the total size of the content in a web application is often static, and using the CDN can help to maintain performance and overall user experience while eliminating the requirement to deploy the application to multiple datacenters. For a list of Azure Content Delivery Network node locations, see [Azure CDN POP Locations](/azure/cdn/cdn-pop-locations).
+- Generally improving the experience for users, especially those located far from the datacenter hosting the application. These users might otherwise experience higher latency. A large proportion of the total size of the content in a web application is often static, and using the CDN can help to maintain performance and overall user experience while eliminating the requirement to deploy the application to multiple datacenters. For a list of Azure Front Door edge locations, see [Azure Front Door POP locations by region](/azure/frontdoor/edge-locations-by-region).
 
 - Supporting IoT (Internet of Things) solutions. The huge numbers of devices and appliances involved in an IoT solution could easily overwhelm an application if it had to distribute firmware updates directly to each device.
 
@@ -32,15 +33,15 @@ Typical uses for a CDN include:
 
 There are several challenges to take into account when planning to use a CDN.
 
-- **Deployment**. Decide the origin from which the CDN fetches the content, and whether you need to deploy the content in more than one storage system. Take into account the process for deploying static content and resources. For example, you might need to implement a separate step to load content into Azure blob storage.
+- **Deployment**. Decide the origin from which the CDN fetches the content, and whether you need to deploy the content in more than one storage system. Consider the process for deploying static content and resources. For example, you might need to implement a separate step to load content into Azure Blob Storage.
 
-- **Versioning and cache-control**. Consider how you update static content and deploy new versions. Understand how the CDN performs caching and time-to-live (TTL). For Azure Content Delivery Network, see [How caching works](/azure/cdn/cdn-how-caching-works).
+- **Versioning and cache-control**. Consider how you update static content and deploy new versions. Understand how the CDN performs caching and time-to-live (TTL). For Azure Front Door, see [Caching with Azure Front Door](/azure/frontdoor/front-door-caching).
 
 - **Testing**. It can be difficult to perform local testing of your CDN settings when developing and testing an application locally or in a staging environment.
 
 - **Search engine optimization (SEO)**. Content such as images and documents are served from a different domain when you use the CDN. This can have an effect on SEO for this content.
 
-- **Content security**. Not all CDNs offer any form of access control for the content. Some CDN services, including Azure Content Delivery Network, support token-based authentication to protect CDN content. For more information, see [Securing Azure Content Delivery Network assets with token authentication](/azure/cdn/cdn-token-auth).
+- **Content security**. Not all CDNs provide identity-based access control for content. Azure Front Door's WAF protects applications from common exploits, and origin security prevents traffic from bypassing Front Door. These features don't replace application-level authorization for private content. For more information, see [Web Application Firewall on Azure Front Door](/azure/web-application-firewall/afds/afds-overview) and [Secure traffic to Azure Front Door origins](/azure/frontdoor/origin-security).
 
 - **Client security**. Clients might connect from an environment that doesn't allow access to resources on the CDN. This could be a security-constrained environment that limits access to only a set of known sources, or one that prevents loading of resources from anything other than the page origin. A fallback implementation is required to handle these cases.
 
@@ -66,38 +67,36 @@ If you need to deploy the content to another location, this is an extra step in 
 
 Consider how you handle local development and testing when some static content is expected to be served from a CDN. For example, you could predeploy the content to the CDN as part of your build script. Alternatively, use compile directives or flags to control how the application loads the resources. For example, in debug mode, the application could load static resources from a local folder. In release mode, the application would use the CDN.
 
-Consider the options for file compression, such as gzip (GNU zip). Compression can be performed on the origin server by the web application hosting or directly on the edge servers by the CDN. For more information, see [Improve performance by compressing files in Azure CDN](/azure/cdn/cdn-improve-performance).
+Consider the options for file compression, such as gzip (GNU zip). Compression can be performed on the origin server by the web application hosting or directly on the edge servers by the CDN. For more information, see [Improve performance by compressing files in Azure Front Door](/azure/frontdoor/standard-premium/how-to-compression).
 
 ### Routing and versioning
 
-You might need to use different CDN instances at various times. For example, when you deploy a new version of the application you might want to use a new CDN and retain the old CDN (holding content in an older format) for previous versions. If you use Azure blob storage as the content origin, you can create a separate storage account or a separate container and point the CDN endpoint to it.
-
-Don't use the query string to denote different versions of the application in links to resources on the CDN because, when retrieving content from Azure blob storage, the query string is part of the resource name (the blob name). This approach can also affect how the client caches resources.
+You might need to serve different versions of your content at various times. For example, when you deploy a new version of the application, you might want to serve new content and retain the old content (in an older format) for previous versions. If you use Azure Blob Storage as the content origin, you can store each version in a separate blob storage container. An Azure Front Door origin identifies a storage account host, not an individual container. To serve content from a different storage account, point the origin to it. To serve content from a different container in the same account, set the route's origin path or add a URL rewrite rule that targets the container.
 
 Deploying new versions of static content when you update an application can be a challenge if the previous resources are cached on the CDN. For more information, see the following section on cache control.
 
-Consider restricting the CDN content access by country/region. Azure Content Delivery Network allows you to filter requests based on the country or region of origin and restrict the content delivered. For more information, see [Restrict access to your content by country/region](/azure/cdn/cdn-restrict-access-by-country-region).
+Consider restricting CDN content access by country or region. Azure Front Door uses the WAF to filter requests based on the country or region that a request comes from and restrict the content that it delivers. For more information, see [Geo-filtering on a domain for Azure Front Door](/azure/web-application-firewall/afds/waf-front-door-geo-filtering).
 
 ### Cache control
 
-Consider how to manage caching within the system. For example, in Azure Content Delivery Network, you can set global caching rules, and then set custom caching for particular origin endpoints. You can also control how caching is performed in a CDN by sending cache-directive headers at the origin.
+Consider how to manage caching within the system. For example, in Azure Front Door, you can set caching rules in the rules engine and apply custom caching behavior to specific routes. You can also control how caching is performed in a CDN by sending cache-directive headers at the origin.
 
-For more information, see [How caching works](/azure/cdn/cdn-how-caching-works).
+For more information, see [Caching with Azure Front Door](/azure/frontdoor/front-door-caching).
 
 To prevent objects from being available on the CDN, you can delete them from the origin, remove or delete the CDN endpoint, or for blob storage, make the container or blob private. However, items aren't removed from the CDN until the time to live expires. You can also manually purge a CDN endpoint.
 
 ### Security
 
-The CDN can deliver content over HTTPS (SSL) by using the certificate provided by the CDN. It can also deliver content over standard HTTP. To avoid browser warnings about mixed content, you might need to use HTTPS to request static content that is displayed in pages loaded through HTTPS.
+Azure Front Door can deliver content over HTTPS by using a Microsoft-managed TLS certificate or your own certificate. To avoid browser warnings about mixed content, use HTTPS to request static content that appears in pages loaded through HTTPS. For more information, see [End-to-end TLS with Azure Front Door](/azure/frontdoor/end-to-end-tls).
 
 If you deliver static assets such as font files by using the CDN, you might encounter same-origin policy issues if you use an *XMLHttpRequest* call to request these resources from a different domain. Many web browsers prevent cross-origin resource sharing (CORS) unless the web server is configured to set the appropriate response headers. You can configure the CDN to support CORS by using one of the following methods:
 
-- Configure the CDN to add CORS headers to the responses. For more information, see [Using Azure CDN with CORS](/azure/cdn/cdn-cors).
+- Configure the CDN to add CORS headers to the responses. For more information, see [Set up CORS with Azure Front Door](/azure/frontdoor/cross-origin-resource-sharing).
 
-- If the origin is Azure blob storage, add CORS rules to the storage endpoint. For more information, see [Cross-Origin Resource Sharing (CORS) Support for the Azure Storage Services](/rest/api/storageservices/Cross-Origin-Resource-Sharing--CORS--Support-for-the-Azure-Storage-Services).
+- If the origin is Azure Blob Storage, add CORS rules to the storage endpoint. For more information, see [Cross-Origin Resource Sharing (CORS) Support for the Azure Storage Services](/rest/api/storageservices/Cross-Origin-Resource-Sharing--CORS--Support-for-the-Azure-Storage-Services).
 
 - Configure the application to set the CORS headers. For example, see [Enabling Cross-Origin Requests (CORS)](/aspnet/core/security/cors) in the ASP.NET Core documentation.
 
 ### CDN fallback
 
-Consider how your application copes with a failure or temporary unavailability of the CDN. Client applications might be able to use copies of the resources that were cached locally (on the client) during previous requests, or you can include code that detects failure and instead requests resources from the origin (the application folder or Azure blob container that holds the resources) if the CDN is unavailable.
+Consider how your application copes with a failure or temporary unavailability of the CDN. Client applications might be able to use copies of the resources that were cached locally (on the client) during previous requests, or you can include code that detects failure and instead requests resources from the origin (the application folder or Azure Blob Storage container that holds the resources) if the CDN is unavailable.
