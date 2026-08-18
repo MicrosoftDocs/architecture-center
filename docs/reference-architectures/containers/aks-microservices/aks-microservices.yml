@@ -15,6 +15,7 @@ metadata:
 name: Microservices architecture on Azure Kubernetes Service
 azureCategories:
   - containers
+  - open-source
 summary: Learn about the infrastructure and DevOps considerations to deploy and run a microservices architecture on Azure Kubernetes Service (AKS).
 products:
   - entra-id

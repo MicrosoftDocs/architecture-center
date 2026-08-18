@@ -11,6 +11,7 @@ metadata:
   ms.custom: arb-aiml
 azureCategories:
   - ai-machine-learning
+  - open-source
 products:
   - azure-container-apps
   - foundry-tools
