@@ -129,7 +129,7 @@ The following table includes general-purpose data transfer tools.
 | Copy to Data Lake Storage | No | Yes | Yes | Yes |
 | Copy from Data Lake Storage | No | No | Yes | Yes |
 
-<sup>1</sup> <span id="note1"></span> PolyBase [performance can be improved](/sql/relational-databases/polybase/polybase-guide#performance) by scaling up the SQL Server instance and by using partitioned external tables to parallelize reads and writes across its supported external data sources.
+<sup>1</sup> <span id="note1"></span> You can [improve PolyBase performance](/sql/relational-databases/polybase/polybase-guide#performance) by scaling up the SQL Server instance and by using partitioned external tables to parallelize reads and writes across its supported external data sources.
 
 ### Graphical interfaces, data sync, and data pipelines
 
