@@ -129,7 +129,7 @@ The following table includes general-purpose data transfer tools.
 | Copy to Data Lake Storage | No | Yes | Yes | Yes |
 | Copy from Data Lake Storage | No | No | Yes | Yes |
 
-<sup>1</sup> <span id="note1"></span> To learn about statistics, partitioned data, and other supported optimizations, review the current [PolyBase performance considerations](/sql/relational-databases/polybase/polybase-performance).
+<sup>1</sup> <span id="note1"></span> To learn about statistics, partitioned data, and other supported optimizations, see the current [PolyBase performance considerations](/sql/relational-databases/polybase/polybase-performance).
 
 ### Graphical interfaces, data sync, and data pipelines
 
