@@ -2,7 +2,7 @@
 title: What's New in Azure Architecture Center
 description: New and updated articles in Azure Architecture Center
 author: claytonsiemens77
-ms.date: 08/09/2026
+ms.date: 08/16/2026
 ms.topic: whats-new
 ms.author: pnp
 ---
@@ -23,6 +23,9 @@ The following new and updated articles have recently been published in the Azure
 ### New articles
 
 - [Build portable applications with adaptive apps](./solution-ideas/articles/adaptive-apps.yml)
+- [Connect an on-premises network to Azure by using ExpressRoute](./reference-architectures/hybrid-networking/expressroute-private-peering-connectivity.md)
+- [Azure VPN Gateway site-to-site connectivity for hybrid networks](./reference-architectures/hybrid-networking/hybrid-vpn-connectivity.md)
+- [Idempotent consumer pattern](./patterns/idempotent-consumer.md)
 
 ### Updated articles
 
@@ -38,6 +41,15 @@ The following new and updated articles have recently been published in the Azure
 - [Integrate Event Hubs with serverless functions on Azure](./serverless/event-hubs-functions/event-hubs-functions.md) ([#dd0d085b45](https://github.com/MicrosoftDocs/architecture-center/commit/dd0d085b45))
 - [Monitor Azure Functions and Event Hubs](./serverless/event-hubs-functions/observability.md) ([#b390884633](https://github.com/MicrosoftDocs/architecture-center/commit/b390884633))
 - [SAP HANA for Linux VMs in scale-up systems](./reference-architectures/sap/run-sap-hana-for-linux-virtual-machines.yml) ([#4a6765ec98](https://github.com/MicrosoftDocs/architecture-center/commit/4a6765ec98))
+- [AI and machine learning products](./ai-ml/guide/data-science-and-machine-learning.md) ([#0a9db72411](https://github.com/MicrosoftDocs/architecture-center/commit/0a9db72411))
+- [Deploy IBM Maximo Application Suite (MAS) on Azure](./example-scenario/apps/deploy-ibm-maximo-application-suite.yml) ([#ad9065490e](https://github.com/MicrosoftDocs/architecture-center/commit/ad9065490e))
+- [Cross-region resiliency for SQL TDE with Azure Key Vault Managed HSM](./solution-ideas/articles/secure-sql-managed-instance-managed-hardware-security-module.yml) ([#6626bf8aea](https://github.com/MicrosoftDocs/architecture-center/commit/6626bf8aea))
+- [Priority queue pattern](./patterns/priority-queue.md) ([#2fd976af79](https://github.com/MicrosoftDocs/architecture-center/commit/2fd976af79))
+- [Architectural approaches for governance and compliance in multitenant solutions](./guide/multitenant/approaches/governance-compliance.md) ([#a291a33366](https://github.com/MicrosoftDocs/architecture-center/commit/a291a33366))
+- [Connect an on-premises network to Azure](./reference-architectures/hybrid-networking/hybrid-connectivity-options.md) ([#0b6c02de25](https://github.com/MicrosoftDocs/architecture-center/commit/0b6c02de25))
+- [Use site-to-site VPN as failover for Azure ExpressRoute](./reference-architectures/hybrid-networking/expressroute-vpn-failover.md) ([#0b6c02de25](https://github.com/MicrosoftDocs/architecture-center/commit/0b6c02de25))
+- [Hub-spoke network topology using Azure Virtual WAN](./networking/architecture/hub-spoke-virtual-wan-architecture.yml) ([#9774ddf8b4](https://github.com/MicrosoftDocs/architecture-center/commit/9774ddf8b4))
+- [Comparing AWS and Azure regions and zones](./aws-professional/regions-zones.md) ([#f1f9127cec](https://github.com/MicrosoftDocs/architecture-center/commit/f1f9127cec))
 
 ## July 2026
 
@@ -70,10 +82,6 @@ The following new and updated articles have recently been published in the Azure
 - [Generate Documents from Your Data](./ai-ml/idea/generate-documents-from-your-data.yml) ([#b09bbee823](https://github.com/MicrosoftDocs/architecture-center/commit/b09bbee823))
 - [Enhance Network Access Security to Kubernetes](./aws-professional/eks-to-aks/private-clusters.md) ([#755315aaeb](https://github.com/MicrosoftDocs/architecture-center/commit/755315aaeb))
 - [Multiple-region Architectures for Azure App Service Disaster Recovery](./web-apps/guides/multi-region-app-service/multi-region-app-service.md) ([#0ab9711527](https://github.com/MicrosoftDocs/architecture-center/commit/0ab9711527))
-- [Health modeling for mission-critical workloads on Azure](./reference-architectures/containers/aks-mission-critical/mission-critical-health-modeling.md) ([#6fc1dc435f](https://github.com/MicrosoftDocs/architecture-center/commit/6fc1dc435f))
-- [Networking and connectivity for mission-critical workloads on Azure](./reference-architectures/containers/aks-mission-critical/mission-critical-networking.md) ([#cb614df1c0](https://github.com/MicrosoftDocs/architecture-center/commit/cb614df1c0))
-- [Deployment and testing for mission-critical workloads on Azure](./reference-architectures/containers/aks-mission-critical/mission-critical-deploy-test.md) ([#9d133a383a](https://github.com/MicrosoftDocs/architecture-center/commit/9d133a383a))
-- [Operations for mission-critical workloads on Azure](./reference-architectures/containers/aks-mission-critical/mission-critical-operations.md) ([#a60a5d5a25](https://github.com/MicrosoftDocs/architecture-center/commit/a60a5d5a25))
 - [Use Azure Kubernetes Service to Host GPU-Based Workloads](./reference-architectures/containers/aks-gpu/gpu-aks.md) ([#a4102f390a](https://github.com/MicrosoftDocs/architecture-center/commit/a4102f390a))
 - [Secure Azure Functions with Event Hubs](./serverless/event-hubs-functions/security.md) ([#454f94aa8f](https://github.com/MicrosoftDocs/architecture-center/commit/454f94aa8f))
 - [Performance and Scale Guidance for Event Hubs with Azure Functions](./serverless/event-hubs-functions/performance-scale.md) ([#ad7919e079](https://github.com/MicrosoftDocs/architecture-center/commit/ad7919e079))

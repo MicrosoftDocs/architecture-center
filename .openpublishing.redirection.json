@@ -5120,12 +5120,57 @@
     },
     {
       "source_path": "docs/reference-architectures/containers/aks-mission-critical/mission-critical-network-architecture.yml",
-      "redirect_url": "/azure/architecture/reference-architectures/containers/aks-mission-critical/mission-critical-intro",
+      "redirect_url": "/azure/well-architected/mission-critical/mission-critical-networking-connectivity",
       "redirect_document_id": false
     },
     {
       "source_path": "docs/reference-architectures/containers/aks-mission-critical/mission-critical-landing-zone.yml",
-      "redirect_url": "/azure/architecture/reference-architectures/containers/aks-mission-critical/mission-critical-intro",
+      "redirect_url": "/azure/well-architected/mission-critical/mission-critical-architecture-pattern",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/reference-architectures/containers/aks-mission-critical/mission-critical-intro.yml",
+      "redirect_url": "/azure/well-architected/mission-critical/mission-critical-overview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/reference-architectures/containers/aks-mission-critical/mission-critical-app-platform.md",
+      "redirect_url": "/azure/well-architected/mission-critical/mission-critical-application-platform",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/reference-architectures/containers/aks-mission-critical/mission-critical-app-design.md",
+      "redirect_url": "/azure/well-architected/mission-critical/mission-critical-application-design",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/reference-architectures/containers/aks-mission-critical/mission-critical-networking.md",
+      "redirect_url": "/azure/well-architected/mission-critical/mission-critical-networking-connectivity",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/reference-architectures/containers/aks-mission-critical/mission-critical-data-platform.md",
+      "redirect_url": "/azure/well-architected/mission-critical/mission-critical-data-platform",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/reference-architectures/containers/aks-mission-critical/mission-critical-deploy-test.md",
+      "redirect_url": "/azure/well-architected/mission-critical/mission-critical-deployment-testing",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/reference-architectures/containers/aks-mission-critical/mission-critical-health-modeling.md",
+      "redirect_url": "/azure/well-architected/mission-critical/mission-critical-health-modeling",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/reference-architectures/containers/aks-mission-critical/mission-critical-security.md",
+      "redirect_url": "/azure/well-architected/mission-critical/mission-critical-security",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/reference-architectures/containers/aks-mission-critical/mission-critical-operations.md",
+      "redirect_url": "/azure/well-architected/mission-critical/mission-critical-operational-procedures",
       "redirect_document_id": false
     },
     {

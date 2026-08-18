@@ -2,12 +2,108 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id/>
     <title>Azure Architecture Center</title>
-    <updated>2026-08-07T20:37:56.000Z</updated>
+    <updated>2026-08-14T17:46:16.000Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <subtitle>Updated articles for Azure Architecture Center</subtitle>
     <rights>https://learn.microsoft.com/legal/termsofuse</rights>
     <category term="new"/>
     <category term="updated"/>
+    <entry>
+        <title type="html"><![CDATA[Comparing AWS and Azure regions and zones]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/aws-professional/regions-zones#f1f9127cec</id>
+        <link href="https://learn.microsoft.com/azure/architecture/aws-professional/regions-zones"/>
+        <updated>2026-08-14T16:32:58.000Z</updated>
+        <summary type="html"><![CDATA[Review a comparison of the regions and zones between Azure and AWS. Explore Virtual Machine Scale Sets, availability zones, and multi-region options in Azure.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Hub-spoke network topology using Azure Virtual WAN]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/networking/architecture/hub-spoke-virtual-wan-architecture#9774ddf8b4</id>
+        <link href="https://learn.microsoft.com/azure/architecture/networking/architecture/hub-spoke-virtual-wan-architecture"/>
+        <updated>2026-08-14T04:08:24.000Z</updated>
+        <summary type="html"><![CDATA[Implement a hub-spoke topology that uses Azure Virtual WAN as the Microsoft-managed hub and has spoke virtual networks, branches, and remote users.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Idempotent consumer pattern]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/patterns/idempotent-consumer</id>
+        <link href="https://learn.microsoft.com/azure/architecture/patterns/idempotent-consumer"/>
+        <updated>2026-08-14T17:46:16.000Z</updated>
+        <summary type="html"><![CDATA[Use the Idempotent Consumer pattern to safely process duplicate messages from at-least-once delivery so that repeated processing has the same effect as processing once.]]></summary>
+        <category label="new" term="new"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Connect an on-premises network to Azure]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/reference-architectures/hybrid-networking/hybrid-connectivity-options#0b6c02de25</id>
+        <link href="https://learn.microsoft.com/azure/architecture/reference-architectures/hybrid-networking/hybrid-connectivity-options"/>
+        <updated>2026-08-12T17:03:34.000Z</updated>
+        <summary type="html"><![CDATA[Learn about the options for connecting an on-premises network to an Azure virtual network by comparing reference architectures for each option.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Use site-to-site VPN as failover for Azure ExpressRoute]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/reference-architectures/hybrid-networking/expressroute-vpn-failover#0b6c02de25</id>
+        <link href="https://learn.microsoft.com/azure/architecture/reference-architectures/hybrid-networking/expressroute-vpn-failover"/>
+        <updated>2026-08-12T17:03:34.000Z</updated>
+        <summary type="html"><![CDATA[Learn how to connect an on-premises network to an Azure virtual network by using ExpressRoute with a virtual private network (VPN) gateway failover.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Azure VPN Gateway site-to-site connectivity for hybrid networks]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/reference-architectures/hybrid-networking/hybrid-vpn-connectivity</id>
+        <link href="https://learn.microsoft.com/azure/architecture/reference-architectures/hybrid-networking/hybrid-vpn-connectivity"/>
+        <updated>2026-08-12T17:03:34.000Z</updated>
+        <summary type="html"><![CDATA[This architecture shows how to establish encrypted layer-3 connectivity between your on-premises network and Azure virtual networks by using Azure VPN Gateway.]]></summary>
+        <category label="new" term="new"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Connect an on-premises network to Azure by using ExpressRoute]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/reference-architectures/hybrid-networking/expressroute-private-peering-connectivity</id>
+        <link href="https://learn.microsoft.com/azure/architecture/reference-architectures/hybrid-networking/expressroute-private-peering-connectivity"/>
+        <updated>2026-08-12T17:03:34.000Z</updated>
+        <summary type="html"><![CDATA[This architecture shows how to connect an on-premises network to an Azure virtual network by using Azure ExpressRoute.]]></summary>
+        <category label="new" term="new"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Priority queue pattern]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/patterns/priority-queue#2fd976af79</id>
+        <link href="https://learn.microsoft.com/azure/architecture/patterns/priority-queue"/>
+        <updated>2026-08-12T14:47:21.000Z</updated>
+        <summary type="html"><![CDATA[Prioritize requests sent to services so that requests with a higher priority are received and processed more quickly than those with a lower priority.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Architectural approaches for governance and compliance in multitenant solutions]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/guide/multitenant/approaches/governance-compliance#a291a33366</id>
+        <link href="https://learn.microsoft.com/azure/architecture/guide/multitenant/approaches/governance-compliance"/>
+        <updated>2026-08-12T07:13:44.000Z</updated>
+        <summary type="html"><![CDATA[Learn about governance and compliance approaches for multitenant solutions, including data sovereignty, access control, and regulatory standards.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[AI and machine learning products]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/ai-ml/guide/data-science-and-machine-learning#0a9db72411</id>
+        <link href="https://learn.microsoft.com/azure/architecture/ai-ml/guide/data-science-and-machine-learning"/>
+        <updated>2026-08-10T21:19:47.000Z</updated>
+        <summary type="html"><![CDATA[Compare Microsoft AI and machine learning products for building, deploying, and managing AI applications, agents, and machine learning models.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Cross-region resiliency for SQL TDE with Azure Key Vault Managed HSM]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/solution-ideas/articles/secure-sql-managed-instance-managed-hardware-security-module#6626bf8aea</id>
+        <link href="https://learn.microsoft.com/azure/architecture/solution-ideas/articles/secure-sql-managed-instance-managed-hardware-security-module"/>
+        <updated>2026-08-10T20:47:51.000Z</updated>
+        <summary type="html"><![CDATA[Learn about a resilient deployment pattern for SQL Managed Instance. This solution highlights how Key Vault Managed HSM stores customer-managed TDE protector keys.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Deploy IBM Maximo Application Suite (MAS) on Azure]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/example-scenario/apps/deploy-ibm-maximo-application-suite#ad9065490e</id>
+        <link href="https://learn.microsoft.com/azure/architecture/example-scenario/apps/deploy-ibm-maximo-application-suite"/>
+        <updated>2026-08-10T17:14:45.000Z</updated>
+        <summary type="html"><![CDATA[Learn how to run IBM Maximo Application Suite (MAS) on Azure by using Azure Red Hat OpenShift or self-managed Red Hat OpenShift.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
     <entry>
         <title type="html"><![CDATA[Build portable applications with adaptive apps]]></title>
         <id>https://learn.microsoft.com/azure/architecture/solution-ideas/articles/adaptive-apps</id>
@@ -327,38 +423,6 @@
         <updated>2026-07-07T18:49:12.000Z</updated>
         <summary type="html"><![CDATA[Design ransomware-resilient backup architectures by using immutable vaults, multiple-subscription isolation, dual-region copies, and recovery testing.]]></summary>
         <category label="new" term="new"/>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[Health modeling for mission-critical workloads on Azure]]></title>
-        <id>https://learn.microsoft.com/azure/architecture/reference-architectures/containers/aks-mission-critical/mission-critical-health-modeling</id>
-        <link href="https://learn.microsoft.com/azure/architecture/reference-architectures/containers/aks-mission-critical/mission-critical-health-modeling"/>
-        <updated>2026-07-09T18:12:58.000Z</updated>
-        <summary type="html"><![CDATA[Reference architecture for a workload that is accessed over a public endpoint without extra dependencies to other company resources - Health modeling.]]></summary>
-        <category label="updated" term="updated"/>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[Networking and connectivity for mission-critical workloads on Azure]]></title>
-        <id>https://learn.microsoft.com/azure/architecture/reference-architectures/containers/aks-mission-critical/mission-critical-networking</id>
-        <link href="https://learn.microsoft.com/azure/architecture/reference-architectures/containers/aks-mission-critical/mission-critical-networking"/>
-        <updated>2026-07-09T17:34:28.000Z</updated>
-        <summary type="html"><![CDATA[Networking decisions for the architecture of a mission-critical workload on Azure.]]></summary>
-        <category label="updated" term="updated"/>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[Deployment and testing for mission-critical workloads on Azure]]></title>
-        <id>https://learn.microsoft.com/azure/architecture/reference-architectures/containers/aks-mission-critical/mission-critical-deploy-test</id>
-        <link href="https://learn.microsoft.com/azure/architecture/reference-architectures/containers/aks-mission-critical/mission-critical-deploy-test"/>
-        <updated>2026-07-09T17:16:44.000Z</updated>
-        <summary type="html"><![CDATA[Reference architecture for a workload that is accessed over a public endpoint without extra dependencies to other company resources - Deployment and Testing.]]></summary>
-        <category label="updated" term="updated"/>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[Operations for mission-critical workloads on Azure]]></title>
-        <id>https://learn.microsoft.com/azure/architecture/reference-architectures/containers/aks-mission-critical/mission-critical-operations</id>
-        <link href="https://learn.microsoft.com/azure/architecture/reference-architectures/containers/aks-mission-critical/mission-critical-operations"/>
-        <updated>2026-07-09T17:12:11.000Z</updated>
-        <summary type="html"><![CDATA[Guidance for operations for the architecture of a mission-critical workload on Azure.]]></summary>
-        <category label="updated" term="updated"/>
     </entry>
     <entry>
         <title type="html"><![CDATA[Use Azure Kubernetes Service to Host GPU-Based Workloads]]></title>
