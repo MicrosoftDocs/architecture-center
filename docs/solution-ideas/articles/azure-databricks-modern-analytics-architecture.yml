@@ -13,6 +13,7 @@ metadata:
 azureCategories:
   - ai-machine-learning
   - analytics
+  - open-source
 products:
   - azure-databricks
   - fabric

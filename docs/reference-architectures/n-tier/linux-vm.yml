@@ -13,6 +13,7 @@ metadata:
 name: Run a Linux VM on Azure
 azureCategories:
   - compute
+  - open-source
 summary: Learn about best practices for running a Linux virtual machine on Azure, which requires some extra components, including networking and storage resources.
 products:
   - azure-backup

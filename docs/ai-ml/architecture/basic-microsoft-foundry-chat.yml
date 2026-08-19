@@ -13,6 +13,7 @@ azureCategories:
   - ai-machine-learning
   - web
   - security
+  - open-source
 products:
   - azure-app-service
   - azure-monitor

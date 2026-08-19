@@ -12,6 +12,7 @@ metadata:
 azureCategories:
   - hybrid
   - compute
+  - open-source
 products:
   - azure-kubernetes-service
   - azure-local
