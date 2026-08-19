@@ -119,6 +119,8 @@ The following list outlines several security features that are omitted in this a
 
 - This architecture doesn't use [private endpoints](/azure/private-link/private-link-overview), which allow more secure, private connectivity to Azure services by assigning them an IP address from your virtual network. When private endpoints are used, public network access can be disabled. This approach keeps traffic on the Microsoft backbone and enhances security and compliance.
 
+- As an alternative to private endpoints, consider using [Azure Network Security Perimeter](/azure/private-link/network-security-perimeter-concepts) to restrict network access to `Microsoft.ServiceBus/namespaces` and `Microsoft.Storage/storageAccounts`. A network security perimeter lets you associate these resources to a shared perimeter and define inbound access rules scoped to specific subscriptions or IP ranges, without requiring a custom virtual network.
+
 - Network activity should be continuously monitored to detect and prevent abuse. You can achieve this approach by using an [Azure Firewall](/azure/firewall/) and route tables. The route tables enable traffic that leaves a virtual network to be passed through the firewall first. This process is an important step in ensuring that your architecture isn't vulnerable to data exfiltration attacks.
 
 - Use a web application firewall (WAF) to protect against common vulnerabilities. Use Azure Front Door or Azure Application Gateway to [implement a WAF](/azure/web-application-firewall/) in this architecture.
