@@ -2,12 +2,84 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id/>
     <title>Azure Architecture Center</title>
-    <updated>2026-08-14T17:46:16.000Z</updated>
+    <updated>2026-08-19T17:39:29.000Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <subtitle>Updated articles for Azure Architecture Center</subtitle>
     <rights>https://learn.microsoft.com/legal/termsofuse</rights>
     <category term="new"/>
     <category term="updated"/>
+    <entry>
+        <title type="html"><![CDATA[OPC UA reference solution]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/guide/iot/iot-industrial-solution-architecture#a3d2abba45</id>
+        <link href="https://learn.microsoft.com/azure/architecture/guide/iot/iot-industrial-solution-architecture"/>
+        <updated>2026-08-19T17:39:29.000Z</updated>
+        <summary type="html"><![CDATA[Learn how to build a standards-based industrial IoT reference solution that uses OPC UA to connect shop-floor telemetry to Azure analytics services.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Connect Azure Data Explorer to the reference solution]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/guide/iot/how-to-connect-azure-data-explorer-to-solution#6067c4605c</id>
+        <link href="https://learn.microsoft.com/azure/architecture/guide/iot/how-to-connect-azure-data-explorer-to-solution"/>
+        <updated>2026-08-19T14:30:42.000Z</updated>
+        <summary type="html"><![CDATA[Learn how to ingest and analyze OPC UA industrial IoT data in Azure Data Explorer by using Azure Event Hubs and KQL.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Connect Power BI to the OPC UA reference solution]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/guide/iot/how-to-connect-power-bi-to-the-solution#2de7f204dd</id>
+        <link href="https://learn.microsoft.com/azure/architecture/guide/iot/how-to-connect-power-bi-to-the-solution"/>
+        <updated>2026-08-18T22:16:47.000Z</updated>
+        <summary type="html"><![CDATA[Learn how to connect Power BI to the Open Platform Communications Unified Architecture (OPC UA) reference solution to provide visualization for your data.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Connect Azure Databricks to the reference solution]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/guide/iot/how-to-connect-databricks-to-solution#ddb618c0e0</id>
+        <link href="https://learn.microsoft.com/azure/architecture/guide/iot/how-to-connect-databricks-to-solution"/>
+        <updated>2026-08-18T20:24:41.000Z</updated>
+        <summary type="html"><![CDATA[Learn how to ingest and analyze OPC UA industrial IoT data in Azure Databricks by using Delta Lake and Structured Streaming.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Connect Microsoft Fabric to the OPC UA reference solution]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/guide/iot/how-to-connect-fabric-to-solution#560a256193</id>
+        <link href="https://learn.microsoft.com/azure/architecture/guide/iot/how-to-connect-fabric-to-solution"/>
+        <updated>2026-08-18T18:51:50.000Z</updated>
+        <summary type="html"><![CDATA[Learn how to ingest and analyze OPC UA industrial IoT data by using Microsoft Fabric and KQL databases.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[CDN guidance]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/best-practices/cdn#11fc2cfdca</id>
+        <link href="https://learn.microsoft.com/azure/architecture/best-practices/cdn"/>
+        <updated>2026-08-18T15:26:23.000Z</updated>
+        <summary type="html"><![CDATA[Guidance on using Content Delivery Networks (CDNs) to deliver high-bandwidth content hosted in Azure.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Best practices for monitoring and diagnostics]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/best-practices/monitoring#9248c5a1db</id>
+        <link href="https://learn.microsoft.com/azure/architecture/best-practices/monitoring"/>
+        <updated>2026-08-17T20:25:39.000Z</updated>
+        <summary type="html"><![CDATA[Learn how to track how customers use your distributed applications and services, trace resource utilization, and monitor health and performance.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Improper instantiation antipattern]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/antipatterns/improper-instantiation#5eeb7f5510</id>
+        <link href="https://learn.microsoft.com/azure/architecture/antipatterns/improper-instantiation"/>
+        <updated>2026-08-17T21:09:24.000Z</updated>
+        <summary type="html"><![CDATA[Avoid continually creating new instances of an object that is meant to be created once and then shared.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Multilayered protection for Azure virtual machine access]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/solution-ideas/articles/multilayered-protection-azure-vm#dd0124d7e6</id>
+        <link href="https://learn.microsoft.com/azure/architecture/solution-ideas/articles/multilayered-protection-azure-vm"/>
+        <updated>2026-08-18T17:02:32.000Z</updated>
+        <summary type="html"><![CDATA[Protect access to Azure VMs through a multilayer approach, using Azure and Entra ID security services. These recommendations align with security principles and best practices, such as defense in depth, least privilege, and zero trust.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
     <entry>
         <title type="html"><![CDATA[Comparing AWS and Azure regions and zones]]></title>
         <id>https://learn.microsoft.com/azure/architecture/aws-professional/regions-zones#f1f9127cec</id>
@@ -122,7 +194,7 @@
     </entry>
     <entry>
         <title type="html"><![CDATA[Baseline Microsoft Foundry chat reference architecture in an Azure landing zone]]></title>
-        <id>https://learn.microsoft.com/azure/architecture/ai-ml/architecture/baseline-microsoft-foundry-landing-zone</id>
+        <id>https://learn.microsoft.com/azure/architecture/ai-ml/architecture/baseline-microsoft-foundry-landing-zone#e3aadac299</id>
         <link href="https://learn.microsoft.com/azure/architecture/ai-ml/architecture/baseline-microsoft-foundry-landing-zone"/>
         <updated>2026-08-04T14:59:36.000Z</updated>
         <summary type="html"><![CDATA[Learn about deploying the baseline Microsoft Foundry, Foundry Agent Service, Azure OpenAI in Foundry Models, and Azure App Service chat architecture in an Azure landing zone.]]></summary>
@@ -154,7 +226,7 @@
     </entry>
     <entry>
         <title type="html"><![CDATA[Baseline architecture for an Azure Kubernetes Service (AKS) cluster]]></title>
-        <id>https://learn.microsoft.com/azure/architecture/reference-architectures/containers/aks/baseline-aks</id>
+        <id>https://learn.microsoft.com/azure/architecture/reference-architectures/containers/aks/baseline-aks#f16a960f1f</id>
         <link href="https://learn.microsoft.com/azure/architecture/reference-architectures/containers/aks/baseline-aks"/>
         <updated>2026-08-03T19:37:50.000Z</updated>
         <summary type="html"><![CDATA[Reference architecture for a baseline infrastructure that deploys an Azure Kubernetes Service (AKS) cluster.]]></summary>
@@ -210,7 +282,7 @@
     </entry>
     <entry>
         <title type="html"><![CDATA[Baseline Microsoft Foundry chat reference architecture]]></title>
-        <id>https://learn.microsoft.com/azure/architecture/ai-ml/architecture/baseline-microsoft-foundry-chat</id>
+        <id>https://learn.microsoft.com/azure/architecture/ai-ml/architecture/baseline-microsoft-foundry-chat#025c619233</id>
         <link href="https://learn.microsoft.com/azure/architecture/ai-ml/architecture/baseline-microsoft-foundry-chat"/>
         <updated>2026-07-27T15:44:53.000Z</updated>
         <summary type="html"><![CDATA[Learn how to build network-secured, highly available, and zone-redundant enterprise chat applications by using Microsoft Foundry tools and Azure App Service.]]></summary>
@@ -226,7 +298,7 @@
     </entry>
     <entry>
         <title type="html"><![CDATA[Baseline architecture for an Azure Kubernetes Service (AKS) cluster]]></title>
-        <id>https://learn.microsoft.com/azure/architecture/reference-architectures/containers/aks/baseline-aks</id>
+        <id>https://learn.microsoft.com/azure/architecture/reference-architectures/containers/aks/baseline-aks#5bfdfd1a7d</id>
         <link href="https://learn.microsoft.com/azure/architecture/reference-architectures/containers/aks/baseline-aks"/>
         <updated>2026-07-13T14:49:46.000Z</updated>
         <summary type="html"><![CDATA[Reference architecture for a baseline infrastructure that deploys an Azure Kubernetes Service (AKS) cluster.]]></summary>
@@ -282,7 +354,7 @@
     </entry>
     <entry>
         <title type="html"><![CDATA[Connect Azure Databricks to the reference solution]]></title>
-        <id>https://learn.microsoft.com/azure/architecture/guide/iot/how-to-connect-databricks-to-solution</id>
+        <id>https://learn.microsoft.com/azure/architecture/guide/iot/how-to-connect-databricks-to-solution#576e75c0c2</id>
         <link href="https://learn.microsoft.com/azure/architecture/guide/iot/how-to-connect-databricks-to-solution"/>
         <updated>2026-07-30T07:20:43.000Z</updated>
         <summary type="html"><![CDATA[Learn how to ingest and analyze OPC UA PubSub industrial IoT data in Azure Databricks using Delta Lake and Structured Streaming.]]></summary>
@@ -290,7 +362,7 @@
     </entry>
     <entry>
         <title type="html"><![CDATA[Connect Microsoft Fabric to the reference solution]]></title>
-        <id>https://learn.microsoft.com/azure/architecture/guide/iot/how-to-connect-fabric-to-solution</id>
+        <id>https://learn.microsoft.com/azure/architecture/guide/iot/how-to-connect-fabric-to-solution#1e0911b124</id>
         <link href="https://learn.microsoft.com/azure/architecture/guide/iot/how-to-connect-fabric-to-solution"/>
         <updated>2026-07-30T07:20:43.000Z</updated>
         <summary type="html"><![CDATA[Learn how to ingest and analyze OPC UA PubSub industrial IoT data using Microsoft Fabric and KQL databases.]]></summary>
@@ -322,7 +394,7 @@
     </entry>
     <entry>
         <title type="html"><![CDATA[Baseline Microsoft Foundry Chat Reference Architecture]]></title>
-        <id>https://learn.microsoft.com/azure/architecture/ai-ml/architecture/baseline-microsoft-foundry-chat</id>
+        <id>https://learn.microsoft.com/azure/architecture/ai-ml/architecture/baseline-microsoft-foundry-chat#d0c892b236</id>
         <link href="https://learn.microsoft.com/azure/architecture/ai-ml/architecture/baseline-microsoft-foundry-chat"/>
         <updated>2026-07-27T16:16:44.000Z</updated>
         <summary type="html"><![CDATA[Learn how to build network-secured, highly available, and zone-redundant enterprise chat applications by using Microsoft Foundry tools and Azure App Service.]]></summary>
@@ -338,7 +410,7 @@
     </entry>
     <entry>
         <title type="html"><![CDATA[SAP deployment on Azure by using an Oracle database]]></title>
-        <id>https://learn.microsoft.com/azure/architecture/example-scenario/apps/sap-production</id>
+        <id>https://learn.microsoft.com/azure/architecture/example-scenario/apps/sap-production#f81289648c</id>
         <link href="https://learn.microsoft.com/azure/architecture/example-scenario/apps/sap-production"/>
         <updated>2026-07-22T08:29:44.000Z</updated>
         <summary type="html"><![CDATA[Learn how to deploy SAP NetWeaver with Oracle Database on Azure in a high-availability (HA) architecture by using availability zones and Data Guard.]]></summary>
@@ -386,7 +458,7 @@
     </entry>
     <entry>
         <title type="html"><![CDATA[Baseline Architecture for an AKS Cluster]]></title>
-        <id>https://learn.microsoft.com/azure/architecture/reference-architectures/containers/aks/baseline-aks</id>
+        <id>https://learn.microsoft.com/azure/architecture/reference-architectures/containers/aks/baseline-aks#8c14311227</id>
         <link href="https://learn.microsoft.com/azure/architecture/reference-architectures/containers/aks/baseline-aks"/>
         <updated>2026-07-13T14:02:24.000Z</updated>
         <summary type="html"><![CDATA[Learn about the reference architecture for the recommended baseline infrastructure that deploys an Azure Kubernetes Service (AKS) cluster.]]></summary>
@@ -474,7 +546,7 @@
     </entry>
     <entry>
         <title type="html"><![CDATA[Build the Second Layer of Defense by Using Microsoft Defender XDR]]></title>
-        <id>https://learn.microsoft.com/azure/architecture/solution-ideas/articles/microsoft-defender-xdr-build-second-layer-defense</id>
+        <id>https://learn.microsoft.com/azure/architecture/solution-ideas/articles/microsoft-defender-xdr-build-second-layer-defense#fdb4b30b50</id>
         <link href="https://learn.microsoft.com/azure/architecture/solution-ideas/articles/microsoft-defender-xdr-build-second-layer-defense"/>
         <updated>2026-07-07T13:16:26.000Z</updated>
         <summary type="html"><![CDATA[Enhance security in your IT environment by implementing Microsoft Defender XDR across applications and infrastructure to detect and respond to ransomware.]]></summary>
@@ -498,7 +570,7 @@
     </entry>
     <entry>
         <title type="html"><![CDATA[Guidance for Using Azure Database for PostgreSQL in a Multitenant Solution]]></title>
-        <id>https://learn.microsoft.com/azure/architecture/guide/multitenant/service/postgresql</id>
+        <id>https://learn.microsoft.com/azure/architecture/guide/multitenant/service/postgresql#7a4023a621</id>
         <link href="https://learn.microsoft.com/azure/architecture/guide/multitenant/service/postgresql"/>
         <updated>2026-07-07T12:58:38.000Z</updated>
         <summary type="html"><![CDATA[Learn about the Azure Database for PostgreSQL features that are useful when you work with multitenant systems. Explore guidance and examples.]]></summary>
@@ -506,7 +578,7 @@
     </entry>
     <entry>
         <title type="html"><![CDATA[Implement a secure hybrid network]]></title>
-        <id>https://learn.microsoft.com/azure/architecture/reference-architectures/dmz/secure-vnet-dmz</id>
+        <id>https://learn.microsoft.com/azure/architecture/reference-architectures/dmz/secure-vnet-dmz#69256f56e4</id>
         <link href="https://learn.microsoft.com/azure/architecture/reference-architectures/dmz/secure-vnet-dmz"/>
         <updated>2026-07-03T02:15:26.000Z</updated>
         <summary type="html"><![CDATA[Learn how to deploy a secure hybrid network that extends an on-premises network to Azure by implementing a perimeter network called a DMZ.]]></summary>
@@ -658,7 +730,7 @@
     </entry>
     <entry>
         <title type="html"><![CDATA[Baseline Microsoft Foundry Chat Reference Architecture]]></title>
-        <id>https://learn.microsoft.com/azure/architecture/ai-ml/architecture/baseline-microsoft-foundry-chat</id>
+        <id>https://learn.microsoft.com/azure/architecture/ai-ml/architecture/baseline-microsoft-foundry-chat#b2b35ccae5</id>
         <link href="https://learn.microsoft.com/azure/architecture/ai-ml/architecture/baseline-microsoft-foundry-chat"/>
         <updated>2026-06-18T22:22:41.000Z</updated>
         <summary type="html"><![CDATA[Learn how to build network-secured, highly available, and zone-redundant enterprise chat applications by using Microsoft Foundry tools and Azure App Service.]]></summary>
@@ -794,7 +866,7 @@
     </entry>
     <entry>
         <title type="html"><![CDATA[Modern Data Platform Architecture for SMBs]]></title>
-        <id>https://learn.microsoft.com/azure/architecture/solution-ideas/articles/small-medium-modern-data-platform</id>
+        <id>https://learn.microsoft.com/azure/architecture/solution-ideas/articles/small-medium-modern-data-platform#9f6377ee6d</id>
         <link href="https://learn.microsoft.com/azure/architecture/solution-ideas/articles/small-medium-modern-data-platform"/>
         <updated>2026-06-10T14:56:30.000Z</updated>
         <summary type="html"><![CDATA[Use Microsoft Fabric and Azure Databricks to build a modern data platform architecture designed for small and medium businesses.]]></summary>
@@ -866,7 +938,7 @@
     </entry>
     <entry>
         <title type="html"><![CDATA[Deploy IBM Maximo Application Suite (MAS) on Azure]]></title>
-        <id>https://learn.microsoft.com/azure/architecture/example-scenario/apps/deploy-ibm-maximo-application-suite</id>
+        <id>https://learn.microsoft.com/azure/architecture/example-scenario/apps/deploy-ibm-maximo-application-suite#7acbb6a03f</id>
         <link href="https://learn.microsoft.com/azure/architecture/example-scenario/apps/deploy-ibm-maximo-application-suite"/>
         <updated>2026-06-03T17:23:30.000Z</updated>
         <summary type="html"><![CDATA[Learn how to run IBM Maximo Application Suite (MAS) on Azure. See guidance for designing and implementing cloud solutions with MAS 8.5 and up that use Azure.]]></summary>
@@ -890,7 +962,7 @@
     </entry>
     <entry>
         <title type="html"><![CDATA[Migrate IBM z/OS OLTP Workloads to Azure]]></title>
-        <id>https://learn.microsoft.com/azure/architecture/example-scenario/mainframe/ibm-zos-online-transaction-processing-azure</id>
+        <id>https://learn.microsoft.com/azure/architecture/example-scenario/mainframe/ibm-zos-online-transaction-processing-azure#5e05131c6e</id>
         <link href="https://learn.microsoft.com/azure/architecture/example-scenario/mainframe/ibm-zos-online-transaction-processing-azure"/>
         <updated>2026-06-02T20:44:18.000Z</updated>
         <summary type="html"><![CDATA[Migrate a z/OS online transaction processing (OLTP) workload to an Azure application that is cost effective, responsive, scalable, and adaptable.]]></summary>
@@ -930,7 +1002,7 @@
     </entry>
     <entry>
         <title type="html"><![CDATA[Basic Microsoft Foundry Chat Reference Architecture]]></title>
-        <id>https://learn.microsoft.com/azure/architecture/ai-ml/architecture/basic-microsoft-foundry-chat</id>
+        <id>https://learn.microsoft.com/azure/architecture/ai-ml/architecture/basic-microsoft-foundry-chat#701b8cb89b</id>
         <link href="https://learn.microsoft.com/azure/architecture/ai-ml/architecture/basic-microsoft-foundry-chat"/>
         <updated>2026-06-01T22:05:09.000Z</updated>
         <summary type="html"><![CDATA[Establish foundational knowledge for how to build and deploy enterprise chat applications by using Microsoft Foundry and Azure App Service.]]></summary>
