@@ -22,7 +22,7 @@ It's important to consider the approaches that you use for storage and data serv
 
 ### Scale
 
-When you work with services that store your data, you should consider the number of tenants, the volume of data, and the workload that you expect for each tenant and in aggregate. These factors, along with the service configuration and applicable resource and subscription limits, affect how much capacity a resource can provide and how many tenants it can support.
+When you work with services that store your data, consider the number of tenants, the volume of data, and the workload that you expect for each tenant and in aggregate. These factors, along with the service configuration and applicable resource and subscription limits, affect how much capacity a resource can provide and how many tenants it can support.
 
 As you grow, you increasingly benefit from having a clear strategy to scale your data and storage resources and automate their management. Use performance testing and capacity planning to determine when to add resources, and plan to scale out before you approach a service or subscription limit.
 
