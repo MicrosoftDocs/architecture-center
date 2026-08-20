@@ -7,6 +7,7 @@ ms.date: 04/22/2026
 ms.reviewer: ssumner
 ms.topic: concept-article
 ms.subservice: architecture-guide
+ai-usage: ai-assisted
 ms.custom:
   - e2e-hybrid
   - kr2b-contr-experiment
@@ -14,22 +15,25 @@ ms.custom:
 
 # DevSecOps on Azure Kubernetes Service (AKS)
 
-DevSecOps, also called *Secure DevOps*, builds on the practice of DevOps by incorporating security at different stages of a traditional DevOps life cycle. Build security into DevOps practices to:
+DevSecOps, also called _Secure DevOps_, is the practice of integrating security at every stage of the software development life cycle (SDLC) within a DevOps workflow. **DevSecOps on AKS** applies this approach to containerized applications running on Azure Kubernetes Service, embedding automated security controls—such as vulnerability scanning, policy enforcement, and runtime threat protection—directly into CI/CD pipelines and cluster operations. Build security into DevOps practices to:
 
 - Make your applications and systems more secure, provide visibility into security threats, and prevent vulnerabilities from reaching deployed environments.
-
 - Increase security awareness among your development and operation teams.
-
 - Incorporate automated security processes into your software development life cycle (SDLC).
-
 - Reduce remediation costs by finding security problems early in development and design stages.
+
+> **Key takeaways**
+>
+> - **Shift-left security**: Integrate security checks early in development using IDE plugins, pre-commit hooks, and secure coding standards to catch vulnerabilities before code reaches production.
+> - **Automated scanning**: Use SAST, SCA, and secret scanning in CI pipelines to detect code vulnerabilities, insecure dependencies, and exposed credentials automatically.
+> - **Policy enforcement**: Apply Azure Policy and Gatekeeper admission controllers to enforce security standards across container registries and AKS clusters.
+> - **Continuous monitoring**: Implement runtime threat protection with Microsoft Defender for Containers, centralized logging with Azure Monitor, and SIEM integration with Microsoft Sentinel.
+> - **Supply chain security**: Generate SBOMs, sign container images, and deploy only from trusted registries to maintain artifact integrity.
 
 When you apply DevSecOps to Azure Kubernetes Service (AKS), each organization role has specific security considerations:
 
 - Developers build secure applications that run on AKS.
-
 - Cloud engineers build secure AKS infrastructure.
-
 - Operations teams might govern clusters or monitor security problems.
 
 This article organizes guidance by DevOps life cycle stage and provides recommendations for security controls and best practices. It covers common processes and tools for continuous integration and continuous delivery (CI/CD) pipelines, with a focus on built-in tools.
