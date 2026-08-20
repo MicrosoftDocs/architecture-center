@@ -14,7 +14,13 @@ ai-usage: ai-assisted
 This article discusses a standards-based industrial IoT reference solution that uses OPC Unified Architecture (OPC UA) to connect shop-floor telemetry to Azure analytics services. It demonstrates how to ingest, model, and query manufacturing data so you can support scenarios like condition monitoring, OEE analysis, and anomaly detection. Use this architecture as a starting point to validate the approach with a simulation and then adapt it for production workloads.
 
 > [!NOTE]
-> This article is the **Microsoft OPC UA reference solution**. It uses IEC 62541 standard OPC UA to send telemetry data from the edge to the cloud. It's different from other telemetry configurations of Azure IoT Operations, given that Azure IoT Operations also works for scenarios that don't use OPC UA-enabled telemetry sources. OPC UA isn't required for Azure IoT Operations to work. The Azure IoT Operations architecture is described in the [Azure IoT Operations overview](/azure/iot-operations/overview-iot-operations#architecture-overview).
+> This article describes a Microsoft OPC UA reference solution that demonstrates how to send telemetry from OPC UA-enabled industrial assets to Azure. The solution is provided as reference guidance to help architects and developers understand one approach for integrating OPC UA data with Azure services.
+>
+> This reference solution isn't a Microsoft-supported product offering and should be evaluated carefully before use in production environments. Organizations are responsible for validating that the architecture, components, and operational characteristics align with their needs.
+>
+> For new deployments, Microsoft recommends evaluating Azure IoT Operations, a fully supported platform for connecting, managing, and processing industrial telemetry. Azure IoT Operations supports OPC UA-enabled environments as well as a broad range of industrial and edge scenarios, and simplifies deployment and ongoing operations for most production use cases.
+>
+> To learn more, see the [**Azure IoT Operations Overview**](/azure/iot-operations/overview-iot-operations#architecture-overview).
 
 ## Contents
 

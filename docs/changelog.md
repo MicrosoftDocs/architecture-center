@@ -2,7 +2,7 @@
 title: What's New in Azure Architecture Center
 description: New and updated articles in Azure Architecture Center
 author: claytonsiemens77
-ms.date: 08/16/2026
+ms.date: 08/19/2026
 ms.topic: whats-new
 ms.author: pnp
 ---
@@ -29,6 +29,15 @@ The following new and updated articles have recently been published in the Azure
 
 ### Updated articles
 
+- [OPC UA reference solution](./guide/iot/iot-industrial-solution-architecture.md) ([#a3d2abba45](https://github.com/MicrosoftDocs/architecture-center/commit/a3d2abba45), [#119e358ad6](https://github.com/MicrosoftDocs/architecture-center/commit/119e358ad6))
+- [Connect Azure Data Explorer to the reference solution](./guide/iot/how-to-connect-azure-data-explorer-to-solution.md) ([#6067c4605c](https://github.com/MicrosoftDocs/architecture-center/commit/6067c4605c))
+- [Connect Power BI to the OPC UA reference solution](./guide/iot/how-to-connect-power-bi-to-the-solution.md) ([#2de7f204dd](https://github.com/MicrosoftDocs/architecture-center/commit/2de7f204dd))
+- [Connect Azure Databricks to the reference solution](./guide/iot/how-to-connect-databricks-to-solution.md) ([#ddb618c0e0](https://github.com/MicrosoftDocs/architecture-center/commit/ddb618c0e0))
+- [Connect Microsoft Fabric to the OPC UA reference solution](./guide/iot/how-to-connect-fabric-to-solution.md) ([#560a256193](https://github.com/MicrosoftDocs/architecture-center/commit/560a256193))
+- [CDN guidance](./best-practices/cdn.yml) ([#11fc2cfdca](https://github.com/MicrosoftDocs/architecture-center/commit/11fc2cfdca))
+- [Best practices for monitoring and diagnostics](./best-practices/monitoring.md) ([#9248c5a1db](https://github.com/MicrosoftDocs/architecture-center/commit/9248c5a1db))
+- [Improper instantiation antipattern](./antipatterns/improper-instantiation/index.md) ([#5eeb7f5510](https://github.com/MicrosoftDocs/architecture-center/commit/5eeb7f5510))
+- [Multilayered protection for Azure virtual machine access](./solution-ideas/articles/multilayered-protection-azure-vm.yml) ([#dd0124d7e6](https://github.com/MicrosoftDocs/architecture-center/commit/dd0124d7e6))
 - [Baseline Microsoft Foundry chat reference architecture](./ai-ml/architecture/baseline-microsoft-foundry-chat.yml) ([#8a5089799a](https://github.com/MicrosoftDocs/architecture-center/commit/8a5089799a))
 - [Baseline Microsoft Foundry chat reference architecture in an Azure landing zone](./ai-ml/architecture/baseline-microsoft-foundry-landing-zone.yml) ([#8a5089799a](https://github.com/MicrosoftDocs/architecture-center/commit/8a5089799a))
 - [Build a CI/CD pipeline for microservices on Kubernetes by using Azure DevOps and Helm](./microservices/ci-cd-kubernetes.md) ([#f69851e7c8](https://github.com/MicrosoftDocs/architecture-center/commit/f69851e7c8))

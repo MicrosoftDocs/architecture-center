@@ -1,21 +1,20 @@
 ### YamlMime:Architecture
 metadata:
   title: Quantum computing integration with classical apps
-  description:  Learn how to use Azure Quantum to implement hybrid quantum applications
+  description: Learn how to integrate quantum work with classical applications by using direct quantum integration or workflow-orchestrated quantum integration patterns.
   author: achocron
   ms.author: alchocro
-  ms.date: 06/07/2024
+  ms.date: 08/19/2026
   ms.topic: example-scenario
   ms.subservice: example-scenario
+  ai-usage: ai-assisted
 azureCategories:
   - compute
   - hybrid
 products:
   - azure-quantum
-  - azure-key-vault
-  - entra-id
 name: Quantum computing integration with classical apps
-summary: Learn how to use Azure Quantum to implement hybrid quantum applications.
-thumbnailUrl: /azure/architecture/browse/thumbs/cicd-for-quantum-computing-jobs.png
+summary: Learn how to integrate quantum work with classical applications by using direct quantum integration or workflow-orchestrated quantum integration patterns.
+thumbnailUrl: /azure/architecture/browse/thumbs/quantum-classical-integration-thumbnail.png
 content: |
   [!include[](quantum-computing-integration-with-classical-apps-content.md)]
