@@ -357,8 +357,8 @@ If a constraint blocks FastPath, scale horizontally instead. Deploy multiple hub
 
 This deployment includes one hub virtual network and two connected spokes and deploys an Azure Firewall instance and Azure Bastion host. Optionally, the deployment can include VMs in the first spoke network and a VPN gateway. To create network connections, you can choose between virtual network peering or Virtual Network Manager connected groups. Each method has several deployment options.
 
-- [Hub-spoke with virtual network peering deployment](/samples/azure-samples/azure-hub-spoke/hub-spoke-deployment/)
-- [Hub-spoke with Virtual Network Manager connected groups deployment](/samples/azure-samples/azure-hub-spoke/hub-spoke-deployment-with-connected-groups/)
+- [Hub-spoke with virtual network peering deployment](https://github.com/Azure-Samples/azure-hub-spoke/tree/main/hub-spoke)
+- [Hub-spoke with Virtual Network Manager connected groups deployment](https://github.com/Azure-Samples/azure-hub-spoke/tree/main/hub-spoke-connected-group)
 
 ## Contributors
 
