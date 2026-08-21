@@ -353,6 +353,10 @@ Consider the following points when you plan for security:
 
 - In AKS, you can mount one or more secrets from Key Vault as a volume. The pod can then read the Key Vault secrets just like a regular volume. For more information, see [Use the Key Vault provider for Secrets Store CSI Driver in an AKS cluster](/azure/aks/csi-secrets-store-driver). We recommend that you maintain separate key vaults for each microservice.
 
+- This architecture uses private endpoints for Container Registry and Key Vault, but not for Service Bus. Adding a private endpoint for Service Bus requires the [Premium tier](/azure/service-bus-messaging/private-link-service#important-points). If your namespace runs on the Standard tier, use [Azure Network Security Perimeter](/azure/private-link/network-security-perimeter-concepts#onboarded-private-link-resources) instead to associate `Microsoft.ServiceBus/namespaces` with a shared perimeter and deny public traffic by default.
+
+  Unlike architectures where compute has no static outbound IP, this architecture routes egress through Azure Firewall, which performs SNAT so its public IP addresses become the cluster's stable egress identity. Because of this static IP, you can scope the Service Bus inbound access rule by IP range to the firewall's public IP addresses instead of by subscription.
+
 [Advanced Container Networking Services](/azure/aks/advanced-container-networking-services-overview) provides in-cluster network segmentation and zero trust controls for AKS clusters. Use Cilium network policies on [Azure CNI powered by Cilium](/azure/aks/azure-cni-powered-by-cilium) to implement layer-3 and layer-4 segmentation within the cluster. Advanced Container Networking Services security extends this foundation by adding advanced capabilities:
 
 - FQDN-based egress filtering to restrict outbound traffic to approved domains.
