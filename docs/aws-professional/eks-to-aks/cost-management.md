@@ -132,9 +132,9 @@ The Container Storage Interface (CSI) is a standard for exposing block and file 
 
 If you run workloads that use CSI persistent volumes on your AKS cluster, consider the associated cost of the storage that your applications provision and use. CSI storage drivers on AKS provide native support for the following storage options:
 
-- [Azure disk storage](/azure/aks/csi-storage-drivers) creates Kubernetes data disk resources. Disks can use Azure premium storage that's backed by Premium SSDs or Azure standard storage that's backed by Standard SSDs. Most production and development workloads use premium storage. Azure disks are mounted as `ReadWriteOnce`, which makes them available to only one AKS node. For storage volumes that multiple pods can access simultaneously, use Azure Files. For more information, see [Managed disks pricing](https://azure.microsoft.com/pricing/details/managed-disks).
+- [Azure disk storage](/azure/aks/csi-storage-drivers?pivots=azure-disks) creates Kubernetes data disk resources. Disks can use Azure premium storage that's backed by Premium SSDs or Azure standard storage that's backed by Standard SSDs. Most production and development workloads use premium storage. Azure disks are mounted as `ReadWriteOnce`, which makes them available to only one AKS node. For storage volumes that multiple pods can access simultaneously, use Azure Files. For more information, see [Managed disks pricing](https://azure.microsoft.com/pricing/details/managed-disks).
 
-- [Azure Files](/azure/aks/csi-storage-drivers) mounts Server Message Block (SMB) 3.0 and 3.1 file shares to your AKS pods. The file shares are backed by an Azure Storage account. You can share data across multiple nodes and pods. Azure Files can use premium storage that's backed by Premium SSDs. Azure Files uses a Storage account and accrues charges based on the following factors:
+- [Azure Files](/azure/aks/csi-storage-drivers?pivots=azure-files) mounts Server Message Block (SMB) 3.0 and 3.1 file shares to your AKS pods. The file shares are backed by an Azure Storage account. You can share data across multiple nodes and pods. Azure Files can use premium storage that's backed by Premium SSDs. Azure Files uses a Storage account and accrues charges based on the following factors:
 
   - The service, such as Azure Blob Storage, Azure Files, Azure Queue Storage, Azure Table Storage, or managed disks
 
@@ -289,7 +289,7 @@ Other contributors:
 ## Next steps
 
 - [AKS cost analysis](/azure/aks/cost-analysis)
-- [Cost Management discipline overview](/azure/cloud-adoption-framework/govern/enforce-cloud-governance-policies#automate-cost-governance)
+- [Automate cost governance](/azure/cloud-adoption-framework/govern/enforce-cloud-governance-policies#automate-cost-governance)
 - [Video: Can cloud native architectures lower your long-term costs?](https://www.youtube.com/watch?v=5KVz_rz3P3w)
 - [Azure pricing calculator](https://azure.microsoft.com/pricing/calculator)
 - [Plan and manage your Azure costs](/training/modules/plan-manage-azure-costs)
