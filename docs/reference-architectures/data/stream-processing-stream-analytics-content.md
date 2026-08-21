@@ -154,7 +154,7 @@ Security provides assurances against deliberate attacks and the misuse of your v
 
 #### Restrict network access to PaaS resources
 
-This architecture doesn't use [private endpoints](/azure/private-link/private-link-overview) for Event Hubs, so it remains reachable over its public endpoint to any client that has valid credentials. As an alternative, use [Azure Network Security Perimeter](/azure/private-link/network-security-perimeter-concepts#onboarded-private-link-resources) to associate `Microsoft.EventHub/namespaces` with a shared perimeter and deny public traffic by default. Azure Cosmos DB support for network security perimeter is in public preview, so don't rely on it as your primary network control for the Azure Cosmos DB account until it reaches general availability.
+This architecture doesn't use [private endpoints](/azure/private-link/private-link-overview) for Event Hubs, so it remains reachable over its public endpoint to any client that has valid credentials. As an alternative, use [Azure Network Security Perimeter](/azure/private-link/network-security-perimeter-concepts#onboarded-private-link-resources) to associate `Microsoft.EventHub/namespaces` with a shared perimeter and deny public traffic by default. Azure Cosmos DB support for network security perimeter is in public preview.
 
 Network security perimeter defines both inbound and outbound access rules. Inbound rules control which callers can reach a perimeter member and support two types: subscription-based and IP-based. Outbound rules control which external destinations a perimeter member can reach and are FQDN-based only. Because Event Hubs is the perimeter member in this scenario, its inbound rules determine which producers and consumers are allowed in.
 
