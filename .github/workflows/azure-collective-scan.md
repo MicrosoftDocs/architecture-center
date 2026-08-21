@@ -39,7 +39,6 @@ network:
     - defaults
     - github
     - api.stackexchange.com
-    - learn.microsoft.com
 
 safe-outputs:
   allowed-domains:
@@ -251,7 +250,9 @@ Your job is to find the questions that are meaningful Azure architecture questio
 
 3. Assess AAC coverage for each kept question.
 
-   - Search the local repository under `docs/` for relevant AAC content.
+   - Search the local repository under `docs/` for relevant AAC content. This checkout is the source of truth: every article published at `learn.microsoft.com/azure/architecture` is built from a file here, so a source file is all you need to cite an article.
+   - Only cite an AAC article when you can point to its source file in the current `docs/` checkout. Never invent, recall, or guess a URL to fill that emptiness. "No repository match" is a valid outcome.
+   - Build every cited URL from the source file's path, never from memory. Derive the published `/azure/architecture/...` route from the file: account for `*-content.md` bodies whose route comes from the paired `.yml` file and `index.md` files whose route is the containing directory. Don't reconstruct a route from an article's title or from a link you remember.
    - Classify each question as one of:
      - **Covered**: a specific AAC article materially answers it. Record the exact article URL(s).
      - **Gap**: no AAC article materially answers it, but in your expert judgment AAC *should* cover it because it fits AAC's charter.
@@ -278,4 +279,4 @@ Your job is to find the questions that are meaningful Azure architecture questio
 - Use GitHub-flavored Markdown. Start any headings in issue or comment bodies at `###`.
 - Put long or per-item detail inside `<details><summary>…</summary>` blocks; keep the summary and counts visible.
 - Use `> [!NOTE]` and `> [!WARNING]` alerts instead of emoji severity markers.
-- Link Stack Overflow questions by using their `link`. Link AAC articles by using their full `https://learn.microsoft.com/azure/architecture/...` URL.
+- Link Stack Overflow questions by using their `link`. Link only AAC articles whose source file you found in the current checkout, using the full `https://learn.microsoft.com/azure/architecture/...` URL you derived from that file.
