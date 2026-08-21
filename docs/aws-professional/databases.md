@@ -19,8 +19,8 @@ This article helps map familiar AWS database services to the equivalent offering
 
 Azure provides several different relational database services that are the equivalent of AWS' Relational Database Service (Amazon RDS). These include:
 
-- [Azure SQL Database](/azure/sql-database/sql-database-technical-overview)
-- [Azure Database for MySQL](/azure/mysql/overview)
+- [Azure SQL Database](/azure/azure-sql/database/sql-database-paas-overview)
+- [Azure Database for MySQL](/azure/mysql/flexible-server/overview)
 - [Azure Database for PostgreSQL](/azure/postgresql/overview)
 - [SQL Database in Microsoft Fabric](/fabric/database/sql/overview)
 
@@ -38,9 +38,8 @@ Costs for Amazon RDS are determined by the amount of hardware resources that you
 
 - [Configure geo-replication for Azure SQL Database with the Azure portal](/azure/azure-sql/database/active-geo-replication-configure-portal)
 
-- [Introduction to Azure Cosmos DB: A NoSQL JSON Database](/azure/cosmos-db/sql-api-introduction)
-
-- [How to use Azure Table storage from Node.js](/azure/cosmos-db/table-storage-how-to-use-nodejs)
+- [Introduction to Azure Cosmos DB: A NoSQL JSON Database](/azure/cosmos-db/overview)
+- [How to use Azure Table storage from Node.js](/azure/cosmos-db/table/quickstart-nodejs)
 
 ## Analytics and big data
 
