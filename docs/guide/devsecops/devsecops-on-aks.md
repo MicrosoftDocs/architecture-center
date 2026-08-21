@@ -22,13 +22,13 @@ DevSecOps, also called _Secure DevOps_, is the practice of integrating security 
 - Incorporate automated security processes into your software development life cycle (SDLC).
 - Reduce remediation costs by finding security problems early in development and design stages.
 
-> **Key takeaways**
->
-> - **Shift-left security**: Integrate security checks early in development using IDE plugins, pre-commit hooks, and secure coding standards to catch vulnerabilities before code reaches production.
-> - **Automated scanning**: Use SAST, SCA, and secret scanning in CI pipelines to detect code vulnerabilities, insecure dependencies, and exposed credentials automatically.
-> - **Policy enforcement**: Apply Azure Policy and Gatekeeper admission controllers to enforce security standards across container registries and AKS clusters.
-> - **Continuous monitoring**: Implement runtime threat protection with Microsoft Defender for Containers, centralized logging with Azure Monitor, and SIEM integration with Microsoft Sentinel.
-> - **Supply chain security**: Generate SBOMs, sign container images, and deploy only from trusted registries to maintain artifact integrity.
+## Key takeaways
+
+- **Shift-left security**: Integrate security checks early in development using IDE plugins, pre-commit hooks, and secure coding standards to catch vulnerabilities before code reaches production.
+- **Automated scanning**: Use SAST, SCA, and secret scanning in CI pipelines to detect code vulnerabilities, insecure dependencies, and exposed credentials automatically.
+- **Policy enforcement**: Use Azure Policy to audit Azure Container Registry configurations. For AKS admission enforcement, use the Azure Policy add-on for AKS, which extends Gatekeeper.
+- **Continuous monitoring**: Implement runtime threat protection with Microsoft Defender for Containers, centralized logging with Azure Monitor, and SIEM integration with Microsoft Sentinel.
+- **Supply chain security**: Generate SBOMs, sign container images, and deploy only from trusted registries to maintain artifact integrity.
 
 When you apply DevSecOps to Azure Kubernetes Service (AKS), each organization role has specific security considerations:
 
