@@ -22,7 +22,7 @@ It's important to consider the approaches that you use for storage and data serv
 
 ### Scale
 
-When you work with services that store your data, consider the number of tenants, the volume of data, and the workload that you expect for each tenant and in aggregate. These factors, along with the service configuration and applicable resource and subscription limits, affect how much capacity a resource can provide and how many tenants it can support.
+When you work with services that store your data, consider the number of tenants, the volume of data, and the workload that you expect - both for each tenant individually and in aggregate. These factors, along with the service configuration and applicable resource and subscription limits, affect how much capacity a resource can provide and how many tenants it can support.
 
 As you grow, you increasingly benefit from having a clear strategy to scale your data and storage resources and automate their management. Use performance testing and capacity planning to determine when to add resources, and plan to scale out before you approach a service or subscription limit.
 
@@ -109,7 +109,7 @@ However, when you work with shared infrastructure, consider the following drawba
 
 - **Noisy neighbors:** The [noisy neighbor problem](../../../antipatterns/noisy-neighbor/noisy-neighbor.yml) might become a factor, especially if you have tenants that are busy or generate higher workloads than others. Consider applying the [Throttling pattern](../../../patterns/throttling.md) or the [Rate Limiting pattern](../../../patterns/rate-limiting-pattern.md) to mitigate these effects.
 
-- **Measure tenants' consumption:** Consider whether you need to [measure the consumption](../considerations/measure-consumption.md) of each tenant. Some data services, such as Azure Cosmos DB, provide reporting on resource usage for each transaction. You can track this information and aggregate it to measure the consumption for each tenant. Other services don't provide the same level of detail. For example, when you use shared storage, verify whether the selected service and tier provide metrics at the tenant's isolation boundary. If they don't, consider using separate resources or application-level metering.
+- **Measure tenants' consumption:** Consider whether you need to [measure the consumption](../considerations/measure-consumption.md) of each tenant. Some data services, such as Azure Cosmos DB, provide reporting on resource usage for each transaction. You can track this information and aggregate it to measure the consumption for each tenant. Other services don't provide the same level of detail. For example, when you use shared storage, verify whether the selected service and tier provide metrics at the tenant isolation boundary you use. If they don't, consider using separate resources or application-level metering.
 
 - **Tenant requirements:** Tenants might have different requirements for security, backup, availability, or storage location. If these requirements don't match your single resource's configuration, you might not be able to accommodate them.
 
