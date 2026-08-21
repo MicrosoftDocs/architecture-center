@@ -148,6 +148,20 @@ In the architecture shown here, only the results of the Stream Analytics job are
 
 These considerations implement the pillars of the Azure Well-Architected Framework, which is a set of guiding tenets that can be used to improve the quality of a workload. For more information, see [Microsoft Azure Well-Architected Framework](/azure/well-architected/).
 
+### Security
+
+Security provides assurances against deliberate attacks and the misuse of your valuable data and systems. For more information, see [Design review checklist for Security](/azure/well-architected/security/checklist).
+
+#### Restrict network access to PaaS resources
+
+This architecture doesn't use [private endpoints](/azure/private-link/private-link-overview) for Event Hubs, so it remains reachable over its public endpoint to any client that has valid credentials. As an alternative, use [Azure Network Security Perimeter](/azure/private-link/network-security-perimeter-concepts#onboarded-private-link-resources) to associate `Microsoft.EventHub/namespaces` with a shared perimeter and deny public traffic by default. Azure Cosmos DB support for network security perimeter is in public preview, so don't rely on it as your primary network control for the Azure Cosmos DB account until it reaches general availability.
+
+Network security perimeter defines both inbound and outbound access rules. Inbound rules control which callers can reach a perimeter member and support two types: subscription-based and IP-based. Outbound rules control which external destinations a perimeter member can reach and are FQDN-based only. Because Event Hubs is the perimeter member in this scenario, its inbound rules determine which producers and consumers are allowed in.
+
+The article doesn't specify where the taxi devices or the .NET data generator that simulates them run, or whether they have a fixed or known public IP range. If they run as Azure resources in a known subscription, a subscription-based inbound rule could allow them. If they have a fixed IP range instead, an IP-based inbound rule could allow that range. Confirm the actual origin and network characteristics of your producers before choosing a rule type.
+
+This architecture doesn't deploy the Stream Analytics job into a custom virtual network, so it has no static outbound IP address. Scope the Event Hubs inbound access rule for the Stream Analytics consumer by subscription (the subscription that hosts the Stream Analytics job) rather than by IP range, which requires a stable, known source IP to be effective.
+
 ### Cost Optimization
 
 Cost Optimization is about looking at ways to reduce unnecessary expenses and improve operational efficiencies. For more information, see [Design review checklist for Cost Optimization](/azure/well-architected/cost-optimization/checklist).
