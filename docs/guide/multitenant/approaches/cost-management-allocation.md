@@ -8,6 +8,7 @@ ms.topic: concept-article
 ms.subservice: architecture-guide
 ms.custom:
 - arb-saas
+ai-usage: ai-assisted
 ---
 
 # Architectural approaches for cost management and allocation in a multitenant solution
