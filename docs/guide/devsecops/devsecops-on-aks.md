@@ -15,7 +15,7 @@ ms.custom:
 
 # DevSecOps on Azure Kubernetes Service (AKS)
 
-DevSecOps, also called _Secure DevOps_, is the practice of integrating security at every stage of the software development life cycle (SDLC) within a DevOps workflow. **DevSecOps on AKS** applies this approach to containerized applications running on Azure Kubernetes Service, embedding automated security controls—such as vulnerability scanning, policy enforcement, and runtime threat protection—directly into CI/CD pipelines and cluster operations. Build security into DevOps practices to:
+DevSecOps, also called *Secure DevOps*, is the practice of integrating security at every stage of the software development life cycle (SDLC) within a DevOps workflow. DevSecOps on AKS applies this approach to containerized applications running on Azure Kubernetes Service, embedding automated security controls directly into CI/CD pipelines and cluster operations. Build security into DevOps practices to:
 
 - Make your applications and systems more secure, provide visibility into security threats, and prevent vulnerabilities from reaching deployed environments.
 - Increase security awareness among your development and operation teams.
