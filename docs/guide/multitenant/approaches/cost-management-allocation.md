@@ -53,7 +53,7 @@ In some solutions, you might deploy dedicated resources for each tenant. For exa
 In other scenarios, you might have sets of shared resources. For example, when you apply the [Sharding pattern](../../../patterns/sharding.md), you might deploy multiple databases and spread your tenants across them. Consider tagging the resources with an identifier for the *group* of tenants. You might not be able to easily allocate costs to a single tenant. However, you can use this approach to narrow down the cost to a defined group of tenants. You can also use the consumption information to help you rebalance tenants across the shards if you notice that a specific shard accrues higher costs than the other shards.
 
 > [!NOTE]
-> There's a [limit to the number of tags](/azure/azure-resource-manager/management/tag-resources#limitations) that can be applied to a resource. When you work with shared resources, it's best not to add a tag for every tenant that shares the resource. Instead, consider adding a tag with the tenant group ID, shard ID, or another way to identify the group of tenants.
+> There's a [limit to the number of tags](/azure/azure-resource-manager/management/tag-resources#limitations) that can be applied to a resource. When you work with shared resources, don't add a tag for every tenant that shares the resource. Instead, consider adding a tag with the tenant group ID, shard ID, or another way to identify the group of tenants.
 
 Consider an example multitenant solution that's built by using the [Deployment Stamps pattern](../../../patterns/deployment-stamp.md) and a [vertically partitioned tenancy model](../considerations/tenancy-models.md#vertically-partitioned-deployments). Each deployment stamp includes a web server and sharded databases. One stamp is shared among two tenants, and one is dedicated to a single tenant. You can apply tags to each of the Azure components, as shown in the following diagram.
 
@@ -67,7 +67,7 @@ Consider the following tagging strategy:
 - Every sharded database has a `shard-id` tag.
 - Every resource that's dedicated to a specific tenant has a `tenant-id` tag.
 
-By using this tagging strategy, it's easy to filter the cost information to a single stamp. It's also easy to find the cost of the tenant-specific resources, such as the total cost of the database for tenant C. Shared components don't have a `tenant-id` tag, but the cost of the shared components for a stamp can be divided between the tenants who are assigned to use that stamp or shard. You store that mapping separately, in a shard map or lookup table.
+By using this tagging strategy, you can easily filter the cost information to a single stamp. It's also easy to find the cost of the tenant-specific resources, such as the total cost of the database for tenant C. Shared components don't have a `tenant-id` tag, but the cost of the shared components for a stamp can be divided between the tenants who are assigned to use that stamp or shard. You store that mapping separately, in a shard map or lookup table.
 
 ### Instrument your application
 
