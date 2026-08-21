@@ -42,6 +42,10 @@ You also need to consider how you measure and allocate the costs of shared compo
 
 When you plan cost allocation in a multitenant architecture, consider the following strategies and design patterns to ensure transparency, fairness, scalability, and efficiency.
 
+### Use Cost Management allocation rules
+
+If tenants map to subscriptions, resource groups, or tags that already have associated costs, consider [Azure Cost Management allocation rules](/azure/cost-management-billing/costs/allocate-costs). These rules can distribute shared costs evenly, by custom percentages, or in proportion to target costs. They support only eligible Enterprise Agreement and Microsoft Customer Agreement billing accounts, don't change invoices, and don't support reservation or savings plan purchases.
+
 ### Allocate costs by using resource tags
 
 Azure enables you to [apply tags to your resources](/azure/azure-resource-manager/management/tag-resources). A tag is a key-value pair. You use tags to add custom metadata. Tags are useful for many management operations, and they're also useful for analyzing the cost of your Azure consumption. After you apply tags, you can [determine costs associated with each tag](/azure/cost-management-billing/costs/cost-analysis-common-uses#view-costs-for-a-specific-tag).
