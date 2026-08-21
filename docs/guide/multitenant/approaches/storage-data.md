@@ -3,7 +3,7 @@ title: Architectural Approaches for Storage and Data in Multitenant Solutions
 description: Learn about approaches, including common patterns and antipatterns, to support multitenancy for the storage and data components of your solution.
 author: johndowns
 ms.author: pnp
-ms.date: 07/17/2025
+ms.date: 08/21/2026
 ms.topic: concept-article
 ms.subservice: architecture-guide
 ms.custom:
@@ -22,11 +22,9 @@ It's important to consider the approaches that you use for storage and data serv
 
 ### Scale
 
-When you work with services that store your data, you should consider the number of tenants that you have and the volume of data that you store. If you have few tenants, such as five or fewer, and you store small amounts of data for each tenant, then you probably don't need to plan a highly scalable data storage approach or build a fully automated approach to manage your data resources. 
+When you work with services that store your data, consider the number of tenants, the volume of data, and the workload that you expect - both for each tenant individually and in aggregate. These factors, along with the service configuration and applicable resource and subscription limits, affect how much capacity a resource can provide and how many tenants it can support.
 
-But, as you grow, you increasingly benefit from having a clear strategy to scale your data and storage resources and automate their management. When you have 50 tenants or more, or if you plan to reach that level of scale, then it's especially important to design your data and storage approach with scale as a key consideration.
-
-Consider the extent to which you plan to scale, and clearly plan your data storage architectural approach to meet that level of scale.
+As you grow, you increasingly benefit from having a clear strategy to scale your data and storage resources and automate their management. Use performance testing and capacity planning to determine when to add resources, and plan to scale out before you approach a service or subscription limit.
 
 ### Performance predictability
 
@@ -40,13 +38,13 @@ When you design a solution that contains multitenant data services, there are di
 
 - When you use Azure Cosmos DB, you can deploy separate containers for each tenant, and you can share databases and accounts between multiple tenants. Alternatively, you might consider deploying different databases or even accounts for each tenant, depending on the level of isolation that you require.
 
-- When you use Storage for blob data, you can deploy separate blob containers for each tenant, or you can deploy separate storage accounts.
+- When you use Azure Storage for blob data, you can deploy separate blob containers for each tenant, or you can deploy separate storage accounts.
 
 - When you use Azure SQL, you can use separate tables in shared databases, or you can deploy separate databases or servers for each tenant.
 
 - In all Azure services, you can consider deploying resources within a single shared Azure subscription, or you can use multiple Azure subscriptions or even one subscription for each tenant.
 
-There's no single solution that works for every scenario. The option that you choose depends on several factors and your tenants' requirements. For example, if you design a business-to-consumer (B2C) solution, it might be reasonable to have a single data store for all of your data. However, if your tenants need to meet specific compliance or regulatory standards, you might need to apply a higher level of isolation. 
+There's no single solution that works for every scenario. The option that you choose depends on several factors and your tenants' requirements. For example, if you design a business-to-consumer (B2C) solution, it might be reasonable to have a single data store for all of your data. However, if your tenants need to meet specific compliance or regulatory standards, you might need to apply a higher level of isolation.
 
 Similarly, you might have commercial requirements to physically isolate your customers' data, or you might need to enforce isolation to avoid the [noisy neighbor problem](../../../antipatterns/noisy-neighbor/noisy-neighbor.yml). If any of the following conditions apply, you might need to isolate tenants from others or group them with tenants that have similar policies:
 
@@ -77,6 +75,8 @@ Consider how you plan to operate your solution and how your multitenancy approac
 - **Requirements:** Consider your tenants' high availability requirements, such as uptime service-level agreements (SLAs), and disaster recovery requirements, such as recovery time objectives (RTOs) and recovery point objectives (RPOs). If tenants have different expectations, verify that you can meet each tenant's requirements.
 
 - **Migration:** Consider whether you want to enable tenants to move to a different type of service, a different deployment, or another region. If you plan to offer this capability, build processes and tools to ensure that it's a repeatable and safe process.
+
+- **Recovery and tenant lifecycle:** Consider how your data isolation approach affects backup, restore, migration, and offboarding processes. In a shared database, restoring a single tenant might require you to restore the database to a separate resource and selectively recover that tenant's data. Sharded or dedicated databases can provide more granular recovery, but a shard restore might still affect multiple tenants. Automate tenant onboarding, migration, data retention, and offboarding processes so that they remain repeatable as your solution grows.
 
 ### Cost
 
@@ -109,7 +109,7 @@ However, when you work with shared infrastructure, consider the following drawba
 
 - **Noisy neighbors:** The [noisy neighbor problem](../../../antipatterns/noisy-neighbor/noisy-neighbor.yml) might become a factor, especially if you have tenants that are busy or generate higher workloads than others. Consider applying the [Throttling pattern](../../../patterns/throttling.md) or the [Rate Limiting pattern](../../../patterns/rate-limiting-pattern.md) to mitigate these effects.
 
-- **Measure tenants' consumption:** Consider whether you need to [measure the consumption](../considerations/measure-consumption.md) of each tenant. Some data services, such as Azure Cosmos DB, provide reporting on resource usage for each transaction. You can track this information and aggregate it to measure the consumption for each tenant. Other services don't provide the same level of detail. For example, when you use Azure Files with premium file shares, you can access metrics for file capacity for each file share dimension. The standard tier provides the metrics only at the storage account level.
+- **Measure tenants' consumption:** Consider whether you need to [measure the consumption](../considerations/measure-consumption.md) of each tenant. Some data services, such as Azure Cosmos DB, provide reporting on resource usage for each transaction. You can track this information and aggregate it to measure the consumption for each tenant. Other services don't provide the same level of detail. For example, when you use shared storage, verify whether the selected service and tier provide metrics at the tenant isolation boundary you use. If they don't, consider using separate resources or application-level metering.
 
 - **Tenant requirements:** Tenants might have different requirements for security, backup, availability, or storage location. If these requirements don't match your single resource's configuration, you might not be able to accommodate them.
 
