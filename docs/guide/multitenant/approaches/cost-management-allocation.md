@@ -42,10 +42,6 @@ You also need to consider how you measure and allocate the costs of shared compo
 
 When you plan cost allocation in a multitenant architecture, consider the following strategies and design patterns to ensure transparency, fairness, scalability, and efficiency.
 
-### Use Cost Management allocation rules
-
-If tenants map to subscriptions, resource groups, or tags that already have associated costs, consider [Azure Cost Management allocation rules](/azure/cost-management-billing/costs/allocate-costs). These rules can distribute shared costs evenly, by custom percentages, or in proportion to target costs. They support only eligible Enterprise Agreement and Microsoft Customer Agreement billing accounts, don't change invoices, and don't support reservation or savings plan purchases.
-
 ### Allocate costs by using resource tags
 
 Azure enables you to [apply tags to your resources](/azure/azure-resource-manager/management/tag-resources). A tag is a key-value pair. You use tags to add custom metadata. Tags are useful for many management operations, and they're also useful for analyzing the cost of your Azure consumption. After you apply tags, you can [determine costs associated with each tag](/azure/cost-management-billing/costs/cost-analysis-common-uses#view-costs-for-a-specific-tag).
@@ -88,6 +84,10 @@ In Azure, [Application Insights](/azure/azure-monitor/app/app-insights-overview)
 However, Application Insights and other logging and monitoring solutions aren't appropriate for precise cost measurement or for metering purposes. Application Insights is designed to [sample data](/azure/azure-monitor/app/opentelemetry-sampling), especially when your application has a high volume of requests. Sampling is designed to reduce the cost of monitoring your solution because capturing every piece of telemetry can often become expensive.
 
 If you need to track precise details about consumption or usage for billing purposes, you should instead build a custom pipeline to log the necessary data. You should then aggregate the data, based on your requirements. Azure services that can be helpful for this purpose include [Azure Event Hubs](https://azure.microsoft.com/services/event-hubs) to capture large volumes of telemetry and [Azure Stream Analytics](https://azure.microsoft.com/services/stream-analytics) to process it in real time.
+
+### Use Cost Management allocation rules
+
+If tenants map to subscriptions, resource groups, or tags that already have associated costs, consider [Azure Cost Management allocation rules](/azure/cost-management-billing/costs/allocate-costs). These rules can distribute shared costs evenly, by custom percentages, or in proportion to target costs. They support only specific types of Azure billing accounts and they don't support reservation or savings plan purchases.
 
 ### Use Azure reservations and Azure savings plan to reduce costs
 
