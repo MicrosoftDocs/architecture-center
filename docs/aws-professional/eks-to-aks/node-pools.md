@@ -16,7 +16,7 @@ ms.collection:
 
 # Manage Kubernetes nodes and node pools
 
-Kubernetes architecture consists of two layers: the [control plane](/azure/aks/concepts-clusters-workloads#control-plane) and at least one [node in a node pool](/azure/aks/concepts-clusters-workloads#nodes). This article describes and compares how Amazon Elastic Kubernetes Service (EKS) and Azure Kubernetes Service (AKS) manage agent nodes and worker nodes.
+Kubernetes architecture consists of two layers: the [control plane](/azure/aks/core-aks-concepts#control-plane) and at least one [node in a node pool](/azure/aks/core-aks-concepts#nodes). This article describes and compares how Amazon Elastic Kubernetes Service (EKS) and Azure Kubernetes Service (AKS) manage agent nodes and worker nodes.
 
 [!INCLUDE [eks-aks](includes/eks-aks-include.md)]
 
@@ -90,7 +90,7 @@ For more information about how to use AWS EKS to run containers on EC2 dedicated
 
 When you create an AKS cluster automatically, it creates and configures a control plane, which provides [core Kubernetes services](https://kubernetes.io/docs/concepts/overview/components) and application workload orchestration. The Azure platform provides the AKS control plane at no cost as a managed Azure resource. The control plane and its resources exist only in the region where you create the cluster.
 
-The [nodes](/azure/aks/concepts-clusters-workloads#nodes), also called *agent nodes* or *worker nodes*, host the workloads and applications. In standard AKS clusters, you fully manage and pay for the agent nodes that are attached to the AKS cluster. In AKS Automatic clusters, Azure provisions and operates the system node pool for you.
+The [nodes](/azure/aks/core-aks-concepts#nodes), also called *agent nodes* or *worker nodes*, host the workloads and applications. In standard AKS clusters, you fully manage and pay for the agent nodes that are attached to the AKS cluster. In AKS Automatic clusters, Azure provisions and operates the system node pool for you.
 
 To run applications and supporting services, an AKS cluster needs at least one node, which is an Azure VM that runs the Kubernetes node components and container runtime. Every AKS cluster must contain at least one [system node pool](/azure/aks/use-system-pools) that has at least one node. In standard AKS clusters, you create and manage this system node pool. In AKS Automatic clusters, the platform manages the system node pool lifecycle on your behalf.
 
@@ -102,12 +102,12 @@ The Azure VM contains four components: kubelet, container runtime, kube-proxy, a
 
 You can also create multiple user node pools to segregate different workloads on different nodes. This approach helps prevent the [noisy neighbor problem](/azure/architecture/antipatterns/noisy-neighbor/noisy-neighbor) and supports applications that have different compute or storage demands.
 
-Every agent node within a system or user node pool is essentially a VM. [Azure Virtual Machine Scale Sets](/azure/virtual-machine-scale-sets/overview) configures the VMs, and the AKS cluster manages them. For more information, see [Node pools](/azure/aks/concepts-clusters-workloads#node-pools).
+Every agent node within a system or user node pool is essentially a VM. [Azure Virtual Machine Scale Sets](/azure/virtual-machine-scale-sets/overview) configures the VMs, and the AKS cluster manages them. For more information, see [Node pools](/azure/aks/core-aks-concepts#node-pools).
 
-You can define the initial number and [size](/azure/virtual-machines/sizes) for worker nodes when you create an AKS cluster or when you add new nodes and node pools to an existing AKS cluster. If you don't specify a VM size, the default size is Standard_D2s_v3 for Windows node pools and Standard_DS2_v2 for Linux node pools.
+You can define the initial number and [size](/azure/virtual-machines/sizes/overview) for worker nodes when you create an AKS cluster or when you add new nodes and node pools to an existing AKS cluster. If you don't specify a VM size, the default size is Standard_D2s_v3 for Windows node pools and Standard_DS2_v2 for Linux node pools.
 
 > [!IMPORTANT]
-> To provide better latency for internal node calls and communications with platform services, choose a VM series that supports [Accelerated Networking](/azure/virtual-network/create-vm-accelerated-networking-cli).
+> To provide better latency for internal node calls and communications with platform services, choose a VM series that supports [Accelerated Networking](/azure/virtual-network/create-virtual-machine-accelerated-networking).
 
 ### Create a node pool
 
@@ -188,7 +188,7 @@ The following `az aks nodepool add` command shows how to add a new node pool to 
         --node-osdisk-size 48
   ```
 
-For more information, see [Ephemeral OS disk](/azure/aks/concepts-storage#ephemeral-os-disk).
+For more information, see [Ephemeral OS disk](/azure/aks/concepts-storage#ephemeral-os-disks-in-aks).
 
 ### Azure Virtual Machines node pools in AKS
 
@@ -252,7 +252,7 @@ To create a node pool that has a taint, you can use the `az aks nodepool add` co
       --labels dept=IT costcenter=9999
 ```
 
-For more information, see [Specify a taint, label, or tag for a node pool](/azure/aks/manage-node-pools?branch=main#specify-a-taint-label-or-tag-for-a-node-pool).
+For more information, see [Specify a taint, label, or tag for a node pool](/azure/aks/create-node-pools#set-taints-labels-or-tags-for-a-node-pool).
 
 ### Reserved system labels
 
@@ -319,7 +319,7 @@ The following `az aks nodepool add` command adds a node pool that runs Windows S
       --node-count 1
 ```
 
-The preceding command uses the default subnet in the AKS cluster virtual network. For more information about how to build an AKS cluster that has a Windows node pool, see [Create a Windows Server container in AKS](/azure/aks/windows-container-cli).
+The preceding command uses the default subnet in the AKS cluster virtual network. For more information about how to build an AKS cluster that has a Windows node pool, see [Create a Windows Server container in AKS](/azure/aks/learn/quick-windows-container-deploy-cli).
 
 ### Node pool considerations
 
@@ -419,7 +419,7 @@ Karpenter provides fine-grained control over node provisioning and workload plac
 
 For example, you might need some tenants' applications to run on GPU-optimized node pools and others to run on memory-optimized node pools. If your application requires low latency for storage, you can use Karpenter to indicate that a pod requires a node that runs in a specific availability zone. Then you can colocate your storage and application tier.
 
-AKS enables node autoprovisioning on AKS clusters via Karpenter. Most users should use the node autoprovisioning mode to enable Karpenter as a managed add-on. For more information, see [Node autoprovisioning](/azure/aks/node-autoprovision). If you need more advanced customization, you can self-host Karpenter. For more information, see [AKS Karpenter provider](https://github.com/Azure/karpenter-provider-azure).
+AKS enables node autoprovisioning on AKS clusters via Karpenter. Most users should use the node autoprovisioning mode to enable Karpenter as a managed add-on. For more information, see [Node autoprovisioning](/azure/aks/node-auto-provisioning). If you need more advanced customization, you can self-host Karpenter. For more information, see [AKS Karpenter provider](https://github.com/Azure/karpenter-provider-azure).
 
 ### Confidential VMs
 
@@ -505,8 +505,8 @@ To upgrade a single node pool, use [az aks nodepool upgrade](/cli/azure/aks/node
 
 For more information, see the following resources:
 
-- [AKS node image upgrade](/azure/aks/node-image-upgrade)
-- [Upgrade a cluster control plane with multiple node pools](/azure/aks/manage-node-pools#upgrade-a-cluster-control-plane-with-multiple-node-pools)
+- [AKS node image upgrade](/azure/aks/upgrade-node-image)
+- [Upgrade a cluster control plane with multiple node pools](/azure/aks/upgrade-node-pools#upgrade-a-cluster-control-plane-with-multiple-node-pools)
 
 ### Upgrade considerations
 
@@ -514,13 +514,13 @@ Consider the following best practices when you upgrade the Kubernetes version in
 
 - You should upgrade all node pools in an AKS cluster to the same Kubernetes version. The default behavior of `az aks upgrade` upgrades all node pools and the control plane.
 
-- Manually perform upgrades, or set an automatic upgrade channel on your cluster. If you use planned maintenance to patch VMs, automatic upgrades also start during your specified maintenance window. For more information, see [Upgrade an AKS cluster](/azure/aks/upgrade-cluster).
+- Manually perform upgrades, or set an automatic upgrade channel on your cluster. If you use planned maintenance to patch VMs, automatic upgrades also start during your specified maintenance window. For more information, see [Upgrade an AKS cluster](/azure/aks/upgrade-options).
 
 - The `az aks upgrade` command with the `--control-plane-only` flag upgrades the cluster control plane and doesn't change the associated node pools in the cluster. To upgrade individual node pools, specify the target node pool and Kubernetes version in the `az aks nodepool upgrade` command.
-- An AKS cluster upgrade triggers a cordon and drain of your nodes. If you have low compute quota available, the upgrade can fail. For more information, see [Increase regional vCPU quotas](/azure/azure-portal/supportability/regional-quota-requests).
-- Configure the `max-surge` parameter based on your needs. Use an integer or percentage value. For production node pools, use a `max-surge` setting of 33%. For more information, see [Customize node surge upgrade](/azure/aks/upgrade-aks-cluster#customize-node-surge-upgrade).
+- An AKS cluster upgrade triggers a cordon and drain of your nodes. If you have low compute quota available, the upgrade can fail. For more information, see [Increase regional vCPU quotas](/azure/quotas/regional-quota-requests).
+- Configure the `max-surge` parameter based on your needs. Use an integer or percentage value. For production node pools, use a `max-surge` setting of 33%. For more information, see [Customize node surge upgrade](/azure/aks/upgrade-aks-node-pools-rolling#set-max-surge-value).
 - When you upgrade an AKS cluster that uses Azure Container Networking Interface networking, make sure the subnet has enough available private IP addresses for the extra nodes that the `max-surge` settings create. For more information, see [Configure Azure Container Networking Interface networking in AKS](/azure/aks/configure-azure-cni).
-- If your cluster node pools span multiple availability zones within a region, the upgrade process can temporarily create an unbalanced zone configuration. For more information, see [Node pools that span multiple availability zones](/azure/aks/upgrade-cluster#special-considerations-for-node-pools-that-span-multiple-availability-zones).
+- If your cluster node pools span multiple availability zones within a region, the upgrade process can temporarily create an unbalanced zone configuration. For more information, see [Node pools that span multiple availability zones](/azure/aks/upgrade-options#special-considerations-for-node-pools-that-span-multiple-availability-zones).
 
 ## Contributors
 
