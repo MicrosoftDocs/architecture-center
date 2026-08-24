@@ -49,20 +49,20 @@ An [Availability Zone](/azure/reliability/availability-zones-overview) is a phys
 
 To protect an application against a regional outage, deploy the application across multiple regions and use [Azure Traffic Manager](https://azure.microsoft.com/services/traffic-manager) to distribute internet traffic across regions. A [paired region][paired-regions] is one option for selecting a secondary region, but not every Azure region has a pair.
 
-Use region pairs when your architecture benefits from paired-region capabilities, such as platform update sequencing and service features that depend on paired regions. For example, Azure [geo-redundant storage (GRS)](/azure/storage/common/storage-redundancy-grs) replicates data to the paired region for the selected primary region.
+Use region pairs when your architecture benefits from paired-region capabilities, such as platform update sequencing and service features that depend on paired regions. For example, Azure [geo-redundant storage (GRS)](/azure/storage/common/storage-redundancy#geo-redundant-storage) replicates data to the paired region for the selected primary region.
 
 If your primary region isn't paired, or if your requirements are better served by another location, choose a nonpaired secondary region based on service availability, data residency, latency, and disaster recovery objectives. For most resources, you design regional resiliency by deploying and operating a full secondary stamp in another region, regardless of whether that region is paired.
 
 ## See also
 
-- [Regions for virtual machines in Azure](/azure/virtual-machines/linux/regions)
+- [Regions for virtual machines in Azure](/azure/virtual-machines/regions)
 
-- [Availability options for virtual machines in Azure](/azure/virtual-machines/linux/availability)
+- [Availability options for virtual machines in Azure](/azure/virtual-machines/availability)
 
 - [High availability for Azure applications](../example-scenario/infrastructure/multi-tier-app-disaster-recovery.yml)
 
-- [Failure and disaster recovery for Azure applications](/azure/architecture/framework/resiliency/backup-and-recovery)
+- [Failure and disaster recovery for Azure applications](/azure/well-architected/reliability/disaster-recovery)
 
-- [Planned maintenance for Linux virtual machines in Azure](/azure/virtual-machines/linux/maintenance-and-updates)
+- [Planned maintenance for virtual machines in Azure](/azure/virtual-machines/maintenance-and-updates)
 
 [paired-regions]: /azure/best-practices-availability-paired-regions
