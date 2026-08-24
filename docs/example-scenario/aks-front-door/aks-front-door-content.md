@@ -1,9 +1,9 @@
-This article describes how to expose and protect a workload that runs in Azure Kubernetes Service (AKS) by using Azure Front Door, Azure Web Application Firewall, and an Azure Private Link service in a more secure manner. This architecture uses the NGINX ingress controller to expose a web application. The NGINX ingress controller is configured to use a private IP address as a front-end IP configuration of the AKS internal load balancer. The deployment provides end-to-end Transport Layer Security (TLS) encryption.
+This article describes how to expose and protect a workload that runs in Azure Kubernetes Service (AKS) by using Azure Front Door, Azure Web Application Firewall, and an Azure Private Link service in a more secure manner. This architecture uses a Gateway API ingress implementation to expose a web application. The Gateway API ingress implementation is configured to use a private IP address as a front-end IP configuration of the AKS internal load balancer. The deployment provides end-to-end Transport Layer Security (TLS) encryption.
 
 ## Architecture
 
 :::image type="complex" border="false" source="./media/aks-front-door.svg" alt-text="Diagram that shows an architecture that securely exposes and protects a workload that runs in AKS." lightbox="./media/aks-front-door.svg":::
-   The image is a complex architectural diagram of a Microsoft Azure-based network infrastructure. It's divided into multiple sections that have various components connected by arrows that indicate data flow or connections. One section contains an icon that represents administrators, platform engineers, and developers that connects to an icon that represents a public IP address. This icon then connects to Azure Bastion host. An icon that represents application users connects via HTTPS to Azure Front Door, to Private Link service, to the internal load balancer icon, to the Ingress-basic icon, and finally to httpbin-tls. This section also has icons that represent Azure DNS zone and Web Application Firewall policy. Another section contains a map key of the icons for monitoring, Secure Socket Shell traffic, HTTP/S traffic, outbound traffic, private connections, and virtual network link. A section labeled Private DNS zones contains icons for Private DNS zones that are linked to specific domain names and has a dotted line that connects from a box labeled Virtual network 10.0.0.0/8. Icons that represent Kubernetes monitoring, Azure Managed Grafana, and Monitor workspace point to a large dashed box labeled Virtual network 10.0.0.0/8. This box contains six smaller dashed boxes. The first box, labeled Azure Bastion Host 10.243.2.0/24, contains an icon that represents the Azure Bastion service. The second box, labeled ApiServerSubnet10.243.0.0/27, contains an icon that represents the API server. The third box, labeled UserSubnet10.241.0.0/16, contains an icon that represents the user agent pool. The user agent pool icon points to an icon that represents Azure NAT Gateway. The fourth box, labeled Private Link service, contains icons that represent the jump box virtual machine and private endpoints. The private endpoints icon points to icons that represent the storage account, Key Vault, and Azure Container Registry. The fifth box, labeled SystemSubnet10.240.0.0/16, contains icons that represent the internal load balancer and the system agent pool. The internal load balancer points to an icon that represents Azure NAT Gateway. A dotted arrow points to an icon that represents a public IP address which then points to an icon that represents the internet. The sixth box, labeled PodSubnet10.242.0.0/16, contains icons that represent ingress-basic, httpbin-tls, and kube-system. A dotted line connects this box to the UserSubnet box and to the Azure NAT Gateway icon.
+   The image is a complex architectural diagram of a Microsoft Azure-based network infrastructure. It's divided into multiple sections that have various components connected by arrows that indicate data flow or connections. One section contains an icon that represents administrators, platform engineers, and developers that connects to an icon that represents a public IP address. This icon then connects to Azure Bastion host. An icon that represents application users connects via HTTPS to Azure Front Door, to Private Link service, to the internal load balancer icon, to the Gateway API icon, and finally to httpbin-tls. This section also has icons that represent Azure DNS zone and Web Application Firewall policy. Another section contains a map key of the icons for monitoring, Secure Socket Shell traffic, HTTP/S traffic, outbound traffic, private connections, and virtual network link. A section labeled Private DNS zones contains icons for Private DNS zones that are linked to specific domain names and has a dotted line that connects from a box labeled Virtual network 10.0.0.0/8. Icons that represent Kubernetes monitoring, Azure Managed Grafana, and Monitor workspace point to a large dashed box labeled Virtual network 10.0.0.0/8. This box contains six smaller dashed boxes. The first box, labeled Azure Bastion Host 10.243.2.0/24, contains an icon that represents the Azure Bastion service. The second box, labeled ApiServerSubnet10.243.0.0/27, contains an icon that represents the API server. The third box, labeled UserSubnet10.241.0.0/16, contains an icon that represents the user agent pool. The user agent pool icon points to an icon that represents Azure NAT Gateway. The fourth box, labeled Private Link service, contains icons that represent the jump box virtual machine and private endpoints. The private endpoints icon points to icons that represent the storage account, Key Vault, and Azure Container Registry. The fifth box, labeled SystemSubnet10.240.0.0/16, contains icons that represent the internal load balancer and the system agent pool. The internal load balancer points to an icon that represents Azure NAT Gateway. A dotted arrow points to an icon that represents a public IP address which then points to an icon that represents the internet. The sixth box, labeled PodSubnet10.242.0.0/16, contains icons that represent Gateway API, httpbin-tls, and kube-system. A dotted line connects this box to the UserSubnet box and to the Azure NAT Gateway icon.
 :::image-end:::
 
 *The Grafana logo is a trademark of its respective company. No endorsement is implied by the use of this mark.*
@@ -15,22 +15,22 @@ This article describes how to expose and protect a workload that runs in Azure K
 The following diagram shows the steps for the message flow during deployment and runtime.
 
 :::image type="complex" border="false" source="./media/flow.svg" alt-text="Diagram that shows the steps for the message flow during deployment and runtime." lightbox="./media/flow.svg":::
-   The diagram has five primary sections. The top section isn't enclosed. The bottom four sections are enclosed in dotted rectangles. Those four rectangles are enclosed in a dotted rectangle that's labeled AksVnet 10.0.0.0/8. The top section has a logo that represents administrators and platform engineers. An arrow points from this logo to the logo that represents Azure Key Vault to indicate that a certificate for the custom domain store.test.com is generated and saved in an Azure key vault. In step two, an arrow points from the administrator and platform engineer logo to the AksVnet 10.0.0.0/8 section to indicate that a platform engineer specifies the necessary information in the main.bicepparams Bicep parameters file and deploys the Bicep modules to create the Azure resources. In step three, an arrow labeled SecretProviderClass and Secrets Store CSI Driver points to the logo that represents the TLS secret. In step four, this section shows an arrow from the digital certificate to Azure Front Door store.test.com to indicate that it reached its destination.
+   The diagram has five primary sections. The top section isn't enclosed. The bottom four sections are enclosed in dotted rectangles. Those four rectangles are enclosed in a dotted rectangle that's labeled AksVnet 10.0.0.0/8. The top section has a logo that represents administrators and platform engineers. An arrow points from this logo to the logo that represents Azure Key Vault to indicate that a certificate for the custom domain store.test.com is generated and saved in an Azure key vault. In step two, an arrow points from the administrator and platform engineer logo to the AksVnet 10.0.0.0/8 section to indicate that a platform engineer specifies the necessary information in a Bicep parameters file and deploys the Bicep modules to create the Azure resources. In step three, an arrow labeled SecretProviderClass and Secrets Store CSI Driver points to the logo that represents the TLS secret. In step four, this section shows an arrow from the digital certificate to Azure Front Door store.test.com to indicate that it reached its destination. The diagram shows the Gateway API service and Gateway API resources, including an HTTPRoute for store.test.com.
 :::image-end:::
 
 #### Deployment workflow
 
-You can use one of the following methods to deploy the [NGINX ingress controller](https://docs.nginx.com/nginx-ingress-controller/intro/overview/):
+Use one of the following methods to deploy the Gateway API ingress layer for this scenario:
 
-- **Managed NGINX ingress controller:** Deploy a managed NGINX ingress controller by using the [application routing add-on for AKS](/azure/aks/app-routing). The deployment configures the managed NGINX ingress controller to use a private IP address as a front-end IP address configuration of the `kubernetes-internal` internal load balancer. For more information, see [Configure NGINX ingress controller to support Azure private DNS zone with application routing add-on](/azure/aks/create-nginx-ingress-private-controller).
+- **Managed ingress (Gateway API):** Deploy the managed application routing implementation that uses Gateway API on AKS. Configure the managed data plane to use a private IP address as a front-end IP address configuration of the `kubernetes-internal` internal load balancer. For more information, see [Application routing with Gateway API](/azure/aks/app-routing-gateway-api) and [Gateway API annotation customizations](/azure/aks/istio-gateway-api#annotation-customizations).
 
-- **Unmanaged NGINX ingress controller:** Install an unmanaged NGINX ingress controller via Helm. The deployment script configures the unmanaged NGINX ingress controller to use a private IP address as a front-end IP address configuration of the `kubernetes-internal` internal load balancer. For more information, see [Create an ingress controller by using an internal IP address](/azure/aks/ingress-basic#create-an-ingress-controller-using-an-internal-ip-address).
+- **Bring your own ingress (Gateway API):** Gateway API is a resource specification rather than an installable component, so you deploy a conformant controller that implements it. Install and operate a maintained implementation, such as [Envoy Gateway](https://gateway.envoyproxy.io/), by using its Helm chart. This bring-your-own approach gives you full control over the ingress data plane version and configuration. Configure the controller so that it uses a private IP address as a front-end IP. For more information, see [Kubernetes Gateway API](https://gateway-api.sigs.k8s.io/) and [Use an internal load balancer with AKS](/azure/aks/internal-lb).
 
 The following workflow corresponds to the previous diagram:
 
 1. A security engineer generates a certificate for the custom domain that the workload uses and saves it in an Azure key vault. You can obtain a valid certificate from a well-known [certification authority](https://en.wikipedia.org/wiki/Certificate_authority).
 
-1. A platform engineer specifies the necessary information in the `main.bicepparams` Bicep parameters file and deploys the Bicep modules to create the Azure resources. The necessary information includes:
+1. A platform engineer specifies the necessary information in a Bicep parameters file and deploys the Bicep modules that create the Azure resources. The necessary information includes:
 
    - A prefix for the Azure resources.
 
@@ -40,15 +40,15 @@ The following workflow corresponds to the previous diagram:
 
    - The name and resource group of the DNS zone that's used to resolve the Azure Front Door custom domain.
 
-1. The [deployment script](/azure/azure-resource-manager/bicep/deployment-script-bicep) creates the following objects in the AKS cluster:
+1. A [Bicep deployment script](/azure/azure-resource-manager/bicep/deployment-script-bicep) creates the following objects in the AKS cluster:
 
-   - The [NGINX ingress controller](https://docs.nginx.com/nginx-ingress-controller/intro/overview/) via Helm if you use an unmanaged NGINX ingress controller.
+   - Your chosen Gateway API implementation, installed via its Helm chart, if you use the bring-your-own ingress option.
 
    - A Kubernetes [deployment](https://kubernetes.io/docs/concepts/workloads/controllers/deployment/) and [service](https://kubernetes.io/docs/concepts/services-networking/service/) for the sample [httpbin](https://httpbin.org/) web application.
 
-   - A Kubernetes [ingress](https://kubernetes.io/docs/concepts/services-networking/ingress/) object to expose the web application via the NGINX ingress controller.
+   - Gateway API resources to expose the web application through the managed or bring-your-own Gateway API implementation.
 
-   - A [SecretProviderClass](/azure/aks/aksarc/secrets-store-csi-driver) custom resource that retrieves the TLS certificate from the specified key vault by using the user-defined managed identity of the [Key Vault provider for Secrets Store CSI Driver](/azure/aks/csi-secrets-store-driver). This component creates a Kubernetes secret that contains the TLS certificate that the ingress object references.
+   - A [SecretProviderClass](/azure/aks/aksarc/secrets-store-csi-driver) custom resource that retrieves the TLS certificate from the specified key vault by using the user-defined managed identity of the [Key Vault provider for Secrets Store CSI Driver](/azure/aks/csi-secrets-store-driver). This component creates a Kubernetes secret that contains the TLS certificate that the Gateway API resources reference.
 
 1. An Azure Front Door [secret resource](/azure/templates/microsoft.cdn/profiles/secrets) is used to manage and store the TLS certificate that's in the key vault. This certificate is used by the [custom domain](/azure/templates/microsoft.cdn/profiles/customdomains) that's associated with the Azure Front Door endpoint. The Azure Front Door profile uses a user-assigned managed identity with the *Key Vault Administrator* role assignment to retrieve the TLS certificate from Key Vault.
 
@@ -69,11 +69,11 @@ The following steps describe the message flow for a request that an external cli
 
 1. The request is forwarded to the *kubernetes-internal* AKS internal load balancer.
 
-1. The request is sent to one of the agent nodes that hosts a pod of the managed or unmanaged NGINX ingress controller.
+1. The request is sent to one of the agent nodes that hosts a pod of the managed or unmanaged Gateway API implementation.
 
-1. One of the NGINX ingress controller replicas handles the request.
+1. One of the Gateway API data plane replicas handles the request.
 
-1. The NGINX ingress controller forwards the request to one of the workload pods.
+1. The Gateway API implementation forwards the request to one of the workload pods.
 
 ### Components
 
@@ -91,7 +91,7 @@ The following steps describe the message flow for a request that an external cli
 
 - [Azure Front Door Premium](/azure/frontdoor/front-door-overview) is a Layer-7 global load balancer and modern cloud content delivery network. It provides fast, reliable, and enhanced security access between your users' and your applications' static and dynamic web content across the globe. You can use Azure Front Door to deliver your content by using the Microsoft global edge network. The network has hundreds of [global and local points of presence](/azure/frontdoor/edge-locations-by-region) distributed around the world. So you can use points of presence that are close to your enterprise and consumer customers. 
 
-  In this solution, Azure Front Door is used to expose an AKS-hosted sample web application via a [Private Link service](/azure/private-link/private-link-service-overview) and the [NGINX ingress controller](https://docs.nginx.com/nginx-ingress-controller/intro/overview/). Azure Front Door is configured to expose a custom domain for the Azure Front Door endpoint. The custom domain is configured to use the Azure Front Door secret that contains a TLS certificate that's read from [Key Vault](/azure/key-vault/general/overview).
+  In this solution, Azure Front Door is used to expose an AKS-hosted sample web application via a [Private Link service](/azure/private-link/private-link-service-overview) and a Gateway API ingress implementation. Azure Front Door is configured to expose a custom domain for the Azure Front Door endpoint. The custom domain is configured to use the Azure Front Door secret that contains a TLS certificate that's read from [Key Vault](/azure/key-vault/general/overview).
 
 - [Azure Web Application Firewall](/azure/web-application-firewall/afds/afds-overview) protects the AKS-hosted applications that are exposed via [Azure Front Door](/azure/frontdoor/front-door-overview) from common web-based attacks, such as the [Open Web Application Security Project (OWASP)](https://owasp.org) vulnerabilities, SQL injections, and cross-site scripting. This cloud-native, pay-as-you-use technology doesn't require licensing. Azure Web Application Firewall provides protection for your web applications and defends your web services against common exploits and vulnerabilities.
 
@@ -131,7 +131,7 @@ The following steps describe the message flow for a request that an external cli
 
   For more information, see [Use the Key Vault provider for Secrets Store CSI Driver in an AKS cluster](/azure/aks/csi-secrets-store-driver) and [Provide an identity to access the Key Vault provider for Secrets Store CSI Driver](/azure/aks/csi-secrets-store-identity-access).
 
-  In this project, an existing Key Vault resource contains the TLS certificate that the ingress Kubernetes object and the custom domain of the Azure Front Door endpoint use.
+  In this project, an existing Key Vault resource contains the TLS certificate that the Gateway API resources and the custom domain of the Azure Front Door endpoint use.
 
 - An [Azure private endpoint](/azure/private-link/private-endpoint-overview) and an [Azure private DNS zone](/azure/dns/private-dns-overview) are created for each of the following resources:
 
@@ -159,11 +159,11 @@ The following steps describe the message flow for a request that an external cli
 
   - A Kubernetes [deployment](https://kubernetes.io/docs/concepts/workloads/controllers/deployment/) and [service](https://kubernetes.io/docs/concepts/services-networking/service/) for the sample [httpbin](https://httpbin.org/) web application.
 
-  - A Kubernetes [ingress](https://kubernetes.io/docs/concepts/services-networking/ingress/) object to expose the web application via the NGINX ingress controller.
+  - Gateway API resources to expose the web application through the managed or bring-your-own Gateway API implementation.
 
-  - A [SecretProviderClass](/azure/aks/aksarc/secrets-store-csi-driver) custom resource that retrieves the TLS certificate from the specified key vault by using the user-defined managed identity of the [Key Vault provider for Secrets Store CSI Driver](/azure/aks/csi-secrets-store-driver). This component creates a Kubernetes secret that contains the TLS certificate referenced by the ingress object.
+  - A [SecretProviderClass](/azure/aks/aksarc/secrets-store-csi-driver) custom resource that retrieves the TLS certificate from the specified key vault by using the user-defined managed identity of the [Key Vault provider for Secrets Store CSI Driver](/azure/aks/csi-secrets-store-driver). This component creates a Kubernetes secret that contains the TLS certificate referenced by the Gateway API resources.
 
-  - (Optional) [NGINX ingress controller](https://docs.nginx.com/nginx-ingress-controller/intro/overview/) via Helm if you opted to use an unmanaged NGINX ingress controller.
+  - (Optional) Your chosen Gateway API implementation, installed via its Helm chart, if you use the bring-your-own ingress option.
 
   - (Optional) [Cert-manager](https://cert-manager.io/docs/)
   
@@ -179,7 +179,7 @@ This scenario uses [Azure Front Door Premium](/azure/frontdoor/front-door-overvi
 
 This architecture uses the Azure Front Door TLS and Secure Sockets Layer (SSL) offload capability to terminate the TLS connection and decrypt the incoming traffic at the Front Door. The traffic is reencrypted before it's forwarded to the origin, which is a web application that's hosted in an AKS cluster. HTTPS is configured as the forwarding protocol on Azure Front Door when Azure Front Door connects to the AKS-hosted workload that's configured as an origin. This practice enforces end-to-end TLS encryption for the entire request process, from the client to the origin. For more information, see [Secure your origin with Private Link in Azure Front Door Premium](/azure/frontdoor/private-link).
 
-The [NGINX ingress controller](https://docs.nginx.com/nginx-ingress-controller/intro/overview/) exposes the AKS-hosted web application. The NGINX ingress controller is configured to use a private IP address as a front-end IP configuration of the `kubernetes-internal` internal load balancer. The NGINX ingress controller uses HTTPS as the transport protocol to expose the web application. For more information, see [Create an ingress controller by using an internal IP address](/azure/aks/ingress-basic#create-an-ingress-controller-using-an-internal-ip-address).
+The Gateway API ingress layer exposes the AKS-hosted web application. Configure the managed application routing Gateway API implementation or your bring-your-own Gateway API implementation to use a private IP address as a front-end IP configuration of the `kubernetes-internal` internal load balancer. The Gateway API implementation uses HTTPS as the transport protocol to expose the web application. For more information, see [Application routing with Gateway API](/azure/aks/app-routing-gateway-api) and [Use an internal load balancer with AKS](/azure/aks/internal-lb).
 
 The [AKS](/azure/aks/intro-kubernetes) cluster is configured to use the following features:
 
@@ -304,32 +304,6 @@ Operational Excellence covers the operations processes that deploy an applicatio
 - Connect your managed service for Prometheus to an [Azure Managed Grafana](/azure/managed-grafana/overview) instance to use it as a data source in a Grafana dashboard. You then have access to multiple prebuilt dashboards that use Prometheus metrics, and you can create custom dashboards.
 
 - Configure all PaaS services, such as Container Registry and Key Vault, to collect diagnostic logs and metrics in an [Azure Monitor Logs](/azure/azure-monitor/logs/log-analytics-workspace-overview) workspace.
-
-## Deploy this scenario
-
-The source code for this scenario is available in [GitHub](https://github.com/Azure-Samples/aks-front-door-end-to-end-tls). This open-source solution is licensed under the [MIT License](https://github.com/Azure-Samples/aks-front-door-end-to-end-tls/blob/main/LICENSE.md).
-
-### Prerequisites
-
-- An active [Azure subscription](/azure/guides/developer/azure-developer-guide#understanding-accounts-subscriptions-and-billing). If you don't have one, create a [free Azure account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn) before you begin.
-
-- [Visual Studio Code](https://code.visualstudio.com/) and the [Bicep extension](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-bicep) on one of the [supported platforms](https://code.visualstudio.com/docs/supporting/requirements#_platforms).
-
-- Azure CLI version 2.58.0 or later. For more information, see [Install Azure CLI](/cli/azure/install-azure-cli).
-
-- An existing [Key Vault](/azure/key-vault/general/overview) resource with a valid TLS certificate for the sample web application.
-
-- An existing [Azure DNS zone](/azure/dns/dns-zones-records) for the name resolution of the [Azure Front Door custom domain](/azure/frontdoor/front-door-custom-domain) via a [CNAME record](https://en.wikipedia.org/wiki/CNAME_record).
-
-### Deployment to Azure
-
-1. Clone the [workbench GitHub repository](https://github.com/Azure-Samples/aks-front-door-end-to-end-tls).
-
-   ```git
-   git clone https://github.com/Azure-Samples/aks-front-door-end-to-end-tls.git
-   ```
-
-1. Follow the instructions in the [README file](https://github.com/Azure-Samples/aks-front-door-end-to-end-tls/blob/main/README.md). You need your Azure subscription information for this step.
 
 ## Contributors
 
