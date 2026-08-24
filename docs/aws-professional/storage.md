@@ -28,7 +28,7 @@ On the AWS platform, cloud storage is typically deployed in three ways:
 In Azure Storage, subscription-bound [storage accounts](/azure/storage/common/storage-account-create) allow you to create and manage the following storage services:
 
 - [Blob storage](/azure/storage/common/storage-account-create) stores any type of text or binary data, such as a document, media file, or application installer. You can set Blob storage for private access or share contents publicly to the Internet. Blob storage serves the same purpose as both AWS S3 and EBS.
-- [Table storage](/azure/cosmos-db/table/quickstart-nodejs) stores structured datasets. Table storage is a NoSQL key-attribute data store that allows for rapid development and fast access to large quantities of data. Similar to AWS' SimpleDB and DynamoDB services.
+- [Table storage](/azure/cosmos-db/table/quickstart-nodejs) stores structured datasets. Table storage is a NoSQL key-attribute data store that allows for rapid development and fast access to large quantities of data. It's similar to AWS SimpleDB and DynamoDB services.
 
 - [Queue storage](/azure/storage/queues/storage-quickstart-queues-nodejs?tabs=passwordless%2Croles-azure-portal%2Cenvironment-variable-windows%2Csign-in-azure-cli) provides messaging for workflow processing and for communication between components of cloud services.
 
