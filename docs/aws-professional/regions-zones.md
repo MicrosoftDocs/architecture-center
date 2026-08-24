@@ -63,6 +63,6 @@ If your primary region isn't paired, or if your requirements are better served b
 
 - [Failure and disaster recovery for Azure applications](/azure/well-architected/reliability/disaster-recovery)
 
-- [Planned maintenance for Linux virtual machines in Azure](/azure/virtual-machines/maintenance-and-updates)
+- [Planned maintenance for virtual machines in Azure](/azure/virtual-machines/maintenance-and-updates)
 
 [paired-regions]: /azure/best-practices-availability-paired-regions
