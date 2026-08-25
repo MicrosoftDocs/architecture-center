@@ -514,11 +514,11 @@
 		</g>
 		<g id="shape269-149" v:mID="269" v:groupContext="shape" transform="translate(276.852,-455.725)">
 			<title>Sheet.269</title>
-			<desc>NGINX ingress controller service Private IP address 10.240.0.7</desc>
+			<desc>Gateway API service Private IP address 10.240.0.7</desc>
 			<v:textBlock v:margins="rect(4,4,4,4)" v:tabSpace="42.5197"/>
 			<v:textRect cx="70.8661" cy="875.967" width="141.74" height="28.3465"/>
 			<rect x="0" y="861.794" width="141.732" height="28.3465" class="st3"/>
-			<text x="4" y="873.27" class="st10" v:langID="1033"><v:paragraph/><v:tabList/>NGINX ingress controller service<v:newlineChar/><tspan
+			<text x="4" y="873.27" class="st10" v:langID="1033"><v:paragraph/><v:tabList/>Gateway API service<v:newlineChar/><tspan
 						x="4" dy="1.2em" class="st11">Private IP address </tspan><tspan class="st29">10.240.0.7</tspan></text>		</g>
 		<g id="shape272-154" v:mID="272" v:groupContext="shape" transform="translate(64.2537,-526.591)">
 			<title>Rectangle.272</title>
@@ -1075,11 +1075,11 @@
 		</g>
 		<g id="shape402-357" v:mID="402" v:groupContext="shape" transform="translate(106.773,-264.516)">
 			<title>Sheet.402</title>
-			<desc>ingress-basic</desc>
+			<desc>Gateway API</desc>
 			<v:textBlock v:margins="rect(4,4,4,4)" v:tabSpace="42.5197"/>
 			<v:textRect cx="31.8898" cy="883.054" width="63.78" height="14.1732"/>
 			<rect x="0" y="875.967" width="63.7795" height="14.1732" class="st3"/>
-			<text x="4" y="885.75" class="st10" v:langID="1033"><v:paragraph/><v:tabList/>ingress-basic</text>		</g>
+			<text x="4" y="885.75" class="st10" v:langID="1033"><v:paragraph/><v:tabList/>Gateway API</text>		</g>
 		<g id="group403-360" transform="translate(81.1723,-257.429)" v:mID="403" v:groupContext="group">
 			<title>Sheet.403</title>
 			<g id="group404-361" v:mID="404" v:groupContext="group">
@@ -1373,11 +1373,11 @@
 		</g>
 		<g id="shape539-488" v:mID="539" v:groupContext="shape" transform="translate(234.332,-169.375)">
 			<title>Sheet.539</title>
-			<desc>Ingress hostname: store.test.com</desc>
+			<desc>HTTPRoute hostname: store.test.com</desc>
 			<v:textBlock v:margins="rect(4,4,4,4)" v:tabSpace="42.5197"/>
 			<v:textRect cx="35.4331" cy="874.459" width="70.87" height="31.3614"/>
 			<rect x="0" y="858.779" width="70.8661" height="31.3614" class="st3"/>
-			<text x="4" y="866.36" class="st10" v:langID="1033"><v:paragraph/><v:tabList/>Ingress<v:newlineChar/><tspan x="4"
+			<text x="4" y="866.36" class="st10" v:langID="1033"><v:paragraph/><v:tabList/>HTTPRoute<v:newlineChar/><tspan x="4"
 						dy="1.2em" class="st11">hostname:<v:newlineChar/></tspan><tspan x="4" dy="1.2em" class="st11">store.test.com</tspan></text>		</g>
 		<g id="group540-493" transform="translate(170.965,-206.829)" v:mID="540" v:groupContext="group">
 			<title>Sheet.540</title>

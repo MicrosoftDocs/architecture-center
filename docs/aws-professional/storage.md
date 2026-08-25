@@ -25,10 +25,10 @@ On the AWS platform, cloud storage is typically deployed in three ways:
 
 - **Shared storage**. Various shared storage services that AWS provides, like Elastic File System (EFS) and the FSx family of managed file systems.
 
-In Azure Storage, subscription-bound [storage accounts](/azure/storage/common/storage-quickstart-create-account) allow you to create and manage the following storage services:
+In Azure Storage, subscription-bound [storage accounts](/azure/storage/common/storage-account-create) allow you to create and manage the following storage services:
 
-- [Blob storage](/azure/storage/common/storage-quickstart-create-account) stores any type of text or binary data, such as a document, media file, or application installer. You can set Blob storage for private access or share contents publicly to the Internet. Blob storage serves the same purpose as both AWS S3 and EBS.
-- [Table storage](/azure/cosmos-db/table-storage-how-to-use-nodejs) stores structured datasets. Table storage is a NoSQL key-attribute data store that allows for rapid development and fast access to large quantities of data. Similar to AWS' SimpleDB and DynamoDB services.
+- [Blob storage](/azure/storage/common/storage-account-create) stores any type of text or binary data, such as a document, media file, or application installer. You can set Blob storage for private access or share contents publicly to the Internet. Blob storage serves the same purpose as both AWS S3 and EBS.
+- [Table storage](/azure/cosmos-db/table/quickstart-nodejs) stores structured datasets. Table storage is a NoSQL key-attribute data store that allows for rapid development and fast access to large quantities of data. It's similar to AWS SimpleDB and DynamoDB services.
 
 - [Queue storage](/azure/storage/queues/storage-quickstart-queues-nodejs?tabs=passwordless%2Croles-azure-portal%2Cenvironment-variable-windows%2Csign-in-azure-cli) provides messaging for workflow processing and for communication between components of cloud services.
 
@@ -40,7 +40,7 @@ Azure also provides other managed file systems, including Azure Managed Lustre, 
 
 [Azure Archive Blob Storage](/azure/storage/blobs/access-tiers-overview#archive-access-tier) is comparable to AWS Glacier storage service. It's intended for rarely accessed data that is stored for at least 180 days and can tolerate several hours of retrieval latency.
 
-For data that is infrequently accessed but must be available immediately when accessed, [Azure Cool Blob Storage tier](/azure/storage/blobs/access-tiers-overview#cool-access-tier) provides cheaper storage than standard blob storage. This storage tier is comparable to AWS S3 - Infrequent Access storage service.
+For data that is infrequently accessed but must be available immediately when accessed, [Azure Cool Blob Storage tier](/azure/storage/blobs/access-tiers-overview#online-access-tiers) provides cheaper storage than standard blob storage. This storage tier is comparable to AWS S3 - Infrequent Access storage service.
 
 ## Object storage access control
 
@@ -115,7 +115,7 @@ On Azure, you can configure many VM types for host caching. When host caching is
 
 | AWS service | Azure service | Description |
 | ----------- | ------------- | ----------- |
-| [Import/Export Disk](https://aws.amazon.com/snowball/disk/details/) | [Import/Export](/azure/storage/common/storage-import-export-service) | A data transport solution that uses secure disks and appliances to transfer large amounts of data. Also offers data protection during transit. |
+| [Import/Export Disk](https://aws.amazon.com/snowball/disk/details/) | [Import/Export](/azure/import-export/storage-import-export-service) | A data transport solution that uses secure disks and appliances to transfer large amounts of data. Also offers data protection during transit. |
 | [Snowball Edge](https://aws.amazon.com/snowball-edge/) | [Data Box](https://azure.microsoft.com/services/storage/databox/) | Petabyte-scale to exabyte-scale data transport solution that uses enhanced-security data storage devices to transfer large amounts of data to and from Azure. |
 
 ## Migration
@@ -138,6 +138,6 @@ Other contributor:
 
 ## See also
 
-- [Microsoft Azure Storage Performance and Scalability Checklist](/azure/storage/common/storage-performance-checklist)
-- [Azure Storage security guide](/azure/storage/common/storage-security-guide)
+- [Microsoft Azure Storage Performance and Scalability Checklist](/azure/storage/blobs/storage-performance-checklist)
+- [Azure Storage security guide](/azure/storage/blobs/security-recommendations)
 - [Best practices for using content delivery networks (CDNs)](../best-practices/cdn.yml)
