@@ -2,7 +2,7 @@
 title: What's New in Azure Architecture Center
 description: New and updated articles in Azure Architecture Center
 author: claytonsiemens77
-ms.date: 08/19/2026
+ms.date: 08/23/2026
 ms.topic: whats-new
 ms.author: pnp
 ---
@@ -59,6 +59,12 @@ The following new and updated articles have recently been published in the Azure
 - [Use site-to-site VPN as failover for Azure ExpressRoute](./reference-architectures/hybrid-networking/expressroute-vpn-failover.md) ([#0b6c02de25](https://github.com/MicrosoftDocs/architecture-center/commit/0b6c02de25))
 - [Hub-spoke network topology using Azure Virtual WAN](./networking/architecture/hub-spoke-virtual-wan-architecture.yml) ([#9774ddf8b4](https://github.com/MicrosoftDocs/architecture-center/commit/9774ddf8b4))
 - [Comparing AWS and Azure regions and zones](./aws-professional/regions-zones.md) ([#f1f9127cec](https://github.com/MicrosoftDocs/architecture-center/commit/f1f9127cec))
+- [Quantum computing integration with classical apps](./example-scenario/quantum/quantum-computing-integration-with-classical-apps.yml) ([#f5fe025929](https://github.com/MicrosoftDocs/architecture-center/commit/f5fe025929))
+- [Connect Azure Databricks to the reference solution](./guide/iot/how-to-connect-databricks-to-solution.md) ([#ddb618c6e0](https://github.com/MicrosoftDocs/architecture-center/commit/ddb618c6e0))
+- [Architectural approaches for storage and data in multitenant solutions](./guide/multitenant/approaches/storage-data.md) ([#1b2ebd1892](https://github.com/MicrosoftDocs/architecture-center/commit/1b2ebd1892))
+- [Architectural approaches for cost management and allocation in a multitenant solution](./guide/multitenant/approaches/cost-management-allocation.md) ([#7308a881b9](https://github.com/MicrosoftDocs/architecture-center/commit/7308a881b9))
+- [Design a secure multitenant RAG inferencing solution](./ai-ml/guide/secure-multitenant-rag.md) ([#0247678b74](https://github.com/MicrosoftDocs/architecture-center/commit/0247678b74))
+- [DevSecOps on Azure Kubernetes Service (AKS)](./guide/devsecops/devsecops-on-aks.md) ([#4849927c23](https://github.com/MicrosoftDocs/architecture-center/commit/4849927c23))
 
 ## July 2026
 
