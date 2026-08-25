@@ -204,7 +204,7 @@ The following [preconfigured estimate in the Azure pricing calculator](https://a
 
 The estimate includes the following services for this architecture:
 
-- **Azure Service Bus Premium** with one messaging unit for reliable transactional event delivery with private networking support. If Premium-only capabilities aren't required, an alternative is Azure Service Bus Standard with [Azure Network Security Perimeter](/azure/private-link/network-security-perimeter-concepts) for `Microsoft.ServiceBus/namespaces`, which helps reduce public endpoint exposure by applying explicit access rules.
+- **Azure Service Bus Premium** with one messaging unit for reliable transactional event delivery with private networking support. If you don't need Premium-only capabilities such as private endpoints, consider Azure Service Bus Standard with [Azure Network Security Perimeter (NSP)](/azure/private-link/network-security-perimeter-concepts#onboarded-private-link-resources) for `Microsoft.ServiceBus/namespaces` to reduce public endpoint exposure by using explicit inbound access rules.
 - **Microsoft Fabric F2 capacity** for eventstream, eventhouse, lakehouse, activator, data agents, and Power BI workloads.
 - **Microsoft Purview Data Governance** for data cataloging, classification, and lineage tracking.
 
