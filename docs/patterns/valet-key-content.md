@@ -128,7 +128,7 @@ Using the Valet Key pattern addresses the security, cost optimization, and perfo
 
 The API generates these tokens to authorized clients using a *user delegation key* based on the API's own Microsoft Entra ID managed identity. Logging is enabled on both the storage account(s) and the token generation API allow correlation between token requests and token usage. The API can use client authentication information or other data available to it to decide which storage account or container to use, such as in a multitenant situation.
 
-A complete sample is available on GitHub at [Valet Key pattern example](https://github.com/mspnp/cloud-design-patterns/tree/main/valet-key). The following code snippets are adapted from that example. This first one shows how the Azure Function (found in **ValetKey.Web**) generates a user delegated shared access signature token using the Azure Function's own managed identity.
+A complete sample is available on GitHub at [Valet Key pattern example](https://github.com/Azure-Samples/cloud-design-patterns/tree/main/valet-key). The following code snippets are adapted from that example. This first snippet shows how the Azure Function (found in **ValetKey.Web**) generates a user delegated shared access signature token using the Azure Function's own managed identity.
 
 ```csharp
 [Function("FileServices")]
@@ -217,7 +217,7 @@ using (var stream = await GetFileToUploadAsync(cancellationToken))
 
 The following guidance might be relevant when implementing this pattern:
 
-- The implementation of the example is available on GitHub at [Valet Key pattern example](https://github.com/mspnp/cloud-design-patterns/tree/main/valet-key).
+- The implementation of the example is available on GitHub at [Valet Key pattern example](https://github.com/Azure-Samples/cloud-design-patterns/tree/main/valet-key).
 - [Grant limited access to Azure Storage resources using shared access signatures (SAS)](/azure/storage/common/storage-sas-overview)
 - [Shared Access Signature Authentication with Service Bus](/azure/service-bus-messaging/service-bus-sas)
 

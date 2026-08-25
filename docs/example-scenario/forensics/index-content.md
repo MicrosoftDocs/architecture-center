@@ -221,14 +221,14 @@ The following components scale with the number of investigations and the size of
 
 #### Cost estimation
 
-To estimate the cost of this architecture for your workload, use the [Azure pricing calculator](https://azure.microsoft.com/pricing/calculator). Configure the following components based on your expected investigation volume and VM disk sizes:
+To estimate the cost of this architecture for your workload, use the [preconfigured estimate in the Azure pricing calculator](https://azure.com/e/f88a6df49691485aa783bab2d417d034). Adjust the values to match your expected investigation volume and VM disk sizes. The estimate includes the following components:
 
-- One general-purpose VM, for example Standard_D2s_v5, for the hybrid runbook worker
-- Azure Blob Storage with the appropriate access tier and estimated total snapshot volume
-- Azure Files with the Standard tier for transient usage
-- Key Vault with the Standard tier
-- Azure Automation job runs based on expected capture frequency
-- Log Analytics with estimated ingestion volume
+- One general-purpose VM (Standard_D2s_v5) for the hybrid runbook worker
+- Azure Blob Storage (Standard, Hot, LRS) for immutable evidence snapshots
+- Azure Files (Standard, Pay-as-you-go) for transient storage during hash computation
+- Key Vault (Standard) for hash-value storage
+- Azure Automation (Process Automation) for runbook execution
+- Azure Monitor (Log Analytics) for log ingestion and retention
 
 ### Operational Excellence
 

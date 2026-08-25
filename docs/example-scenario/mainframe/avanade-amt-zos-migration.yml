@@ -2,8 +2,8 @@
 metadata:
   title: IBM z/OS mainframe migration with Avanade AMT
   description: See how to use the Avanade Automated Migration Technology (AMT) framework to migrate IBM z/OS mainframe workloads to Azure.
-  author: bhbandam
-  ms.author: bhbandam
+  author: swread
+  ms.author: sread
   ms.date: 04/22/2025
   ms.topic: concept-article
   ms.subservice: example-scenario
@@ -23,4 +23,4 @@ products:
   - azure-virtual-network
 thumbnailUrl: /azure/architecture/browse/thumbs/avanade-amt-zos-migration.png
 content: |
-   [!include[](avanade-amt-zos-migration-content.md)]
+   [!INCLUDE[](avanade-amt-zos-migration-content.md)]

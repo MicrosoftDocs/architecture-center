@@ -198,6 +198,18 @@ Consider the following use cases.
 
 - Enable dynamic pricing and predictive infrastructure maintenance.
 
+## Cost optimization
+
+The following [preconfigured estimate in the Azure pricing calculator](https://azure.com/e/72244c05056740bf9244c673a3211b77) reflects the default configuration described in this article. Adjust the values to match your expected event volumes, retention requirements, and capacity needs.
+
+The estimate includes the following services for this architecture:
+
+- **Azure Service Bus Premium** with one messaging unit for reliable transactional event delivery with private networking support.
+- **Microsoft Fabric F2 capacity** for eventstream, eventhouse, lakehouse, activator, data agents, and Power BI workloads.
+- **Microsoft Purview Data Governance** for data cataloging, classification, and lineage tracking.
+
+Copilot Studio is excluded because it's licensed per tenant through Microsoft 365 rather than as a pay-as-you-go Azure resource.
+
 ## Contributors
 
 *Microsoft maintains this article. The following contributors wrote this article.*

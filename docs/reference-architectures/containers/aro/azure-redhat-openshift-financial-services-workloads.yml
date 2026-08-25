@@ -12,6 +12,7 @@ azureCategories:
   - containers
   - hybrid
   - security
+  - open-source
 products:
   - azure-redhat-openshift
 name: Use Azure Red Hat OpenShift in the financial services industry

@@ -58,7 +58,7 @@ As with any design decision, consider any tradeoffs against the goals of the oth
 
 ## Example
 
-The [Leader Election sample on GitHub](https://github.com/mspnp/cloud-design-patterns/tree/main/leader-election) shows how to use a lease on an Azure Storage blob to provide a mechanism for implementing a shared, distributed mutex. This mutex can be used to elect a leader among a group of available worker instances. The first instance to acquire the lease is elected the leader and remains the leader until it releases the lease or isn't able to renew the lease. Other worker instances can continue to monitor the blob lease in case the leader is no longer available.
+The [Leader Election sample on GitHub](https://github.com/Azure-Samples/cloud-design-patterns/tree/main/leader-election) shows how to use a lease on an Azure Storage blob to provide a mechanism for implementing a shared, distributed mutex. This mutex can be used to elect a leader among a group of available worker instances. The first instance to acquire the lease is elected the leader and remains the leader until it releases the lease or isn't able to renew the lease. Other worker instances can continue to monitor the blob lease in case the leader is no longer available.
 
 > A blob lease is an exclusive write lock over a blob. A single blob can be the subject of only one lease at any point in time. A worker instance can request a lease over a specified blob, and it'll be granted the lease if no other worker instance holds a lease over the same blob. Otherwise, the request will throw an exception.
 >
@@ -191,7 +191,7 @@ Note the following points about the sample solution:
 
 The following guidance might also be relevant when implementing this pattern:
 
-- This pattern has a downloadable [sample application](https://github.com/mspnp/cloud-design-patterns/tree/main/leader-election).
+- This pattern has a downloadable [sample application](https://github.com/Azure-Samples/cloud-design-patterns/tree/main/leader-election).
 - [Autoscaling Guidance](/previous-versions/msp-n-p/dn589774(v=pandp.10)). It's possible to start and stop instances of the task hosts as the load on the application varies. Autoscaling can help to maintain throughput and performance during times of peak processing.
 - The [Task-based Asynchronous pattern](/dotnet/standard/asynchronous-programming-patterns/task-based-asynchronous-pattern-tap).
 - [Apache Curator](https://curator.apache.org/) a client library for Apache ZooKeeper.

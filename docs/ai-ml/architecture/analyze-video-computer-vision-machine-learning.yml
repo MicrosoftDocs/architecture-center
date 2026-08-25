@@ -15,6 +15,7 @@ metadata:
 azureCategories:
   - ai-machine-learning
   - media
+  - open-source
 products:
   - azure-machine-learning
   - foundry-tools

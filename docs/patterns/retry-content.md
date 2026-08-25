@@ -49,7 +49,7 @@ If a request still fails after a significant number of retries, it's better for 
 
 ### Idempotency
 
-Consider whether the operation is idempotent. If so, it's inherently safe to retry. Otherwise, retries could cause the operation to be executed more than once, with unintended side effects. For example, a service might receive the request, process the request successfully, but fail to send a response. At that point, the retry logic might re-send the request, assuming that the first request wasn't received.
+Consider whether the operation is idempotent. If so, it's inherently safe to retry. Otherwise, retries could cause the operation to be executed more than once, with unintended side effects. For example, a service might receive the request, process the request successfully, but fail to send a response. At that point, the retry logic might re-send the request, assuming that the first request wasn't received. For consumers that process redelivered messages, see the [Idempotent Consumer pattern](./idempotent-consumer.md).
 
 ### Exception type
 
@@ -100,8 +100,6 @@ Refer to the [Implement a retry policy with .NET](/azure/storage/blobs/storage-r
 - When processing commands that change business data, be aware that retries can result in the action being performed twice, which could be problematic if that action is something like charging a customer's credit card. Using the Idempotence pattern described in [this blog post](https://particular.net/blog/what-does-idempotent-mean) can help deal with these situations.
 
 ## Related resources
-
-- [Reliable web app pattern](../web-apps/guides/enterprise-app-patterns/overview.md#reliable-web-app-pattern) shows you how to apply the retry pattern to web applications converging on the cloud.
 
 - For most Azure services, the client SDKs include built-in retry logic.
 

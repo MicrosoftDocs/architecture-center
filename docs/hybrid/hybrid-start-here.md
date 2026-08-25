@@ -13,7 +13,7 @@ ms.custom:
 
 # Hybrid architecture design
 
-Many organizations need a hybrid approach to analytics, automation, and services because their data is hosted both on-premises and in the cloud. Organizations often extend on-premises data solutions to the cloud. To connect environments, organizations start by [choosing a hybrid network architecture](../reference-architectures/hybrid-networking/index.yml).
+Many organizations need a hybrid approach to analytics, automation, and services because their data is hosted both on-premises and in the cloud. Organizations often extend on-premises data solutions to the cloud. To connect environments, organizations start by [choosing a hybrid network architecture](../reference-architectures/hybrid-networking/hybrid-connectivity-options.md).
 
 ## Learn about hybrid solutions
 
@@ -24,10 +24,10 @@ If you're new to Azure, the best place to start is Microsoft Learn. This free on
 
 ## Path to production
 
-Explore some options for [connecting an on-premises network to Azure](../reference-architectures/hybrid-networking/index.yml):
+Explore some options for [connecting an on-premises network to Azure](../reference-architectures/hybrid-networking/hybrid-connectivity-options.md):
 
 - [Extend an on-premises network using VPN](/azure/expressroute/expressroute-howto-coexist-resource-manager)
-- [Connect an on-premises network to Azure using ExpressRoute](../reference-architectures/hybrid-networking/expressroute-vpn-failover.yml)
+- [Connect an on-premises network to Azure using ExpressRoute](../reference-architectures/hybrid-networking/expressroute-vpn-failover.md)
 
 ## Best practices
 

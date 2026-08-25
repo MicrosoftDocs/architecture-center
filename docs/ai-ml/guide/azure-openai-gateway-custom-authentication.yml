@@ -1,7 +1,7 @@
 ### YamlMime:Architecture
 metadata:
-  title: Provide Custom Authentication to Azure OpenAI in Foundry Models Through a Gateway
-  description: Learn how to implement alternative authentication mechanisms for client applications that communicate with Azure OpenAI in Foundry Models through a gateway.
+  title: Provide Custom Authentication to Foundry Models Through a Gateway
+  description: Learn how to implement alternative authentication mechanisms for client applications that communicate with Foundry Models through a gateway.
   author: claytonsiemens77
   ms.author: pnp
   ms.date: 12/16/2024
@@ -14,10 +14,11 @@ azureCategories:
 products:
   - foundry-tools
   - azure-openai
+  - microsoft-foundry
   - azure-api-management
   - entra-id
-name: Provide custom authentication to Azure OpenAI in Foundry Models through a gateway
-summary: Learn how to implement alternative authentication mechanisms for client applications that communicate with Azure OpenAI in Foundry Models through a gateway.
+name: Provide custom authentication to Foundry Models through a gateway
+summary: Learn how to implement alternative authentication mechanisms for client applications that communicate with Foundry Models through a gateway.
 thumbnailUrl: /azure/architecture/browse/thumbs/azure-openai-gateway-identity-scenario-external-identity-provider.png
 content: |
   [!INCLUDE[](azure-openai-gateway-custom-authentication-content.md)]

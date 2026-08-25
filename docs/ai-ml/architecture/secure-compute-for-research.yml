@@ -2,9 +2,9 @@
 metadata:
   title: Design a Secure Research Environment for Regulated Data
   description: Learn how to design an architecture on Azure for a regulated environment that allows researchers to access sensitive data.
-  author: moodaddy
-  ms.author: clbarlow
-  ms.date: 11/13/2024
+  author: ananyagc5
+  ms.author: ananyag
+  ms.date: 06/16/2026
   ms.topic: example-scenario
   ms.collection: ce-skilling-ai-copilot  
   ms.subservice: example-scenario

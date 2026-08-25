@@ -208,6 +208,22 @@ Fabric is an open, unified, and governed SaaS foundation that you can use to:
 
 - Keep data in place without movement, which reduces the time that data scientists need to provide value.
 
+## Cost Optimization
+
+Cost Optimization focuses on ways to reduce unnecessary expenses and improve operational efficiencies. For more information, see [Design review checklist for Cost Optimization](/azure/well-architected/cost-optimization/checklist).
+
+To estimate the cost of this solution, use the [preconfigured estimate in the Azure pricing calculator](https://azure.com/e/e656290b2a3f499b97ed8dcfaebc5607). The estimate reflects the architecture described in this article with representative sizing for an SMB workload. Adjust the values to match your actual usage patterns, data volumes, and performance requirements.
+
+- Microsoft Fabric pricing depends on the capacity model. The estimate uses F2, which is a cost-effective entry point for SMBs. Consider reserved capacity for predictable workloads to reduce costs.
+
+- Azure Databricks pricing depends on the workload type, tier, and compute hours. The estimate uses Premium tier All-Purpose Compute at 200 hours per month. Use Jobs Compute for scheduled batch workloads to reduce DBU costs.
+
+- Data Lake Storage pricing depends on storage volume, access tier, and transaction counts. The estimate includes 1 TB of hot-tier storage with hierarchical namespace enabled.
+
+- Azure Data Factory pricing depends on the number of activity runs, data movement volumes, and pipeline execution hours.
+
+- Event Hubs pricing depends on the selected tier and throughput units. The estimate uses the Standard tier with one throughput unit.
+
 ## Contributors
 
 *Microsoft maintains this article. The following contributors wrote this article.*

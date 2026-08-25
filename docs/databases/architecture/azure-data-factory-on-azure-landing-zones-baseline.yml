@@ -12,6 +12,7 @@ azureCategories:
   - storage
   - networking
   - security
+  - open-source
 products:
   - azure-data-factory
   - azure-key-vault

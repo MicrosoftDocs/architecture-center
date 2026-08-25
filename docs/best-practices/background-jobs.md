@@ -47,7 +47,7 @@ You can initiate background jobs in several ways. They fall into one of the foll
 
 Event-driven invocation uses a trigger to start the background task. Examples of event-driven triggers include:
 
-- The UI or another job places a message in a queue. The message contains data about an action that occurred, like the user placing an order. The background task listens on this queue for new messages. It reads a message and uses the data as the input to the background job. This pattern is known as *[asynchronous message-based communication](/dotnet/architecture/microservices/architect-microservice-container-applications/asynchronous-message-based-communication)*.
+- The UI or another job places a message in a queue. The message contains data about an action that occurred, like the user placing an order. The background task listens on this queue for new messages. It reads a message and uses the data as the input to the background job. This pattern is known as *[asynchronous message-based communication](/dotnet/architecture/microservices/architect-microservice-container-applications/asynchronous-message-based-communication)*. If the request volume is bursty, use the [Queue-Based Load Leveling pattern](../patterns/queue-based-load-leveling.md) so that the queue buffers demand and the background task processes work at a controlled rate.
 
 - The UI or another job saves or updates a value in storage. The background task monitors the storage and detects changes. It reads the data and uses it as the input to the background job.
 
@@ -91,13 +91,13 @@ If you require a background task to communicate with the calling task to indicat
 
 ## Design for idempotency
 
-Background jobs are especially prone to running more than once for the same logical work item. Queues deliver messages at least once, schedulers can overlap if a job runs longer than the timer interval, and infrastructure restarts can replay partially completed work. Design every background job so that the same input produces the same outcome when the job runs multiple times. For more information, see [Idempotent message processing](../reference-architectures/containers/aks-mission-critical/mission-critical-data-platform.md#idempotent-message-processing).
+Background jobs are especially prone to running more than once for the same logical work item. Queues deliver messages at least once, schedulers can overlap if a job runs longer than the timer interval, and infrastructure restarts can replay partially completed work. Design every background job so that the same input produces the same outcome when the job runs multiple times. For more information, see [Idempotent Consumer pattern](../patterns/idempotent-consumer.md).
 
 ## Hosting environment
 
 You can host background tasks by using a diverse range of Azure platform services:
 
-- **[Azure Functions](#functions):** A serverless compute service that supports event-driven and schedule-driven triggers with automatic scaling. Use [Durable Functions](/azure/azure-functions/durable/durable-functions-overview) for long-running or stateful workflows.
+- **[Azure Functions](#functions):** A serverless compute service that supports event-driven and schedule-driven triggers with automatic scaling. Use [Durable Functions](/azure/durable-task/durable-functions/durable-functions-overview) for long-running or stateful workflows.
 
 - **[Azure Container Apps](#container-apps):** A serverless container platform that supports both long-running services and discrete [jobs](/azure/container-apps/jobs). Jobs run to completion, and you can trigger them manually, on a schedule, or by events. Container Apps uses [KEDA](https://keda.sh/) for event-driven autoscaling, including scale to zero.
 
@@ -115,7 +115,7 @@ The following sections describe these options in more detail and include conside
 
 Functions is a serverless compute service that runs event-driven code. Functions suits background jobs because it supports diverse types of [triggers](/azure/azure-functions/functions-triggers-bindings), including queue messages, blob storage changes, timer schedules, HTTP requests, and Event Grid events.
 
-For short-duration background tasks, Functions provides automatic scaling (including scale to zero) and pay-per-execution billing. For long-running or stateful workflows, use [Durable Functions](/azure/azure-functions/durable/durable-functions-overview), which extends Functions with orchestration capabilities.
+For short-duration background tasks, Functions provides automatic scaling (including scale to zero) and pay-per-execution billing. For long-running or stateful workflows, use [Durable Functions](/azure/durable-task/durable-functions/durable-functions-overview), which extends Functions with orchestration capabilities.
 
 Durable Functions supports several orchestration patterns that directly apply to background job coordination:
 
@@ -139,7 +139,7 @@ Durable Functions supports several orchestration patterns that directly apply to
 
   - **Dedicated (App Service) plan:** Run functions on existing App Service infrastructure. This option is suitable when you have underutilized App Service capacity and want to share compute costs.
 
-- Durable Functions maintains orchestration state automatically through checkpointing. If a function app restarts, the orchestration resumes from its last checkpoint. Design activity functions to be [idempotent](/azure/azure-functions/durable/durable-functions-perf-and-scale) so that retries don't produce duplicate side effects. You can also use [timer triggers](/azure/azure-functions/functions-bindings-timer) to run functions on a schedule without an external event source.
+- Durable Functions maintains orchestration state automatically through checkpointing. If a function app restarts, the orchestration resumes from its last checkpoint. Design activity functions to be [idempotent](/azure/durable-task/durable-functions/durable-functions-perf-and-scale) so that retries don't produce duplicate side effects. You can also use [timer triggers](/azure/azure-functions/functions-bindings-timer) to run functions on a schedule without an external event source.
 
 ### Container Apps
 
@@ -275,7 +275,7 @@ Background tasks must be resilient and recoverable to provide reliable services 
 
   Set up the platform's shutdown grace period long enough for your typical work item to complete. In Kubernetes, set `terminationGracePeriodSeconds` on the pod spec. In Functions Flex Consumption and Premium plans, the platform automatically provides up to 60 minutes for in-progress work to complete during [scale-in](/azure/azure-functions/event-driven-scaling#scale-in-behaviors).
 
-- When you use queues to communicate with background tasks, queues can function as a buffer to store requests while the application is under higher than usual load. This design lets tasks catch up with the UI during less busy periods. It also means that restarts don't block the UI. For more information, see the [Queue-Based Load Leveling pattern](../patterns/queue-based-load-leveling.yml). If some tasks are more important than others, consider implementing the [Priority Queue pattern](../patterns/priority-queue.yml) to ensure that these tasks run before less important tasks.
+- When you use queues to communicate with background tasks, queues can function as a buffer to store requests while the application is under higher than usual load. This design lets tasks catch up with the UI during less busy periods. It also means that restarts don't block the UI. For more information, see the [Queue-Based Load Leveling pattern](../patterns/queue-based-load-leveling.md). If some tasks are more important than others, consider implementing the [Priority Queue pattern](../patterns/priority-queue.md) to ensure that these tasks run before less important tasks.
 
 - Background tasks that messages initiate or that process messages must handle inconsistencies, like messages that arrive out of order, messages that repeatedly cause an error (often known as *poison messages*), and messages that are delivered more than once. Consider the following factors:
 
@@ -307,7 +307,7 @@ Background jobs run without a user present, so failures are silent unless you ac
 
 - **Measure queue wait time, not only processing time.** Business impact is determined by how long a message takes from enqueue to completion. For example, a job that processes in 2 seconds but sits in the queue for 30 minutes causes a 30-minute delay. Track enqueue-to-completion latency alongside per-job processing duration.
 
-- **Correlate across job steps.** Multistep background jobs can span multiple services, queues, and compute instances. Propagate a correlation identifier through every step so that you can trace the full life cycle of a single work item in your logs and [distributed traces](/azure/azure-monitor/app/classic-api).
+- **Correlate across job steps.** Multistep background jobs can span multiple services, queues, and compute instances. Propagate a correlation identifier through every step so that you can trace the full life cycle of a single work item in your logs and [distributed traces](/azure/azure-monitor/app/app-map).
 
 ## Scaling and performance considerations
 
@@ -331,8 +331,8 @@ Background tasks must keep pace with the rate at which work arrives. If tasks fa
 
 ## Related resources
 
-- [Queue-Based Load Leveling pattern](../patterns/queue-based-load-leveling.yml)
-- [Priority Queue pattern](../patterns/priority-queue.yml)
+- [Queue-Based Load Leveling pattern](../patterns/queue-based-load-leveling.md)
+- [Priority Queue pattern](../patterns/priority-queue.md)
 - [Pipes and Filters pattern](../patterns/pipes-and-filters.yml)
 - [Scheduler Agent Supervisor pattern](../patterns/scheduler-agent-supervisor.yml)
 - [Compensating Transaction pattern](../patterns/compensating-transaction.md)

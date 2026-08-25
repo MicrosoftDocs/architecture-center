@@ -1,8 +1,8 @@
 ---
 title: Comparing AWS and Azure messaging services
 description: Compare messaging service differences between Azure and AWS. Know Azure equivalents for Simple Email Service, Simple Queue Service, and messaging components.
-author: johnkoukgit
-ms.author: johnkoukaras
+author: claytonsiemens77
+ms.author: csiemens
 ms.date: 08/10/2021
 ms.topic: concept-article
 ms.subservice: cloud-fundamentals
@@ -23,7 +23,7 @@ AWS Simple Queue Service (SQS) provides a messaging system for connecting applic
 
 - [Queue storage](/azure/storage/queues/storage-quickstart-queues-nodejs?tabs=passwordless%2Croles-azure-portal%2Cenvironment-variable-windows%2Csign-in-azure-cli) is a cloud messaging service that allows communication between application components within Azure.
 
-- [Service Bus](https://azure.microsoft.com/services/service-bus) is a robust messaging system for connecting applications, services, and devices. By using the related [Service Bus relay](/azure/service-bus-relay/relay-what-is-it), Service Bus can also connect to remotely hosted applications and services.
+- [Service Bus](https://azure.microsoft.com/services/service-bus) is a robust messaging system for connecting applications, services, and devices. By using the related [Azure Relay](/azure/azure-relay/relay-what-is-it) capability, Service Bus can also connect to remotely hosted applications and services.
 
 ### Integrating between Azure and AWS messaging services
 

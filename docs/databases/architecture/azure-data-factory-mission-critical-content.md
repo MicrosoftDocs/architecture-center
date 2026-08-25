@@ -40,7 +40,7 @@ There are several key requirements to deliver a mission-critical advanced analyt
 
   - Deployment and rollback deployment pipelines, which enable each regional deployment to synchronize with the correct current version of the model.
 
-  - Service [health modeling](/azure/architecture/reference-architectures/containers/aks-mission-critical/mission-critical-health-modeling) to measure and manage the overall health of a workload.
+  - Service [health modeling](/azure/well-architected/mission-critical/mission-critical-health-modeling) to measure and manage the overall health of a workload.
 
 - Audit trails can be initially stored within a Log Analytics workspace for real-time analysis and operational support. After 30 days, or 90 days if using Microsoft Sentinel, audit trails can be automatically transferred to Azure Data Explorer for long-term retention. This approach allows for interactive queries of up to two years within the Log Analytics workspace and the ability to keep older, infrequently used data at a reduced cost for up to 12 years. Use Azure Data Explorer for data storage to enable running cross-platform queries and visualize data across both Azure Data Explorer and Microsoft Sentinel. This approach provides a cost-effective solution for meeting long-term storage requirements while maintaining support optionality. If there's no requirement to hold excessive data, you should consider deleting it.
 
@@ -141,7 +141,7 @@ Reliability ensures your application can meet the commitments you make to your c
 
 Compared to the baseline architecture, this architecture:
 
-- Aligns with the [mission-critical architecture](/azure/architecture/reference-architectures/containers/aks-mission-critical/mission-critical-intro).
+- Aligns with the [mission-critical architecture](/azure/well-architected/mission-critical/mission-critical-architecture-pattern).
 
 - Follows the guidance from the mission-critical [reliability](/azure/well-architected/mission-critical/mission-critical-design-principles#reliability) design considerations.
 

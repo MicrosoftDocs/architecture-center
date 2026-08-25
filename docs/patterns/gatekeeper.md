@@ -125,5 +125,5 @@ The following cloud design patterns are often used together with the Gatekeeper 
 
 - [Gateway Routing pattern](./gateway-routing.yml)
 - [Gateway Offloading pattern](./gateway-offloading.yml)
-- [Federated Identity pattern](./federated-identity.yml)
+- [Federated Identity pattern](./federated-identity.md)
 - [Valet Key pattern](./valet-key.yml)

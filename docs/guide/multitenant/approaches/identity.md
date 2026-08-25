@@ -28,7 +28,7 @@ You might need to federate with external identity providers (IdPs). You can use 
 
 - **Tenant-specific directories.** Tenants can federate applications with their own IdPs so that they don't need to manage accounts in multiple locations.
 
-For more information, see the [Federated identity pattern](../../../patterns/federated-identity.yml).
+For more information, see the [Federated identity pattern](../../../patterns/federated-identity.md).
 
 If you choose to support tenant-specific IdPs, ensure that you clarify which services and protocols your application supports. For example, determine whether to support the OpenID Connect protocol and the Security Assertion Markup Language (SAML) protocol, or whether to limit federation to Microsoft Entra ID instances.
 

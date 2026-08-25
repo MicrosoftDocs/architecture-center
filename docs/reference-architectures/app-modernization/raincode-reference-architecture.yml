@@ -17,6 +17,7 @@ name: Rehost mainframe applications to Azure with Raincode compilers
 azureCategories:
   - integration
   - databases
+  - open-source
 summary: This architecture shows how the Raincode COBOL compiler modernizes mainframe legacy applications.
 products:
   - azure-virtual-machines

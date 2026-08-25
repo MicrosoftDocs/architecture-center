@@ -172,7 +172,7 @@ Messaging allows for asynchronous, loosely coupled communication between systems
 
 When you use messaging as part of an integration with your tenants' systems, consider whether you should use [SAS tokens for Service Bus](/azure/service-bus-messaging/service-bus-sas) or [Event Hubs](/azure/event-hubs/authorize-access-shared-access-signature). SAS tokens grant limited access to your messaging resources to external users or systems without enabling them to access the rest of your messaging subsystem.
 
-In some scenarios, you might provide different service-level agreements or quality of service guarantees to different tenants. For example, a subset of your tenants might expect to have their data export requests processed more quickly than others. By using the [Priority Queue pattern](../../../patterns/priority-queue.yml), you can create separate queues for different levels of priority. Then, you can use different worker instances to prioritize them accordingly.
+In some scenarios, you might provide different service-level agreements or quality of service guarantees to different tenants. For example, a subset of your tenants might expect to have their data export requests processed more quickly than others. By using the [Priority Queue pattern](../../../patterns/priority-queue.md), you can create separate queues for different levels of priority. Then, you can use different worker instances to prioritize them accordingly.
 
 ### Composable integration components
 

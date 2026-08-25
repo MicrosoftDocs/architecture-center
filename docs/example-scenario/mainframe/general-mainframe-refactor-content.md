@@ -201,7 +201,6 @@ Principal author:
 
 ## Next steps
 
-- For more information, contact [legacy2azure@microsoft.com](mailto:legacy2azure@microsoft.com).
 - [What is ExpressRoute?](/azure/expressroute/expressroute-introduction)
 - [What is Virtual Network?](/azure/virtual-network/virtual-networks-overview)
 - [Introduction to Azure managed disks](/azure/virtual-machines/managed-disks-overview)

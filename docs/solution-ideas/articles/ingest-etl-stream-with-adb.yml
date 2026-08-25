@@ -13,6 +13,7 @@ azureCategories:
   - "analytics"
   - "iot"
   - "databases"
+  - open-source
 products:
   - "azure-databricks"
   - "azure-data-lake-storage"

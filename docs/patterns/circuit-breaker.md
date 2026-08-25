@@ -182,8 +182,6 @@ This strategy enhances resilience that aligns with business justification. It co
 
 ## Related resources
 
-- The [Reliable Web App pattern](../web-apps/guides/enterprise-app-patterns/overview.md#reliable-web-app-pattern) applies the Circuit Breaker pattern to web applications that converge on the cloud.
-
 - The [Retry pattern](./retry.yml) describes how an application can handle anticipated temporary failures when it tries to connect to a service or network resource by transparently retrying an operation that previously failed.
 
 - The [Health Endpoint Monitoring pattern](./health-endpoint-monitoring.yml) describes how a circuit breaker can test the health of a service by sending a request to an endpoint that the service exposes. The service should return information that indicates its status.

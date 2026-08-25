@@ -1,9 +1,10 @@
 ---
 title: Architectural Approaches for Governance and Compliance in Multitenant Solutions
 description: Learn about governance and compliance approaches for multitenant solutions, including data sovereignty, access control, and regulatory standards.
+ai-usage: ai-assisted
 author: johndowns
 ms.author: pnp
-ms.date: 06/25/2025
+ms.date: 08/10/2026
 ms.topic: concept-article
 ms.subservice: architecture-guide
 ms.custom: arb-saas
@@ -42,6 +43,12 @@ Understand whether there are any restrictions on the physical location for your 
 
 For more information about data residency and sovereignty, see the whitepaper [Enabling data residency and data protection in Microsoft Azure regions](https://azure.microsoft.com/mediahandler/files/resourcefiles/achieving-compliant-data-residency-and-security-with-azure/Enabling_Data_Residency_and_Data_Protection_in_Azure_Regions-2021.pdf).
 
+### Tenant lifecycle
+
+Plan how governance and compliance controls apply throughout each tenant's lifecycle. During onboarding, verify the tenant's sovereignty, audit, retention, and access control requirements before you place them into a shared environment or assign them to a deployment stamp. As tenants grow or their obligations change, you might need to migrate their workloads to a different region, move their tenant-specific subscriptions to a different management group, or assign them to a dedicated stamp that provides stronger isolation.
+
+Offboarding also requires planning. Consider how you export tenant data, preserve audit evidence for the required retention period, revoke access, and securely delete data when contractual or regulatory obligations allow it.
+
 ### Tenants' access to data that you store
 
 Tenants sometimes request direct access to the data that you store on their behalf. For example, they might want to ingest their data into their own data lake.
@@ -54,7 +61,7 @@ For more information about integration with tenants' systems and external system
 
 ### Your access to tenants' data
 
-Consider whether your tenants' requirements restrict the personnel who can work with their data or resources. For example, suppose you build a software as a service (SaaS) solution that many different customers use. A government agency might require that only citizens of their country or region are allowed to access the infrastructure and data for their solution. You might meet this requirement by using separate Azure resource groups, subscriptions, or management groups for sensitive customer workloads. You can apply tightly scoped Azure role-based access control (Azure RBAC) role assignments for specific groups of users to work with these resources.
+Consider whether your tenants' requirements restrict the personnel who can work with their data or resources. For example, suppose you build a software as a service (SaaS) solution that many different customers use. A government agency might require that only citizens of their country or region are allowed to access the infrastructure and data for their solution. You might meet this requirement by using separate Azure resource groups or subscriptions for sensitive customer workloads, and by organizing tenant-specific subscriptions under management groups for inherited policy and access control. Review all inherited Azure role-based access control (Azure RBAC) assignments from parent management groups and subscriptions to ensure that nonapproved administrators don't retain access to sensitive workloads. If the shared identity or resource hierarchy can't satisfy the personnel restriction, consider using a separate Microsoft Entra tenant, a separate management-group hierarchy with dedicated subscriptions, or a dedicated environment for those tenants.
 
 ### Aggregation of data from multiple tenants
 
@@ -79,45 +86,49 @@ It's important that you understand whether you need to meet any compliance stand
 >
 > This article doesn't provide specific guidance about how to become compliant with any particular standards. Instead, it provides some general guidance about how to consider compliance and governance in a multitenant solution.
 
-If different tenants need you to follow different compliance standards, plan to comply with the most stringent standard across your entire environment. It's easier to follow one strict standard consistently than to follow different standards for different tenants.
+If different tenants need you to follow different compliance standards, consider whether you can apply a strict common baseline across your environment and then add tenant-specific or segment-specific controls where they're needed.
+
+### Compliance evidence and reporting
+
+Regardless of the isolation model that you choose, plan how you collect, retain, and present compliance evidence for each tenant. Tenants might request audit records, configuration evidence, data lineage details, or proof that you applied specific controls.
+
+Consider using [Microsoft Purview](/purview/purview) to track and classify the data that you store. When tenants request access to their data, you can more easily determine which data sources you should include. Use tools like [Azure Policy](/azure/governance/policy/overview) and the [Defender for Cloud regulatory compliance dashboard](/azure/defender-for-cloud/regulatory-compliance-dashboard) to help verify that your Azure resources continue to meet your governance requirements. Use [Azure Advisor](/azure/advisor/advisor-overview) to identify recommendations across cost, performance, reliability, security, and operational excellence.
+
+Your tenants might require that you demonstrate your compliance with specific standards. Use the [Service Trust Portal](https://servicetrust.microsoft.com) to download and review Microsoft's audit certificates, assessment reports, and other compliance documentation. Some multitenant solutions incorporate Microsoft 365 services such as Microsoft OneDrive, Microsoft SharePoint, and Microsoft Exchange Online. Use [Microsoft Purview portal](https://purview.microsoft.com) and [Microsoft Purview Compliance Manager](/purview/compliance-manager) to help you assess and manage your organization's compliance posture.
 
 ## Approaches and patterns to consider
 
-### Resource tags
+As you design your multitenant solution, define compliance boundaries for groups of tenants that share governance and compliance requirements. A compliance boundary might span multiple deployment stamps or subscriptions, or it might map to dedicated resources for a specific tenant.
 
-Use [resource tags](cost-management-allocation.md#allocate-costs-by-using-resource-tags) to track the tenant identifier for tenant-specific resources or the stamp identifier when you scale by using the [Deployment Stamps pattern](#deployment-stamps-pattern). By using resource tags, you can quickly identify resources that are associated with specific tenants or stamps.
+### Resource identification and querying
+
+Use [resource tags](cost-management-allocation.md#allocate-costs-by-using-resource-tags) to track tenant-specific resources or resources shared within a [deployment stamp](overview.md#deployment-stamps-pattern). Store only non-sensitive, opaque identifiers in tags because [tags are plain text](/azure/azure-resource-manager/management/tag-resources#tag-usage-and-recommendations) and can surface in cost reports, deployment histories, and logs. 
+
+Use [Azure Resource Graph](/azure/governance/resource-graph/overview) to query resource metadata, such as tags, across subscriptions and resource groups so that you can find resources associated with a specific tenant, stamp, or compliance boundary. You can also use Resource Graph to query recent changes to resource properties, but change data is retained for 14 days. If your audit requirements require longer retention, [export the results to a durable store](/azure/governance/resource-graph/changes/resource-graph-changes#data-retention). For durable audit evidence about control-plane operations, use [Azure Monitor activity logs](/azure/azure-monitor/essentials/activity-log) and configure appropriate retention or export.
 
 ### Access control
 
-Use [Azure RBAC](/azure/role-based-access-control/overview) to restrict access to the Azure resources that constitute the multitenant solution. Follow the Azure RBAC [best practices](/azure/role-based-access-control/best-practices), such as applying role assignments to groups instead of users. Scope your role assignments so that they provide the minimum permissions necessary. Avoid long-standing access to resources by using just-in-time access and features like [Microsoft Entra ID Privileged Identity Management](/entra/id-governance/privileged-identity-management/pim-configure).
+Use [Azure RBAC](/azure/role-based-access-control/overview) to restrict access to the Azure resources that constitute the multitenant solution. Follow the Azure RBAC [best practices](/azure/role-based-access-control/best-practices), such as applying role assignments to groups instead of users. Scope your role assignments so that they provide the minimum permissions necessary. Avoid long-standing access to resources by using just-in-time access and features like [Microsoft Entra Privileged Identity Management](/entra/id-governance/privileged-identity-management/pim-configure).
 
-### Azure Resource Graph
+### Shared governance boundaries
 
-Use [Azure Resource Graph](/azure/governance/resource-graph/overview) to work with Azure resource metadata. By using Resource Graph, you can query across a large number of Azure resources, even if they're spread across multiple subscriptions. Resource Graph can query resources of a specific type or identify resources configured in specific ways. You can also use it to track the history of a resource's configuration.
+At the shared end of the isolation spectrum, you apply a common governance baseline across many tenants. This approach often reduces governance cost and operational effort because you centralize policy definitions, compliance reporting, and access control processes. It's a good fit when tenants have similar regulatory requirements and can share the same operational controls.
 
-Resource Graph can help you manage large Azure estates. For example, suppose you deploy tenant-specific Azure resources across multiple Azure subscriptions. By [applying tags to your resources](#resource-tags), you can use the Resource Graph API to find resources that specific tenants or deployment stamps use.
+However, shared governance boundaries increase operational coupling between tenants. Large compliance reporting workloads that you run in your own environment can create resource contention or delays for all tenants. Managed services such as Azure Policy and Defender for Cloud also evaluate resources asynchronously, so compliance reporting freshness can vary across large estates. Monitor shared governance operations carefully, schedule customer-hosted reporting jobs to reduce contention, and design reporting stores and automation to handle growth.
 
-### Microsoft Purview
+### Segmented governance boundaries
 
-Consider using [Microsoft Purview](https://azure.microsoft.com/services/purview) to track and classify the data that you store. When tenants request access to their data, you can easily determine the data sources that you should include.
+Many multitenant solutions need a middle ground between fully shared and fully dedicated governance. You can segment tenants by deployment stamp, subscription, region, or by organizing tenant-specific subscriptions under management groups based on their sovereignty, access, or audit requirements. This segmentation can complement a common baseline: apply controls that all tenants must meet across the environment, and then layer segment-specific policies or operational processes where tenants have different requirements.
 
-### Verify compliance with standards
+The tradeoff is operational complexity. As the number of governance segments grows, you need stronger automation to keep role assignments, Azure Policy definitions, and monitoring settings consistent.
 
-Use tools like [Azure Policy](/azure/governance/policy/overview), the [Defender for Cloud regulatory compliance portal](/azure/defender-for-cloud/regulatory-compliance-dashboard), and [Azure Advisor](https://azure.microsoft.com/services/advisor). These tools help you configure your Azure resources to meet compliance requirements and follow the recommended best practices.
+### Dedicated governance boundaries for sensitive tenants
 
-### Generate compliance documentation
+At the dedicated end of the spectrum, isolate governance controls for specific tenants that have unusually strict compliance or sovereignty requirements. Place these tenants into dedicated subscriptions or stamps, and organize those subscriptions under dedicated management groups so that you can apply separate policies, access boundaries, and operational processes.
 
-Your tenants might require that you demonstrate your compliance with specific standards. Use the [Service Trust Portal](https://servicetrust.microsoft.com) to generate compliance documentation that you can provide to your tenants or to external auditors.
+This approach provides stronger isolation and a clearer compliance boundary when the underlying subscriptions, stamps, or resources are dedicated, but it also increases cost and management overhead. Use it selectively for tenants whose contractual or regulatory requirements justify the extra complexity.
 
-Some multitenant solutions incorporate Microsoft 365 and use services like Microsoft OneDrive, Microsoft SharePoint, and Microsoft Exchange Online. The [Microsoft Purview portal](https://compliance.microsoft.com) helps you understand how these services comply with regulatory standards.
-
-### Deployment Stamps pattern
-
-Consider following the [Deployment Stamps pattern](overview.md#deployment-stamps-pattern) when you need to comply with tenant-specific requirements.
-
-For example, you might deploy stamps of your solution into multiple Azure regions. Then, you can assign new tenants to stamps, based on the regions that they need to have their data located in.
-
-Similarly, a new tenant might introduce strict compliance requirements that you can't meet within your existing solution components. You can consider deploying a dedicated stamp for that tenant, and then configure it according to their requirements.
+Use the [Deployment Stamps pattern](overview.md#deployment-stamps-pattern) when tenant-specific compliance requirements need separate deployment, configuration, or operational controls. For example, deploy stamps of your solution into multiple Azure regions, and assign tenants to stamps based on their data residency or sovereignty requirements. If a tenant has strict compliance requirements that your shared components can't meet, deploy a dedicated stamp for that tenant and configure the stamp according to those requirements.
 
 ## Antipatterns to avoid
 
@@ -146,6 +157,7 @@ Principal author:
 Other contributors:
 
 - [Bohdan Cherchyk](https://www.linkedin.com/in/cherchyk) | Senior Customer Engineer, FastTrack for Azure
+- [Daphne Choong](https://www.linkedin.com/in/daphnecys) | Senior Partner Solution Architect, Enterprise Partner Solutions
 - [Laura Nicolas](https://www.linkedin.com/in/lauranicolasd) | Senior Customer Engineer, FastTrack for Azure
 - [Arsen Vladimirskiy](https://www.linkedin.com/in/arsenv) | Principal Customer Engineer, FastTrack for Azure
 

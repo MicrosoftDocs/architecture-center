@@ -158,7 +158,7 @@ You can also [trace agents by using OpenTelemetry](/azure/foundry/observability/
 
 #### Model operations
 
-This architecture is optimized for learning and isn't intended for production. Plan for model lifecycle management and [model deprecation and retirement](/azure/foundry/concepts/model-lifecycle-retirement) before promoting workloads.
+This architecture is optimized for learning and isn't intended for production. Plan for model lifecycle management and [model deprecation and retirement](/azure/foundry/openai/concepts/model-retirement-schedule) before promoting workloads.
 
 ##### Development
 
@@ -176,7 +176,7 @@ This architecture isn't designed for production deployments, so it omits critica
 
 - Use POC results to choose the right App Service product. Meet demand through horizontal scaling (adjust instance count). Avoid designs that require changing the product tier to handle routine demand.
 
-- This architecture uses pay-as-you-go components. Best-effort resource allocation can introduce noisy neighbor effects. Decide whether you need [provisioned throughput](/azure/foundry/openai/how-to/provisioned-throughput-onboarding) to reserve capacity and achieve predictable performance.
+- This architecture uses pay-as-you-go components. Best-effort resource allocation can introduce noisy neighbor effects. Decide whether you need [provisioned throughput](/azure/foundry/openai/concepts/provisioned-throughput) to reserve capacity and achieve predictable performance.
 
 ### Other design recommendations
 

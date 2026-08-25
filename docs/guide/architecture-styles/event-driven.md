@@ -105,7 +105,7 @@ This architecture provides the following benefits:
 
 - Processing events in order or only one time
 
-  For resiliency and scalability, each consumer type typically runs in multiple instances. Running multiple instances can create a challenge if the events must be processed in order within a consumer type or if [idempotent message processing](/azure/architecture/reference-architectures/containers/aks-mission-critical/mission-critical-data-platform#idempotent-message-processing) logic isn't implemented.
+  For resiliency and scalability, each consumer type typically runs in multiple instances. Running multiple instances can create a challenge if the events must be processed in order within a consumer type or if [idempotent message processing](/azure/architecture/patterns/idempotent-consumer) logic isn't implemented.
 
 - Message coordination across services
 

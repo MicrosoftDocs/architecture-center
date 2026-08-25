@@ -14,6 +14,7 @@ azureCategories:
   - analytics
   - databases
   - storage
+  - open-source
 products:
   - azure-data-lake
   - azure-databricks

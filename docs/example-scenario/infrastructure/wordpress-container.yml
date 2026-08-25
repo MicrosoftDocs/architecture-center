@@ -17,6 +17,7 @@ name: WordPress on Azure Kubernetes Service
 azureCategories:
   - web
   - containers
+  - open-source
 summary: Learn how to use Azure Kubernetes Service (AKS) to deploy a highly scalable and secure installation of WordPress for large, storage-intensive applications.
 products:
   - azure-managed-redis

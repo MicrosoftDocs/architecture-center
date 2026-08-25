@@ -173,12 +173,9 @@ Principal author:
 
 *To see nonpublic LinkedIn profiles, sign in to LinkedIn.*
 
-## Next steps
+## Next step
 
-Review the [Azure database migration guides](/data-migration).
-
-For more information, contact [Azure Data Engineering - Mainframe & Midrange Modernization](mailto:datasqlninja@microsoft.com).
-
+- [Azure Database Migration Guides](/data-migration)
 - [Azure Monitor overview](/azure/azure-monitor/fundamentals/overview)
 - [Introduction to Blob Storage](/azure/storage/blobs/storage-blobs-introduction)
 - [mLogica LIBER*IRIS](https://www.mlogica.com/products/liber-m-mainframe-modernization)

@@ -4,23 +4,23 @@ metadata:
   description: Learn how to modernize IBM mainframe and midrange data. Use a data-first approach to migrate the data to scalable and more secure cloud storage on Azure.
   author: ashish-khandelwal-ms-zz
   ms.author: askhande
-  ms.date: 02/26/2025
-  ms.topic: example-scenario
-  ms.subservice: example-scenario
+  ms.date: 06/17/2026
+  ms.topic: solution-idea
+  ms.subservice: solution-idea
   ai-usage: ai-assisted
   ms.collection:
     - migration
     - onprem-to-azure
-name: Modernize mainframe and midrange data
 azureCategories:
   - migration
-summary: Learn how to modernize IBM mainframe and midrange data. Use a data-first approach to migrate the data to scalable and more secure cloud storage on Azure.
 products:
   - azure-cosmos-db
   - azure-data-lake
   - azure-sql-database
   - azure-sql-managed-instance
   - azure-storage
+name: Modernize mainframe and midrange data
+summary: Learn how to modernize IBM mainframe and midrange data. Use a data-first approach to migrate the data to scalable and more secure cloud storage on Azure.
 thumbnailUrl: /azure/architecture/browse/thumbs/modernize-mainframe-data-azure.png
 content: |
    [!INCLUDE[](modernize-mainframe-data-to-azure-content.md)]

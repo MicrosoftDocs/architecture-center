@@ -37,8 +37,8 @@ Before your migration, review and consider the following general guidance and be
 
 - Define the [monitoring and alerting strategy](/azure/aks/monitor-aks) to help ensure that the application performs as expected.
 - Define the [security](/azure/aks/concepts-security) and compliance requirements for the application and the AKS environment.
-- Define the [access control policies](/azure/aks/manage-azure-rbac) and how to enforce them. Identify any compliance standards that your workload must adhere to.
-- Define the [disaster recovery and business continuity plan](/azure/aks/operator-best-practices-multi-region) for the AKS environment and the application.
+- Define the [access control policies](/azure/aks/entra-id-authorization) and how to enforce them. Identify any compliance standards that your workload must adhere to.
+- Define the [disaster recovery and business continuity plan](/azure/aks/reliability-multi-region-deployment-models) for the AKS environment and the application.
 - Define the [backup](/azure/backup/azure-kubernetes-service-cluster-backup) and restore policies and procedures. Identify the recovery time objective (RTO) and recovery point objective (RPO).
 - Identify any risks or challenges that you might encounter during the deployment.
 - Test the functionality to ensure that the application works as expected before redirecting live traffic to the new AKS cluster.
@@ -162,7 +162,7 @@ Other contributors:
 
 ## Next steps
 
-- [Back up and restore workload clusters by using Velero in AKS hybrid](/azure/aks/hybrid/backup-workload-cluster)
+- [Back up and restore workload clusters by using Velero in AKS hybrid](/azure/aks/aksarc/backup-workload-cluster)
 - [Migrate to AKS](/azure/aks/aks-migration)
 
 ## Related resources

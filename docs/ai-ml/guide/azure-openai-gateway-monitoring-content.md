@@ -23,7 +23,7 @@ Many workloads or organizations need to track the usage of Azure OpenAI models b
 
 - Budget and forecast for future usage.
 
-- Tie modal cost and usage to model performance.
+- Tie model cost and usage to model performance.
 
 You can use the native Azure OpenAI monitoring functionality to track telemetry of the service, but there are challenges.
 
@@ -150,7 +150,7 @@ If a single application accesses a single model, the added complexity of introdu
 
 ## Next steps
 
-A gateway implementation for your workload provides benefits beyond the tactical, multiple back-end routing benefit described in this article. For more information, see [Access Azure OpenAI and other language models through a gateway](./azure-openai-gateway-guide.yml#key-challenges).
+A gateway implementation for your workload provides benefits beyond the tactical, multiple back-end routing benefit described in this article. For more information, see [Access Azure OpenAI and other language models through a gateway](./azure-openai-gateway-guide.md#key-challenges).
 
 ## Related resources
 

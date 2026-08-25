@@ -15,6 +15,7 @@ metadata:
 azureCategories:
   - containers
   - web
+  - open-source
 products:
   - azure-container-apps
   - dotnet

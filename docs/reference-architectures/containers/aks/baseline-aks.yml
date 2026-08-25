@@ -17,6 +17,7 @@ metadata:
 name: Baseline architecture for an Azure Kubernetes Service (AKS) cluster
 azureCategories:
   - containers
+  - open-source
 summary: Reference architecture for a baseline infrastructure that deploys an Azure Kubernetes Service (AKS) cluster.
 products:
   - azure-application-gateway

@@ -191,8 +191,6 @@ Principal author:
 
 ## Next steps
 
-For more information, please contact <legacy2azure@microsoft.com> or check out the following resources:
-
 -   Read the [Raincode technical landscape](https://www.raincode.com/technical-landscape/cobol).
 
 -   [Mainframe and midrange migration](https://azure.microsoft.com/migration/mainframe)

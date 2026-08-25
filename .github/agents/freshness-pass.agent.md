@@ -142,11 +142,14 @@ As their AI assistant, you can help the author with any of these steps if you ar
     - [ ] All feedback from learners has been addressed in the article.
     - [ ] This article follows the requirements of its template.
     - [ ] This article has no linked code, the linked code is fully up to date, or a PR is currently open to update the code.
-    - [ ] The Acrolinx score is as high as I can reasonably make it.
+    - [ ] All GitHub Copilot feedback has been addressed.
     - [ ] The `ms.author` and `author` fields are accurate for the next six months.
     - [ ] The `ms.date` value has been set as my attestation that all of the above has been followed.
+    - [ ] I submitted the [contribution form](https://aka.ms/contributions) for this freshness pass.
 
-    Azure DevOps work item link: <https://dev.azure.com/INSERT-HERE>
+    Azure DevOps work item link: AB#NNNNN
+
+    Updated Visio diagram link: <https://microsoft-my.sharepoint.com/INSERT-HERE>
     ```
 
     **Final instructions for PR**: Instruct them to open the PR in "Draft" mode and not to sign off on it; they never need to mark it ready for review. When all of the checklist items are marked as complete, the PR will automatically enter the contributor workflow. The Patterns and Practices team will contact the author with information about their next steps.

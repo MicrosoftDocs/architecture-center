@@ -121,7 +121,7 @@ In this example, the filters could be implemented as individually deployed Azure
    This diagram shows three unprocessed images on the left of various file types. To the right of those is an Azure Queue Storage pipe with claim check messages for each image, followed by an Azure Function that performs content moderation on the image as a filter. All the images are stored in an Azure Blob Storage account. There's another queue (pipe) and function (filter) that follows the first to handle image resizing. Then there's an ellipsis (…) which represents unshown pipes and filters. The last pipe and filter are responsible for publishing the final, fully processed image to its destination.
 :::image-end:::
 
-Here's an example of what one filter, implemented as an Azure Function, triggered from a Queue Storage pipe with a claim Check to the image, and writing a new claim check to another Queue Storage pipe might look like. We've replaced the implementation with pseudocode in comments for brevity. More code like this can be found in the [demonstration of the Pipes and Filters pattern](https://github.com/mspnp/cloud-design-patterns/tree/main/pipes-and-filters#readme) available on GitHub.
+Here's an example of what one filter, implemented as an Azure Function, triggered from a Queue Storage pipe with a claim Check to the image, and writing a new claim check to another Queue Storage pipe might look like. We've replaced the implementation with pseudocode in comments for brevity. More code like this can be found in the [demonstration of the Pipes and Filters pattern](https://github.com/Azure-Samples/cloud-design-patterns/tree/main/pipes-and-filters#readme) available on GitHub.
 
 ```csharp
 // This is the "Resize" filter. It handles claim checks from input pipe, performs the
@@ -161,7 +161,7 @@ public async Task<string> RunAsync(
 
 You might find the following resources helpful when you implement this pattern:
 
-- A [demonstration of the Pipes and Filters Pattern](https://github.com/mspnp/cloud-design-patterns/tree/main/pipes-and-filters#readme) using the image processing scenario is available on GitHub.
+- A [demonstration of the Pipes and Filters Pattern](https://github.com/Azure-Samples/cloud-design-patterns/tree/main/pipes-and-filters#readme) using the image processing scenario is available on GitHub.
 - [Idempotency patterns](https://blog.jonathanoliver.com/idempotency-patterns), on Jonathan Oliver's blog.
 
 ## Related resources

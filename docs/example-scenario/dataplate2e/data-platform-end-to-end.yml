@@ -17,6 +17,7 @@ name: Analytics end-to-end with Microsoft Fabric
 azureCategories:
   - databases
   - analytics
+  - open-source
 summary: This example scenario demonstrates how to use the family of Microsoft data services to build a modern analytics platform capable of handling the most common data challenges in an organization.
 products:
   - fabric

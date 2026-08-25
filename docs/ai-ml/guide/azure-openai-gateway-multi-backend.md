@@ -1,6 +1,6 @@
 ---
-title: Use a Gateway in Front of Multiple Azure OpenAI Deployments or Instances
-description: Learn how to add a gateway in front of multiple Azure OpenAI model deployments or instances.
+title: Use a Gateway in Front of Foundry Model Deployments or Instances
+description: Learn how to add a gateway in front of multiple model deployments or instances in Microsoft Foundry.
 author: claytonsiemens77
 ms.author: pnp
 ms.date: 05/20/2026
@@ -9,7 +9,7 @@ ms.subservice: architecture-guide
 ms.custom: arb-aiml
 ---
 
-# Use a gateway in front of multiple Azure OpenAI deployments or instances
+# Use a gateway in front of multiple model deployments or instances
 
 Workload architectures that use a hosted model platform (for example, Microsoft Foundry) can be as simple as one or more client applications calling a single model endpoint directly. Some workloads, however, require multiple clients, multiple model deployments, or multiple model-host instances. In those cases, a gateway can act as a programmable routing layer in front of your model back ends.
 
@@ -259,7 +259,7 @@ For business-critical architectures that must survive a complete regional outage
 #### Use API Management (single-region deployment)
 
 :::image type="complex" source="_images/multiple-regions-api-management-single-after.svg" alt-text="Architecture diagram of a client connecting to model-host instances in both West US and East US." lightbox="_images/multiple-regions-api-management-single-after.svg" border="false":::
-   Architecture diagram that shows a client connecting to an API Management instance. That API Management instance is in a resource group called rg-gateway that's in West US. The API Management instance connects to two private endpoints. One private endpoint is in a resource group called rg-aoai-westus in the West US region. The other private endpoint is in a resource group called rg-aoai-eastus in the East US region. The rg-aoai-westus and rg-aoai-east resource groups also contain Azure OpenAI instances, both labeled Active, and each contains a gpt-4 standard deployment.
+   Architecture diagram that shows a client connecting to an API Management instance. That API Management instance is in a resource group called rg-gateway that's in West US. The API Management instance connects to two private endpoints. One private endpoint is in a resource group called rg-aoai-westus in the West US region. The other private endpoint is in a resource group called rg-aoai-eastus in the East US region. The rg-aoai-westus and rg-aoai-east resource groups also contain model instances, both labeled Active, and each contains a gpt-4 standard deployment.
 :::image-end:::
 
 In this topology, API Management is used specifically for the gateway technology. API Management is deployed into a single region. From that gateway instance, you use active-active load balancing across regions. The policies in your gateway reference all of your model-host instances. The gateway requires network line of sight to each back end across regions, either through cross-region virtual network peering or private endpoints. Calls from this gateway to an instance in another region incur more network latency and egress charges.
@@ -337,9 +337,9 @@ Don't implement a unified gateway across geopolitical regions when data residenc
 
 Don't implement a unified gateway solely to increase quota. Use [Global Standard](/azure/ai-foundry/foundry-models/concepts/deployment-types#global-standard) deployments that use Azure's global infrastructure to dynamically route requests to datacenters that have the best capacity for each request.
 
-If clients aren't expected to fail over between regions and you can assign each client to a specific, instead use multiple gateways, one per region, and follow the guidance in one of the previous sections. Don't tie the availability of other regions to the region that contains your gateway as a single point of failure.
+If clients aren't expected to fail over between regions and you can assign each client to a specific region, instead use multiple gateways, one per region, and follow the guidance in one of the previous sections. Don't tie the availability of other regions to the region that contains your gateway as a single point of failure.
 
-Don't implement a unified gateway if your model and version isn't available in all regions exposed by the gateway. Clients need to be routed to the same model and the same model version. For multi-region load-balanced and failover gateways, you need to pick a common model and model version that's available across all affected regions. For more information, see [Model availability](/azure/ai-foundry/foundry-models/concepts/models-sold-directly-by-azure#model-summary-table-and-region-availability). If you can't standardize on model and model version, the benefit of the gateway is limited.
+Don't implement a unified gateway if your model and version aren't available in all regions exposed by the gateway. Clients need to be routed to the same model and the same model version. For multi-region load-balanced and failover gateways, you need to pick a common model and model version that's available across all affected regions. For more information, see [Model availability](/azure/ai-foundry/foundry-models/concepts/models-sold-directly-by-azure#model-summary-table-and-region-availability). If you can't standardize on model and model version, the benefit of the gateway is limited.
 
 ## General recommendations
 
@@ -393,14 +393,14 @@ Although this consideration isn't specific to multiple back ends, each region's 
 
 Azure doesn't provide a complete turnkey solution or reference architecture for building a gateway that's focused on routing traffic across multiple back ends. However, API Management is preferred because the service provides a PaaS-based solution that uses built-in features such as back-end pools, circuit-breaking policies, and custom policies if needed. To evaluate what's available in that service for your workload's multi-back-end needs, see [AI gateway in API Management](/azure/api-management/genai-gateway-capabilities).
 
-Whether you use API Management or build a custom solution, as mentioned in the [introduction article](./azure-openai-gateway-guide.yml#implementation-options), your workload team must build and operate the gateway. The following examples cover some of the previously mentioned use cases. Consider referring to these samples when you build your own proof of concept by using API Management or custom code.
+Whether you use API Management or build a custom solution, as mentioned in the [introduction article](./azure-openai-gateway-guide.md#implementation-options), your workload team must build and operate the gateway. The following examples cover some of the previously mentioned use cases. Consider referring to these samples when you build your own proof of concept by using API Management or custom code.
 
 - **API Management**
   - [Smart load balancing by using API Management](https://github.com/Azure-Samples/openai-apim-lb) contains sample policy code and instructions.
   - [Scaling with API Management](https://github.com/Azure/aoai-apim/) contains sample policy code and instructions for provisioned and standard spillover.
   - The [GenAI gateway toolkit](https://github.com/Azure-Samples/apim-genai-gateway-toolkit) contains example API Management policies together with a load-testing setup for testing the behavior of the policies.
 
-- **Custom code** 
+- **Custom code**
   - [Smart load balancing by using Azure Container Apps](https://github.com/Azure-Samples/openai-aca-lb) contains sample C# code and instructions for building the container and deploying it into your subscription.
 
 ## Multi-back-end routing for other models
@@ -415,7 +415,7 @@ By using these built-in capabilities, you can significantly reduce the amount of
 
 ## Next step
 
-Having a gateway implementation for your workload provides benefits beyond the tactical multiple-back-end routing benefit described in this article. To learn about the other challenges a gateway can solve, see [Key challenges](./azure-openai-gateway-guide.yml#key-challenges).
+Having a gateway implementation for your workload provides benefits beyond the tactical multiple-back-end routing benefit described in this article. To learn about the other challenges a gateway can solve, see [Key challenges](./azure-openai-gateway-guide.md#key-challenges).
 
 ## Related resources
 

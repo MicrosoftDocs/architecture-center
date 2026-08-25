@@ -165,9 +165,9 @@ Use your existing MLOps investments, with some possible adjustments, to deploy g
 
 For RAG and prompting, consider orchestration logic, modifications to data stores such as indexes and schemas, and adjustments to data pipeline logic. Orchestration logic is typically encapsulated in a framework like the Microsoft Agent Framework SDK. You can deploy the orchestrator to different compute resources, including resources where you currently deploy custom models. Also, agent orchestrators can be low-code solutions, such as Foundry Agent Service. For more information about how to deploy a chat agent, see [Baseline Foundry chat reference architecture](../architecture/baseline-microsoft-foundry-chat.yml).
 
-Deployments of changes to database resources, like changes to data models or indexes, are new tasks that need to be handled in GenAIOps. A common practice when you work with large language models is to [use a gateway in front of the large language model](azure-openai-gateway-guide.yml).
+Deployments of changes to database resources, like changes to data models or indexes, are new tasks that need to be handled in GenAIOps. A common practice when you work with large language models is to [use a gateway in front of the large language model](azure-openai-gateway-guide.md).
 
-Many generative AI architectures that consume platform-hosted language models, like those served from Azure OpenAI, include a [gateway like Azure API Management](azure-openai-gateway-guide.yml#implementation-options). The gateway use cases include load balancing, authentication, and monitoring. The gateway can play a role in deployment of newly trained or fine-tuned models, which allows you to progressively roll out new models. The use of a gateway, along with model versioning, enables you to minimize risk when you deploy changes and to roll back to previous versions when problems occur.
+Many generative AI architectures that consume platform-hosted language models, like those served from Azure OpenAI, include a [gateway like Azure API Management](azure-openai-gateway-guide.md#implementation-options). The gateway use cases include load balancing, authentication, and monitoring. The gateway can play a role in deployment of newly trained or fine-tuned models, which allows you to progressively roll out new models. The use of a gateway, along with model versioning, enables you to minimize risk when you deploy changes and to roll back to previous versions when problems occur.
 
 Deployments of elements that are specific to generative AI, such as the orchestrator, should follow proper operational procedures:
 
@@ -203,7 +203,7 @@ Solutions that use generative models to reason over grounding data use [metrics]
 
 Solutions that use generative models for nonpredictive tasks, like RAG solutions, often benefit from human feedback from users to evaluate usefulness sentiments. User interfaces can capture feedback like thumbs up or down. You can use this data to periodically evaluate the responses.
 
-A typical pattern for generative AI solutions is to [deploy a gateway in front of the generative models](azure-openai-gateway-guide.yml). One of the use cases for the gateway is to [monitor the foundation models](azure-openai-gateway-monitoring.yml). You can use the gateway to log input prompts and model output.
+A typical pattern for generative AI solutions is to [deploy a gateway in front of the generative models](azure-openai-gateway-guide.md). One of the use cases for the gateway is to [monitor the foundation models](azure-openai-gateway-monitoring.yml). You can use the gateway to log input prompts and model output.
 
 Another key area to monitor for generative solutions is content safety. The goal is to moderate responses and detect harmful or undesirable content. [Microsoft Azure AI Content Safety Studio](/azure/ai-services/content-safety/overview#content-safety-studio) is a tool that you can use to moderate content.
 

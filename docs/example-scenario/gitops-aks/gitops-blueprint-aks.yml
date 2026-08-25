@@ -12,6 +12,7 @@ metadata:
 azureCategories:
   - containers
   - devops
+  - open-source
 products:
   - azure-kubernetes-service
   - github

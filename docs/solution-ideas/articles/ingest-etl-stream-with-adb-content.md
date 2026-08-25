@@ -65,6 +65,14 @@ This solution is inspired by the system that Providence Health Care built for re
 - Healthcare and life sciences
 - Energy suppliers
 
+## Cost Optimization
+
+Cost Optimization focuses on ways to reduce unnecessary expenses and improve operational efficiencies. For more information, see [Design review checklist for Cost Optimization](/azure/well-architected/cost-optimization/checklist).
+
+To estimate the cost of this architecture, use the [preconfigured estimate in the Azure pricing calculator](https://azure.com/e/95d70fad3eaf46c48ccbf2f47c271655). Adjust the values to match your expected data volumes, cluster sizes, and pipeline run frequency.
+
+Azure Databricks compute is the primary cost driver in this architecture. Configure cluster auto-termination and use jobs compute instead of all-purpose compute for production workloads to reduce costs.
+
 ## Next steps
 
 - [Build an ETL pipeline with Lakeflow Declarative Pipelines](/azure/databricks/getting-started/data-pipeline-get-started)

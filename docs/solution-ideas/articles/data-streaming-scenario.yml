@@ -16,6 +16,7 @@ metadata:
 name: Data streaming with AKS
 azureCategories:
   - databases
+  - open-source
 summary: Use AKS to easily ingest and process a real-time data stream, with millions of data points collected via sensors.
 products:
   - azure-app-service

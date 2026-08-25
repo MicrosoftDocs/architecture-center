@@ -1,5 +1,5 @@
 ---
-title: Develop a RAG Solution - Preparation Phase
+title: Develop a RAG Solution on Azure - Preparation Phase
 description: Learn how to analyze and gather representative content such as documents, images, videos, and audio files and develop test queries to validate your RAG solution.
 author: claytonsiemens77
 ms.author: pnp

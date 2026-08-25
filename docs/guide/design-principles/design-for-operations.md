@@ -40,4 +40,4 @@ Robust logging and tracing are especially important in cloud applications. Inclu
 
 <!-- links -->
 
-[monitoring]: ../../best-practices/monitoring.yml
+[monitoring]: ../../best-practices/monitoring.md

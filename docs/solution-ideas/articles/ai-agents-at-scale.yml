@@ -9,6 +9,7 @@ metadata:
   ms.subservice: solution-idea
 azureCategories:
   - ai-machine-learning
+  - open-source
 products:
   - azure-cognitive-search
   - azure-openai

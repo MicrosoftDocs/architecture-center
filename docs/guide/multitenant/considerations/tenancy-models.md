@@ -1,14 +1,12 @@
 ---
-  title: Tenancy Models for a Multitenant Solution
-  description: Learn about various tenancy models for a multitenant solution and how to choose the best multitenant architecture for your scenario.
-  author: johndowns
-  ms.author: pnp
-  ms.date: 06/11/2025
-  ms.topic: concept-article
-  ms.subservice: architecture-guide
-  ms.custom:
-    - arb-saas
-# thumbnailUrl: /azure/architecture/browse/thumbs/map-logical-physical.png
+title: Tenancy Models for a Multitenant Solution
+description: Learn about various tenancy models for a multitenant solution and how to choose the best multitenant architecture for your scenario.
+author: johndowns
+ms.author: pnp
+ms.date: 06/11/2025
+ms.topic: concept-article
+ms.subservice: architecture-guide
+ms.custom: arb-saas
 ---
 
 # Tenancy models for a multitenant solution

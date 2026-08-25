@@ -109,11 +109,9 @@ Principal authors:
 
 *To see nonpublic LinkedIn profiles, sign in to LinkedIn.*
 
-## Next steps
+## Next step
 
-- For more information, email [Azure Data Engineering - Mainframe & Midrange Modernization](mailto:datasqlninja@microsoft.com) (datasqlninja\@microsoft.com).
-
-- Read the [Azure Database Migration Guides](https://datamigration.microsoft.com/).
+- [Azure Database Migration Guides](https://datamigration.microsoft.com/)
 
 ## Related resource
 

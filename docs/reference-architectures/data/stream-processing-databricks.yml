@@ -15,6 +15,7 @@ name: Stream processing with Azure Databricks
 azureCategories:
   - analytics
   - databases
+  - open-source
 summary: Create an end-to-end stream processing pipeline in Azure by using Azure Databricks.
 products:
   - azure-cosmos-db  

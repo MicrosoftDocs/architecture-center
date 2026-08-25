@@ -101,7 +101,7 @@ This approach is ideal for scenarios where low latency and continuous updates ar
 ### Reliability considerations for streaming
 
 - Use checkpointing to guarantee at-least-once processing and recover from failures
-- Design transformations to be idempotent to handle potential duplicate processing
+- Design transformations to be [idempotent](../../patterns/idempotent-consumer.md#idempotent-processing-beyond-messaging) to handle potential duplicate processing.
 - Implement [watermarking](/azure/databricks/structured-streaming/watermarks) for late-arriving events and out-of-order processing
 - Use dead letter queues for messages that can't be processed
 

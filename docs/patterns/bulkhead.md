@@ -73,7 +73,7 @@ Consider the following points as you decide how to implement this pattern:
 
 - Use built-in platform controls, such as Azure API Management rate limits, Azure Cosmos DB request unit (RU) isolation, and resource limits in Azure Kubernetes Service (AKS) or Azure Container Apps. Don't re-create these throttling and isolation mechanisms in your application code.
 
-- AI and inference workloads often require strict bulkheads because of deployment-level quotas and concurrency limits, for example, isolating Azure OpenAI deployments per workload or per tenant.
+- AI and inference workloads often require strict bulkheads because of deployment-level quotas and concurrency limits. For example, isolate model deployments or Foundry resources per workload or per tenant.
 
 ## When to use this pattern
 

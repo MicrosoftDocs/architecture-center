@@ -112,7 +112,7 @@ Operational Excellence covers the operations processes that deploy an applicatio
 
 Unisys demonstrates operational excellence by maintaining a familiar environment to the staff, while including new services like Site Recovery to provide DR failover.
 
-You can optimize your operational efficiency by deploying your solution with Azure Resource Manager templates and by using Azure Monitor to measure and improve your performance. For more information, see [DevOps architecture design](/azure/architecture/guide/devops/devops-start-here).
+You can optimize your operational efficiency by deploying your solution with Azure Resource Manager templates and by using Azure Monitor to measure and improve your performance. For more information, see [DevOps architecture design](/azure/architecture/guide/devops/devops-get-started).
 
 ### Performance Efficiency
 
@@ -132,8 +132,6 @@ Principal authors:
 *To see nonpublic LinkedIn profiles, sign in to LinkedIn.*
 
 ## Next steps
-
-For more information, contact **[legacy2azure@microsoft.com](mailto:legacy2azure@microsoft.com)**, or see the following resources:
 
 - [Azure mainframe and midrange migration](https://azure.microsoft.com/migration/mainframe)
 - [Create, change, or delete a network interface](/azure/virtual-network/virtual-network-network-interface)

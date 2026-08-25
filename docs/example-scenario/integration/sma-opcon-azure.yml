@@ -10,6 +10,7 @@ metadata:
 azureCategories:
   - containers
   - hybrid
+  - open-source
 products:
   - azure-kubernetes-service
   - azure-private-link

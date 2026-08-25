@@ -97,7 +97,7 @@ Your architecture might differ from the simple hub-spoke architecture described 
 
 - To replace Azure Firewall with a custom NVA, [deploy highly available NVAs](/azure/architecture/networking/guide/network-virtual-appliance-high-availability).
 
-- To replace the virtual network gateway with a custom software-defined WAN (SD-WAN) NVA, see [SD-WAN integration with Azure hub-spoke network topologies](/azure/architecture/networking/guide/sdwan-integration-in-hub-and-spoke-network-topologies).
+- To replace the virtual network gateway with a custom software-defined WAN (SD-WAN) NVA, see [SD-WAN integration with Azure hub-spoke network topologies](/azure/architecture/networking/guide/sd-wan-integration-hub-spoke-network-topologies).
 
 - To provide transitivity between your ExpressRoute and VPN or SDWAN, or to customize prefixes advertised over Border Gateway Protocol (BGP) on Azure virtual network gateways, see [Route Server support for ExpressRoute and Azure VPN](/azure/route-server/expressroute-vpn-support).
 
@@ -161,7 +161,7 @@ The topology in this architectural design facilitates egress flows. While Azure 
 
 The Azure Firewall in the hub sits between every spoke and the internet, on-premises networks, and other spokes that route through it. Plan for how network address translation affects workload design:
 
-- **Outbound flows leave a spoke sourced from one of the firewall's public IP addresses.** This is source network address translation (SNAT). Azure Firewall uses one of the attached public IPs for each outbound flow, so partner allowlists and audit logs need to cover the entire set of IP addresses attached to the firewall. Use a [public IP address prefix](/azure/virtual-network/ip-services/public-ip-address-prefix) to express that set as a contiguous range.
+- **Outbound flows leave a spoke sourced from one of the firewall's public IP addresses.** This is source network address translation (SNAT). Azure Firewall uses one of the attached public IPs for each outbound flow, so partner allow lists and audit logs need to cover the entire set of IP addresses attached to the firewall. Use a [public IP address prefix](/azure/virtual-network/ip-services/public-ip-address-prefix) to express that set as a contiguous range.
 
   The number of attached public IP addresses also sets the SNAT port budget and therefore the concurrent outbound connection ceiling for every spoke that egresses through the firewall. To scale beyond what attached public IPs alone provide, [attach an Azure NAT Gateway to the `AzureFirewallSubnet`](/azure/nat-gateway/tutorial-hub-spoke-nat-firewall). NAT Gateway becomes the outbound path for the firewall, provides up to 16 public IPs that downstream systems need to allowlist, and significantly increases the available SNAT port pool. Return traffic still flows back through the firewall, which preserves flow symmetry.
 
@@ -235,7 +235,7 @@ Use [availability zones](/azure/reliability/availability-zones-overview) for Azu
 
 We recommend that you use at least one hub per region and that you connect only spokes from the same region to those hubs. This configuration helps bulkhead regions to avoid failures in one region's hub that could cause widespread network routing failures in unrelated regions.
 
-For higher availability, you can use ExpressRoute and a VPN for failover. For more information, see [Connect an on-premises network to Azure by using ExpressRoute with VPN failover](../../reference-architectures/hybrid-networking/expressroute-vpn-failover.yml) and [Design and architect ExpressRoute for resiliency](/azure/expressroute/design-architecture-for-resiliency).
+For higher availability, you can use ExpressRoute and a VPN for failover. For more information, see [Connect an on-premises network to Azure by using ExpressRoute with VPN failover](../../reference-architectures/hybrid-networking/expressroute-vpn-failover.md) and [Design and architect ExpressRoute for resiliency](/azure/expressroute/design-architecture-for-resiliency).
 
 Because of how Azure Firewall implements FQDN application rules, ensure that all resources that egress through the firewall use the same DNS provider as the firewall itself. Otherwise, Azure Firewall might block legitimate traffic because the firewall's IP resolution of the FQDN differs from the traffic originator's IP resolution of the same FQDN. You can include Azure Firewall proxy in the spoke DNS resolution to keep FQDNs in sync with the traffic originator and with Azure Firewall.
 
@@ -357,8 +357,8 @@ If a constraint blocks FastPath, scale horizontally instead. Deploy multiple hub
 
 This deployment includes one hub virtual network and two connected spokes and deploys an Azure Firewall instance and Azure Bastion host. Optionally, the deployment can include VMs in the first spoke network and a VPN gateway. To create network connections, you can choose between virtual network peering or Virtual Network Manager connected groups. Each method has several deployment options.
 
-- [Hub-spoke with virtual network peering deployment](/samples/mspnp/samples/hub-and-spoke-deployment)
-- [Hub-spoke with Virtual Network Manager connected groups deployment](/samples/mspnp/samples/hub-and-spoke-deployment-with-connected-groups/)
+- [Hub-spoke with virtual network peering deployment](https://github.com/Azure-Samples/azure-hub-spoke/tree/main/hub-spoke)
+- [Hub-spoke with Virtual Network Manager connected groups deployment](https://github.com/Azure-Samples/azure-hub-spoke/tree/main/hub-spoke-connected-group)
 
 ## Contributors
 

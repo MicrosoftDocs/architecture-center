@@ -18,7 +18,7 @@ ms.subservice: architecture-guide
 
 Mission-critical systems strive to minimize single points of failure by building redundancy and self-healing capabilities in the solution as much as possible. Any unified entry point of the system can be considered a point of failure. If this component experiences an outage, the entire system goes offline for the user. When choosing a routing service, it's important to consider the reliability of the service itself.
 
-The [architecture for a mission-critical application](/azure/architecture/reference-architectures/containers/aks-mission-critical/mission-critical-intro) uses Azure Front Door because of its high uptime service-level agreement (SLA) and a rich feature set:
+The [networking design for a mission-critical application](/azure/well-architected/mission-critical/mission-critical-networking-connectivity#global-traffic-routing) uses Azure Front Door because of its high uptime service-level agreement (SLA) and a rich feature set:
 
 - Route traffic to multiple regions, in either an active-active or active-passive model
 - Automatic rerouting to the next optimal point of presence (PoP) when a PoP is unhealthy
@@ -163,7 +163,7 @@ If there are dedicated public IP addresses, consider whether you should implemen
 
 ### Health modeling
 
-Mission-critical design methodology requires a system [health model](/azure/architecture/reference-architectures/containers/aks-mission-critical/mission-critical-health-modeling) that gives you overall observability of the solution and its components. When you use multiple traffic ingress paths, you need to monitor the health of each path. If your traffic is rerouted to the secondary ingress path, your health model should reflect the fact that the system is still operational but that it's running in a degraded state.
+Mission-critical design methodology requires a system [health model](/azure/well-architected/mission-critical/mission-critical-health-modeling) that gives you overall observability of the solution and its components. When you use multiple traffic ingress paths, you need to monitor the health of each path. If your traffic is rerouted to the secondary ingress path, your health model should reflect the fact that the system is still operational but that it's running in a degraded state.
 
 Include these questions in your health model design:
 

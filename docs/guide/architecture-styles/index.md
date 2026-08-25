@@ -141,7 +141,7 @@ Consider the following types of challenges when you select an architecture style
 - [Cloud design patterns](/azure/architecture/patterns)
 - [Performance testing and antipatterns for cloud applications](/azure/architecture/antipatterns)
 - [Architect multitenant solutions on Azure](/azure/architecture/guide/multitenant/overview)
-- [Mission-critical workload architecture on Azure](/azure/architecture/reference-architectures/containers/aks-mission-critical/mission-critical-intro)
+- [Mission-critical workloads on Azure](/azure/well-architected/mission-critical/mission-critical-overview)
 - [Architecture for startups](/azure/architecture/guide/startups/startup-architecture)
 
 [ball-of-mud]: https://en.wikipedia.org/wiki/Big_ball_of_mud

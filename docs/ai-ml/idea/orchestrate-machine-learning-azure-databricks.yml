@@ -14,6 +14,7 @@ metadata:
 name: Use Azure Databricks to orchestrate MLOps
 azureCategories:
   - ai-machine-learning
+  - open-source
 summary: Learn about an approach for machine learning operations (MLOps) that uses Azure Databricks to run model training and batch scoring.
 products:
   - azure-databricks

@@ -5,13 +5,11 @@ This reference architecture demonstrates a common enterprise workload that uses 
 
 ## Architecture
 
-:::image type="complex" source="../_images/app-service-environment.svg" alt-text="Diagram that shows an architecture for an App Service Environment deployment." lightbox="../_images/app-service-environment.svg" border="false":::
+:::image type="complex" source="../_images/app-service-environment.svg" alt-text="Diagram that shows a reference architecture for an App Service Environment deployment." lightbox="../_images/app-service-environment.svg" border="false":::
 The diagram shows a secure, zone‑redundant App Service Environment inside an Azure virtual network. Traffic enters through Application Gateway from the internet, then routes to the ILB of the App Service Environment that hosts a web app, a private API, and a function app. Traffic flows to the web app. Outbound traffic flows through Azure Firewall. The environment connects to Azure services like Azure Service Bus, Azure Cosmos DB, Azure SQL Database, and Azure Key Vault through private endpoints and private Domain Name System (DNS). Azure Managed Redis connects to the web app by way of a two-sided arrow. A dashed arrow points from GitHub Actions outside the virtual network to a jump box virtual machine (VM) in a subnet. Another dashed arrow points from this subnet to the App Service Environment subnet. Microsoft Entra ID is in the right top corner of the diagram to indicate that it handles authentication.
 :::image-end:::
 
 *Download a [Visio file](https://arch-center.azureedge.net/app-service-environment.vsdx) of this architecture.*
-
-:::image type="icon" source="../../../_images/github.png"::: A reference implementation for this architecture is available on [GitHub](https://github.com/mspnp/app-service-environments-ILB-deployments).
 
 ### Workflow
 
@@ -21,7 +19,7 @@ You can deploy App Service Environment in two ways:
 
 - As an *internal* App Service Environment that has an internal IP address that belongs to an internal load balancer (ILB)
 
-This reference architecture deploys an enterprise web application in an internal App Service Environment, also known as an *ILB App Service Environment*. Use an ILB App Service Environment in scenarios that require the following capabilities:
+This reference architecture describes how to deploy an enterprise web application in an internal App Service Environment, also known as an *ILB App Service Environment*. Use an ILB App Service Environment in scenarios that require the following capabilities:
 
 - Host intranet applications with enhanced security in the cloud and access them by way of a site-to-site VPN or Azure ExpressRoute.
 
@@ -31,9 +29,9 @@ This reference architecture deploys an enterprise web application in an internal
 
 Always deploy an App Service Environment in its own subnet in the enterprise virtual network. This approach maintains strict control of incoming and outgoing traffic. Within this subnet, Azure App Service applications run in one or more [App Service plans](/azure/app-service/overview-hosting-plans), which are collections of physical resources required to run the app. Depending on the complexity and resource requirement, multiple apps can share an App Service plan. The App Service Environment infrastructure manages all resources that these hosted apps require, including storage, compute, and scaling.
 
-This reference implementation deploys a web app named *Voting App*, which interacts with a private web API and a function. It also deploys a mock web app named *Test App* to demonstrate multiple-app deployments. In the reference implementation, each App Service app runs in its own App Service plan, which enables independent scaling when needed.
+This architecture describes a sample web app named *Voting App*, which interacts with a private web API and a function. It also includes a mock web app named *Test App* to demonstrate multiple-app deployments. You can optionally run each App Service app in its own App Service plan, which enables independent scaling when needed.
 
-The simple voting app in this implementation lets users view existing entries, create new entries, and vote on existing entries. The web API creates and retrieves entries and votes. The data is stored in an Azure SQL database. To demonstrate asynchronous data updates, the web app queues newly added votes in a Service Bus instance. The function picks up queued votes and updates the SQL database. Azure Cosmos DB stores a mock-up ad that the web app retrieves to display in the browser. The application uses Azure Managed Redis for cache management. A Balanced Optimized tier of Azure Managed Redis is configured in the same virtual network as the App Service Environment, and it runs in its own subnet. This setup provides enhanced security and isolation for the cache.
+The simple voting app in this architecture lets users view existing entries, create new entries, and vote on existing entries. The web API creates and retrieves entries and votes. The data is stored in an Azure SQL database. To demonstrate asynchronous data updates, the web app queues newly added votes in a Service Bus instance. The function picks up queued votes and updates the SQL database. Azure Cosmos DB stores a mock-up ad that the web app retrieves to display in the browser. The application uses Azure Managed Redis for cache management. A Balanced Optimized tier of Azure Managed Redis is configured in the same virtual network as the App Service Environment, and it runs in its own subnet. This setup provides enhanced security and isolation for the cache.
 
 The web apps are the only components that are reachable from the internet. Internet traffic must pass through Azure Application Gateway, which is protected by a WAF. An internet client can't access the API or the function app.
 
@@ -59,15 +57,13 @@ The diagram shows a virtual network that includes two subnets, the Application G
 
 An internal App Service Environment can host several web apps and APIs that have HTTP endpoints. These applications aren't exposed to the public internet because the ILB IP address can only be accessed from within the virtual network. [Application Gateway](/azure/application-gateway/overview) selectively exposes these applications to the internet. The App Service Environment assigns a default URL to each App Service application as `<default-appName>.<app-service-environment-domain>.appserviceenvironment.net`. A [private DNS zone](/azure/dns/private-dns-overview) is created that maps the App Service Environment domain name to the App Service Environment ILB IP address. This approach avoids custom DNS for app access within the virtual network.
 
-Application Gateway is configured to include a [listener](/azure/application-gateway/configuration-overview#listeners) that accepts HTTP requests on the gateway's IP address. For simplicity, this implementation doesn't use a public DNS name registration. You must modify the localhost file on your computer to point an arbitrarily chosen URL to the Application Gateway IP address. The listener uses a self-signed certificate to process these requests. 
+Application Gateway is configured to include a [listener](/azure/application-gateway/configuration-overview#listeners) that accepts HTTP requests on the gateway's IP address. For simplicity, this architecture doesn't use a public DNS name registration. If you implement this architecture, you must modify the hosts file on your computer to point an arbitrarily chosen URL to the Application Gateway IP address. The listener uses a self-signed certificate to process these requests.
 
 Application Gateway has [back-end pools](/azure/application-gateway/configuration-overview#backend-pool) for each App Service application's default URL. A [routing rule](/azure/application-gateway/configuration-overview#request-routing-rules) is configured to connect the listener to the back-end pool. 
 
 [HTTP settings](/azure/application-gateway/configuration-overview) determine whether the connection between the gateway and the App Service Environment uses encryption. These settings also override the incoming HTTP host header with a host name from the back-end pool. This implementation uses default certificates created for the default App Service Environment app URLs, and the gateway trusts those certificates. The request redirects to the default URL of the corresponding app. 
 
-The private [DNS linked to the virtual network](/azure/dns/private-dns-virtual-network-links) forwards this request to the ILB IP address. The App Service Environment then forwards the request to the requested app service. Any HTTP communication within the App Service Environment apps goes through private DNS. You must configure the listener, back-end pool, routing rule, and HTTP settings on the application gateway for each App Service Environment app.
-
-Review the [appgw.bicep](https://github.com/mspnp/app-service-environments-ILB-deployments/blob/master/deployment/templates/appgw.bicep) and [dns.bicep](https://github.com/mspnp/app-service-environments-ILB-deployments/blob/master/deployment/templates/dns.bicep) files to learn how these configurations allow multiple sites. The web app named `testapp` is an empty app created to demonstrate this configuration.
+The [private DNS zone's link to the virtual network](/azure/dns/private-dns-virtual-network-links) forwards this request to the ILB IP address. The App Service Environment then forwards the request to the requested app service. Any HTTP communication within the App Service Environment apps uses private DNS. You must configure the listener, back-end pool, routing rule, and HTTP settings on the application gateway for each App Service Environment app.
 
 ## Scenario details
 
@@ -95,80 +91,27 @@ Application Gateway can use [TLS or SSL to encrypt and protect all traffic](/azu
 
 - **End-to-end encryption:** In some scenarios that have specific security or compliance requirements, the traffic might need to be encrypted between the gateway and the app. This configuration uses HTTPS connections and requires certificates at the back-end pool.
 
-This reference implementation uses self-signed certificates for Application Gateway. For production code, use a certificate issued by a certificate authority (CA).
+For test environments, you can use self-signed certificates for Application Gateway. For production code, use a certificate issued by a certificate authority (CA).
 
 - For a list of supported certificate types, see [Certificates supported for TLS termination](/azure/application-gateway/ssl-overview#certificates-supported-for-tls-termination).
 - For information about how to create gateway-terminated encryption, see [Configure an application gateway with TLS termination by using the Azure portal](/azure/application-gateway/create-ssl-portal).
 
-The following example from `appgw.bicep` configures HTTP listeners programmatically.
-
-```bicep
-httpListeners: [for item in appgwApplications: {
-name: '${appgwListenerName}${item.name}'
-properties: {
-  frontendIPConfiguration: {
-    id: '${appgwId}/frontendIPConfigurations/${appgwFrontendName}'
-  }
-  frontendPort: {
-    id: '${appgwId}/frontendPorts/port_443'
-  }
-  protocol: 'Https'
-  sslCertificate: {
-    id: '${appgwId}/sslCertificates/${appgwSslCertificateName}${item.name}'
-  }
-  hostName: item.hostName
-  requireServerNameIndication: true
-}
-}]
-```
-
-The reference implementation demonstrates end-to-end encryption for traffic between Application Gateway and the web apps in the App Service Environment. It uses the default SSL certificates. The back-end pools in this implementation are configured to redirect HTTPS traffic. They also override the host name with the default domain names associated with the web apps. Application Gateway trusts the default SSL certificates because Microsoft issues them. For more information, see [Configure App Service by using Application Gateway](/azure/application-gateway/configure-web-app-portal). The following example from `appgw.bicep` shows how the reference implementation configures this approach.
-
-```bicep
-backendHttpSettingsCollection: [for item in appgwApplications: {
-name: '${appgwHttpSettingsName}${item.name}'
-properties: {
-  port: 443
-  protocol: 'Https'
-  cookieBasedAffinity: 'Disabled'
-  pickHostNameFromBackendAddress: true
-  requestTimeout: 20
-  probe: {
-    id: '${appgwId}/probes/${appgwHealthProbeName}${item.name}'
-  }
-}
-}]
-```
+You can configure Application Gateway to override the host name with the default domain names associated with the web apps. Application Gateway trusts the default App Service-issued TLS certificates because Microsoft issues them. For more information, see [Configure App Service by using Application Gateway](/azure/application-gateway/configure-web-app-portal).
 
 > [!NOTE]
-> The `pickHostNameFromBackendAddress` setting overrides the HTTP `Host` header with the back-end address. This approach can cause problems with cookies, redirect URLs, and session affinity. For more information about the implications and alternative configurations, see [Preserve the original HTTP host name](../../../best-practices/host-name-preservation.md).
+> Overriding the host name can cause problems with cookies, redirect URLs, and session affinity. For more information about the implications and alternative configurations, see [Preserve the original HTTP host name](../../../best-practices/host-name-preservation.md).
 
 ##### Web Application Firewall
 
-[Web Application Firewall on Application Gateway](/azure/web-application-firewall/ag/ag-overview) protects the web apps from malicious attacks, like SQL injection. It also integrates with Azure Monitor to monitor attacks by using a real-time log. To enable Web Application Firewall, you must [configure the gateway to meet its requirements](/azure/web-application-firewall/ag/application-gateway-web-application-firewall-portal). The reference implementation enables WAF programmatically in the `appgw.bicep` file by using the following code.
-
-```bicep
-webApplicationFirewallConfiguration: {
-  enabled: true
-  firewallMode: 'Detection'
-  ruleSetType: 'OWASP'
-  ruleSetVersion: '3.2'
-}
-```
+[Web Application Firewall on Application Gateway](/azure/web-application-firewall/ag/ag-overview) protects the web apps from malicious attacks, like SQL injection. It also integrates with Azure Monitor to monitor attacks by using a real-time log. To enable Web Application Firewall, you must [configure the gateway to meet its requirements](/azure/web-application-firewall/ag/application-gateway-web-application-firewall-portal).
 
 #### Virtual Network
 
-You can associate [NSGs](/azure/virtual-network/security-overview#how-traffic-is-evaluated) with one or more subnets in the virtual network. These groups define security rules that allow or deny traffic to flow between various Azure resources. This architecture associates a separate NSG for each subnet, which enables fine-tuned rules based on the services in that subnet.
-
-- The configuration for the NSG of the App Service Environment subnet is in the file [ase.bicep](https://github.com/mspnp/app-service-environments-ILB-deployments/blob/master/deployment/templates/ase.bicep).
-
-- The configuration for the NSG of the Application Gateway subnet is in the file [appgw.bicep](https://github.com/mspnp/app-service-environments-ILB-deployments/blob/master/deployment/templates/appgw.bicep).
-
-Both configurations use the resource `"type": "Microsoft.Network/networkSecurityGroups"`.
+You can associate [NSGs](/azure/virtual-network/security-overview#how-traffic-is-evaluated) with one or more subnets in the virtual network. These groups define security rules that allow or deny traffic to flow between various Azure resources. It's common to create a separate NSG for each subnet, which enables fine-tuned rules based on the services in that subnet.
 
 [Private endpoints](/azure/private-link/private-endpoint-overview) enable enhanced-security private connectivity between clients and Azure services over a private network. They provide a privately accessed IP address for the Azure service, which enables enhanced-security traffic to an Azure Private Link resource. The platform validates network connections and allows only connections that target the specified Private Link resource. 
 
-Private endpoints support network policies, like NSGs, user-defined routes (UDRs), and application security groups. To improve security, enable private endpoints for any Azure service that supports them. To help secure the service in the virtual network, disable public access to block access from the public internet. This architecture configures private endpoints for the services that support it, including Service Bus, SQL Database, Key Vault, and Azure Cosmos DB. You can see the configuration in [privatendpoints.bicep](https://github.com/mspnp/app-service-environments-ILB-deployments/blob/master/deployment/templates/privateendpoints.bicep).
+Private endpoints support network policies, like NSGs, user-defined routes (UDRs), and application security groups. To improve security, enable private endpoints for any Azure service that supports them. To help secure the service in the virtual network, disable public access to block access from the public internet. This architecture configures private endpoints for the services that support it, including Service Bus, SQL Database, Key Vault, and Azure Cosmos DB.
 
 To enable private endpoints, you must also configure private DNS zones. For more information, see [Azure private endpoint DNS configuration](/azure/private-link/private-endpoint-dns).
 
@@ -182,7 +125,7 @@ For more information, see [Configure Firewall with your App Service Environment 
 
 #### Microsoft Entra ID
 
-Microsoft Entra ID provides security features to authenticate applications and authorize access to resources. This reference architecture uses two key features of Microsoft Entra ID, managed identities and Azure role-based access control (Azure RBAC).
+Microsoft Entra ID provides security features to authenticate applications and authorize access to resources. This reference architecture uses two key features of Microsoft Entra ID: managed identities and Azure role-based access control (Azure RBAC).
 
 On cloud applications, you must secure the credentials required to authenticate to cloud services. Ideally, the credentials should never appear on developer workstations or in source control. Key Vault securely stores credentials and secrets, but the app must authenticate to Key Vault to retrieve them. **Managed identities for Azure resources** provide Azure services with an automatically managed identity in Microsoft Entra ID. You can use this identity to authenticate to any service that supports Microsoft Entra authentication, including Key Vault, without any credentials in the application.
 
@@ -205,25 +148,7 @@ Some services support managed identities and use Azure RBAC to set up permission
 
 If the workload needs service-based access, store the preshared secrets in Key Vault. Access the vault through the managed identity of the web application.
 
-Apps access secrets stored in Key Vault. They reference the Key Vault key and value pair. The [sites.bicep](https://github.com/mspnp/app-service-environments-ILB-deployments/blob/master/deployment/templates/sites.bicep) file defines the configuration. The Voting App uses the following code.
-
-```bicep
-properties: {
-  enabled: true
-  hostingEnvironmentProfile: {
-    id: aseId
-  }
-  serverFarmId: votingWebPlanName.id
-  siteConfig: {
-    appSettings: [
-      {
-        name: 'ASecret'
-        value: '@Microsoft.KeyVault(SecretUri=${applicationKeyVault::secretName.secretUriWithVersion})'
-      }
-    ]
-  }
-}
-```
+Apps access secrets stored in Key Vault. They reference the Key Vault key and value pair.
 
 ### Cost Optimization
 
@@ -257,7 +182,7 @@ Other services that help secure the App Service Environment also have several pr
 
 Operational Excellence covers the operations processes that deploy an application and keep it running in production. For more information, see [Design review checklist for Operational Excellence](/azure/well-architected/operational-excellence/checklist).
 
-The deployment scripts in this reference architecture deploy App Service Environment, other services, and the applications inside App Service Environment. After these applications are deployed, your enterprise might plan for CI/CD for app maintenance and upgrades. This section describes common methods that developers use for CI/CD of App Service Environment applications.
+This reference architecture includes App Service Environment, other services, and the applications inside App Service Environment. After these applications are deployed, your enterprise might plan for CI/CD for app maintenance and upgrades. This section describes common methods that developers use for CI/CD of App Service Environment applications.
 
 You can deploy apps to an internal App Service Environment only from within the virtual network. Use one of the following methods to deploy App Service Environment apps:
 
@@ -265,9 +190,9 @@ You can deploy apps to an internal App Service Environment only from within the 
 
 - **Use a point-to-site VPN connection from a local workstation.** Extend your App Service Environment virtual network to your development machine. Deploy from your local workstation. This method also works well for an initial development environment but doesn't suit a production environment.
 
-- **Use Azure Pipelines.** Implement a complete CI/CD pipeline that ends in an agent located inside the virtual network. This method suits production environments that require high throughput of deployment. The build pipeline remains entirely outside the virtual network. The deploy pipeline copies the built objects to the build agent inside the virtual network, then deploys to the App Service Environment subnet. For more information, see [Self-hosted Windows agents](/azure/devops/pipelines/agents/v2-windows).
+- **Use a CI/CD tool like Azure Pipelines.** Implement a complete CI/CD pipeline that ends in an agent located inside the virtual network. This method suits production environments that require high throughput of deployment. The build pipeline remains entirely outside the virtual network. The deploy pipeline copies the built objects to the build agent inside the virtual network, then deploys to the App Service Environment subnet. For more information, see [Self-hosted Windows agents](/azure/devops/pipelines/agents/v2-windows).
 
-We recommend that you use Azure Pipelines or another CI/CD tool for production environments. The [voting-data-app.yml](https://github.com/mspnp/app-service-environments-ILB-deployments/blob/master/.github/workflows/voting-data-app.yml) file implements a CI/CD pipeline for the web app in this reference implementation. Similar CI/CD scripts support the [web API](https://github.com/mspnp/app-service-environments-ILB-deployments/blob/master/.github/workflows/voting-web-app.yml).
+We recommend that you use Azure Pipelines or another CI/CD tool for production.
 
 Some enterprises might not want to maintain a permanent build agent inside the virtual network. In that case, consider one of the following options:
 
@@ -295,11 +220,7 @@ This reference architecture structures the application so that you can scale ind
 
 #### Scale Application Gateway automatically
 
-Application Gateway supports autoscaling. This feature enables Application Gateway to scale up or down based on traffic load patterns. The reference architecture configures `autoscaleConfiguration` in the [appgw.bicep](https://github.com/mspnp/app-service-environments-ILB-deployments/blob/master/deployment/templates/appgw.bicep) file to scale between 0 and 10 extra instances. For more information, see [Scale Application Gateway and Web Application Firewall](/azure/application-gateway/application-gateway-autoscaling-zone-redundant#scaling-application-gateway-and-waf-v2).
-
-## Deploy this scenario
-
-To deploy the reference implementation for this architecture, see the [GitHub readme](https://github.com/mspnp/app-service-environments-ILB-deployments/blob/master/README.md), and follow the script for *standard deployment*.
+Application Gateway supports autoscaling. This feature enables Application Gateway to scale up or down based on traffic load patterns. For example, you can configure your gateway to scale between 0 and 10 extra instances. For more information, see [Scale Application Gateway and Web Application Firewall](/azure/application-gateway/application-gateway-autoscaling-zone-redundant#scaling-application-gateway-and-waf-v2).
 
 ## Contributors
 

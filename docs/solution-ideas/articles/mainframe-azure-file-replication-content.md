@@ -131,10 +131,9 @@ Principal authors:
 
 *To see nonpublic LinkedIn profiles, sign in to LinkedIn.*
 
-## Next steps
+## Next step
 
-- For more information, contact the [Microsoft SQL Data Engineering team](mailto:datasqlninja@microsoft.com).
-- [Azure database migration guides](https://datamigration.microsoft.com)
+- [Azure Database Migration Guides](https://datamigration.microsoft.com)
 
 ## Related resources
 

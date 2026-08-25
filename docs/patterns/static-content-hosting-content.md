@@ -109,4 +109,4 @@ The file Index.cshtml in the Views\Home folder contains an image element that us
 
 - [Valet Key pattern](./valet-key.yml). If the target resources aren't supposed to be available to anonymous users, use this pattern to restrict direct access.
 
-[sample-app]: https://github.com/mspnp/cloud-design-patterns/tree/main/static-content-hosting
+[sample-app]: https://github.com/Azure-Samples/cloud-design-patterns/tree/main/static-content-hosting
