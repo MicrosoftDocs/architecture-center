@@ -29,7 +29,7 @@ This article describes video and image processing capabilities in Tools, such as
 
 - [Azure Vision in Foundry Tools](#azure-vision) provides advanced algorithms that process images and return information based on visual features. It includes optical character recognition (OCR), image analysis, and face detection capabilities.
 
-- [Azure Machine Learning AutomL](#azure-ml-automl) accelerates computer vision by automatically training and deploying image classification, object detection, and image analysis models from your data.
+- [Azure Machine Learning AutomL](#azure-machine-learning-automl) accelerates computer vision by automatically training and deploying image classification, object detection, and image analysis models from your data.
 
 - [Azure Content Understanding in Foundry Tools](#azure-content-understanding) uses generative AI to extract structured fields from images and video. Use Azure Content Understanding when you need schema-defined extraction, scene segmentation, or retrieval-augmented generation (RAG)-ready video output.
 
@@ -93,7 +93,7 @@ The following table provides a list of possible use cases for Azure Vision.
 | [Face redaction](/azure/azure-video-indexer/face-redaction-with-api) | Redact or blur detected faces of people recorded in a video to protect their privacy. |
 | [Touchless access control](/azure/ai-services/face/how-to/specify-recognition-model) | Use opt-in face identification for enhanced access control while reducing the maintenance and security risks from physical media sharing, loss, or theft. Facial recognition assists the check-in process with a human in the loop for check-ins in airports, stadiums, theme parks, buildings, reception kiosks at offices, hospitals, gyms, clubs, or schools. |
 
-### Azure Machine Learning AutoML for Computer Vision
+### Azure Machine Learning AutoML
 
 [Azure Machine Learning AutoML](/azure/ai-services/custom-vision-service/overview) for Computer Vision provides image recognition capabilities that you can use to automatically build, deploy, and improve your image identifier models. An image identifier applies labels to images based on their visual characteristics. Each label represents a classification or object. Use Azure Machine Learning AutoML to specify your own labels and train custom models to detect them.
 
