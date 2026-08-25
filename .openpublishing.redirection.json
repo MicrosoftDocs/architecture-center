@@ -41,8 +41,13 @@
       "redirect_document_id": true
     },
     {
+      "source_path": "docs/networking/get-started.md",
+      "redirect_url": "/azure/architecture/networking/networking-get-started",
+      "redirect_document_id": true
+    },
+    {
       "source_path": "docs/networking/index.md",
-      "redirect_url": "/azure/architecture/networking/get-started",
+      "redirect_url": "/azure/architecture/networking/networking-get-started",
       "redirect_document_id": false
     },
     {
@@ -5339,8 +5344,8 @@
     },
     {
       "source_path": "docs/guide/networking/networking-start-here.md",
-      "redirect_url": "/azure/architecture/networking/get-started",
-      "redirect_document_id": true
+      "redirect_url": "/azure/architecture/networking/networking-get-started",
+      "redirect_document_id": false
     },
     {
       "source_path": "docs/reference-architectures/hybrid-networking/hub-spoke.yml",
