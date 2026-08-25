@@ -95,7 +95,7 @@ The following table provides a list of possible use cases for Azure Vision.
 
 ### Azure Machine Learning AutoML for Computer Vision
 
-[Azure Machine Learning AutoML for Computer Vision](/azure/ai-services/custom-vision-service/overview) provides image recognition capabilities that you can use to automatically build, deploy, and improve your image identifier models. An image identifier applies labels to images based on their visual characteristics. Each label represents a classification or object. Use Azure Machine Learning AutoML to specify your own labels and train custom models to detect them.
+[Azure Machine Learning AutoML](/azure/ai-services/custom-vision-service/overview) for Computer Vision provides image recognition capabilities that you can use to automatically build, deploy, and improve your image identifier models. An image identifier applies labels to images based on their visual characteristics. Each label represents a classification or object. Use Azure Machine Learning AutoML to specify your own labels and train custom models to detect them.
 
 | Use Azure Machine Learning AutoML for these tasks | Don't use Azure Machine Learning AutoML for these tasks |
 | :----------| :-------------|
