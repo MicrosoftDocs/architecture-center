@@ -46,43 +46,7 @@ The previous diagram demonstrates a typical basic or baseline integration implem
 
 The articles in this section include guides and fully developed architectures that you can deploy in Azure and expand to production-grade solutions. These articles can help you decide how to use integration technologies in Azure.
 
-### Integration guides
-
-The following articles help you evaluate and select the best integration technologies for your workload requirements:
-
-- [Choose the right integration and automation services in Azure](/azure/azure-functions/functions-compare-logic-apps-ms-flow-webjobs): Compare Azure Functions, Azure Logic Apps, Power Automate, and WebJobs for building workflows and orchestrations.
-
-- [Choose between Azure messaging services](/azure/service-bus-messaging/compare-messaging-services): Compare Azure Event Grid, Azure Event Hubs, and Azure Service Bus, and learn when to use each service.
-
-- [Asynchronous messaging options](../guide/technology-choices/messaging.md): Learn about various types of messages and the entities that participate in a messaging infrastructure, and select an Azure messaging service.
-
-#### Azure Event Hubs with Azure Functions
-
-- [Integrate Azure Event Hubs with serverless functions on Azure](../serverless/event-hubs-functions/event-hubs-functions.md): Guidance for how to effectively integrate Azure Event Hubs with Azure Functions for performance, resiliency, security, and scale.
-
-- [Performance and scale guidance for Azure Event Hubs and Azure Functions](../serverless/event-hubs-functions/performance-scale.md): Optimize scalability and performance when you use Azure Event Hubs and Azure Functions together.
-
-- [Resilient Azure Event Hubs and Azure Functions design](../serverless/event-hubs-functions/resilient-design.md): Implement error handling, idempotency, and retry behavior for functions that Azure Event Hubs triggers.
-
-- [Secure Azure Functions and Azure Event Hubs](../serverless/event-hubs-functions/security.md): Apply fine-grained access control and network security for Azure Event Hubs and Azure Functions.
-
-- [Monitor Azure Functions and Azure Event Hubs](../serverless/event-hubs-functions/observability.md): Use Application Insights to monitor the behavior and health of Azure Event Hubs and Azure Functions solutions.
-
-#### Migration
-
-- [Apache Kafka migration to Azure](../guide/hadoop/apache-kafka-migration.yml): Explore strategies for migrating Apache Kafka workloads to Azure, including Azure Event Hubs, Azure HDInsight, and Azure Kubernetes Service (AKS).
-
-### Integration architectures
-
-The following production-ready architectures demonstrate end-to-end integration solutions that you can deploy and customize:
-
-- [Basic enterprise integration on Azure](../reference-architectures/enterprise-integration/basic-enterprise-integration.yml): Orchestrate synchronous calls to enterprise back-end systems by using Azure Logic Apps and Azure API Management.
-
-- [Use a message broker and events to integrate enterprise systems](../example-scenario/integration/queues-events.yml): Orchestrate asynchronous calls to enterprise back-end systems by using queues and events.
-
-- [Azure API Management landing zone architecture](../example-scenario/integration/app-gateway-internal-api-management-function.yml): Deploy a secure Azure API Management baseline with Azure Application Gateway and Azure Functions in a virtual network.
-
-- [Build real-time monitoring and observable systems for media](../example-scenario/monitoring/monitoring-observable-systems-media.yml): Provide near-real-time monitoring and observability of systems and user device telemetry data by using Fabric Real-Time Intelligence.
+[!INCLUDE [integration-get-started](../includes/integration-get-started-include.md)]
 
 ## Organizational readiness
 
