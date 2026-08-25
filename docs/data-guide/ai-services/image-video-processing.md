@@ -95,17 +95,17 @@ The following table provides a list of possible use cases for Azure Vision.
 
 ### Azure Machine Learning AutoML for Computer Vision
 
-[Custom Vision](/azure/ai-services/custom-vision-service/overview) is an image recognition service that you can use to build, deploy, and improve your image identifier models. An image identifier applies labels to images based on their visual characteristics. Each label represents a classification or object. Use Custom Vision to specify your own labels and train custom models to detect them.
+[Azure Machine Learning AutoML for Computer Vision](/azure/ai-services/custom-vision-service/overview) provides image recognition capabilities that you can use to automatically build, deploy, and improve your image identifier models. An image identifier applies labels to images based on their visual characteristics. Each label represents a classification or object. Use Azure Machine Learning AutoML to specify your own labels and train custom models to detect them.
 
-| Use Custom Vision for these tasks | Don't use Custom Vision for these tasks |
+| Use Azure Machine Learning AutoML for these tasks | Don't use Azure Machine Learning AutoML for these tasks |
 | :----------| :-------------|
 | Recognize unusual objects and manufacturing defects that standard image analysis can't detect. | Do basic object detection or face detection. Use [Azure Vision](#azure-vision) instead. |
 | Provide detailed custom classifications for specific business requirements. | Do basic visual analysis. Use vision-capable models from [Azure OpenAI](#azure-openai) or open-source models in Machine Learning instead. |
 | Train models with your own labeled images for specialized scenarios. | |
 
-Custom Vision uses a machine learning algorithm to analyze images for custom features. You submit sets of images with and without the visual characteristics that you want. You then label the images with your own labels, or *tags*, at the time of submission. The algorithm uses this data to train and calculates its own accuracy by testing itself on the same images. After you train your model, you can test, retrain, and eventually use the model in your image recognition app to classify images or detect objects. You can also export the model for offline use.
+Azure Machine Learning AutoML uses a machine learning algorithm to analyze images for custom features. You submit sets of images with and without the visual characteristics that you want. You then label the images with your own labels, or *tags*, at the time of submission. The algorithm uses this data to train and calculates its own accuracy by testing itself on the same images. After you train your model, you can test, retrain, and eventually use the model in your image recognition app to classify images or detect objects. You can also export the model for offline use.
 
-#### Available Custom Vision features
+#### Available Azure Machine Learning AutoML features
 
 The following table provides a list of features available in Custom Vision.
 
@@ -114,13 +114,12 @@ The following table provides a list of features available in Custom Vision.
 | [Image classification](/azure/ai-services/custom-vision-service/getting-started-build-a-classifier) | Predict a category, or *class*, based on a set of inputs, which are called *features*. Calculate a probability score for each possible class and return a label that indicates the class that the object most likely belongs to. To use this model, you need data that consists of features and their labels. |
 | [Object detection](/azure/ai-services/custom-vision-service/get-started-build-detector) | Get the coordinates of an object in an image. To use this model, you need data that consists of features and their labels. |
 
-#### Use cases for Custom Vision
+#### Use cases for Azure Machine Learning AutoML for Computer Vision
 
-The following table provides a list of possible use cases for Custom Vision.
+The following table provides a list of possible use cases for Azure Machine Learning AutoML.
 
 | Use case | Description |
 | :----------| :-------------|
-| [Use Custom Vision with an internet of things (IoT) device to report visual states](/azure/iot-edge/tutorial-deploy-custom-vision). | Use Custom Vision to train a device that has a camera to detect visual states. You can run this detection scenario on an IoT device by using an exported ONNX model. A visual state describes the content of an image, such as an empty room, a room with people, an empty driveway, or a driveway with a truck. |
 | [Classify images and objects](/azure/ai-services/custom-vision-service/overview#classification-and-object-detection). | Analyze photos and scan for specific logos by training a custom model. |
 
 ### Azure Content Understanding
