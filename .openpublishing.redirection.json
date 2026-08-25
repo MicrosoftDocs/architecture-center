@@ -1,6 +1,11 @@
 {
   "redirections": [
     {
+      "source_path": "docs/guide/data/collection-structure-federated-catalog.md",
+      "redirect_url": "/purview/unified-catalog-governance-domains",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "docs/guide/iot/how-to-connect-powerbi-to-the-solution.md",
       "redirect_url": "/azure/architecture/guide/iot/how-to-connect-power-bi-to-the-solution",
       "redirect_document_id": true
