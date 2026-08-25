@@ -120,7 +120,7 @@ The following table provides a list of possible use cases for Azure Machine Lear
 
 | Use case | Description |
 | :----------| :-------------|
-| [Classify images and objects](/azure/ai-services/custom-vision-service/overview#classification-and-object-detection). | Analyze photos and scan for specific logos by training a custom model. |
+| [Classify images and objects](/azure/ai-services/custom-vision-service/overview#classification-and-object-detection) | Analyze photos and scan for specific logos by training a custom model. |
 
 ### Azure Content Understanding
 
