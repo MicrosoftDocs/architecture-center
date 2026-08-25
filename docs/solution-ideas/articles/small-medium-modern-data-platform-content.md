@@ -68,6 +68,8 @@ The following tools are used for governance, collaboration, security, performanc
   
   - Azure Key Vault manages secrets, keys, and certificates.
 
+  - Use [Azure Network Security Perimeter (NSP)](/azure/private-link/network-security-perimeter-concepts#onboarded-private-link-resources) to reduce public endpoint exposure for generally available PaaS resources in this architecture, such as `Microsoft.EventHub/namespaces`, `Microsoft.KeyVault/vaults`, and `Microsoft.Storage/storageAccounts`. Prefer subscription-based inbound rules for Azure-hosted producers and consumers when outbound IP addresses aren't stable across services. Use IP-based inbound rules only for paths that have stable, known egress IP ranges.
+
   - Azure Monitor collects and analyzes Azure resource telemetry. This service maximizes performance and reliability by proactively identifying problems.
 
   - Microsoft Defender for Cloud provides security posture management and threat protection for Azure resources and workloads.
