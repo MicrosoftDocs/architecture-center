@@ -7,6 +7,7 @@ ms.date: 06/10/2026
 ms.topic: concept-article
 ms.subservice: category-get-started
 ms.update-cycle: 1095-days
+ai-usage: ai-assisted
 ---
 
 # Get started with networking architecture design
