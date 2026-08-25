@@ -277,7 +277,7 @@ Code accesses secrets through Azure Databricks [secrets utilities](/azure/databr
 
 #### Restrict network access to PaaS resources
 
-This architecture doesn't use [private endpoints](/azure/private-link/private-link-overview) for Event Hubs, so it remains reachable over its public endpoint to any client that has valid credentials. As an alternative, use [Azure Network Security Perimeter](/azure/private-link/network-security-perimeter-concepts#onboarded-private-link-resources) to associate `Microsoft.EventHub/namespaces` with a shared perimeter and deny public traffic by default.
+This architecture uses [Azure Network Security Perimeter](/azure/private-link/network-security-perimeter-concepts#onboarded-private-link-resources) to restrict access to Event Hubs. Associate `Microsoft.EventHub/namespaces` with a shared perimeter and deny public traffic by default.
 
 This control only secures the consumer side of the ingestion path. Network security perimeter defines both inbound and outbound access rules. Inbound rules control which callers can reach a perimeter member and support two types: subscription-based and IP-based. Outbound rules control which external destinations a perimeter member can reach and are FQDN-based only. Because Event Hubs is the perimeter member in this scenario, its inbound rules determine which producers and consumers are allowed in.
 
@@ -286,6 +286,8 @@ The article doesn't specify where the taxi devices or the .NET data generator th
 Azure Cosmos DB support for network security perimeter is in public preview.
 
 This architecture doesn't deploy the Azure Databricks workspace into a custom virtual network (VNet injection), so the workspace has no static outbound IP address. For the Databricks consumer path, scope the Event Hubs inbound access rule by subscription (the subscription that hosts the Azure Databricks workspace) rather than by IP range, which requires a stable, known source IP to be effective.
+
+As an alternative, you can use [private endpoints](/azure/private-link/private-link-overview) for Event Hubs. This approach removes public endpoint access for Event Hubs and requires private DNS and private connectivity planning in your network design.
 
 ### Cost Optimization
 
