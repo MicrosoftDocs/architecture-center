@@ -107,9 +107,9 @@ VMs often need to be bootstrapped, which is a process in which VMs are prepared 
     - [Application Health extension with Virtual Machine Scale Sets](/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-health-extension) are important when Azure Virtual Machine Scale Sets does automatic rolling upgrades. Azure relies on health monitoring of the individual instances to do the updates. You can also use the extension to monitor the application health of each instance in your scale set and perform instance repairs using Automatic Instance Repairs.
     - Microsoft Entra ID and OpenSSH ([Windows](/entra/identity/devices/howto-vm-sign-in-azure-ad-windows), [Linux](/entra/identity/devices/howto-vm-sign-in-azure-ad-linux)) integrate with Microsoft Entra authentication. You can now use Microsoft Entra ID as a core authentication platform and a certificate authority to SSH into a Linux VM by using Microsoft Entra ID and OpenSSH certificate-based authentication. This functionality allows you to manage access to VMs with Azure role-based access control (Azure RBAC) and Conditional Access policies.
 
-- **Agent-based configuration**. Linux VMs can use a lightweight native desired state configuration available through cloud-init on various Azure provided VM images. The configuration is specified and versioned with your IaC artifacts. Bringing your own configuration management solution is another way. Most solutions follow a declarative-first approach to bootstrapping, but do support custom scripts for flexibility. Popular choices include Desired State Configuration for Windows, Desired State Configuration for Linux, Ansible, Chef, Puppet, and others. All of these configuration solutions can be paired with VM extensions for a best-of-both experience.
+- **Agent-based configuration**. Linux VMs can use a lightweight native desired state configuration available through cloud-init on various Azure provided VM images. You specify and version the configuration with your IaC artifacts. Bringing your own configuration management solution is another way. Most solutions follow a declarative-first approach to bootstrapping, but do support custom scripts for flexibility. Popular choices include Desired State Configuration for Windows, Desired State Configuration for Linux, Ansible, Chef, Puppet, and others. You can pair all of these configuration solutions with VM extensions for a best-of-both experience.
 
-In this architecture, all bootstrapping is done through VM extensions and custom scripts, including a custom script for automating data disk formatting and mounting.
+In this architecture, you do all bootstrapping through VM extensions and custom scripts, including a custom script for automating data disk formatting and mounting.
 
 > Refer to Well-Architected Framework: [RE:02 - Recommendations for automation design](/azure/well-architected/operational-excellence/enable-automation?branch=main#bootstrapping).
 
@@ -272,7 +272,7 @@ For more information on the cost of collecting metrics and logs, see [Log Analyt
 
 [Azure boot diagnostics](/azure/virtual-machines/boot-diagnostics) is enabled to observe the state of the VMs during boot by collecting serial log information and screenshots. In this architecture, that data can be accessed through Azure portal and the [Azure CLI vm boot-diagnostics get-boot-log command](/cli/azure/vm/boot-diagnostics?view=azure-cli-latest#az-vm-boot-diagnostics-get-boot-log). Azure manages the data. You have no control or access to the underlying storage resource. But if your business requirements demand more control, you can provision your own storage account to store boot diagnostics.
 
-[VM insights](/azure/azure-monitor/vm/monitor-vm) offers an efficient way to monitor VMs and scale sets. It gathers data from Log Analytics workspaces and provides predefined workbooks for performance data trending. This data can be viewed per VM or aggregated across multiple VMs.
+[VM insights](/azure/azure-monitor/vm/monitor-vm) offers an efficient way to monitor VMs and scale sets. It gathers data from Log Analytics workspaces and provides predefined workbooks for performance data trending. You can view this data per VM or aggregated across multiple VMs.
 
 Application Gateway and the internal load balancer use health probes to detect the endpoint status of the VMs before sending traffic.
 
@@ -290,7 +290,7 @@ Disk metrics depend on your workload, requiring a mix of key metrics. Monitoring
 
 ### Application-level monitoring
 
-Even though this architecture doesn't make use of it, [Application Insights](/azure/azure-monitor/app/app-insights-overview) is provisioned as an APM for extensibility purposes. Use the [Azure Monitor OpenTelemetry Distro](/azure/azure-monitor/app/opentelemetry-enable) to instrument your application code and send data to the Log Analytics workspace. Application Insights can also visualize that data from the workload applications.
+Even though this architecture doesn't use it, the solution provisions [Application Insights](/azure/azure-monitor/app/app-insights-overview) as an APM for extensibility purposes. Use the [Azure Monitor OpenTelemetry Distro](/azure/azure-monitor/app/opentelemetry-enable) to instrument your application code and send data to the Log Analytics workspace. Application Insights can also visualize that data from the workload applications.
 
 The [application health extension](/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-health-extension) is deployed to VMs to monitor the binary health state of each VM instance in the scale set, and perform instance repairs if necessary by using scale set automatic instance repair. It tests for the same file as the Application Gateway and the internal Azure load balancer health probe to check if the application is responsive.
 
@@ -474,7 +474,7 @@ Security doesn't only refer to technical controls. We recommend that you follow 
 
 #### Identity and access management
 
-We recommend [Microsoft Entra ID](/entra/fundamentals/what-is-entra) for authentication and authorization of both users and services.
+Use [Microsoft Entra ID](/entra/fundamentals/what-is-entra) for authentication and authorization of both users and services.
 
 Access to VMs requires a user account, controlled by Microsoft Entra ID authentication and backed by security groups. This architecture provides support by deploying Microsoft Entra ID authentication extension to all VMs. We recommend that human users use their corporate identities in their organization's Microsoft Entra ID tenant. Also, ensure that any service principal-based access isn't shared across functions.
 
@@ -547,7 +547,7 @@ Use the [preconfigured estimate in the Azure pricing calculator](https://azure.c
 
 Select VM images that are optimized for the workload instead of using general-purpose images. In this architecture, relatively small VM images are chosen for both Windows and Linux, which are 30 GB each. With smaller images, VM SKUs with disks are also smaller, leading to lower costs, reduced resource consumption, and faster deployment and boot times. A benefit is enhanced security because of the reduced surface area.
 
-Implementing log rotation with size limits is another cost-saving strategy. It allows for using small data disks, which can result in lower costs. This architecture uses 4-GB disks.
+Implementing log rotation with size limits is another cost-saving strategy. It allows you to use small data disks, which can result in lower costs. This architecture uses 4-GB disks.
 
 The use of Ephemeral OS disks can also lead to cost savings and improved performance. These disks are designed to use VM resources that you already pay for because they're installed on the cache disk provisioned with the VM. It eliminates storage costs associated with traditional persistent disks. Because these disks are temporary, there are no costs associated with long-term data storage.
 
@@ -555,7 +555,7 @@ The use of Ephemeral OS disks can also lead to cost savings and improved perform
 
 #### Flow cost
 
-Choose compute resources based on the criticality of the flow. For flows that are designed to tolerate an indeterminate length, consider using [spot VMs](../guide/spot/spot-eviction.yml) with Virtual Machine Scale Sets Flexible orchestration mode. This approach can be effective for hosting low-priority flows on lower-priority VMs. This strategy allows for cost optimization while still meeting the requirements of different flows.
+Choose compute resources based on the criticality of the flow. For flows that are designed to tolerate an indeterminate length, consider using [spot VMs](../guide/spot/spot-eviction.yml) with Virtual Machine Scale Sets Flexible orchestration mode. This approach can be effective for hosting low-priority flows on lower-priority VMs. This strategy allows you to optimize costs while still meeting the requirements of different flows.
 
 > Refer to Well-Architected Framework: [CO:09 - Recommendations for optimizing flow costs](/azure/well-architected/cost-optimization/optimize-flow-costs).
 
