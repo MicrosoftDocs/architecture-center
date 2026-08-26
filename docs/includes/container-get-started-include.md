@@ -16,7 +16,6 @@ The following articles help you evaluate and select the best container technolog
 
 - [Get started with AKS](../reference-architectures/containers/aks-start-here.md): Introduction to AKS architecture and design.
 
-
 ##### Application
 
 - [High availability (HA) for multitier AKS apps](../guide/aks/aks-high-availability.md): Design patterns for highly available AKS applications.

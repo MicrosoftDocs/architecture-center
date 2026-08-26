@@ -12,6 +12,10 @@ The following production-ready architectures demonstrate end-to-end storage solu
 
 - [Azure files secured by Active Directory Domain Services (AD DS)](../example-scenario/hybrid/azure-files-on-premises-authentication.yml). Implement on-premises access to Azure Files with AD DS authentication.
 
+- [Hybrid file services](../hybrid/hybrid-file-services.yml). Implement hybrid file services that span on-premises and Azure environments.
+
+- [Move mainframe archive data to Azure](../example-scenario/mainframe/move-archive-data-mainframes.yml). Move mainframe archive data to Azure to reduce storage costs and make it easier to access.
+
 #### Azure NetApp Files solutions
 
 - [Enterprise file shares with disaster recovery (DR)](../example-scenario/file-storage/enterprise-file-shares-disaster-recovery.yml). Deploy enterprise file share infrastructure with built-in DR by using Azure NetApp Files.
@@ -21,10 +25,6 @@ The following production-ready architectures demonstrate end-to-end storage solu
 - [Oracle Database with Azure NetApp Files](../example-scenario/file-storage/oracle-azure-netapp-files.yml). Run Oracle databases on Azure by using Azure NetApp Files for storage.
 
 - [SQL Server on Azure Virtual Machines with Azure NetApp Files](../example-scenario/file-storage/sql-server-azure-netapp-files.yml). Deploy SQL Server workloads on Virtual Machines by using Azure NetApp Files for high-performance storage.
-
-- [Hybrid file services](../hybrid/hybrid-file-services.yml). Implement hybrid file services that span on-premises and Azure environments.
-
-- [Move mainframe archive data to Azure](../example-scenario/mainframe/move-archive-data-mainframes.yml). Move mainframe archive data to Azure to reduce storage costs and make it easier to access.
 
 ### Storage solution ideas
 

@@ -7,6 +7,11 @@
 - [Build workloads by using Azure Spot Virtual Machines](../guide/spot/spot-eviction.yml): Learn how to design workloads that take advantage of spare Azure capacity at reduced cost.
 - [HPC on Azure](../guide/compute/high-performance-computing.md): Learn about HPC capabilities and architectures on Azure.
 
+#### SAP guides
+
+- [SAP landscape architecture](../guide/sap/sap-whole-landscape.md): Review guidance about SAP landscapes on Azure.
+- [Inbound and outbound internet connections for SAP on Azure](../guide/sap/sap-internet-inbound-outbound.md): See a network architecture for SAP internet connectivity.
+
 ### Compute architectures
 
 The following production-ready architectures demonstrate comprehensive compute solutions that you can deploy and customize:
@@ -40,15 +45,6 @@ The following production-ready architectures demonstrate comprehensive compute s
 - [Rehost Adabas & Natural applications](../example-scenario/mainframe/rehost-adabas-software-ag.yml): Migrate a Software AG Adabas and Natural mainframe system to Azure by using a rehost approach with minimal changes to your existing workload.
 - [Unisys ClearPath Forward OS 2200 enterprise server virtualization on Azure](../mainframe/virtualization-of-unisys-clearpath-forward-os-2200-enterprise-server-on-azure.yml): Use virtualization technologies from Microsoft partner Unisys with an existing Unisys ClearPath Forward (CPF) Dorado enterprise server.
 - [Unisys ClearPath MCP virtualization on Azure](../example-scenario/mainframe/unisys-clearpath-forward-mainframe-rehost.yml): Apply Unisys virtualization technologies to migrate a legacy Unisys ClearPath Forward Libra mainframe to Azure.
-
-### SAP
-
-SAP workloads have specific architecture requirements. See the following resources for SAP on Azure.
-
-#### SAP guides
-
-- [SAP landscape architecture](../guide/sap/sap-whole-landscape.md): Review guidance about SAP landscapes on Azure.
-- [Inbound and outbound internet connections for SAP on Azure](../guide/sap/sap-internet-inbound-outbound.md): See a network architecture for SAP internet connectivity.
 
 #### SAP architectures
 
