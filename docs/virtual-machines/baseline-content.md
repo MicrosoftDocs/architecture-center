@@ -490,7 +490,7 @@ The baseline architecture uses a mix of system-assigned and user-assigned manage
 
 - **Ingress traffic**. The workload VMs aren't directly exposed to the public internet. Each VM has a private IP address. Workload users connect using the public IP address of Application Gateway.
 
-    More security is provided through [Web Application Firewall](/azure/web-application-firewall/ag/ag-overview) that is integrated with Application Gateway. It has rules that inspect inbound traffic and can take appropriate action. WAF tracks Open Web Application Security Project (OWASP) vulnerabilities preventing known attacks.
+    [Web Application Firewall](/azure/web-application-firewall/ag/ag-overview), integrated with Application Gateway, inspects inbound requests by using managed rule sets based on the OWASP Core Rule Set. Configure the WAF policy in prevention mode so that it blocks matching requests. Test and tune a new policy in detection mode before you switch to prevention mode.
 
 - **Egress traffic**. There are no controls on outbound traffic except the outbound NSG rules on the VM subnets. We recommend that all outbound internet traffic flows through a single firewall. This firewall is usually a central service provided by an organization. That use case is shown in [Virtual machine baseline architecture in an Azure landing zone](./baseline-landing-zone.yml).
 
