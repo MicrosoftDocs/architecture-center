@@ -396,7 +396,6 @@ Azure doesn't provide a complete turnkey solution or reference architecture for 
 Whether you use API Management or build a custom solution, as mentioned in the [introduction article](./azure-openai-gateway-guide.md#implementation-options), your workload team must build and operate the gateway. The following examples cover some of the previously mentioned use cases. Consider referring to these samples when you build your own proof of concept by using API Management or custom code.
 
 - **API Management**
-  - [Smart load balancing by using API Management](https://github.com/Azure-Samples/openai-apim-lb) contains sample policy code and instructions.
   - [Scaling with API Management](https://github.com/Azure/aoai-apim/) contains sample policy code and instructions for provisioned and standard spillover.
   - The [AI Gateway labs](https://github.com/Azure-Samples/AI-Gateway) contain example API Management policies, Bicep templates, and tools for testing the behavior of the policies.
 
