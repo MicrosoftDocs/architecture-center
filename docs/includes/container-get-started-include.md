@@ -16,7 +16,6 @@ The following articles help you evaluate and select the best container technolog
 
 - [Get started with AKS](../reference-architectures/containers/aks-start-here.md): Introduction to AKS architecture and design.
 
-
 ##### Application
 
 - [High availability (HA) for multitier AKS apps](../guide/aks/aks-high-availability.md): Design patterns for highly available AKS applications.
@@ -29,9 +28,29 @@ The following articles help you evaluate and select the best container technolog
 
 - [Access an AKS API server](../security/access-azure-kubernetes-service-cluster-api-server.md): Secure access patterns for AKS API servers.
 
+- [Blue-green deployment of AKS clusters](../guide/aks/blue-green-deployment-for-aks.yml): Implement zero-downtime deployments by using blue-green strategies.
+
+- [Firewall protection for an AKS cluster](../guide/aks/aks-firewall.md): Secure AKS clusters by using Azure Firewall.
+
+- [Secure AKS workloads with Azure Front Door](../example-scenario/aks-front-door/aks-front-door.yml): Global load balancing and security for AKS.
+
+- [Multitenancy with AKS and Application Gateway for Containers (AGC)](../example-scenario/aks-agic/aks-agc.yml): Use Application Gateway for Containers with your AKS cluster to expose microservice-based applications to the internet.
+
+- [Use AKS to host GPU-based workloads](../reference-architectures/containers/aks-gpu/gpu-aks.md): Run GPU workloads on AKS for AI and machine learning scenarios.
+
 ###### AKS day-2 operations guide
 
 - [Introduction](../operator-guides/aks/day-2-operations-guide.md): Learn about AKS day-2 operations, such as triage, patching, upgrading, and troubleshooting.
+
+- [Backup and recovery for AKS](../operator-guides/aks/aks-backup-and-recovery.md): Protect your cluster configuration and workloads.
+
+- [Patch and upgrade worker nodes](../operator-guides/aks/aks-upgrade-practices.md): Keep clusters secure and up-to-date.
+
+- [Troubleshoot networking](../operator-guides/aks/troubleshoot-network-aks.md): Diagnose and resolve network problems.
+
+- [Monitor AKS by using Azure Monitor](/azure/aks/monitor-aks): Collect and analyze telemetry from your clusters.
+
+- [Common issues](/azure/aks/troubleshooting): Troubleshoot common AKS issues.
 
 **Triage practices**
 
@@ -46,26 +65,6 @@ The following articles help you evaluate and select the best container technolog
 - [4. Admission controllers](../operator-guides/aks/aks-triage-controllers.md): Verify that the admission controllers are working as expected.
 
 - [5. Container registry connectivity](../operator-guides/aks/aks-triage-container-registry.md): Verify the connection to a container registry.
-
-- [Backup and recovery for AKS](../operator-guides/aks/aks-backup-and-recovery.md): Protect your cluster configuration and workloads.
-
-- [Patch and upgrade worker nodes](../operator-guides/aks/aks-upgrade-practices.md): Keep clusters secure and up-to-date.
-
-- [Troubleshoot networking](../operator-guides/aks/troubleshoot-network-aks.md): Diagnose and resolve network problems.
-
-- [Monitor AKS by using Azure Monitor](/azure/aks/monitor-aks): Collect and analyze telemetry from your clusters.
-
-- [Common issues](/azure/aks/troubleshooting): Troubleshoot common AKS issues.
-
-- [Blue-green deployment of AKS clusters](../guide/aks/blue-green-deployment-for-aks.yml): Implement zero-downtime deployments by using blue-green strategies.
-
-- [Firewall protection for an AKS cluster](../guide/aks/aks-firewall.md): Secure AKS clusters by using Azure Firewall.
-
-- [Secure AKS workloads with Azure Front Door](../example-scenario/aks-front-door/aks-front-door.yml): Global load balancing and security for AKS.
-
-- [Multitenancy with AKS and Application Gateway for Containers (AGC)](../example-scenario/aks-agic/aks-agc.yml): Use Application Gateway for Containers with your AKS cluster to expose microservice-based applications to the internet.
-
-- [Use AKS to host GPU-based workloads](../reference-architectures/containers/aks-gpu/gpu-aks.md): Run GPU workloads on AKS for AI and machine learning scenarios.
 
 ### Container architectures
 
