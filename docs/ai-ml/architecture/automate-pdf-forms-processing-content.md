@@ -157,7 +157,7 @@ Other contributors:
 
 - [Video: Azure PDF Form Processing Automation](https://www.youtube.com/watch?v=2zvoO1jc8CE).
 - [Azure PDF Form Processing Automation Solution](https://github.com/microsoft/Azure-PDF-Form-Processing-Automation-Solution-Accelerator) GitHub repository
-- [Content Processing Solution Accelerator](https://github.com/microsoft/content-processing-solution-accelerator) GitHub repository
+- [Multi-modal content processing sample](https://github.com/microsoft/content-processing-solution-accelerator) GitHub repository
 - [Tutorial: Create workflows that process emails by using Azure Logic Apps, Azure Functions, and Azure Storage](/azure/logic-apps/tutorial-process-email-attachments-workflow)
 
 ## Related resources
