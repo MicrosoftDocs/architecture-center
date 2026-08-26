@@ -9,26 +9,44 @@ from urllib.parse import urlsplit
 
 import yaml
 
-GROUP_TYPES: dict[str, str] = {
+TYPE_NAMES: dict[str, str] = {
     "Architectures": "architectures",
     "Solution ideas": "solution-ideas",
     "Guides": "guides",
-    "Select a service": "guides",
 }
 CONTENT_TYPES: tuple[str, ...] = (
+    "guides",
     "architectures",
     "solution-ideas",
-    "guides",
 )
+
+
+@dataclass(frozen=True)
+class TocLink:
+    """Represent one typed TOC link and its subsection path.
+
+    The subsection path contains every wrapper beneath Guides, Architectures,
+    or Solution ideas. Keeping that path lets the workflow reproduce the TOC
+    hierarchy instead of guessing where a link belongs in an include.
+    """
+
+    name: str
+    href: str
+    target: str
+    subsections: tuple[str, ...]
 
 
 @dataclass
 class Category:
-    """Represent one category, its get-started article, and mapped TOC links."""
+    """Represent one category and its ordered, typed TOC structure.
+
+    Each content type stores links in TOC order. Every link also retains its
+    subsection path so nested TOC groups can become nested include headings.
+    """
 
     article_path: str
-    types: dict[str, set[str]] = field(
-        default_factory=lambda: {content_type: set() for content_type in CONTENT_TYPES}
+    types: dict[str, list[TocLink]] = field(
+        default_factory=lambda: {content_type: [] for content_type in CONTENT_TYPES}
     )
 
 
@@ -42,8 +60,10 @@ def published_link(href: str | None) -> str | None:
     if not href or href.startswith("#"):
         return None
     parsed = urlsplit(href)
-    if parsed.scheme or parsed.netloc or href.startswith("/"):
+    if parsed.scheme or parsed.netloc:
         return href
+    if href.startswith("/"):
+        return parsed.path.rstrip("/")
     relative_path = PurePosixPath(parsed.path.replace("\\", "/"))
     if relative_path.suffix.lower() not in {".md", ".yml"}:
         return None
@@ -70,15 +90,16 @@ def published_link(href: str | None) -> str | None:
 
 def collect_links(
     items: Any,
-    links_by_type: dict[str, set[str]],
-    inherited_type: str | None = None,
+    links_by_type: dict[str, list[TocLink]],
+    active_type: str | None = None,
+    subsections: tuple[str, ...] = (),
 ) -> None:
-    """Collect published links under recognized nested content groups.
+    """Collect links and subsection paths beneath the three content types.
 
-    Wrapper nodes such as SAP and Kubernetes-based hosting can contain the
-    recognized Architectures, Solution ideas, or Guides groups. Carry the
-    current content type through unrecognized wrappers and replace it when a
-    nested recognized group starts.
+    The search is recursive, so a type can appear anywhere within a category.
+    Wrapper nodes above or beneath Guides, Architectures, or Solution ideas
+    extend the subsection path. Links encountered outside all three types are
+    intentionally ignored.
     """
     if not isinstance(items, list):
         return
@@ -86,12 +107,40 @@ def collect_links(
         if not isinstance(raw_item, dict):
             continue
         name = raw_item.get("name")
-        content_type = GROUP_TYPES.get(name, inherited_type)
+        if not isinstance(name, str):
+            continue
+        content_type = TYPE_NAMES.get(name)
+        if content_type:
+            collect_links(
+                raw_item.get("items"),
+                links_by_type,
+                content_type,
+                subsections,
+            )
+            continue
+
+        child_items = raw_item.get("items")
         href = raw_item.get("href")
         link = published_link(href if isinstance(href, str) else None)
-        if link and isinstance(name, str) and content_type:
-            links_by_type[content_type].add(link)
-        collect_links(raw_item.get("items"), links_by_type, content_type)
+        if link and active_type and isinstance(href, str):
+            links_by_type[active_type].append(
+                TocLink(
+                    name=name,
+                    href=href,
+                    target=link,
+                    subsections=subsections,
+                )
+            )
+
+        child_subsections = subsections
+        if isinstance(child_items, list):
+            child_subsections = subsections + (name,)
+        collect_links(
+            child_items,
+            links_by_type,
+            active_type,
+            child_subsections,
+        )
 
 
 def parse_categories(toc_text: str) -> dict[str, Category]:

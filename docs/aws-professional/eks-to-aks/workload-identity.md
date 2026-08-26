@@ -125,7 +125,7 @@ AKS uses different types of managed identities to enable various built-in servic
 | Cost analysis                                                |  Gathers cost allocation data.                         | N/A                                                          |
 | Workload identity (Workload ID)              | Enables applications to securely access cloud resources with Workload ID. | N/A                                                          |
 
-For more information, see [Use a managed identity in AKS](/azure/aks/use-managed-identity).
+For more information, see [Use a managed identity in AKS](/azure/aks/managed-identity-overview).
 
 ## Workload ID for Kubernetes
 
@@ -219,7 +219,7 @@ Other contributors:
 ## Next steps
 
 - [Use a service principal with AKS](/azure/aks/kubernetes-service-principal)
-- [Use a managed identity in AKS](/azure/aks/use-managed-identity)
+- [Use a managed identity in AKS](/azure/aks/managed-identity-overview)
 - [Learning path: Manage identity and access in Microsoft Entra ID](/training/paths/manage-identity-and-access)
 
 ## Related resources

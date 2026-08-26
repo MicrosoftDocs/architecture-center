@@ -189,7 +189,7 @@ Foundry has [built-in integration](/azure/foundry/configuration/enable-ai-api-ma
 
 [API Management](/azure/api-management/api-management-key-concepts) is a platform-managed service designed to offload cross-cutting concerns for HTTP-based APIs. API Management has [AI gateway capabilities](/azure/api-management/genai-gateway-capabilities). API Management is configuration driven and supports customization through its inbound and outbound request processing policy system. It supports highly available, zone-redundant, and even multiple-region replicas by using a single control plane.
 
-Most of the gateway routing, security, caching, and request handling logic must be implemented in the policy system of API Management. You can combine [built-in policies](/azure/api-management/api-management-policies) specific to AI, such as [limiting large language model API token usage](/azure/api-management/llm-token-limit-policy), [emitting metrics for consumption of large language model tokens](/azure/api-management/llm-emit-token-metric-policy), [enforcing content safety](/azure/api-management/llm-content-safety-policy) or [caching responses](/azure/api-management/llm-semantic-cache-store-policy), and editing your own [custom policies](/azure/api-management/set-edit-policies). The [GenAI gateway toolkit](https://github.com/Azure-Samples/apim-genai-gateway-toolkit) GitHub repository contains multiple custom API Management policies, along with a load-testing setup for testing the behavior of the policies.
+Most of the gateway routing, security, caching, and request handling logic must be implemented in the policy system of API Management. You can combine [built-in policies](/azure/api-management/api-management-policies) specific to AI, such as [limiting large language model API token usage](/azure/api-management/llm-token-limit-policy), [emitting metrics for consumption of large language model tokens](/azure/api-management/llm-emit-token-metric-policy), [enforcing content safety](/azure/api-management/llm-content-safety-policy) or [caching responses](/azure/api-management/llm-semantic-cache-store-policy), and editing your own [custom policies](/azure/api-management/set-edit-policies). The [AI Gateway labs](https://github.com/Azure-Samples/AI-Gateway) GitHub repository contains multiple custom API Management policies, along with tools for testing the behavior of the policies.
 
 When you design a solution that involves API Management, use the [architecture best practices](/azure/well-architected/service-guides/azure-api-management).
 
@@ -225,6 +225,6 @@ The following articles cover specific scenarios where deploying a gateway betwee
 
 - [API gateway in Azure API Management](/azure/api-management/api-management-gateways-overview)
 - [API Management landing zone](https://github.com/Azure/apim-landing-zone-accelerator/blob/main/scenarios/workload-genai/README.md)
-- [API Management gateway toolkit](https://github.com/Azure-Samples/apim-genai-gateway-toolkit)
+- [AI Gateway labs for API Management](https://github.com/Azure-Samples/AI-Gateway)
 - [Azure OpenAI API Simulator](https://github.com/microsoft/aoai-api-simulator)
 - [AI Hub Gateway landing zone](https://github.com/Azure-Samples/ai-hub-gateway-solution-accelerator)

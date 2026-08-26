@@ -1,16 +1,22 @@
-### Web app guides
+### Web applications guides
 
 The following articles help you evaluate and select the best web app technologies for your workload requirements.
 
-#### Networking
+#### Networking guidance for web apps
 
 - [Improved-security access to Azure App Service web apps from an on-premises network](/azure/architecture/web-apps/guides/networking/access-multitenant-web-app-from-on-premises): An architecture for setting up private connectivity to Azure App Service from on-premises networks by using Azure Private Link, virtual network integration, and private endpoints.
 
-#### Security
+##### Global routing redundancy for highly available web applications
+
+- [Overview](/azure/architecture/guide/networking/global-web-applications/overview): Learn how to develop highly resilient global web applications.
+- [Content delivery](/azure/architecture/guide/networking/global-web-applications/mission-critical-content-delivery): Learn how to develop highly resilient global HTTP applications when your focus is on content delivery and caching.
+- [Global HTTP ingress](/azure/architecture/guide/networking/global-web-applications/mission-critical-global-http-ingress): Learn how to develop highly resilient global HTTP applications when your focus is on HTTP ingress.
+
+#### Security guidance for web apps
 
 - [Use Azure API Management to protect access tokens in single-page applications](/azure/architecture/web-apps/guides/security/secure-single-page-application-authorization): An architecture that uses Azure API Management to implement a stateless Backends for Frontends pattern that protects OAuth2 access tokens from cross-site scripting attacks.
 
-#### Disaster recovery
+#### Disaster recovery for web apps
 
 - [Multiple-region Azure App Service app approaches for disaster recovery (DR)](/azure/architecture/web-apps/guides/multi-region-app-service/multi-region-app-service): Approaches for deploying multiple-region Azure App Service architectures, including active-active, active-passive, and passive-cold configurations.
 
@@ -46,11 +52,7 @@ The following production-ready architectures demonstrate end-to-end web app solu
 
 - [WordPress on Azure App Service](/azure/architecture/example-scenario/infrastructure/wordpress-app-service): A managed WordPress hosting solution that uses Azure App Service for small to medium-sized installations.
 
-#### Multitier web apps
-
-- [Multitier web app built for HA and DR](/azure/architecture/example-scenario/infrastructure/multi-tier-app-disaster-recovery): A multiple-region architecture for multitier ASP.NET applications that uses Azure Site Recovery and Azure Public Traffic Manager for DR.
-
-### Web app solution ideas
+### Web applications solution ideas
 
 The following web app solution idea demonstrates implementation patterns and possibilities to explore:
 

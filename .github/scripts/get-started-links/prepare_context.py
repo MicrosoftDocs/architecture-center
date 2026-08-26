@@ -10,7 +10,7 @@ from pathlib import Path, PurePosixPath
 from typing import Any
 from urllib.parse import urlsplit
 
-from toc_model import Category, parse_categories
+from toc_model import CONTENT_TYPES, Category, TocLink, parse_categories
 
 INCLUDE_PATTERN = re.compile(r"\[!INCLUDE\s*\[[^\]]*\]\(([^)]+)\)\]", re.IGNORECASE)
 LINK_PATTERN = re.compile(r"(?<!!)\[[^\]]+\]\(\s*([^\s)]+)")
@@ -41,6 +41,18 @@ def include_links(text: str, include_path: str) -> set[str]:
         for target in LINK_PATTERN.findall(text)
         if normalize_link(target, include_path)
     }
+
+
+def is_architecture_center_link(target: str) -> bool:
+    """Return whether a normalized target is controlled by this TOC.
+
+    The Architecture Center TOC owns routes beneath `/azure/architecture/`.
+    Product-documentation routes and full external URLs can be curated directly
+    in an include, so their absence from the TOC must never mark them for
+    removal. External links that do appear in the TOC remain eligible for
+    addition because this check applies only to the removal calculation.
+    """
+    return target.startswith("/azure/architecture/")
 
 
 def include_path_for(article_path: str) -> str:
@@ -89,7 +101,12 @@ def build_context(
     repository_root: Path,
     current_categories: dict[str, Category],
 ) -> dict[str, Any]:
-    """Build the direct link delta between each category TOC and its include."""
+    """Build complete typed TOC context for every managed category.
+
+    Every run receives the full desired hierarchy so it can reconcile heading
+    changes as well as link changes. Added and removed link sets remain in the
+    context to make direct link drift explicit.
+    """
     categories: list[dict[str, Any]] = []
     for category_name, current_category in current_categories.items():
         include_path = include_path_for(current_category.article_path)
@@ -101,27 +118,69 @@ def build_context(
                 include_path,
             )
         toc_links = {
-            normalize_link(link)
+            link.target
             for links in current_category.types.values()
             for link in links
         }
         added = sorted(toc_links - existing_links)
-        removed = sorted(existing_links - toc_links)
-        if added or removed:
-            categories.append(
-                {
-                    "category": category_name,
-                    "getStartedInclude": include_path,
-                    "changes": [
-                        {
-                            "contentType": "all",
-                            "added": added,
-                            "removed": removed,
-                        }
-                    ],
-                }
-            )
+        removed = sorted(
+            link
+            for link in existing_links - toc_links
+            if is_architecture_center_link(link)
+        )
+        sections = [
+            build_section(category_name, content_type, current_category.types[content_type])
+            for content_type in CONTENT_TYPES
+            if current_category.types[content_type]
+        ]
+        categories.append(
+            {
+                "category": category_name,
+                "getStartedArticle": current_category.article_path,
+                "getStartedInclude": include_path,
+                "sections": sections,
+                "added": added,
+                "removed": removed,
+            }
+        )
     return {"categories": categories}
+
+
+def build_section(
+    category_name: str,
+    content_type: str,
+    links: list[TocLink],
+) -> dict[str, Any]:
+    """Serialize one content type while preserving TOC subsection order.
+
+    Links with the same subsection path are grouped together. The workflow uses
+    the supplied heading verbatim and turns each subsection path component into
+    a progressively deeper Markdown heading.
+    """
+    groups: list[dict[str, Any]] = []
+    groups_by_path: dict[tuple[str, ...], dict[str, Any]] = {}
+    for link in links:
+        group = groups_by_path.get(link.subsections)
+        if group is None:
+            group = {
+                "subsections": list(link.subsections),
+                "links": [],
+            }
+            groups_by_path[link.subsections] = group
+            groups.append(group)
+        group["links"].append(
+            {
+                "name": link.name,
+                "href": link.href,
+                "target": link.target,
+            }
+        )
+    type_label = content_type.replace("-", " ")
+    return {
+        "contentType": content_type,
+        "heading": f"{category_name} {type_label}",
+        "groups": groups,
+    }
 
 
 def parse_arguments() -> argparse.Namespace:
@@ -134,7 +193,7 @@ def parse_arguments() -> argparse.Namespace:
 
 
 def main() -> None:
-    """Compare the current TOC and includes, then write the link delta as JSON."""
+    """Write the complete managed TOC structure and current link drift as JSON."""
     arguments = parse_arguments()
     repository_root = arguments.root.resolve()
     toc_path = arguments.toc

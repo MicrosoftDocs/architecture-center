@@ -12,8 +12,6 @@ The following production-ready architectures demonstrate end-to-end storage solu
 
 - [Azure files secured by Active Directory Domain Services (AD DS)](../example-scenario/hybrid/azure-files-on-premises-authentication.yml). Implement on-premises access to Azure Files with AD DS authentication.
 
-- [Hybrid file services](../hybrid/hybrid-file-services.yml). Implement hybrid file services that span on-premises and Azure environments.
-
 #### Azure NetApp Files solutions
 
 - [Enterprise file shares with disaster recovery (DR)](../example-scenario/file-storage/enterprise-file-shares-disaster-recovery.yml). Deploy enterprise file share infrastructure with built-in DR by using Azure NetApp Files.
@@ -24,6 +22,10 @@ The following production-ready architectures demonstrate end-to-end storage solu
 
 - [SQL Server on Azure Virtual Machines with Azure NetApp Files](../example-scenario/file-storage/sql-server-azure-netapp-files.yml). Deploy SQL Server workloads on Virtual Machines by using Azure NetApp Files for high-performance storage.
 
+- [Hybrid file services](../hybrid/hybrid-file-services.yml). Implement hybrid file services that span on-premises and Azure environments.
+
+- [Move mainframe archive data to Azure](../example-scenario/mainframe/move-archive-data-mainframes.yml). Move mainframe archive data to Azure to reduce storage costs and make it easier to access.
+
 ### Storage solution ideas
 
 The following solution ideas demonstrate implementation patterns and possibilities to explore.
@@ -31,6 +33,4 @@ The following solution ideas demonstrate implementation patterns and possibiliti
 **Mainframe data storage:** Explore solutions for transferring and replicating mainframe data to Azure:
 
 - [Mainframe file replication on Azure](/azure/architecture/solution-ideas/articles/mainframe-azure-file-replication). Replicate mainframe files to Azure with high fidelity and minimal disruption.
-
-- [Move mainframe archive data to Azure](/azure/architecture/example-scenario/mainframe/move-archive-data-mainframes). Move mainframe archive data to Azure to reduce storage costs and make it easier to access.
 
