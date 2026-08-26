@@ -2,12 +2,60 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id/>
     <title>Azure Architecture Center</title>
-    <updated>2026-08-19T17:39:29.000Z</updated>
+    <updated>2026-08-21T20:49:57.000Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <subtitle>Updated articles for Azure Architecture Center</subtitle>
     <rights>https://learn.microsoft.com/legal/termsofuse</rights>
     <category term="new"/>
     <category term="updated"/>
+    <entry>
+        <title type="html"><![CDATA[DevSecOps on Azure Kubernetes Service (AKS)]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/guide/devsecops/devsecops-on-aks#4849927c23</id>
+        <link href="https://learn.microsoft.com/azure/architecture/guide/devsecops/devsecops-on-aks"/>
+        <updated>2026-08-21T20:49:57.000Z</updated>
+        <summary type="html"><![CDATA[Learn how DevSecOps helps you incorporate security best practices from the start of software development and throughout the software deployment life cycle (SDLC).]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Design a secure multitenant RAG inferencing solution]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/ai-ml/guide/secure-multitenant-rag#0247678b74</id>
+        <link href="https://learn.microsoft.com/azure/architecture/ai-ml/guide/secure-multitenant-rag"/>
+        <updated>2026-08-21T07:47:28.000Z</updated>
+        <summary type="html"><![CDATA[Learn about the considerations and recommendations for improved security that you should consider when you design a multitenant RAG inferencing solution.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Architectural approaches for cost management and allocation in a multitenant solution]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/guide/multitenant/approaches/cost-management-allocation#7308a881b9</id>
+        <link href="https://learn.microsoft.com/azure/architecture/guide/multitenant/approaches/cost-management-allocation"/>
+        <updated>2026-08-21T03:27:05.000Z</updated>
+        <summary type="html"><![CDATA[Learn about cost management and allocation approaches for multitenant solutions, including Azure resource tagging, consumption tracking, and optimization.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Architectural approaches for storage and data in multitenant solutions]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/guide/multitenant/approaches/storage-data#1b2ebd1892</id>
+        <link href="https://learn.microsoft.com/azure/architecture/guide/multitenant/approaches/storage-data"/>
+        <updated>2026-08-21T01:09:02.000Z</updated>
+        <summary type="html"><![CDATA[Learn about approaches, including common patterns and antipatterns, to support multitenancy for the storage and data components of your solution.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Quantum computing integration with classical apps]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/example-scenario/quantum/quantum-computing-integration-with-classical-apps#f5fe025929</id>
+        <link href="https://learn.microsoft.com/azure/architecture/example-scenario/quantum/quantum-computing-integration-with-classical-apps"/>
+        <updated>2026-08-20T02:22:35.000Z</updated>
+        <summary type="html"><![CDATA[Learn how to integrate quantum work with classical applications by using direct quantum integration or workflow-orchestrated quantum integration patterns.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Connect Azure Databricks to the reference solution]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/guide/iot/how-to-connect-databricks-to-solution#ddb618c6e0</id>
+        <link href="https://learn.microsoft.com/azure/architecture/guide/iot/how-to-connect-databricks-to-solution"/>
+        <updated>2026-08-18T20:24:41.000Z</updated>
+        <summary type="html"><![CDATA[Learn how to ingest and analyze OPC UA industrial IoT data in Azure Databricks by using Delta Lake and Structured Streaming.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
     <entry>
         <title type="html"><![CDATA[OPC UA reference solution]]></title>
         <id>https://learn.microsoft.com/azure/architecture/guide/iot/iot-industrial-solution-architecture#a3d2abba45</id>

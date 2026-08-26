@@ -7,7 +7,7 @@ ms.update-cycle: 1095-days
 ms.date: 06/22/2026
 ms.topic: concept-article
 ms.subservice: category-get-started
-ai-usage: ai-generated
+ai-usage: ai-assisted
 ---
 
 # Get started with DevOps architecture design

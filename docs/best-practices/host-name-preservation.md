@@ -177,7 +177,7 @@ If you use Application Gateway as the reverse proxy, ensure that the original ho
 
 Because health probes are sent outside the context of an incoming request, they can't dynamically determine the correct host name. Instead, create a custom health probe, turn off **Pick host name from back-end HTTP settings**, and [explicitly specify the host name](/azure/application-gateway/application-gateway-probe-overview#custom-health-probe-settings). For this host name, use an appropriate custom domain for consistency. Alternatively, use the default domain of the hosting platform here, because health probes ignore incorrect cookies or redirect URLs in the response.
 
-If the host name isn't preserved and you need to diagnose the resulting problems, see [Troubleshoot redirection to an App Service URL](/azure/application-gateway/troubleshoot-app-service-redirection-app-service-url). If you can't fully preserve the host name, consider using [HTTP header and URL rewrites](/azure/application-gateway/troubleshoot-app-service-redirection-app-service-url#workaround-rewrite-the-location-header) should be used as a partial workaround.
+If the host name isn't preserved and you need to diagnose the resulting problems, see [Troubleshoot App Service redirection problems in Application Gateway](/troubleshoot/azure/application-gateway/troubleshoot-app-service-redirection-app-service-url). If you can't fully preserve the host name, consider using [HTTP header and URL rewrites](/troubleshoot/azure/application-gateway/troubleshoot-app-service-redirection-app-service-url#workaround-rewrite-the-location-header) as a partial workaround.
 
 #### Azure Front Door
 

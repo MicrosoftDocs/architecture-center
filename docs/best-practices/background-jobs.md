@@ -97,7 +97,7 @@ Background jobs are especially prone to running more than once for the same logi
 
 You can host background tasks by using a diverse range of Azure platform services:
 
-- **[Azure Functions](#functions):** A serverless compute service that supports event-driven and schedule-driven triggers with automatic scaling. Use [Durable Functions](/azure/azure-functions/durable/durable-functions-overview) for long-running or stateful workflows.
+- **[Azure Functions](#functions):** A serverless compute service that supports event-driven and schedule-driven triggers with automatic scaling. Use [Durable Functions](/azure/durable-task/durable-functions/durable-functions-overview) for long-running or stateful workflows.
 
 - **[Azure Container Apps](#container-apps):** A serverless container platform that supports both long-running services and discrete [jobs](/azure/container-apps/jobs). Jobs run to completion, and you can trigger them manually, on a schedule, or by events. Container Apps uses [KEDA](https://keda.sh/) for event-driven autoscaling, including scale to zero.
 
@@ -115,7 +115,7 @@ The following sections describe these options in more detail and include conside
 
 Functions is a serverless compute service that runs event-driven code. Functions suits background jobs because it supports diverse types of [triggers](/azure/azure-functions/functions-triggers-bindings), including queue messages, blob storage changes, timer schedules, HTTP requests, and Event Grid events.
 
-For short-duration background tasks, Functions provides automatic scaling (including scale to zero) and pay-per-execution billing. For long-running or stateful workflows, use [Durable Functions](/azure/azure-functions/durable/durable-functions-overview), which extends Functions with orchestration capabilities.
+For short-duration background tasks, Functions provides automatic scaling (including scale to zero) and pay-per-execution billing. For long-running or stateful workflows, use [Durable Functions](/azure/durable-task/durable-functions/durable-functions-overview), which extends Functions with orchestration capabilities.
 
 Durable Functions supports several orchestration patterns that directly apply to background job coordination:
 
@@ -139,7 +139,7 @@ Durable Functions supports several orchestration patterns that directly apply to
 
   - **Dedicated (App Service) plan:** Run functions on existing App Service infrastructure. This option is suitable when you have underutilized App Service capacity and want to share compute costs.
 
-- Durable Functions maintains orchestration state automatically through checkpointing. If a function app restarts, the orchestration resumes from its last checkpoint. Design activity functions to be [idempotent](/azure/azure-functions/durable/durable-functions-perf-and-scale) so that retries don't produce duplicate side effects. You can also use [timer triggers](/azure/azure-functions/functions-bindings-timer) to run functions on a schedule without an external event source.
+- Durable Functions maintains orchestration state automatically through checkpointing. If a function app restarts, the orchestration resumes from its last checkpoint. Design activity functions to be [idempotent](/azure/durable-task/durable-functions/durable-functions-perf-and-scale) so that retries don't produce duplicate side effects. You can also use [timer triggers](/azure/azure-functions/functions-bindings-timer) to run functions on a schedule without an external event source.
 
 ### Container Apps
 
@@ -307,7 +307,7 @@ Background jobs run without a user present, so failures are silent unless you ac
 
 - **Measure queue wait time, not only processing time.** Business impact is determined by how long a message takes from enqueue to completion. For example, a job that processes in 2 seconds but sits in the queue for 30 minutes causes a 30-minute delay. Track enqueue-to-completion latency alongside per-job processing duration.
 
-- **Correlate across job steps.** Multistep background jobs can span multiple services, queues, and compute instances. Propagate a correlation identifier through every step so that you can trace the full life cycle of a single work item in your logs and [distributed traces](/azure/azure-monitor/app/classic-api).
+- **Correlate across job steps.** Multistep background jobs can span multiple services, queues, and compute instances. Propagate a correlation identifier through every step so that you can trace the full life cycle of a single work item in your logs and [distributed traces](/azure/azure-monitor/app/app-map).
 
 ## Scaling and performance considerations
 

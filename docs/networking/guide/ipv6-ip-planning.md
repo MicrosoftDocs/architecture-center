@@ -110,4 +110,4 @@ You can use the following table to find instructions for transitioning specific 
 
 ## Related resources
 
-- [Networking architecture design](../get-started.md)
+- [Networking architecture design](../networking-get-started.md)

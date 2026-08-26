@@ -94,7 +94,7 @@ Consider the following points when you use autoscaling:
 
 - The autoscale engine processes only one profile at a time. If a condition isn't met, it checks for the next profile. Keep key metrics out of the default profile because that profile is checked last. Within a profile, you can have multiple rules. On scale-out, autoscale runs if any rule is met. On scale-in, autoscale requires all rules to be met.
 
-  For more information about how Azure Monitor scales, see [Best practices for autoscale](/Azure/azure-monitor/platform/autoscale-best-practices).
+  For more information about how Azure Monitor scales, see [Best practices for autoscale](/azure/azure-monitor/autoscale/autoscale-best-practices).
 
 - If you configure autoscaling by using the SDK rather than the portal, you can specify a more detailed schedule during which the rules are active. You can also create your own metrics and use them with or without any of the existing ones in your autoscaling rules. For example, you might wish to use alternative counters, such as the number of requests per second or the average memory availability. Or you might use custom counters to measure specific business processes.
 

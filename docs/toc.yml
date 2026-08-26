@@ -1006,10 +1006,6 @@ items:
         href: data-guide/scenarios/data-lake.md
       - name: Big data
         href: databases/guide/big-data-architectures.md
-      - name: Governance
-        items:
-        - name: Collection structure for a federated Microsoft Purview catalog
-          href: guide/data/collection-structure-federated-catalog.md
   - name: DevOps
     items:
     - name: Get started
@@ -1270,7 +1266,7 @@ items:
   - name: Networking
     items: 
       - name: Get started
-        href: networking/get-started.md
+        href: networking/networking-get-started.md
       - name: Select a service
         items:
         - name: Load balancing options

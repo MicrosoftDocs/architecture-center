@@ -7,6 +7,7 @@ ms.update-cycle: 1095-days
 ms.topic: concept-article
 ms.subservice: category-get-started
 ms.date: 06/19/2026
+ai-usage: ai-assisted
 ---
 
 # Get started with identity architecture design
