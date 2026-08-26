@@ -2,10 +2,6 @@
 
 The following articles help you evaluate and select the best networking technologies for your workload requirements.
 
-#### Load balancing and content delivery
-
-- [Load balancing options](/azure/architecture/guide/technology-choices/load-balancing-overview): Choose the right Azure load balancing service for your workload.
-
 #### Network connectivity
 
 - [Virtual network connectivity options](/azure/architecture/reference-architectures/hybrid-networking/virtual-network-peering): Compare virtual network peering, VPN gateways, and other connectivity options for spoke-to-spoke communication.

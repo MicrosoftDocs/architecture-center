@@ -6,8 +6,6 @@ The following articles help you evaluate and select the best integration technol
 
 - [Choose between Azure messaging services](/azure/service-bus-messaging/compare-messaging-services): Compare Azure Event Grid, Azure Event Hubs, and Azure Service Bus, and learn when to use each service.
 
-- [Asynchronous messaging options](../guide/technology-choices/messaging.md): Learn about various types of messages and the entities that participate in a messaging infrastructure, and select an Azure messaging service.
-
 #### Event Hubs with Azure Functions
 
 - [Overview](../serverless/event-hubs-functions/event-hubs-functions.md): Guidance for how to effectively integrate Azure Event Hubs with Azure Functions for performance, resiliency, security, and scale.
@@ -19,8 +17,6 @@ The following articles help you evaluate and select the best integration technol
 - [Security](../serverless/event-hubs-functions/security.md): Apply fine-grained access control and network security for Azure Event Hubs and Azure Functions.
 
 - [Observability](../serverless/event-hubs-functions/observability.md): Use Application Insights to monitor the behavior and health of Azure Event Hubs and Azure Functions solutions.
-
-#### Migration
 
 - [Apache Kafka migration to Azure](../guide/hadoop/apache-kafka-migration.yml): Explore strategies for migrating Apache Kafka workloads to Azure, including Azure Event Hubs, Azure HDInsight, and Azure Kubernetes Service (AKS).
 

@@ -6,8 +6,6 @@ The following articles help you evaluate and select the best IoT technologies fo
 
 - [Connect IoT devices to Azure](/azure/iot-hub/iot-hub-compare-event-hubs): Compare Azure IoT Hub and Azure Event Hubs to choose the right ingestion service for your device connectivity and data streaming requirements.
 
-- [Choose a stream processing technology in Azure](../data-guide/technology-choices/stream-processing.md): Evaluate technologies for real-time IoT telemetry pipelines. Options include Azure Stream Analytics, Azure Functions, and Azure Spark Structured Streaming.
-
 #### OPC UA reference solution
 
 - [OPC UA reference solution](../guide/iot/iot-industrial-solution-architecture.md): Learn about a reference solution architecture that uses OPC UA to connect industrial equipment to Azure.

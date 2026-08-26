@@ -1,19 +1,5 @@
 ### Analytics guides
 
-The following articles help you evaluate and select the best analytics technologies for your workload requirements:
-
-- [Choose a data analytics and reporting service](../data-guide/technology-choices/analysis-visualizations-reporting.md): Compare options for data analysis and visualization in Azure.
-
-- [Choose a batch processing service](../data-guide/technology-choices/batch-processing.md): Evaluate batch processing technologies for big data workloads.
-
-- [Choose a stream processing service](../data-guide/technology-choices/stream-processing.md): Compare stream processing technologies for real-time analytics.
-
-- [Choose an analytical data store](../data-guide/technology-choices/analytical-data-stores.md): Get guidance on analytical data store selection.
-
-- [Choose a Microsoft Fabric deployment pattern](../data-guide/technology-choices/fabric-deployment-patterns.md): Evaluate Microsoft Fabric deployment patterns for structuring capacities, workspaces, and items based on your requirements.
-
-- [Choose an analytical data store in Microsoft Fabric](../data-guide/technology-choices/fabric-analytical-data-stores.md): Get guidance on data stores in Fabric.
-
 #### Disaster recovery for Azure data platform
 
 The following articles provide guidance about disaster recovery (DR) strategies for Azure data platforms:
