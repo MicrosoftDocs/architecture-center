@@ -94,7 +94,7 @@ Follow these steps when designing partitions for scalability:
 
 Some cloud environments allocate resources in terms of infrastructure boundaries. Ensure that the limits of your selected boundary provide enough room for any anticipated growth in the volume of data, in terms of data storage, processing power, and bandwidth.
 
-For example, if you use Azure table storage, there's a limit to the volume of requests that can be handled by a single partition in a particular period of time. (For more information, see [Azure storage scalability and performance targets](/azure/storage/storage-scalability-targets).) A busy shard might require more resources than a single partition can handle. If so, the shard might need to be repartitioned to spread the load. If the total size or throughput of these tables exceeds the capacity of a storage account, you might need to create more storage accounts and spread the tables across these accounts.
+For example, if you use Azure table storage, there's a limit to the volume of requests that can be handled by a single partition in a particular period of time. (For more information, see [Scalability and performance targets for standard storage accounts](/azure/storage/common/scalability-targets-standard-account).) A busy shard might require more resources than a single partition can handle. If so, the shard might need to be repartitioned to spread the load. If the total size or throughput of these tables exceeds the capacity of a storage account, you might need to create more storage accounts and spread the tables across these accounts.
 
 ## Designing partitions for query performance
 
@@ -217,7 +217,7 @@ Online migration is more complex to perform but less disruptive. The process is 
 ## Next steps
 
 - Learn about partitioning strategies for specific Azure services. For more information, see [Data partitioning strategies](./data-partitioning-strategies.yml).
-- [Azure storage scalability and performance targets](/azure/storage/storage-scalability-targets)
+- [Scalability and performance targets for standard storage accounts](/azure/storage/common/scalability-targets-standard-account)
 
 ## Related resources
 
