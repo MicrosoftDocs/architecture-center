@@ -16,6 +16,8 @@ The following articles help you evaluate and select the best database technologi
 - [Use the Transactional Outbox pattern](../databases/guide/transactional-out-box-cosmos.md)
 - [Run Apache Cassandra](../databases/guide/cassandra.md)
 
+#### Data processing
+
 - [OLAP solutions](../data-guide/relational-data/online-analytical-processing.md)
 - [OLTP solutions](../data-guide/relational-data/online-transaction-processing.md)
 - [Extract, transform, and load (ETL) guide](../data-guide/relational-data/etl.yml)
