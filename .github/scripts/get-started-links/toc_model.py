@@ -1,4 +1,10 @@
-"""Parse Azure category TOC entries and calculate category-level changes."""
+"""Read the Azure categories TOC subtree as a faithful, ordered tree.
+
+The reader is deliberately convention-free. It doesn't classify nodes by name
+or recognize special content types. It reproduces the category subtree exactly
+as the TOC declares it, preserving order and nesting, so the include can mirror
+the TOC outline instead of a hardcoded subset of it.
+"""
 
 from __future__ import annotations
 
@@ -9,45 +15,37 @@ from urllib.parse import urlsplit
 
 import yaml
 
-TYPE_NAMES: dict[str, str] = {
-    "Architectures": "architectures",
-    "Solution ideas": "solution-ideas",
-    "Guides": "guides",
-}
-CONTENT_TYPES: tuple[str, ...] = (
-    "guides",
-    "architectures",
-    "solution-ideas",
-)
+GET_STARTED_NAME = "Get started"
 
 
-@dataclass(frozen=True)
-class TocLink:
-    """Represent one typed TOC link and its subsection path.
+@dataclass
+class TocNode:
+    """One node of a category subtree, preserving TOC order and nesting.
 
-    The subsection path contains every wrapper beneath Guides, Architectures,
-    or Solution ideas. Keeping that path lets the workflow reproduce the TOC
-    hierarchy instead of guessing where a link belongs in an include.
+    A node can be a heading (it has children), a link (it has an href and no
+    children), or both (an href and children). Keeping the raw shape lets the
+    downstream stage render structure deterministically and reserve editorial
+    judgment for text.
     """
 
     name: str
-    href: str
-    target: str
-    subsections: tuple[str, ...]
+    href: str | None
+    target: str | None
+    children: list["TocNode"] = field(default_factory=list)
 
 
 @dataclass
 class Category:
-    """Represent one category and its ordered, typed TOC structure.
+    """One category and its ordered subtree, minus its own Get started node.
 
-    Each content type stores links in TOC order. Every link also retains its
-    subsection path so nested TOC groups can become nested include headings.
+    Only the category's own Get started entry is excluded, because that entry
+    names the parent article that hosts the managed include. Every other node,
+    including Get started entries nested deeper in the subtree, is preserved.
     """
 
+    name: str
     article_path: str
-    types: dict[str, list[TocLink]] = field(
-        default_factory=lambda: {content_type: [] for content_type in CONTENT_TYPES}
-    )
+    nodes: list[TocNode] = field(default_factory=list)
 
 
 def published_link(href: str | None) -> str | None:
@@ -88,63 +86,38 @@ def published_link(href: str | None) -> str | None:
     return "/azure/architecture/" + "/".join(normalized_parts)
 
 
-def collect_links(
-    items: Any,
-    links_by_type: dict[str, list[TocLink]],
-    active_type: str | None = None,
-    subsections: tuple[str, ...] = (),
-) -> None:
-    """Collect links and subsection paths beneath the three content types.
+def _build_node(raw_item: dict[str, Any]) -> TocNode | None:
+    """Build one node and its subtree from a raw TOC dictionary."""
+    name = raw_item.get("name")
+    if not isinstance(name, str):
+        return None
+    href = raw_item.get("href")
+    href = href if isinstance(href, str) else None
+    children = _build_nodes(raw_item.get("items"))
+    return TocNode(
+        name=name,
+        href=href,
+        target=published_link(href),
+        children=children,
+    )
 
-    The search is recursive, so a type can appear anywhere within a category.
-    Wrapper nodes above or beneath Guides, Architectures, or Solution ideas
-    extend the subsection path. Links encountered outside all three types are
-    intentionally ignored.
-    """
+
+def _build_nodes(items: Any) -> list[TocNode]:
+    """Build an ordered node list from a raw TOC items array."""
     if not isinstance(items, list):
-        return
+        return []
+    nodes: list[TocNode] = []
     for raw_item in items:
         if not isinstance(raw_item, dict):
             continue
-        name = raw_item.get("name")
-        if not isinstance(name, str):
-            continue
-        content_type = TYPE_NAMES.get(name)
-        if content_type:
-            collect_links(
-                raw_item.get("items"),
-                links_by_type,
-                content_type,
-                subsections,
-            )
-            continue
-
-        child_items = raw_item.get("items")
-        href = raw_item.get("href")
-        link = published_link(href if isinstance(href, str) else None)
-        if link and active_type and isinstance(href, str):
-            links_by_type[active_type].append(
-                TocLink(
-                    name=name,
-                    href=href,
-                    target=link,
-                    subsections=subsections,
-                )
-            )
-
-        child_subsections = subsections
-        if isinstance(child_items, list):
-            child_subsections = subsections + (name,)
-        collect_links(
-            child_items,
-            links_by_type,
-            active_type,
-            child_subsections,
-        )
+        node = _build_node(raw_item)
+        if node is not None:
+            nodes.append(node)
+    return nodes
 
 
 def parse_categories(toc_text: str) -> dict[str, Category]:
-    """Parse the Azure categories subtree without inferring from directories."""
+    """Parse the Azure categories subtree into faithful ordered trees."""
     document = yaml.safe_load(toc_text)
     root_items = document if isinstance(document, list) else document.get("items", [])
     if not isinstance(root_items, list):
@@ -173,17 +146,26 @@ def parse_categories(toc_text: str) -> dict[str, Category]:
             (
                 item
                 for item in category_items
-                if isinstance(item, dict) and item.get("name") == "Get started"
+                if isinstance(item, dict)
+                and item.get("name") == GET_STARTED_NAME
+                and isinstance(item.get("href"), str)
+                and published_link(item.get("href"))
             ),
             None,
         )
-        if not isinstance(get_started, dict):
+        if get_started is None:
             continue
-        get_started_href = get_started.get("href")
-        if not isinstance(get_started_href, str) or not published_link(get_started_href):
-            continue
-        article_path = (PurePosixPath("docs") / get_started_href).as_posix()
-        category = Category(article_path=article_path)
-        collect_links(category_items, category.types)
-        categories[category_name] = category
+        article_path = (PurePosixPath("docs") / get_started["href"]).as_posix()
+        nodes = [
+            node
+            for raw_item in category_items
+            if isinstance(raw_item, dict) and raw_item is not get_started
+            for node in [_build_node(raw_item)]
+            if node is not None
+        ]
+        categories[category_name] = Category(
+            name=category_name,
+            article_path=article_path,
+            nodes=nodes,
+        )
     return categories

@@ -1,4 +1,4 @@
-"""Tests for full TOC-to-include reconciliation."""
+"""Tests for TOC-to-include outline mirroring."""
 
 from __future__ import annotations
 
@@ -19,13 +19,13 @@ TOC = [
         "name": "Azure categories",
         "items": [
             {
-                "name": "Web applications",
+                "name": "Containers",
                 "items": [
-                    {"name": "Get started", "href": "web-apps/web-apps-get-started.md"},
+                    {"name": "Get started", "href": "containers/get-started.md"},
                     {
                         "name": "Select a service",
                         "items": [
-                            {"name": "Choose hosting", "href": "guide/hosting.md"}
+                            {"name": "Container host options", "href": "guide/choose.md"}
                         ],
                     },
                     {
@@ -34,32 +34,24 @@ TOC = [
                             {
                                 "name": "Networking",
                                 "items": [
-                                    {
-                                        "name": "Current guide",
-                                        "href": "guide/current.md",
-                                    }
+                                    {"name": "Current guide", "href": "guide/current.md"}
                                 ],
                             }
                         ],
                     },
                     {
-                        "name": "Architectures",
+                        "name": "Kubernetes-based hosting",
                         "items": [
                             {
-                                "name": "Hosting WordPress on Azure",
+                                "name": "Get started",
+                                "href": "reference-architectures/aks-start-here.md",
+                            },
+                            {
+                                "name": "Architectures",
                                 "items": [
-                                    {
-                                        "name": "WordPress overview",
-                                        "href": "guide/wordpress.yml",
-                                    }
+                                    {"name": "AKS baseline", "href": "reference-architectures/baseline.yml"}
                                 ],
-                            }
-                        ],
-                    },
-                    {
-                        "name": "Solution ideas",
-                        "items": [
-                            {"name": "SharePoint farm", "href": "ideas/sharepoint.yml"}
+                            },
                         ],
                     },
                 ],
@@ -69,8 +61,13 @@ TOC = [
 ]
 
 
-class ReconcileTests(unittest.TestCase):
-    """Verify the complete three-type structure supplied to the workflow."""
+def _find(nodes, name):
+    """Return the first node with the given name in an outline list."""
+    return next(node for node in nodes if node["name"] == name)
+
+
+class OutlineTests(unittest.TestCase):
+    """Verify the deterministic outline supplied to the workflow."""
 
     def test_strips_site_navigation_query(self) -> None:
         """Ignore site navigation query parameters when comparing local links."""
@@ -80,39 +77,148 @@ class ReconcileTests(unittest.TestCase):
 
         self.assertEqual(target, "/azure/aks/monitor-aks")
 
-    def test_preserves_types_and_subsections(self) -> None:
-        """Preserve recursive TOC subsections beneath exactly three types."""
+    def test_mirrors_toc_order_and_nesting(self) -> None:
+        """Reproduce every top-level node in TOC order, minus Get started."""
         categories = parse_categories(json.dumps(TOC))
         with tempfile.TemporaryDirectory() as temporary_directory:
             context = build_context(Path(temporary_directory), categories)
 
         category = context["categories"][0]
-        self.assertEqual(category["category"], "Web applications")
+        self.assertEqual(category["category"], "Containers")
         self.assertEqual(
-            [section["heading"] for section in category["sections"]],
-            [
-                "Web applications guides",
-                "Web applications architectures",
-                "Web applications solution ideas",
-            ],
+            category["getStartedArticle"], "docs/containers/get-started.md"
         )
-        guide_group = category["sections"][0]["groups"][0]
-        self.assertEqual(guide_group["subsections"], ["Networking"])
-        architecture_group = category["sections"][1]["groups"][0]
         self.assertEqual(
-            architecture_group["subsections"], ["Hosting WordPress on Azure"]
+            [node["name"] for node in category["outline"]],
+            ["Select a service", "Guides", "Kubernetes-based hosting"],
         )
-        added = category["added"]
-        self.assertNotIn("/azure/architecture/guide/hosting", added)
-        self.assertIn("/azure/architecture/guide/wordpress", added)
 
-    def test_preserves_wrapper_above_type(self) -> None:
-        """Preserve a wrapper that contains a recognized content type.
+    def test_heading_levels_start_at_three(self) -> None:
+        """Top-level sections are H3 and nested sections deepen by one."""
+        categories = parse_categories(json.dumps(TOC))
+        with tempfile.TemporaryDirectory() as temporary_directory:
+            context = build_context(Path(temporary_directory), categories)
 
-        Some categories group their three content types beneath a named topic,
-        such as SAP or Kubernetes-based hosting. The wrapper still identifies
-        the subsection that must appear beneath the category-qualified H3.
-        """
+        outline = context["categories"][0]["outline"]
+        guides = _find(outline, "Guides")
+        self.assertEqual(guides["kind"], "section")
+        self.assertEqual(guides["headingLevel"], 3)
+        networking = _find(guides["children"], "Networking")
+        self.assertEqual(networking["headingLevel"], 4)
+        current = _find(networking["children"], "Current guide")
+        self.assertEqual(current["kind"], "link")
+        self.assertEqual(
+            current["target"], "/azure/architecture/guide/current"
+        )
+
+    def test_direct_links_precede_subsections(self) -> None:
+        """A section renders its direct links before its subsections."""
+        toc = [
+            {
+                "name": "Azure categories",
+                "items": [
+                    {
+                        "name": "Internet of Things",
+                        "items": [
+                            {"name": "Get started", "href": "iot/get-started.md"},
+                            {
+                                "name": "Guides",
+                                "items": [
+                                    {
+                                        "name": "OPC UA reference solution",
+                                        "items": [
+                                            {"name": "Overview", "href": "guide/opc.md"}
+                                        ],
+                                    },
+                                    {"name": "Scale IoT solutions", "href": "guide/scale.md"},
+                                ],
+                            }
+                        ],
+                    }
+                ],
+            }
+        ]
+        categories = parse_categories(json.dumps(toc))
+        with tempfile.TemporaryDirectory() as temporary_directory:
+            context = build_context(Path(temporary_directory), categories)
+
+        guides = context["categories"][0]["outline"][0]
+        self.assertEqual(
+            [(child["name"], child["kind"]) for child in guides["children"]],
+            [("Scale IoT solutions", "link"), ("OPC UA reference solution", "section")],
+        )
+
+    def test_excludes_only_own_get_started(self) -> None:
+        """Exclude the category Get started but keep nested Get started nodes."""
+        categories = parse_categories(json.dumps(TOC))
+        with tempfile.TemporaryDirectory() as temporary_directory:
+            context = build_context(Path(temporary_directory), categories)
+
+        outline = context["categories"][0]["outline"]
+        self.assertNotIn("Get started", [node["name"] for node in outline])
+        hosting = _find(outline, "Kubernetes-based hosting")
+        nested = _find(hosting["children"], "Get started")
+        self.assertEqual(nested["kind"], "link")
+        self.assertEqual(
+            nested["target"],
+            "/azure/architecture/reference-architectures/aks-start-here",
+        )
+
+    def test_removes_aac_links_absent_from_toc(self) -> None:
+        """Flag Architecture Center include links that left the TOC."""
+        categories = parse_categories(json.dumps(TOC))
+        with tempfile.TemporaryDirectory() as temporary_directory:
+            repository_root = Path(temporary_directory)
+            include_path = (
+                repository_root / "docs/includes/containers-get-started-include.md"
+            )
+            include_path.parent.mkdir(parents=True)
+            include_path.write_text(
+                "- [Current guide](../guide/current.md)\n"
+                "- [Retired guide](../guide/retired.md)\n",
+                encoding="utf-8",
+            )
+
+            context = build_context(repository_root, categories)
+
+        category = context["categories"][0]
+        self.assertEqual(
+            category["removed"], ["/azure/architecture/guide/retired"]
+        )
+
+    def test_preserves_external_links_missing_from_toc(self) -> None:
+        """Never remove product-documentation or full external URLs."""
+        categories = parse_categories(json.dumps(TOC))
+        with tempfile.TemporaryDirectory() as temporary_directory:
+            repository_root = Path(temporary_directory)
+            include_path = (
+                repository_root / "docs/includes/containers-get-started-include.md"
+            )
+            include_path.parent.mkdir(parents=True)
+            include_path.write_text(
+                "- [Current guide](../guide/current.md)\n"
+                "- [Product documentation](/azure/aks/intro.md)\n"
+                "- [External site](https://example.com/resource)\n",
+                encoding="utf-8",
+            )
+
+            context = build_context(repository_root, categories)
+
+        category = context["categories"][0]
+        self.assertEqual(category["removed"], [])
+
+    def test_reports_added_toc_links(self) -> None:
+        """Flag TOC links missing from the include as additions."""
+        categories = parse_categories(json.dumps(TOC))
+        with tempfile.TemporaryDirectory() as temporary_directory:
+            context = build_context(Path(temporary_directory), categories)
+
+        added = context["categories"][0]["added"]
+        self.assertIn("/azure/architecture/guide/choose", added)
+        self.assertIn("/azure/architecture/reference-architectures/baseline", added)
+
+    def test_caps_heading_depth_beyond_h6(self) -> None:
+        """Render sections nested past H6 as bold labels (null level)."""
         toc = [
             {
                 "name": "Azure categories",
@@ -122,14 +228,29 @@ class ReconcileTests(unittest.TestCase):
                         "items": [
                             {"name": "Get started", "href": "compute/get-started.md"},
                             {
-                                "name": "SAP",
+                                "name": "L3",
                                 "items": [
                                     {
-                                        "name": "Architectures",
+                                        "name": "L4",
                                         "items": [
                                             {
-                                                "name": "SAP architecture",
-                                                "href": "architectures/sap.yml",
+                                                "name": "L5",
+                                                "items": [
+                                                    {
+                                                        "name": "L6",
+                                                        "items": [
+                                                            {
+                                                                "name": "L7",
+                                                                "items": [
+                                                                    {
+                                                                        "name": "Deep link",
+                                                                        "href": "guide/deep.md",
+                                                                    }
+                                                                ],
+                                                            }
+                                                        ],
+                                                    }
+                                                ],
                                             }
                                         ],
                                     }
@@ -144,54 +265,12 @@ class ReconcileTests(unittest.TestCase):
         with tempfile.TemporaryDirectory() as temporary_directory:
             context = build_context(Path(temporary_directory), categories)
 
-        architecture_section = context["categories"][0]["sections"][0]
-        architecture_group = architecture_section["groups"][0]
-        self.assertEqual(architecture_group["subsections"], ["SAP"])
-
-    def test_removes_links_outside_three_types(self) -> None:
-        """Remove an include link that exists only outside the three TOC types."""
-        categories = parse_categories(json.dumps(TOC))
-        with tempfile.TemporaryDirectory() as temporary_directory:
-            repository_root = Path(temporary_directory)
-            include_path = repository_root / "docs/includes/web-apps-get-started-include.md"
-            include_path.parent.mkdir(parents=True)
-            include_path.write_text(
-                "- [Current guide](../guide/current.md)\n"
-                "- [Choose hosting](../guide/hosting.md)\n",
-                encoding="utf-8",
-            )
-
-            context = build_context(repository_root, categories)
-
-        category = context["categories"][0]
-        self.assertEqual(
-            category["removed"], ["/azure/architecture/guide/hosting"]
-        )
-
-    def test_preserves_external_links_missing_from_toc(self) -> None:
-        """Don't remove product-documentation or full external URLs.
-
-        The TOC controls Architecture Center links. External links can provide
-        useful supporting resources in an include even when the TOC doesn't
-        contain them, so reconciliation must leave those links untouched.
-        """
-        categories = parse_categories(json.dumps(TOC))
-        with tempfile.TemporaryDirectory() as temporary_directory:
-            repository_root = Path(temporary_directory)
-            include_path = repository_root / "docs/includes/web-apps-get-started-include.md"
-            include_path.parent.mkdir(parents=True)
-            include_path.write_text(
-                "- [Current guide](../guide/current.md)\n"
-                "- [Old AAC guide](../guide/old.md)\n"
-                "- [Product documentation](/azure/app-service/overview.md)\n"
-                "- [External site](https://example.com/resource)\n",
-                encoding="utf-8",
-            )
-
-            context = build_context(repository_root, categories)
-
-        category = context["categories"][0]
-        self.assertEqual(category["removed"], ["/azure/architecture/guide/old"])
+        node = context["categories"][0]["outline"][0]
+        for expected_level in (3, 4, 5, 6):
+            self.assertEqual(node["headingLevel"], expected_level)
+            node = node["children"][0]
+        self.assertEqual(node["name"], "L7")
+        self.assertIsNone(node["headingLevel"])
 
 
 if __name__ == "__main__":
