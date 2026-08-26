@@ -85,7 +85,7 @@ This architecture builds on the [basic Foundry chat reference architecture](./ba
 
 Foundry Agent Service doesn't work with every model in the Foundry model catalog. The catalog lists models that the Foundry platform can deploy, but a prompt agent can only use a subset that Foundry Agent Service validates for agent use.
 
-Before you commit to a model, confirm that it's deployable in your Foundry region and that Foundry Agent Service supports it. Browse the [model catalog filtered to agent-supported models](https://ai.azure.com/catalog/models?capabilities=agentsv2) in the Foundry portal, or query the models for a region programmatically:
+Before you commit to a model, confirm that you can deploy it in your Foundry region and that Foundry Agent Service supports it. Browse the [model catalog filtered to agent-supported models](https://ai.azure.com/catalog/models?capabilities=agentsv2) in the Foundry portal, or query the models for a region programmatically.
 
 ```azurecli-interactive
 az cognitiveservices model list --location eastus --query "[?model.capabilities.agentsV2=='true']"
