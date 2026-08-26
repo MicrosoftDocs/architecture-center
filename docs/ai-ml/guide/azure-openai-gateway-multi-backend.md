@@ -398,7 +398,7 @@ Whether you use API Management or build a custom solution, as mentioned in the [
 - **API Management**
   - [Smart load balancing by using API Management](https://github.com/Azure-Samples/openai-apim-lb) contains sample policy code and instructions.
   - [Scaling with API Management](https://github.com/Azure/aoai-apim/) contains sample policy code and instructions for provisioned and standard spillover.
-  - The [GenAI gateway toolkit](https://github.com/Azure-Samples/apim-genai-gateway-toolkit) contains example API Management policies together with a load-testing setup for testing the behavior of the policies.
+  - The [AI Gateway labs](https://github.com/Azure-Samples/AI-Gateway) contain example API Management policies, Bicep templates, and tools for testing the behavior of the policies.
 
 - **Custom code**
   - [Smart load balancing by using Azure Container Apps](https://github.com/Azure-Samples/openai-aca-lb) contains sample C# code and instructions for building the container and deploying it into your subscription.
