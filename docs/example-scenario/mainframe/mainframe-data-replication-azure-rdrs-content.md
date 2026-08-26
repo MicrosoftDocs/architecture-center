@@ -173,7 +173,7 @@ Security provides assurances against deliberate attacks and the misuse of your v
 
 - Use ExpressRoute or a site-to-site VPN for a more private and efficient connection to Azure from an on-premises environment.
 
-- Use [Azure Network Security Perimeter (NSP)](/azure/private-link/network-security-perimeter-concepts#onboarded-private-link-resources) with private endpoints to reduce public endpoint exposure for PaaS resources used in this architecture, such as `Microsoft.EventHub/namespaces`. For inbound access to Event Hubs, prefer subscription ID-based rules for Azure-hosted consumers like Logic Apps, Azure Functions, and VM-based processing when outbound IP addresses aren't stable across services. Use IP-based rules only for paths that have stable, known egress IP ranges.
+- Use [Azure Network Security Perimeter (NSP)](/azure/private-link/network-security-perimeter-concepts#onboarded-private-link-resources) with private endpoints to reduce public endpoint exposure for PaaS resources used in this architecture, such as Event Hubs.
 
 - Authenticate Azure resources by using Microsoft Entra ID and manage permissions by using role-based access control.
 
