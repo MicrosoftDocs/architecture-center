@@ -81,6 +81,20 @@ This architecture builds on the [basic Foundry chat reference architecture](./ba
 
 - [Azure Storage](/azure/well-architected/service-guides/azure-blob-storage) is a cloud storage service for unstructured and structured data. In this architecture, it supports secure, automated deployment workflows and separates application artifacts from compute resources. It hosts the web application code as a ZIP file for deployment to App Service.
 
+### Model and tool selection
+
+Foundry Agent Service doesn't work with every model in the Foundry model catalog. The catalog lists models that the Foundry platform can deploy, but a prompt agent can only use a subset that Foundry Agent Service validates for agent use.
+
+Before you commit to a model, confirm that you can deploy it in your Foundry region and that Foundry Agent Service supports it. Browse the [model catalog filtered to agent-supported models](https://ai.azure.com/catalog/models?capabilities=agentsv2) in the Foundry portal, or query the models for a region programmatically.
+
+```azurecli-interactive
+az cognitiveservices model list --location <location> --query "[?model.capabilities.agentsV2=='true']"
+```
+
+A model that Foundry Agent Service supports doesn't necessarily support every agent capability. Tool availability depends on both the model and the deployment region. In this architecture, [the agent uses the AI Search tool and the web search tool](#workflow), and not every supported model works with each tool. For the full compatibility matrix, see [tool support by region and model](/azure/foundry/agents/concepts/limits-quotas-regions#tool-support-by-region-and-model).
+
+Foundry Agent Service doesn't always reject an unsupported combination when you define the agent. When you create a prompt agent through the REST API, an unsupported model or tool selection can pass agent creation and then cause unexpected behavior or a runtime failure when the agent invokes the model or tool.
+
 ### Alternatives
 
 This architecture includes multiple components that you can substitute with other Azure services or approaches, depending on your workload's functional and nonfunctional requirements. Consider the following alternatives and trade-offs.
