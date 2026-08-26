@@ -101,7 +101,7 @@ VMs often need to be bootstrapped, which is a process in which VMs are prepared 
 
     Here are some other extensions that can be used to automatically install or configure functionality on the VMs.
 
-    - [Azure Monitor Agent (AMA)](/azure/azure-monitor/agents/agents-overview ) collects monitoring data from the guest OS and delivers it to Azure Monitor.
+    - [Azure Monitor Agent (AMA)](/azure/azure-monitor/agents/azure-monitor-agent-overview) collects monitoring data from the guest OS and delivers it to Azure Monitor.
     - The Azure Custom Script Extension ([Windows](/azure/virtual-machines/extensions/custom-script-windows), [Linux](/azure/virtual-machines/extensions/custom-script-linux)) Version 2 downloads and runs scripts on Azure virtual machines (VMs). This extension is useful for automating post-deployment configuration, software installation, or any other configuration or management tasks.
     - Azure Key Vault virtual machine extension ([Windows](/azure/virtual-machines/extensions/key-vault-windows), [Linux](/azure/virtual-machines/extensions/key-vault-linux)) provides automatic refresh of certificates stored in a Key Vault by detecting changes and installing the corresponding certificates.
     - [Application Health extension with Virtual Machine Scale Sets](/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-health-extension) are important when Azure Virtual Machine Scale Sets does automatic rolling upgrades. Azure relies on health monitoring of the individual instances to do the updates. You can also use the extension to monitor the application health of each instance in your scale set and perform instance repairs using Automatic Instance Repairs.
@@ -258,7 +258,7 @@ This table links to logs and metrics collected by Azure Monitor. The available a
 | -------------- | ---------------- | ------ |
 | Application Gateway | [Application Gateway metrics and logs description](/azure/application-gateway/monitor-application-gateway-reference) | [Application Gateway alerts](/azure/application-gateway/high-traffic-support#alerts-for-application-gateway-v2-sku-standard_v2waf_v2) |
 | Application Insights | [Application Insights metrics and the OpenTelemetry API](/azure/azure-monitor/app/opentelemetry-add-modify) | [Application Insights alerts](/azure/azure-monitor/alerts/alerts-smart-detections-migration) |
-| Azure Bastion | [Azure Bastion metrics](/azure/bastion/howto-metrics-monitor-alert) |
+| Azure Bastion | [Azure Bastion metrics](/azure/bastion/monitor-bastion) |
 | Key Vault | [Key Vault metrics and logs descriptions](/azure/key-vault/general/monitor-key-vault-reference) | [Key Vault alerts](/azure/key-vault/general/monitor-key-vault#alerts) |
 | Load Balancer | [Load balancer logs and metrics](/azure/load-balancer/load-balancer-standard-diagnostics) | [Load Balancer alerts](/azure/load-balancer/load-balancer-standard-diagnostics#configure-alerts-for-multi-dimensional-metrics)
 | Public IP address | [Public IP address metrics and logs description](/azure/virtual-network/ip-services/monitor-public-ip) | [Public IP address metrics alerts](/azure/virtual-network/ip-services/monitor-public-ip#alerts) |
@@ -272,7 +272,7 @@ For more information on the cost of collecting metrics and logs, see [Log Analyt
 
 [Azure boot diagnostics](/azure/virtual-machines/boot-diagnostics) is enabled to observe the state of the VMs during boot by collecting serial log information and screenshots. In this architecture, that data can be accessed through Azure portal and the [Azure CLI vm boot-diagnostics get-boot-log command](/cli/azure/vm/boot-diagnostics?view=azure-cli-latest#az-vm-boot-diagnostics-get-boot-log). Azure manages the data. You have no control or access to the underlying storage resource. But if your business requirements demand more control, you can provision your own storage account to store boot diagnostics.
 
-[VM insights](/azure/azure-monitor/vm/vminsights-overview) offers an efficient way to monitor VMs and scale sets. It gathers data from Log Analytics workspaces and provides predefined workbooks for performance data trending. This data can be viewed per VM or aggregated across multiple VMs.
+[VM insights](/azure/azure-monitor/vm/monitor-vm) offers an efficient way to monitor VMs and scale sets. It gathers data from Log Analytics workspaces and provides predefined workbooks for performance data trending. This data can be viewed per VM or aggregated across multiple VMs.
 
 Application Gateway and the internal load balancer use health probes to detect the endpoint status of the VMs before sending traffic.
 
@@ -466,7 +466,7 @@ Security doesn't only refer to technical controls. We recommend that you follow 
 
     The advantage of subnet segmentation is that you can place security controls at the subnet perimeter to manage the flow of traffic in and out, which restricts access to the workload resources.
 
-- **Identity segmentation**. Assign distinct roles to different identities with just-enough permissions to do their task. This architecture uses identities managed by [Microsoft Entra ID](/entra/fundamentals/whatis) to segment access to resources.
+- **Identity segmentation**. Assign distinct roles to different identities with just-enough permissions to do their task. This architecture uses identities managed by [Microsoft Entra ID](/entra/fundamentals/what-is-entra) to segment access to resources.
 
 - **Resource segmentation**. The application is segmented by tiers into separate scale sets, which ensures that application components aren't colocated.  
 
@@ -474,7 +474,7 @@ Security doesn't only refer to technical controls. We recommend that you follow 
 
 #### Identity and access management
 
-We recommend [Microsoft Entra ID](/entra/fundamentals/whatis) for authentication and authorization of both users and services.
+We recommend [Microsoft Entra ID](/entra/fundamentals/what-is-entra) for authentication and authorization of both users and services.
 
 Access to VMs requires a user account, controlled by Microsoft Entra ID authentication and backed by security groups. This architecture provides support by deploying Microsoft Entra ID authentication extension to all VMs. We recommend that human users use their corporate identities in their organization's Microsoft Entra ID tenant. Also, ensure that any service principal-based access isn't shared across functions.
 
@@ -490,7 +490,7 @@ The baseline architecture uses a mix of system-assigned and user-assigned manage
 
 - **Ingress traffic**. The workload VMs aren't directly exposed to the public internet. Each VM has a private IP address. Workload users connect using the public IP address of Application Gateway.
 
-    More security is provided through [Web Application Firewall](/azure/application-gateway/waf-overview) that is integrated with Application Gateway. It has rules that inspect inbound traffic and can take appropriate action. WAF tracks Open Web Application Security Project (OWASP) vulnerabilities preventing known attacks.
+    More security is provided through [Web Application Firewall](/azure/web-application-firewall/ag/ag-overview) that is integrated with Application Gateway. It has rules that inspect inbound traffic and can take appropriate action. WAF tracks Open Web Application Security Project (OWASP) vulnerabilities preventing known attacks.
 
 - **Egress traffic**. There are no controls on outbound traffic except the outbound NSG rules on the VM subnets. We recommend that all outbound internet traffic flows through a single firewall. This firewall is usually a central service provided by an organization. That use case is shown in [Virtual machine baseline architecture in an Azure landing zone](./baseline-landing-zone.yml).
 
@@ -508,7 +508,7 @@ The baseline architecture uses a mix of system-assigned and user-assigned manage
 
 - **Private connectivity to platform as a service (PaaS) services**. Communication between the VMs and Key Vault is over Private Link. This service requires private endpoints, which are placed in a separate subnet.
 
-- **DDoS protection**. Consider enabling [Azure DDoS Protection](/azure/virtual-network/ddos-protection-overview) on the public IPs exposed by Application Gateway and the Azure Bastion Host to detect threats. DDoS Protection also provides alerting, telemetry, and analytics through Monitor. For more information, see [Azure DDoS Protection: Best practices and reference architectures](/azure/security/fundamentals/ddos-best-practices).
+- **DDoS protection**. Consider enabling [Azure DDoS Protection](/azure/virtual-network/ddos-protection-overview) on the public IPs exposed by Application Gateway and the Azure Bastion Host to detect threats. DDoS Protection also provides alerting, telemetry, and analytics through Monitor. For more information, see [Azure DDoS Protection: Best practices and reference architectures](/azure/ddos-protection/fundamental-best-practices).
 
 > Refer to Well-Architected Framework: [SE:06 - Recommendations for networking and connectivity](/azure/well-architected/security/networking).
 
@@ -555,7 +555,7 @@ The use of Ephemeral OS disks can also lead to cost savings and improved perform
 
 #### Flow cost
 
-Choose compute resources based on the criticality of the flow. For flows that are designed to tolerate an indeterminate length, consider using [spot VMs](/azure/architecture/guide/spot/spot-eviction) with Virtual Machine Scale Sets Flexible orchestration mode. This approach can be effective for hosting low-priority flows on lower-priority VMs. This strategy allows for cost optimization while still meeting the requirements of different flows.
+Choose compute resources based on the criticality of the flow. For flows that are designed to tolerate an indeterminate length, consider using [spot VMs](../guide/spot/spot-eviction.yml) with Virtual Machine Scale Sets Flexible orchestration mode. This approach can be effective for hosting low-priority flows on lower-priority VMs. This strategy allows for cost optimization while still meeting the requirements of different flows.
 
 > Refer to Well-Architected Framework: [CO:09 - Recommendations for optimizing flow costs](/azure/well-architected/cost-optimization/optimize-flow-costs).
 
