@@ -2,14 +2,10 @@
 
 **Technology choices:** The following articles help you evaluate and select the best compute technologies for your workload requirements:
 
+- [Choose a compute service](../guide/technology-choices/compute-decision-tree.md): Use a decision tree to help you choose the right compute option.
 - [Shared access signatures (SAS) on Azure architecture](../guide/sas/sas-overview.yml): Get guidance about running SAS analytics on Azure.
 - [Build workloads by using Azure Spot Virtual Machines](../guide/spot/spot-eviction.yml): Learn how to design workloads that take advantage of spare Azure capacity at reduced cost.
 - [HPC on Azure](../guide/compute/high-performance-computing.md): Learn about HPC capabilities and architectures on Azure.
-
-#### SAP
-
-- [SAP landscape architecture](../guide/sap/sap-whole-landscape.md): Review guidance about SAP landscapes on Azure.
-- [Inbound and outbound internet connections for SAP on Azure](../guide/sap/sap-internet-inbound-outbound.md): See a network architecture for SAP internet connectivity.
 
 ### Compute architectures
 
@@ -23,12 +19,12 @@ The following production-ready architectures demonstrate comprehensive compute s
 - [Multitier web application built for high availability and disaster recovery (HA/DR)](../example-scenario/infrastructure/multi-tier-app-disaster-recovery.yml): Deploy a multitier application that has HA/DR.
 - [Deploy IBM Maximo Application Suite (MAS)](../example-scenario/apps/deploy-ibm-maximo-application-suite.yml): Run IBM MAS enterprise asset management on Azure.
 - [Manage virtual machine compliance](../example-scenario/security/virtual-machine-compliance.yml): Manage VM compliance without disrupting DevOps practices by using Azure VM Image Builder and Azure Compute Gallery.
-- [Run a Linux VM on Azure](../reference-architectures/n-tier/linux-vm.yml): Learn about best practices for running a Linux VM on Azure.
-- [Run a Windows VM on Azure](../reference-architectures/n-tier/windows-vm.yml): Learn about best practices for running a Windows VM on Azure.
-
 #### Quantum computing solutions
 
 - [Quantum computing integration with classical apps](../example-scenario/quantum/quantum-computing-integration-with-classical-apps.yml): Learn how to integrate quantum work with classical applications by using direct quantum integration or workflow-orchestrated quantum integration patterns.
+
+- [Run a Linux VM on Azure](../reference-architectures/n-tier/linux-vm.yml): Learn about best practices for running a Linux VM on Azure.
+- [Run a Windows VM on Azure](../reference-architectures/n-tier/windows-vm.yml): Learn about best practices for running a Windows VM on Azure.
 
 #### Mainframe
 
@@ -45,7 +41,16 @@ The following production-ready architectures demonstrate comprehensive compute s
 - [Unisys ClearPath Forward OS 2200 enterprise server virtualization on Azure](../mainframe/virtualization-of-unisys-clearpath-forward-os-2200-enterprise-server-on-azure.yml): Use virtualization technologies from Microsoft partner Unisys with an existing Unisys ClearPath Forward (CPF) Dorado enterprise server.
 - [Unisys ClearPath MCP virtualization on Azure](../example-scenario/mainframe/unisys-clearpath-forward-mainframe-rehost.yml): Apply Unisys virtualization technologies to migrate a legacy Unisys ClearPath Forward Libra mainframe to Azure.
 
-#### SAP
+### SAP
+
+SAP workloads have specific architecture requirements. See the following resources for SAP on Azure.
+
+#### SAP guides
+
+- [SAP landscape architecture](../guide/sap/sap-whole-landscape.md): Review guidance about SAP landscapes on Azure.
+- [Inbound and outbound internet connections for SAP on Azure](../guide/sap/sap-internet-inbound-outbound.md): See a network architecture for SAP internet connectivity.
+
+#### SAP architectures
 
 - [SAP BW/4HANA in Linux on Azure](../reference-architectures/sap/run-sap-bw4hana-with-linux-virtual-machines.yml): Deploy an SAP BW/4HANA data warehouse on Azure Linux VMs.
 - [SAP deployment by using an Oracle database](../example-scenario/apps/sap-production.yml): Run SAP production workloads by using an Oracle database on Azure.
@@ -57,6 +62,6 @@ The following production-ready architectures demonstrate comprehensive compute s
 
 - [IBM z/OS online transaction processing](../example-scenario/mainframe/ibm-zos-online-transaction-processing-azure.yml): Migrate a z/OS online transaction processing (OLTP) workload to an Azure application that is cost effective, responsive, scalable, and adaptable.
 
-#### SAP
+#### SAP solution ideas
 
 You can [automate SAP workloads by using SUSE tools on Azure](../solution-ideas/articles/sap-workload-automation-suse.yml).

@@ -44,6 +44,14 @@ The following production-ready architectures demonstrate end-to-end web app solu
 
 - [Migrate a web app by using Azure API Management](/azure/architecture/example-scenario/apps/apim-api-scenario): A migration scenario that uses Azure API Management as a facade for both legacy on-premises services and new Azure-hosted APIs.
 
+#### Host WordPress on Azure
+
+- [WordPress on Azure](/azure/architecture/guide/infrastructure/wordpress-overview): An overview of WordPress deployments on Azure that covers security, scalability, and hosting options.
+
+- [WordPress on Azure Kubernetes Service (AKS)](/azure/architecture/example-scenario/infrastructure/wordpress-container): A container-based WordPress solution that uses Azure Kubernetes Service (AKS) and Azure NetApp Files for large, storage-intensive installations.
+
+- [WordPress on Azure App Service](/azure/architecture/example-scenario/infrastructure/wordpress-app-service): A managed WordPress hosting solution that uses Azure App Service for small to medium-sized installations.
+
 ### Web applications solution ideas
 
 The following web app solution idea demonstrates implementation patterns and possibilities to explore:
