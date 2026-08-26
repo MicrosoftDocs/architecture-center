@@ -10,16 +10,17 @@ The following articles help you evaluate and select the best database technologi
 - [Pipeline orchestration](../data-guide/technology-choices/pipeline-orchestration-data-movement.md)
 - [Microsoft Fabric deployment patterns](../data-guide/technology-choices/fabric-deployment-patterns.md)
 - [Data transfer options](../data-guide/scenarios/data-transfer.md)
-- [OLAP solutions](../data-guide/relational-data/online-analytical-processing.md)
-- [OLTP solutions](../data-guide/relational-data/online-transaction-processing.md)
-- [Extract, transform, and load (ETL) guide](../data-guide/relational-data/etl.yml)
-- [Data lakes](../data-guide/scenarios/data-lake.md)
-- [Big data architectures](../databases/guide/big-data-architectures.md)
 
 #### NoSQL
 
 - [Use the Transactional Outbox pattern](../databases/guide/transactional-out-box-cosmos.md)
 - [Run Apache Cassandra](../databases/guide/cassandra.md)
+
+- [OLAP solutions](../data-guide/relational-data/online-analytical-processing.md)
+- [OLTP solutions](../data-guide/relational-data/online-transaction-processing.md)
+- [Extract, transform, and load (ETL) guide](../data-guide/relational-data/etl.yml)
+- [Data lakes](../data-guide/scenarios/data-lake.md)
+- [Big data architectures](../databases/guide/big-data-architectures.md)
 
 ### Database architectures
 
