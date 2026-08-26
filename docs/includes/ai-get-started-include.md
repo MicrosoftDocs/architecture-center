@@ -2,6 +2,8 @@
 
 The following articles help you evaluate and select the best AI technologies for your workload requirements:
 
+- [Dynamic AI agents at scale pattern](/azure/architecture/solution-ideas/articles/ai-agents-at-scale): Describes how to dynamically select and orchestrate AI agents from a pool by using Microsoft Foundry, Azure AI Search, and Azure OpenAI to build multiagent systems.
+
 - [Machine learning options](/azure/architecture/ai-ml/guide/data-science-and-machine-learning): Compares Azure Machine Learning products and technologies to help you choose the right platform for model training and deployment.
 
 #### AI agent design
@@ -22,7 +24,11 @@ The following articles help you evaluate and select the best AI technologies for
 
 - [Information-retrieval phase](/azure/architecture/ai-ml/guide/rag/rag-information-retrieval): Covers information retrieval strategies in RAG architectures.
 
+- [Prompt engineering](/azure/architecture/ai-ml/guide/rag/rag-prompt-engineering): Describes how to design effective prompts for RAG solutions, including prompt structure, grounding techniques, and context management.
+
 - [Model end-to-end evaluation phase](/azure/architecture/ai-ml/guide/rag/rag-llm-evaluation-phase): Describes how to evaluate RAG models end to end.
+
+- [Agentic RAG](/azure/architecture/ai-ml/guide/rag/rag-agentic): Describes how to shift from a standard RAG pipeline to an agentic RAG architecture for dynamic query planning and multistep reasoning.
 
 #### Multitenant RAG solution
 
@@ -80,7 +86,7 @@ The following production-ready architectures demonstrate end-to-end AI solutions
 
 - [Extract and analyze call center data](/azure/architecture/ai-ml/openai/architecture/call-center-openai-analytics): Extracts and analyzes call center conversations by using Azure OpenAI.
 
-#### Regulatory requirements
+#### Regulatory
 
 - [Secure research for regulated data](/azure/architecture/ai-ml/architecture/secure-compute-for-research): Provides a secure compute environment for research workloads that handle regulated data.
 
@@ -118,5 +124,5 @@ The following AI solution ideas demonstrate implementation patterns and possibil
 
 #### Workflow automation
 
-- [Build a multiple-agent workflow automation solution by using Semantic Kernel](/azure/architecture/ai-ml/idea/multiple-agent-workflow-automation): Automates workflows by using multiple AI agents orchestrated through Semantic Kernel.
+- [Build a multiple-agent workflow automation solution by using Microsoft Agent Framework](/azure/architecture/ai-ml/idea/multiple-agent-workflow-automation): Automates workflows by using multiple AI agents orchestrated through Microsoft Agent Framework.
 

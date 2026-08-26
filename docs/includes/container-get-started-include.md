@@ -6,33 +6,46 @@ The following articles help you evaluate and select the best container technolog
 
 - [Azure container service considerations](../guide/container-service-general-considerations.md): Detailed considerations for container service selection.
 
+- [Choose a Kubernetes at the edge option](../operator-guides/aks/choose-kubernetes-edge-compute-option.md): Compare options for running Kubernetes at the edge.
+
 - [Microservices architecture style](../guide/architecture-styles/microservices.md): Design principles for microservices.
 
 - [Design a microservices architecture](../microservices/design/index.md): Step-by-step guidance for microservices design.
 
-Resources for getting started with Azure Kubernetes Service (AKS):
+#### Kubernetes-based hosting
 
 - [Get started with AKS](../reference-architectures/containers/aks-start-here.md): Introduction to AKS architecture and design.
 
-- [Choose a Kubernetes at the edge option](../operator-guides/aks/choose-kubernetes-edge-compute-option.md): Compare options for running Kubernetes at the edge.
+
+##### Application
 
 - [High availability (HA) for multitier AKS apps](../guide/aks/aks-high-availability.md): Design patterns for highly available AKS applications.
 
-- [Continuous integration and continuous deployment (CI/CD) for AKS apps via Azure Pipelines](../guide/aks/aks-cicd-azure-pipelines.md): Implement CI/CD for AKS.
+- [CI/CD for AKS apps via Azure Pipelines](../guide/aks/aks-cicd-azure-pipelines.md): Implement CI/CD for AKS.
 
 - [GitOps for AKS](../example-scenario/gitops-aks/gitops-blueprint-aks.yml): Use GitOps practices to manage AKS deployments.
 
+##### Infrastructure
+
 - [Access an AKS API server](../security/access-azure-kubernetes-service-cluster-api-server.md): Secure access patterns for AKS API servers.
 
-- [Blue-green deployment of AKS clusters](../guide/aks/blue-green-deployment-for-aks.yml): Implement zero-downtime deployments by using blue-green strategies.
+###### AKS day-2 operations guide
 
-- [Firewall protection for an AKS cluster](../guide/aks/aks-firewall.md): Secure AKS clusters by using Azure Firewall.
+- [Introduction](../operator-guides/aks/day-2-operations-guide.md): Learn about AKS day-2 operations, such as triage, patching, upgrading, and troubleshooting.
 
-- [Use AKS to host GPU-based workloads](../reference-architectures/containers/aks-gpu/gpu-aks.md): Run GPU workloads on AKS for AI and machine learning scenarios.
+**Triage practices**
 
-Operational guidance for running and maintaining AKS in production:
+- [Overview](../operator-guides/aks/aks-triage-practices.md): Systematic approach to troubleshooting AKS problems.
 
-- [Triage practices](../operator-guides/aks/aks-triage-practices.md): Systematic approach to troubleshooting AKS problems.
+- [1. Cluster health](../operator-guides/aks/aks-triage-cluster-health.md): Check the overall health of an AKS cluster as part of a triage step.
+
+- [2. Node and pod health](../operator-guides/aks/aks-triage-node-health.md): Examine the health of AKS worker nodes and pods and resolve problems.
+
+- [3. Workload deployments](../operator-guides/aks/aks-triage-deployment.md): Check whether workload deployments and DaemonSet features are running properly.
+
+- [4. Admission controllers](../operator-guides/aks/aks-triage-controllers.md): Verify that the admission controllers are working as expected.
+
+- [5. Container registry connectivity](../operator-guides/aks/aks-triage-container-registry.md): Verify the connection to a container registry.
 
 - [Backup and recovery for AKS](../operator-guides/aks/aks-backup-and-recovery.md): Protect your cluster configuration and workloads.
 
@@ -42,37 +55,41 @@ Operational guidance for running and maintaining AKS in production:
 
 - [Monitor AKS by using Azure Monitor](/azure/aks/monitor-aks): Collect and analyze telemetry from your clusters.
 
+- [Common issues](/azure/aks/troubleshooting): Troubleshoot common AKS issues.
+
+- [Blue-green deployment of AKS clusters](../guide/aks/blue-green-deployment-for-aks.yml): Implement zero-downtime deployments by using blue-green strategies.
+
+- [Firewall protection for an AKS cluster](../guide/aks/aks-firewall.md): Secure AKS clusters by using Azure Firewall.
+
+- [Secure AKS workloads with Azure Front Door](../example-scenario/aks-front-door/aks-front-door.yml): Global load balancing and security for AKS.
+
+- [Multitenancy with AKS and Application Gateway for Containers (AGC)](../example-scenario/aks-agic/aks-agc.yml): Use Application Gateway for Containers with your AKS cluster to expose microservice-based applications to the internet.
+
+- [Use AKS to host GPU-based workloads](../reference-architectures/containers/aks-gpu/gpu-aks.md): Run GPU workloads on AKS for AI and machine learning scenarios.
+
 ### Container architectures
 
 The following production-ready architectures demonstrate end-to-end container solutions that you can deploy and customize.
 
-Foundational AKS architectures that cover baseline production setups, multiple-region resiliency, security front ends, and multitenancy patterns:
+#### Kubernetes-based hosting
 
-- [AKS baseline cluster](../reference-architectures/containers/aks/baseline-aks.yml): Production-ready baseline architecture for AKS.
-
-- [AKS baseline for multiple-region clusters](../reference-architectures/containers/aks-multi-region/aks-multi-cluster.yml): Deploy AKS across multiple regions for HA.
-
-- [Secure AKS workloads by using Azure Front Door](../example-scenario/aks-front-door/aks-front-door.yml): Global load balancing and security for AKS.
-
-- [Multitenancy that uses AKS and Application Gateway Ingress Controller (AGIC)](../example-scenario/aks-agic/aks-agic.yml): Multitenant architectures that use AGIC.
-
-Architectures and pipelines for designing, deploying, and operating microservices workloads on AKS and Kubernetes:
+##### Application
 
 - [Microservices architecture on AKS](../reference-architectures/containers/aks-microservices/aks-microservices.yml): Design and deploy microservices on AKS.
 
 - [Advanced microservices on AKS](../reference-architectures/containers/aks-microservices/aks-microservices-advanced.yml): Advanced patterns for complex microservices workloads.
 
-- [CI/CD for microservices on Kubernetes](../microservices/ci-cd-kubernetes.md): Build robust CI/CD pipelines for Kubernetes microservices.
+##### Infrastructure
 
-Architecture tailored for regulated industries or alternative Kubernetes platforms:
+- [AKS baseline cluster](../reference-architectures/containers/aks/baseline-aks.yml): Production-ready baseline architecture for AKS.
+
+- [AKS baseline for multiple-region clusters](../reference-architectures/containers/aks-multi-region/aks-multi-cluster.yml): Deploy AKS across multiple regions for HA.
 
 - [Use Azure Red Hat OpenShift in the financial services industry](../reference-architectures/containers/aro/azure-redhat-openshift-financial-services-workloads.yml): OpenShift for regulated financial workloads.
 
-### Container solution ideas
+- [CI/CD for microservices on Kubernetes](../microservices/ci-cd-kubernetes.md): Build robust CI/CD pipelines for Kubernetes microservices.
 
-The following container solution ideas demonstrate implementation patterns and possibilities to explore:
-
-- [Data streaming that uses AKS](../solution-ideas/articles/data-streaming-scenario.yml): Real-time data streaming architectures that use AKS.
+#### PaaS container hosting
 
 Azure Container Apps and Azure Container Instances provide serverless container platforms that abstract infrastructure management:
 
@@ -80,3 +97,10 @@ Azure Container Apps and Azure Container Instances provide serverless container 
 
 - [Microservices that use Dapr and KEDA](../example-scenario/serverless/microservices-with-container-apps-dapr.yml): Event-driven microservices that use Dapr and KEDA on Container Apps.
 
+### Container solution ideas
+
+The following container solution ideas demonstrate implementation patterns and possibilities to explore:
+
+#### Kubernetes-based hosting
+
+- [Data streaming that uses AKS](../solution-ideas/articles/data-streaming-scenario.yml): Real-time data streaming architectures that use AKS.

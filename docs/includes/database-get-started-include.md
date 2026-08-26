@@ -1,7 +1,5 @@
 ### Database guides
 
-**Technology choices**
-
 The following articles help you evaluate and select the best database technologies for your workload requirements:
 
 - [Prepare to choose a data store in Azure](../guide/technology-choices/data-stores-getting-started.md)
@@ -10,6 +8,7 @@ The following articles help you evaluate and select the best database technologi
 - [Search data store](../data-guide/technology-choices/search-options.md)
 - [Vector search](../guide/technology-choices/vector-search.md)
 - [Pipeline orchestration](../data-guide/technology-choices/pipeline-orchestration-data-movement.md)
+- [Microsoft Fabric deployment patterns](../data-guide/technology-choices/fabric-deployment-patterns.md)
 - [Data transfer options](../data-guide/scenarios/data-transfer.md)
 
 **NoSQL**
@@ -25,10 +24,6 @@ The following articles help you evaluate and select the best database technologi
 - [Data lakes](../data-guide/scenarios/data-lake.md)
 - [Big data architectures](../databases/guide/big-data-architectures.md)
 
-**Data governance**
-
-- [Collection structure for a federated Microsoft Purview catalog](../guide/data/collection-structure-federated-catalog.md)
-
 ### Database architectures
 
 The following production-ready architectures demonstrate end-to-end database solutions that you can deploy and customize:
@@ -38,7 +33,7 @@ The following production-ready architectures demonstrate end-to-end database sol
 - [DataOps for modern data warehouse](../databases/architecture/dataops-mdw.yml)
 - [Greenfield lakehouse on Microsoft Fabric](../example-scenario/data/greenfield-lakehouse-fabric.yml)
 
-**Azure Data Factory**
+**Azure Data Factory reference architectures**
 
 - [Medallion lakehouse by using Azure Data Factory](../databases/architecture/azure-data-factory-on-azure-landing-zones-index.yml)
 - [Azure Data Factory baseline architecture](../databases/architecture/azure-data-factory-on-azure-landing-zones-baseline.yml)
@@ -52,7 +47,6 @@ The following production-ready architectures demonstrate end-to-end database sol
 
 **Mainframe**
 
-- [Replicate and sync mainframe data](../reference-architectures/migration/sync-mainframe-data-with-azure.yml)
 - [Mainframe data replication by using Precisely Connect](../example-scenario/mainframe/mainframe-replication-precisely-connect.yml)
 - [Mainframe data replication by using Qlik](../example-scenario/mainframe/mainframe-midrange-data-replication-azure-qlik.yml)
 - [Mainframe data replication by using Rocket® Data Replicate and Sync (RDRS)](../example-scenario/mainframe/mainframe-data-replication-azure-rdrs.yml)
@@ -71,10 +65,6 @@ The following production-ready architectures demonstrate end-to-end database sol
 - [Oracle Database with Azure NetApp Files](../example-scenario/file-storage/oracle-azure-netapp-files.yml)
 - [SAP deployment by using an Oracle database](../example-scenario/apps/sap-production.yml)
 
-**Big data**
-
-- [Microsoft Fabric deployment patterns](../data-guide/technology-choices/fabric-deployment-patterns.md)
-
 ### Database solution ideas
 
 **Relational**
@@ -91,4 +81,8 @@ The following production-ready architectures demonstrate end-to-end database sol
 **Relational and NoSQL**
 
 - [Polyglot persistence with Azure Cosmos DB and Azure SQL Database](../databases/idea/combine-relational-nosql.yml)
+
+**Mainframe**
+
+- [Replicate and sync mainframe data](../reference-architectures/migration/sync-mainframe-data-with-azure.yml)
 

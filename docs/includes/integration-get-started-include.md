@@ -8,17 +8,17 @@ The following articles help you evaluate and select the best integration technol
 
 - [Asynchronous messaging options](../guide/technology-choices/messaging.md): Learn about various types of messages and the entities that participate in a messaging infrastructure, and select an Azure messaging service.
 
-#### Azure Event Hubs with Azure Functions
+#### Event Hubs with Azure Functions
 
-- [Integrate Azure Event Hubs with serverless functions on Azure](../serverless/event-hubs-functions/event-hubs-functions.md): Guidance for how to effectively integrate Azure Event Hubs with Azure Functions for performance, resiliency, security, and scale.
+- [Overview](../serverless/event-hubs-functions/event-hubs-functions.md): Guidance for how to effectively integrate Azure Event Hubs with Azure Functions for performance, resiliency, security, and scale.
 
-- [Performance and scale guidance for Azure Event Hubs and Azure Functions](../serverless/event-hubs-functions/performance-scale.md): Optimize scalability and performance when you use Azure Event Hubs and Azure Functions together.
+- [Performance and scale](../serverless/event-hubs-functions/performance-scale.md): Optimize scalability and performance when you use Azure Event Hubs and Azure Functions together.
 
-- [Resilient Azure Event Hubs and Azure Functions design](../serverless/event-hubs-functions/resilient-design.md): Implement error handling, idempotency, and retry behavior for functions that Azure Event Hubs triggers.
+- [Resilient design](../serverless/event-hubs-functions/resilient-design.md): Implement error handling, idempotency, and retry behavior for functions that Azure Event Hubs triggers.
 
-- [Secure Azure Functions and Azure Event Hubs](../serverless/event-hubs-functions/security.md): Apply fine-grained access control and network security for Azure Event Hubs and Azure Functions.
+- [Security](../serverless/event-hubs-functions/security.md): Apply fine-grained access control and network security for Azure Event Hubs and Azure Functions.
 
-- [Monitor Azure Functions and Azure Event Hubs](../serverless/event-hubs-functions/observability.md): Use Application Insights to monitor the behavior and health of Azure Event Hubs and Azure Functions solutions.
+- [Observability](../serverless/event-hubs-functions/observability.md): Use Application Insights to monitor the behavior and health of Azure Event Hubs and Azure Functions solutions.
 
 #### Migration
 
@@ -28,11 +28,16 @@ The following articles help you evaluate and select the best integration technol
 
 The following production-ready architectures demonstrate end-to-end integration solutions that you can deploy and customize:
 
+- [Azure API Management landing zone architecture](../example-scenario/integration/app-gateway-internal-api-management-function.yml): Deploy a secure Azure API Management baseline with Azure Application Gateway and Azure Functions in a virtual network.
+
 - [Basic enterprise integration on Azure](../reference-architectures/enterprise-integration/basic-enterprise-integration.yml): Orchestrate synchronous calls to enterprise back-end systems by using Azure Logic Apps and Azure API Management.
 
 - [Use a message broker and events to integrate enterprise systems](../example-scenario/integration/queues-events.yml): Orchestrate asynchronous calls to enterprise back-end systems by using queues and events.
 
-- [Azure API Management landing zone architecture](../example-scenario/integration/app-gateway-internal-api-management-function.yml): Deploy a secure Azure API Management baseline with Azure Application Gateway and Azure Functions in a virtual network.
-
 - [Build real-time monitoring and observable systems for media](../example-scenario/monitoring/monitoring-observable-systems-media.yml): Provide near-real-time monitoring and observability of systems and user device telemetry data by using Fabric Real-Time Intelligence.
+
+### Integration solution ideas
+
+- [Integrate IBM MQs with Azure](../example-scenario/mainframe/integrate-ibm-message-queues-azure.yml): Integrate IBM MQ messaging systems with Azure by using Azure Service Bus and hybrid connectivity.
+
 
