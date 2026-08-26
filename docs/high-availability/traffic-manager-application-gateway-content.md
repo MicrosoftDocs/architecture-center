@@ -136,7 +136,7 @@ To determine which services fit your scenario, see [Load-balancing options in Az
 
 - **Global traffic routing:** Traffic Manager uses performance routing to direct each user to the endpoint that has the lowest latency and automatically adjusts as conditions change. Health checks and priority routing redirect DNS responses from unhealthy regions.
 
-- **Zone redundancy:** The architecture deploys resources across three availability zones in each region.  If the region supported more, the architecture could be further spread across the additional zones. The zones create a high-availability architecture for the Application Gateways, internal load balancers, and virtual machines in each region. If a single zone experiences an outage, the remaining zones absorb the load without triggering a regional failover.
+- **Zone redundancy:** The architecture deploys resources across three availability zones in each region. If the region supports more, you can further spread the architecture across the additional zones. The zones create a high-availability architecture for the Application Gateways, internal load balancers, and virtual machines in each region. If a single zone experiences an outage, the remaining zones absorb the load without triggering a regional failover.
 
 - **Regional load balancing and WAF:** Application Gateway provides layer-7 capabilities within each region, including WAF, TLS termination, path-based routing, and cookie-based session affinity.
 
