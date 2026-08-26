@@ -20,6 +20,8 @@ The following articles help you evaluate and select the best integration technol
 
 - [Observability](../serverless/event-hubs-functions/observability.md): Use Application Insights to monitor the behavior and health of Azure Event Hubs and Azure Functions solutions.
 
+#### Migration
+
 - [Apache Kafka migration to Azure](../guide/hadoop/apache-kafka-migration.yml): Explore strategies for migrating Apache Kafka workloads to Azure, including Azure Event Hubs, Azure HDInsight, and Azure Kubernetes Service (AKS).
 
 ### Integration architectures
@@ -37,4 +39,5 @@ The following production-ready architectures demonstrate end-to-end integration 
 ### Integration solution ideas
 
 - [Integrate IBM MQs with Azure](../example-scenario/mainframe/integrate-ibm-message-queues-azure.yml): Integrate IBM MQ messaging systems with Azure by using Azure Service Bus and hybrid connectivity.
+
 
