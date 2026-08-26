@@ -58,6 +58,6 @@ The following production-ready architectures demonstrate comprehensive compute s
 
 - [IBM z/OS online transaction processing](../example-scenario/mainframe/ibm-zos-online-transaction-processing-azure.yml): Migrate a z/OS online transaction processing (OLTP) workload to an Azure application that is cost effective, responsive, scalable, and adaptable.
 
-#### SAP solution ideas
+#### SAP solution idea
 
 You can [automate SAP workloads by using SUSE tools on Azure](../solution-ideas/articles/sap-workload-automation-suse.yml).
