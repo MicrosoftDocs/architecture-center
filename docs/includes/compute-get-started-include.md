@@ -24,12 +24,12 @@ The following production-ready architectures demonstrate comprehensive compute s
 - [Multitier web application built for high availability and disaster recovery (HA/DR)](../example-scenario/infrastructure/multi-tier-app-disaster-recovery.yml): Deploy a multitier application that has HA/DR.
 - [Deploy IBM Maximo Application Suite (MAS)](../example-scenario/apps/deploy-ibm-maximo-application-suite.yml): Run IBM MAS enterprise asset management on Azure.
 - [Manage virtual machine compliance](../example-scenario/security/virtual-machine-compliance.yml): Manage VM compliance without disrupting DevOps practices by using Azure VM Image Builder and Azure Compute Gallery.
-- [Run a Linux VM on Azure](../reference-architectures/n-tier/linux-vm.yml): Learn about best practices for running a Linux VM on Azure.
-- [Run a Windows VM on Azure](../reference-architectures/n-tier/windows-vm.yml): Learn about best practices for running a Windows VM on Azure.
-
 #### Quantum computing solutions
 
 - [Quantum computing integration with classical apps](../example-scenario/quantum/quantum-computing-integration-with-classical-apps.yml): Learn how to integrate quantum work with classical applications by using direct quantum integration or workflow-orchestrated quantum integration patterns.
+
+- [Run a Linux VM on Azure](../reference-architectures/n-tier/linux-vm.yml): Learn about best practices for running a Linux VM on Azure.
+- [Run a Windows VM on Azure](../reference-architectures/n-tier/windows-vm.yml): Learn about best practices for running a Windows VM on Azure.
 
 #### Mainframe
 
