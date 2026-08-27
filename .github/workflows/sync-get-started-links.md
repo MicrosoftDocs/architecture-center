@@ -152,7 +152,7 @@ Reconcile the include toward its subtree; don't regenerate it from scratch. Appl
 - Section headings deepen with nesting: H3 at the top level, one heading deeper per level of nesting, through H6. Use a bold label line (`**text**`) only for a section nested past H6. Every heading from H3 through H6 stays a real heading, never bold.
 - Within any section, and at the include's top level, render direct links before subsections while preserving the TOC's relative order within each group. This direct-link-first grouping is the only exception to the subtree's raw sibling order. In flat Markdown a subsection heading captures every bullet that follows it, so a link placed after a section would appear nested inside it; render a top-level link-only node as a leading bullet before the first section.
 - Every heading in an include must be unique. The TOC repeats facet labels such as `NoSQL`, `Relational`, and `Mainframe` under more than one content type, which would collide when flattened onto one page. When rendering would produce a duplicate, disambiguate it with context — qualify the heading with its content type as the default form, such as `NoSQL guides`, `NoSQL architectures`, and `NoSQL solution ideas`. Duplicate headings in one file is a Microsoft Learn violation.
-- A heading must never be immediately followed by another heading. When a section's first child is a subsection, write a lead-in sentence between them.
+- A heading must never be immediately followed by another heading. That leaves an empty section, a Microsoft Learn violation. When a section's first child is a subsection, write a lead-in sentence between them.
 
 ## Editorialize the page
 
@@ -181,6 +181,17 @@ Repeated runs must converge. When nothing relevant changes, a run makes no edits
 - Idempotency applies to editorial text, not to structure. Section order, nesting, and link placement must always match the subtree. When they already match, leave them; when they differ, reconcile them even when no link was added or removed.
 - Treat the text rules as tests that the current wording passes or fails. Rewrite a heading, description, or lead-in only when the current form actually breaks a rule. When the include already uses an acceptable form, keep it exactly.
 - Leave an include untouched only when its links, structure, and order already match the subtree and its retained content and text follow the rules.
+
+## Verify before you finish
+
+Before opening the PR, re-read each include you changed and fix any of these:
+
+- A heading immediately followed by another heading. Add a lead-in so the section isn't empty.
+- A link that renders under the wrong heading. You can't tell this problem from the Markdown alone; compare each section to its subtree node. A link the subtree lists as a direct child of a section must appear before that section's subsections. A bullet placed after a subsection heading reads as part of that subsection.
+- A duplicate heading in the same file. Disambiguate it with its content type.
+- A subtree link missing from the include, or an Architecture Center link in the include that the subtree doesn't contain.
+- A section whose order or nesting doesn't match the subtree.
+- Lead-in text that doesn't make sense for the context.
 
 ## Finish the run
 
