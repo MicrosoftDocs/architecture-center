@@ -98,6 +98,7 @@ Reliability ensures your application can meet the commitments you make to your c
 Security provides assurances against deliberate attacks and the abuse of your valuable data and systems. For more information, see [Design review checklist for Security](/azure/well-architected/security/checklist).
 
 - All the components within the Service Bus batch architecture work with Azure security components, such as Microsoft Entra ID, Virtual Network, and encryption.
+- For the messaging plane, use [Azure Network Security Perimeter (NSP)](/azure/service-bus-messaging/network-security-perimeter) as the primary network control to reduce public endpoint exposure through explicit access rules. If you require private endpoint connectivity for Service Bus, use the Premium tier and place private endpoints in the virtual network design so traffic between AKS and Service Bus stays on private network paths.
 
 ### Cost Optimization
 
