@@ -99,7 +99,7 @@ These considerations implement the pillars of the Azure Well-Architected Framewo
 
 The considerations in this section summarize key learnings and best practices demonstrated by this solution:
 
-* **Use data tiering in your data lake.** Separate the data lake into landing, standardized, and curated zones so that each transformation step reads from a well-defined tier. This approach follows the [medallion architecture](/azure/databricks/lakehouse/medallion) and lets you reprocess data from an earlier tier without returning to the source system.
+* **Use data tiering in your data lake.** Retain unmodified source data in the landing zone, route records that fail validation to the malformed zone, and transform validated data into a warehouse-ready format. Retaining source data lets you reprocess it without returning to the source system. For the analogous bronze, silver, and gold lakehouse pattern, see [medallion architecture](/azure/databricks/lakehouse/medallion).
 
 * **Make your data pipelines replayable and idempotent.** Design transformation steps so that rerunning them over the same input produces the same result. Replaying a pipeline lets you fix a defect in transformation logic and reprocess historical data instead of discarding it.
 
@@ -128,7 +128,7 @@ The following list contains the high-level steps required to set up this solutio
 ### Setup and deployment
 
 1. **Initial setup**: Install any prerequisites, create the Git repository that holds the infrastructure, notebook, and pipeline code, and set required environment variables.
-1. **Deploy Azure resources**: Use an infrastructure as code deployment, such as [Bicep](/azure/azure-resource-manager/bicep/overview) or [Terraform](/azure/developer/terraform/overview), to deploy the Azure resources and the Microsoft Entra service principals for each environment. Use the same deployment to create the Azure Pipelines definitions, variable groups, and service connections.
+1. **Deploy Azure resources**: Use an infrastructure as code deployment, such as [Bicep](/azure/azure-resource-manager/bicep/overview) or [Terraform](/azure/developer/terraform/overview), to deploy the Azure resources and Microsoft Entra service principals for each environment. Separately configure the Azure Pipelines definitions, variable groups, and service connections that invoke the infrastructure deployment.
 1. **Set up Git integration in dev Data Factory**: [Configure Git integration](/azure/data-factory/source-control) so that the development data factory commits to your repository.
 
 1. **Carry out an initial build and release**: Create a sample change in Data Factory, like enabling a schedule trigger, then watch the change automatically deploy across environments.
@@ -171,11 +171,11 @@ For more information about implementing these stages, see [CI/CD in Azure Data F
 
 ### Testing
 
-The solution includes support for both unit testing and integration testing. Unit tests cover the Python transformation modules and the Data Factory pipeline definitions, and integration tests run against the staging environment after each deployment. For more information, see [Unit testing for notebooks](/azure/databricks/notebooks/testing).
+The solution includes support for both unit testing and integration testing. Unit tests cover the Python transformation modules, and integration tests trigger a Data Factory pipeline and verify its output as part of the release to the staging environment. For more information, see [Unit testing for notebooks](/azure/databricks/notebooks/testing).
 
 ### Observability and monitoring
 
-The solution supports observability and monitoring for Databricks and Data Factory. Route diagnostic logs and metrics from both services into a Log Analytics workspace, then alert on pipeline failures and job latency. For more information, see [Monitor Data Factory](/azure/data-factory/monitor-data-factory).
+The solution supports observability and monitoring for Databricks and Data Factory. Route diagnostic logs and metrics from both services into a Log Analytics workspace, then set up alerts on pipeline failures and job latency. For more information, see [Monitor Data Factory](/azure/data-factory/monitor-data-factory).
 
 ## Next steps
 
