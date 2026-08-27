@@ -103,7 +103,7 @@ The following table provides a list of possible use cases for Azure Vision.
 | Provide detailed custom classifications for specific business requirements. | Do basic visual analysis. Use vision-capable models from [Azure OpenAI](#azure-openai) or open-source models in Machine Learning instead. |
 | Train models with your own labeled images for specialized scenarios. | |
 
-Azure Machine Learning AutoML uses machine learning algorithms to analyze images for custom features. You submit sets of images with and without the visual characteristics that you want. You then label the images with your own labels, or *tags*, at the time of submission. The AutoML algorithms use this data to train and calculate model accuracies by testing the models on holdout sets of images. After AutoML trains the optimal model, you can test, retrain, and eventually use the model in your image recognition app to classify images or detect objects. You can also export the model for offline use.
+Azure Machine Learning AutoML uses machine learning algorithms to analyze images for custom features. You submit sets of images with and without the visual characteristics that you want. You then label the images with your own labels, or *tags*, through the Azure ML data labeling experience. The AutoML algorithms use this data to train and calculate model accuracies by testing the models on holdout sets of images. After AutoML trains the optimal model, you can test, retrain, and eventually use the model in your image recognition app to classify images or detect objects. You can also export the model for offline use.
 
 #### Available Azure Machine Learning AutoML features
 
