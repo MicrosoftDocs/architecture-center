@@ -51,4 +51,3 @@ The following production-ready architectures demonstrate end-to-end networking s
 
 - [TIC 3.0 compliance](/azure/architecture/networking/architecture/trusted-internet-connections): Implement Trusted Internet Connections (TIC) 3.0 compliance for internet-facing applications.
 
-
