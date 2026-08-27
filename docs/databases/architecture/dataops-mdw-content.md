@@ -133,9 +133,6 @@ The following list contains the high-level steps required to set up this solutio
 
 1. **Carry out an initial build and release**: Create a sample change in Data Factory, like enabling a schedule trigger, then watch the change automatically deploy across environments.
 
-### Deployed resources
-
-If deployment is successful, there should be three resource groups in Azure representing three environments: dev, stg, and prod. Each resource group contains a data factory, an Azure Databricks workspace, a Data Lake Storage Gen2 account, a key vault, and an Azure Synapse Analytics workspace. There should also be end-to-end build and release pipelines in Azure DevOps that can automatically deploy changes across these three environments.
 
 <a name='continuous-integration-and-continuous-delivery'></a>
 
