@@ -95,7 +95,7 @@ The following table provides a list of possible use cases for Azure Vision.
 
 ### Azure Machine Learning AutoML
 
-[Azure Machine Learning AutoML](/azure/ai-services/custom-vision-service/overview) for Computer Vision provides image recognition capabilities that you can use to automatically build, deploy, and improve your image identifier models. An image identifier applies labels to images based on their visual characteristics. Each label represents a classification or object. Use Azure Machine Learning AutoML to specify your own labels and train custom models to detect them.
+[Azure Machine Learning AutoML](/azure/machine-learning/concept-automated-ml) for Computer Vision provides image recognition capabilities that you can use to automatically build, deploy, and improve your image identifier models. An image identifier applies labels to images based on their visual characteristics. Each label represents a classification or object. Use Azure Machine Learning AutoML to specify your own labels and train custom models to detect them.
 
 | Use Azure Machine Learning AutoML for these tasks | Don't use Azure Machine Learning AutoML for these tasks |
 | :----------| :-------------|
@@ -111,8 +111,8 @@ The following table provides a list of features available in Custom Vision.
 
 | Feature | Description |
 | :----------| :-------------|
-| [Image classification](/azure/ai-services/custom-vision-service/getting-started-build-a-classifier) | Predict a category, or *class*, based on a set of inputs, which are called *features*. Calculate a probability score for each possible class and return a label that indicates the class that the object most likely belongs to. To use this model, you need data that consists of features and their labels. |
-| [Object detection](/azure/ai-services/custom-vision-service/get-started-build-detector) | Get the coordinates of an object in an image. To use this model, you need data that consists of features and their labels. |
+| [Image classification](/azure/machine-learning/how-to-auto-train-image-models) | Predict a category, or *class*, based on a set of inputs, which are called *features*. Calculate a probability score for each possible class and return a label that indicates the class that the object most likely belongs to. To use this model, you need data that consists of features and their labels. |
+| [Object detection](/azure/machine-learning/how-to-use-automl-small-object-detect) | Get the coordinates of an object in an image. To use this model, you need data that consists of features and their labels. |
 
 #### Use cases for Azure Machine Learning AutoML for Computer Vision
 
@@ -120,7 +120,7 @@ The following table provides a list of possible use cases for Azure Machine Lear
 
 | Use case | Description |
 | :----------| :-------------|
-| [Classify images and objects](/azure/ai-services/custom-vision-service/overview#classification-and-object-detection) | Analyze photos and scan for specific logos by training a custom model. |
+| [Classify images and objects](/azure/machine-learning/concept-automated-ml#computer-vision) | Analyze photos and scan for specific logos by training a custom model. |
 
 ### Azure Content Understanding
 
