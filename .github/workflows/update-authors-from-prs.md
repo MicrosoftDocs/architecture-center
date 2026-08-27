@@ -16,7 +16,7 @@ concurrency: update-authors-from-prs
 permissions:
   contents: read
   pull-requests: read
-  copilot-requests: none
+  copilot-requests: write
 
 model: sonnet
 engine:
