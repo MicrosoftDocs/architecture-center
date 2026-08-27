@@ -1,16 +1,32 @@
+### Select a networking service
+
+- [Load balancing options](/azure/architecture/guide/technology-choices/load-balancing-overview): Choose the right Azure load balancing service for your workload.
+
+### Networking architectures
+
+The following production-ready architectures demonstrate end-to-end networking solutions that you can deploy and customize.
+
+#### Network topology
+
+- [Hub-spoke network topology in Azure](/azure/architecture/networking/architecture/hub-spoke): Implement a hub-and-spoke network pattern that has customer-managed hub infrastructure components.
+- [Hub-spoke topology with Virtual WAN](/azure/architecture/networking/architecture/hub-spoke-virtual-wan-architecture): Implement a hub-and-spoke network topology by using Azure Virtual WAN for Microsoft-managed hub infrastructure.
+- [Massive-scale Virtual WAN architecture design](/azure/architecture/networking/architecture/massive-scale-azure-architecture): Design a massive-scale Azure Virtual WAN network architecture across multiple Azure regions.
+- [Virtual WAN optimized for requirements](/azure/architecture/networking/architecture/performance-security-optimized-vwan): Optimize an Azure Virtual WAN architecture for department-specific performance and security requirements.
+- [Azure DNS Private Resolver](/azure/architecture/networking/architecture/azure-dns-private-resolver): Implement hybrid DNS resolution by using Azure DNS Private Resolver.
+
+#### Network security architectures
+
+- [TIC 3.0 compliance](/azure/architecture/networking/architecture/trusted-internet-connections): Implement Trusted Internet Connections (TIC) 3.0 compliance for internet-facing applications.
+
 ### Networking guides
 
 The following articles help you evaluate and select the best networking technologies for your workload requirements.
-
-#### Load balancing and content delivery
-
-- [Load balancing options](/azure/architecture/guide/technology-choices/load-balancing-overview): Choose the right Azure load balancing service for your workload.
 
 #### Network connectivity
 
 - [Virtual network connectivity options](/azure/architecture/reference-architectures/hybrid-networking/virtual-network-peering): Compare virtual network peering, VPN gateways, and other connectivity options for spoke-to-spoke communication.
 
-#### Network security
+#### Network security guides
 
 - [Use a split-brain DNS configuration to host a web app](/azure/architecture/example-scenario/networking/split-brain-dns): Configure split-brain DNS to host a web application with private and public resolution.
 
@@ -34,20 +50,3 @@ The following articles help you evaluate and select the best networking technolo
 
 - [Deploy highly available NVAs](/azure/architecture/networking/guide/network-virtual-appliance-high-availability): Deploy network virtual appliances (NVAs) in a highly available configuration.
 - [SD-WAN integration](/azure/architecture/networking/guide/sd-wan-integration-hub-spoke-network-topologies): Integrate SD-WAN solutions with Azure hub-and-spoke network topologies.
-
-### Networking architectures
-
-The following production-ready architectures demonstrate end-to-end networking solutions that you can deploy and customize.
-
-#### Network topology
-
-- [Hub-spoke network topology in Azure](/azure/architecture/networking/architecture/hub-spoke): Implement a hub-and-spoke network pattern that has customer-managed hub infrastructure components.
-- [Hub-spoke topology with Virtual WAN](/azure/architecture/networking/architecture/hub-spoke-virtual-wan-architecture): Implement a hub-and-spoke network topology by using Azure Virtual WAN for Microsoft-managed hub infrastructure.
-- [Massive-scale Virtual WAN architecture design](/azure/architecture/networking/architecture/massive-scale-azure-architecture): Design a massive-scale Azure Virtual WAN network architecture across multiple Azure regions.
-- [Virtual WAN optimized for requirements](/azure/architecture/networking/architecture/performance-security-optimized-vwan): Optimize an Azure Virtual WAN architecture for department-specific performance and security requirements.
-- [Azure DNS Private Resolver](/azure/architecture/networking/architecture/azure-dns-private-resolver): Implement hybrid DNS resolution by using Azure DNS Private Resolver.
-
-#### Network security
-
-- [TIC 3.0 compliance](/azure/architecture/networking/architecture/trusted-internet-connections): Implement Trusted Internet Connections (TIC) 3.0 compliance for internet-facing applications.
-

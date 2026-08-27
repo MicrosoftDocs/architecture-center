@@ -1,12 +1,8 @@
-### DevOps guides
+### DevOps solution ideas
 
-The following articles help you evaluate and select the best DevOps technologies for your workload requirements.
+The following DevOps solution ideas demonstrate implementation patterns and possibilities to explore:
 
-- [Azure Sandbox](../guide/azure-sandbox/azure-sandbox.md): Learn how to use Azure Sandbox to provide isolated, self-service Azure environments for development and testing.
-
-- [DevSecOps on Azure Kubernetes Service (AKS)](../guide/devsecops/devsecops-on-aks.md): Embed security controls and best practices across DevOps lifecycle stages for Azure Kubernetes Service (AKS)-hosted workloads.
-
-- [Use deployment scripts to check resource properties](../guide/devops/deployment-scripts-property-check.md): Learn how to use deployment scripts to validate Azure resource properties as part of your DevOps pipeline.
+- [DevSecOps for infrastructure as code (IaC)](../solution-ideas/articles/devsecops-infrastructure-as-code.yml): Implement a DevSecOps pipeline by using GitHub for IaC with governance for operational excellence, security, and cost optimization.
 
 ### DevOps architectures
 
@@ -20,10 +16,10 @@ The following production-ready architectures demonstrate end-to-end DevOps solut
 
 - [Manage Microsoft 365 tenant configuration by using Microsoft365DSC and Azure DevOps](../example-scenario/devops/manage-microsoft-365-tenant-configuration-microsoft365dsc-devops.yml): Track and automate changes to Microsoft 365 tenant configurations by using Azure DevOps and PowerShell DSC.
 
-### DevOps solution ideas
+### DevOps guides
 
-The following DevOps solution ideas demonstrate implementation patterns and possibilities to explore:
+- [Azure Sandbox](../guide/azure-sandbox/azure-sandbox.md): Learn how to use Azure Sandbox to provide isolated, self-service Azure environments for development and testing.
 
-- [DevSecOps for IaC](../solution-ideas/articles/devsecops-infrastructure-as-code.yml): Implement a DevSecOps pipeline by using GitHub for IaC with governance for operational excellence, security, and cost optimization.
+- [DevSecOps on Azure Kubernetes Service (AKS)](../guide/devsecops/devsecops-on-aks.md): Embed security controls and best practices across DevOps lifecycle stages for Azure Kubernetes Service (AKS)-hosted workloads.
 
-
+- [Use deployment scripts to check resource properties](../guide/devops/deployment-scripts-property-check.md): Learn how to use deployment scripts to validate Azure resource properties as part of your DevOps pipeline.

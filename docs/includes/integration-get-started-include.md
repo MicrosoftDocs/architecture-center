@@ -1,4 +1,4 @@
-### Integration guides
+### Select an integration service
 
 The following articles help you evaluate and select the best integration technologies for your workload requirements:
 
@@ -8,21 +8,9 @@ The following articles help you evaluate and select the best integration technol
 
 - [Asynchronous messaging options](../guide/technology-choices/messaging.md): Learn about various types of messages and the entities that participate in a messaging infrastructure, and select an Azure messaging service.
 
-#### Event Hubs with Azure Functions
+### Integration solution ideas
 
-- [Overview](../serverless/event-hubs-functions/event-hubs-functions.md): Guidance for how to effectively integrate Azure Event Hubs with Azure Functions for performance, resiliency, security, and scale.
-
-- [Performance and scale](../serverless/event-hubs-functions/performance-scale.md): Optimize scalability and performance when you use Azure Event Hubs and Azure Functions together.
-
-- [Resilient design](../serverless/event-hubs-functions/resilient-design.md): Implement error handling, idempotency, and retry behavior for functions that Azure Event Hubs triggers.
-
-- [Security](../serverless/event-hubs-functions/security.md): Apply fine-grained access control and network security for Azure Event Hubs and Azure Functions.
-
-- [Observability](../serverless/event-hubs-functions/observability.md): Use Application Insights to monitor the behavior and health of Azure Event Hubs and Azure Functions solutions.
-
-#### Migration
-
-- [Apache Kafka migration to Azure](../guide/hadoop/apache-kafka-migration.yml): Explore strategies for migrating Apache Kafka workloads to Azure, including Azure Event Hubs, Azure HDInsight, and Azure Kubernetes Service (AKS).
+- [Integrate IBM MQs with Azure](../example-scenario/mainframe/integrate-ibm-message-queues-azure.yml): Integrate IBM MQ messaging systems with Azure by using Azure Service Bus and hybrid connectivity.
 
 ### Integration architectures
 
@@ -36,8 +24,20 @@ The following production-ready architectures demonstrate end-to-end integration 
 
 - [Build real-time monitoring and observable systems for media](../example-scenario/monitoring/monitoring-observable-systems-media.yml): Provide near-real-time monitoring and observability of systems and user device telemetry data by using Fabric Real-Time Intelligence.
 
-### Integration solution ideas
+### Integration guides
 
-- [Integrate IBM MQs with Azure](../example-scenario/mainframe/integrate-ibm-message-queues-azure.yml): Integrate IBM MQ messaging systems with Azure by using Azure Service Bus and hybrid connectivity.
+The following articles help you evaluate and select the best integration technologies for your workload requirements:
 
+- [Apache Kafka migration to Azure](../guide/hadoop/apache-kafka-migration.yml): Explore strategies for migrating Apache Kafka workloads to Azure, including Azure Event Hubs, Azure HDInsight, and Azure Kubernetes Service (AKS).
 
+#### Event Hubs with Azure Functions
+
+- [Overview](../serverless/event-hubs-functions/event-hubs-functions.md): Guidance for how to effectively integrate Azure Event Hubs with Azure Functions for performance, resiliency, security, and scale.
+
+- [Performance and scale](../serverless/event-hubs-functions/performance-scale.md): Optimize scalability and performance when you use Azure Event Hubs and Azure Functions together.
+
+- [Resilient design](../serverless/event-hubs-functions/resilient-design.md): Implement error handling, idempotency, and retry behavior for functions that Azure Event Hubs triggers.
+
+- [Security](../serverless/event-hubs-functions/security.md): Apply fine-grained access control and network security for Azure Event Hubs and Azure Functions.
+
+- [Observability](../serverless/event-hubs-functions/observability.md): Use Application Insights to monitor the behavior and health of Azure Event Hubs and Azure Functions solutions.

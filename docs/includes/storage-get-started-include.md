@@ -1,8 +1,16 @@
-### Storage guides
+### Select a storage service
 
 **Technology choices:** The following article helps you evaluate and select the best storage technologies for your workload requirements:
 
 - [Storage options](../guide/technology-choices/storage-options.md). Compare Azure storage services and select the right option for your workload data requirements.
+
+### Storage solution ideas
+
+The following solution ideas demonstrate implementation patterns and possibilities to explore.
+
+**Mainframe data storage:** Explore solutions for transferring and replicating mainframe data to Azure:
+
+- [Mainframe file replication on Azure](/azure/architecture/solution-ideas/articles/mainframe-azure-file-replication). Replicate mainframe files to Azure with high fidelity and minimal disruption.
 
 ### Storage architectures
 
@@ -25,12 +33,4 @@ The following production-ready architectures demonstrate end-to-end storage solu
 - [Oracle Database with Azure NetApp Files](../example-scenario/file-storage/oracle-azure-netapp-files.yml). Run Oracle databases on Azure by using Azure NetApp Files for storage.
 
 - [SQL Server on Azure Virtual Machines with Azure NetApp Files](../example-scenario/file-storage/sql-server-azure-netapp-files.yml). Deploy SQL Server workloads on Virtual Machines by using Azure NetApp Files for high-performance storage.
-
-### Storage solution ideas
-
-The following solution ideas demonstrate implementation patterns and possibilities to explore.
-
-**Mainframe data storage:** Explore solutions for transferring and replicating mainframe data to Azure:
-
-- [Mainframe file replication on Azure](/azure/architecture/solution-ideas/articles/mainframe-azure-file-replication). Replicate mainframe files to Azure with high fidelity and minimal disruption.
 

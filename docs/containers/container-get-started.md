@@ -38,7 +38,7 @@ Azure provides a range of services for containers:
 
 *Download a [Visio file](https://arch-center.azureedge.net/aks-baseline-architecture.vsdx) of this architecture.*
 
-The previous diagram demonstrates a typical basic or baseline container implementation. For real-world solutions that you can build in Azure, see [Container architectures](#container-architectures).
+The previous diagram demonstrates a typical basic or baseline container implementation. For real-world solutions that you can build in Azure, see [Explore container guides, architectures, and solution ideas](#explore-container-guides-architectures-and-solution-ideas).
 
 ## Explore container guides, architectures, and solution ideas
 
