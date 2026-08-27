@@ -1,5 +1,3 @@
-### AI technology overview
-
 - [AI technology overview](/azure/architecture/ai-ml/ai-overview): Provides an overview of AI concepts, development platforms, and architecture patterns to help you design AI workloads on Azure.
 
 ### Select an AI service
@@ -102,7 +100,7 @@ The following production-ready architectures demonstrate end-to-end AI solutions
 
 - [Design to support foundation model life cycles](/azure/architecture/ai-ml/guide/manage-foundation-models-lifecycle): Provides guidance for managing foundation model updates, deprecations, and transitions.
 
-#### RAG solution development and evaluation
+#### Developing and evaluating RAG solutions
 
 - [Design and develop a RAG solution](/azure/architecture/ai-ml/guide/rag/rag-solution-design-and-evaluation-guide): Provides an overview of how to design and evaluate RAG solutions.
 
@@ -124,11 +122,11 @@ The following production-ready architectures demonstrate end-to-end AI solutions
 
 #### Machine learning operations
 
-- [Machine learning operations v2](/azure/architecture/ai-ml/guide/machine-learning-operations-v2): Describes the machine learning operations v2 approach for operationalizing machine learning workflows.
+- [Machine learning operations](/azure/architecture/ai-ml/guide/machine-learning-operations-v2): Describes the machine learning operations v2 approach for operationalizing machine learning workflows.
 
-- [Generative AI operations with machine learning operations](/azure/architecture/ai-ml/guide/genaiops-for-mlops): Extends machine learning operations practices to generative AI workloads.
+- [Generative AI operations for organizations with MLOps investments](/azure/architecture/ai-ml/guide/genaiops-for-mlops): Extends machine learning operations practices to generative AI workloads.
 
-- [Machine learning operations maturity model](/azure/architecture/ai-ml/guide/mlops-maturity-model): Defines maturity levels for machine learning operations adoption.
+- [MLOps maturity model](/azure/architecture/ai-ml/guide/mlops-maturity-model): Defines maturity levels for machine learning operations adoption.
 
 #### Proxy generative AI models
 
@@ -136,7 +134,7 @@ The following production-ready architectures demonstrate end-to-end AI solutions
 
 - [Use a gateway in front of multiple model deployments or instances](/azure/architecture/ai-ml/guide/azure-openai-gateway-multi-backend): Extends the gateway pattern to route requests across multiple model back ends.
 
-- [Provide custom authentication to models through a gateway](/azure/architecture/ai-ml/guide/azure-openai-gateway-custom-authentication): Implements custom authentication flows for model access through a gateway.
+- [Provide custom authentication to Foundry Models through a gateway](/azure/architecture/ai-ml/guide/azure-openai-gateway-custom-authentication): Implements custom authentication flows for model access through a gateway.
 
-- [Implement advanced model monitoring through a gateway](/azure/architecture/ai-ml/guide/azure-openai-gateway-monitoring): Adds monitoring and observability to generative AI model traffic through a gateway.
+- [Implement advanced monitoring for Foundry Models through a gateway](/azure/architecture/ai-ml/guide/azure-openai-gateway-monitoring): Adds monitoring and observability to generative AI model traffic through a gateway.
 
