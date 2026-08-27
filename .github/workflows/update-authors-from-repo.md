@@ -15,7 +15,7 @@ concurrency: update-authors-from-repo
 
 permissions:
   contents: read
-  copilot-requests: none
+  copilot-requests: write
 
 model: sonnet
 engine:
