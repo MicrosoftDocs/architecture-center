@@ -99,48 +99,43 @@ These considerations implement the pillars of the Azure Well-Architected Framewo
 
 The considerations in this section summarize key learnings and best practices demonstrated by this solution:
 
-> [!NOTE]
-> Each consideration in this section links to the related **Key Learnings** section in the docs for the parking sensor solution example on GitHub.
+* **Use data tiering in your data lake.** Separate the data lake into landing, standardized, and curated zones so that each transformation step reads from a well-defined tier. This approach follows the [medallion architecture](/azure/databricks/lakehouse/medallion) and lets you reprocess data from an earlier tier without returning to the source system.
 
-* [Use data tiering in your Data Lake](https://github.com/Azure-Samples/modern-data-warehouse-dataops/tree/main/databricks/parking_sensors#1-use-data-tiering-in-your-data-lake).
-
-* [Make your data pipelines replayable and idempotent](https://github.com/Azure-Samples/modern-data-warehouse-dataops/tree/main/databricks/parking_sensors#3-make-your-data-pipelines-replayable-and-idempotent).
+* **Make your data pipelines replayable and idempotent.** Design transformation steps so that rerunning them over the same input produces the same result. Replaying a pipeline lets you fix a defect in transformation logic and reprocess historical data instead of discarding it.
 
 ### Security
 
 Security provides assurances against deliberate attacks and the abuse of your valuable data and systems. For more information, see [Design review checklist for Security](/azure/well-architected/security/checklist).
 
-* [Secure and centralize configuration](https://github.com/Azure-Samples/modern-data-warehouse-dataops/tree/main/databricks/parking_sensors#6-secure-and-centralize-configuration).
+* **Secure and centralize configuration.** Store connection strings, keys, and other secrets in Key Vault instead of in notebooks, pipeline definitions, or source control. Reference them from [Data Factory linked services](/azure/data-factory/store-credentials-in-key-vault) and from [Azure Databricks secret scopes](/azure/databricks/security/secrets/) so that each environment resolves its own values.
 
 ### Operational Excellence
 
 Operational excellence covers the operations processes that deploy an application and keep it running in production. For more information, see [Design review checklist for Operational Excellence](/azure/well-architected/operational-excellence/checklist).
 
-* [Validate data early in your pipeline](https://github.com/Azure-Samples/modern-data-warehouse-dataops/tree/main/databricks/parking_sensors#2-validate-data-early-in-your-pipeline).
+* **Validate data early in your pipeline.** Apply schema and quality checks in the first transformation step and route records that fail into the malformed schema. Early validation keeps defective records out of downstream tiers and gives you a record of what was rejected and why.
 
-* [Ensure data transformation code is testable](https://github.com/Azure-Samples/modern-data-warehouse-dataops/tree/main/databricks/parking_sensors#4-ensure-data-transformation-code-is-testable).
+* **Ensure data transformation code is testable.** Factor transformation logic into functions and modules that run outside a notebook so that you can cover them with [unit tests](/azure/databricks/notebooks/testing) in the pull request validation pipeline.
 
-* [Have a CI/CD pipeline](https://github.com/Azure-Samples/modern-data-warehouse-dataops/tree/main/databricks/parking_sensors#5-have-a-cicd-pipeline).
+* **Have a CI/CD pipeline.** Build and release every environment from source control rather than by hand. For the technology-specific mechanics, see [CI/CD in Azure Data Factory](/azure/data-factory/continuous-integration-delivery) and [CI/CD on Azure Databricks](/azure/databricks/dev-tools/ci-cd/).
 
-* [Monitor infrastructure, pipelines, and data](https://github.com/Azure-Samples/modern-data-warehouse-dataops/tree/main/databricks/parking_sensors#7-monitor-infrastructure-pipelines-and-data).
+* **Monitor infrastructure, pipelines, and data.** Collect metrics and logs from each layer so that a failure surfaces as an alert instead of as a stale report. For more information, see [Monitor Data Factory](/azure/data-factory/monitor-data-factory).
 
 ## Deploy this scenario
 
-The following list contains the high-level steps required to set up the Parking Sensors solution with corresponding Build and Release Pipelines. You can find detailed setup steps and prerequisites in this [Azure Samples repository](https://github.com/Azure-Samples/modern-data-warehouse-dataops/tree/main/databricks/parking_sensors#how-to-use-the-sample).
+The following list contains the high-level steps required to set up this solution with corresponding build and release pipelines.
 
 ### Setup and deployment
 
-1. **Initial setup**: Install any prerequisites, import the Azure Samples GitHub repository into your own repository, and set required environment variables.
-1. **Deploy Azure resources**: The solution comes with an automated deployment script. It deploys all necessary Azure resources and Microsoft Entra service principals per environment. The script also deploys Azure Pipelines, variable groups, and service connections.
-1. **Set up Git integration in dev Data Factory**: Configure Git integration to work with the imported GitHub repository.
+1. **Initial setup**: Install any prerequisites, create the Git repository that holds the infrastructure, notebook, and pipeline code, and set required environment variables.
+1. **Deploy Azure resources**: Use an infrastructure as code deployment, such as [Bicep](/azure/azure-resource-manager/bicep/overview) or [Terraform](/azure/developer/terraform/overview), to deploy the Azure resources and the Microsoft Entra service principals for each environment. Use the same deployment to create the Azure Pipelines definitions, variable groups, and service connections.
+1. **Set up Git integration in dev Data Factory**: [Configure Git integration](/azure/data-factory/source-control) so that the development data factory commits to your repository.
 
 1. **Carry out an initial build and release**: Create a sample change in Data Factory, like enabling a schedule trigger, then watch the change automatically deploy across environments.
 
 ### Deployed resources
 
-If deployment is successful, there should be three resource groups in Azure representing three environments: dev, stg, and prod. There should also be end-to-end build and release pipelines in Azure DevOps that can automatically deploy changes across these three environments.
-
-For a detailed list of all resources, see the [Deployed Resources](https://github.com/Azure-Samples/modern-data-warehouse-dataops/tree/main/databricks/parking_sensors#deployed-resources) section of the **DataOps - Parking Sensor Demo** README.
+If deployment is successful, there should be three resource groups in Azure representing three environments: dev, stg, and prod. Each resource group contains a data factory, an Azure Databricks workspace, a Data Lake Storage Gen2 account, a key vault, and an Azure Synapse Analytics workspace. There should also be end-to-end build and release pipelines in Azure DevOps that can automatically deploy changes across these three environments.
 
 <a name='continuous-integration-and-continuous-delivery'></a>
 
@@ -172,23 +167,24 @@ The following diagram demonstrates the CI/CD process and sequence for the build 
 
     On Approval, the release pipeline continues with the third stage, deploying changes to the prod environment.
 
-For more information, see the [Build and Release Pipeline](https://github.com/Azure-Samples/modern-data-warehouse-dataops/tree/main/databricks/parking_sensors#build-and-release-pipeline) section of the README.
+For more information about implementing these stages, see [CI/CD in Azure Data Factory](/azure/data-factory/continuous-integration-delivery).
 
 ### Testing
 
-The solution includes support for both unit testing and integration testing. It uses pytest-Data Factory and the Nutter Testing Framework. For more information, see the [Testing](https://github.com/Azure-Samples/modern-data-warehouse-dataops/tree/main/databricks/parking_sensors#testing) section of the README.
+The solution includes support for both unit testing and integration testing. Unit tests cover the Python transformation modules and the Data Factory pipeline definitions, and integration tests run against the staging environment after each deployment. For more information, see [Unit testing for notebooks](/azure/databricks/notebooks/testing).
 
 ### Observability and monitoring
 
-The solution supports observability and monitoring for Databricks and Data Factory. For more information, see the [Observability/Monitoring](https://github.com/Azure-Samples/modern-data-warehouse-dataops/tree/main/databricks/parking_sensors#observability--monitoring) section of the README.
+The solution supports observability and monitoring for Databricks and Data Factory. Route diagnostic logs and metrics from both services into a Log Analytics workspace, then alert on pipeline failures and job latency. For more information, see [Monitor Data Factory](/azure/data-factory/monitor-data-factory).
 
 ## Next steps
 
-If you'd like to deploy the solution, follow the steps in the [How to use the sample](https://github.com/Azure-Samples/modern-data-warehouse-dataops/tree/main/databricks/parking_sensors#how-to-use-the-sample) section of the **DataOps - Parking Sensor Demo** README.
+The following resources help you implement the DataOps practices that this article describes.
 
-### Solution code samples on GitHub
+### Continuous integration and delivery
 
-* [Visit the project page on GitHub](https://github.com/Azure-Samples/modern-data-warehouse-dataops)
+* [CI/CD in Azure Data Factory](/azure/data-factory/continuous-integration-delivery)
+* [CI/CD on Azure Databricks](/azure/databricks/dev-tools/ci-cd/)
 
 ### Observability/monitoring
 
