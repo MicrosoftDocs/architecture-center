@@ -383,7 +383,7 @@ The following sections describe each Azure service and component in the Contoso 
     - Workload and configuration recovery responsibility: Microsoft
     - Contoso SKU selection: Single Region Write with Periodic backup
     - DR uplift options:
-        - Single-region accounts might lose availability after a regional outage. Increase resiliency by adding a [single write region with at least a second (read) region and enabling service-managed failover](/azure/reliability/reliability-cosmos-db#multiple-read-regions-with-a-single-write-region).
+        - Single-region accounts might lose availability after a regional outage. Increase resilience by adding a [single write region with at least a second (read) region and enabling service-managed failover](/azure/reliability/reliability-cosmos-db#multiple-read-regions-with-a-single-write-region).
         - Use [Azure Cosmos DB accounts](/azure/reliability/reliability-cosmos-db) for production workloads to provide automatic failover. Without this configuration, the account loses write availability during a write region outage because manual failover can't succeed without region connectivity.
     - Notes:
         - To protect against data loss in a region, Azure Cosmos DB provides two [backup modes](/azure/cosmos-db/online-backup-and-restore): *Periodic* and *Continuous*.
