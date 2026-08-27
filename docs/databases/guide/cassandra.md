@@ -19,7 +19,7 @@ ms.custom:
 
 This article describes performance considerations for running Apache Cassandra on Azure Virtual Machines.
 
-These recommendations are based on the results of performance tests, which you can find on [GitHub][repo]. You should use these recommendations as a baseline and then test against your own workload.
+These recommendations are based on the results of internal performance tests. You should use these recommendations as a baseline and then test against your own workload.
 
 ## Azure Managed Instance for Apache Cassandra
 
@@ -36,8 +36,6 @@ Cassandra nodes shouldn't be too data-dense. We recommend having at most 1 to 2 
 Evaluate [Azure Ultra Disks](/azure/virtual-machines/linux/disks-enable-ultra-ssd) for Cassandra workloads that need smaller disk capacity. They can provide higher IOPS/throughput and lower latency on VM sizes like [Standard_E16s_v5][esv5] and [Standard_D16s_v5][dsv5].
 
 For Cassandra workloads that don't need durable storage—that is, where data can be easily reconstructed from another storage medium—consider using [Standard_L16s_v3](/azure/virtual-machines/lsv3-series) or [Standard_L16s_v2](/azure/virtual-machines/lsv2-series) VMs. These VMs sizes have large and fast local *temporary* NVM Express (NVMe) disks.
-
-For more information, see [Comparing performance of Azure local/ephemeral vs attached/persistent disks](https://github.com/Azure-Samples/cassandra-on-azure-vms-performance-experiments/blob/master/docs/cassandra-local-attached-disks.md) (GitHub).
 
 ## Accelerated Networking
 
@@ -57,8 +55,6 @@ ReadOnly caching is particularly helpful for Cassandra time-series and other wor
 
 There's no significant performance penalty from cache-misses when ReadOnly caching is enabled, so cached mode is recommended for all but the most write-heavy workloads.
 
-For more information, see [Comparing Azure VM data disk caching configurations](https://github.com/Azure-Samples/cassandra-on-azure-vms-performance-experiments/blob/master/docs/cassandra-azure-vm-data-disk-caching.md) (GitHub).
-
 ## Linux read-ahead
 
 In most Linux distributions available for Azure in the [Microsoft Marketplace](https://marketplace.microsoft.com/search/products?filters=linux&product=virtual-machines), the default block device read-ahead setting is 4096 KB. Cassandra's read I/OS are usually random and relatively small. Therefore, having a large read-ahead wastes throughput by reading parts of files that aren't needed.
@@ -66,8 +62,6 @@ In most Linux distributions available for Azure in the [Microsoft Marketplace](h
 To minimize unnecessary lookahead, set the Linux block device read-ahead setting to 8 KB. (See [Recommended production settings](https://docs.datastax.com/en/dse/6.7/dse-admin/datastax_enterprise/config/configRecommendedSettings.html#OptimizeSSDs) in the DataStax documentation.)
 
 Configure 8 KB read-ahead for all block devices in the stripe set and on the array device itself (for example, `/dev/md0`).
-
-For more information, see [Comparing impact of disk read-ahead settings](https://github.com/Azure-Samples/cassandra-on-azure-vms-performance-experiments/blob/master/docs/cassandra-read-ahead.md).
 
 ## Disk array mdadm chunk size
 
@@ -79,8 +73,6 @@ Our tests found no significant difference between chunk sizes of 64k, 128k, and 
 
 - For a new configuration, it makes senses to use 128 K from the beginning.
 
-For more information, see [Measuring impact of mdadm chunk sizes on Cassandra performance](https://github.com/Azure-Samples/cassandra-on-azure-vms-performance-experiments/blob/master/docs/cassandra-mdadm-chunk-sizes.md) (GitHub).
-
 ## Commit log filesystem
 
 Cassandra writes perform best when commit logs are on disks with high throughput and low latency. In the default configuration, Cassandra 3.x flushes data from memory to the commit log file every ~10 seconds and doesn't touch the disk for every write. In this configuration, write performance is almost identical whether the commit log is on premium attached disks versus local/ephemeral disks.
@@ -89,35 +81,25 @@ Commit logs must be durable, so that a restarted node can reconstruct any data n
 
 Based on our tests, Cassandra on CentOS 7.x might have *lower* write performance when commit logs are on the xfs versus ext4 filesystem. Turning on commit log compression brings xfs performance in line with ext4. Compressed xfs performs as well as compressed and non-compressed ext4 in our tests.
 
-For more information, see [Observations on ext4 and xfs file systems and compressed commit logs](https://github.com/Azure-Samples/cassandra-on-azure-vms-performance-experiments/blob/master/docs/cassandra-commitlogs-xfs-ext4.md) (GitHub).
-
 ## Measure baseline VM performance
 
 After deploying the VMs for the Cassandra ring, run a few synthetic tests to establish baseline network and disk performance. Use these tests to confirm that performance is in line with expectations, based on the [VM size](/azure/virtual-machines/linux/sizes).
 
 Later, when you run the actual workload, knowing the performance baseline makes it easier to investigate potential bottlenecks. For example, knowing the baseline performance for network egress on the VM can help to rule out network as a bottleneck.
 
-For more information about running performance tests, see [Validating baseline Azure VM Performance](https://github.com/Azure-Samples/cassandra-on-azure-vms-performance-experiments/blob/master/docs/baseline-vm-perf.md) (GitHub).
-
 ### Document size
 
 Cassandra read and write performance depends on the document size. You can expect to see higher latency and lower operations/second when reading or writing with larger documents.
 
-For more information, see [Comparing relative performance of various Cassandra document sizes](https://github.com/Azure-Samples/cassandra-on-azure-vms-performance-experiments/blob/master/docs/cassandra-doc-sizes.md) (GitHub).
-
 ### Replication factor
 
 Most Cassandra workloads use a replication factor (RF) of 3 when they use attached premium disks and even 5 when they use temporary/ephemeral local disks. The number of nodes in the Cassandra ring should be a multiple of the replication factor. For example, RF 3 implies a ring of 3, 6, 9, or 12 nodes, while RF 5 would have 5, 10, 15, or 20 nodes. When you use RF greater than 1 and a consistency level of LOCAL_QUORUM, it's normal for read and write performance to be lower than the same workload running with RF 1.
-
-For more information, see [Comparing relative performance of various replication factors](https://github.com/Azure-Samples/cassandra-on-azure-vms-performance-experiments/blob/master/docs/cassandra-replication-factors.md) (GitHub).
 
 ### Linux page caching
 
 When Cassandra's Java code reads data files, it uses regular file I/O and benefits from Linux page caching. After parts of the file are read one time, the read content is stored in the OS page cache. Subsequent read access to the same data is much faster.
 
 For this reason, when executing read performance tests against the same data, the second and subsequent reads then appear to be much faster than the original read, which needed to access data on the remote data disk or from the host cache when ReadOnly is enabled. To get similar performance measurements on subsequent runs, clear the Linux page cache and restart the Cassandra service to clear its internal memory. When ReadOnly caching is enabled, the data might be in the host cache, and subsequent reads are faster even after clearing the OS page cache and restarting the Cassandra service.
-
-For more information, see [Observations on Cassandra usage of Linux page caching](https://github.com/Azure-Samples/cassandra-on-azure-vms-performance-experiments/blob/master/docs/cassandra-linux-page-caching.md).
 
 ## Multi-datacenter replication
 
@@ -131,13 +113,9 @@ When you run Apache Cassandra at scale, and specifically in a multi-DC environme
 
 When nodes are added to a secondary region, performance doesn't scale linearly, because some bandwidth and CPU/disk resources are spent on receiving and sending replication traffic across regions.
 
-For more information, see [Measuring impact of multi-dc cross-region replication](https://github.com/Azure-Samples/cassandra-on-azure-vms-performance-experiments/blob/master/docs/cassandra-multi-dc-azure-regions.md) (GitHub).
-
 ### Hinted-handoff configuration
 
 In a multiregion Cassandra ring, write workloads with consistency level of LOCAL_QUORUM might lose data in the secondary region. By default, Cassandra hinted handoff is throttled to a relatively low maximum throughput and three-hour hint lifetime. For workloads with heavy writes, we recommended increasing the hinted handoff throttle and hint window time to ensure hints aren't dropped before they're replicated.
-
-For more information, see [Observations on hinted handoff in cross-region replication](https://github.com/Azure-Samples/cassandra-on-azure-vms-performance-experiments/blob/master/docs/cassandra-hinted-handoff-cross-region.md) (GitHub).
 
 ## Contributors
 
@@ -155,8 +133,6 @@ Other contributor:
 
 ## Next steps
 
-For more information about these performance results, see [Cassandra on Azure VMs Performance Experiments][repo].
-
 For more information about general Cassandra settings, not specific to Azure, see:
 
 - [DataStax Recommended Production Settings](https://docs.datastax.com/en/landing_page/doc/landing_page/recommendedSettings.html)
@@ -173,4 +149,3 @@ For more information about general Cassandra settings, not specific to Azure, se
 [dsv2]: /azure/virtual-machines/dv2-dsv2-series-memory
 [dsv5]: /azure/virtual-machines/dv5-dsv5-series
 [esv5]: /azure/virtual-machines/ev5-esv5-series
-[repo]: https://github.com/Azure-Samples/cassandra-on-azure-vms-performance-experiments
