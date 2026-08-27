@@ -79,7 +79,7 @@ You can deploy Azure Speech in the cloud or on-premises. By using [containers](/
 
 ## Azure OpenAI
 
-[Azure OpenAI](/azure/ai-foundry/foundry-models/concepts/models-sold-directly-by-azure#azure-openai-in-microsoft-foundry-models) provides audio models through the following interfaces:
+[Azure OpenAI](/azure/foundry/foundry-models/concepts/models-sold-directly-by-azure#azure-openai-in-microsoft-foundry-models) provides audio models through the following interfaces:
 
 - [Realtime API](/azure/foundry/openai/how-to/realtime-audio#quickstart) for low-latency voice conversations
 
