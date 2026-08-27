@@ -107,7 +107,7 @@ Azure Machine Learning AutoML uses a machine learning algorithm to analyze image
 
 #### Available Azure Machine Learning AutoML features
 
-The following table provides a list of features available in Custom Vision.
+The following table provides a list of features available.
 
 | Feature | Description |
 | :----------| :-------------|
