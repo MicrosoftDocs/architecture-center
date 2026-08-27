@@ -172,7 +172,7 @@ The solution includes support for both unit testing and integration testing. Uni
 
 ### Observability and monitoring
 
-The solution supports observability and monitoring for Databricks and Data Factory. Route diagnostic logs and metrics from both services into a Log Analytics workspace, then set up alerts on pipeline failures and job latency. For more information, see [Monitor Data Factory](/azure/data-factory/monitor-data-factory).
+The solution supports observability and monitoring for Databricks and Data Factory. For Databricks, use the platform's built-in audit logging (the `system.access.audit` table) and job run monitoring rather than exporting all diagnostics by default. If you need to deliver Databricks diagnostic logs to a Log Analytics workspace for centralized alerting, that capability requires the Premium plan, applies to logs rather than metrics, and needs careful access control because audit logs can contain sensitive details about your deployment. For Data Factory, route diagnostic logs and metrics to a Log Analytics workspace and set up alerts on pipeline failures and job latency. For more information, see [Monitor Data Factory](/azure/data-factory/monitor-data-factory).
 
 ## Next steps
 
