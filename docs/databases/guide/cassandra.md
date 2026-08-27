@@ -19,7 +19,7 @@ ms.custom:
 
 This article describes performance considerations for running Apache Cassandra on Azure Virtual Machines.
 
-These recommendations are based on the results of internal performance tests. You should use these recommendations as a baseline and then test against your own workload.
+These recommendations are based on the results of internal performance tests. Use these recommendations as a baseline and then test against your own workload.
 
 ## Azure Managed Instance for Apache Cassandra
 
