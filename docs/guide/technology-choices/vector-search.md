@@ -201,7 +201,7 @@ Other contributor:
 - [Native vector support in Azure SQL and SQL Server](https://github.com/Azure-Samples/azure-sql-db-vector-search?tab=readme-ov-file)
 - [Vector database in Azure Cosmos DB](/azure/cosmos-db/vector-database)
 - [VSS in Azure Managed Redis](/azure/redis/overview-vector-similarity)
-- [Azure vector database samples](https://github.com/Azure-Samples/azure-vector-database-samples/)
+- [Vector search in Azure AI Search](/azure/search/vector-search-overview)
 - [Vector search in Azure Cosmos DB for NoSQL](/azure/cosmos-db/vector-search)
 
 ## Related resources
