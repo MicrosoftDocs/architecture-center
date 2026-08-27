@@ -173,6 +173,8 @@ Security provides assurances against deliberate attacks and the misuse of your v
 
 - Use ExpressRoute or a site-to-site VPN for a more private and efficient connection to Azure from an on-premises environment.
 
+- Use [Azure Network Security Perimeter (NSP)](/azure/private-link/network-security-perimeter-concepts#onboarded-private-link-resources) with private endpoints to reduce public endpoint exposure for PaaS resources used in this architecture, such as Event Hubs.
+
 - Authenticate Azure resources by using Microsoft Entra ID and manage permissions by using role-based access control.
 
 - Use the database services in Azure to support various security options like Transparent Data Encryption for data at rest, TLS for data in transit, and data encryption while processing to help ensure that your data is always encrypted. For more information, see [Azure security documentation](/azure/security) and [Security baselines for Azure](/security/benchmark/azure/security-baselines-overview).
