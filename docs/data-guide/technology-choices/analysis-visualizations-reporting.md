@@ -24,9 +24,9 @@ There are several options for analysis, visualizations, and reporting in Azure, 
 
 ### Power BI
 
-[Power BI](/power-bi/) is a suite of business analytics tools. It can [connect to hundreds of data sources](/power-bi/desktop-data-sources#connect-to-a-data-source), and you can use it for unplanned analysis. Use [Power BI Embedded](https://azure.microsoft.com/services/power-bi-embedded/) to integrate Power BI within your own applications without requiring any extra licensing.
+[Power BI](/power-bi/) is a suite of business analytics tools. It can [connect to hundreds of data sources](/power-bi/connect-data/desktop-data-sources#connect-to-a-data-source), and you can use it for unplanned analysis. Use [Power BI Embedded](https://azure.microsoft.com/services/power-bi-embedded/) to integrate Power BI within your own applications without requiring any extra licensing.
 
-Organizations can use Power BI to produce reports and publish them to the organization. Everyone can create personalized dashboards, with governance and [security built in](/power-bi/service-admin-power-bi-security). Power BI uses [Microsoft Entra ID](/entra/identity/) to authenticate users who sign in to the Power BI service. It uses the Power BI credentials when a user attempts to access resources that require authentication.
+Organizations can use Power BI to produce reports and publish them to the organization. Everyone can create personalized dashboards, with governance and [security built in](/fabric/enterprise/powerbi/service-admin-power-bi-security). Power BI uses [Microsoft Entra ID](/entra/identity/) to authenticate users who sign in to the Power BI service. It uses the Power BI credentials when a user attempts to access resources that require authentication.
 
 ### Jupyter notebooks
 
@@ -38,7 +38,7 @@ Jupyter notebooks provide an effective environment for analyzing, visualizing, a
 
 ### Zeppelin notebooks
 
-[Zeppelin notebooks](https://zeppelin.apache.org/) also provide a browser-based shell that has similar functionality to Jupyter notebooks. Some HDInsight clusters are [preconfigured with Zeppelin notebooks](/azure/hdinsight/spark/apache-spark-zeppelin-notebook). However, if you use an [HDInsight Interactive Query](/azure/hdinsight/interactive-query/apache-interactive-query-get-started) (also called Apache Hive LLAP) cluster, [Zeppelin](/azure/hdinsight/hdinsight-connect-hive-zeppelin) is the only notebook that you can use to run interactive Hive queries. Also, if you use a [domain-joined HDInsight cluster](/azure/hdinsight/domain-joined/apache-domain-joined-introduction), Zeppelin notebooks are the only type of notebooks that enable you to assign different user logins to control access to notebooks and the underlying Hive tables.
+[Zeppelin notebooks](https://zeppelin.apache.org/) also provide a browser-based shell that has similar functionality to Jupyter notebooks. Some HDInsight clusters are [preconfigured with Zeppelin notebooks](/azure/hdinsight/spark/apache-spark-zeppelin-notebook). However, if you use an [HDInsight Interactive Query](/azure/hdinsight/interactive-query/apache-interactive-query-get-started) (also called Apache Hive LLAP) cluster, [Zeppelin](/azure/hdinsight/interactive-query/hdinsight-connect-hive-zeppelin) is the only notebook that you can use to run interactive Hive queries. Also, if you use a [domain-joined HDInsight cluster](/azure/hdinsight/domain-joined/hdinsight-security-overview), Zeppelin notebooks are the only type of notebooks that enable you to assign different user logins to control access to notebooks and the underlying Hive tables.
 
 ### Jupyter notebooks in VS Code
 
@@ -77,7 +77,7 @@ The following table summarizes the key differences in capabilities.
 | Access to numerous open-source packages | No | Yes <sup>3</sup> | Yes <sup>3</sup> | Yes <sup>4</sup> |
 | Data transformation or cleansing options | [Power Query](https://powerbi.microsoft.com/blog/getting-started-with-power-query-part-i/), R | 40 languages, including Python, R, Julia, and Scala | More than 20 interpreters, including Python, JDBC, and R | Python, F#, R |
 | Pricing | Free for Power BI Desktop (authoring). See [Power BI pricing](https://powerbi.microsoft.com/pricing/) for hosting options. | Free | Free | Free |
-| Multiuser collaboration | [Yes](/power-bi/service-how-to-collaborate-distribute-dashboards-reports) | Yes (via sharing or with a multiuser server like [JupyterHub](https://jupyterhub.readthedocs.io/en/stable/)) | Yes | Yes (via sharing) |
+| Multiuser collaboration | [Yes](/power-bi/collaborate-share/service-share-dashboards) | Yes (via sharing or with a multiuser server like [JupyterHub](https://jupyterhub.readthedocs.io/en/stable/)) | Yes | Yes (via sharing) |
 
 [1] When used as part of a managed HDInsight cluster.
 
@@ -99,9 +99,9 @@ Principal author:
 
 ## Next steps
 
-- [Introduction to Databricks notebooks](/azure/databricks/notebooks)
-- [Run Azure Databricks notebooks with Azure Data Factory](/training/modules/run-azure-databricks-notebooks-azure-data-factory)
-- [Run Jupyter notebooks in your workspace](/azure/machine-learning/how-to-run-jupyter-notebooks)
+- [Introduction to Databricks notebooks](/azure/databricks/notebooks/)
+- [Implement data engineering solutions using Azure Databricks](/training/courses/dp-750t00)
+- [Run Jupyter notebooks in your workspace](/azure/machine-learning/how-to-run-jupyter-notebooks?view=azureml-api-2)
 - [What is Power BI?](/power-bi/fundamentals/power-bi-overview)
 
 ## Related resource

@@ -29,10 +29,10 @@ Microsoft offers several options for data serving storage, depending on your nee
   - [Fabric Data Warehouse](/fabric/data-warehouse/data-warehousing)
   - [Eventhouse in Fabric](/fabric/real-time-intelligence/eventhouse)
   - [SQL Database in Fabric](/fabric/database/sql/overview)
-- [Azure Databricks](/azure/databricks/introduction)
-- [Azure SQL Database](/azure/sql-database/)
-- [SQL Server on Azure VM](/azure/azure-sql/virtual-machines)
-- [Azure Analysis Services](/azure/analysis-services/analysis-services-overview)
+- [Azure Databricks](/azure/databricks/introduction/)
+- [Azure SQL Database](/azure/azure-sql/?view=azuresql)
+- [SQL Server on Azure VM](/azure/azure-sql/virtual-machines/?view=azuresql)
+- [Azure Analysis Services](/analysis-services/azure-analysis-services/analysis-services-overview?view=sql-analysis-services-2025)
 - [Azure Cosmos DB](/azure/cosmos-db/overview)
 
 Different database models suit different types of tasks:
@@ -146,10 +146,10 @@ Principal author:
 - [Quickstart: Get data into OneLake](/fabric/onelake/quickstart-get-data)
 - [Create a Warehouse in Fabric](/fabric/data-warehouse/create-warehouse)
 - [Create an eventhouse](/fabric/real-time-intelligence/create-eventhouse)
-- [Create a single database in SQL Database](/azure/azure-sql/database/single-database-create-quickstart)
-- [Get started on Azure Databricks](/azure/databricks/getting-started)
-- [Explore Azure architecture and services](/training/paths/azure-fundamentals-describe-azure-architecture-services)
-- [Query data in Azure Cosmos DB for NoSQL](/azure/cosmos-db/nosql/tutorial-query)
+- [Create a single database in SQL Database](/azure/azure-sql/database/single-database-create-quickstart?view=azuresql)
+- [Get started on Azure Databricks](/azure/databricks/getting-started/)
+- [Explore Azure architecture and services](/training/paths/azure-fundamentals-describe-azure-architecture-services/)
+- [Query data in Azure Cosmos DB for NoSQL](/azure/cosmos-db/tutorial-query)
 - [Lakehouse SQL analytics endpoint use cases](/fabric/data-engineering/lakehouse-sql-analytics-endpoint-use-cases)
 
 ## Related resources
