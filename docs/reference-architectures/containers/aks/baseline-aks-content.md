@@ -501,7 +501,7 @@ One downside of connecting to Azure services through public endpoints is that Az
 
 By default, a pod can accept traffic from any other pod in the cluster. Use Kubernetes `NetworkPolicy` to restrict network traffic between pods. Apply policies carefully to prevent blocking critical network flows. Allow only specific communication paths, like traffic between the gateway proxy and workload, as needed. Because the gateway proxy runs in the same namespace as the workload, target it by pod label rather than by namespace selector. For more information, see [Network policies](/azure/aks/use-network-policies).
 
-Enable network policy when you set up the cluster, because you can't add it later. You have a few choices for technologies that implement `NetworkPolicy`. Azure network policy requires Azure CNI. Other options include Calico network policy, a well-known open-source option. Consider Calico if you need to manage cluster-wide network policies. Calico isn't covered under standard Azure support.
+Enable network policy when you create the cluster, because adding it later might reimage your node pools. You have a few choices for technologies that implement `NetworkPolicy`. Azure network policy requires Azure CNI. Other options include Calico network policy, a well-known open-source option. Consider Calico if you need to manage cluster-wide network policies. Calico isn't covered under standard Azure support.
 
 For more information, see [Differences between Azure network policy engines](/azure/aks/use-network-policies#differences-between-network-policy-engines-cilium-azure-npm-and-calico).
 

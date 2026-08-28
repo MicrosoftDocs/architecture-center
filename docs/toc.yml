@@ -492,8 +492,6 @@ items:
             href: ai-ml/idea/generate-documents-from-your-data.yml
           - name: Use AI enrichment with Azure AI Search
             href: solution-ideas/articles/ai-search-skillsets.yml
-          - name: Extract text by using Power Automate
-            href: example-scenario/ai/extract-object-text.yml
         - name: Workflow automation
           items:
           - name: Build a multiple-agent workflow automation solution by using Microsoft Agent Framework
@@ -519,6 +517,8 @@ items:
             href: ai-ml/architecture/automate-pdf-forms-processing.yml
           - name: Build custom document processing models
             href: ai-ml/architecture/build-deploy-custom-models.yml
+          - name: Extract text by using Power Automate
+            href: example-scenario/ai/extract-object-text.yml
           - name: Multiple indexers with Azure AI Search
             href: ai-ml/architecture/search-blob-metadata.yml
         - name: Video and image classification

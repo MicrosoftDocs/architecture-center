@@ -1,36 +1,76 @@
-### Container guides
+### Select a container service
 
 The following articles help you evaluate and select the best container technologies for your workload requirements:
 
 - [Choose an Azure container service](../guide/choose-azure-container-service.md): Decision tree for selecting the right container platform.
 
-- [Azure container service considerations](../guide/container-service-general-considerations.md): Detailed considerations for container service selection.
+- [Architectural considerations for choosing an Azure container service](../guide/container-service-general-considerations.md): Detailed considerations for container service selection.
 
 - [Choose a Kubernetes at the edge option](../operator-guides/aks/choose-kubernetes-edge-compute-option.md): Compare options for running Kubernetes at the edge.
+
+### Container guides
 
 - [Microservices architecture style](../guide/architecture-styles/microservices.md): Design principles for microservices.
 
 - [Design a microservices architecture](../microservices/design/index.md): Step-by-step guidance for microservices design.
 
-#### Kubernetes-based hosting
+### Kubernetes-based hosting
 
-- [Get started with AKS](../reference-architectures/containers/aks-start-here.md): Introduction to AKS architecture and design.
+- [Azure Kubernetes Service (AKS) - Plan your design and operations](../reference-architectures/containers/aks-start-here.md): Start here to plan your AKS design and operations.
 
-##### Application
+#### Kubernetes solution ideas
 
-- [High availability (HA) for multitier AKS apps](../guide/aks/aks-high-availability.md): Design patterns for highly available AKS applications.
+- [Data streaming with AKS](../solution-ideas/articles/data-streaming-scenario.yml): Real-time data streaming architectures that use AKS.
 
-- [CI/CD for AKS apps via Azure Pipelines](../guide/aks/aks-cicd-azure-pipelines.md): Implement CI/CD for AKS.
+#### Kubernetes architectures
 
-- [GitOps for AKS](../example-scenario/gitops-aks/gitops-blueprint-aks.yml): Use GitOps practices to manage AKS deployments.
+Use the recommendations in the following architectures when designing your workload:
 
-##### Infrastructure
+##### Application architectures
 
-- [Access an AKS API server](../security/access-azure-kubernetes-service-cluster-api-server.md): Secure access patterns for AKS API servers.
+- [Microservices architecture on Azure Kubernetes Service](../reference-architectures/containers/aks-microservices/aks-microservices.yml): Design and deploy microservices on AKS.
+
+- [Advanced Azure Kubernetes Service (AKS) microservices architecture](../reference-architectures/containers/aks-microservices/aks-microservices-advanced.yml): Advanced patterns for complex microservices workloads.
+
+##### Infrastructure architectures
+
+- [Baseline architecture for an Azure Kubernetes Service (AKS) cluster](../reference-architectures/containers/aks/baseline-aks.yml): Production-ready baseline architecture for AKS.
+
+- [AKS baseline for multiregion clusters](../reference-architectures/containers/aks-multi-region/aks-multi-cluster.yml): Deploy AKS across multiple regions for HA.
+
+- [Use Azure Red Hat OpenShift in the financial services industry](../reference-architectures/containers/aro/azure-redhat-openshift-financial-services-workloads.yml): OpenShift for regulated financial workloads.
+
+- [Build a CI/CD pipeline for microservices on Kubernetes by using Azure DevOps and Helm](../microservices/ci-cd-kubernetes.md): Build robust CI/CD pipelines for Kubernetes microservices.
+
+#### Kubernetes guides
+
+The following guides provide recommendations on cross-cutting concerns in your Kubernetes workload:
+
+##### Application guides
+
+- [High availability for multitier AKS applications](../guide/aks/aks-high-availability.md): Design patterns for highly available AKS applications.
+
+- [Build a CI/CD pipeline for AKS apps by using Azure Pipelines](../guide/aks/aks-cicd-azure-pipelines.md): Implement CI/CD for AKS.
+
+- [GitOps for Azure Kubernetes Service](../example-scenario/gitops-aks/gitops-blueprint-aks.yml): Use GitOps practices to manage AKS deployments.
+
+##### Infrastructure guides
+
+- [Access an Azure Kubernetes Service (AKS) API server](../security/access-azure-kubernetes-service-cluster-api-server.md): Secure access patterns for AKS API servers.
+
+- [Blue-green deployment of AKS clusters](../guide/aks/blue-green-deployment-for-aks.yml): Implement zero-downtime deployments by using blue-green strategies.
+
+- [Use Azure Firewall to help protect an AKS cluster](../guide/aks/aks-firewall.md): Secure AKS clusters by using Azure Firewall.
+
+- [Use Azure Front Door to secure AKS workloads](../example-scenario/aks-front-door/aks-front-door.yml): Global load balancing and security for AKS.
+
+- [Use Application Gateway for Containers with a multitenant Azure Kubernetes Service cluster](../example-scenario/aks-agic/aks-agc.yml): Use Application Gateway for Containers with your AKS cluster to expose microservice-based applications to the internet.
+
+- [Use Azure Kubernetes Service to host GPU-based workloads](../reference-architectures/containers/aks-gpu/gpu-aks.md): Run GPU workloads on AKS for AI and machine learning scenarios.
 
 ###### AKS day-2 operations guide
 
-- [Introduction](../operator-guides/aks/day-2-operations-guide.md): Learn about AKS day-2 operations, such as triage, patching, upgrading, and troubleshooting.
+- [Azure Kubernetes Service (AKS) day-2 operations guide](../operator-guides/aks/day-2-operations-guide.md): Learn about AKS day-2 operations, such as triage, patching, upgrading, and troubleshooting.
 
 **Triage practices**
 
@@ -56,50 +96,12 @@ The following articles help you evaluate and select the best container technolog
 
 - [Common issues](/azure/aks/troubleshooting): Troubleshoot common AKS issues.
 
-- [Blue-green deployment of AKS clusters](../guide/aks/blue-green-deployment-for-aks.yml): Implement zero-downtime deployments by using blue-green strategies.
-
-- [Firewall protection for an AKS cluster](../guide/aks/aks-firewall.md): Secure AKS clusters by using Azure Firewall.
-
-- [Secure AKS workloads with Azure Front Door](../example-scenario/aks-front-door/aks-front-door.yml): Global load balancing and security for AKS.
-
-- [Multitenancy with AKS and Application Gateway for Containers (AGC)](../example-scenario/aks-agic/aks-agc.yml): Use Application Gateway for Containers with your AKS cluster to expose microservice-based applications to the internet.
-
-- [Use AKS to host GPU-based workloads](../reference-architectures/containers/aks-gpu/gpu-aks.md): Run GPU workloads on AKS for AI and machine learning scenarios.
-
-### Container architectures
-
-The following production-ready architectures demonstrate end-to-end container solutions that you can deploy and customize.
-
-#### Kubernetes-based hosting
-
-##### Application
-
-- [Microservices architecture on AKS](../reference-architectures/containers/aks-microservices/aks-microservices.yml): Design and deploy microservices on AKS.
-
-- [Advanced microservices on AKS](../reference-architectures/containers/aks-microservices/aks-microservices-advanced.yml): Advanced patterns for complex microservices workloads.
-
-##### Infrastructure
-
-- [AKS baseline cluster](../reference-architectures/containers/aks/baseline-aks.yml): Production-ready baseline architecture for AKS.
-
-- [AKS baseline for multiple-region clusters](../reference-architectures/containers/aks-multi-region/aks-multi-cluster.yml): Deploy AKS across multiple regions for HA.
-
-- [Use Azure Red Hat OpenShift in the financial services industry](../reference-architectures/containers/aro/azure-redhat-openshift-financial-services-workloads.yml): OpenShift for regulated financial workloads.
-
-- [CI/CD for microservices on Kubernetes](../microservices/ci-cd-kubernetes.md): Build robust CI/CD pipelines for Kubernetes microservices.
-
-#### PaaS container hosting
+### PaaS container hosting
 
 Azure Container Apps and Azure Container Instances provide serverless container platforms that abstract infrastructure management:
 
-- [Microservices that use Container Apps](../example-scenario/serverless/microservices-with-container-apps.yml): Build microservices by using Container Apps.
+#### PaaS container architectures
 
-- [Microservices that use Dapr and KEDA](../example-scenario/serverless/microservices-with-container-apps-dapr.yml): Event-driven microservices that use Dapr and KEDA on Container Apps.
+- [Deploy microservices to Azure Container Apps](../example-scenario/serverless/microservices-with-container-apps.yml): Build microservices by using Container Apps.
 
-### Container solution ideas
-
-The following container solution ideas demonstrate implementation patterns and possibilities to explore:
-
-#### Kubernetes-based hosting
-
-- [Data streaming that uses AKS](../solution-ideas/articles/data-streaming-scenario.yml): Real-time data streaming architectures that use AKS.
+- [Deploy microservices with Azure Container Apps and Dapr](../example-scenario/serverless/microservices-with-container-apps-dapr.yml): Event-driven microservices that use Dapr and KEDA on Container Apps.

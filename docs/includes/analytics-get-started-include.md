@@ -1,6 +1,8 @@
-### Analytics guides
+### Select an analytics service
 
 The following articles help you evaluate and select the best analytics technologies for your workload requirements:
+
+- [Choose an analytical data store](../data-guide/technology-choices/analytical-data-stores.md): Get guidance on analytical data store selection.
 
 - [Choose a data analytics and reporting service](../data-guide/technology-choices/analysis-visualizations-reporting.md): Compare options for data analysis and visualization in Azure.
 
@@ -8,11 +10,45 @@ The following articles help you evaluate and select the best analytics technolog
 
 - [Choose a stream processing service](../data-guide/technology-choices/stream-processing.md): Compare stream processing technologies for real-time analytics.
 
-- [Choose an analytical data store](../data-guide/technology-choices/analytical-data-stores.md): Get guidance on analytical data store selection.
-
 - [Choose a Microsoft Fabric deployment pattern](../data-guide/technology-choices/fabric-deployment-patterns.md): Evaluate Microsoft Fabric deployment patterns for structuring capacities, workspaces, and items based on your requirements.
 
 - [Choose an analytical data store in Microsoft Fabric](../data-guide/technology-choices/fabric-analytical-data-stores.md): Get guidance on data stores in Fabric.
+
+### Analytics solution ideas
+
+The following analytics solution ideas demonstrate implementation patterns and possibilities to explore:
+
+- [Ingestion, ETL, and stream processing pipelines with Azure Databricks and Delta Lake](../solution-ideas/articles/ingest-etl-stream-with-adb.yml): Create ETL pipelines for batch and streaming data to simplify data lake ingestion.
+
+- [Create a modern analytics architecture by using Azure Databricks](../solution-ideas/articles/azure-databricks-modern-analytics-architecture.yml): Collect, process, analyze, and visualize data by using a modern data architecture.
+
+- [Build a modern data platform architecture for SMBs by using Microsoft Fabric and Azure Databricks](../solution-ideas/articles/small-medium-modern-data-platform.yml): Build a modern data platform architecture for small and medium businesses by using Fabric and Azure Databricks.
+
+- [Real-time analytics with Azure Service Bus and Microsoft Fabric](../solution-ideas/articles/analytics-service-bus.yml): Analyze data in real time by using Azure Service Bus and Microsoft Fabric.
+
+### Analytics architectures
+
+The following production-ready architectures demonstrate end-to-end analytics solutions that you can deploy and customize:
+
+- [Analytics end-to-end with Microsoft Fabric](../example-scenario/dataplate2e/data-platform-end-to-end.yml): Build a modern analytics platform by using Fabric.
+
+- [Data warehousing and analytics](../example-scenario/data/data-warehouse.yml): Integrate data from multiple sources into a unified analytics platform.
+
+- [Use Microsoft Fabric to design an enterprise BI solution](../example-scenario/analytics/enterprise-bi-microsoft-fabric.yml): Design an enterprise BI solution by using Fabric.
+
+- [Use Azure Synapse Analytics for near real-time lakehouse data processing](../example-scenario/data/real-time-lakehouse-data-processing.yml): Use Azure Synapse Analytics and Azure Data Lake Storage for near real-time data lakehouse processing.
+
+- [Set up real-time sync of MongoDB Atlas data changes to Microsoft Fabric](../example-scenario/analytics/sync-mongodb-atlas-fabric-analytics.yml): Synchronize MongoDB Atlas data to Microsoft Fabric in real time.
+
+- [Stream processing with Azure Databricks](../reference-architectures/data/stream-processing-databricks.yml): Create an end-to-end stream processing pipeline by using Azure Databricks.
+
+- [Stream processing with Azure Stream Analytics](../reference-architectures/data/stream-processing-stream-analytics.yml): Build a stream processing pipeline that ingests data, correlates records, and calculates rolling averages.
+
+- [Modern data warehouses for small or medium-sized businesses](../example-scenario/data/small-medium-data-warehouse.yml): Build a modern data warehouse solution designed for small and medium businesses.
+
+### Analytics guides
+
+Review the recommendations in these guides while designing your analytics solution.
 
 #### Disaster recovery for Azure data platform
 
@@ -25,36 +61,4 @@ The following articles provide guidance about disaster recovery (DR) strategies 
 - [Scenario details](../data-guide/disaster-recovery/dr-for-azure-data-platform-scenario-details.md): Detailed scenarios for DR implementation.
 
 - [Recommendations](../data-guide/disaster-recovery/dr-for-azure-data-platform-recommendations.md): Best practices for DR.
-
-### Analytics architectures
-
-The following production-ready architectures demonstrate end-to-end analytics solutions that you can deploy and customize:
-
-- [Analytics end-to-end with Fabric](../example-scenario/dataplate2e/data-platform-end-to-end.yml): Build a modern analytics platform by using Fabric.
-
-- [Data warehousing and analytics](../example-scenario/data/data-warehouse.yml): Integrate data from multiple sources into a unified analytics platform.
-
-- [Use Fabric to design an enterprise BI solution](../example-scenario/analytics/enterprise-bi-microsoft-fabric.yml): Design an enterprise BI solution by using Fabric.
-
-- [Near real-time lakehouse data processing](../example-scenario/data/real-time-lakehouse-data-processing.yml): Use Azure Synapse Analytics and Azure Data Lake Storage for near real-time data lakehouse processing.
-
-- [Real-time sync of MongoDB Atlas to Azure Synapse Analytics](../example-scenario/analytics/sync-mongodb-atlas-fabric-analytics.yml): Synchronize MongoDB Atlas data to Azure Synapse Analytics in real time.
-
-- [Stream processing with Azure Databricks](../reference-architectures/data/stream-processing-databricks.yml): Create an end-to-end stream processing pipeline by using Azure Databricks.
-
-- [Stream processing with Azure Stream Analytics](../reference-architectures/data/stream-processing-stream-analytics.yml): Build a stream processing pipeline that ingests data, correlates records, and calculates rolling averages.
-
-- [Modern data warehouse for small and medium businesses](../example-scenario/data/small-medium-data-warehouse.yml): Build a modern data warehouse solution designed for small and medium businesses.
-
-### Analytics solution ideas
-
-The following analytics solution ideas demonstrate implementation patterns and possibilities to explore:
-
-- [Ingestion, extract, transform, and load (ETL), and stream processing pipelines with Azure Databricks](../solution-ideas/articles/ingest-etl-stream-with-adb.yml): Create ETL pipelines for batch and streaming data to simplify data lake ingestion.
-
-- [Modern analytics architecture with Azure Databricks](../solution-ideas/articles/azure-databricks-modern-analytics-architecture.yml): Collect, process, analyze, and visualize data by using a modern data architecture.
-
-- [Modern data platform for small and medium businesses](../solution-ideas/articles/small-medium-modern-data-platform.yml): Build a modern data platform architecture for small and medium businesses by using Fabric and Azure Databricks.
-
-- [Real-time analytics with Azure Data Explorer](../solution-ideas/articles/analytics-service-bus.yml): Analyze data in real time by using Azure Data Explorer and Azure Service Bus.
 

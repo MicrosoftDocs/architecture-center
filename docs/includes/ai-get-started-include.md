@@ -1,5 +1,3 @@
-### AI technology overview
-
 - [AI technology overview](/azure/architecture/ai-ml/ai-overview): Provides an overview of AI concepts, development platforms, and architecture patterns to help you design AI workloads on Azure.
 
 ### Select an AI service
@@ -94,13 +92,17 @@ The following production-ready architectures demonstrate end-to-end AI solutions
 
 - [Dynamic AI agents at scale pattern](/azure/architecture/solution-ideas/articles/ai-agents-at-scale): Describes how to dynamically select and orchestrate AI agents from a pool by using Microsoft Foundry, Azure AI Search, and Azure OpenAI to build multiagent systems.
 
-#### AI agent design
+- [Microsoft AI and machine learning products](/azure/architecture/ai-ml/guide/data-science-and-machine-learning): Compares Microsoft machine learning products to help you choose a platform for building, deploying, and managing AI applications, agents, and machine learning models.
 
 - [AI agent orchestration patterns](/azure/architecture/ai-ml/guide/ai-agent-design-patterns): Describes design patterns for orchestrating AI agents in complex scenarios.
 
-#### RAG solution development and evaluation
+- [Design a secure multitenant RAG inferencing solution](/azure/architecture/ai-ml/guide/secure-multitenant-rag): Provides guidance for securing RAG solutions in multitenant environments.
 
-- [Design a RAG solution](/azure/architecture/ai-ml/guide/rag/rag-solution-design-and-evaluation-guide): Provides an overview of how to design and evaluate RAG solutions.
+- [Design to support foundation model life cycles](/azure/architecture/ai-ml/guide/manage-foundation-models-lifecycle): Provides guidance for managing foundation model updates, deprecations, and transitions.
+
+#### Developing and evaluating RAG solutions
+
+- [Design and develop a RAG solution](/azure/architecture/ai-ml/guide/rag/rag-solution-design-and-evaluation-guide): Provides an overview of how to design and evaluate RAG solutions.
 
 - [Preparation phase](/azure/architecture/ai-ml/guide/rag/rag-preparation-phase): Covers data preparation for RAG implementations.
 
@@ -118,29 +120,21 @@ The following production-ready architectures demonstrate end-to-end AI solutions
 
 - [Agentic RAG](/azure/architecture/ai-ml/guide/rag/rag-agentic): Describes how to shift from a standard RAG pipeline to an agentic RAG architecture for dynamic query planning and multistep reasoning.
 
-#### Multitenant RAG solution
-
-- [Design a secure multitenant RAG inferencing solution](/azure/architecture/ai-ml/guide/secure-multitenant-rag): Provides guidance for securing RAG solutions in multitenant environments.
-
 #### Machine learning operations
 
-- [Machine learning operations v2](/azure/architecture/ai-ml/guide/machine-learning-operations-v2): Describes the machine learning operations v2 approach for operationalizing machine learning workflows.
+- [Machine learning operations](/azure/architecture/ai-ml/guide/machine-learning-operations-v2): Describes the machine learning operations v2 approach for operationalizing machine learning workflows.
 
-- [Generative AI operations with machine learning operations](/azure/architecture/ai-ml/guide/genaiops-for-mlops): Extends machine learning operations practices to generative AI workloads.
+- [Generative AI operations for organizations with MLOps investments](/azure/architecture/ai-ml/guide/genaiops-for-mlops): Extends machine learning operations practices to generative AI workloads.
 
-- [Machine learning operations maturity model](/azure/architecture/ai-ml/guide/mlops-maturity-model): Defines maturity levels for machine learning operations adoption.
+- [MLOps maturity model](/azure/architecture/ai-ml/guide/mlops-maturity-model): Defines maturity levels for machine learning operations adoption.
 
 #### Proxy generative AI models
 
 - [Use a gateway in front of generative models](/azure/architecture/ai-ml/guide/azure-openai-gateway-guide): Describes the benefits and architecture of placing a gateway in front of generative AI model endpoints.
 
-- [Use a gateway in front of multiple models](/azure/architecture/ai-ml/guide/azure-openai-gateway-multi-backend): Extends the gateway pattern to route requests across multiple model back ends.
+- [Use a gateway in front of multiple model deployments or instances](/azure/architecture/ai-ml/guide/azure-openai-gateway-multi-backend): Extends the gateway pattern to route requests across multiple model back ends.
 
-- [Provide custom authentication to models through a gateway](/azure/architecture/ai-ml/guide/azure-openai-gateway-custom-authentication): Implements custom authentication flows for model access through a gateway.
+- [Provide custom authentication to Foundry Models through a gateway](/azure/architecture/ai-ml/guide/azure-openai-gateway-custom-authentication): Implements custom authentication flows for model access through a gateway.
 
-- [Implement advanced model monitoring through a gateway](/azure/architecture/ai-ml/guide/azure-openai-gateway-monitoring): Adds monitoring and observability to generative AI model traffic through a gateway.
-
-#### Foundation model life cycle
-
-- [Design to support foundation model life cycles](/azure/architecture/ai-ml/guide/manage-foundation-models-lifecycle): Provides guidance for managing foundation model updates, deprecations, and transitions.
+- [Implement advanced monitoring for Foundry Models through a gateway](/azure/architecture/ai-ml/guide/azure-openai-gateway-monitoring): Adds monitoring and observability to generative AI model traffic through a gateway.
 

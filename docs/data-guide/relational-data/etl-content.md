@@ -81,7 +81,7 @@ Reverse ETL is the process of moving transformed, modeled data from analytical s
 
 The approach still follows an extraction, transformation, and load process. The transformation step is where you convert from the specific format used by your data warehouse or other analytics system to align to your target system's.
 
-See [Reverse extract, transform, & load (ETL) with Azure Cosmos DB for NoSQL](/azure/cosmos-db/nosql/reverse-extract-transform-load) for an example.
+See [Reverse extract, transform, & load (ETL) with Azure Cosmos DB for NoSQL](/azure/cosmos-db/reverse-extract-transform-load) for an example.
 
 ## Streaming data and hot path architectures
 
