@@ -7,6 +7,7 @@ const BRANCH = 'memory/mentionables';
 const SHARED_FILE = '.github/workflows/shared/author-mentions.md';
 // Depth-1 subfolders match how each writer stores its list on the branch; manual list is optional.
 const SOURCES = ['repo/article-authors.json', 'prs/pr-knowns.json', 'manual/manually-addeds.json'];
+const EXCLUSIONS_SOURCE = 'manual/manually-excludeds.json';
 
 // GitHub usernames: 1-39 chars, alphanumeric or hyphen, no leading/trailing hyphen.
 const USERNAME_RE = /^[A-Za-z0-9](?:[A-Za-z0-9-]{0,37}[A-Za-z0-9])?$/;
@@ -26,13 +27,23 @@ async function main({ github, context, core }) {
     }
   }
 
-  const union = new Set();
+  const excludedUsernames = new Set(
+    (await readList(EXCLUSIONS_SOURCE))
+      .filter((login) => typeof login === 'string' && USERNAME_RE.test(login))
+      .map((login) => login.toLowerCase()),
+  );
+
+  const union = new Map();
   for (const src of SOURCES) {
     for (const login of await readList(src)) {
-      if (typeof login === 'string' && USERNAME_RE.test(login)) union.add(login);
+      if (typeof login !== 'string' || !USERNAME_RE.test(login)) continue;
+      const normalized = login.toLowerCase();
+      if (!excludedUsernames.has(normalized) && !union.has(normalized)) {
+        union.set(normalized, login);
+      }
     }
   }
-  const sorted = [...union].sort((a, b) => a.toLowerCase().localeCompare(b.toLowerCase()));
+  const sorted = [...union.values()].sort((a, b) => a.toLowerCase().localeCompare(b.toLowerCase()));
 
   const content = fs.readFileSync(SHARED_FILE, 'utf8');
   const lines = content.split('\n');
