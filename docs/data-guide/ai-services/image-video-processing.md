@@ -29,7 +29,7 @@ This article describes video and image processing capabilities in Tools, such as
 
 - [Azure Vision in Foundry Tools](#azure-vision) provides advanced algorithms that process images and return information based on visual features. It includes optical character recognition (OCR), image analysis, and face detection capabilities.
 
-- [Azure Machine Learning AutoML](#azure-machine-learning-automl) accelerates computer vision by automatically training and deploying image classification, object detection, and image analysis models from your data.
+- [Azure Machine Learning AutoML](#azure-machine-learning-automl) automates training and tuning for image classification, object detection, and instance segmentation models. You can then download or deploy the resulting model through Azure Machine Learning.
 
 - [Azure Content Understanding in Foundry Tools](#azure-content-understanding) uses generative AI to extract structured fields from images and video. Use Azure Content Understanding when you need schema-defined extraction, scene segmentation, or retrieval-augmented generation (RAG)-ready video output.
 
