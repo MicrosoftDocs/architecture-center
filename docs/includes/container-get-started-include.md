@@ -58,16 +58,6 @@ The following guides provide recommendations on cross-cutting concerns in your K
 
 - [Access an Azure Kubernetes Service (AKS) API server](../security/access-azure-kubernetes-service-cluster-api-server.md): Secure access patterns for AKS API servers.
 
-- [Blue-green deployment of AKS clusters](../guide/aks/blue-green-deployment-for-aks.yml): Implement zero-downtime deployments by using blue-green strategies.
-
-- [Use Azure Firewall to help protect an AKS cluster](../guide/aks/aks-firewall.md): Secure AKS clusters by using Azure Firewall.
-
-- [Use Azure Front Door to secure AKS workloads](../example-scenario/aks-front-door/aks-front-door.yml): Global load balancing and security for AKS.
-
-- [Use Application Gateway for Containers with a multitenant Azure Kubernetes Service cluster](../example-scenario/aks-agic/aks-agc.yml): Use Application Gateway for Containers with your AKS cluster to expose microservice-based applications to the internet.
-
-- [Use Azure Kubernetes Service to host GPU-based workloads](../reference-architectures/containers/aks-gpu/gpu-aks.md): Run GPU workloads on AKS for AI and machine learning scenarios.
-
 ###### AKS day-2 operations guide
 
 - [Azure Kubernetes Service (AKS) day-2 operations guide](../operator-guides/aks/day-2-operations-guide.md): Learn about AKS day-2 operations, such as triage, patching, upgrading, and troubleshooting.
@@ -95,6 +85,16 @@ The following guides provide recommendations on cross-cutting concerns in your K
 - [Monitor AKS by using Azure Monitor](/azure/aks/monitor-aks): Collect and analyze telemetry from your clusters.
 
 - [Common issues](/azure/aks/troubleshooting): Troubleshoot common AKS issues.
+
+- [Blue-green deployment of AKS clusters](../guide/aks/blue-green-deployment-for-aks.yml): Implement zero-downtime deployments by using blue-green strategies.
+
+- [Use Azure Firewall to help protect an AKS cluster](../guide/aks/aks-firewall.md): Secure AKS clusters by using Azure Firewall.
+
+- [Use Azure Front Door to secure AKS workloads](../example-scenario/aks-front-door/aks-front-door.yml): Global load balancing and security for AKS.
+
+- [Use Application Gateway for Containers with a multitenant Azure Kubernetes Service cluster](../example-scenario/aks-agic/aks-agc.yml): Use Application Gateway for Containers with your AKS cluster to expose microservice-based applications to the internet.
+
+- [Use Azure Kubernetes Service to host GPU-based workloads](../reference-architectures/containers/aks-gpu/gpu-aks.md): Run GPU workloads on AKS for AI and machine learning scenarios.
 
 ### PaaS container hosting
 

@@ -16,14 +16,6 @@ The following articles help you evaluate and select the best IoT technologies fo
 
 - [Connect IoT devices to Azure](/azure/iot-hub/iot-hub-compare-event-hubs): Compare Azure IoT Hub and Azure Event Hubs to choose the right ingestion service for your device connectivity and data streaming requirements.
 
-- [Enable machine learning inference on Azure IoT Edge](../guide/iot/machine-learning-inference-iot-edge.yml): Deploy machine learning models to Azure IoT Edge devices for local inference at the edge.
-
-- [Scale your Azure IoT Hub solutions](../guide/iot/scale-iot-solution-azure.md): Plan and implement scaling strategies for high-scale Azure IoT Hub deployments.
-
-- [Move Azure IoT Hub solutions to production](../example-scenario/iot/iot-move-to-production.md): Follow best practices for transitioning Azure IoT Hub solutions from development to production.
-
-- [Multitenant Azure IoT Hub-based solutions](../guide/multitenant/approaches/iot.md): Design multitenant IoT solutions by using Azure IoT Hub or Azure IoT Central with appropriate tenancy models.
-
 #### OPC UA reference solution
 
 - [OPC UA reference solution](../guide/iot/iot-industrial-solution-architecture.md): Learn about a reference solution architecture that uses OPC UA to connect industrial equipment to Azure.
@@ -47,3 +39,11 @@ The following articles help you evaluate and select the best IoT technologies fo
 - [Import OPC UA information models from the UA Cloud Library](../guide/iot/import-opc-ua-information-models-from-ua-cloud-library.md): Import OPC UA information models from the UA Cloud Library into the reference solution.
 
 - [Agentic AI for the reference solution](../guide/iot/agentic-ai-for-the-solution.md): Extend the reference solution with agentic AI capabilities.
+
+- [Enable machine learning inference on Azure IoT Edge](../guide/iot/machine-learning-inference-iot-edge.yml): Deploy machine learning models to Azure IoT Edge devices for local inference at the edge.
+
+- [Scale your Azure IoT Hub solutions](../guide/iot/scale-iot-solution-azure.md): Plan and implement scaling strategies for high-scale Azure IoT Hub deployments.
+
+- [Move Azure IoT Hub solutions to production](../example-scenario/iot/iot-move-to-production.md): Follow best practices for transitioning Azure IoT Hub solutions from development to production.
+
+- [Multitenant Azure IoT Hub-based solutions](../guide/multitenant/approaches/iot.md): Design multitenant IoT solutions by using Azure IoT Hub or Azure IoT Central with appropriate tenancy models.
