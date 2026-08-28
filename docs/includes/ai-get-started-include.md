@@ -22,7 +22,7 @@ The following articles help you evaluate and select the best AI technologies for
 
 The following AI solution ideas demonstrate implementation patterns and possibilities to explore.
 
-#### Audio processing
+#### Audio processing solution ideas
 
 - [Unlock insights from conversational data](/azure/architecture/ai-ml/idea/unlock-insights-from-conversational-data): Extracts actionable insights from conversational audio data.
 
@@ -80,7 +80,7 @@ The following production-ready architectures demonstrate end-to-end AI solutions
 
 - [Automate video analysis](/azure/architecture/ai-ml/architecture/analyze-video-computer-vision-machine-learning): Analyzes video content by using computer vision and machine learning.
 
-#### Audio processing
+#### Audio processing architectures
 
 - [Extract and analyze call center data](/azure/architecture/ai-ml/openai/architecture/call-center-openai-analytics): Extracts and analyzes call center conversations by using Azure OpenAI.
 
