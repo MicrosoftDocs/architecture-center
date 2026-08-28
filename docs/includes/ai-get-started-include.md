@@ -72,7 +72,7 @@ The following production-ready architectures demonstrate end-to-end AI solutions
 
 - [Build custom document processing models](/azure/architecture/ai-ml/architecture/build-deploy-custom-models): Builds and deploys custom models for document processing scenarios.
 
-- [Extract text by using Power Automate](/azure/architecture/example-scenario/ai/extract-object-text): Extracts text from objects by using Power Automate and AI capabilities.
+- [Extract text from objects using Power Automate and AI Builder](/azure/architecture/example-scenario/ai/extract-object-text): Extracts text from objects by using Power Automate and AI capabilities.
 
 - [Multiple indexers with Azure AI Search](/azure/architecture/ai-ml/architecture/search-blob-metadata): Uses multiple indexers to process and index blob metadata by using Azure AI Search.
 
