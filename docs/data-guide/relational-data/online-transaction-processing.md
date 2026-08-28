@@ -67,7 +67,7 @@ In practice, most workloads aren't entirely OLTP. They often include an analytic
 
 In Azure, the following data stores meet the core requirements for OLTP and the management of transaction data:
 
-- [Azure SQL Database](/azure/azure-sql/)
+- [Azure SQL Database](/azure/azure-sql/database/sql-database-paas-overview)
 - [Azure SQL Managed Instance](/azure/azure-sql/managed-instance/)
 - [SQL Server on Azure VM](/azure/azure-sql/virtual-machines/windows/sql-server-on-azure-vm-iaas-what-is-overview)
 - [Azure Database for MySQL](/azure/mysql/)
