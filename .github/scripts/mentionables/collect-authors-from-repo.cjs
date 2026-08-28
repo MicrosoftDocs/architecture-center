@@ -5,7 +5,8 @@ const path = require('path');
 
 const DOCS_ROOT = 'docs';
 const MEMORY_DIR = '/tmp/gh-aw/repo-memory/mentionables';
-const OUT_FILE = path.join(MEMORY_DIR, 'article-authors.json');
+// Depth-1 subfolder: repo-memory file-glob only matches files one level below the branch root.
+const OUT_FILE = path.join(MEMORY_DIR, 'repo', 'article-authors.json');
 
 // Match a top-level (md frontmatter) or metadata-indented (yml) `author:` line.
 // Leading `ms.` is excluded because the `author:` token is not whitespace-preceded there.
@@ -33,7 +34,7 @@ async function main({ core }) {
   }
 
   const sorted = [...authors].sort((a, b) => a.toLowerCase().localeCompare(b.toLowerCase()));
-  fs.mkdirSync(MEMORY_DIR, { recursive: true });
+  fs.mkdirSync(path.dirname(OUT_FILE), { recursive: true });
   fs.writeFileSync(OUT_FILE, JSON.stringify(sorted, null, 2) + '\n');
   core.info(`Wrote ${sorted.length} distinct authors to ${OUT_FILE}`);
 

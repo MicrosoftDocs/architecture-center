@@ -4,8 +4,9 @@ const fs = require('fs');
 const path = require('path');
 
 const MEMORY_DIR = '/tmp/gh-aw/repo-memory/mentionables';
-const KNOWNS_FILE = path.join(MEMORY_DIR, 'pr-knowns.json');
-const STATE_FILE = path.join(MEMORY_DIR, 'pr-scan-state.json');
+// Depth-1 subfolder: repo-memory file-glob only matches files one level below the branch root.
+const KNOWNS_FILE = path.join(MEMORY_DIR, 'prs', 'pr-knowns.json');
+const STATE_FILE = path.join(MEMORY_DIR, 'prs', 'pr-scan-state.json');
 const LOOKBACK_DAYS = 30;
 
 // GitHub usernames: 1-39 chars, alphanumeric or hyphen, no leading/trailing hyphen.
@@ -64,7 +65,7 @@ async function main({ github, context, core }) {
   }
 
   const sorted = [...knowns].sort((a, b) => a.toLowerCase().localeCompare(b.toLowerCase()));
-  fs.mkdirSync(MEMORY_DIR, { recursive: true });
+  fs.mkdirSync(path.dirname(KNOWNS_FILE), { recursive: true });
   fs.writeFileSync(KNOWNS_FILE, JSON.stringify(sorted, null, 2) + '\n');
   fs.writeFileSync(STATE_FILE, JSON.stringify(newState, null, 2) + '\n');
   core.info(`Scanned ${scanned} PRs (${changed} changed since last run); ${sorted.length} known logins`);

@@ -50,7 +50,7 @@ tools:
       allowed-extensions: [".json"]
       max-file-size: 262144
       max-patch-size: 262144
-      file-glob: ["article-authors.json"]
+      file-glob: ["repo/article-authors.json"]
 
 steps:
   - name: Collect distinct article authors into repo memory
@@ -63,4 +63,4 @@ steps:
 
 # Update authors from repo
 
-All work is done by the deterministic step above, which scans every `.md` and `.yml` file under `docs/` for `author` fields, writes the distinct union to the `memory/mentionables` branch, and emits `noop`. The AI engine is skipped and this prompt never runs.
+All work is done by the deterministic step above, which scans every `.md` and `.yml` file under `docs/` for `author` fields, writes the distinct union to `repo/article-authors.json` on the `memory/mentionables` branch, and emits `noop`. The AI engine is skipped and this prompt never runs.

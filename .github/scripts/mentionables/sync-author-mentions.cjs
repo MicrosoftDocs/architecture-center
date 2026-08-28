@@ -5,8 +5,8 @@ const fs = require('fs');
 
 const BRANCH = 'memory/mentionables';
 const SHARED_FILE = '.github/workflows/shared/author-mentions.md';
-// Manual list is optional; absent files are treated as empty.
-const SOURCES = ['article-authors.json', 'pr-knowns.json', 'manually-addeds.json'];
+// Depth-1 subfolders match how each writer stores its list on the branch; manual list is optional.
+const SOURCES = ['repo/article-authors.json', 'prs/pr-knowns.json', 'manual/manually-addeds.json'];
 
 // GitHub usernames: 1-39 chars, alphanumeric or hyphen, no leading/trailing hyphen.
 const USERNAME_RE = /^[A-Za-z0-9](?:[A-Za-z0-9-]{0,37}[A-Za-z0-9])?$/;

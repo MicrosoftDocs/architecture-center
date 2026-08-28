@@ -49,7 +49,7 @@ tools:
       allowed-extensions: [".json"]
       max-file-size: 262144
       max-patch-size: 262144
-      file-glob: ["pr-knowns.json", "pr-scan-state.json"]
+      file-glob: ["prs/pr-knowns.json", "prs/pr-scan-state.json"]
 
 steps:
   - name: Collect mentionable logins from recent PRs into repo memory
@@ -62,4 +62,4 @@ steps:
 
 # Update authors from PRs
 
-All work is done by the deterministic step above, which scans all open PRs plus closed PRs updated in the last 30 days, collects opener/assignee/requested-reviewer/@mention logins, writes the union to `pr-knowns.json` on the `memory/mentionables` branch (with a `pr-scan-state.json` watermark so unchanged PRs are skipped next time), and emits `noop`. The AI engine is skipped and this prompt never runs.
+All work is done by the deterministic step above, which scans all open PRs plus closed PRs updated in the last 30 days, collects opener/assignee/requested-reviewer/@mention logins, writes the union to `prs/pr-knowns.json` on the `memory/mentionables` branch (with a `prs/pr-scan-state.json` watermark so unchanged PRs are skipped next time), and emits `noop`. The AI engine is skipped and this prompt never runs.
