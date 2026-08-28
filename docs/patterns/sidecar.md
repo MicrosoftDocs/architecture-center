@@ -3,7 +3,8 @@ title: Sidecar Pattern
 description: Learn how to deploy features of an application into a separate process or container to provide modular abstraction and isolation of cross-cutting concerns.
 author: claytonsiemens77
 ms.author: pnp
-ms.date: 08/27/2026
+ms.date: 02/17/2026
+ai-usage: ai-assisted
 ms.topic: design-pattern
 ms.subservice: cloud-fundamentals
 ---
