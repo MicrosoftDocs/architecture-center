@@ -101,7 +101,7 @@ Principal author:
 
 - [Introduction to Databricks notebooks](/azure/databricks/notebooks/)
 - [Implement data engineering solutions using Azure Databricks](/training/courses/dp-750t00)
-- [Run Jupyter notebooks in your workspace](/azure/machine-learning/how-to-run-jupyter-notebooks?view=azureml-api-2)
+- [Run Jupyter notebooks in your workspace](/azure/machine-learning/how-to-run-jupyter-notebooks)
 - [What is Power BI?](/power-bi/fundamentals/power-bi-overview)
 
 ## Related resource
