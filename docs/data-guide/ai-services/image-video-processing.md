@@ -15,7 +15,7 @@ ms.custom: arb-aiml
 
 [Foundry Tools](/azure/ai-services/what-are-ai-services) helps developers and organizations create AI-based, advanced, production-ready applications that align with responsible AI practices by using out-of-the-box, prebuilt, and customizable APIs and models.
 
-This article describes video and image processing capabilities in Tools, such as visual analysis and generation of images, object detection, image classification, and facial recognition. The suite includes the following services:
+This article describes video and image processing capabilities in Foundry, such as visual analysis and generation of images, object detection, image classification, and facial recognition. The suite includes the following services:
 
 - [Azure OpenAI in Foundry Models](#azure-openai) provides access to the following OpenAI language models:
    
