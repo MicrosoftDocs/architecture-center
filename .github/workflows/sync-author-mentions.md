@@ -55,7 +55,7 @@ safe-outputs:
     preserve-branch-name: true
     recreate-ref: true
     max-patch-files: 40
-    protected-files: blocked
+    protected-files: allowed
     allowed-files:
       - .github/workflows/shared/author-mentions.md
       - .github/workflows/*.lock.yml
