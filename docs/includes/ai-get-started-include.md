@@ -22,7 +22,7 @@ The following articles help you evaluate and select the best AI technologies for
 
 The following AI solution ideas demonstrate implementation patterns and possibilities to explore.
 
-#### Audio processing
+#### Audio processing solution ideas
 
 - [Unlock insights from conversational data](/azure/architecture/ai-ml/idea/unlock-insights-from-conversational-data): Extracts actionable insights from conversational audio data.
 
@@ -34,7 +34,7 @@ The following AI solution ideas demonstrate implementation patterns and possibil
 
 - [Customer order forecasting](/azure/architecture/ai-ml/idea/next-order-forecasting): Predicts future customer orders by using machine learning.
 
-#### Machine learning operations
+#### MLOps solution ideas
 
 - [Use Azure Databricks to orchestrate machine learning operations](/azure/architecture/ai-ml/idea/orchestrate-machine-learning-azure-databricks): Orchestrates machine learning operations by using Azure Databricks.
 
@@ -47,8 +47,6 @@ The following AI solution ideas demonstrate implementation patterns and possibil
 - [Generate documents from your data](/azure/architecture/ai-ml/idea/generate-documents-from-your-data): Generates structured documents from data sources.
 
 - [Use AI enrichment with Azure AI Search](/azure/architecture/solution-ideas/articles/ai-search-skillsets): Enriches content by using AI skill sets in Azure AI Search indexing pipelines.
-
-- [Extract text by using Power Automate](/azure/architecture/example-scenario/ai/extract-object-text): Extracts text from objects by using Power Automate and AI capabilities.
 
 #### Workflow automation
 
@@ -74,13 +72,15 @@ The following production-ready architectures demonstrate end-to-end AI solutions
 
 - [Build custom document processing models](/azure/architecture/ai-ml/architecture/build-deploy-custom-models): Builds and deploys custom models for document processing scenarios.
 
+- [Extract text from objects using Power Automate and AI Builder](/azure/architecture/example-scenario/ai/extract-object-text): Extracts text from objects by using Power Automate and AI capabilities.
+
 - [Multiple indexers with Azure AI Search](/azure/architecture/ai-ml/architecture/search-blob-metadata): Uses multiple indexers to process and index blob metadata by using Azure AI Search.
 
 #### Video and image classification
 
 - [Automate video analysis](/azure/architecture/ai-ml/architecture/analyze-video-computer-vision-machine-learning): Analyzes video content by using computer vision and machine learning.
 
-#### Audio processing
+#### Audio processing architectures
 
 - [Extract and analyze call center data](/azure/architecture/ai-ml/openai/architecture/call-center-openai-analytics): Extracts and analyzes call center conversations by using Azure OpenAI.
 
@@ -120,7 +120,7 @@ The following production-ready architectures demonstrate end-to-end AI solutions
 
 - [Agentic RAG](/azure/architecture/ai-ml/guide/rag/rag-agentic): Describes how to shift from a standard RAG pipeline to an agentic RAG architecture for dynamic query planning and multistep reasoning.
 
-#### Machine learning operations
+#### MLOps guides
 
 - [Machine learning operations](/azure/architecture/ai-ml/guide/machine-learning-operations-v2): Describes the machine learning operations v2 approach for operationalizing machine learning workflows.
 
