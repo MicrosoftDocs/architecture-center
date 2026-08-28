@@ -38,7 +38,10 @@ async function main({ core }) {
   core.info(`Wrote ${sorted.length} distinct authors to ${OUT_FILE}`);
 
   // Emit noop so the harness skips the AI engine entirely; repo memory still commits.
-  fs.appendFileSync(process.env.GH_AW_SAFE_OUTPUTS, JSON.stringify({ type: 'noop', message: `Stored ${sorted.length} article authors` }) + '\n');
+  // User steps don't inherit GH_AW_SAFE_OUTPUTS, so fall back to the same path gh-aw uses.
+  const safeOutputs = process.env.GH_AW_SAFE_OUTPUTS || `${process.env.RUNNER_TEMP}/gh-aw/safeoutputs/outputs.jsonl`;
+  fs.mkdirSync(path.dirname(safeOutputs), { recursive: true });
+  fs.appendFileSync(safeOutputs, JSON.stringify({ type: 'noop', message: `Stored ${sorted.length} article authors` }) + '\n');
 }
 
 module.exports = { main };

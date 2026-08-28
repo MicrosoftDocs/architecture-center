@@ -48,7 +48,10 @@ async function main({ github, context, core }) {
     core.info(`No change: ${sorted.length} mentionables already current.`);
     core.setOutput('changed', 'false');
     // Emit noop so the harness skips the AI engine and no pull request is opened.
-    fs.appendFileSync(process.env.GH_AW_SAFE_OUTPUTS, JSON.stringify({ type: 'noop', message: `Mentionables unchanged (${sorted.length})` }) + '\n');
+    // User steps don't inherit GH_AW_SAFE_OUTPUTS, so fall back to the same path gh-aw uses.
+    const safeOutputs = process.env.GH_AW_SAFE_OUTPUTS || `${process.env.RUNNER_TEMP}/gh-aw/safeoutputs/outputs.jsonl`;
+    fs.mkdirSync(require('path').dirname(safeOutputs), { recursive: true });
+    fs.appendFileSync(safeOutputs, JSON.stringify({ type: 'noop', message: `Mentionables unchanged (${sorted.length})` }) + '\n');
     return;
   }
 
