@@ -40,8 +40,6 @@ safe-outputs:
       - claytonsiemens77
       - cloud-architect-dev
       - cmastr
-      - Copilot
-      - copilot
       - Court72
       - craigshoemaker
       - crzywabbit
@@ -56,7 +54,6 @@ safe-outputs:
       - DeeplyDiligent
       - delynchoong
       - denrea
-      - dependabot
       - desmay
       - DixitArora-MSFT
       - DocGailZhou
@@ -101,7 +98,6 @@ safe-outputs:
       - jcorioland
       - JediRiff
       - jerrymsft
-      - JerryMSFT
       - jfaurskov
       - JKirsch1
       - jl-ms
@@ -116,6 +112,7 @@ safe-outputs:
       - juanosorioms
       - justinha
       - jyravi
+      - karenf-Learn
       - karlrissland
       - katriendg
       - khushal08
@@ -154,7 +151,6 @@ safe-outputs:
       - nabilshams
       - namrata01Apr
       - neilbird
-      - NeilBird
       - netapp-manishc
       - nfmoore
       - nimccoll
@@ -162,7 +158,6 @@ safe-outputs:
       - openpublishbuild
       - oscarsk91
       - ovaismehboob
-      - OvaisMehboob
       - PageWriter-MSFT
       - PatAltimore
       - PaulCollinge
@@ -171,7 +166,6 @@ safe-outputs:
       - petemessina
       - piyushdhore-microsoft
       - PlagueHO
-      - plagueho
       - prabdeb
       - prabhkaur1977
       - pranabpaul-tech
@@ -243,6 +237,7 @@ safe-outputs:
       - WernerRall147
       - wsilveiranz
       - wueda
+      - yahya130
       - yeeshian
       - yemrea
       - YenChiHo

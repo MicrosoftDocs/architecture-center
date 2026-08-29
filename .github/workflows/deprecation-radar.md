@@ -11,6 +11,9 @@ on:
 
 if: github.repository == 'MicrosoftDocs/architecture-center-pr'
 
+imports:
+  - shared/author-mentions.md
+
 permissions:
   contents: read
   copilot-requests: write
@@ -48,10 +51,6 @@ safe-outputs:
     - "*.microsoft.com"
     - "*.github.com"
     - "*.azure.com"
-  mentions:
-    allowed-collaborators: true
-    allow-context: false
-    max: 2
   create-issue:
     title-prefix: "[deprecation-radar] "
     deduplicate-by-title: true
