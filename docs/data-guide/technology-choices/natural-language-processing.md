@@ -55,7 +55,7 @@ Business scenarios across many industries benefit from natural language processi
 
 ### Process documents and unstructured text
 
-- **Extract intelligence from machine-created documents.** Natural language processing enables document processing across finance, healthcare, retail, government, and other sectors. You can analyze digitally created documents to extract structured information from unstructured inputs. For handwritten documents, use [Azure Document Intelligence](/azure/ai-services/document-intelligence/overview) to convert handwritten content to text before you apply natural language processing techniques.
+- **Extract intelligence from machine-created documents.** Natural language processing enables document processing across finance, healthcare, retail, government, and other sectors. You can analyze digitally created documents to extract structured information from unstructured inputs. For handwritten documents, use [Azure Document Intelligence](/azure/ai-services/document-intelligence/overview?view=doc-intel-4.0.0) to convert handwritten content to text before you apply natural language processing techniques.
 
 - **Apply industry-agnostic natural language processing tasks for text processing.** Named entity recognition (NER), classification, summarization, and relation extraction help you automatically process and analyze unstructured document content. These tasks work across domains and don't require industry-specific customization.
 
@@ -144,7 +144,7 @@ The Azure Language MCP server supports multiple deployment options:
 Apache Spark with Spark NLP is a distributed, open-source approach to natural language processing that operates at cluster scale. The Spark NLP platform architecture, performance, and prebuilt model ecosystem make it a strong option for large-scale, customizable natural language processing workloads on [Azure Databricks](/azure/databricks/introduction/) or [Fabric](/fabric/data-engineering/spark-compute).
 
 ### Understand platform and architecture
-We recommend that you use [Fabric](/fabric/data-engineering/spark-compute) or [Azure Databricks](/azure/databricks/introduction) for Apache Spark-based natural language processing workloads.
+We recommend that you use [Fabric](/fabric/data-engineering/spark-compute) or [Azure Databricks](/azure/databricks/introduction/) for Apache Spark-based natural language processing workloads.
 
 - **Apache Spark provides parallel, in-memory processing for big-data analytics.** Fabric and Azure Databricks give you access to Apache Spark processing capabilities for large-scale natural language processing workloads.
 
@@ -182,7 +182,7 @@ Both [Azure Language](/azure/ai-services/language-service/overview) and Apache S
 
 - **Processing free-form text requires significant computational resources and time.** Free-form text documents are computationally expensive and time intensive to analyze. Every document requires tokenization, normalization, and model inference before it produces usable results.
 
-- **Spark NLP workloads often require GPU compute deployment.** For large-scale Spark NLP pipelines, GPU-accelerated clusters on [Azure Databricks](/azure/databricks/introduction) or [Fabric](/fabric/data-engineering/spark-compute) provide the parallel processing power needed for training and inference. Optimizations like Llama 3.x model quantization help reduce memory footprint and improve throughput for these intensive tasks.
+- **Spark NLP workloads often require GPU compute deployment.** For large-scale Spark NLP pipelines, GPU-accelerated clusters on [Azure Databricks](/azure/databricks/introduction/) or [Fabric](/fabric/data-engineering/spark-compute) provide the parallel processing power needed for training and inference. Optimizations like Llama 3.x model quantization help reduce memory footprint and improve throughput for these intensive tasks.
 
 - **Azure Language requires throughput planning and quota management.** The service handles resource management, but high-volume API calls require careful throughput planning. Monitor your request rates against service limits and rate limits to avoid throttling and ensure consistent processing performance.
 
@@ -210,7 +210,7 @@ Use the following criteria to determine which Azure natural language processing 
 
 - **Prebuilt or pretrained models:** Use Azure Language if you plan to use prebuilt or pretrained models without managing infrastructure. This approach suits small to medium datasets and standard natural language processing tasks where prebuilt models deliver sufficient accuracy. It provides automatic scaling, built-in security, and pay-per-call pricing without cluster management overhead.
 
-- **Custom model training on large text datasets:** Use [Azure Databricks](/azure/databricks/introduction) or [Fabric](/fabric/data-engineering/spark-compute) with Spark NLP. These platforms provide the computational power and flexibility that you need for extensive model training on large text datasets. You can also download models through Spark NLP, including Llama 3.x and MPNet.
+- **Custom model training on large text datasets:** Use [Azure Databricks](/azure/databricks/introduction/) or [Fabric](/fabric/data-engineering/spark-compute) with Spark NLP. These platforms provide the computational power and flexibility that you need for extensive model training on large text datasets. You can also download models through Spark NLP, including Llama 3.x and MPNet.
 
 - **Low-level natural language processing primitives:** Use Azure Databricks or Fabric with Spark NLP for tokenization, stemming, lemmatization, and TF-IDF. Alternatively, use an open-source library like spaCy or NLTK. Azure Language in Foundry Tools uses tokenization internally as part of its model pipeline, but it doesn't expose these steps as standalone, controllable APIs.
 
@@ -242,7 +242,7 @@ A Spark NLP pipeline chains annotators in sequence. Each annotator transforms th
 
 - **MLflow manages experiment tracking, model versioning, and deployment.** You can log pipeline parameters, metrics, and artifacts during training runs. MLflow tracks each experiment, so you can compare results across iterations and reproduce successful configurations.
 
-- **MLflow integrates directly with [Azure Databricks](/azure/databricks/introduction) and [Fabric](/fabric/data-science/data-science-overview).** On Azure Databricks, MLflow comes preinstalled and integrates tightly with the workspace. Fabric also provides a [built-in MLflow experience](/fabric/data-science/machine-learning-experiment) with native experiment tracking and autologging, so you don't need to install MLflow separately. If you run Spark NLP on another Apache Spark-based environment, you can install MLflow separately and configure it to track experiments against a remote tracking server.
+- **MLflow integrates directly with [Azure Databricks](/azure/databricks/introduction/) and [Fabric](/fabric/data-science/data-science-overview).** On Azure Databricks, MLflow comes preinstalled and integrates tightly with the workspace. Fabric also provides a [built-in MLflow experience](/fabric/data-science/machine-learning-experiment) with native experiment tracking and autologging, so you don't need to install MLflow separately. If you run Spark NLP on another Apache Spark-based environment, you can install MLflow separately and configure it to track experiments against a remote tracking server.
 
 - **Use the MLflow Model Registry to promote models to production and maintain governance.** The Model Registry provides a central repository to manage model versions across your natural language processing pipelines. In classic deployments, transition models through stages like staging, production, and archived. On [Azure Databricks](/azure/databricks/machine-learning/manage-model-lifecycle/), newer deployments use [Models in Unity Catalog](/azure/databricks/machine-learning/manage-model-lifecycle/), which replaces fixed stages with custom aliases and tags for more flexible life cycle management. On [Fabric](/fabric/data-science/data-science-overview), the workspace provides its own MLflow-based model registry.
 
@@ -323,8 +323,8 @@ Other contributors:
 
 ## Next steps
 
-- [Introduction to AI in Azure](/training/paths/introduction-to-ai-on-azure)
-- [Develop natural language processing solutions by using Foundry Tools](/training/paths/develop-language-solutions-azure-ai)
+- [Get started with AI applications and agents on Azure](/training/paths/get-started-ai-apps-agents/)
+- [Develop natural language solutions in Azure](/training/paths/develop-language-solutions-azure-ai/)
 
 ## Related resources
 
@@ -342,12 +342,12 @@ Other contributors:
 - Azure components:
 
   - [Fabric](/fabric/)
-  - [Azure Databricks](/azure/databricks/introduction)
+  - [Azure Databricks](/azure/databricks/introduction/)
   - [Foundry Tools](/azure/ai-services/what-are-ai-services)
 
 - Learn resources:
 
   - [Choose an AI services technology](ai-services.md)
   - [Compare the machine learning products and technologies from Microsoft](../../ai-ml/guide/data-science-and-machine-learning.md)
-  - [MLflow and Azure Machine Learning](/azure/machine-learning/concept-mlflow)
+  - [MLflow and Azure Machine Learning](/azure/machine-learning/concept-mlflow?view=azureml-api-2)
   - [AI enrichment with image and natural language processing in Azure AI Search](../../solution-ideas/articles/ai-search-skillsets.yml)
