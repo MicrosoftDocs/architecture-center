@@ -2,7 +2,7 @@
 title: What's New in Azure Architecture Center
 description: New and updated articles in Azure Architecture Center
 author: claytonsiemens77
-ms.date: 08/23/2026
+ms.date: 08/30/2026
 ms.topic: whats-new
 ms.author: pnp
 ---
@@ -65,6 +65,24 @@ The following new and updated articles have recently been published in the Azure
 - [Architectural approaches for cost management and allocation in a multitenant solution](./guide/multitenant/approaches/cost-management-allocation.md) ([#7308a881b9](https://github.com/MicrosoftDocs/architecture-center/commit/7308a881b9))
 - [Design a secure multitenant RAG inferencing solution](./ai-ml/guide/secure-multitenant-rag.md) ([#0247678b74](https://github.com/MicrosoftDocs/architecture-center/commit/0247678b74))
 - [DevSecOps on Azure Kubernetes Service (AKS)](./guide/devsecops/devsecops-on-aks.md) ([#4849927c23](https://github.com/MicrosoftDocs/architecture-center/commit/4849927c23))
+- [Extract text from objects using Power Automate and AI Builder](./example-scenario/ai/extract-object-text.yml) ([#bd96bd15ee](https://github.com/MicrosoftDocs/architecture-center/commit/bd96bd15ee))
+- [Azure Virtual Machines baseline architecture in an Azure landing zone](./virtual-machines/baseline-landing-zone.yml) ([#8ecd7bfd33](https://github.com/MicrosoftDocs/architecture-center/commit/8ecd7bfd33))
+- [Migrate IBM z/OS OLTP Workloads to Azure](./example-scenario/mainframe/ibm-zos-online-transaction-processing-azure.yml) ([#c36a65341e](https://github.com/MicrosoftDocs/architecture-center/commit/c36a65341e))
+- [Analytics End-to-End with Microsoft Fabric](./example-scenario/dataplate2e/data-platform-end-to-end.yml) ([#9d9d79fbad](https://github.com/MicrosoftDocs/architecture-center/commit/9d9d79fbad))
+- [Migrate Mainframe Data to Azure](./example-scenario/mainframe/mainframe-data-replication-azure-rdrs.yml) ([#9d9d79fbad](https://github.com/MicrosoftDocs/architecture-center/commit/9d9d79fbad))
+- [High-volume batch transaction processing](./example-scenario/mainframe/process-batch-transactions.yml) ([#9d9d79fbad](https://github.com/MicrosoftDocs/architecture-center/commit/9d9d79fbad))
+- [Azure Virtual Machines baseline architecture](./virtual-machines/baseline.yml) ([#8d2557bb82](https://github.com/MicrosoftDocs/architecture-center/commit/8d2557bb82))
+- [Baseline Microsoft Foundry Chat Reference Architecture](./ai-ml/architecture/baseline-microsoft-foundry-chat.yml) ([#d6222cf5b2](https://github.com/MicrosoftDocs/architecture-center/commit/d6222cf5b2))
+- [Basic Enterprise Integration on Azure](./reference-architectures/enterprise-integration/basic-enterprise-integration.yml) ([#51a8c2f1f6](https://github.com/MicrosoftDocs/architecture-center/commit/51a8c2f1f6))
+- [Microservices Architecture on Azure Kubernetes Service](./reference-architectures/containers/aks-microservices/aks-microservices.yml) ([#ee81f837a4](https://github.com/MicrosoftDocs/architecture-center/commit/ee81f837a4))
+- [Stream Processing with Databricks](./reference-architectures/data/stream-processing-databricks.yml) ([#ee81f837a4](https://github.com/MicrosoftDocs/architecture-center/commit/ee81f837a4))
+- [Stream processing with Stream Analytics](./reference-architectures/data/stream-processing-stream-analytics.yml) ([#ee81f837a4](https://github.com/MicrosoftDocs/architecture-center/commit/ee81f837a4))
+- [Use Azure Front Door to Secure AKS Workloads](./example-scenario/aks-front-door/aks-front-door.yml) ([#dc1817c338](https://github.com/MicrosoftDocs/architecture-center/commit/dc1817c338))
+- [Big Data Architectures](./databases/guide/big-data-architectures.md) ([#2af2fb9410](https://github.com/MicrosoftDocs/architecture-center/commit/2af2fb9410))
+- [Use a Message Broker and Events to Integrate Enterprise Systems](./example-scenario/integration/queues-events.yml) ([#758ae766d6](https://github.com/MicrosoftDocs/architecture-center/commit/758ae766d6))
+- [Deploy Microservices to Azure Container Apps](./example-scenario/serverless/microservices-with-container-apps.yml) ([#758ae766d6](https://github.com/MicrosoftDocs/architecture-center/commit/758ae766d6))
+- [Deploy Microservices with Azure Container Apps and Dapr](./example-scenario/serverless/microservices-with-container-apps-dapr.yml) ([#758ae766d6](https://github.com/MicrosoftDocs/architecture-center/commit/758ae766d6))
+- [Advanced Azure Kubernetes Service (AKS) Microservices Architecture](./reference-architectures/containers/aks-microservices/aks-microservices-advanced.yml) ([#758ae766d6](https://github.com/MicrosoftDocs/architecture-center/commit/758ae766d6))
 
 ## July 2026
 
