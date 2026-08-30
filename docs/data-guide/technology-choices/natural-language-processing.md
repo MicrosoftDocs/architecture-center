@@ -55,7 +55,7 @@ Business scenarios across many industries benefit from natural language processi
 
 ### Process documents and unstructured text
 
-- **Extract intelligence from machine-created documents.** Natural language processing enables document processing across finance, healthcare, retail, government, and other sectors. You can analyze digitally created documents to extract structured information from unstructured inputs. For handwritten documents, use [Azure Document Intelligence](/azure/ai-services/document-intelligence/overview?view=doc-intel-4.0.0) to convert handwritten content to text before you apply natural language processing techniques.
+- **Extract intelligence from machine-created documents.** Natural language processing enables document processing across finance, healthcare, retail, government, and other sectors. You can analyze digitally created documents to extract structured information from unstructured inputs. For handwritten documents, use [Azure Document Intelligence](/azure/ai-services/document-intelligence/overview) to convert handwritten content to text before you apply natural language processing techniques.
 
 - **Apply industry-agnostic natural language processing tasks for text processing.** Named entity recognition (NER), classification, summarization, and relation extraction help you automatically process and analyze unstructured document content. These tasks work across domains and don't require industry-specific customization.
 
@@ -144,7 +144,7 @@ The Azure Language MCP server supports multiple deployment options:
 Apache Spark with Spark NLP is a distributed, open-source approach to natural language processing that operates at cluster scale. The Spark NLP platform architecture, performance, and prebuilt model ecosystem make it a strong option for large-scale, customizable natural language processing workloads on [Azure Databricks](/azure/databricks/introduction/) or [Fabric](/fabric/data-engineering/spark-compute).
 
 ### Understand platform and architecture
-We recommend that you use [Fabric](/fabric/data-engineering/spark-compute) or [Azure Databricks](/azure/databricks/introduction/) for Apache Spark-based natural language processing workloads.
+Use [Fabric](/fabric/data-engineering/spark-compute) or [Azure Databricks](/azure/databricks/introduction/) for Apache Spark-based natural language processing workloads.
 
 - **Apache Spark provides parallel, in-memory processing for big-data analytics.** Fabric and Azure Databricks give you access to Apache Spark processing capabilities for large-scale natural language processing workloads.
 
@@ -349,5 +349,5 @@ Other contributors:
 
   - [Choose an AI services technology](ai-services.md)
   - [Compare the machine learning products and technologies from Microsoft](../../ai-ml/guide/data-science-and-machine-learning.md)
-  - [MLflow and Azure Machine Learning](/azure/machine-learning/concept-mlflow?view=azureml-api-2)
+  - [MLflow and Azure Machine Learning](/azure/machine-learning/concept-mlflow)
   - [AI enrichment with image and natural language processing in Azure AI Search](../../solution-ideas/articles/ai-search-skillsets.yml)

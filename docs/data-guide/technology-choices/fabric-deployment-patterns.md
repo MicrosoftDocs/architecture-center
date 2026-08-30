@@ -84,7 +84,7 @@ All Fabric deployment patterns share the following foundational characteristics:
 
 - **OneLake catalog for asset discovery and the Secure tab for data security policies.** To promote discovery and the use of data assets across your tenant, use the OneLake catalog. To view, monitor, and configure security roles across workspaces and items, use the [Secure tab in the OneLake catalog](/fabric/governance/secure-your-data).
 
-- **Extension to Microsoft Cloud features if native Fabric features are unavailable.** If a native feature isn't available, deployment patterns can extend to use equivalent features from the Microsoft Cloud, such as Azure and Microsoft 365. For example, organizations can use [Azure Pipelines](/azure/devops/pipelines/get-started/what-is-azure-pipelines?view=azure-devops) or [GitHub Actions](/azure/developer/github/github-actions) for continuous integration and continuous delivery (CI/CD) orchestration if Fabric deployment pipelines don't cover their cross-workspace automation requirements. Organizations can also use [Microsoft Purview](/purview/purview) for enterprise-wide data governance that spans Fabric and non-Fabric data sources.
+- **Extension to Microsoft Cloud features if native Fabric features are unavailable.** If a native feature isn't available, deployment patterns can extend to use equivalent features from the Microsoft Cloud, such as Azure and Microsoft 365. For example, organizations can use [Azure Pipelines](/azure/devops/pipelines/get-started/what-is-azure-pipelines) or [GitHub Actions](/azure/developer/github/github-actions) for continuous integration and continuous delivery (CI/CD) orchestration if Fabric deployment pipelines don't cover their cross-workspace automation requirements. Organizations can also use [Microsoft Purview](/purview/purview) for enterprise-wide data governance that spans Fabric and non-Fabric data sources.
 
 ## Select a deployment pattern
 
@@ -361,7 +361,7 @@ Security provides assurances against deliberate attacks and the misuse of your v
 
 - **Use private links for inbound traffic.** Use [private links](/fabric/security/security-private-links-overview) to route inbound traffic over the Microsoft backbone instead of the public internet. Tenant-level private links apply to all workspaces. Workspace-level private links provide per-workspace granularity.
 
-- **Use managed private endpoints for outbound Spark connections.** Use [managed private endpoints](/fabric/security/security-managed-private-endpoints-overview) to secure outbound connections from Spark workloads to firewall-protected data sources, such as Data Lake Storage and [Azure SQL Database](/azure/azure-sql/database/sql-database-paas-overview?view=azuresql).
+- **Use managed private endpoints for outbound Spark connections.** Use [managed private endpoints](/fabric/security/security-managed-private-endpoints-overview) to secure outbound connections from Spark workloads to firewall-protected data sources, such as Data Lake Storage and [Azure SQL Database](/azure/azure-sql/database/sql-database-paas-overview).
 
 - **Use virtual network data gateways when tenant-level private links block on-premises gateways.** When you enable tenant-level private links, on-premises data gateways can't register. Use a [virtual network data gateway](/data-integration/vnet/overview) instead of bridges that connect on-premises or virtual network-protected data sources.
 
@@ -379,7 +379,7 @@ Cost Optimization focuses on ways to reduce unnecessary expenses and improve ope
 
 - **Rightsize your capacity SKU.** Rightsize your F SKU based on workload demand. Start with a smaller SKU and scale up as needed. Monitor consumption and identify over-provisioned or under-provisioned capacities by using the [Fabric Capacity Metrics app](/fabric/enterprise/metrics-app).
 
-- **Automate capacity pausing for nonproduction environments.** Reduce costs by pausing F SKU capacities when they're not in use. In dev/test environments, pause capacities outside of working hours. Pausing makes all workloads unavailable, so consider automation through [Azure Resource Manager Fabric APIs](/rest/api/microsoftfabric/fabric-capacities/suspend?view=rest-microsoftfabric-2023-11-01) or scheduled pipelines.
+- **Automate capacity pausing for nonproduction environments.** Reduce costs by pausing F SKU capacities when they're not in use. In dev/test environments, pause capacities outside of working hours. Pausing makes all workloads unavailable, so consider automation through [Azure Resource Manager Fabric APIs](/rest/api/microsoftfabric/fabric-capacities/suspend) or scheduled pipelines.
 
 - **Single-capacity patterns, such as patterns 1 and 2, centralize billing but limit chargeback.** One capacity means one bill. Cost management is centralized, but chargeback to individual business units isn't possible because all workloads share the same capacity.
 
