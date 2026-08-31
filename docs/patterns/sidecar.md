@@ -4,6 +4,7 @@ description: Learn how to deploy features of an application into a separate proc
 author: claytonsiemens77
 ms.author: pnp
 ms.date: 02/17/2026
+ai-usage: ai-assisted
 ms.topic: design-pattern
 ms.subservice: cloud-fundamentals
 ---
@@ -50,6 +51,8 @@ Consider the following points when you implement this pattern:
 
 - Consider the deployment and packaging format to deploy services, processes, or containers. Containers work well for the Sidecar pattern.
 
+- Consider how your platform manages the sidecar's life cycle relative to the main application. Kubernetes provides native sidecar containers, which guarantee that the sidecar starts before the main application container and terminates after it. This behavior removes the need for custom startup-ordering logic and avoids shutdown races in which the sidecar exits while the application still depends on it. For more information, see [Native sidecar mode for the Istio-based service mesh add-on for AKS](/azure/aks/istio-native-sidecar).
+
 - When you design a sidecar service, carefully choose the interprocess communication mechanism. Use language-agnostic or framework-agnostic technologies unless performance requirements make that approach impractical.
 
 - Before you add functionality to a sidecar, evaluate whether it works better as a separate service or a traditional daemon.
@@ -80,6 +83,8 @@ This pattern might not be suitable when:
 
 - Your platform provides equivalent functionality. If your application platform already provides the needed capabilities natively, sidecars add unnecessary complexity.
 
+- Your service mesh provides a sidecar-less data plane that meets your requirements. A sidecar-less data plane avoids the resource overhead of a proxy for each instance.
+
 ## Workload design
 
 Evaluate how to use the Sidecar pattern in a workload's design to address the goals and principles covered in the [Azure Well-Architected Framework pillars](/azure/well-architected/pillars). The following table provides guidance about how this pattern supports the goals of each pillar.
@@ -106,7 +111,7 @@ You can apply the Sidecar pattern to many scenarios. Consider the following exam
 
 - **Ambassador sidecar:** Deploy an [ambassador](./ambassador.md) service as a sidecar. The application routes calls through the ambassador, which handles request logging, routing, circuit breaking, and other connectivity features.
 
-- **Protocol adapters:** Deploy a sidecar to translate between incompatible protocols or data formats, or to [bridge messaging systems](messaging-bridge.yml). This approach lets the application use simpler or legacy interfaces.
+- **Protocol adapters:** Deploy a sidecar to translate between incompatible protocols or data formats, or to [bridge messaging systems](./messaging-bridge.yml). This approach lets the application use simpler or legacy interfaces.
 
 - **Telemetry enrichment:** Deploy a sidecar to preprocess or enrich telemetry data, like metrics, logs, and traces, before it forwards the data to external monitoring systems. Components like the [OpenTelemetry Collector](https://opentelemetry.io/docs/collector/deploy/agent/) can run as sidecars to normalize, enrich, or route telemetry separately from the application.
 
