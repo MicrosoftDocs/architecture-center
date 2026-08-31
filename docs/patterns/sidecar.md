@@ -83,7 +83,7 @@ This pattern might not be suitable when:
 
 - Your platform provides equivalent functionality. If your application platform already provides the needed capabilities natively, sidecars add unnecessary complexity.
 
-- Your service mesh provides a sidecar-less data plane that meets your requirements. A sidecar-less, or *ambient*, data plane avoids the resource overhead of a proxy for each instance, but platform support for it varies. Verify availability on your target platform before you commit to either approach.
+- Your service mesh provides a sidecar-less data plane that meets your requirements. A sidecar-less data plane avoids the resource overhead of a proxy for each instance.
 
 ## Workload design
 
@@ -107,7 +107,7 @@ You can apply the Sidecar pattern to many scenarios. Consider the following exam
 
 - **Service mesh data plane:** Deploy a sidecar proxy alongside each service instance to handle cross-cutting networking concerns like traffic routing, retries, mutual Transport Layer Security (mTLS), policy enforcement, and telemetry.
 
-  Service meshes like [Istio](https://istio.io/latest/about/service-mesh/) use sidecar proxies to implement these capabilities without requiring changes to application code. Some service meshes also offer a sidecar-less, or *ambient*, data plane that moves these concerns to shared node-level and gateway-level components instead of a per-instance proxy. Treat the choice between a sidecar-based and a sidecar-less data plane as an architectural decision, and confirm which modes your platform supports.
+  Service meshes like [Istio](https://istio.io/latest/about/service-mesh/) use sidecar proxies to implement these capabilities without requiring changes to application code.
 
 - **Ambassador sidecar:** Deploy an [ambassador](./ambassador.md) service as a sidecar. The application routes calls through the ambassador, which handles request logging, routing, circuit breaking, and other connectivity features.
 
