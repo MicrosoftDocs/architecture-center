@@ -111,8 +111,9 @@ The following table provides a list of features available.
 
 | Feature | Description |
 | :----------| :-------------|
-| [Image classification](/azure/machine-learning/how-to-auto-train-image-models) | Predict a category, or *class*, based on a set of inputs, which are called *features*. Calculate a probability score for each possible class and return a label that indicates the class that the object most likely belongs to. To use this model, you need data that consists of features and their labels. |
+| [(Multilabel) Image classification](/azure/machine-learning/how-to-auto-train-image-models) | Predict a category, or *class*, based on a set of inputs, which are called *features*. Calculate a probability score for each possible class and return a label that indicates the class that the object most likely belongs to. To use this model, you need data that consists of features and their labels. |
 | [Object detection](/azure/machine-learning/how-to-use-automl-small-object-detect) | Get the coordinates of an object in an image. To use this model, you need data that consists of features and their labels. |
+| [Instance segmentation](/azure/machine-learning/how-to-auto-train-image-models) | Identify objects at the pixel level and outline each object with a polygon. |
 
 #### Use cases for Azure Machine Learning AutoML for Computer Vision
 
