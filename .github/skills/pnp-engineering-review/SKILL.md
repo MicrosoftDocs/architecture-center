@@ -66,7 +66,7 @@ Judge whether the article leads the architect to a durable, low-regret design. C
 
 Ground every "current best practice" claim you make on Microsoft Learn and cite your source.
 
-### 5. Opinionated guidance from the prior article is retained
+### 5. Retain opinionated guidance from the prior article
 
 Compare the prior version of the article's opinionated guidance story against the current version. Identify recommendations, decision criteria, tradeoffs, constraints, and shortcomings that were materially lost or weakened. Report only ideas that remain necessary for the current article to provide complete guidance. Don't report lost ideas that the current version supersedes with a better approach.
 
