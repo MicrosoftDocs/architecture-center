@@ -20,9 +20,6 @@ engine:
 max-tool-denials: 3
 strict: true
 
-sandbox:
-  agent:
-    sudo: false
 
 tracker-id: sync-get-started-links
 
