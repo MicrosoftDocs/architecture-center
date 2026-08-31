@@ -72,6 +72,16 @@ The following guides provide recommendations on cross-cutting concerns in your K
 
 - [Azure Kubernetes Service (AKS) day-2 operations guide](../operator-guides/aks/day-2-operations-guide.md): Learn about AKS day-2 operations, such as triage, patching, upgrading, and troubleshooting.
 
+- [Backup and recovery for AKS](../operator-guides/aks/aks-backup-and-recovery.md): Protect your cluster configuration and workloads.
+
+- [Patch and upgrade worker nodes](../operator-guides/aks/aks-upgrade-practices.md): Keep clusters secure and up-to-date.
+
+- [Troubleshoot networking](../operator-guides/aks/troubleshoot-network-aks.md): Diagnose and resolve network problems.
+
+- [Monitor AKS by using Azure Monitor](/azure/aks/monitor-aks): Collect and analyze telemetry from your clusters.
+
+- [Common issues](/azure/aks/troubleshooting): Troubleshoot common AKS issues.
+
 **Triage practices**
 
 - [Overview](../operator-guides/aks/aks-triage-practices.md): Systematic approach to troubleshooting AKS problems.
@@ -85,16 +95,6 @@ The following guides provide recommendations on cross-cutting concerns in your K
 - [4. Admission controllers](../operator-guides/aks/aks-triage-controllers.md): Verify that the admission controllers are working as expected.
 
 - [5. Container registry connectivity](../operator-guides/aks/aks-triage-container-registry.md): Verify the connection to a container registry.
-
-- [Backup and recovery for AKS](../operator-guides/aks/aks-backup-and-recovery.md): Protect your cluster configuration and workloads.
-
-- [Patch and upgrade worker nodes](../operator-guides/aks/aks-upgrade-practices.md): Keep clusters secure and up-to-date.
-
-- [Troubleshoot networking](../operator-guides/aks/troubleshoot-network-aks.md): Diagnose and resolve network problems.
-
-- [Monitor AKS by using Azure Monitor](/azure/aks/monitor-aks): Collect and analyze telemetry from your clusters.
-
-- [Common issues](/azure/aks/troubleshooting): Troubleshoot common AKS issues.
 
 ### PaaS container hosting
 

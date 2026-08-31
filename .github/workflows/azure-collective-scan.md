@@ -16,6 +16,9 @@ on:
 
 if: github.repository == 'MicrosoftDocs/architecture-center-pr'
 
+concurrency:
+  job-discriminator: "serialized-shared-watermark"
+
 permissions:
   contents: read
   issues: read
@@ -28,9 +31,6 @@ engine:
 max-tool-denials: 3
 strict: true
 
-sandbox:
-  agent:
-    sudo: false
 
 tracker-id: azure-collective-scan
 

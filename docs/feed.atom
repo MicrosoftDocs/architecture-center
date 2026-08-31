@@ -2,12 +2,156 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id/>
     <title>Azure Architecture Center</title>
-    <updated>2026-08-21T20:49:57.000Z</updated>
+    <updated>2026-08-27T23:00:34.000Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <subtitle>Updated articles for Azure Architecture Center</subtitle>
     <rights>https://learn.microsoft.com/legal/termsofuse</rights>
     <category term="new"/>
     <category term="updated"/>
+    <entry>
+        <title type="html"><![CDATA[Extract text from objects using Power Automate and AI Builder]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/example-scenario/ai/extract-object-text#bd96bd15ee</id>
+        <link href="https://learn.microsoft.com/azure/architecture/example-scenario/ai/extract-object-text"/>
+        <updated>2026-08-27T23:00:34.000Z</updated>
+        <summary type="html"><![CDATA[Use AI Builder and Azure Document Intelligence in Foundry Tools in a Power Automate workflow to extract text from images for indexing and retrieval.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Azure Virtual Machines baseline architecture in an Azure landing zone]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/virtual-machines/baseline-landing-zone#8ecd7bfd33</id>
+        <link href="https://learn.microsoft.com/azure/architecture/virtual-machines/baseline-landing-zone"/>
+        <updated>2026-08-27T15:30:54.000Z</updated>
+        <summary type="html"><![CDATA[Learn how to build on the baseline architecture to address changes and expectations when you deploy it in an Azure landing zone.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Migrate IBM z/OS OLTP Workloads to Azure]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/example-scenario/mainframe/ibm-zos-online-transaction-processing-azure#c36a65341e</id>
+        <link href="https://learn.microsoft.com/azure/architecture/example-scenario/mainframe/ibm-zos-online-transaction-processing-azure"/>
+        <updated>2026-08-27T15:08:01.000Z</updated>
+        <summary type="html"><![CDATA[Migrate a z/OS online transaction processing (OLTP) workload to an Azure application that is cost effective, responsive, scalable, and adaptable.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Analytics End-to-End with Microsoft Fabric]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/example-scenario/dataplate2e/data-platform-end-to-end#9d9d79fbad</id>
+        <link href="https://learn.microsoft.com/azure/architecture/example-scenario/dataplate2e/data-platform-end-to-end"/>
+        <updated>2026-08-27T13:52:41.000Z</updated>
+        <summary type="html"><![CDATA[Learn how to use Microsoft data services to build a modern analytics platform capable of handling the most common data challenges in an organization.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Migrate Mainframe Data to Azure]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/example-scenario/mainframe/mainframe-data-replication-azure-rdrs#9d9d79fbad</id>
+        <link href="https://learn.microsoft.com/azure/architecture/example-scenario/mainframe/mainframe-data-replication-azure-rdrs"/>
+        <updated>2026-08-27T13:52:41.000Z</updated>
+        <summary type="html"><![CDATA[Learn how to use RDRS, a mainframe data replication solution, to migrate data to and from multiple Azure data platform services.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[High-volume batch transaction processing]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/example-scenario/mainframe/process-batch-transactions#9d9d79fbad</id>
+        <link href="https://learn.microsoft.com/azure/architecture/example-scenario/mainframe/process-batch-transactions"/>
+        <updated>2026-08-27T13:52:41.000Z</updated>
+        <summary type="html"><![CDATA[Use Azure Kubernetes Service (AKS) and Azure Service Bus to implement high-volume batch transaction processing.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Azure Virtual Machines baseline architecture]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/virtual-machines/baseline#8d2557bb82</id>
+        <link href="https://learn.microsoft.com/azure/architecture/virtual-machines/baseline"/>
+        <updated>2026-08-26T16:42:00.000Z</updated>
+        <summary type="html"><![CDATA[Learn how to set up an environment that's configured to run a workload on Azure Virtual Machines.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Baseline Microsoft Foundry Chat Reference Architecture]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/ai-ml/architecture/baseline-microsoft-foundry-chat#d6222cf5b2</id>
+        <link href="https://learn.microsoft.com/azure/architecture/ai-ml/architecture/baseline-microsoft-foundry-chat"/>
+        <updated>2026-08-26T16:47:02.000Z</updated>
+        <summary type="html"><![CDATA[Learn how to build network-secured, highly available, and zone-redundant enterprise chat applications by using Microsoft Foundry tools and Azure App Service.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Basic Enterprise Integration on Azure]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/reference-architectures/enterprise-integration/basic-enterprise-integration#51a8c2f1f6</id>
+        <link href="https://learn.microsoft.com/azure/architecture/reference-architectures/enterprise-integration/basic-enterprise-integration"/>
+        <updated>2026-08-26T14:30:53.000Z</updated>
+        <summary type="html"><![CDATA[Learn how to implement a basic enterprise integration architecture on Azure by using Azure Logic Apps and Azure API Management.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Microservices Architecture on Azure Kubernetes Service]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/reference-architectures/containers/aks-microservices/aks-microservices#ee81f837a4</id>
+        <link href="https://learn.microsoft.com/azure/architecture/reference-architectures/containers/aks-microservices/aks-microservices"/>
+        <updated>2026-08-25T16:24:16.000Z</updated>
+        <summary type="html"><![CDATA[Learn about the infrastructure and DevOps considerations to deploy and run a microservices architecture on Azure Kubernetes Service (AKS).]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Stream Processing with Databricks]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/reference-architectures/data/stream-processing-databricks#ee81f837a4</id>
+        <link href="https://learn.microsoft.com/azure/architecture/reference-architectures/data/stream-processing-databricks"/>
+        <updated>2026-08-25T16:24:16.000Z</updated>
+        <summary type="html"><![CDATA[Learn how to create a four-stage, end-to-end stream processing pipeline in Azure by using Azure Databricks.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Stream processing with Stream Analytics]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/reference-architectures/data/stream-processing-stream-analytics#ee81f837a4</id>
+        <link href="https://learn.microsoft.com/azure/architecture/reference-architectures/data/stream-processing-stream-analytics"/>
+        <updated>2026-08-25T16:24:16.000Z</updated>
+        <summary type="html"><![CDATA[This reference architecture shows an end-to-end stream processing pipeline, which ingests data, correlates records, and calculates a rolling average.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Use Azure Front Door to Secure AKS Workloads]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/example-scenario/aks-front-door/aks-front-door#dc1817c338</id>
+        <link href="https://learn.microsoft.com/azure/architecture/example-scenario/aks-front-door/aks-front-door"/>
+        <updated>2026-08-24T20:01:40.000Z</updated>
+        <summary type="html"><![CDATA[Learn how to secure AKS workloads by using end-to-end TLS encryption, Azure Front Door Premium, an Azure Private Link service, and a Gateway API ingress implementation.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Big Data Architectures]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/databases/guide/big-data-architectures#2af2fb9410</id>
+        <link href="https://learn.microsoft.com/azure/architecture/databases/guide/big-data-architectures"/>
+        <updated>2026-08-24T19:36:57.000Z</updated>
+        <summary type="html"><![CDATA[Learn how big data architectures manage the ingestion, processing, and analysis of data that's too large or complex for traditional database systems.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Use a Message Broker and Events to Integrate Enterprise Systems]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/example-scenario/integration/queues-events#758ae766d6</id>
+        <link href="https://learn.microsoft.com/azure/architecture/example-scenario/integration/queues-events"/>
+        <updated>2026-08-24T18:27:41.000Z</updated>
+        <summary type="html"><![CDATA[Learn how to integrate enterprise back-end systems by using a message broker and events to decouple services for greater scalability and reliability.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Deploy Microservices to Azure Container Apps]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/example-scenario/serverless/microservices-with-container-apps#758ae766d6</id>
+        <link href="https://learn.microsoft.com/azure/architecture/example-scenario/serverless/microservices-with-container-apps"/>
+        <updated>2026-08-24T18:27:41.000Z</updated>
+        <summary type="html"><![CDATA[Learn how to replatform and deploy existing Kubernetes microservice application workloads to run in Azure Container Apps.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Deploy Microservices with Azure Container Apps and Dapr]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/example-scenario/serverless/microservices-with-container-apps-dapr#758ae766d6</id>
+        <link href="https://learn.microsoft.com/azure/architecture/example-scenario/serverless/microservices-with-container-apps-dapr"/>
+        <updated>2026-08-24T18:27:41.000Z</updated>
+        <summary type="html"><![CDATA[Build a serverless microservices solution on Azure Container Apps by using Distributed Application Runtime (Dapr) and Kubernetes event-driven autoscaling (KEDA).]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Advanced Azure Kubernetes Service (AKS) Microservices Architecture]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/reference-architectures/containers/aks-microservices/aks-microservices-advanced#758ae766d6</id>
+        <link href="https://learn.microsoft.com/azure/architecture/reference-architectures/containers/aks-microservices/aks-microservices-advanced"/>
+        <updated>2026-08-24T18:27:41.000Z</updated>
+        <summary type="html"><![CDATA[Learn about a scalable, secure AKS microservices architecture that builds on recommended AKS microservices baseline architectures and implementations.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
     <entry>
         <title type="html"><![CDATA[DevSecOps on Azure Kubernetes Service (AKS)]]></title>
         <id>https://learn.microsoft.com/azure/architecture/guide/devsecops/devsecops-on-aks#4849927c23</id>

@@ -26,7 +26,7 @@ The following production-ready architectures demonstrate end-to-end integration 
 
 ### Integration guides
 
-The following articles help you evaluate and select the best integration technologies for your workload requirements:
+Review the following guides for cross-cutting integration and migration concerns:
 
 - [Apache Kafka migration to Azure](../guide/hadoop/apache-kafka-migration.yml): Explore strategies for migrating Apache Kafka workloads to Azure, including Azure Event Hubs, Azure HDInsight, and Azure Kubernetes Service (AKS).
 

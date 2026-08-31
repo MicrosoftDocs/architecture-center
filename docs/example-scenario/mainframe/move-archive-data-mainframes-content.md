@@ -11,7 +11,7 @@ To decide which method to use for moving data between the mainframe system and A
 - **Microsoft solutions.**
 
   - The Azure Data Factory FTP connector.
-  - The Data Factory copy activity, which can copy data to any Azure storage solution.
+  - The Data Factory copy activity with the IBM Db2 connector.
   - *Mainframe JCL to Azure Blob using Java*, a custom solution for moving data from the mainframe system to Azure via Job Control Language (JCL).
 
 - [**Third-party archive solutions.**](#third-party-archive-solutions) Solutions that you can easily integrate with mainframe systems, midrange systems, and Azure services.
@@ -19,7 +19,7 @@ To decide which method to use for moving data between the mainframe system and A
 ### Workflow
 
 1. The Azure Data Factory [FTP connector moves data from the mainframe system to Azure Blob Storage](https://techcommunity.microsoft.com/t5/modernization-best-practices-and/copy-files-from-mainframe-to-azure-data-platform-using-adf-ftp/ba-p/3042555). This solution requires an intermediate virtual machine (VM) on which a self-hosted integration runtime is installed.
-1. The Data Factory [copy activity connects to the Db2 database to copy data into Azure storage](/azure/data-factory/v1/data-factory-onprem-db2-connector). This solution also requires an intermediate VM on which a self-hosted integration runtime is installed.
+1. The Data Factory copy activity uses the [IBM Db2 connector](/azure/data-factory/connector-db2) to copy data from supported Db2 databases into Azure storage. When Db2 is in a private network, this architecture uses an intermediate VM that hosts a self-hosted integration runtime.
 1. The Microsoft *Mainframe JCL to Azure Blob using Java* custom solution moves data between the mainframe system and Blob Storage, and vice versa. This solution is based on Java and runs on Unix System Services on the mainframe. You can get this solution by contacting Microsoft support.
 
     1. You need to complete a one-time configuration of the solution. This configuration involves getting the Blob Storage access keys and moving required artifacts to the mainframe system.
@@ -41,7 +41,7 @@ To decide which method to use for moving data between the mainframe system and A
 
 ### Components
 
-- [Azure Data Factory](/azure/data-factory/introduction) is a cloud-based hybrid data integration service that you can use to create, schedule, and orchestrate your extract, transform, load (ETL) and extract, load, transfer (ELT) workflows. In this architecture, Azure Data Factory orchestrates the movement of data from mainframe systems to Azure storage by using FTP connectors and copy activities.
+- [Azure Data Factory](/azure/data-factory/introduction) is a cloud-based hybrid data integration service that you can use to create, schedule, and orchestrate your extract, transform, load (ETL) and extract, load, transfer (ELT) workflows. In this architecture, Data Factory orchestrates data movement from mainframe systems to Azure storage by using the FTP and IBM Db2 connectors.
 
 - [Azure Files](/azure/well-architected/service-guides/azure-files) is a cloud storage service that provides simple and secure serverless cloud file shares. These components are used for synchronization and data retention. In this architecture, Azure Files enables file-based data archiving and provides NFS/SMB access for mainframe systems to store and retrieve archived data.
 
@@ -51,7 +51,9 @@ To decide which method to use for moving data between the mainframe system and A
 
 ### Alternatives
 
-You can use the classic method of moving the data out of the mainframe or midrange system via FTP. Data Factory provides an [FTP connector](/azure/data-factory/connector-ftp?tabs=data-factory) that you can use to archive the data on Azure.
+For new data integration solutions, evaluate [Data Factory in Microsoft Fabric](/fabric/data-factory/data-factory-overview). Its [IBM Db2 connector](/fabric/data-factory/connector-ibm-db2-database-overview) supports Db2 as a source for pipelines and Copy job. Use an [on-premises data gateway](/fabric/data-factory/how-to-access-on-premises-data) to connect to Db2 in a private network.
+
+You can also move files out of the mainframe or midrange system through FTP. Data Factory provides an [FTP connector](/azure/data-factory/connector-ftp?tabs=data-factory) that you can use to archive the data in Azure. Enable explicit TLS and server-certificate validation for the connection.
 
 ## Scenario details
 
@@ -113,6 +115,7 @@ Other contributors:
 
 - [Azure Database Migration Guides](https://datamigration.microsoft.com)
 - [What is Azure Data Factory?](/azure/data-factory/introduction)
+- [What is Data Factory in Microsoft Fabric?](/fabric/data-factory/data-factory-overview)
 - [Introduction to Azure Storage](/azure/storage/common/storage-introduction)
 - [What is Azure Files?](/azure/storage/files/storage-files-introduction)
 - [What is Azure Data Box?](/azure/databox/data-box-overview)
