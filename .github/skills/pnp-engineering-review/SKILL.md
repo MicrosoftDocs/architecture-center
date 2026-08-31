@@ -66,7 +66,11 @@ Judge whether the article leads the architect to a durable, low-regret design. C
 
 Ground every "current best practice" claim you make on Microsoft Learn and cite your source.
 
-### 5. Images and text tell the same story
+### 5. Opinionated guidance from the prior article is retained
+
+Compare the prior version of the article's opinionated guidance story against the current version. Identify recommendations, decision criteria, tradeoffs, constraints, and shortcomings that were materially lost or weakened. Report only ideas that remain necessary for the current article to provide complete guidance. Don't report lost ideas that the current version supersedes with a better approach.
+
+### 6. Images and text tell the same story
 
 For each image in the article, compare what the image depicts against what the article says. They should describe the same design. Look for:
 
@@ -78,7 +82,7 @@ Report any place where a reader following the text would picture something diffe
 
 Also evaluate **arrow clarity** in architecture diagrams. Arrows carry meaning, so they must be used consistently: either every arrow shows data-flow direction (rare) or, more usefully, every arrow shows a client-server interaction (who calls whom). Pick one convention and hold to it across the diagram. Flag double-headed arrows as they're almost always wrong, because a component is rarely both the client and the server of the same connection. The reader should be able to tell from the arrows what calls what, so they can reason about dependencies and network line-of-sight requirements. Describe on the diagram where the direction is ambiguous, inconsistent, or implies a relationship that doesn't exist.
 
-### 6. Components section is complete, accurate, and purposeful
+### 7. Components section is complete, accurate, and purposeful
 
 Only applies when the article has a **Components** section (the list of Azure services and other building blocks the architecture uses). If there's no such section, skip this step. When there is, check four things:
 
@@ -87,7 +91,7 @@ Only applies when the article has a **Components** section (the list of Azure se
 - **Each entry states its specific role in *this* architecture.** Every item must say what direct responsibility or capability it provides in this particular design, not just a generic product description lifted from the service's overview. Flag entries that only describe the product in general instead of its job here in this scenario.
 - Each item in the components list must contain a link to the product's WAF service guide. If the Well-Architected Framework doesn't have a service guide for the product, then the component must link to its Microsoft Learn product documentation. If it is a non-Microsoft product that doesn't have Microsoft Learn documentation, it must link the official third-party documentation for that component.
 
-### 7. Alternatives are captured, consolidated, and justified
+### 8. Alternatives are captured, consolidated, and justified
 
 Sound, common alternatives to the design belong in a dedicated **Alternatives** section, not scattered through the article. Alternatives are usually component-level swaps but can also be a different process or approach. The goal is to capture the *most likely* alternatives for this scenario, not to list all alternatives.
 
@@ -99,7 +103,7 @@ Check for:
 
 Every alternative that stays should say *when* a reader would pick it over the primary choice.
 
-### 8. Well-Architected pillar content is filed under the right pillar
+### 9. Well-Architected pillar content is filed under the right pillar
 
 Only applies when the article organizes content by Well-Architected Framework pillar section. If the article doesn't have a pillar section, skip this step.
 
@@ -107,11 +111,11 @@ For each pillar subsection, confirm the recommendations under it actually belong
 
 Ground against the WAF pillar definitions on Microsoft Learn per the `microsoft-learn-grounding` skill. Report each misfiled item with the pillar it's under now and the pillar it belongs under and the Learn source for that reason.
 
-### 9. Cost Optimization section links a pricing estimate
+### 10. Cost Optimization section links a pricing estimate
 
 Only applies when the article has a Cost Optimization section. The section must include a link to a saved Azure Pricing Calculator estimate for this architecture, not the generic calculator URL. Confirm that the link targets a shared estimate, but don't evaluate whether the estimate's calculations are accurate or current.
 
-### 10. Article and reference implementation align
+### 11. Article and reference implementation align
 
 This step applies only when the article includes a link to a deployable repo. If there's no such link, skip this step. When there is a link, fetch the linked implementation (for example, the GitHub repo it points to) and do a light comparison against what the article says. You're confirming the article and the code tell the same story, not auditing or running the code.
 
@@ -123,7 +127,7 @@ Look for divergences that would matter to a reader who deploys the code expectin
 
 Call out significant differences and why they matter to the article. Ignore trivial or cosmetic drift.
 
-### 11. Aligns with industry perspective
+### 12. Aligns with industry perspective
 
 Compare the article's positions and terminology against how the broader industry describes the same system. Use your **web search tool** to consult reputable non-Microsoft sources: vendor technical reports and reference architectures, integrator and practitioner guides, and cloud-agnostic references. When the topic has a clear equivalent on another hyperscaler, check the other hyperscalers' documentation too (for example, AWS or Google Cloud documentation for the same workload or pattern). A competitor's treatment of the same problem is a legitimate industry-perspective signal, even though you'll ground the Azure specifics on Microsoft Learn.
 
@@ -134,7 +138,7 @@ Report scope divergence in both directions:
 
 Sourcing rules: prefer first-party vendor and reputable practitioner sources, and attribute them. Watch for terminology misalignment such as cases where the article uses a product or domain term differently than the industry does.
 
-### 12. URLs avoid redirects and dead-ends
+### 13. URLs avoid redirects and dead-ends
 
 Collect every link in the article and pair it with the context where it's used. Resolve site-relative and repo-relative links to their published absolute URLs for validation while retaining the original link and source context, then run the `link-checker` agent over that list.
 
