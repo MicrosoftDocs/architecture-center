@@ -14,7 +14,7 @@ If you're embarking on your cloud adoption journey with the medallion lakehouse 
 
 - [SQL Server](/training/paths/azure-sql-fundamentals) for data modeling.
 
-- [Power BI](/credentials/certifications/power-bi-data-analyst-associate) for data serving and reporting.
+- [Power BI](/credentials/certifications/data-analyst-associate/) for data serving and reporting.
 
 Learn how to design and build secure, scalable, and high-performing solutions in Azure by using the pillars of the [Azure Well-Architected Framework](/training/paths/azure-well-architected-framework). This free online resource provides interactive training that includes knowledge checks to evaluate your learning.
 
