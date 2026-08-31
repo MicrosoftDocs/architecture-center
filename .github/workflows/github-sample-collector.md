@@ -33,6 +33,10 @@ network:
     - defaults
     - github
 
+safe-outputs:
+  noop:
+    report-as-issue: false
+
 tools:
   bash: true
   repo-memory:
