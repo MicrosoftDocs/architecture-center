@@ -68,6 +68,8 @@ Ground every "current best practice" claim you make on Microsoft Learn and cite 
 
 ### 5. Retain opinionated guidance from the prior article
 
+Choose the prior version before comparing guidance. For an existing or renamed article, use the version on `main` as the authoritative baseline. Prefer to retrieve the corresponding rendered article through the Microsoft Learn MCP fetch tool, but use `main` if the published version differs. For a renamed article, trace the former path on `main`. Skip this step for a new article. For an article that replaces another article, use judgment: compare against the replaced article on `main` when the replacement carries forward its purpose or guidance; otherwise, skip this step. State which baseline you selected or why you skipped the comparison.
+
 Compare the prior version of the article's opinionated guidance story against the current version. Identify recommendations, decision criteria, tradeoffs, constraints, and shortcomings that were materially lost or weakened. Report only ideas that remain necessary for the current article to provide complete guidance. Don't report lost ideas that the current version supersedes with a better approach.
 
 ### 6. Images and text tell the same story
