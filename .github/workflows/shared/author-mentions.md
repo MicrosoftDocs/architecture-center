@@ -43,12 +43,14 @@ safe-outputs:
       - dcasati
       - deepbhattacharyya
       - delynchoong
+      - denrea
       - desmay
       - DixitArora-MSFT
       - DocGailZhou
       - doherty100
       - dominicbetts
       - DTInTheCloud
+      - duongthaiha
       - erichb
       - erjosito
       - fabmas
@@ -78,6 +80,7 @@ safe-outputs:
       - jerrymsft
       - JKirsch1
       - jl-ms
+      - JLansdaal
       - jocontr
       - johndowns
       - JohnPoetzinger
@@ -173,6 +176,7 @@ safe-outputs:
       - tedmanlee
       - ThePedestrian
       - troyhite
+      - ulisesadan
       - v-albemi
       - v-ccolin
       - v-dirichards
