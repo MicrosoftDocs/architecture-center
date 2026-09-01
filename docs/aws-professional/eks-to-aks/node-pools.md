@@ -347,7 +347,7 @@ az aks nodepool scale \
 
 AKS supports scaling node pools automatically by using the [cluster autoscaler](/azure/aks/cluster-autoscaler). Enable this feature on each node pool, and define a minimum and a maximum number of nodes.
 
-For Azure Virtual Machines node pools, the cluster autoscaler uses autoscale scale profiles. To update an individual autoscale profile for a Virtual Machines node pool, use [az aks nodepool auto-scale update](/cli/azure/aks/nodepool/auto-scale#az-aks-nodepool-auto-scale-update). To convert an existing Virtual Machines node pool from manual scale profiles to autoscale profiles, use `az aks nodepool update` with `--enable-cluster-autoscaler`.
+For Azure Virtual Machines node pools, the cluster autoscaler uses autoscale profiles. To update an individual autoscale profile for a Virtual Machines node pool, use [az aks nodepool auto-scale update](/cli/azure/aks/nodepool/auto-scale#az-aks-nodepool-auto-scale-update). To convert an existing Virtual Machines node pool from manual scale profiles to autoscale profiles, use `az aks nodepool update` with `--enable-cluster-autoscaler`.
 
 The following `az aks nodepool add` command adds a new node pool called `mynodepool` to an existing cluster. The `--enable-cluster-autoscaler` parameter enables the cluster autoscaler on the new node pool. The `--min-count` and `--max-count` parameters specify the minimum and maximum number of nodes in the pool.
 
