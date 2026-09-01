@@ -202,7 +202,7 @@ A node pool consists of a set of VMs that have different sizes. Each VM supports
 
 To enable scaling of multiple VM sizes, the Virtual Machines node pool type uses a `ScaleProfile`. This profile configures how the node pool scales by specifying the desired VM size and count. A `ManualScaleProfile` is a scale profile that specifies the desired VM size and count. Only one VM size is allowed in a `ManualScaleProfile`. You need to create a separate `ManualScaleProfile` for each VM size in your node pool.
 
-When you create a new Virtual Machines node pool, you need at least one `ManualScaleProfile` in the `ScaleProfile`. You can create multiple manual scale profiles for a single Virtual Machines node pool.
+When you create a new Virtual Machines node pool, you can use a `ManualScaleProfile` or an autoscale profile. You can create multiple manual scale profiles for a single Virtual Machines node pool, and you can also create a pool directly in autoscale mode by defining a minimum and maximum count.
 
 Advantages of Virtual Machines node pools include:
 
