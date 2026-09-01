@@ -142,9 +142,9 @@ Sourcing rules: prefer first-party vendor and reputable practitioner sources, an
 
 ### 13. Terminology and acronyms are accurate
 
-Perform a terminology and acronym pass across the full article. Check technical terms, acronym expansions, architecture names, product names, protocols, standards, and units in the complete sentence where each appears. Don't assume a term is correct because the surrounding context is plausible or its link works.
+Check the terminology and acronyms across the full article. Verify technical terms, acronym expansions, architecture names, product names, protocols, standards, and units in the complete sentence where each term appears. Don't assume a term is correct because the surrounding context is plausible or its link works.
 
-- Confirm that an acronym and its expansion name the same concept, and disambiguate overloaded acronyms based on the sentence's meaning. For example, distinguish the Arm processor architecture from Azure Resource Manager (ARM).
+- Confirm that an acronym and its expansion name the same concept. Clarify overloaded acronyms based on the sentence's meaning. For example, distinguish the Arm processor architecture from Azure Resource Manager (ARM).
 - Read each sentence literally. Flag impossible attributions and category errors, such as assigning a processor architecture to a management plane or describing a control plane as a runtime component.
 - Ground unfamiliar or ambiguous terminology in authoritative Microsoft Learn product documentation by following the `microsoft-learn-grounding` skill.
 
