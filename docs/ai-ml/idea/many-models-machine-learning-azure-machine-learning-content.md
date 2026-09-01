@@ -162,9 +162,11 @@ To see how pricing differs for your use case, change the variables in the pricin
 
 *Microsoft maintains this article. The following contributors wrote this article.*
 
-Principal author:
+Principal authors:
 
 - [James Nguyen](https://www.linkedin.com/in/james-nguyen-6575a431/) | Principal Cloud Solution Architect
+- [Sebastian Adan](https://www.linkedin.com/in/ulises-adan-54491a1/) | Sr. Cloud Solution Architect
+- [Ekaterina Krivich](https://www.linkedin.com/in/kiote/) | Sr. Applied Data Scientist
 
 *To see nonpublic LinkedIn profiles, sign in to LinkedIn.*
 

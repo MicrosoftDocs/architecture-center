@@ -78,6 +78,7 @@ safe-outputs:
       - jerrymsft
       - JKirsch1
       - jl-ms
+      - jocontr
       - johndowns
       - JohnPoetzinger
       - josearper
@@ -100,6 +101,7 @@ safe-outputs:
       - lponnam75
       - malrose07
       - manasatramalinga
+      - MarkPryceMaherMSFT
       - MaxMelcher
       - mestredelpino
       - mfrankovic
@@ -120,6 +122,7 @@ safe-outputs:
       - oscarsk91
       - ovaismehboob
       - PageWriter-MSFT
+      - PatAltimore
       - PaulCollinge
       - paullizer
       - pbrooks

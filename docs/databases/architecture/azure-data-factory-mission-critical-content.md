@@ -40,7 +40,7 @@ There are several key requirements to deliver a mission-critical advanced analyt
 
   - Deployment and rollback deployment pipelines, which enable each regional deployment to synchronize with the correct current version of the model.
 
-  - Service [health modeling](/azure/well-architected/mission-critical/mission-critical-health-modeling) to measure and manage the overall health of a workload.
+  - Service [health modeling](/azure/well-architected/design-guides/health-modeling) to measure and manage the overall health of a workload.
 
 - Audit trails can be initially stored within a Log Analytics workspace for real-time analysis and operational support. After 30 days, or 90 days if using Microsoft Sentinel, audit trails can be automatically transferred to Azure Data Explorer for long-term retention. This approach allows for interactive queries of up to two years within the Log Analytics workspace and the ability to keep older, infrequently used data at a reduced cost for up to 12 years. Use Azure Data Explorer for data storage to enable running cross-platform queries and visualize data across both Azure Data Explorer and Microsoft Sentinel. This approach provides a cost-effective solution for meeting long-term storage requirements while maintaining support optionality. If there's no requirement to hold excessive data, you should consider deleting it.
 
@@ -145,7 +145,7 @@ Compared to the baseline architecture, this architecture:
 
 - Follows the guidance from the mission-critical [reliability](/azure/well-architected/mission-critical/mission-critical-design-principles#reliability) design considerations.
 
-- Deploys an initial [health model](/azure/well-architected/mission-critical/mission-critical-health-modeling) for the solution to maximize reliability.
+- Deploys an initial [health model](/azure/well-architected/design-guides/health-modeling) for the solution to maximize reliability.
 
 ### Security
 
@@ -177,11 +177,11 @@ Compared to the baseline architecture, this architecture:
 
 - Follows the guidance from the mission-critical [operational excellence](/azure/well-architected/mission-critical/mission-critical-design-principles#operational-excellence) design considerations.
 
-- Separates out global and regional monitoring resources to prevent a single of point failure in [Observability](/azure/well-architected/mission-critical/mission-critical-health-modeling#unified-data-sink-for-correlated-analysis).
+- Separates global and regional monitoring resources to prevent a single point of failure in [Observability](/azure/well-architected/design-guides/health-modeling).
 
 - Implements the [deployment and testing guidance](/azure/well-architected/mission-critical/mission-critical-deployment-testing) and [operational procedures](/azure/well-architected/mission-critical/mission-critical-operational-procedures) from the mission-critical reference architecture.
 
-- Aligns the solution with [Azure engineering roadmaps](/azure/well-architected/mission-critical/mission-critical-cross-cutting-issues#azure-roadmap-alignment) and [regional rollouts](https://azure.microsoft.com/updates) to account for constantly evolving services in Azure.
+- Aligns the solution with [Azure engineering roadmaps](/azure/well-architected/mission-critical/mission-critical-design-methodology#evolve-with-azure) and [regional rollouts](https://azure.microsoft.com/updates) to account for constantly evolving services in Azure.
 
 ### Performance Efficiency
 

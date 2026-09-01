@@ -15,7 +15,7 @@ ms.custom: arb-aiml
 
 [Foundry Tools](/azure/ai-services/what-are-ai-services) helps developers and organizations create AI-based, advanced, production-ready applications that align with responsible AI practices by using out-of-the-box, prebuilt, and customizable APIs and models.
 
-This article describes video and image processing capabilities in Tools, such as visual analysis and generation of images, object detection, image classification, and facial recognition. The suite includes the following services:
+This article describes video and image processing capabilities in Foundry, such as visual analysis and generation of images, object detection, image classification, and facial recognition. The suite includes the following services:
 
 - [Azure OpenAI in Foundry Models](#azure-openai) provides access to the following OpenAI language models:
    
@@ -29,7 +29,7 @@ This article describes video and image processing capabilities in Tools, such as
 
 - [Azure Vision in Foundry Tools](#azure-vision) provides advanced algorithms that process images and return information based on visual features. It includes optical character recognition (OCR), image analysis, and face detection capabilities.
 
-- [Microsoft Azure AI Custom Vision](#custom-vision) is an image recognition service that you can use to build, deploy, and improve your image identifier models for specific requirements that other services can't meet.
+- [Azure Machine Learning AutoML](#azure-machine-learning-automl) for Computer Vision automates model training and hyperparameter tuning for image classification, object detection, and instance segmentation. You can download the resulting model or register and deploy the model in Azure Machine Learning.
 
 - [Azure Content Understanding in Foundry Tools](#azure-content-understanding) uses generative AI to extract structured fields from images and video. Use Azure Content Understanding when you need schema-defined extraction, scene segmentation, or retrieval-augmented generation (RAG)-ready video output.
 
@@ -93,35 +93,35 @@ The following table provides a list of possible use cases for Azure Vision.
 | [Face redaction](/azure/azure-video-indexer/face-redaction-with-api) | Redact or blur detected faces of people recorded in a video to protect their privacy. |
 | [Touchless access control](/azure/ai-services/face/how-to/specify-recognition-model) | Use opt-in face identification for enhanced access control while reducing the maintenance and security risks from physical media sharing, loss, or theft. Facial recognition assists the check-in process with a human in the loop for check-ins in airports, stadiums, theme parks, buildings, reception kiosks at offices, hospitals, gyms, clubs, or schools. |
 
-### Custom Vision
+### Azure Machine Learning AutoML
 
-[Custom Vision](/azure/ai-services/custom-vision-service/overview) is an image recognition service that you can use to build, deploy, and improve your image identifier models. An image identifier applies labels to images based on their visual characteristics. Each label represents a classification or object. Use Custom Vision to specify your own labels and train custom models to detect them.
+[Azure Machine Learning AutoML](/azure/machine-learning/concept-automated-ml) for Computer Vision provides image recognition capabilities that you can use to automatically build, deploy, and improve your image models. An image identifier applies labels to images based on their visual characteristics. Each label represents a classification or object. Use Azure Machine Learning AutoML to specify your own labels and train custom models to detect them.
 
-| Use Custom Vision for these tasks | Don't use Custom Vision for these tasks |
+| Use Azure Machine Learning AutoML for these tasks | Don't use Azure Machine Learning AutoML for these tasks |
 | :----------| :-------------|
 | Recognize unusual objects and manufacturing defects that standard image analysis can't detect. | Do basic object detection or face detection. Use [Azure Vision](#azure-vision) instead. |
 | Provide detailed custom classifications for specific business requirements. | Do basic visual analysis. Use vision-capable models from [Azure OpenAI](#azure-openai) or open-source models in Machine Learning instead. |
 | Train models with your own labeled images for specialized scenarios. | |
 
-Custom Vision uses a machine learning algorithm to analyze images for custom features. You submit sets of images with and without the visual characteristics that you want. You then label the images with your own labels, or *tags*, at the time of submission. The algorithm uses this data to train and calculates its own accuracy by testing itself on the same images. After you train your model, you can test, retrain, and eventually use the model in your image recognition app to classify images or detect objects. You can also export the model for offline use.
+Azure Machine Learning AutoML uses machine learning algorithms to analyze images for custom features. Labeled image data are provided as annotations. The annotation schema depends on the task: image-level labels for classification, bounding boxes for object detection, and polygons for instance segmentation. You can make such annotations by using the built-in Azure ML Data Labeling feature. The AutoML algorithms then use the annotations and images to train and calculate model accuracies by testing the models on holdout sets of images. After AutoML trains the optimal model, you can test, retrain, and eventually use the model in your image recognition app to classify images or detect objects. You can also export the model for offline use.
 
-#### Available Custom Vision features
+#### Available Azure Machine Learning AutoML features
 
-The following table provides a list of features available in Custom Vision.
+The following table provides a list of features available.
 
 | Feature | Description |
 | :----------| :-------------|
-| [Image classification](/azure/ai-services/custom-vision-service/getting-started-build-a-classifier) | Predict a category, or *class*, based on a set of inputs, which are called *features*. Calculate a probability score for each possible class and return a label that indicates the class that the object most likely belongs to. To use this model, you need data that consists of features and their labels. |
-| [Object detection](/azure/ai-services/custom-vision-service/get-started-build-detector) | Get the coordinates of an object in an image. To use this model, you need data that consists of features and their labels. |
+| [(Multilabel) Image classification](/azure/machine-learning/how-to-auto-train-image-models) | Predict a category, or *class*, based on a set of inputs, which are called *features*. Calculate a probability score for each possible class and return a label that indicates the class that the object most likely belongs to. To use this model, you need data that consists of features and their labels. |
+| [Object detection](/azure/machine-learning/how-to-use-automl-small-object-detect) | Get the coordinates of an object in an image. To use this model, you need data that consists of features and their labels. |
+| [Instance segmentation](/azure/machine-learning/how-to-auto-train-image-models) | Identify objects at the pixel level and outline each object with a polygon. |
 
-#### Use cases for Custom Vision
+#### Use cases for Azure Machine Learning AutoML for Computer Vision
 
-The following table provides a list of possible use cases for Custom Vision.
+The following table provides a list of possible use cases for Azure Machine Learning AutoML.
 
 | Use case | Description |
 | :----------| :-------------|
-| [Use Custom Vision with an internet of things (IoT) device to report visual states](/azure/iot-edge/tutorial-deploy-custom-vision). | Use Custom Vision to train a device that has a camera to detect visual states. You can run this detection scenario on an IoT device by using an exported ONNX model. A visual state describes the content of an image, such as an empty room, a room with people, an empty driveway, or a driveway with a truck. |
-| [Classify images and objects](/azure/ai-services/custom-vision-service/overview#classification-and-object-detection). | Analyze photos and scan for specific logos by training a custom model. |
+| [Classify images and objects](/azure/machine-learning/concept-automated-ml#computer-vision) | Analyze photos and scan for specific logos by training a custom model. |
 
 ### Azure Content Understanding
 
