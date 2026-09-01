@@ -140,7 +140,15 @@ Report scope divergence in both directions:
 
 Sourcing rules: prefer first-party vendor and reputable practitioner sources, and attribute them. Watch for terminology misalignment such as cases where the article uses a product or domain term differently than the industry does.
 
-### 13. URLs avoid redirects and dead-ends
+### 13. Terminology and acronyms are accurate
+
+Check the terminology and acronyms across the full article. Verify technical terms, acronym expansions, architecture names, product names, protocols, standards, and units in the complete sentence where each term appears. Don't assume a term is correct because the surrounding context is plausible or its link works.
+
+- Confirm that an acronym and its expansion name the same concept. Clarify overloaded acronyms based on the sentence's meaning. For example, distinguish the Arm processor architecture from Azure Resource Manager (ARM).
+- Read each sentence literally. Flag impossible attributions and category errors, such as assigning a processor architecture to a management plane or describing a control plane as a runtime component.
+- Ground unfamiliar or ambiguous Microsoft product terminology in authoritative Microsoft Learn product documentation by following the `microsoft-learn-grounding` skill. For non-Microsoft terminology, use the applicable standards body or first-party vendor documentation.
+
+### 14. URLs avoid redirects and dead-ends
 
 Collect every link in the article and pair it with the context where it's used. Resolve site-relative and repo-relative links to their published absolute URLs for validation while retaining the original link and source context, then run the `link-checker` agent over that list.
 
