@@ -222,7 +222,6 @@ The following table compares Virtual Machines node pools with standard [Virtual 
 
 Virtual Machines node pools have the following limitations:
 
-- The [cluster autoscaler](/azure/aks/cluster-autoscaler-overview) isn't supported.
 - [InfiniBand](/azure/virtual-machines/extensions/enable-infiniband) isn't available.
 - Windows node pools aren't supported.
 - This feature isn't available in the Azure portal. Use the [Azure CLI](/cli/azure/get-started-with-azure-cli) or REST APIs to perform create, read, update, and delete (CRUD) operations or manage the pool.
@@ -348,6 +347,8 @@ az aks nodepool scale \
 
 AKS supports scaling node pools automatically by using the [cluster autoscaler](/azure/aks/cluster-autoscaler). Enable this feature on each node pool, and define a minimum and a maximum number of nodes.
 
+For Azure Virtual Machines node pools, the cluster autoscaler uses autoscale scale profiles. To update an individual autoscale profile for a Virtual Machines node pool, use [az aks nodepool auto-scale update](/cli/azure/aks/nodepool/auto-scale#az-aks-nodepool-auto-scale-update). To convert an existing Virtual Machines node pool from manual scale profiles to autoscale profiles, use `az aks nodepool update` with `--enable-cluster-autoscaler`.
+
 The following `az aks nodepool add` command adds a new node pool called `mynodepool` to an existing cluster. The `--enable-cluster-autoscaler` parameter enables the cluster autoscaler on the new node pool. The `--min-count` and `--max-count` parameters specify the minimum and maximum number of nodes in the pool.
 
 ```azurecli-interactive
@@ -361,7 +362,7 @@ The following `az aks nodepool add` command adds a new node pool called `mynodep
   --max-count 5
 ```
 
-The following [az aks nodepool update](/cli/azure/aks/nodepool#az-aks-nodepool-update) command updates the minimum number of nodes from one to three for the `mynewnodepool` node pool.
+The following [az aks nodepool update](/cli/azure/aks/nodepool#az-aks-nodepool-update) command updates the minimum number of nodes from one to three for the `mynewnodepool` node pool. This command applies to Azure Virtual Machine Scale Sets node pools.
 
 ```azurecli-interactive
   az aks nodepool update \
