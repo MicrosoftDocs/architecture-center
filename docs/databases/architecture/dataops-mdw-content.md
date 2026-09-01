@@ -191,7 +191,7 @@ Azure Databricks
 
 Data Factory
 
-* [Monitor Azure Data Factory with Azure Monitor](/azure/data-factory/monitor-using-azure-monitor)
+* [Monitor Azure Data Factory](/azure/data-factory/monitor-data-factory)
 * [Create alerts to proactively monitor your data factory pipelines](https://azure.microsoft.com/blog/create-alerts-to-proactively-monitor-your-data-factory-pipelines)
 
 Azure Synapse Analytics
@@ -207,7 +207,7 @@ Azure Storage
 
 Azure Databricks
 
-* [Regional disaster recovery for Azure Databricks clusters](/azure/azure-databricks/howto-regional-disaster-recovery)
+* [Disaster recovery for Azure Databricks](/azure/databricks/admin/disaster-recovery)
 
 Data Factory
 
@@ -221,7 +221,7 @@ Azure Synapse Analytics
 Azure Storage
 
 * [Disaster recovery and storage account failover](/azure/storage/common/storage-disaster-recovery-guidance?toc=/azure/storage/blobs/toc.json)
-* [Best practices for using Azure Data Lake Storage Gen2 – High availability and Disaster Recovery](/azure/storage/blobs/data-lake-storage-best-practices#high-availability-and-disaster-recovery)
+* [Design Azure storage for high availability](/azure/storage/common/storage-disaster-recovery-guidance#design-for-high-availability)
 * [Azure Storage Redundancy](/azure/storage/common/storage-redundancy)
 
 ### Detailed overview
