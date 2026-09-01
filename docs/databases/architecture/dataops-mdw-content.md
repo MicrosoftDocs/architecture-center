@@ -221,7 +221,7 @@ Azure Synapse Analytics
 Azure Storage
 
 * [Disaster recovery and storage account failover](/azure/storage/common/storage-disaster-recovery-guidance?toc=/azure/storage/blobs/toc.json)
-* [Best practices for using Azure Data Lake Storage Gen2 – Design for high availability](/azure/storage/common/storage-disaster-recovery-guidance?toc=/azure/storage/blobs/toc.json#design-for-high-availability)
+* [Design Azure storage for high availability](/azure/storage/common/storage-disaster-recovery-guidance#design-for-high-availability)
 * [Azure Storage Redundancy](/azure/storage/common/storage-redundancy)
 
 ### Detailed overview

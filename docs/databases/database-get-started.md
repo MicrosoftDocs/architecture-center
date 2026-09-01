@@ -89,7 +89,7 @@ To stay current with key database services, see the following articles:
 
 - [What's new in Azure SQL Database](/azure/azure-sql/database/doc-changes-updates-release-notes-whats-new)
 - [What's new in Azure Database for PostgreSQL](/azure/postgresql/release-notes/release-notes)
-- [What's new in Azure Database for MySQL](/azure/mysql/release-notes/release-notes-2026)
+- [What's new in Azure Database for MySQL](/azure/mysql/flexible-server/whats-new)
 
 ## Other resources
 
