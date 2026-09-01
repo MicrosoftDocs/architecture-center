@@ -53,7 +53,7 @@ The following resources provide foundational knowledge for database implementati
 
 - **Data engineer:** [Azure data fundamentals: Explore relational data in Azure](/training/paths/azure-data-fundamentals-explore-relational-data/)
 - **Database administrator:** [Implement scalable database solutions by using Azure SQL](/training/courses/dp-300t00)
-- **Developer:** [Develop solutions that use Azure Cosmos DB](/training/paths/az-204-develop-solutions-that-use-azure-cosmos-db/)
+- **Developer:** [Plan and implement Azure Cosmos DB for NoSQL](/training/paths/plan-implement-azure-cosmos-db-sql-api/)
 
 For more role-based training, [browse other learning paths](/training/browse/?resource_type=learning%20path).
 
@@ -78,7 +78,7 @@ Review the following best practices when you design your database solutions.
 | [Distribute your data globally by using Azure Cosmos DB](/azure/cosmos-db/distribute-data-globally) | To achieve low latency and high availability, some applications must be deployed in datacenters that are close to their users. |
 | [Security in Azure Cosmos DB](/azure/cosmos-db/security) | Security best practices help prevent, detect, and respond to database breaches. |
 | [Continuous backup with point-in-time restore (PITR) in Azure Cosmos DB](/azure/cosmos-db/continuous-backup-restore-introduction) | Learn about Azure Cosmos DB PITR. |
-| [Achieve high availability by using Azure Cosmos DB](/azure/reliability/reliability-cosmos-db-nosql) | Azure Cosmos DB provides multiple features and configuration options to achieve high availability. |
+| [Achieve high availability by using Azure Cosmos DB](/azure/reliability/reliability-cosmos-db) | Azure Cosmos DB provides multiple features and configuration options to achieve high availability. |
 | [High availability for Azure SQL Database and Azure SQL Managed Instance](/azure/azure-sql/database/high-availability-sla-local-zone-redundancy) | The database shouldn't be a single point of failure in your architecture. |
 
 ## Stay current with databases
@@ -89,7 +89,7 @@ To stay current with key database services, see the following articles:
 
 - [What's new in Azure SQL Database](/azure/azure-sql/database/doc-changes-updates-release-notes-whats-new)
 - [What's new in Azure Database for PostgreSQL](/azure/postgresql/release-notes/release-notes)
-- [What's new in Azure Database for MySQL](/azure/mysql/flexible-server/whats-new)
+- [What's new in Azure Database for MySQL](/azure/mysql/release-notes/release-notes-2026)
 
 ## Other resources
 
@@ -97,9 +97,9 @@ Databases is a broad category and covers a range of solutions. The following res
 
 ### Hybrid and multicloud
 
-Most organizations need a hybrid approach to databases because they have workloads that run both on-premises and in the cloud. Organizations typically [extend on-premises database solutions to the cloud](/azure/architecture/databases/guide/hybrid-on-premises-and-cloud). To connect environments, organizations must [choose a hybrid network architecture](/azure/architecture/reference-architectures/hybrid-networking/index).
+Most organizations need a hybrid approach to databases because they have workloads that run both on-premises and in the cloud. Organizations typically [extend on-premises database solutions to the cloud](/azure/architecture/databases/guide/hybrid-on-premises-and-cloud). To connect environments, organizations must [choose a hybrid network architecture](/azure/architecture/reference-architectures/hybrid-networking/hybrid-connectivity-options).
 
-- [Azure Arc-enabled PostgreSQL](/azure/azure-arc/data/what-is-azure-arc-enabled-postgres-hyperscale): Run Azure-managed PostgreSQL on your infrastructure.
+- [Azure Arc-enabled PostgreSQL](/azure/azure-arc/data/what-is-azure-arc-enabled-postgresql): Run Azure-managed PostgreSQL on your infrastructure.
 - [Azure hybrid and multicloud patterns](/azure/architecture/hybrid/hybrid-start-here): Connect on-premises databases to cloud services.
 
 Review the following key hybrid database scenarios:
