@@ -146,7 +146,7 @@ Check the terminology and acronyms across the full article. Verify technical ter
 
 - Confirm that an acronym and its expansion name the same concept. Clarify overloaded acronyms based on the sentence's meaning. For example, distinguish the Arm processor architecture from Azure Resource Manager (ARM).
 - Read each sentence literally. Flag impossible attributions and category errors, such as assigning a processor architecture to a management plane or describing a control plane as a runtime component.
-- Ground unfamiliar or ambiguous terminology in authoritative Microsoft Learn product documentation by following the `microsoft-learn-grounding` skill.
+- Ground unfamiliar or ambiguous Microsoft product terminology in authoritative Microsoft Learn product documentation by following the `microsoft-learn-grounding` skill. For non-Microsoft terminology, use the applicable standards body or first-party vendor documentation.
 
 ### 14. URLs avoid redirects and dead-ends
 
