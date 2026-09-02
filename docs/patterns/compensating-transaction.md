@@ -3,7 +3,7 @@ title: Compensating Transaction Pattern
 description: Use the Compensating Transaction pattern to undo work when a step of an eventually consistent operation fails in distributed systems.
 ms.author: pnp
 author: claytonsiemens77
-ms.date: 04/16/2026
+ms.date: 09/02/2026
 ms.topic: design-pattern
 ms.subservice: cloud-fundamentals
 ---
@@ -136,7 +136,7 @@ Use managed identities and Microsoft Entra ID-based authorization between compon
 
 - [Data considerations for microservices](../microservices/design/data-considerations.md): Learn why eventual consistency and partial failure are inherent in distributed systems. The Compensating Transaction pattern provides a concrete mechanism to handle those failures when operations span multiple services.
 
-- [Transactional Outbox pattern with Azure Cosmos DB](../databases/guide/transactional-out-box-cosmos.md): Use this pattern when compensating transactions need to publish events or commands reliably. It helps ensure that state changes and messages are recorded atomically, which prevents message loss.
+- [Transactional Outbox pattern with Azure Cosmos DB](../databases/guide/transactional-out-box-cosmos.md): Use this pattern when compensating transactions need to publish events or commands reliably. It helps ensure that state changes and messages are recorded atomically, which prevents message loss. Separately, if your messaging system supports transactional messaging, you can use it to atomically commit related messaging operations; for example, [Azure Service Bus supports transactional messaging](https://learn.microsoft.com/azure/service-bus-messaging/service-bus-transactions).
 
 - [Design for self-healing](../guide/design-principles/self-healing.md): Use compensating transactions as part of a self-healing approach for your applications.
 
