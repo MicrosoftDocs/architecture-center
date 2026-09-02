@@ -8,7 +8,7 @@ ms.topic: reference-architecture
 ms.subservice: reference-architecture
 ---
 
-<!-- cSpell:ignore fullheight netapp gluster cyclecloud hpcpack alces slurm mdcs cntk -->
+<!-- cSpell:ignore fullheight netapp gluster cyclecloud hpcpack alces slurm mdcs -->
 
 # High-performance computing (HPC) on Azure
 
@@ -290,7 +290,8 @@ Run custom or commercial HPC applications in Azure. Several examples in this sec
 
 ### AI and deep learning
 
-- [Microsoft Cognitive Toolkit](/cognitive-toolkit/cntk-on-azure)
+- [Train PyTorch models at scale with Azure Machine Learning](/azure/machine-learning/how-to-train-pytorch)
+- [Train TensorFlow models at scale with Azure Machine Learning](/azure/machine-learning/how-to-train-tensorflow)
 
 ### MPI providers
 
