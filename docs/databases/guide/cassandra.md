@@ -43,7 +43,7 @@ Cassandra nodes make heavy use of the network to send and receive data from the 
 
 We recommended enabling [Accelerated Networking](/azure/virtual-network/create-virtual-machine-accelerated-networking) on the NIC of the Cassandra node and on VMs running client applications accessing Cassandra.
 
-Accelerated Networking requires a modern Linux distribution with the latest drivers, such as Cent OS 7.5+ or Ubuntu 16.x/18.x. For more information, see [Create a Linux virtual machine with Accelerated Networking](/azure/virtual-network/create-virtual-machine-accelerated-networking#confirm-that-accelerated-networking-is-enabled).
+Accelerated Networking requires a supported Linux distribution with the latest drivers. For more information, see [Create a Linux virtual machine with Accelerated Networking](/azure/virtual-network/create-virtual-machine-accelerated-networking#confirm-that-accelerated-networking-is-enabled).
 
 ## Azure VM data disk caching
 
@@ -83,7 +83,7 @@ Based on our tests, Cassandra on CentOS 7.x might have *lower* write performance
 
 ## Measure baseline VM performance
 
-After deploying the VMs for the Cassandra ring, run a few synthetic tests to establish baseline network and disk performance. Use these tests to confirm that performance is in line with expectations, based on the [VM size](/azure/virtual-machines/sizes/overview).
+After you deploy the VMs for the Cassandra ring, run a few synthetic tests to establish baseline network and disk performance. Use these tests to confirm that performance is in line with expectations, based on the [VM size](/azure/virtual-machines/sizes/overview).
 
 Later, when you run the actual workload, knowing the performance baseline makes it easier to investigate potential bottlenecks. For example, knowing the baseline performance for network egress on the VM can help to rule out network as a bottleneck.
 
