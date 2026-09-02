@@ -533,6 +533,8 @@ items:
           items:
           - name: Secure research for regulated data
             href: ai-ml/architecture/secure-compute-for-research.yml
+        - name: AI inferencing with Silk Virtual SAN
+          href: ai-ml/architecture/ai-inferencing-on-azure-iaas.yml
       - name: Guides
         items: 
         - name: Dynamic AI agents at scale pattern
