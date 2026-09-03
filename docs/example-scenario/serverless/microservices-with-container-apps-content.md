@@ -199,6 +199,8 @@ For more information about network topology options, including private endpoint 
 
 - Use one dedicated, user-assigned managed identity for Container Registry access. Container Apps supports using a different managed identity for workload operation than for container registry access. This approach provides granular access control. If your workload has multiple Container Apps environments, don't share the identity across instances.
 
+  Configure [assignment restrictions](/entra/identity/managed-identities-azure-resources/managed-identities-assignment-restriction) on this identity to allow assignment only to `Microsoft.App` source resources. Set the [isolation scope](/entra/identity/managed-identities-azure-resources/managed-identities-isolation-scope) to `Regional`, and create a separate identity for each region. Together, these controls block assignment to other source resource providers and to `Microsoft.App` source resources in other regions.
+
 - Use system-assigned managed identities for workloads, to tie the identity life cycle to the workload component life cycle.
 
 #### More security recommendations
