@@ -484,6 +484,8 @@ For example, Key Vault extensions are installed on VMs, which boot up the VMs wi
 
 The baseline architecture uses a mix of system-assigned and user-assigned managed identities. These identities are required to use Microsoft Entra ID for authorization purposes when accessing other Azure resources.
 
+For each user-assigned managed identity, configure [assignment restrictions](/entra/identity/managed-identities-azure-resources/managed-identities-assignment-restriction) (preview) to allow only the intended source resource types: `Microsoft.Network/applicationGateways` for the Application Gateway identity and `Microsoft.Compute/virtualMachineScaleSets` for the front-end and back-end VM identities. Set the [isolation scope](/entra/identity/managed-identities-azure-resources/managed-identities-isolation-scope) to `Regional`, and create a separate set of identities for each deployment region.
+
 > Refer to Well-Architected Framework: [SE:05 - Recommendations for identity and access management](/azure/well-architected/security/identity-access).
 
 #### Network controls
