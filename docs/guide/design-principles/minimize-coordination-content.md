@@ -46,6 +46,16 @@ Azure SQL Database and SQL Server support optimistic concurrency through [snapsh
 
 **Use leader election for coordination.** In cases where you need to coordinate operations, make sure the coordinator does not become a single point of failure in the application. Using the [Leader Election pattern][leader-election], one instance is the leader at any time, and acts as the coordinator. If the leader fails, a new instance is elected to be the leader.
 
+## Handle coordination between occasionally connected clients
+
+Eventual consistency alone isn't sufficient when disconnected clients consume a shared resource that has a fixed limit, such as seats for an event. Multiple clients can act on the same apparent capacity, and synchronizing their records later can't undo the overallocation of that resource, such as admitting more people than an event venue supports. Here are some coordination recommendations to use in this scenario:
+
+- **Partition the quota, not just the data.** Before a client disconnects, assign it an exclusive reservation from the available capacity. The client can approve offline operations only while its reservation has capacity. Ensure that centrally consumed capacity, centrally available capacity, and the full amount of all outstanding reservations don't exceed the global limit. When the client reconnects, reconcile what it consumed and return unused capacity.
+
+- **Decide who absorbs the problem.** If clients must act offline without exclusive reservations, choose one of three business outcomes: keep a hard capacity buffer sized for the maximum aggregate offline demand, make capacity-changing operations read-only while disconnected, or accept occasional oversubscription.
+
+- **Surface reconciliation failures to an operator.** Put conflicts that your workload can't resolve automatically into a review queue. Use the [Compensating Transaction pattern][compensating-transaction] for actions that the system can reverse. Route irreversible or ambiguous outcomes to an operator who can apply the defined business policy.
+
 <!-- links -->
 
 [big-compute]: ../architecture-styles/big-compute.md

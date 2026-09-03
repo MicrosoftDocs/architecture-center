@@ -56,6 +56,8 @@ The following AI solution ideas demonstrate implementation patterns and possibil
 
 The following production-ready architectures demonstrate end-to-end AI solutions that you can deploy and customize.
 
+- [AI inferencing with Silk virtual SAN](/azure/architecture/ai-ml/architecture/ai-inferencing-on-azure-iaas): Uses a Silk Echo copy of the production database to isolate real-time AI inferencing from transactional workloads on Azure IaaS.
+
 #### Chat with data
 
 - [Basic Microsoft Foundry chat reference architecture](/azure/architecture/ai-ml/architecture/basic-microsoft-foundry-chat): A basic RAG chat architecture that uses Microsoft Foundry and Azure OpenAI.
