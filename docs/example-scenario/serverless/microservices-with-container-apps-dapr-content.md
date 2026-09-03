@@ -1,22 +1,22 @@
 This article describes a solution for running an order management system that has 10 microservices on Azure Container Apps. The solution also uses microservices best practices through Distributed Application Runtime (Dapr) and event-driven scaling with Kubernetes event-driven autoscaling (KEDA).
 
-*Dapr and Traefik are trademarks of their respective companies. No endorsement is implied by the use of these marks.*
+*Dapr is a trademark of its respective company. No endorsement is implied by the use of this mark.*
 
 ## Architecture
 
 :::image type="complex" border="false" source="./media/microservices-with-container-apps-dapr.svg" alt-text="Diagram that shows an order management system with microservices on Container Apps." lightbox="./media/microservices-with-container-apps-dapr.svg":::
-   The image shows an order management system with microservices on Container Apps. It contains steps 1 through 9. An arrow points from the user icon to Traefik. Two arrows point from Traefik to the accounting service section and the Makeline service section. A double-sided arrow points from Traefik to the UI section. An arrow points from the virtual customer section to the order service section. An arrow points from the order service section to the Publish-subscribe topic section. Four arrows point from the Publish-subscribe topic section: to the accounting service section, to the receipt service section, to the loyalty service section, and to the Makeline service section. An arrow points from the accounting service section to Azure SQL Database via the Entity Framework. A line points from the receipt service section to Azure Blob Storage binding. A line points from the loyalty service section to Azure Cosmos DB. A line points from the Makeline service section to Azure Managed Redis. And a double-sided arrow points from the Makeline service section to the virtual worker section.
+   The image shows an order management system with microservices on Container Apps. It contains steps 1 through 9. An arrow points from the user icon to managed ingress. Two arrows point from managed ingress to the accounting service section and the Makeline service section. A double-sided arrow points from managed ingress to the UI section. An arrow points from the virtual customer section to the order service section. An arrow points from the order service section to the Publish-subscribe topic section. Four arrows point from the Publish-subscribe topic section: to the accounting service section, to the receipt service section, to the loyalty service section, and to the Makeline service section. An arrow points from the accounting service section to Azure SQL Database via the Entity Framework. A line points from the receipt service section to Azure Blob Storage binding. A line points from the loyalty service section to Azure Cosmos DB. A line points from the Makeline service section to Azure Managed Redis. And a double-sided arrow points from the Makeline service section to the virtual worker section.
 :::image-end:::
 
 *Download a [PowerPoint file](https://arch-center.azureedge.net/microservices-with-container-apps-dapr.pptx) of this architecture.*
 
 ### Data flow
 
-This solution describes a fictitious Red Dog order management system and its supporting Azure infrastructure. The architecture is composed of a single Container Apps environment that hosts 10 .NET microservice applications. The solution uses the Dapr SDK to integrate with Azure resources via publish-subscribe, state, and binding building blocks. The services also use KEDA scale rules to allow for scaling based on event triggers and scale-to-zero scenarios.
+This solution describes a fictitious Red Dog order management system and its supporting Azure infrastructure. The architecture is composed of a single Container Apps environment that hosts 10 .NET microservice applications. Azure Container Apps uses a managed Envoy-based ingress layer to route external traffic from users to the publicly exposed UI. Internal service-to-service calls don't pass through this ingress. Instead, they use Dapr service invocation and Container Apps service discovery within the environment. The solution uses the Dapr SDK to integrate with Azure resources via publish-subscribe, state, and binding building blocks. The services also use KEDA scale rules to allow for scaling based on event triggers and scale-to-zero scenarios.
 
 The following data flow corresponds to the previous diagram:
 
-1. **Traefik:** The basic proxy for routing user requests from the UI to the accounting and Makeline services for the interactive dashboard.
+1. **Managed ingress:** Azure Container Apps provides a managed Envoy-based ingress layer for routing user requests to the UI and API endpoints that support the interactive dashboard.
 
 1. **UI:** A dashboard that shows real-time order and aggregated sales data for the Red Dog order management system.
 
@@ -36,8 +36,7 @@ The following data flow corresponds to the previous diagram:
 
 | Service | Ingress | Dapr components | KEDA scale rules |
 | :---| :---| :---| :---|
-| Traefik | External | Dapr not enabled | HTTP |
-| UI | Internal | Dapr not enabled | HTTP |
+| UI | External | Dapr not enabled | HTTP |
 | Virtual customer | None | Service-to-service invocation | N/A |
 | Order service | Internal | Publish-subscribe: Azure Service Bus | HTTP |
 | Accounting service | Internal | Publish-subscribe: Service Bus | Service Bus topic length, HTTP |
@@ -47,7 +46,7 @@ The following data flow corresponds to the previous diagram:
 | Virtual worker | None | Service-to-service invocation <br> Binding: Cron | N/A |
 
 > [!NOTE]
-> You can also implement Bootstrap in a container app. However, this service runs one time to perform the database creation and then scales to zero after it creates the necessary objects in Azure SQL Database.
+> Implement Bootstrap as a manual [Azure Container Apps job](/azure/container-apps/jobs). The Bootstrap job runs one time to create the necessary objects in Azure SQL Database and then stops.
 
 ### Components
 
@@ -63,15 +62,13 @@ The following data flow corresponds to the previous diagram:
 
 - [Service Bus](/azure/well-architected/service-guides/azure-service-bus) is a fully managed enterprise message broker that has queues and publish-subscribe topics. In this architecture, you use Service Bus for the Dapr publish-subscribe component implementation. Multiple services use this component. The order service publishes messages on the bus, and the Makeline, accounting, loyalty, and receipt services subscribe to these messages.
 
-- [Container Apps](/azure/well-architected/service-guides/azure-container-apps) is a fully managed, serverless container service used to build and deploy modern apps at scale. In this architecture, you host all 10 microservices on Container Apps and deploy them into a single Container Apps environment. This environment serves as a secure boundary around the system.
+- [Container Apps](/azure/well-architected/service-guides/azure-container-apps) is a fully managed, serverless container service used to build and deploy modern apps at scale. In this architecture, you host all of the microservices on Container Apps and deploy them into a single Container Apps environment. This environment serves as a secure boundary around the system and provides managed Envoy-based ingress for external routing to the UI.
 
 - [SQL Database](/azure/well-architected/service-guides/azure-sql-database) is an intelligent, scalable, relational database service built for the cloud. In this architecture, it serves as the data store for the accounting service, which uses [Entity Framework Core](/ef/core/) to interface with the database. The bootstrapper service is responsible for setting up the SQL tables in the database. Then it runs one time before it establishes the connection to the accounting service.
 
-- [Traefik](https://traefik.io/traefik) is a reverse proxy and load balancer used to route network traffic to microservices. In this architecture, use Traefik's dynamic configuration feature to do path-based routing from the UI, which is a Vue.js single-page application. This configuration also enables direct API calls to the back-end services for testing.
-
 ### Alternatives
 
-In this architecture, you deploy a Traefik proxy to enable path-based routing for the Vue.js API. There are many alternative open-source proxies that you can use for this purpose. Two other common projects are [NGINX](https://www.nginx.com) and [HAProxy](https://www.haproxy.com).
+In this architecture, the default routing path uses the built-in Container Apps ingress layer, which is implemented through a managed Envoy proxy. If a workload requires custom middleware or protocol behavior beyond the native ingress features, dedicated proxies such as [NGINX](https://www.nginx.com) or [HAProxy](https://www.haproxy.com) are alternatives.
 
 All Azure infrastructure, except for SQL Database, uses Dapr components for interoperability. One benefit of Dapr is that you can swap all these components by changing the container apps deployment configuration. In this scenario, Service Bus, Azure Cosmos DB, Azure Managed Redis, and Blob Storage showcase some of the more than 70 available Dapr components. A list of alternative [publish-subscribe brokers](https://docs.dapr.io/reference/components-reference/supported-pubsub), [state stores](https://docs.dapr.io/reference/components-reference/supported-state-stores), and [output bindings](https://docs.dapr.io/reference/components-reference/supported-bindings) are available in the Dapr docs.
 
@@ -79,13 +76,13 @@ All Azure infrastructure, except for SQL Database, uses Dapr components for inte
 
 Microservices are a widely adopted architectural style. They provide benefits such as scalability, agility, and independent deployments. You can use containers as a mechanism to deploy microservices applications, and then use a container orchestrator like Kubernetes to simplify operations. There are many factors to consider for large-scale microservices architectures. Typically, the infrastructure platform requires a significant understanding of complex technologies like container orchestrators.
 
-[Container Apps](/azure/container-apps/overview) is a fully managed serverless container service for running modern applications at scale. It enables you to deploy containerized apps through an abstraction of the underlying platform. By using this method, you don't need to manage a complicated infrastructure. 
+[Container Apps](/azure/container-apps/overview) is a fully managed serverless container service for running modern applications at scale. It enables you to deploy containerized apps through an abstraction of the underlying platform. By using this method, you don't need to manage a complicated infrastructure.
 
 This architecture uses Container Apps integration with a managed version of the [Dapr](https://dapr.io/). Dapr is an open-source project that helps developers overcome the inherent challenges in distributed applications, like state management and service invocation. 
 
 Container Apps also provides a managed version of [KEDA](https://keda.sh/). KEDA lets your containers scale automatically based on incoming events from external services like Service Bus and Azure Managed Redis.
 
-You can also enable HTTPS ingress in Container Apps without creating more Azure networking resources. You can use [Envoy proxy](https://www.envoyproxy.io/), which also allows traffic splitting scenarios.
+Container Apps also provides managed Envoy-based ingress, so you can expose HTTP endpoints, use custom domains and managed TLS, and support traffic-splitting scenarios without deploying a separate proxy tier.
 
 For more information, see [Compare Container Apps with other Azure container options](/azure/container-apps/compare-options).
 
@@ -110,6 +107,8 @@ These considerations implement the pillars of the Azure Well-Architected Framewo
 Reliability helps ensure that your application can meet the commitments that you make to your customers. For more information, see [Design review checklist for Reliability](/azure/well-architected/reliability/checklist).
 
 Container Apps is built on a Kubernetes foundation, which operates as the underlying infrastructure. Resiliency mechanisms are built into Kubernetes that monitor and restart containers, or pods, if there are problems. The resiliency mechanisms include a built-in load balancer that distributes traffic across multiple replicas of each container app. This redundancy allows the system to remain operational, even if one replica becomes unavailable.
+
+Container Apps also provides [service discovery and resiliency policies](/azure/container-apps/service-discovery-resiliency) that you can use to apply timeouts and circuit breaker behavior between services. For Dapr-enabled services, configure app health settings so that unhealthy replicas are detected earlier and traffic is shifted away from degraded instances before failures cascade to downstream components.
 
 ### Security
 
@@ -139,7 +138,9 @@ Use the [Azure pricing calculator](https://azure.microsoft.com/pricing/calculato
 
 Operational Excellence covers the operations processes that deploy an application and keep it running in production. For more information, see [Design review checklist for Operational Excellence](/azure/well-architected/operational-excellence/checklist).
 
-You can use Azure Monitor and Application Insights to monitor Container Apps. You can view container logs by navigating in the portal to the **Logs** pane in each container app and then running the following Kusto query. This example shows logs for the Makeline service app.
+Dapr adds a portability layer between your services and their backing infrastructure. This layer provides value when you expect the backing services to change or when you want to swap a component, such as a state store or message broker, through configuration rather than code. Dapr also adds a dependency and a level of indirection. When you have a fairly stable set of Azure-native endpoints that you don't expect to replace, calling the native Azure SDKs directly is a reasonable alternative that removes the Dapr abstraction. Weigh the flexibility of Dapr components against the operational simplicity of direct SDK calls.
+
+You can use Azure Monitor and Application Insights to monitor Container Apps. For distributed applications, use an OpenTelemetry-based pipeline to send traces, logs, and metrics to Azure Monitor and Application Insights. You can also view container logs by navigating in the portal to the **Logs** pane in each container app and then running the following Kusto query. This example shows logs for the Makeline service app.
 
 ```kusto
 ContainerAppConsoleLogs_CL |
@@ -160,9 +161,15 @@ For more information, see [Monitor an app in Container Apps](/azure/container-ap
 
 Performance Efficiency refers to your workload's ability to scale to meet user demands efficiently. For more information, see [Design review checklist for Performance Efficiency](/azure/well-architected/performance-efficiency/checklist).
 
-This solution relies heavily on the KEDA implementation in Container Apps for event-driven scaling. When you deploy the virtual customer service, it continuously places orders. This scaling causes the order service to scale up via the HTTP [KEDA scaler](https://keda.sh/docs/latest/scalers). As the order service publishes the orders on the service bus, the service bus KEDA scalers cause the accounting, receipt, Makeline, and loyalty services to scale up. The UI and Traefik container apps also configure HTTP KEDA scalers so that the apps scale as more users access the dashboard.
+This solution relies heavily on the KEDA implementation in Container Apps for event-driven scaling. When you deploy the virtual customer service, it continuously places orders. This scaling action causes the order service to scale up through an HTTP scale rule. As the order service publishes the orders on the service bus, Service Bus scale rules cause the accounting, receipt, Makeline, and loyalty services to scale up. The UI and Makeline service can also use HTTP scale rules so that the apps scale as more users access the dashboard.
 
 When the virtual customer isn't running, all microservices in this solution scale to zero except for virtual worker and Makeline services. Virtual worker doesn't scale down because it continuously checks for order fulfillment. For more information, see [Set scaling rules in Container Apps](/azure/container-apps/scale-app).
+
+#### Workload profiles
+
+Use workload profiles to separate services that need warm capacity from services that benefit most from serverless elasticity. In this diagram, the Order service and Accounting service are shown on a Dedicated profile because they handle transactional work and support live business metrics. The Receipt service and Loyalty service are shown on a Consumption profile because they're event-driven services that can take better advantage of serverless elasticity.
+
+KEDA-based scale rules work across both Consumption and Dedicated workload profiles. Consumption is best for services that can scale to zero, while Dedicated is better for services that still benefit from autoscaling but need warm capacity or steadier performance.
 
 ## Contributors
 

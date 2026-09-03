@@ -609,6 +609,6 @@ Principal authors:
 ## Related resources
 
 - [Idempotent Consumer pattern](../../patterns/idempotent-consumer.md)
-- [Use tactical DDD to design microservices](../../microservices/model/tactical-ddd.yml)
+- [Use tactical DDD to design microservices](../../microservices/model/tactical-domain-driven-design.md)
 - [CQRS pattern](../../patterns/cqrs.md)
 - [Materialized View pattern](../../patterns/materialized-view.yml)

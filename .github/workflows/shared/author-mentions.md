@@ -88,6 +88,7 @@ safe-outputs:
       - jtracey93
       - juanlldc
       - juanosorioms
+      - juliays
       - justinha
       - jyravi
       - karenf-Learn
@@ -95,6 +96,7 @@ safe-outputs:
       - katriendg
       - khushal08
       - kiote
+      - koudaiii
       - kriation
       - lanicolas
       - lapate
@@ -160,7 +162,9 @@ safe-outputs:
       - shubhamsangal-msft
       - simonesavi
       - simonthurman
+      - sjuratov
       - slavatrofimov
+      - soderholmd
       - spelluru
       - splitfinity81
       - Spucelik
