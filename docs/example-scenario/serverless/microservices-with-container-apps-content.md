@@ -201,7 +201,7 @@ For more information about network topology options, including private endpoint 
 
 - Use [Assignment restrictions](/entra/identity/managed-identities-azure-resources/managed-identities-assignment-restriction). Allow only `Microsoft.App/containerApps` for Container App identities and only `Microsoft.App/jobs` for job identities. Set the [isolation scope](/entra/identity/managed-identities-azure-resources/managed-identities-isolation-scope) to `Regional`, and create separate identities for each resource type in each region.
 
-- Use a system-assigned managed identity for a workload component that requires a unique set of permissions, to tie the identity life cycle to the workload component life cycle.
+- Use system-assigned managed identities for workloads, to tie the identity life cycle to the workload component life cycle.
 
 #### More security recommendations
 
