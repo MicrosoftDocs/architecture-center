@@ -197,11 +197,11 @@ For more information about network topology options, including private endpoint 
 
 - Container Apps supports Microsoft Entra managed identities that enable your app to authenticate itself to other resources protected by Microsoft Entra ID, such as Key Vault, without managing credentials in your container app. A container app can use system-assigned identities, user-assigned identities, or both. For services that don't support Microsoft Entra ID authentication, store secrets in Key Vault and use a managed identity to access the secrets.
 
-- Use one dedicated, user-assigned managed identity for Container Registry access. Container Apps supports using a different managed identity for workload operation than for container registry access. This approach provides granular access control. If your workload has multiple Container Apps environments, don't share the identity across instances.
+- Use a dedicated, user-assigned managed identity for Container Registry access. Don't reuse it for workload operations. For workload identities, share a user-assigned identity only between replicated Container Apps or jobs that perform the same task and require the same permissions. Use separate identities for Container Apps and jobs, and for components that require different permissions. This approach provides granular access control. If your workload has multiple Container Apps environments, don't share an identity across instances.
 
-  If you deploy Container Apps jobs, use separate user-assigned managed identities for Container Apps and jobs. Configure [assignment restrictions](/entra/identity/managed-identities-azure-resources/managed-identities-assignment-restriction) to allow only `Microsoft.App/containerApps` for Container App identities and only `Microsoft.App/jobs` for job identities. Set the [isolation scope](/entra/identity/managed-identities-azure-resources/managed-identities-isolation-scope) to `Regional`, and create a separate identity for each resource type in each region.
+- [Assignment restrictions](/entra/identity/managed-identities-azure-resources/managed-identities-assignment-restriction) are in preview. In production, use [Azure RBAC](/azure/role-based-access-control/overview) to limit who can assign user-assigned identities. When you use assignment restrictions, allow only `Microsoft.App/containerApps` for Container App identities and only `Microsoft.App/jobs` for job identities. Set the [isolation scope](/entra/identity/managed-identities-azure-resources/managed-identities-isolation-scope) to `Regional`, and create separate identities for each resource type in each region.
 
-- Use system-assigned managed identities for workloads, to tie the identity life cycle to the workload component life cycle.
+- Use a system-assigned managed identity for a workload component that requires a unique set of permissions, to tie the identity life cycle to the workload component life cycle.
 
 #### More security recommendations
 
