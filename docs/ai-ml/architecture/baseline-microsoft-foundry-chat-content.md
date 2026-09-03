@@ -361,7 +361,10 @@ This architecture primarily uses system-assigned managed identities for service-
   - The Foundry resource
   - Each Foundry project
   - The web application
+  - Application Gateway
   - Any custom orchestrator or integration code
+
+- [Assignment restrictions](/entra/identity/managed-identities-azure-resources/managed-identities-assignment-restriction) are in preview. In production, use [Azure RBAC](/azure/role-based-access-control/overview) to limit who can assign user-assigned identities. When you use assignment restrictions, allow only `Microsoft.CognitiveServices/accounts/projects` for Foundry project identities, `Microsoft.Web/sites` for web application identities, and `Microsoft.Network/applicationGateways` for Application Gateway identities. Set the [isolation scope](/entra/identity/managed-identities-azure-resources/managed-identities-isolation-scope) to `Regional`, and create a separate set of identities for each deployment region.
 
 - Assign an identity to an Azure resource only if that resource must authenticate as a client to another Azure service.
 
