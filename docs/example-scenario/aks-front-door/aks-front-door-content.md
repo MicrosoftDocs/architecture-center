@@ -145,7 +145,7 @@ The following steps describe the message flow for a request that an external cli
 
   You can use managed service for Prometheus to collect and analyze metrics at scale by using a Prometheus-compatible monitoring solution that's based on [Prometheus](https://prometheus.io/). You can use the [Prometheus query language (PromQL)](https://prometheus.io/docs/prometheus/latest/querying/basics/) to analyze and alert on the performance of monitored infrastructure and workloads without having to operate the underlying infrastructure.
 
-- An [Azure Managed Grafana](/azure/managed-grafana/overview) instance is used to visualize the [Prometheus metrics](/azure/azure-monitor/containers/kubernetes-monitoring-enable#enable-prometheus-metrics-on-an-aks-cluster) that the Bicep module-deployed [AKS](/azure/aks/what-is-aks) cluster generates. You can connect your [Monitor workspace](/azure/azure-monitor/metrics/azure-monitor-workspace-overview) to [Azure Managed Grafana](/azure/managed-grafana/overview) and use a set of built-in and custom Grafana dashboards to visualize Prometheus metrics. Grafana Enterprise supports Azure Managed Grafana, which provides extensible data visualizations. You can quickly and easily deploy Grafana dashboards that have built-in high availability. You can also use Azure security measures to control access to the dashboards.
+- Use an [Azure Managed Grafana](/azure/managed-grafana/overview) instance to visualize the [Prometheus metrics](/azure/azure-monitor/containers/kubernetes-monitoring-enable#enable-prometheus-metrics-on-an-aks-cluster) that the Bicep module-deployed [AKS](/azure/aks/what-is-aks) cluster generates. You can connect your [Monitor workspace](/azure/azure-monitor/metrics/azure-monitor-workspace-overview) to [Azure Managed Grafana](/azure/managed-grafana/overview) and use a set of built-in and custom Grafana dashboards to visualize Prometheus metrics. Grafana Enterprise supports Azure Managed Grafana, which provides extensible data visualizations. You can quickly and easily deploy Grafana dashboards that have built-in high availability. Use Azure security measures to control access to the dashboards.
 
 - An [Azure Monitor Logs](/azure/azure-monitor/logs/log-analytics-workspace-overview) workspace is used to collect the diagnostic logs and metrics from Azure resources, which include:
 
@@ -298,6 +298,7 @@ Operational Excellence covers the operations processes that deploy an applicatio
 #### Monitoring
 
 - Use [container insights](/azure/azure-monitor/containers/kubernetes-monitoring-overview) to monitor the health status of the AKS cluster and workloads.
+
 - Use [managed service for Prometheus](/azure/azure-monitor/metrics/prometheus-metrics-overview) to collect and analyze metrics at scale by using a Prometheus-compatible monitoring solution that's based on the [Prometheus](https://prometheus.io/) project from Cloud Native Computing Foundation.
 
 - Connect your managed service for Prometheus to an [Azure Managed Grafana](/azure/managed-grafana/overview) instance to use it as a data source in a Grafana dashboard. You then have access to multiple prebuilt dashboards that use Prometheus metrics, and you can create custom dashboards.

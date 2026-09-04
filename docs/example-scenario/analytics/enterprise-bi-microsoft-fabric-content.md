@@ -72,7 +72,7 @@ Microsoft Entra ID authenticates users who connect to Power BI dashboards and ap
 
 When you run an automated ETL or ELT process, you should load only the data that changed since the previous run. This process is known as an [incremental load](/fabric/data-factory/tutorial-incremental-copy-data-warehouse-lakehouse). In contrast, a full load loads all the data. To perform an incremental load, determine how to identify the changed data. You can use a *high water mark* value approach, which tracks the latest value of a date-time column or a unique integer column in the source table.
 
-You can use [temporal tables](/sql/relational-databases/tables/temporal/overview) in SQL Server. Temporal tables are system-versioned tables that store data-change history. The database engine automatically records the history of every change in a separate history table. To query the historical data, you can add a `FOR SYSTEM_TIME` clause to a query. Internally, the database engine queries the history table, but it's transparent to the application.
+You can use [temporal tables](/sql/relational-databases/tables/temporal/overview) in SQL Server. Temporal tables are system-versioned tables that store data-change history. The database engine automatically records the history of every change in a separate history table. To query the historical data, add a `FOR SYSTEM_TIME` clause to a query. Internally, the database engine queries the history table, but it's transparent to the application.
 
 Temporal tables support dimension data, which can change over time. Fact tables typically represent immutable transactions, such as a sale, where keeping system version history isn't meaningful. Instead, transactions typically have a column that represents the transaction date. The column can be used as the watermark value. For example, in the AdventureWorks data warehouse, the `SalesLT.*` tables have a `LastModified` field.
 
@@ -171,7 +171,7 @@ These considerations implement the pillars of the Azure Well-Architected Framewo
 
 Reliability helps ensure that your application can meet the commitments that you make to your customers. For more information, see [Design review checklist for Reliability](/azure/well-architected/reliability/checklist).
 
-The article [Reliability](/fabric/security/reliability-fabric) explains how Fabric supports reliability, including regional resiliency through availability zones, along with cross-region recovery and business continuity. Fabric provides a disaster recovery switch on the capacity settings page. It's available where Azure regional pairings align with the Fabric service presence. When the disaster recovery capacity setting is turned on, cross-region replication is enabled as a [disaster recovery capability](/fabric/security/reliability-fabric#disaster-recovery-capacity-setting) for OneLake data.
+The article [Reliability](/fabric/security/reliability-fabric) explains how Fabric supports reliability, including regional resilience through availability zones, along with cross-region recovery and business continuity. Fabric provides a disaster recovery switch on the capacity settings page. It's available where Azure regional pairings align with the Fabric service presence. When the disaster recovery capacity setting is turned on, cross-region replication is enabled as a [disaster recovery capability](/fabric/security/reliability-fabric#disaster-recovery-capacity-setting) for OneLake data.
 
 ### Security
 
