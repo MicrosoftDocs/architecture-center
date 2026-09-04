@@ -31,7 +31,7 @@ In editorial-only review mode, this section takes precedence over the normal Cop
 - Review only the lines changed in this pull request. Don't evaluate the whole article.
 - Limit comments to serious copyediting concerns that the PR author (a professional copyeditor) should address in this pull request.
 - Flag wording that accidentally changes or obscures the apparent meaning of the source text. Frame the comment as preserving meaning, not as a technical or architectural correction.
-- Don't comment on factual or technical correctness, deprecations, architectural choices, missing guidance, component selection, alternatives, Well-Architected alignment, cost estimates, or reference implementations. Skip checks 1 through 10 below.
+- Don't comment on factual or technical correctness, deprecations, architectural choices, missing guidance, component selection, alternatives, Well-Architected alignment, cost estimates, or reference implementations. Skip checks 1 through 10 in the following sections.
 - Don't ask the copy editor to expand the scope of the pull request.
 - Prefer an inline suggestion when you can provide the exact replacement. Don't manufacture a comment when the changed text has no actionable copyediting issue.
 
