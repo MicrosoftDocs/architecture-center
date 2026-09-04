@@ -40,9 +40,9 @@ The following workflow corresponds to the previous diagram.
 
 - [Fabric Data Warehouse](/fabric/data-warehouse/data-warehousing) is a SaaS offering that hosts data warehouse workloads for large datasets. In this architecture, Fabric Data Warehouse serves as the final store for dimensional datasets and supports analytics and reporting.
 
-- [Power BI](/power-bi/enterprise/service-premium-what-is) is a business intelligence tool hosted on Fabric compute. It presents and visualizes data in this scenario, enabling business users to interact with dashboards and reports based on data from Fabric Data Warehouse and other sources.
+- [Power BI](/fabric/enterprise/powerbi/service-premium-what-is) is a business intelligence tool hosted on Fabric compute. It presents and visualizes data in this scenario, enabling business users to interact with dashboards and reports based on data from Fabric Data Warehouse and other sources.
 
-- [Microsoft Entra ID](/entra/fundamentals/whatis) is a multicloud identity and network solution suite that supports the authentication and authorization flow. In this architecture, Microsoft Entra ID provides secure access for users who connect to Power BI and Fabric resources.
+- [Microsoft Entra ID](/entra/fundamentals/what-is-entra) is a multicloud identity and network solution suite that supports the authentication and authorization flow. In this architecture, Microsoft Entra ID provides secure access for users who connect to Power BI and Fabric resources.
 
 ## Scenario details
 
@@ -72,7 +72,7 @@ Microsoft Entra ID authenticates users who connect to Power BI dashboards and ap
 
 When you run an automated ETL or ELT process, you should load only the data that changed since the previous run. This process is known as an [incremental load](/fabric/data-factory/tutorial-incremental-copy-data-warehouse-lakehouse). In contrast, a full load loads all the data. To perform an incremental load, determine how to identify the changed data. You can use a *high water mark* value approach, which tracks the latest value of a date-time column or a unique integer column in the source table.
 
-You can use [temporal tables](/sql/relational-databases/tables/temporal-tables) in SQL Server. Temporal tables are system-versioned tables that store data-change history. The database engine automatically records the history of every change in a separate history table. To query the historical data, you can add a `FOR SYSTEM_TIME` clause to a query. Internally, the database engine queries the history table, but it's transparent to the application.
+You can use [temporal tables](/sql/relational-databases/tables/temporal/overview) in SQL Server. Temporal tables are system-versioned tables that store data-change history. The database engine automatically records the history of every change in a separate history table. To query the historical data, you can add a `FOR SYSTEM_TIME` clause to a query. Internally, the database engine queries the history table, but it's transparent to the application.
 
 Temporal tables support dimension data, which can change over time. Fact tables typically represent immutable transactions, such as a sale, where keeping system version history isn't meaningful. Instead, transactions typically have a column that represents the transaction date. The column can be used as the watermark value. For example, in the AdventureWorks data warehouse, the `SalesLT.*` tables have a `LastModified` field.
 
@@ -151,7 +151,7 @@ In this case, the users want full access to the most recent data with no delays 
 
 :::image type="content" source="./media/adventure-works-dashboard.png" alt-text="The screenshot shows a Power BI dashboard with sales metrics, trend charts, filters, and a detailed data table." lightbox="./media/adventure-works-dashboard.png":::
 
-Use [Power BI](/power-bi/enterprise/service-premium-gen2-what-is) to manage large models, paginated reports, and deployment pipelines. Take advantage of the built-in Azure Analysis Services endpoint. You can also have dedicated [capacity](/power-bi/admin/service-premium-what-is#capacities-and-skus) with a unique value proposition.
+Use [Power BI](/fabric/enterprise/powerbi/service-premium-what-is) to manage large models, paginated reports, and deployment pipelines. Take advantage of the built-in Azure Analysis Services endpoint. You can also have dedicated [capacity](/fabric/enterprise/powerbi/service-premium-what-is#capacities-and-skus) with a unique value proposition.
 
 When the BI model grows or dashboard complexity increases, you can switch to composite models and import parts of lookup tables via [hybrid tables](/power-bi/connect-data/service-dataset-modes-understand#hybrid-tables), and import preaggregated data. You can enable [query caching](/power-bi/connect-data/power-bi-query-caching) within Power BI for imported datasets and use [dual tables](/power-bi/transform-model/desktop-storage-mode) for the storage mode property.
 
@@ -171,7 +171,7 @@ These considerations implement the pillars of the Azure Well-Architected Framewo
 
 Reliability helps ensure that your application can meet the commitments that you make to your customers. For more information, see [Design review checklist for Reliability](/azure/well-architected/reliability/checklist).
 
-The article [Reliability](/azure/reliability/reliability-fabric) explains how Fabric supports reliability, including regional resiliency through availability zones, along with cross-region recovery and business continuity. Fabric provides a disaster recovery switch on the capacity settings page. It's available where Azure regional pairings align with the Fabric service presence. When the disaster recovery capacity setting is turned on, cross-region replication is enabled as a [disaster recovery capability](/azure/reliability/reliability-fabric#disaster-recovery-capacity-setting) for OneLake data.
+The article [Reliability](/fabric/security/reliability-fabric) explains how Fabric supports reliability, including regional resiliency through availability zones, along with cross-region recovery and business continuity. Fabric provides a disaster recovery switch on the capacity settings page. It's available where Azure regional pairings align with the Fabric service presence. When the disaster recovery capacity setting is turned on, cross-region replication is enabled as a [disaster recovery capability](/fabric/security/reliability-fabric#disaster-recovery-capacity-setting) for OneLake data.
 
 ### Security
 
@@ -250,7 +250,7 @@ To optimize OneLake costs, focus on managing storage volume by regularly deletin
 
 #### Power BI
 
-This scenario uses [Power BI workspaces](/power-bi/admin/service-premium-what-is) with built-in performance enhancements to accommodate demanding analytical needs. To optimize cost, implement [incremental refresh](/power-bi/connect-data/incremental-refresh-overview) for Import mode extraction. Implement [Direct Lake](/fabric/fundamentals/direct-lake-overview) mode for reporting on larger datasets when possible to reduce overall load on Fabric capacities.
+This scenario uses [Power BI workspaces](/fabric/enterprise/powerbi/service-premium-what-is) with built-in performance enhancements to accommodate demanding analytical needs. To optimize cost, implement [incremental refresh](/power-bi/connect-data/incremental-refresh-overview) for Import mode extraction. Implement [Direct Lake](/fabric/fundamentals/direct-lake-overview) mode for reporting on larger datasets when possible to reduce overall load on Fabric capacities.
 
 For more information, see [Power BI pricing](https://powerbi.microsoft.com/pricing).
 
@@ -279,7 +279,7 @@ Operational Excellence covers the operations processes that deploy an applicatio
 
 Performance Efficiency refers to your workload's ability to scale to meet user demands efficiently. For more information, see [Design review checklist for Performance Efficiency](/azure/well-architected/performance-efficiency/checklist).
 
-This article uses the [Fabric F64 capacity](/power-bi/enterprise/service-premium-what-is#capacities-and-skus) to demonstrate BI capabilities. Dedicated Power BI capacities in Fabric range from F64 to the maximum SKU size. For more information, see [Fabric pricing](https://azure.microsoft.com/pricing/details/microsoft-fabric/).
+This article uses the [Fabric F64 capacity](/fabric/enterprise/powerbi/service-premium-what-is#capacities-and-skus) to demonstrate BI capabilities. Dedicated Power BI capacities in Fabric range from F64 to the maximum SKU size. For more information, see [Fabric pricing](https://azure.microsoft.com/pricing/details/microsoft-fabric/).
 
 To determine how much capacity you need, take the following actions:
 
@@ -309,7 +309,7 @@ Other contributors:
 ## Next steps
 
 - [What is Power BI Premium?](/fabric/enterprise/powerbi/service-premium-what-is)
-- [What is Microsoft Entra ID?](/entra/fundamentals/whatis)
+- [What is Microsoft Entra ID?](/entra/fundamentals/what-is-entra)
 - [What is Fabric?](/fabric/fundamentals/microsoft-fabric-overview)
 - [What is Data Factory in Fabric?](/fabric/data-factory/data-factory-overview)
 - [What is Azure SQL?](/azure/azure-sql/azure-sql-iaas-vs-paas-what-is-overview)
