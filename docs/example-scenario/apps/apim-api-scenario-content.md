@@ -20,7 +20,7 @@ The following workflow corresponds to the previous diagram:
 
     - The security team allows traffic from the API Management instance to pass through the corporate firewall to the existing on-premises services [by using secure transport protocols](/azure/api-management/api-management-howto-manage-protocols-ciphers) like Hypertext Transfer Protocol Secure (HTTPS) over Transport Layer Security (TLS).
 
-    - The operations team allows inbound calls to the services only from the API Management instance. It meets this requirement by [adding the IP address of the API Management instance to the allow list](/azure/api-management/api-management-faq#how-can-i-secure-the-connection-between-the-api-management-gateway-and-my-backend-services) within the corporate network perimeter.
+    - The operations team allows inbound calls to the services only from the API Management instance. It meets this requirement by [adding the IP address of the API Management instance to the allow list](/azure/api-management/api-management-faq#how-can-i-secure-the-connection-between-the-api-management-gateway-and-my-backend-services-) within the corporate network perimeter.
 
     - A new module in the on-premises request pipeline for Hypertext Transfer Protocol (HTTP) services acts only on connections that originate externally. The pipeline validates [a certificate that API Management provides](/azure/api-management/api-management-howto-mutual-certificates).
 
@@ -30,7 +30,7 @@ The following workflow corresponds to the previous diagram:
 
     - You develop and publish the new API as an [Azure PaaS web API app](/azure/app-service/overview).
 
-    - You set up the new API by using the [settings for the Web Apps feature of Azure App Service](/azure/app-service/app-service-ip-restrictions) to accept only the [API Management virtual IP (VIP)](/azure/api-management/api-management-faq#how-can-i-secure-the-connection-between-the-api-management-gateway-and-my-backend-services).
+    - You set up the new API by using the [settings for the Web Apps feature of Azure App Service](/azure/app-service/app-service-ip-restrictions) to accept only the [API Management virtual IP (VIP)](/azure/api-management/api-management-faq#how-can-i-secure-the-connection-between-the-api-management-gateway-and-my-backend-services-).
 
     - Web Apps hosts the new API with secure transport protocols like HTTPS or TLS turned on.
 
@@ -153,7 +153,7 @@ Other contributor:
 - [API Management overview](/azure/api-management/api-management-key-concepts)
 - [Set up staging environments in App Service](/azure/app-service/deploy-staging-slots)
 - [Transform and protect your API](/azure/api-management/transform-api)
-- [Explore App Service](/training/modules/introduction-to-azure-app-service/)
+- [Host a web application with Azure App Service](/training/modules/host-a-web-app-with-azure-app-service/)
 
 ## Related resource
 
