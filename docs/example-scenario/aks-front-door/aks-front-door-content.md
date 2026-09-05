@@ -48,7 +48,7 @@ The following workflow corresponds to the previous diagram:
 
    - Gateway API resources to expose the web application through the managed or bring-your-own Gateway API implementation.
 
-   - A [SecretProviderClass](/azure/aks/aksarc/secrets-store-csi-driver) custom resource that retrieves the TLS certificate from the specified key vault by using the user-defined managed identity of the [Key Vault provider for Secrets Store CSI Driver](/azure/aks/csi-secrets-store-driver). This component creates a Kubernetes secret that contains the TLS certificate that the Gateway API resources reference.
+   - A [SecretProviderClass](/azure/aks/csi-secrets-store-driver) custom resource that retrieves the TLS certificate from the specified key vault by using the user-defined managed identity of the [Key Vault provider for Secrets Store CSI Driver](/azure/aks/csi-secrets-store-driver). This component creates a Kubernetes secret that contains the TLS certificate that the Gateway API resources reference.
 
 1. An Azure Front Door [secret resource](/azure/templates/microsoft.cdn/profiles/secrets) is used to manage and store the TLS certificate that's in the key vault. This certificate is used by the [custom domain](/azure/templates/microsoft.cdn/profiles/customdomains) that's associated with the Azure Front Door endpoint. The Azure Front Door profile uses a user-assigned managed identity with the *Key Vault Administrator* role assignment to retrieve the TLS certificate from Key Vault.
 
@@ -85,7 +85,7 @@ The following steps describe the message flow for a request that an external cli
 
 - The deployment requires [Azure role-based access control (Azure RBAC) role assignments](/azure/role-based-access-control/role-assignments), which include:
 
-  - A *Grafana Admin* role assignment on Azure Managed Grafana for the Microsoft Entra user whose `objectID` is defined in the `userId` parameter. The *Grafana Admin* role grants full control over the instance. This control includes managing role assignments and viewing, editing, and configuring data sources. For more information, see [How to share access to Azure Managed Grafana](/azure/managed-grafana/how-to-share-grafana-workspace).
+  - A *Grafana Admin* role assignment on Azure Managed Grafana for the Microsoft Entra user whose `objectID` is defined in the `userId` parameter. The *Grafana Admin* role grants full control over the instance. This control includes managing role assignments and viewing, editing, and configuring data sources. For more information, see [How to share access to Azure Managed Grafana](/azure/managed-grafana/how-to-manage-access-permissions-users-identities).
 
   - A *Key Vault Administrator* role assignment on the existing Key Vault resource that contains the TLS certificate for the user-defined managed identity that the [Key Vault provider for Secrets Store CSI Driver](/azure/aks/csi-secrets-store-driver) uses. This assignment provides access to the CSI driver so that it can read the certificate from the source key vault.
 
@@ -141,11 +141,11 @@ The following steps describe the message flow for a request that an external cli
 
 - [Azure network security groups (NSGs)](/azure/virtual-network/network-security-groups-overview) are used to filter inbound and outbound traffic for the subnets that host VMs and Azure Bastion hosts.
 
-- An [Azure Monitor workspace](/azure/azure-monitor/essentials/azure-monitor-workspace-overview) is a unique environment for data that [Monitor](/azure/azure-monitor/essentials/data-platform-metrics) collects. Each workspace has its own data repository, configuration, and permissions. Azure Monitor Logs workspaces contain logs and metrics data from multiple Azure resources, whereas Monitor workspaces contain metrics related to [Prometheus](/azure/azure-monitor/essentials/prometheus-metrics-overview) only.
+- An [Azure Monitor workspace](/azure/azure-monitor/metrics/azure-monitor-workspace-overview) is a unique environment for data that [Monitor](/azure/azure-monitor/metrics/data-platform-metrics) collects. Each workspace has its own data repository, configuration, and permissions. Azure Monitor Logs workspaces contain logs and metrics data from multiple Azure resources, whereas Monitor workspaces contain metrics related to [Prometheus](/azure/azure-monitor/metrics/prometheus-metrics-overview) only.
 
   You can use managed service for Prometheus to collect and analyze metrics at scale by using a Prometheus-compatible monitoring solution that's based on [Prometheus](https://prometheus.io/). You can use the [Prometheus query language (PromQL)](https://prometheus.io/docs/prometheus/latest/querying/basics/) to analyze and alert on the performance of monitored infrastructure and workloads without having to operate the underlying infrastructure.
 
-- An [Azure Managed Grafana](/azure/managed-grafana/overview) instance is used to visualize the [Prometheus metrics](/azure/azure-monitor/containers/prometheus-metrics-enable) that the Bicep module-deployed [AKS](/azure/aks/intro-kubernetes) cluster generates. You can connect your [Monitor workspace](/azure/azure-monitor/essentials/azure-monitor-workspace-overview) to [Azure Managed Grafana](/azure/managed-grafana/overview) and use a set of built-in and custom Grafana dashboards to visualize Prometheus metrics. Grafana Enterprise supports Azure Managed Grafana, which provides extensible data visualizations. You can quickly and easily deploy Grafana dashboards that have built-in high availability. You can also use Azure security measures to control access to the dashboards.
+- Use an [Azure Managed Grafana](/azure/managed-grafana/overview) instance to visualize the [Prometheus metrics](/azure/azure-monitor/containers/kubernetes-monitoring-enable#enable-prometheus-metrics-on-an-aks-cluster) that the Bicep module-deployed [AKS](/azure/aks/what-is-aks) cluster generates. You can connect your [Monitor workspace](/azure/azure-monitor/metrics/azure-monitor-workspace-overview) to [Azure Managed Grafana](/azure/managed-grafana/overview) and use a set of built-in and custom Grafana dashboards to visualize Prometheus metrics. Grafana Enterprise supports Azure Managed Grafana, which provides extensible data visualizations. You can quickly and easily deploy Grafana dashboards that have built-in high availability. Use Azure security measures to control access to the dashboards.
 
 - An [Azure Monitor Logs](/azure/azure-monitor/logs/log-analytics-workspace-overview) workspace is used to collect the diagnostic logs and metrics from Azure resources, which include:
 
@@ -161,7 +161,7 @@ The following steps describe the message flow for a request that an external cli
 
   - Gateway API resources to expose the web application through the managed or bring-your-own Gateway API implementation.
 
-  - A [SecretProviderClass](/azure/aks/aksarc/secrets-store-csi-driver) custom resource that retrieves the TLS certificate from the specified key vault by using the user-defined managed identity of the [Key Vault provider for Secrets Store CSI Driver](/azure/aks/csi-secrets-store-driver). This component creates a Kubernetes secret that contains the TLS certificate referenced by the Gateway API resources.
+  - A [SecretProviderClass](/azure/aks/csi-secrets-store-driver) custom resource that retrieves the TLS certificate from the specified key vault by using the user-defined managed identity of the [Key Vault provider for Secrets Store CSI Driver](/azure/aks/csi-secrets-store-driver). This component creates a Kubernetes secret that contains the TLS certificate referenced by the Gateway API resources.
 
   - (Optional) Your chosen Gateway API implementation, installed via its Helm chart, if you use the bring-your-own ingress option.
 
@@ -175,17 +175,17 @@ To automatically create a managed Private Link service to the AKS cluster load b
 
 ## Scenario details
 
-This scenario uses [Azure Front Door Premium](/azure/frontdoor/front-door-overview), [end-to-end TLS encryption](/azure/frontdoor/end-to-end-tls), [Azure Web Application Firewall](/azure/web-application-firewall/afds/afds-overview), and a [Private Link service](/azure/private-link/private-link-service-overview) to securely expose and protect a workload that runs in [AKS](/azure/aks/intro-kubernetes).
+This scenario uses [Azure Front Door Premium](/azure/frontdoor/front-door-overview), [end-to-end TLS encryption](/azure/frontdoor/end-to-end-tls), [Azure Web Application Firewall](/azure/web-application-firewall/afds/afds-overview), and a [Private Link service](/azure/private-link/private-link-service-overview) to securely expose and protect a workload that runs in [AKS](/azure/aks/what-is-aks).
 
 This architecture uses the Azure Front Door TLS and Secure Sockets Layer (SSL) offload capability to terminate the TLS connection and decrypt the incoming traffic at the Front Door. The traffic is reencrypted before it's forwarded to the origin, which is a web application that's hosted in an AKS cluster. HTTPS is configured as the forwarding protocol on Azure Front Door when Azure Front Door connects to the AKS-hosted workload that's configured as an origin. This practice enforces end-to-end TLS encryption for the entire request process, from the client to the origin. For more information, see [Secure your origin with Private Link in Azure Front Door Premium](/azure/frontdoor/private-link).
 
 The Gateway API ingress layer exposes the AKS-hosted web application. Configure the managed application routing Gateway API implementation or your bring-your-own Gateway API implementation to use a private IP address as a front-end IP configuration of the `kubernetes-internal` internal load balancer. The Gateway API implementation uses HTTPS as the transport protocol to expose the web application. For more information, see [Application routing with Gateway API](/azure/aks/app-routing-gateway-api) and [Use an internal load balancer with AKS](/azure/aks/internal-lb).
 
-The [AKS](/azure/aks/intro-kubernetes) cluster is configured to use the following features:
+The [AKS](/azure/aks/what-is-aks) cluster is configured to use the following features:
 
 - [API server virtual network integration](/azure/aks/api-server-vnet-integration) provides network communication between the API server and the cluster nodes. This feature doesn't require a private link or tunnel. The API server is available behind an internal load balancer VIP in the delegated subnet. The cluster nodes are configured to use the delegated subnet. You can use API server virtual network integration to help ensure that the network traffic between your API server and your node pools remains on the private network only. AKS clusters that have API server virtual network integration provide many advantages. For example, you can enable or disable public network access or private cluster mode without redeploying the cluster. For more information, see [Create an AKS cluster with API server virtual network integration](/azure/aks/api-server-vnet-integration).
 
-- [Azure NAT Gateway](/azure/virtual-network/nat-gateway/nat-overview) manages outbound connections that AKS-hosted workloads initiate. For more information, see [Create a managed or user-assigned NAT gateway for your AKS cluster](/azure/aks/nat-gateway).
+- [Azure NAT Gateway](/azure/nat-gateway/nat-overview) manages outbound connections that AKS-hosted workloads initiate. For more information, see [Create a managed or user-assigned NAT gateway for your AKS cluster](/azure/aks/nat-gateway).
 
 ### Potential use cases
 
@@ -205,19 +205,19 @@ These recommendations are essential for single-tenant AKS solutions and aren't s
 
 #### Intra-region resiliency
 
-- Deploy the node pools of your AKS cluster across all [availability zones](/azure/aks/availability-zones) in a region.
+- Deploy the node pools of your AKS cluster across all [availability zones](/azure/aks/reliability-availability-zones-configure) in a region.
 
 - Enable [zone redundancy in Container Registry](/azure/container-registry/zone-redundancy) for intra-region resiliency and high availability.
 
 - Use [topology spread constraints](https://kubernetes.io/docs/concepts/workloads/pods/pod-topology-spread-constraints) to control how you spread pods across your AKS cluster among failure domains like regions, availability zones, and nodes.
 
-- Use the Standard or Premium tier for your production AKS clusters. These tiers include the [uptime service-level agreement (SLA) feature](/azure/aks/uptime-sla), which commits to 99.95% availability of the Kubernetes API server endpoint for clusters that use [availability zones](/azure/aks/availability-zones) and 99.9% availability for clusters that don't use availability zones. For more information, see [Free, Standard, and Premium pricing tiers for AKS cluster management](/azure/aks/free-standard-pricing-tiers).
+- Use the Standard or Premium tier for your production AKS clusters. These tiers include the [uptime service-level agreement (SLA) feature](/azure/aks/uptime-sla), which commits to 99.95% availability of the Kubernetes API server endpoint for clusters that use [availability zones](/azure/aks/reliability-availability-zones-configure) and 99.9% availability for clusters that don't use availability zones. For more information, see [Free, Standard, and Premium pricing tiers for AKS cluster management](/azure/aks/free-standard-pricing-tiers).
 
 - Enable [zone redundancy](/azure/reliability/availability-zones-overview) if you use Container Registry to store container images and Open Container Initiative (OCI) artifacts. Container Registry supports optional zone redundancy and [geo-replication](/azure/container-registry/container-registry-geo-replication). Zone redundancy provides resiliency and high availability to a registry or replication resource (replica) in a specific region. Geo-replication replicates registry data across one or more Azure regions to provide availability and reduce latency for regional operations.
 
 #### Disaster recovery and business continuity
 
-- Consider deploying your solution to two regions. Use the [paired Azure region](/azure/best-practices-availability-paired-regions) as the second region.
+- Consider deploying your solution to two regions. Use the [paired Azure region](/azure/reliability/regions-paired) as the second region.
 
 - Script, document, and periodically test regional failover processes in a quality assurance (QA) environment.
 
@@ -243,7 +243,7 @@ Security provides assurances against deliberate attacks and the misuse of your v
 
 - Create an [Azure private endpoint](/azure/private-link/private-link-service-overview) for any PaaS service that AKS workloads use, like [Key Vault](/azure/key-vault/general/overview), [Azure Service Bus](/azure/service-bus-messaging/service-bus-messaging-overview), and [Azure SQL Database](/azure/azure-sql/database/sql-database-paas-overview). The traffic between the applications and these services isn't exposed to the public internet. Traffic between the AKS cluster virtual network and an instance of a PaaS service via a private endpoint travels the Microsoft backbone network but doesn't pass by the Azure firewall. A private endpoint provides security and protection against data leakage. For more information, see [What is Private Link?](/azure/private-link/private-link-overview).
 
-- Use a [WAF policy](/azure/application-gateway/waf-overview) to help protect public-facing AKS-hosted workloads from attacks when you use [Application Gateway](/azure/application-gateway/overview) in front of the AKS cluster.
+- Use a [WAF policy](/azure/web-application-firewall/ag/ag-overview) to help protect public-facing AKS-hosted workloads from attacks when you use [Application Gateway](/azure/application-gateway/overview) in front of the AKS cluster.
 
 - Use [Kubernetes network policies](https://kubernetes.io/docs/concepts/services-networking/network-policies/) to control which components can communicate with each other. This control segregates and helps secure intraservice communications. By default, all pods in a Kubernetes cluster can send and receive traffic without limitations. To improve security, you can use Azure network policies or Calico network policies to define rules that control the traffic flow between various microservices. Use Azure network policies to help enforce network-level access control. Use Calico network policies to implement fine-grained network segmentation and security policies in your AKS cluster. For more information, see [Secure traffic between pods by using network policies in AKS](/azure/aks/use-network-policies).
 
@@ -263,9 +263,9 @@ Cost Optimization focuses on ways to reduce unnecessary expenses and improve ope
 
 - Implement the [vertical pod autoscaler](/azure/aks/vertical-pod-autoscaler) to analyze and set CPU and memory resources that pods require. This approach optimizes resource allocation.
 
-- Choose the appropriate [VM size](/azure/virtual-machines/sizes) for node pools based on workload requirements.
+- Choose the appropriate [VM size](/azure/virtual-machines/sizes/overview) for node pools based on workload requirements.
 
-- Create multiple [node pools](/azure/aks/use-multiple-node-pools) with different VM sizes for specific workloads. Use node labels, node selectors, and affinity rules to optimize resource allocation.
+- Create multiple [node pools](/azure/aks/create-node-pools) with different VM sizes for specific workloads. Use node labels, node selectors, and affinity rules to optimize resource allocation.
 
 - [Stop node pools](/azure/aks/start-stop-nodepools) or [scale down AKS clusters](/azure/aks/start-stop-cluster) when you don't use them.
 
@@ -297,9 +297,9 @@ Operational Excellence covers the operations processes that deploy an applicatio
 
 #### Monitoring
 
-- Use [container insights](/azure/azure-monitor/containers/container-insights-overview) to monitor the health status of the AKS cluster and workloads.
+- Use [container insights](/azure/azure-monitor/containers/kubernetes-monitoring-overview) to monitor the health status of the AKS cluster and workloads.
 
-- Use [managed service for Prometheus](/azure/azure-monitor/essentials/prometheus-metrics-overview) to collect and analyze metrics at scale by using a Prometheus-compatible monitoring solution that's based on the [Prometheus](https://prometheus.io/) project from Cloud Native Computing Foundation.
+- Use [managed service for Prometheus](/azure/azure-monitor/metrics/prometheus-metrics-overview) to collect and analyze metrics at scale by using a Prometheus-compatible monitoring solution that's based on the [Prometheus](https://prometheus.io/) project from Cloud Native Computing Foundation.
 
 - Connect your managed service for Prometheus to an [Azure Managed Grafana](/azure/managed-grafana/overview) instance to use it as a data source in a Grafana dashboard. You then have access to multiple prebuilt dashboards that use Prometheus metrics, and you can create custom dashboards.
 
@@ -320,9 +320,9 @@ Principal author:
 - [AKS cluster best practices](/azure/aks/best-practices)
 - [Azure Web Application Firewall on Azure Front Door](/azure/web-application-firewall/afds/afds-overview)
 - [Best practices for advanced scheduler features](/azure/aks/operator-best-practices-advanced-scheduler)
-- [Best practices for authentication and authorization](/azure/aks/operator-best-practices-identity)
+- [Cluster authentication concepts in AKS](/azure/aks/concepts-cluster-authentication)
 - [Best practices for basic scheduler features in AKS](/azure/aks/operator-best-practices-scheduler)
-- [Best practices for business continuity and disaster recovery in AKS](/azure/aks/operator-best-practices-multi-region)
+- [Multi-region deployment models for AKS](/azure/aks/reliability-multi-region-deployment-models)
 - [Best practices for cluster security and upgrades in AKS](/azure/aks/operator-best-practices-cluster-security)
 - [Best practices for container image management and security in AKS](/azure/aks/operator-best-practices-container-image-management)
 - [Best practices for network connectivity and security in AKS](/azure/aks/operator-best-practices-network)

@@ -15,6 +15,26 @@ This skill folds a fixed set of Azure Patterns & Practices engineering quality c
 
 Deliver findings as review comments, and use GitHub's **suggestion** feature to propose concrete edits inline wherever a finding maps to a specific line or lines the author can apply with one click.
 
+## Editorial-only pull requests
+
+Before you apply the whole-article scope or any technical checks, inspect the pull request title and body to determine whether the author is performing an editorial pass.
+
+Switch to **editorial-only review mode** when either of these explicit signals appears, case-insensitively:
+
+- The title identifies the change as a **PnP edit** or **P&P edit**, including variants such as "PnP edits."
+- The body identifies the change as a **copy edit**, **copyedit**, **editorial pass**, **P4 edit**, or **post-publish edit**.
+
+Phrases such as "Edit article," a link to an earlier content pull request, or an editorial work-item link can support the classification, but none is sufficient by itself. Don't infer editorial-only intent from changed-file types or size of the diff. Non-editorial PRs get the full review. If the signals conflict or the intent is unclear, use the full review.
+
+In editorial-only review mode, this section takes precedence over the normal Copilot review behavior and every section below:
+
+- Review only the lines changed in this pull request. Don't evaluate the whole article.
+- Limit comments to serious copyediting concerns that the PR author (a professional copyeditor) should address in this pull request.
+- Flag wording that accidentally changes or obscures the apparent meaning of the source text. Frame the comment as preserving meaning, not as a technical or architectural correction.
+- Don't comment on factual or technical correctness, deprecations, architectural choices, missing guidance, component selection, alternatives, Well-Architected alignment, cost estimates, or reference implementations. Skip checks 1 through 10 in the following sections.
+- Don't ask the copy editor to expand the scope of the pull request.
+- Prefer an inline suggestion when you can provide the exact replacement. Don't manufacture a comment when the changed text has no actionable copyediting issue.
+
 ## Scope: the whole article
 
 Evaluate the article as it stands in this pull request, not just the changed lines. Read the full content body and the paired `.yml` metadata, if one exists, before you comment on anything.

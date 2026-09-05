@@ -100,7 +100,7 @@ Operational Excellence covers the operations processes that deploy an applicatio
 
 - **Use Power Platform solutions for application lifecycle management (ALM).** Package the flow, custom connectors, and AI Builder model in a Power Platform [solution](/power-platform/alm/solution-concepts-alm) so you can promote them between development, test, and production environments.
 - **Use source control on the Azure function.** Store the function in GitHub or Azure DevOps and deploy it through a continuous integration and continuous delivery (CI/CD) pipeline. For more information, see [Continuous deployment for Azure Functions](/azure/azure-functions/functions-continuous-deployment).
-- **Monitor every layer.** Instrument the Azure function with [Application Insights](/azure/azure-monitor/app/app-insights-overview), watch flow runs in the [Power Platform admin center](/power-platform/admin/admin-documentation), and monitor Document Intelligence usage and throttling in [Azure Monitor](/azure/azure-monitor/overview).
+- **Monitor every layer.** Instrument the Azure function with [Application Insights](/azure/azure-monitor/app/app-insights-overview), watch flow runs in the [Power Platform admin center](/power-platform/admin/admin-documentation), and monitor Document Intelligence usage and throttling in [Azure Monitor](/azure/azure-monitor/fundamentals/overview).
 - **Retrain models on a schedule.** Object-detection models drift as source documents evolve. Establish a retraining cadence for the AI Builder model and track its accuracy over time.
 - **Use versioning for metadata schema.** Treat the SharePoint metadata columns as a contract. Plan how to update them without breaking ingestion and existing search experiences.
 

@@ -325,7 +325,7 @@ The cost of this architecture depends on configuration specifics, such as the fo
 
 - Your DR level
 
-After you assess these details, use the [Azure pricing calculator](https://azure.microsoft.com/pricing/calculator/) to estimate your costs. For more information, see the [Well-Architected Framework principles of Cost Optimization](/azure/architecture/framework/cost/overview).
+After you assess these details, use the [Azure pricing calculator](https://azure.microsoft.com/pricing/calculator/) to estimate your costs. For more information, see the [Well-Architected Framework principles of Cost Optimization](/azure/well-architected/cost-optimization/).
 
 ### Operational Excellence
 

@@ -9,6 +9,7 @@ safe-outputs:
       - akanso
       - akhan-msft
       - Albertyang0
+      - aloshalaa1992-MSFT
       - amattas
       - amethygeo
       - anaharris-ms
@@ -49,6 +50,7 @@ safe-outputs:
       - DocGailZhou
       - doherty100
       - dominicbetts
+      - Dongbumlee
       - DTInTheCloud
       - duongthaiha
       - erichb
@@ -154,6 +156,7 @@ safe-outputs:
       - samchang-msft
       - samcogan
       - sandippk
+      - schaffererin
       - sdesai345
       - sebassem
       - seesharprun
@@ -199,6 +202,7 @@ safe-outputs:
       - WernerRall147
       - wsilveiranz
       - wueda
+      - yahya130
       - yeeshian
       - yemrea
       - YenChiHo
