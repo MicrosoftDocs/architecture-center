@@ -102,7 +102,9 @@ To stay current with key management and governance services, see the following a
 
 The following resources can help you discover more about management and governance.
 
-- [Azure governance documentation](/azure/governance/): Provides a central hub for Azure Policy, Azure Blueprints, Azure Resource Graph, and Azure management groups.
+- [Azure governance documentation](/azure/governance/): Provides a central hub for Azure Policy, Azure Resource Graph, and Azure management groups.
+
+- [Azure Deployment Stacks](/azure/azure-resource-manager/bicep/deployment-stacks): Deploys and manages a repeatable set of resources, defined in a Bicep file or Azure Resource Manager template, as a single unit. Lifecycle management and deny settings help protect governed resources from unwanted changes.
 
 - [Azure Monitor overview](/azure/azure-monitor/fundamentals/overview): Describes the full-stack monitoring platform for telemetry collection, analysis, and response across cloud and hybrid environments.
 
