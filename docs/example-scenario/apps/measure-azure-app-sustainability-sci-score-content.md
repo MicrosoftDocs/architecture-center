@@ -157,7 +157,7 @@ Store gathered carbon and proxy information in a solution that connects to dashb
 
 Gather data about carbon, performance, and cost of your application to get valuable information. Use this data to create a correlation algorithm specific to your application for cost, performance, and carbon optimization planning.
 
-For more information, see [Machine learning algorithm cheat sheet for Azure Machine Learning designer](/azure/machine-learning/algorithm-cheat-sheet).
+For more information, see [What is automated machine learning (AutoML)?](/azure/machine-learning/concept-automated-ml).
 
 ### Data display
 
