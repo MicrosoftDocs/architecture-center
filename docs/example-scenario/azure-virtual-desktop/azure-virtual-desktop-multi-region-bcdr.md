@@ -305,7 +305,7 @@ The golden image that you use for host pool deployment in the secondary DR regio
 
 Compute Gallery is a regional resource. Create at least one secondary gallery in the secondary region. In your primary region, create a gallery, a VM image definition, and a VM image version. Then create the same objects in the secondary region. When you create the VM image version in the secondary region, you can copy the image version from the primary region by specifying the source gallery, VM image definition, and VM image version. Azure copies the image and creates a local VM image version. You can run this operation by using [the Azure portal](/azure/virtual-machines/image-version) or [the Azure CLI command](/cli/azure/sig/image-version#az-sig-image-version-create).
 
-For golden image design principles, including ZRS and replica planning, see [Golden images in BC considerations](/azure/well-architected/azure-virtual-desktop/business-continuity#golden-images).
+For golden image design principles, including ZRS and replica planning, see [Golden image consistency across regions](/azure/well-architected/azure-virtual-desktop/business-continuity#golden-image-consistency-across-regions).
 
 #### Autoscaling and cost optimization
 
