@@ -77,6 +77,7 @@ safe-outputs:
       - irarainey
       - ivapplyr
       - jakeatmsft
+      - james-gould
       - james-tn
       - JamesJBarnett
       - jerrymsft
