@@ -223,7 +223,7 @@ Security provides assurances against deliberate attacks and the misuse of your v
 Key Vault securely stores certificates as encrypted secrets protected by Azure role-based access control (Azure RBAC).
 
 > [!TIP]
-> In environments that have strict compliance requirements, such as NIS2 or public-sector regulations, consider evaluating [Azure Key Vault Premium](/azure/key-vault/general/overview) for HSM-backed key protection if you need to keep the certificate renewal workflow that this article describes.
+> In environments that have strict compliance requirements, such as NIS2 or public-sector regulations, consider evaluating [Azure Key Vault Managed HSM](/azure/key-vault/managed-hsm/overview) for key protection if you need to keep the certificate renewal workflow that this article describes.
 
 Throughout the certificate renewal process, the following components use identities:
 
