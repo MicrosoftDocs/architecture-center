@@ -208,5 +208,6 @@ Your task:
 1. Confirm `/tmp/gh-aw/repo-memory/github-samples/data/catalog.json` exists and parses as JSON with a `links` array and a `repos` array. Use `jq` from `bash`.
 2. Report the link count and repository count in your run summary.
 3. If the file is missing or invalid, state that clearly in your run summary so the failure is visible.
+4. Before finishing, always call the `noop` safe-output tool. Include the validation result in its message and, when validation succeeds, include the link and repository counts.
 
 The catalog automatically persists to the `memory/github-samples` branch when the run completes. Don't edit any file under the `docs/` folder.
