@@ -391,7 +391,6 @@ For help with the automation process, see the following templates that SAS provi
 
 - [SAS Viya 4 Infrastructure as Code](https://github.com/sassoftware/viya4-iac-azure)
 - [SAS Viya 3.5 Guide](https://github.com/sassoftware/sas-viya-3.5-ha-deployment/blob/main/sas-viya-3.5-ha-deployment-on-microsoft-azure/SAS-Viya-HA-Deployment-Azure.md)
-- [SAS 9.4 Grid](https://github.com/corecompete/sas94grid-viya)
 
 ## Related resources
 
