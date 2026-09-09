@@ -1218,7 +1218,7 @@ items:
         - name: Connect SAP to the reference solution
           displayName: Internet of Things
           href: guide/iot/how-to-connect-on-premises-sap-to-the-solution.md
-        - name: Connect an industrial data space to the reference solution
+        - name: Connect an industrial dataspace to the reference solution
           displayName: Internet of Things
           href: guide/iot/how-to-enable-industrial-dataspaces.md
         - name: Import OPC UA information models from the UA Cloud Library
