@@ -36,7 +36,7 @@ This skill supports raster and vector diagram formats, primarily PNG and SVG. If
 Generate the equivalent alternative text for the image, and adhere to all of the following requirements.
 
 - The text must be no less than 300 characters long.
-- The text must be no more than 1000 characters long.
+- The text should be no more than about 1000 characters long. 1000 is the target when generating the text, but overage of up to about 1200 is fine.
 - The text must be in en-US.
 - The text must not contain bullet points or ordered lists.
 - The text must be one or two paragraphs long.
