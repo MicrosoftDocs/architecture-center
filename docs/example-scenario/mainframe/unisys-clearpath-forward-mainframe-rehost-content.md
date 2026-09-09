@@ -154,6 +154,5 @@ For more information, see the following resources:
 ## Related resources
 
 - [Unisys CPF OS 2200 enterprise server virtualization on Azure](../../mainframe/virtualization-of-unisys-clearpath-forward-os-2200-enterprise-server-on-azure.yml)
-- [SMA OpCon in Azure](../../example-scenario/integration/sma-opcon-azure.yml)
 - [Mainframe file replication and sync on Azure](/azure/architecture/solution-ideas/articles/mainframe-azure-file-replication)
 - [Modernize mainframe and midrange data](/azure/architecture/example-scenario/mainframe/modernize-mainframe-data-to-azure)

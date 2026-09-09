@@ -971,8 +971,6 @@ items:
           href: example-scenario/mainframe/reengineer-mainframe-batch-apps-azure.yml
         - name: Rehost IMS DC and IMS DB
           href: example-scenario/mainframe/rehost-ims-raincode-imsql.yml
-        - name: Implement SMA OpCon in Azure
-          href: example-scenario/integration/sma-opcon-azure.yml
       - name: In-memory data stores
         items:
         - name: Write-through caching with Azure Managed Redis and Azure SQL Database
