@@ -119,7 +119,7 @@ You and Microsoft share responsibility for the reliability of most Azure service
 - [SQL Managed Instance](/azure/reliability/reliability-sql-managed-instance) 
 - [SQL Database](/azure/reliability/reliability-sql-database)
 - [Azure Blob Storage](/azure/reliability/reliability-storage-blob)
-- [Fabric](/azure/reliability/reliability-fabric)
+- [Fabric](/fabric/security/reliability-fabric)
 - [Data Factory](/azure/reliability/reliability-data-factory)
 
 ### Cost Optimization

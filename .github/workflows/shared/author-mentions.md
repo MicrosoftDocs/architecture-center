@@ -12,6 +12,7 @@ safe-outputs:
       - aloshalaa1992-MSFT
       - amattas
       - amethygeo
+      - amyherold
       - anaharris-ms
       - ananyagc5
       - andrwca
@@ -38,6 +39,7 @@ safe-outputs:
       - craigshoemaker
       - crzywabbit
       - cynthiatreger
+      - DanielCrawford
       - davidsmatlak
       - davihern
       - dbarkol
