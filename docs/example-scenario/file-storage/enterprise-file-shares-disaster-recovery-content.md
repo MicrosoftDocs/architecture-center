@@ -23,7 +23,7 @@ This architecture applies to businesses that want to provide file shares for cli
 
 ### Components
 
-- [Azure NetApp Files](/azure/well-architected/service-guides/azure-netapp-files) provides enterprise-grade Azure file shares that are powered by NetApp. Azure NetApp Files makes it easy for enterprises to migrate and run complex file-based applications with no code changes. It also provides a way to replicate data asynchronously from an Azure NetApp Files volume in one region to an Azure NetApp Files volume in another region. This capability provides data protection during region-wide outages or disasters. For more information, see [Cross-region replication of Azure NetApp Files volumes](/azure/azure-netapp-files/cross-region-replication-introduction).
+- [Azure NetApp Files](/azure/well-architected/service-guides/azure-netapp-files) provides enterprise-grade Azure file shares that are powered by NetApp. Azure NetApp Files makes it easy for enterprises to migrate and run complex file-based applications with no code changes. It also provides a way to replicate data asynchronously from an Azure NetApp Files volume in one region to an Azure NetApp Files volume in another region. This capability provides data protection during region-wide outages or disasters. For more information, see [Cross-region replication of Azure NetApp Files volumes](/azure/azure-netapp-files/replication#cross-region-replication).
 - DFS Namespaces is a role service in Windows Server that can group shared folders that are located on different servers into one or more logically structured namespaces. For more information, see [DFS Namespaces overview](/windows-server/storage/dfs-namespaces/dfs-overview).
 
 ### Alternatives
@@ -51,7 +51,7 @@ Cost Optimization focuses on ways to reduce unnecessary expenses and improve ope
 
 The cost of the solution depends on the size of the volume that's replicated, the rate of change, and the destination tier of the Azure NetApp Files capacity pool. For more information, see [Azure NetApp Files pricing](https://azure.microsoft.com/pricing/details/netapp) or use the Azure [Pricing calculator](https://azure.microsoft.com/pricing/calculator).
 
-See [Cost model for cross-region replication](/azure/azure-netapp-files/cross-region-replication-introduction#cost-model-for-cross-region-replication) for more examples.
+See [Cost model for cross-region replication](/azure/azure-netapp-files/replication#cost-model-for-cross-region-replication) for more examples.
 
 ### Performance Efficiency
 

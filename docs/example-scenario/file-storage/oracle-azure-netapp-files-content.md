@@ -82,7 +82,7 @@ This solution uses Oracle Data Guard (ODG) for disaster recovery (DR), and snaps
 
 #### Cross-zone replication
 
-Cross-zone replication provides efficient HA across zones in Azure. Cross-zone replication uses the same highly efficient block-based replication with a minimum update interval of 10 minutes. This can be used to replicate the database files, while the redo log is replicated with Oracle Data Guard. For more information, see [Cross-zone replication of Azure NetApp Files volumes](/azure/azure-netapp-files/cross-zone-replication-introduction).
+Cross-zone replication provides efficient HA across zones in Azure. Cross-zone replication uses the same highly efficient block-based replication with a minimum update interval of 10 minutes. This can be used to replicate the database files, while the redo log is replicated with Oracle Data Guard. For more information, see [Cross-zone replication of Azure NetApp Files volumes](/azure/azure-netapp-files/replication#cross-zone-replication).
 
 #### Availability sets and availability zones
 
@@ -237,11 +237,11 @@ Fully deployable architectures that use Azure NetApp Files:
 [Azure Virtual Machines]: /azure/well-architected/service-guides/virtual-machines
 [Azure Virtual Network]: /azure/well-architected/service-guides/virtual-network
 [Benefits of using Azure NetApp Files with Oracle Database]: /azure/azure-netapp-files/solutions-benefits-azure-netapp-files-oracle-database
-[Capacity management FAQs]: /azure/azure-netapp-files/azure-netapp-files-faqs#capacity-management-faqs
+[Capacity management FAQs]: /azure/azure-netapp-files/faq-capacity-management
 [Create volume replication for Azure NetApp Files]: /azure/azure-netapp-files/cross-region-replication-create-peering
-[Cross-region replication of Azure NetApp Files volumes]: /azure/azure-netapp-files/cross-region-replication-introduction
+[Cross-region replication of Azure NetApp Files volumes]: /azure/azure-netapp-files/replication#cross-region-replication
 [Enterprise-scale data management section of this article]: #enterprise-scale-data-management
-[FAQs About Azure NetApp Files - Security FAQs]: /azure/azure-netapp-files/azure-netapp-files-faqs#security-faqs
+[FAQs About Azure NetApp Files - Security FAQs]: /azure/azure-netapp-files/faq-security
 [Low-latency performance section of this article]: #low-latency-performance
 [Implement Oracle Data Guard on an Azure Linux virtual machine]: /azure/virtual-machines/workloads/oracle/configure-oracle-dataguard
 [Linux NFS mount options best practices for Azure NetApp Files]: /azure/azure-netapp-files/performance-linux-mount-options
