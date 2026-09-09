@@ -51,7 +51,7 @@ Cost Optimization focuses on ways to reduce unnecessary expenses and improve ope
 
 The cost of the solution depends on the size of the volume that's replicated, the rate of change, and the destination tier of the Azure NetApp Files capacity pool. For more information, see [Azure NetApp Files pricing](https://azure.microsoft.com/pricing/details/netapp) or use the Azure [Pricing calculator](https://azure.microsoft.com/pricing/calculator).
 
-See [Cost model for cross-region replication](/azure/azure-netapp-files/replication#cost-model-for-cross-region-replication) for more examples.
+For more examples, see [Cost model for cross-region replication](/azure/azure-netapp-files/replication#cost-model-for-cross-region-replication).
 
 ### Performance Efficiency
 
