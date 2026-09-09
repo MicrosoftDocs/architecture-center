@@ -126,7 +126,7 @@ Spark notebooks enrich data as you process it. Load data from lakehouses or ware
 
 ##### Serve
 
-T-SQL queries lakehouse tables through the [Fabric SQL analytics endpoint](/fabric/mirroring/explore#use-the-sql-analytics-endpoint). The SQL analytics endpoint supports semantic models and Power BI reports. Direct Lake mode delivers high-performance analytics. You can also set up alerts on Power BI visuals by using Data Activator to monitor frequently changing metrics, define alert conditions, and receive email or Teams notifications.
+T-SQL queries lakehouse tables through the [Fabric SQL analytics endpoint](/fabric/data-engineering/lakehouse-sql-analytics-endpoint-use-cases). The SQL analytics endpoint supports semantic models and Power BI reports. Direct Lake mode delivers high-performance analytics. You can also set up alerts on Power BI visuals by using Data Activator to monitor frequently changing metrics, define alert conditions, and receive email or Teams notifications.
 
 External data sharing in Fabric lets a user in one Fabric tenant (the provider) share data with a user in another Fabric tenant (the consumer). This feature supports cross-organization collaboration while it maintains governance and security boundaries. Data consumers access read-only data by using OneLake shortcuts in their own lakehouses.
 
