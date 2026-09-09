@@ -66,7 +66,6 @@ The following production-ready architectures demonstrate end-to-end database sol
 - [Modernize mainframe midrange data](../example-scenario/mainframe/modernize-mainframe-data-to-azure.yml)
 - [Reengineer mainframe batch apps](../example-scenario/mainframe/reengineer-mainframe-batch-apps-azure.yml)
 - [Rehost IMS Data Communication (IMS DC) and IMS Database (IMS DB)](../example-scenario/mainframe/rehost-ims-raincode-imsql.yml)
-- [Implement SMA OpCon in Azure](../example-scenario/integration/sma-opcon-azure.yml)
 
 #### In-memory data stores
 
