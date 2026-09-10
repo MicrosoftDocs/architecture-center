@@ -92,7 +92,7 @@ The [Storage account](/azure/well-architected/service-guides/azure-blob-storage)
 
 Make sure that you enable the [secure transfer](/azure/storage/common/storage-require-secure-transfer) and [storage firewall](/azure/storage/common/storage-network-security#grant-access-from-a-virtual-network) properties. The firewall grants access only from the SOC virtual network.
 
-The storage account also hosts an [Azure file share](/azure/storage/files/create-classic-file-share) as a temporary repository that's used to calculate the snapshot's hash value.
+The storage account also hosts an [Azure classic file share](/azure/storage/files/create-classic-file-share) as a temporary repository that's used to calculate the snapshot's hash value.
 
 #### Key Vault
 
@@ -290,7 +290,7 @@ For more information about Azure logging and auditing features, see:
 
 - [Azure security logging and auditing](/azure/security/fundamentals/log-audit)
 - [Storage analytics logging](/azure/storage/common/storage-analytics-logging)
-- [Send Azure resource logs to Log Analytics workspaces, Event Hubs, or Storage](/azure/azure-monitor/platform/resource-logs)
+- [Azure Monitor resource logs](/azure/azure-monitor/platform/resource-logs)
 
 For more information about Microsoft Azure compliance, see:
 
