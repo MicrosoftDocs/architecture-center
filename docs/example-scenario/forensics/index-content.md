@@ -24,9 +24,9 @@ In the architecture, the production virtual machines (VMs) are part of a spoke [
 >
 > If encryption at host doesn't meet your requirements, you can use an OS-level encryption solution, such as BitLocker on Windows or dm-crypt on Linux. These encryption implementations are specific to each environment and aren't described in this article. Evaluate your requirements to determine the appropriate approach.
 
-The security operations center (SOC) team uses a discrete Azure **SOC** subscription. The team has exclusive access to that subscription, which contains the resources that must be kept protected, inviolable, and monitored. The [Azure Storage](/azure/storage/common/storage-introduction) account in the SOC subscription hosts copies of disk snapshots in [immutable blob storage](/azure/storage/blobs/storage-blob-immutable-storage). A dedicated [key vault](/azure/key-vault/general/overview) stores copies of the hash values of the snapshots.
+The security operations center (SOC) team uses a discrete Azure **SOC** subscription. The team has exclusive access to that subscription, which contains the resources that must be kept protected, inviolable, and monitored. The [Azure Storage](/azure/storage/common/storage-introduction) account in the SOC subscription hosts copies of disk snapshots in [immutable blob storage](/azure/storage/blobs/immutable-storage-overview). A dedicated [key vault](/azure/key-vault/general/overview) stores copies of the hash values of the snapshots.
 
-In response to a request to capture the digital evidence of a VM, a member of the SOC team signs in to the Azure SOC subscription and uses an [Azure hybrid runbook worker](/azure/automation/extension-based-hybrid-runbook-worker-install) VM from [Azure Automation](/azure/automation/automation-intro) to run the `Copy-VmDigitalEvidence` runbook. The [Automation hybrid runbook worker](/azure/automation/automation-hybrid-runbook-worker) provides control of all mechanisms included in the capture.
+In response to a request to capture the digital evidence of a VM, a member of the SOC team signs in to the Azure SOC subscription and uses an [Azure hybrid runbook worker](/azure/automation/extension-based-hybrid-runbook-worker-install) VM from [Azure Automation](/azure/automation/overview) to run the `Copy-VmDigitalEvidence` runbook. The [Automation hybrid runbook worker](/azure/automation/automation-hybrid-runbook-worker) provides control of all mechanisms included in the capture.
 
 The `Copy-VmDigitalEvidence` runbook implements the following macro steps:
 
@@ -54,9 +54,9 @@ The `Copy-VmDigitalEvidence` runbook implements the following macro steps:
 
 - [Key Vault](/azure/key-vault/general/overview) is a secure cloud service for managing secrets, encryption keys, and certificates. In this architecture, it stores hash values of disk snapshots to verify the integrity of digital evidence.
 
-- [Microsoft Entra ID](/entra/fundamentals/whatis) is a cloud-based identity service that helps you control access to Azure and other cloud apps. In this architecture, it ensures that only authorized SOC personnel can access and manage sensitive evidence-handling operations.
+- [Microsoft Entra ID](/entra/fundamentals/what-is-entra) is a cloud-based identity service that helps you control access to Azure and other cloud apps. In this architecture, it ensures that only authorized SOC personnel can access and manage sensitive evidence-handling operations.
 
-- [Azure Monitor](/azure/azure-monitor/overview) is a monitoring service that provides observability through metrics, logs, and alerts. It supports operations at scale by helping you maximize the performance and availability of your resources, while proactively identifying potential problems. In this architecture, it archives activity logs to support auditing, compliance, and monitoring of the evidence chain of custody. 
+- [Azure Monitor](/azure/azure-monitor/fundamentals/overview) is a monitoring service that provides observability through metrics, logs, and alerts. It supports operations at scale by helping you maximize the performance and availability of your resources, while proactively identifying potential problems. In this architecture, it archives activity logs to support auditing, compliance, and monitoring of the evidence chain of custody. 
 
 #### Automation
 
@@ -92,7 +92,7 @@ The [Storage account](/azure/well-architected/service-guides/azure-blob-storage)
 
 Make sure that you enable the [secure transfer](/azure/storage/common/storage-require-secure-transfer) and [storage firewall](/azure/storage/common/storage-network-security#grant-access-from-a-virtual-network) properties. The firewall grants access only from the SOC virtual network.
 
-The storage account also hosts an [Azure file share](/azure/storage/files/storage-how-to-create-file-share) as a temporary repository that's used to calculate the snapshot's hash value.
+The storage account also hosts an [Azure file share](/azure/storage/files/create-classic-file-share) as a temporary repository that's used to calculate the snapshot's hash value.
 
 #### Key Vault
 
@@ -102,7 +102,7 @@ Ensure that the [firewall](/azure/key-vault/general/network-security#key-vault-f
 
 #### Log Analytics
 
-A [Log Analytics workspace](/azure/azure-monitor/platform/resource-logs-collect-workspace) stores activity logs used to audit all relevant events on the SOC subscription. Log Analytics is a feature of [Monitor](/azure/azure-monitor/overview).
+A [Log Analytics workspace](/azure/azure-monitor/logs/log-analytics-workspace-overview) stores activity logs used to audit all relevant events on the SOC subscription. Log Analytics is a feature of [Monitor](/azure/azure-monitor/fundamentals/overview).
 
 ## Scenario details
 
@@ -290,7 +290,7 @@ For more information about Azure logging and auditing features, see:
 
 - [Azure security logging and auditing](/azure/security/fundamentals/log-audit)
 - [Storage analytics logging](/azure/storage/common/storage-analytics-logging)
-- [Send Azure resource logs to Log Analytics workspaces, Event Hubs, or Storage](/azure/azure-monitor/essentials/resource-logs)
+- [Send Azure resource logs to Log Analytics workspaces, Event Hubs, or Storage](/azure/azure-monitor/platform/resource-logs)
 
 For more information about Microsoft Azure compliance, see:
 
@@ -299,4 +299,4 @@ For more information about Microsoft Azure compliance, see:
 
 ## Related resource
 
-- [Security architecture design](../../guide/security/security-start-here.yml)
+- [Security architecture design](../../security/security-get-started.md)
