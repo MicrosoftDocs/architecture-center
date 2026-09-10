@@ -1,11 +1,12 @@
 ---
-title: Kubernetes Workload Identity and Access
-description: Understand how Kubernetes pods handle identity and access, and compare options in Amazon EKS and Azure Kubernetes Service (AKS).
-author: francisnazareth
-ms.author: fnazaret
-ms.date: 01/28/2025
+title: Workload Identity and Access in EKS and AKS
+description: Understand how Kubernetes clusters, nodes, and pods handle identity and access, and compare options in Amazon EKS and Azure Kubernetes Service (AKS).
+author: pranabpaul-tech
+ms.author: pranabp
+ms.date: 08/24/2026
 ms.topic: concept-article
 ms.subservice: architecture-guide
+ai-usage: ai-assisted
 ms.custom:
   - arb-containers
 ms.collection:
@@ -13,191 +14,144 @@ ms.collection:
   - aws-to-azure
 ---
 
-# Kubernetes workload identity and access
+# Workload identity and access in EKS and AKS
 
-This article describes how Amazon Elastic Kubernetes Service (EKS) and Azure Kubernetes Service (AKS) provide identity for Kubernetes workloads to access cloud platform services. For a detailed comparison of Amazon Web Services (AWS) Identity and Access Management (IAM) and Microsoft Entra ID, see the following resources:
+Amazon Elastic Kubernetes Service (EKS) and Azure Kubernetes Service (AKS) are managed Kubernetes platforms that provide a similar fundamental experience. The cloud provider operates the Kubernetes control plane while you deploy and manage Kubernetes workloads, policies, namespaces, service accounts, and applications. From an identity and access management perspective, however, the two platforms implement security architectures based on their respective cloud ecosystems.
+
+EKS is built on AWS Identity and Access Management (IAM), IAM roles, temporary credentials, Kubernetes RBAC, EKS access entries, and workload identity mechanisms such as EKS Pod Identity and IAM Roles for Service Accounts (IRSA). AKS is built on Microsoft Entra ID, Azure RBAC, Kubernetes RBAC, Azure managed identities, and Microsoft Entra Workload ID. In both platforms, the key architectural objective is the same: avoid using long-lived credentials in applications and instead establish a controlled relationship between a Kubernetes identity and a cloud identity.
+
+This article describes how EKS and AKS provide identity to enable Kubernetes workloads to access cloud platform services. For a detailed comparison of Amazon Web Services (AWS) IAM and Microsoft Entra ID, see the following resources:
 
 - [Microsoft Entra identity management and access management for AWS](/azure/architecture/reference-architectures/aws/aws-azure-ad-security)
 - [Compare AWS and Azure identity management solutions](/azure/architecture/aws-professional/security-identity)
 
-This guide explains how AKS clusters, built-in services, and add-ons use [managed identities](/entra/identity/managed-identities-azure-resources/overview) to access Azure resources, like load balancers and managed disks. It also demonstrates how to use [Microsoft Entra Workload ID](https://azure.github.io/azure-workload-identity/docs) so that AKS workloads can access Azure resources without needing a connection string, access key, or user credentials.
-
 [!INCLUDE [eks-aks](includes/eks-aks-include.md)]
 
-## Amazon EKS identity and access management
+As managed Kubernetes platforms, Amazon EKS and Azure Kubernetes Service solve the same problem: enabling a cluster, its nodes, and its workloads to access cloud resources without using long-lived credentials. But they solve it with different architectures. EKS routes almost everything through a single system, AWS IAM. AKS splits the problem across two systems: managed identities for cluster communication with Azure, and Microsoft Entra ID to configure who can communicate with the cluster and what they can do. Otherwise, both platforms operate in a similar pattern.
 
-Amazon EKS provides native options to manage identity and access within Kubernetes pods. These options include IAM roles for service accounts and Amazon EKS service-linked roles.
+## Amazon EKS identity and access options
 
-### IAM roles for service accounts
+Amazon EKS uses AWS IAM for cloud-facing identity and Kubernetes API authentication, but it doesn't replace Kubernetes-native identities. Kubernetes service accounts identify workloads inside the cluster, and Kubernetes RBAC or EKS access policies authorize access to Kubernetes resources.
 
-You can associate IAM roles with Kubernetes service accounts. This association provides AWS permissions to the containers within any pod that uses the service account. IAM roles for service accounts provide the following benefits:
+### Cluster and node identity
 
-- **Least privilege:** You can assign specific IAM permissions to a service account, which ensures that only the pods that use that service account have access to those permissions. This configuration eliminates the need to grant extended permissions to the node IAM role for all pods on a node. This approach provides enhanced security and granular control and eliminates the need for partner solutions, like [kube2iam](https://github.com/jtblin/kube2iam). For more information, see [IAM roles for service accounts](https://docs.aws.amazon.com/eks/latest/userguide/iam-roles-for-service-accounts.html).
+Every EKS cluster requires a cluster IAM role that the control plane uses to manage cluster resources. EC2 nodes use a separate node IAM role so that the kubelet can register nodes, pull container images, and call required AWS APIs. These roles correspond to the AKS control-plane and kubelet managed identities described later in this article. For more information, see [Amazon EKS cluster IAM role](https://docs.aws.amazon.com/eks/latest/userguide/cluster-iam-role.html) and [Amazon EKS node IAM role](https://docs.aws.amazon.com/eks/latest/userguide/create-node-role.html).
 
-- **Credential isolation:** Each container within a pod can only retrieve the credentials for the IAM role that's associated with its respective service account. This isolation ensures that a container can't access credentials that belong to another container in a different pod.
+### Pod identity
 
-- **Auditability:** Amazon EKS uses [AWS CloudTrail](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/cloudtrail-user-guide.html?msclkid=001d22acb02911ec8c00d5b286e46997) to provide access and event logging, which facilitates retrospective auditing and compliance.
+Amazon EKS offers two mechanisms for giving individual pods scoped access to AWS services without widening the node role for every pod on a node.
 
-For more information, see [IAM roles for service accounts](https://docs.aws.amazon.com/eks/latest/userguide/iam-roles-for-service-accounts.html).
+IRSA was the original mechanism. It requires the cluster to run an IAM OIDC identity provider tied to the cluster's own (OpenID Connect) OIDC endpoint. An IAM role's trust policy is written to accept only tokens issued to a specific Kubernetes namespace and service account, and the Kubernetes service account is annotated with the role's Amazon Resource Name (ARN). When a pod using that service account calls an AWS API, the AWS SDK exchanges the pod's projected service account token for temporary AWS credentials through AWS Security Token Service (STS).
 
-### Amazon EKS service-linked roles
+Amazon EKS Pod Identity is a newer, simpler mechanism that removes the OIDC dependency. Instead of a per-cluster OIDC trust relationship, a Pod Identity association maps an IAM role to a Kubernetes service account through the EKS API directly. The role's trust policy needs only a single, cluster-independent principal, `pods.eks.amazonaws.com`. Credentials are issued by the EKS Auth service and cached per node rather than requested independently by every pod's SDK call, which AWS positions as a more scalable and portable pattern: the same IAM role can be reused across multiple clusters without rebuilding a federated trust relationship for each one. Pod Identity supports Linux EC2 nodes and EKS Hybrid Nodes. It isn't available for Fargate, Windows nodes, non-EKS self-managed Kubernetes clusters, AWS Outposts, or EKS Anywhere. For more information, see [EKS Pod Identity](https://docs.aws.amazon.com/eks/latest/userguide/pod-identities.html).
 
-Amazon EKS service-linked roles are unique IAM roles that directly link to Amazon EKS. These predefined roles include the necessary permissions to call AWS services on behalf of the associated role. The main service-linked role for Amazon EKS is the [Amazon EKS node IAM role](https://docs.aws.amazon.com/eks/latest/userguide/create-node-role.html).
+Both mechanisms provide short-lived credentials per workload without storing static AWS access keys in pods. The IAM role determines the workload's permissions.
 
-The Amazon EKS node `kubelet` daemon uses the Amazon EKS node IAM role to make API calls to AWS services on behalf of the node. The IAM instance profile and associated policies provide permissions for these API calls. This setup simplifies the management of IAM roles for nodes within the EKS cluster.
+### Cluster access, authentication, and authorization
 
-For more information, see [Use service-linked roles for Amazon EKS](https://docs.aws.amazon.com/eks/latest/userguide/using-service-linked-roles.html).
+Human users, IAM roles used by CI/CD pipelines, and cross-account principals all authenticate to the Kubernetes API as IAM identities. EKS access entries associate these principals with Kubernetes permissions through the EKS API. They provide the comparison point for AKS access managed through Microsoft Entra ID and Azure RBAC. Existing EKS clusters might instead use the deprecated aws-auth ConfigMap, whose entries aren't automatically migrated when access entries are enabled. For more information, see [Amazon EKS access entries](https://docs.aws.amazon.com/eks/latest/userguide/access-entries.html).
 
-### More information about identity and access management
+After authentication, EKS can authorize a principal through an EKS access policy, Kubernetes RBAC groups, or both. Access policies are managed via the EKS API, while Kubernetes RBAC permissions use Role, ClusterRole, RoleBinding, and ClusterRoleBinding objects in each cluster. This choice maps to the AKS distinction between Azure RBAC for Kubernetes authorization and Kubernetes RBAC. For more information, see [Learn how access control works in Amazon EKS](https://docs.aws.amazon.com/eks/latest/userguide/cluster-auth.html).
 
-In addition to IAM roles for service accounts and Amazon EKS service-linked roles, other essential aspects of managing identity and access in Amazon EKS include:
+### Auditing
 
-- [Amazon EKS RBAC authorization](https://docs.aws.amazon.com/eks/latest/userguide/managing-auth.html): Amazon EKS supports role-based access control (RBAC). Use this feature to define fine-grained permissions for Kubernetes resources within your cluster.
+Every IAM and EKS API call, including cluster creation, role assumption, and access entry changes, is captured by AWS CloudTrail, which records who took which action and when. Kubernetes API activity inside the cluster is captured only when you enable EKS control-plane audit logging. EKS sends enabled audit logs to Amazon CloudWatch Logs. For more information, see [Send control plane logs to CloudWatch Logs](https://docs.aws.amazon.com/eks/latest/userguide/control-plane-logs.html).
 
-- [AWS IAM](https://aws.amazon.com/iam/): IAM provides a comprehensive identity management solution for AWS services, including EKS. Use IAM to create and manage users, groups, and roles to control access to your EKS resources.
+## AKS identity and access options
 
-- [Amazon EKS security groups](https://docs.aws.amazon.com/eks/latest/userguide/security-groups-for-pods.html): Use Amazon EKS to apply security group rules to pods that run within your cluster. Use this feature to control inbound and outbound traffic.
+AKS splits the same set of concerns into two systems: Azure managed identities, which govern how the cluster and its workloads act on Azure resources, and Microsoft Entra ID, which governs who can call the Kubernetes API and what they're allowed to do after they're authenticated. For more information, see [Concepts: access and identity in AKS](/azure/aks/concepts-identity).
 
-For more information, see [What is Amazon EKS?](https://docs.aws.amazon.com/eks/latest/userguide/what-is-eks.html).
+### Cluster identity
 
-## AKS cluster managed identities
+Every AKS cluster is created with a system-assigned managed identity by default. This identity is created alongside the cluster and deleted with it, requires no stored secret, and needs no manual credential rotation. The control plane uses this identity, with Contributor rights scoped to the cluster's node resource group, to manage load balancers, managed disks, and storage CSI drivers on the cluster's behalf. A separate kubelet identity authenticates the cluster's nodes to Azure Container Registry when pulling images. For more information, see [Overview of managed identities in AKS](/azure/aks/managed-identity-overview).
 
-AKS clusters require a [Microsoft Entra identity](/entra/fundamentals/whatis) to access Azure resources, like load balancers and managed disks. We recommend that you use managed identities for Azure resources to authorize access from an AKS cluster to other Azure services.
+Clusters can use a user-assigned managed identity in place of the system-assigned identity when the identity needs a lifecycle independent of any single cluster, or when it needs to be shared across multiple Azure resources. The kubelet identity specifically can also be pre-created, which lets an administrator scope its Container Registry permissions precisely before the cluster is ever created, independent of the control-plane identity. For more information, see [System-assigned managed identity](/azure/aks/system-assigned-managed-identity), [User-assigned managed identity](/azure/aks/user-assigned-managed-identity), and [Pre-created kubelet managed identity](/azure/aks/pre-created-kubelet-managed-identity).
 
-### Managed identity types
+Service principals remain available as a legacy alternative, created with `az ad sp create-for-rbac` and supplied to AKS as an application ID and password stored on node virtual machines. We recommend managed identities over service principals because by default service principal credentials expire after one year and require manual rotation. A cluster created with a managed identity also can't be converted back to using a service principal. For more information, see [Use a service principal with AKS](/azure/aks/kubernetes-service-principal).
 
-Developers often struggle with the management of secrets, credentials, certificates, and keys that help secure communication between services. [Managed identities](/entra/identity/managed-identities-azure-resources/overview) eliminate the need for you to manage these credentials. You can use managed identities to authenticate your AKS cluster without managing credentials or including them in your code. Assign an [Azure RBAC](/azure/role-based-access-control/overview) role to an identity to grant the identity permissions to specific resources in Azure.
+### Workload identity
 
-Two types of managed identities include:
+For pod-level access to Azure resources, AKS uses Microsoft Entra Workload ID, which, like Amazon EKS's IRSA, is built on OIDC federation. The cluster's OIDC issuer must be enabled so the cluster can publish a discovery document that Microsoft Entra ID uses to validate cluster-issued tokens. Once it's enabled, the OIDC issuer can't be disabled, and enabling it on an existing cluster causes a brief control-plane interruption. A federated identity credential then links a Microsoft Entra managed identity (or registered application) to a specific Kubernetes namespace and service account subject. The service account is annotated with the managed identity's client ID, and the pod is labeled `azure.workload.identity/use: "true"`, which triggers a mutating webhook to inject the projected service account token. At runtime, the application must use a supported version of an Azure Identity client library or the Microsoft Authentication Library (MSAL) to exchange that token for a Microsoft Entra access token, capped at a 24-hour lifetime, without handling a connection string, access key, or password. For more information, see [Microsoft Entra Workload ID overview](/azure/aks/workload-identity-overview) and [Use the OIDC issuer](/azure/aks/use-oidc-issuer).
 
-- **System-assigned.** You can use some Azure resources, such as virtual machines, to enable a managed identity directly on the resource. When you enable a system-assigned managed identity:
-  - A special type of service principal is created in Microsoft Entra ID for the identity. The service principal is tied to the lifecycle of that Azure resource. When the Azure resource is deleted, Azure automatically deletes the service principal.
+Use a separate managed identity for each workload when doing so is practical. Scope each identity's Azure role assignments to only the resources and actions that the workload requires.
 
-  - Only that Azure resource can use the identity to request tokens from Microsoft Entra ID.
-  - You authorize the managed identity to have access to one or more services.
-  - The name of the system-assigned service principal is the same as the name of the Azure resource that it's created for.
-
-- **User-assigned.** You might create a managed identity as a standalone Azure resource. You can [create a user-assigned managed identity](/entra/identity/managed-identities-azure-resources/how-manage-user-assigned-managed-identities?pivots=identity-mi-methods-azp) and assign it to one or more Azure resources. When you enable a user-assigned managed identity:
-  - A special type of service principal is created in Microsoft Entra ID for the identity. The service principal is managed separately from the resources that use it.
-
-  - Multiple resources can use it.
-  - You authorize the managed identity to have access to one or more services.
-
-You can use either type of managed identity to authorize access to Azure resources from your AKS cluster.
-
-For more information, see [Managed identity types](/entra/identity/managed-identities-azure-resources/overview#managed-identity-types).
-
-### Managed identities in AKS
-
-You can use the following types of managed identities with an AKS cluster:
-
-- A **system-assigned managed identity** is associated with a single Azure resource, such as an AKS cluster. It exists for the lifecycle of the cluster only.
-
-- A **user-assigned managed identity** is a standalone Azure resource that you can use to authorize access to other Azure services from your AKS cluster. It persists separately from the cluster and multiple Azure resources can use it.
-
-- A **precreated kubelet managed identity** is an optional user-assigned identity that the kubelet can use to access other resources in Azure. If no user-assigned managed identity is specified for the kubelet, AKS creates a user-assigned kubelet identity in the node resource group.
-
-### Configure managed identities for AKS clusters
-
-When you deploy an AKS cluster, a system-assigned managed identity is automatically created. You can also create the cluster with a user-assigned managed identity. The cluster uses the managed identity to request tokens from Microsoft Entra ID. The tokens authorize access to other resources that run in Azure.
-
-When you assign an Azure RBAC role to the managed identity, you can grant your cluster permissions to access specific resources. For example, you can assign the managed identity an Azure RBAC role that allows it to access secrets in an Azure key vault. Use this approach to easily authorize access to your cluster without managing credentials.
-
-### Benefits and management of managed identities in AKS
-
-When you use managed identities in AKS, you don't need to provision or rotate secrets. Azure manages the identity's credentials. Therefore, you can authorize access from your applications without managing any extra secrets.
-
-If you already have an AKS cluster that uses a managed identity, you can update the cluster to a different type of managed identity. However, this update might introduce a delay while the control plane components switch to the new identity. This process can take several hours. During this time, the control plane components continue to use the old identity until its token expires.
-
-### Types of managed identities in AKS
-
-AKS uses different types of managed identities to enable various built-in services and add-ons.
-
-| Managed identity                                                     | Use case                                                     | Default permissions                                          |
-| ------------------------------------------------------------ | ------------------------------------------------------------ | ------------------------------------------------------------ |
-| Control plane (system-assigned)                              | AKS control plane components use this identity to manage cluster resources. These resources include ingress load balancers, AKS-managed public IP addresses, the cluster autoscaler, and Azure disk, file, and blob CSI drivers. | Contributor role for the node resource group                     |
-| Kubelet (user-assigned)                                      | Authenticate with Azure Container Registry. | N/A (for Kubernetes version 1.15 and later)                                  |
-| Add-on identities (AzureNPM, AzureCNI network monitoring, Azure Policy, and Calico) | These add-ons don't require an identity.                      | N/A                                                          |
-| Application routing                                          | Manages Azure DNS and Azure Key Vault certificates.          | Key Vault Secrets User role for Key Vault, DNS Zone Contributor role for DNS zones, Private DNS Zone Contributor role for private DNS zones |
-| Ingress application gateway                                  | Manages required network resources.                          | Contributor role for the node resource group                     |
-| Azure Monitor agent                                                    | Sends AKS metrics to Azure Monitor.                   | Monitoring Metrics Publisher role                            |
-| Virtual node (Azure Container Instances connector)                                 | Manages required network resources for Container Instances. | Contributor role for the node resource group                     |
-| Cost analysis                                                |  Gathers cost allocation data.                         | N/A                                                          |
-| Workload identity (Workload ID)              | Enables applications to securely access cloud resources with Workload ID. | N/A                                                          |
-
-For more information, see [Use a managed identity in AKS](/azure/aks/managed-identity-overview).
-
-## Workload ID for Kubernetes
-
-[Workload ID](/entra/workload-id/) integrates with Kubernetes to enable AKS cluster-deployed workloads to access Microsoft Entra protected resources, such as Key Vault and Microsoft Graph. Workload ID uses Kubernetes-native capabilities to federate with external identity providers. For more information, see [Use Workload ID with AKS](/azure/aks/workload-identity-overview).
-
-To use Workload ID, configure a service account within Kubernetes. Pods use this service account to authenticate and access Azure resources securely. Workload ID works well with Azure identity services client libraries or the Microsoft Authentication Library collection. You must register the application in Microsoft Entra ID to manage permissions and access control for the identities.
-
-To fully employ Workload ID in a Kubernetes cluster, configure the AKS cluster to issue tokens and publish an OpenID Connect (OIDC) discovery document for token validation. For more information, see [Create an OIDC provider on AKS](/azure/aks/use-oidc-issuer). 
-
-You also need to configure the Microsoft Entra applications to trust the Kubernetes tokens. Developers can then configure their deployments to use Kubernetes service accounts to obtain tokens. Workload ID exchanges the tokens for Microsoft Entra tokens. AKS cluster workloads can use these Microsoft Entra tokens to securely access protected resources in Azure.
+Each user-assigned managed identity is limited to 20 federated identity credentials. This limit can constrain organizations that share one identity across many clusters with distinct OIDC issuers. [Identity bindings for AKS](/azure/aks/identity-bindings-concepts) address this limit by using one federated credential per managed identity and mapping multiple clusters through separate identity bindings.
 
 The following diagram shows how a Kubernetes cluster becomes a security token issuer that issues tokens to Kubernetes service accounts. You can configure these tokens to be trusted on Microsoft Entra applications. The tokens can then be exchanged for Microsoft Entra access tokens via the [Azure identity services SDKs](/dotnet/api/overview/azure/identity-readme) or the [Microsoft Authentication Library](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet).
 
-
 :::image type="complex" source="./media/message-flow.png" border="false" lightbox="./media/message-flow.png" alt-text="Diagram that shows a simplified workflow for Microsoft Entra Workload ID in Azure.":::
-A sequence diagram shows the interaction between five components: Kubelet, Kubernetes workload, Microsoft Entra ID, OpenID discovery document, and Azure resources. The interactions are numbered from 1 to 5. Arrows indicate the direction of communication. An arrow from Kubelet to Kubernetes workload is labeled 1. An arrow from Kubernetes workload to Microsoft Entra ID is labeled 2. An arrow from Microsoft Entra ID to OpenID discovery document is labeled 3. An arrow from Microsoft Entra ID back to Kubernetes workload is labeled 4. An arrow from Kubernetes workload to Azure resources is labeled 5.
+    A sequence diagram shows the interaction between five components: Kubelet, Kubernetes workload, Microsoft Entra ID, an OpenID discovery document, and Azure resources. The interactions are numbered from 1 to 5. Arrows indicate the direction of communication. An arrow from Kubelet to Kubernetes workload is labeled 1. An arrow from Kubernetes workload to Microsoft Entra ID is labeled 2. An arrow from Microsoft Entra ID to OpenID discovery document is labeled 3. An arrow from Microsoft Entra ID back to Kubernetes workload is labeled 4. An arrow from Kubernetes workload to Azure resources is labeled 5.
 :::image-end:::
 
-1. The `kubelet` agent projects a service account token to the workload at a configurable file path.
+### Cluster authentication and authorization
 
-1. The Kubernetes workload sends the projected, signed service account token to Microsoft Entra ID and requests an access token.
-1. Microsoft Entra ID uses an OIDC discovery document to verify trust on the user-defined managed identity or registered application and validate the incoming token.
-1. Microsoft Entra ID issues a security access token.
-1. The Kubernetes workload accesses Azure resources via the Microsoft Entra access token.
+Human users and automation authenticate to the AKS control plane by using Microsoft Entra ID. Users and groups are validated against the cluster's Entra tenant, and group membership changes take effect without any cluster-side reconfiguration. Entra ID integration brings Conditional Access, multifactor authentication, and Privileged Identity Management into scope for cluster access. The kubelogin client plugin handles interactive and device-code sign-in flows for kubectl. AKS also supports local accounts, a built-in administrative certificate that bypasses Microsoft Entra ID entirely. We recommend disabling local accounts in production clusters, because they represent a non-auditable path around every other access control that's configured. For more information, see [Cluster authentication concepts in AKS](/azure/aks/concepts-cluster-authentication) and [Manage local accounts](/azure/aks/local-accounts).
 
-For more information about Workload ID, see the following resources:
+AKS supports Kubernetes RBAC and Azure RBAC for Kubernetes authorization, and you can use both models on the same cluster. Use Azure RBAC as the default for centrally governed human access and authorization across multiple clusters. Use Kubernetes RBAC for service accounts, GitOps-managed permissions, and fine-grained access within a cluster or namespace. Kubernetes RBAC uses Role/RoleBinding and ClusterRole/ClusterRoleBinding objects managed per cluster. Azure attribute-based access control (Azure ABAC) uses built-in or custom Azure roles scoped at the cluster, resource group, subscription, or management group level. Azure ABAC conditions are available in preview only to restrict access to specific Custom Resource Definition (CRD) groups and kinds. Don't use this preview feature for production workloads. For more information, see [Cluster authorization concepts in AKS](/azure/aks/concepts-cluster-authorization) and [Use Microsoft Entra ID authorization for the Kubernetes API](/azure/aks/entra-id-authorization).
 
-- [Workload ID open-source project](https://azure.github.io/azure-workload-identity)
-- [Workload identity federation](/entra/workload-id/workload-identity-federation)
-- [Workload ID federation with Kubernetes](https://blog.identitydigest.com/azuread-federate-k8s)
-- [Workload ID federation with external OIDC identity providers](https://arsenvlad.medium.com/azure-active-directory-workload-identity-federation-with-external-oidc-idp-4f06c9205a26)
-- [Minimal Workload ID federation](https://cookbook.geuer-pollmann.de/azure/workload-identity-federation)
-- [Workload ID documentation](https://azure.github.io/azure-workload-identity/docs/introduction.html)
-- [Workload ID quick start](https://azure.github.io/azure-workload-identity/docs/quick-start.html)
+### Auditing in AKS
 
-### Example workload
+Azure records identity-related activity by using complementary logs. The Azure activity log captures control-plane and identity operations, such as role assignments and managed identity changes. Microsoft Entra ID sign-in logs capture who authenticates to the cluster, when authentication occurs, and which Conditional Access policies apply. Kubernetes API activity isn't collected by default. Create an AKS diagnostic setting and route the `kube-audit` or `kube-audit-admin` resource logs to a destination like a Log Analytics workspace. For more information, see [Monitor Azure Kubernetes Service](/azure/aks/monitor-aks).
 
-The following example workload runs on an AKS cluster and consists of a front-end and a back-end service. These services use Workload ID to access Azure services, including Key Vault, Azure Cosmos DB, Azure Storage accounts, and Azure Service Bus namespaces. To set up this example workload, do the following prerequisites:
+## Comparing the two models
 
-1. Set up an AKS cluster that has the [OIDC issuer](/azure/aks/use-oidc-issuer) and [workload identity](/azure/aks/workload-identity-deploy-cluster) enabled.
+At a conceptual level, the two platforms solve a similar set of identity problems. IRSA and Microsoft Entra Workload ID both use OIDC federation, while EKS Pod Identity uses the EKS Auth service instead.
 
-1. Create a Kubernetes [service account](https://kubernetes.io/docs/concepts/security/service-accounts/) in the workload [namespace](https://kubernetes.io/docs/concepts/overview/working-with-objects/namespaces/).
-1. Create a Microsoft Entra user-assigned managed identity or [registered application](/entra/identity/enterprise-apps/what-is-application-management).
-1. Establish a federated identity credential between the Microsoft Entra managed identity or registered application and the workload service account.
-1. Assign the necessary roles with appropriate permissions to the Microsoft Entra managed identity or registered application.
-1. Deploy the workload and verify authentication with the workload identity.
+| Concern | Amazon EKS | Azure Kubernetes Service |
+| ------- | ---------- | ------------------------ |
+| Cluster acting on cloud resources | Cluster IAM role | System-assigned or user-assigned managed identity |
+| Nodes calling cloud APIs | Node IAM role | Kubelet managed identity |
+| Pod-level access without stored secrets | IAM roles for service accounts (IRSA) or EKS Pod Identity | Microsoft Entra Workload ID |
+| Federation mechanism | Cluster-specific IAM OIDC provider (IRSA) or pods.eks.amazonaws.com trust (Pod Identity) | AKS OIDC issuer plus federated identity credential |
+| Sharing one identity across clusters | Native with Pod Identity, per-cluster trust required with IRSA | Identity bindings (preview), to work around the 20-credential limit |
+| Human and automation authentication | IAM principals, via access entries or the legacy aws-auth ConfigMap | Microsoft Entra ID, via kubelogin. Local accounts also exist but are discouraged. |
+| In-cluster authorization | EKS access policies, Kubernetes RBAC, or both | Kubernetes RBAC, or Azure RBAC for Kubernetes authorization |
+| Multi-cluster, centrally managed access | IAM Identity Center centralizes workforce identities, but access entries must be configured per cluster, typically through infrastructure as code | Azure RBAC role assignments above the cluster scope |
+| Just-in-time privileged access | No native equivalent | Privileged Identity Management |
+| Control-plane and identity audit trail | AWS CloudTrail | Azure activity log and Microsoft Entra sign-in logs |
 
-#### Workload ID message flow
+The similarities are substantial. Both platforms use platform-managed identities that avoid static credentials and separate cluster-level, node-level, and pod-level identity. IRSA and Microsoft Entra Workload ID use OIDC federation, whereas EKS Pod Identity uses the EKS Auth service. Both platforms support Kubernetes RBAC alongside cloud identity. AWS is replacing the deprecated `aws-auth` ConfigMap with access entries while continuing to support IRSA alongside Pod Identity. We recommend managed identities and Workload ID over service principals and the deprecated pod-managed identity.
 
-In this example workload, the front-end and back-end applications acquire Microsoft Entra security tokens to access Azure platform as a service (PaaS) solutions. The following diagram shows the message flow.
+The platforms organize identity governance differently. Amazon EKS keeps AWS IAM responsible for the cluster, the nodes, the pods, and the humans who administer the cluster. That setup gives an organization already fluent in IAM a consistent policy language and toolset across every layer. However, there's no built-in equivalent to Conditional Access or just-in-time elevation for cluster access. Azure Kubernetes Service separates cloud-resource access, through managed identity, from human and API access, through Microsoft Entra ID, and offers a choice between Kubernetes-native and Azure-native authorization. That setup requires teams to learn another identity model, but it brings capabilities native to Entra ID, including Conditional Access, Privileged Identity Management, and centralized multi-cluster RBAC.
 
-:::image type="complex" source="./media/microsoft-entra-id-workload-identity.svg" border="false" lightbox="./media/microsoft-entra-id-workload-identity.svg" alt-text="Diagram that shows an example application that uses Workload ID.":::
-The main section is the AKS cluster setup, which includes the NGINX ingress controller and the Todolist namespace and its components. The deployment containers indicate step 1 in the overall workflow. Flow 2 goes from the deployment containers to Microsoft Entra ID. Flow 3 goes from Microsoft Entra ID to the OIDC issuer URL. Flow 4 goes from Microsoft Entra ID to the deployment containers. Flow 5 goes from the deployment containers to Azure Key Vault, Azure Service Bus, Azure Cosmos DB, and an Azure Storage account.
-:::image-end:::
+## Identity and access with EKS Auto Mode and AKS Automatic
 
-*Download a [Visio file](https://arch-center.azureedge.net/eks-to-aks-iam-workload-identity.vsdx) of this architecture.*
+Both platforms offer a more fully managed cluster tier that reduces how much identity configuration an operator must perform directly, and both tiers change the identity defaults in similar ways.
 
-1. Kubernetes issues a token to the pod when the pod is scheduled on a node. This token is based on the pod or deployment specifications.
+EKS Auto Mode shifts more permissions to the cluster IAM role so that EKS can automate compute, storage, networking, and load-balancing operations. It keeps the node IAM role limited to operations like joining the cluster, pulling images, and assuming Pod Identity roles. Auto Mode also includes the Pod Identity Agent. For more information, see [Amazon EKS Auto Mode cluster IAM role](https://docs.aws.amazon.com/eks/latest/userguide/auto-cluster-iam-role.html) and [Amazon EKS Auto Mode node IAM role](https://docs.aws.amazon.com/eks/latest/userguide/auto-create-node-role.html).
 
-1. The pod sends the OIDC-issued token to Microsoft Entra ID to request a Microsoft Entra token for the specific `appId` and resource.
-1. Microsoft Entra ID verifies the trust on the application and validates the incoming token.
-1. Microsoft Entra ID issues a security token: `{sub: appId, aud: requested-audience}`.
-1. The pod uses the Microsoft Entra token to access the target Azure resource.
+AKS Automatic takes a comparable approach in Azure but goes further toward removing configuration choices entirely rather than narrowing them. The following table summarizes the identity defaults that change between AKS Automatic and standard AKS.
 
-To use Workload ID end-to-end in a Kubernetes cluster:
+| Identity setting | AKS Standard | AKS Automatic |
+| ---------------- | ------------ | ------------- |
+| Kubernetes API authentication | Local accounts enabled by default. Microsoft Entra authentication is optional. | Microsoft Entra authentication preconfigured. Local accounts disabled. |
+| Kubernetes API authorization | Kubernetes RBAC or Azure RBAC for Kubernetes authorization | Azure RBAC preconfigured. Kubernetes RBAC can coexist for service accounts and fine-grained permissions. |
+| Local accounts | Enabled by default | Disabled by default |
+| OIDC issuer | Enabled by default for new clusters on Kubernetes 1.34 or later. Manually enabled for existing clusters and earlier Kubernetes versions. | Preconfigured |
+| Microsoft Entra Workload ID | Optional, enabled separately | Preconfigured |
 
-1. Configure the AKS cluster to issue tokens and publish an OIDC discovery document to allow validation of these tokens.
+AKS Automatic doesn't only simplify identity configuration. It removes the least secure default (local accounts) and replaces it with Azure RBAC, OIDC federation, and Workload ID enabled from the start. A cluster created with AKS Automatic begins in the same secure-by-default posture that a security-conscious team would otherwise have to configure explicitly on AKS Standard.
 
-1. Configure the Microsoft Entra applications to trust the Kubernetes tokens.
-1. Developers configure their deployments to use the Kubernetes service accounts to get Kubernetes tokens.
-1. Workload ID exchanges the Kubernetes tokens for Microsoft Entra tokens.
-1. AKS cluster workloads use the Microsoft Entra tokens to access protected resources, such as Microsoft Graph.
+Lined up against each other, EKS Auto Mode and AKS Automatic share a clear intent: reduce the amount of identity configuration left to the operator and default to the more secure option at each layer, but they act on different layers of the stack. EKS Auto Mode's identity changes are concentrated at the cluster and node level, standardizing IAM policies while continuing to rely on IAM as the single identity system. Pod-level identity moves toward EKS Pod Identity, while cluster access can use EKS access policies, Kubernetes RBAC, or both. AKS Automatic's identity changes are concentrated at the authentication and authorization layer, eliminating local accounts and defaulting to Azure RBAC while also preconfiguring OIDC federation and Workload ID for pod-level access.
+
+| Identity setting | EKS Auto Mode | AKS Automatic |
+| ---------------- | ------------- | ------------- |
+| Cluster and node IAM/identity | Standardized, narrower IAM policy set | Managed identity, unchanged from AKS Standard. |
+| Human/API cluster access | IAM principals authenticate via access entries or aws-auth; EKS access policies or Kubernetes RBAC authorize access | Microsoft Entra ID authenticates users. Azure RBAC is preconfigured for authorization. Local accounts are disabled. |
+| Pod-level identity | Pod Identity Agent preinstalled. Operators still create pod identity associations. | OIDC issuer and Workload ID enabled. Operators still configure an identity, federated credential, service account, and pod. |
+| In-cluster authorization | EKS access policies, Kubernetes RBAC, or both | Azure RBAC is preconfigured. Kubernetes RBAC can coexist for service accounts and fine-grained permissions. |
+
+## Kubernetes identity considerations
+
+Regardless of which platform you use, keep the following points in mind:
+
+First, pod-level identity is where the two platforms are most alike. IRSA is the closest EKS equivalent to Microsoft Entra Workload ID because both use OIDC federation. EKS Pod Identity instead uses the EKS Auth service. For new AKS workloads, use Workload ID rather than the deprecated pod-managed identity.
+
+Second, AKS local accounts bypass Microsoft Entra authentication. Disable local accounts after enabling Microsoft Entra integration so that administrators use centralized authentication. For EKS professionals, access entries provide the closest comparison point for centrally managed principal-to-cluster access, while Azure RBAC provides the AKS authorization layer.
+
+Third, centralizing access across many clusters is a capability, not a given. Amazon EKS handles it through IAM tooling built for AWS generally (such as IAM Identity Center) rather than anything EKS-specific. Azure RBAC, on the other hand, for Kubernetes authorization, is designed from the start to apply consistently across clusters, subscriptions, and management groups.
+
+Finally, AKS Automatic is the recommended production-ready default for most AKS workloads. Compared with EKS Auto Mode, AKS Automatic changes more authentication and authorization defaults by disabling local accounts and preconfiguring Azure RBAC, the OIDC issuer, and Workload ID.
 
 ## Contributors
 
@@ -205,14 +159,14 @@ To use Workload ID end-to-end in a Kubernetes cluster:
 
 Principal authors:
 
-- [Paolo Salvatori](https://www.linkedin.com/in/paolo-salvatori/) | Principal Service Engineer
 - [Martin Gjoshevski](https://www.linkedin.com/in/martin-gjoshevski/) | Senior Service Engineer
+- [Pranab Paul](https://www.linkedin.com/in/pranabpaul/) | Senior Global Partner Solution Architect
+- [Paolo Salvatori](https://www.linkedin.com/in/paolo-salvatori/) | Principal Service Engineer
 
 Other contributors:
 
-- [Laura Nicolas](https://www.linkedin.com/in/lauranicolasd/) | Senior Software Engineer
 - [Chad Kittel](https://www.linkedin.com/in/chadkittel/) | Principal Software Engineer - Azure Patterns & Practices
-- [Theano Petersen](https://www.linkedin.com/in/theanop/) | Technical Writer
+- [Laura Nicolas](https://www.linkedin.com/in/lauranicolasd/) | Senior Software Engineer
 
 *To see nonpublic LinkedIn profiles, sign in to LinkedIn.*
 
