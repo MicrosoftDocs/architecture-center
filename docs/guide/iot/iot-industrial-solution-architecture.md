@@ -23,7 +23,7 @@ To deliver these benefits, an industrial IoT platform must support a wide range 
 Achieving these capabilities requires interoperability across devices, applications, and cloud services. Open standards such as Open Platform Communications Unified Architecture (OPC UA) provide a common foundation for integrating manufacturing systems from edge to cloud. The [OPC Foundation Cloud Initiative](https://opcfoundation.org/cloud/) extends this approach to cloud-native architectures. This article describes Microsoft's implementation of the Cloud Initiative reference architecture and demonstrates how organizations can build an open, scalable, and AI-ready industrial IoT platform.
 
 > [!NOTE]
-> This solution is provided as-is and is not a Microsoft-supported product offering. It should be evaluated carefully before use in production environments. Organizations are responsible for validating that the architecture, leveraged Azure services, components, and operational characteristics align with their needs.
+> This solution is provided as-is and isn't a Microsoft-supported product offering. Evaluate it carefully before use in production environments. You're responsible for validating that the architecture, leveraged Azure services, components, and operational characteristics align with your needs.
 
 ## Contents
 
