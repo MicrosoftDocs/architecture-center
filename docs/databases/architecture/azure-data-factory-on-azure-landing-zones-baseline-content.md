@@ -130,7 +130,7 @@ The following data flow corresponds to the previous diagram:
 
     - The gold layer stores aggregated data that's useful for business analytics.
 
-  Data Lake Storage underpins Delta Lake because of its ability to efficiently store all types of data. This flexibility supports workflows of varying speeds and maintains cost effectiveness.
+   Data Lake Storage underpins Delta Lake because of its ability to efficiently store all types of data. This flexibility supports workflows of varying speeds and maintains cost effectiveness.
 
 1. SQL Server is used to support the enterprise data modeling requirements, including hierarchical conformance.
 
