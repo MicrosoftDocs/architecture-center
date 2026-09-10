@@ -127,6 +127,7 @@ safe-outputs:
       - nabilshams
       - namrata01Apr
       - neilbird
+      - netapp-manishc
       - nimccoll
       - njogendran
       - oscarsk91
