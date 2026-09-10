@@ -110,7 +110,7 @@ The following resources can help you discover more about containers.
 
 - [Azure Arc hybrid management and deployment for Kubernetes clusters](../hybrid/arc-hybrid-kubernetes.yml): Manage Kubernetes clusters across environments.
 
-- [Hybrid architecture design](../hybrid/hybrid-start-here.md): Overview of hybrid solutions on Azure.
+- [Get started with Azure hybrid and adaptive cloud architecture](../hybrid/hybrid-start-here.md): Overview of hybrid solutions on Azure.
 
 - [AKS on Azure Local baseline architecture](../example-scenario/hybrid/aks-baseline.yml): Production-ready AKS on Azure Local deployment.
 

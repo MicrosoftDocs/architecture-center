@@ -190,7 +190,7 @@ Performance Efficiency refers to your workload's ability to scale to meet user d
 
 Related hybrid guidance:
 
-- [Hybrid architecture design](hybrid-start-here.md)
+- [Get started with Azure hybrid and adaptive cloud architecture](hybrid-start-here.md)
 - [Azure hybrid options](../guide/technology-choices/hybrid-considerations.yml)
 - [Hybrid app design considerations](/hybrid/app-solutions/overview-app-design-considerations)
 

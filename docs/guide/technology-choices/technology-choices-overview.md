@@ -6,6 +6,7 @@ ms.author: pnp
 ms.date: 02/16/2026
 ms.topic: concept-article
 ms.subservice: architecture-guide
+ai-usage: ai-assisted
 ---
 
 # Technology choices for Azure solutions
@@ -34,14 +35,14 @@ You can use multiple methods to build and deploy containerized applications in A
 
 ## Choose a hybrid option
 
-Many organizations need a hybrid approach for analytics, automation, and services because they host data both on-premises and in the cloud. The following articles can help you choose the best technologies for your scenario.
+Hybrid architecture combines services in Azure with infrastructure and workloads in datacenters, at edge locations, and in other clouds. Start with foundational concepts and a planning workflow. Then evaluate workload placement, connectivity, operational independence, infrastructure, governance, and specialized workload requirements. The following articles can help you plan an approach and choose technologies.
 
 | Article | Summary |
 | :------ | :------ |
-| [Explore Azure hybrid options](hybrid-considerations.yml) | Learn about Azure hybrid solutions, including alternatives to deploy and host hybrid services on-premises, at the edge, in Azure, and in other clouds. |
-| [Compare Azure Stack Hub to Azure](/azure-stack/user/azure-stack-considerations) | Learn the differences between Azure and Azure Stack Hub. |
-| [Compare Azure Local to Windows Server](/azure/azure-local/concepts/compare-windows-server) | Choose between Azure Local and Windows Server for your organization. |
-| [Choose drives for Azure Local and Windows Server clusters](/windows-server/storage/storage-spaces/choose-drives) | Learn how to choose drives for Azure Local and Windows Server clusters to meet performance and capacity requirements. |
+| [Get started with Azure hybrid and adaptive cloud architecture](../../hybrid/hybrid-start-here.md) | Learn about hybrid and adaptive cloud patterns, the roles of Azure services across distributed environments, and a path from strategy to implementation design. |
+| [Explore Azure hybrid options](hybrid-considerations.yml) | Evaluate workload placement, sovereignty, connectivity, infrastructure, ownership, cost, operations, and specialized workload requirements. Compare candidate services and operating models. |
+| [Choose a hybrid network architecture](../../reference-architectures/hybrid-networking/hybrid-connectivity-options.md) | Compare Azure VPN Gateway, Azure ExpressRoute, and non-Microsoft IPsec or SD-WAN options for connecting on-premises networks to Azure. |
+| [Azure Local baseline reference architecture](../../hybrid/azure-local-baseline.yml) | Learn how to design Azure Local for highly available virtualized and containerized workloads. |
 
 ## Choose an identity service
 
