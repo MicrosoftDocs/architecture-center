@@ -50,16 +50,6 @@ Achieving these capabilities requires interoperability across devices, applicati
   - [Summary of recommendations for production](#summary-of-recommendations-for-production)
   - [Configure OAuth 2.0 for the I3X API via Microsoft Entra ID](#configure-oauth-20-for-the-i3x-api-via-microsoft-entra-id)
 
-## About this solution
-
-Manufacturers might want to use an industrial IoT solution that doesn't lock them in to proprietary platforms. In addition, they might want to deploy this solution on a global scale and connect all of their production sites to it to increase efficiencies for each individual site.
-
-These increased efficiencies lead to faster production, better quality, and lower energy consumption, which all lead to reducing the cost for produced goods.
-
-The solution must be as efficient as possible and enable all required use cases, like condition monitoring, overall equipment effectiveness (OEE) calculation, forecasting, and anomaly detection. By using the insights gained from these use cases, manufacturers can create digital feedback loops, which can apply optimizations and other changes to the production processes in a fully automated way.
-
-Interoperability is essential for these requirements. The use of open standards like OPC UA significantly helps to achieve this interoperability. Improving this interoperability led to the establishment of the [OPC Foundation Cloud Initiative](https://opcfoundation.org/cloud). This OPC UA reference solution is the Microsoft implementation of the Cloud Initiative's reference architecture.
-
 ## Prerequisites
 
 ### Required Azure permissions
