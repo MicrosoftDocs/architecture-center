@@ -258,7 +258,7 @@ Moving a database onto Silk storage is a data migration, not a conversion. To th
 Principal authors:
 
 - [Jay Lansdaal](https://www.linkedin.com/in/jelle-jay-lansdaal-bb3250107/) | Sr. Product Manager, Azure Storage
-- [Tom O'Neill](https://www.linkedin.com/in/zen10440/) | Silk Vice President, Product
+- [Tom O'Neill](https://www.linkedin.com/in/tomoneillsilk/) | Silk Vice President, Product
 
 ## Next step
 
