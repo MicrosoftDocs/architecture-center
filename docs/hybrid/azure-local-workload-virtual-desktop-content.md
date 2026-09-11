@@ -352,6 +352,6 @@ For a consolidated list of recent feature updates, see [What's new in Azure Virt
 
 ## Related resources
 
-- [Hybrid architecture design](hybrid-start-here.md)
+- [Get started with Azure hybrid and adaptive cloud architecture](hybrid-start-here.md)
 - [Azure hybrid options](../guide/technology-choices/hybrid-considerations.yml)
 - [Optimize administration of SQL Server instances in on-premises and multicloud environments by using Azure Arc](azure-arc-sql-server.yml)

@@ -111,7 +111,7 @@ Review the following key hybrid compute scenarios:
 
 The following articles describe key hybrid compute scenarios:
 
-- [Hybrid architecture design](../../hybrid/hybrid-start-here.md): See an overview of hybrid solutions on Azure.
+- [Get started with Azure hybrid and adaptive cloud architecture](../../hybrid/hybrid-start-here.md): See an overview of hybrid solutions on Azure.
 - [Azure Arc hybrid management and deployment for Kubernetes clusters](../../hybrid/arc-hybrid-kubernetes.yml): Manage Kubernetes clusters across environments.
 
 ### HPC
