@@ -98,14 +98,9 @@ For more information, see the following resources:
 - [Integrate Key Vault with Azure Policy](/azure/key-vault/general/azure-policy?tabs=certificates)
 - [Azure Policy built-in definitions for Key Vault](/azure/key-vault/policy-reference)
 
-### Key Vault Managed HSM and Azure Dedicated HSM
+### Key Vault Managed HSM
 
-If you need to perform a large number of operations per second, and the Key Vault operation limits are insufficient, consider using either [Managed HSM](/azure/key-vault/managed-hsm/overview) or [Dedicated HSM](/azure/dedicated-hsm/overview). Both products provide a reserved amount of capacity, but they increase cost compared to Key Vault. Understand the limits on how many instances of these services that you can deploy in each region.
-
-For more information, see the following resources:
-
-- [Determine whether to use Key Vault or Dedicated HSM](/azure/dedicated-hsm/faq#how-do-i-decide-whether-to-use-azure-key-vault-or-azure-dedicated-hsm-)
-- [Determine whether Dedicated HSM is right for you](/azure/dedicated-hsm/overview#is-azure-dedicated-hsm-right-for-you)
+If you need to perform a large number of operations per second, and the Key Vault operation limits are insufficient, consider using [Managed HSM](/azure/key-vault/managed-hsm/overview). Managed HSM provides a reserved amount of capacity, but at a greater cost compared to Key Vault. Understand the limits on how many instances that you can deploy in each region.
 
 ## Contributors
 
