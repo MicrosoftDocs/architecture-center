@@ -2,7 +2,7 @@
 title: What's New in Azure Architecture Center
 description: New and updated articles in Azure Architecture Center
 author: claytonsiemens77
-ms.date: 09/06/2026
+ms.date: 09/13/2026
 ms.topic: whats-new
 ms.author: pnp
 ---
@@ -40,6 +40,16 @@ The following new and updated articles have recently been published in the Azure
 - [Azure Virtual Machines baseline architecture](./virtual-machines/baseline.yml) ([#9ef10bb9f7](https://github.com/MicrosoftDocs/architecture-center/commit/9ef10bb9f7))
 - [Baseline highly available zone-redundant web application](./web-apps/app-service/architectures/baseline-zone-redundant.yml) ([#9ef10bb9f7](https://github.com/MicrosoftDocs/architecture-center/commit/9ef10bb9f7))
 - [WordPress on Azure](./guide/infrastructure/wordpress-overview.yml) ([#8e27865282](https://github.com/MicrosoftDocs/architecture-center/commit/8e27865282))
+- [Enable an industrial dataspace on Azure](./guide/iot/how-to-enable-industrial-dataspaces.md) ([#3593d4cda1](https://github.com/MicrosoftDocs/architecture-center/commit/3593d4cda1))
+- [Multitenancy and Azure App Configuration](./guide/multitenant/service/app-configuration.md) ([#bef1a19651](https://github.com/MicrosoftDocs/architecture-center/commit/bef1a19651))
+- [Azure Data Factory baseline architecture in an Azure landing zone](./databases/architecture/azure-data-factory-on-azure-landing-zones-baseline.yml) ([#4d7caf2220](https://github.com/MicrosoftDocs/architecture-center/commit/4d7caf2220))
+- [Workload identity and access in EKS and AKS](./aws-professional/eks-to-aks/workload-identity.md) ([#b8dff3c867](https://github.com/MicrosoftDocs/architecture-center/commit/b8dff3c867))
+- [OPC UA reference solution](./guide/iot/iot-industrial-solution-architecture.md) ([#b19a3a42bf](https://github.com/MicrosoftDocs/architecture-center/commit/b19a3a42bf))
+- [Azure hybrid options](./guide/technology-choices/hybrid-considerations.yml) ([#0dfe9874bb](https://github.com/MicrosoftDocs/architecture-center/commit/0dfe9874bb))
+- [Get started with Azure hybrid and adaptive cloud architecture](./hybrid/hybrid-start-here.md) ([#0dfe9874bb](https://github.com/MicrosoftDocs/architecture-center/commit/0dfe9874bb))
+- [Technology choices for Azure solutions](./guide/technology-choices/technology-choices-overview.md) ([#0dfe9874bb](https://github.com/MicrosoftDocs/architecture-center/commit/0dfe9874bb))
+- [Agentic AI for the OPC UA reference solution](./guide/iot/agentic-ai-for-the-solution.md) ([#0aa7dc7aa7](https://github.com/MicrosoftDocs/architecture-center/commit/0aa7dc7aa7))
+- [Modern data warehouse medallion architecture in Microsoft Fabric](./databases/architecture/dataops-mdw.yml) ([#65d8f63c46](https://github.com/MicrosoftDocs/architecture-center/commit/65d8f63c46))
 
 ## August 2026
 
@@ -108,6 +118,8 @@ The following new and updated articles have recently been published in the Azure
 - [Advanced Azure Kubernetes Service (AKS) Microservices Architecture](./reference-architectures/containers/aks-microservices/aks-microservices-advanced.yml) ([#758ae766d6](https://github.com/MicrosoftDocs/architecture-center/commit/758ae766d6))
 - [Sidecar pattern](./patterns/sidecar.md) ([#2859494d8f](https://github.com/MicrosoftDocs/architecture-center/commit/2859494d8f))
 - [Move archive data from mainframe systems to Azure](./example-scenario/mainframe/move-archive-data-mainframes.yml) ([#afe54b6798](https://github.com/MicrosoftDocs/architecture-center/commit/afe54b6798))
+- [Modern data warehouse medallion architecture in Microsoft Fabric](./databases/architecture/dataops-mdw.yml) ([#0f4f8554cf](https://github.com/MicrosoftDocs/architecture-center/commit/0f4f8554cf))
+- [Choose an Azure AI image and video processing and generation technology](./data-guide/ai-services/image-video-processing.md) ([#179369cce0](https://github.com/MicrosoftDocs/architecture-center/commit/179369cce0))
 
 ## July 2026
 
