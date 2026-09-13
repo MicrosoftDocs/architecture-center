@@ -68,7 +68,7 @@ Reliability helps ensure that your application can meet the commitments that you
 
 - For disaster recovery, set up API Management with a user-assigned managed identity instead of a system-assigned identity. If you redeploy or delete the resource, the identity and its permissions remain in place, so you can restore access more easily. Use Azure Pipelines to automate backups. Decide if you need to deploy your services in more than one region for better reliability.
 
-- Virtual network peering provides strong performance within a region, but it has a scalability limit of 500 networks. If you need to connect more workloads, use a [hub-spoke design](/azure/architecture/reference-architectures/hybrid-networking/hub-spoke) or [Azure Virtual WAN](/azure/virtual-wan/virtual-wan-about).
+- Virtual network peering provides strong performance within a region, but it has a scalability limit of 500 networks. If you need to connect more workloads, use a [hub-spoke design](/azure/architecture/networking/architecture/hub-spoke) or [Azure Virtual WAN](/azure/virtual-wan/virtual-wan-about).
 
 ### Security
 

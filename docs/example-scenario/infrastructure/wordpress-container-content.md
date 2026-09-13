@@ -188,9 +188,9 @@ Product documentation:
 
 Microsoft training modules:
 
-- [Develop and deploy applications on Kubernetes](/training/paths/develop-deploy-applications-kubernetes)
+- [Deploy containers by using Azure Kubernetes Service (AKS)](/training/paths/deploy-manage-containers-azure-kubernetes-service)
 - [Introduction to Azure NetApp Files](/training/modules/introduction-to-azure-netapp-files)
-- [Implement Key Vault](/training/modules/implement-azure-key-vault)
+- [Configure and manage secrets in Azure Key Vault](/training/modules/configure-and-manage-azure-key-vault)
 - [Introduction to Virtual Network](/training/modules/introduction-to-azure-virtual-networks)
 
 ## Related resources
