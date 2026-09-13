@@ -44,9 +44,9 @@ The following production-ready architectures demonstrate comprehensive compute s
 
 ### Compute guides
 
-- [Shared access signatures (SAS) on Azure architecture](../guide/sas/sas-overview.yml): Get guidance about running SAS analytics on Azure.
+- [SAS on Azure architecture](../guide/sas/sas-overview.yml): Get guidance about running SAS analytics on Azure.
 - [Build workloads by using Azure Spot Virtual Machines](../guide/spot/spot-eviction.yml): Learn how to design workloads that take advantage of spare Azure capacity at reduced cost.
-- [HPC on Azure](../guide/compute/high-performance-computing.md): Learn about HPC capabilities and architectures on Azure.
+- [High-performance computing (HPC) on Azure](../guide/compute/high-performance-computing.md): Learn about HPC capabilities and architectures on Azure.
 
 ### SAP
 
