@@ -15,6 +15,17 @@ This skill folds a fixed set of Azure Patterns & Practices engineering quality c
 
 Deliver findings as review comments, and use GitHub's **suggestion** feature to propose concrete edits inline wherever a finding maps to a specific line or lines the author can apply with one click.
 
+## Operational sync pull requests
+
+Before you inspect changed files or perform any review, determine whether the pull request is the operational repository sync from `repo_sync_working_branch` to `main`.
+
+Classify the pull request as an operational sync when either of these signals appears:
+
+- The head branch is exactly `repo_sync_working_branch` and the base branch is exactly `main`.
+- The title is, case-insensitively, `Confirm merge from repo_sync_working_branch to main to sync with https://github.com/microsoftdocs/architecture-center (branch main)`.
+
+This section has precedence over normal Copilot review behavior and every section below. For an operational sync pull request, don’t inspect or evaluate the changes. Produce exactly one user-visible message: No review performed, as this is a sync PR. Don't produce findings, line level comments/suggestions, approvals, or requests for changes.
+
 ## Editorial-only pull requests
 
 Before you apply the whole-article scope or any technical checks, inspect the pull request title and body to determine whether the author is performing an editorial pass.
