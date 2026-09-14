@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id/>
     <title>Azure Architecture Center</title>
-    <updated>2026-09-04T20:43:00.000Z</updated>
+    <updated>2026-09-11T20:15:02.000Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <subtitle>Updated articles for Azure Architecture Center</subtitle>
     <rights>https://learn.microsoft.com/legal/termsofuse</rights>
@@ -137,7 +137,88 @@
         <category label="updated" term="updated"/>
     </entry>
     <entry>
+        <title type="html"><![CDATA[Enable an industrial dataspace on Azure]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/guide/iot/how-to-enable-industrial-dataspaces#3593d4cda1</id>
+        <link href="https://learn.microsoft.com/azure/architecture/guide/iot/how-to-enable-industrial-dataspaces"/>
+        <updated>2026-09-09T18:30:27.000Z</updated>
+        <summary type="html"><![CDATA[Learn how to enable an industrial dataspace on Azure. A dataspace provides a secure point-to-point channel for data between the manufacturer and the customer.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Multitenancy and Azure App Configuration]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/guide/multitenant/service/app-configuration#bef1a19651</id>
+        <link href="https://learn.microsoft.com/azure/architecture/guide/multitenant/service/app-configuration"/>
+        <updated>2026-09-10T02:54:24.000Z</updated>
+        <summary type="html"><![CDATA[Learn about the features of Azure App Configuration that are useful when you work with multitenant systems, and use the provided links for guidance and examples.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Azure Data Factory baseline architecture in an Azure landing zone]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/databases/architecture/azure-data-factory-on-azure-landing-zones-baseline#4d7caf2220</id>
+        <link href="https://learn.microsoft.com/azure/architecture/databases/architecture/azure-data-factory-on-azure-landing-zones-baseline"/>
+        <updated>2026-09-10T03:11:27.000Z</updated>
+        <summary type="html"><![CDATA[Learn how to design and implement the medallion lakehouse architecture in an Azure landing zone by using Azure Data Factory, Azure Databricks, SQL Server, and Power BI.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Workload identity and access in EKS and AKS]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/aws-professional/eks-to-aks/workload-identity#b8dff3c867</id>
+        <link href="https://learn.microsoft.com/azure/architecture/aws-professional/eks-to-aks/workload-identity"/>
+        <updated>2026-09-10T17:48:02.000Z</updated>
+        <summary type="html"><![CDATA[Understand how Kubernetes clusters, nodes, and pods handle identity and access, and compare options in Amazon EKS and Azure Kubernetes Service (AKS).]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[OPC UA reference solution]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/guide/iot/iot-industrial-solution-architecture#b19a3a42bf</id>
+        <link href="https://learn.microsoft.com/azure/architecture/guide/iot/iot-industrial-solution-architecture"/>
+        <updated>2026-09-10T18:34:54.000Z</updated>
+        <summary type="html"><![CDATA[Learn how to build a standards-based industrial IoT reference solution that uses OPC UA to connect shop-floor telemetry to Azure analytics services.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Azure hybrid options]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/guide/technology-choices/hybrid-considerations#0dfe9874bb</id>
+        <link href="https://learn.microsoft.com/azure/architecture/guide/technology-choices/hybrid-considerations"/>
+        <updated>2026-09-10T21:53:17.000Z</updated>
+        <summary type="html"><![CDATA[Learn how Azure hybrid options address workload placement, operations, sovereignty, connectivity, and AI requirements.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Get started with Azure hybrid and adaptive cloud architecture]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/hybrid/hybrid-start-here#0dfe9874bb</id>
+        <link href="https://learn.microsoft.com/azure/architecture/hybrid/hybrid-start-here"/>
+        <updated>2026-09-10T21:53:17.000Z</updated>
+        <summary type="html"><![CDATA[Learn how to plan an Azure hybrid and adaptive cloud architecture across Azure, datacenters, edge locations, and other clouds.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Technology choices for Azure solutions]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/guide/technology-choices/technology-choices-overview#0dfe9874bb</id>
+        <link href="https://learn.microsoft.com/azure/architecture/guide/technology-choices/technology-choices-overview"/>
+        <updated>2026-09-10T21:53:17.000Z</updated>
+        <summary type="html"><![CDATA[Learn where to find Azure technology guidance across compute, data, analytics, networking, and AI by using curated comparison and choice resources.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Agentic AI for the OPC UA reference solution]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/guide/iot/agentic-ai-for-the-solution#0aa7dc7aa7</id>
+        <link href="https://learn.microsoft.com/azure/architecture/guide/iot/agentic-ai-for-the-solution"/>
+        <updated>2026-09-11T20:12:41.000Z</updated>
+        <summary type="html"><![CDATA[Learn how to use agentic AI to augment a solution that uses OPC Unified Architecture (OPC UA) to connect shop-floor telemetry to Azure analytics services.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Modern data warehouse medallion architecture in Microsoft Fabric]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/databases/architecture/dataops-mdw#65d8f63c46</id>
+        <link href="https://learn.microsoft.com/azure/architecture/databases/architecture/dataops-mdw"/>
+        <updated>2026-09-11T20:15:02.000Z</updated>
+        <summary type="html"><![CDATA[Learn how to implement a SQL-first modern data warehouse medallion architecture by using Fabric Data Warehouse, OneLake, Fabric Data Factory, and Power BI.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
         <title type="html"><![CDATA[Sidecar pattern]]></title>
+
         <id>https://learn.microsoft.com/azure/architecture/patterns/sidecar#2859494d8f</id>
         <link href="https://learn.microsoft.com/azure/architecture/patterns/sidecar"/>
         <updated>2026-08-31T19:26:02.000Z</updated>
@@ -150,6 +231,22 @@
         <link href="https://learn.microsoft.com/azure/architecture/example-scenario/mainframe/move-archive-data-mainframes"/>
         <updated>2026-08-30T21:21:25.000Z</updated>
         <summary type="html"><![CDATA[Learn how to move archive data from mainframe systems to Azure by using an IBM Db2 connector.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Modern data warehouse medallion architecture in Microsoft Fabric]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/databases/architecture/dataops-mdw#0f4f8554cf</id>
+        <link href="https://learn.microsoft.com/azure/architecture/databases/architecture/dataops-mdw"/>
+        <updated>2026-08-27T14:03:33.000Z</updated>
+        <summary type="html"><![CDATA[Learn how to implement a SQL-first modern data warehouse medallion architecture by using Fabric Data Warehouse, OneLake, Fabric Data Factory, and Power BI.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Choose an Azure AI image and video processing and generation technology]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/data-guide/ai-services/image-video-processing#179369cce0</id>
+        <link href="https://learn.microsoft.com/azure/architecture/data-guide/ai-services/image-video-processing"/>
+        <updated>2026-08-31T18:33:01.000Z</updated>
+        <summary type="html"><![CDATA[Learn about Foundry Tools for video processing and video generation. Understand and compare each service's capabilities and use cases.]]></summary>
         <category label="updated" term="updated"/>
     </entry>
     <entry>

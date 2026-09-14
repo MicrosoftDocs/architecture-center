@@ -3,7 +3,7 @@ This scenario illustrates how to design and implement a baseline architecture fo
 This article includes recommendations for networking, security, identity, management, and monitoring of the cluster based on an organization's business requirements.
 
 > [!IMPORTANT]
-> The information in this article applies to AKS on Azure Local and [AKS on Windows Server](/azure/aks/aksarc/overview). The most recent version of AKS runs on the Azure Stack HCI, version 23H2 operating system. For more information about the latest version, see [AKS on Azure Local](/azure/aks/aksarc/aks-whats-new-local).
+> The information in this article applies to AKS on Azure Local and [AKS on Windows Server](/azure/aks-hybrid-edge/windows-server/overview). The most recent version of AKS runs on the Azure Stack HCI, version 23H2 operating system. For more information about the latest version, see [AKS on Azure Local](/azure/aks-hybrid-edge/local/aks-whats-new-local).
 
 ## Architecture
 
@@ -73,7 +73,7 @@ Consider defining storage classes for different tiers and locations to optimize 
 
 ### Create and manage AKS on Azure Local
 
-You should create and manage AKS on Azure Local like any other Azure resource that you manage. You can use the [Azure portal](/azure/aks/aksarc/aks-create-clusters-portal), [Azure CLI](/azure/aks/aksarc/aks-create-clusters-cli), [Azure Resource Manager templates (ARM templates)](/azure/aks/aksarc/resource-manager-quickstart), or [Bicep](/azure/aks/aksarc/create-clusters-bicep).
+You should create and manage AKS on Azure Local like any other Azure resource that you manage. You can use the [Azure portal](/azure/aks-hybrid-edge/local/aks-create-clusters-portal), [Azure CLI](/azure/aks-hybrid-edge/local/aks-create-clusters-cli), [Azure Resource Manager templates (ARM templates)](/azure/aks-hybrid-edge/local/resource-manager-quickstart), or [Bicep](/azure/aks-hybrid-edge/local/create-clusters-bicep).
 
 The [Azure Arc-enabled Kubernetes service][] provides Resource Manager representation of AKS on an Azure Local instance. When you create an AKS on Azure Local cluster, Azure Arc agents are automatically deployed in a Kubernetes namespace to collect logs and metrics and gather cluster metadata, Kubernetes version, and node count.
 
@@ -208,16 +208,16 @@ Other contributor:
 
 ## Next step
 
-- [AKS enabled by Azure Arc](/azure/aks/aksarc/aks-overview)
+- [AKS enabled by Azure Arc](/azure/aks-hybrid-edge/aks-overview)
 
   [Azure Arc resource bridge]: /azure/azure-arc/resource-bridge/overview
   [Automation capabilities]: /azure/automation/automation-hybrid-runbook-worker
-  [availability Sets]: /azure/aks/aksarc/availability-sets
+  [availability Sets]: /azure/aks-hybrid-edge/local/hyperconverged/availability-sets
   [Azure Arc]: /azure/azure-arc/overview
   [Azure Arc-enabled Kubernetes Service]: /azure/azure-arc/kubernetes/
   [Azure Automation]: /azure/automation/overview
   [Azure Key Vault Secrets provider extension]: /azure/azure-arc/kubernetes/tutorial-akv-secrets-provider
-  [AKS on Azure Local]: /azure/aks/aksarc/aks-overview
+  [AKS on Azure Local]: /azure/aks-hybrid-edge/aks-overview
   [Azure Local solutions]: https://azure.microsoft.com/products/local
   [Azure Local]: /azure/well-architected/service-guides/azure-local
   [Azure Monitor Container Insights]: /azure/azure-monitor/containers/container-insights-overview
@@ -226,22 +226,22 @@ Other contributor:
   [Azure Policy]: /azure/governance/policy/overview
   [Azure pricing calculator]: https://azure.microsoft.com/pricing/calculator
   [Azure RBAC]: /azure/role-based-access-control/
-  [Azure role-based access control (Azure RBAC)]: /azure/aks/aksarc/azure-rbac-23h2
+  [Azure role-based access control (Azure RBAC)]: /azure/aks-hybrid-edge/local/hyperconverged/azure-rbac-local
   [Azure verified modules]: /community/content/azure-verified-modules
   [containerized]: /azure/azure-arc/kubernetes/tutorial-use-gitops-flux2
   [cost optimization]: /azure/well-architected/cost-optimization/principles
   [Flux v2 configurations and Azure Policy for Kubernetes]: /azure/azure-arc/kubernetes/use-azure-policy-flux-2
   [hybrid container service module]: https://github.com/Azure/bicep-registry-modules/tree/main/avm/res/hybrid-container-service/provisioned-cluster-instance
-  [IP address planning]: /azure/aks/aksarc/aks-hci-ip-address-planning
+  [IP address planning]: /azure/aks-hybrid-edge/local/hyperconverged/aks-hci-ip-address-planning
   [logical networks]: /azure/azure-local/manage/create-logical-networks
   [Defender for Cloud]: /azure/defender-for-cloud/defender-for-cloud-introduction
-  [MetalLB extension]: /azure/aks/aksarc/load-balancer-overview
-  [network requirements]: /azure/aks/aksarc/aks-hci-network-system-requirements
-  [Calico]: /azure/aks/aksarc/concepts-security
-  [Use isolation of containers]: /azure/aks/aksarc/container-security#practice-isolation
+  [MetalLB extension]: /azure/aks-hybrid-edge/local/hyperconverged/load-balancer-overview
+  [network requirements]: /azure/aks-hybrid-edge/local/hyperconverged/network-system-requirements
+  [Calico]: /azure/aks-hybrid-edge/windows-server/concepts-security
+  [Use isolation of containers]: /azure/aks-hybrid-edge/windows-server/container-security#practice-isolation
   [virtualization-based security]: /windows-hardware/design/device-experiences/oem-vbs
   [virtualized]: /azure/azure-arc/servers/manage-vm-extensions
-  [workload identity]: /azure/aks/aksarc/workload-identity
+  [workload identity]: /azure/aks-hybrid-edge/local/hyperconverged/workload-identity
 
 ## Related resources
 

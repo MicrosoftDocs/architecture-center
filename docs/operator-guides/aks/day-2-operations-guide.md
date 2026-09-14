@@ -1,6 +1,6 @@
 ---
 title: AKS (Kubernetes) day-2 operations guide
-description: Learn about Azure Kubernetes Services (AKS) day-2 operations, such as triage, patching, upgrading, and troubleshooting.
+description: Learn about Azure Kubernetes Service (AKS) day-2 operations, such as triage, patching, upgrading, and troubleshooting.
 author: francisnazareth
 ms.author: fnazaret
 ms.date: 01/20/2025
@@ -11,7 +11,7 @@ ms.custom:
   - arb-containers
 ---
 
-# Azure Kubernetes Services (AKS) day-2 operations guide
+# Azure Kubernetes Service (AKS) day-2 operations guide
 
 After you release an Azure Kubernetes Service (AKS)-hosted application, prepare for *day-2 operations*. Day-2 operations include triage, ongoing maintenance of deployed assets, rolling out upgrades, and troubleshooting.
 
