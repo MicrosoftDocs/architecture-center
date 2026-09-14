@@ -86,6 +86,7 @@ safe-outputs:
       - JKirsch1
       - jl-ms
       - JLansdaal
+      - jmart1428
       - jocontr
       - johndowns
       - JohnPoetzinger
@@ -188,6 +189,7 @@ safe-outputs:
       - tedmanlee
       - ThePedestrian
       - troyhite
+      - ttorble
       - ulisesadan
       - v-albemi
       - v-ccolin
