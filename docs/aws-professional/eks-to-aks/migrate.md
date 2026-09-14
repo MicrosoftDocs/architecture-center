@@ -54,7 +54,7 @@ Analyze your existing EKS environment to understand the current architecture, re
 - **Review EKS configuration:** Assess EKS cluster configuration, such as node types, number of nodes, Kubernetes version and support policy, and scaling configuration.
 
   > [!NOTE]
-  > EKS allows the creation of [custom AMI images](https://github.com/aws-samples/amazon-eks-custom-amis) for EKS nodes. AKS doesn't allow the use of custom node images. If your deployment requires node customization, you can apply [kubelet customization](/azure/aks/custom-node-configuration) and [DaemonSets](https://kubernetes.io/docs/concepts/workloads/controllers/daemonset/) to customize your nodes.
+  > EKS allows the creation of [custom AMI images](https://docs.aws.amazon.com/eks/latest/userguide/eks-optimized-ami-bottlerocket.html) for EKS nodes. AKS doesn't allow the use of custom node images. If your deployment requires node customization, you can apply [kubelet customization](/azure/aks/custom-node-configuration) and [DaemonSets](https://kubernetes.io/docs/concepts/workloads/controllers/daemonset/) to customize your nodes.
 
 - **Review application workloads:** Identify all Kubernetes workloads that run on the EKS cluster, including deployments, services, stateful sets, ingress configurations, and persistent volume claims (PVCs). Create a complete list of applications and their associated resources.
 
