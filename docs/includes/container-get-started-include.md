@@ -70,7 +70,7 @@ The following guides provide recommendations on cross-cutting concerns in your K
 
 ###### AKS day-2 operations guide
 
-- [Azure Kubernetes Services (AKS) day-2 operations guide](../operator-guides/aks/day-2-operations-guide.md): Learn about AKS day-2 operations, such as triage, patching, upgrading, and troubleshooting.
+- [Azure Kubernetes Service (AKS) day-2 operations guide](../operator-guides/aks/day-2-operations-guide.md): Learn about AKS day-2 operations, such as triage, patching, upgrading, and troubleshooting.
 
 - [Backup and recovery for AKS](../operator-guides/aks/aks-backup-and-recovery.md): Protect your cluster configuration and workloads.
 
