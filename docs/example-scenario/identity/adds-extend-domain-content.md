@@ -24,7 +24,7 @@ The following workflow corresponds to the previous diagram:
 
 ### Components
 
-- [Microsoft Entra ID](/entra/fundamentals/whatis) is an enterprise identity service that provides single sign-on, multifactor authentication, and Microsoft Entra Conditional Access. In this architecture, Microsoft Entra ID provides more secure access to cloud applications and services.
+- [Microsoft Entra ID](/entra/fundamentals/what-is-entra) is an enterprise identity service that provides single sign-on, multifactor authentication, and Microsoft Entra Conditional Access. In this architecture, Microsoft Entra ID provides more secure access to cloud applications and services.
 
 - [VPN Gateway](/azure/vpn-gateway/vpn-gateway-about-vpngateways) is a service that uses virtual network gateways to send encrypted traffic between an Azure virtual network and on-premises locations over the public internet. In this architecture, VPN Gateway allows Active Directory synchronization traffic to flow more securely between environments.
 
@@ -175,7 +175,7 @@ AD DS is designed for scalability. You don't need to configure a load balancer o
 
 ## Next steps
 
-- [What is Microsoft Entra ID?](/entra/fundamentals/whatis)
+- [What is Microsoft Entra ID?](/entra/fundamentals/what-is-entra)
 - [Azure DevOps][az-devops]
 - [Azure Pipelines][az-pipelines]
 - [Azure Monitor][azure-monitor]
