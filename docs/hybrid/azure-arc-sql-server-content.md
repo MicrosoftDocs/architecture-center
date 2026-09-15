@@ -54,9 +54,9 @@ You can use Azure Arc enabled SQL Server instances, hosted on physical and virtu
 
 After you satisfy all of the [prerequisites][azure-arc-sql-assess-prereqs] for Azure Arc enabled SQL Server, you can use the following Azure functionality:
 
-- SQL best practices assessment of Azure Arc enabled SQL Server. The assessment uses Azure Monitor Agent (AMA) to collect and analyze data from your SQL Server instances. If AMA isn't installed, enabling the assessment installs it. The assessment sends results to the Log Analytics workspace that you designate and provides recommendations for configuration, index management, deprecated features, trace flags, and statistics. You can [review the results in the Azure portal][azure-arc-sql-assess].
+- SQL best practices assessment of Windows-based Azure Arc enabled SQL Server. The assessment uses Azure Monitor Agent (AMA) to collect and analyze data from your SQL Server instances. If AMA isn't installed, enabling the assessment installs it. The assessment sends results to the Log Analytics workspace that you designate and provides recommendations for configuration, index management, deprecated features, trace flags, and statistics. You can [review the results in the Azure portal][azure-arc-sql-assess].
 
-- Microsoft Defender for SQL Servers on Machines. This functionality helps you detect and remediate security anomalies and threats to Azure Arc enabled SQL Server instances. At scale, auto-provisioning installs and configures the required AMA, Defender extensions, workspace, data collection rules (DCRs), and identity. You can [review SQL security alerts in Microsoft Defender for Cloud][defender-sql-alerts] and, after you [onboard Microsoft Sentinel][azure-sentinel-onboarding], use it to further investigate security alerts directly in the Azure portal.
+- Microsoft Defender for SQL Servers on Machines. This functionality helps you detect and remediate security anomalies and threats to Windows-based Azure Arc enabled SQL Server instances. At scale, auto-provisioning installs and configures the required AMA, Defender extensions, workspace, data collection rules (DCRs), and identity. You can [review SQL security alerts in Microsoft Defender for Cloud][defender-sql-alerts] and, after you [onboard Microsoft Sentinel][azure-sentinel-onboarding], use it to further investigate security alerts directly in the Azure portal.
 
 ### Automate deployment and management of Azure Arc enabled SQL Managed Instance in on-premises and multicloud environments
 
@@ -138,9 +138,9 @@ Operational Excellence covers the operations processes that deploy an applicatio
 
 - To perform registration of individual Azure Arc enabled SQL Server instances, you can interactively run [a script available directly from the Azure portal][connect-sql-server-to-azure-arc]. For large-scale deployments, you can [run the same script in the unattended manner][connect-sql-server-to-azure-arc-at-scale], by leveraging a Microsoft Entra service principal.
 
-- To assess the configuration and health of Azure Arc enabled SQL Server instances, enable SQL best practices assessment. The assessment uses AMA and installs it if needed. To enable assessment at scale, assign the **Configure Arc-enabled Servers with SQL Server extension installed to enable or disable SQL best practices assessment** [Azure Policy definition][azure-arc-sql-assess].
+- To assess the configuration and health of Windows-based Azure Arc enabled SQL Server instances, enable SQL best practices assessment. The assessment uses AMA and installs it if needed. To enable assessment at scale, assign the **Configure Arc-enabled Servers with SQL Server extension installed to enable or disable SQL best practices assessment** [Azure Policy definition][azure-arc-sql-assess].
 
-- Use [Azure Policy to deploy AMA and associate DCRs][azure-monitor-agent-policy] with Azure Arc enabled servers at scale. To protect SQL Server instances at scale, [enable auto-provisioning for Microsoft Defender for SQL Servers on Machines][defender-for-sql-at-scale].
+- Use [Azure Policy to deploy AMA and associate DCRs][azure-monitor-agent-policy] with Azure Arc enabled servers at scale. To protect Windows-based SQL Server instances at scale, [enable auto-provisioning for Microsoft Defender for SQL Servers on Machines][defender-for-sql-at-scale].
 
 - Azure Arc enabled SQL Managed Instance shares the code base with the latest stable version of SQL Server, providing support for the same set of [manageability features][azure-arc-sql-mi-manageability].
 
