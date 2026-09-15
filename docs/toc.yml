@@ -1016,7 +1016,7 @@ items:
         href: solution-ideas/articles/devsecops-infrastructure-as-code.yml
     - name: Architectures
       items:
-      - name: Automate API deployments with APIOps
+      - name: Automate API Management configuration with APIOps
         href: example-scenario/devops/automated-api-deployments-apiops.yml
       - name: Scalable cloud applications and site reliability engineering (SRE)
         href: example-scenario/apps/scalable-apps-performance-modeling-site-reliability.yml
