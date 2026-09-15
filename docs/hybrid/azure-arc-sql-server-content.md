@@ -138,7 +138,7 @@ Operational Excellence covers the operations processes that deploy an applicatio
 
 - To perform registration of individual Azure Arc enabled SQL Server instances, you can interactively run [a script available directly from the Azure portal][connect-sql-server-to-azure-arc]. For large-scale deployments, you can [run the same script in the unattended manner][connect-sql-server-to-azure-arc-at-scale], by leveraging a Microsoft Entra service principal.
 
-- To assess the configuration and health of Windows-based Azure Arc enabled SQL Server instances, enable SQL best practices assessment. The assessment uses Azure Monitor agent (AMA) and installs it if needed. To enable assessment at scale, assign the **Configure Arc-enabled Servers with SQL Server extension installed to enable or disable SQL best practices assessment** [Azure Policy definition][azure-arc-sql-assess].
+- To assess the configuration and health of Windows-based Azure Arc enabled SQL Server instances, enable SQL best practices assessment. The assessment uses Azure Monitor Agent (AMA) and installs it if needed. To enable assessment at scale, assign the **Configure Arc-enabled Servers with SQL Server extension installed to enable or disable SQL best practices assessment** [Azure Policy definition][azure-arc-sql-assess].
 
 - Use [Azure Policy to deploy AMA and associate DCRs][azure-monitor-agent-policy] with Azure Arc enabled servers at scale. To protect Windows-based SQL Server instances at scale, [enable auto-provisioning for Microsoft Defender for SQL Servers on Machines][defender-for-sql-at-scale].
 
