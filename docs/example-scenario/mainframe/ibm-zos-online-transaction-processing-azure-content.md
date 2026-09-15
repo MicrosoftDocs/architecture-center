@@ -118,9 +118,9 @@ The following monitoring tools provide comprehensive data analysis and valuable 
 
 - [Application Insights](/azure/well-architected/service-guides/application-insights) is a feature of Azure Monitor that provides code-level telemetry for applications. It monitors the application, detects anomalies such as mediocre performance and failures, and sends personal data to the Azure portal. You can also use Application Insights for logging, distributed tracing, and custom application metrics. In this architecture, it tracks application performance, detects anomalies, and supports distributed tracing and custom metrics to ensure reliability and responsiveness.
 
-- [Azure Monitor](/azure/azure-monitor/overview) is a comprehensive platform for collecting, analyzing, and acting on telemetry from Azure and on-premises environments. In this architecture, it serves as the central hub for monitoring infrastructure, applications, and services.
+- [Azure Monitor](/azure/azure-monitor/fundamentals/overview) is a comprehensive platform for collecting, analyzing, and acting on telemetry from Azure and on-premises environments. In this architecture, it serves as the central hub for monitoring infrastructure, applications, and services.
 
-  - [Azure Monitor alerts](/azure/azure-monitor/alerts/alerts-metric) are a feature of Azure Monitor that notifies users when metrics or logs exceed defined thresholds. In this architecture, they trigger automated responses or escalate problems to operations teams for timely intervention.
+  - [Azure Monitor alerts](/azure/azure-monitor/alerts/alerts-create-metric-alert-rule) are a feature of Azure Monitor that notifies users when metrics or logs exceed defined thresholds. In this architecture, they trigger automated responses or escalate problems to operations teams for timely intervention.
 
   - [Log Analytics](/azure/well-architected/service-guides/azure-log-analytics) is a query tool within Azure Monitor that uses a powerful language to analyze log data. In this architecture, it enables deep diagnostics, supports custom dashboards, and integrates with alerts and workbooks for operational insights.
 
@@ -166,7 +166,7 @@ See the following related architectures and related technical information.
 ### Related technical information
 
 - [Run background tasks by using WebJobs in App Service](/azure/app-service/webjobs-create)
-- [Optimize performance by using in-memory technologies in SQL Database](/azure/azure-sql/in-memory-oltp-overview)
-- [Azure Monitor overview](/azure/azure-monitor/overview)
+- [Optimize performance by using in-memory technologies in SQL Database](/azure/azure-sql/database/in-memory-oltp-overview)
+- [Azure Monitor overview](/azure/azure-monitor/fundamentals/overview)
 - [Create or edit a metric alert rule](/azure/azure-monitor/alerts/alerts-create-metric-alert-rule)
 - [Create and share dashboards of Log Analytics data](/azure/azure-monitor/visualize/tutorial-logs-dashboards)
