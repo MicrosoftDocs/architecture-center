@@ -62,8 +62,8 @@ Reliability helps ensure that your application can meet the commitments that you
 
 - **Microsoft Entra ID** is a globally distributed, highly available SaaS platform.
 
-- You can deploy **Azure API Management** in several highly available configurations, according to business requirements and cost tolerance. For more information, see [Ensure API Management availability and reliability](/azure/api-management/high-availability).
-- The **Logic Apps** Consumption tier supports geo-redundant storage. For more information, see [Business continuity and disaster recovery for Logic Apps](/azure/logic-apps/business-continuity-disaster-recovery-guidance).
+- You can deploy **Azure API Management** in several highly available configurations, according to business requirements and cost tolerance. For more information, see [Reliability in Azure API Management](/azure/reliability/reliability-api-management).
+- The **Logic Apps** Consumption tier supports geo-redundant storage. For more information, see [Multi-region deployments for disaster recovery in Azure Logic Apps](/azure/logic-apps/multi-region-disaster-recovery).
 - **Event Grid** resource definitions for topics, system topics, domains, and event subscriptions and event data are automatically replicated across [availability zones](/azure/reliability/availability-zones-overview) in a region. When there's a failure in one of the availability zones, Event Grid resources automatically fail over to another availability zone without any human intervention. For more information, see [Cross-region disaster recovery and business continuity](/azure/reliability/reliability-event-grid#cross-region-disaster-recovery-and-business-continuity).
 - All **Service Bus** tiers support [availability zones](/azure/service-bus-messaging/service-bus-outages-disasters#availability-zones).
 - **Service Bus** Premium supports [geo replication](/azure/service-bus-messaging/service-bus-geo-replication) and Service Bus Standard supports active and passive [replication](/azure/service-bus-messaging/service-bus-outages-disasters#protection-against-outages-and-disasters).

@@ -252,7 +252,9 @@ When you plan capacity for a user node pool, consider the following recommendati
 
 ### Select an operating system
 
-Most AKS clusters use Linux as the operating system for their node pools. The reference implementation uses [Azure Linux](/azure/aks/use-azure-linux), which is a lightweight, hardened Linux distribution that's tuned for Azure. You can choose another Linux distribution like Ubuntu if you prefer or if Azure Linux doesn't meet your requirements. If you choose a different operating system, ensure that the OS disk is sized appropriately for that image. Some distributions require more space than Azure Linux, so you might need to increase the disk size to avoid problems with deployment or runtime.
+Most AKS clusters use Linux as the operating system for their node pools. The reference implementation uses [Azure Linux](/azure/aks/use-azure-linux), which is a lightweight, hardened Linux distribution that's tuned for Azure. Microsoft builds, signs, and manages the entire Azure Linux stack, so it has full control over Azure Linux patching. Microsoft sometimes releases fixes for high and critical Common Vulnerabilities and Exposures (CVEs) out of band, ahead of the next scheduled node image, instead of waiting for another vendor's release cycle.
+
+You can choose another Linux distribution like Ubuntu if you prefer or if Azure Linux doesn't meet your requirements. If you choose a different operating system, ensure that the OS disk is sized appropriately for that image. Some distributions require more space than Azure Linux, so you might need to increase the disk size to avoid problems with deployment or runtime.
 
 If your workload is composed of mixed technologies, you can use different operating systems in different node pools. If you don't need different operating systems, we recommend that you use a single operating system for all workload node pools to reduce operational complexity.
 
