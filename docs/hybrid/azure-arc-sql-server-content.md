@@ -52,14 +52,11 @@ You can use Azure Arc enabled SQL Server instances, hosted on physical and virtu
 > [!NOTE]
 > Installation of the Azure Connected Machine Agent is also part of implementation of Azure Arc enabled servers. Effectively, there is no need for its installation when implementing Azure Arc enabled SQL Server on Azure Arc enabled servers.
 
-After you satisfy all of the [prerequisites][azure-arc-sql-assess-prereqs] for Azure Arc enabled SQL Server, including the installation of the Log Analytics agent, you automatically have the option to use the following Azure functionality:
+After you satisfy all of the [prerequisites][azure-arc-sql-assess-prereqs] for Azure Arc enabled SQL Server, you can use the following Azure functionality:
 
-- On-demand SQL Assessment of Azure Arc enabled SQL Server. The assessment relies on the Log Analytics agent to collect relevant data and upload it to the Log Analytics workspace you designate. With logs uploaded to the workspace, the SQL Server Assessment Log Analytics solution manages data analysis and allows you to review its [results directly in the Azure portal][azure-arc-sql-assess]. Whenever applicable, the solution also provides recommendations regarding potential improvements. The results of the analysis are organized into four categories: assessment quality, security and compliance, availability and continuity, and performance and scalability. The Log Analytics agent scans for updates in regular intervals and automatically uploads them to the Log Analytics workspace to ensure that the results you're reviewing are up to date.
+- SQL best practices assessment of Azure Arc enabled SQL Server. The assessment uses Azure Monitor Agent (AMA) to collect and analyze data from your SQL Server instances. If AMA isn't installed, enabling the assessment installs it. The assessment sends results to the Log Analytics workspace that you designate and provides recommendations for configuration, index management, deprecated features, trace flags, and statistics. You can [review the results in the Azure portal][azure-arc-sql-assess].
 
-> [!NOTE]
-> Log Analytics agent is commonly referred to as Microsoft Monitoring Agent (MMA).
-
-- Advanced data security for Azure Arc enabled SQL Server. This functionality helps you detect and remediate security anomalies and threats to Azure Arc enabled SQL Server instances. Like the on-demand SQL Assessment, to enable Azure Arc enabled SQL Server, you need to install the Log Analytics agent on the server hosting the SQL Server instance. You must also enable the Microsoft Defender for Cloud feature of Microsoft Defender for Cloud to automatically define the scope of data collection and to analyze it. You can [review results of this analysis in the Microsoft Defender for Cloud][azure-security-center-explore] and, after you [onboard Microsoft Sentinel][azure-sentinel-onboarding], use it to further investigate security alerts directly in the Azure portal.
+- Microsoft Defender for SQL Servers on Machines. This functionality helps you detect and remediate security anomalies and threats to Azure Arc enabled SQL Server instances. At scale, auto-provisioning installs and configures the required AMA, Defender extensions, workspace, data collection rules (DCRs), and identity. You can [review SQL security alerts in Microsoft Defender for Cloud][defender-sql-alerts] and, after you [onboard Microsoft Sentinel][azure-sentinel-onboarding], use it to further investigate security alerts directly in the Azure portal.
 
 ### Automate deployment and management of Azure Arc enabled SQL Managed Instance in on-premises and multicloud environments
 
@@ -141,9 +138,9 @@ Operational Excellence covers the operations processes that deploy an applicatio
 
 - To perform registration of individual Azure Arc enabled SQL Server instances, you can interactively run [a script available directly from the Azure portal][connect-sql-server-to-azure-arc]. For large-scale deployments, you can [run the same script in the unattended manner][connect-sql-server-to-azure-arc-at-scale], by leveraging a Microsoft Entra service principal.
 
-- To perform on-demand assessment of configuration and health of Azure Arc enabled SQL Server instances by using Azure Monitor, you must deploy the Log Analytics agent to the server hosting that SQL Server instance. You can automate this deployment at scale by using Azure Policy to [enable Azure Monitor for VMs for Azure Arc enabled servers][azure-monitor-for-vms].
+- To assess the configuration and health of Azure Arc enabled SQL Server instances, enable SQL best practices assessment. The assessment uses AMA and installs it if needed. To enable assessment at scale, assign the **Configure Arc-enabled Servers with SQL Server extension installed to enable or disable SQL best practices assessment** [Azure Policy definition][azure-arc-sql-assess].
 
-- On-demand SQL Assessment and advanced data security are available for SQL Server instances that aren't Azure Arc enabled. However, Azure Arc simplifies their provisioning and configuration. You can, for example, use the VM extension capability to [automate deployment of the Log Analytics agent][azure-vm-extension-log-analytics-deploy] to servers hosting SQL Server instances.
+- Use [Azure Policy to deploy AMA and associate DCRs][azure-monitor-agent-policy] with Azure Arc enabled servers at scale. To protect SQL Server instances at scale, [enable auto-provisioning for Microsoft Defender for SQL Servers on Machines][defender-for-sql-at-scale].
 
 - Azure Arc enabled SQL Managed Instance shares the code base with the latest stable version of SQL Server, providing support for the same set of [manageability features][azure-arc-sql-mi-manageability].
 
@@ -209,14 +206,14 @@ Performance Efficiency is the ability of your workload to meet the demands place
 [azure-sentinel]: /azure/sentinel/overview
 [azure-security-center]: /azure/security-center/security-center-introduction
 [azure-backup]: /azure/backup/backup-overview
-[azure-monitor-for-vms]: /azure/azure-monitor/insights/vminsights-enable-policy
+[azure-monitor-agent-policy]: /azure/azure-monitor/agents/azure-monitor-agent-policy
 [connect-sql-server-to-azure-arc]: /sql/sql-server/azure-arc/connect?view=sql-server-ver15#generate-a-registration-script-for-sql-server
 [connect-sql-server-to-azure-arc-at-scale]: /sql/sql-server/azure-arc/connect-at-scale?view=sql-server-ver15
-[azure-arc-sql-assess-prereqs]: /sql/sql-server/azure-arc/assess?view=sql-server-ver15#prerequisites
-[azure-arc-sql-assess]: /sql/sql-server/azure-arc/assess?view=sql-server-ver15
-[azure-security-center-explore]: /sql/sql-server/azure-arc/configure-advanced-data-security?view=sql-server-ver15#explore
+[azure-arc-sql-assess-prereqs]: /sql/sql-server/azure-arc/assess?view=sql-server-ver17#prerequisites
+[azure-arc-sql-assess]: /sql/sql-server/azure-arc/assess?view=sql-server-ver17
+[defender-sql-alerts]: /azure/defender-for-cloud/alerts-sql-database-and-azure-synapse-analytics
 [azure-sentinel-onboarding]: /azure/sentinel/connect-data-sources
-[azure-vm-extension-log-analytics-deploy]: /sql/sql-server/azure-arc/configure-advanced-data-security?view=sql-server-ver15#install-microsoft-monitoring-agent-mma
+[defender-for-sql-at-scale]: /azure/defender-for-cloud/enable-defender-sql-at-scale
 [azure-arc-enabled-sql-mi-compatibility]: /azure/azure-arc/data/managed-instance-overview
 [azure-arc-data-services-connectivity-modes]: /azure/azure-arc/data/connectivity
 [kubernetes-kibana-grafana]: /azure/azure-arc/data/monitor-grafana-kibana
