@@ -52,11 +52,11 @@ You can use Azure Arc enabled SQL Server instances, hosted on physical and virtu
 > [!NOTE]
 > Installation of the Azure Connected Machine Agent is also part of implementation of Azure Arc enabled servers. Effectively, there is no need for its installation when implementing Azure Arc enabled SQL Server on Azure Arc enabled servers.
 
-After you satisfy all of the [prerequisites][azure-arc-sql-assess-prereqs] for Azure Arc enabled SQL Server, you can use the following Azure functionality:
+After you enable SQL Server instances with Azure Arc, you can use the following Azure functionality:
 
-- SQL best practices assessment of Windows-based Azure Arc enabled SQL Server. The assessment uses Azure Monitor Agent (AMA) to collect and analyze data from your SQL Server instances. If AMA isn't installed, enabling the assessment installs it. The assessment sends results to the Log Analytics workspace that you designate and provides recommendations for configuration, index management, deprecated features, trace flags, and statistics. You can [review the results in the Azure portal][azure-arc-sql-assess].
+- SQL best practices assessment of Windows-based Azure Arc enabled SQL Server. After you satisfy the [assessment prerequisites][azure-arc-sql-assess-prereqs], the assessment uses Azure Monitor Agent (AMA) to collect and analyze data from your SQL Server instances. If AMA isn't installed, enabling the assessment installs it. The assessment sends results to the Log Analytics workspace that you designate and provides recommendations for configuration, index management, deprecated features, trace flags, and statistics. You can [review the results in the Azure portal][azure-arc-sql-assess].
 
-- Microsoft Defender for SQL Servers on Machines. This functionality helps you detect and remediate security anomalies and threats to Windows-based Azure Arc enabled SQL Server instances. At scale, auto-provisioning installs and configures the required AMA, Defender extensions, workspace, data collection rules (DCRs), and identity. You can [review SQL security alerts in Microsoft Defender for Cloud][defender-sql-alerts] and, after you [onboard Microsoft Sentinel][azure-sentinel-onboarding], use it to further investigate security alerts directly in the Azure portal.
+- Microsoft Defender for SQL Servers on Machines. After you satisfy the [Defender prerequisites][defender-for-sql-prereqs], this functionality helps you detect and remediate security anomalies and threats to Windows-based Azure Arc enabled SQL Server instances. At scale, auto-provisioning installs and configures the required AMA, Defender extensions, workspace, data collection rules (DCRs), and identity. You can [review SQL security alerts in Microsoft Defender for Cloud][defender-sql-alerts] and, after you [onboard Microsoft Sentinel][azure-sentinel-onboarding], use it to further investigate security alerts directly in the Azure portal.
 
 ### Automate deployment and management of Azure Arc enabled SQL Managed Instance in on-premises and multicloud environments
 
@@ -211,6 +211,7 @@ Performance Efficiency is the ability of your workload to meet the demands place
 [connect-sql-server-to-azure-arc-at-scale]: /sql/sql-server/azure-arc/connect-at-scale?view=sql-server-ver15
 [azure-arc-sql-assess-prereqs]: /sql/sql-server/azure-arc/assess?view=sql-server-ver17#prerequisites
 [azure-arc-sql-assess]: /sql/sql-server/azure-arc/assess?view=sql-server-ver17
+[defender-for-sql-prereqs]: /azure/defender-for-cloud/defender-for-sql-usage#prerequisites
 [defender-sql-alerts]: /azure/defender-for-cloud/alerts-sql-database-and-azure-synapse-analytics
 [azure-sentinel-onboarding]: /azure/sentinel/connect-data-sources
 [defender-for-sql-at-scale]: /azure/defender-for-cloud/enable-defender-sql-at-scale
