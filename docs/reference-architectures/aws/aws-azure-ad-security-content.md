@@ -4,13 +4,13 @@ This article provides AWS identity architects, administrators, and security anal
 
 AWS creates a separate *Identity and Access Management (IAM) store* for each account. The following diagram shows the standard setup for an AWS environment with a single AWS account:
 
-![Diagram showing a single-account AWS environment.](media/aws-single-account.png)
+:::image type="content" source="media/aws-single-account.png" alt-text="Diagram showing a single-account AWS environment." lightbox="media/aws-single-account.png" border="false":::
 
 The *root user* fully controls the AWS account and delegates access to other identities. The AWS IAM *principal* provides a unique identity for each role and user that needs to access the AWS account. AWS IAM can protect each root, principal, and user account with a complex password and basic MFA.
 
 Many organizations need more than one AWS account, resulting in *identity silos* that are hard to manage:
 
-![Diagram showing a multiple-account AWS environment.](media/aws-multiple-accounts.png)
+:::image type="content" source="media/aws-multiple-accounts.png" alt-text="Diagram showing a multiple-account AWS environment." lightbox="media/aws-multiple-accounts.png" border="false":::
 
 To allow centralized identity management and avoid managing multiple identities and passwords, most organizations want to use single sign-on for platform resources. Some AWS customers rely on Windows Server Active Directory for SSO integration. Other customers invest in non-Microsoft solutions to synchronize or federate their identities and provide SSO.
 
@@ -20,7 +20,7 @@ Many organizations already use Microsoft Entra ID to assign and protect Microsof
 
 The following diagram shows how Microsoft Entra ID can integrate with multiple AWS accounts to provide centralized identity and access management:
 
-![Diagram showing AWS and Microsoft Entra integration.](media/azure-aws-integration.png)
+:::image type="content" source="media/azure-aws-integration.png" alt-text="Diagram showing AWS and Microsoft Entra integration." lightbox="media/azure-aws-integration.png" border="false":::
 
 Microsoft Entra ID offers several capabilities for direct integration with AWS:
 
@@ -183,7 +183,7 @@ Make sure any remaining AWS IAM users have complex passwords with MFA enabled, o
 
 The following diagram shows an example of the configuration steps and final policy and role mapping across Microsoft Entra ID and AWS IAM:
 
-![Diagram showing configuration steps and final role mapping from AWS IAM to Azure AD.](media/role-mapping.png)
+:::image type="content" source="media/role-mapping.png" alt-text="Diagram showing configuration steps and final role mapping from AWS IAM to Azure AD." lightbox="media/role-mapping.png" border="false":::
 
 ### Single sign-on integration
 
@@ -229,7 +229,7 @@ Use the following steps to configure Microsoft Entra SSO for AWS:
 
 Based on these configuration steps, you can diagram the interactions like this:
 
-![Diagram of the configuration interactions.](media/diagram-example.png)
+:::image type="content" source="media/diagram-example.png" alt-text="Diagram of the configuration interactions." lightbox="media/diagram-example.png" border="false":::
 
 On **AWS Console**, use the following steps to create more roles.
 
