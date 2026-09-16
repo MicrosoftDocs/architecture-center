@@ -256,7 +256,7 @@ If you plan to use existing network switches for an Azure Local deployment, revi
 
 In a multi-node storage switched deployment, the number of IP addresses needed increases with the addition of each physical machine, up to a maximum of 16 physical machines within a single cluster. For example, to deploy a two-node storage switched configuration of Azure Local, the cluster infrastructure requires a minimum of 11 x IP addresses to be allocated. More IP addresses are required if you use micro-segmentation or software-defined networking. For more information, see [Review two-node storage reference pattern IP address requirements for Azure Local](/azure/azure-local/plan/two-node-ip-requirements).
 
-When you design and plan IP address requirements for Azure Local, remember to account for extra IP addresses or network ranges needed for your workload beyond the ones that are required for the Azure Local instance and infrastructure components. If you plan to deploy AKS on Azure Local, see [AKS enabled by Azure Arc network requirements](/azure/aks/hybrid/aks-hci-network-system-requirements).
+When you design and plan IP address requirements for Azure Local, remember to account for extra IP addresses or network ranges needed for your workload beyond the ones that are required for the Azure Local instance and infrastructure components. If you plan to deploy AKS on Azure Local, see [AKS enabled by Azure Arc network requirements](/azure/aks-hybrid-edge/local/hyperconverged/network-system-requirements).
 
 #### Outbound network connectivity
 
