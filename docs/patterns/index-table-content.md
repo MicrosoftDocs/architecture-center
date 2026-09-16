@@ -4,7 +4,7 @@ Create indexes over the fields in data stores that are frequently referenced by 
 
 Many data stores organize the data for a collection of entities using the primary key. An application can use this key to locate and retrieve data. The figure shows an example of a data store holding customer information. The primary key is the Customer ID. The figure shows customer information organized by the primary key (Customer ID).
 
-:::image type="content" source="./_images/index-table-figure-1.png" alt-text="Figure 1 - Customer information organized by the primary key (Customer ID)" lightbox="./_images/index-table-figure-1.png" border="false":::
+:::image type="content" source="./_images/index-table-figure-1.png" alt-text="Figure 1 - Customer information organized by the primary key (Customer ID)" border="false":::
 
 While the primary key is valuable for queries that fetch data based on the value of this key, an application might not be able to use the primary key if it needs to retrieve data based on some other field. In the customers example, an application can't use the Customer ID primary key to retrieve customers if it queries data solely by referencing the value of some other attribute, such as the town in which the customer is located. To perform a query such as this, the application might have to fetch and examine every customer record, which could be a slow process.
 

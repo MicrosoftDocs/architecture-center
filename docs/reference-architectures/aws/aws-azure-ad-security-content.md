@@ -4,13 +4,13 @@ This article provides AWS identity architects, administrators, and security anal
 
 AWS creates a separate *Identity and Access Management (IAM) store* for each account. The following diagram shows the standard setup for an AWS environment with a single AWS account:
 
-:::image type="content" source="media/aws-single-account.png" alt-text="Diagram showing a single-account AWS environment." lightbox="media/aws-single-account.png" border="false":::
+:::image type="content" source="media/aws-single-account.png" alt-text="Diagram showing a single-account AWS environment." border="false":::
 
 The *root user* fully controls the AWS account and delegates access to other identities. The AWS IAM *principal* provides a unique identity for each role and user that needs to access the AWS account. AWS IAM can protect each root, principal, and user account with a complex password and basic MFA.
 
 Many organizations need more than one AWS account, resulting in *identity silos* that are hard to manage:
 
-:::image type="content" source="media/aws-multiple-accounts.png" alt-text="Diagram showing a multiple-account AWS environment." lightbox="media/aws-multiple-accounts.png" border="false":::
+:::image type="content" source="media/aws-multiple-accounts.png" alt-text="Diagram showing a multiple-account AWS environment." border="false":::
 
 To allow centralized identity management and avoid managing multiple identities and passwords, most organizations want to use single sign-on for platform resources. Some AWS customers rely on Windows Server Active Directory for SSO integration. Other customers invest in non-Microsoft solutions to synchronize or federate their identities and provide SSO.
 
@@ -229,7 +229,7 @@ Use the following steps to configure Microsoft Entra SSO for AWS:
 
 Based on these configuration steps, you can diagram the interactions like this:
 
-:::image type="content" source="media/diagram-example.png" alt-text="Diagram of the configuration interactions." lightbox="media/diagram-example.png" border="false":::
+:::image type="content" source="media/diagram-example.png" alt-text="Diagram of the configuration interactions." border="false":::
 
 On **AWS Console**, use the following steps to create more roles.
 
