@@ -42,7 +42,7 @@ Event Hubs uses [partitions](/azure/event-hubs/event-hubs-features#partitions) t
 
 In this particular scenario, ride data and fare data should end up with the same partition ID for a given taxi cab. This enables Stream Analytics to apply a degree of parallelism when it correlates the two streams. A record in partition *n* of the ride data will match a record in partition *n* of the fare data.
 
-![Diagram of stream processing with Azure Stream Analytics and Event Hubs](./images/stream-processing-asa/stream-processing-eh.png)
+:::image type="content" source="./images/stream-processing-asa/stream-processing-eh.png" alt-text="Diagram of stream processing with Azure Stream Analytics and Event Hubs" lightbox="./images/stream-processing-asa/stream-processing-eh.png" border="false":::
 
 In the data generator, the common data model for both record types has a `PartitionKey` property which is the concatenation of `Medallion`, `HackLicense`, and `VendorId`.
 
@@ -198,13 +198,13 @@ The reference architecture includes a custom dashboard, which is deployed to the
 
 The following image shows the dashboard after the Stream Analytics job ran for about an hour.
 
-![Screenshot of the Taxi Rides dashboard](./images/stream-processing-asa/asa-dashboard.png)
+:::image type="content" source="./images/stream-processing-asa/asa-dashboard.png" alt-text="Screenshot of the Taxi Rides dashboard" lightbox="./images/stream-processing-asa/asa-dashboard.png" border="false":::
 
 The panel on the lower left shows that the SU consumption for the Stream Analytics job climbs during the first 15 minutes and then levels off. This is a typical pattern as the job reaches a steady state.
 
 Notice that Event Hubs is throttling requests, shown in the upper right panel. An occasional throttled request isn't a problem, because the Event Hubs client SDK automatically retries when it receives a throttling error. However, if you see consistent throttling errors, it means the event hub needs more throughput units. The following graph shows a test run using the Event Hubs auto-inflate feature, which automatically scales out the throughput units as needed.
 
-![Screenshot of Event Hubs autoscaling.](./images/stream-processing-asa/stream-processing-eh-autoscale.png)
+:::image type="content" source="./images/stream-processing-asa/stream-processing-eh-autoscale.png" alt-text="Screenshot of Event Hubs autoscaling." border="false":::
 
 Auto-inflate was enabled at about the 06:35 mark. You can see the p drop in throttled requests, as Event Hubs automatically scaled up to 3 throughput units.
 
@@ -250,7 +250,7 @@ If it's not possible to parallelize the entire Stream Analytics job, try to brea
 
 Use the Stream Analytics [job diagram](/azure/stream-analytics/stream-analytics-job-diagram-with-metrics) to see how many partitions are assigned to each step in the job. The following diagram shows the job diagram for this reference architecture:
 
-![Diagram showing Stream Analytics jobs.](./images/stream-processing-asa/job-diagram.png)
+:::image type="content" source="./images/stream-processing-asa/job-diagram.png" alt-text="Diagram showing Stream Analytics jobs." lightbox="./images/stream-processing-asa/job-diagram.png" border="false":::
 
 #### Azure Cosmos DB
 
