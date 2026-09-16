@@ -46,7 +46,7 @@ There are several key requirements to deliver a mission-critical advanced analyt
 
 ## Architecture
 
-:::image type="content" source="_images/azure-data-factory-mission-critical.png" alt-text="Diagram that shows the design for a mission-critical workload." border="false"lightbox="_images/azure-data-factory-mission-critical.png":::
+:::image type="content" source="_images/azure-data-factory-mission-critical.png" alt-text="Diagram that shows the design for a mission-critical workload." border="false" lightbox="_images/azure-data-factory-mission-critical.png":::
 
 *Download a [Visio file](https://arch-center.azureedge.net/azure-data-factory-mission-critical-logical.vsdx) of this architecture.*
 
