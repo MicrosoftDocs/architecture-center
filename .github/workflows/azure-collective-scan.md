@@ -24,13 +24,12 @@ permissions:
   issues: read
   copilot-requests: write
 
-model: opus
+model: gpt-5.6-sol
 engine:
   id: copilot
   copilot-sdk: true
 max-tool-denials: 3
 strict: true
-
 
 tracker-id: azure-collective-scan
 
