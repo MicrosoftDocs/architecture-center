@@ -232,4 +232,4 @@ The following new and updated articles have recently been published in the Azure
 
 ## Azure updates
 
-To learn about product updates to Azure, GitHub, and Microsoft developer tools, follow the updates published in the [Microsoft Developer Changelog](https://developer.microsoft.com/changelog). You'll learn about new service previews, general availability announcements, and feature deprecations. Being aware of what's coming and what is being retired helps you make durable architectural choices for your workload.
+To learn about product updates to Azure, GitHub, and Microsoft developer tools, follow the updates published in the [Microsoft Developer Changelog](https://developer.microsoft.com/changelog). You learn about new service previews, general availability announcements, and feature deprecations. Being aware of what's coming and what is retiring helps you make durable architectural choices for your workload.
