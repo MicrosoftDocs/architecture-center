@@ -15,7 +15,7 @@ ai-usage: ai-assisted
 This article describes a recommended architecture for deploying MongoDB Atlas in a typical workload. The solution demonstrates how to establish secure, private connectivity between your workload's compute resources and a MongoDB Atlas cluster that's dedicated to the workload.
 
 > [!IMPORTANT]
-> ![GitHub logo.](_images/github.svg) This guidance is supported by an [example implementation](https://github.com/Azure/mongodb-atlas-landing-zone-accelerator) that demonstrates this MongoDB Atlas solution on Azure.
+> :::image type="icon" source="_images/github.svg"::: This guidance is supported by an [example implementation](https://github.com/Azure/mongodb-atlas-landing-zone-accelerator) that demonstrates this MongoDB Atlas solution on Azure.
 
 ## Architecture
 

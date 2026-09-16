@@ -34,6 +34,8 @@ The following articles help you evaluate and select the best web app technologie
 
 #### Networking guidance for web apps
 
+- [Pattern implementation for network secure ingress](/azure/architecture/pattern-implementations/network-secure-ingress): Describes a pattern implementation that uses Azure Front Door Premium tier to provide global routing, health-based origin failover, and attack mitigation at the edge.
+
 - [Improved-security access to Azure App Service web apps from an on-premises network](/azure/architecture/web-apps/guides/networking/access-multitenant-web-app-from-on-premises): An architecture for setting up private connectivity to Azure App Service from on-premises networks by using Azure Private Link, virtual network integration, and private endpoints.
 
 ##### Global routing redundancy for highly available web applications

@@ -58,7 +58,7 @@ IT staff use Azure tools to monitor the system and implement disaster recovery m
 
 - [Microsoft Power Platform](/power-platform) enables you to rapidly implement low-code application development on Azure to modernize processes and solve challenges. In this architecture, Microsoft Power Platform enhances the ability to quickly develop and deploy applications.
 
-- [Azure Monitor](/azure/azure-monitor/overview) helps maximize the availability and performance of applications and services. This architecture uses Azure Monitor to collect, analyze, and act on information from cloud and on-premises environments. This information helps you identify problems and understand how your applications perform.
+- [Azure Monitor](/azure/azure-monitor/fundamentals/overview) helps maximize the availability and performance of applications and services. This architecture uses Azure Monitor to collect, analyze, and act on information from cloud and on-premises environments. This information helps you identify problems and understand how your applications perform.
 
 - [Azure ExpressRoute](/azure/well-architected/service-guides/azure-expressroute) extends on-premises networks into the Microsoft Cloud over a private connection that a connectivity provider facilitates. In this architecture, ExpressRoute establishes connections to Microsoft Cloud services, such as Microsoft Azure and Microsoft 365.
 

@@ -130,6 +130,7 @@ safe-outputs:
       - neilbird
       - netapp-manishc
       - nimccoll
+      - NITHIDOSS
       - njogendran
       - oscarsk91
       - ovaismehboob

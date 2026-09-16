@@ -11,7 +11,7 @@ This architecture is a starting point for an [Azure Local instance that uses a s
 | &#9642; [Architecture diagram](#architecture) <br> &#9642; [Components](#components) <br> &#9642; [Potential use cases](#potential-use-cases) <br> &#9642; [Deploy this scenario](#deploy-this-scenario) <br> | &#9642; [Cluster design choices](#cluster-design-choices) <br> &#9642; [Network design](#network-design) <br> &#9642; [Physical network topology](#physical-network-topology) <br> &#9642; [Logical network topology](#logical-network-topology) <br> &#9642; [IP address requirements](#ip-address-requirements) <br> &#9642; [Outbound network connectivity](#outbound-network-connectivity) <br> | &#9642; [Considerations](#considerations) <br> &#9642; [Cost&nbsp;Optimization](#cost-optimization) <br> &#9642; [Performance&nbsp;Efficiency](#performance-efficiency) <br> |
 
 > [!TIP]
-> ![GitHub logo](../_images/github.svg) This [reference implementation](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.azurestackhci/create-cluster-with-prereqs) describes how to deploy a **three-node storage switchless Azure Local instance** by using an Azure Resource Manager template (ARM template) and parameter file.
+> :::image type="icon" source="../_images/github.svg"::: This [reference implementation](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.azurestackhci/create-cluster-with-prereqs) describes how to deploy a **three-node storage switchless Azure Local instance** by using an Azure Resource Manager template (ARM template) and parameter file.
 
 ## Architecture
 
@@ -173,7 +173,7 @@ For more information about how to design, procure, and deploy an Azure Local sol
 Use the following deployment automation template as an example of how to deploy Azure Local by using the three-node storage switchless architecture.
 
 > [!TIP]
-> ![GitHub logo](../_images/github.svg) **Deployment automation:** This [reference template](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.azurestackhci/create-cluster-with-prereqs) describes how to deploy a **three-node storage switchless Azure Local solution** by using an ARM template and parameter file.
+> :::image type="icon" source="../_images/github.svg"::: **Deployment automation:** This [reference template](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.azurestackhci/create-cluster-with-prereqs) describes how to deploy a **three-node storage switchless Azure Local solution** by using an ARM template and parameter file.
 
 ## Related resources
 
