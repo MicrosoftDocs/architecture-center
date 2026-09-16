@@ -2,7 +2,7 @@ This reference architecture shows how to use Azure Monitor to monitor the perfor
 
 ## Architecture
 
-[ ![Diagram illustrating monitoring and availability functions of Azure Monitor for OS workloads in Azure, in on-premises environments, and with third-party cloud providers. Data is being sent into a Log Analytics workspace. The data is used by Application Insights, Analysis, Visualization, Alerts, and Autoscale services as part of Azure Monitor][architectural-diagram] ](./images/hybrid-perf-monitoring.svg#lightbox)
+:::image type="content" source="./images/hybrid-perf-monitoring.svg" alt-text="Diagram illustrating monitoring and availability functions of Azure Monitor for OS workloads in Azure, in on-premises environments, and with third-party cloud providers. Data is being sent into a Log Analytics workspace. The data is used by Application Insights, Analysis, Visualization, Alerts, and Autoscale services as part of Azure Monitor" lightbox="./images/hybrid-perf-monitoring.svg" border="false":::
 
 *Download a [Visio file][architectural-diagram-visio-source] of this architecture.*
 
@@ -199,7 +199,6 @@ Learn more about the component technologies:
 - [Overview of autoscale in Microsoft Azure](/azure/azure-monitor/autoscale/autoscale-overview)
 - [What is Application Insights?](/azure/azure-monitor/app/app-insights-overview)
 
-[architectural-diagram]: ./images/hybrid-perf-monitoring.svg
 [architectural-diagram-visio-source]: https://arch-center.azureedge.net/hybrid-perf-monitoring.vsdx
 [agents-overview]: /azure/azure-monitor/platform/log-analytics-agent
 [dependency-agent]: /azure/azure-monitor/platform/agents-overview#dependency-agent
