@@ -98,6 +98,8 @@ The following production-ready architectures demonstrate end-to-end AI solutions
 
 - [AI agent orchestration patterns](/azure/architecture/ai-ml/guide/ai-agent-design-patterns): Describes design patterns for orchestrating AI agents in complex scenarios.
 
+- [Agentic behavior engineering](/azure/architecture/ai-ml/guide/agentic-behavior-engineering): Describes a methodology for governing agent behavior with versioned contracts, evidence requirements, runtime controls, and release gates.
+
 - [Design a secure multitenant RAG inferencing solution](/azure/architecture/ai-ml/guide/secure-multitenant-rag): Provides guidance for securing RAG solutions in multitenant environments.
 
 - [Design to support foundation model life cycles](/azure/architecture/ai-ml/guide/manage-foundation-models-lifecycle): Provides guidance for managing foundation model updates, deprecations, and transitions.
@@ -139,4 +141,3 @@ The following production-ready architectures demonstrate end-to-end AI solutions
 - [Provide custom authentication to Foundry Models through a gateway](/azure/architecture/ai-ml/guide/azure-openai-gateway-custom-authentication): Implements custom authentication flows for model access through a gateway.
 
 - [Implement advanced monitoring for Foundry Models through a gateway](/azure/architecture/ai-ml/guide/azure-openai-gateway-monitoring): Adds monitoring and observability to generative AI model traffic through a gateway.
-

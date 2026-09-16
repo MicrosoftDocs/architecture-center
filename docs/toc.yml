@@ -542,6 +542,9 @@ items:
         - name: AI agent orchestration patterns
           displayName: Agentic, multi-agent systems, agent frameworks
           href: ai-ml/guide/ai-agent-design-patterns.md
+        - name: Agentic behavior engineering
+          displayName: ABE, behavior contract, agent verification, behavior gate, agent observability
+          href: ai-ml/guide/agentic-behavior-engineering.md
         - name: Developing and evaluating RAG solutions
           items:
           - name: Getting started
