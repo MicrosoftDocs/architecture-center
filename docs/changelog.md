@@ -65,7 +65,6 @@ The following new and updated articles have recently been published in the Azure
 - [OPC UA reference solution](./guide/iot/iot-industrial-solution-architecture.md) ([#a3d2abba45](https://github.com/MicrosoftDocs/architecture-center/commit/a3d2abba45), [#119e358ad6](https://github.com/MicrosoftDocs/architecture-center/commit/119e358ad6))
 - [Connect Azure Data Explorer to the reference solution](./guide/iot/how-to-connect-azure-data-explorer-to-solution.md) ([#6067c4605c](https://github.com/MicrosoftDocs/architecture-center/commit/6067c4605c))
 - [Connect Power BI to the OPC UA reference solution](./guide/iot/how-to-connect-power-bi-to-the-solution.md) ([#2de7f204dd](https://github.com/MicrosoftDocs/architecture-center/commit/2de7f204dd))
-- [Connect Azure Databricks to the reference solution](./guide/iot/how-to-connect-databricks-to-solution.md)
 - [Connect Microsoft Fabric to the OPC UA reference solution](./guide/iot/how-to-connect-fabric-to-solution.md) ([#560a256193](https://github.com/MicrosoftDocs/architecture-center/commit/560a256193))
 - [CDN guidance](./best-practices/cdn.yml) ([#11fc2cfdca](https://github.com/MicrosoftDocs/architecture-center/commit/11fc2cfdca))
 - [Best practices for monitoring and diagnostics](./best-practices/monitoring.md) ([#9248c5a1db](https://github.com/MicrosoftDocs/architecture-center/commit/9248c5a1db))
@@ -232,4 +231,4 @@ The following new and updated articles have recently been published in the Azure
 
 ## Azure updates
 
-To learn about product updates to Azure, GitHub, and Microsoft developer tools, follow the updates published in the [Microsoft Developer Changelog](https://developer.microsoft.com/changelog). You learn about new service previews, general availability announcements, and feature deprecations. Being aware of what's coming and what is retiring helps you make durable architectural choices for your workload.
+To learn about product updates to Azure, GitHub, and Microsoft developer tools, follow the updates published in the [Microsoft Developer Changelog](https://developer.microsoft.com/changelog). You'll learn about new service previews, general availability announcements, and feature deprecations. Being aware of what's coming and what is retiring helps you make durable architectural choices for your workload.
