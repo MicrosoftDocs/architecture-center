@@ -22,19 +22,19 @@ Elastic Database provides two schemes for mapping data to shardlets and storing 
 
 - A **list shard map** associates a single key to a shardlet. For example, in a multitenant system, the data for each tenant can be associated with a unique key and stored in its own shardlet. To guarantee isolation, each shardlet can be held within its own shard.
 
-  ![Diagram that shows a list shard map to store tenant data in separate shards.](./images/data-partitioning/point-shardlet.svg)
+  :::image type="content" source="./images/data-partitioning/point-shardlet.svg" alt-text="Diagram that shows a list shard map to store tenant data in separate shards." lightbox="./images/data-partitioning/point-shardlet.svg" border="false":::
 
   *Download a [Visio file](https://arch-center.azureedge.net/data-partitioning-strategies.vsdx) of this diagram.*
 
 - A **range shard map** associates a set of contiguous key values to a shardlet. For example, you can group the data for a set of tenants (each with their own key) within the same shardlet. This scheme is less expensive than the first, because tenants share data storage, but has less isolation.
 
-  ![Diagram that shows a range shard map to store data for a range of tenants in a shard.](./images/data-partitioning/range-shardlet.svg)
+  :::image type="content" source="./images/data-partitioning/range-shardlet.svg" alt-text="Diagram that shows a range shard map to store data for a range of tenants in a shard." lightbox="./images/data-partitioning/range-shardlet.svg" border="false":::
 
   *Download a [Visio file](https://arch-center.azureedge.net/data-partitioning-strategies.vsdx) of this diagram*
 
 A single shard can contain the data for several shardlets. For example, you can use list shardlets to store data for different noncontiguous tenants in the same shard. You can also mix range shardlets and list shardlets in the same shard, although they're addressed through different maps. The following diagram shows this approach:
 
-![Diagram that shows multiple shard maps.](./images/data-partitioning/multiple-shard-maps.svg)
+:::image type="content" source="./images/data-partitioning/multiple-shard-maps.svg" alt-text="Diagram that shows multiple shard maps." lightbox="./images/data-partitioning/multiple-shard-maps.svg" border="false":::
 
 *Download a [Visio file](https://arch-center.azureedge.net/data-partitioning-strategies.vsdx) of this diagram.*
 
@@ -76,7 +76,7 @@ Microsoft publishes [scalability targets] for Azure Storage. If your system is l
 
 The following diagram shows the logical structure of an example storage account. The storage account contains three tables: Customer Info, Product Info, and Order Info.
 
-![The tables and partitions in an example storage account](./images/data-partitioning/TableStorage.png)
+:::image type="content" source="./images/data-partitioning/TableStorage.png" alt-text="The tables and partitions in an example storage account" lightbox="./images/data-partitioning/TableStorage.png" border="false":::
 
 Each table has multiple partitions.
 
@@ -253,7 +253,7 @@ Consider the following points when you use Azure Managed Redis to structure and 
 
   For example, in an e-commerce system that tracks customer orders, you can store each customer's details in a Redis hash that uses the customer ID as its key. Each hash holds a collection of order IDs associated with that customer. A separate Redis set stores the orders themselves as hashes that use the order ID as their key. The following diagram shows this structure. Redis doesn't enforce referential integrity, so the application must maintain relationships between customers and orders.
 
-  ![Suggested structure in Redis storage for recording customer orders and their details.](./images/data-partitioning/redis-customers-and-orders.png)
+  :::image type="content" source="./images/data-partitioning/redis-customers-and-orders.png" alt-text="Suggested structure in Redis storage for recording customer orders and their details." lightbox="./images/data-partitioning/redis-customers-and-orders.png" border="false":::
 
   > [!NOTE]
   > In Redis, keys and values are binary-safe and can store values up to hundreds of megabytes (MBs) in size. But you should keep values relatively small and bounded to minimize latency, reduce replication and rebalancing costs, and improve overall efficiency. Ensure that keys follow a consistent naming convention that's descriptive, stable, and not excessively long. A common approach is to use keys of the form `entity_type:ID`. For example, `customer:99` represents the key for a customer with ID 99.

@@ -31,13 +31,13 @@ You should then define a set of **measurable threshold values** to quantify the 
 
 You should use threshold values to develop a **[health model for your application](/azure/architecture/framework/mission-critical/mission-critical-health-modeling)**, both for testing and for operating the application in production.
 
-![Visualization of key system flows using green and red connected circles.](./images/deployment-testing-key-system-flows.png)
+:::image type="content" source="./images/deployment-testing-key-system-flows.png" alt-text="Visualization of key system flows using green and red connected circles." lightbox="./images/deployment-testing-key-system-flows.png" border="false":::
 
 Next, use the values to define a **load test** that generates realistic traffic for testing application baseline performance, and for validating expected scale operations. Sustained artificial user traffic is needed in pre-production environments, because without usage it's difficult to reveal runtime issues.
 
 Load testing ensures that changes made to the application or infrastructure don't cause issues and the system still meets the expected performance and test criteria. A failed test run that doesn't meet the test criteria indicates that you need to adjust the baseline, or that an unexpected error occurred.
 
-![Load test run results screen showing failed load test run.](./images/deployment-testing-failed-load-test-run.png)
+:::image type="content" source="./images/deployment-testing-failed-load-test-run.png" alt-text="Load test run results screen showing failed load test run." lightbox="./images/deployment-testing-failed-load-test-run.png" border="false":::
 
 Even though automated tests represent day-to-day usage, **you should run manual load tests regularly** to verify how the system responds to unexpected peaks.
 
@@ -60,16 +60,16 @@ If you're developing a mission-critical workload, take advantage of the detailed
 
 One option is to execute the load test directly from within the end-to-end (e2e) pipeline that is used to spin up individual (branch specific) development environments:
 
-![Run pipeline screen with the load testing checkbox ticked.](./images/deployment-testing-pipeline-start.png)
+:::image type="content" source="./images/deployment-testing-pipeline-start.png" alt-text="Run pipeline screen with the load testing checkbox ticked." lightbox="./images/deployment-testing-pipeline-start.png" border="false":::
 
 The pipeline automatically runs a load test, with or without chaos experiments (depending on the selection) in parallel:
 
-![Azure DevOps pipeline run with chaos and load testing.](./images/deployment-testing-pipeline-run.png)
+:::image type="content" source="./images/deployment-testing-pipeline-run.png" alt-text="Azure DevOps pipeline run with chaos and load testing." lightbox="./images/deployment-testing-pipeline-run.png" border="false":::
 
 > [!NOTE]
 > Running chaos experiments during a load test can result in higher latency, higher response times and temporarily increased error rates. Expect higher response times and latency until a scale-out operation completes or a failover has completed, when compared to a run without chaos experiments.
 
-![Chart showing increased response time during chaos experiment.](./images/deployment-testing-response-time.png)
+:::image type="content" source="./images/deployment-testing-response-time.png" alt-text="Chart showing increased response time during chaos experiment." lightbox="./images/deployment-testing-response-time.png" border="false":::
 
 Depending on whether chaos testing is enabled and the choice of experiments, baseline definitions might vary, because the tolerance for errors can be different in "normal" state and "chaos" state.
 
@@ -79,7 +79,7 @@ Finally, **adjust the load test thresholds** for regular runs to verify that the
 
 The Azure Load Testing service provides a built-in capability called **test criteria** that allows specifying certain criteria that a test needs to pass. This capability can be used to implement different baselines.
 
-![Test criteria screen with response time and error criteria marked as Failed.](./images/deployment-testing-test-criteria.png)
+:::image type="content" source="./images/deployment-testing-test-criteria.png" alt-text="Test criteria screen with response time and error criteria marked as Failed." lightbox="./images/deployment-testing-test-criteria.png" border="false":::
 
 The capability is available through the Azure portal, and via the load testing API, and the wrapper scripts developed as part of Azure Mission-critical provide an option to handover a JSON-based baseline definition.
 
