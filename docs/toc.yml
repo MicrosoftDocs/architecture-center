@@ -1504,10 +1504,13 @@ items:
     - name: Accounts
       displayName: AWS
       href: aws-professional/accounts.md
+    - name: Analytics
+      displayName: AWS
+      href: aws-professional/analytics.md
     - name: Compute
       displayName: AWS
       href: aws-professional/compute.md
-    - name: Data and AI
+    - name: AI and machine learning
       displayName: AWS
       href: aws-professional/data-ai.md
     - name: Databases
