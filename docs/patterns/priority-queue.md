@@ -38,7 +38,7 @@ There are two main approaches to implementing the Priority Queue pattern:
 
 In a single queue approach, the application assigns a priority to each message and sends all messages to a single queue. The queue orders messages by priority, ensuring that consumers process higher-priority messages before lower-priority ones.
 
-![Diagram illustrating a queuing mechanism that supports message prioritization.](./_images/priority-queue-single-queue-single-pool.svg)
+:::image type="content" source="./_images/priority-queue-single-queue-single-pool.svg" alt-text="Diagram illustrating a queuing mechanism that supports message prioritization." lightbox="./_images/priority-queue-single-queue-single-pool.svg" border="false":::
 
 ### Multiple queues
 
@@ -48,7 +48,7 @@ Multiple queues separate messages by priority. The application assigns a priorit
 
 In a single pool setup, all queues share the same consumer pool. Consumers process messages from the highest priority queue first and process messages from lower-priority queues only when there are no more high-priority messages. As a result, single consumer pools always process higher-priority messages before lower-priority ones. This setup can lead to lower-priority messages being continually delayed and potentially never processed.
 
-![Diagram that illustrates using a single consumer pool for all priorities.](./_images/priority-queue-multiple-queues-single-pool.svg)
+:::image type="content" source="./_images/priority-queue-multiple-queues-single-pool.svg" alt-text="Diagram that illustrates using a single consumer pool for all priorities." lightbox="./_images/priority-queue-multiple-queues-single-pool.svg" border="false":::
 
 Use a single consumer pool for the following reasons:
 
@@ -60,7 +60,7 @@ Use a single consumer pool for the following reasons:
 
 In a multiple consumer pool, each queue has a dedicated consumer pool. Higher-priority queues use more consumers or higher performance tiers to process messages more quickly than lower-priority queues.
 
-![Diagram that illustrates using separate consumer pools for each priority.](./_images/priority-queue-multiple-queues-multiple-pools.svg)
+:::image type="content" source="./_images/priority-queue-multiple-queues-multiple-pools.svg" alt-text="Diagram that illustrates using separate consumer pools for each priority." lightbox="./_images/priority-queue-multiple-queues-multiple-pools.svg" border="false":::
 
 Use multiple consumer pools for the following reasons:
 
@@ -137,7 +137,7 @@ Role assignments grant secure access to Service Bus and storage by using managed
 
 The following diagram shows the priority queue architecture:
 
-![Diagram that shows how to implement a priority queue by using Service Bus.](./_images/priority-queue-example.svg)
+:::image type="content" source="./_images/priority-queue-example.svg" alt-text="Diagram that shows how to implement a priority queue by using Service Bus." lightbox="./_images/priority-queue-example.svg" border="false":::
 
 In the preceding diagram:
 
