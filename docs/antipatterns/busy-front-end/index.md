@@ -153,13 +153,13 @@ Instrument each method to track the duration and resources consumed by each requ
 
 The following image shows a monitoring dashboard. (We used [AppDynamics] for our tests.) Initially, the system has light load. Then users start requesting the `UserProfile` GET method. The performance is reasonably good until other users start issuing requests to the `WorkInFrontEnd` POST method. At that point, response times increase dramatically (first arrow). Response times only improve after the volume of requests to the `WorkInFrontEnd` controller diminishes (second arrow).
 
-![AppDynamics Business Transactions pane showing the effects of the response times of all requests when the WorkInFrontEnd controller is used][AppDynamics-Transactions-Front-End-Requests]
+:::image type="content" source="./_images/AppDynamicsPerformanceStats.jpg" alt-text="AppDynamics Business Transactions pane showing the effects of the response times of all requests when the WorkInFrontEnd controller is used" lightbox="./_images/AppDynamicsPerformanceStats.jpg" border="false":::
 
 ### Examine telemetry data and find correlations
 
 The next image shows metrics gathered to monitor resource utilization during the same interval. At first, only a few users access the system. As more users connect, CPU utilization rises to 100%. The network I/O rate increases at first, but drops after CPU usage peaks. At full capacity, the system can process only limited requests. As users disconnect, CPU load decreases.
 
-![AppDynamics metrics showing the CPU and network utilization][AppDynamics-Metrics-Front-End-Requests]
+:::image type="content" source="./_images/AppDynamicsFrontEndMetrics.jpg" alt-text="AppDynamics metrics showing the CPU and network utilization" lightbox="./_images/AppDynamicsFrontEndMetrics.jpg" border="false":::
 
 At this point, it appears the `Post` method in the `WorkInFrontEnd` controller is a prime candidate for closer examination. Further work in a controlled environment is needed to confirm the hypothesis.
 
@@ -169,7 +169,7 @@ The next step is to run tests in a controlled environment. For example, run a se
 
 The following graph shows the results of a load test performed against an identical deployment of the cloud service used in the previous tests. The test used a constant load of 500 users performing the `Get` operation in the `UserProfile` controller, along with a step load of users performing the `Post` operation in the `WorkInFrontEnd` controller.
 
-![Initial load test results for the WorkInFrontEnd controller][Initial-Load-Test-Results-Front-End]
+:::image type="content" source="./_images/InitialLoadTestResultsFrontEnd.jpg" alt-text="Initial load test results for the WorkInFrontEnd controller" lightbox="./_images/InitialLoadTestResultsFrontEnd.jpg" border="false":::
 
 Initially, the step load is 0, so the only active users are performing the `UserProfile` requests. The system is able to respond to approximately 500 requests per second. After 60 seconds, a load of 100 additional users starts sending POST requests to the `WorkInFrontEnd` controller. Almost immediately, the workload sent to the `UserProfile` controller drops to about 150 requests per second. This is due to the way the load-test runner functions. It waits for a response before sending the next request, so the longer it takes to receive a response, the lower the request rate.
 
@@ -188,17 +188,17 @@ However, the work performed by this method still consumes CPU, memory, and other
 
 The following image shows performance monitoring after the solution was implemented. The load was similar to that shown earlier, but the response times for the `UserProfile` controller are now much faster. The volume of requests increased over the same duration, from 2,759 to 23,565.
 
-![AppDynamics Business Transactions pane showing the effects of the response times of all requests when the WorkInBackground controller is used][AppDynamics-Transactions-Background-Requests]
+:::image type="content" source="./_images/AppDynamicsBackgroundPerformanceStats.jpg" alt-text="AppDynamics Business Transactions pane showing the effects of the response times of all requests when the WorkInBackground controller is used" lightbox="./_images/AppDynamicsBackgroundPerformanceStats.jpg" border="false":::
 
 The `WorkInBackground` controller handled a much larger volume of requests. But you can't make a direct comparison in this case because the work performed in this controller is much different from the original code. The new version queues a request instead of performing a time-consuming calculation. The main point is that this method no longer drags down the entire system under load.
 
 CPU and network utilization also show the improved performance. The CPU utilization never reached 100%, and the volume of handled network requests was far greater than earlier, and did not tail off until the workload dropped.
 
-![AppDynamics metrics showing the CPU and network utilization for the WorkInBackground controller][AppDynamics-Metrics-Background-Requests]
+:::image type="content" source="./_images/AppDynamicsBackgroundMetrics.jpg" alt-text="AppDynamics metrics showing the CPU and network utilization for the WorkInBackground controller" lightbox="./_images/AppDynamicsBackgroundMetrics.jpg" border="false":::
 
 The following graph shows the results of a load test. The overall volume of requests serviced is greatly improved compared to the earlier tests.
 
-![Load-test results for the BackgroundImageProcessing controller][Load-Test-Results-Background]
+:::image type="content" source="./_images/LoadTestResultsBackground.jpg" alt-text="Load-test results for the BackgroundImageProcessing controller" lightbox="./_images/LoadTestResultsBackground.jpg" border="false":::
 
 ## Related guidance
 
@@ -213,10 +213,3 @@ The following graph shows the results of a load test. The overall volume of requ
 [load-leveling]: ../../patterns/queue-based-load-leveling.md
 [sync-io]: ../synchronous-io/index.md
 [web-queue-worker]: ../../guide/architecture-styles/web-queue-worker.md
-
-[AppDynamics-Transactions-Front-End-Requests]: ./_images/AppDynamicsPerformanceStats.jpg
-[AppDynamics-Metrics-Front-End-Requests]: ./_images/AppDynamicsFrontEndMetrics.jpg
-[Initial-Load-Test-Results-Front-End]: ./_images/InitialLoadTestResultsFrontEnd.jpg
-[AppDynamics-Transactions-Background-Requests]: ./_images/AppDynamicsBackgroundPerformanceStats.jpg
-[AppDynamics-Metrics-Background-Requests]: ./_images/AppDynamicsBackgroundMetrics.jpg
-[Load-Test-Results-Background]: ./_images/LoadTestResultsBackground.jpg
