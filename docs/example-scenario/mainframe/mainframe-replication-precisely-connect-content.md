@@ -36,7 +36,7 @@ This architecture uses the following components.
 
 - [Azure VPN Gateway](/azure/vpn-gateway/vpn-gateway-about-vpngateways) is a virtual network gateway service that enables you to create virtual network gateways that send encrypted traffic between an Azure virtual network and an on-premises location over the public internet. In this architecture, you can use VPN Gateway as an alternative to ExpressRoute to connect mainframe systems to Azure when a private connection isn't available.
 
-- [Microsoft Entra ID](/entra/fundamentals/whatis) is an identity and access management service that can synchronize with on-premises Active Directory. In this architecture, Microsoft Entra ID manages authentication and access control for Precisely Connect components that access Azure resources.
+- [Microsoft Entra ID](/entra/fundamentals/what-is-entra) is an identity and access management service that can synchronize with on-premises Active Directory. In this architecture, Microsoft Entra ID manages authentication and access control for Precisely Connect components that access Azure resources.
 
 #### Storage
 
@@ -48,7 +48,7 @@ This architecture uses the following components.
 
 - [Azure SQL Managed Instance](/azure/well-architected/service-guides/azure-sql-managed-instance) is a cloud database service that provides all the benefits of a managed and evergreen PaaS. SQL Managed Instance has near-complete compatibility with the latest SQL Server Enterprise edition database engine. It also provides a native virtual network implementation that addresses common security concerns. In this architecture, SQL Managed Instance can serve as a target for mainframe data that requires SQL Server compatibility.
 
-- [Azure Storage](/azure/well-architected/service-guides/storage-accounts/reliability) is a cloud storage solution that includes object, file, disk, queue, and table storage. Services include hybrid storage solutions and tools for transferring, sharing, and backing up data. In this architecture, Storage provides scalable storage for replicated mainframe data and temporary caching.
+- [Azure Storage](/azure/well-architected/service-guides/azure-blob-storage) is a cloud storage solution that includes object, file, disk, queue, and table storage. Services include hybrid storage solutions and tools for transferring, sharing, and backing up data. In this architecture, Storage provides scalable storage for replicated mainframe data and temporary caching.
 
 - [OneLake](/fabric/onelake/onelake-overview) is the unified, single data lake for Fabric. In this architecture, OneLake serves as storage for ingesting data from Event Hubs.
 
@@ -60,7 +60,7 @@ This architecture uses the following components.
 
 #### Monitoring
 
-- [Azure Monitor](/azure/azure-monitor/overview) is a monitoring service that provides a solution for collecting, analyzing, and acting on telemetry from cloud and on-premises environments. Features include Application Insights, Azure Monitor Logs, and Log Analytics. In this architecture, Azure Monitor provides monitoring and observability for the data replication process and Azure resources.
+- [Azure Monitor](/azure/azure-monitor/fundamentals/overview) is a monitoring service that provides a solution for collecting, analyzing, and acting on telemetry from cloud and on-premises environments. Features include Application Insights, Azure Monitor Logs, and Log Analytics. In this architecture, Azure Monitor provides monitoring and observability for the data replication process and Azure resources.
 
 #### Data integrators
 
