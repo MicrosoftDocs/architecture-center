@@ -139,7 +139,7 @@ The logical network topology provides an overview for how the network data flows
 
 To deploy a three-node storage switchless configuration of Azure Local with dual links for the storage interconnects, the cluster infrastructure platform requires you to allocate a minimum of 20 x IP addresses. More IP addresses are required if you use a VM appliance supplied by your hardware manufacturer partner or if you use microsegmentation or software-defined networking (SDN). For more information, see [Review the three-node storage reference pattern IP address requirements for Azure Local](/azure/azure-local/plan/three-node-ip-requirements).
 
-When you design and plan IP address requirements for Azure Local, remember to account for extra IP addresses or network ranges needed for your workload beyond the ones that are required for the Azure Local instance and infrastructure components. If you plan to use Azure Kubernetes Services (AKS) on Azure Local, see [AKS enabled by Azure Arc network requirements](/azure/azure-arc/network-requirements-consolidated).
+When you design and plan IP address requirements for Azure Local, remember to account for extra IP addresses or network ranges needed for your workload beyond the ones that are required for the Azure Local instance and infrastructure components. If you plan to use Azure Kubernetes Services (AKS) on Azure Local, see [AKS enabled by Azure Arc network requirements](/azure/aks-hybrid-edge/local/hyperconverged/network-system-requirements).
 
 #### Outbound network connectivity
 
