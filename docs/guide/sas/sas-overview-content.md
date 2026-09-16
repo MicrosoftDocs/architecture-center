@@ -78,7 +78,7 @@ Linux works best for running SAS workloads. SAS supports 64-bit versions of the 
 - SUSE Linux Enterprise Server (SLES) 12.2
 - Oracle Linux 6 or later
 
-For more information about specific SAS releases, see the [SAS Operating System support matrix](https://support.sas.com/supportos/list?requestAction=summary&outputView=sasrelease&sasrelease=9.4&platformGroup=UNIX&platformName=Linux+64-bit). In environments that use multiple machines, it's best to run the same version of Linux on all machines. Azure doesn't support Linux 32-bit deployments.
+For more information about specific SAS releases, see the [SAS Operating System support matrix](https://support.sas.com/en/documentation/install-center/94/94-operating-system.html). In environments that use multiple machines, it's best to run the same version of Linux on all machines. Azure doesn't support Linux 32-bit deployments.
 
 To optimize compatibility and integration with Azure, start with an operating system image from the [Microsoft Marketplace](https://marketplace.microsoft.com/search/products?filters=linux&product=virtual-machines). Using a custom image without additional configurations can degrade SAS performance.
 
