@@ -70,10 +70,6 @@ items:
     items:
     - name: Overview
       href: patterns/index.md
-    - name: Pattern implementations
-      items:
-      - name: Network secure global ingress
-        href: pattern-implementations/network-secure-ingress.md
     - name: Ambassador
       displayName: API proxy, cross-cutting concerns
       href: patterns/ambassador.md
@@ -1016,7 +1012,7 @@ items:
         href: solution-ideas/articles/devsecops-infrastructure-as-code.yml
     - name: Architectures
       items:
-      - name: Automate API deployments with APIOps
+      - name: Automate API Management configuration with APIOps
         href: example-scenario/devops/automated-api-deployments-apiops.yml
       - name: Scalable cloud applications and site reliability engineering (SRE)
         href: example-scenario/apps/scalable-apps-performance-modeling-site-reliability.yml
@@ -1466,6 +1462,9 @@ items:
         items:
         - name: Networking guidance for web apps
           items:
+          - name: Network secure global ingress
+            displayName: Firewall, Front Door, WAF
+            href: pattern-implementations/network-secure-ingress.md
           - name: Securing access to multitenant web apps from on-premises
             href: web-apps/guides/networking/access-multitenant-web-app-from-on-premises.yml
           - name: Global routing redundancy for highly available web applications
