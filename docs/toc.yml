@@ -582,7 +582,7 @@ items:
           - name: Provide custom authentication to models through a gateway
             href: ai-ml/guide/azure-openai-gateway-custom-authentication.yml
           - name: Implement advanced model monitoring through a gateway
-            href: ai-ml/guide/azure-openai-gateway-monitoring.yml
+            href: ai-ml/guide/azure-openai-gateway-monitoring.md
         - name: Design to support foundation model life cycles
           href: ai-ml/guide/manage-foundation-models-lifecycle.md
   - name: Analytics
