@@ -107,11 +107,11 @@
     <text x="500" y="302" class="qtext">already using Azure Managed Redis?</text>
   </g>
   <g>
-    <title>Do you need first-class hybrid search with semantic reranking, or need to index large-scale unstructured content?</title>
+    <title>Do you need managed large-scale indexing and enrichment of unstructured content from multiple sources?</title>
     <rect x="1220" y="235" width="320" height="90" rx="10" ry="10" class="decision"/>
-    <text x="1380" y="268" class="qtext">Do you need first-class hybrid search</text>
-    <text x="1380" y="285" class="qtext">with semantic reranking, or need to</text>
-    <text x="1380" y="302" class="qtext">index large-scale unstructured content?</text>
+    <text x="1380" y="268" class="qtext">Do you need managed large-scale</text>
+    <text x="1380" y="285" class="qtext">indexing and enrichment of unstructured</text>
+    <text x="1380" y="302" class="qtext">content from multiple sources?</text>
   </g>
   <g>
     <title>Do you prefer a relational database management system (RDBMS)?</title>
@@ -133,11 +133,11 @@
     <text x="300" y="553.5" class="qtext">1,998 dimensions?</text>
   </g>
   <g>
-    <title>Do you want to keep operational data and vector search in the same store, with hybrid search and built-in reranking?</title>
+    <title>Do you want to keep operational data and vector search in the same store, with native full-text and hybrid search?</title>
     <rect x="610" y="495" width="320" height="90" rx="10" ry="10" class="decision"/>
     <text x="770" y="528" class="qtext">Do you want to keep operational data</text>
     <text x="770" y="545" class="qtext">and vector search in the same store,</text>
-    <text x="770" y="562" class="qtext">with hybrid search and built-in reranking?</text>
+    <text x="770" y="562" class="qtext">with native full-text and hybrid search?</text>
   </g>
   <g>
     <title>Do you need horizontal sharding (Elastic Clusters / Citus) for very large vector datasets?</title>
