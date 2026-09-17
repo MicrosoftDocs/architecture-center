@@ -6,7 +6,7 @@ When you build a service that multiple customers or *tenants* share, you can bui
 
 Consider an example multitenant system that has two tenants. Tenant A's usage patterns and tenant B's usage patterns coincide. At peak times, tenant A uses all of the system's resources, which means that any requests that tenant B makes fail. In other words, the total resource demand is higher than the capacity of the system:
 
-:::image type="complex" source="_images/noisy-neighbor-single.png" alt-text="Diagram that shows the resource usage of two tenants." lightbox="_images/noisy-neighbor-single.png" border="false":::
+:::image type="complex" source="_images/noisy-neighbor-single.png" alt-text="Diagram that shows the resource usage of two tenants." border="false":::
    The diagram has two tenants: Tenant A and Tenant B. Two line graphs represent the resource usage of each tenant. Tenant A consumes the complete set of system resources, which results in a system failure for Tenant B.
 :::image-end:::
 

@@ -41,7 +41,7 @@ The vocabulary of an embedding model is important because the model handles word
 
 For example, the word *histamine* might not be in an embedding model's vocabulary. The word *histamine* has a semantic meaning: a chemical that your body releases that causes allergy symptoms. If the embedding model doesn't contain *histamine*, it might separate the word into subwords that are in its vocabulary, such as *his*, *ta*, and *mine*.
 
-:::image type="content" border="false" source="./_images/word-broken-into-subwords.png" lightbox="./_images/word-broken-into-subwords.png" alt-text="Diagram that shows the word histamine broken down into the following subwords: his, ta, and mine.":::
+:::image type="content" border="false" source="./_images/word-broken-into-subwords.png" alt-text="Diagram that shows the word histamine broken down into the following subwords: his, ta, and mine.":::
 
 The semantic meanings of these subwords are far from the meaning of *histamine*. The individual or combined vector values of the subwords result in a poorer vector match compared to if the word *histamine* were in the model's vocabulary.
 
@@ -49,7 +49,7 @@ The semantic meanings of these subwords are far from the meaning of *histamine*.
 
 Determine the right embedding model for your use case. Consider the overlap between the embedding model's vocabulary and your data's words when you choose an embedding model.
 
-:::image type="complex" border="false" source="./_images/choose-embedding-model.png" lightbox="./_images/choose-embedding-model.png" alt-text="Diagram that shows the flow of how to choose an embedding model." ::: 
+:::image type="complex" border="false" source="./_images/choose-embedding-model.png" alt-text="Diagram that shows the flow of how to choose an embedding model." ::: 
    The first decision is "Domain-specific?" If no, the flow terminates at "Test top-ranked general models." If yes, the next decision is "Domain model available?" If no, the flow terminates at "Fine-tune general model." If yes, the flow terminates at "Test domain model."
 :::image-end:::
 

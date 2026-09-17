@@ -38,9 +38,10 @@ The services that each platform provides don't always clearly correspond. Someti
 Read the following articles to learn about Azure services and how they map to the services that you're already familiar with in AWS. These articles compare services that are roughly comparable. The following articles go into more detail about how Azure works in these specific areas:
 
 - [Accounts and subscriptions on Azure and AWS](./accounts.md)
+- [Analytics services on Azure and AWS](./analytics.md)
 - [Compute services on Azure and AWS](./compute.md)
-- [Data and AI](./data-ai.md)
-- [Relational database technologies on Azure and AWS](./databases.md)
+- [AI and machine learning services on Azure and AWS](./data-ai.md)
+- [Database services on Azure and AWS](./databases.md)
 - [Messaging services on Azure and AWS](./messaging.md)
 - [Networking on Azure and AWS](./networking.md)
 - [Regions and zones on Azure and AWS](./regions-zones.md)
@@ -59,12 +60,6 @@ The preceding list doesn't include all services. The following tables describe s
 | AWS service | Azure service | Description |
 | :---------- | :------------ | :---------- |
 | [AWS Marketplace](https://aws.amazon.com/marketplace) | [Microsoft Marketplace](https://marketplace.microsoft.com) | These services present easy-to-deploy and automatically configured partner applications, including single virtual machine (VM) or multiple VM solutions. You can purchase software as a service (SaaS) products from either marketplace. Many of the Microsoft Marketplace offers for Azure are eligible to count toward your Azure consumption commitment. To understand which offerings count toward your commitment, see [Azure consumption commitment benefit](/marketplace/azure-consumption-commitment-benefit). |
-
-### Time series databases and analytics
-
-| AWS service | Azure service | Description |
-| :---------- | :------------ | :---------- |
-| [Amazon Timestream](https://aws.amazon.com/timestream) | [Azure Data Explorer](https://azure.microsoft.com/services/data-explorer) <br/><br/> [Fabric Real-Time Intelligence](/fabric/real-time-intelligence) | Azure Data Explorer is a fully managed, low-latency, and distributed big data analytics platform. It runs complex queries across petabytes of data and is optimized for log and time series data. <br/><br/> Microsoft Fabric Real‑Time Intelligence is a fully managed, SaaS‑based analytics capability that uses KQL to ingest, store, and analyze high‑volume streaming and time‑series data in real time. It's tightly integrated with Power BI and the broader Fabric platform. |
 
 ### DevOps and application monitoring
 

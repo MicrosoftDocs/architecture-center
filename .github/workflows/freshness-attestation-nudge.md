@@ -72,7 +72,7 @@ Authors who refresh an Azure Architecture Center article must attest to a freshn
 ## What to do each run
 
 1. List open PRs in this repository updated within the last 6 hours.
-   `gh pr list` returns at most `--limit` results (default 30) and sorts by creation, not update, so filter server-side rather than trimming client-side: compute the cutoff with `date -u -d '6 hours ago' +%Y-%m-%dT%H:%M:%SZ`, then run `gh pr list --state open --search "updated:>=<cutoff> sort:updated-desc" --limit 100 --json number,title,author,updatedAt,url,body`. As a safety net, still drop any returned PR whose `updatedAt` is older than the cutoff.
+  `gh pr list` returns at most `--limit` results (default 30) and sorts by creation, not update, so filter server-side rather than trimming client-side: compute the cutoff with `date -u -d '6 hours ago' +%Y-%m-%dT%H:%M:%SZ`, then run `gh pr list --state open --search "updated:>=<cutoff> sort:updated-desc" --limit 100 --json number,title,author,updatedAt,url,body`. If that command fails, fall back to `gh api --paginate --method GET search/issues` with the same repository, state, and updated-at filters. As a safety net, still drop any returned PR whose update time is older than the cutoff.
 2. Apply the metadata-only skips (see [PRs to skip](#prs-to-skip)). These checks use only the fields from step 1, so they need no diff. The PRs that remain are this run's candidate list.
 3. For each candidate PR, inspect the changed files by using `gh pr diff <number>`, read the current PR body, and read the PR's comments by using `gh pr view <number> --json comments`. Review the changed article content when needed. Confirm the PR is a freshness pass attempt (see [Identifying a freshness PR](#identifying-a-freshness-pr)); if it isn't (for example, it changes no article content under `docs/`), take no action for it.
 4. Reconcile the PR body against the [Required attestation block](#required-attestation-block) (see [How to repair the body](#how-to-repair-the-body)).
@@ -81,7 +81,7 @@ Authors who refresh an Azure Architecture Center article must attest to a freshn
 
 ## PRs to skip
 
-Apply these skips first. Each uses only the metadata returned by `gh pr list` in step 1 (title, author, and body), so none of them requires a per-PR diff. Never evaluate a PR that meets any of these conditions:
+Apply these skips first. Each uses only the metadata returned in step 1 (title, author, and body), so none of them requires a per-PR diff. Never evaluate a PR that meets any of these conditions:
 
 - The title contains `Pipeline:`, `PnP edit:`, Q&M, or similar, which implies our editorial team is working on it. The editorial team never needs this attestation block. Editorial PRs are typically a "continuation" of a previous PR (which is closed or merged), and the PR body suggests that usually.  Plus you can tell by the author usually.
 - The author is `v-albemi`, `v-thepet`, or `v-ccolin` (some of our typical editors).

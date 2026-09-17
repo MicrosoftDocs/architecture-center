@@ -3,9 +3,10 @@ title: Comparing AWS and Azure messaging services
 description: Compare messaging service differences between Azure and AWS. Know Azure equivalents for Simple Email Service, Simple Queue Service, and messaging components.
 author: claytonsiemens77
 ms.author: csiemens
-ms.date: 08/10/2021
+ms.date: 09/16/2026
 ms.topic: concept-article
 ms.subservice: cloud-fundamentals
+ai-usage: ai-assisted
 ms.collection: 
  - migration
  - aws-to-azure
@@ -13,35 +14,41 @@ ms.collection:
 
 # Messaging services on Azure and AWS
 
-## Simple Email Service
+This article compares core AWS and Azure services for email, queues, publish-subscribe messaging, event routing, and event streaming. Select a service based on the message type, delivery guarantees, ordering, throughput, protocol compatibility, and consumer model that your workload requires.
 
-AWS provides the Simple Email Service (SES) for sending notification, transactional, or marketing emails. In Azure, you can send emails with [Azure Communication Services](https://azure.microsoft.com/products/communication-services) or third-party solutions, like [SendGrid](https://sendgrid.com/partners/azure). Both of these options provide email services that can be incorporated into solutions to cater for various use cases.
+For a detailed Azure service-selection guide, see [Choose between Azure Event Grid, Event Hubs, and Service Bus](/azure/service-bus-messaging/compare-messaging-services).
 
-## Simple Queue Service
+## Amazon Simple Email Service
 
-AWS Simple Queue Service (SQS) provides a messaging system for connecting applications, services, and devices within the AWS platform. Azure has two services that provide similar functionality:
+Amazon Simple Email Service (Amazon SES) sends transactional, bulk, and marketing email. In Azure, use [Azure Communication Services Email](/azure/communication-services/concepts/email/email-overview) for application-to-person email. It supports Azure-managed and custom domains, delivery status, engagement tracking, suppression lists, SDKs, and Simple Mail Transfer Protocol (SMTP). You can also use a third-party email service, such as [Twilio SendGrid](https://www.twilio.com/docs/sendgrid).
 
-- [Queue storage](/azure/storage/queues/storage-quickstart-queues-nodejs?tabs=passwordless%2Croles-azure-portal%2Cenvironment-variable-windows%2Csign-in-azure-cli) is a cloud messaging service that allows communication between application components within Azure.
+## Amazon Simple Queue Service
 
-- [Service Bus](https://azure.microsoft.com/services/service-bus) is a robust messaging system for connecting applications, services, and devices. By using the related [Azure Relay](/azure/azure-relay/relay-what-is-it) capability, Service Bus can also connect to remotely hosted applications and services.
+Amazon Simple Queue Service (Amazon SQS) provides managed queues that decouple distributed application components. Azure provides two queue services:
+
+- Use [Azure Queue Storage](/azure/storage/queues/storage-queues-introduction) for basic, high-scale work queues. Queue Storage supports queues larger than 80 GB, visibility timeouts for retry and lease behavior, and in-place message updates for persisting processing progress.
+
+- Use [Azure Service Bus queues](/azure/service-bus-messaging/service-bus-messaging-overview) for enterprise messaging features such as sessions for first-in-first-out (FIFO) ordering, transactions, duplicate detection, automatic dead-lettering, and publish-subscribe messaging through topics and subscriptions.
+
+- Use [Azure Relay](/azure/azure-relay/relay-what-is-it) when you need to securely expose an on-premises service to cloud clients without opening inbound firewall connections. Relay provides hybrid network connectivity and isn't a queue service.
 
 ### Integrating between Azure and AWS messaging services
 
-If there is one set of components using Amazon SQS that needs to integrate with another set of components that uses Azure Service Bus, or vice versa, that can be done using the [Messaging Bridge pattern](/azure/architecture/patterns/messaging-bridge).
+When components that use Amazon SQS must exchange messages with components that use Azure Service Bus, use the [Messaging Bridge pattern](/azure/architecture/patterns/messaging-bridge). A bridge introduces another runtime dependency, so design it for idempotent processing, monitoring, and recovery from partial failures.
 
 ## Messaging components
 
 | AWS service | Azure service | Description |
-|-------------|---------------|-------------|
-| [Simple Queue Service (SQS)](https://aws.amazon.com/sqs) | [Queue Storage](https://azure.microsoft.com/services/storage/queues) | Provides a managed message queueing service for communicating between decoupled application components. |
-| [Simple Notification Service (SNS)](https://aws.amazon.com/sns) | [Service Bus](https://azure.microsoft.com/services/service-bus) | Supports a set of cloud-based, message-oriented middleware technologies, including reliable message queuing and durable publish/subscribe messaging. |
-| [Amazon EventBridge](https://aws.amazon.com/eventbridge) | [Event Grid](https://azure.microsoft.com/services/event-grid) | A fully managed event routing service that allows for uniform event consumption using a publish/subscribe model. |
-| [Amazon Kinesis](https://aws.amazon.com/kinesis/) | [Event Hubs](https://azure.microsoft.com/services/event-hubs) | A fully managed, real-time data ingestion service. Stream millions of events per second, from any source, to build dynamic data pipelines and to immediately respond to business challenges. |
-| [Amazon MQ](https://docs.aws.amazon.com/amazon-mq) | [Service Bus](/azure/service-bus-messaging/migrate-jms-activemq-to-servicebus) | Service Bus Premium complies with the Java/Jakarta EE Java Message Service (JMS) 2.0 API. Service Bus Standard supports the JMS 1.1 subset focused on queues. |
+| --- | --- | --- |
+| [Amazon Simple Queue Service (Amazon SQS)](https://aws.amazon.com/sqs/) | [Azure Queue Storage](/azure/storage/queues/storage-queues-introduction) or [Azure Service Bus queues](/azure/service-bus-messaging/service-bus-queues-topics-subscriptions) | Use Queue Storage for basic, high-scale work queues. Use Service Bus when you need transactions, FIFO ordering through sessions, duplicate detection, dead-lettering, or advanced routing. |
+| [Amazon Simple Notification Service (Amazon SNS)](https://aws.amazon.com/sns/) | [Azure Service Bus topics](/azure/service-bus-messaging/service-bus-queues-topics-subscriptions#topics-and-subscriptions), [Azure Event Grid](/azure/event-grid/overview), or [Azure Communication Services](/azure/communication-services/overview) | SNS spans several scenarios. Use Service Bus topics for durable application-to-application messages with enterprise broker features. Use Event Grid for discrete event notifications and reactive routing. Use Communication Services for application-to-person SMS and email. |
+| [Amazon EventBridge](https://aws.amazon.com/eventbridge/) | [Azure Event Grid](/azure/event-grid/overview) | Both services route discrete events from applications, cloud services, and partner sources to subscribers. Compare supported sources, targets, filtering, transformation, retry, dead-lettering, and delivery models. |
+| [Amazon Kinesis Data Streams](https://aws.amazon.com/kinesis/data-streams/) | [Azure Event Hubs](/azure/event-hubs/event-hubs-about) | Both services ingest and retain high-throughput event streams for multiple independent consumers. Evaluate partitioning, retention, replay, throughput, protocol, and scaling requirements. Event Hubs supports AMQP, HTTPS, and Kafka-compatible endpoints. |
+| [Amazon MQ](https://docs.aws.amazon.com/amazon-mq/) | [Azure Service Bus](/azure/service-bus-messaging/migrate-jms-activemq-to-servicebus) | For existing JMS applications, Service Bus Premium supports JMS 2.0, and Service Bus Standard supports a limited, queue-focused JMS 1.1 subset. The Service Bus JMS client can't receive from session-enabled entities or use AMQP over WebSockets, so use the native Service Bus SDK when FIFO sessions or WebSocket transport are required. Assess protocol, API, topology, and broker-specific feature compatibility before migrating from ActiveMQ or RabbitMQ. |
 
 ### Messaging architectures
 
 | Architecture | Description |
-|----|----|
+| --- | --- |
 | [Scalable web application](/azure/architecture/web-apps/app-service/architectures/baseline-zone-redundant) | Use the proven practices in this reference architecture to improve scalability and performance in an Azure App Service web application. |
 | [Enterprise integration by using queues and events](/azure/architecture/example-scenario/integration/queues-events) | A recommended architecture for implementing an enterprise integration pattern with Azure Logic Apps, Azure API Management, Azure Service Bus, and Azure Event Grid. |

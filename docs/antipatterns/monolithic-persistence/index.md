@@ -90,7 +90,7 @@ The following sections apply these steps to the sample application described ear
 
 The following graph shows the results of load testing the sample application described earlier. The test uses a step load of up to 1,000 concurrent users.
 
-:::image type="content" source="./_images/MonolithicScenarioLoadTest.jpg" alt-text="Graph that shows load test performance results for the SQL-based controller." lightbox="./_images/MonolithicScenarioLoadTest.jpg" border="false":::
+:::image type="content" source="./_images/MonolithicScenarioLoadTest.jpg" alt-text="Graph that shows load test performance results for the SQL-based controller." border="false":::
 
 As the load increases to 700 users, so does the throughput. But at that point, throughput stabilizes, and the system appears to run at its maximum capacity. The average response gradually increases with user load, showing that the system can't keep up with demand.
 
@@ -104,7 +104,7 @@ Look for correlations between increased response times and increased database ac
 
 The next graph shows the utilization of database throughput units (DTUs) during the load test. A DTU is a measure of available capacity. It's a combination of CPU utilization, memory allocation, and I/O rate. Utilization of DTUs quickly reaches 100%. In the previous graph, throughput peaked at this point. Database utilization remains high until the test completes. There's a slight drop toward the end, which can result from throttling, competition for database connections, or other factors.
 
-:::image type="content" source="./_images/MonolithicDatabaseUtilization.jpg" alt-text="Graph that shows the database monitor in the Azure classic portal showing resource utilization of the database." lightbox="./_images/MonolithicDatabaseUtilization.jpg" border="false":::
+:::image type="content" source="./_images/MonolithicDatabaseUtilization.jpg" alt-text="Graph that shows the database monitor in the Azure classic portal showing resource utilization of the database." border="false":::
 
 ### Examine the telemetry for the data stores
 
@@ -124,15 +124,15 @@ At this point, you can review the source code, focusing on the points where the 
 
 This example updates the application to write logs to a separate data store. The following graph shows the load test results.
 
-:::image type="content" source="./_images/PolyglotScenarioLoadTest.jpg" alt-text="Graph that shows the load test performance results using the Polyglot controller." lightbox="./_images/PolyglotScenarioLoadTest.jpg" border="false":::
+:::image type="content" source="./_images/PolyglotScenarioLoadTest.jpg" alt-text="Graph that shows the load test performance results using the Polyglot controller." border="false":::
 
 The pattern of throughput is similar to the earlier graph, but the point at which performance peaks is approximately 500 requests per second higher. The average response time is marginally lower. However, these statistics don't tell the full story. Telemetry for the business database shows that DTU utilization peaks at around 75%, rather than 100%.
 
-:::image type="content" source="./_images/PolyglotDatabaseUtilization.jpg" alt-text="Graph that shows the database monitor in the Azure classic portal showing resource utilization of the database in the polyglot scenario." lightbox="./_images/PolyglotDatabaseUtilization.jpg" border="false":::
+:::image type="content" source="./_images/PolyglotDatabaseUtilization.jpg" alt-text="Graph that shows the database monitor in the Azure classic portal showing resource utilization of the database in the polyglot scenario." border="false":::
 
 Similarly, the maximum DTU utilization of the log database only reaches about 70%. The databases are no longer the limiting factor in the performance of the system.
 
-:::image type="content" source="./_images/LogDatabaseUtilization.jpg" alt-text="Graph that shows the database monitor in the Azure classic portal showing resource utilization of the log database in the polyglot scenario." lightbox="./_images/LogDatabaseUtilization.jpg" border="false":::
+:::image type="content" source="./_images/LogDatabaseUtilization.jpg" alt-text="Graph that shows the database monitor in the Azure classic portal showing resource utilization of the log database in the polyglot scenario." border="false":::
 
 ## Related resources
 
