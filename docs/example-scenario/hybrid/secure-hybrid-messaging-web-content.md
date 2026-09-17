@@ -173,7 +173,7 @@ To set up a Microsoft Entra Conditional Access policy that enforces multifactor 
 
 1. Configure **Microsoft 365 Exchange Online** or **Microsoft 365** as a cloud app:
 
-    :::image type="content" source="./media/set-as-cloud-app.png" alt-text="Screenshot that shows how to configure Office as a cloud application.":::
+    :::image type="content" source="./media/set-as-cloud-app.png" alt-text="Screenshot that shows how to configure Office as a cloud application." lightbox="./media/set-as-cloud-app.png":::
 
 1. Configure the browser as a client app:
 
