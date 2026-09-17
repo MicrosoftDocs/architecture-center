@@ -106,7 +106,7 @@ Skytap on Azure promotes operational excellence through its native support for A
 
 One of the advantages of an Azure–based solution is the ability to scale out. Scaling makes nearly limitless compute capacity available to an application. Azure supports multiple methods to scale out compute power, such as [virtual machine scale sets](/azure/virtual-machine-scale-sets/overview) and
 [load balancing](/azure/load-balancer/load-balancer-overview) across a cluster. Other platform as a service (PaaS) options scale compute resources dynamically. In addition, applications on Azure can also use
-[Kubernetes clusters](/azure/aks/concepts-clusters-workloads) as compute services for specified resources.
+[Kubernetes clusters](/azure/aks/core-aks-concepts) as compute services for specified resources.
 
 To scale up on Azure, choose a [larger VM size](https://azure.microsoft.com/services/virtual-machines/) for your workload.
 
