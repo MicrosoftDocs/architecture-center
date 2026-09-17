@@ -71,6 +71,7 @@ safe-outputs:
       - gvanteylingen
       - Haishi2016
       - harsha3187
+      - Hectoruu
       - heoelri
       - huangyingting
       - hudua
@@ -112,6 +113,7 @@ safe-outputs:
       - lponnam75
       - malrose07
       - manasatramalinga
+      - manishmsfte
       - MarkPryceMaherMSFT
       - MaxMelcher
       - mestredelpino
