@@ -44,7 +44,7 @@ The following table summarizes the differences between the main tenancy models f
 
 You can use a single instance of Application Insights to track telemetry for tenants in a multitenant application.
 
-:::image type="complex" border="false" source="media/application-insights/global-shared-app-insights.png" alt-text="Diagram that shows the globally shared Application Insights isolation model." lightbox="media/application-insights/global-shared-app-insights.png":::
+:::image type="complex" border="false" source="media/application-insights/global-shared-app-insights.png" alt-text="Diagram that shows the globally shared Application Insights isolation model.":::
    The diagram consists of three sections. The first section contains icons that represent tenants. The second section contains boxes that represent stamps. The third section represents Application Insights. Arrows point from Tenant 1 and Tenant 2 to the application in Stamp A. Arrows point from Tenant 3 and Tenant 4 to the application in Stamp B. An arrow points from Tenant 5 to the application in Stamp C. Arrows point from the stamps to the Application Insights section.
 :::image-end:::
 
@@ -60,7 +60,7 @@ Multitenant solutions often include multiple stamps, which might be deployed in 
 
 You might decide to deploy an Application Insights instance in each stamp and share the instance among all tenants that use the stamp. The following diagram illustrates this approach.
 
-:::image type="complex" border="false" source="media/application-insights/shared-app-insights-per-stamp.png" alt-text="Diagram that shows the one-instance-per-stamp isolation model." lightbox="media/application-insights/shared-app-insights-per-stamp.png":::
+:::image type="complex" border="false" source="media/application-insights/shared-app-insights-per-stamp.png" alt-text="Diagram that shows the one-instance-per-stamp isolation model.":::
    The diagram consists of two sections. The first section contains icons that represent tenants. The second section contains boxes that represent stamps. Each stamp box contains an application icon and an icon that represents Application Insights. Arrows point from Tenant 1 and Tenant 2 to Stamp A. Arrows point from Tenant 3 and Tenant 4 to Stamp B. An arrow points from Tenant 5 to Stamp C. An arrow points from the application icon to the Application Insights icon in each stamp.
 :::image-end:::
 
@@ -70,7 +70,7 @@ This approach provides more flexibility with resource limits because the limits 
 
 You might decide to use a dedicated Application Insights instance for each tenant. The following diagram illustrates this approach.
 
-:::image type="complex" border="false" source="media/application-insights/dedicated-app-insights-per-tenant.png" alt-text="Diagram that shows one Application Insights instance for each tenant." lightbox="media/application-insights/dedicated-app-insights-per-tenant.png":::
+:::image type="complex" border="false" source="media/application-insights/dedicated-app-insights-per-tenant.png" alt-text="Diagram that shows one Application Insights instance for each tenant.":::
    The diagram consists of two sections. The first section contains icons that represent tenants. The second section contains boxes that represent stamps. Each stamp box contains an application icon and separate boxes that represent Application Insights instances for each tenant. Arrows point from Tenant 1 and Tenant 2 to Stamp A. Arrows point from Tenant 3 and Tenant 4 to Stamp B. An arrow points from Tenant 5 to Stamp C.
 :::image-end:::
 

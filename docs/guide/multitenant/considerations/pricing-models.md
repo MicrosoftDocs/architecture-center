@@ -179,7 +179,7 @@ Common discount pricing patterns include:
 
 The following diagram illustrates these pricing patterns.
 
-:::image type="content" source="media/pricing-models/discount-pricing.png" alt-text="Diagram showing the different discount pricing that can be applied to a price model." border="false":::
+:::image type="content" source="media/pricing-models/discount-pricing.png" alt-text="Diagram showing the different discount pricing that can be applied to a price model." border="false" lightbox="media/pricing-models/discount-pricing.png":::
 
 ## Non-production environment discounts
 

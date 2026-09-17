@@ -56,7 +56,7 @@ You also need to ensure that your application code is fully aware of multitenanc
 
 As an example of the shared resource approach, suppose Contoso is building a multitenant software as a service (SaaS) application that includes a web application, a database, and a storage account. They might decide to deploy shared resources to service all of their customers. In the following diagram, all customers share a single set of resources.
 
-:::image type="complex" border="false" source="media/resource-organization/isolation-within-resource.png" alt-text="Diagram that shows a single set of resources that all the customers share." lightbox="media/resource-organization/isolation-within-resource.png":::
+:::image type="complex" border="false" source="media/resource-organization/isolation-within-resource.png" alt-text="Diagram that shows a single set of resources that all the customers share.":::
    In the diagram, a box that represents the Microsoft Entra tenant for Contoso contains another box that represents Contoso's Azure subscription. That box contains another box that represents a shared resource group. It contains the application, the database, and storage.
 :::image-end:::
 
@@ -73,7 +73,7 @@ It's a good practice to use separate resource groups for the resources that you 
 Suppose Contoso has three customers, or tenants: Adventure Works, Fabrikam, and Tailwind. They might choose to share the web application and storage account between the three tenants, and then deploy individual databases for each tenant. The following diagram shows a resource group that contains shared resources and a resource group that contains each tenant's database.
 
 
-:::image type="complex" border="false" source="media/resource-organization/isolation-resource.png" alt-text="Diagram that shows one resource group that contains shared resources and another resource group that contains a database for each customer." lightbox="media/resource-organization/isolation-resource.png":::
+:::image type="complex" border="false" source="media/resource-organization/isolation-resource.png" alt-text="Diagram that shows one resource group that contains shared resources and another resource group that contains a database for each customer.":::
    In the diagram, a box that represents the Microsoft Entra tenant for Contoso contains another box that represents Contoso's Azure subscription. That box contains another box that contains two resource groups. One resource group contains the application and storage and is marked as shared. The other resource group contains a tenant database for each customer: Adventure Works, Fabrikam, and Tailwind.
 :::image-end:::
 
@@ -87,7 +87,7 @@ When you deploy tenant-specific resource groups into shared subscriptions, be aw
 
 In the example, Contoso might choose to deploy a stamp for each of their customers and place the stamps in dedicated resource groups within a single subscription. In the following diagram, a subscription, which contains three resource groups, is created for each customer.
 
-:::image type="complex" border="false" source="media/resource-organization/isolation-resource-group.png" alt-text="Diagram that shows a subscription that contains three resource groups. Each resource group is a complete set of resources for a specific customer." lightbox="media/resource-organization/isolation-resource-group.png":::
+:::image type="complex" border="false" source="media/resource-organization/isolation-resource-group.png" alt-text="Diagram that shows a subscription that contains three resource groups. Each resource group is a complete set of resources for a specific customer.":::
    In the diagram, a box that represents the Microsoft Entra tenant for Contoso contains another box that represents Contoso's Azure subscription. That box contains another box that contains three resource groups. Each resource group contains the application, database, and storage for each customer: Adventure Works, Fabrikam, and Tailwind.
 :::image-end:::
 
@@ -103,7 +103,7 @@ Consider grouping your tenant-specific subscriptions into a [management group](/
 
 For example, suppose Contoso decides to create separate Azure subscriptions for each of their customers, as shown in the following diagram. Each subscription contains a resource group that includes the complete set of resources for that customer.
 
-:::image type="complex" border="false" source="media/resource-organization/isolation-subscription.png" alt-text="Diagram that shows three customer-specific subscriptions. Each subscription contains a resource group that includes the complete set of resources for that customer." lightbox="media/resource-organization/isolation-subscription.png":::
+:::image type="complex" border="false" source="media/resource-organization/isolation-subscription.png" alt-text="Diagram that shows three customer-specific subscriptions. Each subscription contains a resource group that includes the complete set of resources for that customer.":::
    In the diagram, a box that represents the Microsoft Entra tenant for Contoso contains another box that represents the management group. The management group contains three separate boxes that represent an Azure subscription for each customer: Adventure Works, Fabrikam, and Tailwind. Each Azure subscription contains another box that represents the resource group for each customer. Each resource group contains the application, database, and storage for each customer.
 :::image-end:::
 
@@ -128,7 +128,7 @@ In situations where you need to manage Azure resources in subscriptions that are
 
 For example, Contoso can create separate Microsoft Entra tenants and separate Azure subscriptions for each of their customers, as shown in the following diagram.
 
-:::image type="complex" border="false" source="media/resource-organization/isolation-tenant.png" alt-text="Diagram that shows a Microsoft Entra tenant for each of Contoso's tenants. Each tenant contains a subscription and the resources that each customer needs. Azure Lighthouse is connected to each Microsoft Entra tenant." lightbox="media/resource-organization/isolation-tenant.png":::
+:::image type="complex" border="false" source="media/resource-organization/isolation-tenant.png" alt-text="Diagram that shows a Microsoft Entra tenant for each of Contoso's tenants. Each tenant contains a subscription and the resources that each customer needs. Azure Lighthouse is connected to each Microsoft Entra tenant.":::
    In the diagram, three separate boxes represent the Microsoft Entra tenant for each of Contoso's customers: Adventure Works, Fabrikam, and Tailwind. Each tenant contains another box that represents the Azure subscription for each customer. Each Azure subscription contains another box that represents the resource group for each customer. Each resource group contains the application, database, and storage for each customer. On the right side of the diagram, a blue line represents Azure Lighthouse. An arrow points from this blue line to each of the Microsoft Entra tenants.
 :::image-end:::
 
@@ -156,7 +156,7 @@ When you share some of your resources between tenants, you should first determin
 
 For example, suppose you deploy Azure Application Gateway as part of a multitenant SaaS solution. You review your application design, test the application gateway's performance under load, and review its configuration. Then, you determine that a single application gateway resource can be shared among 100 customers. According to your organization's growth plan, you expect to onboard 150 customers in your first year, so you need to plan to deploy multiple application gateways to service your expected load.
 
-:::image type="complex" border="false" source="media/resource-organization/bin-pack-resource.png" alt-text="Diagram that shows an application gateway that's dedicated to customers 1 through 100 and another that's dedicated to customers 101 through 200." lightbox="media/resource-organization/bin-pack-resource.png":::
+:::image type="complex" border="false" source="media/resource-organization/bin-pack-resource.png" alt-text="Diagram that shows an application gateway that's dedicated to customers 1 through 100 and another that's dedicated to customers 101 through 200.":::
    In the diagram, a box that represents a subscription contains another box that represents a resource group. The resource group contains two application gateways. One gateway is dedicated to customers 1 through 100, and the other is dedicated to customers 101 through 200.
 :::image-end:::
 
@@ -168,7 +168,7 @@ Whether you work with shared or dedicated resources, it's important to account f
 
 For example, suppose you deploy a dedicated application gateway for each of your customers into a shared resource group. For some resources, [Azure supports deploying up to 800 resources of the same type](/azure/azure-resource-manager/management/resources-without-resource-group-limit) into a single resource group. So, when you reach this limit, you need to deploy any new application gateways into another resource group. In the following diagram, there are two resource groups. Each resource group contains 800 application gateways.
 
-:::image type="complex" border="false" source="media/resource-organization/bin-pack-resource-group.png" alt-text="Diagram that shows two resource groups. Each resource group contains 800 application gateways." lightbox="media/resource-organization/bin-pack-resource-group.png":::
+:::image type="complex" border="false" source="media/resource-organization/bin-pack-resource-group.png" alt-text="Diagram that shows two resource groups. Each resource group contains 800 application gateways.":::
    In the diagram, a box that represents a subscription contains three boxes that represent resource group 1, resource group 2, and resource group N. The resource group 1 box contains application gateways for tenants 1 through 800. The resource group 2 box contains application gateways for tenants 801 through 1600. The resource group N box contains application gateways for N tenants.
 :::image-end:::
 
@@ -176,25 +176,25 @@ For example, suppose you deploy a dedicated application gateway for each of your
 
 You can also apply the bin packing concept across resources, resource groups, and subscriptions. For example, when you have a few tenants, you might be able to deploy a single resource and share it among all of your tenants. The following diagram shows bin packing into a single resource.
 
-:::image type="complex" border="false" source="media/resource-organization/bin-pack-resources-1.png" alt-text="Diagram that shows bin packing into a single resource." lightbox="media/resource-organization/bin-pack-resources-1.png":::
+:::image type="complex" border="false" source="media/resource-organization/bin-pack-resources-1.png" alt-text="Diagram that shows bin packing into a single resource.":::
    In the diagram, a box that represents subscription A contains another box that represents resource group A1. Resource group A1 contains resource A1-1.
 :::image-end:::
 
 As you grow, you might approach the capacity limit for a single resource and scale out to multiple resources (*R*). The following diagram shows bin packing across multiple resources.
 
-:::image type="complex" border="false" source="media/resource-organization/bin-pack-resources-2.png" alt-text="Diagram that shows bin packing across multiple resources." lightbox="media/resource-organization/bin-pack-resources-2.png":::
+:::image type="complex" border="false" source="media/resource-organization/bin-pack-resources-2.png" alt-text="Diagram that shows bin packing across multiple resources.":::
    In the diagram, a box that represents subscription A contains another box that represents resource group A1. Resource group A1 contains resources A1-1 to A1-R.
 :::image-end:::
 
 If you reach the limit of the number of resources in a single resource group, you can then deploy multiple resources (*R*) into multiple resource groups (*G*). The following diagram shows bin packing across multiple resources, in multiple resource groups.
 
-:::image type="complex" border="false" source="media/resource-organization/bin-pack-resources-3.png" alt-text="Diagram that shows bin packing across multiple resources, in multiple resource groups." lightbox="media/resource-organization/bin-pack-resources-3.png":::
+:::image type="complex" border="false" source="media/resource-organization/bin-pack-resources-3.png" alt-text="Diagram that shows bin packing across multiple resources, in multiple resource groups.":::
    In the diagram, a box that represents subscription A contains two boxes. One box represents resource group A1, and the other represents resource group AG. Resource group A1 contains resources A1-1 to A1-R. Resource group AG contains resources AG-1 to AG-R.
 :::image-end:::
 
 As you grow even larger, you can deploy resources across multiple subscriptions (*S*), each containing multiple resource groups (*G*) that have multiple resources (*R*). The following diagram shows bin packing across multiple resources, in multiple resource groups and subscriptions.
 
-:::image type="complex" border="false" source="media/resource-organization/bin-pack-resources-4.png" alt-text="Diagram that shows bin packing across multiple resources, in multiple resource groups and subscriptions." lightbox="media/resource-organization/bin-pack-resources-4.png":::
+:::image type="complex" border="false" source="media/resource-organization/bin-pack-resources-4.png" alt-text="Diagram that shows bin packing across multiple resources, in multiple resource groups and subscriptions.":::
    In the diagram, a box that represents subscription A contains two boxes. One box represents resource group A1, and the other represents resource group AG. Resource group A1 contains resources A1-1 to A1-R. Resource group AG contains resources AG-1 to AG-R. Another box that represents subscription S contains two boxes. One box represents resource group S1, and the other represents resource group SG. Resource group S1 contains resources S1-1 to S1-R. Resource group SG contains resources SG-1 to SG-R.
 :::image-end:::
 
