@@ -8,7 +8,7 @@ Various tools, services, and processes help address these challenges. Regardless
 
 Extract, transform, load (ETL) is a data integration process that consolidates data from diverse sources into a unified data store. During the transformation phase, data is modified according to business rules using a specialized engine. This often involves staging tables that temporarily hold data as it is processed and ultimately loaded into its destination.
 
-![Diagram of the extract, transform, load (ETL) process.](../images/etl.png)
+:::image type="content" source="../images/etl.png" alt-text="Diagram of the extract, transform, load (ETL) process." lightbox="../images/etl.png" border="false":::
 
 The data transformation that takes place usually involves various operations, such as filtering, sorting, aggregating, joining data, cleaning data, deduplicating, and validating data.
 
@@ -28,7 +28,7 @@ Other tools:
 
 Extract, load, transform (ELT) differs from ETL solely in where the transformation takes place. In the ELT pipeline, the transformation occurs in the target data store. Instead of using a separate transformation engine, the processing capabilities of the target data store are used to transform data. This simplifies the architecture by removing the transformation engine from the pipeline. Another benefit to this approach is that scaling the target data store also scales the ELT pipeline performance. However, ELT only works well when the target system is powerful enough to transform the data efficiently.
 
-![Diagram of the extract, load, transform (ELT) process.](../images/elt.png)
+:::image type="content" source="../images/elt.png" alt-text="Diagram of the extract, load, transform (ELT) process." lightbox="../images/elt.png" border="false":::
 
 Typical use cases for ELT fall within the big data realm. For example, you might start by extracting source data to flat files in scalable storage, such as a Hadoop Distributed File System (HDFS), Azure blob storage, or Azure Data Lake Storage Gen2. Technologies such as Spark, Hive, or PolyBase, can then be used to query the source data. The key point with ELT is that the data store used to perform the transformation is the same data store where the data is ultimately consumed. This data store reads directly from the scalable storage, instead of loading the data into its own separate storage. This approach skips data copy steps present in ETL, which often can be time consuming for large data sets. Some workloads materialize transformed tables or views to improve query performance or enforce governance rules; ELT doesn't always imply purely virtualized transformations.
 
@@ -62,7 +62,7 @@ In the context of data pipelines, the control flow ensures the orderly processin
 
 Control flows execute data flows as a task. In a data flow task, data is extracted from a source, transformed, or loaded into a data store. The output of one data flow task can be the input to the next data flow task, and data flows can run in parallel. Unlike control flows, you can't add constraints between tasks in a data flow. You can, however, add a data viewer to observe the data as it is processed by each task.
 
-![Diagram of a data flow being executed as a task within a control flow.](../images/control-flow-data-flow.png)
+:::image type="content" source="../images/control-flow-data-flow.png" alt-text="Diagram of a data flow being executed as a task within a control flow." border="false":::
 
 In the diagram, there are several tasks within the control flow, one of which is a data flow task. One of the tasks is nested within a container. Containers can be used to provide structure to tasks, providing a unit of work. One such example is for repeating elements within a collection, such as files in a folder or database statements.
 
@@ -87,7 +87,7 @@ See [Reverse extract, transform, & load (ETL) with Azure Cosmos DB for NoSQL](/a
 
 When you need [Lambda hot path or Kappa architectures](/azure/architecture/databases/guide/big-data-architectures), you can subscribe to data sources as data is generated. Unlike ETL or ELT, which operate on datasets in scheduled batches, real-time streaming processes data as it arrives, enabling immediate insights and actions.
 
-![Diagram of the push, transform, and load process.](../images/push-transform-load.png)
+:::image type="content" source="../images/push-transform-load.png" alt-text="Diagram of the push, transform, and load process." lightbox="../images/push-transform-load.png" border="false":::
 
 In a streaming architecture, data is ingested from event sources into a message broker or event hub (such as Azure Event Hubs or Kafka), then processed by a stream processor (such as Fabric Real-Time Intelligence, Azure Stream Analytics, or Apache Flink). The processor applies transformations such as filtering, aggregating, enriching, or joining with reference data—all in motion—before routing results to downstream systems like dashboards, alerts, or databases.
 

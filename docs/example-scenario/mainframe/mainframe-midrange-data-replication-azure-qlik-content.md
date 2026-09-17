@@ -186,7 +186,7 @@ Other contributors:
 - [Event Hubs: A real-time data streaming platform with native Apache Kafka support](/azure/event-hubs/event-hubs-about)
 - [Introduction to Storage](/azure/storage/common/storage-introduction)
 - [What is Azure SQL Database?](/azure/azure-sql/database/sql-database-paas-overview)
-- [Azure Cosmos DB](/azure/cosmos-db/introduction)
+- [Azure Cosmos DB](/azure/cosmos-db/overview)
 - [Introduction to Application Insights with OpenTelemetry](/azure/azure-monitor/app/app-insights-overview)
 - [Azure Monitor Logs overview](/azure/azure-monitor/logs/data-platform-logs)
 - [Log queries in Azure Monitor](/azure/azure-monitor/logs/log-query-overview)

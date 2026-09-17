@@ -161,7 +161,7 @@ If you need a deeper analysis, you can use a profiler to capture low-level perfo
 
 The following graph shows the results of load testing the sample application. The load test simulates a step load of up to 800 users performing a typical series of operations.
 
-:::image type="content" source="./_images/InitialLoadTestResults.jpg" alt-text="Performance load test results for the uncached scenario" lightbox="./_images/InitialLoadTestResults.jpg" border="false":::
+:::image type="content" source="./_images/InitialLoadTestResults.jpg" alt-text="Graph of performance load test results for the uncached scenario." border="false":::
 
 The number of successful tests performed each second reaches a plateau, and additional requests are slowed as a result. The average test time steadily increases with the workload. The response time levels off once the user load peaks.
 
@@ -197,7 +197,7 @@ This is the query that Entity Framework generates in `GetByIdAsync` method shown
 
 After you incorporate a cache, repeat the load tests and compare the results to the earlier load tests without a cache. Here are the load test results after adding a cache to the sample application:
 
-:::image type="content" source="./_images/CachedLoadTestResults.jpg" alt-text="Performance load test results for the cached scenario" lightbox="./_images/CachedLoadTestResults.jpg" border="false":::
+:::image type="content" source="./_images/CachedLoadTestResults.jpg" alt-text="Graph of performance load test results for the cached scenario." border="false":::
 
 The volume of successful tests still reaches a plateau, but at a higher user load. The request rate at this load is much higher than earlier. Average test time still increases with load, but the maximum response time is 0.05 ms, compared with 1 ms earlier&mdash;a 20&times; improvement.
 

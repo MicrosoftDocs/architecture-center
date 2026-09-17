@@ -132,7 +132,6 @@ Other contributors:
 
 ## Next steps
 
-- [Use Azure Monitor Private Link Scope](/samples/azure-samples/azure-monitor-private-link-scope/azure-monitor-private-link-scope)
 - [Enable monitoring for Kubernetes clusters](/azure/azure-monitor/containers/kubernetes-monitoring-enable)
 - [Query logs from container insights](/azure/azure-monitor/containers/container-insights-log-query)
 - [Azure Monitor data source for Grafana](https://grafana.com/grafana/plugins/grafana-azure-monitor-datasource/)
