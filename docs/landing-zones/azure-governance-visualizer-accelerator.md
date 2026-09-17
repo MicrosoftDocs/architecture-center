@@ -52,7 +52,7 @@ Azure Governance Visualizer is a PowerShell script that can be run directly on a
 
 ## Scenario details
 
-Azure Governance Visualizer iterates your organization's management group hierarchy down to the subscription level. It captures most relevant Azure governance capabilities, such as Azure Policy, Azure role-based access control (Azure RBAC), and Microsoft Entra ID. The visualizer outputs this information.
+Azure Governance Visualizer iterates through your organization's management group hierarchy down to the subscription level. It captures the most relevant Azure governance capabilities, such as Azure Policy, Azure role-based access control (Azure RBAC), and Microsoft Entra ID. The visualizer outputs this information.
 
 ## Considerations
 
