@@ -54,7 +54,7 @@ Consult these articles when designing your SAP workload on Azure.
 
 #### SAP solution ideas
 
-You can [automate SAP workloads by using SUSE tools on Azure](../solution-ideas/articles/sap-workload-automation-suse.yml).
+- [Automate SAP workloads by using SUSE on Azure](../solution-ideas/articles/sap-workload-automation-suse.yml): Automate SAP workload deployment and management on Azure by using SUSE tools.
 
 #### SAP architectures
 
