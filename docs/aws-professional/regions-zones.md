@@ -20,7 +20,7 @@ One of the main ways to make an application resilient is through redundancy. But
 
 In Azure, some regions are further divided into multiple Availability Zones. An Availability Zone corresponds with a physically isolated datacenter in the geographic region. Azure has numerous features for providing application redundancy at every level of potential failure, including **Virtual Machine Scale Sets**, **availability zones**, and **paired regions**.
 
-:::image type="complex" source="./images/redundancy.svg" alt-text="Diagram showing rack-level, datacenter-level, and region-level redundancy in Azure.":::
+:::image type="complex" source="./images/redundancy.svg" lightbox="./images/redundancy.svg" alt-text="Diagram showing rack-level, datacenter-level, and region-level redundancy in Azure.":::
    The diagram has three side-by-side panels, each titled by a redundancy scope. The left panel, Rack-level redundancy for a Virtual Machine Scale Set, shows a Load Balancer above two boxes, Fault domain 1 and Fault domain 2, that each contain three virtual machines. The middle panel, Datacenter-level redundancy across availability zones, shows a zone-redundant Load Balancer above three boxes labeled Zone 1, Zone 2, and Zone 3 that each contain one virtual machine. The right panel, Region-level redundancy for a multi-region deployment, shows Traffic Manager above two boxes, Region A (primary) and Region B (secondary), that each contain an App tier virtual machine and a Data tier virtual machine. In every panel, lines connect the top routing component to each box below it. A dashed replication and failover path runs vertically between the two regions in the right panel.
 :::image-end:::
 

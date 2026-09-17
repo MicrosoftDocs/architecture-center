@@ -248,7 +248,7 @@ The following sections apply these steps to the example shown earlier that queri
 
 This graph shows the results of load testing. Median response time is measured in tens of seconds per request. The graph shows high latency. With a load of 1,000 users, a user might have to wait for nearly a minute to see the results of a query.
 
-:::image type="content" source="./_images/ChattyIO.jpg" alt-text="Key indicators load-test results for the chatty I/O sample application" lightbox="./_images/ChattyIO.jpg" border="false":::
+:::image type="content" source="./_images/ChattyIO.jpg" alt-text="Graph of key indicators load-test results for the chatty I/O sample application." border="false":::
 
 > [!NOTE]
 > The application was deployed as an Azure App Service web app, using Azure SQL Database. The load test used a simulated step workload of up to 1,000 concurrent users. The database was configured with a connection pool supporting up to 1,000 concurrent connections, to reduce the chance that contention for connections would affect the results.
@@ -284,7 +284,7 @@ If you are using an O/RM, such as Entity Framework, tracing the SQL queries can 
 
 Rewriting the call to Entity Framework produced the following results.
 
-:::image type="content" source="./_images/ChunkyIO.jpg" alt-text="Key indicators load test results for the chunky API in the chatty I/O sample application" lightbox="./_images/ChunkyIO.jpg" border="false":::
+:::image type="content" source="./_images/ChunkyIO.jpg" alt-text="Graph of key indicators load test results for the chunky API in the chatty I/O sample application." border="false":::
 
 This load test was performed on the same deployment, using the same load profile. This time the graph shows much lower latency. The average request time at 1,000 users is between 5 and 6 seconds, down from nearly a minute.
 

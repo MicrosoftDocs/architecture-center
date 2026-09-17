@@ -175,7 +175,7 @@ Instrument the application to see how requests are handled once they have been a
 
 The following graph shows the performance of the synchronous `GetUserProfile` method shown earlier, under varying loads of up to 4,000 concurrent users. The application is an ASP.NET application running in Azure App Service.
 
-:::image type="content" source="./_images/SyncPerformance.jpg" alt-text="Performance chart for the sample application performing synchronous I/O operations" lightbox="./_images/SyncPerformance.jpg" border="false":::
+:::image type="content" source="./_images/SyncPerformance.jpg" alt-text="Chart of performance for the sample application performing synchronous I/O operations." border="false":::
 
 The synchronous operation is hard-coded to sleep for two seconds, to simulate synchronous I/O, so the minimum response time is slightly over two seconds. When the load reaches approximately 2,500 concurrent users, the average response time reaches a plateau, although the volume of requests per second continues to increase. The scale for these two measures is logarithmic. The number of requests per second doubles between this point and the end of the test.
 
@@ -187,7 +187,7 @@ Incoming requests are queued by the IIS web server and handed to a thread runnin
 
 The next graph shows the results from load testing the asynchronous version of the code.
 
-:::image type="content" source="./_images/AsyncPerformance.jpg" alt-text="Performance chart for the sample application performing asynchronous I/O operations" lightbox="./_images/AsyncPerformance.jpg" border="false":::
+:::image type="content" source="./_images/AsyncPerformance.jpg" alt-text="Chart of performance for the sample application performing asynchronous I/O operations." border="false":::
 
 Throughput is far higher. Over the same duration as the previous test, the system successfully handles a nearly tenfold increase in throughput, as measured in requests per second. Moreover, the average response time is relatively constant and remains approximately 25 times smaller than the previous test.
 
