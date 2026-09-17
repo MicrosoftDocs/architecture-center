@@ -120,7 +120,7 @@ This architecture uses the following components.
 
 #### Data storage
 
-- [Azure Cosmos DB](/azure/well-architected/service-guides/cosmos-db) is a globally distributed, [multiple-model](/azure/cosmos-db/nosql/modeling-data) database. In this architecture, Azure Cosmos DB serves as a scalable NoSQL target for nonrelational mainframe database modernization.
+- [Azure Cosmos DB](/azure/well-architected/service-guides/cosmos-db) is a globally distributed, [multiple-model](/azure/cosmos-db/modeling-data) database. In this architecture, Azure Cosmos DB serves as a scalable NoSQL target for nonrelational mainframe database modernization.
 
 - [Azure Database for MySQL](/azure/well-architected/service-guides/azure-database-for-mysql) is a fully managed relational database service based on the community edition of the open-source [MySQL](https://www.mysql.com/products/community) database engine. In this architecture, Azure Database for MySQL provides another relational database target option for migrated mainframe data.
 
