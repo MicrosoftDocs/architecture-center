@@ -63,7 +63,7 @@ To upload assets from the reference solution into Dynamics 365 Field Service:
     - In the **Table Name** box, select **Customer Assets**.
     - In the **Name** box, select **Enter data from a previous step**, and then select **AssetName**.
 
-    :::image type="content" source="media/add-asset-name.png" alt-text="Screenshot of workflow designer that shows how to add the asset names to the table." lightbox="media/add-asset-name.png" border="false":::
+    :::image type="content" source="media/add-asset-name.png" alt-text="Screenshot of workflow designer that shows how to add the asset names to the table." border="false":::
 1. Save your workflow and run it. You can see that the new assets are created in Dynamics 365 Field Service:
 
     :::image type="content" source="/en-us/azure/architecture/solution-ideas/media/concepts-iot-industrial-solution-architecture/dynamics-asset-table.png" alt-text="Screenshot that shows the new asset definitions in the field service asset table." lightbox="/en-us/azure/architecture/solution-ideas/media/concepts-iot-industrial-solution-architecture/dynamics-asset-table.png" border="false":::
@@ -99,7 +99,7 @@ This workflow creates alerts in Dynamics 365 Field Service when the `FaultyTime`
     - In the **Alert Time** box, select **Enter data from a previous step**, and then select **Timestamp**.
     - In the **Alert Type** box, select **Anomaly**.
 
-    :::image type="content" source="media/add-alert-details.png" alt-text="Screenshot that shows the logic app configuration to create an alert." lightbox="media/add-alert-details.png" border="false":::
+    :::image type="content" source="media/add-alert-details.png" alt-text="Screenshot that shows the logic app configuration to create an alert." border="false":::
 1. Run the workflow to see new alerts generated in your Dynamics 365 Field Service **IoT Alerts** dashboard:
 
     :::image type="content" source="media/dynamics-iot-alerts.png" alt-text="Screenshot of alerts in Dynamics 365 Field Service." lightbox="media/dynamics-iot-alerts.png" border="false":::

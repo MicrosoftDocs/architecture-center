@@ -36,7 +36,7 @@ Although the platforms share similar capabilities, the resources that provide th
 
 Azure provides a hierarchy of management groups, subscriptions, and resource groups to help you manage resources effectively. This hierarchy is similar to the folders and project structure for resources in Google Cloud. The following diagram shows the hierarchy of management scope in Azure:
 
-:::image type="complex" source="./images/subscription-hierarchy.png" border="false" lightbox="./images/subscription-hierarchy.png" alt-text="Diagram that shows a tree structure with management groups as the root, then subscriptions, then resource groups as leaf nodes.":::
+:::image type="complex" source="./images/subscription-hierarchy.png" border="false" alt-text="Diagram that shows a tree structure with management groups as the root, then subscriptions, then resource groups as leaf nodes.":::
    The tree diagram shows the four-level Azure management hierarchy. At the top sits a single management group labeled corporate IT. Directly below corporate IT, three child management groups branch out horizontally from left to right: production, development, and QA. Connecting lines indicate that policies and access controls defined at the corporate IT level are inherited by all three. Below the production management group, three subscriptions are arranged from left to right: mission critical, protected data, other production. Below the development management group is a single subscription labeled non-production. Below the QA management group is a single subscription labeled staging. At the bottom level, resource groups contain application resources.
 :::image-end:::
 
@@ -115,7 +115,7 @@ The following table summarizes each option.
 
 Like Google Cloud, Azure regions can have [availability zones](/azure/reliability/availability-zones-overview), which are physically separate zones within an Azure region. Each availability zone has a distinct power source, network, and cooling. Deploying VMs across availability zones helps protect an application against datacenter-wide failures.
 
-:::image type="complex" source="./images/availability-zones.png" border="false" lightbox="./images/availability-zones.png" alt-text="Diagram that shows a zone-redundant virtual machine deployment across three availability zones within a single Azure region.":::
+:::image type="complex" source="./images/availability-zones.png" border="false" alt-text="Diagram that shows a zone-redundant virtual machine deployment across three availability zones within a single Azure region.":::
    Diagram that shows a zone-redundant virtual machine deployment within a single Azure region. A large outer rectangle labeled region contains the entire layout. Inside the region, three horizontal rectangular zones are stacked vertically from top to bottom, labeled zone 1, zone 2, and zone 3. Each zone contains one virtual machine. A vertical dashed rectangle overlays the virtual machines in all three zones. This dashed rectangle represents a single subnet that spans all three availability zones simultaneously. The label subnet appears at the bottom edge of the dashed rectangle. The layout illustrates that deploying virtual machines in each zone, connected through a shared subnet, provides redundancy in case of a failure in one zone.
 :::image-end:::
 

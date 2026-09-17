@@ -12,7 +12,7 @@ ms.subservice: architecture-guide
 
 The term *big compute* describes large-scale workloads that can require hundreds or thousands of cores. Use cases that require big compute include image rendering, fluid dynamics, financial risk modeling, oil exploration, drug design, and engineering stress analysis.
 
-:::image type="complex" border="false" source="./images/big-compute-logical.png" alt-text="Diagram that illustrates a big compute architecture style." lightbox="./images/big-compute-logical.png":::
+:::image type="complex" border="false" source="./images/big-compute-logical.png" alt-text="Diagram that illustrates a big compute architecture style.":::
    In the diagram, an arrow that represents a job queue points from a client to a scheduler or coordinator. The job queue arrow then branches from the scheduler to one box that contains parallel tasks and to another box that contains tightly coupled tasks.
 :::image-end:::
 
@@ -66,7 +66,7 @@ The following characteristics are common in big compute applications:
 
 Use Batch to configure a VM pool and upload the applications and data files. The Batch service provisions the VMs, assigns tasks to the VMs, runs the tasks, and monitors the progress. Batch can automatically scale out the VMs in response to the workload. Batch also provides job scheduling.
 
-:::image type="complex" border="false" source="./images/big-compute-batch.png" alt-text="Diagram of a big compute architecture that uses Batch." lightbox="./images/big-compute-batch.png":::
+:::image type="complex" border="false" source="./images/big-compute-batch.png" alt-text="Diagram of a big compute architecture that uses Batch.":::
    In the diagram, a dotted line surrounds icons that represent the VM pool. A double-sided arrow connects the VM pool with an icon that represents Batch. Another double-sided arrow connects the VM pool with an icon that represents storage.
 :::image-end:::
 
@@ -78,7 +78,7 @@ You can use [Microsoft HPC Pack][hpc-pack] to administer a cluster of VMs and sc
 
 In this scenario, the HPC cluster is created entirely within Azure.
 
-:::image type="complex" border="false" source="./images/big-compute-iaas.png" alt-text="Diagram that shows HPC Pack deployed to Azure." lightbox="./images/big-compute-iaas.png":::
+:::image type="complex" border="false" source="./images/big-compute-iaas.png" alt-text="Diagram that shows HPC Pack deployed to Azure.":::
    In this diagram, a box represents a virtual network. The virtual network contains icons that represent cluster nodes, an RDMA network, and the cluster head node. A double-sided arrow connects the virtual network box to storage outside of the virtual network.
 :::image-end:::
 
@@ -88,7 +88,7 @@ The head node provides management and job scheduling services to the cluster. Fo
 
 In this scenario, you run HPC Pack on-premises and use Azure VMs for burst capacity. The cluster head node is on-premises. Azure ExpressRoute or Azure VPN Gateway connects the on-premises network to the Azure virtual network.
 
-:::image type="complex" border="false" source="./images/big-compute-hybrid.png" alt-text="Diagram that shows a hybrid big compute cluster." lightbox="./images/big-compute-hybrid.png":::
+:::image type="complex" border="false" source="./images/big-compute-hybrid.png" alt-text="Diagram that shows a hybrid big compute cluster.":::
    The diagram contains two boxes. One box represents the on-premises environment. It contains icons that represent cluster nodes and the cluster head node. The other box represents a virtual network. It contains cluster nodes. Double-sided arrows that represent Expressroute or VPN Gateway connect the on-premises box and the virtual network box. Another double-sided arrow connects the virtual network box to storage outside of the virtual network.
 :::image-end:::
 

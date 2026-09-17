@@ -83,11 +83,11 @@ The trigger to move into the T2 stage is the validation of the green AKS cluster
 
 The AKS monitoring can be split into different levels, as shown in the following diagram:
 
-:::image type="content" source="media/blue-green-aks-deployment-diagram-aks-monitoring-levels.png" lightbox="media/blue-green-aks-deployment-diagram-aks-monitoring-levels.png" alt-text="Diagram of the AKS monitoring levels.":::
+:::image type="content" source="media/blue-green-aks-deployment-diagram-aks-monitoring-levels.png" alt-text="Diagram of the AKS monitoring levels.":::
 
 The health of the cluster is evaluated at levels 1 and 2, and at some of level 3. For level 1, you can use the native [multi-cluster view](/azure/azure-monitor/containers/container-insights-analyze#multi-cluster-view-from-azure-monitor) from Monitor to validate the health, as shown here:
 
-:::image type="content" source="media/blue-green-aks-deployment-screenshot-azure-monitor.png" lightbox="media/blue-green-aks-deployment-screenshot-azure-monitor.png" alt-text="Screenshot of the Monitor monitoring clusters.":::
+:::image type="content" source="media/blue-green-aks-deployment-screenshot-azure-monitor.png" alt-text="Screenshot of the Monitor monitoring clusters.":::
 
 At level 2, make sure that the Kubernetes API server and Kubelet work properly. You can use the Kubelet workbook in Monitor, specifically, the two grids of the workbook that show key operating statistics of the nodes:
 
