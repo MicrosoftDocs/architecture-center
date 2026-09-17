@@ -167,7 +167,7 @@ For compatibility details and command-by-command migration examples, see [Migrat
 
 ## Deploy this scenario
 
-Follow the [APIOps CLI Documentation](https://github.com/Azure/apiops-cli/tree/main/docs) in the APIOps CLI GitHub repository. Start with a nonproduction API Management instance and use the current APIOps CLI release guidance.
+Follow the [APIOps CLI Documentation](https://github.com/Azure/apiops-cli/tree/main/docs) in the APIOps CLI GitHub repository. Start with a nonproduction API Management instance and use the current APIOps CLI release guidance. To get started with a nonproduction environment, see [How to manage API Management configuration with APIOps CLI](/azure/api-management/how-to-manage-apiops-cli).
 
 ## Contributors
 
@@ -184,6 +184,7 @@ Principal authors:
 ## Next steps
 
 - [APIOps CLI](https://github.com/Azure/apiops-cli)
+- [How to manage API Management configuration with APIOps CLI](/azure/api-management/how-to-manage-apiops-cli)
 - [GitOps overview](https://www.gitops.tech)
 
 ## Related resources
