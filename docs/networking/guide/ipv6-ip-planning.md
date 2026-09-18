@@ -104,7 +104,7 @@ You can use the following table to find instructions for transitioning specific 
 
 ## Next steps
 
-- [IPv6 hub and spoke network topology](./ipv6-architecture.yml)
+- [IPv6 hub and spoke network topology](./ipv6-architecture.md)
 - [IPv6 for Azure Virtual Network](/azure/virtual-network/ip-services/ipv6-overview)
 - [Plan for IP addressing](/azure/cloud-adoption-framework/ready/azure-best-practices/plan-for-ip-addressing)
 
