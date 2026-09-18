@@ -2,13 +2,13 @@
 
 The following articles help you evaluate and select the best analytics technologies for your workload requirements:
 
-- [Choose an analytical data store](../data-guide/technology-choices/analytical-data-stores.md): Get guidance on analytical data store selection.
+- [Choose an analytical data store in Azure](../data-guide/technology-choices/analytical-data-stores.md): Get guidance on analytical data store selection.
 
-- [Choose a data analytics and reporting service](../data-guide/technology-choices/analysis-visualizations-reporting.md): Compare options for data analysis and visualization in Azure.
+- [Choose a data analytics and reporting technology in Azure](../data-guide/technology-choices/analysis-visualizations-reporting.md): Compare options for data analysis and visualization in Azure.
 
-- [Choose a batch processing service](../data-guide/technology-choices/batch-processing.md): Evaluate batch processing technologies for big data workloads.
+- [Choose a batch processing technology in Azure](../data-guide/technology-choices/batch-processing.md): Evaluate batch processing technologies for big data workloads.
 
-- [Choose a stream processing service](../data-guide/technology-choices/stream-processing.md): Compare stream processing technologies for real-time analytics.
+- [Choose a stream processing technology in Azure](../data-guide/technology-choices/stream-processing.md): Compare stream processing technologies for real-time analytics.
 
 - [Choose a Microsoft Fabric deployment pattern](../data-guide/technology-choices/fabric-deployment-patterns.md): Evaluate Microsoft Fabric deployment patterns for structuring capacities, workspaces, and items based on your requirements.
 
@@ -54,11 +54,11 @@ Review the recommendations in these guides while designing your analytics soluti
 
 The following articles provide guidance about disaster recovery (DR) strategies for Azure data platforms:
 
-- [Overview](../data-guide/disaster-recovery/dr-for-azure-data-platform-overview.md): Overview of DR strategies for Azure data platforms.
+- [Disaster recovery for an Azure data platform](../data-guide/disaster-recovery/dr-for-azure-data-platform-overview.md): Overview of DR strategies for Azure data platforms.
 
-- [Architecture](../data-guide/disaster-recovery/dr-for-azure-data-platform-architecture.md): Architecture patterns for DR in Azure data platforms.
+- [Disaster recovery architecture for an Azure data platform](../data-guide/disaster-recovery/dr-for-azure-data-platform-architecture.md): Architecture patterns for DR in Azure data platforms.
 
-- [Scenario details](../data-guide/disaster-recovery/dr-for-azure-data-platform-scenario-details.md): Detailed scenarios for DR implementation.
+- [Disaster recovery scenario details for an Azure data platform](../data-guide/disaster-recovery/dr-for-azure-data-platform-scenario-details.md): Detailed scenarios for DR implementation.
 
-- [Recommendations](../data-guide/disaster-recovery/dr-for-azure-data-platform-recommendations.md): Best practices for DR.
+- [Disaster recovery recommendations for an Azure data platform](../data-guide/disaster-recovery/dr-for-azure-data-platform-recommendations.md): Best practices for DR.
 
