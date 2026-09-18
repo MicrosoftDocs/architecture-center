@@ -24,21 +24,21 @@ The following AI solution ideas demonstrate implementation patterns and possibil
 
 #### Audio processing solution ideas
 
-- [Unlock insights from conversational data](/azure/architecture/ai-ml/idea/unlock-insights-from-conversational-data): Extracts actionable insights from conversational audio data.
+- [Build a conversation knowledge mining solution by using Foundry Tools](/azure/architecture/ai-ml/idea/unlock-insights-from-conversational-data): Extracts actionable insights from conversational audio data.
 
 #### Image processing
 
-- [Image classification](/azure/architecture/ai-ml/idea/intelligent-apps-image-processing): Classifies images by using intelligent application patterns.
+- [Image classification on Azure](/azure/architecture/ai-ml/idea/intelligent-apps-image-processing): Classifies images by using intelligent application patterns.
 
 #### Predictive analytics
 
-- [Customer order forecasting](/azure/architecture/ai-ml/idea/next-order-forecasting): Predicts future customer orders by using machine learning.
+- [Use AI to forecast customer orders](/azure/architecture/ai-ml/idea/next-order-forecasting): Predicts future customer orders by using machine learning.
 
 #### MLOps solution ideas
 
-- [Use Azure Databricks to orchestrate machine learning operations](/azure/architecture/ai-ml/idea/orchestrate-machine-learning-azure-databricks): Orchestrates machine learning operations by using Azure Databricks.
+- [Use Azure Databricks to orchestrate MLOps](/azure/architecture/ai-ml/idea/orchestrate-machine-learning-azure-databricks): Orchestrates machine learning operations by using Azure Databricks.
 
-- [Many models with Machine Learning](/azure/architecture/ai-ml/idea/many-models-machine-learning-azure-machine-learning): Trains and manages many models at scale by using Azure Machine Learning.
+- [Use the many-models architecture approach to scale machine learning models](/azure/architecture/ai-ml/idea/many-models-machine-learning-azure-machine-learning): Trains and manages many models at scale by using Azure Machine Learning.
 
 #### Document processing and enrichment
 
@@ -46,7 +46,7 @@ The following AI solution ideas demonstrate implementation patterns and possibil
 
 - [Generate documents from your data](/azure/architecture/ai-ml/idea/generate-documents-from-your-data): Generates structured documents from data sources.
 
-- [Use AI enrichment with Azure AI Search](/azure/architecture/solution-ideas/articles/ai-search-skillsets): Enriches content by using AI skill sets in Azure AI Search indexing pipelines.
+- [Use AI enrichment with image and text processing](/azure/architecture/solution-ideas/articles/ai-search-skillsets): Enriches content by using AI skill sets in Azure AI Search indexing pipelines.
 
 #### Workflow automation
 
@@ -64,23 +64,23 @@ The following production-ready architectures demonstrate end-to-end AI solutions
 
 - [Baseline Microsoft Foundry chat reference architecture](/azure/architecture/ai-ml/architecture/baseline-microsoft-foundry-chat): A production-ready end-to-end chat architecture that uses Microsoft Foundry with enterprise security, networking, and monitoring.
 
-- [Baseline Microsoft Foundry chat architecture in an Azure landing zone](/azure/architecture/ai-ml/architecture/baseline-microsoft-foundry-landing-zone): Deploys the baseline Microsoft Foundry chat architecture within an Azure landing zone for enterprise-scale governance.
+- [Baseline Microsoft Foundry chat reference architecture in an Azure landing zone](/azure/architecture/ai-ml/architecture/baseline-microsoft-foundry-landing-zone): Deploys the baseline Microsoft Foundry chat architecture within an Azure landing zone for enterprise-scale governance.
 
 #### Document processing
 
-- [Automate document classification](/azure/architecture/ai-ml/architecture/automate-document-classification-durable-functions): Uses Durable Functions to automate document classification workflows.
+- [Automate document classification in Azure](/azure/architecture/ai-ml/architecture/automate-document-classification-durable-functions): Uses Durable Functions to automate document classification workflows.
 
-- [Automate PDF form processing](/azure/architecture/ai-ml/architecture/automate-pdf-forms-processing): Automates the extraction and processing of data from PDF forms.
+- [Automate PDF forms processing](/azure/architecture/ai-ml/architecture/automate-pdf-forms-processing): Automates the extraction and processing of data from PDF forms.
 
-- [Build custom document processing models](/azure/architecture/ai-ml/architecture/build-deploy-custom-models): Builds and deploys custom models for document processing scenarios.
+- [Build and deploy custom document processing models on Azure](/azure/architecture/ai-ml/architecture/build-deploy-custom-models): Builds and deploys custom models for document processing scenarios.
 
 - [Extract text from objects using Power Automate and AI Builder](/azure/architecture/example-scenario/ai/extract-object-text): Extracts text from objects by using Power Automate and AI capabilities.
 
-- [Multiple indexers with Azure AI Search](/azure/architecture/ai-ml/architecture/search-blob-metadata): Uses multiple indexers to process and index blob metadata by using Azure AI Search.
+- [Create an Azure AI Search index based on file content and metadata](/azure/architecture/ai-ml/architecture/search-blob-metadata): Uses multiple indexers to process and index blob metadata by using Azure AI Search.
 
 #### Video and image classification
 
-- [Automate video analysis](/azure/architecture/ai-ml/architecture/analyze-video-computer-vision-machine-learning): Analyzes video content by using computer vision and machine learning.
+- [Automate video analysis by using Azure Machine Learning and Azure Vision in Foundry Tools](/azure/architecture/ai-ml/architecture/analyze-video-computer-vision-machine-learning): Analyzes video content by using computer vision and machine learning.
 
 #### Audio processing architectures
 
@@ -88,7 +88,7 @@ The following production-ready architectures demonstrate end-to-end AI solutions
 
 #### Regulatory
 
-- [Secure research for regulated data](/azure/architecture/ai-ml/architecture/secure-compute-for-research): Provides a secure compute environment for research workloads that handle regulated data.
+- [Design a secure research environment for regulated data](/azure/architecture/ai-ml/architecture/secure-compute-for-research): Provides a secure compute environment for research workloads that handle regulated data.
 
 ### AI guides
 
@@ -106,21 +106,21 @@ The following production-ready architectures demonstrate end-to-end AI solutions
 
 - [Design and develop a RAG solution](/azure/architecture/ai-ml/guide/rag/rag-solution-design-and-evaluation-guide): Provides an overview of how to design and evaluate RAG solutions.
 
-- [Preparation phase](/azure/architecture/ai-ml/guide/rag/rag-preparation-phase): Covers data preparation for RAG implementations.
+- [RAG preparation phase](/azure/architecture/ai-ml/guide/rag/rag-preparation-phase): Covers data preparation for RAG implementations.
 
-- [Chunking phase](/azure/architecture/ai-ml/guide/rag/rag-chunking-phase): Describes strategies for chunking content in RAG pipelines.
+- [RAG chunking phase](/azure/architecture/ai-ml/guide/rag/rag-chunking-phase): Describes strategies for chunking content in RAG pipelines.
 
-- [Chunk enrichment phase](/azure/architecture/ai-ml/guide/rag/rag-enrichment-phase): Covers enrichment techniques applied to content chunks.
+- [RAG chunk enrichment phase](/azure/architecture/ai-ml/guide/rag/rag-enrichment-phase): Covers enrichment techniques applied to content chunks.
 
-- [Embedding phase](/azure/architecture/ai-ml/guide/rag/rag-generate-embeddings): Describes how to generate embeddings for RAG retrieval.
+- [RAG generate embeddings phase](/azure/architecture/ai-ml/guide/rag/rag-generate-embeddings): Describes how to generate embeddings for RAG retrieval.
 
-- [Information-retrieval phase](/azure/architecture/ai-ml/guide/rag/rag-information-retrieval): Covers information retrieval strategies in RAG architectures.
+- [Information retrieval](/azure/architecture/ai-ml/guide/rag/rag-information-retrieval): Covers information retrieval strategies in RAG architectures.
 
-- [Prompt engineering](/azure/architecture/ai-ml/guide/rag/rag-prompt-engineering): Describes how to design effective prompts for RAG solutions, including prompt structure, grounding techniques, and context management.
+- [RAG prompt engineering](/azure/architecture/ai-ml/guide/rag/rag-prompt-engineering): Describes how to design effective prompts for RAG solutions, including prompt structure, grounding techniques, and context management.
 
-- [Model end-to-end evaluation phase](/azure/architecture/ai-ml/guide/rag/rag-llm-evaluation-phase): Describes how to evaluate RAG models end to end.
+- [Large language model end-to-end evaluation](/azure/architecture/ai-ml/guide/rag/rag-llm-evaluation-phase): Describes how to evaluate RAG models end to end.
 
-- [Agentic RAG](/azure/architecture/ai-ml/guide/rag/rag-agentic): Describes how to shift from a standard RAG pipeline to an agentic RAG architecture for dynamic query planning and multistep reasoning.
+- [Develop an agentic RAG solution](/azure/architecture/ai-ml/guide/rag/rag-agentic): Describes how to shift from a standard RAG pipeline to an agentic RAG architecture for dynamic query planning and multistep reasoning.
 
 #### MLOps guides
 
@@ -132,7 +132,7 @@ The following production-ready architectures demonstrate end-to-end AI solutions
 
 #### Proxy generative AI models
 
-- [Use a gateway in front of generative models](/azure/architecture/ai-ml/guide/azure-openai-gateway-guide): Describes the benefits and architecture of placing a gateway in front of generative AI model endpoints.
+- [Access Foundry Models and other language models through a gateway](/azure/architecture/ai-ml/guide/azure-openai-gateway-guide): Describes the benefits and architecture of placing a gateway in front of generative AI model endpoints.
 
 - [Use a gateway in front of multiple model deployments or instances](/azure/architecture/ai-ml/guide/azure-openai-gateway-multi-backend): Extends the gateway pattern to route requests across multiple model back ends.
 

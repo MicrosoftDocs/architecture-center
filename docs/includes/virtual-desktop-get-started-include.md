@@ -12,5 +12,5 @@ The following production-ready architectures demonstrate end-to-end virtual desk
 
 - [Windows 365 Azure network connection](../virtual-desktop/windows-365-azure-network-connection.md): Design and implement [Windows 365](https://www.microsoft.com/windows-365) Azure network connections to integrate Cloud PCs with your existing network infrastructure.
 
-- [Multiregion business continuity and disaster recovery (BCDR) for Azure Virtual Desktop](../example-scenario/azure-virtual-desktop/azure-virtual-desktop-multi-region-bcdr.md): Design a multiregion BCDR strategy for Azure Virtual Desktop to provide high availability and resilience.
+- [Multiregion BCDR for Azure Virtual Desktop](../example-scenario/azure-virtual-desktop/azure-virtual-desktop-multi-region-bcdr.md): Design a multiregion BCDR strategy for Azure Virtual Desktop to provide high availability and resilience.
 

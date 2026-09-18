@@ -10,7 +10,7 @@ The following articles help you evaluate and select the best integration technol
 
 ### Integration solution ideas
 
-- [Integrate IBM MQs with Azure](../example-scenario/mainframe/integrate-ibm-message-queues-azure.yml): Integrate IBM MQ messaging systems with Azure by using Azure Service Bus and hybrid connectivity.
+- [Integrate IBM mainframe and midrange message queues with Azure](../example-scenario/mainframe/integrate-ibm-message-queues-azure.yml): Integrate IBM MQ messaging systems with Azure by using Azure Service Bus and hybrid connectivity.
 
 ### Integration architectures
 
@@ -32,12 +32,12 @@ Review the following guides for cross-cutting integration and migration concerns
 
 #### Event Hubs with Azure Functions
 
-- [Overview](../serverless/event-hubs-functions/event-hubs-functions.md): Guidance for how to effectively integrate Azure Event Hubs with Azure Functions for performance, resiliency, security, and scale.
+- [Integrate Event Hubs with serverless functions on Azure](../serverless/event-hubs-functions/event-hubs-functions.md): Guidance for how to effectively integrate Azure Event Hubs with Azure Functions for performance, resiliency, security, and scale.
 
-- [Performance and scale](../serverless/event-hubs-functions/performance-scale.md): Optimize scalability and performance when you use Azure Event Hubs and Azure Functions together.
+- [Performance and scale guidance for Event Hubs and Azure Functions](../serverless/event-hubs-functions/performance-scale.md): Optimize scalability and performance when you use Azure Event Hubs and Azure Functions together.
 
-- [Resilient design](../serverless/event-hubs-functions/resilient-design.md): Implement error handling, idempotency, and retry behavior for functions that Azure Event Hubs triggers.
+- [Resilient Azure Event Hubs and Azure Functions design](../serverless/event-hubs-functions/resilient-design.md): Implement error handling, idempotency, and retry behavior for functions that Azure Event Hubs triggers.
 
-- [Security](../serverless/event-hubs-functions/security.md): Apply fine-grained access control and network security for Azure Event Hubs and Azure Functions.
+- [Secure Azure Functions with Azure Event Hubs](../serverless/event-hubs-functions/security.md): Apply fine-grained access control and network security for Azure Event Hubs and Azure Functions.
 
-- [Observability](../serverless/event-hubs-functions/observability.md): Use Application Insights to monitor the behavior and health of Azure Event Hubs and Azure Functions solutions.
+- [Monitor Azure Functions and Event Hubs](../serverless/event-hubs-functions/observability.md): Use Application Insights to monitor the behavior and health of Azure Event Hubs and Azure Functions solutions.

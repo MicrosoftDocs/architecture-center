@@ -6,7 +6,7 @@ The following articles help you evaluate and select the best container technolog
 
 - [Architectural considerations for choosing an Azure container service](../guide/container-service-general-considerations.md): Detailed considerations for container service selection.
 
-- [Choose a Kubernetes at the edge option](../operator-guides/aks/choose-kubernetes-edge-compute-option.md): Compare options for running Kubernetes at the edge.
+- [Choose a Kubernetes at the edge compute option](../operator-guides/aks/choose-kubernetes-edge-compute-option.md): Compare options for running Kubernetes at the edge.
 
 ### Container guides
 
@@ -74,9 +74,9 @@ The following guides provide recommendations on cross-cutting concerns in your K
 
 - [Backup and recovery for AKS](../operator-guides/aks/aks-backup-and-recovery.md): Protect your cluster configuration and workloads.
 
-- [Patch and upgrade worker nodes](../operator-guides/aks/aks-upgrade-practices.md): Keep clusters secure and up-to-date.
+- [Patch and upgrade Azure Kubernetes Service worker nodes and Kubernetes versions](../operator-guides/aks/aks-upgrade-practices.md): Keep clusters secure and up-to-date.
 
-- [Troubleshoot networking](../operator-guides/aks/troubleshoot-network-aks.md): Diagnose and resolve network problems.
+- [Troubleshoot network problems in AKS clusters](../operator-guides/aks/troubleshoot-network-aks.md): Diagnose and resolve network problems.
 
 - [Monitor AKS by using Azure Monitor](/azure/aks/monitor-aks): Collect and analyze telemetry from your clusters.
 
@@ -84,17 +84,17 @@ The following guides provide recommendations on cross-cutting concerns in your K
 
 **Triage practices**
 
-- [Overview](../operator-guides/aks/aks-triage-practices.md): Systematic approach to troubleshooting AKS problems.
+- [Triage practices for AKS operations](../operator-guides/aks/aks-triage-practices.md): Systematic approach to troubleshooting AKS problems.
 
-- [1. Cluster health](../operator-guides/aks/aks-triage-cluster-health.md): Check the overall health of an AKS cluster as part of a triage step.
+- [Evaluate AKS cluster health](../operator-guides/aks/aks-triage-cluster-health.md): Check the overall health of an AKS cluster as part of a triage step.
 
-- [2. Node and pod health](../operator-guides/aks/aks-triage-node-health.md): Examine the health of AKS worker nodes and pods and resolve problems.
+- [Examine node and pod health](../operator-guides/aks/aks-triage-node-health.md): Examine the health of AKS worker nodes and pods and resolve problems.
 
-- [3. Workload deployments](../operator-guides/aks/aks-triage-deployment.md): Check whether workload deployments and DaemonSet features are running properly.
+- [Monitor workload deployments](../operator-guides/aks/aks-triage-deployment.md): Check whether workload deployments and DaemonSet features are running properly.
 
-- [4. Admission controllers](../operator-guides/aks/aks-triage-controllers.md): Verify that the admission controllers are working as expected.
+- [Validate admission controllers](../operator-guides/aks/aks-triage-controllers.md): Verify that the admission controllers are working as expected.
 
-- [5. Container registry connectivity](../operator-guides/aks/aks-triage-container-registry.md): Verify the connection to a container registry.
+- [Verify the connection to the container registry](../operator-guides/aks/aks-triage-container-registry.md): Verify the connection to a container registry.
 
 ### PaaS container hosting
 
@@ -102,6 +102,6 @@ Azure Container Apps and Azure Container Instances provide serverless container 
 
 #### PaaS container architectures
 
-- [Deploy microservices to Azure Container Apps](../example-scenario/serverless/microservices-with-container-apps.yml): Build microservices by using Container Apps.
+- [Deploy Microservices to Azure Container Apps](../example-scenario/serverless/microservices-with-container-apps.yml): Build microservices by using Container Apps.
 
 - [Deploy microservices with Azure Container Apps and Dapr](../example-scenario/serverless/microservices-with-container-apps-dapr.yml): Event-driven microservices that use Dapr and KEDA on Container Apps.

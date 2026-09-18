@@ -24,4 +24,4 @@ The following production-ready architectures demonstrate end-to-end identity sol
 
 - [Choose the right authentication method for your Microsoft Entra hybrid identity solution](/entra/identity/hybrid/connect/choose-ad-authn): Evaluate authentication options, including password hash synchronization, pass-through authentication, and federation.
 
-- [Cross-tenant secure access to apps](/azure/architecture/networking/guide/cross-tenant-secure-access-private-endpoints): Restrict inbound traffic to a web app or function app. Use private endpoints in Azure to give consumer tenants secure access to provider tenant apps.
+- [Cross-tenant secure access to apps by using private endpoints](/azure/architecture/networking/guide/cross-tenant-secure-access-private-endpoints): Restrict inbound traffic to a web app or function app. Use private endpoints in Azure to give consumer tenants secure access to provider tenant apps.

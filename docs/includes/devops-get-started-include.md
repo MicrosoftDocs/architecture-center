@@ -10,7 +10,7 @@ The following production-ready architectures demonstrate end-to-end DevOps solut
 
 - [CI/CD baseline architecture with Azure Pipelines](/azure/devops/pipelines/architectures/devops-pipelines-baseline-architecture): Build a CI/CD pipeline by using Azure Pipelines to deploy application changes to staging and production environments.
 
-- [Automate API configuration deployments with APIOps](../example-scenario/devops/automated-api-deployments-apiops.yml): Apply GitOps and DevOps techniques to API configuration deployment by using Azure API Management and the [APIOps CLI](https://github.com/Azure/apiops-cli).
+- [Automate API Management configuration by using APIOps CLI](../example-scenario/devops/automated-api-deployments-apiops.yml): Apply GitOps and DevOps techniques to API configuration deployment by using Azure API Management and the [APIOps CLI](https://github.com/Azure/apiops-cli).
 
 - [Scalable cloud applications and site reliability engineering (SRE)](../example-scenario/apps/scalable-apps-performance-modeling-site-reliability.yml): Learn how to model application performance and apply SRE practices to scale cloud applications reliably.
 

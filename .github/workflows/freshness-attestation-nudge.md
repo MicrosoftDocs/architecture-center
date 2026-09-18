@@ -74,7 +74,7 @@ Authors who refresh an Azure Architecture Center article must attest to a freshn
 1. List open PRs in this repository updated within the last 6 hours.
   `gh pr list` returns at most `--limit` results (default 30) and sorts by creation, not update, so filter server-side rather than trimming client-side: compute the cutoff with `date -u -d '6 hours ago' +%Y-%m-%dT%H:%M:%SZ`, then run `gh pr list --state open --search "updated:>=<cutoff> sort:updated-desc" --limit 100 --json number,title,author,updatedAt,url,body`. If that command fails, fall back to `gh api --paginate --method GET search/issues` with the same repository, state, and updated-at filters. As a safety net, still drop any returned PR whose update time is older than the cutoff.
 2. Apply the metadata-only skips (see [PRs to skip](#prs-to-skip)). These checks use only the fields from step 1, so they need no diff. The PRs that remain are this run's candidate list.
-3. For each candidate PR, inspect the changed files by using `gh pr diff <number>`, read the current PR body, and read the PR's comments by using `gh pr view <number> --json comments`. Review the changed article content when needed. Confirm the PR is a freshness pass attempt (see [Identifying a freshness PR](#identifying-a-freshness-pr)); if it isn't (for example, it changes no article content under `docs/`), take no action for it.
+3. For each candidate PR, inspect the changed files by using `gh pr diff <number>`, read the current PR body, and read the PR's comments by using `gh pr view <number> --json comments`. Fetch every page of the PR's review threads as described in [Copilot feedback evidence](#copilot-feedback-evidence). Review the changed article content when needed. Confirm the PR is a freshness pass attempt (see [Identifying a freshness PR](#identifying-a-freshness-pr)); if it isn't (for example, it changes no article content under `docs/`), take no action for it.
 4. Reconcile the PR body against the [Required attestation block](#required-attestation-block) (see [How to repair the body](#how-to-repair-the-body)).
 5. Apply the idempotency guard (see [How to repair the body](#how-to-repair-the-body)): update the PR only when your rebuilt body differs meaningfully from the current body. If they'd be equivalent, emit no output for that PR.
 6. If, and only if, you change the body, post one concise comment to the author (see [How to comment](#how-to-comment)).
@@ -138,8 +138,40 @@ Use the `update-pull-request` safe output with the target PR's number and the fu
 
 - Never check the first four checkboxes (customer value, best guidance, learner feedback, template requirements). You're not validating those. Leave them in whatever state the author set.
 - Check the "no linked code" box only when the article changed in this PR has no linked code. Linked code means the article links to or references a code sample, reference implementation, a deploy to azure button, or deployment repository. If the article has linked code, or you're unsure, leave this box unchecked.
-- For the remaining boxes (Copilot feedback, `ms.author`/`author` accuracy, `ms.date` set, contribution form), check a box only when there's clear evidence it's already done or linked. For example, check the `ms.date` box when the diff sets or updates `ms.date`; check the contribution-form box only when there's evidence there was one done.
+- Apply the rules in [Copilot feedback evidence](#copilot-feedback-evidence) to the Copilot feedback box. Don't use any other signal for that box.
+- For the remaining boxes (`ms.author`/`author` accuracy, `ms.date` set, contribution form), check a box only when there's clear evidence it's already done or linked. For example, check the `ms.date` box when the diff sets or updates `ms.date`; check the contribution-form box only when there's evidence there was one done.
 - Never uncheck a box that is already checked.
+
+### Copilot feedback evidence
+
+Fetch review threads independently from issue comments. Use a paginated GraphQL query equivalent to this one, and preserve the results from every page:
+
+```bash
+gh api graphql --paginate \
+  -F owner=MicrosoftDocs \
+  -F repo=architecture-center-pr \
+  -F number=<PR_NUMBER> \
+  -f query='query($owner: String!, $repo: String!, $number: Int!, $endCursor: String) {
+    repository(owner: $owner, name: $repo) {
+      pullRequest(number: $number) {
+        reviewThreads(first: 100, after: $endCursor) {
+          nodes {
+            isResolved
+            comments(first: 1) {
+              nodes { author { login } }
+            }
+          }
+          pageInfo { hasNextPage endCursor }
+        }
+      }
+    }
+  }'
+```
+
+- A Copilot feedback thread is a review thread whose first comment's author login is `copilot-pull-request-reviewer`.
+- Check the Copilot feedback box only when the GraphQL command succeeds, pagination completes, and every Copilot feedback thread is resolved. This includes the valid case where the complete result contains no Copilot feedback threads.
+- If the query fails, pagination is incomplete, the result can't be parsed, or any Copilot feedback thread is unresolved, leave the box unchecked. Treat outdated but unresolved threads as unresolved.
+- Learn Authoring Assistant reports are unrelated to GitHub Copilot review threads. Never use a Learn Authoring Assistant comment, report, status, or absence of suggestions as evidence for the Copilot feedback box.
 
 ### Link line rules
 
