@@ -219,7 +219,7 @@ The following articles cover specific scenarios where deploying a gateway betwee
 
 - [Use a gateway in front of multiple model deployments or instances](./azure-openai-gateway-multi-backend.md)
 - [Provide custom authentication to Foundry Models through a gateway](./azure-openai-gateway-custom-authentication.yml)
-- [Implement advanced monitoring for Foundry Models through a gateway](./azure-openai-gateway-monitoring.yml)
+- [Implement advanced monitoring for Foundry Models through a gateway](./azure-openai-gateway-monitoring.md)
 
 ## Related resources
 

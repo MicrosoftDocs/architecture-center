@@ -53,7 +53,7 @@ For example, Contoso publishes a multitenant application for its four customers.
 
 The following diagram shows an example of Contoso using the single-stem domain **contoso.com** for all their customers.
 
-:::image type="complex" source="media/domain-names/subdomains-single-stem.png" alt-text="Diagram that shows US and Europe deployments of a web app, with a single stem domain for each customer's subdomain." lightbox="media/domain-names/subdomains-single-stem.png" border="false":::
+:::image type="complex" source="media/domain-names/subdomains-single-stem.png" alt-text="Diagram that shows US and Europe deployments of a web app, with a single stem domain for each customer's subdomain." border="false":::
 For web app 1, adventureworks.us.contoso.com and tailwind.us.contoso.com point to us.contoso.com, which points to web app 1. For web app 2, fabrikam.contoso.com and worldwideimporters.contoso.com point to eu.contoso.com, which points to web app 2.
 :::image-end:::
 
@@ -70,7 +70,7 @@ Each new onboarded customer requires a new subdomain. The number of subdomains i
 
 Alternatively, Contoso could use deployment-specific or region-specific stem domains.
 
-:::image type="complex" source="media/domain-names/subdomains-multiple-stem.png" alt-text="Diagram that shows US and EU deployments of a web app, with multiple-stem domains." lightbox="media/domain-names/subdomains-multiple-stem.png" border="false":::
+:::image type="complex" source="media/domain-names/subdomains-multiple-stem.png" alt-text="Diagram that shows US and EU deployments of a web app, with multiple-stem domains." border="false":::
 For web app 1, adventureworks.us.contoso.com and tailwind.us.contoso.com point to us.contoso.com, which points to web app 1. For web app 2, fabrikam.eu.contoso.com and worldwideimporters.eu.contoso.com point to eu.contoso.com, which points to web app 2.
 :::image-end:::
 

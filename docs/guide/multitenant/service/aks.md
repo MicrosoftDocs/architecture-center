@@ -205,7 +205,7 @@ AKS provides different types of node isolation and tenancy models.
 
 In this model, deploy a dedicated set of resources for each tenant, as shown in the following example.
 
-:::image type="complex" border="false" source="./media/aks/automated-single-tenant-deployments.png" alt-text="Diagram that shows three tenants, each with separate deployments." lightbox="./media/aks/automated-single-tenant-deployments.png":::
+:::image type="complex" border="false" source="./media/aks/automated-single-tenant-deployments.png" alt-text="Diagram that shows three tenants, each with separate deployments.":::
 The diagram shows three tenants. Each tenant has its own deployment. Each deployment contains an AKS cluster and a database.
 :::image-end:::
 
@@ -231,7 +231,7 @@ This approach has the following risks:
 
 In a fully multitenant deployment, a single application serves the requests of all tenants, and all Azure resources are shared, including the AKS cluster. In this context, you only have one infrastructure to deploy, monitor, and maintain. All tenants use the resource, as shown in the following diagram.
 
-:::image type="complex" border="false" source="./media/aks/fully-multitenant-deployments.png" alt-text="A diagram that shows three tenants that use a single shared deployment." lightbox="./media/aks/fully-multitenant-deployments.png":::
+:::image type="complex" border="false" source="./media/aks/fully-multitenant-deployments.png" alt-text="A diagram that shows three tenants that use a single shared deployment.":::
 The diagram shows three tenants. All tenants point to shared resources, which include an AKS cluster and a database.
 :::image-end:::
 
@@ -257,7 +257,7 @@ This approach has the following risks:
 
 Horizontal partitioning shares some solution components across all tenants and deploys dedicated resources for individual tenants. For example, build a single multitenant Kubernetes application and then create individual databases, one for each tenant, as shown in the following diagram.
 
-:::image type="complex" border="false" source="./media/aks/horizontally-partitioned-deployments.png" alt-text="A diagram that shows three tenants. Each tenant uses a dedicated database and a single, shared Kubernetes application." lightbox="./media/aks/horizontally-partitioned-deployments.png":::
+:::image type="complex" border="false" source="./media/aks/horizontally-partitioned-deployments.png" alt-text="A diagram that shows three tenants. Each tenant uses a dedicated database and a single, shared Kubernetes application.":::
 The diagram shows three tenants. The tenants point to a deployment that includes a shared AKS cluster and three separate databases.
 :::image-end:::
 
@@ -289,13 +289,13 @@ You can implement different variations of this tenancy model. For example, you c
 
 The following diagram shows a scenario where tenants A and B run on a shared AKS cluster, and tenant C runs on a separate AKS cluster.
 
-:::image type="complex" border="false" source="./media/aks/vertically-partitioned-aks-clusters.png" alt-text="Diagram that shows three tenants. Tenants A and B share an AKS cluster. Tenant C has a dedicated AKS cluster." lightbox="./media/aks/vertically-partitioned-aks-clusters.png":::
+:::image type="complex" border="false" source="./media/aks/vertically-partitioned-aks-clusters.png" alt-text="Diagram that shows three tenants. Tenants A and B share an AKS cluster. Tenant C has a dedicated AKS cluster.":::
 The diagram shows three tenants. Tenant A and B point to deployment 1, which contains an AKS cluster and a database. Tenant C points to deployment 2, which contains an AKS cluster and a database.
 :::image-end:::
 
 The following diagram shows a scenario where tenants A and B run on the same node pool, and tenant C runs on a dedicated node pool.
 
-:::image type="complex" border="false" source="./media/aks/vertically-partitioned-node-pools.png" alt-text="Diagram that shows three tenants. Tenants A and B share a node pool. Tenant C has a dedicated node pool." lightbox="./media/aks/vertically-partitioned-node-pools.png":::
+:::image type="complex" border="false" source="./media/aks/vertically-partitioned-node-pools.png" alt-text="Diagram that shows three tenants. Tenants A and B share a node pool. Tenant C has a dedicated node pool.":::
 The diagram shows three tenants and a deployment. The deployment contains node pool 1, node pool 2, an AKS cluster, and two databases. Tenant A and B use node pool 1 and a shared database. Tenant C uses node pool 2 and its own dedicated database.
 :::image-end:::
 
@@ -577,7 +577,7 @@ When you use [Application Gateway for Containers](/azure/application-gateway/for
 
 For example, use Azure Front Door to manage multiple custom domains, one for each tenant, and route all traffic to an AKS-hosted multitenant application configured with a single hostname. You can terminate SSL connections at the edge before you route traffic to the back-end application.
 
-:::image type="complex" border="false" source="./media/aks/front-door-and-aks.png" alt-text="Diagram that shows how Azure Front Door and AKS connect." lightbox="./media/aks/front-door-and-aks.png":::
+:::image type="complex" border="false" source="./media/aks/front-door-and-aks.png" alt-text="Diagram that shows how Azure Front Door and AKS connect.":::
 The diagram shows Azure Front Door and AKS. Three hosts point to Azure Front door: invoices.fabrikam.com, payments.worldwideimporters.com, and pay.tailwind.com. Another host called contoso.com points from Azure Front Door to AKS.
 :::image-end:::
 

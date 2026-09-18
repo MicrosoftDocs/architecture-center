@@ -97,7 +97,7 @@ For more information about how to use the [Deployment Stamps pattern](../../../p
 
 You might consider deploying a shared multitenant database, storage account, or file share and sharing it across all of your tenants.
 
-:::image type="complex" border="false" source="media/storage-data/shared-database.png" alt-text="Diagram that shows a single shared multitenant database for all tenants' data." lightbox="media/storage-data/shared-database.png":::
+:::image type="complex" border="false" source="media/storage-data/shared-database.png" alt-text="Diagram that shows a single shared multitenant database for all tenants' data.":::
    The diagram consists of three blue boxes and one gray box. The first blue box is labeled Tenant A. The second blue box is labeled Tenant B. The third blue box is labeled Tenant C. Arrows point from the blue boxes to the gray box, labeled Shared resources. The shared resources box contains an icon that represents a web server and an icon that represents tenants A, B, and C.
 :::image-end:::
 
@@ -119,7 +119,7 @@ However, when you work with shared infrastructure, consider the following drawba
 
 The [Sharding pattern](../../../patterns/sharding.md) involves deploying multiple separate databases, called *shards*, that each contains one or more tenants' data. Unlike deployment stamps, shards don't imply that the entire infrastructure is duplicated. You might shard databases without also duplicating or sharding other infrastructure in your solution.
 
-:::image type="complex" border="false" source="media/storage-data/sharding.png" alt-text="Diagram that shows a sharded database. One database contains the data for tenants A and B, and the other database contains the data for tenant C." lightbox="media/storage-data/sharding.png":::
+:::image type="complex" border="false" source="media/storage-data/sharding.png" alt-text="Diagram that shows a sharded database. One database contains the data for tenants A and B, and the other database contains the data for tenant C.":::
    The diagram consists of three blue boxes and one gray box. The first blue box is labeled Tenant A. The second blue box is labeled Tenant B. The third blue box is labeled Tenant C. Arrows point from the blue tenant boxes to a gray box. The gray box contains a smaller box that's labeled Web server (Shared). The gray box also contains three icons for shards. One icon is labeled Shard map. The second icon is labeled Shard 1, and the third icon is labeled Shard 2. Tenants A and B share shard 1, and tenant C uses shard 2.
 :::image-end:::
 
@@ -135,7 +135,7 @@ Sharding also makes it difficult to support tenant-level configuration differenc
 
 Another common approach is to deploy a single multitenant application that has dedicated databases for each tenant.
 
-:::image type="complex" border="false" source="media/storage-data/dedicated-databases.png" alt-text="Diagram that shows different databases for each tenant." lightbox="media/storage-data/dedicated-databases.png":::
+:::image type="complex" border="false" source="media/storage-data/dedicated-databases.png" alt-text="Diagram that shows different databases for each tenant.":::
    The diagram consists of three blue boxes and one gray box. The first blue box is labeled Tenant A. The second blue box is labeled Tenant B. The third blue box is labeled Tenant C. Arrows point from the blue boxes to the gray box. The gray box contains a smaller box that's labeled Web server (Shared). It also contains three icons, labeled Tenant A, Tenant B, and Tenant C.
 :::image-end:::
 
@@ -152,7 +152,7 @@ In this approach, because only the data components are deployed individually for
 
 The [Geode pattern](../../../patterns/geodes.yml) is designed specifically for geographically distributed solutions, including multitenant solutions. It supports high load and high levels of resiliency. If you implement the Geode pattern, your data tier must be able to replicate the data across geographic regions, and it should support multiple-geography writes.
 
-:::image type="complex" border="false" source="media/storage-data/geodes.png" alt-text="Diagram that shows the Geode pattern, with databases deployed across multiple regions that synchronize together." lightbox="media/storage-data/geodes.png":::
+:::image type="complex" border="false" source="media/storage-data/geodes.png" alt-text="Diagram that shows the Geode pattern, with databases deployed across multiple regions that synchronize together.":::
    The diagram consists of three blue boxes and four gray boxes. The first blue box is labeled Tenant A. The second blue box is labeled Tenant B. The third blue box is labeled Tenant C. Arrows point from the blue boxes to a gray box labeled Global Load Balancer. The arrow from tenant A continues through the global load balancer to a gray box labeled Region 1. It contains a web server and a database. The arrow from tenant B continues through the global load balancer to a gray box labeled Region 2. It contains a web server and a database. The arrow from tenant C continues through the global load balancer to a gray box labeled Region 3. It contains a web server and a database. Double-sided arrows point from database to database in each of the region boxes.
 :::image-end:::
 
