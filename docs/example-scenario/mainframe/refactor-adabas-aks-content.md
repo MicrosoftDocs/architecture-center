@@ -70,7 +70,7 @@ Many organizations are looking for ways to modernize these systems. They're look
 
 Software AG provides a popular 4GL mainframe platform that's based on the Natural programming language and the Adabas database.
 
-Two of the cloud rationalization patterns allow you to run Adabas & Natural applications on Azure: [rehost and refactor](/azure/cloud-adoption-framework/digital-estate/5-rs-of-rationalization). This article describes how to refactor an application by using containers that are managed in AKS. For more information, see [Container-based approach](#container-based-approach), later in this article.
+Two of the cloud rationalization patterns allow you to run Adabas & Natural applications on Azure: [rehost and refactor](/azure/cloud-adoption-framework/plan/select-cloud-migration-strategy). This article describes how to refactor an application by using containers that are managed in AKS. For more information, see [Container-based approach](#container-based-approach), later in this article.
 
 ### Potential use cases
 
@@ -108,9 +108,9 @@ Cost Optimization is about looking at ways to reduce unnecessary expenses and im
 
 - Use the [vertical pod autoscaler](/azure/aks/vertical-pod-autoscaler) to analyze and set CPU and memory resources that pods require. This approach optimizes resource allocation.
 
-- Choose the appropriate [VM size](/azure/virtual-machines/sizes) for node pools, based on workload requirements.
+- Choose the appropriate [VM size](/azure/virtual-machines/sizes/overview) for node pools, based on workload requirements.
 
-- Create [multiple node pools](/azure/aks/use-multiple-node-pools) with different VM sizes for specific workloads. Use node labels, node selectors, and affinity rules to optimize resource allocation.
+- Create [multiple node pools](/azure/aks/create-node-pools) with different VM sizes for specific workloads. Use node labels, node selectors, and affinity rules to optimize resource allocation.
   
 - Choose the right [service levels](/azure/azure-netapp-files/azure-netapp-files-service-levels) and [capacity pool size](/azure/azure-netapp-files/azure-netapp-files-set-up-capacity-pool) for Azure NetApp Files. For cost management recommendations, see [Cost model for Azure NetApp Files](/azure/azure-netapp-files/azure-netapp-files-cost-model).
   
@@ -151,7 +151,7 @@ Contributor:
 ## Next steps
 
 - [Adabas & Natural](https://www.softwareag.com/en_corporate/platform/adabas-natural.html)
-- [Azure Kubernetes Service](/azure/aks/intro-kubernetes)
+- [Azure Kubernetes Service](/azure/aks/what-is-aks)
 - [Azure NetApp Files documentation](/azure/azure-netapp-files)
 - [Mainframe rehosting on Azure virtual machines](/azure/virtual-machines/workloads/mainframe-rehosting/overview)
 - [Move mainframe compute to Azure VMs](/azure/virtual-machines/workloads/mainframe-rehosting/concepts/mainframe-compute-azure)
