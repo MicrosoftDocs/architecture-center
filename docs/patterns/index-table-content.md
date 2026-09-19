@@ -38,7 +38,7 @@ With this strategy, you can strike a balance between the first two approaches. T
 
 If an application frequently queries data by specifying a combination of values (for example, "Find all customers that live in Redmond and that have a last name of Smith"), you could implement the keys to the items in the index table as a concatenation of the Town attribute and the LastName attribute. The next figure shows an index table based on composite keys. The keys are sorted by Town, and then by LastName for records that have the same value for Town.
 
-:::image type="content" source="./_images/index-table-figure-5.png" alt-text="Figure 5 - An index table based on composite keys" lightbox="./_images/index-table-figure-5.png" border="false":::
+:::image type="content" source="./_images/index-table-figure-5.png" alt-text="Figure 5 - An index table based on composite keys" border="false":::
 
 Index tables can speed up query operations over sharded data, and are especially useful where the shard key is hashed. The next figure shows an example where the shard key is a hash of the Customer ID. The index table can organize data by the nonhashed value (Town and LastName), and provide the hashed shard key as the lookup data. This can save the application from repeatedly calculating hash keys (an expensive operation) if it needs to retrieve data that falls within a range, or it needs to fetch data in order of the nonhashed key. For example, a query such as "Find all customers that live in Redmond" can be quickly resolved by locating the matching items in the index table, where they're all stored in a contiguous block. Then, follow the references to the customer data using the shard keys stored in the index table.
 

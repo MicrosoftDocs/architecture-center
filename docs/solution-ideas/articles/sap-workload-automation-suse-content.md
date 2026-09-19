@@ -20,7 +20,7 @@ SUSE provides support with:
 - NetWeaver HA with Enqueue Replication Version (ENSA1)
 - S/4 HANA
 
-:::image type="content" source="../media/sap-workload-automation-suse-sles4sap-benefits.png" alt-text="Data flow of workload automation using SUSE on Azure" :::
+:::image type="content" source="../media/sap-workload-automation-suse-sles4sap-benefits.png" lightbox="../media/sap-workload-automation-suse-sles4sap-benefits.png" alt-text="Data flow of workload automation using SUSE on Azure" :::
 
 ## Architecture
 
