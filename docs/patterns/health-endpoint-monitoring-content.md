@@ -21,7 +21,7 @@ The response code indicates the status of the application. Optionally, the respo
 
 The following figure provides an overview of the pattern.
 
-:::image type="content" source="./_images/health-endpoint-monitoring-pattern.png" alt-text="Architecture diagram that shows components that health monitoring checks. Examples include an app, its storage and database, and a content delivery network." border="false":::
+:::image type="content" source="./_images/health-endpoint-monitoring-pattern.png" lightbox="./_images/health-endpoint-monitoring-pattern.png" alt-text="Architecture diagram that shows components that health monitoring checks. Examples include an app, its storage and database, and a content delivery network." border="false":::
 
 The health monitoring code in the application might also run other checks to determine:
 

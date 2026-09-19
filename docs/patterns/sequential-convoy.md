@@ -43,7 +43,7 @@ The following diagram shows the general Sequential Convoy pattern.
 
 In the queue, messages for different categories might be interleaved, as shown in the following diagram.
 
-:::image type="complex" source="_images/sequential-convoy-queuemessages.png" border="false" lightbox="_images/sequential-convoy-queuemessages.png" alt-text="Diagram that shows four categories of interleaved messages in a single queue. Each category occupies its own horizontal lane.":::
+:::image type="complex" source="_images/sequential-convoy-queuemessages.png" border="false" alt-text="Diagram that shows four categories of interleaved messages in a single queue. Each category occupies its own horizontal lane.":::
     The diagram shows the interior of a single queue rendered as a wide rectangular area. Inside the queue, four horizontal lanes are stacked vertically and numbered 1 through 4 along the right edge, each with an arrow pointing to the right to indicate the direction of message flow. Lane 1 contains four message blocks distributed across the full width of the queue, indicating a high volume of messages for that category. Lane 2 also contains four message blocks, also spread across the width. Lane 3 contains three message blocks, and lane 4 contains a single message block positioned toward the right side of the queue. The varying positions and densities of the message blocks across lanes illustrate that messages from all four categories arrive interleaved within the same shared queue. Despite this interleaving, each category's messages maintain their left-to-right arrival order within their respective lane, showing that per-category FIFO ordering is preserved even as different categories share a single queue structure.
 :::image-end:::
 

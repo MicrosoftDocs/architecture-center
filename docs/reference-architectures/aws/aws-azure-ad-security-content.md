@@ -270,7 +270,7 @@ Because you're using two roles, perform these extra steps:
 
 1. Confirm that the provisioning agent can see at least two roles:
 
-   :::image type="content" source="media/see-roles.png" alt-text="Screenshot of the two roles in Microsoft Entra ID.":::
+   :::image type="content" source="media/see-roles.png" lightbox="media/see-roles.png" alt-text="Screenshot of the two roles in Microsoft Entra ID.":::
 
 1. Go to **Users and groups** and select **Add User**.
 
@@ -278,15 +278,15 @@ Because you're using two roles, perform these extra steps:
 
 1. Select the associated role.
 
-   :::image type="content" source="media/select-role.png" alt-text="Screenshot of selecting an associated role.":::
+   :::image type="content" source="media/select-role.png" lightbox="media/select-role.png" alt-text="Screenshot of selecting an associated role.":::
 
 1. Repeat the preceding steps for each group-role mapping. Once complete, you should have two Microsoft Entra groups correctly mapped to AWS IAM roles:
 
-   :::image type="content" source="media/group-role-mapping.png" alt-text="Screenshot showing Groups mapped to correct Roles.":::
+   :::image type="content" source="media/group-role-mapping.png" lightbox="media/group-role-mapping.png" alt-text="Screenshot showing Groups mapped to correct Roles.":::
 
 If you can't see or select a role, go back to the **Provisioning** page to confirm successful provisioning in the Microsoft Entra provisioning agent, and make sure the IAM User account has the correct permissions. You can also restart the provisioning engine to attempt the import again:
 
-:::image type="content" source="media/restart-provisioning.png" alt-text="Screenshot of Restart provisioning in the menu bar.":::
+:::image type="content" source="media/restart-provisioning.png" lightbox="media/restart-provisioning.png" alt-text="Screenshot of Restart provisioning in the menu bar.":::
 
 <a name='test-azure-ad-sso-into-aws-management-console'></a>
 
@@ -332,7 +332,7 @@ To create a new Conditional Access policy that requires MFA:
    1. Under **Access controls** > **Grant**, select **Grant access**, **Require multifactor authentication**, and select **Select**.
 1. Set **Enable policy** to **On**.
 
-   :::image type="content" source="media/aws-policy.png" alt-text="Screenshot of the filled-out new policy form.":::
+   :::image type="content" source="media/aws-policy.png" lightbox="media/aws-policy.png" alt-text="Screenshot of the filled-out new policy form.":::
 
 1. Select **Create**. The policy takes effect immediately.
 
