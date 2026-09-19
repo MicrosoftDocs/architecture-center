@@ -213,7 +213,7 @@ The VM type and performance tiers need to meet the storage needs of the Teamcent
 
 *Engineering workstations* (*see figure 4*) should use NV series VMs and NVIDIA GPUs and NVIDIA GRID technology for desktop accelerated applications and virtual desktops. Azure NetApp Files optimizes GPU-enabled engineering workstations by providing fast and concurrent access to file data to multiple workstations, which fosters collaboration. The Standard tier is sufficient for this use case. The Standard tier provides the same low-latency performance as the other tiers. It works with low bandwidth requirements and high concurrency such as many users accessing the volume in parallel.
 
-**Scale your storage capacity.** With Azure NetApp Files, you can scale your storage capacity and performance to meet changing business needs. You can [add or remove capacity and performance resources on demand](/azure/azure-netapp-files/azure-netapp-files-cost-model#cost-modeling-examples). You can make storage changes without downtime. You also don't need to migrate data, which can reduce cost.
+**Scale your storage capacity.** With Azure NetApp Files, you can scale your storage capacity and performance to meet changing business needs. You can [add or remove capacity and performance resources on demand](/azure/azure-netapp-files/azure-netapp-files-resize-capacity-pools-or-volumes). You can make storage changes without downtime. You also don't need to migrate data, which can reduce cost.
 
 Azure NetApp Files provides several features that can help you scale on-demand for performance and cost. These features ensure changes are transparent to the applications using it:
 
