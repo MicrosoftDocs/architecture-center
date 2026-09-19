@@ -43,6 +43,7 @@ safe-outputs:
       - davidsmatlak
       - davihern
       - dbarkol
+      - dburkhardtmsft
       - dcasati
       - deepbhattacharyya
       - delynchoong
@@ -152,6 +153,7 @@ safe-outputs:
       - PratimDasgupta
       - rajasekharreddy-duddugunta
       - raman-wk
+      - ramapyarasani
       - ranieuwe
       - raykao
       - rdesutter

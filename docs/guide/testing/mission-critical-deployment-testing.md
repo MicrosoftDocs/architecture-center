@@ -60,7 +60,7 @@ If you're developing a mission-critical workload, take advantage of the detailed
 
 One option is to execute the load test directly from within the end-to-end (e2e) pipeline that is used to spin up individual (branch specific) development environments:
 
-:::image type="content" source="./images/deployment-testing-pipeline-start.png" alt-text="Run pipeline screen with the load testing checkbox ticked." lightbox="./images/deployment-testing-pipeline-start.png" border="false":::
+:::image type="content" source="./images/deployment-testing-pipeline-start.png" alt-text="Run pipeline screen with the load testing checkbox ticked." border="false":::
 
 The pipeline automatically runs a load test, with or without chaos experiments (depending on the selection) in parallel:
 

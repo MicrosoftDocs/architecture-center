@@ -63,7 +63,7 @@ The following workflow corresponds to the previous diagram:
 
 - [Azure NetApp Files](/azure/well-architected/service-guides/azure-netapp-files) is an NFS and SMB file storage service. In this architecture, it hosts and manages file-based Teamcenter applications.
 
-- [Microsoft Entra ID](/entra/fundamentals/whatis) is a cloud-based identity and access management (IAM) service. In this architecture, it manages and authenticates users, provides SSO, and controls access to Teamcenter services hosted on Azure.
+- [Microsoft Entra ID](/entra/fundamentals/what-is-entra) is a cloud-based identity and access management (IAM) service. In this architecture, it manages and authenticates users, provides SSO, and controls access to Teamcenter services hosted on Azure.
 
 - [SQL Server on Virtual Machines](/azure/azure-sql/virtual-machines/windows/sql-server-on-azure-vm-iaas-what-is-overview) is a database service that runs SQL Server instances on Azure VMs with full SQL Server compatibility. In this architecture, it hosts the Teamcenter database, which provides reliable, secure, and performant data services.
 
@@ -205,7 +205,7 @@ Cost Optimization focuses on ways to reduce unnecessary expenses and improve ope
 | Role of the server | SKUs |
 | --- | --- |
 | Enterprise server, FMS, and ODS | [Standard F16s v2](/azure/virtual-machines/fsv2-series) |
-| FSC, Apache Solr server | [Standard D8ds v5, DDv5](/azure/virtual-machines/ddv5-ddsv5-series#ddv5-series) |
+| FSC, Apache Solr server | [Standard D8ds v5, DDv5](/azure/virtual-machines/ddv5-ddsv5-series#ddv5-sizes-series) |
 | Visualization, CAD workstation | [Standard NV_A10_v5](/azure/virtual-machines/nva10v5-series) |
 | Database servers | [Standard E32-16ds_v4](/azure/virtual-machines/constrained-vcpu) |
 | Pool manager for 4T and AWC | [Dv4](/azure/virtual-machines/dv4-dsv4-series) and [Ev4](/azure/virtual-machines/ev4-esv4-series) |

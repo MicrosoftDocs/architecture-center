@@ -6,7 +6,7 @@ You have a pipeline of sequential tasks that you need to process. A straightforw
 
 The following diagram illustrates one of the problems with processing data using a monolithic approach, the inability to reuse code across multiple pipelines. In this example, an application receives and processes data from two sources. A separate module processes the data from each source by performing a series of tasks to transform the data before passing the result to the business logic of the application.
 
-:::image type="content" source="./_images/pipes-and-filters-modules.png" alt-text="Diagram that shows a solution implemented with monolithic modules." lightbox="./_images/pipes-and-filters-modules.png" border="false":::
+:::image type="content" source="./_images/pipes-and-filters-modules.png" alt-text="Diagram that shows a solution implemented with monolithic modules." border="false":::
 
 Some of the tasks that the monolithic modules perform are functionally similar, but the code has to be repeated in both modules and is likely tightly coupled within its module. In addition to the inability to reuse logic, this approach introduces a risk when requirements change. You must remember to update the code in both places.
 

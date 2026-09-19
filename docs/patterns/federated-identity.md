@@ -32,7 +32,7 @@ Trusted IdPs include corporate directories, on-premises federation services, sec
 
 The following diagram shows the Federated Identity pattern for a client application that accesses a service that requires authentication. The IdP works with an STS to provide authentication. The IdP issues security tokens that provide information about the authenticated user. This information, called *claims*, includes the user's identity and might also include other claims, like role memberships and more granular access rights.
 
-:::image type="complex" border="false" source="./_images/federated-identity-overview.png" alt-text="Diagram that shows the Federated Identity pattern." lightbox="./_images/federated-identity-overview.png":::
+:::image type="complex" border="false" source="./_images/federated-identity-overview.png" alt-text="Diagram that shows the Federated Identity pattern.":::
    Diagram that shows the Federated Identity pattern. In step 1, an arrow connects a box labeled service to a box labeled identity provider (IdP) or security token service (STS). The arrow is labeled service trusts IdP or STS. In step 2, an arrow connects a box labeled consumer to the box labeled IdP or STS. The arrow is labeled consumer authenticates and requests token. In step 3, an arrow connects the box labeled IdP or STS back to the box labeled consumer. The arrow is labeled STS returns token. In step 4, an arrow connects the box labeled consumer to the box labeled service. The arrow is labeled consumer presents token to service.
 :::image-end:::
 

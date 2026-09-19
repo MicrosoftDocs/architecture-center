@@ -1320,7 +1320,7 @@ items:
           - name: Prevent IPv4 exhaustion
             href: networking/guide/internet-protocol-version-4-exhaustion.md
           - name: IPv6 hub-spoke network topology
-            href: networking/guide/ipv6-architecture.yml
+            href: networking/guide/ipv6-architecture.md
           - name: Conceptual planning for IPv6 networking
             href: networking/guide/ipv6-ip-planning.md
         - name: Resource organization
