@@ -165,7 +165,7 @@ Make API changes backward compatible when possible. For example, avoid removing 
 
 Support versioning in your API contract. If you introduce a breaking API change, introduce a new API version. Continue to support the previous version, and let clients select which version to call. One way to do versioning is to expose both versions in the same service. Another option is to run two versions of the service side-by-side and route requests to one or the other version based on HTTP routing rules.
 
-:::image type="complex" source="../images/versioning.png" alt-text="Diagram showing two options for supporting versioning." border="false":::
+:::image type="complex" source="../images/versioning.png" alt-text="Diagram showing two options for supporting versioning." border="false" lightbox="../images/versioning.png":::
 The diagram has two parts. The left side shows a service that supports two versions. The v1 client and the v2 client both point to one service. The right side shows a side-by-side deployment. The v1 client points to a v1 service, and the v2 client points to a v2 service.
 :::image-end:::
 

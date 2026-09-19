@@ -26,19 +26,19 @@ This article describes three requirements that the pattern implementation for ne
 
 The network secure ingress pattern encapsulates the global routing pattern. As such, the implementation can route requests to workloads in different regions.
 
-:::image type="content" source="_images/secure-ingress-use-case-one.png" alt-text="Diagram that shows an HTTPS request being routed to two workloads in different regions." lightbox="_images/secure-ingress-use-case-one.png":::
+:::image type="content" source="_images/secure-ingress-use-case-one.png" alt-text="Diagram that shows an HTTPS request being routed to two workloads in different regions.":::
 
 ### Health-based origin failover
 
 The implementation must identify healthy and unhealthy origins and route requests away from unhealthy origins. The health-probe interval and sample settings determine how quickly Azure Front Door detects a change in origin health. Configure these settings to meet the workload's failover target without causing unnecessary failovers.
 
-:::image type="content" source="_images/secure-ingress-use-case-two.png" alt-text="Diagram that shows an HTTPS request not being routed to an unhealthy workload." lightbox="_images/secure-ingress-use-case-two.png":::
+:::image type="content" source="_images/secure-ingress-use-case-two.png" alt-text="Diagram that shows an HTTPS request not being routed to an unhealthy workload.":::
 
 ### Mitigating attacks at the edge
 
 Mitigating attacks at the edge necessitates the "network secure" part of the implementation. The workloads or platform as a service (PaaS) services shouldn't be accessible via the internet. Internet traffic should only be able to route through the gateway. The gateway should have the ability to mitigate exploits.
 
-:::image type="content" source="_images/secure-ingress-use-case-three.png" alt-text="Diagram that shows an HTTPS request with a SQL statement in the query string being stopped at the edge." lightbox="_images/secure-ingress-use-case-three.png":::
+:::image type="content" source="_images/secure-ingress-use-case-three.png" alt-text="Diagram that shows an HTTPS request with a SQL statement in the query string being stopped at the edge.":::
 
 ## Patterns
 
@@ -50,7 +50,7 @@ This solution implements the following design patterns:
 
 ## Design
 
-:::image type="complex" source="_images/network-diagram-ingress.png" alt-text="Diagram that shows a request flowing through Azure Front Door Premium to regional stamps." lightbox="_images/network-diagram-ingress.png":::
+:::image type="complex" source="_images/network-diagram-ingress.png" alt-text="Diagram that shows a request flowing through Azure Front Door Premium to regional stamps.":::
     The diagram shows an HTTPS request flowing to an Azure Front Door Premium box, which has a web application firewall in it. This illustration shows the integration between Azure Front Door Premium and Azure Web Application Firewall. The diagram then shows the request flowing through Private Link to two stamps in different regions. Each stamp has a static website and an internal load balancer. The requests flow through Private Link to the static websites and the load balancers in both stamps.
 :::image-end:::
 
@@ -114,7 +114,7 @@ Here are details about the components for operations:
 
 ## Web request flow
 
-:::image type="complex" source="_images/network-diagram-ingress-user-flow.png" alt-text="Diagram that shows the flow for a web request." lightbox="_images/network-diagram-ingress-user-flow.png":::
+:::image type="complex" source="_images/network-diagram-ingress-user-flow.png" alt-text="Diagram that shows the flow for a web request.":::
     The diagram shows a user making a web request to Azure Front Door. In the Azure Front Door box, the diagram shows each of the steps of the Azure Front Door routing flow. The flow highlights the step where WAF rules are evaluated, where the Azure Front Door route is matched and an origin group is selected, and where the origin is selected from the origin group. The last highlighted piece is where Azure Front Door connects to the Azure Blob Storage account via Private Link.
 :::image-end:::
 
@@ -135,7 +135,7 @@ For more information about the Azure Front Door routing architecture, see [Routi
 
 ## Operational flow
 
-:::image type="complex" source="_images/network-diagram-ingress-with-vnet.png" alt-text="Diagram that shows the flow that an administrator would use to connect to a protected resource." lightbox="_images/network-diagram-ingress-with-vnet.png":::
+:::image type="complex" source="_images/network-diagram-ingress-with-vnet.png" alt-text="Diagram that shows the flow that an administrator would use to connect to a protected resource.":::
     The diagram has three parts. The first part shows Azure Blob Storage acting as a static website. Azure Front Door connects through Private Link to the storage account. The second part is a box that represents a virtual network. The virtual network has subnets and their contents. These subnets include a private endpoint subnet that contains a private endpoint with an IP address of 10.0.2.5, a jump box subnet with a jump box virtual machine, and an Azure Bastion subnet with Azure Bastion in it. The third part is an administrative user who is using SSH to access the jump box VM in the virtual network via Azure Bastion. An arrow goes from the VM to the private Azure DNS zone. The last arrow goes from the VM to the private endpoint and then to the storage account.
 :::image-end:::
 
