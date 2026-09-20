@@ -56,6 +56,7 @@ safe-outputs:
       - Dongbumlee
       - DTInTheCloud
       - duongthaiha
+      - Emma-yxf
       - erichb
       - erjosito
       - fabmas
@@ -84,6 +85,7 @@ safe-outputs:
       - james-gould
       - james-tn
       - JamesJBarnett
+      - janicericketts
       - jerrymsft
       - JKirsch1
       - jl-ms
@@ -106,6 +108,7 @@ safe-outputs:
       - kiote
       - koudaiii
       - kriation
+      - landonpierce
       - lanicolas
       - lapate
       - lavansree06
@@ -116,6 +119,8 @@ safe-outputs:
       - manasatramalinga
       - manishmsfte
       - MarkPryceMaherMSFT
+      - martinekuan
+      - matthall88
       - MaxMelcher
       - mestredelpino
       - mfrankovic
@@ -135,6 +140,7 @@ safe-outputs:
       - nimccoll
       - NITHIDOSS
       - njogendran
+      - ofimbres
       - oscarsk91
       - ovaismehboob
       - PageWriter-MSFT
@@ -160,6 +166,7 @@ safe-outputs:
       - redhatpeter
       - redis-phil
       - rkayongo
+      - rmats808
       - roarrioj
       - rod2k24
       - rodanthi-alexiou
