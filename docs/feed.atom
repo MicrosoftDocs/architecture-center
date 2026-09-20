@@ -2,12 +2,116 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id/>
     <title>Azure Architecture Center</title>
-    <updated>2026-09-11T20:15:02.000Z</updated>
+    <updated>2026-09-18T20:11:02.000Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <subtitle>Updated articles for Azure Architecture Center</subtitle>
     <rights>https://learn.microsoft.com/legal/termsofuse</rights>
     <category term="new"/>
     <category term="updated"/>
+    <entry>
+        <title type="html"><![CDATA[IPv6 hub-and-spoke network topology]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/networking/guide/ipv6-architecture#95cdc7a0f8</id>
+        <link href="https://learn.microsoft.com/azure/architecture/networking/guide/ipv6-architecture"/>
+        <updated>2026-09-18T20:11:02.000Z</updated>
+        <summary type="html"><![CDATA[Learn how to transition a hub-and-spoke network topology in Azure so it supports IPv6, which creates a dual-stack network.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Implement advanced monitoring for Foundry Models through a gateway]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/ai-ml/guide/azure-openai-gateway-monitoring#62cbd5d82b</id>
+        <link href="https://learn.microsoft.com/azure/architecture/ai-ml/guide/azure-openai-gateway-monitoring"/>
+        <updated>2026-09-17T20:32:34.000Z</updated>
+        <summary type="html"><![CDATA[Learn how to implement advanced monitoring scenarios for Foundry Models, like chargeback and auditing, through a gateway.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Compare AWS and Azure analytics services]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/aws-professional/analytics</id>
+        <link href="https://learn.microsoft.com/azure/architecture/aws-professional/analytics"/>
+        <updated>2026-09-16T22:24:06.000Z</updated>
+        <summary type="html"><![CDATA[Compare analytics services on Azure and AWS for data integration, data lakes, data engineering, data warehouses, real-time analytics, governance, and business intelligence.]]></summary>
+        <category label="new" term="new"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Compare AWS and Azure AI and machine learning services]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/aws-professional/data-ai#1ebd06d07d</id>
+        <link href="https://learn.microsoft.com/azure/architecture/aws-professional/data-ai"/>
+        <updated>2026-09-16T22:24:06.000Z</updated>
+        <summary type="html"><![CDATA[Compare machine learning, generative AI, vision, speech, language, document intelligence, and AI search services on Azure and AWS.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Compare AWS and Azure database services]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/aws-professional/databases#1ebd06d07d</id>
+        <link href="https://learn.microsoft.com/azure/architecture/aws-professional/databases"/>
+        <updated>2026-09-16T22:24:06.000Z</updated>
+        <summary type="html"><![CDATA[Compare relational and non-relational database services on Azure and AWS, including document, key-value, wide-column, graph, and in-memory data stores.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Compare AWS and Azure messaging services]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/aws-professional/messaging#3650e75c19</id>
+        <link href="https://learn.microsoft.com/azure/architecture/aws-professional/messaging"/>
+        <updated>2026-09-16T21:44:16.000Z</updated>
+        <summary type="html"><![CDATA[Compare messaging service differences between Azure and AWS. Know Azure equivalents for Simple Email Service, Simple Queue Service, and messaging components.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Network secure ingress pattern implementation with Azure Front Door Premium tier]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/pattern-implementations/network-secure-ingress#581c29877d</id>
+        <link href="https://learn.microsoft.com/azure/architecture/pattern-implementations/network-secure-ingress"/>
+        <updated>2026-09-15T22:50:21.000Z</updated>
+        <summary type="html"><![CDATA[The pattern implementation for network secure ingress illustrates global routing, health-based origin failover, and attack mitigation at the edge.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Automate API Management configuration deployments by using APIOps CLI]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/example-scenario/devops/automated-api-deployments-apiops#c49a38aa70</id>
+        <link href="https://learn.microsoft.com/azure/architecture/example-scenario/devops/automated-api-deployments-apiops"/>
+        <updated>2026-09-15T19:17:41.000Z</updated>
+        <summary type="html"><![CDATA[Use the APIOps CLI and Azure API Management to extract, review, and deploy API Management configuration as version-controlled artifacts.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Connect an on-premises SAP system to the OPC UA reference solution]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/guide/iot/how-to-connect-on-premises-sap-to-the-solution#04137ab866</id>
+        <link href="https://learn.microsoft.com/azure/architecture/guide/iot/how-to-connect-on-premises-sap-to-the-solution"/>
+        <updated>2026-09-15T17:45:08.000Z</updated>
+        <summary type="html"><![CDATA[Learn how to connect an on-premises SAP ERP system to the OPC UA reference solution by using Azure Logic Apps and Azure Data Explorer.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Connect Dynamics 365 Field Service to the OPC UA reference solution]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/guide/iot/how-to-connect-dynamics-field-service-to-the-solution#30e8b55993</id>
+        <link href="https://learn.microsoft.com/azure/architecture/guide/iot/how-to-connect-dynamics-field-service-to-the-solution"/>
+        <updated>2026-09-15T17:33:50.000Z</updated>
+        <summary type="html"><![CDATA[Learn how to use Logic Apps and Azure Data Explorer to create customer assets and IoT alerts in Dynamics 365 Field Service from industrial OPC UA telemetry.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Administer SQL Server with Azure Arc]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/hybrid/azure-arc-sql-server#c1891c9b29</id>
+        <link href="https://learn.microsoft.com/azure/architecture/hybrid/azure-arc-sql-server"/>
+        <updated>2026-09-15T13:47:50.000Z</updated>
+        <summary type="html"><![CDATA[Learn how to use Azure Arc for management, maintenance, and monitoring of SQL Server instances in on-premises and multicloud environments.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Baseline architecture for an Azure Kubernetes Service (AKS) cluster]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/reference-architectures/containers/aks/baseline-aks#1c25de3a5c</id>
+        <link href="https://learn.microsoft.com/azure/architecture/reference-architectures/containers/aks/baseline-aks"/>
+        <updated>2026-09-14T21:01:09.000Z</updated>
+        <summary type="html"><![CDATA[Learn about the reference architecture for the recommended baseline infrastructure that deploys an Azure Kubernetes Service (AKS) cluster.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Use Azure Key Vault in a multitenant solution]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/guide/multitenant/service/key-vault#26b6bb87f5</id>
+        <link href="https://learn.microsoft.com/azure/architecture/guide/multitenant/service/key-vault"/>
+        <updated>2026-09-13T21:53:35.000Z</updated>
+        <summary type="html"><![CDATA[Learn how to use Azure Key Vault in multitenant solutions, including isolation models, tenant-specific vaults, shared vaults, and multitenancy features.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
     <entry>
         <title type="html"><![CDATA[AI inferencing with Silk virtual SAN]]></title>
         <id>https://learn.microsoft.com/azure/architecture/ai-ml/architecture/ai-inferencing-on-azure-iaas#f767d3bc02</id>

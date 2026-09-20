@@ -2,7 +2,7 @@
 title: What's New in Azure Architecture Center
 description: New and updated articles in Azure Architecture Center
 author: claytonsiemens77
-ms.date: 09/13/2026
+ms.date: 09/20/2026
 ms.topic: whats-new
 ms.author: pnp
 ---
@@ -23,6 +23,7 @@ The following new and updated articles have recently been published in the Azure
 ### New articles
 
 - [AI inferencing with Silk virtual SAN](./ai-ml/architecture/ai-inferencing-on-azure-iaas.yml)
+- [Compare AWS and Azure analytics services](./aws-professional/analytics.md)
 
 ### Updated articles
 
@@ -50,6 +51,18 @@ The following new and updated articles have recently been published in the Azure
 - [Technology choices for Azure solutions](./guide/technology-choices/technology-choices-overview.md) ([#0dfe9874bb](https://github.com/MicrosoftDocs/architecture-center/commit/0dfe9874bb))
 - [Agentic AI for the OPC UA reference solution](./guide/iot/agentic-ai-for-the-solution.md) ([#0aa7dc7aa7](https://github.com/MicrosoftDocs/architecture-center/commit/0aa7dc7aa7))
 - [Modern data warehouse medallion architecture in Microsoft Fabric](./databases/architecture/dataops-mdw.yml) ([#65d8f63c46](https://github.com/MicrosoftDocs/architecture-center/commit/65d8f63c46))
+- [Use Azure Key Vault in a multitenant solution](./guide/multitenant/service/key-vault.md) ([#26b6bb87f5](https://github.com/MicrosoftDocs/architecture-center/commit/26b6bb87f5))
+- [Baseline architecture for an Azure Kubernetes Service (AKS) cluster](./reference-architectures/containers/aks/baseline-aks.yml) ([#1c25de3a5c](https://github.com/MicrosoftDocs/architecture-center/commit/1c25de3a5c))
+- [Administer SQL Server with Azure Arc](./hybrid/azure-arc-sql-server.yml) ([#c1891c9b29](https://github.com/MicrosoftDocs/architecture-center/commit/c1891c9b29))
+- [Connect Dynamics 365 Field Service to the OPC UA reference solution](./guide/iot/how-to-connect-dynamics-field-service-to-the-solution.md) ([#30e8b55993](https://github.com/MicrosoftDocs/architecture-center/commit/30e8b55993))
+- [Connect an on-premises SAP system to the OPC UA reference solution](./guide/iot/how-to-connect-on-premises-sap-to-the-solution.md) ([#04137ab866](https://github.com/MicrosoftDocs/architecture-center/commit/04137ab866))
+- [Automate API Management configuration deployments by using APIOps CLI](./example-scenario/devops/automated-api-deployments-apiops.yml) ([#c49a38aa70](https://github.com/MicrosoftDocs/architecture-center/commit/c49a38aa70))
+- [Network secure ingress pattern implementation with Azure Front Door Premium tier](./pattern-implementations/network-secure-ingress.md) ([#581c29877d](https://github.com/MicrosoftDocs/architecture-center/commit/581c29877d))
+- [Compare AWS and Azure messaging services](./aws-professional/messaging.md) ([#3650e75c19](https://github.com/MicrosoftDocs/architecture-center/commit/3650e75c19))
+- [Compare AWS and Azure AI and machine learning services](./aws-professional/data-ai.md) ([#1ebd06d07d](https://github.com/MicrosoftDocs/architecture-center/commit/1ebd06d07d))
+- [Compare AWS and Azure database services](./aws-professional/databases.md) ([#1ebd06d07d](https://github.com/MicrosoftDocs/architecture-center/commit/1ebd06d07d))
+- [Implement advanced monitoring for Foundry Models through a gateway](./ai-ml/guide/azure-openai-gateway-monitoring.md) ([#62cbd5d82b](https://github.com/MicrosoftDocs/architecture-center/commit/62cbd5d82b))
+- [IPv6 hub-and-spoke network topology](./networking/guide/ipv6-architecture.md) ([#95cdc7a0f8](https://github.com/MicrosoftDocs/architecture-center/commit/95cdc7a0f8))
 
 ## August 2026
 
