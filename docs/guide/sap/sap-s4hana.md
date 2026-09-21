@@ -342,7 +342,7 @@ Before you deploy SAP systems across availability zones, take the following cons
 
 - **Intra-zone latency:** Network latency between VMs in one zone.
 
-- **Inter-zone latency:** Network latency between VMs across chosen zones. The maximum distance between datacenters in these zones isn't guaranteed.
+- **Inter-zone latency:** Network latency between VMs across chosen zones.
 
 - **Service availability:** Confirm that Azure services are available in all chosen zones.
 
