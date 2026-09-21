@@ -91,7 +91,7 @@ When you plan a multitenant solution that involves messaging, consider the level
 
 You might deploy a shared messaging system, like a single Service Bus namespace, and share it across all your tenants.
 
-:::image type="complex" border="false" source="media/messaging/shared-messaging-system.png" alt-text="Diagram that shows a single shared multitenant messaging system for all tenants." lightbox="media/messaging/shared-messaging-system.png":::
+:::image type="complex" border="false" source="media/messaging/shared-messaging-system.png" alt-text="Diagram that shows a single shared multitenant messaging system for all tenants.":::
 The diagram shows tenants A, B, and C. They all point to shared resources, which include a web server and messaging resources.
 :::image-end:::
 
@@ -110,7 +110,7 @@ Tenants might have different requirements for security, intra-region resiliency,
 
 The [Sharding pattern](../../../patterns/sharding.md) involves deploying multiple messaging systems, also called *shards*. Each shard contains one or more tenants' messaging entities, like queues and topics. Unlike deployment stamps, shards don't imply that you duplicate the entire infrastructure. You might shard messaging systems without also duplicating or sharding other infrastructure in your solution.
 
-:::image type="complex" border="false" source="media/messaging/sharding.png" alt-text="Diagram that shows a sharded messaging system." lightbox="media/messaging/sharding.png":::
+:::image type="complex" border="false" source="media/messaging/sharding.png" alt-text="Diagram that shows a sharded messaging system.":::
 Tenants A, B, and C point to a section that contains a shared web server, shard map, and two messaging systems. One messaging system contains the queues for tenants A and B, and the other contains the queues for tenant C.
 :::image-end:::
 
@@ -126,7 +126,7 @@ The Sharding pattern can scale to support several tenants. Depending on your wor
 
 You can also deploy a single multitenant application that uses dedicated messaging systems for each tenant. This tenancy model includes some shared components, like computing resources. You provision and manage other services by using a single-tenant, dedicated deployment approach. For example, you can build a single application tier and then deploy individual messaging systems for each tenant, as shown in the following illustration.
 
-:::image type="complex" border="false" source="media/messaging/dedicated-messaging-systems.png" alt-text="Diagram that shows different messaging systems for each tenant." lightbox="media/messaging/dedicated-messaging-systems.png":::
+:::image type="complex" border="false" source="media/messaging/dedicated-messaging-systems.png" alt-text="Diagram that shows different messaging systems for each tenant.":::
 Tenants A, B, and C point to a section that contains a shared web server and three separate messaging systems for each tenant.
 :::image-end:::
 

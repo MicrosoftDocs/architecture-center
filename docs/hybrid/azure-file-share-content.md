@@ -2,7 +2,7 @@ This architecture shows how to include Azure file shares in your hybrid environm
 
 ## Architecture
 
-![Azure file shares architecture diagram that shows how clients can access Azure file share directly over TCP port 445 (SMB 3.0) or by establishing VPN connection first.][architectural-diagram]
+:::image type="content" source="./images/azure-file-share.svg" alt-text="Azure file shares architecture diagram that shows how clients can access Azure file share directly over TCP port 445 (SMB 3.0) or by establishing VPN connection first." lightbox="./images/azure-file-share.svg" border="false":::
 
 *Download a [Visio file][architectural-diagram-visio-source] of this architecture.*
 
@@ -132,7 +132,6 @@ Explore related architectures:
 - [Azure enterprise cloud file share](./azure-files-private.yml)
 - [Hybrid file services](./hybrid-file-services.yml)
 
-[architectural-diagram]: ./images/azure-file-share.svg
 [architectural-diagram-visio-source]: https://arch-center.azureedge.net/azure-file-share.vsdx
 [Create-file-share]: /azure/storage/files/storage-how-to-create-file-share
 [Premium-azure-file-share]: /azure/storage/files/storage-how-to-create-premium-fileshare

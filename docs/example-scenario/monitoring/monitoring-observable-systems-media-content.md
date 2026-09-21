@@ -68,7 +68,7 @@ Business-critical applications must remain active even during disruptive events 
 
 Not all Azure services have built-in redundancy. For example, Azure Functions runs a function app only in a specific region. For more information about strategies to implement, depending on how you trigger functions (HTTP versus publish/subscribe), see [Reliability in Azure Functions](/azure/reliability/reliability-functions).
 
-Fabric supports zone-redundant availability zones, where resources automatically replicate across zones, without any need for you to configure it. For more information about cross-region replication for data stored in OneLake, see [Reliability in Fabric](/azure/reliability/reliability-fabric). You can opt in or out of this feature based on your requirements.
+Fabric supports zone-redundant availability zones, where resources automatically replicate across zones, without any need for you to configure it. For more information about cross-region replication for data stored in OneLake, see [Reliability in Fabric](/fabric/security/reliability-fabric). You can opt in or out of this feature based on your requirements.
 
 ### Cost Optimization
 
@@ -123,4 +123,4 @@ Other contributors:
 
 ## Related resource
 
-- [Analytics architecture design](../../solution-ideas/articles/analytics-get-started.md)
+- [Analytics architecture design](../../analytics/analytics-get-started.md)

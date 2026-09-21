@@ -4,7 +4,7 @@ Create indexes over the fields in data stores that are frequently referenced by 
 
 Many data stores organize the data for a collection of entities using the primary key. An application can use this key to locate and retrieve data. The figure shows an example of a data store holding customer information. The primary key is the Customer ID. The figure shows customer information organized by the primary key (Customer ID).
 
-![Figure 1 - Customer information organized by the primary key (Customer ID)](./_images/index-table-figure-1.png)
+:::image type="content" source="./_images/index-table-figure-1.png" alt-text="Figure 1 - Customer information organized by the primary key (Customer ID)" border="false":::
 
 While the primary key is valuable for queries that fetch data based on the value of this key, an application might not be able to use the primary key if it needs to retrieve data based on some other field. In the customers example, an application can't use the Customer ID primary key to retrieve customers if it queries data solely by referencing the value of some other attribute, such as the town in which the customer is located. To perform a query such as this, the application might have to fetch and examine every customer record, which could be a slow process.
 
@@ -20,29 +20,29 @@ If the data store doesn't support secondary indexes, you can emulate them manual
 
 The first strategy is to duplicate the data in each index table but organize it by different keys (complete denormalization). The next figure shows index tables that organize the same customer information by Town and LastName.
 
-![Figure 2 - Data is duplicated in each index table](./_images/index-table-figure-2.png)
+:::image type="content" source="./_images/index-table-figure-2.png" alt-text="Figure 2 - Data is duplicated in each index table" lightbox="./_images/index-table-figure-2.png" border="false":::
 
 This strategy is appropriate if the data is relatively static compared to the number of times it's queried using each key. If the data is more dynamic, the processing overhead of maintaining each index table becomes too large for this approach to be useful. Also, if the data volume is high, the amount of space required to store duplicate data is significant.
 
 The second strategy is to create normalized index tables organized by different keys and reference the original data by using the primary key rather than duplicating it, as shown in the following figure. The original data is called a fact table.
 
-![Figure 3 - Data is referenced by each index table](./_images/index-table-figure-3.png)
+:::image type="content" source="./_images/index-table-figure-3.png" alt-text="Figure 3 - Data is referenced by each index table" lightbox="./_images/index-table-figure-3.png" border="false":::
 
 This technique saves space and reduces the overhead of maintaining duplicate data. The disadvantage is that an application has to perform two lookup operations to find data using a secondary key. It has to find the primary key for the data in the index table, and then use the primary key to look up the data in the fact table.
 
 The third strategy is to create partially normalized index tables organized by different keys that duplicate frequently retrieved fields. Reference the fact table to access less frequently accessed fields. The next figure shows how commonly accessed data is duplicated in each index table.
 
-![Figure 4 - Commonly accessed data is duplicated in each index table](./_images/index-table-figure-4.png)
+:::image type="content" source="./_images/index-table-figure-4.png" alt-text="Figure 4 - Commonly accessed data is duplicated in each index table" lightbox="./_images/index-table-figure-4.png" border="false":::
 
 With this strategy, you can strike a balance between the first two approaches. The data for common queries can be retrieved quickly by using a single lookup, while the space and maintenance overhead isn't as significant as duplicating the entire data set.
 
 If an application frequently queries data by specifying a combination of values (for example, "Find all customers that live in Redmond and that have a last name of Smith"), you could implement the keys to the items in the index table as a concatenation of the Town attribute and the LastName attribute. The next figure shows an index table based on composite keys. The keys are sorted by Town, and then by LastName for records that have the same value for Town.
 
-![Figure 5 - An index table based on composite keys](./_images/index-table-figure-5.png)
+:::image type="content" source="./_images/index-table-figure-5.png" alt-text="Figure 5 - An index table based on composite keys" border="false":::
 
 Index tables can speed up query operations over sharded data, and are especially useful where the shard key is hashed. The next figure shows an example where the shard key is a hash of the Customer ID. The index table can organize data by the nonhashed value (Town and LastName), and provide the hashed shard key as the lookup data. This can save the application from repeatedly calculating hash keys (an expensive operation) if it needs to retrieve data that falls within a range, or it needs to fetch data in order of the nonhashed key. For example, a query such as "Find all customers that live in Redmond" can be quickly resolved by locating the matching items in the index table, where they're all stored in a contiguous block. Then, follow the references to the customer data using the shard keys stored in the index table.
 
-![Figure 6 - An index table providing quick lookup for sharded data](./_images/index-table-figure-6.png)
+:::image type="content" source="./_images/index-table-figure-6.png" alt-text="Figure 6 - An index table providing quick lookup for sharded data" lightbox="./_images/index-table-figure-6.png" border="false":::
 
 ## Issues and considerations
 
@@ -87,13 +87,13 @@ Azure storage tables also support sharding. The sharding key includes two elemen
 
 For example, consider an application that stores information about movies. The application frequently queries movies by genre (such as action, documentary, historical, comedy, and drama). You could create an Azure table with partitions for each genre by using the genre as the partition key, and specifying the movie name as the row key, as shown in the next figure.
 
-![Figure 7 - Movie data stored in an Azure table](./_images/index-table-figure-7.png)
+:::image type="content" source="./_images/index-table-figure-7.png" alt-text="Figure 7 - Movie data stored in an Azure table" lightbox="./_images/index-table-figure-7.png" border="false":::
 
 This approach is less effective if the application also needs to query movies by starring actor. In this case, you can create a separate Azure table that acts as an index table. The partition key is the actor and the row key is the movie name. The data for each actor will be stored in separate partitions. If a movie stars more than one actor, the same movie will occur in multiple partitions.
 
 You can duplicate the movie data in the values held by each partition by adopting the first approach described in the Solution section above. However, it's likely that each movie will be replicated several times (once for each actor), so it might be more efficient to partially denormalize the data to support the most common queries (such as the names of the other actors) and enable an application to retrieve any remaining details by including the partition key necessary to find the complete information in the genre partitions. This approach is described by the third option in the Solution section. The next figure shows this approach.
 
-![Figure 8 - Actor partitions acting as index tables for movie data](./_images/index-table-figure-8.png)
+:::image type="content" source="./_images/index-table-figure-8.png" alt-text="Figure 8 - Actor partitions acting as index tables for movie data" lightbox="./_images/index-table-figure-8.png" border="false":::
 
 ## Next steps
 

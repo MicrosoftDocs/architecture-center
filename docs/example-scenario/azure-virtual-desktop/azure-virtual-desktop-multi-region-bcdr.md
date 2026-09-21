@@ -31,7 +31,7 @@ This guide has the following goals:
 
 These objectives are also known as the recovery point objective (RPO) and the recovery time objective (RTO).
 
-:::image type="content" border="false" source="images/rpo-rto-diagram.png" alt-text="A timeline diagram that shows the RPO and RTO for a DR event. It shows how much data is lost before the disaster and how long systems are down afterward." lightbox="images/rpo-rto-diagram.png":::
+:::image type="content" border="false" source="images/rpo-rto-diagram.png" alt-text="A timeline diagram that shows the RPO and RTO for a DR event. It shows how much data is lost before the disaster and how long systems are down afterward.":::
 
 The achievable RPO and RTO depend on the BCDR model and host pool type that you select. The following table provides approximate estimates for each model.
 
@@ -151,7 +151,7 @@ If you need storage to manage [FSLogix Profile and Office containers](/fslogix/c
 
 Users are assigned to different application groups, like a DAG and a *RemoteApp* group, in both the primary and secondary host pools. In this case, they see duplicate entries in their Azure Virtual Desktop client feed. For clarity, use separate Azure Virtual Desktop workspaces that have clear names and labels that reflect the purpose of each resource. Teach users how to use these resources.
 
-:::image type="content" source="images/azure-virtual-desktop-multiple-workspaces.png" alt-text="Screenshot that explains the use of multiple workspaces. There's a primary desktop in region 1 and a secondary desktop in region 2.":::
+:::image type="content" source="images/azure-virtual-desktop-multiple-workspaces.png" alt-text="Screenshot that explains the use of multiple workspaces. There's a primary desktop in region 1 and a secondary desktop in region 2." lightbox="images/azure-virtual-desktop-multiple-workspaces.png":::
 
 #### Latency and regional proximity
 
@@ -305,7 +305,7 @@ The golden image that you use for host pool deployment in the secondary DR regio
 
 Compute Gallery is a regional resource. Create at least one secondary gallery in the secondary region. In your primary region, create a gallery, a VM image definition, and a VM image version. Then create the same objects in the secondary region. When you create the VM image version in the secondary region, you can copy the image version from the primary region by specifying the source gallery, VM image definition, and VM image version. Azure copies the image and creates a local VM image version. You can run this operation by using [the Azure portal](/azure/virtual-machines/image-version) or [the Azure CLI command](/cli/azure/sig/image-version#az-sig-image-version-create).
 
-For golden image design principles, including ZRS and replica planning, see [Golden images in BC considerations](/azure/well-architected/azure-virtual-desktop/business-continuity#golden-images).
+For golden image design principles, including ZRS and replica planning, see [Golden image consistency across regions](/azure/well-architected/azure-virtual-desktop/business-continuity#golden-image-consistency-across-regions).
 
 #### Autoscaling and cost optimization
 
@@ -499,7 +499,7 @@ Install a second instance of the service in the secondary region and set up [sta
 
 If recovery is needed, admins must promote the secondary instance after they remove it from staging mode. They must follow the procedure to [switch the active server](/entra/identity/hybrid/connect/how-to-connect-sync-staging-server#switch-active-server) by using an account that has at least the [Hybrid Identity admin role](/entra/identity/role-based-access-control/permissions-reference#hybrid-identity-administrator).
 
-:::image type="content" border="false" source="images/active-directory-connect-configuration-wizard.png" alt-text="Screenshot that shows the Microsoft Entra Connect setup assistant.":::
+:::image type="content" border="false" source="images/active-directory-connect-configuration-wizard.png" alt-text="Screenshot that shows the Microsoft Entra Connect setup assistant." lightbox="images/active-directory-connect-configuration-wizard.png":::
 
 #### Domain Services considerations
 
@@ -520,7 +520,7 @@ Failover and failback for a personal host pool work differently because you don'
 
 You can use Site Recovery in several different scenarios. For Azure Virtual Desktop, use the [Azure to Azure DR architecture in Site Recovery](/azure/site-recovery/azure-to-azure-architecture).
 
-:::image type="content" border="false" source="images/azure-site-recovery-dr-scenario.png" alt-text="Diagram that shows the Site Recovery Azure to Azure DR.":::
+:::image type="content" border="false" source="images/azure-site-recovery-dr-scenario.png" alt-text="Diagram that shows the Site Recovery Azure to Azure DR." lightbox="images/azure-site-recovery-dr-scenario.png":::
 
 #### Site Recovery operational considerations
 

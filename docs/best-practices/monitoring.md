@@ -559,7 +559,7 @@ A collection service that runs autonomously from the application that generates 
 
 This diagram shows a simplified view of data collection. The collection service typically comprises many parts that run on different machines. If you need to analyze telemetry data quickly, use local components that operate outside the collection service. After analytical processing, the components send the results directly to the visualization and alerting subsystem. Data subject to warm or cold analysis is held in storage while it waits for processing. For more information, see [Support hot, warm, and cold analysis](#support-hot-warm-and-cold-analysis).
 
-For Azure applications and services that run on virtual machines, the [Azure Monitor Agent](/azure/azure-monitor/agents/azure-monitor-agent-overview) provides a solution for capturing data. You define [data collection rules (DCRs)](/azure/azure-monitor/essentials/data-collection-rule-overview) that specify the data to gather from each compute node and the Log Analytics workspace in Azure Monitor to send it to. The agent can collect data from the following sources:
+For Azure applications and services that run on virtual machines, the [Azure Monitor Agent](/azure/azure-monitor/agents/azure-monitor-agent-overview) provides a solution for capturing data. You define [data collection rules (DCRs)](/azure/azure-monitor/data-collection/data-collection-rule-overview) that specify the data to gather from each compute node and the Log Analytics workspace in Azure Monitor to send it to. The agent can collect data from the following sources:
 
 - Internet Information Services (IIS) logs
 - Windows event logs

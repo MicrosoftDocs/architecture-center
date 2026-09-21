@@ -176,7 +176,7 @@ Product documentation:
 
 Microsoft training modules:
 
-- [Implement Key Vault](/training/modules/implement-azure-key-vault)
+- [Configure and manage secrets in Azure Key Vault](/training/modules/configure-and-manage-azure-key-vault)
 - [Introduction to Virtual Network](/training/modules/introduction-to-azure-virtual-networks)
 
 ## Related resources

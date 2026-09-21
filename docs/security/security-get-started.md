@@ -152,7 +152,7 @@ Review the following key hybrid and multicloud security scenarios:
 
 - [Connect an on-premises network to Azure](/azure/architecture/reference-architectures/hybrid-networking/): A comparison of hybrid network connectivity options, including Azure VPN Gateway, Azure ExpressRoute, and Azure ExpressRoute with VPN failover, that establish the secure network foundation for hybrid deployments.
 
-- [Hybrid architecture design](/azure/architecture/hybrid/hybrid-start-here): A hub page for hybrid architectures on Azure that covers hybrid network connectivity, best practices, and reference architectures to run workloads across on-premises and Azure environments.
+- [Get started with Azure hybrid and adaptive cloud architecture](/azure/architecture/hybrid/hybrid-start-here): Learn about hybrid and adaptive cloud concepts and follow a path from strategy and service selection to a detailed architecture.
 
 - [Design a hybrid DNS solution by using Azure](/azure/architecture/hybrid/hybrid-dns-infra): A reference architecture that implements a hybrid Domain Name System (DNS) solution that resolves names for workloads hosted on-premises and in Azure. This architecture uses Azure DNS Private Resolver and Azure Firewall.
 

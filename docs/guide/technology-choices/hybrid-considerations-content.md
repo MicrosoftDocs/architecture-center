@@ -1,128 +1,138 @@
-Azure offers several hybrid solutions that can host applications and workloads, extend Azure services, and provide security and operational tooling for hybrid environments. Azure hybrid services range from virtualized hardware that hosts traditional IT apps and databases to integrated platform as a service (PaaS) solutions for on-premises, edge, and multicloud scenarios. This guide helps you choose a hybrid solution that meets your business requirements.
-
-## Hybrid concepts
-
-Hybrid environments include the following types of hosting locations and infrastructure:
-
-- **Hybrid cloud**: These environments combine public cloud services with on-premises infrastructure. This hybrid strategy is common for organizations that have strict data sovereignty regulations, low latency requirements, or crucial resiliency and business continuity needs.
-- **Edge**: These environments host devices that provide on-premises computing and data storage. This approach is common for organizations and applications that need to remain close to the data, reduce latency, or compute data in near real time.
-- **Multicloud**: These environments use multiple cloud computing services and providers. This strategy provides flexibility, can reduce risk, and lets organizations investigate and use different providers for specific applications. But this approach often requires cloud-specific knowledge and adds complexity to management, operations, and security.
-
-Hybrid solutions encompass a system's [control plane and data plane](/azure/azure-resource-manager/management/control-plane-and-data-plane).
-
-- **Control plane**: This plane refers to resource management operations, such as creating Azure virtual machines (VMs). Azure uses [Azure Resource Manager](/azure/azure-resource-manager/management/overview) to handle the control plane.
-- **Data plane**: This plane uses the capabilities of resource instances that the control plane creates, such as accessing Azure VMs over remote desktop protocol (RDP).
-
-Azure hybrid solutions can extend Azure control plane operations outside of Azure datacenters, or run dedicated control plane instances, to provide data plane capabilities.
+Hybrid architecture can combine services in Azure with infrastructure and workloads in datacenters, at edge locations, and in other clouds. This article helps you evaluate requirements and select Azure services and operating models for a hybrid solution. For foundational concepts and a planning workflow, see [Get started with Azure hybrid and adaptive cloud architecture](../../hybrid/hybrid-start-here.md).
 
 ## Hybrid considerations
 
-To make a hybrid solution decision, you must consider hardware, hosting and deployment, and application or workload requirements and constraints. Hybrid solutions must also support developer operations (DevOps) and comply with organizational and industry standards and regulations.
+Start with workload and organizational requirements. Don't select a platform based only on current hardware location.
 
-### Hardware
+In general, use managed services hosted in Azure when workload requirements allow. Keep compute local only when latency, physical-system dependencies, data constraints, or operational independence justify it. Use Azure Arc to govern supported resources outside Azure. Use Azure Local when you need validated, Azure-consistent infrastructure in your locations. Use hybrid and multicloud guiding principles to document exceptions and portability requirements.
 
-Depending on workload type, you might need traditional datacenter hardware that can run VMs, containers, and databases. For other scenarios, like IoT deployments, restricted hardware devices are a better fit and can run on rack, portable, or ruggedized servers.
+> [!NOTE]
+> Azure Local runs on validated hardware that customers procure from Microsoft OEM partners. It supports several deployment types and two connectivity modes. For more information, see [Find your Azure Local deployment type](/azure/azure-local/plan/find-your-deployment-type).
 
-Consider whether to refresh, repurpose, or replace existing hardware. Brownfield scenarios use existing hardware in modern hybrid workload approaches. Greenfield scenarios acquire new hardware or use hardware as a service with a monthly fee.
+### Workload and data placement
 
-### Hosting and deployment
+Identify where each workload and its data can run. Consider latency, data gravity, bandwidth, service availability, resiliency, and dependencies on local applications or systems. A workload might need to remain local because it controls physical equipment, processes large data volumes near their source, or must continue operating if it loses external connectivity. Other workloads might benefit from the elasticity and managed services available in Azure regions.
 
-Consider whether to use on-premises datacenter, edge, Azure cloud, or multicloud hosting with a consistent cloud-native technology approach. Business, compliance, cost, or security requirements might determine the hosting location.
+Data residency, privacy, confidentiality, and retention requirements can differ for each data type. Document where your application data, model inputs and outputs, logs, telemetry, identity data, configuration, and support data can be stored and processed, and whether each data type can cross location or jurisdictional boundaries. 
 
-A large-scale application deployment is different from smaller-scale implementations. A traditional IT deployment to VMs and databases is different from deployments to containers or distributed devices.
+### Sovereignty and regulatory controls
 
-Distributed, complex, large-scale deployments must be able to massively scale service implementation, and might address concerns like business continuity differently than traditional IT.
+Translate sovereignty controls into specific architectural requirements. These requirements can include jurisdictional control, operational autonomy, data residency, personnel access, encryption key ownership, supply-chain controls, and the ability to operate without a connection to a public cloud.
 
-### Application or workload
+When requirements call for Microsoft cloud services in sovereign, regulated, or disconnected environments, evaluate [Microsoft Sovereign Private Cloud](/azure/azure-sovereign-clouds/private/overview/sovereign-private-cloud). Azure Local provides the infrastructure foundation, and individual solutions have different deployment and connectivity requirements.
 
-Consider whether applications or workloads are distributed, containerized, or traditional IT hosted on VMs or databases. [Azure IoT Hub](/azure/iot-hub), [Azure Kubernetes Service (AKS)](https://azure.microsoft.com/services/kubernetes-service) clusters, or PaaS solutions outside Azure datacenters can host hybrid workloads.
+Running a workload locally doesn't satisfy sovereignty, privacy, or regulatory requirements by itself. Evaluate the complete solution, including its control plane, identity system, update process, monitoring, support model, and administrative access. Confirm that evidence and controls meet the requirements that apply to your organization.
 
-Traditional applications that run on VMs benefit from hyperconverged infrastructure (HCI) and Azure operational, security, and management tooling for day-two operations. Cloud-native applications are better suited to run on container orchestrators like AKS and use Azure PaaS solutions.
+### Connectivity and operational independence
 
-If you need to deploy models built and trained in the cloud and run them on-premises, monitor IoT devices at scale, or provide Azure data transfer options, consider edge deployments and solutions.
+Classify each location as reliably connected, intermittently connected, or disconnected. Then identify which operations must continue during a connectivity outage, and for how long.
 
-## Choose a hybrid solution
+Azure Arc-enabled resources normally establish outbound connections to Azure. Individual Arc-enabled services have their own endpoints and connectivity requirements. Azure Local supports connected and disconnected operating models, but the disconnected operating model provides a subset of Azure capabilities and has distinct lifecycle and hardware requirements. Treat disconnected operations as an architecture choice, not only as a network configuration.
 
-All the preceding factors are important for the final solution, but depending on requirements, background, and expertise, organizations might approach solution evaluation from different perspectives. Organizations might start with their hardware and hosting requirements and constraints, or by investigating Azure services from an application and workload perspective. DevOps teams might focus on mass deployments and restricted or purpose-built hardware, while systems administrators might emphasize hosting location or hardware and hypervisor usage.
+### Infrastructure and scale
 
-The following sections present a hybrid solution decision tree based on deployment model and an Azure hybrid service matrix describing supported workloads, hardware types, and deployment models. Work through these illustrations to choose a candidate solution. Then, carry out a detailed evaluation of the candidate services to see if they meet your needs.
+Decide whether to reuse existing servers and virtualization platforms or deploy validated Azure Local infrastructure. Azure Arc supports several existing infrastructure types. Azure Local supports hyperconverged, disaggregated, multi-rack, and small form factor (preview) deployment types, with scale ranging from one to hundreds of machines. Use [Find your Azure Local deployment type](/azure/azure-local/plan/find-your-deployment-type) to compare connectivity modes, scale, and storage architectures.
 
-### Hybrid solution decision tree
+Plan capacity for failures, maintenance, upgrades, and workload growth. AI inference, virtual desktops, and container platforms can have substantially different processor, graphics processing unit (GPU), memory, storage, and network requirements.
 
-The following decision tree starts with choosing an existing or custom, multicloud, or Azure-specified hybrid solution. The tree proceeds through decision points to select an appropriate Azure hybrid service.
+### Resiliency and recovery
 
-:::image type="content" source="./images/hybrid-decision-tree.svg" lightbox="./images/hybrid-decision-tree.svg" alt-text="Diagram that shows a decision tree for selecting Azure hybrid services." border="false":::
+Define availability and [recovery targets](/azure/well-architected/reliability/metrics) for each workload, including its recovery time objective (RTO) and recovery point objective (RPO). Evaluate local hardware, instance, site, connectivity, and dependent-service failures. Use the targets to compare replication, backup, failover, failback, and recovery automation for each candidate approach. Confirm that sovereignty and data residency requirements allow the locations that store replicas and backups.
 
-Download a [PowerPoint file](https://arch-center.azureedge.net/choose-azure-hybrid-service.pptx) of all diagrams in this article.
+Match failure domains to your workload recovery targets. If a business-critical or mission-critical workload must survive an instance or site outage, evaluate running multiple workload instances across separate Azure Local instances and physical locations.
 
-For *existing or custom* deployments:
+For Azure Local, review [Infrastructure resiliency for Azure Local](/azure/azure-local/manage/disaster-recovery-infrastructure-resiliency) to design validated hardware, failover clustering, storage fault tolerance, and redundant networking. For rack-level failures within one instance, consider an [Azure Local rack-aware cluster](/azure/azure-local/concepts/rack-aware-cluster-overview). This architecture distributes nodes and data copies across two physical racks, but it requires high-bandwidth connectivity with round-trip latency of 1 millisecond or less.
 
-1. Decide whether the hardware is **restricted** or deployed in a **datacenter**.
+Use backup and continuous replication to address failures that redundancy within one Azure Local instance can't mitigate. Align backup frequency with the workload RPO, retain recovery copies outside the failure domains that they protect, and regularly test VM and data restoration. For Azure Local VMs, review [Virtual machine resiliency for Azure Local](/azure/azure-local/manage/disaster-recovery-vm-resiliency), which compares backup options, replication to Azure by using Azure Site Recovery, and replication between Azure Local instances by using Hyper-V Replica.
 
-1. For **restricted** hardware, decide whether the deployment is **mass** or **low scale**.
+Supplement VM-level protection with workload-native continuity mechanisms where application consistency or dependencies require them. Review [Workload resiliency for Azure Local](/azure/azure-local/manage/disaster-recovery-workloads-resiliency) for examples that apply to Arc-enabled SQL Server and Azure Virtual Desktop.
 
-1. For **datacenter** and **multicloud** deployments, determine whether the workload type uses **containers** or traditional IT deployment in **VMs** or **SQL** databases.
+Document recovery sequencing and network changes. Conduct test failovers regularly to validate RTOs and maintain staff readiness. Set the cadence based on workload criticality, RTO and RPO targets, business continuity and compliance requirements, and material changes to the workload or recovery process. For broader recommendations, review the [Reliability pillar in architecture best practices for Azure Local](/azure/well-architected/service-guides/azure-local#reliability).
 
-1. Existing and custom **IoT workloads** can use [Azure IoT Edge](/azure/iot-edge). Existing and custom traditional, database, and cloud-native deployments can use [Azure Arc](/azure/azure-arc/overview)-enabled servers and services.
+### Ownership and cost
 
-1. **Container-based** deployments can use Azure Arc-enabled Kubernetes. **VM-based** deployments can use Azure Arc-enabled servers, Azure Arc-enabled VMware vSphere, or Azure Arc-enabled System Center Virtual Machine Manager. **SQL** database deployments can use Azure Arc-enabled data services.
+Evaluate the total cost of ownership for each hosting option. For Azure Local, include capital expenditures such as hardware procurement and network integration. Include operating expenditures such as software and support, power, cooling, datacenter space, connectivity, backup and disaster recovery, hardware lifecycle, and ongoing platform and workload operations. Compare these costs with the consumption, data transfer, and operational costs of services hosted in Azure.
 
-For *Azure-specified* deployments:
+Azure Local runs on validated physical infrastructure in your locations, not on Microsoft-owned infrastructure in an Azure region. In connected deployments, Azure provides the control plane, but your organization and its partners operate the local facilities, hardware, and network integration. Select hardware from Microsoft hardware partners in the [Azure Local solutions catalog](https://azurelocalsolutions.azure.microsoft.com/#/catalog).
 
-1. Decide whether you want **hardware as a service** or **Azure datacenter-like** deployments. Azure **datacenter-like** deployments can use [Azure Stack Hub](/azure-stack/operator/azure-stack-overview).
+### Operations and governance
 
-1. For **hardware as a service**, decide whether your workload type uses **data transfer and compute** or a [hyperconverged](/windows-server/hyperconverged) infrastructure (HCI). For a **hyperconverged** solution, you can use [Azure Local](/azure-stack/hci).
+Define which team owns hardware, platform, workloads, identity, security, and network. Standardize resource organization, policy, role-based access control, monitoring, update management, and infrastructure as code where the selected services support them.
 
-1. **Data transfer and compute** workloads can use [Azure Stack Edge](/azure/databox-online). **Datacenter** deployments can use [Azure Stack Edge Pro 2](/azure/databox-online/azure-stack-edge-pro-2-overview) and [Azure Stack Edge Pro GPU](/azure/databox-online/azure-stack-edge-gpu-overview). **Portable** deployments can use [Azure Stack Edge Mini R](/azure/databox-online/azure-stack-edge-mini-r-overview). **Ruggedized** deployments can use [Azure Stack Edge Pro R](/azure/databox-online/azure-stack-edge-pro-r-overview).
+A common control plane can reduce differences between operating environments, but doesn't replace all platform-specific tasks. Account for local hardware lifecycle, service prerequisites, disconnected update processes, and the skills required to troubleshoot each location.
 
-## Azure hybrid services matrix
+## Hybrid approach decision tree
 
-The following decision matrix presents supported workloads, hardware capabilities, and deployment models for several Azure hybrid services. All Azure services include the Azure portal and other Azure operations and management tools.
+The following decision tree shows four approaches based on workload location, connectivity, and operational requirements.
 
-:::image type="content" source="./images/hybrid-choices.svg" lightbox="./images/hybrid-choices.svg" alt-text="Diagram that shows Azure hybrid services capabilities and characteristics." border="false":::
+:::image type="complex" source="./images/hybrid-decision-tree.svg" lightbox="./images/hybrid-decision-tree.svg" alt-text="Decision tree that maps workload location, connectivity, and operational requirements to four hybrid approaches." border="false":::
+   The decision tree shows arrows pointing from a box at the top labeled operating environments and connections to four hybrid solutions paths. The first Azure-hosted path shows Azure connected with ExpressRoute or encrypted site-to-site VPN. The second distributed resources path shows existing servers or multicloud resources with Azure Arc management. The third path labeled local with Azure connection uses an Azure control plane with on-premises or edge workloads and data. The fourth path labeled no persistent Azure connection uses Azure Local disconnected operations with a local control plane in an extended or permanent disconnected state.
+:::image-end:::
 
-Download a [PowerPoint file](https://arch-center.azureedge.net/choose-azure-hybrid-service.pptx) of all diagrams in this article.
+- **Connectivity to Azure services.** Workloads can run in Azure, and users or systems in on-premises or edge networks connect privately to Azure services in Azure regions through ExpressRoute or an encrypted site-to-site VPN.
 
-- The *Azure cloud* provides cloud-based software as a service (SaaS), infrastructure as a service (IaaS), and PaaS compute, storage, and network services. The services run on Microsoft hardware in Azure datacenters.
+- **Manage existing distributed resources.** You can manage existing Windows and Linux servers, VMware vSphere, or System Center Virtual Machine Manager resources with Azure Arc-enabled services or use multicloud connectors enabled by Azure Arc.
 
-- [Azure VMware Solution (AVS)](/azure/azure-vmware/introduction) enables running VMware workloads natively on Azure by providing private clouds that contain VMware vSphere clusters built from dedicated bare-metal Azure infrastructure. This solution provides a way to extend or migrate existing on-premises VMware environments to Azure without the need to rearchitect applications or retool operations. AVS integrates with Azure services, enabling you to use Azure's scalability, security, and global reach while using familiar VMware tools and processes.
+- **Run workloads locally with connectivity to Azure.** With Azure Local connected mode, the control plane runs in Azure, while workloads and data run and are stored on validated hardware in on-premises or edge locations.
 
-- [Azure Stack](/azure-stack/) is a family of products and solutions that extend Azure to the edge or to on-premises datacenters. Azure Stack provides several solutions for various use cases.
+- **Operate without persistent connectivity to Azure.** With Azure Local disconnected operations, a local control plane supports operations during an extended or permanent disconnected state. Workloads run in on-premises or edge locations on validated hardware.
 
-  - [Azure Stack Hub](https://azure.microsoft.com/products/azure-stack/hub) extends Azure to run apps in on-premises environments. Azure Stack Hub provides SaaS, IaaS, and PaaS hyperconverged compute, storage, and network services and runs on industry-standard hardware on-premises or in multicloud datacenters. Azure Stack Hub delivers Azure services to datacenters with integrated systems and can run on connected or disconnected environments.
-  - [Azure Local](https://azure.microsoft.com/products/azure-stack/hci) is a hyperconverged solution that uses validated hardware to run virtualized and containerized workloads on-premises. Azure Local provides VM-based and AKS-based hyperconverged compute, storage, and network services and runs on industry-standard hardware on-premises or in multicloud datacenters. Azure Local connects workloads to Azure for cloud services and management.
-  - [Azure Stack Edge](/azure/databox-online/) delivers Azure capabilities such as compute, storage, networking, and hardware-accelerated machine learning to edge locations. Azure Stack Edge provides VM-based, AKS-based, machine learning, and data transfer services on industry-standard hardware as a service and runs on-premises or in multicloud datacenters.
+Use the following table to compare candidate approaches and their implications. A solution can combine multiple rows.
 
-- [Azure IoT Edge](https://azure.microsoft.com/services/iot-edge) and [IoT Hub](https://azure.microsoft.com/services/iot-hub) deploy custom functionality to mass devices. IoT Edge natively integrates with IoT Hub to provide DevOps, PaaS, and containerized services on custom and industry-standard hardware and runs on-premises or in multicloud datacenters.
-- [Azure Arc](https://azure.microsoft.com/services/azure-arc) provides application delivery and management by using Azure Arc-enabled services for VMs, SQL databases, and Kubernetes. Azure Arc projects existing bare metal, VM, and Kubernetes infrastructure resources into Azure to handle operations with Azure management and security tools. Azure Arc simplifies governance and management by delivering a consistent multicloud and on-premises management platform for Azure services.
+| Requirement | Approach | Key implications and recommendations |
+| --- | --- | --- |
+| The workload should run in an Azure region. | [Choose an Azure service](technology-choices-overview.md) that provides infrastructure as a service (IaaS), platform as a service (PaaS), or software as a service (SaaS). | Evaluate regional availability, data residency, network access, shared responsibility, and service dependencies. If the workload requires private-only access, verify that the service supports Azure Private Link through private endpoints and lets you disable public network access. |
+| Users or systems in your locations need to connect to workloads and services that run in an Azure region. | Use [ExpressRoute](/azure/expressroute/expressroute-introduction) for a private provider connection or [VPN Gateway](/azure/vpn-gateway/vpn-gateway-about-vpngateways) for an encrypted tunnel over the public internet. | Azure hosts the workloads. Design routing, name resolution, security inspection, bandwidth, and connection resiliency. |
+| You want Azure inventory, governance, security, or operations for existing on-premises workloads. | Use [Azure Arc-enabled servers](/azure/azure-arc/servers/overview) to manage Windows and Linux machines. | Workloads remain on their current servers or hypervisor platform. Confirm agent connectivity, supported features, and data collection settings. |
+| You want to manage existing Kubernetes or virtualization platforms through Azure. | Use [Azure Arc-enabled Kubernetes](/azure/azure-arc/kubernetes/overview), [Azure Arc-enabled VMware vSphere](/azure/azure-arc/vmware-vsphere/overview), or [Azure Arc-enabled System Center Virtual Machine Manager](/azure/azure-arc/system-center-virtual-machine-manager/overview). | Capabilities and prerequisites differ by resource type. Azure Arc doesn't convert the underlying platform into Azure Local. |
+| You need validated local infrastructure for VMs, AKS, or supported Azure Arc-enabled services. | Use [Azure Local in connected mode](../../hybrid/azure-local-baseline.yml). | Azure is the control plane. During a connectivity loss, host infrastructure and existing VMs continue to run, but cloud-dependent features become unavailable, and information in the Azure portal might become outdated. Hyperconverged deployments must [sync with Azure at least once every 30 days](/azure/azure-local/faq#what-happens-if-my-network-connection-to-the-control-plane-temporarily-goes-down-how-long-can-azure-local-run-with-the-connection-down-what-happens-if-the-30-day-limit-is-exceeded), or they enter reduced functionality and can't create VMs. [AKS on Azure Local](/azure/aks/aksarc/connectivity-modes) can stop functioning if its certificates expire. Select a deployment type and validated hardware that meet workload and availability requirements. |
+| Sovereignty, regulatory, or air-gap requirements prevent connectivity to Azure. | Evaluate [disconnected operations for Azure Local](/azure/azure-local/manage/disconnected-operations-overview). | Requires Azure Local 2602 or later. Eligibility requires a valid business need to operate disconnected, an eligible Microsoft agreement, an active Standard-or-higher support plan with Microsoft or a partner that has an active support plan, Premier Solutions hardware, a dedicated management cluster, and staff or a partner capable of deploying and operating the environment. Plan capacity and lifecycle processes for the local control plane. |
+| AI inference must run near local applications and data or within a controlled local environment. | Evaluate [Foundry Local on Azure Local](/azure/azure-sovereign-clouds/private/foundry-local/overview). | The service is in preview and available by request. Plan Azure Local and Kubernetes capacity, supported models, application integration, security, and connected or disconnected operations. |
+| Industrial or OT devices need local connectivity, messaging, and data processing. | Use [Azure IoT Operations](/azure/iot-operations/overview-iot-operations) on Azure Arc-enabled Kubernetes. | We recommend Azure IoT Operations for new edge-connected solutions. It can operate offline for a maximum of 72 hours and might degrade during that period. Plan Kubernetes infrastructure, supported protocols, Azure Arc connectivity, and reconnection within the supported offline window. |
+| Software must run on device-oriented or constrained edge hardware. | Use [Azure IoT Edge](/azure/iot-edge/about-iot-edge) with Azure IoT Hub. | Plan device provisioning, IoT Hub dependencies, fleet management, intermittent connectivity, local storage, and software lifecycle management. Azure IoT Edge and Azure IoT Operations have different architectures and no direct migration path. |
 
-  Azure Arc runs on existing industry-standard hardware, hypervisors, Azure Local, or Azure Stack Edge, on-premises or in multicloud datacenters. Azure Arc includes the following capabilities:
-  
-  - [Azure Arc-enabled servers](/azure/azure-arc/servers/overview)
-  - [SQL Server on Azure Arc-enabled servers](/sql/sql-server/azure-arc/overview)
-  - [Azure Arc-enabled Kubernetes](/azure/azure-arc/kubernetes/overview)
-  - [Azure Arc-enabled VMware vSphere](/azure/azure-arc/vmware-vsphere/overview)
-  - [Azure Arc-enabled System Center Virtual Machine Manager](/azure/azure-arc/system-center-virtual-machine-manager/overview)
-  - [Azure Arc-enabled VMs on Azure Local](/azure-stack/hci/manage/azure-arc-enabled-virtual-machines)
+## Evaluate services for specialized workloads
 
-  Azure Arc-enabled services let you create on-premises and multicloud applications with Azure PaaS and data services such as [Azure App Service, Azure Functions, Azure Logic Apps](/azure/app-service/overview-arc-integration), [Azure SQL Managed Instance](/azure/azure-arc/data/managed-instance-overview), [PostgreSQL Hyperscale](/azure/azure-arc/data/what-is-azure-arc-enabled-postgres-hyperscale), and [Azure Machine Learning](/azure/machine-learning/how-to-attach-kubernetes-anywhere). You can run these services anywhere and use existing infrastructure.
+After you select workload placement, infrastructure, and connectivity mode, evaluate services for specialized workload requirements. Confirm that each service supports your target environment and operating model, because infrastructure, availability, and connectivity requirements differ.
+
+AI requirements can change where you place compute and data. Local inference can reduce round-trip latency and help keep model inputs and outputs within a controlled environment. AI also requires sufficient compute capacity, model lifecycle controls, security controls, and an operating model for applications and data.
+
+For an introduction to generative AI concepts, architecture patterns, model selection, and development platforms, see the [AI technology overview](/azure/architecture/ai-ml/ai-overview). Use the [Microsoft Foundry model catalog](https://ai.azure.com/explore/models) to explore available models. Model availability, capabilities, and deployment options differ between Azure-hosted and local environments, so confirm support for your target environment before you select a model.
+
+The following services address AI, media analysis, development, and productivity workloads on Azure Local or other Azure Arc-enabled infrastructure:
+
+- [Foundry Local on Azure Local](/azure/azure-sovereign-clouds/private/foundry-local/overview) is in preview and available by request. It runs AI inference on an Azure Arc-enabled Kubernetes cluster on Azure Local and supports connected and disconnected environments. OpenAI-compatible REST patterns and synchronization with the Foundry model catalog provide familiar application integration and model discovery patterns. Deployment, operations, and supported models differ from Microsoft Foundry in Azure.
+
+- [Agentic Retrieval in Foundry Local](/azure/azure-arc/agents-tools-foundry-local/overview) is in preview. It provides local retrieval-augmented generation and agent capabilities on Azure Local. Support for disconnected operations is also in preview.
+
+- [Azure AI Video Indexer enabled by Arc](/azure/azure-video-indexer/arc/azure-video-indexer-enabled-by-arc-overview) performs video and audio analysis on Azure Arc-enabled Kubernetes. Access is gated, and the service supports direct connection mode only. Media and insights remain at the edge, but control-plane information is sent to Azure for billing and monitoring.
+
+- [GitHub Enterprise Local](/azure/azure-sovereign-clouds/private/github-local/github-local-overview) is in preview. It runs GitHub Enterprise Server on Azure Local for connected or disconnected development environments.
+
+- [Microsoft 365 Local](/azure/azure-sovereign-clouds/private/m365-local/microsoft-365-local-overview) is generally available. It runs supported Exchange Server, SharePoint Server, and Skype for Business Server workloads on Azure Local and requires deployment through an authorized solution partner.
+
+Don't use preview services in production environments. Review current support, regional availability, hardware, connectivity, licensing, and preview terms before you include them in an architecture.
 
 ## Contributors
 
-This article is maintained by Microsoft. It was originally written by the following contributors:
+*Microsoft maintains this article. The following contributors wrote this article.*
 
-- [Robert Eichenseer](https://www.linkedin.com/in/roberteichenseer) | Senior Service Engineer
-- [Laura Nicolas](https://www.linkedin.com/in/lauranicolasd) | Senior Software Engineer
+Principal author:
 
-To see nonpublic LinkedIn profiles, sign in to LinkedIn.
+- [Neil Bird](https://www.linkedin.com/in/neil-bird-/) | Principal Program Manager
+
+*To see nonpublic LinkedIn profiles, sign in to LinkedIn.*
 
 ## Next steps
 
-- [Azure hybrid and multicloud patterns and solutions documentation](/hybrid/app-solutions)
-- [Introduction to hybrid and multicloud](/azure/cloud-adoption-framework/scenarios/hybrid)
-- [Introduction to Azure hybrid cloud services (Learn module)](/training/modules/intro-to-azure-hybrid-services)
+- [Find your Azure Local deployment type](/azure/azure-local/plan/find-your-deployment-type)
+- [Azure Arc and the adaptive cloud approach](/azure/azure-arc/overview#azure-arc-and-the-adaptive-cloud-approach)
 
 ## Related resources
 
-- [Hybrid architecture design](../../hybrid/hybrid-start-here.md)
+- [Get started with Azure hybrid and adaptive cloud architecture](../../hybrid/hybrid-start-here.md)
+- [Azure Local baseline reference architecture](../../hybrid/azure-local-baseline.yml)
+- [AKS baseline architecture for AKS on Azure Local](../../example-scenario/hybrid/aks-baseline.yml)
+- [Azure Virtual Desktop on Azure Local](../../hybrid/azure-local-workload-virtual-desktop.yml)
 - [Implement a secure hybrid network](../../reference-architectures/dmz/secure-vnet-dmz.yml)
+- [Azure AI technology overview](../../ai-ml/ai-overview.md)

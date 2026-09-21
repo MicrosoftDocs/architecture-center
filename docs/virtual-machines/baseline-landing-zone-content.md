@@ -16,11 +16,6 @@ As a workload owner, you can offload the management of shared resources to centr
 | --- | --- | --- |
 | &#9642; [Architecture diagram](#architecture) <br>&#9642; [Workload resources](#workload-team-owned-resources) <br> &#9642; [Federated resources](#platform-team-owned-resources) | &#9642; [Subscription setup](#subscription-setup)<br> &#9642; [Networking requirements](#workload-requirements-and-fulfillments) <br> &#9642; [Network design changes from the baseline](#networking)<br> &#9642; [Monitoring](#monitoring) <br> &#9642; [Patch compliance](#patch-compliance-and-os-upgrades) <br> &#9642; [Organizational governance](#azure-policy) <br> &#9642; [Change management](#manage-changes-over-time) | &#9642; [Reliability](#reliability) <br> &#9642; [Security](#security) <br> &#9642; [Cost&nbsp;Optimization](#cost-optimization) |
 
-> [!TIP]
-> ![GitHub logo.](../_images/github.svg) This [reference implementation](https://github.com/mspnp/iaas-landing-zone-baseline) demonstrates the best practices described in this article.
->
-> The repository artifacts provide a customizable foundation for your environment. The implementation sets up a hub network with shared resources like Azure Firewall for demonstration purposes. You can apply this setup to separate application landing zone subscriptions for distinct workload and platform functions.
-
 ## Architecture
 
 :::image type="content" source="./media/baseline-landing-zone.svg" alt-text="A diagram that shows the VM baseline architecture in an application landing zone." lightbox="./media/baseline-landing-zone.svg" border="false":::
@@ -404,13 +399,6 @@ The platform team manages the following resources in this architecture. These re
 Take advantage of other centralized offerings from your platform team to extend those benefits to your workload without compromising its SLO, recovery time objective (RTO), or recovery point objective (RPO).
 
 For more information, see [Recommendations for collecting and reviewing cost data](/azure/well-architected/cost-optimization/collect-review-cost-data).
-
-## Deploy this scenario
-
-A deployment for this reference architecture is available on GitHub.
-
-> [!div class="nextstepaction"]
-> [Implementation: VM baseline architecture in an Azure landing zone](https://github.com/mspnp/iaas-landing-zone-baseline#deploy-the-reference-implementation)
 
 ## Next step
 

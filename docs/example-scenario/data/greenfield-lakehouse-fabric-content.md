@@ -159,7 +159,7 @@ These considerations implement the pillars of the Azure Well-Architected Framewo
 
 Reliability helps ensure that your application can meet the commitments that you make to your customers. For more information, see [Design review checklist for Reliability](/azure/well-architected/reliability/checklist).
 
-Fabric automatically replicates resources across availability zones without requiring any configuration. For example, during a zone-wide outage, no action is required to recover a zone. In [supported regions](/azure/reliability/reliability-fabric), Fabric can self-heal and rebalance automatically to take advantage of a healthy zone.
+Fabric automatically replicates resources across availability zones without requiring any configuration. For example, during a zone-wide outage, no action is required to recover a zone. In [supported regions](/fabric/security/reliability-fabric), Fabric can self-heal and rebalance automatically to take advantage of a healthy zone.
 
 ### Security
 

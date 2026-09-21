@@ -46,7 +46,7 @@ You can modify the [baseline architecture](azure-data-factory-on-azure-landing-z
 
 - The domain design is anchored around a given business department's ownership of their data and the originating source system. A new [operating model](/azure/cloud-adoption-framework/data/organizational-readiness-unify-data-platform) enables business groups to optionally build their own stack of model-and-serve components that they control and maintain going forward. Domains operate within guardrails according to enterprise requirements and are enabled to perform well-defined and controlled experiments. The data science capability is delivered through:
 
-  - [Power BI](/power-bi/connect-data/service-tutorial-build-machine-learning-model) for low code and for simple or medium complexity use cases across tabular data. This model is an ideal starting point for data citizens.
+  - [Power BI](/power-bi/connect-data/) for low code and for simple or medium complexity use cases across tabular data. This model is an ideal starting point for data citizens.
 
   - [Azure Machine Learning](/azure/machine-learning) and Foundry Tools offerings that support the full set of use cases and [user maturity](/azure/architecture/ai-ml/guide/mlops-maturity-model).
 
@@ -54,7 +54,7 @@ You can modify the [baseline architecture](azure-data-factory-on-azure-landing-z
 
   - An innovation sandbox that supports proof-of-concept work for new technologies or techniques. It provides an isolated environment that's segregated from production and preproduction.
 
-- [Azure Data Factory](/azure/data-factory/introduction) capabilities to cover near real-time and micro-batch ingestion use cases that are enabled by the [change data capture](/azure/data-factory/concepts-change-data-capture) functionality. This functionality, combined with [Azure Databricks structured streaming](/azure/databricks/structured-streaming/) and [Power BI](/power-bi/connect-data/service-real-time-streaming), supports the end-to-end solution.
+- Use [Azure Data Factory](/azure/data-factory/introduction) capabilities to cover near real-time and micro-batch ingestion use cases that are enabled by the [change data capture](/azure/data-factory/concepts-change-data-capture) functionality. This functionality, combined with [Azure Databricks structured streaming](/azure/databricks/structured-streaming/concepts) and [Power BI](/power-bi/connect-data/service-real-time-streaming), supports the end-to-end solution.
 
 - Power BI to enable data sharing with external parties as required with [Microsoft Entra B2B](/fabric/enterprise/powerbi/service-admin-entra-b2b) authorization and access controls.
 
@@ -76,7 +76,7 @@ The following workflow corresponds to the preceding diagram:
 
 1. The ingested data and Delta Lake are source aligned and remain the responsibility of the central technical team. This decision reflects the level of technical expertise required for Spark development and supports a consistent, standardized implementation approach that takes enterprise reusability into consideration.
 
-    - Data contracts govern the data feeds from source systems. Data contracts can be used to drive a metadata-driven extract, transform, load (ETL) framework and make the data available to users as part of the [governance capability](/purview/how-to-browse-catalog).
+    - Data contracts govern the data feeds from source systems. Use data contracts to drive a metadata-driven extract, transform, load (ETL) framework and make the data available to users as part of the [governance capability](/purview/unified-catalog).
 
     - The directory structure of the bronze layer (or the *raw layer*) in Delta Lake reflects how [data is consumed](/azure/storage/blobs/data-lake-storage-best-practices#directory-structure). The source system orders the data. This organization methodology enables a unified security implementation based on the business ownership of source systems.
 
@@ -88,13 +88,13 @@ The following workflow corresponds to the preceding diagram:
 
 4. Domains are enabled through logical containers at the subscription level. [Subscriptions](/azure/cloud-adoption-framework/ready/landing-zone/design-area/resource-org-subscriptions) provide the necessary domain-level unit of management, billing, governance, and isolation.
 
-    - The approach is managed through infrastructure as code (IaC) [infrastructure as code (IaC)](/azure/well-architected/operational-excellence/infrastructure-as-code-design), which provides a baseline of enterprise monitoring, audit, and security controls. The platform [tagging strategy](/azure/cloud-adoption-framework/ready/azure-best-practices/naming-and-tagging) is extended to support the domain extension.
+    - The approach is managed through infrastructure as code (IaC) [infrastructure as code (IaC)](/azure/well-architected/operational-excellence/infrastructure-as-code-design), which provides a baseline of enterprise monitoring, audit, and security controls. The platform [tagging strategy](/azure/cloud-adoption-framework/ready/azure-best-practices/resource-tagging) is extended to support the domain extension.
 
     - Each domain has its own set of Azure role-based access control (Azure RBAC) roles that cover the [control planes and data planes](/azure/azure-resource-manager/management/control-plane-and-data-plane). Control plane roles are primarily used within domain logical containers. In contrast, data plane roles apply across the platform, which ensures consistent, unified, and low-complexity control.
 
 5. Within a domain subscription, the available components can be configured based on skill sets, priorities, and use cases.
 
-    - Power BI [workspaces](/power-bi/collaborate-share/service-new-workspaces) enable domains to collaborate when it's practical. Workspaces can also be unique to domains and linked to specific [premium capacities](/power-bi/enterprise/service-premium-what-is#workspaces) if increased performance is required.
+    - Power BI [workspaces](/power-bi/collaborate-share/service-new-workspaces) enable domains to collaborate when it's practical. Workspaces can also be unique to domains and linked to specific [premium capacities](/fabric/enterprise/powerbi/service-premium-what-is#workspaces) if increased performance is required.
 
     - An innovation sandbox is a temporary entity, which enables the validation of new technologies or processes. Data storage is provided to onboard, create, or modify data, without being limited by the append-only functionality of the Delta Lake bronze layer.
 
@@ -169,7 +169,7 @@ Security provides assurances against deliberate attacks and the abuse of your va
 
 Compared to the baseline architecture, this architecture:
 
-- Creates domain-specific data Azure RBAC roles when domain-specific data is ingested into the platform with data classification higher than enterprise. For more information, see [Govern overview](/azure/cloud-adoption-framework/govern/policy-compliance/data-classification#classifications-microsoft-uses). The roles are then reused across all solution components that use this data. You can reuse these domain data roles for any new domain data onboarded to the platform. This approach delivers consistent and unified controls for the access to data.
+- Creates domain-specific data Azure RBAC roles when domain-specific data is ingested into the platform with data classification higher than enterprise. For more information, see [Architecture strategies for data classification](/azure/well-architected/security/data-classification). You reuse these roles across all solution components that use this data. You can reuse these domain data roles for any new domain data onboarded to the platform. This approach delivers consistent and unified controls for the access to data.
 
 - Considers the higher data sensitivity requirements for the platform, [Microsoft Entra Privileged Identity Management (PIM)](/entra/id-governance/privileged-identity-management/pim-resource-roles-assign-roles) for all key operational support roles.
 
@@ -201,7 +201,7 @@ Performance Efficiency is the ability of your workload to meet the demands place
 
 Compared to the baseline architecture, this architecture:
 
-- Provides alerting and [observability](/azure/cloud-adoption-framework/manage/monitor/observability) to the domain teams as part of the domain establishment and [baseline of monitoring](/azure/azure-monitor/overview).
+- Provides alerting and [observability](/azure/cloud-adoption-framework/manage/monitor) to the domain teams as part of the domain establishment and [baseline of monitoring](/azure/azure-monitor/fundamentals/overview).
 
 - Encourages sharing knowledge and best practices between knowledge workers and offers [incentives](/power-bi/guidance/fabric-adoption-roadmap-community-of-practice#incentives) for community engagement.
 

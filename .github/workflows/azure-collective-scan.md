@@ -16,21 +16,20 @@ on:
 
 if: github.repository == 'MicrosoftDocs/architecture-center-pr'
 
+concurrency:
+  job-discriminator: "serialized-shared-watermark"
+
 permissions:
   contents: read
   issues: read
   copilot-requests: write
 
-model: opus
+model: gpt-5.6-sol
 engine:
   id: copilot
   copilot-sdk: true
 max-tool-denials: 3
 strict: true
-
-sandbox:
-  agent:
-    sudo: false
 
 tracker-id: azure-collective-scan
 

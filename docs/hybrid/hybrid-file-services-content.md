@@ -2,7 +2,7 @@ This article shows how to use Azure File Sync and Azure Files to extend file ser
 
 ## Architecture
 
-![An Azure hybrid file services topology diagram.][Architecture diagram]
+:::image type="content" source="./images/hybrid-file-services.svg" alt-text="An Azure hybrid file services topology diagram." lightbox="./images/hybrid-file-services.svg" border="false":::
 
 *Download a [Visio file][Visio diagram] of this architecture.*
 
@@ -190,7 +190,7 @@ Performance Efficiency refers to your workload's ability to scale to meet user d
 
 Related hybrid guidance:
 
-- [Hybrid architecture design](hybrid-start-here.md)
+- [Get started with Azure hybrid and adaptive cloud architecture](hybrid-start-here.md)
 - [Azure hybrid options](../guide/technology-choices/hybrid-considerations.yml)
 - [Hybrid app design considerations](/hybrid/app-solutions/overview-app-design-considerations)
 
@@ -200,7 +200,6 @@ Related architectures:
 - [Azure Files accessed on-premises and secured by AD DS](../example-scenario/hybrid/azure-files-on-premises-authentication.yml)
 - [Use Azure file shares in a hybrid environment](azure-file-share.yml)
 
-[Architecture diagram]: ./images/hybrid-file-services.svg
 [Visio diagram]: https://arch-center.azureedge.net/hybrid-file-services.vsdx
 [Storage Account]: /azure/storage/common/storage-account-overview
 [Azure Files]: /azure/storage/files/storage-files-planning

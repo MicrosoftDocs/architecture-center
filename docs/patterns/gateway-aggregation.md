@@ -18,7 +18,7 @@ To perform a single task, a client might have to make multiple calls to various 
 
 In the following diagram, the client sends requests to each service (numbered 1, 2, and 3). Each service processes the request and returns a response to the application (numbered 4, 5, and 6). Sending individual requests in this way over a cellular network that has high latency is inefficient and can cause connectivity loss or incomplete responses. Each request might run in parallel. However, the application still must send, wait for, and process data for each request on separate connections, which increases the chance of failure.
 
-:::image type="complex" border="false" source="./_images/gateway-aggregation-problem.png" alt-text="A problem diagram for the Gateway Aggregation pattern." lightbox="./_images/gateway-aggregation-problem.png":::
+:::image type="complex" border="false" source="./_images/gateway-aggregation-problem.png" alt-text="A problem diagram for the Gateway Aggregation pattern.":::
    Diagram that shows a client making separate calls to multiple back-end services and receiving individual responses. Arrows connect the application to services 1, 2, and 3 in both directions.
 :::image-end:::
 
@@ -30,7 +30,7 @@ This pattern can reduce the number of requests that the application makes to bac
 
 In the following diagram, the application sends a request to the gateway (1). The request contains a package of extra requests. The gateway decomposes these requests and processes each request by sending it to the relevant service (2). Each service returns a response to the gateway (3). The gateway combines the responses from each service and sends the response to the application (4). The application makes a single request and receives only a single response from the gateway.
 
-:::image type="complex" border="false" source="./_images/gateway-aggregation.png" alt-text="A solution diagram for the Gateway Aggregation pattern." lightbox="./_images/gateway-aggregation.png":::
+:::image type="complex" border="false" source="./_images/gateway-aggregation.png" alt-text="A solution diagram for the Gateway Aggregation pattern.":::
    The diagram shows an application sending one request to a gateway, which calls multiple back‑end services and returns an aggregated response. Three arrows point from the gateway to services 1, 2, and 3. Three arrows point from the services back to the gateway. One arrow points from the application to the gateway, and another arrow points from the gateway to the application.
 :::image-end:::
 

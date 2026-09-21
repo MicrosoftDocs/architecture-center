@@ -1,80 +1,70 @@
 ---
-title: Compare AWS and Azure database technology
-description: Compare database technology differences between Azure and AWS. Review the Amazon RDS and Azure relational database services. See equivalents for analytics and big data.
+title: Compare AWS and Azure database services
+description: Compare relational and non-relational database services on Azure and AWS, including document, key-value, wide-column, graph, and in-memory data stores.
 author: splitfinity81
 ms.author: yubaijna
-ms.date: 06/02/2025
+ms.date: 08/21/2026
 ms.topic: concept-article
 ms.subservice: cloud-fundamentals
+ai-usage: ai-assisted
 ms.collection: 
  - migration
  - aws-to-azure
 ---
 
-# Relational database technologies on Azure and AWS
+# Database services on Azure and AWS
 
-This article helps map familiar AWS database services to the equivalent offerings from Microsoft.
+This article compares operational database services on Amazon Web Services (AWS) and Azure. It covers relational databases and non-relational data stores for document, key-value, wide-column, graph, and in-memory workloads.
+
+For data integration, data lakes, data warehouses, stream processing, and business intelligence, see [Analytics services on Azure and AWS](./analytics.md).
 
 ## Amazon RDS and Azure relational database services
 
-Azure provides several different relational database services that are the equivalent of AWS' Relational Database Service (Amazon RDS). These include:
+Amazon Relational Database Service (Amazon RDS) provides managed relational database engines. Azure provides managed services for several corresponding engines:
 
 - [Azure SQL Database](/azure/azure-sql/database/sql-database-paas-overview)
 - [Azure Database for MySQL](/azure/mysql/flexible-server/overview)
 - [Azure Database for PostgreSQL](/azure/postgresql/overview)
 - [SQL Database in Microsoft Fabric](/fabric/database/sql/overview)
 
-Other database engines such as [SQL Server](/azure/azure-sql/virtual-machines/windows/sql-server-on-azure-vm-iaas-what-is-overview), [Oracle](https://azure.microsoft.com/campaigns/oracle), and [MySQL](/azure/mysql) can be deployed using Azure VM instances.
+You can also run [SQL Server on Azure Virtual Machines](/azure/azure-sql/virtual-machines/windows/sql-server-on-azure-vm-iaas-what-is-overview). For Oracle workloads, evaluate [Oracle AI Database@Azure](/azure/oracle/oracle-db/database-overview) and Oracle software on Azure infrastructure based on engine, support, and migration requirements.
 
-Costs for Amazon RDS are determined by the amount of hardware resources that your instance uses, like CPU, RAM, storage, and network bandwidth. In the Azure database services, cost depends on your database size, concurrent connections, and throughput levels. In Microsoft Fabric, the cost is based on the capacity SKU purchased, which entitles you to a set of Capacity Units (CUs). These CUs are shared across all Fabric workloads, such as SQL Database in Microsoft Fabric.
+Don't select a service based only on engine compatibility. Compare availability and disaster recovery requirements, scaling model, maintenance control, network isolation, authentication, extension support, migration downtime, and pricing.
 
-### See also
+## Non-relational database services
 
-- [Azure SQL Database Tutorials](/azure/azure-sql/database/single-database-create-quickstart)
+AWS and Azure provide non-relational services for distinct data models. A compatible API doesn't guarantee feature or operational parity. Before migration, compare partitioning, consistency, transactions, indexing, query behavior, change streams, global distribution, throughput units, and client-driver compatibility.
 
-- [Azure SQL Managed Instance](/azure/azure-sql/managed-instance/sql-managed-instance-paas-overview)
+[Azure Cosmos DB](/azure/cosmos-db/overview) supports multiple APIs and data models. Create a separate account for each API, and use the same API for all access to the data in that account. Azure also provides [Azure DocumentDB](/azure/documentdb/overview) for MongoDB-compatible, vCore-based document workloads and [Azure Managed Instance for Apache Cassandra](/azure/managed-instance-apache-cassandra/) for managed open-source Cassandra clusters.
 
-- [SQL Database in Microsoft Fabric tutorial](/fabric/database/sql/tutorial-introduction)
-
-- [Configure geo-replication for Azure SQL Database with the Azure portal](/azure/azure-sql/database/active-geo-replication-configure-portal)
-
-- [Introduction to Azure Cosmos DB: A NoSQL JSON Database](/azure/cosmos-db/overview)
-- [How to use Azure Table storage from Node.js](/azure/cosmos-db/table/quickstart-nodejs)
-
-## Analytics and big data
-
-Azure provides a package of products and services designed to capture, organize, analyze, and visualize large amounts of data consisting of the following services:
-
-- [Azure HDInsight](/azure/hdinsight): managed Apache distribution that includes Hadoop, Spark, Storm, or HBase.
-
-- [Azure Data Factory](/azure/data-factory): provides data orchestration and data pipeline functionality.
-
-- [Microsoft Fabric](https://www.microsoft.com/microsoft-fabric): a unified data platform that accelerates time to value across data engineering, data warehouse, lakehouse, real-time analytics, data science and business intelligence.
-
-- [Azure Databricks](/azure/databricks/): a unified analytics platform for data analysts, data engineers, data scientists, and machine learning engineers.
-
-- [Azure Data Lake Storage](/azure/storage/blobs/data-lake-storage-introduction): a modern data lake solution in Azure that combines the scalability and durability of Blob Storage with hierarchical namespace support. It is optimized for big data analytics and integrates with services like Azure Databricks, and Microsoft Fabric.
-
-- [Azure Machine Learning](/azure/machine-learning): used to build and apply predictive analytics on data.
-
-- [Azure Stream Analytics](/azure/stream-analytics): real-time data analysis.
-
-- [Power BI](https://powerbi.microsoft.com): a business analytics service that provides the capabilities to create rich interactive data visualizations.
+For in-memory caching and temporary data, [Azure Managed Redis](/azure/redis/overview) provides a managed service based on Redis Enterprise. Don't use it as the authoritative persistent database for a workload.
 
 ## Service comparison
 
-| Type | AWS Service | Azure Service | Description |
-| -----| ----------- | ------------- | ----------- |
-| Relational database | [Amazon RDS](https://aws.amazon.com/rds) | [Azure SQL Database](https://azure.microsoft.com/services/sql-database)<br/><br/>[Azure Database for MySQL](https://azure.microsoft.com/services/mysql)<br/><br/>[Azure Database for PostgreSQL](https://azure.microsoft.com/services/postgresql) | Managed relational database services in which resiliency, scale and maintenance are primarily handled by the Azure platform. |
-| Serverless relational database | [Amazon Aurora Serverless](https://aws.amazon.com/rds/aurora/serverless) | [Azure SQL Database serverless](/azure/azure-sql/database/serverless-tier-overview)<br/><br/>[SQL Database in Microsoft Fabric](/fabric/database/sql/overview) | Database offering that automatically scales compute based on the workload demand. You're billed per second for the actual compute used. |
-| Data Warehouse | [Amazon Redshift](https://aws.amazon.com/redshift/) | [Warehouse in Microsoft Fabric](/fabric/data-warehouse/data-warehousing) | Warehouse in Microsoft Fabric is a lake-centric, distributed relational data warehouse that supports scalable SQL-based analytics and integrates tightly with Fabric workloads for unified analytics experience. |
-| NoSQL | [DynamoDB](https://aws.amazon.com/dynamodb) (Key-Value)<br/><br/>[SimpleDB](https://aws.amazon.com/simpledb/)<br/><br/>[Amazon DocumentDB](https://aws.amazon.com/documentdb) (Document)<br/><br/>[Amazon Neptune](https://aws.amazon.com/neptune/) (Graph) | [Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db)<br/><br/> [Cosmos DB in Microsoft Fabric](/fabric/database/cosmos-db/overview)| Azure Cosmos DB is a globally distributed, multi-model database that natively supports multiple data models including key-value pairs, documents, graphs, and columnar. Cosmos DB in Microsoft Fabric uses the same architecture as Azure Cosmos DB for NoSQL but is tightly integrated into the Microsoft Fabric platform. |
-| Caching | [ElastiCache](https://aws.amazon.com/elasticache)<br/><br/>[Amazon MemoryDB for Redis](https://aws.amazon.com/memorydb/) | [Azure Managed Redis](https://azure.microsoft.com/products/managed-redis) | Azure Managed Redis is an in-memory data store that offloads nontransactional work from databases and acts as a real-time memory layer for intelligent apps and AI agents. |
-| Database migration | [Database Migration Service](https://aws.amazon.com/dms) | [Azure Database Migration Service](https://azure.microsoft.com/campaigns/database-migration)<br/><br/>[Microsoft Fabric Migration Assistant for Data Warehouse](/fabric/data-warehouse/migration-assistant) | A service that executes the migration of database schema and data from one database format to a specific database technology in the cloud. |
+| Data model or capability | AWS service | Azure service | Selection guidance |
+| --- | --- | --- | --- |
+| Managed relational database | [Amazon RDS](https://aws.amazon.com/rds/) | [Azure SQL Database](/azure/azure-sql/database/), [Azure Database for MySQL](/azure/mysql/flexible-server/overview), or [Azure Database for PostgreSQL](/azure/postgresql/overview) | Select by database engine first. Then compare high availability, read replicas, scaling, maintenance, extensions, and migration support. |
+| Serverless relational database | [Amazon Aurora Serverless](https://aws.amazon.com/rds/aurora/serverless/) | [Azure SQL Database serverless](/azure/azure-sql/database/serverless-tier-overview) or [SQL Database in Microsoft Fabric](/fabric/database/sql/overview) | These services use different scaling and billing models. SQL Database serverless can automatically scale compute and pause during inactivity. SQL Database in Fabric consumes shared Fabric capacity and integrates operational data with Fabric analytics. |
+| Key-value and document database | [Amazon DynamoDB](https://aws.amazon.com/dynamodb/) | [Azure Cosmos DB for NoSQL](/azure/cosmos-db/) | Both services distribute data by partition key and provide change streams. Their consistency, indexing, query, transaction, capacity, and pricing models differ. Plan application and data-model changes instead of assuming API compatibility. |
+| MongoDB-compatible document database | [Amazon DocumentDB](https://aws.amazon.com/documentdb/) | [Azure DocumentDB](/azure/documentdb/overview) or [Azure Cosmos DB for MongoDB](/azure/cosmos-db/mongodb/overview) | Azure DocumentDB uses a vCore model and the MongoDB wire protocol. Azure Cosmos DB for MongoDB provides a distributed, request-unit or vCore-based service. Validate supported MongoDB versions, commands, extensions, scaling, and migration tooling. |
+| Wide-column database | [Amazon Keyspaces for Apache Cassandra](https://aws.amazon.com/keyspaces/) | [Azure Cosmos DB for Apache Cassandra](/azure/cosmos-db/cassandra/overview) or [Azure Managed Instance for Apache Cassandra](/azure/managed-instance-apache-cassandra/) | Use Cosmos DB for Apache Cassandra when you want a managed Azure Cosmos DB service with Cassandra protocol compatibility. Use Managed Instance when you need managed open-source Cassandra clusters and greater engine-level compatibility. |
+| Graph database | [Amazon Neptune](https://aws.amazon.com/neptune/) | [Azure Cosmos DB for Apache Gremlin](/azure/cosmos-db/gremlin/overview) | Neptune supports property graph and RDF workloads. Cosmos DB for Gremlin supports the property graph model and Gremlin query language. RDF and SPARQL workloads require another design. |
+| Table data | [Amazon DynamoDB](https://aws.amazon.com/dynamodb/) | [Azure Table Storage](/azure/storage/tables/table-storage-overview) or [Azure Cosmos DB for Table](/azure/cosmos-db/table/overview) | Use Table Storage for basic key-attribute storage. Use Cosmos DB for Table when you need globally distributed throughput, multiple consistency options, and Azure Cosmos DB capabilities. |
+| In-memory cache and temporary data store | [Amazon ElastiCache](https://aws.amazon.com/elasticache/) | [Azure Managed Redis](/azure/redis/overview) | Use Azure Managed Redis for caching, sessions, messaging, and other low-latency temporary-data patterns. Keep authoritative data in a persistent database. |
+| Durable Redis-compatible database | [Amazon MemoryDB](https://aws.amazon.com/memorydb/) | No direct equivalent | Amazon MemoryDB is designed as a durable primary database. Azure Managed Redis is a cache and temporary data store. On Azure, evaluate Azure Cosmos DB or another persistent database as the system of record, with Azure Managed Redis as an optional cache. |
+| Database migration | [AWS Database Migration Service](https://aws.amazon.com/dms/) | [Azure Database Migration Service](/azure/dms/dms-overview) | Support varies by source, target, and online or offline migration mode. Verify the current [supported Azure migration scenarios](/azure/dms/resource-scenario-status) before you select a tool. |
 
-## Migration
+## Migration considerations
 
-If you plan to migrate an AWS workload to Azure, see [Migrate databases from Amazon Web Services to Azure](/azure/migration/migrate-databases-from-aws), which includes some specific [example migration scenarios](/azure/migration/migrate-databases-from-aws#migration-scenarios) that might align to your use case.
+Database migration requires more than moving data. Inventory engine features, stored procedures, extensions, indexes, consistency assumptions, partition keys, transaction boundaries, change-data-capture dependencies, and operational processes. Test application behavior and performance against the target service before cutover.
+
+If you plan to migrate an AWS workload to Azure, see [Migrate databases from Amazon Web Services to Azure](/azure/migration/migrate-databases-from-aws) and its [example migration scenarios](/azure/migration/migrate-databases-from-aws#migration-scenarios).
+
+## Related resources
+
+- [Understand Azure data store models](/azure/architecture/data-guide/technology-choices/understand-data-store-models)
+- [Migrate an application from DynamoDB to Azure Cosmos DB](/azure/cosmos-db/dynamo-to-cosmos)
+- [Compare Azure SQL deployment options](/azure/azure-sql/azure-sql-iaas-vs-paas-what-is-overview)
 
 ## Contributors
 
@@ -89,9 +79,3 @@ Other contributor:
 - [Richard Fitzgerald](https://www.linkedin.com/in/richard-fitzgerald-uk/) | Senior Cloud Solution Architect
 
 *To see non-public LinkedIn profiles, sign in to LinkedIn.*
-
-### Additional resources
-
-- [Executive strategy for unifying your data](/azure/cloud-adoption-framework/data/executive-strategy-unify-data-platform)
-- [Big data architecture style](../guide/architecture-styles/big-data.md)
-- [Microsoft Fabric community blogs](https://community.fabric.microsoft.com/t5/Fabric-community-blogs/ct-p/fabricblogs)

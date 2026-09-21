@@ -209,13 +209,13 @@ Unlike workflow-orchestrated quantum integration, this pattern assumes that a si
 
 Unlike direct quantum integration, this pattern puts a classical service tier in front of the quantum work. API Management is the front door for that tier, so the security configurations emphasize protecting the entry point and the path to the quantum workspace.
 
-* Clients must authenticate to the API. Implement this authentication by using [authentication policies](/azure/api-management/api-management-policies#authentication-policies).
+* Clients must authenticate to the API. Implement this authentication by using [authentication policies](/azure/api-management/api-management-policies#authentication-and-authorization).
 
 * You can implement authentication of the Azure functions via [managed identities](/entra/identity/managed-identities-azure-resources/overview) associated with the functions. You use those identities to authenticate outbound calls to the Azure Quantum workspace.
 
 * API Management can apply request throttling to protect the quantum back end and limit the use of quantum resources. For more information, see [API Management request throttling](/azure/api-management/api-management-sample-flexible-throttling).
 
-* Depending on the request pattern, you might be able to implement the caching of quantum computing results by using [API Management caching policies](/azure/api-management/api-management-policies#caching-policies).
+* Depending on the request pattern, you might be able to implement the caching of quantum computing results by using [API Management caching policies](/azure/api-management/api-management-policies#caching).
 
 ### Cost Optimization
 

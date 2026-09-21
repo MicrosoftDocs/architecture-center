@@ -47,7 +47,7 @@ An App Service Environment can run regular web apps on Windows or, as in this ex
 
 Use the following alternative for the data tier:
 
-- [Azure Cosmos DB](/azure/cosmos-db/introduction) is a good option if most of your data is in nonrelational format.
+- [Azure Cosmos DB](/azure/cosmos-db/overview) is a good option if most of your data is in nonrelational format.
 
 ### Potential use cases
 

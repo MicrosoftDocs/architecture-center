@@ -1,7 +1,7 @@
 This article provides recommendations for building an app deployment pipeline for containerized apps on Azure Kubernetes Service (AKS) enabled by Azure Arc. The apps can run on Azure Local. The guidance is specifically for deployments that use Azure Arc and GitOps.
 
 > [!IMPORTANT]
-> The information in this article applies to [AKS on Azure Local, version 23H2 (latest version)](/azure/aks/aksarc/aks-whats-new-23h2).
+> The information in this article applies to [AKS on Azure Local, version 23H2 (latest version)](/azure/aks-hybrid-edge/local/aks-whats-new-local).
 
 ## Architecture
 
@@ -37,7 +37,7 @@ The following workflow corresponds to the previous diagram:
 
 - [Azure Local](/azure/well-architected/service-guides/azure-local) is a hyperconverged infrastructure solution that you can use to run virtualized and cloud-native workloads on-premises. It uses a combination of software-defined compute, storage, and networking technologies. It builds on top of Windows Server and integrates with Azure services to provide a hybrid cloud experience. In this architecture, Azure Local is the infrastructure that hosts your infrastructure on-premises workloads.
 
-- [AKS on Azure Local](/azure/aks/aksarc/aks-overview) is the managed Kubernetes platform from Microsoft. It enables developers and administrators to use AKS to deploy and manage containerized apps on Azure Local. In this architecture, an operator creates a Kubernetes cluster on an Azure Local instance and provides application developers with the required level of access to this cluster.
+- [AKS on Azure Local](/azure/aks-hybrid-edge/aks-overview) is the managed Kubernetes platform from Microsoft. It enables developers and administrators to use AKS to deploy and manage containerized apps on Azure Local. In this architecture, an operator creates a Kubernetes cluster on an Azure Local instance and provides application developers with the required level of access to this cluster.
 
 - [Azure Arc](/azure/azure-arc/overview) is a hybrid cloud-management solution that you can use to manage servers, Kubernetes clusters, and applications across on-premises, multicloud, and edge environments. It provides a unified management experience by enabling you to govern resources across different environments by using Azure management services like Azure Policy, Microsoft Defender for Cloud, and Azure Monitor. In this architecture, Azure Arc enables the operator to manage the life cycle of the Kubernetes cluster by using Azure. It also enables the application developer to access the cluster, remotely connect to the cluster, and manage workloads that run on the cluster.
 
@@ -175,7 +175,7 @@ Cluster workloads benefit from the scalability and agility that's inherent to th
 
 - **Optimize your Kubernetes cluster and infrastructure setup** for your specific workloads. We recommend that you work with the application developer to determine the required settings.
 
-- **Use the autoscaling feature** in Kubernetes. For more information, see [Use a cluster autoscaler on an AKS enabled by Azure Arc cluster](/azure/aks/aksarc/auto-scale-aks-arc).
+- **Use the autoscaling feature** in Kubernetes. For more information, see [Use a cluster autoscaler on an AKS enabled by Azure Arc cluster](/azure/aks-hybrid-edge/local/hyperconverged/auto-scale-aks-arc).
 
 ## Contributors
 
@@ -195,7 +195,7 @@ Other contributors:
 
 ## Next steps
 
-- [Deploy a Kubernetes cluster by using the Azure portal](/azure/aks/aksarc/aks-create-clusters-portal) or [by using Azure Resource Manager template](/azure/aks/aksarc/resource-manager-quickstart)
+- [Deploy a Kubernetes cluster by using the Azure portal](/azure/aks-hybrid-edge/local/aks-create-clusters-portal) or [by using Azure Resource Manager template](/azure/aks-hybrid-edge/local/resource-manager-quickstart)
 - [GitOps Flux v2 configurations with AKS and Azure Arc-enabled Kubernetes](/azure/azure-arc/kubernetes/conceptual-gitops-flux2)
 - [Tutorial: Deploy applications by using GitOps with Flux v2](/azure/azure-arc/kubernetes/tutorial-use-gitops-flux2)
 - [Tutorial: Implement CI/CD with GitOps (Flux v2)](/azure/azure-arc/kubernetes/tutorial-gitops-flux2-ci-cd)

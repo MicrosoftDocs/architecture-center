@@ -304,7 +304,7 @@ Kubernetes typically treats individual pods as ephemeral, disposable resources. 
 Traditional volumes are created as Kubernetes resources that are backed by Azure Storage. You can manually create data volumes to be assigned to pods directly or have Kubernetes automatically create them. Data volumes can use [Azure disk storage](/azure/virtual-machines/disks-types), [Azure Files](/azure/storage/files/storage-files-planning), [Azure NetApp Files](/azure/azure-netapp-files/azure-netapp-files-service-levels), or [Blob Storage](/azure/storage/common/storage-account-overview).
 
 > [!NOTE]
-> Depending on your VM SKU, the Azure disk CSI driver might have a volume limit for each node. For some high-performance VMs, such as 16 cores, the limit is 64 volumes per node. To identify the limit per VM SKU, review the **Max data disks** column for each VM SKU. For a list of VM SKUs and their corresponding capacity limits, see [General purpose VM sizes](/azure/virtual-machines/sizes-general).
+> Depending on your VM SKU, the Azure disk CSI driver might have a volume limit for each node. For some high-performance VMs, such as 16 cores, the limit is 64 volumes per node. To identify the limit per VM SKU, review the **Max data disks** column for each VM SKU. For a list of VM SKUs and their corresponding capacity limits, see [General purpose VM sizes](/azure/virtual-machines/sizes/overview#general-purpose).
 
 To decide between Azure Files and Azure NetApp Files, see [Azure Files and Azure NetApp Files comparison](/azure/storage/files/storage-files-netapp-comparison).
 
@@ -312,20 +312,20 @@ To decide between Azure Files and Azure NetApp Files, see [Azure Files and Azure
 
 By default, an AKS cluster comes with precreated `managed-csi` and `managed-csi-premium` storage classes that use [Azure disk storage](https://azure.microsoft.com/services/storage/disks). Similar to Amazon EBS, these classes create a managed disk or block device that's attached to the node for pod access.
 
-The disk classes allow both [static](/azure/aks/azure-csi-disk-storage-provision#statically-provision-a-volume) and [dynamic](/azure/aks/azure-csi-disk-storage-provision#dynamically-provision-a-volume) volume provisioning. The reclaim policy ensures that the disk is deleted with the persistent volume. To expand the disk, edit the persistent volume claim.
+The disk classes support both [static](/azure/aks/create-volume-azure-disk#create-a-static-pv-with-azure-disks) and [dynamic](/azure/aks/create-volume-azure-disk#built-in-storage-classes-for-dynamic-pvs-with-azure-disks) volume provisioning. The reclaim policy ensures that the disk is deleted with the persistent volume. To expand the disk, edit the persistent volume claim.
 
 These storage classes use Azure managed disks with [LRS](/azure/storage/common/storage-redundancy#locally-redundant-storage). Data in LRS has three synchronous copies within a single physical location in an Azure primary region. LRS is the least expensive replication option but doesn't provide protection against a datacenter failure. You can define custom storage classes that use ZRS managed disks.
 
-ZRS synchronously replicates your Azure managed disk across three Azure availability zones in your region. Each availability zone is a separate physical location that has independent power, cooling, and networking. ZRS disks provide at least 99.9999999999% of durability over a given year. A ZRS managed disk can be attached by a VM in a different [availability zone](/azure/availability-zones/az-overview). ZRS disks aren't available in all Azure regions. For more information, see [ZRS options for Azure disks to improve availability](https://youtu.be/RSHmhmdHXcY).
+ZRS synchronously replicates your Azure managed disk across three Azure availability zones in your region. Each availability zone is a separate physical location that has independent power, cooling, and networking. ZRS disks provide at least 99.9999999999% durability over a given year. A ZRS managed disk can be attached by a VM in a different [availability zone](/azure/reliability/availability-zones-overview). ZRS disks aren't available in all Azure regions. For more information, see [ZRS options for Azure disks to improve availability](https://youtu.be/RSHmhmdHXcY).
 
 To mitigate the risk of data loss, use [AKS backup](/azure/backup/azure-kubernetes-service-backup-overview) to take regular backups or snapshots of disk storage data. Or you can use partner solutions, like [Velero](https://github.com/vmware-tanzu/velero) or [Azure Backup](/azure/backup/backup-managed-disks), that have built-in snapshot technology.
 
-You can use [Azure disk storage](/azure/aks/azure-disk-csi) to create a Kubernetes *DataDisk* resource. You can use the following disks types:
+You can use [Azure disk storage](/azure/aks/csi-storage-drivers) to create a Kubernetes *DataDisk* resource. You can use the following disk types:
 
-- [Premium SSD](/azure/aks/azure-disk-csi) (recommended for most workloads)
+- [Premium SSD](/azure/aks/csi-storage-drivers) (recommended for most workloads)
 - [Premium SSD v2](/azure/aks/use-premium-v2-disks)
 - [Azure Ultra Disk Storage](/azure/aks/use-ultra-disks)
-- [Standard SSD](/azure/aks/azure-disk-csi)
+- [Standard SSD](/azure/aks/csi-storage-drivers)
 
 > [!TIP]
 > For most production and development workloads, use Premium SSD.
@@ -380,7 +380,7 @@ For more information, see [Configure Azure NetApp Files for AKS](/azure/aks/azur
 
 ### Blob Storage
 
-The [Blob Storage CSI driver](/azure/aks/azure-blob-csi) is a [CSI specification](https://github.com/container-storage-interface/spec/blob/master/spec.md)-compliant driver that AKS uses to manage the lifecycle of Blob Storage. The CSI is a standard for exposing arbitrary block and file storage systems to containerized workloads on Kubernetes.
+The [Blob Storage CSI driver](/azure/aks/csi-storage-drivers) is a [CSI specification](https://github.com/container-storage-interface/spec/blob/master/spec.md)-compliant driver that AKS uses to manage the lifecycle of Blob Storage. The CSI is a standard for exposing arbitrary block and file storage systems to containerized workloads on Kubernetes.
 
 Adopt and use the CSI so that AKS can write, deploy, and iterate plug-ins. The plug-ins expose new storage systems or improve existing storage systems in Kubernetes. CSI drivers in AKS eliminate the need to modify the core Kubernetes code and wait for its release cycles.
 
@@ -390,7 +390,7 @@ When you mount Blob Storage as a file system into a container or pod, you can us
 - Images, documents, and streaming video or audio.
 - Disaster recovery data.
 
-Applications can access the data on the object storage via [Blobfuse2](https://github.com/Azure/azure-storage-fuse) or the [NFS 3.0 protocol](https://wikipedia.org/wiki/Network_File_System). Before the introduction of the Blob Storage CSI driver, the only option was to manually install an unsupported driver to access Blob Storage from your application that runs on AKS. A Blob Storage CSI driver that's enabled on AKS has two built-in storage classes: [azureblob-fuse-premium](/azure/aks/azure-blob-csi) and [azureblob-nfs-premium](/azure/aks/azure-blob-csi).
+Applications can access the data on the object storage via [Blobfuse2](https://github.com/Azure/azure-storage-fuse) or the [NFS 3.0 protocol](https://wikipedia.org/wiki/Network_File_System). Before the introduction of the Blob Storage CSI driver, the only option was to manually install an unsupported driver to access Blob Storage from your application that runs on AKS. A Blob Storage CSI driver that's enabled on AKS has two built-in storage classes: [azureblob-fuse-premium](/azure/aks/csi-storage-drivers) and [azureblob-nfs-premium](/azure/aks/csi-storage-drivers).
 
 To create an AKS cluster that has CSI drivers support, see [CSI drivers on AKS](/azure/aks/csi-storage-drivers). For more information, see [Compare access to Azure Files, Blob Storage, and Azure NetApp Files with NFS](/azure/storage/common/nfs-comparison).
 

@@ -15,6 +15,37 @@ This skill folds a fixed set of Azure Patterns & Practices engineering quality c
 
 Deliver findings as review comments, and use GitHub's **suggestion** feature to propose concrete edits inline wherever a finding maps to a specific line or lines the author can apply with one click.
 
+## Operational sync pull requests
+
+Before you inspect changed files or perform any review, determine whether the pull request is the operational repository sync from `repo_sync_working_branch` to `main`.
+
+Classify the pull request as an operational sync when either of these signals appears:
+
+- The head branch is exactly `repo_sync_working_branch` and the base branch is exactly `main`.
+- The title is, case-insensitively, `Confirm merge from repo_sync_working_branch to main to sync with https://github.com/microsoftdocs/architecture-center (branch main)`.
+
+This section has precedence over normal Copilot review behavior and every section below. For an operational sync pull request, don’t inspect or evaluate the changes. Produce exactly one user-visible message: No review performed, as this is a sync PR. Don't produce findings, line level comments/suggestions, approvals, or requests for changes.
+
+## Editorial-only pull requests
+
+Before you apply the whole-article scope or any technical checks, inspect the pull request title and body to determine whether the author is performing an editorial pass.
+
+Switch to **editorial-only review mode** when either of these explicit signals appears, case-insensitively:
+
+- The title identifies the change as a **PnP edit** or **P&P edit**, including variants such as "PnP edits."
+- The body identifies the change as a **copy edit**, **copyedit**, **editorial pass**, **P4 edit**, or **post-publish edit**.
+
+Phrases such as "Edit article," a link to an earlier content pull request, or an editorial work-item link can support the classification, but none is sufficient by itself. Don't infer editorial-only intent from changed-file types or size of the diff. Non-editorial PRs get the full review. If the signals conflict or the intent is unclear, use the full review.
+
+In editorial-only review mode, this section takes precedence over the normal Copilot review behavior and every section below:
+
+- Review only the lines changed in this pull request. Don't evaluate the whole article.
+- Limit comments to serious copyediting concerns that the PR author (a professional copyeditor) should address in this pull request.
+- Flag wording that accidentally changes or obscures the apparent meaning of the source text. Frame the comment as preserving meaning, not as a technical or architectural correction.
+- Don't comment on factual or technical correctness, deprecations, architectural choices, missing guidance, component selection, alternatives, Well-Architected alignment, cost estimates, or reference implementations. Skip checks 1 through 10 in the following sections.
+- Don't ask the copy editor to expand the scope of the pull request.
+- Prefer an inline suggestion when you can provide the exact replacement. Don't manufacture a comment when the changed text has no actionable copyediting issue.
+
 ## Scope: the whole article
 
 Evaluate the article as it stands in this pull request, not just the changed lines. Read the full content body and the paired `.yml` metadata, if one exists, before you comment on anything.

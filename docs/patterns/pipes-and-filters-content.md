@@ -6,7 +6,7 @@ You have a pipeline of sequential tasks that you need to process. A straightforw
 
 The following diagram illustrates one of the problems with processing data using a monolithic approach, the inability to reuse code across multiple pipelines. In this example, an application receives and processes data from two sources. A separate module processes the data from each source by performing a series of tasks to transform the data before passing the result to the business logic of the application.
 
-![Diagram that shows a solution implemented with monolithic modules.](./_images/pipes-and-filters-modules.png)
+:::image type="content" source="./_images/pipes-and-filters-modules.png" alt-text="Diagram that shows a solution implemented with monolithic modules." border="false":::
 
 Some of the tasks that the monolithic modules perform are functionally similar, but the code has to be repeated in both modules and is likely tightly coupled within its module. In addition to the inability to reuse logic, this approach introduces a risk when requirements change. You must remember to update the code in both places.
 
@@ -28,13 +28,13 @@ The loose coupling of filters makes it easy to:
 
  This diagram shows a solution implemented with pipes and filters:
 
-![Diagram that shows a solution implemented with pipes and filters.](./_images/pipes-and-filters-solution.png)
+:::image type="content" source="./_images/pipes-and-filters-solution.png" alt-text="Diagram that shows a solution implemented with pipes and filters." lightbox="./_images/pipes-and-filters-solution.png" border="false":::
 
 The time it takes to process a single request depends on the speed of the slowest filters in the pipeline. One or more filters could be bottlenecks, especially if a high number of requests appear in a stream from a particular data source. The ability to run parallel instances of slow filters enables the system to spread the load and improve throughput.
 
 The ability to run filters on different compute instances enables them to be scaled independently and take advantage of the elasticity that many cloud environments provide. A filter that's computationally intensive can run on high-performance hardware, while other less-demanding filters can be hosted on less-expensive commodity hardware. The filters don't even need to be in the same datacenter or geographic location, enabling each element in a pipeline to run in an environment that's close to the resources it requires. These efforts require specific design techniques such as messaging and multi-threading to maximize the elasticity of each pipe or filter. This diagram shows an example applied to the pipeline for the data from Source 1:
 
-![Diagram that shows an example applied to the pipeline for the data from Source 1.](./_images/pipes-and-filters-load-balancing.png)
+:::image type="content" source="./_images/pipes-and-filters-load-balancing.png" alt-text="Diagram that shows an example applied to the pipeline for the data from Source 1." lightbox="./_images/pipes-and-filters-load-balancing.png" border="false":::
 
 If the input and output of a filter are structured as a stream, you can perform the processing for each filter in parallel. The first filter in the pipeline can start its work and output its results, which are passed directly to the next filter in the sequence before the first filter completes its work.
 
@@ -104,7 +104,7 @@ As with any design decision, consider any tradeoffs against the goals of the oth
 
 You can use a sequence of message queues to provide the infrastructure required to implement a pipeline. An initial message queue receives unprocessed messages that become the start of the pipes and filters pattern implementation. A component implemented as a filter task listens for a message on this queue, performs its work, and then posts a new or transformed message to the next queue in the sequence. Another filter task can listen for messages on this queue, process them, post the results to another queue, and complete other steps, until the final step that ends the pipes and filters process. This diagram illustrates a pipeline that uses message queues:
 
-![Diagram showing a pipeline that uses message queues.](./_images/pipes-and-filters-message-queues.png)
+:::image type="content" source="./_images/pipes-and-filters-message-queues.png" alt-text="Diagram showing a pipeline that uses message queues." lightbox="./_images/pipes-and-filters-message-queues.png" border="false":::
 
 An image processing pipeline could be implemented using this pattern. If your workload takes an image, the image could pass through a series of largely independent and reorderable filters to perform actions such as:
 

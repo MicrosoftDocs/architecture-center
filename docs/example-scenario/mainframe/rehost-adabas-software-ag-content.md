@@ -116,7 +116,7 @@ Cost Optimization focuses on ways to reduce unnecessary expenses and improve ope
 
 Azure helps you avoid unnecessary costs by identifying the correct number of resources, analyzing spending over time, and scaling to meet business needs without overspending. 
 
-Azure also provides cost optimization by running on VMs. You can turn off the VMs when you don't use them and script a schedule for known usage patterns. For more information about cost optimization for [VM instances](/azure/architecture/framework/cost/optimize-vm), see [Azure Well-Architected Framework](/azure/well-architected/). 
+Azure also provides cost optimization by running on VMs. You can turn off the VMs when you don't use them and script a schedule for known usage patterns. For more information, see [Recommendations for optimizing component costs](/azure/well-architected/cost-optimization/optimize-component-costs) in the Azure Well-Architected Framework.
 
 The VMs in this architecture use either Premium SSDs or Ultra Disks. For more information about disk options and pricing, see [Managed disks pricing](https://azure.microsoft.com/pricing/details/managed-disks). 
 

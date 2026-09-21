@@ -33,4 +33,4 @@ For more information, see:
 
 ## Next step
 
-[Introduction to Oracle on Azure adoption scenarios](/azure/cloud-adoption-framework/scenarios/oracle-iaas)
+[Introduction to Oracle on Azure adoption scenarios](/azure/cloud-adoption-framework/scenarios/oracle-on-azure)

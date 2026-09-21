@@ -38,7 +38,7 @@ The following workflow corresponds to the previous diagram:
 
 - [Azure NetApp Files](/azure/well-architected/service-guides/azure-netapp-files) is an enterprise-class, high-performance, metered file network-attached storage (NAS) service. In this architecture, Azure NetApp Files stores ArcGIS Server configuration data, raster images, lidar datasets, and other geospatial files.
 
-- [Azure Monitor](/azure/azure-monitor/overview) is a collection of tools that provides visibility into the state of your system. In this architecture, Azure Monitor provides visibility into system performance and helps identify and resolve problems that affect your workload's components.
+- [Azure Monitor](/azure/azure-monitor/fundamentals/overview) is a collection of tools that provides visibility into the state of your system. In this architecture, Azure Monitor provides visibility into system performance and helps identify and resolve problems that affect your workload's components.
 
 - [Azure Policy](/azure/governance/policy/overview) is a governance tool that enforces rules and standards across Azure resources. In this architecture, Azure Policy ensures compliance with workload policies, such as resource tagging, location restrictions, and security configurations. Through its compliance dashboard, it provides an aggregated view of the overall state of the environment and the ability to drill down to per-resource, per-policy granularity.
 
@@ -113,7 +113,7 @@ GPU-enabled VMs are the largest cost driver in this architecture. Match VM SKUs 
 
 - **Start VM on Connect:** Turn on this feature to start session host VMs only when users need them, rather than running them continuously.
 
-- **Autoscale:** Configure [Azure Virtual Desktop autoscaling](/azure/virtual-desktop/autoscale-scaling-plan) to automatically scale the number of session hosts based on demand, which reduces costs during off-peak hours.
+- **Autoscale:** Configure [Azure Virtual Desktop autoscaling](/azure/virtual-desktop/autoscale-create-assign-scaling-plan) to automatically scale the number of session hosts based on demand, which reduces costs during off-peak hours.
 
 - **Scheduled scaling:** Define scaling schedules that align with business hours to shut down or deallocate VMs during nights and weekends.
 
@@ -131,7 +131,7 @@ GPU-enabled VMs are the largest cost driver in this architecture. Match VM SKUs 
 #### Monitoring and optimization
 
 - Use [Microsoft Cost Management](/azure/cost-management-billing/costs/overview-cost-management) to track spending and set budgets.
-- Monitor VM utilization by using [Azure Monitor](/azure/azure-monitor/vm/vminsights-overview) to identify underutilized or oversized resources.
+- Monitor VM utilization by using [Azure Monitor](/azure/azure-monitor/vm/monitor-vm) to identify underutilized or oversized resources.
 - Review [Azure Advisor cost recommendations](/azure/advisor/advisor-cost-recommendations) regularly to identify optimization opportunities.
 
 To estimate costs for this scenario, use this [preconfigured estimate in the Azure pricing calculator](https://azure.com/e/ab6a1e4745014c639d4efffb50320941). The estimate uses the following defaults that align with the [multisession recommendations](#multisession-recommendations) for medium-to-heavy workloads:

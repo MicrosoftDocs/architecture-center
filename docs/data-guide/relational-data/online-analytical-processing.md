@@ -23,7 +23,7 @@ OLAP systems traditionally use multidimensional data cubes to organize data in a
 This diagram shows a flow from the client applications, to the OLTP system, to the OLAP system, and finally to analytics and reporting. The client applications contain web apps, API apps, and logic apps. The OLTP system contains SQL Database, SQL Server on VMs, Azure Database for MySQL, and Azure Database for PostgreSQL. The OLAP system contains Azure Analysis Services. Analytics and reporting contains Power BI and SQL Server reporting services. Orchestration runs along the bottom of the OLTP system and the OLAP system. It contains SQL Server Integration Services and Azure Data Factory.
 :::image-end:::
 
-As technology progresses and both data and computation scales increase, OLAP systems transition to massively parallel processing (MPP) architectures that [Microsoft Fabric](/fabric/get-started/microsoft-fabric-overview) supports. For more information, see [Choose an analytical data store in Microsoft Fabric](../technology-choices/fabric-analytical-data-stores.md).
+As technology progresses and both data and computation scales increase, OLAP systems transition to massively parallel processing (MPP) architectures that [Microsoft Fabric](/fabric/fundamentals/microsoft-fabric-overview) supports. For more information, see [Choose an analytical data store in Microsoft Fabric](../technology-choices/fabric-analytical-data-stores.md).
 
 The following diagram shows a modern OLAP system architecture.
 
@@ -57,7 +57,7 @@ There are two primary types of semantic models:
 
 - **Multidimensional models** use traditional OLAP modeling constructs, such as cubes, dimensions, and measures.
 
-[Analysis Services](https://azure.microsoft.com/services/analysis-services/) and [Fabric](/fabric/get-started/microsoft-fabric-overview) provide the necessary infrastructure and tools to implement semantic modeling effectively.
+[Analysis Services](https://azure.microsoft.com/services/analysis-services/) and [Fabric](/fabric/fundamentals/microsoft-fabric-overview) provide the necessary infrastructure and tools to implement semantic modeling effectively.
 
 ## Example use case
 
@@ -109,16 +109,16 @@ OLAP systems also produce challenges:
 
 ## OLAP in Azure
 
-In Azure, data in OLTP systems, such as Azure SQL Database, is copied into OLAP systems like [Fabric](/fabric/get-started/microsoft-fabric-overview) or [Analysis Services](/azure/analysis-services/). Data exploration and visualization tools like [Power BI](https://powerbi.microsoft.com), Excel, and non-Microsoft options connect to Analysis Services servers and provide users with highly interactive and visually rich insights into the modeled data. You can use SQL Server Integration Services to orchestrate the flow of data from OLTP systems to OLAP systems. To implement SQL Server Integration Services, use [Azure Data Factory](/azure/data-factory/concepts-integration-runtime).
+In Azure, data in OLTP systems, such as Azure SQL Database, is copied into OLAP systems like [Fabric](/fabric/fundamentals/microsoft-fabric-overview) or [Analysis Services](/analysis-services/azure-analysis-services/). Data exploration and visualization tools like [Power BI](https://powerbi.microsoft.com), Excel, and non-Microsoft options connect to Analysis Services servers and provide users with highly interactive and visually rich insights into the modeled data. You can use SQL Server Integration Services to orchestrate the flow of data from OLTP systems to OLAP systems. To implement SQL Server Integration Services, use [Azure Data Factory](/azure/data-factory/concepts-integration-runtime).
 
 The following Azure data stores meet the core requirements for OLAP:
 
-- [Fabric](/fabric/get-started/microsoft-fabric-overview)
+- [Fabric](/fabric/fundamentals/microsoft-fabric-overview)
 - [SQL Server with columnstore indexes](/sql/relational-databases/indexes/columnstore-indexes-overview)
-- [Analysis Services](/azure/analysis-services/)
+- [Analysis Services](/analysis-services/azure-analysis-services/)
 - [SQL Server Analysis Services](/analysis-services/ssas-overview)
 
-SQL Server Analysis Services provides OLAP and data-mining functionality for business intelligence applications. You can either install SQL Server Analysis Services on local servers or host it within a virtual machine (VM) in Azure. Analysis Services is a fully managed service that provides the same major features as SQL Server Analysis Services. Analysis Services supports connecting to [various data sources](/azure/analysis-services/analysis-services-datasource) in the cloud and on-premises in your organization.
+SQL Server Analysis Services provides OLAP and data-mining functionality for business intelligence applications. You can either install SQL Server Analysis Services on local servers or host it within a virtual machine (VM) in Azure. Analysis Services is a fully managed service that provides the same major features as SQL Server Analysis Services. Analysis Services supports connecting to [various data sources](/analysis-services/azure-analysis-services/analysis-services-datasource) in the cloud and on-premises in your organization.
 
 Clustered columnstore indexes are available in SQL Server 2014 and higher and in SQL Database. These indexes are ideal for OLAP workloads. Beginning with SQL Server 2016, including SQL Database, you can take advantage of hybrid transactional and analytical processing (HTAP) through updateable nonclustered columnstore indexes. Use HTAP to perform OLTP and OLAP processing on the same platform. This approach eliminates the need for multiple copies of your data and separate OLTP and OLAP systems. For more information, see [Columnstore for real-time operational analytics](/sql/relational-databases/indexes/get-started-with-columnstore-for-real-time-operational-analytics).
 
@@ -164,7 +164,7 @@ The following tables summarize the key differences in capabilities between these
 | Requires a process to copy data from sources | Optional&nbsp;<sup>3</sup> | Yes | Yes | No | No |
 | Microsoft Entra integration | Yes |Yes | No | No <sup>2</sup> | Yes |
 
-[1] SQL Server and SQL Database can't query from and integrate multiple external data sources, but you can build a pipeline to do these functions by using [SQL Server Integration Services](/sql/integration-services/sql-server-integration-services) or [Azure Data Factory](/azure/data-factory/). Azure VM-hosted SQL Server has more options, such as linked servers and [PolyBase](/sql/relational-databases/polybase/polybase-guide). For more information, see [Choose a data pipeline orchestration technology](../technology-choices/pipeline-orchestration-data-movement.md).
+[1] SQL Server and SQL Database can't query from and integrate multiple external data sources, but you can build a pipeline to do these functions by using [SQL Server Integration Services](/sql/integration-services/sql-server-integration-services) or [Azure Data Factory](/azure/data-factory/). Azure VM-hosted SQL Server has more options, such as linked servers and [PolyBase](/sql/relational-databases/polybase/overview). For more information, see [Choose a data pipeline orchestration technology](../technology-choices/pipeline-orchestration-data-movement.md).
 
 [2] A Microsoft Entra account doesn't support connecting to Azure VM-hosted SQL Server. Use a domain Windows Server Active Directory account instead.
 
@@ -182,7 +182,7 @@ The following tables summarize the key differences in capabilities between these
 
 - [Choose an analytical data store in Microsoft Fabric](../technology-choices/fabric-analytical-data-stores.md)
 - [Columnstore indexes](/sql/relational-databases/indexes/columnstore-indexes-overview)
-- [Create an Analysis Services server](/azure/analysis-services/analysis-services-create-server)
+- [Create an Analysis Services server](/analysis-services/azure-analysis-services/analysis-services-create-server)
 - [What is Azure Data Factory?](/azure/data-factory/introduction)
 - [What is Power BI?](/power-bi/fundamentals/power-bi-overview)
 

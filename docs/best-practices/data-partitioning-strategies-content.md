@@ -22,19 +22,19 @@ Elastic Database provides two schemes for mapping data to shardlets and storing 
 
 - A **list shard map** associates a single key to a shardlet. For example, in a multitenant system, the data for each tenant can be associated with a unique key and stored in its own shardlet. To guarantee isolation, each shardlet can be held within its own shard.
 
-  ![Diagram that shows a list shard map to store tenant data in separate shards.](./images/data-partitioning/point-shardlet.svg)
+  :::image type="content" source="./images/data-partitioning/point-shardlet.svg" alt-text="Diagram that shows a list shard map to store tenant data in separate shards." border="false":::
 
   *Download a [Visio file](https://arch-center.azureedge.net/data-partitioning-strategies.vsdx) of this diagram.*
 
 - A **range shard map** associates a set of contiguous key values to a shardlet. For example, you can group the data for a set of tenants (each with their own key) within the same shardlet. This scheme is less expensive than the first, because tenants share data storage, but has less isolation.
 
-  ![Diagram that shows a range shard map to store data for a range of tenants in a shard.](./images/data-partitioning/range-shardlet.svg)
+  :::image type="content" source="./images/data-partitioning/range-shardlet.svg" alt-text="Diagram that shows a range shard map to store data for a range of tenants in a shard." lightbox="./images/data-partitioning/range-shardlet.svg" border="false":::
 
   *Download a [Visio file](https://arch-center.azureedge.net/data-partitioning-strategies.vsdx) of this diagram*
 
 A single shard can contain the data for several shardlets. For example, you can use list shardlets to store data for different noncontiguous tenants in the same shard. You can also mix range shardlets and list shardlets in the same shard, although they're addressed through different maps. The following diagram shows this approach:
 
-![Diagram that shows multiple shard maps.](./images/data-partitioning/multiple-shard-maps.svg)
+:::image type="content" source="./images/data-partitioning/multiple-shard-maps.svg" alt-text="Diagram that shows multiple shard maps." lightbox="./images/data-partitioning/multiple-shard-maps.svg" border="false":::
 
 *Download a [Visio file](https://arch-center.azureedge.net/data-partitioning-strategies.vsdx) of this diagram.*
 
@@ -76,7 +76,7 @@ Microsoft publishes [scalability targets] for Azure Storage. If your system is l
 
 The following diagram shows the logical structure of an example storage account. The storage account contains three tables: Customer Info, Product Info, and Order Info.
 
-![The tables and partitions in an example storage account](./images/data-partitioning/TableStorage.png)
+:::image type="content" source="./images/data-partitioning/TableStorage.png" alt-text="The tables and partitions in an example storage account" lightbox="./images/data-partitioning/TableStorage.png" border="false":::
 
 Each table has multiple partitions.
 
@@ -114,7 +114,7 @@ Each blob (either block or page) is held in a container in an Azure Storage acco
 
 The partition key for a blob is account name + container name + blob name. The partition key is used to partition data into ranges and these ranges are load-balanced across the system. Blobs can be distributed across many servers in order to scale out access to them, but a single blob is served by a single server.
 
-If your naming scheme uses timestamps or numerical identifiers, it can lead to excessive traffic going to one partition, limiting the system from effectively load balancing. For instance, if you have daily operations that use a blob object with a timestamp such as *yyyy-mm-dd*, all the traffic for that operation would go to a single partition server. Instead, consider prefixing the name with a three-digit hash. For more information, see [Partition Naming Convention](/azure/storage/common/storage-performance-checklist#partitioning).
+If your naming scheme uses timestamps or numerical identifiers, it can lead to excessive traffic going to one partition, limiting the system from effectively load balancing. For instance, if you have daily operations that use a blob object with a timestamp such as *yyyy-mm-dd*, all the traffic for that operation goes to a single partition server. Instead, consider prefixing the name with a three-digit hash. For more information, see [Optimize blob partitions](/azure/storage/blobs/storage-performance-blob-partitions#partition-keys-and-efficient-naming-schemes).
 
 The actions of writing a single block or page are atomic, but operations that span blocks, pages, or blobs aren't. If you need to ensure consistency when performing write operations across blocks, pages, and blobs, take out a write lock by using a blob lease.
 
@@ -167,7 +167,7 @@ Consider the following points when deciding if or how to partition a Service Bus
 
 Documents are organized into collections. You can group related documents together in a collection. For example, in a system that maintains blog postings, you can store the contents of each blog post as a document in a collection. You can also create collections for each subject type. Alternatively, in a multitenant application, such as a system where different authors control and manage their own blog posts, you can partition blogs by author and create separate collections for each author. The storage space that's allocated to collections is elastic and can shrink or grow as needed.
 
-Azure Cosmos DB supports automatic partitioning of data based on an application-defined partition key. A *logical partition* is a partition that stores all the data for a single partition key value. All documents that share the same value for the partition key are placed within the same logical partition. Azure Cosmos DB distributes values according to hash of the partition key. A logical partition has a maximum size of 20 GB. Therefore, the choice of the partition key is an important decision at design time. Choose a property with a wide range of values and even access patterns. For more information, see [Partition and scale in Azure Cosmos DB](/azure/cosmos-db/partition-data).
+Azure Cosmos DB supports automatic partitioning of data based on an application-defined partition key. A *logical partition* is a partition that stores all the data for a single partition key value. All documents that share the same value for the partition key are placed within the same logical partition. Azure Cosmos DB distributes values according to hash of the partition key. A logical partition has a maximum size of 20 GB. Therefore, the choice of the partition key is an important decision at design time. Choose a property with a wide range of values and even access patterns. For more information, see [Partitioning and horizontal scaling in Azure Cosmos DB](/azure/cosmos-db/partitioning).
 
 > [!NOTE]
 > Each Azure Cosmos DB database has a *performance level* that determines the amount of resources it gets. A performance level is associated with a *request unit (RU)* rate limit. The RU rate limit specifies the volume of resources that's reserved and available for exclusive use by that collection. The cost of a collection depends on the performance level that's selected for that collection. The higher the performance level (and RU rate limit) the higher the charge. You can adjust the performance level of a collection by using the Azure portal. For more information, see [Request Units in Azure Cosmos DB][cosmos-db-ru].
@@ -253,7 +253,7 @@ Consider the following points when you use Azure Managed Redis to structure and 
 
   For example, in an e-commerce system that tracks customer orders, you can store each customer's details in a Redis hash that uses the customer ID as its key. Each hash holds a collection of order IDs associated with that customer. A separate Redis set stores the orders themselves as hashes that use the order ID as their key. The following diagram shows this structure. Redis doesn't enforce referential integrity, so the application must maintain relationships between customers and orders.
 
-  ![Suggested structure in Redis storage for recording customer orders and their details.](./images/data-partitioning/redis-customers-and-orders.png)
+  :::image type="content" source="./images/data-partitioning/redis-customers-and-orders.png" alt-text="Suggested structure in Redis storage for recording customer orders and their details." lightbox="./images/data-partitioning/redis-customers-and-orders.png" border="false":::
 
   > [!NOTE]
   > In Redis, keys and values are binary-safe and can store values up to hundreds of megabytes (MBs) in size. But you should keep values relatively small and bounded to minimize latency, reduce replication and rebalancing costs, and improve overall efficiency. Ensure that keys follow a consistent naming convention that's descriptive, stable, and not excessively long. A common approach is to use keys of the form `entity_type:ID`. For example, `customer:99` represents the key for a customer with ID 99.
@@ -304,5 +304,5 @@ For considerations about trade-offs between availability and consistency, see [A
 [Supported Data Types (AI Search)]: /rest/api/searchservice/Supported-data-types
 [What is Event Hubs?]: /azure/event-hubs/event-hubs-what-is-event-hubs
 [What is AI Search?]: /azure/search/search-what-is-azure-search
-[scalability targets]: /azure/storage/common/storage-scalability-targets
+[scalability targets]: /azure/storage/common/scalability-targets-standard-account
 [Scalable partitioning strategy]: /rest/api/storageservices/designing-a-scalable-partitioning-strategy-for-azure-table-storage

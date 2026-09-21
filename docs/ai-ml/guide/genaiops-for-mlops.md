@@ -1,8 +1,8 @@
 ---
 title: Generative AI Operations for Organizations with MLOps Investments
 description: Extend existing MLOps investments to include generative AI operations. Learn where you can apply existing investments and where you need to extend those investments.
-author: supreetkaur16
-ms.author: supreetkaur
+author: claytonsiemens77
+ms.author: pnp
 ms.date: 09/16/2025
 ms.topic: concept-article
 ms.collection: ce-skilling-ai-copilot
@@ -203,7 +203,7 @@ Solutions that use generative models to reason over grounding data use [metrics]
 
 Solutions that use generative models for nonpredictive tasks, like RAG solutions, often benefit from human feedback from users to evaluate usefulness sentiments. User interfaces can capture feedback like thumbs up or down. You can use this data to periodically evaluate the responses.
 
-A typical pattern for generative AI solutions is to [deploy a gateway in front of the generative models](azure-openai-gateway-guide.md). One of the use cases for the gateway is to [monitor the foundation models](azure-openai-gateway-monitoring.yml). You can use the gateway to log input prompts and model output.
+A typical pattern for generative AI solutions is to [deploy a gateway in front of the generative models](azure-openai-gateway-guide.md). One of the use cases for the gateway is to [monitor the foundation models](azure-openai-gateway-monitoring.md). You can use the gateway to log input prompts and model output.
 
 Another key area to monitor for generative solutions is content safety. The goal is to moderate responses and detect harmful or undesirable content. [Microsoft Azure AI Content Safety Studio](/azure/ai-services/content-safety/overview#content-safety-studio) is a tool that you can use to moderate content.
 

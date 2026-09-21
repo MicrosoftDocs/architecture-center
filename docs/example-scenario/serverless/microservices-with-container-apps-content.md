@@ -165,7 +165,7 @@ Container Apps helps you deploy, manage, maintain, and monitor the applications 
 
 - Avoid storing state directly within the Container Apps environment, because all state is lost when the replica shuts down. Externalize state to a dedicated state store for each microservice. This architecture distributes state across three distinct stores: Azure Managed Redis, Azure Cosmos DB for NoSQL, and Azure DocumentDB.
 
-- Deploy all resources, including Container Apps, by using a multi-zone topology. For more information, see [Availability zone support in Container Apps](/azure/reliability/reliability-azure-container-apps#resilience-to-availability-zone-failures).
+- Deploy all resources, including Container Apps, by using a multi-zone topology. For more information, see [Availability zone support in Container Apps](/azure/reliability/reliability-container-apps#resilience-to-availability-zone-failures).
 
   Set the minimum replica count for nontransient applications to at least one replica for each availability zone. During typical operating conditions, replicas are reliably distributed and balanced across availability zones in the region.
 
@@ -197,7 +197,9 @@ For more information about network topology options, including private endpoint 
 
 - Container Apps supports Microsoft Entra managed identities that enable your app to authenticate itself to other resources protected by Microsoft Entra ID, such as Key Vault, without managing credentials in your container app. A container app can use system-assigned identities, user-assigned identities, or both. For services that don't support Microsoft Entra ID authentication, store secrets in Key Vault and use a managed identity to access the secrets.
 
-- Use one dedicated, user-assigned managed identity for Container Registry access. Container Apps supports using a different managed identity for workload operation than for container registry access. This approach provides granular access control. If your workload has multiple Container Apps environments, don't share the identity across instances.
+- Use a dedicated, user-assigned managed identity for Container Registry access. Don't reuse it for workload operations. Use separate identities for Container Apps and jobs. This approach provides granular access control. If your workload has multiple Container Apps environments, don't share an identity across instances.
+
+- Use [Assignment restrictions](/entra/identity/managed-identities-azure-resources/managed-identities-assignment-restriction) (preview). Allow only `Microsoft.App/containerApps` for Container App identities and only `Microsoft.App/jobs` for job identities. Set the [isolation scope](/entra/identity/managed-identities-azure-resources/managed-identities-isolation-scope) to `Regional`, and create separate identities for each resource type in each region.
 
 - Use system-assigned managed identities for workloads, to tie the identity life cycle to the workload component life cycle.
 

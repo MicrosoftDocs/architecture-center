@@ -39,13 +39,13 @@ This pattern provides the following benefits:
 
 The following diagram shows bulkheads structured around connection pools that call individual services. If Service A fails or causes a problem, the connection pool is isolated, so only workloads that use the thread pool assigned to Service A are affected. Workloads that use Service B and C aren't affected and can continue working without interruption.
 
-:::image type="complex" source="./_images/bulkhead-connection-pool.png" alt-text="Diagram that shows bulkheads structured around connection pools that call individual services." border="false":::
+:::image type="complex" source="./_images/bulkhead-connection-pool.png" lightbox="./_images/bulkhead-connection-pool.png" alt-text="Diagram that shows bulkheads structured around connection pools that call individual services." border="false":::
    Diagram that shows two workloads, Workload 1 and Workload 2, and three services, Service A, Service B, and Service C. Workload 1 uses a connection pool that's assigned to Service A. Workload 2 uses two connection pools. One connection pool is assigned to Service B, and the other is assigned to Service C. The connection pool that Workload 1 uses is isolated. The connection pools that Workload 2 uses can continue to call Service B and Service C.
 :::image-end:::
 
 The following diagram shows multiple clients that call a single service. Each client is assigned to a separate service instance. Client 1 makes too many requests and overwhelms its instance. Because each service instance is isolated from the others, the other clients can continue to make calls.
 
-:::image type="complex" source="./_images/bulkhead-single-service.png" alt-text="Diagram that shows multiple clients calling a single service." border="false":::
+:::image type="complex" source="./_images/bulkhead-single-service.png" lightbox="./_images/bulkhead-single-service.png" alt-text="Diagram that shows multiple clients calling a single service." border="false":::
    Diagram that shows three clients, Client 1, Client 2, and Client 3, and three service instances that each form a part of Service A. Each client connects to its own service instance. The service instances are isolated. If Client 1 overwhelms its instance, Clients 2 and 3 are unaffected.
 :::image-end:::
 

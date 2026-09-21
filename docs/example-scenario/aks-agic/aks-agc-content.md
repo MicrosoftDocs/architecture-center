@@ -325,7 +325,7 @@ The cost of this architecture depends on configuration specifics, such as the fo
 
 - Your DR level
 
-After you assess these details, use the [Azure pricing calculator](https://azure.microsoft.com/pricing/calculator/) to estimate your costs. For more information, see the [Well-Architected Framework principles of Cost Optimization](/azure/architecture/framework/cost/overview).
+After you assess these details, use the [Azure pricing calculator](https://azure.microsoft.com/pricing/calculator/) to estimate your costs. For more information, see the [Well-Architected Framework principles of Cost Optimization](/azure/well-architected/cost-optimization/).
 
 ### Operational Excellence
 
@@ -412,7 +412,7 @@ Principal authors:
 
 - [AKS cluster best practices](/azure/aks/best-practices?toc=/azure/architecture/toc.json&bc=/azure/architecture/_bread/toc.json)
 - [Best practices for basic scheduler features in AKS](/azure/aks/operator-best-practices-scheduler)
-- [Create a private AKS cluster](https://github.com/azure-samples/private-aks-cluster)
+- [Create a private AKS cluster](/azure/aks/private-clusters)
 - [Deploy the Application Gateway for Containers application load balancer controller add-on](/azure/application-gateway/for-containers/quickstart-deploy-application-gateway-for-containers-alb-controller-addon)
 - [How an application gateway works](/azure/application-gateway/how-application-gateway-works)
 

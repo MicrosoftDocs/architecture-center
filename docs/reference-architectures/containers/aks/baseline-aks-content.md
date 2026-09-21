@@ -252,7 +252,9 @@ When you plan capacity for a user node pool, consider the following recommendati
 
 ### Select an operating system
 
-Most AKS clusters use Linux as the operating system for their node pools. The reference implementation uses [Azure Linux](/azure/aks/use-azure-linux), which is a lightweight, hardened Linux distribution that's tuned for Azure. You can choose another Linux distribution like Ubuntu if you prefer or if Azure Linux doesn't meet your requirements. If you choose a different operating system, ensure that the OS disk is sized appropriately for that image. Some distributions require more space than Azure Linux, so you might need to increase the disk size to avoid problems with deployment or runtime.
+Most AKS clusters use Linux as the operating system for their node pools. The reference implementation uses [Azure Linux](/azure/aks/use-azure-linux), which is a lightweight, hardened Linux distribution that's tuned for Azure. Microsoft builds, signs, and manages the entire Azure Linux stack, so it has full control over Azure Linux patching. Microsoft sometimes releases fixes for high and critical Common Vulnerabilities and Exposures (CVEs) out of band, ahead of the next scheduled node image, instead of waiting for another vendor's release cycle.
+
+You can choose another Linux distribution like Ubuntu if you prefer or if Azure Linux doesn't meet your requirements. If you choose a different operating system, ensure that the OS disk is sized appropriately for that image. Some distributions require more space than Azure Linux, so you might need to increase the disk size to avoid problems with deployment or runtime.
 
 If your workload is composed of mixed technologies, you can use different operating systems in different node pools. If you don't need different operating systems, we recommend that you use a single operating system for all workload node pools to reduce operational complexity.
 
@@ -501,7 +503,7 @@ One downside of connecting to Azure services through public endpoints is that Az
 
 By default, a pod can accept traffic from any other pod in the cluster. Use Kubernetes `NetworkPolicy` to restrict network traffic between pods. Apply policies carefully to prevent blocking critical network flows. Allow only specific communication paths, like traffic between the gateway proxy and workload, as needed. Because the gateway proxy runs in the same namespace as the workload, target it by pod label rather than by namespace selector. For more information, see [Network policies](/azure/aks/use-network-policies).
 
-Enable network policy when you set up the cluster, because you can't add it later. You have a few choices for technologies that implement `NetworkPolicy`. Azure network policy requires Azure CNI. Other options include Calico network policy, a well-known open-source option. Consider Calico if you need to manage cluster-wide network policies. Calico isn't covered under standard Azure support.
+Enable network policy when you create the cluster, because adding it later might reimage your node pools. You have a few choices for technologies that implement `NetworkPolicy`. Azure network policy requires Azure CNI. Other options include Calico network policy, a well-known open-source option. Consider Calico if you need to manage cluster-wide network policies. Calico isn't covered under standard Azure support.
 
 For more information, see [Differences between Azure network policy engines](/azure/aks/use-network-policies#differences-between-network-policy-engines-cilium-azure-npm-and-calico).
 

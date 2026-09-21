@@ -153,7 +153,7 @@ Instrument the application and monitor it to get information about the specific 
 
 The following image shows monitoring data captured by [New Relic][NewRelic] during a load test. In this case, the only HTTP GET operation performed is `Person/GetAsync`. But in a live production environment, knowing the relative frequency that each request is performed can give you insight into which resources should be cached.
 
-![New Relic showing server requests for the CachingDemo application][NewRelic-server-requests]
+:::image type="content" source="./_images/New-Relic.jpg" alt-text="New Relic showing server requests for the CachingDemo application" lightbox="./_images/New-Relic.jpg" border="false":::
 
 If you need a deeper analysis, you can use a profiler to capture low-level performance data in a test environment (not the production system). Review metrics like I/O request rates, memory usage, and CPU utilization. These metrics might show a large number of requests to a data store or service, or repeated processing that performs the same calculation.
 
@@ -161,7 +161,7 @@ If you need a deeper analysis, you can use a profiler to capture low-level perfo
 
 The following graph shows the results of load testing the sample application. The load test simulates a step load of up to 800 users performing a typical series of operations.
 
-![Performance load test results for the uncached scenario][Performance-Load-Test-Results-Uncached]
+:::image type="content" source="./_images/InitialLoadTestResults.jpg" alt-text="Graph of performance load test results for the uncached scenario." border="false":::
 
 The number of successful tests performed each second reaches a plateau, and additional requests are slowed as a result. The average test time steadily increases with the workload. The response time levels off once the user load peaks.
 
@@ -178,7 +178,7 @@ CROSS APPLY sys.dm_exec_query_plan(plan_handle)
 
 The `UseCount` column in the results indicates how frequently each query is run. The following image shows that the third query was run more than 250,000 times, much more than any other query.
 
-![Results of querying the dynamic management views in SQL Server Management Server][Dynamic-Management-Views]
+:::image type="content" source="./_images/SQLServerManagementStudio.jpg" alt-text="Results of querying the dynamic management views in SQL Server Management Server" lightbox="./_images/SQLServerManagementStudio.jpg" border="false":::
 
 Here's the SQL query that's causing so many database requests:
 
@@ -197,7 +197,7 @@ This is the query that Entity Framework generates in `GetByIdAsync` method shown
 
 After you incorporate a cache, repeat the load tests and compare the results to the earlier load tests without a cache. Here are the load test results after adding a cache to the sample application:
 
-![Performance load test results for the cached scenario][Performance-Load-Test-Results-Cached]
+:::image type="content" source="./_images/CachedLoadTestResults.jpg" alt-text="Graph of performance load test results for the cached scenario." border="false":::
 
 The volume of successful tests still reaches a plateau, but at a higher user load. The request rate at this load is much higher than earlier. Average test time still increases with load, but the maximum response time is 0.05 ms, compared with 1 ms earlier&mdash;a 20&times; improvement.
 
@@ -214,7 +214,3 @@ The volume of successful tests still reaches a plateau, but at a higher user loa
 [circuit-breaker]: ../../patterns/circuit-breaker.md
 [api-implementation]: ../../best-practices/api-implementation.md#optimizing-client-side-data-access
 [NewRelic]: https://newrelic.com/partner/azure
-[NewRelic-server-requests]: ./_images/New-Relic.jpg
-[Performance-Load-Test-Results-Uncached]: ./_images/InitialLoadTestResults.jpg
-[Dynamic-Management-Views]: ./_images/SQLServerManagementStudio.jpg
-[Performance-Load-Test-Results-Cached]: ./_images/CachedLoadTestResults.jpg

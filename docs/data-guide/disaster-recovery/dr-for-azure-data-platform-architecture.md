@@ -294,9 +294,9 @@ The following sections describe each Azure service and component in the Contoso 
     - Component recovery responsibility: Microsoft
     - Workload and configuration recovery responsibility: Contoso
     - Contoso SKU selection: Standard
-    - DR uplift options: Use [availability zones](/azure/reliability/reliability-postgresql-flexible-server#availability-zone-support) for zone-level resilience, which maintains operation during a single zone failure. For region-wide disruptions, add [geo-redundant backup](/azure/postgresql/flexible-server/concepts-backup-restore#geo-redundant-backup-and-restore) to support failover and recovery.
+    - DR uplift options: Use [availability zones](/azure/reliability/reliability-database-postgresql#resilience-to-availability-zone-failures) for zone-level resilience, which maintains operation during a single zone failure. For region-wide disruptions, add [geo-redundant backup](/azure/postgresql/backup-restore/concepts-backup-restore#geo-redundant-backup-and-restore) to support failover and recovery.
     - Notes:
-        - For more information, see [Business continuity with Azure Database for PostgreSQL flexible server](/azure/postgresql/flexible-server/concepts-business-continuity).
+        - For more information, see [Business continuity with Azure Database for PostgreSQL flexible server](/azure/postgresql/backup-restore/concepts-business-continuity).
 
 - **Azure Data Explorer**
 
@@ -383,7 +383,7 @@ The following sections describe each Azure service and component in the Contoso 
     - Workload and configuration recovery responsibility: Microsoft
     - Contoso SKU selection: Single Region Write with Periodic backup
     - DR uplift options:
-        - Single-region accounts might lose availability after a regional outage. Increase resiliency by adding a [single write region with at least a second (read) region and enabling service-managed failover](/azure/cosmos-db/high-availability#availability).
+        - Single-region accounts might lose availability after a regional outage. Increase resilience by adding a [single write region with at least a second (read) region and enabling service-managed failover](/azure/reliability/reliability-cosmos-db#multiple-read-regions-with-a-single-write-region).
         - Use [Azure Cosmos DB accounts](/azure/reliability/reliability-cosmos-db) for production workloads to provide automatic failover. Without this configuration, the account loses write availability during a write region outage because manual failover can't succeed without region connectivity.
     - Notes:
         - To protect against data loss in a region, Azure Cosmos DB provides two [backup modes](/azure/cosmos-db/online-backup-and-restore): *Periodic* and *Continuous*.

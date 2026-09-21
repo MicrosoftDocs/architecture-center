@@ -51,7 +51,7 @@ In this architecture, you either don't have your own orchestrator, or your orche
 > [!NOTE]
 > The Responses API file search tool integrates with vector stores, but the deployed model itself doesn't. The model receives grounding data in the same way as it does when an orchestrator retrieves the data.
 
-:::image type="complex" source="./_images/multitenant-rag-single-tenant-direct-architecture.svg" lightbox="./_images/multitenant-rag-single-tenant-direct-architecture.svg" alt-text="Diagram that shows a RAG architecture that uses the Foundry Models Responses API file search tool to access a single-tenant vector store." border="false":::
+:::image type="complex" source="./_images/multitenant-rag-single-tenant-direct-architecture.svg" alt-text="Diagram that shows a RAG architecture that uses the Foundry Models Responses API file search tool to access a single-tenant vector store." border="false":::
    In the diagram, a user connects to an intelligent application. The intelligent application connects to an identity provider. The intelligent application then connects to the Responses API in Foundry Models. The Responses API searches a vector store such as Azure AI Search that contains data for one tenant and passes the retrieved data as part of the context to the deployed model.
 :::image-end:::
 

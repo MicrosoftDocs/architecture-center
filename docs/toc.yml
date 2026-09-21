@@ -70,10 +70,6 @@ items:
     items:
     - name: Overview
       href: patterns/index.md
-    - name: Pattern implementations
-      items:
-      - name: Network secure global ingress
-        href: pattern-implementations/network-secure-ingress.md
     - name: Ambassador
       displayName: API proxy, cross-cutting concerns
       href: patterns/ambassador.md
@@ -492,8 +488,6 @@ items:
             href: ai-ml/idea/generate-documents-from-your-data.yml
           - name: Use AI enrichment with Azure AI Search
             href: solution-ideas/articles/ai-search-skillsets.yml
-          - name: Extract text by using Power Automate
-            href: example-scenario/ai/extract-object-text.yml
         - name: Workflow automation
           items:
           - name: Build a multiple-agent workflow automation solution by using Microsoft Agent Framework
@@ -519,6 +513,8 @@ items:
             href: ai-ml/architecture/automate-pdf-forms-processing.yml
           - name: Build custom document processing models
             href: ai-ml/architecture/build-deploy-custom-models.yml
+          - name: Extract text by using Power Automate
+            href: example-scenario/ai/extract-object-text.yml
           - name: Multiple indexers with Azure AI Search
             href: ai-ml/architecture/search-blob-metadata.yml
         - name: Video and image classification
@@ -533,6 +529,8 @@ items:
           items:
           - name: Secure research for regulated data
             href: ai-ml/architecture/secure-compute-for-research.yml
+        - name: AI inferencing with Silk Virtual SAN
+          href: ai-ml/architecture/ai-inferencing-on-azure-iaas.yml
       - name: Guides
         items: 
         - name: Dynamic AI agents at scale pattern
@@ -584,7 +582,7 @@ items:
           - name: Provide custom authentication to models through a gateway
             href: ai-ml/guide/azure-openai-gateway-custom-authentication.yml
           - name: Implement advanced model monitoring through a gateway
-            href: ai-ml/guide/azure-openai-gateway-monitoring.yml
+            href: ai-ml/guide/azure-openai-gateway-monitoring.md
         - name: Design to support foundation model life cycles
           href: ai-ml/guide/manage-foundation-models-lifecycle.md
   - name: Analytics
@@ -969,8 +967,6 @@ items:
           href: example-scenario/mainframe/reengineer-mainframe-batch-apps-azure.yml
         - name: Rehost IMS DC and IMS DB
           href: example-scenario/mainframe/rehost-ims-raincode-imsql.yml
-        - name: Implement SMA OpCon in Azure
-          href: example-scenario/integration/sma-opcon-azure.yml
       - name: In-memory data stores
         items:
         - name: Write-through caching with Azure Managed Redis and Azure SQL Database
@@ -1016,7 +1012,7 @@ items:
         href: solution-ideas/articles/devsecops-infrastructure-as-code.yml
     - name: Architectures
       items:
-      - name: Automate API deployments with APIOps
+      - name: Automate API Management configuration with APIOps
         href: example-scenario/devops/automated-api-deployments-apiops.yml
       - name: Scalable cloud applications and site reliability engineering (SRE)
         href: example-scenario/apps/scalable-apps-performance-modeling-site-reliability.yml
@@ -1218,7 +1214,7 @@ items:
         - name: Connect SAP to the reference solution
           displayName: Internet of Things
           href: guide/iot/how-to-connect-on-premises-sap-to-the-solution.md
-        - name: Connect an industrial data space to the reference solution
+        - name: Connect an industrial dataspace to the reference solution
           displayName: Internet of Things
           href: guide/iot/how-to-enable-industrial-dataspaces.md
         - name: Import OPC UA information models from the UA Cloud Library
@@ -1324,7 +1320,7 @@ items:
           - name: Prevent IPv4 exhaustion
             href: networking/guide/internet-protocol-version-4-exhaustion.md
           - name: IPv6 hub-spoke network topology
-            href: networking/guide/ipv6-architecture.yml
+            href: networking/guide/ipv6-architecture.md
           - name: Conceptual planning for IPv6 networking
             href: networking/guide/ipv6-ip-planning.md
         - name: Resource organization
@@ -1466,6 +1462,9 @@ items:
         items:
         - name: Networking guidance for web apps
           items:
+          - name: Network secure global ingress
+            displayName: Firewall, Front Door, WAF
+            href: pattern-implementations/network-secure-ingress.md
           - name: Securing access to multitenant web apps from on-premises
             href: web-apps/guides/networking/access-multitenant-web-app-from-on-premises.yml
           - name: Global routing redundancy for highly available web applications
@@ -1505,10 +1504,13 @@ items:
     - name: Accounts
       displayName: AWS
       href: aws-professional/accounts.md
+    - name: Analytics
+      displayName: AWS
+      href: aws-professional/analytics.md
     - name: Compute
       displayName: AWS
       href: aws-professional/compute.md
-    - name: Data and AI
+    - name: AI and machine learning
       displayName: AWS
       href: aws-professional/data-ai.md
     - name: Databases

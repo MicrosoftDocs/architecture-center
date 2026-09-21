@@ -35,7 +35,7 @@ This guide focuses on a subset of the container services that Azure provides. Th
 
 :::row:::
     :::column:::
-    ![Azure Container Apps logo](media/images/container-apps.png)
+    :::image type="icon" source="media/images/container-apps.png":::
     :::column-end:::
     :::column span="3":::
     [Azure Container Apps](https://azure.microsoft.com/products/container-apps) is a fully managed platform that allows you to run containerized applications without worrying about orchestration or infrastructure. For more information, see [Container Apps documentation](/azure/container-apps).
@@ -43,7 +43,7 @@ This guide focuses on a subset of the container services that Azure provides. Th
 :::row-end:::
 :::row:::
     :::column:::
-    ![AKS logo](media/images/aks.png)
+    :::image type="icon" source="media/images/aks.png":::
     :::column-end:::
     :::column span="3":::
     [Azure Kubernetes Service (AKS)](https://azure.microsoft.com/products/kubernetes-service) is a managed Kubernetes service for running containerized applications. With AKS, you can take advantage of managed [add-ons and extensions](/azure/aks/integrations) for extra capabilities while preserving the broadest level of configurability. For more information, see [AKS documentation](/azure/aks/).
@@ -51,7 +51,7 @@ This guide focuses on a subset of the container services that Azure provides. Th
 :::row-end:::
 :::row:::
     :::column:::
-    ![App Service logo](media/images/app-service.png)
+    :::image type="icon" source="media/images/app-service.png":::
     :::column-end:::
     :::column span="3":::
     [Web App for Containers](https://azure.microsoft.com/products/app-service/containers) is a feature of Azure App Service. App Service is a fully managed service for hosting HTTP-based web apps that have built-in infrastructure maintenance, security patching, scaling, and diagnostic tooling. For more information, see [App Service documentation](/azure/app-service/).

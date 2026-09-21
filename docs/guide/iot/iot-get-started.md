@@ -36,7 +36,7 @@ Azure provides a range of services for IoT architecture design:
 
 *Download a [Visio file](https://arch-center.azureedge.net/iot-get-started-diagram.vsdx) of this architecture.*
 
-The previous diagram demonstrates a typical basic or baseline IoT implementation. For real-world solutions that you can build in Azure, see [IoT architectures](#iot-architectures).
+The previous diagram demonstrates a typical basic or baseline IoT implementation. For real-world solutions that you can build in Azure, see [IoT solution ideas](#iot-solution-ideas).
 
 ## Explore IoT guides, architectures, and solution ideas
 

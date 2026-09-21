@@ -2,7 +2,7 @@ This article describes an Azure architecture that you can use to replace costly 
 
 ## Architecture
 
-:::image type="content" source="_images/automate-pdf-forms-processing.png" alt-text="Diagram of the architecture for PDF forms processing":::
+:::image type="content" source="_images/automate-pdf-forms-processing.png" lightbox="_images/automate-pdf-forms-processing.png" alt-text="Diagram of the architecture for PDF forms processing.":::
 
 *Download a [PowerPoint file](https://arch-center.azureedge.net/automate-pdf-forms-processing.pptx) of this architecture.*
 
@@ -157,7 +157,7 @@ Other contributors:
 
 - [Video: Azure PDF Form Processing Automation](https://www.youtube.com/watch?v=2zvoO1jc8CE).
 - [Azure PDF Form Processing Automation Solution](https://github.com/microsoft/Azure-PDF-Form-Processing-Automation-Solution-Accelerator) GitHub repository
-- [Azure Invoice Process Automation Solution](https://github.com/microsoft/Azure-Invoice-Process-Automation-Solution-Accelerator) GitHub repository
+- [Multi-modal content processing sample](https://github.com/microsoft/content-processing-solution-accelerator) GitHub repository
 - [Tutorial: Create workflows that process emails by using Azure Logic Apps, Azure Functions, and Azure Storage](/azure/logic-apps/tutorial-process-email-attachments-workflow)
 
 ## Related resources

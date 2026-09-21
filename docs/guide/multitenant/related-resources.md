@@ -111,7 +111,7 @@ Use the following resources to help you build multitenant architectures on Azure
 
 - [Azure Event Grid domains](/azure/event-grid/event-domains): Azure Event Grid domains allow you to manage multitenant eventing architectures, at scale.
 
-- [Cross-tenant communication by using Azure Service Bus](https://github.com/Azure-Samples/Cross-Tenant-Communication-Using-Azure-Service-Bus): Sample implementation of Azure Service Bus that shows how to communicate between a central provider and one or more customers (or tenants).
+- [Azure Service Bus considerations for multitenancy](service/service-bus.md): Guidance for tenant isolation models, authentication, and operational considerations when you build multitenant messaging solutions with Service Bus.
 
 ### Identity
 

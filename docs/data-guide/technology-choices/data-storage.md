@@ -20,7 +20,7 @@ There are several options for ingesting data into Azure, depending on your needs
 
 **Unified logical data lake:**
 
-- [OneLake in Microsoft Fabric](/fabric/onelake)
+- [OneLake in Microsoft Fabric](/fabric/onelake/)
 
 **File storage:**
 
@@ -29,7 +29,7 @@ There are several options for ingesting data into Azure, depending on your needs
 
 **NoSQL databases:**
 
-- [Azure Cosmos DB](/azure/cosmos-db)
+- [Azure Cosmos DB](/azure/cosmos-db/)
 - [HBase on HDInsight](https://hbase.apache.org)
 
 **Analytical databases:**
@@ -48,7 +48,7 @@ OneLake in Fabric:
 - Supports the creation of workspaces within a tenant so that an organization can distribute ownership and access policies.
 - Supports the creation of various data items, such as lakehouses and warehouses, from which you can access data.
 
-OneLake in Fabric serves as the common storage location for ingestion, transformation, real-time insights, and business intelligence visualizations. It centralizes various Fabric services and stores data items that all workloads use in Fabric. To choose the right datastore for your Fabric workloads, see [Fabric decision guide: choose a datastore](/fabric/get-started/decision-guide-data-store).
+OneLake in Fabric serves as the common storage location for ingestion, transformation, real-time insights, and business intelligence visualizations. It centralizes various Fabric services and stores data items that all workloads use in Fabric. To choose the right datastore for your Fabric workloads, see [Fabric decision guide: choose a datastore](/fabric/fundamentals/decision-guide-data-store).
 
 ## Azure Storage blobs
 
@@ -58,11 +58,11 @@ There are various Azure Storage services you can use to store data. The most fle
 
 Azure Storage is a good choice for big data and analytics solutions, because of its flexibility, high availability, and low cost. It provides hot, cool, and archive storage tiers for different use cases. For more information, see [Azure Blob Storage: Hot, cool, and archive storage tiers](/azure/storage/blobs/access-tiers-overview).
 
-Azure Blob storage can be accessed from Hadoop (available through HDInsight). HDInsight can use a blob container in Azure Storage as the default file system for the cluster. Through a Hadoop Distributed File System (HDFS) interface provided by a WASB driver, the full set of components in HDInsight can operate directly on structured or unstructured data stored as blobs. Azure Blob storage can also be accessed via a Microsoft Fabric [Blob Storage shortcut](/fabric/onelake/create-blob-shortcut).
+Azure Blob storage can be accessed from Hadoop (available through HDInsight). HDInsight can use a blob container in Azure Storage as the default file system for the cluster. Through a Hadoop Distributed File System (HDFS) interface provided by a WASB driver, the full set of components in HDInsight can operate directly on structured or unstructured data stored as blobs. Azure Blob storage can also be accessed via a Microsoft Fabric [Blob Storage shortcut](/fabric/onelake/shortcuts/create-blob-shortcut).
 
 Other features that make Azure Storage a good choice are:
 
-- [Multiple concurrency strategies](/azure/storage/common/storage-concurrency).
+- [Multiple concurrency strategies](/azure/storage/blobs/concurrency-manage).
 - [Disaster recovery and high-availability options](/azure/storage/common/storage-disaster-recovery-guidance).
 - [Encryption at rest](/azure/storage/common/storage-service-encryption).
 - [Azure role-based access control (RBAC)](/azure/storage/blobs/security-recommendations#data-protection) to control access using Microsoft Entra users and groups.
@@ -77,14 +77,14 @@ Data Lake Storage Gen2 makes Azure Storage the foundation for building enterpris
 
 ## Azure Cosmos DB
 
-[Azure Cosmos DB](/azure/cosmos-db) is Microsoft's globally distributed multi-model database. Azure Cosmos DB guarantees single-digit-millisecond latencies at the 99th percentile anywhere in the world, provides multiple well-defined consistency models to fine-tune performance, and guarantees high availability with multi-homing capabilities.
+[Azure Cosmos DB](/azure/cosmos-db/) is Microsoft's globally distributed multi-model database. Azure Cosmos DB guarantees single-digit-millisecond latencies at the 99th percentile anywhere in the world, provides multiple well-defined consistency models to fine-tune performance, and guarantees high availability with multi-homing capabilities.
 
 Azure Cosmos DB is schema-agnostic. It automatically indexes all the data without requiring you to deal with schema and index management. It's also multi-model, natively supporting document, key-value, graph, and column-family data models.
 
 Azure Cosmos DB features:
 
 - [Geo-replication](/azure/cosmos-db/distribute-data-globally)
-- [Elastic scaling of throughput and storage](/azure/cosmos-db/partition-data) worldwide
+- [Elastic scaling of throughput and storage](/azure/cosmos-db/partitioning-overview) worldwide
 - [Five well-defined consistency levels](/azure/cosmos-db/consistency-levels)
 
 ## HBase on HDInsight
@@ -99,7 +99,7 @@ The [HDInsight implementation](/azure/hdinsight/hbase/apache-hbase-overview) use
 
 [Azure Data Explorer](https://azure.microsoft.com/services/data-explorer/) is a fast and highly scalable data exploration service for log and telemetry data. It helps you handle the many data streams emitted by modern software so you can collect, store, and analyze data. Azure Data Explorer is ideal for analyzing large volumes of diverse data from any data source, such as websites, applications, IoT devices, and more. This data is used for diagnostics, monitoring, reporting, machine learning, and additional analytics capabilities. Azure Data Explorer makes it straightforward to ingest this data and enables you to do complex unplanned queries on the data in seconds.
 
-Azure Data Explorer can be linearly [scaled out](/azure/data-explorer/manage-cluster-horizontal-scaling) for increasing ingestion and query processing throughput. An Azure Data Explorer cluster can be [deployed to a Virtual Network](/azure/data-explorer/vnet-deployment) for enabling private networks.
+Azure Data Explorer can be linearly [scaled out](/azure/data-explorer/manage-cluster-horizontal-scaling) for increasing ingestion and query processing throughput. An Azure Data Explorer cluster can be [deployed to a Virtual Network](/azure/data-explorer/security-network-overview) for enabling private networks.
 
 ## Key selection criteria
 
@@ -139,14 +139,14 @@ The following tables summarize the key differences in capabilities.
 | Purpose | Optimized storage for big data analytics workloads |General purpose object store for a wide range of storage scenarios |
 | Use cases | Batch, streaming analytics, and machine learning data such as log files, IoT data, click streams, large datasets | Any type of text or binary data, such as application back end, backup data, media storage for streaming, and general purpose data |
 | Structure | Hierarchical file system | Object store with flat namespace |
-| Authentication | Based on [Microsoft Entra identities](/entra/identity-platform/authentication-vs-authorization) | Based on shared secrets [Account Access Keys](/azure/storage/common/storage-account-keys-manage) and [Shared Access Signature Keys](/azure/storage/common/storage-dotnet-shared-access-signature-part-1), and [Azure RBAC](/azure/security/security-storage-overview) |
+| Authentication | Based on [Microsoft Entra identities](/entra/identity-platform/authentication-vs-authorization) | Based on shared secrets [Account Access Keys](/azure/storage/common/storage-account-keys-manage) and [Shared Access Signature Keys](/azure/storage/common/storage-sas-overview), and [Azure RBAC](/azure/storage/blobs/security-recommendations) |
 | Authentication protocol | Open Authorization (OAuth) 2.0. Calls must contain a valid JWT (JSON web token) issued by Microsoft Entra ID | Hash-based Message Authentication Code (HMAC). Calls must contain a Base64-encoded SHA-256 hash over a part of the HTTP request. |
-| Authorization | Portable Operating System Interface (POSIX) access control lists (ACLs). ACLs based on Microsoft Entra identities can be set file and folder level. | For account-level authorization use [Account Access Keys](/azure/storage/common/storage-account-keys-manage). For account, container, or blob authorization use [Shared Access Signature Keys](/azure/storage/common/storage-dotnet-shared-access-signature-part-1). |
+| Authorization | Portable Operating System Interface (POSIX) access control lists (ACLs). ACLs based on Microsoft Entra identities can be set file and folder level. | For account-level authorization use [Account Access Keys](/azure/storage/common/storage-account-keys-manage). For account, container, or blob authorization use [Shared Access Signature Keys](/azure/storage/common/storage-sas-overview). |
 | Auditing | Available.  |Available |
 | Encryption at rest | Transparent, server side | Transparent, server side; Client-side encryption |
 | Developer SDKs | .NET, Java, Python, Node.js | .NET, Java, Python, Node.js, C++, Ruby |
 | Analytics workload performance | Optimized performance for parallel analytics workloads, High Throughput and IOPS | Not optimized for analytics workloads |
-| Size limits | No limits on account sizes, file sizes or number of files | Specific limits documented [here](/azure/azure-subscription-service-limits#storage-limits) |
+| Size limits | No limits on account sizes, file sizes or number of files | Specific limits documented [here](/azure/azure-resource-manager/management/azure-subscription-service-limits#azure-storage-limits) |
 | Geo-redundancy | Locally redundant (locally redundant storage (LRS)), globally redundant (geo-redundant storage (GRS)), read-access globally redundant (read-access geo-redundant storage (RA-GRS)), zone-redundant (zone-redundant storage (ZRS)). | Locally redundant (LRS), globally redundant (GRS), read-access globally redundant (RA-GRS), zone-redundant (ZRS). See [Azure Storage redundancy](/azure/storage/common/storage-redundancy) for more information |
 
 ### NoSQL database capabilities
@@ -183,12 +183,12 @@ Principal author:
 
 ## Next steps
 
-- [What is Fabric](/fabric/get-started/microsoft-fabric-overview)
+- [What is Fabric](/fabric/fundamentals/microsoft-fabric-overview)
 - [Introduction to end-to-end analytics using Fabric](/training/modules/introduction-end-analytics-use-microsoft-fabric/)
 - [Azure Cloud Storage Solutions and Services](https://azure.microsoft.com/products/category/storage)
-- [Review your storage options](/azure/cloud-adoption-framework/ready/considerations/storage-options)
+- [Review your storage options](../../guide/technology-choices/storage-options.md)
 - [Introduction to Azure Storage](/azure/storage/common/storage-introduction)
-- [Introduction to Azure Data Explorer](/training/modules/intro-to-azure-data-explorer)
+- [Introduction to Azure Data Explorer](/training/modules/intro-to-azure-data-explorer/)
 
 ## Related resources
 

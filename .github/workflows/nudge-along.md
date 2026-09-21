@@ -13,6 +13,7 @@ if: github.repository == 'MicrosoftDocs/architecture-center-pr'
 
 imports:
   - shared/safe-comment-body.md
+  - shared/author-mentions.md
 
 permissions:
   contents: read
@@ -27,9 +28,6 @@ engine:
 max-tool-denials: 3
 strict: true
 
-sandbox:
-  agent:
-    sudo: false
 
 tracker-id: nudge-stalled-prs
 
@@ -46,27 +44,6 @@ safe-outputs:
     - "*.azure.com"
   messages:
     append-only-comments: false
-  mentions:
-    allowed:
-      - AnnaMHuff
-      - ckittel
-      - claytonsiemens77
-      - Court72
-      - denrea
-      - glynnniall
-      - JamesJBarnett
-      - jmart1428
-      - johndowns
-      - karenf-Learn
-      - PlagueHO
-      - ShannonLeavitt
-      - Stacyrch140
-      - v-albemi
-      - v-regandowner
-      - v-thepet
-    allowed-collaborators: true
-    allow-context: true
-    max: 7
   add-comment:
     target: "*"
     discussions: false

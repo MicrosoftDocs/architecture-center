@@ -4,13 +4,13 @@ This article provides AWS identity architects, administrators, and security anal
 
 AWS creates a separate *Identity and Access Management (IAM) store* for each account. The following diagram shows the standard setup for an AWS environment with a single AWS account:
 
-![Diagram showing a single-account AWS environment.](media/aws-single-account.png)
+:::image type="content" source="media/aws-single-account.png" alt-text="Diagram showing a single-account AWS environment." border="false":::
 
 The *root user* fully controls the AWS account and delegates access to other identities. The AWS IAM *principal* provides a unique identity for each role and user that needs to access the AWS account. AWS IAM can protect each root, principal, and user account with a complex password and basic MFA.
 
 Many organizations need more than one AWS account, resulting in *identity silos* that are hard to manage:
 
-![Diagram showing a multiple-account AWS environment.](media/aws-multiple-accounts.png)
+:::image type="content" source="media/aws-multiple-accounts.png" alt-text="Diagram showing a multiple-account AWS environment." border="false":::
 
 To allow centralized identity management and avoid managing multiple identities and passwords, most organizations want to use single sign-on for platform resources. Some AWS customers rely on Windows Server Active Directory for SSO integration. Other customers invest in non-Microsoft solutions to synchronize or federate their identities and provide SSO.
 
@@ -20,7 +20,7 @@ Many organizations already use Microsoft Entra ID to assign and protect Microsof
 
 The following diagram shows how Microsoft Entra ID can integrate with multiple AWS accounts to provide centralized identity and access management:
 
-![Diagram showing AWS and Microsoft Entra integration.](media/azure-aws-integration.png)
+:::image type="content" source="media/azure-aws-integration.png" alt-text="Diagram showing AWS and Microsoft Entra integration." lightbox="media/azure-aws-integration.png" border="false":::
 
 Microsoft Entra ID offers several capabilities for direct integration with AWS:
 
@@ -183,7 +183,7 @@ Make sure any remaining AWS IAM users have complex passwords with MFA enabled, o
 
 The following diagram shows an example of the configuration steps and final policy and role mapping across Microsoft Entra ID and AWS IAM:
 
-![Diagram showing configuration steps and final role mapping from AWS IAM to Azure AD.](media/role-mapping.png)
+:::image type="content" source="media/role-mapping.png" alt-text="Diagram showing configuration steps and final role mapping from AWS IAM to Azure AD." lightbox="media/role-mapping.png" border="false":::
 
 ### Single sign-on integration
 
@@ -229,7 +229,7 @@ Use the following steps to configure Microsoft Entra SSO for AWS:
 
 Based on these configuration steps, you can diagram the interactions like this:
 
-![Diagram of the configuration interactions.](media/diagram-example.png)
+:::image type="content" source="media/diagram-example.png" alt-text="Diagram of the configuration interactions." border="false":::
 
 On **AWS Console**, use the following steps to create more roles.
 
@@ -270,7 +270,7 @@ Because you're using two roles, perform these extra steps:
 
 1. Confirm that the provisioning agent can see at least two roles:
 
-   :::image type="content" source="media/see-roles.png" alt-text="Screenshot of the two roles in Microsoft Entra ID.":::
+   :::image type="content" source="media/see-roles.png" lightbox="media/see-roles.png" alt-text="Screenshot of the two roles in Microsoft Entra ID.":::
 
 1. Go to **Users and groups** and select **Add User**.
 
@@ -278,15 +278,15 @@ Because you're using two roles, perform these extra steps:
 
 1. Select the associated role.
 
-   :::image type="content" source="media/select-role.png" alt-text="Screenshot of selecting an associated role.":::
+   :::image type="content" source="media/select-role.png" lightbox="media/select-role.png" alt-text="Screenshot of selecting an associated role.":::
 
 1. Repeat the preceding steps for each group-role mapping. Once complete, you should have two Microsoft Entra groups correctly mapped to AWS IAM roles:
 
-   :::image type="content" source="media/group-role-mapping.png" alt-text="Screenshot showing Groups mapped to correct Roles.":::
+   :::image type="content" source="media/group-role-mapping.png" lightbox="media/group-role-mapping.png" alt-text="Screenshot showing Groups mapped to correct Roles.":::
 
 If you can't see or select a role, go back to the **Provisioning** page to confirm successful provisioning in the Microsoft Entra provisioning agent, and make sure the IAM User account has the correct permissions. You can also restart the provisioning engine to attempt the import again:
 
-:::image type="content" source="media/restart-provisioning.png" alt-text="Screenshot of Restart provisioning in the menu bar.":::
+:::image type="content" source="media/restart-provisioning.png" lightbox="media/restart-provisioning.png" alt-text="Screenshot of Restart provisioning in the menu bar.":::
 
 <a name='test-azure-ad-sso-into-aws-management-console'></a>
 
@@ -332,7 +332,7 @@ To create a new Conditional Access policy that requires MFA:
    1. Under **Access controls** > **Grant**, select **Grant access**, **Require multifactor authentication**, and select **Select**.
 1. Set **Enable policy** to **On**.
 
-   :::image type="content" source="media/aws-policy.png" alt-text="Screenshot of the filled-out new policy form.":::
+   :::image type="content" source="media/aws-policy.png" lightbox="media/aws-policy.png" alt-text="Screenshot of the filled-out new policy form.":::
 
 1. Select **Create**. The policy takes effect immediately.
 

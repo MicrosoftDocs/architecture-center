@@ -16,7 +16,7 @@ Segregate the read and write operations for a data store into separate data mode
 
 In a traditional architecture, a single data model is often used for both read and write operations. This approach is straightforward and is suited for basic create, read, update, and delete (CRUD) operations.
 
-:::image type="content" source="./_images/command-and-query-responsibility-segregation-cqrs-tradition-crud.png" alt-text="Diagram that shows a traditional CRUD architecture." lightbox="./_images/command-and-query-responsibility-segregation-cqrs-tradition-crud.png" border="false":::
+:::image type="content" source="./_images/command-and-query-responsibility-segregation-cqrs-tradition-crud.png" alt-text="Diagram that shows a traditional CRUD architecture." border="false":::
 
 As applications grow, it can become increasingly difficult to optimize read and write operations on a single data model. Read and write operations often have different performance and scaling requirements. A traditional CRUD architecture doesn't take this asymmetry into account, which can result in the following challenges:
 
@@ -54,7 +54,7 @@ The following sections describe two primary approaches to implement read model a
 
 This approach represents the foundational level of CQRS, where both the read and write models share a single underlying database but maintain distinct logic for their operations. A basic CQRS architecture allows you to delineate the write model from the read model while relying on a shared data store.
 
-:::image type="content" source="./_images/command-and-query-responsibility-segregation-cqrs-basic.png" alt-text="Diagram that shows a basic CQRS architecture." lightbox="./_images/command-and-query-responsibility-segregation-cqrs-basic.png" border="false":::
+:::image type="content" source="./_images/command-and-query-responsibility-segregation-cqrs-basic.png" alt-text="Diagram that shows a basic CQRS architecture." border="false":::
 
 This approach improves clarity, performance, and scalability by defining distinct models for handling read and write concerns.
 
@@ -66,7 +66,7 @@ This approach improves clarity, performance, and scalability by defining distinc
 
 A more advanced CQRS implementation uses distinct data stores for the read and write models. Separation of the read and write data stores allows you to scale each model to match the load. It also enables you to use a different storage technology for each data store. You can use a document database for the read data store and a relational database for the write data store.
 
-:::image type="content" source="./_images/command-and-query-responsibility-segregation-cqrs-separate-stores.png" alt-text="Diagram that shows a CQRS architecture with separate read data stores and write data stores." lightbox="./_images/command-and-query-responsibility-segregation-cqrs-separate-stores.png" border="false":::
+:::image type="content" source="./_images/command-and-query-responsibility-segregation-cqrs-separate-stores.png" alt-text="Diagram that shows a CQRS architecture with separate read data stores and write data stores." border="false":::
 
 When you use separate data stores, you must ensure that both remain synchronized. A common pattern is to have the write model publish events when it updates the database, which the read model uses to refresh its data. For more information about how to use events, see [Event-driven architecture style](../guide/architecture-styles/event-driven.md). Because you usually can't enlist message brokers and databases into a single distributed transaction, consistency problems can occur when you update the database and publish events. Use the [Transactional Outbox pattern](../databases/guide/transactional-out-box-cosmos.md) to persist the state change and event atomically, and make the read-model consumer [idempotent](./idempotent-consumer.md) to tolerate duplicate delivery.
 

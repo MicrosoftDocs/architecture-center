@@ -224,4 +224,3 @@ To continue learning about AI on Azure, explore the following resources:
 - [Baseline Microsoft Foundry chat reference architecture in an Azure landing zone](/azure/architecture/ai-ml/architecture/baseline-microsoft-foundry-landing-zone)
 - [Microsoft AI](https://www.microsoft.com/ai/)
 - [AI learning hub](/ai/)
-- [Microsoft AI on GitHub: Samples, reference architectures, and best practices](https://github.com/microsoft/AI)

@@ -252,7 +252,7 @@ Microsoft Learn modules:
 
 ## Related resources
 
-- [Hybrid architecture design](../../hybrid/hybrid-start-here.md)
+- [Get started with Azure hybrid and adaptive cloud architecture](../../hybrid/hybrid-start-here.md)
 - [Azure hybrid options](../../guide/technology-choices/hybrid-considerations.yml)
 - [Hub-spoke network topology in Azure](../../networking/architecture/hub-spoke.yml)
 - [Connect an on-premises network to Azure](hybrid-connectivity-options.md)

@@ -20,7 +20,7 @@ Choosing the right container platform depends on your workload requirements, ope
 
 Azure provides a range of services for containers:
 
-- [Azure Kubernetes Service (AKS)](/azure/aks/intro-kubernetes): Fully managed Kubernetes service for deploying and managing containerized applications with enterprise-grade security and governance.
+- [Azure Kubernetes Service (AKS)](/azure/aks/what-is-aks): Fully managed Kubernetes service for deploying and managing containerized applications with enterprise-grade security and governance.
 
 - [Azure Container Apps](/azure/container-apps/overview): Serverless container platform for running microservices and containerized applications without managing infrastructure.
 
@@ -38,7 +38,7 @@ Azure provides a range of services for containers:
 
 *Download a [Visio file](https://arch-center.azureedge.net/aks-baseline-architecture.vsdx) of this architecture.*
 
-The previous diagram demonstrates a typical basic or baseline container implementation. For real-world solutions that you can build in Azure, see [Container architectures](#container-architectures).
+The previous diagram demonstrates a typical basic or baseline container implementation. For real-world solutions that you can build in Azure, see [Explore container guides, architectures, and solution ideas](#explore-container-guides-architectures-and-solution-ideas).
 
 ## Explore container guides, architectures, and solution ideas
 
@@ -106,11 +106,11 @@ The following resources can help you discover more about containers.
 
 - [Azure Arc-enabled Kubernetes](/azure/azure-arc/kubernetes/overview): Manage Kubernetes clusters that run anywhere by using Azure Arc.
 
-- [AKS enabled by Azure Arc](/azure/aks/hybrid/aks-hybrid-options-overview): Run AKS on Azure Local and Windows Server.
+- [AKS enabled by Azure Arc](/azure/aks/aksarc/overview): Run AKS on Azure Local and Windows Server.
 
 - [Azure Arc hybrid management and deployment for Kubernetes clusters](../hybrid/arc-hybrid-kubernetes.yml): Manage Kubernetes clusters across environments.
 
-- [Hybrid architecture design](../hybrid/hybrid-start-here.md): Overview of hybrid solutions on Azure.
+- [Get started with Azure hybrid and adaptive cloud architecture](../hybrid/hybrid-start-here.md): Overview of hybrid solutions on Azure.
 
 - [AKS on Azure Local baseline architecture](../example-scenario/hybrid/aks-baseline.yml): Production-ready AKS on Azure Local deployment.
 

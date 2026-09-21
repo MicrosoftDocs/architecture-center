@@ -14,7 +14,7 @@ This pattern supports small or medium-sized businesses that have the following c
 
 ## Simplified architecture
 
-:::image type="complex" source="media/small-medium-data-warehouse/simplified-architecture.svg" alt-text="Diagram that illustrates a simplified small or medium-sized business architecture." border="false":::
+:::image type="complex" source="media/small-medium-data-warehouse/simplified-architecture.svg" alt-text="Diagram that illustrates a simplified small or medium-sized business architecture." lightbox="media/small-medium-data-warehouse/simplified-architecture.svg" border="false":::
 Diagram that shows a data flow for small or medium-sized business data warehousing modernization. On the left, a legacy data warehousing solution connects via a data pipeline arrow to a dotted box labeled Store and process. This box contains Azure SQL Database and Azure SQL Managed Instance and connects to a second dotted box labeled Process and present. This box contains Fabric and connects to Power BI.
 :::image-end:::
 
@@ -119,7 +119,7 @@ You and Microsoft share responsibility for the reliability of most Azure service
 - [SQL Managed Instance](/azure/reliability/reliability-sql-managed-instance) 
 - [SQL Database](/azure/reliability/reliability-sql-database)
 - [Azure Blob Storage](/azure/reliability/reliability-storage-blob)
-- [Fabric](/azure/reliability/reliability-fabric)
+- [Fabric](/fabric/security/reliability-fabric)
 - [Data Factory](/azure/reliability/reliability-data-factory)
 
 ### Cost Optimization

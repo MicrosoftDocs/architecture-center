@@ -296,6 +296,8 @@ The App Service baseline architecture configures authentication and authorizatio
 
 - Use user-assigned managed identities. System-assigned identities can cause IaC deployments to fail based on race conditions and order of operations. User-assigned managed identities avoid some of these deployment error scenarios. For more information, see [Managed identities](/entra/identity/managed-identities-azure-resources/managed-identity-best-practice-recommendations).
 
+- For each user-assigned managed identity, configure [assignment restrictions](/entra/identity/managed-identities-azure-resources/managed-identities-assignment-restriction) (preview) to allow only the intended source resource type: `Microsoft.Web/sites` and `Microsoft.Web/sites/slots` for the App Service identity and `Microsoft.Network/applicationGateways` for the Application Gateway identity. Set the [isolation scope](/entra/identity/managed-identities-azure-resources/managed-identities-isolation-scope) to `Regional`, and create separate identities for App Service and Application Gateway resources in each region.
+
 ### Cost Optimization
 
 Cost Optimization focuses on ways to reduce unnecessary expenses and improve operational efficiencies. For more information, see [Design review checklist for Cost Optimization](/azure/well-architected/cost-optimization/checklist).

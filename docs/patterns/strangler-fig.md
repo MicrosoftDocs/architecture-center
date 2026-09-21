@@ -60,6 +60,8 @@ Consider the following points as you decide how to implement this pattern:
 
 - Plan for cross-system dependencies. During migration, both systems need to coexist and communicate. For example, the new system might need to call unmigrated functionality from the legacy system, and unmigrated legacy components might need to call migrated functionality from the new system. To manage these calls, use the [Anti-corruption Layer pattern](./anti-corruption-layer.md). An anti-corruption layer acts as an adapter that translates requests between the two systems. This layer protects the new system's design from legacy semantics so that the legacy system can reach new services without significant code changes. Without this adapter, cross-system dependencies can break components or force the new system to adopt legacy conventions.
 
+- Plan how unmodifiable legacy components will reach new services. When an application is database-centric, for example with its logic embedded in stored procedures, the database itself can send messages to new services without changing the application code. The [SQL Server native integration sample](https://docs.particular.net/samples/sqltransport/native-integration/) does this from T-SQL statements and from a trigger executed on insert. Using [change data capture](/sql/relational-databases/track-changes/about-change-data-capture-sql-server) processing is an alternative approach, reading the transaction log instead.
+
 ## When to use this pattern
 
 Use this pattern when:

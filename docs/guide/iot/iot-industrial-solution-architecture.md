@@ -11,16 +11,19 @@ ai-usage: ai-assisted
 
 # OPC UA reference solution
 
-This article discusses a standards-based industrial IoT reference solution that uses OPC Unified Architecture (OPC UA) to connect shop-floor telemetry to Azure analytics services. It demonstrates how to ingest, model, and query manufacturing data so you can support scenarios like condition monitoring, OEE analysis, and anomaly detection. Use this architecture as a starting point to validate the approach with a simulation and then adapt it for production workloads.
+> [!NOTE]
+> This solution leverages Azure IoT Operations, a platform for connecting, managing, and processing industrial telemetry. Azure IoT Operations supports OPC UA-enabled environments as well as a broad range of industrial and edge scenarios and simplifies deployment and ongoing operations for most production use cases. If you choose to use Azure IoT Operations with default settings and to learn more about its architecture, see the [**Azure IoT Operations Overview**](/azure/iot-operations/overview-iot-operations#architecture-overview).
+
+## About this solution
+
+Manufacturers increasingly need industrial IoT solutions that avoid vendor lock-in while operating consistently across globally distributed production sites. A unified approach enables organizations to connect equipment, systems, and data across their manufacturing footprint, helping improve production efficiency, product quality, and energy utilization while reducing operational costs.
+
+To deliver these benefits, an industrial IoT platform must support a wide range of scenarios, including condition monitoring, overall equipment effectiveness (OEE) analysis, forecasting, anomaly detection, predictive maintenance, and AI-assisted reasoning. By combining operational insights with automation, manufacturers can establish digital feedback loops that continuously optimize production processes.
+
+Achieving these capabilities requires interoperability across devices, applications, and cloud services. Open standards such as Open Platform Communications Unified Architecture (OPC UA) provide a common foundation for integrating manufacturing systems from edge to cloud. The [OPC Foundation Cloud Initiative](https://opcfoundation.org/cloud/) extends this approach to cloud-native architectures. This article describes Microsoft's implementation of the Cloud Initiative reference architecture and demonstrates how organizations can build an open, scalable, and AI-ready industrial IoT platform.
 
 > [!NOTE]
-> This article describes a Microsoft OPC UA reference solution that demonstrates how to send telemetry from OPC UA-enabled industrial assets to Azure. The solution is provided as reference guidance to help architects and developers understand one approach for integrating OPC UA data with Azure services.
->
-> This reference solution isn't a Microsoft-supported product offering and should be evaluated carefully before use in production environments. Organizations are responsible for validating that the architecture, components, and operational characteristics align with their needs.
->
-> For new deployments, Microsoft recommends evaluating Azure IoT Operations, a fully supported platform for connecting, managing, and processing industrial telemetry. Azure IoT Operations supports OPC UA-enabled environments as well as a broad range of industrial and edge scenarios, and simplifies deployment and ongoing operations for most production use cases.
->
-> To learn more, see the [**Azure IoT Operations Overview**](/azure/iot-operations/overview-iot-operations#architecture-overview).
+> This solution is provided as-is and isn't a Microsoft-supported product offering. Evaluate it carefully before use in production environments. You're responsible for validating that the architecture, leveraged Azure services, components, and operational characteristics align with your needs.
 
 ## Contents
 
@@ -46,16 +49,6 @@ This article discusses a standards-based industrial IoT reference solution that 
   - [Analytics path-specific considerations (Azure Data Explorer, Azure Databricks, Fabric)](#analytics-path-specific-considerations-azure-data-explorer-azure-databricks-fabric)
   - [Summary of recommendations for production](#summary-of-recommendations-for-production)
   - [Configure OAuth 2.0 for the I3X API via Microsoft Entra ID](#configure-oauth-20-for-the-i3x-api-via-microsoft-entra-id)
-
-## About this solution
-
-Manufacturers might want to use an industrial IoT solution that doesn't lock them in to proprietary platforms. In addition, they might want to deploy this solution on a global scale and connect all of their production sites to it to increase efficiencies for each individual site.
-
-These increased efficiencies lead to faster production, better quality, and lower energy consumption, which all lead to reducing the cost for produced goods.
-
-The solution must be as efficient as possible and enable all required use cases, like condition monitoring, overall equipment effectiveness (OEE) calculation, forecasting, and anomaly detection. By using the insights gained from these use cases, manufacturers can create digital feedback loops, which can apply optimizations and other changes to the production processes in a fully automated way.
-
-Interoperability is essential for these requirements. The use of open standards like OPC UA significantly helps to achieve this interoperability. Improving this interoperability led to the establishment of the [OPC Foundation Cloud Initiative](https://opcfoundation.org/cloud). This OPC UA reference solution is the Microsoft implementation of the Cloud Initiative's reference architecture.
 
 ## Prerequisites
 
