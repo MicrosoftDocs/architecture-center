@@ -3,12 +3,13 @@ title: Choose an Azure Service for Vector Search
 description: Compare capabilities, indexing methods, and integration options to determine which Azure vector search service best fits your application.
 author: miyamam
 ms.author: miyamam
-ms.date: 07/13/2026
+ms.date: 09/17/2026
 ms.update-cycle: 180-days
 ms.topic: concept-article
 ms.subservice: architecture-guide
 ms.collection: ce-skilling-ai-copilot
 ms.custom: arb-aiml
+ai-usage: ai-assisted
 ---
 
 # Choose an Azure service for vector search
@@ -35,16 +36,16 @@ This section helps you select the best service or services for your needs. To na
 ### Key requirements
 
 :::image type="complex" border="false" source="./images/vector-search-flowchart.svg" alt-text="Flowchart that helps you choose the right Azure vector search service." lightbox="./images/vector-search-flowchart.svg":::
-  Flowchart that helps you choose the right Azure vector search service. The flowchart asks if you frequently insert, update, or delete vector data, and need search results in real time or near real time. If you answer no, it asks two further questions about first-class hybrid search that uses semantic reranking, large-scale unstructured content indexing, cost optimization, and your existing database service. If cost optimization is a priority, or if you already operate a database service that supports vector search, the flowchart guides you to use your existing database service. If cost optimization isn't a priority, or if you don't currently operate a database service that supports vector search, the flowchart guides you to Azure AI Search. If you answer yes to the first question, the flowchart asks if you need ultra-low latency in-memory vector search, or if you already use Azure Managed Redis. If you answer yes, the flowchart guides you to use, or to continue using, Azure Managed Redis. If you answer no, the flowchart asks if you prefer to use a relational database management system (RDBMS). If you answer yes, the flowchart asks if your embeddings exceed 1,998 dimensions. If you answer yes, the flowchart asks if you need horizontal sharding for very large vector datasets. If you answer yes, the flowchart guides you to Azure Database for PostgreSQL with Elastic Clusters. If you answer no, the flowchart guides you to Azure Database for PostgreSQL. If your embeddings don't exceed 1,998 dimensions, the flowchart asks if you prefer Azure SQL Database or Azure Database for PostgreSQL, and guides you to either of these options based on your answer. If you don't prefer to use an RDBMS, the flowchart asks if you want to keep operational data and vector search in the same store, with hybrid search and built-in reranking. If you answer yes, the flowchart guides you to Azure Cosmos DB for NoSQL. If you answer no, the flowchart asks if you need vector dimensions up to 16,000, or MongoDB-compatible APIs. If you answer yes, the flowchart guides you to Azure DocumentDB. If you answer no, the flowchart guides you to Azure Cosmos DB for NoSQL.
+  Flowchart that helps you choose the right Azure vector search service. The flowchart asks if you frequently insert, update, or delete vector data, and need search results in real time or near real time. If you answer no, it asks whether you need a separate managed index for content from multiple sources. If you do, the flowchart guides you to Azure AI Search. Otherwise, it asks about cost optimization and your existing database services. If cost optimization is a priority, or if you already operate a database service that supports vector search, the flowchart guides you to use your existing database service. If cost optimization isn't a priority, or if you don't currently operate a database service that supports vector search, the flowchart guides you to Azure AI Search. If you answer yes to the first question, the flowchart asks if you need ultra-low latency in-memory vector search, or if you already use Azure Managed Redis. If you answer yes, the flowchart guides you to use, or to continue using, Azure Managed Redis. If you answer no, the flowchart asks if you prefer to use a relational database management system (RDBMS). If you answer yes, the flowchart asks if your embeddings exceed 1,998 dimensions. If you answer yes, the flowchart asks if you need horizontal sharding for very large vector datasets. If you answer yes, the flowchart guides you to Azure Database for PostgreSQL with Elastic Clusters. If you answer no, the flowchart guides you to Azure Database for PostgreSQL. If your embeddings don't exceed 1,998 dimensions, the flowchart asks if you prefer Azure SQL Database or Azure Database for PostgreSQL, and guides you to either option based on your answer. If you don't prefer an RDBMS, the flowchart asks if you want to keep operational data and vector search in the same store, with native full-text and hybrid search. If you answer yes, the flowchart guides you to Azure Cosmos DB for NoSQL. If you answer no, the flowchart asks if you need vector dimensions up to 16,000, or MongoDB-compatible APIs. If you answer yes, the flowchart guides you to Azure DocumentDB. If you answer no, the flowchart guides you to Azure Cosmos DB for NoSQL.
 :::image-end:::
 
 To decide whether to use a traditional database solution or AI Search, consider your requirements and whether you can perform live or real-time vector searches on your data. If you frequently change values in vectorized fields, and if those changes need to be searchable in real time or near real time, a traditional relational or NoSQL database is the best fit for your scenario. Similarly, your existing database might be the best way to meet your performance target. However, if your workload doesn't require real-time or near-real-time vector searchability, and you can manage an index of vectors, you can use AI Search.
 
 If you choose a traditional database solution, choose a database service based on your team's skill set and your existing databases. If you already use a database service, such as Azure Cosmos DB for NoSQL, that service might be the easiest solution for your scenario.
 
-- Azure Cosmos DB for NoSQL is a good fit if you want to keep operational data and vector search in the same system and if you need full-text scoring, hybrid search, or built-in reranking.
+- Azure Cosmos DB for NoSQL is a good fit if you want to keep operational data and vector search in the same system and if you need full-text scoring, hybrid search, or built-in reranking. Its semantic reranker is in preview. When your application writes a record and its embedding together, you don't need to synchronize a separate search index before querying the updated item.
 
-- AI Search might be a good choice if your workload requires first-class hybrid search and semantic ranking.
+- AI Search is a good choice when you need a separate managed index for content from multiple sources, with integrated vectorization and search-specific features such as faceting and autocomplete.
 
 - Azure Database for PostgreSQL supports horizontal scaling by using elastic clusters, a managed offering of the open-source Citus extension that supports horizontal sharding. This capability distributes vector data across multiple nodes, which can be useful for large vector datasets.
 
@@ -52,7 +53,9 @@ If you choose a traditional database solution, choose a database service based o
 
 Each database service has [unique capabilities and limitations](#capability-matrix) for vector search. Check that your database type has the required functionality.
 
-New services and extra database instances can increase cost and complexity. To reduce overhead, you can continue to use your existing design. Vector search in your current databases might be more cost effective than a dedicated vector search service. However, some advanced search features aren't available by default in traditional databases. For example, if you need reranking or hybrid search, you can implement these capabilities by using code, such as Transact-SQL (T-SQL).
+New services and extra database instances can increase cost and complexity. To reduce overhead, you can continue to use your existing design. Vector search in your current databases might be more cost effective than a dedicated vector search service.
+
+Support for advanced retrieval features varies by service. Azure Cosmos DB for NoSQL and Azure DocumentDB provide native hybrid search that combines full-text and vector search by using reciprocal rank fusion (RRF). Azure Cosmos DB for NoSQL also provides a semantic reranker in preview. AI Search provides hybrid search and semantic ranking as managed search features. For services that don't provide these capabilities, implement the required ranking logic in your application or database code.
 
 ## Capability matrix
 
@@ -70,9 +73,9 @@ The following table shows the vector capabilities of each Azure service.
 | :---- | :--- | :--- | :--- | :--- | :--- | :--- |
 | Built-in vector search | Yes | Yes<a href="#a1"><sup>1</sup></a> | Yes<a href="#a2"><sup>2</sup></a> | Yes<a href="#a3"><sup>3</sup></a> | Yes<a href="#a4"><sup>4</sup></a> | Yes |
 | Vector data type | Yes | Yes | Yes | Yes | Yes | Yes<a href="#a5"><sup>5</sup></a> |
-| Dimension limits<a href="#a6"><sup>6</sup></a> | 505<a href="#a7"><sup>7</sup></a> or 4,096 | 16,000<a href="#a8"><sup>8</sup></a>, 4,000, or 2,000, depending on the configuration | 16,000<a href="#a9"><sup>9</sup></a> or 2,000 | 32,768 | 4,096<a href="#a10"><sup>10</sup></a> | 1,998 <a href="#a11"><sup>11</sup></a> |
-| Multiple vector fields | Yes | No | Yes | Yes | Yes | Yes |
-| Multiple vector indexes | Yes | No | Yes | Yes | Yes | Yes |
+| Dimension limits<a href="#a6"><sup>6</sup></a> | 4,096<a href="#a7"><sup>7</sup></a>, or 505 with a flat index | 16,000<a href="#a8"><sup>8</sup></a>, 4,000, or 2,000, depending on the configuration | 16,000<a href="#a9"><sup>9</sup></a> or 2,000 | 32,768 | 4,096<a href="#a10"><sup>10</sup></a> | 1,998 <a href="#a11"><sup>11</sup></a> |
+| Multiple vector fields | Yes | Yes<a href="#a12"><sup>12</sup></a> | Yes | Yes | Yes | Yes |
+| Multiple vector indexes | Yes | Yes<a href="#a13"><sup>13</sup></a> | Yes | Yes | Yes | Yes |
 
 1. <span id="a1">Azure DocumentDB supports vector search on embeddings.</span>
 1. <span id="a2">`pgvector`, an extension of PostgreSQL, supports vector search. The `pg_diskann` extension offers DiskANN-based vector indexing for efficient ANN search at scale.</span>
@@ -85,6 +88,8 @@ The following table shows the vector capabilities of each Azure service.
 1. <span id="a9">Vectors can have up to 16,000 dimensions. However, indexing by using IVFFlat and HNSW algorithms supports vectors with up to 2,000 dimensions.</span>
 1. <span id="a10">AI Search supports Matryoshka Representation Learning-based [dimension truncation](/azure/search/vector-search-how-to-truncate-dimensions). Text-embedding-3 models can reduce vector dimensions. For example, you can use 256 or 512 dimensions.</span>
 1. <span id="a11">SQL Database supports a native vector data type with up to 1,998 dimensions.</span>
+1. <span id="a12">Each Azure DocumentDB vector index targets one vector path. Create a separate vector index for each vector field that you need to query.</span>
+1. <span id="a13">You can create multiple indexes in an Azure DocumentDB collection, but only one vector index can target a specific vector path.</span>
 
 ### Search methods
 
@@ -94,20 +99,21 @@ Workloads often need to combine vector search with full-text search or hybrid se
 | :--- | :--- | :--- | :--- | :--- | :--- | :--- |
 | Full-text search | Yes<a href="#b12"><sup>12</sup></a> | Yes<a href="#b2"><sup>2</sup></a> | Yes<a href="#b3"><sup>3</sup></a> | Yes<a href="#b4"><sup>4</sup></a> | Yes | Yes<a href="#b5"><sup>5</sup></a> |
 | Hybrid search | Yes<a href="#b6"><sup>6</sup></a> | Yes<a href="#b7"><sup>7</sup></a> | Yes<a href="#b8"><sup>8</sup></a> | Yes<a href="#b9"><sup>9</sup></a> | Yes<a href="#b10"><sup>10</sup></a> | Yes<a href="#b11"><sup>11</sup></a> |
-| Built-in reranking | Yes | No | No | No | Yes<a href="#b1"><sup>1</sup></a> | No |
+| Built-in reranking | Yes (preview)<a href="#b13"><sup>13</sup></a> | No | No | No | Yes<a href="#b1"><sup>1</sup></a> | No |
 
 1. <span id="b1">Semantic ranking reranks results of full-text and vector searches.</span>
 1. <span id="b2">Azure DocumentDB supports search and query by using text indexes.</span>
 1. <span id="b3">PostgreSQL supports full-text search.</span>
 1. <span id="b4">Azure Managed Redis supports full-text search by using the [RediSearch](/azure/redis/redis-modules#redisearch) module, including text tokenization, stemming, and ranking.</span>
 1. <span id="b5">SQL Server supports full-text search.</span>
-1. <span id="b6">Azure Cosmos DB for NoSQL supports hybrid search.</span>
+1. <span id="b6">Azure Cosmos DB for NoSQL supports hybrid search that combines BM25 full-text scoring and vector search by using RRF. You can assign weights to the component rankings.</span>
 1. <span id="b7">Azure DocumentDB natively supports hybrid search that combines full-text and vector search with reciprocal rank fusion.</span>
 1. <span id="b8">Hybrid search isn't built in, but sample code is available.</span>
 1. <span id="b9">Azure Managed Redis supports hybrid search by using VSS combined with attribute filtering on text, numeric, tag, and geo fields.</span>
 1. <span id="b10">Hybrid search, which combines full-text search, vector search, and semantic ranking, is a feature in AI Search.</span>
 1. <span id="b11">An example of hybrid search for SQL Database and SQL Server is available.</span>
 1. <span id="b12">Azure Cosmos DB for NoSQL supports full-text search and full-text scoring.</span>
+1. <span id="b13">The [semantic reranker for Azure Cosmos DB for NoSQL](/azure/cosmos-db/gen-ai/semantic-reranker) is in preview. It can rerank vector, full-text, or hybrid query results through supported Azure Cosmos DB SDKs.</span>
 
 ### Vector data indexing algorithms
 
@@ -125,7 +131,7 @@ The following table shows the available vector data indexing types.
 | Ek-NN | Yes | Yes | Yes | Yes<a href="#c4"><sup>4</sup></a> | Yes | Yes |
 | HNSW | No | Yes<a href="#c1"><sup>1</sup></a> | Yes | Yes<a href="#c5"><sup>5</sup></a> | Yes | No |
 | IVFFlat | No | Yes | Yes | No | No | No |
-| Other | Flat, quantizedFlat<a href="#c6"><sup>6</sup></a> | Vector field limitation,<a href="#c7"><sup>7</sup></a> <br> vector index limitation<a href="#c8"><sup>8</sup></a> | - | - | Scalar quantization, binary quantization<a href="#c9"><sup>9</sup></a> | - |
+| Other | Flat, quantizedFlat<a href="#c6"><sup>6</sup></a> | One vector field and index per path<a href="#c7"><sup>7</sup></a><a href="#c8"><sup>8</sup></a> | - | - | Scalar quantization, binary quantization<a href="#c9"><sup>9</sup></a> | - |
 
 1. <span id="c1">For more information, see [Integrated vector store in Azure DocumentDB](/azure/documentdb/vector-search).</span>
 1. <span id="c2">For more information, see [DiskANN for Azure Database for PostgreSQL](/azure/postgresql/extensions/how-to-use-pgdiskann).</span>
@@ -179,6 +185,41 @@ You can link vector search to other Microsoft components. For example, Azure Ope
 1. <span id="g11">This service is supported as a memory connector and a vector database connector. For more information, see the [C# documentation](/semantic-kernel/concepts/vector-store-connectors/out-of-the-box-connectors/azure-ai-search-connector?pivots=programming-language-csharp) and the [Python documentation](/semantic-kernel/concepts/vector-store-connectors/out-of-the-box-connectors/azure-ai-search-connector?pivots=programming-language-python).</span>
 1. <span id="g12">This service is supported as a memory connector.</span>
 
+## Operational considerations
+
+The capability matrix identifies services that meet your functional requirements. When more than one service qualifies, compare how each option affects data placement, freshness, filtering, capacity, and embedding maintenance.
+
+### Data placement and freshness
+
+Azure Cosmos DB for NoSQL, Azure DocumentDB, Azure Database for PostgreSQL, and Azure SQL Database can store embeddings with the workload's operational records. If your application generates an embedding and writes it with the record, both values are updated through the database write path. This design avoids a separate search index synchronization process.
+
+AI Search maintains a search index that is separate from the source system. You can push documents to the index or use an indexer to pull data from a [supported data source](/azure/search/search-indexer-overview). A separate index lets you combine and shape content from multiple systems, and scale retrieval independently from transactional workloads. It also creates another copy of the searchable data. Account for the time between a source update and the corresponding index update.
+
+Choose a colocated design when operational records change frequently and retrieval must use the updated values. Choose a separate search index when the corpus spans multiple systems or requires managed content extraction, enrichment, and vectorization.
+
+### Filtering and partitioning
+
+Most production vector queries use filters to enforce tenant, security, document-set, or application boundaries. Evaluate filters with the vector search because they can affect both recall and latency.
+
+- In Azure Cosmos DB for NoSQL, add supported predicates to the `WHERE` clause of a query that uses `VectorDistance`. A partition-key filter limits the search to the matching logical partition.
+- In Azure DocumentDB, add supported filters to the `cosmosSearch` operator.
+- In AI Search, create filterable non-vector fields and use [vector filter modes](/azure/search/vector-search-filters) to control whether the service applies a filter before or after vector retrieval.
+
+### Capacity and regional design
+
+The services use different scaling and billing units, so list-price comparisons don't show the cost of a specific workload. Model index size, vector dimensions, query rate, update rate, replicas, partitions, and database throughput. Include the cost of the source database when you evaluate a separate search index.
+
+Regional design also differs:
+
+- Azure Cosmos DB provides built-in data distribution across Azure regions and supports multiple write regions.
+- AI Search is a regional service. A multiregion AI Search design uses a search service in each region and requires a process that keeps the indexes aligned.
+
+### Keep embeddings current
+
+Embeddings are derived data. Regenerate them when the source content changes or when you adopt a different embedding model.
+
+AI Search indexers can orchestrate chunking and integrated vectorization for supported sources. For a database-centered design, your application or data pipeline performs those steps and writes the resulting vectors. A change feed or source event can start that process, but the new content isn't semantically searchable until the updated embedding is stored.
+
 ## Contributors
 
 *Microsoft maintains this article. The following contributors wrote this article.*
@@ -188,9 +229,10 @@ Principal authors:
 - [Yu Saito](https://www.linkedin.com/in/yu-saito-192-profile/) | Solution Engineer
 - [Miho Yamamoto](https://www.linkedin.com/in/mihoyamamoto/) | Senior Solution Engineer
 
-Other contributor:
+Other contributors:
 
 - [Keita Onabuta](https://www.linkedin.com/in/keita-onabuta/) | Senior Solution Engineer
+- [Manish Sharma](https://www.linkedin.com/in/mannu2050) | Principal Program Manager
 
 *To see nonpublic LinkedIn profiles, sign in to LinkedIn.*
 
