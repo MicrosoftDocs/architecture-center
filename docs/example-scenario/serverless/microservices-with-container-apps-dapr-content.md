@@ -58,7 +58,7 @@ The following data flow corresponds to the previous diagram:
 
 - [Azure Cosmos DB](/azure/well-architected/service-guides/cosmos-db) is a NoSQL, multiple-model managed database service. In this architecture, it's used as a Dapr state store component for the loyalty service to store customers' loyalty data.
 
-- [Azure Monitor](/azure/azure-monitor/overview) is a unified platform that enables you to collect, analyze, and act on customer content data from your Azure infrastructure environments. In this architecture, you use Azure Monitor with [Application Insights](/azure/well-architected/service-guides/application-insights) to view the container logs and collect metrics from the microservices.
+- [Azure Monitor](/azure/azure-monitor/fundamentals/overview) is a unified platform that enables you to collect, analyze, and act on customer content data from your Azure infrastructure environments. In this architecture, you use Azure Monitor with [Application Insights](/azure/well-architected/service-guides/application-insights) to view the container logs and collect metrics from the microservices.
 
 - [Service Bus](/azure/well-architected/service-guides/azure-service-bus) is a fully managed enterprise message broker that has queues and publish-subscribe topics. In this architecture, you use Service Bus for the Dapr publish-subscribe component implementation. Multiple services use this component. The order service publishes messages on the bus, and the Makeline, accounting, loyalty, and receipt services subscribe to these messages.
 
@@ -155,7 +155,7 @@ The application map in Application Insights also shows how the services communic
    The screenshot shows an application map in Application Insights. The image includes seven circles that represent instances. The names of the instances are virtual-customers, order-service, receipt-gen...ion-service, virtual-worker, make-line-service, loyalty-service, and accounting-service. Multiple curvy lines flow between these instances. The image also contains Dapr state and Dapr bindings.
 :::image-end:::
 
-For more information, see [Monitor an app in Container Apps](/azure/container-apps/monitor).
+For more information, see [Application logging in Azure Container Apps](/azure/container-apps/logging).
 
 ### Performance Efficiency
 
