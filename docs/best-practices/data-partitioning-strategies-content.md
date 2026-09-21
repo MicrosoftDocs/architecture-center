@@ -22,7 +22,7 @@ Elastic Database provides two schemes for mapping data to shardlets and storing 
 
 - A **list shard map** associates a single key to a shardlet. For example, in a multitenant system, the data for each tenant can be associated with a unique key and stored in its own shardlet. To guarantee isolation, each shardlet can be held within its own shard.
 
-  :::image type="content" source="./images/data-partitioning/point-shardlet.svg" alt-text="Diagram that shows a list shard map to store tenant data in separate shards." lightbox="./images/data-partitioning/point-shardlet.svg" border="false":::
+  :::image type="content" source="./images/data-partitioning/point-shardlet.svg" alt-text="Diagram that shows a list shard map to store tenant data in separate shards." border="false":::
 
   *Download a [Visio file](https://arch-center.azureedge.net/data-partitioning-strategies.vsdx) of this diagram.*
 

@@ -14,7 +14,7 @@ This article describes how to expose and protect a workload that runs in Azure K
 
 The following diagram shows the steps for the message flow during deployment and runtime.
 
-:::image type="complex" border="false" source="./media/flow.svg" alt-text="Diagram that shows the steps for the message flow during deployment and runtime." lightbox="./media/flow.svg":::
+:::image type="complex" border="false" source="./media/flow.svg" alt-text="Diagram that shows the steps for the message flow during deployment and runtime.":::
    The diagram has five primary sections. The top section isn't enclosed. The bottom four sections are enclosed in dotted rectangles. Those four rectangles are enclosed in a dotted rectangle that's labeled AksVnet 10.0.0.0/8. The top section has a logo that represents administrators and platform engineers. An arrow points from this logo to the logo that represents Azure Key Vault to indicate that a certificate for the custom domain store.test.com is generated and saved in an Azure key vault. In step two, an arrow points from the administrator and platform engineer logo to the AksVnet 10.0.0.0/8 section to indicate that a platform engineer specifies the necessary information in a Bicep parameters file and deploys the Bicep modules to create the Azure resources. In step three, an arrow labeled SecretProviderClass and Secrets Store CSI Driver points to the logo that represents the TLS secret. In step four, this section shows an arrow from the digital certificate to Azure Front Door store.test.com to indicate that it reached its destination. The diagram shows the Gateway API service and Gateway API resources, including an HTTPRoute for store.test.com.
 :::image-end:::
 

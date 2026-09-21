@@ -108,7 +108,7 @@ The following scenarios describe common business requirements and the deployment
 
 In this deployment pattern, you allocate one workspace for all use cases. All business units work within the same workspace.
 
-:::image type="complex" source="../images/fabric-deployment-pattern-1-monolithic-deployment.svg" alt-text="Diagram that shows a single Fabric tenant with a single capacity and a single workspace." lightbox="../images/fabric-deployment-pattern-1-monolithic-deployment.svg" border="false":::
+:::image type="complex" source="../images/fabric-deployment-pattern-1-monolithic-deployment.svg" alt-text="Diagram that shows a single Fabric tenant with a single capacity and a single workspace." border="false":::
    Diagram that shows a single Fabric tenant that contains one capacity. Within the capacity is a single workspace. The workspace contains icons next to text that reads semantic model, data pipeline, report, and lakehouse. Data flows to Microsoft OneLake.
 :::image-end:::
 
@@ -168,7 +168,7 @@ The following table presents considerations that might influence your decision t
 
 In this deployment pattern, you allocate multiple workspaces on a single shared capacity. Workspaces share that capacity, so concurrent workloads can affect the performance of jobs and interactive queries.
 
-:::image type="complex" source="../images/fabric-deployment-pattern-2-multiple-workspaces-single-capacity.svg" alt-text="Diagram that shows a single Fabric tenant with a single capacity and two workspaces." lightbox="../images/fabric-deployment-pattern-2-multiple-workspaces-single-capacity.svg" border="false":::
+:::image type="complex" source="../images/fabric-deployment-pattern-2-multiple-workspaces-single-capacity.svg" alt-text="Diagram that shows a single Fabric tenant with a single capacity and two workspaces." border="false":::
    Diagram that shows a single Fabric tenant that contains one shared capacity. Within the capacity are two workspaces, Workspace A and Workspace B. Each workspace contains icons next to text that reads semantic model, data pipeline, report, and lakehouse. Data from both workspaces flows to Microsoft OneLake.
 :::image-end:::
 

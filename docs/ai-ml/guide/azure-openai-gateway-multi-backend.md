@@ -27,7 +27,7 @@ These topologies don't automatically require a gateway. The decision depends on 
 
 ## Multiple model deployments in a single instance
 
-:::image type="complex" source="_images/multiple-models-single-instance-before.svg" alt-text="Architecture diagram of a scenario in which clients connect to more than one model deployment in the model host." lightbox="_images/multiple-models-single-instance-before.svg" border="false":::
+:::image type="complex" source="_images/multiple-models-single-instance-before.svg" alt-text="Architecture diagram of a scenario in which clients connect to more than one model deployment in the model host." border="false":::
    A diagram showing two clients labeled A and B directly interfacing with an instance in a resource group named rg-foundry-eastus. The instance has four model deployments. Client A has two solid lines pointing to two Foundry models. Client B has a solid line pointing to a Foundry model and a dashed line pointing to another Foundry model deployment.
 :::image-end:::
 
@@ -50,7 +50,7 @@ A topology that includes a single instance but contains more than one concurrent
 
 ### Introduce a gateway for multiple model deployments
 
-:::image type="complex" source="_images/multiple-models-single-instance-after.svg" alt-text="Architecture diagram of a scenario that shows clients connecting to more than one model deployment in the model host through a gateway." lightbox="_images/multiple-models-single-instance-after.svg" border="false":::
+:::image type="complex" source="_images/multiple-models-single-instance-after.svg" alt-text="Architecture diagram of a scenario that shows clients connecting to more than one model deployment in the model host through a gateway." border="false":::
    A diagram that shows two clients labeled A and B directly interfacing with a gateway. The gateway has an arrow that points to a private endpoint, which has four arrows that lead to an instance in a resource group named rg-foundry-eastus. Three of the arrows are solid and point to three different model deployments labeled Foundry model. One of the arrows is dashed and points to another Foundry model deployment. The top two deployments point to Foundry. The bottom two deployments point to Azure role-based access control (Azure RBAC) for API access.
 :::image-end:::
 
@@ -97,7 +97,7 @@ The platform might support provisioned throughput units, which represent reserve
 
 ## Multiple instances in a single region and a single subscription
 
-:::image type="complex" source="_images/multiple-instances-single-region-before.svg" alt-text="Architecture diagram of a scenario in which clients connect to more than one model-host instance in a single region." lightbox="_images/multiple-instances-single-region-before.svg" border="false":::
+:::image type="complex" source="_images/multiple-instances-single-region-before.svg" alt-text="Architecture diagram of a scenario in which clients connect to more than one model-host instance in a single region." border="false":::
    A diagram showing two clients labeled A and B directly interfacing with three instances, each with one model Foundry model. All instances are in a resource group named rg-foundry-eastus. Client A has a solid arrow connecting it to a Foundry model in a Client A instance that says provisioned primary. Client A has a dashed arrow connecting it to a Foundry model in a Client A instance that says standard spillover. Client B has a solid arrow connecting it to a Foundry model in a Client B instance that says provisioned.
 :::image-end:::
 
@@ -173,7 +173,7 @@ If you're using a gateway specifically to address capacity constraints, evaluate
 
 ## Multiple instances in a single region across multiple subscriptions
 
-:::image type="complex" source="_images/multiple-subscriptions-before.svg" alt-text="Architecture diagram of a scenario in which one client connects to two model-host instances in the same region across two subscriptions." lightbox="_images/multiple-subscriptions-before.svg" border="false":::
+:::image type="complex" source="_images/multiple-subscriptions-before.svg" alt-text="Architecture diagram of a scenario in which one client connects to two model-host instances in the same region across two subscriptions." border="false":::
    A diagram that shows a client with a solid arrow that points to a Foundry model deployment in a primary instance. This primary instance is in a box labeled Workload subscription A. The client also has a solid arrow that points to a Foundry model deployment in a secondary instance. This secondary instance is in a box labeled Workload subscription B. In both subscriptions, the resource group containing the instances is called rg-foundry-eastus.
 :::image-end:::
 

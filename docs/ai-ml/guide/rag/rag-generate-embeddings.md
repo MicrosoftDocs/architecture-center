@@ -24,7 +24,7 @@ The representation of one object has connections to representations of other obj
 
 You compare embeddings to one another by using the notions of similarity and distance. The following grid shows a comparison of embeddings.
 
-:::image type="complex" border="false" source="./_images/embedding-similarity.svg" lightbox="./_images/embedding-similarity.svg" alt-text="Diagram that shows a comparison of vectors.":::
+:::image type="complex" border="false" source="./_images/embedding-similarity.svg" alt-text="Diagram that shows a comparison of vectors.":::
    Diagram that shows a two-dimensional grid. The sentences "The cat is on the mat" and "The cat is sitting on the mat" are in boxes in the upper right quadrant of the grid, close to one another. There are two vectors that point at each box. The angle between the vectors is small. There's a box in the lower right quadrant that contains the text "It's currently sunny in Phoenix". A vector points at that box. The angle between that vector and the vector for "The cat is sitting on the mat" is large.
 :::image-end:::
 
