@@ -40,7 +40,7 @@ The following data flow corresponds to the previous diagram:
    This pipeline runs quality checks, including the following operations:
    
    - Building code, which might require pulling dependencies from a dependency management system
-   - Using tools to analyze the code, such as static code analysis, linting, and [security scanning](/azure/defender-for-cloud/azure-devops-extension)
+   - Using tools to analyze the code, such as static code analysis, linting, and [security scanning](/azure/defender-for-cloud/configure-azure-devops-extension)
    - Performing unit tests
      
    If any checks fail, the pipeline run ends, and the developer must make the required changes. If all checks pass, the pipeline requires a PR review. If the PR review fails, the pipeline ends, and the developer must make the required changes. A successful pipeline run results in a successful PR merge.
@@ -52,7 +52,7 @@ The following data flow corresponds to the previous diagram:
    If any checks fail, the pipeline ends, and the developer must make the required changes.
 1. A successful CI pipeline run creates and publishes a container image in a nonproduction Azure container registry. [Defender for Containers](/azure/defender-for-cloud/defender-for-container-registries-introduction) scans the container images when they're pushed to Azure Container Registry and reports the image vulnerabilities to Microsoft Defender for Cloud. Optionally, the container images might be [signed](/azure/container-registry/container-registry-content-trust) to ensure the integrity of the container image.
 1. The completion of the CI pipeline [triggers the CD pipeline](/azure/devops/pipelines/process/pipeline-triggers).
-1. The CD pipeline deploys a YAML template to the staging AKS environment that includes a [Defender agent](/azure/defender-for-cloud/tutorial-enable-containers-azure). This deployment uses a push model and runs via either kubectl or Helm. The template references the container image from the nonproduction registry.
+1. The CD pipeline deploys a YAML template to the staging AKS environment that includes a [Defender agent](/azure/defender-for-cloud/defender-for-containers-enable-plan?tabs=aks). This deployment uses a push model and runs via either kubectl or Helm. The template references the container image from the nonproduction registry.
 
    The pipeline performs acceptance tests against the staging environment to validate the deployment. If the tests succeed, the pipeline might include a manual validation task to validate the deployment and resume the pipeline. Some workloads deploy automatically. If any checks fail, the pipeline ends, and the developer must make the required changes.
 1. When an individual resumes the manual intervention, the CD pipeline promotes the image from the nonproduction Azure container registry to the production registry. [Defender for Containers](/azure/defender-for-cloud/defender-for-containers-introduction) scans the container images when they're pushed to Container Registry and reports the image vulnerabilities to Microsoft Defender for Cloud.
@@ -76,7 +76,7 @@ The following data flow corresponds to the previous diagram:
 
 - [AKS](/azure/well-architected/service-guides/azure-kubernetes-service) is a managed Kubernetes service where Azure handles critical tasks, like health monitoring and maintenance. In this architecture, it serves as the compute platform for the application.
 
-- [Microsoft Security DevOps Azure DevOps extension](/azure/defender-for-cloud/azure-devops-extension) lets you embed security scanning directly in your CI/CD workflows. In this architecture, Microsoft Security DevOps performs static analysis and provides visibility of security postures across multiple pipelines in AKS development and deployment. Microsoft Security DevOps is part of [Microsoft Defender for Cloud DevOps security](/azure/defender-for-cloud/defender-for-devops-introduction), which provides comprehensive visibility, posture management, and threat protection across multicloud environments.
+- [Microsoft Security DevOps Azure DevOps extension](/azure/defender-for-cloud/configure-azure-devops-extension) lets you embed security scanning directly in your CI/CD workflows. In this architecture, Microsoft Security DevOps performs static analysis and provides visibility of security postures across multiple pipelines in AKS development and deployment. Microsoft Security DevOps is part of [Microsoft Defender for Cloud DevOps security](/azure/defender-for-cloud/defender-for-devops-introduction), which provides comprehensive visibility, posture management, and threat protection across multicloud environments.
 
 ## Alternatives
 
