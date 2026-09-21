@@ -24,7 +24,7 @@ The representation of one object has connections to representations of other obj
 
 You compare embeddings to one another by using the notions of similarity and distance. The following grid shows a comparison of embeddings.
 
-:::image type="complex" border="false" source="./_images/embedding-similarity.svg" lightbox="./_images/embedding-similarity.svg" alt-text="Diagram that shows a comparison of vectors.":::
+:::image type="complex" border="false" source="./_images/embedding-similarity.svg" alt-text="Diagram that shows a comparison of vectors.":::
    Diagram that shows a two-dimensional grid. The sentences "The cat is on the mat" and "The cat is sitting on the mat" are in boxes in the upper right quadrant of the grid, close to one another. There are two vectors that point at each box. The angle between the vectors is small. There's a box in the lower right quadrant that contains the text "It's currently sunny in Phoenix". A vector points at that box. The angle between that vector and the vector for "The cat is sitting on the mat" is large.
 :::image-end:::
 
@@ -61,7 +61,7 @@ When you choose a general embedding model, start with the [Hugging Face leaderbo
 
 ### Domain-specific content
 
-For domain-specific content, determine whether you can use a domain-specific model. For example, if your data is in the biomedical domain, you might use the [BioGPT model](https://github.com/microsoft/BioGPT). This language model is pretrained on a large collection of biomedical literature. You can use it for biomedical text mining and generation. If domain-specific models are available, evaluate how these models work with your data.
+For domain-specific content, determine whether you can use a domain-specific model. For example, if your data contains biomedical literature, you might use the [PubMedBERT Embeddings model](https://huggingface.co/NeuML/pubmedbert-base-embeddings). This model builds on Microsoft PubMedBERT and is designed to produce embeddings for semantic search over medical papers. If domain-specific models are available, evaluate how these models work with your data.
 
 If you don't have a domain-specific model, or if the domain-specific model doesn't perform well, you can fine-tune a general embedding model with your domain-specific vocabulary.
 

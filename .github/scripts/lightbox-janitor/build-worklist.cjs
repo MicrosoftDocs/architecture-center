@@ -11,9 +11,10 @@ const CACHE_DIR = '/tmp/gh-aw/cache-memory/lightbox-dimensions';
 const CACHE_FILE = path.join(CACHE_DIR, 'dimensions.json');
 const DATA_DIR = '/tmp/gh-aw/data';
 const WORKLIST_FILE = path.join(DATA_DIR, 'lightbox-worklist.json');
-const CACHE_SCHEMA = 3;
+const CACHE_SCHEMA = 4;
 const WIDTH_THRESHOLD = 688;
 const MAX_PATCH_FILES = 10;
+const CSS_PIXELS_PER_INCH = 96;
 
 function writeJson(file, value) {
   fs.writeFileSync(file, JSON.stringify(value, null, 2) + '\n');
@@ -113,10 +114,15 @@ function measureSvg(buffer) {
 
   const attributes = root[1];
   const widthAttribute = rootAttribute(attributes, 'width');
-  const widthMatch = /^\s*([+]?(?:\d+(?:\.\d*)?|\.\d+))(?:px)?\s*$/i.exec(widthAttribute || '');
-  const width = widthMatch ? Number(widthMatch[1]) : null;
+  const widthMatch = /^\s*([+]?(?:\d+(?:\.\d*)?|\.\d+))(px|in)?\s*$/i.exec(widthAttribute || '');
+  const width = widthMatch
+    ? Number(widthMatch[1]) * (widthMatch[2]?.toLowerCase() === 'in' ? CSS_PIXELS_PER_INCH : 1)
+    : null;
   if (!Number.isFinite(width) || width <= 0) return null;
-  return { format: 'svg', width, measurement_source: 'width-px-or-unitless' };
+  const measurementSource = widthMatch[2]?.toLowerCase() === 'in'
+    ? 'width-inches'
+    : 'width-px-or-unitless';
+  return { format: 'svg', width, measurement_source: measurementSource };
 }
 
 function measureJpeg(buffer) {

@@ -45,7 +45,7 @@ This approach works until an error occurs between saving the order object and pu
 
 Regardless of the error, the system can't publish the `OrderCreated` event to the message bus, and other services aren't notified that an order was created. The `Ordering` service must now handle concerns beyond its core business process. It must track which events need publishing when the message bus recovers. Lost events can cause data inconsistencies across the application.
 
-:::image type="complex" source="_images/event-handling-before-pattern.svg" alt-text="Diagram that shows event handling without the Transactional Outbox pattern." lightbox="_images/event-handling-before-pattern.svg" border="false":::
+:::image type="complex" source="_images/event-handling-before-pattern.svg" alt-text="Diagram that shows event handling without the Transactional Outbox pattern." border="false":::
 Sequence diagram that shows how a client app sends a create order request to an ordering service. The service begins a transaction, inserts the order, and commits the transaction. After the transaction completes, an attempt to send an event to the message bus fails.
 :::image-end:::
 

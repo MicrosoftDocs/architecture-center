@@ -165,7 +165,7 @@ Container Apps helps you deploy, manage, maintain, and monitor the applications 
 
 - Avoid storing state directly within the Container Apps environment, because all state is lost when the replica shuts down. Externalize state to a dedicated state store for each microservice. This architecture distributes state across three distinct stores: Azure Managed Redis, Azure Cosmos DB for NoSQL, and Azure DocumentDB.
 
-- Deploy all resources, including Container Apps, by using a multi-zone topology. For more information, see [Availability zone support in Container Apps](/azure/reliability/reliability-azure-container-apps#resilience-to-availability-zone-failures).
+- Deploy all resources, including Container Apps, by using a multi-zone topology. For more information, see [Availability zone support in Container Apps](/azure/reliability/reliability-container-apps#resilience-to-availability-zone-failures).
 
   Set the minimum replica count for nontransient applications to at least one replica for each availability zone. During typical operating conditions, replicas are reliably distributed and balanced across availability zones in the region.
 
