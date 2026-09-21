@@ -189,7 +189,7 @@ Deploy Application Gateway in a zone-redundant configuration with a minimum scal
 
 #### Blob Storage
 
-- Use [zone-redundant storage (ZRS)](/azure/storage/common/storage-redundancy#zone-redundant-storage), which replicates data synchronously across three availability zones in the region. Create Standard ZRS or Standard geo-zone-redundant storage (GZRS) storage accounts to ensure data replication across availability zones.
+- Use [zone-redundant storage (ZRS)](/azure/storage/common/storage-redundancy#zone-redundant-storage), which replicates data synchronously across three or more availability zones in the region. Create Standard ZRS or Standard geo-zone-redundant storage (GZRS) storage accounts to ensure data replication across availability zones.
 
 - Create separate storage accounts for deployments, web assets, and other data to manage and configure each account independently.
 
