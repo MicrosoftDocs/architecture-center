@@ -61,7 +61,7 @@ When you choose a general embedding model, start with the [Hugging Face leaderbo
 
 ### Domain-specific content
 
-For domain-specific content, determine whether you can use a domain-specific model. For example, if your data is in the biomedical domain, you might use the [BioGPT model](https://github.com/microsoft/BioGPT). This language model is pretrained on a large collection of biomedical literature. You can use it for biomedical text mining and generation. If domain-specific models are available, evaluate how these models work with your data.
+For domain-specific content, determine whether you can use a domain-specific model. For example, if your data contains biomedical literature, you might use the [PubMedBERT Embeddings model](https://huggingface.co/NeuML/pubmedbert-base-embeddings). This model builds on Microsoft PubMedBERT and is designed to produce embeddings for semantic search over medical papers. If domain-specific models are available, evaluate how these models work with your data.
 
 If you don't have a domain-specific model, or if the domain-specific model doesn't perform well, you can fine-tune a general embedding model with your domain-specific vocabulary.
 
