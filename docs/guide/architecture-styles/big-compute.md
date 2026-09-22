@@ -95,12 +95,12 @@ In this scenario, you run HPC Pack on-premises and use Azure VMs for burst capac
 ## Related resources
 
 - [Choose an Azure compute service for your application](../technology-choices/compute-decision-tree.md)
-- [HPC on Azure](../../topics/high-performance-computing.md)
+- [HPC on Azure](../compute/high-performance-computing.md)
 
 <!-- links -->
 
 [batch]: /azure/batch
-[batch-hpc-solutions]: ../../topics/high-performance-computing.md
+[batch-hpc-solutions]: ../compute/high-performance-computing.md
 [deploy-hpc-azure]: /powershell/high-performance-computing/overview
 [embarrassingly-parallel]: https://en.wikipedia.org/wiki/Embarrassingly_parallel
 [hpc-pack]: /powershell/high-performance-computing/overview

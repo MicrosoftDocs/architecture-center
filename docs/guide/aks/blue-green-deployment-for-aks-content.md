@@ -15,7 +15,7 @@ The following diagram shows the architecture for the public-facing case:
 
 *Download a [Visio file](https://arch-center.azureedge.net/US-1996186-blue-green-deployment-for-aks.vsdx) of this architecture.*
 
-Azure Front Door and Azure DNS provide the routing mechanism that switches traffic between the blue and green clusters. For more information, see [Blue-green deployment with Azure Front Door](https://techcommunity.microsoft.com/t5/azure-architecture-blog/blue-green-deployment-with-azure-front-door/ba-p/1609178). By using Azure Front Door, it's possible to implement a full switch or a more controlled switch that's based on [weights](/azure/frontdoor/routing-methods#weighted-traffic-routing-method). This technique is the most reliable and efficient in an Azure environment. If you want to use your own Domain Name System (DNS) and load balancer, you need to be sure that they're configured to provide a safe and reliable switch.
+Azure Front Door and Azure DNS provide the routing mechanism that switches traffic between the blue and green clusters. For more information, see [Blue-green deployment with Azure Front Door](https://techcommunity.microsoft.com/t5/azure-architecture-blog/blue-green-deployment-with-azure-front-door/ba-p/1609178). By using Azure Front Door, it's possible to implement a full switch or a more controlled switch that's based on [weights](/azure/frontdoor/routing-methods#weighted). This technique is the most reliable and efficient in an Azure environment. If you want to use your own Domain Name System (DNS) and load balancer, you need to be sure that they're configured to provide a safe and reliable switch.
 
 Azure Application Gateway provides the front ends, which are dedicated to the public endpoints.
 
@@ -85,7 +85,7 @@ The AKS monitoring can be split into different levels, as shown in the following
 
 :::image type="content" source="media/blue-green-aks-deployment-diagram-aks-monitoring-levels.png" alt-text="Diagram of the AKS monitoring levels.":::
 
-The health of the cluster is evaluated at levels 1 and 2, and at some of level 3. For level 1, you can use the native [multi-cluster view](/azure/azure-monitor/containers/container-insights-analyze#multi-cluster-view-from-azure-monitor) from Monitor to validate the health, as shown here:
+The health of the cluster is evaluated at levels 1 and 2, and at some of level 3. For level 1, you can use the native [multi-cluster view](/azure/azure-monitor/containers/container-insights-analyze#multi-cluster-view) from Monitor to validate the health, as shown here:
 
 :::image type="content" source="media/blue-green-aks-deployment-screenshot-azure-monitor.png" alt-text="Screenshot of the Monitor monitoring clusters.":::
 
@@ -214,7 +214,7 @@ Here's the situation after the blue cluster is destroyed:
 
 - [Azure Container Registry](/azure/container-registry/container-registry-intro) is a managed service that stores and manages container images and related artifacts. In this architecture, Container Registry stores and distributes container images and artifacts, such as Helm charts, to the blue and green AKS clusters during the deployment process.
 
-- [Azure Monitor](/azure/azure-monitor/overview) is a monitoring solution for collecting, analyzing, and responding to monitoring data from your cloud and on-premises environments. In this architecture, it provides the core monitoring features required to run the blue-green deployment. Azure Monitor integrates with AKS and provides logging, monitoring, and alerting capabilities that you can use to manage the stage transitions.
+- [Azure Monitor](/azure/azure-monitor/fundamentals/overview) is a monitoring solution for collecting, analyzing, and responding to monitoring data from your cloud and on-premises environments. In this architecture, it provides the core monitoring features required to run the blue-green deployment. Azure Monitor integrates with AKS and provides logging, monitoring, and alerting capabilities that you can use to manage the stage transitions.
 
 - [Azure Key Vault](/azure/key-vault/general/overview) is a service that helps manage and protect secrets, keys, and certificates. In this architecture, Key Vault stores and manages the secrets and certificates required at platform and application levels.
 
@@ -279,21 +279,21 @@ These considerations implement the pillars of the Azure Well-Architected Framewo
 
 ### Reliability
 
-Reliability ensures that your application can meet the commitments you make to your customers. For more information, see [Overview of the reliability pillar](/azure/architecture/framework/resiliency/overview).
+Reliability ensures that your application can meet the commitments you make to your customers. For more information, see [Recommendations for building a reliable application](/azure/well-architected/reliability/).
 
 - Blue-green deployment has a direct and positive effect on the availability of the AKS platform and workloads. In particular, it increases availability during the deployment of AKS platform changes. There's little downtime if you manage user sessions well.
 - Blue-green deployment provides coverage for reliability during the deployment because, by default, there's the option to roll back to the previous version of the AKS cluster if something goes wrong in the new cluster version.
 
 ### Cost optimization
 
-Cost optimization is about looking at ways to reduce unnecessary expenses and to improve operational efficiencies. For more information, see [Overview of the cost optimization pillar](/azure/architecture/framework/cost/overview).
+Cost optimization is about looking at ways to reduce unnecessary expenses and to improve operational efficiencies. For more information, see [Overview of the cost optimization pillar](/azure/well-architected/cost-optimization/).
 
 - Blue-green deployment is widely adopted in Azure due to the native elasticity provided by the cloud. This makes it possible to optimize costs in term of operations and resource consumption. Most of the savings result from removing the cluster that's no longer needed after successfully deploying a new version of the cluster.
 - When a new version is deployed, it's typical to host both the blue and green clusters in the same subnet, to continue to have the same cost baseline. All the network connections and access to the resources and services are the same for the two clusters, and all the Azure services and resources remain the same.
 
 ### Operational excellence
 
-Operational excellence covers the operations processes that deploy an application and keep it running in production. For more information, see [Overview of the operational excellence pillar](/azure/architecture/framework/devops/overview).
+Operational excellence covers the operations processes that deploy an application and keep it running in production. For more information, see [Overview of the operational excellence pillar](/azure/well-architected/operational-excellence/).
 
 - Blue-green deployment, properly implemented, provides automation, continuous delivery, and resilient deployment.
 - One of the key aspects of continuous delivery is that it iteratively delivers increments of platform and workload changes. With blue-green deployment of AKS, you achieve continuous delivery at the platform level, in a controlled and safe way.
@@ -308,7 +308,7 @@ For an implemented example of a blue-green deployment described in this guide, s
 This reference implementation is based on [Application Gateway for Containers](/azure/application-gateway/for-containers/overview). Each cluster has its own Application Gateway for Containers deployment, and DNS performs the traffic switch via `CNAME` configuration.
 
 > [!IMPORTANT]
-> For mission-critical workloads, it is important to combine blue/green deployments as outlined in this guide with deployment automation and continuous validation to achieve zero downtime deployments. More information and guidance are available in the [Mission-critical design methodology](/azure/architecture/framework/mission-critical/mission-critical-deployment-testing#example---zero-downtime-deployment).
+> For mission-critical workloads, it is important to combine blue/green deployments as outlined in this guide with deployment automation and continuous validation to achieve zero downtime deployments. More information and guidance are available in the [Mission-critical design methodology](/azure/well-architected/mission-critical/mission-critical-deployment-testing#zero-downtime-deployment).
 
 ### Region considerations
 
@@ -351,13 +351,13 @@ Other contributors:
 - [Blue-green deployment (Martin Fowler)](https://martinfowler.com/bliki/BlueGreenDeployment.html)
 - [AKS documentation](/azure/aks)
 - [Monitor documentation](/azure/azure-monitor)
-- [Architecture pattern for mission-critical workloads on Azure](/azure/architecture/framework/mission-critical/mission-critical-architecture-pattern)
-- [Azure services for securing network connectivity](/azure/architecture/framework/security/design-network-connectivity)
+- [Architecture pattern for mission-critical workloads on Azure](/azure/well-architected/mission-critical/mission-critical-architecture-pattern)
+- [Azure services for securing network connectivity](/azure/well-architected/security/networking)
 - [Microsoft Cloud Adoption Framework for Azure](/azure/cloud-adoption-framework/)
 
 ## Related resources
 
 - [AKS baseline for multiregion clusters](../../reference-architectures/containers/aks-multi-region/aks-multi-cluster.yml)
-- [Azure Mission-critical overview](/azure/architecture/framework/mission-critical/mission-critical-overview)
-- [Azure Mission-critical zero-downtime deployments](/azure/architecture/framework/mission-critical/mission-critical-deployment-testing#example---zero-downtime-deployment)
-- [Azure Mission-critical continuous validation](/azure/architecture/framework/mission-critical/mission-critical-deployment-testing#video-continuously-validate-your-mission-critical-workload)
+- [Azure Mission-critical overview](/azure/well-architected/mission-critical/mission-critical-overview)
+- [Azure Mission-critical zero-downtime deployments](/azure/well-architected/mission-critical/mission-critical-deployment-testing#zero-downtime-deployment)
+- [Azure Mission-critical continuous validation](/azure/well-architected/mission-critical/mission-critical-deployment-testing#continuous-validation-and-testing)
