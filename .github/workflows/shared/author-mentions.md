@@ -131,6 +131,7 @@ safe-outputs:
       - ms-amsolo
       - msetbar
       - msftrobiro
+      - msimecek
       - munishm
       - murthyla
       - nabilshams
