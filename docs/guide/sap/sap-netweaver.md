@@ -215,7 +215,7 @@ For more information about how to implement specific database systems, see [Virt
 
 An availability zone consists of one or more datacenters. This design improves workload availability and protects application services and VMs against datacenter outages. VMs in a single zone are treated as if they're in a single fault domain. When you select zonal deployment, VMs in the same zone are distributed to fault domains on a best-effort basis.
 
-In [Azure regions](https://azure.microsoft.com/explore/global-infrastructure/geographies/) that support multiple zones, at least three zones are available. But the maximum distance between datacenters in these zones isn't guaranteed. To deploy a multitier SAP system across zones, you must know the network latency within a zone and across targeted zones. You also must know your deployed applications' sensitivity to network latency.
+In [Azure regions](https://azure.microsoft.com/explore/global-infrastructure/geographies/) that support multiple zones, at least three zones are available. The number of zones varies by region. But the maximum distance between datacenters in these zones isn't guaranteed. To deploy a multitier SAP system across zones, you must know the network latency within a zone and across targeted zones. You also must know your deployed applications' sensitivity to network latency.
 
 Consider the following [factors](/azure/sap/workloads/high-availability-zones) when you deploy resources across availability zones:
 

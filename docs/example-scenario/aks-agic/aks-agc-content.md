@@ -211,7 +211,7 @@ Consider the following ways to optimize availability for your AKS cluster and wo
 
 #### Intraregion resiliency
 
-- Consider deploying the node pools of your AKS cluster across all the [availability zones](/azure/aks/reliability-availability-zones-configure) within a region. Use [Azure Load Balancer](/azure/load-balancer/load-balancer-overview) or [Application Gateway](/azure/application-gateway/overview) in front of your node pools. This topology provides better resiliency if a single datacenter outage occurs. This method distributes cluster nodes across multiple datacenters that reside in three separate availability zones within a region.
+- Consider deploying the node pools of your AKS cluster across all the [availability zones](/azure/aks/reliability-availability-zones-configure) within a region. Use [Azure Load Balancer](/azure/load-balancer/load-balancer-overview) or [Application Gateway](/azure/application-gateway/overview) in front of your node pools. This topology provides better resiliency if a single datacenter outage occurs. This method distributes cluster nodes across multiple availability zones within a region.
 
 - Enable [zone redundancy in Container Registry](/azure/container-registry/zone-redundancy) for intraregion resiliency and high availability (HA).
 
