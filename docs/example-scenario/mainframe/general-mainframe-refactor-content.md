@@ -211,6 +211,5 @@ Principal author:
 ## Related resources
 
 - [Rehost mainframe applications to Azure with Raincode compilers](../../reference-architectures/app-modernization/raincode-reference-architecture.yml)
-- [IBM z/OS mainframe migration with Avanade AMT](avanade-amt-zos-migration.yml)
 - [High-volume batch transaction processing](process-batch-transactions.yml)
 - [Modernize mainframe and midrange data](/azure/architecture/example-scenario/mainframe/modernize-mainframe-data-to-azure)

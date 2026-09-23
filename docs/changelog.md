@@ -159,7 +159,6 @@ The following new and updated articles have recently been published in the Azure
 - [AKS Triage—Node and Pod Health](./operator-guides/aks/aks-triage-node-health.md) ([#52bd2b3bd4](https://github.com/MicrosoftDocs/architecture-center/commit/52bd2b3bd4))
 - [Implement a Zero Trust Network for Web Applications by Using Azure Firewall and Azure Application Gateway](./example-scenario/gateway/application-gateway-before-azure-firewall.md) ([#5ab4e55062](https://github.com/MicrosoftDocs/architecture-center/commit/5ab4e55062))
 - [Baseline Highly Available Zone-Redundant App Services Web Application](./web-apps/app-service/architectures/baseline-zone-redundant.yml) ([#44f1a85aab](https://github.com/MicrosoftDocs/architecture-center/commit/44f1a85aab))
-- [Refactor mainframe computer systems that run Adabas & Natural](./example-scenario/mainframe/refactor-adabas-aks.yml) ([#64d0300a7d](https://github.com/MicrosoftDocs/architecture-center/commit/64d0300a7d))
 - [Baseline Architecture for an AKS Cluster](./reference-architectures/containers/aks/baseline-aks.yml) ([#1eeebb67af](https://github.com/MicrosoftDocs/architecture-center/commit/1eeebb67af))
 - [Generate Documents from Your Data](./ai-ml/idea/generate-documents-from-your-data.yml) ([#b09bbee823](https://github.com/MicrosoftDocs/architecture-center/commit/b09bbee823))
 - [Enhance Network Access Security to Kubernetes](./aws-professional/eks-to-aks/private-clusters.md) ([#755315aaeb](https://github.com/MicrosoftDocs/architecture-center/commit/755315aaeb))

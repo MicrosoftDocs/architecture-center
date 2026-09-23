@@ -986,14 +986,6 @@
         <category label="updated" term="updated"/>
     </entry>
     <entry>
-        <title type="html"><![CDATA[Refactor mainframe computer systems that run Adabas & Natural]]></title>
-        <id>https://learn.microsoft.com/azure/architecture/example-scenario/mainframe/refactor-adabas-aks</id>
-        <link href="https://learn.microsoft.com/azure/architecture/example-scenario/mainframe/refactor-adabas-aks"/>
-        <updated>2026-07-13T15:04:30.000Z</updated>
-        <summary type="html"><![CDATA[Learn how to modernize mainframe computer systems that run Adabas & Natural and move them to the cloud.]]></summary>
-        <category label="updated" term="updated"/>
-    </entry>
-    <entry>
         <title type="html"><![CDATA[Baseline Architecture for an AKS Cluster]]></title>
         <id>https://learn.microsoft.com/azure/architecture/reference-architectures/containers/aks/baseline-aks#8c14311227</id>
         <link href="https://learn.microsoft.com/azure/architecture/reference-architectures/containers/aks/baseline-aks"/>
