@@ -1,5 +1,5 @@
 ---
-name: pnp-copilot-pr-review
+name: code-review
 description: 'How GitHub Copilot runs its automated pull request review of an Azure Architecture Center article. USE only as part of GitHub Copilot''s agentic PR review process. DO NOT USE for human-requested interactive reviews (use pnp-engineering-review instead)'
 compatibility: 'Depends on the microsoft-learn-grounding skill. Requires an internet connection.'
 disable-model-invocation: false
