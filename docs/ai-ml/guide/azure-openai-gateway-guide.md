@@ -88,7 +88,7 @@ Without a gateway, your workload puts responsibility on clients to be individual
 
 *Download a [Visio file](https://arch-center.azureedge.net/foundry-gateway-conceptual-architecture.vsdx) of this architecture.*
 
-To address the challenges of exposing Foundry Models data plane APIs directly to consumers, you can inject a reverse proxy gateway to decouple the intelligent application from Foundry. The [Gateway Offloading pattern](../../patterns/gateway-offloading.yml) shifts responsibility, complexity, and observability away from clients. It gives you an opportunity to augment Foundry by providing other capabilities that aren't built in. These capabilities include:
+To address the challenges of exposing Foundry Models data plane APIs directly to consumers, you can inject a reverse proxy gateway to decouple the intelligent application from Foundry. The [Gateway Offloading pattern](../../patterns/gateway-offloading.md) shifts responsibility, complexity, and observability away from clients. It gives you an opportunity to augment Foundry by providing other capabilities that aren't built in. These capabilities include:
 
 - Potential to implement [federated authentication](../../patterns/federated-identity.md).
 

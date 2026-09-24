@@ -62,7 +62,7 @@ Each pattern in this catalog describes the problem that it addresses, considerat
 | [Federated Identity](./federated-identity.md) | Delegate authentication to an external identity provider. | - Reliability<br><br>- Security<br><br>- Performance&nbsp;Efficiency |
 | [Gatekeeper](./gatekeeper.md) | Protect applications and services by using a dedicated host instance to validate and sanitize requests before forwarding them to private back ends. | - Security<br><br>- Performance&nbsp;Efficiency |
 | [Gateway Aggregation](./gateway-aggregation.md) | Use a gateway to aggregate multiple individual requests into a single request. | - Reliability<br><br>- Security<br><br>- Operational&nbsp;Excellence<br><br>- Performance&nbsp;Efficiency |
-| [Gateway Offloading](./gateway-offloading.yml) | Offload shared or specialized service functionality to a gateway proxy. | - Reliability<br><br>- Security<br><br>- Cost&nbsp;Optimization<br><br>- Operational&nbsp;Excellence<br><br>- Performance&nbsp;Efficiency |
+| [Gateway Offloading](./gateway-offloading.md) | Offload shared or specialized service functionality to a gateway proxy. | - Reliability<br><br>- Security<br><br>- Cost&nbsp;Optimization<br><br>- Operational&nbsp;Excellence<br><br>- Performance&nbsp;Efficiency |
 | [Gateway Routing](./gateway-routing.yml) | Route requests to multiple services by using a single endpoint. | - Reliability<br><br>- Operational&nbsp;Excellence<br><br>- Performance&nbsp;Efficiency |
 | [Geode](./geodes.yml) | Deploy back-end services across geographically distributed nodes. Each node can handle client requests from any region. | - Reliability<br><br>- Performance&nbsp;Efficiency |
 | [Health Endpoint Monitoring](./health-endpoint-monitoring.yml) | Implement functional checks in an application that external tools can access through exposed endpoints at regular intervals. | - Reliability<br><br>- Operational&nbsp;Excellence<br><br>- Performance&nbsp;Efficiency |
@@ -94,7 +94,7 @@ Patterns are composable. A single pattern addresses one problem, but a workload 
 
 - Pair [Retry](./retry.yml) with [Circuit Breaker](./circuit-breaker.md) so that an application retries transient faults but stops retrying when a fault persists.
 - Combine [Queue-Based Load Leveling](./queue-based-load-leveling.md) with [Competing Consumers](./competing-consumers.md) to buffer load and then scale the processing of that load.
-- Layer the [Gateway Routing](./gateway-routing.yml), [Gateway Aggregation](./gateway-aggregation.md), and [Gateway Offloading](./gateway-offloading.yml) patterns behind a single gateway endpoint.
+- Layer the [Gateway Routing](./gateway-routing.yml), [Gateway Aggregation](./gateway-aggregation.md), and [Gateway Offloading](./gateway-offloading.md) patterns behind a single gateway endpoint.
 - Build [Saga](./saga.yml) on [Compensating Transaction](./compensating-transaction.md) to maintain data consistency across services when a distributed operation fails partway through.
 
 ### Antipatterns

@@ -132,5 +132,5 @@ For monitoring, collect telemetry across the full request path so that you can c
 ## Related resources
 
 - [Backends for Frontends pattern](./backends-for-frontends.md)
-- [Gateway Offloading pattern](./gateway-offloading.yml)
+- [Gateway Offloading pattern](./gateway-offloading.md)
 - [Gateway Routing pattern](./gateway-routing.yml)
