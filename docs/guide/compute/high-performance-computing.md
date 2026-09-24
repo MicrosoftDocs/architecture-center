@@ -63,15 +63,13 @@ Azure offers a range of sizes that are optimized for both CPU & GPU intensive wo
 
 #### CPU-based virtual machines
 
-- [Linux VMs](/azure/virtual-machines/sizes/overview#high-performance-compute)
-- [Windows VMs](/azure/virtual-machines/sizes/overview#high-performance-compute)
+- [High-performance compute VM sizes](/azure/virtual-machines/sizes/overview#high-performance-compute)
 
 #### GPU-enabled virtual machines
 
 N-series VMs feature NVIDIA GPUs designed for compute-intensive or graphics-intensive applications including artificial intelligence (AI) learning and visualization.
 
-- [Linux VMs](/azure/virtual-machines/sizes/overview#gpu-accelerated)
-- [Windows VMs](/azure/virtual-machines/sizes/overview#gpu-accelerated)
+- [GPU accelerated VM sizes](/azure/virtual-machines/sizes/overview#gpu-accelerated)
 
 ### Storage
 
@@ -89,7 +87,7 @@ For more information comparing Lustre, GlusterFS, and BeeGFS on Azure, review th
 
 H16r, H16mr, A8, and A9 VMs can connect to a high throughput back-end RDMA network. This network can improve the performance of tightly coupled parallel applications running under Microsoft Message Passing Interface better known as MPI or Intel MPI.
 
-- [RDMA Capable Instances](/azure/virtual-machines/sizes/overview#high-performance-compute)
+- [High-performance compute VM sizes](/azure/virtual-machines/sizes/overview#high-performance-compute)
 - [Virtual Network](/azure/virtual-network/virtual-networks-overview)
 - [ExpressRoute](/azure/expressroute/expressroute-introduction)
 
@@ -213,8 +211,6 @@ The following are examples of cluster and workload managers that can run in Azur
 - [Rescale](https://www.rescale.com/azure)
 - [Altair Grid Engine](https://www.altair.com/grid-engine)
 - [Microsoft HPC Pack](/powershell/high-performance-computing/overview?view=hpc19-ps&preserve-view=true)
-  - [HPC Pack for Windows](/powershell/high-performance-computing/overview?view=hpc19-ps&preserve-view=true)
-  - [HPC Pack for Linux](/powershell/high-performance-computing/overview?view=hpc19-ps&preserve-view=true)
 
 #### Containers
 
@@ -229,7 +225,7 @@ Managing your HPC cost on Azure can be done through a few different ways. Ensure
 
 ## Security
 
-For an overview of security best practices on Azure, review the [Azure Security Documentation](/azure/security/fundamentals/overview).
+For an overview of security best practices on Azure, see the [Azure Security Documentation](/azure/security/fundamentals/overview).
 
 In addition to the network configurations available in the [Cloud Bursting](#hybrid-and-cloud-bursting) section, you can implement a hub/spoke configuration to isolate your compute resources:
 
@@ -279,11 +275,6 @@ Run custom or commercial HPC applications in Azure. Several examples in this sec
 > [!NOTE]
 > Check with the vendor of any commercial application for licensing or other restrictions for running in the cloud. Not all vendors offer pay-as-you-go licensing. You might need a licensing server in the cloud for your solution, or connect to an on-premises license server.
 
-### Engineering applications
-
-- [MATLAB Distributed Computing Server](/previous-versions/azure/virtual-machines/windows/matlab-mdcs-cluster)
-- [StarCCM+](/archive/blogs/azurecat/run-star-ccm-in-an-azure-hpc-cluster)
-
 ### Graphics and rendering
 
 - [Autodesk Maya, 3ds Max, and Arnold](/azure/batch/batch-rendering-service) on Azure Batch
@@ -310,7 +301,7 @@ Run GPU-powered virtual machines in Azure in the same region as the HPC output f
 
 ## Other important information
 
-- Ensure your [vCPU quota](/azure/virtual-machines/quotas) has been increased before attempting to run large-scale workloads.
+- Ensure your [vCPU quota](/azure/virtual-machines/quotas) is increased before attempting to run large-scale workloads.
 
 ## Next steps
 
