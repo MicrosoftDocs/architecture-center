@@ -136,7 +136,7 @@ Consider the following types of challenges when you select an architecture style
 
 ## Next steps
 
-- [Build applications on the Microsoft Cloud](/microsoft-cloud/dev/overview/introduction)
+- [Build applications on the Microsoft Cloud](/microsoft-cloud/)
 - [Best practices in cloud applications](/azure/architecture/best-practices/index-best-practices)
 - [Cloud design patterns](/azure/architecture/patterns)
 - [Performance testing and antipatterns for cloud applications](/azure/architecture/antipatterns)

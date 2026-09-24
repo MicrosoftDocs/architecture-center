@@ -121,4 +121,4 @@ Network security groups restrict access to each tier. For example, the database 
 [caching]: ../../best-practices/caching.md
 [ha-nva]: ../../networking/guide/network-virtual-appliance-high-availability.md
 [hybrid-network]: ../../reference-architectures/hybrid-networking/hybrid-connectivity-options.md
-[sql-always-on]: /sql/database-engine/availability-groups/windows/always-on-availability-groups-sql-server
+[sql-always-on]: /sql/database-engine/availability-groups/windows/overview-of-always-on-availability-groups-sql-server

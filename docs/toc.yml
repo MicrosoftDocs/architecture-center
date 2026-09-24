@@ -699,26 +699,14 @@ items:
           href: example-scenario/unix-migration/migrate-aix-azure-linux.yml
         - name: Batch transaction processing
           href: example-scenario/mainframe/process-batch-transactions.yml
-        - name: Extend mainframes to digital channels by using standards-based REST APIs
-          href: example-scenario/mainframe/extend-mainframes-rest-apis.yml
         - name: General mainframe refactor to Azure
           href: example-scenario/mainframe/general-mainframe-refactor.yml
-        - name: IBM z/OS migration with Avanade AMT
-          href: example-scenario/mainframe/avanade-amt-zos-migration.yml
         - name: Migrate AIX workloads with Skytap
           href: example-scenario/mainframe/migrate-aix-workloads-to-azure-with-skytap.yml
         - name: Migrate IBM i series to Azure with Skytap
           href: example-scenario/mainframe/migrate-ibm-i-series-to-azure-with-skytap.yml
-        - name: Refactor Adabas & Natural systems
-          href: example-scenario/mainframe/refactor-adabas-aks.yml
         - name: Refactor mainframe with Raincode
           href: reference-architectures/app-modernization/raincode-reference-architecture.yml
-        - name: Rehost Adabas & Natural applications
-          href: example-scenario/mainframe/rehost-adabas-software-ag.yml
-        - name: Unisys ClearPath Forward OS 2200 enterprise server virtualization on Azure
-          href: mainframe/virtualization-of-unisys-clearpath-forward-os-2200-enterprise-server-on-azure.yml
-        - name: Unisys ClearPath MCP virtualization on Azure
-          href: example-scenario/mainframe/unisys-clearpath-forward-mainframe-rehost.yml
     - name: Guides
       items:
       - name: SAS on Azure architecture

@@ -2,8 +2,8 @@
 metadata:
   title: Migrate IBM i series to Azure with Skytap
   description: This example architecture shows how to use the native IBM i backup and recovery services with Microsoft Azure components.
-  author: SwapnaKotagiri
-  ms.author: swakot
+  author: swread
+  ms.author: sread
   ms.date: 06/07/2024
   ms.topic: example-scenario
   ms.subservice: example-scenario

@@ -352,6 +352,8 @@ Before you deploy SAP systems across availability zones, take the following cons
 
 - **Latency profile:** Create a network latency profile by using PsPing or Iperf.
 
+- **Number of zones:** The number of zones varies by region.
+
 For comprehensive considerations, see [SAP HA availability zones guide](/azure/sap/workloads/high-availability-zones).
 
 > [!NOTE]

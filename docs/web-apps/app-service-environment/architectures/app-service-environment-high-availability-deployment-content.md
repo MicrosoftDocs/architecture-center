@@ -44,7 +44,7 @@ Reliability helps ensure that your application can meet the commitments that you
 
 #### Jump boxes
 
-This architecture uses the same production-level CI/CD pipeline as the standard deployment, with only one jump box VM. But you can use one jump box for each of the three zones. This architecture uses only one jump box because the jump box doesn't affect the availability of the app. The jump box supports deployment and testing.
+This architecture uses the same production-level CI/CD pipeline as the standard deployment, with only one jump box VM. But you can use one jump box for each availability zone that the architecture uses. This architecture uses only one jump box because the jump box doesn't affect the availability of the app. The jump box supports deployment and testing.
 
 #### App Service Environment
 

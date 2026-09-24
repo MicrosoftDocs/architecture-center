@@ -83,7 +83,7 @@ Application Gateway is a scalable, regional, layer-7 load balancer that supports
 
 - Implement [autoscaling](/azure/application-gateway/application-gateway-autoscaling-zone-redundant) so that Application Gateway adjusts capacity based on traffic demand.
 
-- Consider using at least three instances and deploy across all availability zones that your region supports. Application Gateway is highly available, but [creating a new instance after a failure can take up to seven minutes](/azure/application-gateway/application-gateway-autoscaling-zone-redundant#autoscaling-and-high-availability), even for a single scale instance. Deploy multiple instances across availability zones to ensure that an instance remains available while a new instance starts.
+- Consider using a minimum scale instance count of two or more and always use all the availability zones your region supports. Application Gateway is highly available, but [creating a new instance after a failure can take up to seven minutes](/azure/application-gateway/application-gateway-autoscaling-zone-redundant#autoscaling-and-high-availability), even for a single scale instance. Deploy multiple instances across availability zones to ensure that an instance remains available while a new instance starts.
 
 - Block public network access on App Service to ensure network isolation. In Bicep, set `publicNetworkAccess` to `Disabled` under `properties`.
 
@@ -189,7 +189,7 @@ Deploy Application Gateway in a zone-redundant configuration with a minimum scal
 
 #### Blob Storage
 
-- Use [zone-redundant storage (ZRS)](/azure/storage/common/storage-redundancy#zone-redundant-storage), which replicates data synchronously across three availability zones in the region. Create Standard ZRS or Standard geo-zone-redundant storage (GZRS) storage accounts to ensure data replication across availability zones.
+- Use [zone-redundant storage (ZRS)](/azure/storage/common/storage-redundancy#zone-redundant-storage), which replicates data synchronously across three or more availability zones in the region. Create Standard ZRS or Standard geo-zone-redundant storage (GZRS) storage accounts to ensure data replication across availability zones.
 
 - Create separate storage accounts for deployments, web assets, and other data to manage and configure each account independently.
 

@@ -31,16 +31,10 @@ The following production-ready architectures demonstrate comprehensive compute s
 
 - [AIX UNIX on-premises to Azure Linux migration](../example-scenario/unix-migration/migrate-aix-azure-linux.yml): Migrate IBM AIX workloads to Azure Linux.
 - [High-volume batch transaction processing](../example-scenario/mainframe/process-batch-transactions.yml): Use Azure Kubernetes Service (AKS) and Azure Service Bus to implement high-volume batch transaction processing.
-- [Extend mainframes to digital channels by using standards-based REST APIs](../example-scenario/mainframe/extend-mainframes-rest-apis.yml): Extend mainframe applications to Azure without disruptions or modifications to existing applications.
 - [General mainframe refactor to Azure](../example-scenario/mainframe/general-mainframe-refactor.yml): Modernize mainframe applications by using Azure services.
-- [IBM z/OS mainframe migration with Avanade AMT](../example-scenario/mainframe/avanade-amt-zos-migration.yml): Use the Avanade Automated Migration Technology (AMT) framework to migrate IBM z/OS mainframe workloads to Azure.
 - [Migrate AIX workloads to Azure with Skytap](../example-scenario/mainframe/migrate-aix-workloads-to-azure-with-skytap.yml): Migrate AIX logical partitions (LPARs) to Skytap on Azure.
 - [Migrate IBM i series to Azure with Skytap](../example-scenario/mainframe/migrate-ibm-i-series-to-azure-with-skytap.yml): Use native IBM i backup and recovery services with Azure components.
-- [Refactor mainframe computer systems that run Adabas & Natural](../example-scenario/mainframe/refactor-adabas-aks.yml): Modernize mainframe computer systems that run Adabas & Natural and move them to the cloud.
 - [Rehost mainframe applications to Azure with Raincode compilers](../reference-architectures/app-modernization/raincode-reference-architecture.yml): See how the Raincode COBOL compiler modernizes mainframe legacy applications.
-- [Rehost Adabas and Natural applications on Azure](../example-scenario/mainframe/rehost-adabas-software-ag.yml): Migrate a Software AG Adabas and Natural mainframe system to Azure by using a rehost approach with minimal changes to your existing workload.
-- [Unisys ClearPath Forward OS 2200 enterprise server virtualization on Azure](../mainframe/virtualization-of-unisys-clearpath-forward-os-2200-enterprise-server-on-azure.yml): Use virtualization technologies from Microsoft partner Unisys with an existing Unisys ClearPath Forward (CPF) Dorado enterprise server.
-- [Unisys ClearPath MCP virtualization on Azure](../example-scenario/mainframe/unisys-clearpath-forward-mainframe-rehost.yml): Apply Unisys virtualization technologies to migrate a legacy Unisys ClearPath Forward Libra mainframe to Azure.
 
 ### Compute guides
 

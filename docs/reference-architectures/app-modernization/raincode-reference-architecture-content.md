@@ -205,4 +205,4 @@ Principal author:
 
 -   [Replicate and sync mainframe data in Azure](../migration/sync-mainframe-data-with-azure.yml)
 
--   [IBM z/OS mainframe migration with Avanade AMT](../../example-scenario/mainframe/avanade-amt-zos-migration.yml)
+-   [General mainframe refactor to Azure](../../example-scenario/mainframe/general-mainframe-refactor.yml)
