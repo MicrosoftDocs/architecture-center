@@ -63,22 +63,22 @@ Azure offers a range of sizes that are optimized for both CPU & GPU intensive wo
 
 #### CPU-based virtual machines
 
-- [Linux VMs](/azure/virtual-machines/linux/sizes-hpc)
-- [Windows VMs](/azure/virtual-machines/windows/sizes-hpc)
+- [Linux VMs](/azure/virtual-machines/sizes/overview#high-performance-compute)
+- [Windows VMs](/azure/virtual-machines/sizes/overview#high-performance-compute)
 
 #### GPU-enabled virtual machines
 
 N-series VMs feature NVIDIA GPUs designed for compute-intensive or graphics-intensive applications including artificial intelligence (AI) learning and visualization.
 
-- [Linux VMs](/azure/virtual-machines/linux/sizes-gpu)
-- [Windows VMs](/azure/virtual-machines/windows/sizes-gpu)
+- [Linux VMs](/azure/virtual-machines/sizes/overview#gpu-accelerated)
+- [Windows VMs](/azure/virtual-machines/sizes/overview#gpu-accelerated)
 
 ### Storage
 
 Large-scale Batch and HPC workloads have demands for data storage and access that exceed the capabilities of traditional cloud file systems. There are many solutions that manage both the speed and capacity needs of HPC applications on Azure:
 
 - [Azure NetApp Files](/azure/azure-netapp-files/azure-netapp-files-introduction)
-- [Storage Optimized Virtual Machines](/azure/virtual-machines/windows/sizes-storage)
+- [Storage Optimized Virtual Machines](/azure/virtual-machines/sizes/overview#storage-optimized)
 - [Blob, table, and queue storage](/azure/storage/common/storage-introduction)
 - [Azure SMB File storage](/azure/storage/files/storage-files-introduction)
 - [Azure Managed Lustre](/azure/azure-managed-lustre/amlfs-overview)
@@ -89,7 +89,7 @@ For more information comparing Lustre, GlusterFS, and BeeGFS on Azure, review th
 
 H16r, H16mr, A8, and A9 VMs can connect to a high throughput back-end RDMA network. This network can improve the performance of tightly coupled parallel applications running under Microsoft Message Passing Interface better known as MPI or Intel MPI.
 
-- [RDMA Capable Instances](/azure/virtual-machines/windows/sizes-hpc#rdma-capable-instances)
+- [RDMA Capable Instances](/azure/virtual-machines/sizes/overview#high-performance-compute)
 - [Virtual Network](/azure/virtual-network/virtual-networks-overview)
 - [ExpressRoute](/azure/expressroute/expressroute-introduction)
 
@@ -213,14 +213,14 @@ The following are examples of cluster and workload managers that can run in Azur
 - [Rescale](https://www.rescale.com/azure)
 - [Altair Grid Engine](https://www.altair.com/grid-engine)
 - [Microsoft HPC Pack](/powershell/high-performance-computing/overview?view=hpc19-ps&preserve-view=true)
-  - [HPC Pack for Windows](/azure/virtual-machines/windows/hpcpack-cluster-options)
-  - [HPC Pack for Linux](/azure/virtual-machines/linux/hpcpack-cluster-options)
+  - [HPC Pack for Windows](/powershell/high-performance-computing/overview?view=hpc19-ps&preserve-view=true)
+  - [HPC Pack for Linux](/powershell/high-performance-computing/overview?view=hpc19-ps&preserve-view=true)
 
 #### Containers
 
 Containers can also be used to manage some HPC workloads. Services like the Azure Kubernetes Service (AKS) make it simple to deploy a managed Kubernetes cluster in Azure.
 
-- [Azure Kubernetes Service (AKS)](/azure/aks/intro-kubernetes)
+- [Azure Kubernetes Service (AKS)](/azure/aks/what-is-aks)
 - [Container Registry](/azure/container-registry/container-registry-intro)
 
 ## Cost management
@@ -229,7 +229,7 @@ Managing your HPC cost on Azure can be done through a few different ways. Ensure
 
 ## Security
 
-For an overview of security best practices on Azure, review the [Azure Security Documentation](/azure/security/azure-security).
+For an overview of security best practices on Azure, review the [Azure Security Documentation](/azure/security/fundamentals/overview).
 
 In addition to the network configurations available in the [Cloud Bursting](#hybrid-and-cloud-bursting) section, you can implement a hub/spoke configuration to isolate your compute resources:
 
@@ -281,7 +281,7 @@ Run custom or commercial HPC applications in Azure. Several examples in this sec
 
 ### Engineering applications
 
-- [MATLAB Distributed Computing Server](/azure/virtual-machines/windows/matlab-mdcs-cluster)
+- [MATLAB Distributed Computing Server](/previous-versions/azure/virtual-machines/windows/matlab-mdcs-cluster)
 - [StarCCM+](/archive/blogs/azurecat/run-star-ccm-in-an-azure-hpc-cluster)
 
 ### Graphics and rendering
@@ -301,8 +301,8 @@ Run custom or commercial HPC applications in Azure. Several examples in this sec
 
 Run GPU-powered virtual machines in Azure in the same region as the HPC output for the lowest latency, access, and to visualize remotely through Azure Virtual Desktop.
 
-- [GPU-optimized virtual machine sizes](/azure/virtual-machines/sizes-gpu)
-- [Configure GPU acceleration for Azure Virtual Desktop](/azure/virtual-desktop/configure-vm-gpu)
+- [GPU-optimized virtual machine sizes](/azure/virtual-machines/sizes/overview#gpu-accelerated)
+- [Configure GPU acceleration for Azure Virtual Desktop](/azure/virtual-desktop/graphics-enable-gpu-acceleration)
 
 ## Performance benchmarks
 
@@ -310,7 +310,7 @@ Run GPU-powered virtual machines in Azure in the same region as the HPC output f
 
 ## Other important information
 
-- Ensure your [vCPU quota](/azure/virtual-machines/linux/quotas) has been increased before attempting to run large-scale workloads.
+- Ensure your [vCPU quota](/azure/virtual-machines/quotas) has been increased before attempting to run large-scale workloads.
 
 ## Next steps
 
@@ -324,7 +324,7 @@ For the latest announcements, see the following resources:
 These tutorials will provide you with details on running applications on Microsoft Batch:
 
 - [Get started developing with Batch](/azure/batch/quick-run-dotnet)
-- [Use low-priority VMs with Batch](/azure/batch/batch-low-pri-vms)
+- [Use Spot VMs with Batch](/azure/batch/batch-spot-vms)
 - [Use compute-intensive VMs in Batch pools](/azure/batch/batch-pool-compute-intensive-sizes)
 
 ## Related resources
