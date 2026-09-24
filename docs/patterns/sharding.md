@@ -52,7 +52,7 @@ The shard key is the most critical design decision in a sharded system. To chang
 
 An effective shard key is immutable, has high cardinality, distributes data and load evenly, and aligns with your dominant query patterns so that most requests resolve against a single shard. Avoid monotonically increasing values (autoincrement integers and sequential timestamps), low-cardinality attributes (booleans and small enum sets), and volatile attributes that change frequently. These attributes lead to hotspots or costly cross-shard data movement.
 
-If no single attribute meets these criteria, define a composite shard key by combining two or more attributes. If queries need to retrieve data by attributes that aren't part of the shard key, use a pattern such as the [Index Table](./index-table.yml) pattern to provide secondary lookups.
+If no single attribute meets these criteria, define a composite shard key by combining two or more attributes. If queries need to retrieve data by attributes that aren't part of the shard key, use a pattern such as the [Index Table](./index-table.md) pattern to provide secondary lookups.
 
 For more information about how to choose partition keys across Azure services, see [Data partitioning guidance](../best-practices/data-partitioning.yml) and [Data partitioning strategies](../best-practices/data-partitioning-strategies.yml).
 
@@ -173,7 +173,7 @@ Consider the following points as you decide how to implement this pattern:
   > [!NOTE]
   > Autoincremented values in other fields that aren't shard keys can also cause problems. For example, if you use autoincremented fields to generate unique IDs, two different items in different shards might be assigned the same ID.
 
-- Shard the data to support the most frequently performed queries. You might not be able to design a shard key that matches the requirements of every query against the data. If necessary, create secondary index tables to support queries that retrieve data by attributes that aren't part of the shard key. For more information, see [Index Table pattern](./index-table.yml).
+- Shard the data to support the most frequently performed queries. You might not be able to design a shard key that matches the requirements of every query against the data. If necessary, create secondary index tables to support queries that retrieve data by attributes that aren't part of the shard key. For more information, see [Index Table pattern](./index-table.md).
 
 - Design your shard key and data model to keep most operations scoped to a single shard. Queries that access only a single shard are more efficient than queries that retrieve data from multiple shards. Denormalize your data to keep related entities that are commonly queried together, such as customers and their orders, in the same shard to reduce the number of separate reads.
 
@@ -385,5 +385,5 @@ Instead of writing custom code for shard management and query routing to SQL Dat
 ## Related resources
 
 - [Horizontal, vertical, and functional data partitioning](../best-practices/data-partitioning.yml): This article describes other strategies for partitioning data in the cloud to improve scalability, reduce contention, and optimize performance.
-- [Index Table pattern](./index-table.yml): Sometimes you can't support all queries through the design of the shard key alone. An application can use the Index Table pattern to retrieve data from a large data store by specifying a key other than the shard key.
+- [Index Table pattern](./index-table.md): Sometimes you can't support all queries through the design of the shard key alone. An application can use the Index Table pattern to retrieve data from a large data store by specifying a key other than the shard key.
 - [Materialized View pattern](./materialized-view.md): To maintain the performance of some query operations, you can create materialized views that aggregate and summarize data, especially if you distribute that data across shards.

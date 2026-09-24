@@ -136,7 +136,7 @@ items:
       href: patterns/idempotent-consumer.md
     - name: Index Table
       displayName: Secondary index, query optimization
-      href: patterns/index-table.yml
+      href: patterns/index-table.md
     - name: Leader Election
       displayName: Distributed coordination
       href: patterns/leader-election.yml
