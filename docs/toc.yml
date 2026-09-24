@@ -142,7 +142,7 @@ items:
       href: patterns/leader-election.yml
     - name: Materialized View
       displayName: Precomputed query results, read optimization, denormalized view
-      href: patterns/materialized-view.yml
+      href: patterns/materialized-view.md
     - name: Messaging Bridge
       displayName: Protocol translation, message broker
       href: patterns/messaging-bridge.yml

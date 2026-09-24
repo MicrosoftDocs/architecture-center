@@ -104,4 +104,4 @@ You can duplicate the movie data in the values held by each partition by adoptin
 The following patterns might also be relevant when implementing this pattern:
 
 - [Sharding pattern](./sharding.md). The Index Table pattern is frequently used in conjunction with data partitioned by using shards. The Sharding pattern provides more information on how to divide a data store into a set of shards.
-- [Materialized View pattern](./materialized-view.yml). Instead of indexing data to support queries that summarize data, it might be more appropriate to create a materialized view of the data. Describes how to support efficient summary queries by generating prepopulated views over data.
+- [Materialized View pattern](./materialized-view.md). Instead of indexing data to support queries that summarize data, it might be more appropriate to create a materialized view of the data. Describes how to support efficient summary queries by generating prepopulated views over data.

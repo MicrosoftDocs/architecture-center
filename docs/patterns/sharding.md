@@ -386,4 +386,4 @@ Instead of writing custom code for shard management and query routing to SQL Dat
 
 - [Horizontal, vertical, and functional data partitioning](../best-practices/data-partitioning.yml): This article describes other strategies for partitioning data in the cloud to improve scalability, reduce contention, and optimize performance.
 - [Index Table pattern](./index-table.yml): Sometimes you can't support all queries through the design of the shard key alone. An application can use the Index Table pattern to retrieve data from a large data store by specifying a key other than the shard key.
-- [Materialized View pattern](./materialized-view.yml): To maintain the performance of some query operations, you can create materialized views that aggregate and summarize data, especially if you distribute that data across shards.
+- [Materialized View pattern](./materialized-view.md): To maintain the performance of some query operations, you can create materialized views that aggregate and summarize data, especially if you distribute that data across shards.
