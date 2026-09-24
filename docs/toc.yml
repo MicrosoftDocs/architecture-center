@@ -94,7 +94,7 @@ items:
       href: patterns/circuit-breaker.md
     - name: Claim Check
       displayName: Large message handling, message size limit
-      href: patterns/claim-check.yml
+      href: patterns/claim-check.md
     - name: Compensating Transaction
       displayName: rollback, undo, eventual consistency
       href: patterns/compensating-transaction.md
