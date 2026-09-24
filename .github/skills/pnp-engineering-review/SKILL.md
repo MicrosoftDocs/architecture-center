@@ -1,6 +1,6 @@
 ---
 name: pnp-engineering-review
-description: 'How to run an engineering review of an Azure Architecture Center article when a human explicitly requests it. USE when an "engineering review" is requested of an article, or when asked to review, evaluate, assess, or check the completeness/quality of an article interactively. DO NOT USE for GitHub Copilot''s automated pull request review (use pnp-copilot-pr-review instead), for ai assisted authoring, for pure link checking alone, or for drafting new content from scratch.'
+description: 'How to run an engineering review of an Azure Architecture Center article when a human explicitly requests it. USE when an "engineering review" is requested of an article, or when asked to review, evaluate, assess, or check the completeness/quality of an article interactively. DO NOT USE for GitHub Copilot''s automated pull request review (use code-review instead), for AI assisted authoring, for pure link checking alone, or for drafting new content from scratch.'
 compatibility: 'Depends on the microsoft-learn-grounding skill, a web search tool, and the link-checker agent. Requires an internet connection.'
 disable-model-invocation: false
 license: MIT
