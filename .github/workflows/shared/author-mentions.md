@@ -6,6 +6,7 @@ safe-outputs:
     max: 7
     allowed:
       - achocron
+      - adamboeglin
       - akanso
       - akhan-msft
       - Albertyang0
@@ -40,6 +41,7 @@ safe-outputs:
       - crzywabbit
       - cynthiatreger
       - DanielCrawford
+      - david-stanford
       - davidsmatlak
       - davihern
       - dbarkol
@@ -86,6 +88,7 @@ safe-outputs:
       - james-tn
       - JamesJBarnett
       - janicericketts
+      - jasonschuff
       - jerrymsft
       - JKirsch1
       - jl-ms
@@ -96,6 +99,7 @@ safe-outputs:
       - JohnPoetzinger
       - josearper
       - jtracey93
+      - ju-shim
       - juanlldc
       - juanosorioms
       - juliays
@@ -118,6 +122,7 @@ safe-outputs:
       - malrose07
       - manasatramalinga
       - manishmsfte
+      - marconetto
       - MarkPryceMaherMSFT
       - martinekuan
       - matthall88
@@ -144,6 +149,7 @@ safe-outputs:
       - ofimbres
       - oscarsk91
       - ovaismehboob
+      - Padmalathas
       - PageWriter-MSFT
       - PatAltimore
       - PaulCollinge
@@ -201,6 +207,7 @@ safe-outputs:
       - sydbruck
       - tedmanlee
       - ThePedestrian
+      - tomvcassidy
       - troyhite
       - ttorble
       - ulisesadan
