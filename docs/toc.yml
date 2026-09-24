@@ -793,6 +793,14 @@ items:
           - name: CI/CD for microservices on Kubernetes
             displayName: continuous integration continuous delivery
             href: microservices/ci-cd-kubernetes.md
+        - name: Hybrid and edge
+          items:
+          - name: AKS on Azure Local baseline architecture
+            displayName: Azure Kubernetes Service, everywhere, bare metal
+            href: example-scenario/hybrid/aks-baseline.yml
+          - name: Deploy apps with AKS Hybrid and Edge using GitOps
+            displayName: Azure Kubernetes Service, everywhere, Azure Local, bare metal
+            href: example-scenario/hybrid/aks-hybrid-azure-local.yml
       - name: Guides
         items:
         - name: Application
@@ -1046,13 +1054,13 @@ items:
             href: hybrid/azure-local-switchless.yml
         - name: Azure Local workloads
           items:
-          - name: AKS on Azure Local (AKS enabled by Azure Arc)
+          - name: AKS on Azure Local
             items:
             - name: AKS on Azure Local baseline architecture
-              displayName: Azure Kubernetes Service
+              displayName: Azure Kubernetes Service, everywhere, bare metal
               href: example-scenario/hybrid/aks-baseline.yml
-            - name: Deploy apps with AKS enabled by Azure Arc on Azure Local  
-              displayName: Azure Kubernetes Service
+            - name: Deploy apps with AKS Hybrid and Edge using GitOps
+              displayName: Azure Kubernetes Service, everywhere, Azure Local, bare metal
               href: example-scenario/hybrid/aks-hybrid-azure-local.yml
           - name: Azure Virtual Desktop for Azure Local
             displayName: AVD
