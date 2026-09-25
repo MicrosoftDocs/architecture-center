@@ -138,4 +138,4 @@ Key characteristics:
 - [Architectural considerations for identity in a multitenant solution](/azure/architecture/guide/multitenant/considerations/identity)
 - [Gatekeeper pattern](./gatekeeper.md)
 - [Valet Key pattern](./valet-key.yml)
-- [Gateway Offloading pattern](./gateway-offloading.yml)
+- [Gateway Offloading pattern](./gateway-offloading.md)

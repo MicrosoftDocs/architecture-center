@@ -94,7 +94,7 @@ items:
       href: patterns/circuit-breaker.md
     - name: Claim Check
       displayName: Large message handling, message size limit
-      href: patterns/claim-check.yml
+      href: patterns/claim-check.md
     - name: Compensating Transaction
       displayName: rollback, undo, eventual consistency
       href: patterns/compensating-transaction.md
@@ -122,7 +122,7 @@ items:
     - name: Gateway Aggregation
       href: patterns/gateway-aggregation.md
     - name: Gateway Offloading
-      href: patterns/gateway-offloading.yml
+      href: patterns/gateway-offloading.md
     - name: Gateway Routing
       href: patterns/gateway-routing.yml
     - name: Geode
@@ -136,13 +136,13 @@ items:
       href: patterns/idempotent-consumer.md
     - name: Index Table
       displayName: Secondary index, query optimization
-      href: patterns/index-table.yml
+      href: patterns/index-table.md
     - name: Leader Election
       displayName: Distributed coordination
       href: patterns/leader-election.yml
     - name: Materialized View
       displayName: Precomputed query results, read optimization, denormalized view
-      href: patterns/materialized-view.yml
+      href: patterns/materialized-view.md
     - name: Messaging Bridge
       displayName: Protocol translation, message broker
       href: patterns/messaging-bridge.yml
@@ -793,6 +793,14 @@ items:
           - name: CI/CD for microservices on Kubernetes
             displayName: continuous integration continuous delivery
             href: microservices/ci-cd-kubernetes.md
+        - name: Hybrid and edge
+          items:
+          - name: AKS on Azure Local baseline architecture
+            displayName: Azure Kubernetes Service, everywhere, bare metal
+            href: example-scenario/hybrid/aks-baseline.yml
+          - name: Deploy apps with AKS Hybrid and Edge using GitOps
+            displayName: Azure Kubernetes Service, everywhere, Azure Local, bare metal
+            href: example-scenario/hybrid/aks-hybrid-azure-local.yml
       - name: Guides
         items:
         - name: Application
@@ -1046,13 +1054,13 @@ items:
             href: hybrid/azure-local-switchless.yml
         - name: Azure Local workloads
           items:
-          - name: AKS on Azure Local (AKS enabled by Azure Arc)
+          - name: AKS on Azure Local
             items:
             - name: AKS on Azure Local baseline architecture
-              displayName: Azure Kubernetes Service
+              displayName: Azure Kubernetes Service, everywhere, bare metal
               href: example-scenario/hybrid/aks-baseline.yml
-            - name: Deploy apps with AKS enabled by Azure Arc on Azure Local  
-              displayName: Azure Kubernetes Service
+            - name: Deploy apps with AKS Hybrid and Edge using GitOps
+              displayName: Azure Kubernetes Service, everywhere, Azure Local, bare metal
               href: example-scenario/hybrid/aks-hybrid-azure-local.yml
           - name: Azure Virtual Desktop for Azure Local
             displayName: AVD

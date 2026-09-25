@@ -39,7 +39,7 @@ The design patterns in this article address these challenges directly. Each patt
 
   [**Gateway Aggregation**](../../patterns/gateway-aggregation.md) uses the gateway to combine multiple client requests into a single request. This approach reduces chattiness between clients and services.
 
-  [**Gateway Offloading**](../../patterns/gateway-offloading.yml) centralizes cross-cutting functionality, such as Secure Socket Layer (SSL) termination, authentication, and rate limiting, into the gateway so that individual services don't have to implement these concerns separately.
+  [**Gateway Offloading**](../../patterns/gateway-offloading.md) centralizes cross-cutting functionality, such as Secure Socket Layer (SSL) termination, authentication, and rate limiting, into the gateway so that individual services don't have to implement these concerns separately.
 
   For more information, see [API gateways for microservices](gateway.yml).
 

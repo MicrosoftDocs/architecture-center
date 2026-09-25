@@ -70,7 +70,7 @@ A more advanced CQRS implementation uses distinct data stores for the read and w
 
 When you use separate data stores, you must ensure that both remain synchronized. A common pattern is to have the write model publish events when it updates the database, which the read model uses to refresh its data. For more information about how to use events, see [Event-driven architecture style](../guide/architecture-styles/event-driven.md). Because you usually can't enlist message brokers and databases into a single distributed transaction, consistency problems can occur when you update the database and publish events. Use the [Transactional Outbox pattern](../databases/guide/transactional-out-box-cosmos.md) to persist the state change and event atomically, and make the read-model consumer [idempotent](./idempotent-consumer.md) to tolerate duplicate delivery.
 
-The read data store can use its own data schema that's optimized for queries. For example, it can store a [materialized view](./materialized-view.yml) of the data to avoid complex joins or O/RM mappings. The read data store can be a read-only replica of the write store or have a different structure. Deploying multiple read-only replicas can improve performance by reducing latency and increasing availability, especially in distributed scenarios.
+The read data store can use its own data schema that's optimized for queries. For example, it can store a [materialized view](./materialized-view.md) of the data to avoid complex joins or O/RM mappings. The read data store can be a read-only replica of the write store or have a different structure. Deploying multiple read-only replicas can improve performance by reducing latency and increasing availability, especially in distributed scenarios.
 
 ### Benefits of CQRS
 
@@ -273,4 +273,4 @@ The following information might be relevant when you implement this pattern:
 
 - [Event Sourcing pattern](./event-sourcing.md). This pattern describes how to simplify tasks in complex domains and improve performance, scalability, and responsiveness. It also explains how to provide consistency for transactional data while maintaining full audit trails and history that can enable compensating actions.
 
-- [Materialized View pattern](./materialized-view.yml). This pattern creates prepopulated views, known as *materialized views*, for efficient querying and data extraction from one or more data stores. The read model of a CQRS implementation can contain materialized views of the write model data, or the read model can be used to generate materialized views.
+- [Materialized View pattern](./materialized-view.md). This pattern creates prepopulated views, known as *materialized views*, for efficient querying and data extraction from one or more data stores. The read model of a CQRS implementation can contain materialized views of the write model data, or the read model can be used to generate materialized views.

@@ -1,0 +1,32 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 860 360" font-family="Segoe UI, Arial, sans-serif" role="img" aria-label="Gateway offloading with TLS on both connections">
+  <rect width="860" height="360" fill="#fff"/>
+  <defs>
+    <marker id="arrow" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto"><path d="M0,0 L8,3 L0,6 Z" fill="#5c5c5c"/></marker>
+  </defs>
+  <rect x="20" y="145" width="140" height="70" rx="6" fill="#eef3fb" stroke="#0072c6" stroke-width="1.5"/>
+  <text x="90" y="185" text-anchor="middle" font-size="16">Client</text>
+  <rect x="310" y="70" width="240" height="220" rx="6" fill="#e6f2e6" stroke="#3a8f3a" stroke-width="1.5"/>
+  <text x="430" y="102" text-anchor="middle" font-size="16" font-weight="600">Gateway proxy</text>
+  <text x="430" y="140" text-anchor="middle" font-size="14">Terminate client TLS</text>
+  <text x="430" y="176" text-anchor="middle" font-size="14">Apply shared capabilities</text>
+  <text x="430" y="212" text-anchor="middle" font-size="14">Validate backend certificate</text>
+  <text x="430" y="248" text-anchor="middle" font-size="14">Re-encrypt to backend</text>
+  <rect x="690" y="25" width="150" height="70" rx="6" fill="#eef3fb" stroke="#0072c6" stroke-width="1.5"/>
+  <text x="765" y="55" text-anchor="middle" font-size="14">Backend service 1</text>
+  <text x="765" y="78" text-anchor="middle" font-size="13">HTTPS</text>
+  <rect x="690" y="145" width="150" height="70" rx="6" fill="#eef3fb" stroke="#0072c6" stroke-width="1.5"/>
+  <text x="765" y="175" text-anchor="middle" font-size="14">Backend service 2</text>
+  <text x="765" y="198" text-anchor="middle" font-size="13">HTTPS</text>
+  <rect x="690" y="265" width="150" height="70" rx="6" fill="#eef3fb" stroke="#0072c6" stroke-width="1.5"/>
+  <text x="765" y="295" text-anchor="middle" font-size="14">Backend service 3</text>
+  <text x="765" y="318" text-anchor="middle" font-size="13">HTTPS</text>
+  <g stroke="#5c5c5c" stroke-width="1.5" marker-end="url(#arrow)">
+    <line x1="160" y1="180" x2="310" y2="180"/>
+    <line x1="550" y1="130" x2="690" y2="60"/>
+    <line x1="550" y1="180" x2="690" y2="180"/>
+    <line x1="550" y1="230" x2="690" y2="300"/>
+  </g>
+  <text x="235" y="165" text-anchor="middle" font-size="13">TLS</text>
+  <text x="620" y="151" text-anchor="middle" font-size="12">New TLS</text>
+  <text x="620" y="167" text-anchor="middle" font-size="12">connection</text>
+</svg>
