@@ -42,6 +42,12 @@ Use the recommendations in the following architectures when designing your workl
 
 - [Build a CI/CD pipeline for microservices on Kubernetes by using Azure DevOps and Helm](../microservices/ci-cd-kubernetes.md): Build robust CI/CD pipelines for Kubernetes microservices.
 
+##### Hybrid and edge architectures
+
+- [Azure Kubernetes Service (AKS) baseline architecture for Azure Local](../example-scenario/hybrid/aks-baseline.yml): Design a baseline architecture for AKS that runs on Azure Local or uses AKS on bare metal as an alternative deployment option.
+
+- [Deploy containerized apps with AKS Hybrid and Edge by using GitOps](../example-scenario/hybrid/aks-hybrid-azure-local.yml): Build containerized app deployment pipelines for AKS Hybrid and Edge by using Azure Arc and GitOps, and use Flux automation for on-premises Kubernetes clusters.
+
 #### Kubernetes guides
 
 The following guides provide recommendations on cross-cutting concerns in your Kubernetes workload:
