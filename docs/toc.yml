@@ -505,6 +505,10 @@ items:
           - name: Baseline Microsoft Foundry chat architecture in an Azure landing zone
             displayName: ALZ, Production, AI chatbot, LLM
             href: ai-ml/architecture/baseline-microsoft-foundry-landing-zone.yml
+        - name: Machine learning inference
+          items:
+          - name: Baseline Azure Machine Learning inference reference architecture
+            href: ai-ml/architecture/baseline-azure-machine-learning-inference.yml
         - name: Document processing
           items:
           - name: Automate document classification
