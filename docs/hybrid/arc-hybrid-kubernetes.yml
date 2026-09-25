@@ -4,7 +4,7 @@ metadata:
   description: Learn how Azure Arc extends Kubernetes cluster management and configuration across customer data centers, edge locations, and multiple cloud environments.
   author: mestredelpino
   ms.author: carlosmes
-  ms.date: 01/31/2025
+  ms.date: 09/25/2026
   ms.topic: reference-architecture
   ms.subservice: reference-architecture
   ms.category:

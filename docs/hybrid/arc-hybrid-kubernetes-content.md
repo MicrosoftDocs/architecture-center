@@ -96,7 +96,7 @@ For more information, see [Connect an existing Kubernetes cluster to Azure Arc][
 
 Monitoring your containers is crucial. Azure Monitor container insights provides robust monitoring capabilities for AKS and AKS engine clusters. You can also configure Azure Monitor container insights to monitor Azure Arc-enabled Kubernetes clusters that are hosted outside of Azure. This configuration provides comprehensive monitoring of your Kubernetes clusters across Azure, on-premises, and in non-Microsoft cloud environments.
 
-Azure Monitor container insights provides performance visibility by collecting memory and processor metrics from controllers, nodes, and containers. These metrics are available in Kubernetes through the Metrics API. Container logs are also collected. After you enable monitoring from Kubernetes clusters, a containerized version of the Log Analytics agent automatically collects metrics and logs. Metrics are written to the metrics store, and log data is written to the logs store that's associated with your Log Analytics workspace. For more information, see [Azure Monitor features for Kubernetes monitoring][Azure Monitor features for Kubernetes monitoring].
+Azure Monitor container insights provides performance visibility by collecting memory and processor metrics from controllers, nodes, and containers. These metrics are available in Kubernetes through the Metrics API. Container logs are also collected. After you enable monitoring from Kubernetes clusters, a containerized version of the Azure Monitor agent automatically collects metrics and logs. Metrics are written to the metrics store, and log data is written to the logs store that's associated with your Log Analytics workspace. For more information, see [Azure Monitor features for Kubernetes monitoring][Azure Monitor features for Kubernetes monitoring].
 
 You can enable Azure Monitor container insights for one or more deployments of Kubernetes by using a PowerShell script or a Bash script.
 
@@ -190,6 +190,8 @@ Operational Excellence covers the operations processes that deploy an applicatio
 Principal author:
 
 - [Pieter de Bruin](https://www.linkedin.com/in/pieterjmdebruin) | Senior Program Manager
+- [Carlos Mestre del Pino](https://www.linkedin.com/in/mestredelpino) | Cloud & AI Solution Architect
+
 
 *To see nonpublic LinkedIn profiles, sign in to LinkedIn.*
 
