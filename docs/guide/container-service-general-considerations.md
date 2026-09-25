@@ -111,7 +111,7 @@ When you integrate applications into virtual networks, you need to plan IP addre
 | Feature or requirement | Container Apps | AKS | Web App for Containers |
 |---|---|---|---|
 | Dedicated subnets | - Consumption plan: optional <br><br> - Dedicated plan: required | Required | Optional |
-| IP address requirements | - Consumption plan. See [Consumption-only environment](/azure/container-apps/networking). <br><br> - Dedicated plan. See [Workload profiles environment](/azure/container-apps/networking). | See [Azure virtual networks for AKS](/azure/aks/concepts-network). | See [App Service subnet requirements](/azure/app-service/overview-vnet-integration). |
+| IP address requirements | See [Networking in an Azure Container Apps environment](/azure/container-apps/networking). | See [Azure virtual networks for AKS](/azure/aks/concepts-network). | See [App Service subnet requirements](/azure/app-service/overview-vnet-integration). |
 
 AKS requirements depend on your chosen network plug-in. Some network plug-ins for AKS require broader IP address reservations. That information is beyond the scope of this article. For more information, see [Networking concepts for AKS](/azure/aks/concepts-network).
 
@@ -230,7 +230,7 @@ Advanced Container Networking Services (ACNS) equips AKS with advanced networkin
 For more information, see the following resources:
 
 - [What is container network observability?](/azure/aks/container-network-observability-guide)
-- [What is container network security?](/azure/aks/advanced-container-networking-services-overview?tabs=cilium#container-network-security)
+- [What is container network security?](/azure/aks/advanced-container-networking-services-overview#container-network-security)
 
 ### Service discovery
 
@@ -305,7 +305,7 @@ AKS provides the most flexibility of the three options considered in this articl
 
 You're responsible for securing identity-based access to the API. Kubernetes provides its own authentication and authorization management system. This system needs to be secured with access controls.
 
-To take advantage of a single plane of glass for identity and access management on Azure, it's a best practice to [disable Kubernetes-specific local accounts](/azure/aks/local-accounts) and instead [implement AKS-managed Microsoft Entra integration](/azure/aks/enable-authentication-microsoft-entra-id) together with [Azure role-based access control (Azure RBAC) for Kubernetes](/azure/aks/entra-id-authorization). If you implement this best practice, administrators don't need to perform identity and access management on multiple platforms.
+To take advantage of a single pane of glass for identity and access management on Azure, [disable Kubernetes-specific local accounts](/azure/aks/local-accounts) and instead [implement AKS-managed Microsoft Entra integration](/azure/aks/enable-authentication-microsoft-entra-id) together with [Azure role-based access control (Azure RBAC) for Kubernetes](/azure/aks/entra-id-authorization). If you implement this best practice, administrators don't need to perform identity and access management on multiple platforms.
 
 | Kubernetes API access | Container Apps | AKS |
 |---|---|---|
