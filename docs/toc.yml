@@ -130,7 +130,7 @@ items:
       href: patterns/geodes.yml
     - name: Health Endpoint Monitoring
       displayName: Health check, liveness probe, readiness probe
-      href: patterns/health-endpoint-monitoring.yml
+      href: patterns/health-endpoint-monitoring.md
     - name: Idempotent Consumer
       displayName: message, deduplication, exactly-once
       href: patterns/idempotent-consumer.md

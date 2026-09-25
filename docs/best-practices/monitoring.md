@@ -463,7 +463,7 @@ Use the following strategies to gather monitoring and diagnostic data:
 
 - **Profiling** helps you monitor and improve application performance. Unlike real user monitoring and synthetic user monitoring, which operate at the functional level, profiling captures lower-level information as the application runs. Implement profiling by periodically sampling the execution state of an application or by determining which piece of code the application runs at a specific time. You can also use instrumentation that inserts probes into the code at important junctures, such as the start and end of a method call. The probes record which methods the call invoked, at what time, and how long each call takes. You can then analyze this data to determine which parts of the application might cause performance problems.
 
-- **Endpoint monitoring** uses one or more diagnostic endpoints that the application exposes specifically to enable monitoring. An endpoint provides a pathway into the application code and can return information about the health of the system. Different endpoints can focus on various aspects of the functionality. You can write your own diagnostics client that sends periodic requests to these endpoints and assimilates the responses. For more information, see the [Health Endpoint Monitoring pattern](../patterns/health-endpoint-monitoring.yml).
+- **Endpoint monitoring** uses one or more diagnostic endpoints that the application exposes specifically to enable monitoring. An endpoint provides a pathway into the application code and can return information about the health of the system. Different endpoints can focus on various aspects of the functionality. You can write your own diagnostics client that sends periodic requests to these endpoints and assimilates the responses. For more information, see the [Health Endpoint Monitoring pattern](../patterns/health-endpoint-monitoring.md).
 
 - **User error dumps** rely on the application to provide a way to collect a snapshot of the application state if it can't recover. Users also need to voluntarily share that snapshot. You can't guarantee that an error dump runs, but you can use the low-level data that it provides to determine the root cause of errors. This scenario is common if the errors happen infrequently or if errors only occur in an infrequently used application feature.
 
@@ -775,6 +775,6 @@ In many cases, batch processes can generate reports according to a defined sched
 
 - [Autoscaling guidance](../best-practices/auto-scaling.md) describes how to decrease management overhead by reducing the need to continually monitor system performance and make decisions to add or remove resources.
 
-- [Health Endpoint Monitoring pattern](../patterns/health-endpoint-monitoring.yml) describes how to implement functional checks within an application that external tools can access through exposed endpoints at regular intervals.
+- [Health Endpoint Monitoring pattern](../patterns/health-endpoint-monitoring.md) describes how to implement functional checks within an application that external tools can access through exposed endpoints at regular intervals.
 
 - [Priority Queue pattern](../patterns/priority-queue.md) describes how to prioritize queued messages so that systems receive and process urgent requests before less urgent messages.
