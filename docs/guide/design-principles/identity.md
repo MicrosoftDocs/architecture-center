@@ -113,15 +113,15 @@ Other contributors:
 
 ## Next steps
 
-- [What is Microsoft Entra ID?](/entra/fundamentals/whatis)
+- [What is Microsoft Entra ID?](/entra/fundamentals/what-is-entra)
 - [Secure your apps using External ID in an external tenant](/entra/external-id/customers/overview-customers-ciam)
 - [Explore identity and Microsoft Entra ID](/training/modules/explore-identity-azure-active-directory)
-- [Design an identity security strategy](/training/modules/design-identity-security-strategy)
-- [Implement Microsoft identity](/training/paths/m365-identity-associate)
+- [Design an identity security strategy](/training/modules/design-solutions-identity-access-management)
+- [Implement Microsoft identity](/training/paths/implement-identity-management-solution)
 - [Manage identity and access in Microsoft Entra ID](/training/paths/manage-identity-and-access)
 
 ## Related resources
 
-- [Authenticate using Microsoft Entra ID and OpenID Connect](../../multitenant-identity/authenticate.yml)
+- [Architectural considerations for identity in a multitenant solution](/azure/architecture/guide/multitenant/considerations/identity)
 - [Federated identity pattern](../../patterns/federated-identity.md)
 - [Identity architecture design](../../identity/identity-get-started.md)

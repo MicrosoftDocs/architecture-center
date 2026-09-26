@@ -30,7 +30,7 @@ Your application might have specific requirements that make IaaS a more suitable
 
 | Instead of running ... | Consider using ... |
 |-----------------------|-------------|
-| Active Directory | [Microsoft Entra ID](/entra/fundamentals/whatis) |
+| Active Directory | [Microsoft Entra ID](/entra/fundamentals/what-is-entra) |
 | Elasticsearch | [Azure AI Search](/azure/search/search-what-is-azure-search) |
 | Hadoop | [Azure HDInsight](/azure/hdinsight/hdinsight-overview) |
 | IIS | [Azure App Service](/azure/app-service/overview) |
