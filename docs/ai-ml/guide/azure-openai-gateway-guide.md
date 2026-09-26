@@ -98,7 +98,7 @@ To address the challenges of exposing Foundry Models data plane APIs directly to
 
 - Ability to introduce [gateway aggregation](../../patterns/gateway-aggregation.md) and advanced [gateway routing](../../patterns/gateway-routing.yml) to multiple services, like routing low-priority messages to a queue for [queue-based load leveling](../../patterns/queue-based-load-leveling.md) or to compute resources to handle tasks.
 
-- Load balancing that uses [health endpoint monitoring](../../patterns/health-endpoint-monitoring.yml) to route only to healthy endpoints by [circuit breaking](../../patterns/circuit-breaker.md) on unavailable or overloaded model deployments.
+- Load balancing that uses [health endpoint monitoring](../../patterns/health-endpoint-monitoring.md) to route only to healthy endpoints by [circuit breaking](../../patterns/circuit-breaker.md) on unavailable or overloaded model deployments.
 
 - Caching strategies to improve performance and cost optimization.
 

@@ -46,7 +46,7 @@ This solution implements the following design patterns:
 
 - [Gateway routing pattern](../patterns/gateway-routing.yml): Route requests to multiple services or service instances that can reside in different regions.
 - [Gateway offloading pattern](../patterns/gateway-offloading.md): Offload functionality, such as mitigating attacks, to a gateway proxy.
-- [Health endpoint monitoring pattern](../patterns/health-endpoint-monitoring.yml): Expose endpoints that validate the health of the workload.
+- [Health endpoint monitoring pattern](../patterns/health-endpoint-monitoring.md): Expose endpoints that validate the health of the workload.
 
 ## Design
 

@@ -32,7 +32,7 @@ A self-healing workload design is fundamental in the [Azure Well-Architected Fra
 
 **Retry failed operations.** Transient failures might occur because of momentary loss of network connectivity, a dropped database connection, or a timeout when a service is busy. Build retry logic into your application to handle transient failures. For many Azure services, the client SDK implements automatic retries. For more information, see [Transient fault handling](../../best-practices/transient-faults.md) and the [Retry pattern](../../patterns/retry.yml).
 
-**Implement health endpoint monitoring.** Each service should expose a health endpoint that indicates its current state and the state of its dependencies. External monitoring systems, load balancers, and orchestrators use these health endpoints to determine whether a service is healthy and route traffic accordingly. For more information, see the [Health Endpoint Monitoring pattern](../../patterns/health-endpoint-monitoring.yml).
+**Implement health endpoint monitoring.** Each service should expose a health endpoint that indicates its current state and the state of its dependencies. External monitoring systems, load balancers, and orchestrators use these health endpoints to determine whether a service is healthy and route traffic accordingly. For more information, see the [Health Endpoint Monitoring pattern](../../patterns/health-endpoint-monitoring.md).
 
 **Protect failing remote services.** It's good practice to retry after a transient failure, but persistent failure can overload a failing service and cause cascading failures. Use the [Circuit Breaker pattern](../../patterns/circuit-breaker.md) to fail fast without making the remote call when an operation is likely to fail.
 

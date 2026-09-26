@@ -207,7 +207,7 @@ Consider the following points when you deploy background tasks in an Azure VM:
 
 - The Azure portal has no built-in facility to monitor individual tasks and no automated restart capability for failed tasks. You can monitor the basic status of the VM and manage it by using [Azure PowerShell cmdlets](/powershell/azure/get-started-azureps), but you need to implement your own mechanisms to collect instrumentation data from the task and operating system. Use the [Azure Monitor Agent](/azure/azure-monitor/agents/azure-monitor-agent-overview) to collect logs and metrics from the VM.
 
-- Create monitoring probes exposed through HTTP endpoints. The code for these probes should perform health checks, collect operational information and statistics, or collate error information and return it to a management application. For more information, see the [Health Endpoint Monitoring pattern](../patterns/health-endpoint-monitoring.yml).
+- Create monitoring probes exposed through HTTP endpoints. The code for these probes should perform health checks, collect operational information and statistics, or collate error information and return it to a management application. For more information, see the [Health Endpoint Monitoring pattern](../patterns/health-endpoint-monitoring.md).
 
 ### App Service WebJobs
 

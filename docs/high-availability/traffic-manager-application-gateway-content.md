@@ -202,7 +202,7 @@ Consider the following recommendations for health probes in Traffic Manager, App
 
 ##### Traffic Manager
 
-- **Endpoint health:** Create an endpoint that reports the overall health of the application. Traffic Manager uses an HTTP(S) probe to monitor the availability of each region. The probe checks for an HTTP 200 (OK) response for a specified URL path. Use the endpoint that you create for the health probe because other endpoints might cause the probe to report a healthy state even when critical parts of the application fail. For more information, see [Health Endpoint Monitoring pattern](../patterns/health-endpoint-monitoring.yml).
+- **Endpoint health:** Create an endpoint that reports the overall health of the application. Traffic Manager uses an HTTP(S) probe to monitor the availability of each region. The probe checks for an HTTP 200 (OK) response for a specified URL path. Use the endpoint that you create for the health probe because other endpoints might cause the probe to report a healthy state even when critical parts of the application fail. For more information, see [Health Endpoint Monitoring pattern](../patterns/health-endpoint-monitoring.md).
 
 - **Failover delay:** Traffic Manager has a failover delay. The following factors determine the duration of the delay:
 

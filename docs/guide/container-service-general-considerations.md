@@ -111,7 +111,7 @@ When you integrate applications into virtual networks, you need to plan IP addre
 | Feature or requirement | Container Apps | AKS | Web App for Containers |
 |---|---|---|---|
 | Dedicated subnets | - Consumption plan: optional <br><br> - Dedicated plan: required | Required | Optional |
-| IP address requirements | - Consumption plan. See [Consumption-only environment](/azure/container-apps/networking#subnet).<br><br> - Dedicated plan. See [Workload profiles environment](/azure/container-apps/networking#subnet). | See [Azure virtual networks for AKS](/azure/aks/concepts-network). | See [App Service subnet requirements](/azure/app-service/overview-vnet-integration). |
+| IP address requirements | See [Networking in an Azure Container Apps environment](/azure/container-apps/networking). | See [Azure virtual networks for AKS](/azure/aks/concepts-network). | See [App Service subnet requirements](/azure/app-service/overview-vnet-integration). |
 
 AKS requirements depend on your chosen network plug-in. Some network plug-ins for AKS require broader IP address reservations. That information is beyond the scope of this article. For more information, see [Networking concepts for AKS](/azure/aks/concepts-network).
 
@@ -177,7 +177,7 @@ For workloads that require strict Layer 4 private networking for both ingress an
 
 | Networking capability | Container Apps | AKS | Web App for Containers |
 |---|---|---|---|
-| Private ingress into a virtual network | ✅ | ✅ | Via [private endpoint](/azure/app-service/networking/private-endpoint) |
+| Private ingress into a virtual network | ✅ | ✅ | Via [private endpoint](/azure/app-service/overview-private-endpoint) |
 | Private egress from a virtual network | ✅ | ✅ | Via [virtual network](/azure/app-service/overview-vnet-integration) integration |
 | Fully suppressed public endpoint | ✅ | ✅ | [An App Service environment only](/azure/app-service/environment/networking#addresses) |
 
@@ -230,7 +230,7 @@ Advanced Container Networking Services (ACNS) equips AKS with advanced networkin
 For more information, see the following resources:
 
 - [What is container network observability?](/azure/aks/container-network-observability-guide)
-- [What is container network security?](/azure/aks/container-network-security-concepts)
+- [What is container network security?](/azure/aks/advanced-container-networking-services-overview#container-network-security)
 
 ### Service discovery
 
@@ -305,7 +305,7 @@ AKS provides the most flexibility of the three options considered in this articl
 
 You're responsible for securing identity-based access to the API. Kubernetes provides its own authentication and authorization management system. This system needs to be secured with access controls.
 
-To take advantage of a single plane of glass for identity and access management on Azure, it's a best practice to [disable Kubernetes-specific local accounts](/azure/aks/manage-local-accounts-managed-azure-ad) and instead [implement AKS-managed Microsoft Entra integration](/azure/aks/enable-authentication-microsoft-entra-id) together with [Azure role-based access control (Azure RBAC) for Kubernetes](/azure/aks/manage-azure-rbac). If you implement this best practice, administrators don't need to perform identity and access management on multiple platforms.
+To take advantage of a single pane of glass for identity and access management on Azure, [disable Kubernetes-specific local accounts](/azure/aks/local-accounts) and instead [implement AKS-managed Microsoft Entra integration](/azure/aks/enable-authentication-microsoft-entra-id) together with [Azure role-based access control (Azure RBAC) for Kubernetes](/azure/aks/entra-id-authorization). If you implement this best practice, administrators don't need to perform identity and access management on multiple platforms.
 
 | Kubernetes API access | Container Apps | AKS |
 |---|---|---|
@@ -315,7 +315,7 @@ You don't have access to the Kubernetes API if you use Container Apps. Microsoft
 
 #### Network-based security
 
-If you want to restrict network access to the Kubernetes control plane, you need to use AKS, which provides two options. The first option is to use [private AKS clusters](/azure/aks/private-clusters#create-a-private-aks-cluster), which use Azure Private Link between the API server's private network and the AKS cluster's private network. The second option is [API server virtual network integration](/azure/aks/api-server-vnet-integration) where the API server is integrated into a delegated subnet.
+If you want to restrict network access to the Kubernetes control plane, you need to use AKS, which provides two options. The first option is to use [private AKS clusters](/azure/aks/private-clusters#overview-of-private-clusters-in-aks), which use Azure Private Link between the API server's private network and the AKS cluster's private network. The second option is [API server virtual network integration](/azure/aks/api-server-vnet-integration) where the API server is integrated into a delegated subnet.
 
 There are consequences to implementing network-restricted access to the Kubernetes API. Most notably, management can be performed only from within the private network. Typically, you need to deploy self-hosted agents for Azure DevOps or GitHub Actions. To learn about other limitations, see the product-specific documentation.
 
@@ -446,8 +446,8 @@ Container Apps and Web App for Containers are PaaS solutions. Azure is responsib
 
 | Update responsibility | Container Apps | AKS | AKS Automatic | Web App for Containers |
 |---|---|---|---|---|
-| Control plane updates | Platform | [Customer](/azure/aks/upgrade-cluster) | Platform | Platform |
-| Host updates and patches | Platform | [Customer](/azure/aks/node-image-upgrade) | Platform | Platform |
+| Control plane updates | Platform | [Customer](/azure/aks/upgrade-options) | Platform | Platform |
+| Host updates and patches | Platform | [Customer](/azure/aks/upgrade-node-image) | Platform | Platform |
 | Container image updates and patches | Customer | Customer | Customer | Customer |
 
 ### Container image updates
@@ -489,7 +489,7 @@ Scaling of infrastructure and applications is typically triggered by resource co
 
 | Scalability model | Container Apps | AKS | Web App for Containers |
 |---|---|---|---|
-| Container scale-out | [HTTP, TCP, or metrics-based (CPU, memory, or event-driven)](/azure/container-apps/scale-app) | [Metrics-based (CPU, memory, or custom)](/azure/aks/concepts-scale) | [Manual, metrics-based](/azure/app-service/manage-scale-up#scale-instance-count-manually-or-by-schedule), or [automatic](/azure/app-service/manage-automatic-scaling) |
+| Container scale-out | [HTTP, TCP, or metrics-based (CPU, memory, or event-driven)](/azure/container-apps/scale-app) | [Metrics-based (CPU, memory, or custom)](/azure/aks/concepts-scale) | [Manual, metrics-based](/azure/app-service/manage-scale-up), or [automatic](/azure/app-service/manage-automatic-scaling) |
 | Event-driven scalability | Yes. Cloud-native. | Yes. Cloud-native. Extra configuration required. | Yes. Azure-resource specific. |
 
 AKS Automatic enables the horizontal pod autoscaler, KEDA, and vertical pod autoscaler by default.
@@ -513,7 +513,7 @@ Gathering metrics for complex or multiple-tiered applications can be challenging
 *AKS and Web App for Containers support automatic instrumentation for specific configurations of Linux and Windows workloads, depending on the application language. For more information, see the following articles:
 
 - [Automatic instrumentation supported environments, languages, and resource providers](/azure/azure-monitor/app/codeless-overview#supported-environments-languages-and-resource-providers)
-- [Automatic instrumentation application monitoring for Kubernetes](/azure/azure-monitor/app/kubernetes-codeless)
+- [Automatic instrumentation application monitoring for Kubernetes](/azure/azure-monitor/containers/kubernetes-codeless)
 
 Instrumentation within application code is the responsibility of application developers, so it's independent of any Azure container solution. Use [OpenTelemetry with Application Insights](/azure/azure-monitor/app/opentelemetry-enable#enable-opentelemetry-with-application-insights).
 
@@ -527,8 +527,8 @@ Azure Monitor is the key logging and metrics service in Azure that integrates wi
 | --- | --- | --- | --- | --- |
 | Support for log streaming | ✅ | ✅ | ✅ | ✅ |
 | Support for Azure Monitor | ✅ | ✅ | ✅ | ✅ |
-| Azure Monitor resource logs | - [Console](/azure/container-apps/logging#container-console-logs) <br><br> - [System](/azure/container-apps/logging#system-logs) | [Kubernetes API server, Audit, Scheduler, and Cluster Autoscaler](/azure/aks/monitor-aks#aks-control-planeresource-logs) | Same as AKS | [ConsoleLogs, HTTPLogs, and EnvironmentPlatformLogs](/azure/app-service/monitor-app-service-reference#resource-logs) |
-| Metric collection and monitoring | Metrics via Azure Monitor. Custom metrics via [Dapr metrics](/azure/container-apps/dapr-overview#observability). | Metrics via Azure Monitor. Custom metrics via Prometheus (requires manual setup). | Preconfigured Managed Prometheus for metrics collection and Managed Grafana for visualization. Metrics via Azure Monitor. | Metrics via Azure Monitor |
+| Azure Monitor resource logs | - [Console](/azure/container-apps/logging#container-console-logs) <br><br> - [System](/azure/container-apps/logging#system-logs) | [Kubernetes API server, Audit, Scheduler, and Cluster Autoscaler](/azure/aks/monitor-aks#aks-control-plane-resource-logs) | Same as AKS | [ConsoleLogs, HTTPLogs, and EnvironmentPlatformLogs](/azure/app-service/monitor-app-service-reference#resource-logs) |
+| Metric collection and monitoring | Metrics via Azure Monitor. Custom metrics via [Dapr metrics](/azure/container-apps/dapr-overview). | Metrics via Azure Monitor. Custom metrics via Prometheus (requires manual setup). | Preconfigured Managed Prometheus for metrics collection and Managed Grafana for visualization. Metrics via Azure Monitor. | Metrics via Azure Monitor |
 | Preconfigured Prometheus and Grafana | ❌ | Requires manual setup. | Managed Prometheus and Managed Grafana are preconfigured by default. | ❌ |
 
 Consider metrics and logs for the following services:
@@ -556,7 +556,7 @@ To choose the appropriate service tier, you need to understand how SLAs and avai
 
 ### SLAs
 
-Reliability is commonly measured by [business-driven metrics](/azure/well-architected/resiliency/business-metrics) like SLAs or recovery metrics like recovery-time objectives.
+Reliability is commonly measured by [business-driven metrics](/azure/well-architected/reliability/metrics) like SLAs or recovery metrics like recovery-time objectives.
 
 Azure provides many SLAs for specific services. There's no such thing as total service availability because failures can occur in software, hardware, or even natural events like storms and earthquakes. An SLA isn't a guarantee but a financially backed commitment to a defined level of availability.
 
@@ -580,7 +580,7 @@ When you use multiple Azure services, [composite service-level objectives](/azur
 
 ### Redundancy with availability zones
 
-[Availability zones](/azure/reliability/availability-zones-overview#availability-zones) are distinct datacenters that have independent electric power and cooling within a single region. The resulting redundancy increases the tolerance of failures without requiring you to implement multiregion architectures.
+[Availability zones](/azure/reliability/availability-zones-overview#what-are-availability-zones) are distinct datacenters that have independent electric power and cooling within a single region. The resulting redundancy increases the tolerance of failures without requiring you to implement multiregion architectures.
 
 Azure has availability zones in every country or region in which it operates a datacenter region. To allow multiple instances of containers to cross availability zones, be sure to select SKUs, service tiers, and regions that provide availability zone support.
 
@@ -634,7 +634,7 @@ Alternatively, Container Apps and AKS are much more flexible and provide similar
 
 Identifying a bad container instance and stopping traffic to it is only the start. The next step is to implement automatic healing. *Automatic healing* is the process of restarting the application to attempt to recover from an unhealthy state. Consider how the following container services compare:
 
-- In Web App for Containers, there's no option to restart a container instance immediately after a [health check fails](/azure/app-service/monitor-instances-health-check#what-app-service-does-with-health-checks). If the instance continues to fail for one hour, a new instance replaces it. [Automatic healing](/azure/app-service/overview-diagnostics#auto-healing) monitors and restarts instances. It's not directly related to health checks. Automatic healing uses various application metrics, like memory limits, HTTP request duration, and status codes.
+- In Web App for Containers, there's no option to restart a container instance immediately after a [health check fails](/azure/app-service/monitor-instances-health-check#how-health-check-works). If the instance continues to fail for one hour, a new instance replaces it. [Automatic healing](/azure/app-service/overview-diagnostics#auto-healing) monitors and restarts instances. It's not directly related to health checks. Automatic healing uses various application metrics, like memory limits, HTTP request duration, and status codes.
 
 - Container Apps and AKS automatically try to restart a container instance if the liveness probe reaches the defined failure threshold.
 
@@ -667,7 +667,7 @@ Another important component of a reliable shared environment is your control ove
 This article focuses on the key differences among the container services features in Azure. If you want to review the complete reliability guidance for a specific service, see the following articles:
 
 - [Well-Architected Framework review for AKS](/azure/well-architected/service-guides/azure-kubernetes-service)
-- [Reliability in Container Apps](/azure/reliability/reliability-azure-container-apps)
+- [Reliability in Container Apps](/azure/reliability/reliability-container-apps)
 - [App Service and reliability](/azure/well-architected/service-guides/app-service-web-apps)
 
 ## Conclusion
