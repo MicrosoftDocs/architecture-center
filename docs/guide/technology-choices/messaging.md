@@ -326,7 +326,7 @@ Consider the following patterns when you implement asynchronous messaging:
 
 - [Retry pattern](../../patterns/retry.yml): Producers or consumers might temporarily lose connection to a queue because of transient failures. This pattern describes how to retry operations during transient failures to maintain application resiliency.
 
-- [Scheduler Agent Supervisor pattern](../../patterns/scheduler-agent-supervisor.yml): Workflows often require messaging to coordinate distributed services. This pattern demonstrates how messaging coordinates distributed actions and helps systems recover from failures by retrying failed operations.
+- [Scheduler Agent Supervisor pattern](../../patterns/scheduler-agent-supervisor.md): Workflows often require messaging to coordinate distributed services. This pattern demonstrates how messaging coordinates distributed actions and helps systems recover from failures by retrying failed operations.
 
 - [Choreography pattern](../../patterns/choreography.md): This pattern shows how services can use messaging to control the workflow of a business transaction.
 

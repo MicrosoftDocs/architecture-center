@@ -154,7 +154,7 @@ The development team identifies one area of functionality that doesn't fit withi
 
 - A `Supervisor` that monitors the status of each step to detect failures or timeouts
 
-This approach is a variation of the [Scheduler Agent Supervisor pattern](../../patterns/scheduler-agent-supervisor.yml).
+This approach is a variation of the [Scheduler Agent Supervisor pattern](../../patterns/scheduler-agent-supervisor.md).
 
 :::image type="complex" border="false" source="../images/drone-ddd.png" alt-text="Diagram of the revised domain model." lightbox="../images/drone-ddd.png":::
    The image contains 11 key sections. An arrow labeled observes points from supervisor to scheduler. An arrow points from scheduler to drone. A double-sided arrow labeled coordinates points from account to delivery. An arrow points from coordinates to package. A smaller arrow points from package to tag. A dotted arrow labeled drone status points from drone to delivery. Two smaller arrows point from delivery to confirmation and notification. A dotted line connects delivery and delivery status.

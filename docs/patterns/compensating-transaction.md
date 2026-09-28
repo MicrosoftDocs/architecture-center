@@ -140,7 +140,7 @@ Use managed identities and Microsoft Entra ID-based authorization between compon
 
 - [Design for self-healing](../guide/design-principles/self-healing.md): Use compensating transactions as part of a self-healing approach for your applications.
 
-- [Scheduler Agent Supervisor pattern](./scheduler-agent-supervisor.yml): Use this pattern to implement resilient systems that perform business operations across distributed services and resources. These systems sometimes need compensating transactions to undo work.
+- [Scheduler Agent Supervisor pattern](./scheduler-agent-supervisor.md): Use this pattern to implement resilient systems that perform business operations across distributed services and resources. These systems sometimes need compensating transactions to undo work.
 
 - [Retry pattern](./retry.yml): Use this pattern to handle transient failures and minimize the need for compensating transactions.
 

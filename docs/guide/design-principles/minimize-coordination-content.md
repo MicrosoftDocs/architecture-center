@@ -65,7 +65,7 @@ Eventual consistency alone isn't sufficient when disconnected clients consume a 
 [domain-event]: https://martinfowler.com/eaaDev/DomainEvent.html
 [event-sourcing]: ../../patterns/event-sourcing.md
 [leader-election]: ../../patterns/leader-election.yml
-[sas-pattern]: ../../patterns/scheduler-agent-supervisor.yml
+[sas-pattern]: ../../patterns/scheduler-agent-supervisor.md
 [sql-snapshot-isolation]: /sql/t-sql/statements/set-transaction-isolation-level-transact-sql
 [storage-concurrency]: https://azure.microsoft.com/blog/managing-concurrency-in-microsoft-azure-storage-2
 [idempotent]: /azure/architecture/patterns/idempotent-consumer
