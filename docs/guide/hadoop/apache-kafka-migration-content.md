@@ -22,7 +22,7 @@ For one way to migrate Kafka to Azure IaaS, see [Kafka on Ubuntu virtual machine
 
 ### Migrate Kafka to Event Hubs for Kafka
 
-Event Hubs provides an endpoint that's compatible with the Apache Kafka producer and consumer APIs. Most Apache Kafka client applications can use this endpoint, so you can use it as an alternative to running a Kafka cluster on Azure. The endpoint supports clients that use API versions 1.0 and later. For more information about this feature, see [Event Hubs for Apache Kafka overview](/azure/event-hubs/azure-event-hubs-kafka-overview).
+Event Hubs provides an endpoint that's compatible with the Apache Kafka producer and consumer APIs. Most Apache Kafka client applications can use this endpoint, so you can use it as an alternative to running a Kafka cluster on Azure. The endpoint supports clients that use API versions 1.0 and later. For more information about this feature, see [Event Hubs for Apache Kafka overview](/azure/event-hubs/azure-event-hubs-apache-kafka-overview).
 
 To learn how to migrate your Apache Kafka applications to use Event Hubs, see [Migrate to Event Hubs for Apache Kafka ecosystems](/azure/event-hubs/apache-kafka-migration-guide).
 
@@ -166,7 +166,7 @@ Other contributors:
 - [Event Hubs documentation](/azure/event-hubs)
 - [Azure Functions documentation](/azure/azure-functions)
 - [HDInsight documentation](/azure/hdinsight)
-- [Microsoft Purview data governance documentation](/azure/purview)
+- [Microsoft Purview data governance documentation](/purview/)
 - [Azure Stream Analytics documentation](/azure/stream-analytics)
 
 ### Other
@@ -175,5 +175,5 @@ Other contributors:
 - [Develop Java MapReduce programs for Apache Hadoop on HDInsight](/azure/hdinsight/hadoop/apache-hadoop-develop-deploy-java-mapreduce-linux)
 - [Use Apache Sqoop with Hadoop in HDInsight](/azure/hdinsight/hadoop/hdinsight-use-sqoop)
 - [Overview of Apache Spark Streaming](/azure/hdinsight/spark/apache-spark-streaming-overview)
-- [Structured Streaming tutorial](/azure/databricks/getting-started/spark/streaming)
-- [Use Event Hubs from Apache Kafka applications](/azure/event-hubs/event-hubs-for-kafka-ecosystem-overview)
+- [Structured Streaming tutorial](/azure/databricks/structured-streaming/tutorial)
+- [Use Event Hubs from Apache Kafka applications](/azure/event-hubs/azure-event-hubs-apache-kafka-overview)
