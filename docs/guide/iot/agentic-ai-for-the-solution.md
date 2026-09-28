@@ -33,7 +33,7 @@ This reference solution includes an MCP server called [Plant Copilot](https://gi
 
 ## Architecture
 
-:::image type="complex" source="./media/agentic-ai-architecture.svg" alt-text="Diagram that shows the Plant Copilot agentic AI solution." lightbox="./media/agentic-ai-architecture.svg" border="false":::
+:::image type="complex" source="./media/agentic-ai-architecture.svg" alt-text="Diagram that shows the Plant Copilot agentic AI solution." border="false":::
 On the left is an icon labeled User (chat/app). An arrow labeled Natural language points from the user to a box labeled Agent runtime, which represents agent hosting platforms like Microsoft 365 Copilot and Microsoft Foundry, among others. A second arrow labeled Grounded answer points from the Agent runtime box to the user. Below the Agent runtime box, an arrow labeled MCP connects to a box labeled Plant Copilot MCP server. Below the Plant Copilot MCP server, an arrow labeled i3X connects to a box labeled I3X4Kusto. Below I3X4Kusto, an arrow labeled KQL connects to the final box, labeled Azure Data Explorer or Fabric eventhouse.
 :::image-end:::
 
