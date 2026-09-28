@@ -2,7 +2,7 @@ This article describes how to manage virtual machine (VM) compliance without dis
 
 ## Architecture
 
-:::image type="complex" border="false" source="./media/virtual-machine-compliance-golden-image-publishing-architecture.svg" alt-text="Diagram that shows how the solution manages Microsoft Marketplace images for Azure." lightbox="./media/virtual-machine-compliance-golden-image-publishing-architecture.svg":::
+:::image type="complex" border="false" source="./media/virtual-machine-compliance-golden-image-publishing-architecture.svg" alt-text="Diagram that shows how the solution manages Microsoft Marketplace images for Azure.":::
    The diagram shows the golden image publishing process as a numbered workflow with seven steps. In step 1, an arrow points from Marketplace to the Marketplace image. In step 2, an arrow points from the Marketplace image to VM Image Builder. In step 3, an arrow points from VM Image Builder to image tattooing. In step 4, an arrow points from image tattooing to the automated tests. In step 5, a feedback arrow points from the automated tests back to VM Image Builder to indicate a return for repairs on failure. In step 6, an arrow points from automated tests to the image versions. In step 7, an arrow points from the image versions to Compute Gallery.
 :::image-end:::
 
@@ -32,7 +32,7 @@ The following data flow corresponds to the previous diagram:
 
 #### VM compliance tracking
 
-:::image type="complex" border="false" source="./media/virtual-machine-compliance-track-compliance-architecture.svg" alt-text="Diagram that shows how the solution manages compliance by assigning policy definitions, evaluating machines, and displaying data in a dashboard." lightbox="./media/virtual-machine-compliance-track-compliance-architecture.svg":::
+:::image type="complex" border="false" source="./media/virtual-machine-compliance-track-compliance-architecture.svg" alt-text="Diagram that shows how the solution manages compliance by assigning policy definitions, evaluating machines, and displaying data in a dashboard.":::
    The diagram shows a two-step workflow. In step 1, an arrow points from Azure Policy to a VM to indicate that Azure Policy assigns policy definitions to VMs and evaluates them for compliance. In step 2, an arrow points from Azure Policy to the dashboard to indicate that Azure Policy publishes compliance data for the VMs and other Azure resources to the Azure Policy dashboard.
 :::image-end:::
 

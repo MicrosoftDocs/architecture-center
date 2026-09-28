@@ -2,7 +2,7 @@ This solution runs SAS analytics workloads on Azure. The guidance covers various
 
 ## Architecture
 
-:::image type="complex" source="./images/sas-azure-guide-architecture-diagram.svg" alt-text="Architecture diagram showing how to deploy SAS products on Azure." border="false":::
+:::image type="complex" source="./images/sas-azure-guide-architecture-diagram.svg" alt-text="Architecture diagram showing how to deploy SAS products on Azure." border="false" lightbox="./images/sas-azure-guide-architecture-diagram.svg":::
    The diagram contains a large rectangle with the label Azure Virtual Network. Inside it, another large rectangle has the label Proximity placement group. Two rectangles are inside it. They're stacked vertically, and each has the label Network security group. Each security group rectangle contains several computer icons that are arranged in rows. In the upper rectangle, the computer icons on the left side of the upper row have the label Mid tier. The icons on the right have the label Metadata tier. The lower row of icons has the label Compute tier. In the lower rectangle, the upper row of computer icons has the label MGS and MDS servers. The lower row has the label OSTs and OSS servers.
 :::image-end:::
 

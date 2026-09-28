@@ -44,7 +44,7 @@ Use this approach if you have separate application deployments for each tenant o
 
 The following diagram shows an Azure OpenAI instance for each tenant in the provider's subscription.
 
-:::image type="complex" source="./media/openai/openai-providers-subscription.svg" alt-text="Diagram that shows an Azure OpenAI instance for each tenant in the provider's subscription." border="false" lightbox="./media/openai/openai-providers-subscription.svg":::
+:::image type="complex" source="./media/openai/openai-providers-subscription.svg" alt-text="Diagram that shows an Azure OpenAI instance for each tenant in the provider's subscription." border="false":::
 The diagram shows a provider subscription that contains an app and three separate Azure OpenAI instances. Three tenants outside the subscription point to the app and their own Azure OpenAI instance.
 :::image-end:::
 
@@ -66,7 +66,7 @@ When you share an Azure OpenAI instance, understand its [limits](/azure/ai-found
 
 The following diagram shows the shared Azure OpenAI model.
 
-:::image type="complex" source="./media/openai/openai-shared.svg" alt-text="Diagram that shows the shared Azure OpenAI model." border="false" lightbox="./media/openai/openai-shared.svg":::
+:::image type="complex" source="./media/openai/openai-shared.svg" alt-text="Diagram that shows the shared Azure OpenAI model." border="false":::
 The diagram shows a provider subscription that contains an app and a shared Azure OpenAI instance. Three tenants outside the subscription point to the app and the shared Azure OpenAI instance.
 :::image-end:::
 
