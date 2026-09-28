@@ -2,7 +2,7 @@
 title: What's New in Azure Architecture Center
 description: New and updated articles in Azure Architecture Center
 author: claytonsiemens77
-ms.date: 09/20/2026
+ms.date: 09/27/2026
 ms.topic: whats-new
 ms.author: pnp
 ---
@@ -24,6 +24,7 @@ The following new and updated articles have recently been published in the Azure
 
 - [AI inferencing with Silk virtual SAN](./ai-ml/architecture/ai-inferencing-on-azure-iaas.yml)
 - [Compare AWS and Azure analytics services](./aws-professional/analytics.md)
+- [Baseline Azure Machine Learning inference reference architecture](./ai-ml/architecture/baseline-azure-machine-learning-inference.yml)
 
 ### Updated articles
 
@@ -58,11 +59,22 @@ The following new and updated articles have recently been published in the Azure
 - [Connect an on-premises SAP system to the OPC UA reference solution](./guide/iot/how-to-connect-on-premises-sap-to-the-solution.md) ([#04137ab866](https://github.com/MicrosoftDocs/architecture-center/commit/04137ab866))
 - [Automate API Management configuration deployments by using APIOps CLI](./example-scenario/devops/automated-api-deployments-apiops.yml) ([#c49a38aa70](https://github.com/MicrosoftDocs/architecture-center/commit/c49a38aa70))
 - [Network secure ingress pattern implementation with Azure Front Door Premium tier](./pattern-implementations/network-secure-ingress.md) ([#581c29877d](https://github.com/MicrosoftDocs/architecture-center/commit/581c29877d))
-- [Compare AWS and Azure messaging services](./aws-professional/messaging.md) ([#3650e75c19](https://github.com/MicrosoftDocs/architecture-center/commit/3650e75c19))
+- [Compare AWS and Azure messaging services](./aws-professional/messaging.md) ([#3650e75c19](https://github.com/MicrosoftDocs/architecture-center/commit/3650e75c19), [#4d84eeeaba](https://github.com/MicrosoftDocs/architecture-center/commit/4d84eeeaba))
 - [Compare AWS and Azure AI and machine learning services](./aws-professional/data-ai.md) ([#1ebd06d07d](https://github.com/MicrosoftDocs/architecture-center/commit/1ebd06d07d))
 - [Compare AWS and Azure database services](./aws-professional/databases.md) ([#1ebd06d07d](https://github.com/MicrosoftDocs/architecture-center/commit/1ebd06d07d))
 - [Implement advanced monitoring for Foundry Models through a gateway](./ai-ml/guide/azure-openai-gateway-monitoring.md) ([#62cbd5d82b](https://github.com/MicrosoftDocs/architecture-center/commit/62cbd5d82b))
 - [IPv6 hub-and-spoke network topology](./networking/guide/ipv6-architecture.md) ([#95cdc7a0f8](https://github.com/MicrosoftDocs/architecture-center/commit/95cdc7a0f8))
+- [Multilayered protection for Azure virtual machine access](./solution-ideas/articles/multilayered-protection-azure-vm.yml) ([#db0db0a60e](https://github.com/MicrosoftDocs/architecture-center/commit/db0db0a60e))
+- [Choose an Azure service for vector search](./guide/technology-choices/vector-search.md) ([#0addc6de32](https://github.com/MicrosoftDocs/architecture-center/commit/0addc6de32))
+- [Troubleshoot network problems in AKS clusters](./operator-guides/aks/troubleshoot-network-aks.md) ([#b23216b8da](https://github.com/MicrosoftDocs/architecture-center/commit/b23216b8da))
+- [Azure Sandbox](./guide/azure-sandbox/azure-sandbox.md) ([#df5a20cb50](https://github.com/MicrosoftDocs/architecture-center/commit/df5a20cb50))
+- [Azure Kubernetes Service (AKS) baseline architecture for Azure Local](./example-scenario/hybrid/aks-baseline.yml) ([#205812fd97](https://github.com/MicrosoftDocs/architecture-center/commit/205812fd97))
+- [Deploy containerized apps with AKS Hybrid and Edge by using GitOps](./example-scenario/hybrid/aks-hybrid-azure-local.yml) ([#205812fd97](https://github.com/MicrosoftDocs/architecture-center/commit/205812fd97))
+- [Materialized View pattern](./patterns/materialized-view.md) ([#7571ef9286](https://github.com/MicrosoftDocs/architecture-center/commit/7571ef9286))
+- [Claim Check pattern](./patterns/claim-check.md) ([#a41f5d84c4](https://github.com/MicrosoftDocs/architecture-center/commit/a41f5d84c4))
+- [Gateway Offloading pattern](./patterns/gateway-offloading.md) ([#8f5f5d0765](https://github.com/MicrosoftDocs/architecture-center/commit/8f5f5d0765))
+- [Index Table pattern](./patterns/index-table.md) ([#b3f978a886](https://github.com/MicrosoftDocs/architecture-center/commit/b3f978a886))
+- [Health Endpoint Monitoring pattern](./patterns/health-endpoint-monitoring.md) ([#9fdb775034](https://github.com/MicrosoftDocs/architecture-center/commit/9fdb775034))
 
 ## August 2026
 

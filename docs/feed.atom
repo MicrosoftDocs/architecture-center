@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id/>
     <title>Azure Architecture Center</title>
-    <updated>2026-09-18T20:11:02.000Z</updated>
+    <updated>2026-09-25T19:33:09.000Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <subtitle>Updated articles for Azure Architecture Center</subtitle>
     <rights>https://learn.microsoft.com/legal/termsofuse</rights>
@@ -54,6 +54,110 @@
         <link href="https://learn.microsoft.com/azure/architecture/aws-professional/messaging"/>
         <updated>2026-09-16T21:44:16.000Z</updated>
         <summary type="html"><![CDATA[Compare messaging service differences between Azure and AWS. Know Azure equivalents for Simple Email Service, Simple Queue Service, and messaging components.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Baseline Azure Machine Learning inference reference architecture]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/ai-ml/architecture/baseline-azure-machine-learning-inference</id>
+        <link href="https://learn.microsoft.com/azure/architecture/ai-ml/architecture/baseline-azure-machine-learning-inference"/>
+        <updated>2026-09-25T16:30:28.000Z</updated>
+        <summary type="html"><![CDATA[Learn how to build a private, production-ready Azure Machine Learning inference platform with AKS, environment isolation, and controlled model promotion.]]></summary>
+        <category label="new" term="new"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Multilayered protection for Azure virtual machine access]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/solution-ideas/articles/multilayered-protection-azure-vm#db0db0a60e</id>
+        <link href="https://learn.microsoft.com/azure/architecture/solution-ideas/articles/multilayered-protection-azure-vm"/>
+        <updated>2026-09-21T17:00:37.000Z</updated>
+        <summary type="html"><![CDATA[Use multilayered security to control access to Azure VMs. See a solution that uses Azure and Microsoft Entra security services and aligns with security principles.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Choose an Azure service for vector search]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/guide/technology-choices/vector-search#0addc6de32</id>
+        <link href="https://learn.microsoft.com/azure/architecture/guide/technology-choices/vector-search"/>
+        <updated>2026-09-21T15:39:33.000Z</updated>
+        <summary type="html"><![CDATA[Compare capabilities, indexing methods, and integration options to determine which Azure vector search service best fits your application.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Troubleshoot network problems in AKS clusters]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/operator-guides/aks/troubleshoot-network-aks#b23216b8da</id>
+        <link href="https://learn.microsoft.com/azure/architecture/operator-guides/aks/troubleshoot-network-aks"/>
+        <updated>2026-09-23T21:38:59.000Z</updated>
+        <summary type="html"><![CDATA[Learn about steps to take to troubleshoot network problems in Azure Kubernetes Service (AKS) clusters.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Compare AWS and Azure messaging services]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/aws-professional/messaging#4d84eeeaba</id>
+        <link href="https://learn.microsoft.com/azure/architecture/aws-professional/messaging"/>
+        <updated>2026-09-24T13:50:17.000Z</updated>
+        <summary type="html"><![CDATA[Compare messaging service differences between Azure and AWS. Know Azure equivalents for Simple Email Service, Simple Queue Service, and messaging components.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Azure Sandbox]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/guide/azure-sandbox/azure-sandbox#df5a20cb50</id>
+        <link href="https://learn.microsoft.com/azure/architecture/guide/azure-sandbox/azure-sandbox"/>
+        <updated>2026-09-24T19:07:38.000Z</updated>
+        <summary type="html"><![CDATA[Accelerate your Azure project by using a fully functional sandbox environment that includes virtual networks, virtual machines, and databases.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Azure Kubernetes Service (AKS) baseline architecture for Azure Local]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/example-scenario/hybrid/aks-baseline#205812fd97</id>
+        <link href="https://learn.microsoft.com/azure/architecture/example-scenario/hybrid/aks-baseline"/>
+        <updated>2026-09-24T21:53:52.000Z</updated>
+        <summary type="html"><![CDATA[Design a baseline architecture for Microsoft Azure Kubernetes Service (AKS) that runs on Azure Local or uses AKS on bare metal as an alternative deployment option.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Deploy containerized apps with AKS Hybrid and Edge by using GitOps]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/example-scenario/hybrid/aks-hybrid-azure-local#205812fd97</id>
+        <link href="https://learn.microsoft.com/azure/architecture/example-scenario/hybrid/aks-hybrid-azure-local"/>
+        <updated>2026-09-24T21:53:52.000Z</updated>
+        <summary type="html"><![CDATA[Build containerized app deployment pipelines for AKS Hybrid and Edge by using Azure Arc and GitOps, and use Flux automation for on-premises Kubernetes clusters.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Materialized View pattern]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/patterns/materialized-view#7571ef9286</id>
+        <link href="https://learn.microsoft.com/azure/architecture/patterns/materialized-view"/>
+        <updated>2026-09-24T18:47:43.000Z</updated>
+        <summary type="html"><![CDATA[Generate prepopulated views over the data in one or more data stores when the data isn't ideally formatted for required query operations. This can help support efficient querying and data extraction, and improve application performance.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Claim Check pattern]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/patterns/claim-check#a41f5d84c4</id>
+        <link href="https://learn.microsoft.com/azure/architecture/patterns/claim-check"/>
+        <updated>2026-09-24T21:23:38.000Z</updated>
+        <summary type="html"><![CDATA[Store a large message payload in an external data store and send a reference called a claim check through a messaging system.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Gateway Offloading pattern]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/patterns/gateway-offloading#8f5f5d0765</id>
+        <link href="https://learn.microsoft.com/azure/architecture/patterns/gateway-offloading"/>
+        <updated>2026-09-24T19:14:22.000Z</updated>
+        <summary type="html"><![CDATA[Centralize shared capabilities, such as TLS termination and authentication, in a gateway to simplify backend services.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Index Table pattern]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/patterns/index-table#b3f978a886</id>
+        <link href="https://learn.microsoft.com/azure/architecture/patterns/index-table"/>
+        <updated>2026-09-24T21:49:32.000Z</updated>
+        <summary type="html"><![CDATA[Find out how to use the Index Table pattern to improve query performance by creating indexes over data store fields that queries frequently reference.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Health Endpoint Monitoring pattern]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/patterns/health-endpoint-monitoring#9fdb775034</id>
+        <link href="https://learn.microsoft.com/azure/architecture/patterns/health-endpoint-monitoring"/>
+        <updated>2026-09-25T19:33:09.000Z</updated>
+        <summary type="html"><![CDATA[Implement functional checks in an application that external tools can access at regular intervals through exposed endpoints.]]></summary>
         <category label="updated" term="updated"/>
     </entry>
     <entry>

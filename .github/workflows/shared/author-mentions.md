@@ -74,6 +74,7 @@ safe-outputs:
       - gurkamaldeep
       - gvanteylingen
       - Haishi2016
+      - halkazwini
       - harsha3187
       - Hectoruu
       - heoelri
@@ -181,6 +182,7 @@ safe-outputs:
       - samchang-msft
       - samcogan
       - sandippk
+      - sasagir
       - schaffererin
       - sdesai345
       - sebassem

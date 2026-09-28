@@ -66,6 +66,10 @@ The following production-ready architectures demonstrate end-to-end AI solutions
 
 - [Baseline Microsoft Foundry chat reference architecture in an Azure landing zone](/azure/architecture/ai-ml/architecture/baseline-microsoft-foundry-landing-zone): Deploys the baseline Microsoft Foundry chat architecture within an Azure landing zone for enterprise-scale governance.
 
+#### Machine learning inference
+
+- [Baseline Azure Machine Learning inference reference architecture](/azure/architecture/ai-ml/architecture/baseline-azure-machine-learning-inference): Learn how to build a private, production-ready Azure Machine Learning inference platform with AKS, environment isolation, and controlled model promotion.
+
 #### Document processing
 
 - [Automate document classification in Azure](/azure/architecture/ai-ml/architecture/automate-document-classification-durable-functions): Uses Durable Functions to automate document classification workflows.

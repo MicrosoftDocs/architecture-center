@@ -63,7 +63,7 @@ As with any design decision, consider any tradeoffs against the goals of the oth
 
 ## Example
 
-Azure Storage supports serving static content directly from a storage container. Files are served through anonymous access requests. By default, files have a URL in a subdomain of `core.windows.net`, such as `https://contoso.z4.web.core.windows.net/image.png`. You can configure a custom domain name, and use Azure CDN to access the files over HTTPS. For more information, see [Static website hosting in Azure Storage](/azure/storage/blobs/storage-blob-static-website).
+Azure Storage supports serving static content directly from a storage container. Files are served through anonymous access requests. By default, files have a URL in a subdomain of `core.windows.net`, such as `https://contoso.z4.web.core.windows.net/image.png`. You can configure a custom domain name and use Azure Front Door Standard or Premium to access the files over HTTPS. For more information, see [Map a custom domain to an Azure Blob Storage endpoint](/azure/storage/blobs/storage-custom-domain-name#map-a-custom-domain-with-https-enabled).
 
 ![Delivering static parts of an application directly from a storage service](./_images/static-content-hosting-pattern.png)
 

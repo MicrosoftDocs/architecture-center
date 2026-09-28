@@ -4,7 +4,7 @@ The following architecture demonstrates an approach to differentiate how traffic
 
 ## Architecture
 
-:::image type="complex" border="false" source="./media/split-brain-dns.svg" alt-text="Diagram of the application hosting architecture." lightbox="./media/split-brain-dns.svg":::
+:::image type="complex" border="false" source="./media/split-brain-dns.svg" alt-text="Diagram of the application hosting architecture.":::
    In the diagram, a double-sided arrow points from app.contoso.com to the internet. Another double-sided arrow points from the internet to the Azure DNS zone for contoso.com. An arrow points from the internet to Azure Front Door. An arrow labeled 207.x.x.x (pip‑appgw) points from Azure Front Door to the public endpoint in the AppGW subnet. Another arrow points from the public endpoint to the app in the app subnet. In the on‑premises section, an arrow points from app.contoso.com to Active Directory Domain Services (AD DS) DNS. Dotted lines point from AD DS DNS to the Azure ExpressRoute circuit and the site-to-site VPN connection. These lines converge before they reach the AppGW subnet and the public endpoint.
 :::image-end:::
 
