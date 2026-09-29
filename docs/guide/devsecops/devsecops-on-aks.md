@@ -199,7 +199,7 @@ Most popular IDEs, like Visual Studio, VS Code, IntelliJ IDEA, and Eclipse, supp
 
 - Prevent root user access or context for an image. By default, containers run as root.
 
-  For containers that need enhanced security, consider using an [AppArmor](/azure/aks/secure-container-access?pivots=apparmor#configure-an-apparmor-profile) or [seccomp](/azure/aks/secure-container-access?pivots=seccomp#configure-a-custom-seccomp-profile) profile within your Kubernetes cluster to further help enforce security for your running containers.
+  For containers that need enhanced security, consider using an [AppArmor](/azure/aks/secure-container-access?pivots=apparmor#configure-a-custom-apparmor-profile) or [seccomp](/azure/aks/secure-container-access?pivots=seccomp#configure-a-custom-seccomp-profile) profile within your Kubernetes cluster to further help enforce security for your running containers.
 
 ### Build phase
 
@@ -249,7 +249,7 @@ During the build phase, developers work with site reliability engineers and secu
 
 #### Best practice: Scan your workload images in container registries to identify known vulnerabilities
 
-- [Defender for Containers](/azure/defender-for-cloud/defender-for-containers-introduction#hardening) scans the containers in Container Registry and Amazon Elastic Container Registry (ECR) to notify you of known vulnerabilities in your images.
+- [Defender for Containers](/azure/defender-for-cloud/defender-for-containers-introduction#vulnerability-assessment) scans the containers in Container Registry and Amazon Elastic Container Registry (ECR) to notify you of known vulnerabilities in your images.
 
 - You can enable [Azure Policy](/azure/container-registry/container-registry-azure-policy) to do a vulnerability assessment on images stored in Container Registry and provide detailed information about each finding.
 
@@ -335,7 +335,7 @@ During this phase, perform operation monitoring and security monitoring tasks to
 
 #### Best practice: Use Azure Monitor for continuous monitoring and alerting
 
-- Use [Azure Monitor](/azure/azure-monitor/containers/kubernetes-monitoring-enable) to collect logs and metrics from AKS. Collect Prometheus metrics via [Azure Monitor managed service for Prometheus](/azure/azure-monitor/essentials/prometheus-metrics-overview), query container and platform logs in [Log Analytics](/azure/azure-monitor/logs/log-analytics-overview), and visualize cluster health through [Azure Managed Grafana](/azure/managed-grafana/overview) dashboards.
+- Use [Azure Monitor](/azure/azure-monitor/containers/kubernetes-monitoring-enable) to collect logs and metrics from AKS. Collect Prometheus metrics via [Azure Monitor managed service for Prometheus](/azure/azure-monitor/metrics/prometheus-metrics-overview), query container and platform logs in [Log Analytics](/azure/azure-monitor/logs/log-analytics-overview), and visualize cluster health through [Azure Managed Grafana](/azure/managed-grafana/overview) dashboards.
 
   - Azure Monitor extends continuous monitoring to release pipelines. Use monitoring data to approve or roll back releases. Azure Monitor also ingests security logs and alerts on suspicious activity.
 
@@ -355,7 +355,7 @@ During this phase, perform operation monitoring and security monitoring tasks to
 
 #### Best practice: Enable centralized log monitoring and use SIEM products to monitor for real-time security threats
 
-- Connect AKS diagnostics logs to Microsoft Sentinel for centralized security monitoring based on patterns and rules. Microsoft Sentinel enables this access via [data connectors](/azure/sentinel/data-connectors-reference#azure-kubernetes-service-aks).
+- Connect AKS diagnostics logs to Microsoft Sentinel for centralized security monitoring based on patterns and rules. Microsoft Sentinel enables this access via [data connectors](/azure/sentinel/data-connectors-reference).
 
 #### Best practice: Enable audit logging to monitor activity on your production clusters
 

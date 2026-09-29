@@ -168,7 +168,7 @@ items:
       displayName: Distributed transactions, eventual consistency
       href: patterns/saga.yml
     - name: Scheduler Agent Supervisor
-      href: patterns/scheduler-agent-supervisor.yml
+      href: patterns/scheduler-agent-supervisor.md
     - name: Sequential Convoy
       displayName: FIFO, message ordering
       href: patterns/sequential-convoy.md

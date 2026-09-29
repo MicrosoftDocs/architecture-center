@@ -119,7 +119,6 @@ Other contributors:
 - [Real-Time Intelligence documentation](/fabric/real-time-intelligence)
 - [Real-Time Intelligence tutorial: Introduction](/fabric/real-time-intelligence/tutorial-introduction)
 - [Introduction to Azure Functions](/azure/azure-functions/functions-overview)
-- [Supplementary code samples](https://github.com/microsoft/fabricrealtimelab)
 
 ## Related resource
 
