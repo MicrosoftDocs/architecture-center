@@ -23,7 +23,7 @@ The following data flow corresponds to the previous diagram:
    Azure Databricks consumes both Event Hubs streams and runs the following operations:
 
    - Correlates fare records with trip records
-   - Enriches the data by using a third dataset that contains neighborhood lookup data stored in Azure Databricks File System
+   - Enriches the data by using a third dataset that contains neighborhood lookup data stored in a [Unity Catalog volume](/azure/databricks/volumes/)
 
    This process produces a unified, enriched dataset suitable for downstream analytics and storage.
 
@@ -240,7 +240,7 @@ maxAvgFarePerNeighborhood
   .option("spark.cosmos.accountKey", "<your-cosmos-key>")
   .option("spark.cosmos.database", "<your-database-name>")
   .option("spark.cosmos.container", "<your-container-name>")
-  .option("checkpointLocation", "/mnt/checkpoints/maxAvgFarePerNeighborhood")
+  .option("checkpointLocation", "/Volumes/<catalog>/<schema>/<volume>/checkpoints/maxAvgFarePerNeighborhood")
   .outputMode("append")
   .start()
   .awaitTermination()
@@ -304,8 +304,6 @@ If you need more retention days, consider the Dedicated tier. This tier provides
 For more information, see [Event Hubs pricing][event-hubs-pricing].
 
 #### Azure Databricks cost considerations
-
-Azure Databricks provides the Standard tier and the Premium tier, both of which support three workloads. This reference architecture deploys an Azure Databricks workspace in the Premium tier.
 
 Data engineering workloads should run on a job cluster. Data engineers use clusters to build and perform jobs. Data analytics workloads should run on an all-purpose cluster and are intended for data scientists to explore, visualize, manipulate, and share data and insights interactively.
 
