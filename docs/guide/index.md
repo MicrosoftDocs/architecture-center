@@ -76,7 +76,7 @@ You can evaluate any workload's design and implementation through various lenses
 
 By following these principles and evaluating the tradeoffs between these architectural pillars, you can produce a design that meets business requirements and is sufficiently durable, maintainable, secure, and cost optimized to run in Azure. These decisions should inform your architectural style choice and help narrow your technology choices or security boundaries as they relate to your specific workload's needs.
 
-Your team or organization might have other design principles, such as [sustainability](/azure/well-architected/sustainability/sustainability-get-started) and [responsible engineering](./responsible-innovation/index.md), that you can use to evaluate your workload.
+Your team or organization might have other design principles, such as [sustainability](/azure/well-architected/sustainability/overview) and [responsible engineering](./responsible-innovation/index.md), that you can use to evaluate your workload.
 
 ## Understand typical architecture styles
 

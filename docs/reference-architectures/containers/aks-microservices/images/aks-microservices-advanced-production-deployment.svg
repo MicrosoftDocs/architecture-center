@@ -1979,16 +1979,15 @@
 			<text x="5.38" y="835.96" class="st53" v:langID="1033"><v:paragraph v:horizAlign="1"/><v:tabList/>Ingestion</text>		</g>
 		<g id="shape1819-451" v:mID="1819" v:groupContext="shape" transform="translate(337.112,-525.414)">
 			<title>Sheet.1819</title>
-			<desc>Ingress Application routing add-on</desc>
+			<desc>Gateway API proxy</desc>
 			<v:userDefs>
 				<v:ud v:nameU="visNavOrder" v:prompt="" v:val="VT0(51000):26"/>
 			</v:userDefs>
 			<v:textBlock v:margins="rect(4,4,4,4)"/>
 			<v:textRect cx="35.069" cy="832.119" width="70.14" height="19.5412"/>
 			<rect x="0" y="822.349" width="70.1379" height="19.5412" class="st45"/>
-			<text x="19.37" y="820.72" class="st43" v:langID="1033"><v:paragraph v:horizAlign="1"/><v:tabList/>Ingress<v:newlineChar/><v:newlineChar/><tspan
-						x="15.03" dy="2.475em" class="st64">Application </tspan><tspan x="8.08" dy="1.2em" class="st64">routing add</tspan><tspan
-						class="st64">-</tspan><tspan class="st64">on</tspan></text>		</g>
+			<text x="19.37" y="820.72" class="st43" v:langID="1033"><v:paragraph v:horizAlign="1"/><v:tabList/>Gateway API<v:newlineChar/><v:newlineChar/><tspan
+						x="25.03" dy="2.475em" class="st64">proxy</tspan></text>		</g>
 		<g id="shape1000-458" v:mID="1000" v:groupContext="shape" transform="translate(123.043,-212.062)">
 			<title>Sheet.1000</title>
 			<v:userDefs>
