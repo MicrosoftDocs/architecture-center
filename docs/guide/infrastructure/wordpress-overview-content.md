@@ -136,7 +136,7 @@ Product documentation:
 Training modules:
 
 - [Introduction to Azure Front Door](/training/modules/intro-to-azure-front-door)
-- [Configure Azure Load Balancer](/training/modules/configure-azure-load-balancer)
+- [Introduction to Azure Load Balancer](/training/modules/intro-to-azure-load-balancer)
 - [Implement Azure Key Vault](/training/modules/implement-azure-key-vault)
 - [Introduction to Azure Virtual Network](/training/modules/introduction-to-azure-virtual-networks)
 
