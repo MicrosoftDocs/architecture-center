@@ -18,7 +18,7 @@ The architecture consists of the following components:
 
 **Azure Cosmos DB**. The output from the Stream Analytics job is a series of records, which are written as JSON documents to an Azure Cosmos DB document database.
 
-**Microsoft Power BI**. Power BI is a suite of business analytics tools to analyze data for business insights. In this architecture, it loads the data from Azure Cosmos DB. This allows users to analyze the complete set of historical data that's been collected. To explore real-time analytics and visualizations, see [Fabric Real-Time Intelligence](/fabric/real-time-intelligence/overview).
+**[Microsoft Power BI](/power-bi/fundamentals/power-bi-overview)**. Power BI is a suite of business analytics tools to analyze data for business insights. In this architecture, it loads the data from Azure Cosmos DB. This allows users to analyze the complete set of historical data that's been collected. To explore real-time analytics and visualizations, see [Fabric Real-Time Intelligence](/fabric/real-time-intelligence/overview).
 
 **Azure Monitor**. [Azure Monitor](/azure/monitoring-and-diagnostics/) collects performance metrics about the Azure services deployed in the solution. By visualizing these in a dashboard, you can get insights into the health of the solution.
 
