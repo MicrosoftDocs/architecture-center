@@ -161,7 +161,7 @@ The following recommendations are useful for determining if there's a problem wi
 **Verify that the Azure VPN gateway and on-premises VPN appliance are configured with the same shared authentication key.** You can view the shared key stored by the Azure VPN gateway using the following Azure CLI command:
 
 ```azurecli
-azure network vpn-connection shared-key show <<resource-group>> <<vpn-connection-name>>
+az network vpn-connection shared-key show --resource-group <<resource-group>> --connection-name <<vpn-connection-name>>
 ```
 
 Use the command appropriate for your on-premises VPN appliance to show the shared key configured for that appliance.
@@ -171,40 +171,32 @@ Verify that the *GatewaySubnet* subnet holding the Azure VPN gateway isn't assoc
 You can view the subnet details using the following Azure CLI command:
 
 ```azurecli
-azure network vnet subnet show -g <<resource-group>> -e <<vnet-name>> -n GatewaySubnet
+az network vnet subnet show --resource-group <<resource-group>> --vnet-name <<vnet-name>> --name GatewaySubnet --query networkSecurityGroup.id --output tsv
 ```
 
-Ensure there's no data field named *Network Security Group ID*. The following example shows the results for an instance of the *GatewaySubnet* that has an assigned NSG (*VPN-Gateway-Group*). This can prevent the gateway from working correctly if there are any rules defined for this NSG.
+Ensure that the command returns no value. The following example shows the result for an instance of the *GatewaySubnet* that has an assigned NSG (*VPN-Gateway-Group*). This can prevent the gateway from working correctly if there are any rules defined for this NSG.
 
 ```console
-C:\>azure network vnet subnet show -g profx-prod-rg -e profx-vnet -n GatewaySubnet
-    info:    Executing command network vnet subnet show
-    + Looking up virtual network "profx-vnet"
-    + Looking up the subnet "GatewaySubnet"
-    data:    Id                              : /subscriptions/########-####-####-####-############/resourceGroups/profx-prod-rg/providers/Microsoft.Network/virtualNetworks/profx-vnet/subnets/GatewaySubnet
-    data:    Name                            : GatewaySubnet
-    data:    Provisioning state              : Succeeded
-    data:    Address prefix                  : 10.20.3.0/27
-    data:    Network Security Group id       : /subscriptions/########-####-####-####-############/resourceGroups/profx-prod-rg/providers/Microsoft.Network/networkSecurityGroups/VPN-Gateway-Group
-    info:    network vnet subnet show command OK
+C:\> az network vnet subnet show --resource-group profx-prod-rg --vnet-name profx-vnet --name GatewaySubnet --query networkSecurityGroup.id --output tsv
+/subscriptions/########-####-####-####-############/resourceGroups/profx-prod-rg/providers/Microsoft.Network/networkSecurityGroups/VPN-Gateway-Group
 ```
 
 **Verify that the virtual machines in the Azure VNet are configured to permit traffic coming in from outside the VNet.** Check any NSG rules associated with subnets containing these virtual machines. You can view all NSG rules using the following Azure CLI command:
 
 ```azurecli
-azure network nsg show -g <<resource-group>> -n <<nsg-name>>
+az network nsg show --resource-group <<resource-group>> --name <<nsg-name>>
 ```
 
 **Verify that the Azure VPN gateway is connected.** You can use the following Azure PowerShell command to check the current status of the Azure VPN connection. The `<<connection-name>>` parameter is the name of the Azure VPN connection that links the virtual network gateway and the local gateway.
 
 ```powershell
-Get-AzureRmVirtualNetworkGatewayConnection -Name <<connection-name>> - ResourceGroupName <<resource-group>>
+Get-AzVirtualNetworkGatewayConnection -Name <<connection-name>> -ResourceGroupName <<resource-group>>
 ```
 
 The following snippets highlight the output generated if the gateway is connected (the first example), and disconnected (the second example):
 
 ```powershell
-PS C:\> Get-AzureRmVirtualNetworkGatewayConnection -Name profx-gateway-connection -ResourceGroupName profx-prod-rg
+PS C:\> Get-AzVirtualNetworkGatewayConnection -Name profx-gateway-connection -ResourceGroupName profx-prod-rg
 
 AuthorizationKey           :
 VirtualNetworkGateway1     : Microsoft.Azure.Commands.Network.Models.PSVirtualNetworkGateway
@@ -222,7 +214,7 @@ ProvisioningState          : Succeeded
 ```
 
 ```powershell
-PS C:\> Get-AzureRmVirtualNetworkGatewayConnection -Name profx-gateway-connection2 -ResourceGroupName profx-prod-rg
+PS C:\> Get-AzVirtualNetworkGatewayConnection -Name profx-gateway-connection2 -ResourceGroupName profx-prod-rg
 
 AuthorizationKey           :
 VirtualNetworkGateway1     : Microsoft.Azure.Commands.Network.Models.PSVirtualNetworkGateway
