@@ -23,6 +23,7 @@ safe-outputs:
       - arsenvlad
       - ashish-khandelwal-ms
       - ashish-khandelwal-ms-zz
+      - bandersmsft
       - barnstee
       - BenMartinBaur
       - bhbandam
@@ -109,6 +110,7 @@ safe-outputs:
       - karenf-Learn
       - karlrissland
       - katriendg
+      - kfollis
       - khushal08
       - kiote
       - koudaiii
@@ -116,6 +118,7 @@ safe-outputs:
       - landonpierce
       - lanicolas
       - lapate
+      - laraaleite
       - lavansree06
       - lferdinand
       - lima8azure
@@ -127,6 +130,7 @@ safe-outputs:
       - MarkPryceMaherMSFT
       - martinekuan
       - matthall88
+      - Matticusau
       - MaxMelcher
       - mestredelpino
       - mfrankovic
@@ -209,9 +213,11 @@ safe-outputs:
       - sydbruck
       - tedmanlee
       - ThePedestrian
+      - timleyden
       - tomvcassidy
       - troyhite
       - ttorble
+      - tvuylsteke
       - ulisesadan
       - v-albemi
       - v-ccolin

@@ -2,9 +2,9 @@
 metadata:
   title: Replicate Mainframe Data by Using Precisely Connect
   description: Learn how to use Precisely Connect to replicate mainframe and midrange data to Azure in real time with change data capture.
-  author: raman-wk
-  ms.author: sesankar
-  ms.date: 05/02/2023
+  author: nithidoss
+  ms.author: naruldoss
+  ms.date: 09/28/2026
   ms.topic: example-scenario
   ms.subservice: example-scenario
   ms.custom: arb-data
@@ -14,7 +14,7 @@ azureCategories:
 products:
   - azure-sql-database
   - azure-sql-managed-instance
-  - azure-synapse-analytics
+  - fabric
   - azure-databricks
   - azure-event-hubs
 name: Replicate mainframe data by using Precisely Connect
