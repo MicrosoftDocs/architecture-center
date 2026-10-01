@@ -132,6 +132,7 @@ Other contributors:
 
 - [Jack Lichwa](https://www.linkedin.com/in/jacklichwa) | Principal Product Manager, Azure Key Vault
 - [Arsen Vladimirskiy](https://www.linkedin.com/in/arsenv) | Principal Customer Engineer, FastTrack for Azure
+- [Daniel Scott-Raynsford](https://www.linkedin.com/in/dscottraynsford/) | Senior Partner Solution Architect, EPS
 
 *To see nonpublic LinkedIn profiles, sign in to LinkedIn.*
 
