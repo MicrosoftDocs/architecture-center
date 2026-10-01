@@ -113,7 +113,7 @@ For more information, see the following resources:
 
 ### Key Vault Managed HSM and Azure Cloud HSM
 
-When Key Vault operation limits are insufficient for your cryptographic workload, consider [Managed HSM](/azure/key-vault/managed-hsm/overview). Each Managed HSM instance is dedicated to a single customer and provides reserved capacity, but it costs more than Key Vault. Managed HSM stores only keys, so you still need another store for secrets and certificates. Plan for the limits on the number of instances that you can deploy in each region.
+When Key Vault operation limits aren't enough for your cryptographic workload, consider [Managed HSM](/azure/key-vault/managed-hsm/overview). Each Managed HSM instance is dedicated to a single customer and provides reserved capacity, but it costs more than Key Vault. Managed HSM stores only keys, so you still need another store for secrets and certificates. Plan for the limits on the number of instances that you can deploy in each region.
 
 [Azure Cloud HSM](/azure/cloud-hsm/overview) suits a different scenario. Choose it when an application that runs on virtual machines needs direct HSM access through interfaces such as PKCS#11. Cloud HSM is an infrastructure as a service (IaaS) offering, and it doesn't integrate with Azure platform as a service (PaaS) or software as a service (SaaS) services. For customer-managed keys in Azure services, use Managed HSM instead.
 
