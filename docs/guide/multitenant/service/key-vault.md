@@ -47,7 +47,7 @@ Azure doesn't limit the number of vaults that you can deploy within a single sub
 
 In some scenarios, your tenants can create vaults in their own Azure subscriptions and grant your application access to work with secrets, certificates, or keys. Use this approach when you allow customer-managed keys for encryption within your solution.
 
-To access the data in your tenant's vault, the tenant must provide your application with access to their vault. This process requires that your application authenticates through their Microsoft Entra ID instance. You can publish a [multitenant Microsoft Entra ID application](/entra/identity-platform/single-and-multi-tenant-apps). 
+To access the data in your tenant's vault, the tenant must provide your application with access to their vault. This process requires that your application authenticates through their Microsoft Entra ID instance. You can publish a [multitenant Microsoft Entra ID application](/entra/identity-platform/single-and-multi-tenant-apps).
 
 Your tenants must perform a one-time consent process that includes the following steps:
 
@@ -111,14 +111,20 @@ For more information, see the following resources:
 - [Integrate Key Vault with Azure Policy](/azure/key-vault/general/azure-policy?tabs=certificates)
 - [Azure Policy built-in definitions for Key Vault](/azure/key-vault/policy-reference)
 
-### Key Vault Managed HSM and Azure Dedicated HSM
+### Key Vault Managed HSM and Azure Cloud HSM
 
-If you need to perform a large number of operations per second, and the Key Vault operation limits are insufficient, consider using either [Managed HSM](/azure/key-vault/managed-hsm/overview) or [Dedicated HSM](/azure/dedicated-hsm/overview). Both products provide a reserved amount of capacity, but they increase cost compared to Key Vault. Understand the limits on how many instances of these services that you can deploy in each region.
+When Key Vault operation limits are insufficient for your cryptographic workload, consider [Managed HSM](/azure/key-vault/managed-hsm/overview). Each Managed HSM instance is dedicated to a single customer and provides reserved capacity, but it costs more than Key Vault. Managed HSM stores only keys, so you still need another store for secrets and certificates. Plan for the limits on the number of instances that you can deploy in each region.
+
+[Azure Cloud HSM](/azure/cloud-hsm/overview) suits a different scenario. Choose it when an application that runs on virtual machines needs direct HSM access through interfaces such as PKCS#11. Cloud HSM is an infrastructure as a service (IaaS) offering, and it doesn't integrate with Azure platform as a service (PaaS) or software as a service (SaaS) services. For customer-managed keys in Azure services, use Managed HSM instead.
+
+> [!IMPORTANT]
+> Azure Dedicated HSM is being retired. Microsoft will fully support existing Dedicated HSM customers until July 31, 2028. No new customer onboardings are accepted. Azure Cloud HSM is generally available and is the successor to Azure Dedicated HSM. If you use Dedicated HSM, see [Migrate from Azure Dedicated HSM to Managed HSM or Azure Cloud HSM](/azure/dedicated-hsm/migration-guide).
 
 For more information, see the following resources:
 
-- [Determine whether to use Key Vault or Dedicated HSM](/azure/dedicated-hsm/faq#how-do-i-decide-whether-to-use-azure-key-vault-or-azure-dedicated-hsm-)
-- [Determine whether Dedicated HSM is right for you](/azure/dedicated-hsm/overview#is-azure-dedicated-hsm-right-for-you)
+- [Choose the right Azure key management solution](/azure/security/fundamentals/key-management-choose)
+- [Managed HSM service limits](/azure/key-vault/general/service-limits#key-vault-managed-hsm)
+- [Determine whether Cloud HSM is right for you](/azure/cloud-hsm/overview#azure-cloud-hsm-suitability)
 
 ## Contributors
 
