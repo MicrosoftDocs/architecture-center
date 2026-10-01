@@ -3,7 +3,7 @@ title: Use Azure Key Vault in a Multitenant Solution
 description: Learn how to use Azure Key Vault in multitenant solutions, including isolation models, tenant-specific vaults, shared vaults, and multitenancy features.
 author: johndowns
 ms.author: pnp
-ms.date: 09/10/2025
+ms.date: 10/02/2026
 ms.topic: concept-article
 ms.subservice: architecture-guide
 ms.custom: arb-saas
@@ -26,7 +26,7 @@ When you work with a multitenant system that uses Key Vault, determine the level
 The following table summarizes the differences between the main tenancy models for Key Vault.
 
 | Consideration | Vault for each tenant, in the provider's subscription | Vault for each tenant, in the tenant's subscription | Shared vault |
-|-|-|-|-|
+| - | - | - | - |
 | **Data isolation** | High | Very high | Low |
 | **Performance isolation** | Medium. High throughput might be limited, even with many vaults. | High | Low |
 | **Deployment complexity** | Low-medium, depending on the number of tenants | High. The tenant must correctly grant access to the provider. | Low |
@@ -56,7 +56,6 @@ Your tenants must perform a one-time consent process that includes the following
 1. Grant your multitenant Microsoft Entra application the appropriate level of access to their vault.
 1. Provide you with the full resource ID of the vault that they create.
 
-
 After this setup, your application code can use a service principal associated with the multitenant Microsoft Entra ID application in your Microsoft Entra ID to access each tenant's vault.
 
 Or you can ask each tenant to create a service principal for your service to use and provide you with its credentials. But this approach requires you to securely store and manage credentials for each tenant, which introduces a security liability.
@@ -65,7 +64,9 @@ If your tenants configure network access controls on their vaults, make sure tha
 
 ### Shared vaults
 
-You can share tenants' secrets within a single vault. You deploy the vault in your (the solution provider's) Azure subscription, and you manage the vault. This approach is the simplest but provides the least data isolation and performance isolation.
+You can store multiple tenants' secrets within a shared vault in your subscription. This approach reduces the number of vaults that you manage, but it provides less data isolation and performance isolation than separate vaults.
+
+#### Deployment stamps and regions
 
 You can also deploy multiple shared vaults. For example, a solution that follows the [Deployment Stamps pattern](../approaches/overview.md#deployment-stamps-pattern) likely deploys a shared vault within each stamp. Similarly, if you deploy a multi-region solution, you should deploy vaults into each region for the following reasons:
 
@@ -73,9 +74,21 @@ You can also deploy multiple shared vaults. For example, a solution that follows
 - To support data residency requirements
 - To enable the use of regional vaults within other services that require same-region deployments
 
+#### Request throughput
+
 When you work with a shared vault, consider the number of operations that you perform against the vault. Operations include reading secrets and performing encryption or decryption operations. [Key Vault imposes limits on the number of requests](/azure/azure-resource-manager/management/azure-subscription-service-limits#key-vault-limits) made against a single vault and across all vaults within an Azure subscription. Follow the [throttling guidance](/azure/key-vault/general/overview-throttling), and apply other recommended practices. Securely cache secrets that you retrieve, and use [envelope encryption](/azure/security/fundamentals/encryption-atrest#envelope-encryption-with-a-key-hierarchy) to avoid sending all encryption operations to Key Vault. These best practices help you run high-scale solutions against a single vault.
 
-If you need to store tenant-specific secrets, keys, or certificates, consider using a naming convention like a naming prefix. For example, you might prepend the tenant ID to the name of each secret. Then your application code can easily load the value of a specific secret for a specific tenant.
+#### Network connectivity
+
+Private endpoint limits can also affect a shared vault. Key Vault limits the number of private endpoints for each vault, which can constrain how many tenant networks can connect to the same vault through separate private endpoints. Consider these connection requirements when you decide whether to share a vault or deploy separate vaults. For more information, see [Key Vault private endpoint guidance](/azure/key-vault/general/private-link-service).
+
+#### Access control
+
+When an application identity can access multiple tenants' secrets, a compromise of that identity can expose all of those secrets. Prefer separate vaults when you need to enforce a security boundary between tenants. For more information, see [Key Vault security guidance](/azure/key-vault/general/secure-key-vault).
+
+A naming convention, like a tenant ID prefix, helps your application locate tenant-specific secrets, keys, and certificates in a shared vault. But naming conventions don't enforce access control. Authorize each request against the tenant's context before you access the corresponding object, and restrict the application's permissions to the objects that it needs.
+
+Azure role-based access control (Azure RBAC) supports role assignments on individual secrets, keys, and certificates. When each tenant has a separate application identity, you can use these assignments to limit each identity to its tenant's objects. A single identity that accesses multiple tenants' objects doesn't get this separation, so your application must still authorize each request. Object-level role assignments also don't provide separate network controls or performance isolation. Key Vault guidance recommends that you use them only for limited scenarios. For more information, see [Best practices for individual role assignments](/azure/key-vault/general/rbac-guide#best-practices-for-individual-keys-secrets-and-certificates-role-assignments).
 
 ## Features of Key Vault that support multitenancy
 
