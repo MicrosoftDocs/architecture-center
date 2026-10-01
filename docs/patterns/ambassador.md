@@ -24,7 +24,7 @@ Network calls might also require substantial configuration for connection, authe
 
 Put client frameworks and libraries into an external process that acts as a proxy between your application and external services. To provide control over routing, resiliency, and security features and to avoid host-related access restrictions, deploy the proxy on the same host environment as your application. Use the ambassador pattern to standardize and extend instrumentation. The proxy can monitor performance metrics, like latency or resource usage, in the same host environment as the application.
 
-:::image type="complex" source="./_images/ambassador.png" alt-text="Diagram of the ambassador pattern." border="false":::
+:::image type="complex" source="./_images/ambassador.png" lightbox="./_images/ambassador.png" alt-text="Diagram of the ambassador pattern." border="false":::
   Diagram that shows a client application and an ambassador proxy colocated on the same host. The client application sends requests to the ambassador instead of calling external services directly. The ambassador forwards those requests to the remote service. Responses from the remote service return through the ambassador and back to the client application.
 :::image-end:::
 
@@ -83,7 +83,7 @@ If this pattern introduces trade-offs within a pillar, consider them against the
 
 The following diagram shows an application making a request to a remote service via an ambassador proxy. The ambassador provides routing, circuit breaking, and logging. It calls the remote service and then returns the response to the client application.
 
-:::image type="complex" source="./_images/ambassador-example.png" alt-text="Example of the Ambassador pattern." border="false":::
+:::image type="complex" source="./_images/ambassador-example.png" lightbox="./_images/ambassador-example.png" alt-text="Example of the Ambassador pattern." border="false":::
   Diagram that shows a client application sending a request to an ambassador proxy. The application sends a request to the remote service via an ambassador proxy. The ambassador determines the location of the remote services and routes the request appropriately. The ambassador checks the circuit breaker state and enriches request headers with tracing information. The ambassador starts measuring the request latency. The ambassador encrypts and sends the request using mutual certificate-based authentication. The remote service receives the request and sends the response. The ambassador logs the request latency. The ambassador returns the response to the client. The application receives the response.
 :::image-end:::
 

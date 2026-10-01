@@ -1,6 +1,11 @@
 {
   "redirections": [
     {
+      "source_path": "docs/guide/data/collection-structure-federated-catalog.md",
+      "redirect_url": "/purview/unified-catalog-governance-domains",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "docs/guide/iot/how-to-connect-powerbi-to-the-solution.md",
       "redirect_url": "/azure/architecture/guide/iot/how-to-connect-power-bi-to-the-solution",
       "redirect_document_id": true
@@ -36,8 +41,13 @@
       "redirect_document_id": true
     },
     {
+      "source_path": "docs/networking/get-started.md",
+      "redirect_url": "/azure/architecture/networking/networking-get-started",
+      "redirect_document_id": true
+    },
+    {
       "source_path": "docs/networking/index.md",
-      "redirect_url": "/azure/architecture/networking/get-started",
+      "redirect_url": "/azure/architecture/networking/networking-get-started",
       "redirect_document_id": false
     },
     {
@@ -77,7 +87,12 @@
     },
     {
       "source_path": "docs/reference-architectures/migration/unisys-mainframe-migration.yml",
-      "redirect_url": "/azure/architecture/mainframe/virtualization-of-unisys-clearpath-forward-os-2200-enterprise-server-on-azure",
+      "redirect_url": "https://www.unisys.com/executive-brief/cis/clearpath-on-azure/",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/mainframe/virtualization-of-unisys-clearpath-forward-os-2200-enterprise-server-on-azure.yml",
+      "redirect_url": "https://www.unisys.com/executive-brief/cis/clearpath-on-azure/",
       "redirect_document_id": false
     },
     {
@@ -1142,8 +1157,13 @@
     },
     {
       "source_path": "docs/example-scenario/mainframe/extend-mainframes-to-digital-channels-by-using-standards-based-rest-apis.yml",
-      "redirect_url": "/azure/architecture/example-scenario/mainframe/extend-mainframes-rest-apis",
-      "redirect_document_id": true
+      "redirect_url": "https://learn.microsoft.com/en-us/azure/api-management/api-management-key-concepts",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/example-scenario/mainframe/extend-mainframes-rest-apis.yml",
+      "redirect_url": "https://learn.microsoft.com/en-us/azure/api-management/api-management-key-concepts",
+      "redirect_document_id": false
     },
     {
       "source_path": "docs/cloud-adoption/digital-estate/rationalize.md",
@@ -3645,8 +3665,13 @@
     },
     {
       "source_path": "docs/solution-ideas/articles/sma-opcon-azure.yml",
-      "redirect_url": "/azure/architecture/example-scenario/integration/sma-opcon-azure",
-      "redirect_document_id": true
+      "redirect_url": "https://help.smatechnologies.com/opcon/connectors/azure-vm/",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/example-scenario/integration/sma-opcon-azure.yml",
+      "redirect_url": "https://help.smatechnologies.com/opcon/connectors/azure-vm/",
+      "redirect_document_id": false
     },
     {
       "source_path": "docs/reference-architectures/enterprise-integration/ase-high-availability-deployment.yml",
@@ -5334,8 +5359,8 @@
     },
     {
       "source_path": "docs/guide/networking/networking-start-here.md",
-      "redirect_url": "/azure/architecture/networking/get-started",
-      "redirect_document_id": true
+      "redirect_url": "/azure/architecture/networking/networking-get-started",
+      "redirect_document_id": false
     },
     {
       "source_path": "docs/reference-architectures/hybrid-networking/hub-spoke.yml",
@@ -5839,7 +5864,7 @@
     },
     {
       "source_path": "docs/example-scenario/mainframe/asysco-zos-migration.yml",
-      "redirect_url": "/azure/architecture/example-scenario/mainframe/avanade-amt-zos-migration",
+      "redirect_url": "https://learn.microsoft.com/en-us/azure/architecture/example-scenario/mainframe/general-mainframe-refactor",
       "redirect_document_id": false
     },
     {
@@ -7939,7 +7964,12 @@
     },
     {
       "source_path": "docs/example-scenario/mainframe/micro-focus-server.yml",
-      "redirect_url": "/azure/architecture/example-scenario/mainframe/avanade-amt-zos-migration",
+      "redirect_url": "https://learn.microsoft.com/en-us/azure/architecture/example-scenario/mainframe/general-mainframe-refactor",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/example-scenario/mainframe/avanade-amt-zos-migration.yml",
+      "redirect_url": "https://learn.microsoft.com/en-us/azure/architecture/example-scenario/mainframe/general-mainframe-refactor",
       "redirect_document_id": false
     },
     {
@@ -7975,6 +8005,21 @@
     {
       "source_path": "docs/example-scenario/mainframe/refactor-mainframe-applications-astadia.yml",
       "redirect_url": "/azure/architecture/example-scenario/mainframe/general-mainframe-refactor",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/example-scenario/mainframe/refactor-adabas-aks.yml",
+      "redirect_url": "https://marketplace.microsoft.com/product/saas/softwareagusainc.adabas_natural",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/example-scenario/mainframe/rehost-adabas-software-ag.yml",
+      "redirect_url": "https://marketplace.microsoft.com/product/saas/softwareagusainc.adabas_natural",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/example-scenario/mainframe/unisys-clearpath-forward-mainframe-rehost.yml",
+      "redirect_url": "https://www.unisys.com/executive-brief/cis/clearpath-on-azure/",
       "redirect_document_id": false
     },
     {

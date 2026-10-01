@@ -31,7 +31,7 @@ A third-party CDN can be integrated into your Azure solution to provide isolatio
 
 The following diagram shows how traffic flows between the CDNs:
 
-:::image type="content" source="./media/mission-critical-content-delivery/front-door-alternative-cdn.svg" alt-text="Diagram of Traffic Manager routing between Azure Front Door and another CDN." border="false":::
+:::image type="content" source="./media/mission-critical-content-delivery/front-door-alternative-cdn.svg" alt-text="Diagram of Traffic Manager routing between Azure Front Door and another CDN." border="false" lightbox="./media/mission-critical-content-delivery/front-door-alternative-cdn.svg":::
 
 - **Traffic Manager** uses weighted routing mode, has two [endpoints](/azure/traffic-manager/traffic-manager-endpoint-types), and is configured to [always serve traffic](/azure/traffic-manager/traffic-manager-monitoring#always-serve).
 

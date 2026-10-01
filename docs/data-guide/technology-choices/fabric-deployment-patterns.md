@@ -32,7 +32,7 @@ The deployment hierarchy flows from your Microsoft 365 tenant down to individual
 
 - **Workspace level.** Each capacity contains one or more [workspaces](/fabric/fundamentals/workspaces). Workspaces are the primary containers for collaboration and governance. They define access control through four workspace roles (Administrator, Member, Contributor, and Viewer), support [Git integration](/fabric/cicd/git-integration/intro-to-git-integration) for version control, and serve as the scope for [deployment pipelines](/fabric/cicd/deployment-pipelines/intro-to-deployment-pipelines). A workspace belongs to one capacity at a time. Same‑region capacity migration is straightforward. Cross‑region migration is possible, but you must remove and re-create most Fabric items, including lakehouses, warehouses, notebooks, and pipelines. Therefore, prefer same‑region migration.
 
-- **Item level.** Workspaces contain Fabric items such as lakehouses, warehouses, notebooks, pipelines, semantic models, reports, and dashboards. Items inherit workspace permissions by default. [Microsoft OneLake security roles](/fabric/onelake/security/get-started-security#onelake-security-preview) provide granular access control at the table, folder, column, and row level, but they apply only to users in the Viewer role. Workspace admins, members, and contributors bypass OneLake security roles.
+- **Item level.** Workspaces contain Fabric items such as lakehouses, warehouses, notebooks, pipelines, semantic models, reports, and dashboards. Items inherit workspace permissions by default. [Microsoft OneLake security roles](/fabric/onelake/security/get-started-security#onelake-security) provide granular access control at the table, folder, column, and row level, but they apply only to users in the Viewer role. Workspace admins, members, and contributors bypass OneLake security roles.
 
 The following licensing and workspace-type constraints often determine which deployment pattern is most practical:
 
@@ -108,7 +108,7 @@ The following scenarios describe common business requirements and the deployment
 
 In this deployment pattern, you allocate one workspace for all use cases. All business units work within the same workspace.
 
-:::image type="complex" source="../images/fabric-deployment-pattern-1-monolithic-deployment.svg" alt-text="Diagram that shows a single Fabric tenant with a single capacity and a single workspace." lightbox="../images/fabric-deployment-pattern-1-monolithic-deployment.svg" border="false":::
+:::image type="complex" source="../images/fabric-deployment-pattern-1-monolithic-deployment.svg" alt-text="Diagram that shows a single Fabric tenant with a single capacity and a single workspace." border="false":::
    Diagram that shows a single Fabric tenant that contains one capacity. Within the capacity is a single workspace. The workspace contains icons next to text that reads semantic model, data pipeline, report, and lakehouse. Data flows to Microsoft OneLake.
 :::image-end:::
 
@@ -168,7 +168,7 @@ The following table presents considerations that might influence your decision t
 
 In this deployment pattern, you allocate multiple workspaces on a single shared capacity. Workspaces share that capacity, so concurrent workloads can affect the performance of jobs and interactive queries.
 
-:::image type="complex" source="../images/fabric-deployment-pattern-2-multiple-workspaces-single-capacity.svg" alt-text="Diagram that shows a single Fabric tenant with a single capacity and two workspaces." lightbox="../images/fabric-deployment-pattern-2-multiple-workspaces-single-capacity.svg" border="false":::
+:::image type="complex" source="../images/fabric-deployment-pattern-2-multiple-workspaces-single-capacity.svg" alt-text="Diagram that shows a single Fabric tenant with a single capacity and two workspaces." border="false":::
    Diagram that shows a single Fabric tenant that contains one shared capacity. Within the capacity are two workspaces, Workspace A and Workspace B. Each workspace contains icons next to text that reads semantic model, data pipeline, report, and lakehouse. Data from both workspaces flows to Microsoft OneLake.
 :::image-end:::
 
@@ -296,7 +296,7 @@ The following characteristics apply to this pattern:
 
 - Tenants are separate entities, each with its own governance and management processes and each administered independently.
 
-- You can use [data pipelines](/fabric/data-factory/data-factory-overview#data-pipelines) or [data engineering](/fabric/data-engineering/data-engineering-overview) capabilities to share or access data between Fabric tenants.
+- You can use [data pipelines](/fabric/data-factory/data-factory-overview) or [data engineering](/fabric/data-engineering/data-engineering-overview) capabilities to share or access data between Fabric tenants.
 
 #### When to use this pattern
 
@@ -333,7 +333,7 @@ Reliability helps ensure that your application can meet the commitments that you
 - **Disaster recovery (DR) requires opt-in and has caveats.** Cross-region recovery is available through an opt-in DR setting on the capacity settings page. Enable the DR capacity setting to replicate OneLake data across Azure paired regions by using asynchronous replication.
 
   > [!IMPORTANT]
-  > Some Azure regions aren't paired with regions that support Fabric, which might compromise DR capabilities even if data is replicated. Because data replication is asynchronous, data written immediately before a regional disaster might be lost. For more information, see [Reliability in Fabric](/azure/reliability/reliability-fabric).
+  > Some Azure regions aren't paired with regions that support Fabric, which might compromise DR capabilities even if data is replicated. Because data replication is asynchronous, data written immediately before a regional disaster might be lost. For more information, see [Reliability in Fabric](/fabric/security/reliability-fabric).
 
 - **Single-capacity patterns concentrate risk in one region.** In patterns 1 and 2, workloads are in one Azure region. If the region experiences an outage, all workspaces are affected simultaneously. To protect against regional failure, configure the capacity setting to replicate OneLake data to a paired region. Plan for the recovery time needed to restore service in the paired region.
 
@@ -355,7 +355,7 @@ Security provides assurances against deliberate attacks and the misuse of your v
 
 - **Use workspace roles to control item access.** Assign [workspace roles](/fabric/fundamentals/roles-workspaces) to control who can create, edit, and consume items within a workspace. In multiworkspace patterns, like patterns 2, 3, and 4, use separate workspaces to enforce role boundaries between business units.
 
-- **Apply granular data-level access by using OneLake security roles.** Use [OneLake security roles](/fabric/onelake/security/get-started-security#onelake-security-preview) to apply granular access control at the table, folder, column, and row level for users in the Viewer role. Workspace administrators, members, and contributors bypass these roles.
+- **Apply granular data-level access by using OneLake security roles.** Use [OneLake security roles](/fabric/onelake/security/get-started-security#onelake-security) to apply granular access control at the table, folder, column, and row level for users in the Viewer role. Workspace administrators, members, and contributors bypass these roles.
 
 #### Network security
 
@@ -511,7 +511,7 @@ Other contributors:
 - [Fabric domains](/fabric/governance/domains)
 - [What is OneLake?](/fabric/onelake/onelake-overview)
 - [Fabric deployment pipelines](/fabric/cicd/deployment-pipelines/intro-to-deployment-pipelines)
-- [Reliability in Fabric](/azure/reliability/reliability-fabric)
+- [Reliability in Fabric](/fabric/security/reliability-fabric)
 - [Fabric security overview](/fabric/security/security-overview)
 
 ## Related resources

@@ -24,7 +24,7 @@ The representation of one object has connections to representations of other obj
 
 You compare embeddings to one another by using the notions of similarity and distance. The following grid shows a comparison of embeddings.
 
-:::image type="complex" border="false" source="./_images/embedding-similarity.svg" lightbox="./_images/embedding-similarity.svg" alt-text="Diagram that shows a comparison of vectors.":::
+:::image type="complex" border="false" source="./_images/embedding-similarity.svg" alt-text="Diagram that shows a comparison of vectors.":::
    Diagram that shows a two-dimensional grid. The sentences "The cat is on the mat" and "The cat is sitting on the mat" are in boxes in the upper right quadrant of the grid, close to one another. There are two vectors that point at each box. The angle between the vectors is small. There's a box in the lower right quadrant that contains the text "It's currently sunny in Phoenix". A vector points at that box. The angle between that vector and the vector for "The cat is sitting on the mat" is large.
 :::image-end:::
 
@@ -41,7 +41,7 @@ The vocabulary of an embedding model is important because the model handles word
 
 For example, the word *histamine* might not be in an embedding model's vocabulary. The word *histamine* has a semantic meaning: a chemical that your body releases that causes allergy symptoms. If the embedding model doesn't contain *histamine*, it might separate the word into subwords that are in its vocabulary, such as *his*, *ta*, and *mine*.
 
-:::image type="content" border="false" source="./_images/word-broken-into-subwords.png" lightbox="./_images/word-broken-into-subwords.png" alt-text="Diagram that shows the word histamine broken down into the following subwords: his, ta, and mine.":::
+:::image type="content" border="false" source="./_images/word-broken-into-subwords.png" alt-text="Diagram that shows the word histamine broken down into the following subwords: his, ta, and mine.":::
 
 The semantic meanings of these subwords are far from the meaning of *histamine*. The individual or combined vector values of the subwords result in a poorer vector match compared to if the word *histamine* were in the model's vocabulary.
 
@@ -49,7 +49,7 @@ The semantic meanings of these subwords are far from the meaning of *histamine*.
 
 Determine the right embedding model for your use case. Consider the overlap between the embedding model's vocabulary and your data's words when you choose an embedding model.
 
-:::image type="complex" border="false" source="./_images/choose-embedding-model.png" lightbox="./_images/choose-embedding-model.png" alt-text="Diagram that shows the flow of how to choose an embedding model." ::: 
+:::image type="complex" border="false" source="./_images/choose-embedding-model.png" alt-text="Diagram that shows the flow of how to choose an embedding model." ::: 
    The first decision is "Domain-specific?" If no, the flow terminates at "Test top-ranked general models." If yes, the next decision is "Domain model available?" If no, the flow terminates at "Fine-tune general model." If yes, the flow terminates at "Test domain model."
 :::image-end:::
 
@@ -61,7 +61,7 @@ When you choose a general embedding model, start with the [Hugging Face leaderbo
 
 ### Domain-specific content
 
-For domain-specific content, determine whether you can use a domain-specific model. For example, if your data is in the biomedical domain, you might use the [BioGPT model](https://github.com/microsoft/BioGPT). This language model is pretrained on a large collection of biomedical literature. You can use it for biomedical text mining and generation. If domain-specific models are available, evaluate how these models work with your data.
+For domain-specific content, determine whether you can use a domain-specific model. For example, if your data contains biomedical literature, you might use the [PubMedBERT Embeddings model](https://huggingface.co/NeuML/pubmedbert-base-embeddings). This model builds on Microsoft PubMedBERT and is designed to produce embeddings for semantic search over medical papers. If domain-specific models are available, evaluate how these models work with your data.
 
 If you don't have a domain-specific model, or if the domain-specific model doesn't perform well, you can fine-tune a general embedding model with your domain-specific vocabulary.
 

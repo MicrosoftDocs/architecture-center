@@ -80,7 +80,7 @@ The articles in this section include guides and fully developed architectures th
 
 ### AI guides
 
-The following article helps you evaluate and select the best AI technologies for your workload requirements:
+The following articles help you evaluate and select the best AI technologies for your workload requirements:
 
 - [Machine learning options](/azure/architecture/ai-ml/guide/data-science-and-machine-learning): Compares Azure Machine Learning products and technologies to help you choose the right platform for model training and deployment.
 
@@ -142,6 +142,10 @@ The following production-ready architectures demonstrate end-to-end AI solutions
 
 - [Baseline Microsoft Foundry chat architecture in an Azure landing zone](/azure/architecture/ai-ml/architecture/baseline-microsoft-foundry-landing-zone): Deploys the baseline Microsoft Foundry chat architecture within an Azure landing zone for enterprise-scale governance.
 
+#### Machine learning inference
+
+- [Baseline Azure Machine Learning inference reference architecture](/azure/architecture/ai-ml/architecture/baseline-azure-machine-learning-inference): Describes a private, production-focused Azure Machine Learning inference design with AKS hosting, environment isolation, and controlled model promotion.
+
 #### Document processing
 
 - [Automate document classification](/azure/architecture/ai-ml/architecture/automate-document-classification-durable-functions): Uses Durable Functions to automate document classification workflows.
@@ -199,6 +203,7 @@ The following AI solution ideas demonstrate implementation patterns and possibil
 #### Workflow automation
 
 - [Build a multiple-agent workflow automation solution by using Semantic Kernel](/azure/architecture/ai-ml/idea/multiple-agent-workflow-automation): Automates workflows by using multiple AI agents orchestrated through Semantic Kernel.
+[!INCLUDE [ai-get-started](../includes/ai-get-started-include.md)]
 
 ## Organizational readiness
 

@@ -130,7 +130,7 @@ The identity subscription in Region A hosts AD DS and other identity management 
 
 #### Repository overview
 
-[![GitHub icon](../../_images/github.png) The Virtual Desktop landing zone reference implementation](https://github.com/Azure/avdaccelerator) supports multiple deployment scenarios depending on your requirements. Each deployment scenario supports both greenfield and brownfield deployments and provides multiple infrastructure as code (IaC) template options:
+:::image type="icon" source="../../_images/github.png"::: The [Virtual Desktop landing zone reference implementation](https://github.com/Azure/avdaccelerator) supports multiple deployment scenarios depending on your requirements. Each deployment scenario supports both greenfield and brownfield deployments and provides multiple infrastructure as code (IaC) template options:
 
 - The Azure portal UI
 - The Azure CLI or Azure PowerShell Bicep template

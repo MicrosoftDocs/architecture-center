@@ -8,7 +8,7 @@ Two GitOps operators that you can use with AKS are [Flux](https://fluxcd.io) and
 
 ### Scenario 1: GitOps with Flux and AKS
 
-:::image type="complex" border="false" source="media/gitops-flux.svg" alt-text="Diagram of GitOps with Flux v2, GitHub, and AKS." lightbox="media/gitops-flux.svg":::
+:::image type="complex" border="false" source="media/gitops-flux.svg" alt-text="Diagram of GitOps with Flux v2, GitHub, and AKS.":::
    Diagram that illustrates the GitOps workflow with Flux v2, GitHub, and AKS. On the left, a developer commits configuration changes to a GitHub repository. In the center, the Flux operator in the AKS cluster monitors the repository for changes. When Flux detects configuration drift, it pulls the latest configuration from GitHub. On the right, Flux reconciles the desired state from the repository with the actual state in the AKS cluster and applies updates as needed. The diagram shows the flow of configuration changes from the developer to GitHub, then to Flux, and finally to the AKS cluster, and emphasizes the pull-based, continuous reconciliation process.
 :::image-end:::
 
@@ -70,7 +70,7 @@ The following data flow corresponds to the previous diagram:
 
 ### Scenario 3: GitOps with Argo CD, GitHub repository, and AKS
 
-:::image type="complex" border="false" source="media/gitops-argo-cd.svg" alt-text="Diagram of GitOps with Argo CD, GitHub, and AKS." lightbox="media/gitops-argo-cd.svg":::
+:::image type="complex" border="false" source="media/gitops-argo-cd.svg" alt-text="Diagram of GitOps with Argo CD, GitHub, and AKS.":::
    Diagram that shows a GitOps workflow with Argo CD, GitHub, and AKS. On the left, a Kubernetes administrator edits configuration files and commits them to a GitHub repository. In the center, Argo CD in the AKS cluster monitors the repository for changes. When Argo CD detects updated configuration, it pulls the changes and reconciles the desired state with the actual state in the AKS cluster. The diagram highlights the flow of configuration from the administrator to GitHub, then to Argo CD, and finally to the AKS cluster, and emphasizes the pull-based, continuous reconciliation process and the role of Argo CD as a controller that manages application state.
 :::image-end:::
 

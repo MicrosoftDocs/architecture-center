@@ -109,7 +109,7 @@ Within the network, the architecture has three subnets.
 
 #### Subnet to host Azure Firewall
 
-[Azure Firewall](/azure/firewall/overview) is a managed firewall service. The Azure Firewall instance secures outbound network traffic. Without this layer of security, the traffic might communicate with a malicious, non-Microsoft service that could exfiltrate sensitive workload data. Use [Azure Firewall Manager](/azure/firewall-manager/overview) to centrally deploy and configure multiple Azure Firewall instances and manage Azure Firewall policies for this *hub virtual network* architecture type.
+[Azure Firewall](/azure/firewall/overview) is a managed firewall service. The Azure Firewall instance secures outbound network traffic. Without this layer of security, the traffic might communicate with a malicious, non-Microsoft service that could exfiltrate sensitive workload data. Use [Azure Firewall Manager](/azure/firewall-manager/overview) to centrally deploy and configure multiple Azure Firewall instances and manage Azure Firewall policies for this *hub virtual network* architecture type. For the endpoints and ports that the firewall must allow for an AKS cluster to function, see [Outbound network and FQDN rules for AKS clusters](/azure/aks/outbound-rules-control-egress).
 
 #### Subnet to host a gateway
 
@@ -117,7 +117,7 @@ This subnet is a placeholder for a VPN gateway or an Azure ExpressRoute gateway.
 
 #### Subnet to host Azure Bastion
 
-This subnet is used for [Azure Bastion](/azure/bastion/bastion-overview). You can use Azure Bastion to securely access Azure resources without exposing the resources to the internet. This architecture uses Azure Bastion to securely connect to the AKS cluster's API server for management operations. The subnet is for management operations only.
+This subnet is used for [Azure Bastion](/azure/bastion/bastion-overview). You can use Azure Bastion to securely access Azure resources without exposing the resources to the internet. This architecture uses [Azure Bastion to securely connect to the AKS cluster's API server for management operations](/azure/bastion/bastion-connect-to-aks-private-cluster). The subnet is for management operations only.
 
 ### Spoke virtual network
 
@@ -252,7 +252,9 @@ When you plan capacity for a user node pool, consider the following recommendati
 
 ### Select an operating system
 
-Most AKS clusters use Linux as the operating system for their node pools. The reference implementation uses [Azure Linux](/azure/aks/use-azure-linux), which is a lightweight, hardened Linux distribution that's tuned for Azure. You can choose another Linux distribution like Ubuntu if you prefer or if Azure Linux doesn't meet your requirements. If you choose a different operating system, ensure that the OS disk is sized appropriately for that image. Some distributions require more space than Azure Linux, so you might need to increase the disk size to avoid problems with deployment or runtime.
+Most AKS clusters use Linux as the operating system for their node pools. The reference implementation uses [Azure Linux](/azure/aks/use-azure-linux), which is a lightweight, hardened Linux distribution that's tuned for Azure. Microsoft builds, signs, and manages the entire Azure Linux stack, so it has full control over Azure Linux patching. Microsoft sometimes releases fixes for high and critical Common Vulnerabilities and Exposures (CVEs) out of band, ahead of the next scheduled node image, instead of waiting for another vendor's release cycle.
+
+You can choose another Linux distribution like Ubuntu if you prefer or if Azure Linux doesn't meet your requirements. If you choose a different operating system, ensure that the OS disk is sized appropriately for that image. Some distributions require more space than Azure Linux, so you might need to increase the disk size to avoid problems with deployment or runtime.
 
 If your workload is composed of mixed technologies, you can use different operating systems in different node pools. If you don't need different operating systems, we recommend that you use a single operating system for all workload node pools to reduce operational complexity.
 
@@ -501,7 +503,7 @@ One downside of connecting to Azure services through public endpoints is that Az
 
 By default, a pod can accept traffic from any other pod in the cluster. Use Kubernetes `NetworkPolicy` to restrict network traffic between pods. Apply policies carefully to prevent blocking critical network flows. Allow only specific communication paths, like traffic between the gateway proxy and workload, as needed. Because the gateway proxy runs in the same namespace as the workload, target it by pod label rather than by namespace selector. For more information, see [Network policies](/azure/aks/use-network-policies).
 
-Enable network policy when you set up the cluster, because you can't add it later. You have a few choices for technologies that implement `NetworkPolicy`. Azure network policy requires Azure CNI. Other options include Calico network policy, a well-known open-source option. Consider Calico if you need to manage cluster-wide network policies. Calico isn't covered under standard Azure support.
+Enable network policy when you create the cluster, because adding it later might reimage your node pools. You have a few choices for technologies that implement `NetworkPolicy`. Azure network policy requires Azure CNI. Other options include Calico network policy, a well-known open-source option. Consider Calico if you need to manage cluster-wide network policies. Calico isn't covered under standard Azure support.
 
 For more information, see [Differences between Azure network policy engines](/azure/aks/use-network-policies#differences-between-network-policy-engines-cilium-azure-npm-and-calico).
 
@@ -858,7 +860,7 @@ Most clusters that do in-place upgrades should avoid the `None` and `Unmanaged` 
 
 ##### In-place updates to the cluster
 
-Kubernetes is a rapidly evolving platform, and regular updates bring important security fixes and new capabilities. It's important that you remain current with Kubernetes updates. You should stay within the [two most recent versions (N-2)](/azure/aks/supported-kubernetes-versions). It's critical to upgrade to the latest version of Kubernetes because new versions are released frequently.
+Kubernetes is a rapidly evolving platform, and regular updates bring important security fixes and new capabilities. It's important that you remain current with Kubernetes updates. You should stay within the [two most recent versions (N-2)](/azure/aks/supported-kubernetes-versions). It's critical to upgrade to the latest version of Kubernetes because new versions are released frequently. AKS also offers a reduced [platform support](/azure/aks/supported-kubernetes-versions#platform-support-policy) tier for clusters that fall one version further behind (N-3), but that tier excludes Kubernetes API support, component and security updates, and the ability to create new clusters. Treat platform support as a safety net while you complete an upgrade, not as an extension of the supported window.
 
 Most clusters should be able to perform in-place AKS version updates with enough caution and rigor. The risk of performing an in-place AKS version upgrade can mostly be mitigated through sufficient preproduction testing, quota validation, and pod disruption budget configuration. But any in-place upgrade can result in unexpected behavior. If in-place upgrades are deemed too risky for your workload, we recommended you use a [blue-green deployment of AKS clusters](/azure/architecture/guide/aks/blue-green-deployment-for-aks) approach instead of following the remaining recommendations.
 

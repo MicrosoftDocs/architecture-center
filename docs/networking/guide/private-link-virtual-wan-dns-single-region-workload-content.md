@@ -5,7 +5,7 @@ This article shows how to expose a PaaS resource to a workload over a private en
 
 ## Scenario
 
-:::image type="complex" source="images/dns-private-endpoints-virtual-wan-scenario-single-region.svg" lightbox="images/dns-private-endpoints-virtual-wan-scenario-single-region.svg" alt-text="Diagram showing the single-region architecture.":::
+:::image type="complex" source="images/dns-private-endpoints-virtual-wan-scenario-single-region.svg" alt-text="Diagram showing the single-region architecture.":::
 Diagram showing the single-region architecture.
 :::image-end:::
 *Figure 1: Single-region scenario for Virtual WAN with Private Link and Azure DNS - the challenge*

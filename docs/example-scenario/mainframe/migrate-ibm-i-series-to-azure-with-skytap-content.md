@@ -98,7 +98,7 @@ Performance Efficiency is the ability of your workload to scale to meet the dema
 Skytap on Azure provides high performance and efficiency that support demanding workloads up to 44,000 CPWs and 512 GB of RAM, while providing the benefits of cloud scale. With capacity on demand and pay-as-you-go pricing, you save the expense of adding hardware on premises to meet changing demands. You can use smaller LPARs instead of a few large ones and configure resources as needed.
 
 One of the advantages of an Azure–based solution is the ability to scale out. Scaling makes nearly limitless compute capacity available to an application. Azure supports multiple methods to scale out compute power, such as [virtual machine scale sets](/azure/virtual-machine-scale-sets/overview) and
-[load balancing](/azure/load-balancer/load-balancer-overview) across a cluster. Other services scale compute resources dynamically. In addition, applications on Azure can also use [Kubernetes clusters](/azure/aks/concepts-clusters-workloads) as compute services for specified resources.
+[load balancing](/azure/load-balancer/load-balancer-overview) across a cluster. Other services scale compute resources dynamically. In addition, applications on Azure can also use [Kubernetes clusters](/azure/aks/core-aks-concepts) as compute services for specified resources.
 
 Azure compute scale-up can be as simple as choosing the right [virtual machine](https://azure.microsoft.com/services/virtual-machines/) for your workload.
 

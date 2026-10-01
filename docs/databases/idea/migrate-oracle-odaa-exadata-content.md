@@ -89,10 +89,10 @@ Do the preceding configuration changes to migrate your database from on-premises
 
 Review the following articles to ensure that your implementation follows recommended practices:
 
-- [Network topology and connectivity for OD@A](/azure/cloud-adoption-framework/scenarios/oracle-iaas/oracle-network-topology-odaa)
-- [Identity and access management for OD@A](/azure/cloud-adoption-framework/scenarios/oracle-iaas/oracle-iam-odaa)
-- [Security guidelines for OD@A](/azure/cloud-adoption-framework/scenarios/oracle-iaas/oracle-security-overview-odaa)
-- [Manage and monitor OD@A](/azure/cloud-adoption-framework/scenarios/oracle-iaas/oracle-manage-monitor-oracle-database-azure)
-- [Business continuity and disaster recovery considerations for OD@A](/azure/cloud-adoption-framework/scenarios/oracle-iaas/oracle-disaster-recovery-oracle-database-azure)
+- [Network topology and connectivity for OD@A](/azure/cloud-adoption-framework/scenarios/oracle-on-azure/oracle-network-topology-odaa)
+- [Identity and access management for OD@A](/azure/cloud-adoption-framework/scenarios/oracle-on-azure/oracle-iam-odaa)
+- [Security guidelines for OD@A](/azure/cloud-adoption-framework/scenarios/oracle-on-azure/oracle-security-overview-odaa)
+- [Manage and monitor OD@A](/azure/cloud-adoption-framework/scenarios/oracle-on-azure/oracle-manage-monitor-oracle-database-azure)
+- [Business continuity and disaster recovery considerations for OD@A](/azure/cloud-adoption-framework/scenarios/oracle-on-azure/oracle-disaster-recovery-oracle-database-azure)
 - [Introduction to ZDM](https://docs.oracle.com/en/database/oracle/zero-downtime-migration/21.4/zdmug/introduction-to-zero-downtime-migration.html#GUID-A4EC1775-307C-47A6-89FB-E4C3F1FBC4F5)
 - [ZDM physical online migration whitepaper](https://www.oracle.com/a/otn/docs/database/zdm-physical-migration-to-oracle-at-azure.pdf)

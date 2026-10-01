@@ -1,10 +1,10 @@
 ### YamlMime:Architecture
 metadata:
-  title: DataOps for the modern data warehouse
-  description: How to apply DevOps principles to data pipelines built according to the modern data warehouse (MDW) architectural pattern with Microsoft Azure.
-  author: josearper
-  ms.author: joaria
-  ms.date: 07/26/2022
+  title: Modern Data Warehouse Medallion Architecture in Microsoft Fabric
+  description: Learn how to implement a SQL-first modern data warehouse medallion architecture by using Fabric Data Warehouse, OneLake, Fabric Data Factory, and Power BI.
+  author: prabhkaur1977
+  ms.author: prkau
+  ms.date: 08/18/2026
   ms.topic: example-scenario
   ms.subservice: example-scenario
   ai-usage: ai-assisted
@@ -12,16 +12,13 @@ metadata:
     - databases
   ms.custom:
     - arb-data
-name: DataOps for the modern data warehouse
+name: Modern data warehouse medallion architecture in Microsoft Fabric
 azureCategories:
   - databases
-summary: How to apply DevOps principles to data pipelines built according to the modern data warehouse (MDW) architectural pattern with Microsoft Azure.
+summary: Learn how to implement a SQL-first modern data warehouse medallion architecture by using Fabric Data Warehouse, OneLake, Fabric Data Factory, and Power BI.
 products:
-  - azure-data-factory
-  - azure-databricks
-  - azure-devops
-  - azure-key-vault
-  - azure-synapse-analytics
-thumbnailUrl: /azure/architecture/browse/thumbs/street-parking-availability.png
+  - fabric
+  - power-bi
+thumbnailUrl: /azure/architecture/browse/thumbs/modern-data-warehouse-microsoft-fabric.png
 content: |
    [!INCLUDE[](dataops-mdw-content.md)]

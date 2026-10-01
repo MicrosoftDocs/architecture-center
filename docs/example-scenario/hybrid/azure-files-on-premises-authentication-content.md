@@ -15,15 +15,15 @@ This architecture demonstrates one way to provide file shares in the cloud to on
 1. Either VPN or Azure ExpressRoute provides secure connections between the on-premises network and the virtual network in the cloud. If you use VPN, create a gateway by using Azure VPN Gateway. If you use ExpressRoute, create an ExpressRoute virtual network gateway. For more information, see [What is VPN Gateway?](/azure/vpn-gateway/vpn-gateway-about-vpngateways) and [About ExpressRoute virtual network gateways](/azure/expressroute/expressroute-about-virtual-network-gateways).
 1. Azure Files provides a file share in the cloud. This requires an Azure Storage account. For more information about file shares, see [What is Azure Files?](/azure/storage/files/storage-files-introduction).
 1. A private endpoint provides access to the file share. A private endpoint is like a network interface card (NIC) inside a subnet that attaches to an Azure service. In this case, the service is the file share. For more information about private endpoints, see [Use private endpoints for Azure Storage](/azure/storage/common/storage-private-endpoints).
-1. The on-premises DNS server resolves IP addresses. However, Azure DNS resolves the Azure file share Fully Qualified Domain Name (FQDN). All DNS queries to Azure DNS originate from the virtual network. There's a DNS proxy inside the virtual network to route these queries to Azure DNS. For more information, see [On-premises workloads using a DNS forwarder](/azure/private-link/private-endpoint-dns#on-premises-workloads-using-a-dns-forwarder).
+1. The on-premises DNS server resolves IP addresses. However, Azure DNS resolves the Azure file share Fully Qualified Domain Name (FQDN). All DNS queries to Azure DNS originate from the virtual network. There's a DNS proxy inside the virtual network to route these queries to Azure DNS. For more information, see [On-premises workloads using a DNS forwarder](/azure/private-link/private-endpoint-dns-integration#on-premises-workloads-using-a-dns-forwarder-without-azure-private-resolver).
 
    You can provide the DNS proxy on a Windows or Linux server, or you can use Azure Firewall. For information on the Azure Firewall option, which has the advantage that you don't have to manage a virtual machine, see [Azure Firewall DNS settings](/azure/firewall/dns-settings).
-1. The on-premises custom DNS is configured to forward DNS traffic to Azure DNS via a conditional forwarder. Information on conditional forwarding is also found in [On-premises workloads using a DNS forwarder](/azure/private-link/private-endpoint-dns#on-premises-workloads-using-a-dns-forwarder).
+1. The on-premises custom DNS is configured to forward DNS traffic to Azure DNS via a conditional forwarder. Information on conditional forwarding is also found in [On-premises workloads using a DNS forwarder](/azure/private-link/private-endpoint-dns-integration#on-premises-workloads-using-a-dns-forwarder-without-azure-private-resolver).
 1. The on-premises AD DS authenticates access to the file share. This is a four-step process, as described in [Part one: enable AD DS authentication for your Azure file shares](/azure/storage/files/storage-files-identity-ad-ds-enable)
 
 ### Components
 
-- [Azure Storage](/azure/storage/common/storage-introduction) is a set of massively scalable and secure cloud services for data, apps, and workloads. It includes [Azure Files](/azure/well-architected/service-guides/azure-files), [Azure Table Storage](/azure/storage/tables/table-storage-overview), and [Azure Queue Storage](/azure/well-architected/service-guides/queue-storage/reliability). In this architecture, Azure Storage provides the underlying infrastructure for Azure Files. It hosts the cloud-based file shares that on-premises users access.
+- [Azure Storage](/azure/storage/common/storage-introduction) is a set of massively scalable and secure cloud services for data, apps, and workloads. It includes [Azure Files](/azure/well-architected/service-guides/azure-files), [Azure Table Storage](/azure/storage/tables/table-storage-overview), and [Azure Queue Storage](/azure/storage/queues/storage-queues-introduction). In this architecture, Azure Storage provides the underlying infrastructure for Azure Files. It hosts the cloud-based file shares that on-premises users access.
 - [Azure Files](/azure/well-architected/service-guides/azure-files) is a managed file storage service that provides file shares within an Azure Storage account. The files can be accessed from the cloud or on-premises. Windows, Linux, and macOS deployments can mount Azure file shares concurrently. File access uses the industry standard Server Message Block (SMB) protocol. In this architecture, Azure Files hosts the actual file shares that on-premises Windows Server environments securely access by using AD DS authentication.
 - [Azure Virtual Network](/azure/well-architected/service-guides/virtual-network) is the fundamental building block for private networks in Azure. In this architecture, it provides the environment for Azure resources, such as virtual machines, to securely communicate with each other, with the internet, and with on-premises networks.
 - [Azure ExpressRoute](/azure/well-architected/service-guides/azure-expressroute) is a service that extends on-premises networks into the Microsoft cloud through a private, dedicated connection. In this architecture, ExpressRoute ensures secure and reliable connectivity for accessing Azure-based file shares from on-premises systems.
@@ -59,7 +59,7 @@ These considerations implement the pillars of the Azure Well-Architected Framewo
 Reliability helps ensure that your application can meet the commitments that you make to your customers. For more information, see [Design review checklist for Reliability](/azure/well-architected/reliability/checklist).
 
 - Azure Storage always stores multiple copies of your data in the same zone, so that it's protected from planned and unplanned outages. There are options for creating additional copies in other zones or regions. For more information, see [Azure Storage redundancy](/azure/storage/common/storage-redundancy).
-- Azure Firewall has built-in high availability. For more information, see [Azure Firewall Standard features](/azure/firewall/features).
+- Azure Firewall has built-in high availability. For more information, see [Azure Firewall Standard features](/azure/firewall/features-by-sku#built-in-high-availability-and-availability-zones).
 
 ### Security
 
@@ -70,7 +70,7 @@ These articles have security information for Azure components:
 - [Azure security baseline for Azure Storage](/security/benchmark/azure/baselines/storage-security-baseline)
 - [Azure security baseline for Azure Private Link](/security/benchmark/azure/baselines/azure-private-link-security-baseline)
 - [Azure security baseline for Virtual Network](/security/benchmark/azure/baselines/virtual-network-security-baseline)
-- [Azure security baseline for Azure Firewall](/security/benchmark/azure/baselines/firewall-security-baseline)
+- [Azure security baseline for Azure Firewall](/security/benchmark/azure/baselines/azure-firewall-security-baseline)
 
 ### Cost Optimization
 
@@ -113,7 +113,7 @@ Principal author:
 
 ## Next steps
 
-- [Quickstart: Create a virtual network using the Azure portal](/azure/virtual-network/quick-create-portal)
+- [Quickstart: Create a virtual network using the Azure portal](/azure/virtual-network/quickstart-create-virtual-network)
 - [What is VPN Gateway?](/azure/vpn-gateway/vpn-gateway-about-vpngateways)
 - [Tutorial: Create and manage a VPN gateway using Azure portal](/azure/vpn-gateway/tutorial-create-gateway-portal)
 - [Azure enterprise cloud file share](/azure/architecture/hybrid/azure-files-private)

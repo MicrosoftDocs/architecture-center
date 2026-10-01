@@ -3,7 +3,8 @@ title: Azure App Configuration Considerations for Multitenancy
 description: Learn about the features of Azure App Configuration that are useful when you work with multitenant systems, and use the provided links for guidance and examples.
 author: johndowns
 ms.author: pnp
-ms.date: 09/05/2025
+ms.date: 09/03/2026
+ai-usage: ai-assisted
 ms.topic: concept-article
 ms.subservice: architecture-guide
 ms.custom: arb-saas
@@ -26,7 +27,7 @@ In a multitenant solution, it's common to have two types of settings:
 The following table summarizes the differences between the main tenancy isolation models for App Configuration.
 
 | Consideration | Shared store | Store per tenant |
-|---|---|---|
+| --- | --- | --- |
 | **Data isolation** | Low. Use key prefixes or labels to identify each tenant's data. | High |
 | **Performance isolation** | Low | High |
 | **Deployment complexity** | Low | Medium-high |
@@ -40,15 +41,20 @@ You can deploy a shared App Configuration store for your whole solution, or one 
 
 If you need to store a large amount of data per tenant, or scale to a large number of tenants, you might be at risk of exceeding [the resource limits for a single store](/azure/azure-resource-manager/management/azure-subscription-service-limits#azure-app-configuration). In this scenario, consider whether you can share your tenants across a set of shared stores to minimize the deployment and management costs.
 
-If you follow this approach, ensure you understand the [resource quotas and limits](/azure/azure-resource-manager/management/azure-subscription-service-limits#azure-app-configuration) that apply. In particular, be mindful of the total storage limit for the service tier that you use, and ensure that you don't exceed the maximum requests per hour.
+If you follow this approach, ensure you understand the [resource quotas and limits](/azure/azure-resource-manager/management/azure-subscription-service-limits#azure-app-configuration) that apply. In particular, consider the storage, request quota, and throughput limits for the service tier that you use. For Standard stores, [geo-replication](/azure/azure-app-configuration/howto-geo-replication) can increase request-quota capacity because each replica has a separate request quota, and supported provider libraries can load-balance requests across replicas. Premium stores have no request quota limit. Use multiple stores when storage limits or tenant partitioning require them.
+
+Geo-replication doesn't prevent [noisy-neighbor issues](../../../antipatterns/noisy-neighbor/noisy-neighbor.yml). Apply tenant-aware rate limits or quotas in your application, and monitor request usage by tenant.
 
 ### Store per tenant
 
-You might instead choose to deploy an App Configuration store for each tenant. The App Configuration [Standard tier](/azure/azure-app-configuration/faq#which-app-configuration-tier-should-i-use) helps you deploy an unlimited number of stores in your subscription. But this approach is often more complex to manage, because you must then deploy and configure more resources.
+You might instead choose to deploy an App Configuration store for each tenant. The App Configuration [Standard and Premium tiers](/azure/azure-app-configuration/faq#which-app-configuration-tier-should-i-use) help you deploy an unlimited number of stores in your subscription. But this approach is often more complex to manage, because you must then deploy and configure more resources.
+
+> [!NOTE]
+> The Developer tier has no SLA. Use it only for low-volume, nonproduction scenarios.
 
 Consider tenant-specific stores if you have one of the following situations:
 
-- You're required to use [customer-managed keys (CMK)](/azure/azure-app-configuration/concept-customer-managed-keys), where the keys are separate for each tenant.
+- Your tenants require different [customer-managed keys (CMKs)](/azure/azure-app-configuration/concept-customer-managed-keys). CMKs require Standard or Premium stores and are configured at the store level, so deploy a separate Standard or Premium store for each tenant that requires a different CMK.
 - Your tenants require their configuration data to be isolated from other tenants' data. Access permission for App Configuration is controlled at the store level, so by deploying separate stores, you can configure separate access permissions.
 
 ## Features of App Configuration that support multitenancy
@@ -75,13 +81,50 @@ If you decide to use labels for each tenant, your application can load only the 
 
 ### Application-side caching
 
-When you work with App Configuration, it's important to cache the settings within your application, instead of loading them every time you use them. The [App Configuration provider libraries](/azure/azure-app-configuration/overview#use-app-configuration) cache settings and refresh them automatically.
+When you work with App Configuration, cache the settings within your application instead of loading them every time you use them. The [App Configuration provider libraries](/azure/azure-app-configuration/overview#use-app-configuration) cache settings.
 
 You must also decide whether your application loads the settings for a single tenant or for all tenants.
 
 As your tenant base grows, the amount of time and the memory required to load settings for all tenants together is likely to increase. So, in most situations, it's a good practice to load the settings for each tenant separately, when your application needs them.
 
-If you load each tenant's configuration settings separately, your application needs to cache each set of settings separately from any others. In .NET applications, you can use an [in-memory cache](/aspnet/core/performance/caching/memory) to cache the tenant's `IConfiguration` object and then use the tenant identifier as the cache key. By using an in-memory cache, you don't need to reload a configuration for every request, but the cache can remove unused instances if your application is under memory pressure. You can also configure expiration times for each tenant's configuration settings.
+If you load each tenant's configuration settings separately, your application needs to cache each set of settings separately from any others.
+
+#### Refresh key-values
+
+Applications need to refresh the values of keys when they change.
+
+A common approach is for an application to watch for changes in a [sentinel key](/azure/azure-app-configuration/howto-best-practices#monitoring-a-sentinel-key), which is a dedicated key with a well-known name that you update after making edits to other keys. You can choose to design your caching architecture based on global or tenant-specific sentinel keys.
+
+In .NET applications, register cached key-values for refresh by using `ConfigureRefresh`, and trigger the refresh by calling `TryRefreshAsync` or by using [App Configuration middleware](/azure/azure-app-configuration/enable-dynamic-configuration-aspnet-core). You can use an [in-memory cache](/aspnet/core/performance/caching/memory) to cache the tenant's `IConfiguration` object and then use the tenant identifier as the cache key. By using an in-memory cache, you don't need to reload a configuration for every request, but the cache can remove unused instances if your application is under memory pressure. You can also configure expiration times for each tenant's configuration settings.
+
+### Configuration rollout and rollback with snapshot references
+
+When a tenant, tenant cohort, or deployment stamp needs its configuration to change on an independent schedule, point a tenant-scoped key at a [snapshot reference](/azure/azure-app-configuration/concept-snapshot-references) rather than at individual values.
+
+Scope the reference key by [key prefix](#key-prefixes) or [label](#labels). Build each referenced snapshot so that it contains only the keys intended for that tenant, cohort, or stamp. Consider the [App Configuration limits](/azure/azure-resource-manager/management/azure-subscription-service-limits#azure-app-configuration), including the limit on the size of each snapshot. Selecting a scoped reference doesn't filter the snapshot's contents. A supported configuration provider merges every key-value from the snapshot into the application configuration.
+
+Before repointing the reference, configure refresh in the supported configuration provider. Then repoint the reference to roll the tenant or stamp forward or back without a code change or redeployment.
+
+A snapshot reference doesn't change the isolation model. Access is still controlled at the store level, and the application identity needs permission to read the referenced snapshot.
+
+### Configuration delivery to client applications (preview)
+
+If your solution includes browser, mobile, or desktop clients that read configuration directly, a large shared tenant base can generate enough client reads to approach [the request limits for a shared store](#shared-stores). The [Azure Front Door integration for App Configuration](/azure/azure-app-configuration/concept-hyperscale-client-configuration) (preview) caches published configuration at the network edge and absorbs that read volume.
+
+> [!NOTE]
+> Client applications that load configuration through Azure Front Door can't use [sentinel key refresh](/azure/azure-app-configuration/how-to-load-azure-front-door-configuration-provider#troubleshooting). Configure the provider to monitor all selected keys for changes.
+
+> [!IMPORTANT]
+> This caching model is eventually consistent. Clients see an update only after the [Azure Front Door cache expires](/azure/azure-app-configuration/concept-hyperscale-client-configuration#caching) and the next client configuration refresh occurs. Don't rely on this integration for tenant configuration changes that must take effect immediately.
+
+Configuration delivered through Azure Front Door is publicly accessible without authentication.
+
+> [!WARNING]
+> Use a dedicated App Configuration store that contains only settings that are safe for anonymous public access. Don't store secrets, sensitive settings, or tenant-specific data that isn't intended for public disclosure in this store.
+>
+> Don't treat the Front Door route as an authorization boundary between tenants.
+
+See the linked article for setup, the managed-identity role, cache tuning, replica origins, and provider support.
 
 ## Contributors
 

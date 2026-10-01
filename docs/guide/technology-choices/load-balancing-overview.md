@@ -144,7 +144,7 @@ Each load balancing service also has capability support or implementation detail
 
 ### Offload capabilities to your load balancer
 
-Some load balancing options in Azure allow you to offload capabilities from the back-end nodes to the load balancer. These options implement the [Gateway Offloading](../../patterns/gateway-offloading.yml) cloud design pattern. For example, Application Gateway can offload TLS, so your workload's public-facing certificate is managed in one location instead of across back-end nodes. API Management can be configured to offload some basic authorization concerns such as validating claims in JSON Web Token (JWT) access tokens. Offloading cross-cutting concerns can help reduce the complexity of the logic in your back ends and improve their performance.
+Some load balancing options in Azure allow you to offload capabilities from the back-end nodes to the load balancer. These options implement the [Gateway Offloading](../../patterns/gateway-offloading.md) cloud design pattern. For example, Application Gateway can offload TLS, so your workload's public-facing certificate is managed in one location instead of across back-end nodes. API Management can be configured to offload some basic authorization concerns such as validating claims in JSON Web Token (JWT) access tokens. Offloading cross-cutting concerns can help reduce the complexity of the logic in your back ends and improve their performance.
 
 ## Examples
 

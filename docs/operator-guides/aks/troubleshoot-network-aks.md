@@ -90,7 +90,10 @@ a1231464635654a123646565456cc146841c1313546a515432161a45a5316541, OrchestratorCo
 
 Check the allocated IP addresses in the plugin IPAM store. You might find that all IP addresses are allocated, but the number is much less than the number of running Pods:
 
-**If using [kubenet](/azure/aks/configure-kubenet):**
+> [!IMPORTANT]
+> Kubenet networking for AKS retires on March 31, 2028. Use the kubenet-specific steps only to troubleshoot existing kubenet clusters. Migrate these clusters to Azure CNI Overlay before retirement. For migration instructions, see [Update the IPAM mode to Azure CNI Overlay](/azure/aks/update-azure-cni#update-the-ipam-mode-to-azure-cni-overlay).
+
+**If using kubenet on an existing cluster:**
 
 ```bash
 # Kubenet, for example. The actual path of the IPAM store file depends on network plugin implementation. 
@@ -177,8 +180,7 @@ These are some other potential causes of service problems:
 - The container isn't listening to the specified `containerPort`. (Check the Pod description.)
 - A CNI plugin error or network route error is occurring.
 - kube-proxy isn't running or iptables rules aren't configured correctly.
-- Network Policies is dropping traffic. For information on applying and testing Network Policies, see [Azure Kubernetes Network Policies overview](/azure/virtual-network/kubernetes-network-policies).
-  - If you're using Calico as your network plugin, you can capture network policy traffic as well. For more information about configuration, see the [Calico site](https://projectcalico.docs.tigera.io/security/calico-network-policy#generate-logs-for-specific-traffic).
+- Network policies are dropping traffic. To check policies and identify data-plane-specific problems, see [Troubleshoot connection issues to pods or services within an AKS cluster](/troubleshoot/azure/azure-kubernetes/connectivity/troubleshoot-connection-pods-services-same-cluster#7-check-network-policies).
 
 ## Nodes can't reach the API server
 

@@ -2,7 +2,7 @@ This article provides guidance about how to migrate SQL Server workloads to Azur
 
 ## Architecture
 
-:::image type="complex" border="false" source="./media/continuous-availability.svg" alt-text="Architecture diagram that displays a SQL Server deployment with Azure NetApp Files." lightbox="./media/continuous-availability.svg":::
+:::image type="complex" border="false" source="./media/continuous-availability.svg" alt-text="Architecture diagram that displays a SQL Server deployment with Azure NetApp Files.":::
    A large rectangle that represents an Azure region surrounds the whole diagram. Inside the region, there's another rectangle that represents availability zone one. Availability zone one contains the Azure NetApp Files delegated subnet and the virtual machine (VM) subnet. The VM subnet contains the SQL Server VM. The SQL Server VM connects to the Azure NetApp Files capacity pool that contains four volumes: SQL data 1, SQL data 2, SQL log, and SQL backup.
 :::image-end:::
 

@@ -20,7 +20,7 @@ One of the main ways to make an application resilient is through redundancy. But
 
 In Azure, some regions are further divided into multiple Availability Zones. An Availability Zone corresponds with a physically isolated datacenter in the geographic region. Azure has numerous features for providing application redundancy at every level of potential failure, including **Virtual Machine Scale Sets**, **availability zones**, and **paired regions**.
 
-:::image type="complex" source="./images/redundancy.svg" alt-text="Diagram showing rack-level, datacenter-level, and region-level redundancy in Azure.":::
+:::image type="complex" source="./images/redundancy.svg" lightbox="./images/redundancy.svg" alt-text="Diagram showing rack-level, datacenter-level, and region-level redundancy in Azure.":::
    The diagram has three side-by-side panels, each titled by a redundancy scope. The left panel, Rack-level redundancy for a Virtual Machine Scale Set, shows a Load Balancer above two boxes, Fault domain 1 and Fault domain 2, that each contain three virtual machines. The middle panel, Datacenter-level redundancy across availability zones, shows a zone-redundant Load Balancer above three boxes labeled Zone 1, Zone 2, and Zone 3 that each contain one virtual machine. The right panel, Region-level redundancy for a multi-region deployment, shows Traffic Manager above two boxes, Region A (primary) and Region B (secondary), that each contain an App tier virtual machine and a Data tier virtual machine. In every panel, lines connect the top routing component to each box below it. A dashed replication and failover path runs vertically between the two regions in the right panel.
 :::image-end:::
 
@@ -49,20 +49,20 @@ An [Availability Zone](/azure/reliability/availability-zones-overview) is a phys
 
 To protect an application against a regional outage, deploy the application across multiple regions and use [Azure Traffic Manager](https://azure.microsoft.com/services/traffic-manager) to distribute internet traffic across regions. A [paired region][paired-regions] is one option for selecting a secondary region, but not every Azure region has a pair.
 
-Use region pairs when your architecture benefits from paired-region capabilities, such as platform update sequencing and service features that depend on paired regions. For example, Azure [geo-redundant storage (GRS)](/azure/storage/common/storage-redundancy-grs) replicates data to the paired region for the selected primary region.
+Use region pairs when your architecture benefits from paired-region capabilities, such as platform update sequencing and service features that depend on paired regions. For example, Azure [geo-redundant storage (GRS)](/azure/storage/common/storage-redundancy#geo-redundant-storage) replicates data to the paired region for the selected primary region.
 
 If your primary region isn't paired, or if your requirements are better served by another location, choose a nonpaired secondary region based on service availability, data residency, latency, and disaster recovery objectives. For most resources, you design regional resiliency by deploying and operating a full secondary stamp in another region, regardless of whether that region is paired.
 
 ## See also
 
-- [Regions for virtual machines in Azure](/azure/virtual-machines/linux/regions)
+- [Regions for virtual machines in Azure](/azure/virtual-machines/regions)
 
-- [Availability options for virtual machines in Azure](/azure/virtual-machines/linux/availability)
+- [Availability options for virtual machines in Azure](/azure/virtual-machines/availability)
 
 - [High availability for Azure applications](../example-scenario/infrastructure/multi-tier-app-disaster-recovery.yml)
 
-- [Failure and disaster recovery for Azure applications](/azure/architecture/framework/resiliency/backup-and-recovery)
+- [Failure and disaster recovery for Azure applications](/azure/well-architected/reliability/disaster-recovery)
 
-- [Planned maintenance for Linux virtual machines in Azure](/azure/virtual-machines/linux/maintenance-and-updates)
+- [Planned maintenance for virtual machines in Azure](/azure/virtual-machines/maintenance-and-updates)
 
 [paired-regions]: /azure/best-practices-availability-paired-regions

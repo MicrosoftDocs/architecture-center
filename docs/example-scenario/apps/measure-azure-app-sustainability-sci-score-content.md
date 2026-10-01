@@ -151,13 +151,13 @@ Azure carbon optimization provides monthly aggregated carbon data for resources.
 
 ### Data storage
 
-Store gathered carbon and proxy information in a solution that connects to dashboards or reports. This setup lets you visualize the carbon score over time for informed decision-making. To improve sustainability and align with Azure Well-Architected Framework best practices, use a minimum viable system. For more information, see [Data and storage design considerations for sustainable workloads on Azure](/azure/well-architected/sustainability/sustainability-storage) and [Application platform considerations for sustainable workloads on Azure](/azure/well-architected/sustainability/sustainability-application-platform#evaluate-moving-to-paas-and-serverless-workloads). This architecture uses Data Lake Storage.
+Store gathered carbon and proxy information in a solution that connects to dashboards or reports. This setup lets you visualize the carbon score over time for informed decision-making. To improve sustainability and align with Azure Well-Architected Framework best practices, use a minimum viable system. For more information, see [Data and storage design considerations for sustainable workloads on Azure](/azure/well-architected/sustainability/sustainability-storage) and [Performance Efficiency recommendations for sustainable workloads on Azure](/azure/well-architected/sustainability/sustainability-performance-efficiency-recommendations#use-modern-technology). This architecture uses Data Lake Storage.
 
 ### Data correlations
 
 Gather data about carbon, performance, and cost of your application to get valuable information. Use this data to create a correlation algorithm specific to your application for cost, performance, and carbon optimization planning.
 
-For more information, see [Select algorithms for Azure Machine Learning](/azure/machine-learning/how-to-select-algorithms).
+For more information, see [Train models with Azure Machine Learning](/azure/machine-learning/concept-train-machine-learning-model).
 
 ### Data display
 

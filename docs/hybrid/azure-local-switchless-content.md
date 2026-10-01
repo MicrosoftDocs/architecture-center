@@ -11,7 +11,7 @@ This architecture is a starting point for an [Azure Local instance that uses a s
 | &#9642; [Architecture diagram](#architecture) <br> &#9642; [Components](#components) <br> &#9642; [Potential use cases](#potential-use-cases) <br> &#9642; [Deploy this scenario](#deploy-this-scenario) <br> | &#9642; [Cluster design choices](#cluster-design-choices) <br> &#9642; [Network design](#network-design) <br> &#9642; [Physical network topology](#physical-network-topology) <br> &#9642; [Logical network topology](#logical-network-topology) <br> &#9642; [IP address requirements](#ip-address-requirements) <br> &#9642; [Outbound network connectivity](#outbound-network-connectivity) <br> | &#9642; [Considerations](#considerations) <br> &#9642; [Cost&nbsp;Optimization](#cost-optimization) <br> &#9642; [Performance&nbsp;Efficiency](#performance-efficiency) <br> |
 
 > [!TIP]
-> ![GitHub logo](../_images/github.svg) This [reference implementation](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.azurestackhci/create-cluster-with-prereqs) describes how to deploy a **three-node storage switchless Azure Local instance** by using an Azure Resource Manager template (ARM template) and parameter file.
+> :::image type="icon" source="../_images/github.svg"::: This [reference implementation](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.azurestackhci/create-cluster-with-prereqs) describes how to deploy a **three-node storage switchless Azure Local instance** by using an Azure Resource Manager template (ARM template) and parameter file.
 
 ## Architecture
 
@@ -139,7 +139,7 @@ The logical network topology provides an overview for how the network data flows
 
 To deploy a three-node storage switchless configuration of Azure Local with dual links for the storage interconnects, the cluster infrastructure platform requires you to allocate a minimum of 20 x IP addresses. More IP addresses are required if you use a VM appliance supplied by your hardware manufacturer partner or if you use microsegmentation or software-defined networking (SDN). For more information, see [Review the three-node storage reference pattern IP address requirements for Azure Local](/azure/azure-local/plan/three-node-ip-requirements).
 
-When you design and plan IP address requirements for Azure Local, remember to account for extra IP addresses or network ranges needed for your workload beyond the ones that are required for the Azure Local instance and infrastructure components. If you plan to use Azure Kubernetes Services (AKS) on Azure Local, see [AKS enabled by Azure Arc network requirements](/azure/aks/hybrid/aks-hci-network-system-requirements).
+When you design and plan IP address requirements for Azure Local, remember to account for extra IP addresses or network ranges needed for your workload beyond the ones that are required for the Azure Local instance and infrastructure components. If you plan to use Azure Kubernetes Services (AKS) on Azure Local, see [AKS enabled by Azure Arc network requirements](/azure/aks-hybrid-edge/local/hyperconverged/network-system-requirements).
 
 #### Outbound network connectivity
 
@@ -173,11 +173,11 @@ For more information about how to design, procure, and deploy an Azure Local sol
 Use the following deployment automation template as an example of how to deploy Azure Local by using the three-node storage switchless architecture.
 
 > [!TIP]
-> ![GitHub logo](../_images/github.svg) **Deployment automation:** This [reference template](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.azurestackhci/create-cluster-with-prereqs) describes how to deploy a **three-node storage switchless Azure Local solution** by using an ARM template and parameter file.
+> :::image type="icon" source="../_images/github.svg"::: **Deployment automation:** This [reference template](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.azurestackhci/create-cluster-with-prereqs) describes how to deploy a **three-node storage switchless Azure Local solution** by using an ARM template and parameter file.
 
 ## Related resources
 
-- [Hybrid architecture design](hybrid-start-here.md)
+- [Get started with Azure hybrid and adaptive cloud architecture](hybrid-start-here.md)
 - [Azure hybrid options](../guide/technology-choices/hybrid-considerations.yml)
 - [Optimize administration of SQL Server instances in on-premises and multicloud environments by using Azure Arc](azure-arc-sql-server.yml)
 

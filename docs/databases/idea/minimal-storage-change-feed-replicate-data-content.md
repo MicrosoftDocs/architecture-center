@@ -34,7 +34,7 @@ The following data flow corresponds to the previous diagram:
 
 ### Components
 
-- [Microsoft Entra ID](/entra/fundamentals/whatis) is an identity and access management service that can synchronize with an on-premises directory. In this architecture, it authenticates users and grants access to web applications that are hosted on App Service.
+- [Microsoft Entra ID](/entra/fundamentals/what-is-entra) is an identity and access management service that can synchronize with an on-premises directory. In this architecture, it authenticates users and grants access to web applications that are hosted on App Service.
 
 - [Azure Front Door](/azure/well-architected/service-guides/azure-front-door) is a secure content delivery network and load balancer. In this architecture, it accelerates content delivery, provides failover capabilities, and protects apps from cyber threats.
 

@@ -109,7 +109,7 @@ This architecture provides the following benefits:
 
 - Message coordination across services
 
-  Business processes often have multiple services that publish and subscribe to messages to achieve a consistent outcome across an entire workload. You can use [workflow patterns](https://docs.particular.net/architecture/workflows) like [Choreography](/azure/architecture/patterns/choreography) and [Saga Orchestration](/azure/architecture/reference-architectures/saga/saga#orchestration) to reliably manage message flows across various services.
+  Business processes often have multiple services that publish and subscribe to messages to achieve a consistent outcome across an entire workload. You can use [workflow patterns](https://docs.particular.net/architecture/workflows) like [Choreography](/azure/architecture/patterns/choreography) and [Saga Orchestration](/azure/architecture/patterns/saga#orchestration) to reliably manage message flows across various services.
 
 - Error handling
 

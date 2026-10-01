@@ -20,7 +20,7 @@ Microsoft offers several services that you can use to do batch processing.
 
 ### Microsoft Fabric
 
-[Microsoft Fabric](/fabric/get-started/microsoft-fabric-overview) is an all-in-one analytics and data platform for organizations. It's a software as a service offering that simplifies how you provision, manage, and govern an end-to-end analytics solution. Fabric handles data movement, processing, ingestion, transformation, and reporting. Fabric features that you use for batch processing include data engineering, data warehouses, lakehouses, and Apache Spark processing. Azure Data Factory in Fabric also supports lakehouses. To simplify and accelerate development, you can enable AI-driven Copilot.
+[Microsoft Fabric](/fabric/fundamentals/microsoft-fabric-overview) is an all-in-one analytics and data platform for organizations. It's a software as a service offering that simplifies how you provision, manage, and govern an end-to-end analytics solution. Fabric handles data movement, processing, ingestion, transformation, and reporting. Fabric features that you use for batch processing include data engineering, data warehouses, lakehouses, and Apache Spark processing. Azure Data Factory in Fabric also supports lakehouses. To simplify and accelerate development, you can enable AI-driven Copilot.
 
 - *Languages:* R, Python, Java, Scala, and SQL
 
@@ -30,19 +30,19 @@ Microsoft offers several services that you can use to do batch processing.
 
 ### Azure Databricks
 
-[Azure Databricks](/azure/azure-databricks/) is a Spark-based analytics platform. It features rich and premium Spark features that are built on top of open-source Spark. Azure Databricks is a Microsoft service that integrates with the rest of the Azure services. It features extra configurations for Spark cluster deployments. And Unity Catalog helps simplify the governance of Azure Databricks Spark objects.
+[Azure Databricks](/azure/databricks/) is a Spark-based analytics platform. It features rich and premium Spark features that are built on top of open-source Spark. Azure Databricks is a Microsoft service that integrates with the rest of the Azure services. It features extra configurations for Spark cluster deployments. And Unity Catalog helps simplify the governance of Azure Databricks Spark objects.
 
 - *Languages:* R, Python, Java, Scala, and Spark SQL.
 
 - *Security:* User authentication with Microsoft Entra ID.
-- *Primary storage:* Built-in integration with Azure Blob Storage, Data Lake Storage, Fabric OneLake, and other services. For more information, see [Data sources](/azure/databricks/data/data-sources/).
+- *Primary storage:* Built-in integration with Azure Blob Storage, Data Lake Storage, Fabric OneLake, and other services. For more information, see [Data sources](/azure/databricks/connect/).
 
 Other benefits include:
 
 - Web-based [notebooks](/azure/databricks/notebooks/) for collaboration and data exploration.
 
 - Fast cluster start times, automatic termination, and autoscaling.
-- Support for [GPU-enabled clusters](/azure/databricks/clusters/gpu).
+- Support for [GPU-enabled clusters](/azure/databricks/compute/gpu).
 
 ## Key selection criteria
 
@@ -100,10 +100,10 @@ Principal authors:
 
 ## Next steps
 
-- [What is Fabric?](/fabric/get-started/microsoft-fabric-overview)
-- [Fabric decision guide](/fabric/get-started/decision-guide-pipeline-dataflow-spark)
+- [What is Fabric?](/fabric/fundamentals/microsoft-fabric-overview)
+- [Fabric decision guide](/fabric/fundamentals/decision-guide-pipeline-dataflow-spark)
 - [What is Azure HDInsight?](/azure/hdinsight/hdinsight-overview)
-- [What is Azure Databricks?](/azure/databricks/introduction)
+- [What is Azure Databricks?](/azure/databricks/introduction/)
 
 ## Related resources
 

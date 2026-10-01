@@ -49,7 +49,7 @@ You can implement the proxy as a state machine that includes the following state
 
 The following diagram shows the counter operations for each state.
 
-:::image type="complex" source="./_images/circuit-breaker-diagram.png" alt-text="Diagram that shows the circuit breaker states." lightbox="./_images/circuit-breaker-diagram.png" border="false":::
+:::image type="complex" source="./_images/circuit-breaker-diagram.png" alt-text="Diagram that shows the circuit breaker states." border="false":::
 The diagram shows three sections that are labeled closed, half-open, and open. The closed state includes the action to reset the failure counter. If the operation succeeds, it returns a result, otherwise the increment failure counter returns a failure. The half-open state includes the action to reset the success counter. If the operation succeeds, the increment success counter returns a result, otherwise it returns a failure. The open state includes the actions to start the time-out timer and then return a failure. An arrow from the closed to open state indicates that the failure threshold is reached. An arrow from the open to half-open state indicates that the time-out timer expired. An arrow from the half-open to closed state indicates that the success count threshold is reached. An arrow from the half-open to open state indicates that the operation failed.
 :::image-end:::
 
@@ -81,7 +81,7 @@ Consider the following factors when you implement this pattern:
 
 - **Recoverability:** You should configure the circuit breaker to match the likely recovery pattern of the operation that it protects. For example, if the circuit breaker remains in the **Open** state for a long period, it can raise exceptions even if the reason for the failure is resolved. Similarly, a circuit breaker can fluctuate and reduce the response times of applications if it switches from the **Open** state to the **Half-Open** state too quickly.
 
-- **Failed operations testing:** In the **Open** state, rather than using a timer to determine when to switch to the **Half-Open** state, a circuit breaker can periodically ping the remote service or resource to determine whether it's available. This ping can either attempt to invoke a previously failed operation or use a special health-check operation that the remote service provides. For more information, see [Health Endpoint Monitoring pattern](./health-endpoint-monitoring.yml).
+- **Failed operations testing:** In the **Open** state, rather than using a timer to determine when to switch to the **Half-Open** state, a circuit breaker can periodically ping the remote service or resource to determine whether it's available. This ping can either attempt to invoke a previously failed operation or use a special health-check operation that the remote service provides. For more information, see [Health Endpoint Monitoring pattern](./health-endpoint-monitoring.md).
 
 - **Manual override:** If the recovery time for a failing operation is extremely variable, you should provide a manual reset option that enables an administrator to close a circuit breaker and reset the failure counter. Similarly, an administrator can force a circuit breaker into the **Open** state and restart the time-out timer if the protected operation is temporarily unavailable.
 
@@ -184,4 +184,4 @@ This strategy enhances resilience that aligns with business justification. It co
 
 - The [Retry pattern](./retry.yml) describes how an application can handle anticipated temporary failures when it tries to connect to a service or network resource by transparently retrying an operation that previously failed.
 
-- The [Health Endpoint Monitoring pattern](./health-endpoint-monitoring.yml) describes how a circuit breaker can test the health of a service by sending a request to an endpoint that the service exposes. The service should return information that indicates its status.
+- The [Health Endpoint Monitoring pattern](./health-endpoint-monitoring.md) describes how a circuit breaker can test the health of a service by sending a request to an endpoint that the service exposes. The service should return information that indicates its status.

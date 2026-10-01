@@ -1,8 +1,5 @@
 This article describes how to implement a [medallion lakehouse](/azure/databricks/lakehouse/medallion) design pattern for a solution-focused use case. The solution uses a hub-and-spoke network topology with landing zones that follow the [Cloud Adoption Framework for Azure best practices](/azure/cloud-adoption-framework/overview).
 
-> [!IMPORTANT]
-> ![GitHub logo.](_images/github.svg) This guidance is supported by an [example implementation](https://github.com/azure-samples/data-factory-to-databricks) that demonstrates a baseline Azure Data Factory setup on Azure. You can use this implementation as a foundation for further solution development in your first step toward production.
-
 ## Key design decisions
 
 This design covers the medium-to-large organization Contoso as it embarks on its journey to the Azure cloud with the support of automation. Contoso has an established Azure cloud foundation with an [enterprise landing zone](/azure/cloud-adoption-framework/ready/landing-zone/#azure-landing-zone-conceptual-architecture). Leadership is preparing to take their first data workloads to the cloud, guided by the [Azure Well-Architected Framework](/azure/well-architected/).
@@ -37,7 +34,7 @@ This initial use case includes the following scenarios:
 
 - The solution must be updated daily based on source feeds availability and have elastic compute optionality that targets less than 90 minutes for an end-to-end solution update.
 
-- The solution must support the following target service-level agreements (SLAs):
+- The solution must support the following target service-level objectives (SLOs):
 
   - Target uptime of 99.5%, or about one day and 20 hours of downtime within a year.
 
@@ -95,7 +92,7 @@ The [modern analytics architecture with Azure Databricks](/azure/architecture/so
 
 - The selection of PaaS services offloads much of the operational burden to Microsoft in exchange for less control.
 
-- Because of the initial solution release, we recommend that you use Power BI [Pro licensing](/power-bi/fundamentals/service-features-license-type#pro-license) as the licensing option. This choice has an explicit tradeoff of operating expenses versus Power BI [Premium performance](/power-bi/enterprise/service-premium-what-is).
+- Because of the initial solution release, use Power BI [Pro licensing](/power-bi/fundamentals/service-features-license-type#pro-license) as the licensing option. This choice has an explicit tradeoff of operating expenses versus Power BI [Premium performance](/fabric/enterprise/powerbi/service-premium-what-is).
 
 - The key changes for this solution:
 
@@ -133,7 +130,7 @@ The following data flow corresponds to the previous diagram:
 
     - The gold layer stores aggregated data that's useful for business analytics.
 
-Data Lake Storage underpins Delta Lake because of its ability to efficiently store all types of data. This flexibility supports workflows of varying speeds and maintains cost effectiveness.
+   Data Lake Storage underpins Delta Lake because of its ability to efficiently store all types of data. This flexibility supports workflows of varying speeds and maintains cost effectiveness.
 
 1. SQL Server is used to support the enterprise data modeling requirements, including hierarchical conformance.
 
@@ -163,31 +160,31 @@ The following foundation services require extension to support this solution:
 
 *Download a [Visio file](https://arch-center.azureedge.net/azure-data-factory-baseline-network.vsdx) of this architecture.*
 
-- You can use Azure firewalls to secure network connectivity between your on-premises infrastructure and your Azure virtual network.
+- You can use Azure Firewall to secure network connectivity between your on-premises infrastructure and your Azure virtual network.
 
 - You can deploy a SHIR on a virtual machine (VM) in your on-premises environment or in Azure, with the latter being the recommendation. You can use a SHIR to securely connect to on-premises data sources and perform data integration tasks in Data Factory.
 
-- A private link and private endpoints are implemented, which you can use to bring the service into your virtual network.
+- Private Link is included, which you can use to access the service from private endpoints within your virtual network.
 
 - To take advantage of machine learning-assisted data labeling, you must create a new storage account that is different than the default storage account you created for the Azure Machine Learning workspace. You can bind the new, nondefault storage account to the same virtual network as the workspace. If you prefer to keep the storage account separate, you can place it in a different subnet within that virtual network.
 
-## Considerations
-
-These considerations implement the pillars of the Azure Well-Architected Framework, which is a set of guiding tenets that can be used to improve the quality of a workload. For more information, see [Microsoft Azure Well-Architected Framework](/azure/well-architected/).
-
-- The use of Azure Databricks Delta Lake means that you can't use the Archive tier Azure Storage accounts because that tier is effectivity offline storage. This design choice is a tradeoff between functionality and cost.
-
-- When you create a new Azure Databricks workspace, the default redundancy for the managed storage account (Azure Databricks File system or Databricks File system root) is set as geo-redundant storage (GRS). You can change the redundancy to locally redundant storage (LRS) if geo-redundancy isn't needed.
-
 ## Alternatives
 
-[Microsoft Fabric](/fabric/get-started/microsoft-fabric-overview) has Data Factory, Azure Databricks, and Power BI built-in as a single solution. Because Fabric is a relatively new service, there might be some functionality that isn't currently available to match that of the services that are used in this scenario. There might also be a learning curve for operators.
+[Microsoft Fabric](/fabric/fundamentals/microsoft-fabric-overview) includes Data Factory, Azure Databricks, and Power BI as a single solution. Some functionality might not be available to match that of the services used in this scenario. Operators might also face a learning curve.
 
 The following services are alternatives for the storage modeling layer:
 
 - [Azure SQL Managed Instance](/azure/azure-sql/managed-instance/): This service isn't a good match for the scenario described in this article because of the lack of migration requirement and higher operating expenses.
 
 - [Azure Database for PostgreSQL](/azure/postgresql/): This service isn't a good match for the scenario described in this article because of Contoso's existing skill set and preference to minimize the introduction of new technologies, which reduces cost and complexity.
+
+## Considerations
+
+These considerations implement the pillars of the Azure Well-Architected Framework, which is a set of guiding tenets that can be used to improve the quality of a workload. For more information, see [Microsoft Azure Well-Architected Framework](/azure/well-architected/).
+
+- The use of Azure Databricks Delta Lake means that you can't use archive tier storage accounts because that tier is effectivity offline storage. This design choice is a tradeoff between functionality and cost.
+
+- When you create a new Azure Databricks workspace, the default redundancy for the managed storage account (Azure Databricks File system or Databricks File system root) is set as geo-redundant storage (GRS). You can change the redundancy to locally redundant storage (LRS) or zone-redundant storage (ZRS) if geo-redundancy isn't needed or if it's unavailable in your region.
 
 ### Reliability
 
@@ -201,7 +198,7 @@ To align with the reliability targets for a business intelligence analytical and
 
 - The following native functionalities address data backups:
 
-  - Azure Databricks [Delta Lake table history](/azure/databricks/delta/history).
+  - Azure Databricks [Delta Lake table history](/azure/databricks/tables/history).
 
   - SQL Server [default backups](/azure/azure-sql/database/automated-backups-overview#backup-frequency).
 
@@ -214,7 +211,7 @@ To align with the reliability targets for a business intelligence analytical and
 
 Security provides assurances against deliberate attacks and the abuse of your valuable data and systems. For more information, see [Design review checklist for Security](/azure/well-architected/security/checklist).
 
-This architecture addresses security via configuration of the infrastructure selected and the control and data plane controls implemented. These design choices are based on the [Zero Trust model](/azure/security/fundamentals/zero-trust) and [least privilege access](/entra/identity-platform/secure-least-privileged-access) principles. Native components use the following security controls:
+This architecture addresses security via configuration of the infrastructure selected and the control and data plane controls. These design choices are based on the [Zero Trust model](/azure/security/fundamentals/zero-trust) and [least privilege access](/entra/identity-platform/secure-least-privileged-access) principles. Native components use the following security controls:
 
 - Solution components use [managed identities](/entra/identity/managed-identities-azure-resources/overview) for authentication and authorization, which enables consistent role-based access control.
 
@@ -226,7 +223,7 @@ This architecture addresses security via configuration of the infrastructure sel
 
   - [Custom roles](/azure/role-based-access-control/tutorial-custom-role-powershell) are explicitly excluded because of ongoing lifecycle management requirements.
 
-- A set of domain-specific Microsoft Entra groups control access to data across the solution, which reflects Contoso's data classification framework. Individual solution components use these groups to apply data-level controls. For example, SQL Server [dynamic data masking](/sql/relational-databases/security/dynamic-data-masking) and Power BI [row-level security](/power-bi/enterprise/service-admin-rls) both support this design.
+- A set of domain-specific Microsoft Entra groups control access to data across the solution, which reflects Contoso's data classification framework. Individual solution components use these groups to apply data-level controls. For example, SQL Server [dynamic data masking](/sql/relational-databases/security/dynamic-data-masking) and Power BI [row-level security](/fabric/security/service-admin-row-level-security) both support this design.
 
   - This design makes it possible to grant access to a component, while disallowing the ability to view the data in the component. To get access to data, the user must also have component access.
 
@@ -240,7 +237,7 @@ To address cost optimization, this architecture:
 
 - Strongly links component SKU selection to the requirements, which avoids the *build it and they'll come* antipattern. This solution schedules in regular reviews of metrics to enable [rightsizing](https://azure.microsoft.com/blog/rightsize-to-maximize-your-cloud-investment-with-microsoft-azure/) and use of [Azure Copilot](/azure/copilot/analyze-cost-management).
 
-- Implements practical operating expense saving benefits as part of a broader [financial operations framework](/azure/cost-management-billing/finops/overview-finops), such as:
+- Includes practical operating expense saving benefits as part of a broader [financial operations framework](/cloud-computing/finops/overview), such as:
 
   - [Azure reservations](/azure/cost-management-billing/reservations/save-compute-costs-reservations) for stable workloads and [savings plans](/azure/cost-management-billing/savings-plan/scope-savings-plan) for dynamic workloads, for the maximum term across the solution.
 
@@ -250,15 +247,15 @@ To address cost optimization, this architecture:
 
 - Has component configurations that accommodate the tradeoff between cost savings and instantaneous response:
 
-  - Azure Databricks [serverless compute](/azure/databricks/serverless-compute/).
+  - Azure Databricks [serverless compute](/azure/databricks/getting-started/high-level-architecture).
 
   - Storage account [access tiers](/azure/storage/blobs/access-tiers-overview), automated through [lifecycle management policies](/azure/storage/blobs/lifecycle-management-overview) configuration. You can't use the [Archive tier](/azure/storage/blobs/access-tiers-overview#archive-access-tier) within Delta Lake.
 
-  - Log Analytics workspaces for [data retention and archiving](/azure/azure-monitor/logs/log-analytics-workspace-overview#data-retention) and [Azure Monitor](/azure/azure-monitor/best-practices-cost).
+  - Log Analytics workspaces for [data retention and archiving](/azure/azure-monitor/logs/log-analytics-workspace-overview#data-retention) and [Azure Monitor](/azure/azure-monitor/fundamentals/best-practices-cost).
 
 - Uses [Azure Hybrid Benefit](/azure/azure-sql/virtual-machines/windows/pricing-guidance#byol) to lower the costs for SQL Server licensing.
 
-- Implements cost and budget alerting through [Cost Management](/azure/cost-management-billing/costs/cost-mgt-alerts-monitor-usage-spending) and [spending guardrails](/azure/well-architected/cost-optimization/set-spending-guardrails#use-governance-policies).
+- Includes cost and budget alerting through [Cost Management](/azure/cost-management-billing/costs/cost-mgt-alerts-monitor-usage-spending) and [spending guardrails](/azure/well-architected/cost-optimization/set-spending-guardrails#use-governance-policies).
 
 To estimate the cost of this architecture, use this [preconfigured estimate in the Azure pricing calculator](https://azure.com/e/a05fc4de851943dc972f8f956c26594a). Adjust the values to match your expected data volumes, processing schedules, and service tiers. The estimate doesn't include shared platform resources such as Azure Firewall, Azure Bastion, Private DNS zones, or the hub virtual network, as those are typically managed by a central platform team and shared across workloads.
 
@@ -268,7 +265,7 @@ Operational Excellence covers the operations processes that deploy an applicatio
 
 Operational excellence is enabled through automation, monitoring, and auditing across the SDLC. This solution includes:
 
-- [Azure Monitor](/azure/azure-monitor/overview) and [Log Analytics workspaces](/azure/azure-monitor/logs/log-analytics-workspace-overview) as the core monitoring components.
+- [Azure Monitor](/azure/azure-monitor/fundamentals/overview) and [Log Analytics workspaces](/azure/azure-monitor/logs/log-analytics-workspace-overview) as the core monitoring components.
 
 - A [tagging strategy](/azure/cloud-adoption-framework/ready/azure-best-practices/resource-tagging) that enables transparency across the solution components.
 
@@ -278,13 +275,13 @@ Operational excellence is enabled through automation, monitoring, and auditing a
 
   - Testing frameworks like [PSRule](https://azure.github.io/PSRule.Rules.Azure/) ensure that deployments align with Well-Architected Framework guidance.
 
-  - [Azure Policy](/azure/governance/policy/overview) enforces organizational standards and assesses compliance at-scale. [Azure Governance Visualizer](https://github.com/Azure/Azure-Governance-Visualizer) provides configurable, granular insights about the technical implementation.
+  - [Azure Policy](/azure/governance/policy/overview) enforces organizational standards and assesses compliance at-scale. [Azure Governance Visualizer](https://github.com/Azure/Azure-Governance-Visualizer) provides configurable, granular insights about the technical components.
 
 #### Monitoring
 
-Monitoring is a critical part of any production-level solution. Support Azure solutions with a [monitoring strategy](/azure/cloud-adoption-framework/strategy/monitoring-strategy) as part of the end-to-end [observability](/azure/cloud-adoption-framework/manage/monitor/observability) strategy.
+Monitoring is a critical part of any production-level solution. Support Azure solutions with a [monitoring strategy](/azure/cloud-adoption-framework/manage/monitor) as part of the end-to-end observability strategy.
 
-Azure Databricks offers robust functionality for monitoring custom application metrics, streaming query events, and application log messages. Azure Databricks can send this monitoring data to various logging services. You can use Azure Monitor to monitor Data Factory pipelines and write diagnostic logs. Azure Monitor provides base-level infrastructure metrics and logs for most Azure services. For more information, see [Monitoring Azure Databricks](/azure/architecture/databricks-monitoring/).
+Azure Databricks offers robust functionality for monitoring custom application metrics, streaming query events, and application log messages. Azure Databricks can send this monitoring data to various logging services. You can use Azure Monitor to monitor Data Factory pipelines and write diagnostic logs. Azure Monitor provides base-level infrastructure metrics and logs for most Azure services. For more information, see [Set up monitoring, alerting, and logging](/azure/databricks/lakehouse-architecture/operational-excellence/best-practices#4-set-up-monitoring-alerting-and-logging).
 
 The recommended alerting baseline includes:
 
@@ -311,7 +308,7 @@ To addresses performance efficiency, this architecture has:
 
 - A baseline of compute options that use cloud-native features to support demand, such as:
 
-  - Azure Databricks [autoscaling](/azure/databricks/delta-live-tables/auto-scaling).
+  - Azure Databricks [autoscaling](/azure/databricks/ldp/auto-scaling).
 
   - SQL Server [scale up and scale down](/azure/azure-sql/database/scale-resources).
 
@@ -336,10 +333,6 @@ Understand that data solution performance typically degrades over time. Establis
 - **Boundary controls are the answer:** Cloud services, particularly PaaS, have identity as the primary control that needs to be implemented and well-governed. While networking and boundary controls are important, they're only part of the solution and not the complete answer.
 
 - **Set and forget:** Cloud solutions require regular reviews to evaluate current usage and performance. These reviews should consider any functional and pricing changes in Azure. Without these reviews, the value and effectiveness of the solutions can diminish over time.
-
-## Deploy this scenario
-
-To deploy this architecture, follow the step-by-step instructions in the [GitHub sample](https://github.com/azure-samples/data-factory-to-databricks).
 
 ## Next steps
 

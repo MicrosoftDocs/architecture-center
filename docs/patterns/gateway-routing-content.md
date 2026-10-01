@@ -20,7 +20,7 @@ With this pattern, the client application only needs to know about a single endp
 
 ### Multiple disparate services
 
-:::image source="./_images/gateway-multiple-services.png" alt-text="Diagram of the gateway sitting in front of a search service, a checkout service, an order history service, a cart service and a reviews service.":::
+:::image source="./_images/gateway-multiple-services.png" lightbox="./_images/gateway-multiple-services.png" alt-text="Diagram of the gateway sitting in front of a search service, a checkout service, an order history service, a cart service and a reviews service.":::
 
 The gateway routing pattern is useful in this scenario where a client is consuming multiple services. If a service is consolidated, decomposed or replaced, the client doesn't necessarily require updating. It can continue making requests to the gateway, and only the routing changes.
 
@@ -107,4 +107,4 @@ The following Azure services can be used to implement the gateway routing patter
 
 - [Backends for Frontends pattern](./backends-for-frontends.md)
 - [Gateway Aggregation pattern](./gateway-aggregation.md)
-- [Gateway Offloading pattern](./gateway-offloading.yml)
+- [Gateway Offloading pattern](./gateway-offloading.md)

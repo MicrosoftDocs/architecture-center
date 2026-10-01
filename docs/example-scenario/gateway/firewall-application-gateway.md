@@ -471,7 +471,7 @@ Learn more about the component technologies:
 - [What is Application Gateway?](/azure/application-gateway/overview)
 - [What is Azure Firewall?](/azure/firewall/overview)
 - [What is Azure Front Door?](/azure/frontdoor/front-door-overview)
-- [AKS](/azure/aks/intro-kubernetes)
+- [What is Azure Kubernetes Service (AKS)?](/azure/aks/what-is-aks)
 - [What is Virtual Network?](/azure/virtual-network/virtual-networks-overview)
 - [What is Azure Web Application Firewall?](/azure/web-application-firewall/overview)
 - [Baseline architecture for an AKS cluster](/azure/architecture/reference-architectures/containers/aks/baseline-aks)

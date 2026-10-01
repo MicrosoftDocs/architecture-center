@@ -111,6 +111,8 @@ This list doesn't cover all security best practices. The following security cons
 
 - Restrict access to Logic Apps endpoints to only the IP address of API Management. On classic (non-v2) tiers, API Management has a fixed public IP address. If you use a v2 tier, a static IP address isn't provided. In that case, consider alternative approaches like a custom domain with Azure DNS for IP address-based access restrictions. For more information, see [Restrict inbound IP addresses][logic-apps-restrict-ip].
 
+- Use [Azure Network Security Perimeter (NSP)](/azure/private-link/network-security-perimeter-concepts#onboarded-private-link-resources) to reduce public endpoint exposure for PaaS resources in this architecture that have generally available (GA) support, such as `Microsoft.KeyVault/vaults`. When API Management or Logic Apps don't have a stable outbound IP, use subscription-based inbound access rules scoped to the subscriptions that host those services. Use IP-based inbound rules only when your compute path has a stable egress IP range. For private connectivity to eligible PaaS resources, use private endpoints with private DNS.
+
 - Use Azure role-based access control (Azure RBAC) to ensure that users have appropriate access levels.
 
 - Secure public API endpoints in API Management by using OAuth or OpenID Connect (OIDC). To secure public API endpoints, set up an identity provider and add a JSON Web Token (JWT) validation policy. For more information, see [Protect an API by using OAuth 2.0 with Microsoft Entra ID and API Management][apim-oauth].

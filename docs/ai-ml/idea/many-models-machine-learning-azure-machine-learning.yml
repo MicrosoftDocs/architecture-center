@@ -2,8 +2,8 @@
 metadata:
   title: Use the Many-Models Approach to Scale Machine Learning Models
   description: Learn how to manage and deploy a many-models architecture by using Azure Machine Learning and compute clusters to scale machine learning models.
-  author: james-tn
-  ms.author: janguy
+  author: ulisesadan
+  ms.author: seadan
   ms.date: 01/28/2025
   ms.topic: example-scenario
   ms.collection: ce-skilling-ai-copilot

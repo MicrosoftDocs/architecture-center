@@ -41,7 +41,7 @@ This article describes strategies for global routing. These strategies use Azure
 
 This architecture diagram shows a general approach that has multiple redundant traffic paths.
 
-:::image type="content" source="./media/overview/alternate-traffic-paths.svg" alt-text="Diagram that shows Traffic Manager directing requests to Azure Front Door or to another service, and then to the origin server." border="false":::
+:::image type="content" source="./media/overview/alternate-traffic-paths.svg" alt-text="Diagram that shows Traffic Manager directing requests to Azure Front Door or to another service, and then to the origin server." border="false" lightbox="./media/overview/alternate-traffic-paths.svg":::
 
 This approach introduces several components and provides guidance that makes significant changes associated to the delivery of your web applications:
 

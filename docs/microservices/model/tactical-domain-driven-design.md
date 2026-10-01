@@ -26,7 +26,7 @@ This article reviews the tactical patterns and then applies them to the shipping
 
 This section summarizes the tactical DDD patterns. If you're familiar with DDD, you can continue to the next section. These patterns appear in Eric Evans' *Domain-Driven Design*, the book that introduced the term. Another practical, modern reference is *Learning Domain-Driven Design* by Vlad Khononov.
 
-:::image type="complex" border="false" source="../images/ddd-patterns.png" alt-text="Diagram of tactical patterns in DDD." lightbox="../images/ddd-patterns.png":::
+:::image type="complex" border="false" source="../images/ddd-patterns.png" alt-text="Diagram of tactical patterns in DDD.":::
    The diagram has five key sections. An arrow points from application service to domain service. One arrow points from domain service to the aggregate section. Another arrow points from domain service to an aggregate section that contains root entity, entity, and value object. A line points from the first aggregate section to the domain event section.
 :::image-end:::
 
@@ -136,7 +136,7 @@ The value objects in this design include `Location`, `ETA`, `PackageWeight`, and
 
 The following unified modeling language (UML) diagram shows the `Delivery` aggregate. It references other aggregates like `Account`, `Package`, and `Drone` by identity only.
 
-:::image type="complex" border="false" source="../images/delivery-entity.png" alt-text="UML diagram of the delivery aggregate." lightbox="../images/delivery-entity.png":::
+:::image type="complex" border="false" source="../images/delivery-entity.png" alt-text="UML diagram of the delivery aggregate.":::
    The image contains a delivery header. Below the header are the following terms: ID string, OwnerID: REF, Pickup: Location, Drop-off: Location, Packages: REF, Expedited: BOOLEAN, Confirmation: Confirmation, and DroneId: REF. Three lines connect this section to the terms account, package, and drone.
 :::image-end:::
 
@@ -154,7 +154,7 @@ The development team identifies one area of functionality that doesn't fit withi
 
 - A `Supervisor` that monitors the status of each step to detect failures or timeouts
 
-This approach is a variation of the [Scheduler Agent Supervisor pattern](../../patterns/scheduler-agent-supervisor.yml).
+This approach is a variation of the [Scheduler Agent Supervisor pattern](../../patterns/scheduler-agent-supervisor.md).
 
 :::image type="complex" border="false" source="../images/drone-ddd.png" alt-text="Diagram of the revised domain model." lightbox="../images/drone-ddd.png":::
    The image contains 11 key sections. An arrow labeled observes points from supervisor to scheduler. An arrow points from scheduler to drone. A double-sided arrow labeled coordinates points from account to delivery. An arrow points from coordinates to package. A smaller arrow points from package to tag. A dotted arrow labeled drone status points from drone to delivery. Two smaller arrows point from delivery to confirmation and notification. A dotted line connects delivery and delivery status.

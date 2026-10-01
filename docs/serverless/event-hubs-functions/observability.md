@@ -22,13 +22,13 @@ This article introduces useful features and insights that you can get from Appli
 
 After you send the expected load to your system, you can go to Application Insights in the [Azure portal](https://portal.azure.com) and select **Application map** in the navigation pane. The following map shows three functions, three event hubs, and apparent failures during writes to a downstream database.
 
-:::image type="content" source="images/observability-application-map.png" alt-text="Screenshot of an application map that shows three functions, three event hubs, and apparent failures during writes to a downstream database.":::
+:::image type="content" source="images/observability-application-map.png" lightbox="images/observability-application-map.png" alt-text="Screenshot of an application map that shows three functions, three event hubs, and apparent failures during writes to a downstream database.":::
 
 ## End-to-end transaction details
 
 End-to-end transaction details show how your system components interact with each other, in chronological order. This view also shows how long an event took to process. You can drill into the telemetry of each component in this view. Doing so helps you troubleshoot across components within the same request when a problem occurs.
 
-:::image type="content" source="images/observability-end-to-end-transaction.png" alt-text="Screenshot of the end-to-end transaction details view in Application Insights. It shows the timeline of a function request, an outgoing dependency to an event hub, the time spent in queue, and the subsequent execution.":::
+:::image type="content" source="images/observability-end-to-end-transaction.png" lightbox="images/observability-end-to-end-transaction.png" alt-text="Screenshot of the end-to-end transaction details view in Application Insights. It shows the timeline of a function request, an outgoing dependency to an event hub, the time spent in queue, and the subsequent execution.":::
 
 ## Platform metrics and telemetry
 

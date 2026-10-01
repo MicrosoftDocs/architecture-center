@@ -163,5 +163,5 @@ Each client has a dedicated BFF service running as an Azure function that serves
 ## Related resources
 
 - [Gateway Aggregation pattern](./gateway-aggregation.md)
-- [Gateway Offloading pattern](./gateway-offloading.yml)
+- [Gateway Offloading pattern](./gateway-offloading.md)
 - [Gateway Routing pattern](./gateway-routing.yml)

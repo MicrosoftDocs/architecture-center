@@ -40,7 +40,7 @@ These limitations often apply to software development companies that build softw
 
 To avoid these problems, consider grouping resources into *scale units* and provisioning multiple copies of your *stamps*. Each scale unit hosts and serves a subset of your tenants. Stamps run independently of each other, and you can deploy and update them independently. A single geographic region might contain one stamp or multiple stamps that scale out horizontally within the region. Each stamp serves a subset of your customers.
 
-:::image type="complex" source="./_images/deployment-stamp/deployment-stamp.png" border="false" lightbox="./_images/deployment-stamp/deployment-stamp.png" alt-text="Diagram that shows an example set of deployment stamps.":::
+:::image type="complex" source="./_images/deployment-stamp/deployment-stamp.png" border="false" alt-text="Diagram that shows an example set of deployment stamps.":::
 The diagram shows five stacked rows. Each row represents one deployment stamp. Every row has a label on the upper left that names the stamp and its Azure region, a label on the upper right that lists the tenants that the stamp serves, and two components below the labels, Azure App Service on the left and a SQL database on the right. From top to bottom, the stamps are Stamp 1 in West US 2, which serves tenants A, B, and C; Stamp 2 in West US 2, which serves tenant D; Stamp 3 in East US, which serves tenants E, F, and G; Stamp 4 in West Europe, which serves tenants H, I, and J; and Stamp 5 in Australia East, which serves tenants K, L, and M. The five stamps share the same internal composition but differ in region and in the set of tenants assigned to them, and the West US 2 region contains two separate stamps while each of the other regions contains one stamp.
 :::image-end:::
 
@@ -166,7 +166,7 @@ For example, you can deploy [API Management](/azure/api-management/api-managemen
 
 To geo-distribute requests and provide geo-redundancy for the traffic routing service, [deploy API Management across multiple regions](/azure/api-management/api-management-howto-deploy-multi-region) and use [Azure Front Door](/azure/frontdoor/front-door-overview) to direct traffic to the closest API Management gateway. In this topology, Azure Front Door uses [origin groups](/azure/frontdoor/origin), [health probes](/azure/frontdoor/health-probes), and an appropriate [routing method](/azure/frontdoor/routing-methods) to route requests away from unhealthy API Management regional gateways. API Management then routes to the appropriate stamp by using the tenant-to-stamp mapping and its back-end configuration (or back-end pools), including failover rules between stamp endpoints as needed. If your application isn't exposed over HTTP or HTTPS, you can use a [cross-region Azure load balancer](/azure/load-balancer/cross-region-overview) to distribute incoming calls to regional Azure load balancers. Use the [global distribution feature of Azure Cosmos DB](/azure/cosmos-db/distribute-data-globally) to keep the mapping information updated across each region.
 
-If your solution includes a traffic routing service, consider whether it acts as a [gateway](gateway-routing.yml) and can perform [gateway offloading](gateway-offloading.yml) for the other services, such as token validation, throttling, and authorization.
+If your solution includes a traffic routing service, consider whether it acts as a [gateway](gateway-routing.yml) and can perform [gateway offloading](gateway-offloading.md) for the other services, such as token validation, throttling, and authorization.
 
 ## Next steps
 
@@ -195,4 +195,4 @@ Other contributors:
 ## Related resources
 
 - You can use sharding as another simpler approach to scale out your data tier. Stamps implicitly shard their data, but sharding doesn't require a deployment stamp. For more information, see [Sharding pattern](sharding.md).
-- If your solution deploys a traffic routing service, you can combine the [Gateway Routing](gateway-routing.yml) and [Gateway Offloading](gateway-offloading.yml) patterns to make the best use of this component.
+- If your solution deploys a traffic routing service, you can combine the [Gateway Routing](gateway-routing.yml) and [Gateway Offloading](gateway-offloading.md) patterns to make the best use of this component.

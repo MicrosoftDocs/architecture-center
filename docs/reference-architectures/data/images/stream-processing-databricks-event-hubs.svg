@@ -520,15 +520,15 @@
 			<text x="33.41" y="324.4" class="st3" v:langID="1033"><v:paragraph v:horizAlign="1"/><v:tabList/>Azure Databricks</text>		</g>
 		<g id="shape62-119" v:mID="62" v:groupContext="shape" transform="translate(533.612,-235.229)">
 			<title>Sheet.62</title>
-			<desc>Databricks file system</desc>
+			<desc>Unity Catalog volume</desc>
 			<v:userDefs>
 				<v:ud v:nameU="visNavOrder" v:prompt="" v:val="VT0(38000):26"/>
 			</v:userDefs>
 			<v:textBlock v:margins="rect(4,4,4,4)"/>
 			<v:textRect cx="47.4052" cy="326.881" width="94.82" height="10.9397"/>
 			<rect x="0" y="321.411" width="94.8103" height="10.9397" class="st9"/>
-			<text x="16.34" y="323.88" class="st12" v:langID="1033"><v:paragraph v:horizAlign="1"/><v:tabList/>Databricks file <tspan
-						x="32.13" dy="1.2em" class="st6">system</tspan></text>		</g>
+			<text x="19" y="323.88" class="st12" v:langID="1033"><v:paragraph v:horizAlign="1"/><v:tabList/>Unity Catalog <tspan
+						x="32.13" dy="1.2em" class="st6">volume</tspan></text>		</g>
 		<g id="shape69-124" v:mID="69" v:groupContext="shape" transform="translate(527.191,-173.273)">
 			<title>Sheet.69</title>
 			<v:userDefs>

@@ -29,7 +29,7 @@ There are also other benefits to serving static resources from a content deliver
 
 #### Content delivery network cache invalidation
 
-For large WordPress installations that use a content delivery network, such as Azure Front Door or Azure Content Delivery Network, you need to implement cache invalidation logic. Whenever a new event occurs, you need to invalidate the cache in the content delivery network for the affected page. Examples of events include publishing a new article, updating an existing page, and adding a comment. The invalidation logic needs to locate all the URLs that the change affects. Specifically, the logic needs to find and invalidate dynamically generated pages, such as categories and archives, in the content delivery network cache. With some installed themes and plug-ins, even a minor change can affect every page.
+For large WordPress installations that use a content delivery network, such as Azure Front Door Standard or Premium, you need to implement cache invalidation logic. Whenever a new event occurs, you need to invalidate the cache in the content delivery network for the affected page. Examples of events include publishing a new article, updating an existing page, and adding a comment. The invalidation logic needs to locate all the URLs that the change affects. Specifically, the logic needs to find and invalidate dynamically generated pages, such as categories and archives, in the content delivery network cache. With some installed themes and plug-ins, even a minor change can affect every page.
 
 A way to implement discovery logic is to use a plug-in that enables manual triggering of cache invalidation for all URLs. But invalidating all URLs at once can cause traffic to spike at your WordPress site.
 
@@ -136,7 +136,7 @@ Product documentation:
 Training modules:
 
 - [Introduction to Azure Front Door](/training/modules/intro-to-azure-front-door)
-- [Configure Azure Load Balancer](/training/modules/configure-azure-load-balancer)
+- [Introduction to Azure Load Balancer](/training/modules/intro-to-azure-load-balancer)
 - [Implement Azure Key Vault](/training/modules/implement-azure-key-vault)
 - [Introduction to Azure Virtual Network](/training/modules/introduction-to-azure-virtual-networks)
 

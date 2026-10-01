@@ -45,7 +45,7 @@ You can evaluate the health of your nodes by using one of the following methods.
 
 ### Azure Copilot for AKS
 
-[Azure Copilot](/azure/copilot/work-aks-clusters) runs AKS diagnostics in response to natural-language prompts and summarizes the findings. Prompts such as "How to check AKS node health?" or "diagnose my AKS cluster node health" trigger Copilot to run the relevant detectors on the target cluster and return links to further guidance. Copilot can also deploy diagnostic tools like [AKS Periscope](https://github.com/Azure/aks-periscope) and [CanIPull](https://github.com/Azure/aks-canipull) to the cluster on demand.
+[Azure Copilot](/azure/copilot/work-aks-clusters) runs AKS diagnostics in response to natural-language prompts and summarizes the findings. Prompts such as "How to check AKS node health?" or "diagnose my AKS cluster node health" trigger Copilot to run the relevant detectors on the target cluster and return links to further guidance. Copilot can also deploy diagnostic tools like [CanIPull](https://github.com/Azure/aks-canipull) to the cluster on demand.
 
 ### Kubernetes events
 

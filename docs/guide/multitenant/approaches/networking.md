@@ -134,7 +134,7 @@ When you work with domain names and Transport Layer Security (TLS) in a multiten
 
 ### Gateway Routing and Gateway Offloading patterns
 
-The [Gateway Routing pattern](../../../patterns/gateway-routing.yml) and the [Gateway Offloading pattern](../../../patterns/gateway-offloading.yml) involve deploying a Layer-7 reverse proxy or *gateway*. Gateways provide core services for a multitenant application, including the following capabilities:
+The [Gateway Routing pattern](../../../patterns/gateway-routing.yml) and the [Gateway Offloading pattern](../../../patterns/gateway-offloading.md) involve deploying a Layer-7 reverse proxy or *gateway*. Gateways provide core services for a multitenant application, including the following capabilities:
 
 - Routing requests to tenant-specific back ends or deployment stamps
 - Handling tenant-specific domain names and TLS certificates
@@ -179,7 +179,7 @@ In modern solutions, you should combine network-layer security with other securi
 
 ### Rewriting host headers without testing
 
-When you use the [Gateway Offloading pattern](../../../patterns/gateway-offloading.yml), you might consider rewriting the `Host` header of HTTP requests. This practice can simplify the configuration of your back-end web application service by offloading the custom domain and TLS management to the gateway.
+When you use the [Gateway Offloading pattern](../../../patterns/gateway-offloading.md), you might consider rewriting the `Host` header of HTTP requests. This practice can simplify the configuration of your back-end web application service by offloading the custom domain and TLS management to the gateway.
 
 But `Host` header rewrites can cause problems for some back-end services. If your application issues HTTP redirects or cookies, the mismatch in host names can break the application's functionality. In particular, this problem can occur when you use back-end services that run on multitenant infrastructure, like App Service and Azure Functions. For more information, see [Host name preservation best practices](../../../best-practices/host-name-preservation.md).
 

@@ -187,5 +187,4 @@ Principal author:
 
 - [Analytics end-to-end with Microsoft Fabric](../dataplate2e/data-platform-end-to-end.yml)
 - [Modernize mainframe and midrange data](modernize-mainframe-data-to-azure.yml)
-- [Rehost ADABAS and Natural applications in Azure](rehost-adabas-software-ag.yml)
-
+- [Adabas & Natural in Microsoft Marketplace](https://marketplace.microsoft.com/product/saas/softwareagusainc.adabas_natural)

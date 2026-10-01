@@ -80,7 +80,7 @@ The system also contains the following components:
 
 - [Azure Virtual Machines](/azure/well-architected/service-guides/virtual-machines) is a service that provides on-demand, scalable computing resources. Virtual Machines provides the flexibility of virtualization without having to buy and maintain physical hardware. In this architecture, the service hosts the application tier servers in availability sets that have shared storage.
 
-  - [Azure solid-state drive (SSD) managed disks](/azure/virtual-machines/windows/managed-disks-overview) are block-level storage volumes for Azure VMs.
+  - [Azure solid-state drive (SSD) managed disks](/azure/virtual-machines/managed-disks-overview) are block-level storage volumes for Azure VMs.
   - [Azure virtual network interface cards (NICs)](/azure/virtual-network/virtual-network-network-interface) let Azure VMs communicate with the internet, Azure, and on-premises resources. You can add several virtual NICs to an Azure VM, so child VMs can have their own dedicated network interface devices and IP addresses.
 
 - [Azure Virtual Network](/azure/well-architected/service-guides/virtual-network) is the foundation for Azure private networks. Virtual Network provides Azure infrastructure benefits like scalability, availability, and isolation. In this architecture, Virtual Network enables Azure resources, such as VMs, to securely communicate with each other, the internet, and on-premises networks.
@@ -95,11 +95,11 @@ The system also contains the following components:
 
 - [Azure Service Bus](/azure/well-architected/service-guides/azure-service-bus) is a reliable cloud messaging service with simple hybrid integration. In this architecture, Service Bus provides message queue services for the applications.
 
-- [Microsoft Entra ID](/entra/fundamentals/whatis) is a cloud-based enterprise identity and access management service from Microsoft. In this architecture, Microsoft Entra single sign-on and multifactor authentication help users sign in and access resources, while providing protection from cybersecurity attacks.
+- [Microsoft Entra ID](/entra/fundamentals/what-is-entra) is a cloud-based enterprise identity and access management service from Microsoft. In this architecture, Microsoft Entra single sign-on and multifactor authentication help users sign in and access resources, while providing protection from cybersecurity attacks.
 
 ### Alternatives
 
-[Azure App Service environments](/azure/app-service/environment/intro) are appropriate for application workloads that require high scale, isolation, and secure network access. This feature offers fully isolated and dedicated environments for securely running App Service apps at high scale. App Service environments can host the following types of apps:
+[Azure App Service environments](/azure/app-service/environment/overview) are appropriate for application workloads that require high scale, isolation, and secure network access. This feature offers fully isolated and dedicated environments for securely running App Service apps at high scale. App Service environments can host the following types of apps:
 
 - Linux web apps, as in the current example
 - Windows web apps
@@ -131,7 +131,7 @@ These considerations implement the pillars of the Azure Well-Architected Framewo
 
 Reliability ensures your application can meet the commitments you make to your customers. For more information, see [Design review checklist for Reliability](/azure/well-architected/reliability/checklist).
 
-- Azure NetApp Files can keep the file store in the secondary region updated with [Cross-region replication of Azure NetApp Files Volumes](/azure/azure-netapp-files/cross-region-replication-introduction). This Azure feature provides data protection through cross-region volume replication. You can fail over critical applications if there is a region-wide outage. Cross-region volume replication is currently in preview.
+- Azure NetApp Files can keep the file store in the secondary region updated with [Cross-region replication of Azure NetApp Files Volumes](/azure/azure-netapp-files/replication). This Azure feature provides data protection through cross-region volume replication. You can fail over critical applications if there is a region-wide outage. Cross-region volume replication is currently in preview.
 
 - Application cluster servers scale up VMs as necessary, which increases availability within Azure regions.
 
@@ -178,7 +178,7 @@ Performance Efficiency is the ability of your workload to scale to meet the dema
 
 - To estimate sizing for VMs coming from an AIX system, keep in mind that the AIX CPUs are about 1.4 times faster than most x86 vCPUs. This guideline can vary by workload.
 
-- Place multiple VMs that need to communicate with each other in a [proximity placement group](/azure/virtual-machines/workloads/sap/sap-proximity-placement-scenarios). Locating the VMs close to each other provides the lowest communication latency.
+- Place multiple VMs that need to communicate with each other in a [proximity placement group](/azure/sap/workloads/proximity-placement-scenarios). Locating the VMs close to each other provides the lowest communication latency.
 
 ## Contributors
 

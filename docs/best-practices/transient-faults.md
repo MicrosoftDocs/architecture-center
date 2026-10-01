@@ -125,7 +125,7 @@ Prevent multiple instances of the same client, or multiple instances of differen
 
 Test your retry strategy across a broad range of conditions, especially when the application and its target resources or services operate under extreme load. To check behavior during testing, you can take the following actions:
 
-- Include transient faults in your [chaos engineering and fault injection](/azure/well-architected/reliability/testing-strategy#use-fault-injection-and-chaos-engineering) practices by purposely introducing them into your nonproduction and production environments. For example, send unsupported requests or add code that detects test requests and responds with different types of errors.
+- Include transient faults in your [chaos engineering and fault injection](/azure/well-architected/reliability/reliability-test#use-fault-injection-and-chaos-engineering) practices by purposely introducing them into your nonproduction and production environments. For example, send unsupported requests or add code that detects test requests and responds with different types of errors.
 
 - Create a mock version of the resource or service that returns a range of errors that the real service might return. Make sure that it covers all error types that your retry strategy detects.
 

@@ -1,0 +1,28 @@
+### YamlMime:Architecture
+metadata:
+  title: Baseline Azure Machine Learning Inference Reference Architecture
+  description: Learn how to build a private, production-ready Azure Machine Learning inference platform with AKS, environment isolation, and controlled model promotion.
+  author: claytonsiemens77
+  ms.author: pnp
+  ms.date: 09/21/2026
+  ms.topic: reference-architecture
+  ms.collection: ce-skilling-ai-copilot
+  ms.subservice: reference-architecture
+  ai-usage: ai-assisted
+  ms.custom: arb-aiml
+azureCategories:
+  - ai-machine-learning
+  - devops
+  - networking
+  - security
+products:
+  - azure-machine-learning
+  - azure-kubernetes-service
+  - azure-container-registry
+  - azure-storage
+  - azure-api-management
+name: Baseline Azure Machine Learning inference reference architecture
+summary: Learn how to build a private, production-ready Azure Machine Learning inference platform with AKS, environment isolation, and controlled model promotion.
+thumbnailUrl: /azure/architecture/browse/thumbs/prod-machine-learning-baseline-architecture.png
+content: |
+   [!INCLUDE[](baseline-azure-machine-learning-inference-content.md)]

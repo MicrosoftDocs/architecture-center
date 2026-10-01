@@ -7,6 +7,7 @@ metadata:
   ms.date: 01/30/2022
   ms.topic: concept-article
   ms.subservice: architecture-guide
+  ai-usage: ai-assisted
 azureCategories:
   - databases
   - storage

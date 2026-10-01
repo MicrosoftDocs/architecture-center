@@ -103,7 +103,7 @@ The goal is to keep build times short so that the developer can get quick feedba
 
 When the team is ready to deploy a new version of Delivery Service, the release manager creates a branch from the main branch, using this naming pattern: `release/<microservice name>/<semver>`. For example, `release/delivery/v1.0.2`.
 
-:::image type="complex" source="./images/aks-cicd-3.png" border="false" alt-text="Diagram showing a release branch triggering a build pipeline followed by a release pipeline.":::
+:::image type="complex" source="./images/aks-cicd-3.png" border="false" alt-text="Diagram showing a release branch triggering a build pipeline followed by a release pipeline." lightbox="./images/aks-cicd-3.png":::
     The diagram shows three horizontal Git branch lines and two pipelines below them. In the middle is the main branch, represented as a horizontal line. Below main is the feature/8150 branch, which has three dots on it that represent commits. The feature/8150 branch connects to the main branch at a point labeled merge, indicating the feature branch is merged into main. Above and to the right of the main branch, a new branch labeled release/delivery/v1.0.2 extends to the right. This release branch originates from main at a point to the right of the merge. From the release/delivery/v1.0.2 branch, a dashed line points downward to a box labeled ci-delivery-full, which is above the label Build pipeline. To the right of ci-delivery-full, a horizontal arrow points to a second box labeled cd-delivery, which is above the label Release pipeline.
 :::image-end:::
 

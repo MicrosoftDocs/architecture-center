@@ -18,7 +18,7 @@ The architecture consists of the following components:
 
 **Azure Cosmos DB**. The output from the Stream Analytics job is a series of records, which are written as JSON documents to an Azure Cosmos DB document database.
 
-**Microsoft Power BI**. Power BI is a suite of business analytics tools to analyze data for business insights. In this architecture, it loads the data from Azure Cosmos DB. This allows users to analyze the complete set of historical data that's been collected. You could also stream the results directly from Stream Analytics to Power BI for a real-time view of the data. For more information, see [Real-time streaming in Power BI](/power-bi/service-real-time-streaming).
+**Microsoft Power BI**. [Power BI](/power-bi/fundamentals/power-bi-overview) is a suite of business analytics tools to analyze data for business insights. In this architecture, it loads the data from Azure Cosmos DB. This allows users to analyze the complete set of historical data that's been collected. To explore real-time analytics and visualizations, see [Fabric Real-Time Intelligence](/fabric/real-time-intelligence/overview).
 
 **Azure Monitor**. [Azure Monitor](/azure/monitoring-and-diagnostics/) collects performance metrics about the Azure services deployed in the solution. By visualizing these in a dashboard, you can get insights into the health of the solution.
 
@@ -42,7 +42,7 @@ Event Hubs uses [partitions](/azure/event-hubs/event-hubs-features#partitions) t
 
 In this particular scenario, ride data and fare data should end up with the same partition ID for a given taxi cab. This enables Stream Analytics to apply a degree of parallelism when it correlates the two streams. A record in partition *n* of the ride data will match a record in partition *n* of the fare data.
 
-![Diagram of stream processing with Azure Stream Analytics and Event Hubs](./images/stream-processing-asa/stream-processing-eh.png)
+:::image type="content" source="./images/stream-processing-asa/stream-processing-eh.png" alt-text="Diagram of stream processing with Azure Stream Analytics and Event Hubs" lightbox="./images/stream-processing-asa/stream-processing-eh.png" border="false":::
 
 In the data generator, the common data model for both record types has a `PartitionKey` property which is the concatenation of `Medallion`, `HackLicense`, and `VendorId`.
 
@@ -148,6 +148,22 @@ In the architecture shown here, only the results of the Stream Analytics job are
 
 These considerations implement the pillars of the Azure Well-Architected Framework, which is a set of guiding tenets that can be used to improve the quality of a workload. For more information, see [Microsoft Azure Well-Architected Framework](/azure/well-architected/).
 
+### Security
+
+Security provides assurances against deliberate attacks and the misuse of your valuable data and systems. For more information, see [Design review checklist for Security](/azure/well-architected/security/checklist).
+
+#### Restrict network access to PaaS resources
+
+This architecture uses [Azure Network Security Perimeter](/azure/private-link/network-security-perimeter-concepts#onboarded-private-link-resources) to restrict access to Event Hubs. Associate `Microsoft.EventHub/namespaces` with a shared perimeter and deny public traffic by default.
+
+Network security perimeter defines both inbound and outbound access rules. Inbound rules control which callers can reach a perimeter member and support two types: subscription-based and IP-based. Outbound rules control which external destinations a perimeter member can reach and are FQDN-based only. Because Event Hubs is the perimeter member in this scenario, its inbound rules determine which producers and consumers are allowed in.
+
+The article doesn't specify where the taxi devices or the .NET data generator that simulates them run, or whether they have a fixed or known public IP range. If they run as Azure resources in a known subscription, a subscription-based inbound rule could allow them. If they have a fixed IP range instead, an IP-based inbound rule could allow that range. Confirm the actual origin and network characteristics of your producers before choosing a rule type.
+
+This architecture doesn't deploy the Stream Analytics job into a custom virtual network, so it has no static outbound IP address. Scope the Event Hubs inbound access rule for the Stream Analytics consumer by subscription (the subscription that hosts the Stream Analytics job) rather than by IP range, which requires a stable, known source IP to be effective.
+
+As an alternative, you can use [private endpoints](/azure/private-link/private-link-overview) for Event Hubs. This approach removes public endpoint access for Event Hubs and requires private DNS and private connectivity planning in your network design.
+
 ### Cost Optimization
 
 Cost Optimization is about looking at ways to reduce unnecessary expenses and improve operational efficiencies. For more information, see [Design review checklist for Cost Optimization](/azure/well-architected/cost-optimization/checklist).
@@ -182,13 +198,13 @@ The reference architecture includes a custom dashboard, which is deployed to the
 
 The following image shows the dashboard after the Stream Analytics job ran for about an hour.
 
-![Screenshot of the Taxi Rides dashboard](./images/stream-processing-asa/asa-dashboard.png)
+:::image type="content" source="./images/stream-processing-asa/asa-dashboard.png" alt-text="Screenshot of the Taxi Rides dashboard" lightbox="./images/stream-processing-asa/asa-dashboard.png" border="false":::
 
 The panel on the lower left shows that the SU consumption for the Stream Analytics job climbs during the first 15 minutes and then levels off. This is a typical pattern as the job reaches a steady state.
 
 Notice that Event Hubs is throttling requests, shown in the upper right panel. An occasional throttled request isn't a problem, because the Event Hubs client SDK automatically retries when it receives a throttling error. However, if you see consistent throttling errors, it means the event hub needs more throughput units. The following graph shows a test run using the Event Hubs auto-inflate feature, which automatically scales out the throughput units as needed.
 
-![Screenshot of Event Hubs autoscaling.](./images/stream-processing-asa/stream-processing-eh-autoscale.png)
+:::image type="content" source="./images/stream-processing-asa/stream-processing-eh-autoscale.png" alt-text="Screenshot of Event Hubs autoscaling." border="false":::
 
 Auto-inflate was enabled at about the 06:35 mark. You can see the p drop in throttled requests, as Event Hubs automatically scaled up to 3 throughput units.
 
@@ -234,7 +250,7 @@ If it's not possible to parallelize the entire Stream Analytics job, try to brea
 
 Use the Stream Analytics [job diagram](/azure/stream-analytics/stream-analytics-job-diagram-with-metrics) to see how many partitions are assigned to each step in the job. The following diagram shows the job diagram for this reference architecture:
 
-![Diagram showing Stream Analytics jobs.](./images/stream-processing-asa/job-diagram.png)
+:::image type="content" source="./images/stream-processing-asa/job-diagram.png" alt-text="Diagram showing Stream Analytics jobs." lightbox="./images/stream-processing-asa/job-diagram.png" border="false":::
 
 #### Azure Cosmos DB
 

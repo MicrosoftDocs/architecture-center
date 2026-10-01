@@ -183,7 +183,7 @@ For step-by-step deployment guidance and more background on the services in this
 
 For broader hybrid networking context, see the following resources. Topics include comparing connectivity options, designing the topology that hosts the VPN gateway, and securing the resulting hybrid perimeter.
 
-- [Hybrid architecture design](/azure/architecture/hybrid/hybrid-start-here)
+- [Get started with Azure hybrid and adaptive cloud architecture](/azure/architecture/hybrid/hybrid-start-here)
 - [Azure hybrid options](/azure/architecture/guide/technology-choices/hybrid-considerations)
 - [Hub-spoke network topology in Azure](/azure/architecture/networking/architecture/hub-spoke)
 - [Connect an on-premises network to Azure](/azure/architecture/reference-architectures/hybrid-networking/hybrid-connectivity-options)

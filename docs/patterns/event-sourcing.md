@@ -33,7 +33,7 @@ The events persist in an event store that serves as the system of record, or the
 
 Each entity in an event-sourced system has its own eventstream, which is the ordered sequence of events that records every change to that entity. At any point, applications can read the history of events. Applications derive the current state of an entity by replaying all the events in its stream. This process is known as *rehydration*. It can occur on demand when the application handles a request.
 
-Applications typically implement [materialized views](./materialized-view.yml) because it's costly to read and replay events. Materialized views are read-only projections of the event store that are optimized for querying. For example, a system can maintain a materialized view of all customer orders that it uses to populate the UI. When the application adds new orders, adds or removes items in the order, or adds shipping information, the application raises events and a handler updates the materialized view.
+Applications typically implement [materialized views](./materialized-view.md) because it's costly to read and replay events. Materialized views are read-only projections of the event store that are optimized for querying. For example, a system can maintain a materialized view of all customer orders that it uses to populate the UI. When the application adds new orders, adds or removes items in the order, or adds shipping information, the application raises events and a handler updates the materialized view.
 
 The following diagram shows an overview of this pattern combined with the [Command Query Responsibility Segregation (CQRS) pattern](./cqrs.md). The presentation layer reads from a separate read-only store and writes commands to command handlers. The command handlers retrieve the entity's eventstream from the event store, run business logic, and push new events to a queue. Event handlers consume events from the queue and write events to the event store, update the read-only store, or integrate with external systems.
 
@@ -241,7 +241,7 @@ The system can provide a complete history, or audit trail, of the bookings and c
 
 The following patterns and guidance might also be relevant when you implement this pattern:
 
-- [Materialized View pattern](./materialized-view.yml): The data store that you use in an event sourcing system typically isn't suited for efficient querying. Instead, a common approach is to generate prepopulated views of the data at regular intervals or when the data changes.
+- [Materialized View pattern](./materialized-view.md): The data store that you use in an event sourcing system typically isn't suited for efficient querying. Instead, a common approach is to generate prepopulated views of the data at regular intervals or when the data changes.
 
 - [Compensating Transaction pattern](./compensating-transaction.md): The system doesn't update existing data in an event sourcing store. Instead, it adds new entries that transition the state of entities to the new values. To reverse a change, it uses compensating entries because it can't reverse the previous change. The Compensating Transaction pattern article describes how to undo the work that a previous operation performed.
 

@@ -124,7 +124,7 @@ To get foundational skills for this scenario, see the following Microsoft Learn 
 
 For more information about hybrid networking patterns related to this architecture, see the following articles:
 
-- [Hybrid architecture design](../../hybrid/hybrid-start-here.md)
+- [Get started with Azure hybrid and adaptive cloud architecture](../../hybrid/hybrid-start-here.md)
 - [Azure hybrid options](../../guide/technology-choices/hybrid-considerations.yml)
 - [Hub-spoke network topology in Azure](../../networking/architecture/hub-spoke.yml)
 - [Virtual network connectivity options and spoke-to-spoke communication](../../reference-architectures/hybrid-networking/virtual-network-peering.yml)

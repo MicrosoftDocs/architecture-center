@@ -17,7 +17,7 @@ Each scenario describes the challenges that they introduce and the benefits of i
 
 ## Authenticate client applications via an external identity provider
 
-:::image type="content" source="_images/azure-openai-gateway-identity-scenario-external-identity-provider.svg" lightbox="_images/azure-openai-gateway-identity-scenario-external-identity-provider.svg" alt-text="Diagram that shows client apps authenticating users with an external identity provider and Azure OpenAI by using API keys." border="false":::
+:::image type="content" source="_images/azure-openai-gateway-identity-scenario-external-identity-provider.svg" alt-text="Diagram that shows client apps authenticating users with an external identity provider and Azure OpenAI by using API keys." border="false":::
 
 *Download a [Visio file](https://arch-center.azureedge.net/azure-openai-authentication.vsdx) of this architecture.*
 
@@ -41,7 +41,7 @@ If the client applications in these scenarios directly connect to Azure OpenAI w
 
 ### Introduce a gateway
 
-:::image type="content" source="_images/azure-openai-gateway-identity-solution-external-identity-provider.svg" lightbox="_images/azure-openai-gateway-identity-solution-external-identity-provider.svg" alt-text="Diagram that shows a gateway between client apps and Azure OpenAI, which enables authentication with an external identity provider."border="false":::
+:::image type="content" source="_images/azure-openai-gateway-identity-solution-external-identity-provider.svg" alt-text="Diagram that shows a gateway between client apps and Azure OpenAI, which enables authentication with an external identity provider."border="false":::
 
 *Download a [Visio file](https://arch-center.azureedge.net/azure-openai-authentication.vsdx) of this architecture.*
 
@@ -65,7 +65,7 @@ If a single intelligent application accesses Azure OpenAI, it's easier to config
 
 ## Authenticate client applications via certificates
 
-:::image type="content" source="_images/azure-openai-gateway-identity-scenario-client-certificates.svg" lightbox="_images/azure-openai-gateway-identity-scenario-client-certificates.svg" border="false" alt-text="Diagram that shows an architecture to authenticate users via certificates.":::
+:::image type="content" source="_images/azure-openai-gateway-identity-scenario-client-certificates.svg" border="false" alt-text="Diagram that shows an architecture to authenticate users via certificates.":::
 
 *Download a [Visio file](https://arch-center.azureedge.net/azure-openai-authentication.vsdx) of this architecture.*
 
@@ -93,7 +93,7 @@ Azure OpenAI doesn't natively support client certification authentication. To su
 
 ### Introduce a gateway
 
-:::image type="content" source="_images/azure-openai-gateway-identity-solution-client-certificates.svg" lightbox="_images/azure-openai-gateway-identity-solution-client-certificates.svg" alt-text="Diagram that shows a gateway between clients and Azure OpenAI that uses a managed identity with Azure RBAC." border="false":::
+:::image type="content" source="_images/azure-openai-gateway-identity-solution-client-certificates.svg" alt-text="Diagram that shows a gateway between clients and Azure OpenAI that uses a managed identity with Azure RBAC." border="false":::
 
 *Download a [Visio file](https://arch-center.azureedge.net/azure-openai-authentication.vsdx) of this architecture.*
 
@@ -125,7 +125,7 @@ You must carefully assess your specific needs, resource availability, and the cr
 
 ## Authenticate multiple client applications via keys to access a shared Azure OpenAI instance
 
-:::image type="content" source="_images/azure-openai-gateway-identity-scenario-multiple-clients.svg" lightbox="_images/azure-openai-gateway-identity-scenario-multiple-clients.svg" alt-text="Diagram of multiple client apps authenticating with Azure OpenAI via a shared API key." border="false":::
+:::image type="content" source="_images/azure-openai-gateway-identity-scenario-multiple-clients.svg" alt-text="Diagram of multiple client apps authenticating with Azure OpenAI via a shared API key." border="false":::
 
 *Download a [Visio file](https://arch-center.azureedge.net/azure-openai-authentication.vsdx) of this architecture.*
 
@@ -180,7 +180,7 @@ A gateway provides several advantages in this scenario:
 
 ## Authenticate client applications that access multiple Azure OpenAI instances
 
-:::image type="content" source="_images/azure-openai-gateway-identity-scenario-multiple-services.svg" lightbox="_images/azure-openai-gateway-identity-scenario-multiple-services.svg" alt-text="Diagram that shows client applications that authenticate with multiple Azure OpenAI instances via shared API keys per instance." border="false":::
+:::image type="content" source="_images/azure-openai-gateway-identity-scenario-multiple-services.svg" alt-text="Diagram that shows client applications that authenticate with multiple Azure OpenAI instances via shared API keys per instance." border="false":::
 
 *Download a [Visio file](https://arch-center.azureedge.net/azure-openai-authentication.vsdx) of this architecture.*
 

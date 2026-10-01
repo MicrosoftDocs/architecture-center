@@ -36,7 +36,7 @@ The following table summarizes the differences between the main tenancy isolatio
 
 Consider deploying shared container apps in a single Container Apps environment that all your tenants use.
 
-:::image type="complex" border="false" source="./media/container-apps/shared-container-apps.svg" alt-text="Diagram that shows a shared Container Apps isolation model. All tenants share a single Container Apps environment and container apps." lightbox="./media/container-apps/shared-container-apps.svg":::
+:::image type="complex" border="false" source="./media/container-apps/shared-container-apps.svg" alt-text="Diagram that shows a shared Container Apps isolation model. All tenants share a single Container Apps environment and container apps.":::
    The image shows Tenant A, Tenant B, and Tenant C. Three arrows point from each of these tenants to the Shared Container Apps environment section that contains the text Tenants A, B, C.
 :::image-end:::
 
@@ -53,7 +53,7 @@ This model is potentially subject to [noisy neighbor concerns](../../../antipatt
 
 Another approach that you might consider is isolating your tenants by deploying tenant-specific container apps within a shared environment.
 
-:::image type="complex" border="false" source="./media/container-apps/container-apps-tenant.svg" alt-text="Diagram that shows a Container Apps isolation model in which tenant-specific container apps are deployed within a shared Container Apps environment." lightbox="./media/container-apps/container-apps-tenant.svg":::
+:::image type="complex" border="false" source="./media/container-apps/container-apps-tenant.svg" alt-text="Diagram that shows a Container Apps isolation model in which tenant-specific container apps are deployed within a shared Container Apps environment.":::
    The image shows a Container Apps isolation model in which tenant-specific container apps are deployed within a shared Container Apps environment. The image includes icons that represent Tenant A, Tenant B, and Tenant C. Three arrows point from these icons to the corresponding Tenant A, Tenant B, and Tenant C icons in the shared Container Apps environment.
 :::image-end:::
 
@@ -76,7 +76,7 @@ Container Apps has built-in support for Dapr, which uses a modular design to del
 
 Consider deploying one Container Apps environment for each of your tenants. A [Container Apps environment](/azure/container-apps/environment) is the isolation boundary around a group of container apps. An environment provides compute and network isolation on the data plane. Each environment is deployed into its own virtual network. All apps within the environment share this virtual network. Each environment has its own Dapr and monitoring configuration.
 
-:::image type="complex" border="false" source="./media/container-apps/environments-tenant.svg" alt-text="Diagram that shows a Container Apps isolation model in which each tenant gets its own Container Apps environment." lightbox="./media/container-apps/environments-tenant.svg":::
+:::image type="complex" border="false" source="./media/container-apps/environments-tenant.svg" alt-text="Diagram that shows a Container Apps isolation model in which each tenant gets its own Container Apps environment.":::
    The image contains icons that represent Tenant A, Tenant B, and Tenant C. Arrows point from these icons to their individual corresponding Container Apps environment. The three tenant environments are Tenant A, Tenant B, and Tenant C.
 :::image-end:::
 

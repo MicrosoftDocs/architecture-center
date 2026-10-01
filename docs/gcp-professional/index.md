@@ -36,7 +36,7 @@ Although the platforms share similar capabilities, the resources that provide th
 
 Azure provides a hierarchy of management groups, subscriptions, and resource groups to help you manage resources effectively. This hierarchy is similar to the folders and project structure for resources in Google Cloud. The following diagram shows the hierarchy of management scope in Azure:
 
-:::image type="complex" source="./images/subscription-hierarchy.png" border="false" lightbox="./images/subscription-hierarchy.png" alt-text="Diagram that shows a tree structure with management groups as the root, then subscriptions, then resource groups as leaf nodes.":::
+:::image type="complex" source="./images/subscription-hierarchy.png" border="false" alt-text="Diagram that shows a tree structure with management groups as the root, then subscriptions, then resource groups as leaf nodes.":::
    The tree diagram shows the four-level Azure management hierarchy. At the top sits a single management group labeled corporate IT. Directly below corporate IT, three child management groups branch out horizontally from left to right: production, development, and QA. Connecting lines indicate that policies and access controls defined at the corporate IT level are inherited by all three. Below the production management group, three subscriptions are arranged from left to right: mission critical, protected data, other production. Below the development management group is a single subscription labeled non-production. Below the QA management group is a single subscription labeled staging. At the bottom level, resource groups contain application resources.
 :::image-end:::
 
@@ -60,12 +60,12 @@ Each subscription also has an account administrator, which represents the subscr
 
 Beneath the subscription level, you can assign user roles and individual permissions to specific resources. In Azure, all user accounts are associated with either a Microsoft Account or Organizational Account (an account managed through Microsoft Entra ID).
 
-Subscriptions have default service quotas and limits. For a full list of these limits, see [Azure subscription and service limits, quotas, and constraints](/azure/azure-subscription-service-limits). You can increase some of these limits by [filing a support request in the management portal](/azure/azure-resource-manager/troubleshooting/error-resource-quota).
+Subscriptions have default service quotas and limits. For a full list of these limits, see [Azure subscription and service limits, quotas, and constraints](/azure/azure-resource-manager/management/azure-subscription-service-limits). You can increase some of these limits by [filing a support request in the management portal](/azure/azure-resource-manager/troubleshooting/error-resource-quota).
 
 To learn more about managing accounts and subscriptions, see the following resources:
 
-- [Add or change Azure subscription administrators](/azure/billing/billing-add-change-azure-subscription-administrator)
-- [Download or view your Azure billing invoice](/azure/billing/billing-download-azure-invoice-daily-usage-date)
+- [Add or change Azure subscription administrators](/azure/cost-management-billing/manage/add-change-subscription-administrator)
+- [Download or view your Azure billing invoice](/azure/cost-management-billing/manage/download-azure-invoice-daily-usage-date)
 
 ## Resource management
 
@@ -115,11 +115,11 @@ The following table summarizes each option.
 
 Like Google Cloud, Azure regions can have [availability zones](/azure/reliability/availability-zones-overview), which are physically separate zones within an Azure region. Each availability zone has a distinct power source, network, and cooling. Deploying VMs across availability zones helps protect an application against datacenter-wide failures.
 
-:::image type="complex" source="./images/availability-zones.png" border="false" lightbox="./images/availability-zones.png" alt-text="Diagram that shows a zone-redundant virtual machine deployment across three availability zones within a single Azure region.":::
+:::image type="complex" source="./images/availability-zones.png" border="false" alt-text="Diagram that shows a zone-redundant virtual machine deployment across three availability zones within a single Azure region.":::
    Diagram that shows a zone-redundant virtual machine deployment within a single Azure region. A large outer rectangle labeled region contains the entire layout. Inside the region, three horizontal rectangular zones are stacked vertically from top to bottom, labeled zone 1, zone 2, and zone 3. Each zone contains one virtual machine. A vertical dashed rectangle overlays the virtual machines in all three zones. This dashed rectangle represents a single subnet that spans all three availability zones simultaneously. The label subnet appears at the bottom edge of the dashed rectangle. The layout illustrates that deploying virtual machines in each zone, connected through a shared subnet, provides redundancy in case of a failure in one zone.
 :::image-end:::
 
-To learn more about availability zones and regions, see [Architecture strategies for using availability zones and regions](/azure/well-architected/reliability/regions-availability-zones).
+To learn more about availability zones and regions, see [Using availability zones and regions](/azure/well-architected/design-guides/regions-availability-zones).
 
 ### Paired regions
 
@@ -127,7 +127,7 @@ To protect an application against a regional outage, deploy the application acro
 
 Unlike availability zones, which are physically separate datacenters but might be in relatively nearby geographic areas, paired regions are typically separated by at least 300 miles. This design ensures that large-scale disasters only affect one of the regions in the pair. You can set neighboring pairs to sync database and storage service data. They're configured so that platform updates roll out to only one region in the pair at a time.
 
-Azure [geo-redundant storage](/azure/storage/common/storage-redundancy-grs) automatically backs up to the appropriate paired region. For all other resources, you need to deploy a complete copy of your solution in each region to achieve full redundancy.
+Azure [geo-redundant storage](/azure/storage/common/storage-redundancy#redundancy-in-a-secondary-region) automatically backs up to the appropriate paired region. For all other resources, you need to deploy a complete copy of your solution in each region to achieve full redundancy.
 
 :::image type="complex" source="./images/region-pairs.png" border="false" alt-text="Diagram that shows the nested containment relationship between a geography, a region pair, two regions, and their datacenters.":::
    Diagram that shows the nested containment hierarchy of Azure region pairs. The outermost rectangle represents a geography. Nested inside the geography is a region pair. Inside the region pair, two regions sit side by side. Within each region is a datacenter. The nesting of the shapes illustrates the containment relationships: datacenters are physically located inside regions, two regions together form a region pair, and a region pair belongs to a single geography.

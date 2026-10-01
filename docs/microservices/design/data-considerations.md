@@ -37,7 +37,7 @@ No single approach works for all cases. Consider the following general guideline
 
 - **Use a single source of truth when you require strong consistency.** One service might represent the source of truth for a given entity and expose it through an API. Other services might hold their own copy of the data, or a subset of the data, that's eventually consistent with the primary data but not considered the source of truth. For example, in an e-commerce system that has a customer order service and a recommendation service, the recommendation service might listen to events from the order service. But if a customer requests a refund, the order service, not the recommendation service, has the complete transaction history.
 
-- **Apply transaction patterns to maintain consistency across services.** Use patterns like [Scheduler Agent Supervisor](../../patterns/scheduler-agent-supervisor.yml) and [Compensating Transaction](../../patterns/compensating-transaction.md) to keep data consistent across multiple services. To avoid partial failure among multiple services, you might need to store an extra piece of data that captures the state of a unit of work that spans multiple services. For example, keep a work item on a durable queue while a multi-step transaction is in progress.
+- **Apply transaction patterns to maintain consistency across services.** Use patterns like [Scheduler Agent Supervisor](../../patterns/scheduler-agent-supervisor.md) and [Compensating Transaction](../../patterns/compensating-transaction.md) to keep data consistent across multiple services. To avoid partial failure among multiple services, you might need to store an extra piece of data that captures the state of a unit of work that spans multiple services. For example, keep a work item on a durable queue while a multi-step transaction is in progress.
 
 - **Store only the data that a service needs.** A service might only need a subset of information about a domain entity. For example, in the shipping bounded context, you need to know which customer is associated with a specific delivery. But you don't need the customer's billing address because the accounts bounded context manages that information. Careful domain analysis and a DDD approach can enforce this principle.
 
@@ -85,7 +85,7 @@ The package service stores information about all packages. The data store for th
 - High write throughput to handle a large volume of packages
 - Simple queries by package ID without complex joins or referential integrity constraints
 
-The package data isn't relational, so a document-oriented database works well. Azure DocumentDB can achieve high throughput by using sharded collections. The package service team is familiar with the MongoDB, Express.js, AngularJS, and Node.js (MEAN) stack, so they choose to implement [Azure DocumentDB](/azure/documentdb/overview). This choice lets them use their existing MongoDB experience while getting the benefits of a fully managed high-performance Azure service.
+The package data isn't relational, so a document-oriented database works well. [Azure DocumentDB (with MongoDB compatibility)](/azure/documentdb/overview) provides high throughput and horizontal scaling. The package service team is familiar with the MongoDB, Express.js, AngularJS, and Node.js (MEAN) stack, so they choose Azure DocumentDB. This choice lets them use compatible MongoDB tools and drivers with a managed Azure service.
 
 ## Related resources
 

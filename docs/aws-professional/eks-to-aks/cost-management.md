@@ -66,9 +66,9 @@ The Kubernetes namespace and asset views show the following charges:
 
 Kubernetes architecture consists of two layers, the control plane and at least one node or node pool. The AKS pricing model is based on these layers.
 
-The [control plane](/azure/aks/concepts-clusters-workloads#control-plane) provides [core Kubernetes services](https://kubernetes.io/docs/concepts/overview/components), such as the API server and `etcd`, and application workload orchestration. The Azure platform manages the AKS control plane. In the AKS Free tier, [the control plane doesn't incur costs](https://azure.microsoft.com/pricing/details/kubernetes-service).
+The [control plane](/azure/aks/core-aks-concepts#control-plane) provides [core Kubernetes services](https://kubernetes.io/docs/concepts/overview/components), such as the API server and `etcd`, and application workload orchestration. The Azure platform manages the AKS control plane. In the AKS Free tier, [the control plane doesn't incur costs](https://azure.microsoft.com/pricing/details/kubernetes-service).
 
-The [nodes](/azure/aks/concepts-clusters-workloads#nodes-and-node-pools), also called *agent nodes* or *worker nodes*, host Kubernetes workloads and applications. In AKS, customers fully manage and pay all costs for the agent nodes.
+The [nodes](/azure/aks/core-aks-concepts#nodes), also called *agent nodes* or *worker nodes*, host Kubernetes workloads and applications. In AKS, customers fully manage and pay all costs for the agent nodes.
 
 The following diagram shows the relationship between the control plane and nodes in an AKS Kubernetes architecture.
 
@@ -94,7 +94,7 @@ AKS nodes use several Azure infrastructure resources, including virtual machine 
 
 AKS cluster pricing is based on the class, number, and size of the VMs in the node pools. The VM cost depends on the size, CPU type, number of vCPUs, memory, family, and storage type available. For more information, see [VM series](https://azure.microsoft.com/pricing/details/virtual-machines/series). Plan your node size according to application requirements, number of nodes, and cluster scalability needs.
 
-For more information, see [Node pools](node-pools.md) and [Create and manage multiple node pools for a cluster in AKS](/azure/aks/use-multiple-node-pools).
+For more information, see [Node pools](node-pools.md) and [Create and manage multiple node pools for a cluster in AKS](/azure/aks/create-node-pools).
 
 ### AKS cluster deployment
 
@@ -132,9 +132,9 @@ The Container Storage Interface (CSI) is a standard for exposing block and file 
 
 If you run workloads that use CSI persistent volumes on your AKS cluster, consider the associated cost of the storage that your applications provision and use. CSI storage drivers on AKS provide native support for the following storage options:
 
-- [Azure disk storage](/azure/aks/azure-disk-csi) creates Kubernetes data disk resources. Disks can use Azure premium storage that's backed by Premium SSDs or Azure standard storage that's backed by Standard SSDs. Most production and development workloads use premium storage. Azure disks are mounted as `ReadWriteOnce`, which makes them available to only one AKS node. For storage volumes that multiple pods can access simultaneously, use Azure Files. For more information, see [Managed disks pricing](https://azure.microsoft.com/pricing/details/managed-disks).
+- [Azure disk storage](/azure/aks/csi-storage-drivers?pivots=azure-disks) creates Kubernetes data disk resources. Disks can use Azure premium storage that's backed by Premium SSDs or Azure standard storage that's backed by Standard SSDs. Most production and development workloads use premium storage. Azure disks are mounted as `ReadWriteOnce`, which makes them available to only one AKS node. For storage volumes that multiple pods can access simultaneously, use Azure Files. For more information, see [Managed disks pricing](https://azure.microsoft.com/pricing/details/managed-disks).
 
-- [Azure Files](/azure/aks/azure-files-csi) mounts Server Message Block (SMB) 3.0 and 3.1 file shares to your AKS pods. The file shares are backed by an Azure Storage account. You can share data across multiple nodes and pods. Azure Files can use premium storage that's backed by Premium SSDs. Azure Files uses a Storage account and accrues charges based on the following factors:
+- [Azure Files](/azure/aks/csi-storage-drivers?pivots=azure-files) mounts Server Message Block (SMB) 3.0 and 3.1 file shares to your AKS pods. The file shares are backed by an Azure Storage account. You can share data across multiple nodes and pods. Azure Files can use premium storage that's backed by Premium SSDs. Azure Files uses a Storage account and accrues charges based on the following factors:
 
   - The service, such as Azure Blob Storage, Azure Files, Azure Queue Storage, Azure Table Storage, or managed disks
 
@@ -198,7 +198,7 @@ If you use on-demand scaling or the cluster autoscaler, account for the added VM
 
 ## Upgrade costs
 
-Part of the AKS cluster lifecycle involves periodic upgrades to the latest Kubernetes version. Apply the latest security releases and get the latest features. You can upgrade AKS clusters and single node pools manually or automatically. For more information, see [Upgrade an AKS cluster](/azure/aks/upgrade-cluster).
+Part of the AKS cluster lifecycle involves periodic upgrades to the latest Kubernetes version. Apply the latest security releases and get the latest features. You can upgrade AKS clusters and single node pools manually or automatically. For more information, see [Upgrade an AKS cluster](/azure/aks/upgrade-options).
 
 By default, AKS configures upgrades to include one extra node. A default value of `1` for the `max-surge` setting minimizes workload disruption. This configuration creates an extra node to replace older-versioned nodes before cordoning or draining existing applications. You can customize the `max-surge` value for each node pool to balance upgrade speed and disruption. A higher `max-surge` value speeds up the upgrade process but might cause more disruptions and add costs for extra VMs.
 
@@ -216,7 +216,7 @@ Depending on usage and requirements, AKS clusters can incur the following added 
 
 - Firewall and protection services, like [Azure Firewall](/azure/firewall/overview), that inspect and allow or block traffic to and from AKS clusters.
 
-- Monitoring and logging tools, such as [Azure Monitor container insights](/azure/azure-monitor/containers/container-insights-cost), [Application Insights](https://azure.microsoft.com/pricing/details/monitor/), and [Microsoft Defender for Cloud](https://azure.microsoft.com/pricing/details/defender-for-cloud/). For more information, see [Understand monitoring costs for container insights](/azure/azure-monitor/containers/container-insights-cost#estimating-costs-to-monitor-your-aks-cluster).
+- Monitoring and logging tools, such as [Azure Monitor container insights](/azure/azure-monitor/containers/container-insights-cost), [Application Insights](https://azure.microsoft.com/pricing/details/monitor/), and [Microsoft Defender for Cloud](https://azure.microsoft.com/pricing/details/defender-for-cloud/). For more information, see [Understand monitoring costs for container insights](/azure/azure-monitor/containers/container-insights-cost).
 
 - Costs that are associated with DevOps tools, like [Azure DevOps Services](https://azure.microsoft.com/pricing/details/devops/azure-devops-services) or [GitHub](https://github.com/pricing).
 
@@ -224,7 +224,7 @@ Depending on usage and requirements, AKS clusters can incur the following added 
 
 The following recommendations help optimize your AKS cluster costs:
 
-- Review the [Cost Optimization](/azure/architecture/framework/services/compute/azure-kubernetes-service/azure-kubernetes-service#cost-optimization) section of the Azure Well-Architected Framework for AKS.
+- Review the [Cost Optimization](/azure/well-architected/service-guides/azure-kubernetes-service#cost-optimization) section of the Azure Well-Architected Framework for AKS.
 
 - For multitenant solutions, physical isolation adds cost and management overhead. Logical isolation requires more Kubernetes experience and increases the surface area for changes and security threats but shares the costs.
 
@@ -236,11 +236,11 @@ The following recommendations help optimize your AKS cluster costs:
 
   When you create a spot node pool, you should define the maximum price to pay per hour and enable the cluster autoscaler. The cluster autoscaler scales out and scales in the number of nodes in the node pool based on the operational workloads. For spot node pools, the cluster autoscaler scales out the number of nodes after an eviction if the nodes are still needed. For more information, see [Add a spot node pool to an AKS cluster](/azure/aks/spot-node-pool).
 
-- Choose the right [VM size](/azure/virtual-machines/sizes) for your AKS cluster node pools based on your workloads' CPU and memory needs. Azure provides many different VM instance types for a wide range of use cases. They have different combinations of CPU, memory, storage, and networking capacity. Every VM type comes in one or more sizes, so you can easily scale your resources.
+- Choose the right [VM size](/azure/virtual-machines/sizes/overview) for your AKS cluster node pools based on your workloads' CPU and memory needs. Azure provides many different VM instance types for a wide range of use cases. They have different combinations of CPU, memory, storage, and networking capacity. Every VM type comes in one or more sizes, so you can easily scale your resources.
 
   You can use AKS to [deploy and manage containerized applications that run on Ampere Altra Arm-based processors](/azure/virtual-machines/dpsv5-dpdsv5-series).
 
-- Create multiple node pools that have different VM sizes for special purposes and workloads. Use Kubernetes [taints, tolerations](https://kubernetes.io/docs/concepts/scheduling-eviction/taint-and-toleration), and [node labels](https://kubernetes.io/docs/concepts/scheduling-eviction/assign-pod-node) to place resource-intensive applications on specific node pools to avoid noisy neighbor problems. Keep these node resources available for workloads that require them, and don't schedule other workloads on these nodes. To optimize costs, use different VM sizes for different node pools. For more information, see [Use multiple node pools in AKS](/azure/aks/use-multiple-node-pools).
+- Create multiple node pools that have different VM sizes for special purposes and workloads. Use Kubernetes [taints, tolerations](https://kubernetes.io/docs/concepts/scheduling-eviction/taint-and-toleration), and [node labels](https://kubernetes.io/docs/concepts/scheduling-eviction/assign-pod-node) to place resource-intensive applications on specific node pools to avoid noisy neighbor problems. Keep these node resources available for workloads that require them, and don't schedule other workloads on these nodes. To optimize costs, use different VM sizes for different node pools. For more information, see [Use multiple node pools in AKS](/azure/aks/create-node-pools).
 
 - System-mode node pools must contain at least one node. User-mode node pools can contain zero or more nodes. When possible, you can configure a user-mode node pool to automatically scale from `0` to `N` nodes. To configure your workloads to scale out and scale in, use a horizontal pod autoscaler. Determine your autoscaling needs based on CPU and memory. Or use [Kubernetes Event-driven Autoscaling (KEDA)](https://keda.sh) to implement autoscaling based on the metrics of an external system, like Apache Kafka, RabbitMQ, or Azure Service Bus.
 
@@ -266,7 +266,7 @@ Cost governance is the process of continuously implementing policies or controls
 
 - [Cost Management](/azure/cost-management-billing/cost-management-billing-overview) is a suite of Microsoft tools that help you analyze, manage, and optimize your Azure workload costs. Use the tools to help ensure that your organization takes advantage of the benefits that the cloud provides.
 
-- Review the [Cloud Adoption Framework for Azure](/azure/architecture/framework/cost/design-governance) governance best practices to better understand how to manage and govern cloud costs.
+- Review the [Cloud Adoption Framework for Azure](/azure/cloud-adoption-framework/govern/enforce-cloud-governance-policies) governance best practices to better understand how to manage and govern cloud costs.
 
 - Explore open-source tools like [KubeCost](https://www.kubecost.com) to monitor and govern AKS cluster costs. You can scope cost allocation based on a deployment, service, label, pod, or namespace, which provides flexibility in how you display and charge cluster users.
 
@@ -289,7 +289,7 @@ Other contributors:
 ## Next steps
 
 - [AKS cost analysis](/azure/aks/cost-analysis)
-- [Cost Management discipline overview](/azure/cloud-adoption-framework/govern/cost-management)
+- [Automate cost governance](/azure/cloud-adoption-framework/govern/enforce-cloud-governance-policies#automate-cost-governance)
 - [Video: Can cloud native architectures lower your long-term costs?](https://www.youtube.com/watch?v=5KVz_rz3P3w)
 - [Azure pricing calculator](https://azure.microsoft.com/pricing/calculator)
 - [Plan and manage your Azure costs](/training/modules/plan-manage-azure-costs)

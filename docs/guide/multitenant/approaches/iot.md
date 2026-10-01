@@ -98,7 +98,7 @@ A typical aPaaS solution that uses [Azure IoT Central](/azure/iot-central/core/o
 
 - [Power BI](/power-bi/fundamentals/power-bi-overview) as a visualization and reporting platform
 
-:::image type="complex" border="false" source="media/iot/simple-saas.png" alt-text="Diagram of an IoT Hub-based multitenant architecture that shows tenants sharing an Azure IoT Central environment, Azure Data Explorer, Power BI, and Logic Apps." lightbox="media/iot/simple-saas.png":::
+:::image type="complex" border="false" source="media/iot/simple-saas.png" alt-text="Diagram of an IoT Hub-based multitenant architecture that shows tenants sharing an Azure IoT Central environment, Azure Data Explorer, Power BI, and Logic Apps.":::
    Diagram that shows a platform owner subscription that has three tenants. Each tenant connects via an arrow to a shared Azure IoT Central organizations environment. A double-sided arrow connects an IoT device and Azure IoT Central. An arrow points from the shared tenant section to the Azure Data Explorer section and then from the Azure Data Explorer section to Power BI. Another arrow points from the shared tenant section to Logic Apps and then from Logic Apps to Power BI.
 :::image-end:::
 
@@ -130,7 +130,7 @@ A PaaS-based approach might use the following Azure services:
 
 - [IoT Edge](/azure/iot-edge/about-iot-edge) to run AI, non-Microsoft services, or your own business logic on IoT Edge devices
 
-:::image type="complex" border="false" source="media/iot/simple-paas-saas.png" alt-text="Diagram that shows an IoT solution. Each tenant connects to a shared web app, which receives data from hubs and an Azure Functions app. Devices connect to IoT Hub Device Provisioning Service and IoT Hub." lightbox="media/iot/simple-paas-saas.png":::
+:::image type="complex" border="false" source="media/iot/simple-paas-saas.png" alt-text="Diagram that shows an IoT solution. Each tenant connects to a shared web app, which receives data from hubs and an Azure Functions app. Devices connect to IoT Hub Device Provisioning Service and IoT Hub.":::
    The diagram shows a platform-owner subscription. Double-sided arrows point from the device ecosystem to IoT Hub Device Provisioning Service, IoT hubs, and function apps. Arrows point downward from IoT Hub Device Provisioning Service to the IoT hubs. Double-sided arrows connect the IoT hubs and function apps. An arrow points from the IoT hubs to Azure Data Explorer. Arrows point from Azure Data Explorer to the web app section and to Azure Cosmos DB. Another arrow points from the function apps to Azure  Cosmos DB and then from Azure Cosmos DB to the web app section. Three tenants connect to the web app section via arrows.
 :::image-end:::
 
@@ -158,7 +158,7 @@ The following table lists common patterns for multitenant IoT solutions. Each pa
 
 ### Simple SaaS
 
-:::image type="complex" border="false" source="media/iot/simple-saas.png" alt-text="Diagram that shows an IoT architecture. Tenants share an Azure IoT Central environment, Azure Data Explorer, Power BI, and Logic Apps." lightbox="media/iot/simple-saas.png":::
+:::image type="complex" border="false" source="media/iot/simple-saas.png" alt-text="Diagram that shows an IoT architecture. Tenants share an Azure IoT Central environment, Azure Data Explorer, Power BI, and Logic Apps.":::
    Diagram that shows a platform owner subscription that contains three tenants. Each tenant connects to a shared Azure IoT Central organizations environment. IoT devices connect to the Azure IoT Central environment. Data flows from Azure IoT Central to Azure Data Explorer, then to Power BI for visualization. Logic Apps connects to the Azure IoT Central environment for integration workflows.
 :::image-end:::
 

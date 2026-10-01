@@ -18,7 +18,7 @@ You typically divide a cloud-based application into several small services that 
 
 A common pattern for communication is to use a centralized service or an *orchestrator*. Incoming requests flow through the orchestrator as it delegates operations to the respective services. Each service completes their responsibility and isn't aware of the overall workflow.
 
-:::image type="complex" source="./_images/orchestrator.png" border="false" lightbox="./_images/orchestrator.png" alt-text="A diagram of a workflow that uses a central orchestrator to process requests.":::
+:::image type="complex" source="./_images/orchestrator.png" border="false" alt-text="A diagram of a workflow that uses a central orchestrator to process requests.":::
     On the left, an arrow that represents a client request points from a client icon to an orchestrator icon in the middle of the diagram. Three bidirectional arrows connect the orchestrator icon and icons for service A, service B, and service C, arranged vertically on the right. These arrows show how the orchestrator sends requests to the services and receives responses. The diagram illustrates how the central orchestrator component coordinates and manages communication with all downstream services.
 :::image-end:::
 
@@ -34,7 +34,7 @@ The Choreography pattern minimizes the dependency on custom software that centra
 
 A common way to implement choreography is to use a message broker that buffers requests until downstream components claim and process them. The following image shows request handling through a [publisher-subscriber model](./publisher-subscriber.md).
 
-:::image type="complex" source="./_images/choreography-pattern.png" border="false" lightbox="./_images/choreography-pattern.png" alt-text="A diagram that shows how a message broker processes a request.":::
+:::image type="complex" source="./_images/choreography-pattern.png" border="false" alt-text="A diagram that shows how a message broker processes a request.":::
     The diagram shows a choreography pattern implementation that uses a message broker to coordinate service communication. On the left, an arrow points from a client request icon to three envelope symbols in a box that represent a central message broker. Three bidirectional arrows connect the message broker and services A, service B, and service C. These arrows show that services both receive messages from and send responses to the broker.
 :::image-end:::
 
@@ -54,7 +54,7 @@ Consider the following points when deciding how to implement this pattern:
 
   To handle failures gracefully, you implement failure-handling logic, which introduces complexity. Failure-handling logic, such as [compensating transactions](./compensating-transaction.md), is also prone to failures.
 
-  :::image type="complex" source="./_images/choreography-pattern-handling-errors.png" border="false" lightbox="./_images/choreography-pattern-handling-errors.png" alt-text="A flowchart that shows how the choreography pattern handles error.":::
+  :::image type="complex" source="./_images/choreography-pattern-handling-errors.png" border="false" alt-text="A flowchart that shows how the choreography pattern handles error.":::
       The flowchart shows error-handling and compensation logic in a choreography pattern that has sequential service dependencies. At the top, a start node points to service A. Service A connects to a diamond that points to service B on the left and service C on the right. Arrows point from each of these services to a decision diamond that asks whether the request fails. The path labeled yes branches upward in a loop back to the diamond that connects all three services. The path labeled no continues to a box that reads both services succeeded. From this success state, the flow continues downward to service D, which connects to a final decision diamond that asks whether the request fails. The yes path from this diamond loops back upward to reenter the flow before service D, and the no path continues downward to an end node.
   :::image-end:::
 

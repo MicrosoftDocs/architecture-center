@@ -88,7 +88,7 @@ Without a gateway, your workload puts responsibility on clients to be individual
 
 *Download a [Visio file](https://arch-center.azureedge.net/foundry-gateway-conceptual-architecture.vsdx) of this architecture.*
 
-To address the challenges of exposing Foundry Models data plane APIs directly to consumers, you can inject a reverse proxy gateway to decouple the intelligent application from Foundry. The [Gateway Offloading pattern](../../patterns/gateway-offloading.yml) shifts responsibility, complexity, and observability away from clients. It gives you an opportunity to augment Foundry by providing other capabilities that aren't built in. These capabilities include:
+To address the challenges of exposing Foundry Models data plane APIs directly to consumers, you can inject a reverse proxy gateway to decouple the intelligent application from Foundry. The [Gateway Offloading pattern](../../patterns/gateway-offloading.md) shifts responsibility, complexity, and observability away from clients. It gives you an opportunity to augment Foundry by providing other capabilities that aren't built in. These capabilities include:
 
 - Potential to implement [federated authentication](../../patterns/federated-identity.md).
 
@@ -98,7 +98,7 @@ To address the challenges of exposing Foundry Models data plane APIs directly to
 
 - Ability to introduce [gateway aggregation](../../patterns/gateway-aggregation.md) and advanced [gateway routing](../../patterns/gateway-routing.yml) to multiple services, like routing low-priority messages to a queue for [queue-based load leveling](../../patterns/queue-based-load-leveling.md) or to compute resources to handle tasks.
 
-- Load balancing that uses [health endpoint monitoring](../../patterns/health-endpoint-monitoring.yml) to route only to healthy endpoints by [circuit breaking](../../patterns/circuit-breaker.md) on unavailable or overloaded model deployments.
+- Load balancing that uses [health endpoint monitoring](../../patterns/health-endpoint-monitoring.md) to route only to healthy endpoints by [circuit breaking](../../patterns/circuit-breaker.md) on unavailable or overloaded model deployments.
 
 - Caching strategies to improve performance and cost optimization.
 
@@ -189,7 +189,7 @@ Foundry has [built-in integration](/azure/foundry/configuration/enable-ai-api-ma
 
 [API Management](/azure/api-management/api-management-key-concepts) is a platform-managed service designed to offload cross-cutting concerns for HTTP-based APIs. API Management has [AI gateway capabilities](/azure/api-management/genai-gateway-capabilities). API Management is configuration driven and supports customization through its inbound and outbound request processing policy system. It supports highly available, zone-redundant, and even multiple-region replicas by using a single control plane.
 
-Most of the gateway routing, security, caching, and request handling logic must be implemented in the policy system of API Management. You can combine [built-in policies](/azure/api-management/api-management-policies) specific to AI, such as [limiting large language model API token usage](/azure/api-management/llm-token-limit-policy), [emitting metrics for consumption of large language model tokens](/azure/api-management/llm-emit-token-metric-policy), [enforcing content safety](/azure/api-management/llm-content-safety-policy) or [caching responses](/azure/api-management/llm-semantic-cache-store-policy), and editing your own [custom policies](/azure/api-management/set-edit-policies). The [GenAI gateway toolkit](https://github.com/Azure-Samples/apim-genai-gateway-toolkit) GitHub repository contains multiple custom API Management policies, along with a load-testing setup for testing the behavior of the policies.
+Most of the gateway routing, security, caching, and request handling logic must be implemented in the policy system of API Management. You can combine [built-in policies](/azure/api-management/api-management-policies) specific to AI, such as [limiting large language model API token usage](/azure/api-management/llm-token-limit-policy), [emitting metrics for consumption of large language model tokens](/azure/api-management/llm-emit-token-metric-policy), [enforcing content safety](/azure/api-management/llm-content-safety-policy) or [caching responses](/azure/api-management/llm-semantic-cache-store-policy), and editing your own [custom policies](/azure/api-management/set-edit-policies). The [AI Gateway labs](https://github.com/Azure-Samples/AI-Gateway) GitHub repository contains multiple custom API Management policies, along with tools for testing the behavior of the policies.
 
 When you design a solution that involves API Management, use the [architecture best practices](/azure/well-architected/service-guides/azure-api-management).
 
@@ -219,12 +219,12 @@ The following articles cover specific scenarios where deploying a gateway betwee
 
 - [Use a gateway in front of multiple model deployments or instances](./azure-openai-gateway-multi-backend.md)
 - [Provide custom authentication to Foundry Models through a gateway](./azure-openai-gateway-custom-authentication.yml)
-- [Implement advanced monitoring for Foundry Models through a gateway](./azure-openai-gateway-monitoring.yml)
+- [Implement advanced monitoring for Foundry Models through a gateway](./azure-openai-gateway-monitoring.md)
 
 ## Related resources
 
 - [API gateway in Azure API Management](/azure/api-management/api-management-gateways-overview)
 - [API Management landing zone](https://github.com/Azure/apim-landing-zone-accelerator/blob/main/scenarios/workload-genai/README.md)
-- [API Management gateway toolkit](https://github.com/Azure-Samples/apim-genai-gateway-toolkit)
+- [AI Gateway labs for API Management](https://github.com/Azure-Samples/AI-Gateway)
 - [Azure OpenAI API Simulator](https://github.com/microsoft/aoai-api-simulator)
 - [AI Hub Gateway landing zone](https://github.com/Azure-Samples/ai-hub-gateway-solution-accelerator)

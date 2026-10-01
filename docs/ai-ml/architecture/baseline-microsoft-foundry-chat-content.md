@@ -32,7 +32,7 @@ This architecture uses the [Foundry Agent Service standard agent setup](/azure/f
 
 1. An application user interacts with a chat UI. The requests route through Azure Application Gateway. Azure Web Application Firewall inspects these requests before it forwards them to the back-end App Service instance.
 
-1. When the web application receives a user query or instruction, it invokes the purpose-built agent. The web application communicates with the agent endpoints via the [Microsoft Agent Framework](/agent-framework/overview/). The web application calls the agent over a private endpoint and authenticates to Foundry by using its managed identity.
+1. When the web application receives a user query or instruction, it invokes the purpose-built agent. The web application communicates with the agent endpoints via the [Microsoft Agent Framework](/agent-framework/overview/). The framework invokes the server-side agent definition through the [OpenAI-compatible Responses API](/azure/foundry/agents/quickstarts/prompt-agent#chat-with-the-agent). The client's HTTP call remains the same regardless of which supported model the agent uses. The web application calls the agent over a private endpoint and authenticates to Foundry by using its managed identity.
 
 1. The agent processes the user's request based on the instructions in its system prompt. To fulfill the user's intent, the agent has a configured language model and connected [tools](/azure/foundry/agents/concepts/tool-catalog). In this architecture, tools include the Azure AI Search tool for grounding data and the [web search tool](/azure/foundry/agents/how-to/tools/web-search) for web data.
 
@@ -80,6 +80,20 @@ This architecture builds on the [basic Foundry chat reference architecture](./ba
 - [Azure DNS](/azure/dns/dns-overview) is a hosting service for Domain Name System (DNS) domains that provides name resolution. In this architecture, it provides private DNS zones linked to the virtual network. It handles name resolution for private endpoints, which ensures that all service-to-service communication uses private IP addresses and remains within the network boundary.
 
 - [Azure Storage](/azure/well-architected/service-guides/azure-blob-storage) is a cloud storage service for unstructured and structured data. In this architecture, it supports secure, automated deployment workflows and separates application artifacts from compute resources. It hosts the web application code as a ZIP file for deployment to App Service.
+
+### Model and tool selection
+
+Foundry Agent Service doesn't work with every model in the Foundry model catalog. The catalog lists models that the Foundry platform can deploy, but a prompt agent can only use a subset that Foundry Agent Service validates for agent use.
+
+Before you commit to a model, confirm that you can deploy it in your Foundry region and that Foundry Agent Service supports it. Browse the [model catalog filtered to agent-supported models](https://ai.azure.com/catalog/models?capabilities=agentsv2) in the Foundry portal, or query the models for a region programmatically.
+
+```azurecli-interactive
+az cognitiveservices model list --location <location> --query "[?model.capabilities.agentsV2=='true']"
+```
+
+A model that Foundry Agent Service supports doesn't necessarily support every agent capability. Tool availability depends on both the model and the deployment region. In this architecture, [the agent uses the AI Search tool and the web search tool](#workflow), and not every supported model works with each tool. For the full compatibility matrix, see [tool support by region and model](/azure/foundry/agents/concepts/limits-quotas-regions#tool-support-by-region-and-model).
+
+Foundry Agent Service doesn't always reject an unsupported combination when you define the agent. When you create a prompt agent through the REST API, an unsupported model or tool selection can pass agent creation and then cause unexpected behavior or a runtime failure when the agent invokes the model or tool.
 
 ### Alternatives
 
@@ -347,7 +361,10 @@ This architecture primarily uses system-assigned managed identities for service-
   - The Foundry resource
   - Each Foundry project
   - The web application
+  - Application Gateway
   - Any custom orchestrator or integration code
+
+- Use [Assignment restrictions](/entra/identity/managed-identities-azure-resources/managed-identities-assignment-restriction) (preview). Allow only `Microsoft.CognitiveServices/accounts/projects` for Foundry project identities, `Microsoft.Web/sites` for web application identities, and `Microsoft.Network/applicationGateways` for Application Gateway identities. Set the [isolation scope](/entra/identity/managed-identities-azure-resources/managed-identities-isolation-scope) to `Regional`, and create a separate set of identities for each deployment region.
 
 - Assign an identity to an Azure resource only if that resource must authenticate as a client to another Azure service.
 

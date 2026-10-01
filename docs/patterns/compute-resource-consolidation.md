@@ -18,7 +18,7 @@ A cloud application often implements different types of operations. Initially, y
 
 The following figure shows the simplified structure of a cloud-hosted solution that uses multiple computational units. Each computational unit runs in its own virtual environment. The solution implements each function as a separate task that runs in its own computational unit.
 
-:::image type="complex" source="./_images/compute-resource-consolidation-diagram.png" alt-text="Diagram that shows tasks that use a set of dedicated computational units in a cloud environment." lightbox="./_images/compute-resource-consolidation-diagram.png" border="false":::
+:::image type="complex" source="./_images/compute-resource-consolidation-diagram.png" alt-text="Diagram that shows tasks that use a set of dedicated computational units in a cloud environment." border="false":::
   Diagram that shows a large cloud-shaped environment that contains five separate computational units distributed across the image. Each task resides in its own computational unit. The tasks are labeled task A to task E. The tasks don't connect or overlap. The diagram shows a one-to-one relationship between each computational unit and each task within the same cloud-hosted solution.
 :::image-end:::
 

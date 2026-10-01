@@ -34,99 +34,7 @@ Azure database solutions include traditional relational database management syst
 
 The articles in this section include fully developed architectures that you can deploy in Azure and expand to production-grade solutions and guides. These articles can help you decide how to use database technologies in Azure. Solution ideas demonstrate implementation patterns and possibilities to consider as you plan your database proof-of-concept (POC) development.
 
-### Database guides
-
-**Technology choices**
-
-The following articles help you evaluate and select the best database technologies for your workload requirements:
-
-- [Prepare to choose a data store in Azure](../guide/technology-choices/data-stores-getting-started.md)
-- [Understand data store models](../data-guide/technology-choices/understand-data-store-models.md)
-- [Big data storage](../data-guide/technology-choices/data-storage.md)
-- [Search data store](../data-guide/technology-choices/search-options.md)
-- [Vector search](../guide/technology-choices/vector-search.md)
-- [Pipeline orchestration](../data-guide/technology-choices/pipeline-orchestration-data-movement.md)
-- [Data transfer options](../data-guide/scenarios/data-transfer.md)
-
-**NoSQL**
-
-- [Use the Transactional Outbox pattern](../databases/guide/transactional-out-box-cosmos.md)
-- [Run Apache Cassandra](../databases/guide/cassandra.md)
-
-**Data processing**
-
-- [OLAP solutions](../data-guide/relational-data/online-analytical-processing.md)
-- [OLTP solutions](../data-guide/relational-data/online-transaction-processing.md)
-- [Extract, transform, and load (ETL) guide](../data-guide/relational-data/etl.yml)
-- [Data lakes](../data-guide/scenarios/data-lake.md)
-- [Big data architectures](../databases/guide/big-data-architectures.md)
-
-**Data governance**
-
-- [Collection structure for a federated Microsoft Purview catalog](../guide/data/collection-structure-federated-catalog.md)
-
-### Database architectures
-
-The following production-ready architectures demonstrate end-to-end database solutions that you can deploy and customize:
-
-**Data warehouse**
-
-- [DataOps for modern data warehouse](../databases/architecture/dataops-mdw.yml)
-- [Greenfield lakehouse on Microsoft Fabric](../example-scenario/data/greenfield-lakehouse-fabric.yml)
-
-**Azure Data Factory**
-
-- [Medallion lakehouse by using Azure Data Factory](../databases/architecture/azure-data-factory-on-azure-landing-zones-index.yml)
-- [Azure Data Factory baseline architecture](../databases/architecture/azure-data-factory-on-azure-landing-zones-baseline.yml)
-- [Azure Data Factory enterprise hardened architecture](../databases/architecture/azure-data-factory-enterprise-hardened.yml)
-- [Azure Data Factory mission-critical architecture](../databases/architecture/azure-data-factory-mission-critical.yml)
-
-**NoSQL**
-
-- [Deploy MongoDB Atlas on Azure](../databases/architecture/mongodb-atlas-baseline.md)
-- [Set up real-time sync of MongoDB Atlas data changes to Microsoft Fabric](../example-scenario/analytics/sync-mongodb-atlas-fabric-analytics.yml)
-
-**Mainframe**
-
-- [Replicate and sync mainframe data](../reference-architectures/migration/sync-mainframe-data-with-azure.yml)
-- [Mainframe data replication by using Precisely Connect](../example-scenario/mainframe/mainframe-replication-precisely-connect.yml)
-- [Mainframe data replication by using Qlik](../example-scenario/mainframe/mainframe-midrange-data-replication-azure-qlik.yml)
-- [Mainframe data replication by using Rocket® Data Replicate and Sync (RDRS)](../example-scenario/mainframe/mainframe-data-replication-azure-rdrs.yml)
-- [Migrate mainframe data tier to Azure by using mLogica LIBER*IRIS](../example-scenario/mainframe/mainframe-data-replication-azure-data-platform.yml)
-- [Modernize mainframe midrange data](../example-scenario/mainframe/modernize-mainframe-data-to-azure.yml)
-- [Reengineer mainframe batch apps](../example-scenario/mainframe/reengineer-mainframe-batch-apps-azure.yml)
-- [Rehost IMS Data Communication (IMS DC) and IMS Database (IMS DB)](../example-scenario/mainframe/rehost-ims-raincode-imsql.yml)
-- [Implement SMA OpCon in Azure](../example-scenario/integration/sma-opcon-azure.yml)
-
-**In-memory data stores**
-
-- [Write-through caching with Azure Managed Redis and Azure SQL Database](../databases/architecture/write-through-caching-azure-sql-managed-redis.yml)
-
-**Relational**
-
-- [Oracle Database with Azure NetApp Files](../example-scenario/file-storage/oracle-azure-netapp-files.yml)
-- [SAP deployment by using an Oracle database](../example-scenario/apps/sap-production.yml)
-
-**Big data**
-
-- [Microsoft Fabric deployment patterns](../data-guide/technology-choices/fabric-deployment-patterns.md)
-
-### Database solution ideas
-
-**Relational**
-
-- [Migrate an Oracle database to Azure](../databases/idea/topic-migrate-oracle-azure.yml)
-- [Migrate an Oracle database to an Azure virtual machine](../databases/idea/migrate-oracle-azure-iaas.yml)
-- [Migrate an Oracle database to Oracle Exadata Database@Azure](../databases/idea/migrate-oracle-odaa-exadata.yml)
-- [Cross-region resiliency for SQL transparent data encryption (TDE) by using Azure Key Vault Managed HSM](../solution-ideas/articles/secure-sql-managed-instance-managed-hardware-security-module.yml)
-
-**NoSQL**
-
-- [Replicate data by using a change feed to minimize storage](../databases/idea/minimal-storage-change-feed-replicate-data.yml)
-
-**Relational and NoSQL**
-
-- [Polyglot persistence with Azure Cosmos DB and Azure SQL Database](../databases/idea/combine-relational-nosql.yml)
+[!INCLUDE [database-get-started](../includes/database-get-started-include.md)]
 
 ## Learn about databases on Azure
 
@@ -145,7 +53,7 @@ The following resources provide foundational knowledge for database implementati
 
 - **Data engineer:** [Azure data fundamentals: Explore relational data in Azure](/training/paths/azure-data-fundamentals-explore-relational-data/)
 - **Database administrator:** [Implement scalable database solutions by using Azure SQL](/training/courses/dp-300t00)
-- **Developer:** [Develop solutions that use Azure Cosmos DB](/training/paths/az-204-develop-solutions-that-use-azure-cosmos-db/)
+- **Developer:** [Plan and implement Azure Cosmos DB for NoSQL](/training/paths/plan-implement-azure-cosmos-db-sql-api/)
 
 For more role-based training, [browse other learning paths](/training/browse/?resource_type=learning%20path).
 
@@ -170,7 +78,7 @@ Review the following best practices when you design your database solutions.
 | [Distribute your data globally by using Azure Cosmos DB](/azure/cosmos-db/distribute-data-globally) | To achieve low latency and high availability, some applications must be deployed in datacenters that are close to their users. |
 | [Security in Azure Cosmos DB](/azure/cosmos-db/security) | Security best practices help prevent, detect, and respond to database breaches. |
 | [Continuous backup with point-in-time restore (PITR) in Azure Cosmos DB](/azure/cosmos-db/continuous-backup-restore-introduction) | Learn about Azure Cosmos DB PITR. |
-| [Achieve high availability by using Azure Cosmos DB](/azure/reliability/reliability-cosmos-db-nosql) | Azure Cosmos DB provides multiple features and configuration options to achieve high availability. |
+| [Achieve high availability by using Azure Cosmos DB](/azure/reliability/reliability-cosmos-db) | Azure Cosmos DB provides multiple features and configuration options to achieve high availability. |
 | [High availability for Azure SQL Database and Azure SQL Managed Instance](/azure/azure-sql/database/high-availability-sla-local-zone-redundancy) | The database shouldn't be a single point of failure in your architecture. |
 
 ## Stay current with databases
@@ -189,15 +97,15 @@ Databases is a broad category and covers a range of solutions. The following res
 
 ### Hybrid and multicloud
 
-Most organizations need a hybrid approach to databases because they have workloads that run both on-premises and in the cloud. Organizations typically [extend on-premises database solutions to the cloud](/azure/architecture/databases/guide/hybrid-on-premises-and-cloud). To connect environments, organizations must [choose a hybrid network architecture](/azure/architecture/reference-architectures/hybrid-networking/index).
+Most organizations need a hybrid approach to databases because they have workloads that run both on-premises and in the cloud. Organizations typically [extend on-premises database solutions to the cloud](/azure/architecture/databases/guide/hybrid-on-premises-and-cloud). To connect environments, organizations must [choose a hybrid network architecture](/azure/architecture/reference-architectures/hybrid-networking/hybrid-connectivity-options).
 
-- [Azure Arc-enabled PostgreSQL](/azure/azure-arc/data/what-is-azure-arc-enabled-postgres-hyperscale): Run Azure-managed PostgreSQL on your infrastructure.
+- [Azure Arc-enabled PostgreSQL](/azure/azure-arc/data/what-is-azure-arc-enabled-postgresql): Run Azure-managed PostgreSQL on your infrastructure.
 - [Azure hybrid and multicloud patterns](/azure/architecture/hybrid/hybrid-start-here): Connect on-premises databases to cloud services.
 
 Review the following key hybrid database scenarios:
 
 - [Azure Arc hybrid management for SQL Server](../hybrid/azure-arc-sql-server.yml): Use Azure Arc to manage SQL Server across environments.
-- [Hybrid architecture design](../hybrid/hybrid-start-here.md): Connect on-premises environments to Azure.
+- [Get started with Azure hybrid and adaptive cloud architecture](../hybrid/hybrid-start-here.md): Connect on-premises environments to Azure.
 
 ### Mainframe data modernization
 

@@ -20,7 +20,7 @@ SUSE provides support with:
 - NetWeaver HA with Enqueue Replication Version (ENSA1)
 - S/4 HANA
 
-:::image type="content" source="../media/sap-workload-automation-suse-sles4sap-benefits.png" alt-text="Data flow of workload automation using SUSE on Azure" :::
+:::image type="content" source="../media/sap-workload-automation-suse-sles4sap-benefits.png" lightbox="../media/sap-workload-automation-suse-sles4sap-benefits.png" alt-text="Data flow of workload automation using SUSE on Azure" :::
 
 ## Architecture
 
@@ -73,7 +73,6 @@ Principal author:
 
 - [SAP on Azure](https://azure.microsoft.com/solutions/sap/)
 - [SAP workloads on Azure: planning and deployment checklist](/azure/virtual-machines/workloads/sap/sap-deployment-checklist?toc=/azure/architecture/toc.json&bc=/azure/architecture/bread/toc.json)
-- [Automated SAP/HA Deployments in Public/Private Clouds with Terraform](https://github.com/SUSE/ha-sap-terraform-deployments) (GitHub project)
 
 ### SUSE
 

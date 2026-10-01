@@ -149,4 +149,4 @@ The following patterns might be relevant when you implement this pattern:
 
 - The [Circuit Breaker pattern](./circuit-breaker.md) handles faults that take a variable amount of time to recover from, when you connect to a remote service or resource. This pattern can improve the stability and resiliency of an application.
 
-- The [Health Endpoint Monitoring pattern](./health-endpoint-monitoring.yml) implements functional checks in an application that external tools can access through exposed endpoints at regular intervals. This pattern can help you verify that applications and services are performing correctly.
+- The [Health Endpoint Monitoring pattern](./health-endpoint-monitoring.md) implements functional checks in an application that external tools can access through exposed endpoints at regular intervals. This pattern can help you verify that applications and services are performing correctly.

@@ -121,7 +121,7 @@ We recommend that you design an idempotent workload. The outcome of processing a
 
 Most interruptible workloads run applications. Applications need time to install and to start up. They also need time to connect to external storage and gather information from checkpoints. Have an application warmup period before you allow it to start processing. During the warmup period, the application should start, establish connections, and prepare to contribute. Only allow an application to start processing data after you validate the health of the application.
 
-:::image type="content" source="./media/lifecycle-spot-virtual-machine.png" alt-text="Diagram of the workload lifecycle with an application warmup period." border="false" lightbox="./media/lifecycle-spot-virtual-machine.png":::
+:::image type="content" source="./media/lifecycle-spot-virtual-machine.png" alt-text="Diagram of the workload lifecycle with an application warmup period." border="false":::
 
 ### Configure user-assigned managed identities
 

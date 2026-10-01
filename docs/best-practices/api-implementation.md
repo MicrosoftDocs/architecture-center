@@ -627,9 +627,9 @@ The web API should also provide a mechanism to return the results of the process
 You can implement a simple polling mechanism by providing a *polling* URI that acts as a virtual resource using the following approach:
 
 1. The client application sends the initial request to the web API.
-2. The web API stores information about the request in a table held in [Azure Table Storage](/azure/storage/tables) or [Azure Managed Redis](/azure/redis/overview) and generates a unique key for this entry, possibly in the form of a globally unique identifier (GUID). Alternatively, a message containing information about the request and the unique key could be sent via [Azure Service Bus](/azure/service-bus-messaging) as well.
+2. The web API stores information about the request in a table held in [Azure Table Storage](/azure/storage/tables/) or [Azure Managed Redis](/azure/redis/overview) and generates a unique key for this entry, possibly in the form of a globally unique identifier (GUID). Alternatively, a message containing information about the request and the unique key could be sent via [Azure Service Bus](/azure/service-bus-messaging/) as well.
 3. The web API initiates the processing as a [separate task](/dotnet/csharp/programming-guide/concepts/async/task-asynchronous-programming-model) or with a library like [Hangfire](https://www.hangfire.io). The web API records the state of the task in the table as *Running*.
-   - If you use Azure Service Bus, the message processing would be done separately from the API, possibly by using [Azure Functions](/azure/azure-functions) or [AKS](/azure/aks).
+   - If you use Azure Service Bus, the message processing is done separately from the API, possibly by using [Azure Functions](/azure/azure-functions/) or [AKS](/azure/aks/).
 4. The web API returns a response message with HTTP status code 202 (Accepted), and a URI containing the unique key generated - something like */polling/{guid}*.
 5. When the task has completed, the web API stores the results in the table, and it sets the state of the task to *Complete*. If the task fails, the web API could also store information about the failure and set the status to *Failed*.
    - Consider applying [retry techniques](/azure/architecture/patterns/retry) to resolve possibly transient failures.
@@ -719,7 +719,7 @@ You should also create and run performance tests to check that the web API opera
 
 ## Using Azure API Management
 
-On Azure, consider using [Azure API Management](/azure/api-management) to publish and manage a web API. Using this facility, you can generate a service that acts as a façade for one or more web APIs. The service is itself a scalable web service that you can create and configure by using the Azure portal. You can use this service to publish and manage a web API as follows:
+On Azure, consider using [Azure API Management](/azure/api-management/) to publish and manage a web API. Using this facility, you can generate a service that acts as a façade for one or more web APIs. The service is itself a scalable web service that you can create and configure by using the Azure portal. You can use this service to publish and manage a web API as follows:
 
 1. Deploy the web API to a hosting platform such as Azure App Service, Azure Container Apps, Azure Kubernetes Service (AKS), or Azure Virtual Machines.
 
@@ -741,7 +741,7 @@ On Azure, consider using [Azure API Management](/azure/api-management) to publis
 
 1. Configure policies for each web API. Policies govern aspects such as whether cross-domain calls should be allowed, how to authenticate clients, whether to convert between XML and JSON data formats transparently, whether to restrict calls from a given IP range, usage quotas, and whether to limit the call rate. Policies can be applied globally across the entire product, for a single web API in a product, or for individual operations in a web API.
 
-For more information, see the [API Management documentation](/azure/api-management).
+For more information, see the [API Management documentation](/azure/api-management/).
 
 > [!TIP]
 > Azure provides the Azure Traffic Manager which enables you to implement failover and load-balancing, and reduce latency across multiple instances of a web site hosted in different geographic locations. You can use Azure Traffic Manager in conjunction with the API Management Service; the API Management Service can route requests to instances of a web site through Azure Traffic Manager. For more information, see [Traffic Manager routing methods](/azure/traffic-manager/traffic-manager-routing-methods).
@@ -811,9 +811,9 @@ You can use this information to determine whether a particular web API or operat
 - [Introducing batch support in Web API and Web API OData](https://blogs.msdn.microsoft.com/webdev/2013/11/01/introducing-batch-support-in-web-api-and-web-api-odata) describes how to implement batch operations in a web API by using OData.
 - [Idempotent Consumer pattern](../patterns/idempotent-consumer.md#idempotent-processing-beyond-messaging) provides implementation guidance for tracking processed message IDs and handling duplicate delivery.
 - [Status code definitions](https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html) on the W3C website contains a full list of HTTP status codes and their descriptions.
-- [Run background tasks with WebJobs](/azure/app-service-web/web-sites-create-web-jobs) provides information and examples on using WebJobs to perform background operations.
+- [Run background tasks with WebJobs](/azure/app-service/webjobs-create) provides information and examples on using WebJobs to perform background operations.
 - [Azure Notification Hubs notify users](/azure/notification-hubs/notification-hubs-aspnet-backend-windows-dotnet-wns-notification) shows how to use an Azure Notification Hub to push asynchronous responses to client applications.
 - [API Management](https://azure.microsoft.com/services/api-management) describes how to publish a product that provides controlled and secure access to a web API.
-- [Azure API Management REST API reference](/rest/api/apimanagement) describes how to use the API Management REST API to build custom management applications.
+- [Azure API Management REST API reference](/rest/api/apimanagement/) describes how to use the API Management REST API to build custom management applications.
 - [Traffic Manager routing methods](/azure/traffic-manager/traffic-manager-routing-methods) summarizes how Azure Traffic Manager can be used to load-balance requests across multiple instances of a website hosting a web API.
 - [Enable Azure Monitor OpenTelemetry](/azure/azure-monitor/app/opentelemetry-enable) provides detailed information on configuring the Azure Monitor OpenTelemetry Distro to send telemetry to Application Insights.

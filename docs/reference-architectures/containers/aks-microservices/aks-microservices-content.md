@@ -269,6 +269,14 @@ Use a solution like Key Vault to get the following advantages:
 
 This architecture uses a managed identity for microservices to authenticate to Key Vault and access secrets.
 
+#### Restrict network access to PaaS resources
+
+This architecture uses [Azure Network Security Perimeter](/azure/private-link/network-security-perimeter-concepts#onboarded-private-link-resources) to restrict access to Service Bus and Key Vault. Associate `Microsoft.ServiceBus/namespaces` and `Microsoft.KeyVault/vaults` with a shared perimeter and deny public traffic by default.
+
+This architecture doesn't route egress through a NAT gateway or an egress firewall, so the AKS cluster has no static outbound IP address. Scope perimeter access rules by subscription (the subscription that hosts the AKS cluster) rather than by IP range, which requires a stable, known source IP to be effective. If you later adopt a solution like Azure Firewall with SNAT to give the cluster a static egress identity, you can scope the rules to that static IP instead.
+
+As an alternative, you can use [private endpoints](/azure/private-link/private-link-overview) for Service Bus and Key Vault. This approach removes public endpoint access for those resources and requires private DNS and private connectivity planning in your network design.
+
 #### Container and orchestrator security
 
 The following recommended practices can help secure your pods and containers:

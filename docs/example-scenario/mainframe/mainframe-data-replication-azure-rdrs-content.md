@@ -101,7 +101,7 @@ This architecture refers to the following networking services that you can use i
 
 - [ExpressRoute](/azure/well-architected/service-guides/azure-expressroute) is a service that extends your on-premises networks into the Microsoft Cloud over a private connection that a connectivity provider handles. You can use ExpressRoute to establish highly secure and reliable connections to cloud services such as Microsoft Azure and Microsoft 365. In this architecture, ExpressRoute provides a private, secure connection for data replication between the mainframe environment and Azure services.
 
-- [Microsoft Entra ID](/entra/fundamentals/whatis) is an identity and access management service that you can synchronize with an on-premises directory. In this architecture, Microsoft Entra ID provides authentication and access control for RDRS and Azure resources, including ODBC Driver authentication for Azure SQL.
+- [Microsoft Entra ID](/entra/fundamentals/what-is-entra) is an identity and access management service that you can synchronize with an on-premises directory. In this architecture, Microsoft Entra ID provides authentication and access control for RDRS and Azure resources, including ODBC Driver authentication for Azure SQL.
 
 #### Compute components
 
@@ -125,7 +125,7 @@ This architecture discusses the data migration to scalable, more secure cloud st
 
 #### Monitoring components
 
-- [Azure Monitor](/azure/azure-monitor/overview) is a comprehensive monitoring service that delivers a solution for collecting, analyzing, and acting on telemetry from cloud and on-premises environments. In this architecture, Azure Monitor provides monitoring capabilities for the RDRS replication processes and Azure resources.
+- [Azure Monitor](/azure/azure-monitor/fundamentals/overview) is a comprehensive monitoring service that delivers a solution for collecting, analyzing, and acting on telemetry from cloud and on-premises environments. In this architecture, Azure Monitor provides monitoring capabilities for the RDRS replication processes and Azure resources.
 
   - [Application Insights](/azure/well-architected/service-guides/application-insights) is a feature of Azure Monitor that provides application performance monitoring by collecting and analyzing application telemetry. In this architecture, Application Insights provides monitoring and diagnostics for the RDRS components and data replication processes.
 
@@ -173,6 +173,8 @@ Security provides assurances against deliberate attacks and the misuse of your v
 
 - Use ExpressRoute or a site-to-site VPN for a more private and efficient connection to Azure from an on-premises environment.
 
+- Use [Azure Network Security Perimeter (NSP)](/azure/private-link/network-security-perimeter-concepts#onboarded-private-link-resources) with private endpoints to reduce public endpoint exposure for PaaS resources used in this architecture, such as Event Hubs.
+
 - Authenticate Azure resources by using Microsoft Entra ID and manage permissions by using role-based access control.
 
 - Use the database services in Azure to support various security options like Transparent Data Encryption for data at rest, TLS for data in transit, and data encryption while processing to help ensure that your data is always encrypted. For more information, see [Azure security documentation](/azure/security) and [Security baselines for Azure](/security/benchmark/azure/security-baselines-overview).
@@ -212,7 +214,7 @@ Other contributors:
 ## Next steps
 
 - [Azure database migration guides](https://datamigration.microsoft.com/)
-- [Migration guide: SQL Server to Azure SQL Database](/training/modules/design-your-migration-to-azure/)
+- [Migration guide: SQL Server to Azure SQL Database](/data-migration/sql-server/database/guide)
 - [Training: Architect a data platform in Azure](/training/paths/architect-data-platform/)
 - [Training: Design a SQL Server migration strategy](/training/modules/introduction-data-platform-modernization/)
 

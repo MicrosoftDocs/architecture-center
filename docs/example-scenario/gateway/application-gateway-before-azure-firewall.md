@@ -287,7 +287,7 @@ Principal author:
 
 ## Next steps
 
-- [Secure networks with Zero Trust](/security/zero-trust/networks)
+- [Secure networks with Zero Trust](/security/zero-trust/deploy/networks)
 - [Virtual network traffic routing](/azure/virtual-network/virtual-networks-udr-overview)
 - [How an application gateway works](/azure/application-gateway/how-application-gateway-works)
 

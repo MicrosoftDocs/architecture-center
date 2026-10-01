@@ -83,6 +83,8 @@ The team decides to use the Messaging Bridge pattern to connect the two systems.
 
 When the implementation team uses this approach, they utilize existing infrastructure in the existing application to integrate with the new components. The existing application isn't aware that the new components are hosted in Azure. Similarly, the new components communicate with the legacy application in the same way that they communicate between themselves, by sending Service Bus messages. The bridge forwards messages between the two systems.
 
+You can find an implementation of this example in the [MSMQ-to-Service Bus sample](https://docs.particular.net/samples/bridge/azure-service-bus-msmq-bridge/), which uses the [NServiceBus Messaging Bridge](https://docs.particular.net/nservicebus/bridge).
+
 ## Contributors
 
 *This article is maintained by Microsoft. It was originally written by the following contributors.*

@@ -279,7 +279,7 @@ Microsoft Learn modules:
 
 ## Related resources
 
-- [Hybrid architecture design](../../hybrid/hybrid-start-here.md)
+- [Get started with Azure hybrid and adaptive cloud architecture](../../hybrid/hybrid-start-here.md)
 - [Extend an on-premises network using VPN](/azure/expressroute/expressroute-howto-coexist-resource-manager)
 
 <!-- links -->

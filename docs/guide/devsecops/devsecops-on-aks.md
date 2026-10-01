@@ -7,6 +7,7 @@ ms.date: 04/22/2026
 ms.reviewer: ssumner
 ms.topic: concept-article
 ms.subservice: architecture-guide
+ai-usage: ai-assisted
 ms.custom:
   - e2e-hybrid
   - kr2b-contr-experiment
@@ -14,22 +15,25 @@ ms.custom:
 
 # DevSecOps on Azure Kubernetes Service (AKS)
 
-DevSecOps, also called *Secure DevOps*, builds on the practice of DevOps by incorporating security at different stages of a traditional DevOps life cycle. Build security into DevOps practices to:
+DevSecOps, also called *Secure DevOps*, is the practice of integrating security at every stage of the software development life cycle (SDLC) within a DevOps workflow. DevSecOps on AKS applies this approach to containerized applications running on Azure Kubernetes Service, embedding automated security controls directly into CI/CD pipelines and cluster operations. Build security into DevOps practices to:
 
 - Make your applications and systems more secure, provide visibility into security threats, and prevent vulnerabilities from reaching deployed environments.
-
 - Increase security awareness among your development and operation teams.
-
 - Incorporate automated security processes into your software development life cycle (SDLC).
-
 - Reduce remediation costs by finding security problems early in development and design stages.
+
+## Key takeaways
+
+- **Shift-left security**: Integrate security checks early in development using IDE plugins, pre-commit hooks, and secure coding standards to catch vulnerabilities before code reaches production.
+- **Automated scanning**: Use static application security testing (SAST), software composition analysis (SCA), and secret scanning in CI pipelines to detect code vulnerabilities, insecure dependencies, and exposed credentials automatically.
+- **Policy enforcement**: Use Azure Policy to audit Azure Container Registry configurations. For AKS admission enforcement, use the Azure Policy add-on for AKS, which extends Gatekeeper.
+- **Continuous monitoring**: Implement runtime threat protection with Microsoft Defender for Containers, centralized logging with Azure Monitor, and SIEM integration with Microsoft Sentinel.
+- **Supply chain security**: Generate SBOMs, sign container images, and deploy only from trusted registries to maintain artifact integrity.
 
 When you apply DevSecOps to Azure Kubernetes Service (AKS), each organization role has specific security considerations:
 
 - Developers build secure applications that run on AKS.
-
 - Cloud engineers build secure AKS infrastructure.
-
 - Operations teams might govern clusters or monitor security problems.
 
 This article organizes guidance by DevOps life cycle stage and provides recommendations for security controls and best practices. It covers common processes and tools for continuous integration and continuous delivery (CI/CD) pipelines, with a focus on built-in tools.
@@ -195,7 +199,7 @@ Most popular IDEs, like Visual Studio, VS Code, IntelliJ IDEA, and Eclipse, supp
 
 - Prevent root user access or context for an image. By default, containers run as root.
 
-  For containers that need enhanced security, consider using an [AppArmor](/azure/aks/secure-container-access?pivots=apparmor#configure-an-apparmor-profile) or [seccomp](/azure/aks/secure-container-access?pivots=seccomp#configure-a-custom-seccomp-profile) profile within your Kubernetes cluster to further help enforce security for your running containers.
+  For containers that need enhanced security, consider using an [AppArmor](/azure/aks/secure-container-access?pivots=apparmor#configure-a-custom-apparmor-profile) or [seccomp](/azure/aks/secure-container-access?pivots=seccomp#configure-a-custom-seccomp-profile) profile within your Kubernetes cluster to further help enforce security for your running containers.
 
 ### Build phase
 
@@ -245,7 +249,7 @@ During the build phase, developers work with site reliability engineers and secu
 
 #### Best practice: Scan your workload images in container registries to identify known vulnerabilities
 
-- [Defender for Containers](/azure/defender-for-cloud/defender-for-containers-introduction#hardening) scans the containers in Container Registry and Amazon Elastic Container Registry (ECR) to notify you of known vulnerabilities in your images.
+- [Defender for Containers](/azure/defender-for-cloud/defender-for-containers-introduction#vulnerability-assessment) scans the containers in Container Registry and Amazon Elastic Container Registry (ECR) to notify you of known vulnerabilities in your images.
 
 - You can enable [Azure Policy](/azure/container-registry/container-registry-azure-policy) to do a vulnerability assessment on images stored in Container Registry and provide detailed information about each finding.
 
@@ -331,7 +335,7 @@ During this phase, perform operation monitoring and security monitoring tasks to
 
 #### Best practice: Use Azure Monitor for continuous monitoring and alerting
 
-- Use [Azure Monitor](/azure/azure-monitor/containers/kubernetes-monitoring-enable) to collect logs and metrics from AKS. Collect Prometheus metrics via [Azure Monitor managed service for Prometheus](/azure/azure-monitor/essentials/prometheus-metrics-overview), query container and platform logs in [Log Analytics](/azure/azure-monitor/logs/log-analytics-overview), and visualize cluster health through [Azure Managed Grafana](/azure/managed-grafana/overview) dashboards.
+- Use [Azure Monitor](/azure/azure-monitor/containers/kubernetes-monitoring-enable) to collect logs and metrics from AKS. Collect Prometheus metrics via [Azure Monitor managed service for Prometheus](/azure/azure-monitor/metrics/prometheus-metrics-overview), query container and platform logs in [Log Analytics](/azure/azure-monitor/logs/log-analytics-overview), and visualize cluster health through [Azure Managed Grafana](/azure/managed-grafana/overview) dashboards.
 
   - Azure Monitor extends continuous monitoring to release pipelines. Use monitoring data to approve or roll back releases. Azure Monitor also ingests security logs and alerts on suspicious activity.
 
@@ -351,7 +355,7 @@ During this phase, perform operation monitoring and security monitoring tasks to
 
 #### Best practice: Enable centralized log monitoring and use SIEM products to monitor for real-time security threats
 
-- Connect AKS diagnostics logs to Microsoft Sentinel for centralized security monitoring based on patterns and rules. Microsoft Sentinel enables this access via [data connectors](/azure/sentinel/data-connectors-reference#azure-kubernetes-service-aks).
+- Connect AKS diagnostics logs to Microsoft Sentinel for centralized security monitoring based on patterns and rules. Microsoft Sentinel enables this access via [data connectors](/azure/sentinel/data-connectors-reference).
 
 #### Best practice: Enable audit logging to monitor activity on your production clusters
 

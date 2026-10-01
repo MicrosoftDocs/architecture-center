@@ -111,7 +111,7 @@ A message broker adds resiliency to consumers in your system. If a consumer fail
 
 ### Large messages
 
-When your payload exceeds the message broker's size limit, or when consumers need to access large payloads only occasionally, use the [Claim-Check pattern](../../patterns/claim-check.yml). Store the large payload in an external store like Azure Blob Storage. Send the broker a message that includes a pointer to the stored payload. The consumer uses the pointer to retrieve the payload when needed. This approach prevents large datagrams from overwhelming the broker and consumers.
+When your payload exceeds the message broker's size limit, or when consumers need to access large payloads only occasionally, use the [Claim Check pattern](../../patterns/claim-check.md). Store the large payload in an external store like Azure Blob Storage. Send the broker a message that includes a pointer to the stored payload. The consumer uses the pointer to retrieve the payload when needed. This approach prevents large datagrams from overwhelming the broker and consumers.
 
 ## Technology choices for a message broker
 
@@ -326,11 +326,11 @@ Consider the following patterns when you implement asynchronous messaging:
 
 - [Retry pattern](../../patterns/retry.yml): Producers or consumers might temporarily lose connection to a queue because of transient failures. This pattern describes how to retry operations during transient failures to maintain application resiliency.
 
-- [Scheduler Agent Supervisor pattern](../../patterns/scheduler-agent-supervisor.yml): Workflows often require messaging to coordinate distributed services. This pattern demonstrates how messaging coordinates distributed actions and helps systems recover from failures by retrying failed operations.
+- [Scheduler Agent Supervisor pattern](../../patterns/scheduler-agent-supervisor.md): Workflows often require messaging to coordinate distributed services. This pattern demonstrates how messaging coordinates distributed actions and helps systems recover from failures by retrying failed operations.
 
 - [Choreography pattern](../../patterns/choreography.md): This pattern shows how services can use messaging to control the workflow of a business transaction.
 
-- [Claim-Check pattern](../../patterns/claim-check.yml): This pattern shows how to divide a large message into a claim check and a payload.
+- [Claim Check pattern](../../patterns/claim-check.md): This pattern shows how to divide a large message into a claim check and a payload.
 
 ## Community resources
 

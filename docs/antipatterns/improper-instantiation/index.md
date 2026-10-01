@@ -138,19 +138,19 @@ The following sections apply these steps to the sample application described ear
 
 The following image shows results generated using [New Relic APM][new-relic], showing operations that have a poor response time. In this case, the `GetProductAsync` method in the `NewHttpClientInstancePerRequest` controller is worth investigating further. Notice that the error rate also increases when these operations are running.
 
-![The New Relic monitor dashboard showing the sample application creating a new instance of an HttpClient object for each request][dashboard-new-HTTPClient-instance]
+:::image type="content" source="./_images/HttpClientInstancePerRequestWebTransactions.jpg" alt-text="The New Relic monitor dashboard showing the sample application creating a new instance of an HttpClient object for each request" lightbox="./_images/HttpClientInstancePerRequestWebTransactions.jpg" border="false":::
 
 ### Examine telemetry data and find correlations
 
 The next image shows data captured using thread profiling, over the same period corresponding as the previous image. The system spends a significant time opening socket connections, and even more time closing them and handling socket exceptions.
 
-![The New Relic thread profiler showing the sample application creating a new instance of an HttpClient object for each request][thread-profiler-new-HTTPClient-instance]
+:::image type="content" source="./_images/HttpClientInstancePerRequestThreadProfile.jpg" alt-text="The New Relic thread profiler showing the sample application creating a new instance of an HttpClient object for each request" lightbox="./_images/HttpClientInstancePerRequestThreadProfile.jpg" border="false":::
 
 ### Performing load testing
 
 Use load testing to simulate the typical operations that users might do. This can help to identify which parts of a system experience resource exhaustion under varying loads. Run these tests in a controlled environment rather than the production system. The following graph shows the throughput of requests handled by the `NewHttpClientInstancePerRequest` controller as the user load increases to 100 concurrent users.
 
-![Throughput of the sample application creating a new instance of an HttpClient object for each request][throughput-new-HTTPClient-instance]
+:::image type="content" source="./_images/HttpClientInstancePerRequest.jpg" alt-text="Throughput of the sample application creating a new instance of an HttpClient object for each request" lightbox="./_images/HttpClientInstancePerRequest.jpg" border="false":::
 
 At first, the volume of requests handled per second increases as the workload increases. At about 30 users, however, the volume of successful requests reaches a limit, and the system starts to generate exceptions. From then on, the volume of exceptions gradually increases with the user load.
 
@@ -158,7 +158,7 @@ The load test reported these failures as HTTP 500 (Internal Server) errors. Revi
 
 The next graph shows a similar test for a controller that creates the custom `ExpensiveToCreateService` object.
 
-![Throughput of the sample application creating a new instance of the ExpensiveToCreateService for each request][throughput-new-ExpensiveToCreateService-instance]
+:::image type="content" source="./_images/ServiceInstancePerRequest.jpg" alt-text="Throughput of the sample application creating a new instance of the ExpensiveToCreateService for each request" lightbox="./_images/ServiceInstancePerRequest.jpg" border="false":::
 
 This time, the controller doesn't generate any exceptions, but throughput still reaches a plateau, while the average response time increases by a factor of 20. (The graph uses a logarithmic scale for response time and throughput.) Telemetry showed that creating new instances of the `ExpensiveToCreateService` was the main cause of the problem.
 
@@ -166,22 +166,15 @@ This time, the controller doesn't generate any exceptions, but throughput still 
 
 After switching the `GetProductAsync` method to share a single `HttpClient` instance, a second load test showed improved performance. No errors were reported, and the system was able to handle an increasing load of up to 500 requests per second. The average response time was cut in half, compared with the previous test.
 
-![Throughput of the sample application reusing the same instance of an HttpClient object for each request][throughput-single-HTTPClient-instance]
+:::image type="content" source="./_images/SingleHttpClientInstance.jpg" alt-text="Throughput of the sample application reusing the same instance of an HttpClient object for each request" lightbox="./_images/SingleHttpClientInstance.jpg" border="false":::
 
 For comparison, the following image shows the stack trace telemetry. This time, the system spends most of its time performing real work, rather than opening and closing sockets.
 
-![The New Relic thread profiler showing the sample application creating single instance of an HttpClient object for all requests][thread-profiler-single-HTTPClient-instance]
+:::image type="content" source="./_images/SingleHttpClientInstanceThreadProfile.jpg" alt-text="The New Relic thread profiler showing the sample application creating single instance of an HttpClient object for all requests" lightbox="./_images/SingleHttpClientInstanceThreadProfile.jpg" border="false":::
 
 The next graph shows a similar load test using a shared instance of the `ExpensiveToCreateService` object. Again, the volume of handled requests increases in line with the user load, while the average response time remains low.
 
-![Graph showing a similar load test using a shared instance of the ExpensiveToCreateService object.][throughput-single-ExpensiveToCreateService-instance]
+:::image type="content" source="./_images/SingleServiceInstance.jpg" alt-text="Graph showing a similar load test using a shared instance of the ExpensiveToCreateService object." lightbox="./_images/SingleServiceInstance.jpg" border="false":::
 
 [service-bus-messaging]: /azure/service-bus-messaging/service-bus-performance-improvements
 [new-relic]: https://newrelic.com/products/application-monitoring
-[throughput-new-HTTPClient-instance]: ./_images/HttpClientInstancePerRequest.jpg
-[dashboard-new-HTTPClient-instance]: ./_images/HttpClientInstancePerRequestWebTransactions.jpg
-[thread-profiler-new-HTTPClient-instance]: ./_images/HttpClientInstancePerRequestThreadProfile.jpg
-[throughput-new-ExpensiveToCreateService-instance]: ./_images/ServiceInstancePerRequest.jpg
-[throughput-single-HTTPClient-instance]: ./_images/SingleHttpClientInstance.jpg
-[throughput-single-ExpensiveToCreateService-instance]: ./_images/SingleServiceInstance.jpg
-[thread-profiler-single-HTTPClient-instance]: ./_images/SingleHttpClientInstanceThreadProfile.jpg

@@ -182,7 +182,7 @@ The following sections describe what Contoso must do for DR events of varying sc
         - Availability zone failure: Not applicable
         - Azure regional failure: Contoso must redeploy the Event Hubs instance in the secondary region.
     - Notes:
-        - When you use the Azure portal, zone redundancy is [automatically turned on](/azure/event-hubs/event-hubs-geo-dr#availability-zones). You can turn it off by using the Azure CLI or PowerShell.
+        - When you use the Azure portal, zone redundancy is [automatically turned on](/azure/reliability/reliability-event-hubs#configure-availability-zone-support). You can turn it off by using the Azure CLI or PowerShell.
         - Zone redundancy provides local resilience during a zone outage. For region-wide disruptions, use the [Event Hubs geo-disaster recovery](/azure/event-hubs/event-hubs-geo-dr) feature to restore operations in a secondary region.
 
 - **Azure IoT Hub**
@@ -253,7 +253,7 @@ The following sections describe what Contoso must do for DR events of varying sc
       - Azure regional failure: Contoso must wait for confirmation from Microsoft before they publish or edit.
     - Notes:
       - You don't need to initiate failover. The Power BI team [handles failover](/fabric/enterprise/powerbi/service-admin-failover#how-does-microsoft-decide-to-fail-over-) when they declare an outage. Be aware of these constraints during failover:
-          - A failed-over instance [only supports read operations](/fabric/enterprise/powerbi/service-admin-failover#what-is-a-power-bi-failover-). Reports that use Direct Query or Live Connect [don't work during a failover](/fabric/enterprise/powerbi/service-admin-failover#do-gateways-function-in-failover-mode--).
+          - A failed-over instance [only supports read operations](/fabric/enterprise/powerbi/service-admin-failover#what-is-a-power-bi-failover-). Reports that use Direct Query or Live Connect [don't work during a failover](/fabric/enterprise/powerbi/service-admin-failover#do-gateways-function-in-failover-mode-).
           - Don't publish or modify reports until Microsoft confirms that the failover instance is writable or the primary region is restored.
           - On-premises data refreshes through Power BI gateways are paused.
 

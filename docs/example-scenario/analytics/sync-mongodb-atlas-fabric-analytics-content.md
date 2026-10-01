@@ -43,7 +43,7 @@ The following data flow corresponds to the previous diagram:
 
 - [OneLake](/fabric/onelake/onelake-overview) is the unified, open data lake for Fabric that provides centralized storage for all Fabric workloads. In this architecture, it functions as the initial landing zone for change data and the shared storage layer that downstream Fabric services access.
 
-- [Lakehouses](/fabric/data-warehouse/get-started-lakehouse-sql-analytics-endpoint) in Fabric are unified data platforms that combine data lake storage with analytics and SQL querying capabilities over Delta tables. In this architecture, a lakehouse exposes the mirrored Delta tables and provides built-in T‑SQL access for analytics and querying.
+- [Lakehouses](/fabric/data-engineering/lakehouse-sql-analytics-endpoint-use-cases) in Fabric are unified data platforms that combine data lake storage with analytics and SQL querying capabilities over Delta tables. In this architecture, a lakehouse exposes the mirrored Delta tables and provides built-in T‑SQL access for analytics and querying.
 
 - [Semantic models](/fabric/data-warehouse/semantic-models) in Fabric are Power BI datasets that define business-friendly metadata and relationships to support analytical queries and reporting. In this architecture, the lakehouse automatically generates them to accelerate Power BI reporting and analytics.
 

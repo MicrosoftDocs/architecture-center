@@ -1,0 +1,23 @@
+### YamlMime:Architecture
+metadata:
+  title: AI Inferencing With Silk Virtual SAN
+  description: Run real-time AI inferencing on live data without compromising stability or performance by using a Silk Cloud Data Platform virtual SAN deployed on Azure IaaS.
+  author: JLansdaal
+  ms.author: jaylansdaal
+  ms.date: 08/31/2026
+  ms.topic: example-scenario
+  ms.collection: ce-skilling-ai-copilot
+  ms.subservice: example-scenario
+  ms.custom: arb-aiml
+azureCategories:
+  - ai-machine-learning
+products:
+  - azure-machine-learning
+  - fabric
+  - azure-kubernetes-service
+  - azure-virtual-machines
+name: AI inferencing with Silk virtual SAN
+summary: Run real-time AI inferencing on live data without compromising stability or performance by using a Silk Cloud Data Platform virtual SAN deployed on Azure IaaS.
+thumbnailUrl: /azure/architecture/browse/thumbs/silk-inferencing-workflow-example.png
+content: |
+   [!INCLUDE[](ai-inferencing-on-azure-iaas-content.md)]

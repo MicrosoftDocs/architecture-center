@@ -92,7 +92,7 @@ Consider the following points as you decide how to implement this pattern:
 
 - **Poison messages:** A malformed message, or a task that requires access to unavailable resources, can cause a service instance to fail. Capture and store these message details elsewhere for analysis. Some message brokers, like Service Bus, support this process through [dead-letter queues](/azure/service-bus-messaging/service-bus-dead-letter-queues).
 
-- **Message size:** Brokers enforce message size limits. When payloads are large, store the content, like files or images, in an external data store and include a reference in the message. The [Claim-Check pattern](claim-check.yml) describes this approach.
+- **Message size:** Brokers enforce message size limits. When payloads are large, store the content, like files or images, in an external data store and include a reference in the message. The [Claim Check pattern](claim-check.md) describes this approach.
 
 - **Delivery guarantees and duplicate messages:** Messaging systems provide different delivery guarantees that each have trade-offs.
 

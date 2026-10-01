@@ -97,7 +97,7 @@ Background jobs are especially prone to running more than once for the same logi
 
 You can host background tasks by using a diverse range of Azure platform services:
 
-- **[Azure Functions](#functions):** A serverless compute service that supports event-driven and schedule-driven triggers with automatic scaling. Use [Durable Functions](/azure/azure-functions/durable/durable-functions-overview) for long-running or stateful workflows.
+- **[Azure Functions](#functions):** A serverless compute service that supports event-driven and schedule-driven triggers with automatic scaling. Use [Durable Functions](/azure/durable-task/durable-functions/durable-functions-overview) for long-running or stateful workflows.
 
 - **[Azure Container Apps](#container-apps):** A serverless container platform that supports both long-running services and discrete [jobs](/azure/container-apps/jobs). Jobs run to completion, and you can trigger them manually, on a schedule, or by events. Container Apps uses [KEDA](https://keda.sh/) for event-driven autoscaling, including scale to zero.
 
@@ -115,7 +115,7 @@ The following sections describe these options in more detail and include conside
 
 Functions is a serverless compute service that runs event-driven code. Functions suits background jobs because it supports diverse types of [triggers](/azure/azure-functions/functions-triggers-bindings), including queue messages, blob storage changes, timer schedules, HTTP requests, and Event Grid events.
 
-For short-duration background tasks, Functions provides automatic scaling (including scale to zero) and pay-per-execution billing. For long-running or stateful workflows, use [Durable Functions](/azure/azure-functions/durable/durable-functions-overview), which extends Functions with orchestration capabilities.
+For short-duration background tasks, Functions provides automatic scaling (including scale to zero) and pay-per-execution billing. For long-running or stateful workflows, use [Durable Functions](/azure/durable-task/durable-functions/durable-functions-overview), which extends Functions with orchestration capabilities.
 
 Durable Functions supports several orchestration patterns that directly apply to background job coordination:
 
@@ -139,7 +139,7 @@ Durable Functions supports several orchestration patterns that directly apply to
 
   - **Dedicated (App Service) plan:** Run functions on existing App Service infrastructure. This option is suitable when you have underutilized App Service capacity and want to share compute costs.
 
-- Durable Functions maintains orchestration state automatically through checkpointing. If a function app restarts, the orchestration resumes from its last checkpoint. Design activity functions to be [idempotent](/azure/azure-functions/durable/durable-functions-perf-and-scale) so that retries don't produce duplicate side effects. You can also use [timer triggers](/azure/azure-functions/functions-bindings-timer) to run functions on a schedule without an external event source.
+- Durable Functions maintains orchestration state automatically through checkpointing. If a function app restarts, the orchestration resumes from its last checkpoint. Design activity functions to be [idempotent](/azure/durable-task/durable-functions/durable-functions-perf-and-scale) so that retries don't produce duplicate side effects. You can also use [timer triggers](/azure/azure-functions/functions-bindings-timer) to run functions on a schedule without an external event source.
 
 ### Container Apps
 
@@ -207,7 +207,7 @@ Consider the following points when you deploy background tasks in an Azure VM:
 
 - The Azure portal has no built-in facility to monitor individual tasks and no automated restart capability for failed tasks. You can monitor the basic status of the VM and manage it by using [Azure PowerShell cmdlets](/powershell/azure/get-started-azureps), but you need to implement your own mechanisms to collect instrumentation data from the task and operating system. Use the [Azure Monitor Agent](/azure/azure-monitor/agents/azure-monitor-agent-overview) to collect logs and metrics from the VM.
 
-- Create monitoring probes exposed through HTTP endpoints. The code for these probes should perform health checks, collect operational information and statistics, or collate error information and return it to a management application. For more information, see the [Health Endpoint Monitoring pattern](../patterns/health-endpoint-monitoring.yml).
+- Create monitoring probes exposed through HTTP endpoints. The code for these probes should perform health checks, collect operational information and statistics, or collate error information and return it to a management application. For more information, see the [Health Endpoint Monitoring pattern](../patterns/health-endpoint-monitoring.md).
 
 ### App Service WebJobs
 
@@ -261,7 +261,7 @@ It can be challenging to coordinate tasks, but three common patterns can guide y
 
 - **Divide a task into multiple reusable steps.** A background job processes information through several stages like validate, transform, and store. You can divide this flow into discrete filters connected by queues. Each step runs independently and can scale or be used in different jobs. For more information, see the [Pipes and Filters pattern](../patterns/pipes-and-filters.yml).
 
-- **Manage how the steps run for a task.** A background job composed of several steps that call remote services or access remote resources needs orchestration logic to sequence the steps, handle timeouts, and track progress. For more information, see [Scheduler Agent Supervisor pattern](../patterns/scheduler-agent-supervisor.yml).
+- **Manage how the steps run for a task.** A background job composed of several steps that call remote services or access remote resources needs orchestration logic to sequence the steps, handle timeouts, and track progress. For more information, see [Scheduler Agent Supervisor pattern](../patterns/scheduler-agent-supervisor.md).
 
 - **Manage recovery for task steps that fail.** A background job that spans multiple steps (which together define an eventually consistent operation) might need to undo completed work if a later step fails. For more information, see the [Compensating Transaction pattern](../patterns/compensating-transaction.md).
 
@@ -269,7 +269,7 @@ It can be challenging to coordinate tasks, but three common patterns can guide y
 
 Background tasks must be resilient and recoverable to provide reliable services to the application. When you plan and design background tasks, consider the following points:
 
-- Background tasks must gracefully handle restarts without corrupting data or introducing inconsistency into the application. For long-running or multistep tasks, consider using *checkpointing* by saving job state in persistent storage or in queue messages when suitable. For example, you can persist state information in a queue message and update this state incrementally with task progress so that the task resumes from the last known good checkpoint instead of restarting from the beginning. When you use Service Bus queues, you can use [message sessions](/azure/service-bus-messaging/message-sessions) to save and retrieve application processing state. For more information about designing reliable multistep processes and workflows, see the [Scheduler Agent Supervisor pattern](../patterns/scheduler-agent-supervisor.yml).
+- Background tasks must gracefully handle restarts without corrupting data or introducing inconsistency into the application. For long-running or multistep tasks, consider using *checkpointing* by saving job state in persistent storage or in queue messages when suitable. For example, you can persist state information in a queue message and update this state incrementally with task progress so that the task resumes from the last known good checkpoint instead of restarting from the beginning. When you use Service Bus queues, you can use [message sessions](/azure/service-bus-messaging/message-sessions) to save and retrieve application processing state. For more information about designing reliable multistep processes and workflows, see the [Scheduler Agent Supervisor pattern](../patterns/scheduler-agent-supervisor.md).
 
 - Design background tasks to shut down gracefully when the hosting platform signals termination. Deployments, scale-in events, and platform maintenance can stop a running instance at any time. When a background task receives a termination signal while it runs (like `SIGTERM` in containers), it should stop accepting new work, finish or checkpoint the current work item, and exit cleanly. For queue-driven tasks, graceful shutdown means to complete the current message before the process exits so that the message isn't redelivered unnecessarily. If the task can't finish in time, it should checkpoint its progress or let the message visibility timeout expire so that another instance processes the work.
 
@@ -307,7 +307,7 @@ Background jobs run without a user present, so failures are silent unless you ac
 
 - **Measure queue wait time, not only processing time.** Business impact is determined by how long a message takes from enqueue to completion. For example, a job that processes in 2 seconds but sits in the queue for 30 minutes causes a 30-minute delay. Track enqueue-to-completion latency alongside per-job processing duration.
 
-- **Correlate across job steps.** Multistep background jobs can span multiple services, queues, and compute instances. Propagate a correlation identifier through every step so that you can trace the full life cycle of a single work item in your logs and [distributed traces](/azure/azure-monitor/app/classic-api).
+- **Correlate across job steps.** Multistep background jobs can span multiple services, queues, and compute instances. Propagate a correlation identifier through every step so that you can trace the full life cycle of a single work item in your logs and [distributed traces](/azure/azure-monitor/app/app-map).
 
 ## Scaling and performance considerations
 
@@ -334,7 +334,7 @@ Background tasks must keep pace with the rate at which work arrives. If tasks fa
 - [Queue-Based Load Leveling pattern](../patterns/queue-based-load-leveling.md)
 - [Priority Queue pattern](../patterns/priority-queue.md)
 - [Pipes and Filters pattern](../patterns/pipes-and-filters.yml)
-- [Scheduler Agent Supervisor pattern](../patterns/scheduler-agent-supervisor.yml)
+- [Scheduler Agent Supervisor pattern](../patterns/scheduler-agent-supervisor.md)
 - [Compensating Transaction pattern](../patterns/compensating-transaction.md)
 - [Leader Election pattern](../patterns/leader-election.yml)
 - [Competing Consumers pattern](../patterns/competing-consumers.md)

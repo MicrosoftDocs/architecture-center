@@ -1,0 +1,55 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 860 460" font-family="Segoe UI, Arial, sans-serif" role="img" aria-label="Application Gateway WAF_v2 with HTTPS backend settings and certificate validation">
+  <rect width="860" height="460" fill="#fff"/>
+  <defs>
+    <marker id="arrow" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto" markerUnits="strokeWidth">
+      <path d="M0,0 L8,3 L0,6 Z" fill="#5c5c5c"/>
+    </marker>
+  </defs>
+
+  <!-- Client -->
+  <rect x="20" y="150" width="150" height="80" rx="6" fill="#eef3fb" stroke="#0072c6" stroke-width="1.5"/>
+  <text x="95" y="185" text-anchor="middle" font-size="15" font-weight="600" fill="#1a1a1a">Client</text>
+  <text x="95" y="207" text-anchor="middle" font-size="12" fill="#4a4a4a">HTTPS request</text>
+
+  <!-- Application Gateway -->
+  <rect x="310" y="30" width="240" height="410" rx="6" fill="#e6f2e6" stroke="#3a8f3a" stroke-width="1.5"/>
+  <text x="430" y="58" text-anchor="middle" font-size="15" font-weight="600" fill="#1a1a1a">Application Gateway</text>
+  <text x="430" y="82" text-anchor="middle" font-size="14" fill="#1a1a1a">WAF_v2</text>
+  <line x1="328" y1="100" x2="532" y2="100" stroke="#3a8f3a" stroke-width="1" stroke-dasharray="3,3"/>
+  <text x="430" y="140" text-anchor="middle" font-size="12" fill="#333">HTTPS listener (port 443)</text>
+  <text x="430" y="168" text-anchor="middle" font-size="12" fill="#333">TLS certificate</text>
+  <text x="430" y="196" text-anchor="middle" font-size="12" fill="#333">WAF policy</text>
+  <text x="430" y="224" text-anchor="middle" font-size="12" fill="#333">Routing rule</text>
+  <text x="430" y="266" text-anchor="middle" font-size="12" font-weight="600" fill="#333">Backend HTTP settings</text>
+  <text x="430" y="290" text-anchor="middle" font-size="12" fill="#333">HTTPS (port 443)</text>
+  <text x="430" y="314" text-anchor="middle" font-size="12" fill="#333">Certificate trust and hostname</text>
+  <text x="430" y="332" text-anchor="middle" font-size="12" fill="#333">validation</text>
+  <text x="430" y="374" text-anchor="middle" font-size="11" fill="#555">Terminates TLS,</text>
+  <text x="430" y="392" text-anchor="middle" font-size="11" fill="#555">inspects and routes,</text>
+  <text x="430" y="410" text-anchor="middle" font-size="11" fill="#555">then re-encrypts</text>
+
+  <!-- Backends -->
+  <text x="765" y="22" text-anchor="middle" font-size="14" font-weight="600">Backend pool</text>
+  <rect x="690" y="40" width="150" height="70" rx="6" fill="#eef3fb" stroke="#0072c6" stroke-width="1.5"/>
+  <text x="765" y="70" text-anchor="middle" font-size="13" font-weight="600" fill="#1a1a1a">Backend server 1</text>
+  <text x="765" y="90" text-anchor="middle" font-size="11" fill="#4a4a4a">HTTPS</text>
+
+  <rect x="690" y="155" width="150" height="70" rx="6" fill="#eef3fb" stroke="#0072c6" stroke-width="1.5"/>
+  <text x="765" y="185" text-anchor="middle" font-size="13" font-weight="600" fill="#1a1a1a">Backend server 2</text>
+  <text x="765" y="205" text-anchor="middle" font-size="11" fill="#4a4a4a">HTTPS</text>
+
+  <rect x="690" y="270" width="150" height="70" rx="6" fill="#eef3fb" stroke="#0072c6" stroke-width="1.5"/>
+  <text x="765" y="300" text-anchor="middle" font-size="13" font-weight="600" fill="#1a1a1a">Backend server 3</text>
+  <text x="765" y="320" text-anchor="middle" font-size="11" fill="#4a4a4a">HTTPS</text>
+
+  <!-- Client -> Gateway -->
+  <line x1="170" y1="190" x2="310" y2="190" stroke="#5c5c5c" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <text x="240" y="180" text-anchor="middle" font-size="11" fill="#333">TLS-encrypted</text>
+
+  <!-- Gateway -> Backends -->
+  <line x1="550" y1="150" x2="690" y2="75" stroke="#5c5c5c" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <line x1="550" y1="190" x2="690" y2="190" stroke="#5c5c5c" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <line x1="550" y1="230" x2="690" y2="305" stroke="#5c5c5c" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <text x="620" y="163" text-anchor="middle" font-size="11" fill="#333">TLS</text>
+  <text x="620" y="178" text-anchor="middle" font-size="11" fill="#333">(re-encrypted)</text>
+</svg>

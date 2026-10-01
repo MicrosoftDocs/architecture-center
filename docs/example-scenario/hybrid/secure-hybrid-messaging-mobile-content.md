@@ -117,12 +117,12 @@ For federated domains, you can configure AD FS to trigger multifactor authentica
 
 ## Components
 
-- [Microsoft Entra ID](/entra/fundamentals/whatis). Microsoft Entra ID is a Microsoft cloud-based identity and access management service. It provides modern authentication that's essentially based on EvoSTS (a Security Token Service used by Microsoft Entra ID). It's used as an authentication server for Exchange Server on-premises.
+- [Microsoft Entra ID](/entra/fundamentals/what-is-entra). Microsoft Entra ID is a Microsoft cloud-based identity and access management service. It provides modern authentication that's essentially based on EvoSTS (a Security Token Service used by Microsoft Entra ID). It's used as an authentication server for Exchange Server on-premises.
 - [Microsoft Entra multifactor authentication](/entra/identity/authentication/howto-mfa-getstarted). Multifactor authentication is a process in which users are prompted during the sign-in process for another form of identification, like a code on their cellphone or a fingerprint scan.
 - [Microsoft Entra Conditional Access](/entra/identity/conditional-access/overview). Conditional Access is the feature that Microsoft Entra ID uses to enforce organizational policies like multifactor authentication.
-- [AD FS](/windows-server/identity/active-directory-federation-services). AD FS enables federated identity and access management by sharing digital identity and entitlements rights across security and enterprise boundaries with improved security. In these architectures, it's used to facilitate sign-in for users with federated identity.
+- [AD FS](/windows-server/identity/ad-fs/ad-fs-overview). AD FS enables federated identity and access management by sharing digital identity and entitlements rights across security and enterprise boundaries with improved security. In these architectures, it's used to facilitate sign-in for users with federated identity.
 - [Web Application Proxy](/windows-server/remote/remote-access/web-application-proxy/web-application-proxy-in-windows-server). Web Application Proxy pre-authenticates access to web applications by using AD FS. It also functions as an AD FS proxy.
-- [Microsoft Intune](/mem/intune/fundamentals/what-is-intune). Intune is our cloud-based unified endpoint management, managing endpoints across Windows, Android, Mac, iOS, and Linux operating systems.
+- [Microsoft Intune](/intune/fundamentals/what-is-intune). Intune is our cloud-based unified endpoint management, managing endpoints across Windows, Android, Mac, iOS, and Linux operating systems.
 - [Exchange Server](/exchange/exchange-server). Exchange Server hosts user mailboxes on-premises. In these architectures, it uses tokens issued to the user by Microsoft Entra ID to authorize access to mailboxes.
 - [Active Directory services](/windows-server/identity/ad-ds/get-started/virtual-dc/active-directory-domain-services-overview). Active Directory services stores information about members of a domain, including devices and users. In these architectures, user accounts belong to Active Directory services and are synchronized to Microsoft Entra ID.
 
@@ -208,7 +208,7 @@ For information about the resiliency of the components in this architecture, see
 
 Security provides assurances against deliberate attacks and the misuse of your valuable data and systems. For more information, see [Design review checklist for Security](/azure/well-architected/security/checklist).
 
-For general guidance about security on mobile devices, see [Protect data and devices with Microsoft Intune](/mem/intune/protect/device-protect).
+For general guidance about security on mobile devices, see [Protect data and devices with Microsoft Intune](/intune/device-security/).
 
 For information about security and hybrid modern authentication, see [Deep Dive: How Hybrid Authentication Really Works](https://techcommunity.microsoft.com/t5/exchange-team-blog/deep-dive-how-hybrid-authentication-really-works/ba-p/606780).
 
@@ -233,7 +233,7 @@ For information about AD FS and Web Application Proxy, see [Pricing and licensin
 
 For more pricing information, see these resources:
 
-- [Microsoft Intune pricing](/mem/intune/fundamentals/licenses)
+- [Microsoft Intune pricing](/intune/fundamentals/licensing)
 - [Exchange Online plans](https://www.microsoft.com/microsoft-365/exchange/compare-microsoft-exchange-online-plans)
 - [Exchange server pricing](https://www.microsoft.com/microsoft-365/exchange/microsoft-exchange-licensing-faq-email-for-business)
 
@@ -252,7 +252,7 @@ For information about on-premises factors that influence performance for scenari
 
 For information about AD FS scalability, see [Planning for AD FS server capacity](/windows-server/identity/ad-fs/design/planning-for-ad-fs-server-capacity).
 
-For information about Exchange Server on-premises scalability, see [Exchange 2019 preferred architecture](/exchange/plan-and-deploy/deployment-ref/preferred-architecture-2019).
+For information about Exchange Server on-premises scalability, see [Exchange 2019 preferred architecture](/exchange/plan-and-deploy/deployment-ref/preferred-architecture).
 
 ## Deploy this scenario
 
@@ -279,7 +279,7 @@ Principal authors:
 - [Hybrid modern authentication overview and prerequisites for use with on-premises Exchange servers](/microsoft-365/enterprise/hybrid-modern-auth-overview?view=o365-worldwide)
 - [Use AD FS claims-based authentication with Outlook on the web](/exchange/clients/outlook-on-the-web/ad-fs-claims-based-auth?view=exchserver-2019)
 - [How to configure Exchange Server on-premises to use Hybrid Modern Authentication](/microsoft-365/enterprise/configure-exchange-server-for-hybrid-modern-authentication?view=o365-worldwide)
-- [Exchange 2019 preferred architecture](/exchange/plan-and-deploy/deployment-ref/preferred-architecture-2019)
+- [Exchange 2019 preferred architecture](/exchange/plan-and-deploy/deployment-ref/preferred-architecture)
 - [High availability cross-geographic AD FS deployment in Azure with Azure Traffic Manager](/windows-server/identity/ad-fs/deployment/active-directory-adfs-in-azure-with-azure-traffic-manager)
 - [Using hybrid Modern Authentication with Outlook for iOS and Android](/exchange/clients/outlook-for-ios-and-android/use-hybrid-modern-auth?view=exchserver-2019)
 - [Account setup with modern authentication in Exchange Online](/exchange/clients-and-mobile-in-exchange-online/outlook-for-ios-and-android/setup-with-modern-authentication)

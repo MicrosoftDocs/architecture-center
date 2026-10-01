@@ -38,7 +38,7 @@ If you have a mission-critical workload and need to mitigate the risk of a regio
 > [!TIP]
 > For many workloads, a zone-redundant architecture provides the best set of tradeoffs. Consider a multi-region architecture if your business requirements indicate that you need to mitigate the unlikely risk of a region-wide outage, and if you're prepared to accept the tradeoffs involved in such an approach.
 
-To learn more about how to design your solution to use availability zones and regions, see [Recommendations for using availability zones and regions](/azure/well-architected/reliability/regions-availability-zones).
+To learn more about how to design your solution to use availability zones and regions, see [Recommendations for using availability zones and regions](/azure/well-architected/design-guides/regions-availability-zones).
 
 **Place VMs behind a load balancer**. Don't use a single VM for mission-critical workloads. Instead, place multiple VMs behind a load balancer. If any VM becomes unavailable, the load balancer distributes traffic to the remaining healthy VMs.
 
@@ -75,6 +75,6 @@ To achieve this, disable the primary endpoint after failover. If the monitoring 
 <!-- links -->
 
 [cosmos-db-geo-replication]: /azure/cosmos-db/distribute-data-globally
-[sql-always-on]: /sql/database-engine/availability-groups/windows/always-on-availability-groups-sql-server?view=sql-server-ver15&preserve-view=true
-[sql-geo-replication]: /azure/sql-database/sql-database-geo-replication-overview
-[Health Endpoint Monitoring pattern]: ../../patterns/health-endpoint-monitoring.yml
+[sql-always-on]: /sql/database-engine/availability-groups/windows/overview-of-always-on-availability-groups-sql-server?view=sql-server-ver15&preserve-view=true
+[sql-geo-replication]: /azure/azure-sql/database/failover-group-sql-db?view=azuresql
+[Health Endpoint Monitoring pattern]: ../../patterns/health-endpoint-monitoring.md
