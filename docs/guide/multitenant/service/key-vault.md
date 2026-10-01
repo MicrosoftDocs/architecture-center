@@ -111,7 +111,7 @@ For more information, see the following resources:
 - [Integrate Key Vault with Azure Policy](/azure/key-vault/general/azure-policy?tabs=certificates)
 - [Azure Policy built-in definitions for Key Vault](/azure/key-vault/policy-reference)
 
-### Key Vault Managed HSM and Azure Cloud HSM
+## Azure Key Vault Managed HSM and Azure Cloud HSM
 
 When Key Vault operation limits aren't enough for your cryptographic workload, consider [Managed HSM](/azure/key-vault/managed-hsm/overview). Each Managed HSM instance is dedicated to a single customer and provides reserved capacity, but it costs more than Key Vault. Managed HSM stores only keys, so you still need another store for secrets and certificates. Plan for the limits on the number of instances that you can deploy in each region.
 
