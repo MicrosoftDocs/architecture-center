@@ -84,7 +84,7 @@ Private endpoint limits can also affect a shared vault. Key Vault limits the num
 
 #### Access control
 
-When an application identity can access multiple tenants' secrets, a compromise of that identity can expose all of those secrets. Prefer separate vaults when you need to enforce a security boundary between tenants. For more information, see [Key Vault security guidance](/azure/key-vault/general/secure-key-vault).
+When an application identity can access multiple tenants' secrets, a compromise of that identity can expose all of those secrets. Prefer separate vaults along with isolated applications when you need to enforce a security boundary between tenants. For more information, see [Key Vault security guidance](/azure/key-vault/general/secure-key-vault).
 
 A naming convention, like a tenant ID prefix, helps your application locate tenant-specific secrets, keys, and certificates in a shared vault. But naming conventions don't enforce access control. Authorize each request against the tenant's context before you access the corresponding object, and restrict the application's permissions to the objects that it needs.
 
