@@ -113,7 +113,7 @@ Develop IoT devices that connect to Azure by using SDKs, protocols, and developm
 
 Industrial IoT solutions connect OT systems to cloud analytics and management platforms for industrial and manufacturing IoT implementations.
 
-- [Implement the Azure industrial IoT reference solution architecture](/azure/iot/tutorial-iot-industrial-solution-architecture): Deploy an end-to-end industrial IoT solution by using Azure IoT Operations, [Azure Data Explorer](/azure/data-explorer/data-explorer-overview), and OPC UA for manufacturing scenarios such as condition monitoring, Overall Equipment Effectiveness (OEE) calculation, and anomaly detection.
+- [Implement the Azure industrial IoT reference solution architecture](/azure/architecture/guide/iot/iot-industrial-solution-architecture): Deploy an end-to-end industrial IoT solution by using Azure IoT Operations, [Azure Data Explorer](/azure/data-explorer/data-explorer-overview), and OPC UA for manufacturing scenarios such as condition monitoring, Overall Equipment Effectiveness (OEE) calculation, and anomaly detection.
 
 ### IoT security
 

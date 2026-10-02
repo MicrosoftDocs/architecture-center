@@ -26,7 +26,7 @@ The following data flow corresponds to the previous diagram:
 1. The AI model is uploaded to Azure Blob Storage or a web service. The model can be a pre-trained LiteRT or ONNX model or a model created in Azure Machine Learning. The IoT Edge module can access this model and download it to the edge device later. If you need better security, consider using private endpoint connections between Blob Storage and the edge device.
 2. Azure IoT Hub syncs device module twins automatically with AI model information. The sync occurs even if IoT Edge has been offline. (In some cases, IoT devices are connected to networks at scheduled hourly, daily, or weekly times to save power or reduce network traffic.)
 3. The loader module monitors the updates of the module twins via API. When it detects an update, it gets the machine learning model SAS token and then downloads the AI model.
-    - For more information, see [Create SAS token for a container or blob](/azure/storage/blobs/sas-service-create).
+    - For more information, see [Create SAS token for a container or blob](/azure/storage/blobs/sas-service-create-dotnet).
     - You can use the **ExpiresOn** property to set the expiration date of resources. If your device is expected to be offline for a long time, you can extend the expiration time.
 4. The loader module saves the AI model in the shared local storage of the IoT Edge module. You need to configure the shared local storage in the IoT Edge deployment JSON file.
 5. The loader module loads the AI model from local storage via the LiteRT or ONNX API.
@@ -287,7 +287,7 @@ Other contributor:
 
 - [Understand and use module twins in IoT Hub](/azure/iot-hub/iot-hub-devguide-module-twins)
 - [Learn how to deploy modules and establish routes in IoT Edge](/azure/iot-edge/module-composition)
-- [Give modules access to a device's local storage](/azure/iot-edge/how-to-access-host-storage-from-module#link-module-storage-to-device-storage)
+- [Give modules access to a device's local storage](/azure/iot-edge/how-to-access-host-storage-from-module#link-module-storage-to-device-storage-for-custom-modules)
 - [Understand IoT Edge automatic deployments for single devices or at scale](/azure/iot-edge/module-deployment-monitoring)
 - [Open Neural Network Exchange](https://onnx.ai/)
 - [ONNX Tutorials](https://github.com/onnx/tutorials)
