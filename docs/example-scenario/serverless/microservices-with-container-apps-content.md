@@ -56,7 +56,7 @@ The workload uses the following Azure services in coordination with each other:
 
 - [Service Bus](/azure/well-architected/service-guides/azure-service-bus) is a cloud messaging service that provides asynchronous communication capabilities and hybrid integration. In this architecture, it handles asynchronous messaging between the ingestion service and the task-based, workflow microservice. The rest of the services in the existing application are designed so other services can invoke them with HTTP requests.
 
-- [Azure Managed Redis](/azure/redis/overview) is an in-memory caching service. In this architecture, it reduces latency and improves throughput for frequently accessed drone delivery data.
+- [Azure Managed Redis](/azure/well-architected/service-guides/azure-managed-redis) is an in-memory caching service. In this architecture, it reduces latency and improves throughput for frequently accessed drone delivery data.
 
 - [Key Vault](/azure/key-vault/general/overview) is a cloud service for securely storing and accessing secrets such as API keys, passwords, and certificates. In this architecture, the drone scheduler and delivery services use user-assigned managed identities to authenticate with Key Vault and retrieve secrets needed for their runtime requirements.
 

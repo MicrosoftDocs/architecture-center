@@ -29,7 +29,7 @@ The numbered circles in the diagram correspond to the numbered steps in the foll
 
 - [Azure Blob Storage](/azure/well-architected/service-guides/azure-blob-storage) is a cloud object storage service that provides scalable and secure REST-based object storage for cloud-native workloads, archives, data lakes, high-performance computing, and machine learning. In this architecture, Blob Storage provides scalable storage for batch processing input, output, and intermediate data files.
 
-- [Azure Managed Redis](/azure/redis/overview) provides an in-memory data store based on Redis Enterprise software. In this architecture, Azure Managed Redis provides high-speed temporary storage for batch processing state and intermediate results.
+- [Azure Managed Redis](/azure/well-architected/service-guides/azure-managed-redis) provides an in-memory data store based on Redis Enterprise software. In this architecture, Azure Managed Redis provides high-speed temporary storage for batch processing state and intermediate results.
 
 - [Azure Cosmos DB](/azure/well-architected/service-guides/cosmos-db) is a globally distributed multiple-model NoSQL database that has open APIs for any scale. In this architecture, Azure Cosmos DB provides scalable NoSQL storage for batch processing metadata and working data.
 

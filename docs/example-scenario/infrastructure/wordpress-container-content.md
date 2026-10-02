@@ -31,7 +31,7 @@ The following data flow corresponds to the previous diagram:
 
 - [AKS](/azure/well-architected/service-guides/azure-kubernetes-service) is a managed Kubernetes service for deploying, managing, and scaling containerized applications. In this architecture, AKS hosts the WordPress containers and provides the orchestration platform for high availability and scalability.
 
-- [Azure Managed Redis](/azure/redis/overview) is a managed in-memory data store and caching service. In this architecture, all pods share an Azure Managed Redis cache. WordPress performance optimization plugins use this cache to reduce response times.
+- [Azure Managed Redis](/azure/well-architected/service-guides/azure-managed-redis) is a managed in-memory data store and caching service. In this architecture, all pods share an Azure Managed Redis cache. WordPress performance optimization plugins use this cache to reduce response times.
 
 - [Azure Database for MySQL flexible server](/azure/well-architected/service-guides/azure-database-for-mysql) is a managed relational database service based on the open-source MySQL database engine. In this architecture, this database stores WordPress data.
 

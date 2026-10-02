@@ -32,7 +32,7 @@ The following data flow corresponds to the previous diagram:
 
 - [App Service](/azure/well-architected/service-guides/app-service-web-apps) is a fully managed platform for building and hosting web applications. In this architecture, it runs a web app that visualizes processed results from the PostgreSQL database.
 
-- [Azure Managed Redis](/azure/redis/overview) provides an in-memory data store based on Redis Enterprise software. In this architecture, it temporarily stores processed data from AKS microservices to accelerate access and reduce latency.
+- [Azure Managed Redis](/azure/well-architected/service-guides/azure-managed-redis) provides an in-memory data store based on Redis Enterprise software. In this architecture, it temporarily stores processed data from AKS microservices to accelerate access and reduce latency.
 
 - [Azure Cosmos DB](/azure/well-architected/service-guides/cosmos-db) is a globally distributed NoSQL database service. In this architecture, it stores ingested data from AKS microservices.
 

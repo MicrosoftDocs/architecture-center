@@ -49,7 +49,7 @@ Azure Monitor collects telemetry for application requests, function executions, 
 
 In this architecture, the following components work together to implement application-managed write-through caching for data that requires low-latency reads and application-controlled read-after-write behavior.
 
-- [Azure Managed Redis](/azure/redis/overview) is an in-memory data store that provides high-throughput, low-latency access to cached data. In this architecture, it stores frequently accessed data, such as entity records, read models, configuration values, metadata, and precomputed API responses. The workload uses Redis to reduce read latency and SQL read load. Redis is a derived data store, not the commit authority.
+- [Azure Managed Redis](/azure/well-architected/service-guides/azure-managed-redis) is an in-memory data store that provides high-throughput, low-latency access to cached data. In this architecture, it stores frequently accessed data, such as entity records, read models, configuration values, metadata, and precomputed API responses. The workload uses Redis to reduce read latency and SQL read load. Redis is a derived data store, not the commit authority.
 
 - [App Service](/azure/well-architected/service-guides/app-service-web-apps) is a managed platform for hosting web applications, APIs, and mobile back ends. In this architecture, it hosts the web application and read path. App Service performs cache lookups, populates Redis on cache misses, and calls Functions for writes. App Service doesn't write directly to SQL Database for write-through operations, so the workload has one controlled write path.
 

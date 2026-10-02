@@ -1054,9 +1054,9 @@ items:
             href: hybrid/azure-arc-sql-server.yml
         - name: Azure Local infrastructure
           items:
-          - name: Azure Local baseline
+          - name: Azure Local hyperconverged baseline
             href: hybrid/azure-local-baseline.yml
-          - name: Azure Local storage switchless
+          - name: Azure Local hyperconverged storage switchless
             href: hybrid/azure-local-switchless.yml
         - name: Azure Local workloads
           items:

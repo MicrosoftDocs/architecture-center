@@ -131,7 +131,7 @@ This solution uses the following components.
 
 - The [Web Apps feature of App Service](/azure/well-architected/service-guides/app-service-web-apps) provides a fully managed hosting environment to build, deploy, and scale web apps and APIs. To code reusable background business logic as web jobs, you can use [WebJobs](/azure/app-service/webjobs-create). In this architecture, WebJobs provides a background batch processing platform.
 
-- [Azure Managed Redis](/azure/redis/overview) is a fully managed in-memory caching service that scales and delivers highly optimized performance by using an in-memory data store like Redis. In this architecture, Azure Managed Redis provides high-speed caching to improve the performance of reengineered batch applications.
+- [Azure Managed Redis](/azure/well-architected/service-guides/azure-managed-redis) is a fully managed in-memory caching service that scales and delivers highly optimized performance by using an in-memory data store like Redis. In this architecture, Azure Managed Redis provides high-speed caching to improve the performance of reengineered batch applications.
 
 #### Storage
 
