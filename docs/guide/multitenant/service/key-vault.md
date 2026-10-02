@@ -117,9 +117,6 @@ When Key Vault operation limits aren't enough for your cryptographic workload, c
 
 [Azure Cloud HSM](/azure/cloud-hsm/overview) suits a different scenario. Choose it when an application that runs on virtual machines needs direct HSM access through interfaces such as PKCS#11. Cloud HSM is an infrastructure as a service (IaaS) offering, and it doesn't integrate with Azure platform as a service (PaaS) or software as a service (SaaS) services. For customer-managed keys in Azure services, use Managed HSM instead.
 
-> [!IMPORTANT]
-> Azure Dedicated HSM is being retired. Microsoft will fully support existing Dedicated HSM customers until July 31, 2028. No new customer onboardings are accepted. Azure Cloud HSM is generally available and is the successor to Azure Dedicated HSM. If you use Dedicated HSM, see [Migrate from Azure Dedicated HSM to Managed HSM or Azure Cloud HSM](/azure/dedicated-hsm/migration-guide).
-
 For more information, see the following resources:
 
 - [Choose the right Azure key management solution](/azure/security/fundamentals/key-management-choose)
