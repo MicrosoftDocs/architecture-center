@@ -32,7 +32,7 @@ The resources in the App Service Environment subnets in this architecture match 
 
 The App Service Environment resides in the virtual network, so a virtual machine (VM) serves a jump box in the virtual network to facilitate deployment. For enhanced security and Remote Desktop Protocol (RDP) and Secure Shell (SSH) connectivity, consider using [Azure Bastion](/azure/bastion/bastion-overview) for the jump box.
 
-- [Azure Managed Redis](/azure/redis/overview) is a zone-redundant service. A zone-redundant cache runs on VMs deployed across multiple availability zones. In this architecture, Azure Managed Redis provides higher resilience and availability.
+- [Azure Managed Redis](/azure/well-architected/service-guides/azure-managed-redis) is a zone-redundant service. A zone-redundant cache runs on VMs deployed across multiple availability zones. In this architecture, Azure Managed Redis provides higher resilience and availability.
 
 ## Considerations
 

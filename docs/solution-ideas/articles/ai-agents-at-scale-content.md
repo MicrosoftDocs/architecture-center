@@ -38,7 +38,7 @@ The following workflow corresponds to the previous diagram:
 
 - [Azure OpenAI](/azure/foundry/foundry-models/concepts/models-sold-directly-by-azure) is a managed AI service that provides REST API access to OpenAI language models and embeddings. In this solution, agents use these models to process requests, generate responses, and select appropriate agents from shortlisted candidates.
 
-- [Azure Managed Redis](/azure/redis/overview) is a fully managed, in-memory data store based on Redis Enterprise that supports high-throughput and low-latency data access. In this solution, Azure Managed Redis stores conversation context and chat history to support multiturn interactions with minimal latency.
+- [Azure Managed Redis](/azure/well-architected/service-guides/azure-managed-redis) is a fully managed, in-memory data store based on Redis Enterprise that supports high-throughput and low-latency data access. In this solution, Azure Managed Redis stores conversation context and chat history to support multiturn interactions with minimal latency.
 
 - [Application Insights](/azure/azure-monitor/app/app-insights-overview) is an application performance management (APM) feature that provides monitoring and diagnostics for cloud applications. In this solution, it collects telemetry from all components via OpenTelemetry. This process supports end-to-end observability of agent interactions, performance metrics, and system health.
 
