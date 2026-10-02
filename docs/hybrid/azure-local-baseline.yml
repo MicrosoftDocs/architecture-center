@@ -1,21 +1,22 @@
 ### YamlMime:Architecture
 metadata:
-  title: Azure Local Baseline Reference Architecture
-  description: Learn how to design Azure Local for highly available virtualized and containerized workloads, focusing on reliability and security.
+  title: Azure Local Hyperconverged Baseline Reference Architecture
+  description: Learn how to design a connected, highly available Azure Local deployment that uses hyperconverged storage and storage-switched networking.
   author: neilbird
   ms.author: nebird
-  ms.date: 10/13/2025
+  ms.date: 09/30/2026
   ms.topic: reference-architecture
   ms.subservice: reference-architecture
+  ai-usage: ai-assisted
   ms.category:
     - hybrid
     - management-and-governance
   ms.custom: arb-hybrid
-name: Azure Local baseline reference architecture
+name: Azure Local hyperconverged baseline reference architecture
 azureCategories:
   - hybrid
   - management-and-governance
-summary: Learn how to design Azure Local for highly available virtualized and containerized workloads.
+summary: Learn how to design a connected, highly available Azure Local deployment that uses hyperconverged storage and storage-switched networking.
 products:
   - azure-local
   - azure-arc
