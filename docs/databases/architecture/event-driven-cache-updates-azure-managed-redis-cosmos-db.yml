@@ -1,0 +1,27 @@
+### YamlMime:Architecture
+metadata:
+  title: Event-Driven Cache Updates with Azure Managed Redis and Azure Cosmos DB
+  description: Find out how to update Azure Managed Redis asynchronously from committed changes in Azure Cosmos DB by using Azure Functions and the change feed.
+  author: redis-phil
+  ms.author: b-philipl
+  ms.date: 09/03/2026
+  ms.topic: example-scenario
+  ms.subservice: example-scenario
+  ai-usage: ai-assisted
+  ms.custom:
+    - arb-web
+    - arb-data
+name: Event-driven cache updates with Azure Managed Redis and Azure Cosmos DB
+azureCategories:
+  - databases
+  - web
+summary: Update cached values in Azure Managed Redis from committed Azure Cosmos DB changes without adding the cache update to the application write path.
+products:
+  - azure-app-service
+  - azure-functions
+  - azure-cosmos-db
+  - azure-managed-redis
+  - azure-monitor
+thumbnailUrl: /azure/architecture/browse/thumbs/event-driven-cache-updates-azure-managed-redis-cosmos-db.png
+content: |
+  [!INCLUDE[](event-driven-cache-updates-azure-managed-redis-cosmos-db-content.md)]
