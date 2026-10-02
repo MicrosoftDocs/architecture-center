@@ -176,7 +176,7 @@ az network vnet subnet show --resource-group <<resource-group>> --vnet-name <<vn
 
 Ensure that the command returns no value. The following example shows the result for a *GatewaySubnet* instance that has an assigned NSG (*VPN-Gateway-Group*). NSGs on *GatewaySubnet* aren't supported, so remove the NSG association regardless of its rules.
 
-```console
+```azurecli
 az network vnet subnet show --resource-group profx-prod-rg --vnet-name profx-vnet --name GatewaySubnet --query networkSecurityGroup.id --output tsv
 
 /subscriptions/########-####-####-####-############/resourceGroups/profx-prod-rg/providers/Microsoft.Network/networkSecurityGroups/VPN-Gateway-Group
