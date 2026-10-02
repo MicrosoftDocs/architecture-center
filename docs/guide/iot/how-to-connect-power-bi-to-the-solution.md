@@ -29,7 +29,7 @@ The diagram shows an industrial data pipeline from edge assets to business repor
 
 To create the Power BI dashboard, complete the following steps:
 
-1. Install [Power BI Desktop](/power-bi/fundamentals/desktop-latest-update).
+1. Install [Power BI Desktop](/power-bi/fundamentals/desktop-get-the-desktop).
 1. Sign in to Power BI Desktop with the user account that has access to the Power BI subscription.
 1. In the Azure portal, go to the **ontologies** Azure Data Explorer database and grant **Viewer** permission to the Microsoft Entra ID user who connects from Power BI.
 1. In Power BI, create a new report and select Azure Data Explorer time-series data as a data source: **Get data** > **Azure** > **Azure Data Explorer (Kusto)**.

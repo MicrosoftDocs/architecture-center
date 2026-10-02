@@ -176,7 +176,7 @@ To send data to on-premises SAP systems from Logic Apps, you can use a Microsoft
 
 To install the on-premises data gateway:
 
-1. Follow the steps in [Install an on-premises data gateway](/azure/logic-apps/logic-apps-gateway-install).
+1. Follow the steps in [Install on-premises data gateway for workflows in Azure Logic Apps](/azure/logic-apps/install-on-premises-data-gateway-workflows).
 
 1. Follow the steps in [SAP Connector for Microsoft .NET](https://support.sap.com/en/product/connectors/msnet.html) to install the SAP Connector for Microsoft .NET 3.0 for Windows x64. SAP download access for the SAP portal is required. Contact SAP support if you don't have access.
 
@@ -186,7 +186,7 @@ To install the on-premises data gateway:
 
 1. Create the on-premises data gateway Azure resource in the same Azure region that you selected during the data gateway installation. Select the name of your data gateway in **Installation Name**.
 
-    For more information, see [Connect to SAP from workflows in Azure Logic Apps](/azure/logic-apps/logic-apps-using-sap-connector).
+    For more information, see [Connect to SAP from workflows in Azure Logic Apps](/azure/logic-apps/connectors/sap).
 
     > [!NOTE]
     > If you encounter errors with the data gateway or the SAP connector, [enable debug tracing](/archive/blogs/david_burgs_blog/enable-sap-nco-library-loggingtracing-for-azure-on-premises-data-gateway-and-the-sap-connector).
