@@ -42,6 +42,7 @@ safe-outputs:
       - crzywabbit
       - cynthiatreger
       - DanielCrawford
+      - daphnemamsft
       - david-stanford
       - davidsmatlak
       - davihern
