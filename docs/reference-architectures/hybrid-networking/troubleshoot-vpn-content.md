@@ -174,7 +174,7 @@ You can view the subnet details using the following Azure CLI command:
 az network vnet subnet show --resource-group <<resource-group>> --vnet-name <<vnet-name>> --name GatewaySubnet --query networkSecurityGroup.id --output tsv
 ```
 
-Ensure that the command returns no value. The following example shows the result for an instance of the *GatewaySubnet* that has an assigned NSG (*VPN-Gateway-Group*). This can prevent the gateway from working correctly if there are any rules defined for this NSG.
+Ensure that the command returns no value. The following example shows the result for a *GatewaySubnet* instance that has an assigned NSG (*VPN-Gateway-Group*). NSGs on *GatewaySubnet* aren't supported, so remove the NSG association regardless of its rules.
 
 ```console
 C:\> az network vnet subnet show --resource-group profx-prod-rg --vnet-name profx-vnet --name GatewaySubnet --query networkSecurityGroup.id --output tsv
