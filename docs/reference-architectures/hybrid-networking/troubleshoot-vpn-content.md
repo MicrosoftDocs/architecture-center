@@ -197,7 +197,7 @@ Get-AzVirtualNetworkGatewayConnection -Name <<connection-name>> -ResourceGroupNa
 The following snippets highlight the output generated if the gateway is connected (the first example), and disconnected (the second example):
 
 ```powershell
-PS C:\> Get-AzVirtualNetworkGatewayConnection -Name profx-gateway-connection -ResourceGroupName profx-prod-rg
+Get-AzVirtualNetworkGatewayConnection -Name profx-gateway-connection -ResourceGroupName profx-prod-rg
 
 AuthorizationKey           :
 VirtualNetworkGateway1     : Microsoft.Azure.Commands.Network.Models.PSVirtualNetworkGateway
@@ -215,7 +215,7 @@ ProvisioningState          : Succeeded
 ```
 
 ```powershell
-PS C:\> Get-AzVirtualNetworkGatewayConnection -Name profx-gateway-connection2 -ResourceGroupName profx-prod-rg
+Get-AzVirtualNetworkGatewayConnection -Name profx-gateway-connection2 -ResourceGroupName profx-prod-rg
 
 AuthorizationKey           :
 VirtualNetworkGateway1     : Microsoft.Azure.Commands.Network.Models.PSVirtualNetworkGateway
