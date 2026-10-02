@@ -146,7 +146,7 @@ evaluate http_request(uri, headers)
     Value = dynamic("[Future]")
 ```
 
-To view a graphical representation of an OPC UA information model, use the [Kusto Explorer tool](/kusto/tools/kusto-explorer?view=azure-data-explorer&preserve-view=true). To render the station model, run the following query in Kusto Explorer. For best results, change the `Layout` option to `Grouped` and the `Labels` to `name`:
+To view a graphical representation of an OPC UA information model, use the [Kusto Explorer tool](/kusto/tools/kusto-explorer). To render the station model, run the following query in Kusto Explorer. For best results, change the `Layout` option to `Grouped` and the `Labels` to `name`:
 
 ```kql
 let uri='https://uacloudlibrary.opcfoundation.org/infomodel/download/1627266626';
