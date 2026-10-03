@@ -46,7 +46,7 @@ Identify how many devices you need to deploy so that you can choose the right Az
 
 **Determine data exchange requirements.** A solution that sends basic telemetry such as current temperature once per hour differs from a solution that uploads 1-MB sample files once every 10 minutes. A one-way, device-to-cloud (D2C) solution differs from a bidirectional D2C and cloud-to-device (C2D) solution. Also, product scalability limitations treat message size and message quantity as different dimensions.
 
-**Document expected high availability and disaster recovery requirements.** Like any production solution, full IoT solution designs include availability, or uptime, requirements. The design needs to cover both planned maintenance scenarios and unplanned downtime, including user errors, environmental factors, and solution bugs. The design also needs a documented [recovery point objective (RPO)](/azure/cloud-adoption-framework/manage/considerations/protect#recovery-point-objectives-rpo) and recovery time objective (RTO) if a disaster occurs, such as a permanent region loss or malicious actors. This article focuses on device scale, so it includes only limited information about high availability and disaster recovery concerns.
+**Document expected high availability and disaster recovery requirements.** Like any production solution, full IoT solution designs include availability, or uptime, requirements. The design needs to cover both planned maintenance scenarios and unplanned downtime, including user errors, environmental factors, and solution bugs. The design also needs a documented [recovery point objective (RPO)](/azure/cloud-adoption-framework/manage/protect) and recovery time objective (RTO) if a disaster occurs, such as a permanent region loss or malicious actors. This article focuses on device scale, so it includes only limited information about high availability and disaster recovery concerns.
 
 **Decide on a customer tenancy model if appropriate.** In a multitenant software development company solution, where the solution developer creates a solution for external customers, the design must define how to segregate and manage customer data. For more information, see [Tenancy models](../multitenant/considerations/tenancy-models.md) and the related [IoT-specific guidance](../multitenant/approaches/iot.md).
 
@@ -117,7 +117,7 @@ Beyond network and quota problems, you should also consider Azure service outage
 
 - **Metadata location:** Although device location doesn't usually affect metadata location because devices interact with solution *data* and not solution *metadata*, compliance and cost concerns affect metadata location. In many cases, convenience dictates that the metadata location is the same as the data location for regional services.
 
-The Azure Cloud Adoption Framework includes [guidance about regional selection](/azure/cloud-adoption-framework/migrate/azure-best-practices/multiple-regions).
+The Azure Cloud Adoption Framework includes [guidance about regional selection](/azure/cloud-adoption-framework/ready/azure-setup-guide/regions).
 
 **Understand software company SaaS concerns.** Software companies that offer SaaS solutions should meet customers' expectations for availability and resiliency. Software companies must architect Azure services to be highly available and consider the cost of resiliency and redundancy when billing the customer.
 
@@ -243,7 +243,7 @@ Scalable device design requires following best practices and device-side conside
 
 **Estimate workloads across different parts of the device life cycle and scenarios within the life cycle.** Device registration workloads can vary greatly between development phases, such as pilot, development, production, decommissioning, and end of life. In some cases, they can also vary based on external factors such as the previously mentioned blackout scenario. Design for the worst-case workload to help ensure success at scale.
 
-**Support reprovisioning on demand.** Provide this feature through a device command and an administrative user request. For more information, see [Reprovision devices](/azure/iot-dps/concepts-deploy-at-scale#reprovision-devices). This option facilitates transfer-of-ownership scenarios and factory-default scenarios.
+**Support reprovisioning on demand.** Provide this feature through a device command and an administrative user request. For more information, see [Reprovision devices](/azure/iot-dps/concepts-deploy-at-scale#reconnect-vs-reprovision-a-device). This option facilitates transfer-of-ownership scenarios and factory-default scenarios.
 
 **Avoid unnecessary reprovisioning.** Active, working devices rarely require reprovisioning because provisioning information remains relatively static. Don't reprovision without a good reason.
 

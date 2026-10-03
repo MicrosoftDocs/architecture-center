@@ -140,6 +140,7 @@ safe-outputs:
       - moorthyannadurai
       - mootpointer
       - ms-amsolo
+      - msdaphne
       - msetbar
       - msftrobiro
       - msimecek
@@ -197,6 +198,7 @@ safe-outputs:
       - shubhamsangal-msft
       - simonesavi
       - simonthurman
+      - singhjyoti075
       - sjuratov
       - slavatrofimov
       - soderholmd

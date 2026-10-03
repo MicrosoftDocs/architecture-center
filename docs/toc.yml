@@ -971,8 +971,11 @@ items:
           href: example-scenario/mainframe/rehost-ims-raincode-imsql.yml
       - name: In-memory data stores
         items:
+        - name: Event-driven cache updates with Azure Managed Redis and Azure Cosmos DB
+          displayName: change feed, Functions
+          href: databases/architecture/event-driven-cache-updates-azure-managed-redis-cosmos-db.yml
         - name: Write-through caching with Azure Managed Redis and Azure SQL Database
-          displayName: cache, write-through, Azure Functions, Azure SQL Database, Azure Managed Redis, Redis
+          displayName: cache, Functions
           href: databases/architecture/write-through-caching-azure-sql-managed-redis.yml
       - name: Relational
         items:
