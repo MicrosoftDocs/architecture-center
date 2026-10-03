@@ -112,7 +112,7 @@ The following resources can help you discover more about management and governan
 
 - [Microsoft Cost Management documentation](/azure/cost-management-billing/costs/): Explains how to monitor, allocate, and optimize cloud spending with budgets, alerts, and cost analysis.
 
-- [Management and monitoring for an Azure VMware Solution enterprise-scale scenario](/azure/cloud-adoption-framework/scenarios/azure-vmware/eslz-management-and-monitoring): Outlines recommendations for management and monitoring design in Azure VMware Solution environments. Covers Azure-native tooling and VMware-specific considerations for platform and guest workload monitoring.
+- [Operational standards for Azure VMware Solution](/azure/cloud-adoption-framework/azure-vmware-solution/operations-health-management): Outlines recommendations for management and monitoring design in Azure VMware Solution environments. Covers Azure-native tooling and VMware-specific considerations for platform and guest workload monitoring.
 
 - [Computer forensics chain of custody in Azure](../../example-scenario/forensics/index.yml): Describes an infrastructure and workflow process to help teams provide digital evidence that demonstrates a valid chain of custody by using Azure Automation, immutable blob storage, and Azure Key Vault.
 

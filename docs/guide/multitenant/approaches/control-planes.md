@@ -129,7 +129,7 @@ The tenant catalog is usually stored in a database. You don't directly work with
 
 You typically create a set of control plane components to support your tenant administrative functions. These components can include an administrative portal or other user interface, an API, and background processing components. If you need to deploy code or infrastructure when tenant life cycle events occur, you can also add deployment pipelines to your control plane.
 
-Ensure that long-running processing uses appropriate tooling. For example, you might use [Durable Functions](/azure/azure-functions/durable/durable-functions-overview) or [Azure Logic Apps](/azure/logic-apps/logic-apps-overview) for components that orchestrate tenant onboarding, manage deployments, or require communication with external systems.
+Ensure that long-running processing uses appropriate tooling. For example, you might use [Durable Functions](/azure/durable-task/durable-functions/durable-functions-overview) or [Azure Logic Apps](/azure/logic-apps/logic-apps-overview) for components that orchestrate tenant onboarding, manage deployments, or require communication with external systems.
 
 Like the low-code approach, this approach enables you to provide self-service sign-up to your customers. Your web application can directly add records to your tenant catalog without human intervention.
 
@@ -163,7 +163,7 @@ Even if you eventually want to automate your control plane, you don't necessaril
 
 - **Relying on manual processes for too long:** Manual processes work well when you start out or have a low number of tenants and require lightweight management. But you need to plan how to scale to an automated solution as you grow. If you need to hire more team members to keep up with the demand of your manual processes, consider automating parts of your control plane.
 
-- **Using inappropriate tools for long-running workflows:** Don't use tools that have runtime limits, such as standard Azure functions or synchronous API calls, for long-running operations like Azure Resource Manager deployments or multistep orchestration. Instead, use tools that support long-running workflows or sequences of operations, like [Logic Apps](/azure/logic-apps/logic-apps-overview) and [Durable Functions](/azure/azure-functions/durable/durable-functions-overview). For more information, see [Azure Functions performance and reliability](/azure/azure-functions/performance-reliability) and [Asynchronous Request-Reply pattern](/azure/architecture/patterns/asynchronous-request-reply).
+- **Using inappropriate tools for long-running workflows:** Don't use tools that have runtime limits, such as standard Azure functions or synchronous API calls, for long-running operations like Azure Resource Manager deployments or multistep orchestration. Instead, use tools that support long-running workflows or sequences of operations, like [Logic Apps](/azure/logic-apps/logic-apps-overview) and [Durable Functions](/azure/durable-task/durable-functions/durable-functions-overview). For more information, see [Azure Functions performance and reliability](/azure/azure-functions/performance-reliability) and [Asynchronous Request-Reply pattern](/azure/architecture/patterns/asynchronous-request-reply).
 
 ## Contributors
 
