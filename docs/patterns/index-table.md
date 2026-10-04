@@ -1,7 +1,7 @@
 ---
 title: Index Table Pattern
 description: Find out how to use the Index Table pattern to improve query performance by creating indexes over data store fields that queries frequently reference.
-author: anaharris-ms
+author: claytonsiemens77
 ms.author: pnp
 ms.date: 06/09/2026
 ms.topic: design-pattern

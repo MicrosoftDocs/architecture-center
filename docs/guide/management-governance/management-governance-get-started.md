@@ -2,7 +2,7 @@
 title: Get Started with Management and Governance Architecture Design
 description: Get an overview of Azure management and governance technologies, guidance offerings, solution ideas, and reference architectures.
 ms.author: pnp
-author: anaharris-ms
+author: claytonsiemens77
 ms.update-cycle: 1095-days
 ms.topic: concept-article
 ms.subservice: category-get-started

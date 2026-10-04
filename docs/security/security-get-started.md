@@ -2,7 +2,7 @@
 title: Get Started with Security Architecture Design
 description: Get an overview of Azure security technologies and security architecture design, including solution ideas and reference architectures.
 ms.author: pnp
-author: anaharris-ms
+author: claytonsiemens77
 ms.update-cycle: 1095-days
 ms.topic: concept-article
 ms.subservice: category-get-started
