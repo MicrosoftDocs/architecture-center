@@ -2262,11 +2262,11 @@
 		</g>
 		<g id="shape1181-377" v:mID="1181" v:groupContext="shape" transform="translate(210.23,539.338) rotate(-90)">
 			<title>Sheet.1181</title>
-			<desc>Azure Security Benchmark</desc>
+			<desc>MCSB v2 (preview)</desc>
 			<v:textBlock v:margins="rect(4,4,4,4)"/>
 			<v:textRect cx="89.9262" cy="931.051" width="179.86" height="13.8127"/>
 			<rect x="0" y="924.145" width="179.852" height="13.8127" class="st8"/>
-			<text x="24.51" y="934.65" class="st13" v:langID="1033"><v:paragraph v:horizAlign="1"/><v:tabList/>Azure Security Benchmark</text>		</g>
+			<text x="45" y="934.65" class="st13" v:langID="1033"><v:paragraph v:horizAlign="1"/><v:tabList/>MCSB v2 (preview)</text>		</g>
 		<g id="shape1182-380" v:mID="1182" v:groupContext="shape" transform="translate(-905.77,357.528) rotate(-90)">
 			<title>Sheet.1182</title>
 			<desc>Azure</desc>

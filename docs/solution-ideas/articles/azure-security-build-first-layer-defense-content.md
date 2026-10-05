@@ -18,7 +18,7 @@ Diagram that shows how Zero Trust pillars map to Azure security controls across 
 
 *This image incorporates concepts and terminology from the MITRE ATT&CK® Framework developed by [The MITRE Corporation](https://attack.mitre.org/index.html). ATT&CK® is a registered trademark of The MITRE Corporation.*
 
-The Azure security layer shown in this diagram aligns with the Azure Security Benchmark (ASB) v3, which defines the Microsoft recommended security controls across identity, networking, compute, data, and governance.
+The Azure security layer shown in this diagram aligns with Microsoft cloud security benchmark (MCSB) v2 (preview), which provides security controls across domains such as identity, networking, data, and privileged access.
 
 Currently, these controls are primarily implemented and monitored via:
 
@@ -114,9 +114,9 @@ The controls described in this article aren't advanced detection or response too
 
 When these controls are missing or misconfigured, attackers often succeed before detection tools even have a chance to send alerts.
 
-### Azure Security Benchmark
+### Microsoft cloud security benchmark
 
-Each security control in the Azure Security Benchmark refers to one or more specific Azure security services. The architecture reference in this article shows some of them. The controls include:
+MCSB v2 describes security controls through technology-agnostic principles and Azure-specific implementation guidance. The architecture reference in this article shows some Azure services that can help implement these controls. The security domains include:
 
 - Network security.
 - Identity management.
@@ -129,9 +129,9 @@ Each security control in the Azure Security Benchmark refers to one or more spec
 - Endpoint security.
 - Backup and recovery.
 - DevOps security.
-- Governance and strategy.
+- Artificial intelligence security.
 
-For more information about security controls, see [Overview of the Azure security controls (v3)](/security/benchmark/azure/overview-v3).
+For more information about security controls, see [Overview of Microsoft cloud security benchmark v2](/security/benchmark/azure/overview).
 
 ### Potential use cases
 
