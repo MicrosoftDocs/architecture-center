@@ -161,13 +161,13 @@ This approach has the following limitations:
 
 The following diagram shows the network topology for a single region, regardless of the technology used for spoke virtual network connection.
 
-:::image type="complex" border="false" source="images/spoke-to-spoke-through-peerings.svg" alt-text="Network diagram that shows a single-region hub-and-spoke design." lightbox="images/spoke-to-spoke-through-peerings.svg":::
+:::image type="complex" border="false" source="images/spoke-to-spoke-through-peerings.svg" alt-text="Network diagram that shows a single-region hub-and-spoke design.":::
 The image shows four virtual network sections. Three black lines connect the hub virtual network to three separate virtual networks. Green lines connect all three spoke virtual networks with each other.
 :::image-end:::
 
 The following diagram shows the network topology for multiple regions. Designs that connect all spoke virtual networks to each other can extend across multiple regions. Virtual Network Manager helps reduce the administrative effort required to maintain a large number of connections.
 
-:::image type="complex" border="false" source="images/spoke-to-spoke-through-peerings-2-hubs-full-mesh.svg" alt-text="Network diagram that shows a two-region hub-and-spoke design with spokes in the same region connected via virtual network peerings." lightbox="images/spoke-to-spoke-through-peerings-2-hubs-full-mesh.svg":::
+:::image type="complex" border="false" source="images/spoke-to-spoke-through-peerings-2-hubs-full-mesh.svg" alt-text="Network diagram that shows a two-region hub-and-spoke design with spokes in the same region connected via virtual network peerings.":::
 The image shows an East US hub and West US hub at the top and six spoke virtual networks. A black line connects the East US hub and the West US hub. Three black lines point from the East US hub to three separate spokes. Three black lines point from the West US hub to three separate spokes. Five green lines point from each spoke and interconnect the six spokes.
 :::image-end:::
 
@@ -176,7 +176,7 @@ The image shows an East US hub and West US hub at the top and six spoke virtual 
 
 When you directly connect spoke virtual networks to each other in a fully meshed topology, expect a high number of virtual network peerings. The following diagram shows this challenge. In this scenario, use Virtual Network Manager to automatically create virtual network connections.
 
-:::image type="complex" border="false" source="images/peering-number-chart.svg" alt-text="Diagram that shows how the required number of peerings grows with the number of spokes." lightbox="images/peering-number-chart.svg":::
+:::image type="complex" border="false" source="images/peering-number-chart.svg" alt-text="Diagram that shows how the required number of peerings grows with the number of spokes.":::
 The image shows a line chart that represents the peerings required for full mesh connectivity. The x axis shows the number of spoke virtual networks. The y axis shows the number of peerings. The number of virtual networks increases as the number of peerings increases.
 :::image-end:::
 
@@ -205,7 +205,7 @@ In self-managed hub-and-spoke network designs that include centralized NVAs, pla
 
 The following diagram shows a single-region hub-and-spoke topology that sends traffic between spokes through an Azure firewall deployed in the hub virtual network. [User-defined routes](/azure/virtual-network/virtual-networks-udr-overview) applied to the spoke subnets forward traffic to the centralized appliance in the hub.
 
-:::image type="complex" border="false" source="images/spoke-to-spoke-via-nva.svg" alt-text="Network diagram that shows a basic hub-and-spoke design with spokes that interconnect through a centralized NVA." lightbox="images/spoke-to-spoke-via-nva.svg":::
+:::image type="complex" border="false" source="images/spoke-to-spoke-via-nva.svg" alt-text="Network diagram that shows a basic hub-and-spoke design with spokes that interconnect through a centralized NVA.":::
 The image shows a basic hub-and-spoke design with spokes interconnected through a centralized NVA. The three black lines connect the hub to the three spokes.
 :::image-end:::
 
@@ -217,7 +217,7 @@ To improve scalability, you can separate NVAs that handle spoke-to-spoke traffic
 
 The following diagram shows this configuration.
 
-:::image type="complex" border="false" source="images/spoke-to-spoke-via-nva-north-south.svg" alt-text="Network diagram that shows a basic hub-and-spoke design. It has spokes connected via two centralized NVAs for internet and private traffic." lightbox="images/spoke-to-spoke-via-nva-north-south.svg":::
+:::image type="complex" border="false" source="images/spoke-to-spoke-via-nva-north-south.svg" alt-text="Network diagram that shows a basic hub-and-spoke design. It has spokes connected via two centralized NVAs for internet and private traffic.":::
 The image shows a North-South hub and an East-West hub. The North-South hub includes one NVA. The East-West hub includes two NVAs. Three dotted lines point from the North-South hub to three separate spokes. Three black lines point from the East-West hub to the same three spokes.
 :::image-end:::
 
@@ -262,7 +262,7 @@ The image shows an East US hub and West US hub. Each hub has an NVA. A black lin
 
 The same designs apply to Virtual WAN. But direct connectivity between spoke virtual networks requires manual configuration between the virtual networks instead of through the Virtual WAN resource. Virtual Network Manager doesn't support architectures that use Virtual WAN. Consider the following diagram.
 
-:::image type="complex" border="false" source="images/spoke-to-spoke-through-peerings-virtual-wan.svg" alt-text="Network diagram that shows a Virtual WAN design with spokes connected via Virtual WAN and some virtual network peerings." lightbox="images/spoke-to-spoke-through-peerings-virtual-wan.svg":::
+:::image type="complex" border="false" source="images/spoke-to-spoke-through-peerings-virtual-wan.svg" alt-text="Network diagram that shows a Virtual WAN design with spokes connected via Virtual WAN and some virtual network peerings.":::
 The image shows Virtual WAN with East US and West US virtual hubs. In both hubs, three black lines connect the Virtual WAN section to three separate spokes. The spokes in each hub are all connected with each other with green lines. No lines directly connect spokes from one hub to spokes in the other hub.
 :::image-end:::
 
