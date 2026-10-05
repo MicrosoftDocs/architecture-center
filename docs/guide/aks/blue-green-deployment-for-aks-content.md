@@ -303,7 +303,7 @@ Operational excellence covers the operations processes that deploy an applicatio
 
 ## Deploy this scenario
 
-For an implemented example of a blue-green deployment described in this guide, see [AKS in an application landing zone](https://github.com/Azure/AKS-Landing-Zone-Accelerator/tree/main/Scenarios/BlueGreen-Deployment-for-AKS).
+For an implemented example of a blue-green deployment described in this guide, see [AKS in a workload landing zone](https://github.com/Azure/AKS-Landing-Zone-Accelerator/tree/main/Scenarios/BlueGreen-Deployment-for-AKS).
 
 This reference implementation is based on [Application Gateway for Containers](/azure/application-gateway/for-containers/overview). Each cluster has its own Application Gateway for Containers deployment, and DNS performs the traffic switch via `CNAME` configuration.
 

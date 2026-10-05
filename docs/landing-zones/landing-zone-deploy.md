@@ -1,6 +1,6 @@
 ---
 title: Deploy Azure Landing Zones
-description: Learn about deployment options for both platform and application landing zones in Azure to help ensure governance at scale.
+description: Learn about deployment options for both platform and workload landing zones in Azure to help ensure governance at scale.
 author: piyushdhore-microsoft
 ms.author: piyushdhore
 ms.date: 12/15/2025
@@ -10,10 +10,10 @@ ms.subservice: architecture-guide
 
 # Deploy Azure landing zones
 
-This article describes the options available to help you deploy both a platform landing zone and application landing zones. A platform landing zone provides centralized services that workloads use. Application landing zones are environments deployed for the workloads themselves.
+This article describes the options available to help you deploy both a platform landing zone and workload landing zones. A platform landing zone provides centralized services that workloads use. Workload landing zones are environments deployed for the workloads themselves.
 
 > [!IMPORTANT]
-> For more information about definitions of the platform landing zone and its connected application landing zones, see [Platform landing zone versus application landing zones](/azure/cloud-adoption-framework/ready/landing-zone/#platform-landing-zones-vs-application-landing-zones).
+> For more information about definitions of the platform landing zone and its connected workload landing zones, see [Platform landing zone and workload landing zones](/azure/cloud-adoption-framework/ready/landing-zone/).
 
 ## Choose a platform landing zone approach
 
@@ -86,32 +86,32 @@ To get started, follow the [subscription vending implementation guidance](./subs
 
 | Deployment option | Description |
 | :---------------- | :-----------|
-| [Bicep subscription vending](https://github.com/Azure/bicep-registry-modules/tree/main/avm/ptn/lz/sub-vending) | The subscription vending Bicep modules orchestrate the deployment of an individual application landing zone. |
-| [Terraform subscription vending](https://registry.terraform.io/modules/Azure/lz-vending/azurerm/latest) | This approach uses Terraform to orchestrate the deployment of an individual application landing zone. |
+| [Bicep subscription vending](https://github.com/Azure/bicep-registry-modules/tree/main/avm/ptn/lz/sub-vending) | The subscription vending Bicep modules orchestrate the deployment of an individual workload landing zone. |
+| [Terraform subscription vending](https://registry.terraform.io/modules/Azure/lz-vending/azurerm/latest) | This approach uses Terraform to orchestrate the deployment of an individual workload landing zone. |
 
-You can use all deployment options to manually deploy an application landing zone, but they're most effective as part of an automated process.
+You can use all deployment options to manually deploy a workload landing zone, but they're most effective as part of an automated process.
 
-## Application landing zone architectures
+## Workload landing zone architectures
 
-Application landing zones are designated areas within one or more subscriptions, specifically set up as approved destinations for resources that application teams manage for a specific workload. A workload can take advantage of services in the platform landing zone or remain isolated from those centralized resources. Use application landing zones for centrally managed applications, decentralized workloads that application teams own, and centrally managed hosting platforms like Azure Kubernetes Service (AKS) that can host applications for multiple business units. Unless unusual circumstances constrain application landing zone subscriptions, they typically include resources from only a single workload or logical application boundary, like its life cycle or criticality classification.
+Workload landing zones are designated areas within one or more subscriptions, specifically set up as approved destinations for resources that application teams manage for a specific workload. A workload can take advantage of services in the platform landing zone or remain isolated from those centralized resources. Use workload landing zones for centrally managed applications, decentralized workloads that application teams own, and centrally managed hosting platforms like Azure Kubernetes Service (AKS) that can host applications for multiple business units. Unless unusual circumstances constrain workload landing zone subscriptions, they typically include resources from only a single workload or logical application boundary, like its life cycle or criticality classification.
 
-Workload teams communicate their workload's requirements through a formal process that the platform team establishes. The platform team generally deploys an empty subscription that's enrolled with all required governance. Then a workload architect designs a solution that works within the constraints of that application landing zone and takes advantage of shared platform features, like firewalls and cross-premises routing, when practical.
+Workload teams communicate their workload's requirements through a formal process that the platform team establishes. The platform team generally deploys an empty subscription that's enrolled with all required governance. Then a workload architect designs a solution that works within the constraints of that workload landing zone and takes advantage of shared platform features, like firewalls and cross-premises routing, when practical.
 
-An architect can adapt a reference architecture that isn't designed specifically for an application landing zone. But Microsoft Learn also has application and data platform guidance for workload teams that specifically addresses application landing zone contexts. Make the platform teams aware of this guidance so that they can anticipate the workload types and characteristics in the organization.
+An architect can adapt a reference architecture that isn't designed specifically for a workload landing zone. But Microsoft Learn also has application and data platform guidance for workload teams that specifically addresses workload landing zone contexts. Make the platform teams aware of this guidance so that they can anticipate the workload types and characteristics in the organization.
 
-| Application landing zone architecture | Description |
+| Workload landing zone architecture | Description |
 | --- | --- |
 | [Azure API Management](../example-scenario/integration/app-gateway-internal-api-management-function.yml) | Proven recommendations and considerations for how to deploy an internal API Management instance as part of a reference implementation. The scenario uses Azure Application Gateway to help provide secure ingress control and uses Azure Functions as the back end. |
 | [Azure Arc for hybrid and multicloud scenarios](/azure/cloud-adoption-framework/scenarios/hybrid/enterprise-scale-landing-zone) | Guidance for servers, Kubernetes, and Azure SQL Managed Instance enabled by Azure Arc. |
-| [Azure Data Factory](../databases/architecture/azure-data-factory-on-azure-landing-zones-baseline.yml) | Guidance about how to host a [medallion lakehouse](/azure/databricks/lakehouse/medallion) within an application landing zone. |
-| [Microsoft Foundry chat workload](../ai-ml/architecture/baseline-microsoft-foundry-landing-zone.yml) | Guidance about how to integrate a typical [Foundry chat architecture](../ai-ml/architecture/baseline-microsoft-foundry-chat.yml) within an application landing zone while using centralized platform landing zone resources for shared services, governance, and cost efficiency. It provides guidance for workload teams about infrastructure and agent deployment and management. |
+| [Azure Data Factory](../databases/architecture/azure-data-factory-on-azure-landing-zones-baseline.yml) | Guidance about how to host a [medallion lakehouse](/azure/databricks/lakehouse/medallion) within a workload landing zone. |
+| [Microsoft Foundry chat workload](../ai-ml/architecture/baseline-microsoft-foundry-landing-zone.yml) | Guidance about how to integrate a typical [Foundry chat architecture](../ai-ml/architecture/baseline-microsoft-foundry-chat.yml) within a workload landing zone while using centralized platform landing zone resources for shared services, governance, and cost efficiency. It provides guidance for workload teams about infrastructure and agent deployment and management. |
 | [Azure Red Hat OpenShift](/azure/cloud-adoption-framework/scenarios/app-platform/azure-red-hat-openshift/landing-zone-accelerator) | An open-source collection of Terraform templates that represent an optimal Azure Red Hat OpenShift deployment that includes Azure and Red Hat resources. |
 | [Azure Virtual Desktop](/azure/cloud-adoption-framework/scenarios/azure-virtual-desktop/enterprise-scale-landing-zone) | Azure Resource Manager, Bicep, and Terraform templates to reference when you design Azure Virtual Desktop deployments. These templates include the creation of host pools, networking, storage, and monitoring. |
-| [Azure Virtual Machines](../virtual-machines/baseline-landing-zone.yml) |  An architecture that extends the guidance from the [Virtual Machines baseline architecture](../virtual-machines/baseline.yml) to an application landing zone. It provides guidance about subscription setup, patch compliance, and other organizational governance concerns. |
+| [Azure Virtual Machines](../virtual-machines/baseline-landing-zone.yml) |  An architecture that extends the guidance from the [Virtual Machines baseline architecture](../virtual-machines/baseline.yml) to a workload landing zone. It provides guidance about subscription setup, patch compliance, and other organizational governance concerns. |
 | [Azure VMware Solution](/azure/cloud-adoption-framework/scenarios/azure-vmware/enterprise-scale-landing-zone) | ARM templates, Bicep templates, and Terraform templates that you can use to help design Azure VMware Solution deployments. These deployments include Azure VMware Solution private cloud, jump box, networking, and monitoring. |
 | [Citrix on Azure](/azure/cloud-adoption-framework/scenarios/azure-virtual-desktop/landing-zone-citrix/citrix-enterprise-scale-landing-zone) | Design guidelines for the Cloud Adoption Framework for Citrix Cloud in an Azure enterprise-scale landing zone that includes many design areas. |
 | [Red Hat Enterprise Linux (RHEL) on Azure](/azure/cloud-adoption-framework/scenarios/app-platform/azure-red-hat-enterprise-linux/landing-zone-accelerator) | An open-source collection of architectural guidance and reference implementation recommendations that you can use to design RHEL-based workloads on Azure. |
-| [Mission-critical workloads](/azure/well-architected/mission-critical/mission-critical-architecture-pattern#baseline-architectures-for-mission-critical-workloads) | Addresses how to design a mission-critical workload to run within an application landing zone. |
+| [Mission-critical workloads](/azure/well-architected/mission-critical/mission-critical-architecture-pattern#baseline-architectures-for-mission-critical-workloads) | Addresses how to design a mission-critical workload to run within a workload landing zone. |
 | [SAP workloads](/azure/cloud-adoption-framework/scenarios/sap/enterprise-scale-landing-zone) | Provides guidance and recommendations for SAP workloads that align with Azure landing zone best practices. Provides recommendations for how to create infrastructure components like compute, networking, storage, monitoring, and SAP system builds. |
 
 Workloads often consist of different technologies and classifications. Review related reference materials for all technologies in your workload. For example, the guidance from Microsoft Foundry baseline and API Management architecture helps you check whether your generative AI scenario benefits from an API gateway.

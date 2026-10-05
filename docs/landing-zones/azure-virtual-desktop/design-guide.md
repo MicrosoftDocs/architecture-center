@@ -20,19 +20,19 @@ An Azure landing zone provides the necessary foundation for cloud workloads such
 
 ### Types of landing zones
 
-Azure landing zones have [two categories](/azure/cloud-adoption-framework/ready/landing-zone/#platform-landing-zones-vs-application-landing-zones):
+Azure landing zones have [two categories](/azure/cloud-adoption-framework/ready/landing-zone/):
 
 - **Platform landing zone** provides shared foundational services like networking, identity management, and resource governance. The platform landing zone forms the core infrastructure that supports application workloads.
 
-- **Application landing zones** host specific applications, workloads, or services. They provide the necessary environment to run applications. Policies and management groups enforce governance in application landing zones.
+- **Workload landing zones** host specific applications, workloads, or services. They provide the necessary environment to run applications. Policies and management groups enforce governance in workload landing zones.
 
 ## Reference architecture
 
-The Virtual Desktop reference architecture is a proven architecture for running Virtual Desktop in an application landing zone. Start with this architecture for Virtual Desktop deployments.
+The Virtual Desktop reference architecture is a proven architecture for running Virtual Desktop in a workload landing zone. Start with this architecture for Virtual Desktop deployments.
 
 The [landing zone architecture for Virtual Desktop](/azure/cloud-adoption-framework/scenarios/azure-virtual-desktop/enterprise-scale-landing-zone) is part of the [Virtual Desktop scenario article series](/azure/cloud-adoption-framework/scenarios/azure-virtual-desktop/) in the Cloud Adoption Framework for Azure. This series describes compatibility requirements, design principles, and deployment guidance for the landing zone.
 
-When you design Virtual Desktop to run from an application landing zone, follow this structured architecture to ensure scalability, security, and operational excellence. This architecture provides a robust foundation to deploy Virtual Desktop at scale while maintaining centralized governance, security, and performance.
+When you design Virtual Desktop to run from a workload landing zone, follow this structured architecture to ensure scalability, security, and operational excellence. This architecture provides a robust foundation to deploy Virtual Desktop at scale while maintaining centralized governance, security, and performance.
 
 ### Benefits of this reference architecture
 
@@ -86,14 +86,14 @@ This architecture uses the following key principles:
 
 ### Reference implementation
 
-The Virtual Desktop application landing zone reference implementation follows the reference architecture and design principles outlined in the Cloud Adoption Framework and the Azure Well-Architected Framework. This solution provides steps to prepare landing zone subscriptions for a scalable Virtual Desktop deployment and to deploy Virtual Desktop within those landing zone subscriptions.
+The Virtual Desktop workload landing zone reference implementation follows the reference architecture and design principles outlined in the Cloud Adoption Framework and the Azure Well-Architected Framework. This solution provides steps to prepare landing zone subscriptions for a scalable Virtual Desktop deployment and to deploy Virtual Desktop within those landing zone subscriptions.
 
 The Virtual Desktop landing zone implementation provides your organization with an enterprise-ready Virtual Desktop deployment that aligns with best practices in scalability, security, and governance.
 
 #### Architecture
 
 > [!IMPORTANT]
-> The implementation deploys resources into the Virtual Desktop application landing zone and platform landing zone subscriptions.
+> The implementation deploys resources into the Virtual Desktop workload landing zone and platform landing zone subscriptions.
 >
 > You must deploy a [Cloud Adoption Framework platform landing zone](/azure/cloud-adoption-framework/ready/enterprise-scale/implementation#reference-implementation) first. This deployment provides the shared foundation subscriptions and services that resources in this implementation require.
 >
@@ -101,16 +101,16 @@ The Virtual Desktop landing zone implementation provides your organization with 
 
 This architecture is based on multiple subscriptions that are each dedicated to specific purposes:
 
-- **Virtual Desktop subscription:** This subscription, or multiple subscriptions depending on environment scale, deploys the Virtual Desktop resources that are specific to individual workloads, not shared across workloads. These resources include virtual machines, storage accounts, key vaults, and private endpoints. This subscription is considered part of the application landing zone.
+- **Virtual Desktop subscription:** This subscription, or multiple subscriptions depending on environment scale, deploys the Virtual Desktop resources that are specific to individual workloads, not shared across workloads. These resources include virtual machines, storage accounts, key vaults, and private endpoints. This subscription is considered part of the workload landing zone.
 
-- **Virtual Desktop shared services subscription:** This subscription hosts all services shared across multiple Virtual Desktop workloads. It includes resources like Azure Automation accounts, data collection rules, Log Analytics workspaces, and Azure compute galleries. This subscription is considered part of the application landing zone.
+- **Virtual Desktop shared services subscription:** This subscription hosts all services shared across multiple Virtual Desktop workloads. It includes resources like Azure Automation accounts, data collection rules, Log Analytics workspaces, and Azure compute galleries. This subscription is considered part of the workload landing zone.
 
-- **Platform subscriptions:** These foundational subscriptions provide shared services across the entire environment. They support and connect to application landing zone subscriptions.
+- **Platform subscriptions:** These foundational subscriptions provide shared services across the entire environment. They support and connect to workload landing zone subscriptions.
 
   - **Management subscription:** This subscription is part of the Azure landing zone platform structure and typically hosts shared management resources. These resources include monitoring solutions, update management tools, and governance tools. In this architecture, the management subscription isn't an active dependency for the Virtual Desktop workload. The workload team must implement their own automation, monitoring, and management capabilities within their designated workload subscription.
 
-  - **Connectivity subscription:** This subscription contains network-related components like virtual networks, network security groups (NSGs), Azure Firewall, and Azure ExpressRoute or VPN gateways. In this architecture, this subscription provides the Virtual Desktop application landing zone with secure and scalable network infrastructure. This capability enables isolated traffic flows, segmentation between organization workloads, and secure access to cross-premises resources.
-  - **Identity subscription:** This subscription handles identity and access management services required to support domain-joined Virtual Desktop session hosts. In this architecture, this subscription provides the Virtual Desktop application landing zone with domain services. These services include Microsoft Entra Domain Services or self-managed Active Directory domain controllers hosted in Azure. These services enable session hosts to join a domain and authenticate users securely, enforce group policies, and support legacy authentication scenarios that some applications require.
+  - **Connectivity subscription:** This subscription contains network-related components like virtual networks, network security groups (NSGs), Azure Firewall, and Azure ExpressRoute or VPN gateways. In this architecture, this subscription provides the Virtual Desktop workload landing zone with secure and scalable network infrastructure. This capability enables isolated traffic flows, segmentation between organization workloads, and secure access to cross-premises resources.
+  - **Identity subscription:** This subscription handles identity and access management services required to support domain-joined Virtual Desktop session hosts. In this architecture, this subscription provides the Virtual Desktop workload landing zone with domain services. These services include Microsoft Entra Domain Services or self-managed Active Directory domain controllers hosted in Azure. These services enable session hosts to join a domain and authenticate users securely, enforce group policies, and support legacy authentication scenarios that some applications require.
 
 :::image type="complex" source="./media/virtual-desktop-accelerator-baseline.svg" alt-text="Diagram that shows the Virtual Desktop reference architecture." border="false" lightbox="./media/virtual-desktop-accelerator-baseline.svg":::
 The diagram illustrates a Virtual Desktop architecture with interconnected components distributed across multiple subscriptions. Within this setup, identity synchronization occurs between the customer network and Microsoft Entra ID through Microsoft Entra Connect, which communicates over the internet. This synchronization process allows identities from the on-premises Active Directory Domain Services (AD DS) to be replicated in Microsoft Entra ID. Users from noncorporate networks access the Virtual Desktop control plane directly over the internet without requiring VPN or ExpressRoute. Also, the connection between the customer network and the connectivity subscription is established via VPN or ExpressRoute, which ensures secure communication for internal Azure resources.
@@ -143,7 +143,7 @@ The implementation uses resource naming automation based on the following recomm
 - The [recommended abbreviations for Azure resource types](/azure/cloud-adoption-framework/ready/azure-best-practices/resource-abbreviations)
 - The [minimum suggested tags](/azure/cloud-adoption-framework/ready/azure-best-practices/resource-tagging#minimum-suggested-tags)
 
-Before you proceed with the deployment scenarios, familiarize yourself with the implementations's Azure resource [naming, tagging, and organization](https://github.com/Azure/avdaccelerator/blob/main/workload/docs/resource-naming.md).
+Before you proceed with the deployment scenarios, familiarize yourself with the implementation's Azure resource [naming, tagging, and organization](https://github.com/Azure/avdaccelerator/blob/main/workload/docs/resource-naming.md).
 
 :::image type="complex" source="./media/virtual-desktop-accelerator-resource-organization-naming.svg" alt-text="Diagram that shows Virtual Desktop resource organization and naming." lightbox="./media/virtual-desktop-accelerator-resource-organization-naming.svg":::
 The diagram shows two subscriptions that support Virtual Desktop. The left section shows an example structure that uses resource groups to organize Virtual Desktop components when you deploy with the Virtual Desktop implementation. The naming convention and resource organization presented are for reference purposes. Key components include host pools, RemoteApp groups, workspaces, and scaling plans.

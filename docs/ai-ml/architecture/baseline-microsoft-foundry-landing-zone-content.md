@@ -1,4 +1,4 @@
-This article is part of a series that builds on the [Baseline Microsoft Foundry chat reference architecture](baseline-microsoft-foundry-chat.yml). Review the baseline architecture so that you can identify necessary adjustments before you deploy it in an Azure application landing zone subscription.
+This article is part of a series that builds on the [Baseline Microsoft Foundry chat reference architecture](baseline-microsoft-foundry-chat.yml). Review the baseline architecture so that you can identify necessary adjustments before you deploy it in an Azure workload landing zone subscription.
 
 This article describes a generative AI workload architecture that deploys the baseline chat application but uses resources that are outside the workload team's scope. Platform teams centrally manage the resources, and multiple workload teams use them. Shared resources include networking resources for cross-premises connections, identity access management systems, and policies. This guidance helps organizations that use Azure landing zones maintain consistent governance and cost efficiency.
 
@@ -11,7 +11,7 @@ As a workload owner, you delegate shared resource management to platform teams s
 >
 > Azure landing zones divide your organization's cloud footprint into two key areas:
 >
-> - An application landing zone is one or more Azure subscriptions where a workload runs. An application landing zone connects to your organization's shared platform resources. That connection provides the landing zone with access to the infrastructure that supports the workload, such as networking, identity access management, policies, and monitoring.
+> - Each workload has a single workload landing zone that contains all its environments, such as development, test, and production. Each environment consists of one or more Azure subscriptions. A workload landing zone connects to your organization's shared platform resources. That connection provides the landing zone with access to the infrastructure that supports the workload, such as networking, identity access management, policies, and monitoring.
 >
 > - A platform landing zone is a collection of various subscriptions that multiple platform teams can manage. Each subscription has a specific function. For example, a connectivity subscription provides centralized Domain Name System (DNS) resolution, cross-premises connectivity, and network virtual appliances (NVAs) for platform teams.
 >
@@ -26,7 +26,7 @@ As a workload owner, you delegate shared resource management to platform teams s
 ## Architecture
 
 :::image type="complex" source="./_images/baseline-microsoft-foundry-landing-zone.svg" lightbox="./_images/baseline-microsoft-foundry-landing-zone.svg" alt-text="Architecture diagram of the workload, including select platform subscription resources." border="false":::
-    This architecture diagram contains two primary sections. The top blue section is labeled application landing zone subscription. The bottom yellow section is labeled platform landing zone subscription. The top box contains both workload-created resources and subscription-vending resources. The workload resources consist of Azure Application Gateway and Azure Web Application Firewall, App Service and its integration subnet, and private endpoints for platform as a service (PaaS) solutions such as Azure Storage, Azure Key Vault, Azure AI Search, Foundry, Azure Cosmos DB, and Azure Storage. The workload resources also have a Foundry project with Agent Service and monitoring resources. App Service has three instances in different Azure zones. The platform subscription contains a hub virtual network, Azure Firewall, Azure Bastion, and a grayed-out Azure VPN Gateway and Azure ExpressRoute. A spoke virtual network in the application landing zone and the hub virtual network connect via virtual network peering. Controlled egress traffic goes from the application landing zone to Azure Firewall in the platform landing zone. A flow goes from App Service to the App Service integration subnet, to private endpoints, and then to the services of the private endpoints.
+    This architecture diagram contains two primary sections. The top blue section is labeled workload landing zone subscription. The bottom yellow section is labeled platform landing zone subscription. The top box contains both workload-created resources and subscription-vending resources. The workload resources consist of Azure Application Gateway and Azure Web Application Firewall, App Service and its integration subnet, and private endpoints for platform as a service (PaaS) solutions such as Azure Storage, Azure Key Vault, Azure AI Search, Foundry, Azure Cosmos DB, and Azure Storage. The workload resources also have a Foundry project with Agent Service and monitoring resources. App Service has three instances in different Azure zones. The platform subscription contains a hub virtual network, Azure Firewall, Azure Bastion, and a grayed-out Azure VPN Gateway and Azure ExpressRoute. A spoke virtual network in the workload landing zone and the hub virtual network connect via virtual network peering. Controlled egress traffic goes from the workload landing zone to Azure Firewall in the platform landing zone. A flow goes from App Service to the App Service integration subnet, to private endpoints, and then to the services of the private endpoints.
 :::image-end:::
 
 *Download a [Visio file](https://arch-center.azureedge.net/baseline-microsoft-foundry-landing-zone.vsdx) of this architecture.*
@@ -35,7 +35,7 @@ As a workload owner, you delegate shared resource management to platform teams s
 
 All Azure landing zone architectures separate ownership between the platform team and the workload team. This separation is referred to as [subscription democratization](/azure/cloud-adoption-framework/ready/landing-zone/design-principles#subscription-democratization). Application architects, data scientists, and DevOps teams must clearly understand this division to determine what falls under their direct influence or control and what doesn't.
 
-Like most application landing zone implementations, the workload team primarily manages the configuration, deployment, and oversight of workload components, including the AI services in this architecture.
+Like most workload landing zone implementations, the workload team primarily manages the configuration, deployment, and oversight of workload components, including the AI services in this architecture.
 
 #### Workload team-owned resources
 
@@ -79,7 +79,7 @@ The workload team also maintains the following resources:
 
 The platform team owns and maintains the following centralized resources. This architecture assumes that these resources are pre-provisioned and treats them as dependencies.
 
-- **[Azure Firewall](/azure/well-architected/service-guides/azure-firewall)** is a managed, cloud-based network security service. In this architecture, Azure Firewall in the hub network routes, inspects, and restricts egress traffic that originates from the workload, including agent traffic. Workload egress traffic goes to the internet, cross-premises destinations, or to other application landing zones.
+- **[Azure Firewall](/azure/well-architected/service-guides/azure-firewall)** is a managed, cloud-based network security service. In this architecture, Azure Firewall in the hub network routes, inspects, and restricts egress traffic that originates from the workload, including agent traffic. Workload egress traffic goes to the internet, cross-premises destinations, or to other workload landing zones.
 
   *Change from the baseline:* In the baseline architecture, the workload team owns this component. In this architecture, the platform team manages it under the connectivity subscription.
 
@@ -153,7 +153,7 @@ In the [baseline architecture](./baseline-microsoft-foundry-chat.yml#networking)
 *Change from the baseline:* This architecture divides the workload over two virtual networks. One network hosts workload components. The other network manages internet and hybrid connectivity. The platform team determines how the workload's virtual network integrates with the organization's larger network architecture, which typically follows a hub-spoke topology.
 
 :::image type="complex" source="./_images/baseline-landing-zone-networking.svg" lightbox="./_images/baseline-landing-zone-networking.svg" alt-text="Architecture diagram that focuses mostly on network ingress flows." border="false":::
-    This architecture diagram has a top blue section labeled application landing zone subscription that contains a spoke virtual network. The virtual network contains six subnets. The subnets are labeled snet-appGateway, snet-buildAgents, snet-jumpBoxes, snet-appServicePlan, snet-agentsEgress, and snet-privateEndpoints. The snet-privateEndpoints subnet has private endpoints for App Service, Azure Storage, Key Vault, Foundry, a knowledge store, Azure AI Search, Azure Cosmos DB, and another Azure Storage instance. The last three private endpoints are labeled Agent Service dependencies. Each subnet has an NSG, and all but the snet-appGateway subnet has a UDR that goes to the hub. Ingress traffic from on-premises and off-premises users points to the application gateway. A data scientist user connects the VPN gateway or ExpressRoute in the bottom section that's labeled connectivity subscription. The connectivity subscription contains private DNS zones for Private Link, DNS Private Resolver, and DDoS Protection. The hub virtual network in the connectivity subscription connects to the spoke virtual network via virtual network peering. The hub provides DNS to the spoke virtual network.
+    This architecture diagram has a top blue section labeled workload landing zone subscription that contains a spoke virtual network. The virtual network contains six subnets. The subnets are labeled snet-appGateway, snet-buildAgents, snet-jumpBoxes, snet-appServicePlan, snet-agentsEgress, and snet-privateEndpoints. The snet-privateEndpoints subnet has private endpoints for App Service, Azure Storage, Key Vault, Foundry, a knowledge store, Azure AI Search, Azure Cosmos DB, and another Azure Storage instance. The last three private endpoints are labeled Agent Service dependencies. Each subnet has an NSG, and all but the snet-appGateway subnet has a UDR that goes to the hub. Ingress traffic from on-premises and off-premises users points to the application gateway. A data scientist user connects the VPN gateway or ExpressRoute in the bottom section that's labeled connectivity subscription. The connectivity subscription contains private DNS zones for Private Link, DNS Private Resolver, and DDoS Protection. The hub virtual network in the connectivity subscription connects to the spoke virtual network via virtual network peering. The hub provides DNS to the spoke virtual network.
 :::image-end:::
 
 *Download a [Visio file](https://arch-center.azureedge.net/baseline-landing-zone-networking.vsdx) of this architecture.*
@@ -166,7 +166,7 @@ Because of this division of management and ownership, the workload team must cle
 
 > [!IMPORTANT]
 > **For the platform team:**
-> Don't directly peer the spoke network to another spoke network, unless the workload specifically requires it. This practice protects the segmentation goals of the workload. Your team must facilitate all transitive virtual network connections. However, if application landing zone teams directly connect their networks by using self-managed private endpoints, your team doesn't manage those connections.
+> Don't directly peer the spoke network to another spoke network, unless the workload specifically requires it. This practice protects the segmentation goals of the workload. Your team must facilitate all transitive virtual network connections. However, if workload landing zone teams directly connect their networks by using self-managed private endpoints, your team doesn't manage those connections.
 >
 > Understand which workload resources external teams manage. For example, understand the network connectivity between the chat agents and a grounding context vector database that another team manages.
 
@@ -214,7 +214,7 @@ When hub-based DNS resolution isn't possible, those components face the followin
 
 - The platform team can't log DNS requests, which might violate an organizational security team requirement.
 
-- Resolving to Private Link-exposed services in your landing zone or other application landing zones might be impossible.
+- Resolving to Private Link-exposed services in your landing zone or other workload landing zones might be impossible.
 
 We recommend that you familiarize yourself with how the platform team manages DNS. For more information, see [Private Link and DNS integration at scale](/azure/cloud-adoption-framework/ready/azure-best-practices/private-link-and-dns-integration-at-scale). When you add component features that directly depend on Azure DNS, you might introduce complexities in the platform-provided DNS topology. You can redesign components or negotiate exceptions to minimize complexity.
 
@@ -227,7 +227,7 @@ In the baseline architecture, all egress traffic routes to the internet through 
 All traffic that leaves the spoke virtual network, including the agent egress traffic that the data proxy originates, routes from the agent integration subnet through the peered hub network via an egress firewall.
 
 :::image type="complex" source="./_images/baseline-landing-zone-networking-egress.svg" lightbox="./_images/baseline-landing-zone-networking-egress.svg" alt-text="Architecture diagram that focuses mostly on network egress flows." border="false":::
-    The top blue section of this architecture diagram is labeled application landing zone subscription and contains a spoke virtual network. The spoke virtual network contains six subnets: snet-appGateway, snet-buildAgents, snet-jumpBoxes, snet-appServicePlan, snet-agentsEgress, and snet-privateEndpoints. The snet-privateEndpoints subnet has private endpoints for App Service, Azure Storage, Key Vault, Foundry, a knowledge store, AI Search, Azure Cosmos DB, and another Azure Storage instance. The last three private endpoints are labeled Agent Service dependencies. All the subnets, except for snet-appGateway, have a dashed line to Azure Firewall, which is in the bottom section. The bottom section is labeled Connectivity subscription. Azure Firewall has a dashed line that points to the internet represented as a cloud. The top section reads Where possible, all workload-originated, internet-bound traffic flows through the hub because of the 0.0.0.0/0 UDR. The hub virtual network in the bottom section and the spoke virtual network in the top section connect via virtual network peering.
+    The top blue section of this architecture diagram is labeled workload landing zone subscription and contains a spoke virtual network. The spoke virtual network contains six subnets: snet-appGateway, snet-buildAgents, snet-jumpBoxes, snet-appServicePlan, snet-agentsEgress, and snet-privateEndpoints. The snet-privateEndpoints subnet has private endpoints for App Service, Azure Storage, Key Vault, Foundry, a knowledge store, AI Search, Azure Cosmos DB, and another Azure Storage instance. The last three private endpoints are labeled Agent Service dependencies. All the subnets, except for snet-appGateway, have a dashed line to Azure Firewall, which is in the bottom section. The bottom section is labeled Connectivity subscription. Azure Firewall has a dashed line that points to the internet represented as a cloud. The top section reads Where possible, all workload-originated, internet-bound traffic flows through the hub because of the 0.0.0.0/0 UDR. The hub virtual network in the bottom section and the spoke virtual network in the top section connect via virtual network peering.
 :::image-end:::
 
 *Download a [Visio file](https://arch-center.azureedge.net/baseline-landing-zone-networking-egress.vsdx) of this architecture.*
@@ -277,7 +277,7 @@ The platform team must also set up DNS for the following FQDNs, which are Agent 
 - `privatelink.documents.azure.com`
 
 > [!IMPORTANT]
-> DNS resolution must function correctly from within the spoke virtual before you deploy the capability host for Agent Service and during operation of the Agent Service. The Agent Service capability doesn't use your spoke virtual network's DNS configuration. Therefore, it's recommended that your platform team configure a ruleset for the workload's private DNS zones in DNS Private Resolver, linking those rules to your application landing zone spoke.
+> DNS resolution must function correctly from within the spoke virtual before you deploy the capability host for Agent Service and during operation of the Agent Service. The Agent Service capability doesn't use your spoke virtual network's DNS configuration. Therefore, it's recommended that your platform team configure a ruleset for the workload's private DNS zones in DNS Private Resolver, linking those rules to your workload landing zone spoke.
 >
 > Before you deploy Foundry and its agent capability, you must wait until the Agent Service dependencies are fully resolvable to their private endpoints from within the spoke network. This requirement is especially important if DINE policies handle updates to DNS private zones. If you attempt to deploy the Agent Service capability before the private DNS records are resolvable from within your subnet, the deployment fails.
 
@@ -318,13 +318,13 @@ You provision the following monitoring resources:
 
 Similar to the baseline architecture, all resources must send Azure diagnostics logs to the Azure Monitor Logs workspace that your team provisions. This configuration is part of the infrastructure as code (IaC) deployment of the resources. You might also need to send logs to a central Azure Monitor Logs workspace. In Azure landing zones, that workspace typically resides in the management subscription.
 
-The platform team might have more processes that affect resources in the application landing zone. For example, they might use DINE policies to configure diagnostics and send logs to centralized management subscriptions. They might also apply [Azure Monitor baseline alerts](https://azure.github.io/azure-monitor-baseline-alerts/patterns/alz/HowTo/deploy/Introduction-to-deploying-the-ALZ-Pattern/) through policy. Ensure that your implementation doesn't block these extra logging and alerting flows.
+The platform team might have more processes that affect resources in the workload landing zone. For example, they might use DINE policies to configure diagnostics and send logs to centralized management subscriptions. They might also apply [Azure Monitor baseline alerts](https://azure.github.io/azure-monitor-baseline-alerts/patterns/alz/HowTo/deploy/Introduction-to-deploying-the-ALZ-Pattern/) through policy. Ensure that your implementation doesn't block these extra logging and alerting flows.
 
 ## Azure Policy
 
-The baseline architecture recommends [general policies](./baseline-microsoft-foundry-chat.yml#governance-through-policy) to help govern the workload. When you deploy this architecture into an application landing zone, you don't need to add or remove extra policies. To help enforce governance and enhance the security of this workload, continue to apply policies to your subscription, resource groups, or resources.
+The baseline architecture recommends [general policies](./baseline-microsoft-foundry-chat.yml#governance-through-policy) to help govern the workload. When you deploy this architecture into a workload landing zone, you don't need to add or remove extra policies. To help enforce governance and enhance the security of this workload, continue to apply policies to your subscription, resource groups, or resources.
 
-Expect the application landing zone subscription to have existing policies, even before you deploy the workload. Some policies help organizational governance by auditing or blocking specific configurations in deployments.
+Expect the workload landing zone subscription to have existing policies, even before you deploy the workload. Some policies help organizational governance by auditing or blocking specific configurations in deployments.
 
 The following example policies might lead to workload deployment complexities:
 
@@ -340,7 +340,7 @@ The following example policies might lead to workload deployment complexities:
 
   **Complication:** During development, you might use a preview model that you expect to be generally available by the time that you enable agent capability in your production workload.
 
-Platform teams might apply DINE policies to handle automated deployments into an application landing zone subscription. Preemptively incorporate and test the platform-initiated restrictions and changes into your IaC templates. If the platform team uses Azure policies that conflict with the requirements of the application, you can negotiate a resolution.
+Platform teams might apply DINE policies to handle automated deployments into a workload landing zone subscription. Preemptively incorporate and test the platform-initiated restrictions and changes into your IaC templates. If the platform team uses Azure policies that conflict with the requirements of the application, you can negotiate a resolution.
 
 ## Manage changes over time
 
@@ -402,7 +402,7 @@ This architecture maintains the [reliability guarantees in the baseline architec
 
 #### Critical dependencies
 
-Treat all functionality that the workload performs in the platform and application landing zone as dependencies. Maintain incident response plans that include contact methods and escalation paths for each dependency. Include these dependencies in the workload's failure mode analysis (FMA).
+Treat all functionality that the workload performs in the platform and workload landing zone as dependencies. Maintain incident response plans that include contact methods and escalation paths for each dependency. Include these dependencies in the workload's failure mode analysis (FMA).
 
 Consider the following workload dependencies and example scenarios that might occur:
 

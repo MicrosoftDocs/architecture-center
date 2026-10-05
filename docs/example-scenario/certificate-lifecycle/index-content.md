@@ -213,7 +213,7 @@ This solution caters to organizations across various industries that:
 
 - Require secure certificate storage in repositories like Key Vault.
 
-This architecture serves as a foundational deployment approach across application landing zone subscriptions.
+This architecture serves as a foundational deployment approach across workload landing zone subscriptions.
 
 > [!NOTE]
 > You can extend the same life cycle pattern to Azure App Service, Azure Application Gateway, and Kubernetes workloads that integrate with Key Vault.

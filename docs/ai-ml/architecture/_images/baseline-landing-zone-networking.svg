@@ -635,14 +635,14 @@
 		</g>
 		<g id="shape2720-111" v:mID="2720" v:groupContext="shape" transform="translate(94.0865,-498.662)">
 			<title>Rectangle</title>
-			<desc>Application landing zone subscription</desc>
+			<desc>Workload landing zone subscription</desc>
 			<v:userDefs>
 				<v:ud v:nameU="visVersion" v:val="VT0(15):26"/>
 			</v:userDefs>
 			<v:textBlock v:margins="rect(4,4,4,4)"/>
 			<v:textRect cx="60.0469" cy="513.787" width="120.1" height="29.75"/>
 			<rect x="0" y="498.912" width="120.094" height="29.75" class="st30"/>
-			<text x="8.82" y="510.79" class="st31" v:langID="1033"><v:paragraph v:horizAlign="1"/><v:tabList/>Application landing zone <tspan
+			<text x="8.82" y="510.79" class="st31" v:langID="1033"><v:paragraph v:horizAlign="1"/><v:tabList/>Workload landing zone <tspan
 						x="34.58" dy="1.2em" class="st22">subscription</tspan></text>		</g>
 		<g id="group2944-115" transform="translate(455.294,-303.787)" v:mID="2944" v:groupContext="group">
 			<title>Sheet.2944</title>

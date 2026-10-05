@@ -18,7 +18,7 @@ This article provides implementation guidance for subscription vending automatio
 :::image-end:::
 
 > [!TIP]
-> :::image type="icon" source="../_images/github.svg"::: The subscription vending [Bicep](https://aka.ms/lz-vending/bicep) and [Terraform](https://registry.terraform.io/modules/Azure/avm-ptn-alz-sub-vending/azure) modules help you accelerate the creation of Azure subscriptions, or application landing zones, at scale. Tailor the input parameters and variables passed to the modules to fit the workloads' needs. For more information about the subscription vending process, see [Subscription vending overview](/azure/cloud-adoption-framework/ready/landing-zone/design-area/subscription-vending).
+> :::image type="icon" source="../_images/github.svg"::: The subscription vending [Bicep](https://aka.ms/lz-vending/bicep) and [Terraform](https://registry.terraform.io/modules/Azure/avm-ptn-alz-sub-vending/azure) modules help you accelerate the creation of Azure subscriptions, or workload landing zones, at scale. Tailor the input parameters and variables passed to the modules to fit the workloads' needs. For more information about the subscription vending process, see [Subscription vending overview](/azure/cloud-adoption-framework/ready/landing-zone/design-area/subscription-vending).
 <br/><br/>
 > [!VIDEO https://www.youtube.com/embed/OoC_0afxACg]
 
@@ -92,7 +92,7 @@ The notification and data from the data collection tool triggers the platform au
 **Use one file for each subscription request.** The subscription is the unit of deployment in the subscription vending process, so each subscription request requires a dedicated subscription parameter file.
 
 > [!IMPORTANT]
-> For Terraform implementations, use a dedicated state file for each application landing zone subscription. This approach improves the performance of plan and apply operations and reduces the blast radius of potential misconfigurations.
+> For Terraform implementations, use a dedicated state file for each workload landing zone subscription. This approach improves the performance of plan and apply operations and reduces the blast radius of potential misconfigurations.
 
 **Use a pull request system.** The Gitflow process that creates the subscription parameter file automates the following steps:
 
@@ -147,7 +147,7 @@ The subscription vending automation ends with subscription creation and configur
 
 ## Next steps
 
-Subscription vending simplifies and standardizes the subscription creation process and places it under the governance of the organization. Implement subscription vending automation to help your application teams access application landing zones and onboard workloads faster. For more information, see the following resources:
+Subscription vending simplifies and standardizes the subscription creation process and places it under the governance of the organization. Implement subscription vending automation to help your application teams access workload landing zones and onboard workloads faster. For more information, see the following resources:
 
 - [Bicep modules](https://github.com/Azure/bicep-registry-modules/tree/main/avm/ptn/lz/sub-vending)
 - [Terraform modules](https://registry.terraform.io/modules/Azure/avm-ptn-alz-sub-vending/azure)
