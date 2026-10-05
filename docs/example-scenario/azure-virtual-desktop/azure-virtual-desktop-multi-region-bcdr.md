@@ -350,8 +350,6 @@ You can't use the GRS storage feature in the following situations:
 
 #### Azure NetApp Files considerations
 
-Azure NetApp Files supports [elastic zone-redundant volumes](/azure/azure-netapp-files/elastic-zone-redundant-concept), which distribute data across availability zones for zone-level resilience. Determine whether elastic zone-redundant volumes meet your resiliency requirements. Azure NetApp Files can be [zonal](/azure/azure-netapp-files/manage-availability-zone-volume-placement), which means that you choose the single Azure availability zone where the volume is allocated.
-
 [Cross-zone replication](/azure/azure-netapp-files/replication#cross-zone-replication) provides recoverability, not automatic zone-level resilience. Use it to restore service after a zone outage rather than continue serving traffic during the outage. Before you use this feature, review the [requirements and considerations for cross-zone replication](/azure/azure-netapp-files/create-cross-zone-replication).
 
 You can use Azure NetApp Files with zone-redundant VPN and ExpressRoute gateways if you use the [standard networking](/azure/azure-netapp-files/configure-network-features) feature, which supports networking resiliency. For more information, see [Supported network topologies](/azure/azure-netapp-files/azure-netapp-files-network-topologies#supported-network-topologies). Azure Virtual WAN is supported when you use it with Azure NetApp Files standard networking.
