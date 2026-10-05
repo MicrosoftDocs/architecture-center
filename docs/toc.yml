@@ -980,6 +980,8 @@ items:
         - name: Write-through caching with Azure Managed Redis and Azure SQL Database
           displayName: cache, Functions
           href: databases/architecture/write-through-caching-azure-sql-managed-redis.yml
+        - name: Cache-aside caching with Azure Managed Redis and Azure Database for PostgreSQL
+          href: databases/architecture/cache-aside-azure-managed-redis-postgresql.yml
       - name: Relational
         items:
         - name: Oracle Database with Azure NetApp Files

@@ -1,0 +1,26 @@
+### YamlMime:Architecture
+metadata:
+  title: Cache-Aside Caching Using Azure Managed Redis and Azure Database for PostgreSQL
+  description: Design a cache-aside workload for an Azure web application that uses Azure Managed Redis to reduce repeated reads from Azure Database for PostgreSQL.
+  author: redis-phil
+  ms.author: b-philipl
+  ms.date: 08/07/2026
+  ms.topic: example-scenario
+  ms.subservice: example-scenario
+  ai-usage: ai-assisted
+  ms.custom:
+    - arb-web
+name: Cache-aside caching using Azure Managed Redis and Azure Database for PostgreSQL
+azureCategories:
+  - databases
+  - web
+summary: Design a cache-aside workload for an Azure web application that uses Azure Managed Redis to reduce repeated reads from Azure Database for PostgreSQL.
+products:
+  - azure-managed-redis
+  - azure-database-postgresql
+  - azure-app-service
+  - azure-private-link
+  - azure-monitor
+thumbnailUrl: /azure/architecture/browse/thumbs/cache-aside-azure-managed-redis-postgresql.png
+content: |
+  [!INCLUDE[](cache-aside-azure-managed-redis-postgresql-content.md)]
