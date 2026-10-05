@@ -261,7 +261,9 @@ Certificate renewal automation is only one aspect of certificate life cycle mana
 
 - Verify trust store requirements for the operating systems, platforms, and application runtimes that consume the certificates. Delivery mechanisms differ across these environments, so follow the product documentation for each one.
 
-Manage these activities as part of your organization's PKI governance framework rather than through the renewal workflow that this article describes.
+Trust store mechanisms and constraints differ significantly across platforms, and some Azure services don't support custom trust anchors. Consult the product documentation for each environment that consumes the certificates, such as [Windows trusted root configuration](/windows-server/identity/ad-cs/configure-trusted-roots-disallowed-certificates), [Microsoft Intune trusted certificate profiles](/intune/device-configuration/certificates/trusted-root-profiles), [certificate installation on Azure Linux](/azure/azure-linux/install-certificates-aks), [custom certificate authorities in AKS](/azure/aks/custom-certificate-authority), [App Service Environment certificates](/azure/app-service/environment/overview-certificates), and [Application Gateway backend authentication certificates](/azure/application-gateway/certificates-for-backend-authentication). To audit and remediate trust store drift on Azure and Azure Arc-enabled machines, use [Azure Machine Configuration](/azure/governance/machine-configuration/overview/01-overview-concepts).
+
+Manage these activities as part of your organization's PKI governance framework and your [encryption and key management](/azure/cloud-adoption-framework/ready/landing-zone/design-area/encryption-and-keys) strategy rather than through the renewal workflow that this article describes.
 
 ### Cost Optimization
 
