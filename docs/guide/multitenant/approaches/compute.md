@@ -104,7 +104,7 @@ Depending on the Azure compute services that you use, you might need to deploy d
 - **AKS:** Deploy dedicated clusters for each tenant.
 - **VMs:** Deploy dedicated VMs for each tenant.
 
-Physical host‑level isolation can also be provided by running tenant VMs on [Azure dedicated hosts](/azure/virtual-machines/dedicated-hosts/overview), which reserve an entire physical server for a single customer. However, this approach is typically more expensive than using shared hosts.
+You can also provide physical host‑level isolation by running tenant VMs on [Azure dedicated hosts](/azure/virtual-machines/dedicated-hosts/overview), which reserve an entire physical server for a single customer. However, this approach is typically more expensive than using shared hosts.
 
 ### Semi-isolated compute resources
 
