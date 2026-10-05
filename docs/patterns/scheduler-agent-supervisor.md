@@ -48,7 +48,7 @@ The Scheduler, Agent, and Supervisor are logical components, and their physical 
 
 The Scheduler maintains task progress and per-step state in a durable data store called the *state store*. The Supervisor uses this information to determine whether a step failed. The following diagram shows the relationship between the Scheduler, the Agents, the Supervisor, and the state store.
 
-:::image type="complex" source="./_images/scheduler-agent-supervisor-pattern.png" alt-text="Diagram that shows the Scheduler, Agents, and Supervisor interacting through a shared durable state store." lightbox="./_images/scheduler-agent-supervisor-pattern.png" border="false"
+:::image type="complex" source="./_images/scheduler-agent-supervisor-pattern.png" alt-text="Diagram that shows the Scheduler, Agents, and Supervisor interacting through a shared durable state store." border="false"
   At upper left, the Scheduler organizes and runs steps. A double-arrow line labeled "Scheduler requests Agent to access remote resource" goes to an Agent at right, and a double-arrow line labeled "Agent accesses remote resource or service" points from the Agent to a remote resource. Below that, double-arrow lines point from the Scheduler to another Agent and then to a remote service. Another double-arrow line labeled "Scheduler maintains step status" goes down to the state store. A double-arrow line labeled "Supervisor monitors step status" connects the state store and the Supervisor to its right. An arrow labeled "Supervisor requests step reattempt" points from the Supervisor back up and left to the Scheduler.
 :::image-end:::
 

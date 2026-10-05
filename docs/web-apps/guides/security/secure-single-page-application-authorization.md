@@ -27,7 +27,7 @@ Because the back end handles token acquisition, no other code or library, like [
 
 ## Architecture
 
-:::image type="complex" border="false" source="../_images/no-token.svg" alt-text="Diagram that shows an architecture that doesn't store tokens in the browser." lightbox="../_images/no-token.svg":::
+:::image type="complex" border="false" source="../_images/no-token.svg" alt-text="Diagram that shows an architecture that doesn't store tokens in the browser.":::
    In the diagram, an arrow points from a user icon to an icon that represents a single-page application. Another arrow points from the single-page application icon to a Microsoft Entra ID icon. A double-sided arrow connects the Microsoft Entra ID icon and an API Management icon. An arrow points from API Management back to the single-page application. Another arrow points from the single-page application back to API Management. An arrow then points from API Management to an icon that represents the API.
 :::image-end:::
 
