@@ -268,7 +268,7 @@ Trust store mechanisms and constraints differ significantly across platforms, an
 - [Certificate installation on Azure Linux](/azure/azure-linux/install-certificates-aks)
 - [Custom certificate authorities in AKS](/azure/aks/custom-certificate-authority)
 - [App Service Environment certificates](/azure/app-service/environment/overview-certificates)
-- [Application Gateway backend authentication certificates](/azure/application-gateway/certificates-for-backend-authentication).
+- [Application Gateway backend authentication certificates](/azure/application-gateway/certificates-for-backend-authentication)
 
 Manage these activities as part of your organization's PKI governance framework and your [encryption and key management](/azure/cloud-adoption-framework/ready/landing-zone/design-area/encryption-and-keys) strategy rather than through the renewal workflow that this article describes.
 
