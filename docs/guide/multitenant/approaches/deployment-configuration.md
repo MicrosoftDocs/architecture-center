@@ -100,7 +100,7 @@ Use the [Deployment Stamps pattern](../../../patterns/deployment-stamp.md) to de
 
 ### Deployment rings
 
-Use [deployment rings](/azure/devops/migrate/phase-rollout-with-rings) to roll out updates to different groups of infrastructure at different times. This approach often complements the [Deployment Stamps pattern](../../../patterns/deployment-stamp.md). Assign groups of stamps to distinct rings based on tenant preferences, workload types, and other considerations. For more information, see [Deployment rings](../considerations/updates.md#deployment-rings).
+Use [deployment rings](/azure/well-architected/operational-excellence/safe-deployments#adopt-a-progressive-exposure-model) to roll out updates to different groups of infrastructure at different times. This approach often complements the [Deployment Stamps pattern](../../../patterns/deployment-stamp.md). Assign groups of stamps to distinct rings based on tenant preferences, workload types, and other considerations. For more information, see [Deployment rings](../considerations/updates.md#deployment-rings).
 
 ### Feature flags
 
@@ -168,7 +168,7 @@ However, this approach is often much more time-consuming to build. Your effort n
 For more information, see [Considerations for multitenant control planes](../considerations/control-planes.md).
 
 > [!NOTE]
-> Azure deployment and configuration operations often take time to complete. Ensure that you use an appropriate process to initiate and monitor these long-running operations. For example, you might consider following the [Asynchronous Request-Reply pattern](../../../patterns/asynchronous-request-reply.md). Use technologies designed to support long-running operations, like [Azure Logic Apps](https://azure.microsoft.com/services/logic-apps/) and [durable functions](/azure/azure-functions/durable/durable-functions-overview).
+> Azure deployment and configuration operations often take time to complete. Ensure that you use an appropriate process to initiate and monitor these long-running operations. For example, you might consider following the [Asynchronous Request-Reply pattern](../../../patterns/asynchronous-request-reply.md). Use technologies designed to support long-running operations, like [Azure Logic Apps](https://azure.microsoft.com/services/logic-apps/) and [durable functions](/azure/durable-task/durable-functions/durable-functions-overview).
 
 ### Example
 
@@ -180,7 +180,7 @@ The diagram shows a shared resource architecture in an Azure environment. At the
 
 #### Option 1: Use deployment pipelines for everything
 
-Contoso might deploy all their resources by using a deployment pipeline. Their pipeline deploys a Bicep file that includes all their Azure resources, including the Azure SQL databases for each tenant. A parameter file defines the list of tenants. The Bicep file uses a [resource loop](/azure/azure-resource-manager/bicep/loop-resources) to deploy a database for each of the listed tenants, as shown in the following diagram.
+Contoso might deploy all their resources by using a deployment pipeline. Their pipeline deploys a Bicep file that includes all their Azure resources, including the Azure SQL databases for each tenant. A parameter file defines the list of tenants. The Bicep file uses a [resource loop](/azure/azure-resource-manager/bicep/loops) to deploy a database for each of the listed tenants, as shown in the following diagram.
 
 :::image type="complex" source="media/deployment-configuration/example-configuration.png" alt-text="Diagram that shows a pipeline deploying both shared and tenant-specific resources." border="false":::
 The diagram shows a deployment process to Azure that uses a pipeline that connects to two input files: a Bicep file and a parameter file. The Bicep file includes an App Service plan, an App Service app, Azure SQL Server, and multiple Azure SQL databases. The parameter file lists tenant 1, tenant 2, and continues through tenant N. The pipeline targets an Azure environment.
@@ -197,7 +197,7 @@ If Contoso follows this model, they must do the following steps:
 
 Alternatively, Contoso might separate the responsibility for the Azure deployments.
 
-Contoso uses a Bicep file that defines shared resources to deployed. The shared resources support all tenants and include a tenant catalog database, also known as a *tenant list database*, as shown in the following diagram.
+Contoso uses a Bicep file that defines shared resources to deploy. The shared resources support all tenants and include a tenant catalog database, also known as a *tenant list database*, as shown in the following diagram.
 
 :::image type="complex" source="media/deployment-configuration/example-data-pipeline.png" alt-text="Diagram that shows the workflow to deploy the shared resources by using a pipeline." border="false":::
 The diagram shows the deployment of shared resources in Azure that uses a pipeline and a Bicep file. The flow starts at the pipeline, which targets an Azure environment. The Azure shared resources section includes four components: App Service plan, App Service app, Azure SQL Server, and tenant list. These resources are defined in the Bicep file, which includes specifications for the App Service plan, App Service app, Azure SQL Server, and a tenant list database.
@@ -209,7 +209,7 @@ The API asynchronously starts a workflow that onboards their new tenants. The wo
 
 - Use the Azure SDK to initiate the deployment of a second Bicep file that defines the Azure SQL database.
 
-- Use the Azure SDK to imperatively create an Azure SQL database by using the [management library](/dotnet/api/overview/azure/sql#management-library).
+- Use the Azure SDK to imperatively create an Azure SQL database by using the [management library](/dotnet/api/overview/azure/resourcemanager.sql-readme).
 
 After the database is deployed, the workflow adds the tenant to the tenant list database, as shown in the following diagram. The application tier initiates ongoing database schema updates.
 
