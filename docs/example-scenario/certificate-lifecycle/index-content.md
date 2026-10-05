@@ -24,7 +24,7 @@ The Azure environment comprises the following platform as a service (PaaS) resou
 
 To monitor the process and status of expired and expiring certificates, Log Analytics stores the data, and the workspace presents it in the form of tabular and graphical dashboards.
 
-This scenario assumes that an existing public key infrastructure (PKI) is already in place and consists of a Microsoft Enterprise CA joined to an Active Directory domain. The PKI, the Active Directory domain, and the servers that require certificate renewal can reside on Azure or on‑premises environments.
+This scenario assumes that an existing public key infrastructure (PKI) is already in place and consists of a Microsoft Enterprise CA joined to an Active Directory domain. The PKI, the Active Directory domain, and the servers that require certificate renewal can reside on Azure or on‑premises environments. The architecture automates the renewal and deployment of certificates that the CA already issued. It doesn't distribute trust anchors or manage PKI life cycle governance.
 
 You don't need to join the virtual machines (VMs) that host certificates to monitor for renewal to Active Directory or to Microsoft Entra ID. You only need to join the CA and the hybrid worker, if it's located on a different VM than the CA, to Active Directory.
 
@@ -197,6 +197,12 @@ Enterprises typically operate complex IT infrastructures that involve multiple t
 
 This solution addresses these challenges by automating certificate renewal issued by Microsoft Certificate Service. The service is widely used for various server applications, such as web servers and SQL servers, and for encryption, nonrepudiation, signing purposes, and ensuring timely updates and secure certificate storage within Key Vault. The service's compatibility with Azure servers and on-premises servers supports flexible deployment.
 
+### Scope and PKI assumptions
+
+This article focuses on the automated renewal, retrieval, and deployment of certificates that an enterprise CA already issued. The architecture assumes that a trusted PKI is already in place and that root and intermediate CA certificates are distributed to consuming systems through organization-approved trust management processes.
+
+PKI design, CA hierarchy definition, trust-anchor distribution, and CA rollover procedures are outside the scope of this article. Address these activities through your organization's PKI governance framework. For more information, see [Trust distribution considerations](#trust-distribution-considerations).
+
 ### Potential use cases
 
 This solution caters to organizations across various industries that:
@@ -242,6 +248,20 @@ On the key vault that contains the certificates, the Automation account identity
 On the storage account queue, the Automation account identity must have the `Storage Queue Data Contributor`, `Reader and Data Access`, and `Reader` roles.
 
 In scenarios in which the Key Vault extension deploys on an Azure VM, authentication occurs via the VM's managed identity. However, when the extension deploys on an Azure Arc-enabled server, a service principal handles authentication. You must assign the Key Vault secret user role within the key vault that stores the certificate to both the managed identity and the service principal. You must use a secret role because the certificate is stored in the key vault as a secret.
+
+#### Trust distribution considerations
+
+Certificate renewal automation is only one aspect of certificate life cycle management. A renewed certificate is trusted only if the systems that consume it already trust the issuing CA chain. Define processes that:
+
+- Distribute root and intermediate CA public certificates to all consuming systems. Protection of the CA private keys remains a responsibility of the PKI and isn't part of this renewal workflow.
+
+- Validate trust relationships when the CA hierarchy changes.
+
+- Plan root and intermediate CA rollover independently from end-entity certificate renewal. Distribute the new trust anchor alongside the existing one before any dependent certificate changes, and retire the previous anchor only after you validate the new chain.
+
+- Verify trust store requirements for the operating systems, platforms, and application runtimes that consume the certificates. Delivery mechanisms differ across these environments, so follow the product documentation for each one.
+
+Manage these activities as part of your organization's PKI governance framework rather than through the renewal workflow that this article describes.
 
 ### Cost Optimization
 
