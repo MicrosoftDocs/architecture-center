@@ -192,7 +192,6 @@ Principal author:
 - [Pieter de Bruin](https://www.linkedin.com/in/pieterjmdebruin) | Senior Program Manager
 - [Carlos Mestre del Pino](https://www.linkedin.com/in/mestredelpino) | Cloud & AI Solution Architect
 
-
 *To see nonpublic LinkedIn profiles, sign in to LinkedIn.*
 
 ## Next steps
