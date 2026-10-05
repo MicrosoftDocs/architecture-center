@@ -548,6 +548,9 @@ items:
         - name: AI agent orchestration patterns
           displayName: Agentic, multi-agent systems, agent frameworks
           href: ai-ml/guide/ai-agent-design-patterns.md
+        - name: Agentic behavior engineering
+          displayName: ABE, behavior contract, agent verification, behavior gate, agent observability
+          href: ai-ml/guide/agentic-behavior-engineering.md
         - name: Developing and evaluating RAG solutions
           items:
           - name: Getting started
@@ -977,6 +980,8 @@ items:
         - name: Write-through caching with Azure Managed Redis and Azure SQL Database
           displayName: cache, Functions
           href: databases/architecture/write-through-caching-azure-sql-managed-redis.yml
+        - name: Cache-aside caching with Azure Managed Redis and Azure Database for PostgreSQL
+          href: databases/architecture/cache-aside-azure-managed-redis-postgresql.yml
       - name: Relational
         items:
         - name: Oracle Database with Azure NetApp Files

@@ -102,7 +102,7 @@ Azure provides Service Bus queues and Azure Functions queue triggers that togeth
 
 For resiliency, a Service Bus queue lets a consumer use [PeekLock mode](/azure/service-bus-messaging/message-transfers-locks-settlement#peeklock) when it retrieves a message from the queue. This mode keeps the message but hides it from other consumers. The Functions runtime receives a message in PeekLock mode. If the function completes successfully, the runtime calls `Complete` on the message. If the function fails, the runtime might call `Abandon` and make the message visible again so that another consumer can retrieve it. If the function runs longer than the PeekLock timeout, the runtime automatically renews the lock as long as the function runs.
 
-:::image type="complex" border="false" source="./_images/competing-consumers.svg" alt-text="Diagram that uses Service Bus to distribute work to Functions." lightbox="./_images/competing-consumers.svg":::
+:::image type="complex" border="false" source="./_images/competing-consumers.svg" alt-text="Diagram that uses Service Bus to distribute work to Functions.":::
    On the left, an arrow points from an app to a message section that includes Service Bus. An arrow labeled fail points from this section to the dead-letter queue. Another line from the message section splits into two arrows that are numbered 1 and 2 that point to consumer 1 and consumer 2, respectively.
 :::image-end:::
 

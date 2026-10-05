@@ -2,7 +2,7 @@
 title: Get Started with Virtual Desktop Architecture Design
 description: Get an overview of Azure virtual desktop technologies and cloud desktop design, including architecture guidance, solution ideas, and reference architectures.
 ms.author: pnp
-author: anaharris-ms
+author: claytonsiemens77
 ms.update-cycle: 1095-days
 ms.topic: concept-article
 ms.subservice: category-get-started
@@ -20,7 +20,7 @@ Migrating user desktops to the cloud helps improve employee productivity so that
 
 - [Omnissa Horizon Cloud on Microsoft Azure](https://www.omnissa.com/products/horizon-cloud/): An Omnissa service that simplifies the delivery of virtual desktops and applications on Azure by extending Azure Virtual Desktop.
 
-- [Citrix Virtual Apps and Desktops for Azure](https://docs.citrix.com/en-us/citrix-virtual-apps-desktops.html): A desktop and app virtualization service that you can use to provision Windows desktops and apps on Azure with Citrix and Azure Virtual Desktop.
+- [Citrix DaaS](https://docs.citrix.com/en-us/citrix-daas/overview.html): A desktop and app virtualization service that you can use to provision Windows desktops and apps on Azure with Citrix and Azure Virtual Desktop.
 
 ## Architecture
 

@@ -923,14 +923,14 @@
 		</g>
 		<g id="shape2720-137" v:mID="2720" v:groupContext="shape" transform="translate(103.66,-688.562)">
 			<title>Rectangle</title>
-			<desc>Application landing zone subscription</desc>
+			<desc>Workload landing zone subscription</desc>
 			<v:userDefs>
 				<v:ud v:nameU="visVersion" v:val="VT0(15):26"/>
 			</v:userDefs>
 			<v:textBlock v:margins="rect(4,4,4,4)"/>
 			<v:textRect cx="60.0469" cy="709.625" width="120.1" height="29.75"/>
 			<rect x="0" y="694.75" width="120.094" height="29.75" class="st35"/>
-			<text x="8.82" y="706.63" class="st36" v:langID="1033"><v:paragraph v:horizAlign="1"/><v:tabList/>Application landing zone <tspan
+			<text x="8.82" y="706.63" class="st36" v:langID="1033"><v:paragraph v:horizAlign="1"/><v:tabList/>Workload landing zone <tspan
 						x="34.58" dy="1.2em" class="st13">subscription</tspan></text>		</g>
 		<g id="shape2722-141" v:mID="2722" v:groupContext="shape" transform="translate(230.41,-690.937)">
 			<title>Rectangle.2722</title>

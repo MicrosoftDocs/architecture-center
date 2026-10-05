@@ -64,7 +64,7 @@ Use one of the following strategies when you select the shard key and decide how
 
 In the lookup strategy, also called the *directory-based strategy*, the sharding logic implements a map that routes a data request to the shard that contains that data by using the shard key. In a multitenant application, you might store all the data for a tenant together in a shard by using the tenant ID as the shard key. Multiple tenants might share the same shard, but the data for a single tenant doesn't spread across multiple shards. The following diagram shows sharding tenant data based on tenant IDs.
 
-:::image type="complex" source="./_images/sharding-tenant.svg" lightbox="./_images/sharding-tenant.svg" alt-text="Diagram that shows tenant data based on tenant IDs" border="false":::
+:::image type="complex" source="./_images/sharding-tenant.svg" alt-text="Diagram that shows tenant data based on tenant IDs" border="false":::
 Two application instances send queries for specific tenants to a sharding logic component. The sharding logic routes each request to the correct shard, such as shard A, shard B, or shard C, based on tenant ID. Each shard stores a distinct subset of the data.
 :::image-end:::
 
@@ -76,7 +76,7 @@ The range-based strategy groups related items together in the same shard and ord
 
 For example, if an application regularly needs to find all orders placed in a given month, you can retrieve the data faster if you store all orders for a month in date and time order in the same shard. If you store each order in a different shard, the application has to fetch them individually by performing a large number of point queries. The following diagram shows sequential sets, or ranges, of data stored in shards.
 
-:::image type="complex" source="./_images/sharding-sequential-sets.svg" lightbox="./_images/sharding-sequential-sets.svg" alt-text="Diagram that shows sequential sets, or ranges, of data stored in shards." border="false":::
+:::image type="complex" source="./_images/sharding-sequential-sets.svg" alt-text="Diagram that shows sequential sets, or ranges, of data stored in shards." border="false":::
 Application instances submit queries for orders placed in specific months. A sharding logic component maps each month to a shard, such as October to shard A, November to shard B, and December to shard C. Orders are stored in date and time sequence within each shard.
 :::image-end:::
 
@@ -88,7 +88,7 @@ Some data stores support two-part shard keys. A partition key identifies the sha
 
 The hash-based strategy reduces the chance of hotspots, which are shards that receive a disproportionate amount of load. This strategy distributes data across shards to balance the size of each shard and the average load that each shard encounters. The sharding logic computes the shard to store an item in based on a hash of one or more attributes of the data. The chosen hashing function should distribute data evenly across the shards. The following diagram shows sharding tenant data based on a hash of tenant IDs.
 
-:::image type="complex" source="./_images/sharding-data-hash.svg" lightbox="./_images/sharding-data-hash.svg" alt-text="Diagram that shows sharding tenant data based on a hash of tenant IDs." border="false":::
+:::image type="complex" source="./_images/sharding-data-hash.svg" alt-text="Diagram that shows sharding tenant data based on a hash of tenant IDs." border="false":::
 Application instances submit queries for specific tenants. A sharding logic component hashes the tenant ID and routes each request to a shard, such as tenant 55 to shard B and tenant 56 to shard N. Each shard stores a subset of tenant data.
 :::image-end:::
 
@@ -253,7 +253,7 @@ Consider a website that surfaces an expansive collection of information about pu
 
 To start, the architect colocates the 11 logical shards into three physical shard databases. In this [virtual partition approach](#problems-and-considerations), many logical partitions map to fewer physical nodes. The architect uses the *lookup* sharding approach and stores the key-to-server mapping in a shard map database.
 
-:::image type="complex" source="_images/sharding-example.svg" alt-text="Diagram that shows a sharded SQL Database architecture for a book catalog application." border="false":::
+:::image type="complex" source="_images/sharding-example.svg" lightbox="_images/sharding-example.svg" alt-text="Diagram that shows a sharded SQL Database architecture for a book catalog application." border="false":::
    Azure App Service is labeled Book catalog website. It connects to multiple SQL Database instances and an Azure AI Search instance. One of the databases is labeled as the ShardMap database. It includes an example table that mirrors a part of the mapping table, which is listed later in this article. The table includes three shard databases instances: bookdbshard0, bookdbshard1, and bookdbshard2. The other databases include identical example listings of tables under them. The tables include Books, LibraryOfCongressCatalog, and an indicator of more tables. AI Search is used for faceted navigation and site search. Managed identity is associated with the App Service.
 :::image-end:::
 

@@ -2,7 +2,7 @@
 title: Sequential Convoy Pattern
 description: Use an established pattern to process a set of related messages in a defined order, without blocking the processing of other groups of messages.
 ms.author: pnp
-author: anaharris-ms
+author: claytonsiemens77
 ms.date: 06/24/2026
 ms.topic: design-pattern
 ms.subservice: cloud-fundamentals

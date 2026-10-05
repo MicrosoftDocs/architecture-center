@@ -6,7 +6,7 @@ As a workload owner, you can offload the management of shared resources to centr
 
 > [!IMPORTANT]
 > **What are Azure landing zones?**
-> Azure landing zones present two perspectives of an organization's cloud footprint. An *application landing zone* is an Azure subscription in which a workload runs. It's connected to the organization's shared resources. Through that connection, it has access to basic infrastructure that runs the workload, such as networking, identity access management, policies, and monitoring. A *platform landing zone* is a collection of various subscriptions, each with a specific function. For example, a connectivity subscription provides centralized Domain Name System (DNS) resolution, cross-premises connectivity, and network virtual appliances (NVAs) that are available for application teams to use.
+> Azure landing zones present two perspectives of an organization's cloud footprint. Each workload has a single *workload landing zone* that contains all its environments, such as development, test, and production. Each environment consists of one or more Azure subscriptions. The workload landing zone connects to the organization's shared resources. Through that connection, it has access to basic infrastructure that runs the workload, such as networking, identity access management, policies, and monitoring. A *platform landing zone* is a collection of various subscriptions, each with a specific function. For example, a connectivity subscription provides centralized Domain Name System (DNS) resolution, cross-premises connectivity, and network virtual appliances (NVAs) that are available for application teams to use.
 >
 > We recommend that you understand the concept of [Azure landing zones](/azure/cloud-adoption-framework/ready/landing-zone) to help you prepare for the implementation of this architecture.
 
@@ -18,7 +18,7 @@ As a workload owner, you can offload the management of shared resources to centr
 
 ## Architecture
 
-:::image type="content" source="./media/baseline-landing-zone.svg" alt-text="A diagram that shows the VM baseline architecture in an application landing zone." lightbox="./media/baseline-landing-zone.svg" border="false":::
+:::image type="content" source="./media/baseline-landing-zone.svg" alt-text="A diagram that shows the VM baseline architecture in a workload landing zone." lightbox="./media/baseline-landing-zone.svg" border="false":::
 *Download a [Visio file](https://arch-center.azureedge.net/baseline-landing-zone.vsdx) of this architecture.*
 
 ### Components
@@ -60,7 +60,7 @@ The platform team owns and maintains these centralized resources. This architect
 
 ## Subscription setup
 
-In an application landing zone context, your workload team must inform the platform team of their specific requirements.
+In a workload landing zone context, your workload team must inform the platform team of their specific requirements.
 
 Your **workload team** must include detailed information about the networking space that your workload needs, so that the platform team can allocate necessary resources. Your team determines the requirements, and the platform team determines the IP addresses to assign within the virtual network and the management group to which the subscription is assigned.
 
@@ -146,7 +146,7 @@ Make sure that you [communicate the workload requirements](#subscription-setup) 
 
 In the spoke virtual network, the workload team creates and allocates the subnets. Placing controls to restrict traffic in and out of the subnets helps to provide segmentation. This architecture uses the same subnet topology as the [baseline architecture](baseline.yml#subnetting-considerations), which has dedicated subnets for Application Gateway, front-end VMs, the load balancer, back-end VMs, and private endpoints.
 
-When you deploy your workload in an application landing zone, you still have to implement network controls. Organizations might impose restrictions to safeguard against data exfiltration and ensure visibility for the central security operations center (SOC) and the IT network team.
+When you deploy your workload in a workload landing zone, you still have to implement network controls. Organizations might impose restrictions to safeguard against data exfiltration and ensure visibility for the central security operations center (SOC) and the IT network team.
 
 With this approach, the platform team can optimize overall organizational spend by using centralized services, rather than deploying redundant security controls for each workload throughout the organization. In this architecture, Azure Firewall is an example of a central service. It's not cost-effective or practical for each workload team to manage their own firewall instance. We recommend a centralized approach to firewall management.
 
@@ -239,7 +239,7 @@ Correlated data is often used during incident response. If there's a problem wit
 
 ## Azure Policy
 
-The platform team likely applies policies that affect the workload deployment. They often apply DINE policies to handle automated deployments into an application landing zone subscription. DINE policies can modify workload resources or add resources to your deployment, which can result in a discrepancy between the resources that are declaratively deployed through the workload template and the resources that the processing requests actually use. A typical solution is to fix those changes with imperative approaches, which aren't ideal.
+The platform team likely applies policies that affect the workload deployment. They often apply DINE policies to handle automated deployments into a workload landing zone subscription. DINE policies can modify workload resources or add resources to your deployment, which can result in a discrepancy between the resources that are declaratively deployed through the workload template and the resources that the processing requests actually use. A typical solution is to fix those changes with imperative approaches, which aren't ideal.
 
 To avoid that discrepancy, preemptively incorporate and test the platform-initiated changes into your IaC templates. If the platform team uses Azure policies that conflict with the requirements of the application, you can negotiate a resolution with the platform team.
 
@@ -311,7 +311,7 @@ For more information, see [Recommendations for defining reliability targets](/az
 
 ##### Critical dependencies
 
-View all functionality that the workload performs in the platform and application landing zone as dependencies. Incident response plans require that the workload team is aware of the point and method of contact information for these dependencies. Also include these dependencies in the workload's failure mode analysis (FMA).
+View all functionality that the workload performs in the platform and workload landing zone as dependencies. Incident response plans require that the workload team is aware of the point and method of contact information for these dependencies. Also include these dependencies in the workload's failure mode analysis (FMA).
 
 For this architecture, consider the following dependencies:
 

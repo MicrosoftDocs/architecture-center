@@ -136,7 +136,7 @@ Many managed machine learning services don't require model training or data, so 
 
 - [Azure custom voice](/azure/ai-services/speech-service/custom-neural-voice)
 - [Automated ML (AutoML) in Machine Learning](/azure/machine-learning/concept-automated-ml)
-- [Face API](/azure/ai-services/computer-vision/how-to/add-faces)
+- [Face API](/azure/ai-services/face/how-to/add-faces)
 - [Document Intelligence custom models](/azure/ai-services/document-intelligence/train/custom-model)
 - [Customize a model with fine-tuning](/azure/foundry/openai/how-to/fine-tuning)
 
@@ -170,7 +170,7 @@ The following diagram shows an example architecture that uses Machine Learning. 
 
 ### Integrated AI and machine learning solutions
 
-Azure provides several powerful analytics platforms that you can use for various purposes. These platforms include [Microsoft Fabric](/fabric/fundamentals/microsoft-fabric-overview), [Azure Databricks](/azure/databricks/scenarios/ml/), and [Apache Spark](/fabric/data-science/).
+Azure provides several powerful analytics platforms that you can use for various purposes. These platforms include [Microsoft Fabric](/fabric/fundamentals/microsoft-fabric-overview), [Azure Databricks](/azure/databricks/machine-learning), and [Apache Spark](/fabric/data-science/).
 
 Consider using these platforms for AI and machine learning when you need to scale your capabilities to support a high volume of tenants and require large-scale compute and orchestration. You might also consider using these platforms when you need a broad analytics solution for other parts of your system, such as data analytics and integration with reporting through Power BI. You can deploy a single platform that supports all of your analytics and AI and machine learning needs. When you implement data platforms in a multitenant solution, review [Architectural approaches for storage and data in multitenant solutions](storage-data.md).
 

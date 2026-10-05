@@ -1,9 +1,9 @@
 ---
 title: Choose an Azure AI Technology
 description: Learn about AI services that you can use in AI applications and data flows. Choose the appropriate service for your use case.
-author: hudua
-ms.author: hudua
-ms.date: 03/20/2026
+author: davihern
+ms.author: davihern
+ms.date: 10/02/2026
 ms.update-cycle: 180-days
 ms.topic: concept-article
 ms.collection: ce-skilling-ai-copilot
@@ -25,12 +25,12 @@ The following table groups several AI services that Azure provides into categori
 
 | Technology selection guide | Service descriptions |
 | :----- | :----- |
-| [Agents](/azure/foundry/what-is-foundry) | - [Foundry Agent Service](/azure/foundry/agents/overview) <br><br> - [Foundry Models](/azure/foundry-classic/concepts/foundry-models-overview) <br><br> - [Observability](/azure/foundry/concepts/observability) |
-| [Retrieval-augmented generation (RAG)](/azure/architecture/ai-ml/guide/rag/rag-solution-design-and-evaluation-guide) | - [Azure AI Search](/azure/search/search-what-is-azure-search) <br><br> - [Azure Document Intelligence in Foundry Tools](/azure/ai-services/document-intelligence/overview) <br><br> - [Azure Content Understanding in Foundry Tools](/azure/ai-services/content-understanding/overview) <br><br> - [Models](/azure/foundry-classic/concepts/foundry-models-overview) |
-| [Targeted language processing](/azure/architecture/data-guide/ai-services/targeted-language-processing) | - [Azure OpenAI in Foundry Models](/azure/foundry/foundry-models/concepts/models-sold-directly-by-azure) <br><br> - [Azure Language in Foundry Tools](/azure/ai-services/language-service/overview) <br><br> - [Azure Translator in Foundry Tools](/azure/ai-services/translator/overview) <br><br> - [Azure Document Intelligence](/azure/ai-services/document-intelligence/overview) <br><br> - [Azure Content Understanding](/azure/ai-services/content-understanding/overview) |
-| [Speech recognition and generation](/azure/architecture/data-guide/ai-services/speech-recognition-generation) | - [Azure Speech in Foundry Tools](/azure/ai-services/speech-service/overview) <br><br>  - [Models](/azure/foundry-classic/concepts/foundry-models-overview) |
-| [Image and video processing guide](/azure/architecture/data-guide/ai-services/image-video-processing) | - [Azure Vision in Foundry Tools](/azure/ai-services/computer-vision/overview) <br><br> - [Azure Content Understanding](/azure/ai-services/content-understanding/overview) <br><br> - [Microsoft Azure AI Video Indexer](/azure/azure-video-indexer/video-indexer-overview) <br><br> - [Microsoft Azure AI Custom Vision](/azure/ai-services/custom-vision-service/overview) <br><br> - [Machine Learning](/azure/machine-learning/overview-what-is-azure-machine-learning) <br><br> - [Models](/azure/foundry-classic/concepts/foundry-models-overview) |
-| [Content Safety in Foundry Control Plane](/azure/ai-services/content-safety/overview) | Content Safety is an AI service that detects harmful user-generated and AI-generated content in applications and processes images and text to flag potentially offensive or unwanted content. It can automatically detect and scan content regardless of its source language. |
+| [Agents](/azure/foundry/what-is-foundry) | - [Foundry Agent Service](/azure/foundry/agents/overview) <br><br> - [Fabric Data Agent](/azure/foundry/agents/how-to/tools/fabric) <br><br> - [Models](/azure/foundry/concepts/foundry-models-overview)|
+| [Retrieval-augmented generation (RAG)](/azure/architecture/ai-ml/guide/rag/rag-solution-design-and-evaluation-guide) | - [Azure AI Search](/azure/search/search-what-is-azure-search) <br><br> - [Foundry IQ](/azure/foundry/agents/concepts/what-is-foundry-iq) <br><br> - [Graph-augmented RAG in Azure HorizonDB (preview)](/azure/horizondb/ai/graph-rag) <br><br> - [Azure Cosmos DB](/azure/cosmos-db/gen-ai/rag) <br><br> - [Azure Managed Redis Vector Similarity Search](/azure/redis/overview-vector-similarity) |
+| [Targeted language processing](/azure/architecture/data-guide/ai-services/targeted-language-processing) | - [Azure Language in Foundry Tools](/azure/ai-services/language-service/overview) <br><br> - [Azure Translator in Foundry Tools](/azure/ai-services/translator/overview) <br><br> - [Azure Document Intelligence](/azure/ai-services/document-intelligence/overview) <br><br> - [Azure Content Understanding](/azure/ai-services/content-understanding/overview) <br><br> - [Models](/azure/foundry/concepts/foundry-models-overview) |
+| [Speech recognition and generation](/azure/architecture/data-guide/ai-services/speech-recognition-generation) | - [Azure Speech in Foundry Tools](/azure/ai-services/speech-service/overview) <br><br>  - [Models](/azure/foundry/concepts/foundry-models-overview) |
+| [Image and video processing guide](/azure/architecture/data-guide/ai-services/image-video-processing) | - [Azure Content Understanding](/azure/ai-services/content-understanding/overview) <br><br> - [Microsoft Azure AI Video Indexer](/azure/azure-video-indexer/video-indexer-overview) <br><br> - [Machine Learning](/azure/machine-learning/overview-what-is-azure-machine-learning) <br><br> - [Azure Vision (face recognition)](/azure/ai-services/computer-vision/overview) <br><br> - [Models](/azure/foundry/concepts/foundry-models-overview) |
+| Governance and compliance | -[AI Gateway](/azure/api-management/ai-gateway-overview) <br><br> - [Content Safety in Foundry Control Plane](/azure/ai-services/content-safety/overview) <br><br> - [Evaluators in Foundry](/azure/foundry/concepts/built-in-evaluators) <br><br> - [Foundry Control Plane](/azure/foundry/control-plane/overview) |
 | [Custom models in Machine Learning](/azure/machine-learning/overview-what-is-azure-machine-learning) | Machine Learning procures and exposes many proprietary and open-source models that you can use directly or customize further with more training. It also supports the creation of new models of any type and is trained by using your own data. |
 | [Local on-device inference](/azure/foundry-local/what-is-foundry-local) | [Foundry Local](/azure/foundry-local/get-started) is an on-device AI inference solution that provides performance, privacy, customization, and cost benefits. |
 

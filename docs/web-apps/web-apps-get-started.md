@@ -1,7 +1,7 @@
 ---
 title: Get Started with Web App Architecture Design
 description: Get started with web app architecture design on Azure. Explore web app technologies, guidance, solution ideas, and reference architectures.
-author: anaharris-ms
+author: claytonsiemens77
 ms.author: pnp
 ms.update-cycle: 1095-days
 ms.date: 06/17/2026

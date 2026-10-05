@@ -1,7 +1,7 @@
 ---
 title: Get Started with Networking Architecture Design
 description: Learn about sample architectures, solutions, and guides that can help you explore the various networking services in Azure.
-author: anaharris-ms
+author: claytonsiemens77
 ms.author: pnp
 ms.date: 06/10/2026
 ms.topic: concept-article

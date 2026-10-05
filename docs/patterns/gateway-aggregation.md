@@ -99,7 +99,7 @@ To address this problem, the application uses [Azure API Management](/azure/api-
 
 You can implement this lightweight composition by using the API Management [send-request policy](/azure/api-management/send-request-policy) to [retrieve data from multiple services and construct a combined response](/azure/api-management/api-management-sample-send-request). In this example, the back-end services run in an [Azure Container Apps environment](/azure/container-apps/environment), and you deploy each back-end service as a container app that remains hidden from direct client access.  
 
-:::image type="complex" border="false" source="./_images/gateway-aggregation-example.svg" alt-text="Diagram that shows a client request flowing through API Management to the order, shipment, and customer profile services in an app environment." lightbox="./_images/gateway-aggregation-example.svg":::
+:::image type="complex" border="false" source="./_images/gateway-aggregation-example.svg" alt-text="Diagram that shows a client request flowing through API Management to the order, shipment, and customer profile services in an app environment.":::
    In the diagram, an arrow points from the customer to API Management. Another arrow points from API Management and splits into three arrows that point to order, shipment, and customer profile. An app environment is shown below and to the right of the customer profile. An arrow points from the payload summary to API Management.
 :::image-end:::
 

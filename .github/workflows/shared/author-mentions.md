@@ -190,6 +190,7 @@ safe-outputs:
       - sandippk
       - sasagir
       - schaffererin
+      - Schtechel
       - sdesai345
       - sebassem
       - seesharprun

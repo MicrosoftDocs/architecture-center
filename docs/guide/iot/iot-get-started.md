@@ -1,7 +1,7 @@
 ---
 title: Get Started with IoT Architecture Design
 description: Get started with IoT architecture design on Azure. Explore IoT technologies, guidance, solution ideas, and reference architectures.
-author: anaharris-ms
+author: claytonsiemens77
 ms.author: pnp
 ms.update-cycle: 1095-days
 ms.topic: concept-article
