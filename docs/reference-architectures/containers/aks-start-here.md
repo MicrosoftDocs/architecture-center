@@ -113,7 +113,7 @@ For more information, see:
 - [Best practices for cluster operations](/azure/aks/best-practices)
 - [Best practices for AKS workloads](/azure/aks/best-practices#developer-best-practices)
 
-You might also consider evaluating a community-driven utility like [the AKS Checklist](https://www.the-aks-checklist.com) as a way of organizing and tracking your alignment to these best practices.
+You might also consider evaluating a community-driven utility like [the AKS Checklist](https://lgmorand.github.io/the-aks-checklist/) as a way of organizing and tracking your alignment to these best practices.
 
 ## Operations guide
 
