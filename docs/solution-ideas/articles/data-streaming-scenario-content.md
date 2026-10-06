@@ -18,7 +18,7 @@ The following data flow corresponds to the previous diagram:
 1. An AKS cluster runs microservices that are deployed as containers behind a service mesh. The containers are built by using a DevOps process. The container images are stored in Azure Container Registry.
 1. An ingest service in AKS stores data in Azure Cosmos DB.
 1. Asynchronously, an analysis service in AKS receives the data and streams it to Apache Kafka on Azure HDInsight.
-1. Data scientists use [Azure Machine Learning SDK v2](/azure/machine-learning/concept-v2#azure-machine-learning-python-sdk-v2) in Azure HDInsight and the Splunk platform to analyze the data.
+1. Data scientists use [Spark MLlib](/azure/hdinsight/spark/apache-spark-overview#spark-machine-learning) on an Azure HDInsight Spark cluster to build machine learning applications that analyze data from Kafka. Splunk analyzes data from HDInsight and creates visualizations.
 1. A processing service in AKS processes the data and stores the results in Azure Database for PostgreSQL. The service also caches the data in Azure Managed Redis.
 1. A web app that runs in Azure App Service creates visualizations of the results.
 
@@ -38,7 +38,7 @@ The following data flow corresponds to the previous diagram:
 
 - [Azure Database for PostgreSQL](/azure/well-architected/service-guides/postgresql) is a managed relational database service based on PostgreSQL. In this architecture, it stores processed results from AKS microservices for downstream reporting and visualization.
 
-- [Azure HDInsight](/azure/hdinsight/hdinsight-overview) is a cloud-based service for big data analytics using open-source frameworks. In this architecture, it runs Apache Spark jobs to analyze streamed data from Kafka and supports machine learning workloads.
+- [Azure HDInsight](/azure/hdinsight/hdinsight-overview) is a cloud-based service for big data analytics using open-source frameworks. In this architecture, an HDInsight Spark cluster uses [Spark Structured Streaming](/azure/hdinsight/spark/apache-spark-structured-streaming-overview) to process data from Kafka and [Spark MLlib](/azure/hdinsight/spark/apache-spark-overview#spark-machine-learning) to build machine learning applications.
 
 - [Azure Pipelines](/azure/devops/pipelines/overview) is a continuous integration and continuous delivery (CI/CD) service within Azure DevOps. In this architecture, it builds and deploys containerized microservices to AKS to enable automated and repeatable delivery workflows.
 
