@@ -43,7 +43,7 @@ The following articles help you evaluate and select the best networking technolo
 #### Adopt IPv6
 
 - [Prevent IPv4 exhaustion in Azure](/azure/architecture/networking/guide/internet-protocol-version-4-exhaustion): Plan for IPv4 address exhaustion, and adopt IPv6 in Azure.
-- [IPv6 hub-spoke network topology](/azure/architecture/networking/guide/ipv6-architecture): Implement a hub-spoke network topology with IPv6 support.
+- [IPv6 hub-and-spoke network topology](/azure/architecture/networking/guide/ipv6-architecture): Implement a hub-spoke network topology with IPv6 support.
 - [Conceptual planning for IPv6 networking](/azure/architecture/networking/guide/ipv6-ip-planning): Plan your IPv6 IP addressing strategy for Azure networking.
 
 #### Resource organization

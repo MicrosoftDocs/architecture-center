@@ -70,7 +70,8 @@ The following production-ready architectures demonstrate end-to-end database sol
 #### In-memory data stores
 
 - [Event-driven cache updates with Azure Managed Redis and Azure Cosmos DB](../databases/architecture/event-driven-cache-updates-azure-managed-redis-cosmos-db.yml): Update cached values in Azure Managed Redis from committed Azure Cosmos DB changes without adding the cache update to the application write path.
-- [Write-through caching with Azure Managed Redis and Azure SQL Database](../databases/architecture/write-through-caching-azure-sql-managed-redis.yml)
+- [Write-through caching with Azure Managed Redis and Azure SQL Database](../databases/architecture/write-through-caching-azure-sql-managed-redis.yml): Design an application-managed write-through caching workload that uses Azure Functions to coordinate writes to Azure SQL Database and Azure Managed Redis.
+- [Cache-aside caching with Azure Managed Redis and Azure Database for PostgreSQL](../databases/architecture/cache-aside-azure-managed-redis-postgresql.yml): Design a cache-aside workload for an Azure web application that uses Azure Managed Redis to reduce repeated reads from Azure Database for PostgreSQL.
 
 #### Relational architectures
 
