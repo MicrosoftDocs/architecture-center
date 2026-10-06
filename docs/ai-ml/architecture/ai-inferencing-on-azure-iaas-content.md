@@ -241,7 +241,7 @@ The high-level deployment steps are as follows:
 1. Create volumes and connect the database host.
 1. Onboard the operational database to the Silk virtual SAN.
 
-After the operational database is running on Silk volumes, Silk Echo can clone it for the inference tier without changing the database or the application. For detailed deployment guidance, see the [Silk on Azure deployment overview](https://silk.us/wp-content/uploads/2026/03/Silk-on-Azure-Deployment-Overview.pdf).
+After the operational database is running on Silk volumes, Silk Echo can clone it for the inference tier without changing the database or the application. For more information, see [Silk on Microsoft Azure](https://silk.us/hubfs/Azure-Data-Sheet-MS-2026-V2.pdf).
 
 ### Onboard the operational database to Silk DataPod
 
