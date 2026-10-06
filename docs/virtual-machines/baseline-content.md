@@ -308,7 +308,7 @@ Some workloads might not tolerate even few seconds of a VM freezing or disconnec
 
 ### Operating system (OS) image upgrades
 
-When doing OS upgrades, have a golden image that's tested. Consider using Azure Shared Image Gallery and Azure Compute Gallery for publishing your custom images. You should have a process in place that upgrades batches of instances in a rolling manner each time a new image is published by the publisher.
+When doing OS upgrades, have a golden image that's tested. Consider using Azure Compute Gallery for publishing your custom images. You should have a process in place that upgrades batches of instances in a rolling manner each time a new image is published by the publisher.
 
 Retire VM images before they reach their end-of-life to reduce surface area.
 
