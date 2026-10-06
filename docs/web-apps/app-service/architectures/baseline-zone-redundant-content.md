@@ -129,8 +129,6 @@ Consider the following points when you implement virtual network segmentation an
 
 - Turn on [network policies for private endpoints](/azure/private-link/disable-private-endpoint-network-policy) on the private endpoints subnet so that the subnet NSG filters traffic to the private endpoints. By default, network policies are disabled and the NSG doesn't apply to private endpoint traffic.
 
-- Don't add outbound deny rules to the Application Gateway subnet. [Application Gateway v2 requires outbound internet access](/azure/application-gateway/configuration-infrastructure#outbound-rules).
-
 - Add an explicit allow rule above the deny rule for each new outbound dependency of the web app, such as an external API. The `AppServiceSubnet` NSG denies all other outbound traffic.
 
 - Use [application security groups](/azure/virtual-network/tutorial-filter-network-traffic#create-application-security-groups) to group resources logically, which simplifies NSG rule creation in complex environments.
