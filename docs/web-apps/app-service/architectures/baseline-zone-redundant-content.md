@@ -395,7 +395,7 @@ Platform monitoring collects data from the Azure services in your architecture.
   | Azure Cosmos DB | [Azure Cosmos DB metrics and logs descriptions](/azure/cosmos-db/monitor-reference) |
   | Key Vault | [Key Vault metrics and logs descriptions](/azure/key-vault/general/monitor-key-vault-reference) |
   | Blob Storage | [Blob Storage metrics and logs descriptions](/azure/storage/blobs/monitor-blob-storage-reference) |
-  | Application Insights | [Application Insights metrics and logs descriptions](/azure/azure-monitor/app/classic-api#core-api-for-custom-events-and-metrics) |
+  | Application Insights | [Application Insights metrics and logs descriptions](/azure/azure-monitor/app/opentelemetry-enable) |
   | Public IP address | [Public IP address metrics and logs descriptions](/azure/virtual-network/ip-services/monitor-public-ip) |
 
 - Balance observability needs with cost. The more data you collect, the higher the cost. For more information, see [Log Analytics cost calculations and options](/azure/azure-monitor/logs/cost-logs) and [Pricing for Log Analytics workspace](https://azure.microsoft.com/pricing/details/monitor/).
