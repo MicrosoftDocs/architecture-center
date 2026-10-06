@@ -160,7 +160,7 @@ For example, suppose that your multitenant web application and background proces
 
 1. [Create a multitenant Microsoft Entra application registration](/entra/identity-platform/quickstart-register-app) that represents your solution.
 
-1. Grant the application [delegated permission to access Azure Storage as the signed-in user](/azure/storage/blobs/authorize-access-azure-active-directory#assign-azure-roles-for-access-rights).
+1. Grant the application [delegated permission to access Azure Storage as the signed-in user](/rest/api/storageservices/authorize-with-azure-active-directory#use-oauth-access-tokens-for-authentication).
 
 1. Configure your application to authenticate users by using Microsoft Entra ID.
 
