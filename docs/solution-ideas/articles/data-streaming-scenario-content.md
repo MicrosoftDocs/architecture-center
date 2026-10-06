@@ -18,7 +18,7 @@ The following data flow corresponds to the previous diagram:
 1. An AKS cluster runs microservices that are deployed as containers behind a service mesh. The containers are built by using a DevOps process. The container images are stored in Azure Container Registry.
 1. An ingest service in AKS stores data in Azure Cosmos DB.
 1. Asynchronously, an analysis service in AKS receives the data and streams it to Apache Kafka on Azure HDInsight.
-1. Data scientists use [Spark MLlib](/azure/hdinsight/spark/apache-spark-overview#spark-machine-learning) on an Azure HDInsight Spark cluster to build machine learning applications that analyze data from Kafka. Splunk analyzes data from HDInsight and creates visualizations.
+1. Data scientists use the Splunk platform to analyze data from Kafka and create visualizations.
 1. A processing service in AKS processes the data and stores the results in Azure Database for PostgreSQL. The service also caches the data in Azure Managed Redis.
 1. A web app that runs in Azure App Service creates visualizations of the results.
 
@@ -26,7 +26,7 @@ The following data flow corresponds to the previous diagram:
 
 - [AKS](/azure/well-architected/service-guides/azure-kubernetes-service) is a managed Kubernetes container orchestration service. In this architecture, it hosts containerized microservices that ingest, process, and route streaming data from sensors to various storage and analytics layers.
 
-- [Apache Kafka](https://kafka.apache.org) is a distributed event streaming platform designed for high-throughput, low-latency data feeds. In this architecture, it receives real-time data from AKS microservices and streams it to Azure HDInsight for large-scale analytics.
+- [Apache Kafka](https://kafka.apache.org) is a distributed event streaming platform designed for high-throughput, low-latency data feeds. In this architecture, the Kafka cluster on Azure HDInsight receives real-time data from AKS microservices.
 
 - [API Management](/azure/well-architected/service-guides/azure-api-management) is a gateway for publishing, securing, and analyzing APIs. In this architecture, it receives incoming data from sensors and routes it to the AKS cluster for processing.
 
@@ -38,13 +38,13 @@ The following data flow corresponds to the previous diagram:
 
 - [Azure Database for PostgreSQL](/azure/well-architected/service-guides/postgresql) is a managed relational database service based on PostgreSQL. In this architecture, it stores processed results from AKS microservices for downstream reporting and visualization.
 
-- [Azure HDInsight](/azure/hdinsight/hdinsight-overview) is a cloud-based service for big data analytics using open-source frameworks. In this architecture, an HDInsight Spark cluster uses [Spark Structured Streaming](/azure/hdinsight/spark/apache-spark-structured-streaming-overview) to process data from Kafka and [Spark MLlib](/azure/hdinsight/spark/apache-spark-overview#spark-machine-learning) to build machine learning applications.
+- [Azure HDInsight](/azure/hdinsight/hdinsight-overview) is a cloud-based service for big data analytics using open-source frameworks. In this architecture, it hosts an [Apache Kafka cluster](/azure/hdinsight/kafka/apache-kafka-introduction) that receives streaming data from AKS.
 
 - [Azure Pipelines](/azure/devops/pipelines/overview) is a continuous integration and continuous delivery (CI/CD) service within Azure DevOps. In this architecture, it builds and deploys containerized microservices to AKS to enable automated and repeatable delivery workflows.
 
 - [Container Registry](/azure/container-registry/container-registry-intro) is a managed Docker container registry service. In this architecture, it stores container images containing the microservices.
 
-- [Splunk](https://www.splunk.com) is a data analytics and visualization platform for machine-generated data. In this architecture, it analyzes real-time data from Azure HDInsight and creates visual dashboards for business intelligence.
+- [Splunk](https://www.splunk.com) is a data analytics and visualization platform for machine-generated data. In this architecture, it analyzes real-time data from Kafka and creates visual dashboards for business intelligence.
 
 ## Scenario details
 
@@ -56,7 +56,7 @@ To store the ingested data, the solution uses Azure Cosmos DB. This database ela
 
 The solution also uses Apache Kafka. This low-latency streaming platform handles real-time data feeds at extremely high speeds.
 
-Another key solution component is Azure HDInsight, which is a managed cloud service that enables you to efficiently process massive amounts of data using the most popular open source frameworks. Azure HDInsight simplifies running big data frameworks in large volume and velocity while using Apache Spark in Azure. Splunk helps in the data analysis process. Splunk creates visualizations from real-time data and provides business intelligence.
+Another key solution component is Azure HDInsight, which hosts the Apache Kafka cluster that receives the streaming data. Splunk analyzes the data and creates visualizations for business intelligence.
 
 ### Potential use cases
 
