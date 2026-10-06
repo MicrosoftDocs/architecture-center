@@ -255,7 +255,7 @@ Consider the following recommendations when you configure data-in-transit encryp
 
 - Provide Application Gateway access to the certificate private key. For more information, see [Grant permission by using Azure role-based access control (Azure RBAC)](/azure/key-vault/general/rbac-guide) and [Managed identities for Azure resources](/entra/identity/managed-identities-azure-resources/overview). Don't use Key Vault access policies to provide access. Access policies let you grant only broad permissions, not specific values.
 
-- [Require HTTPS only](/azure/app-service/configure-ssl-bindings#enforce-https) on App Service. The default value doesn't enforce HTTPS, so set it explicitly, even when access is restricted to a private endpoint.
+- [Require HTTPS only](/azure/app-service/configure-ssl-bindings#enforce-https) on App Service. Set it explicitly, even when access is restricted to a private endpoint.
 
 - [Turn on end-to-end encryption](/azure/application-gateway/ssl-overview#end-to-end-tls-encryption). App Service is the back-end pool for the application gateway. When you configure the back-end setting for the back-end pool, use the HTTPS protocol on back-end port 443.
 
