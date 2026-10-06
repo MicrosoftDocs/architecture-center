@@ -354,7 +354,7 @@ Disk storage can't provide concurrent access to a volume, but you can use [Azure
 
 - Azure Files Standard storage backs the file share with regular hard disk drives (HDDs).
 
-- Azure Files Premium storage backs the file share with high-performance solid-state drives (SSDs). The minimum file share size for Premium is 100 GB.
+- Azure Files Premium storage backs the file share with high-performance solid-state drives (SSDs). The minimum file share size for Premium is 32 GiB.
 
 Azure Files has the following storage account replication options to protect your data if failure occurs:
 
