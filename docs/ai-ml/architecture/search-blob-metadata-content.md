@@ -98,16 +98,6 @@ For information about the costs of running this scenario, see this preconfigured
 
 If you review the estimate, you can see that the cost of blob and table storage is relatively low. Azure AI Search incurs most of the cost because it handles the indexing and the compute required to run search queries.
 
-## Deploy this scenario
-
-To deploy this example workload, see [Indexing file contents and metadata in Azure AI Search](https://github.com/Azure-Samples/azure-cognitive-search-blob-metadata). You can use this sample to:
-
-- Create the required Azure services.
-- Upload a few sample documents to Blob Storage.
-- Populate the *author* metadata value on the blob.
-- Store the *document type* and *business impact* metadata values in Table Storage.
-- Create the indexers that maintain the search index.
-
 ## Contributors
 
 *This article is maintained by Microsoft. It was originally written by the following contributors.*
