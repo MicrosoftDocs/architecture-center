@@ -93,7 +93,7 @@ This architecture uses [virtual network integration](/azure/app-service/overview
 
 For Azure services that don't require public internet access, allow private endpoints and block public endpoints. Private endpoints improve security by letting App Service connect to Private Link services directly from the private virtual network without public IP addressing.
 
-In this architecture, SQL Database, Storage, and Key Vault all have public endpoints blocked. Their service firewalls permit traffic only from other authorized Azure services. Configure other Azure services, like Azure Cosmos DB and Azure Managed Redis, with private endpoints. In this architecture, Azure Monitor doesn't use a private endpoint, but you can implement one by using an [Azure Monitor Private Link Scope (AMPLS)](/azure/azure-monitor/logs/private-link-security).
+In this architecture, SQL Database, Storage, and Key Vault all block public access. SQL Database and Key Vault disable public network access, and the Storage firewall denies all traffic by default. Only the private endpoints serve the workload's traffic. Configure other Azure services, like Azure Cosmos DB and Azure Managed Redis, with private endpoints. In this architecture, Azure Monitor doesn't use a private endpoint, but you can implement one by using an [Azure Monitor Private Link Scope (AMPLS)](/azure/azure-monitor/logs/private-link-security).
 
 The baseline architecture implements a private DNS zone for each service. Each private DNS zone contains an *A record* that maps the service's FQDN to the private endpoint's IP address. The zones link to the virtual network. Private DNS zone groups automatically create and update DNS records for private endpoints.
 
@@ -103,11 +103,13 @@ Consider the following points when you implement virtual network integration and
 
 - Configure service firewalls to allow only private connections to storage accounts, key vaults, SQL databases, and other Azure components.
 
-  - [Set the Storage account default network access rule](/azure/storage/common/storage-network-security-set-default-access) to deny all traffic that originates outside the virtual network.
+  - [Set the Storage account default network access rule](/azure/storage/common/storage-network-security-set-default-access) to deny all traffic that originates outside the virtual network. Avoid the trusted Azure services exception unless a specific service needs access.
 
   - [Enable Key Vault for Private Link](/azure/key-vault/general/network-security#key-vault-firewall-enabled-private-link).
 
   - [Deny public network access to SQL Database](/azure/azure-sql/database/connectivity-settings#deny-public-network-access).
+
+  - [Disable public network access to Key Vault](/azure/key-vault/general/network-security#key-vault-firewall-enabled-private-link). Keep the trusted Azure services exception on this vault, because Application Gateway needs it to read the certificate when you create or update the gateway, even when the vault has a private endpoint.
 
 ### Virtual network segmentation and security
 
@@ -115,15 +117,19 @@ The network in this architecture has separate subnets for Application Gateway, A
 
 | Subnet                   | Inbound | Outbound |
 | :----------------------- | :------ | -------- |
-| `GatewaySubnet`          | `AppGw.In.Allow.ControlPlane`: Allow inbound control plane access. <br><br> `AppGw.In.Allow443.Internet`: Allow inbound internet HTTPS access. | `AppGw.Out.Allow.PrivateEndpoints`: Allow outbound access to `PrivateEndpointsSubnet`. <br><br> `AppPlan.Out.Allow.AzureMonitor`: Allow outbound access to Azure Monitor. |
-| `PrivateEndpointsSubnet` | Default rules: Allow inbound access from virtual network. | Default rules: Allow outbound access to virtual network. |
-| `AppServiceSubnet`      | Default rules: Allow inbound access from virtual network. | `AppPlan.Out.Allow.PrivateEndpoints`: Allow outbound access to `PrivateEndpointsSubnet`. <br><br> `AppPlan.Out.Allow.AzureMonitor`: Allow outbound access to Azure Monitor. |
+| `GatewaySubnet`          | `AppGw.In.Allow.ControlPlane`: Allow inbound control plane access from the `GatewayManager` service tag on TCP ports 65200-65535. <br><br> `AppGw.In.Allow443.Internet`: Allow inbound internet HTTPS access. | `AppGw.Out.Allow.PrivateEndpoints`: Allow outbound HTTPS access to `PrivateEndpointsSubnet`. <br><br> `AppGw.Out.Allow.AzureMonitor`: Allow outbound HTTPS access to Azure Monitor. |
+| `PrivateEndpointsSubnet` | `PE.In.Allow.AppPlan.HTTPS`: Allow inbound HTTPS access from `AppServiceSubnet`. <br><br> `PE.In.Allow.AppPlan.SQL`: Allow inbound SQL access (TCP 1433) from `AppServiceSubnet`. <br><br> `PE.In.Allow.AppGw.HTTPS`: Allow inbound HTTPS access from `GatewaySubnet`. <br><br> `PE.In.Deny.All`: Deny all other inbound access. | Default rules: Allow outbound access to virtual network. |
+| `AppServiceSubnet`      | Default rules: Allow inbound access from virtual network. | `AppPlan.Out.Allow.PrivateEndpoints`: Allow outbound HTTPS access to `PrivateEndpointsSubnet`. <br><br> `AppPlan.Out.Allow.PrivateEndpoints.SQL`: Allow outbound SQL access (TCP 1433) to `PrivateEndpointsSubnet`. <br><br> `AppPlan.Out.Allow.AzureMonitor`: Allow outbound HTTPS access to Azure Monitor. <br><br> `AppPlan.Out.Deny.All`: Deny all other outbound access from the subnet. |
 
 Consider the following points when you implement virtual network segmentation and security:
 
 - Enable [DDoS protection](/azure/ddos-protection/manage-ddos-protection) for the virtual network that contains an application gateway subnet with a public IP address.
 
 - Add an [NSG](/azure/virtual-network/network-security-groups-overview) to every subnet where possible. Use the strictest rules that allow full solution functionality.
+
+- Turn on [network policies for private endpoints](/azure/private-link/disable-private-endpoint-network-policy) on the private endpoints subnet so that the subnet NSG filters traffic to the private endpoints. By default, network policies are disabled and the NSG doesn't apply to private endpoint traffic.
+
+- Add an explicit allow rule for each outbound dependency of the web app, such as an external API. The `AppServiceSubnet` NSG denies all other outbound traffic.
 
 - Use [application security groups](/azure/virtual-network/tutorial-filter-network-traffic#create-application-security-groups) to group resources logically, which simplifies NSG rule creation in complex environments.
 
@@ -248,6 +254,8 @@ Consider the following recommendations when you configure data-in-transit encryp
 - Store the private key to the certificate in Key Vault.
 
 - Provide Application Gateway access to the certificate private key. For more information, see [Grant permission by using Azure role-based access control (Azure RBAC)](/azure/key-vault/general/rbac-guide) and [Managed identities for Azure resources](/entra/identity/managed-identities-azure-resources/overview). Don't use Key Vault access policies to provide access. Access policies let you grant only broad permissions, not specific values.
+
+- [Require HTTPS only](/azure/app-service/configure-ssl-bindings#enforce-https) on App Service. Set it explicitly, even when access is restricted to a private endpoint.
 
 - [Turn on end-to-end encryption](/azure/application-gateway/ssl-overview#end-to-end-tls-encryption). App Service is the back-end pool for the application gateway. When you configure the back-end setting for the back-end pool, use the HTTPS protocol on back-end port 443.
 
