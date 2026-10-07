@@ -18,7 +18,7 @@ This article provides guidance about the key considerations and requirements for
 
 ## Key considerations and requirements
 
-It's important to consider the approaches that you use for storage and data services from several perspectives, including the pillars of the [Azure Well-Architected Framework](/azure/well-architected/#pillars).
+Consider the approaches that you use for storage and data services from several perspectives, including the pillars of the [Azure Well-Architected Framework](/azure/well-architected/#pillars).
 
 ### Scale
 
@@ -184,7 +184,7 @@ There are some features that can be useful for multitenancy. However, these feat
 
 - **Resource pooling** enables you to share resources and their costs between multiple databases or containers. This feature is available in SQL Database [elastic pools](/azure/azure-sql/database/elastic-pool-overview), in [Azure SQL Managed Instance](/azure/azure-sql/managed-instance/sql-managed-instance-paas-overview), and in Azure Cosmos DB [database throughput](/azure/cosmos-db/set-throughput#set-throughput-on-a-database).
 
-- **Sharding and partitioning** has stronger native support in some services than in others. This feature is available in Azure Cosmos DB by using its [logical and physical partitioning](/azure/cosmos-db/partitioning). Although SQL Database doesn't natively support sharding, it provides [sharding tools](/azure/azure-sql/database/elastic-scale-introduction) to support this type of architecture.
+- **Sharding and partitioning** have stronger native support in some services than in others. This feature is available in Azure Cosmos DB by using its [logical and physical partitioning](/azure/cosmos-db/partitioning). Although SQL Database doesn't natively support sharding, it provides [sharding tools](/azure/azure-sql/database/elastic-scale-introduction) to support this type of architecture.
 
 Additionally, when you maintain a fleet of relational databases or other schema-based databases, consider where the schema upgrade process should be triggered. In a small estate of databases, you might consider using a deployment pipeline to deploy schema changes. As the number of databases increases, it might be better for your application tier to detect the schema version for a specific database and to initiate the upgrade process.
 
