@@ -7,6 +7,7 @@ safe-outputs:
     allowed:
       - achocron
       - adamboeglin
+      - ajananth
       - akanso
       - akhan-msft
       - Albertyang0
@@ -21,6 +22,7 @@ safe-outputs:
       - ansingha
       - arntdg
       - arsenvlad
+      - asergaz
       - ashish-khandelwal-ms
       - ashish-khandelwal-ms-zz
       - bandersmsft
@@ -93,6 +95,7 @@ safe-outputs:
       - janicericketts
       - jasonschuff
       - jerrymsft
+      - Jing316
       - JKirsch1
       - jl-ms
       - JLansdaal
@@ -115,6 +118,7 @@ safe-outputs:
       - khushal08
       - kiote
       - koudaiii
+      - kpoluru2606
       - kriation
       - landonpierce
       - lanicolas
@@ -196,6 +200,7 @@ safe-outputs:
       - seesharprun
       - sesmyrnov
       - ShannonLeavitt
+      - shsagir
       - shubhamsangal-msft
       - simonesavi
       - simonthurman

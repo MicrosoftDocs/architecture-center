@@ -46,7 +46,7 @@ Ensure that you understand the [implications of using private networking](#antip
 
 When you need to deploy a virtual network, carefully consider the sizing and address space of the entire virtual network, including the subnets.
 
-Understand how you plan to deploy your Azure resources into virtual networks and the number of IP addresses that each resource consumes. If you deploy tenant-specific compute nodes, database servers, or other resources, create subnets large enough for your expected tenant growth and [horizontal autoscaling of resources](/azure/architecture/framework/scalability/design-scale).
+Understand how you plan to deploy your Azure resources into virtual networks and the number of IP addresses that each resource consumes. If you deploy tenant-specific compute nodes, database servers, or other resources, create subnets large enough for your expected tenant growth and [horizontal autoscaling of resources](/azure/well-architected/performance-efficiency/scale-partition#design-infrastructure-to-scale).
 
 Similarly, when you work with managed services, understand how they consume IP addresses. For example, when you use AKS with [Azure Container Networking Interface (CNI)](/azure/aks/configure-azure-cni), the number of IP addresses consumed from a subnet are based on factors like the number of nodes, how you scale horizontally, and your service deployment process. When you use App Service and Azure Functions with virtual network integration, [the number of IP addresses consumed is based on the number of plan instances](/azure/app-service/overview-vnet-integration#subnet-requirements).
 
@@ -120,7 +120,7 @@ Microsoft services that provide agents for connectivity to tenants' networks inc
 
 - [Azure Data Factory self-hosted integration runtime](/azure/data-factory/create-self-hosted-integration-runtime)
 - [App Service hybrid connections](/azure/app-service/app-service-hybrid-connections)
-- Microsoft on-premises data gateway, which is used for [Azure Logic Apps](/azure/logic-apps/logic-apps-gateway-connection), [Power BI](/power-bi/connect-data/service-gateway-onprem), and other services
+- Microsoft on-premises data gateway, which is used for [Azure Logic Apps](/azure/logic-apps/connect-on-premises-data-sources), [Power BI](/power-bi/connect-data/service-gateway-onprem), and other services
 
 ### Private Link service
 
@@ -163,7 +163,7 @@ Test and plan your network strategy to identify any problems before you implemen
 
 ### Not planning for limits
 
-Azure enforces many limits that affect networking resources. These limits include [Azure resource limits](/azure/azure-resource-manager/management/azure-subscription-service-limits#networking-limits) and fundamental protocol and platform limits. For example, when you build a high-scale multitenant solution on platform services, such as App Service and Azure Functions, you might need to consider the [number of Transmission Control Protocol (TCP) connections and Source Network Address Translation (SNAT) ports](/azure/app-service/troubleshoot-intermittent-outbound-connection-errors). When you work with VMs and load balancers, you also need to consider limitations for [outbound rules](/azure/load-balancer/outbound-rules) and [SNAT ports](/azure/load-balancer/load-balancer-outbound-connections).
+Azure enforces many limits that affect networking resources. These limits include [Azure resource limits](/azure/azure-resource-manager/management/azure-subscription-service-limits#azure-networking-limits) and fundamental protocol and platform limits. For example, when you build a high-scale multitenant solution on platform services, such as App Service and Azure Functions, you might need to consider the [number of Transmission Control Protocol (TCP) connections and Source Network Address Translation (SNAT) ports](/azure/app-service/troubleshoot-intermittent-outbound-connection-errors). When you work with VMs and load balancers, you also need to consider limitations for [outbound rules](/azure/load-balancer/outbound-rules) and [SNAT ports](/azure/load-balancer/load-balancer-outbound-connections).
 
 ### Small subnets
 
