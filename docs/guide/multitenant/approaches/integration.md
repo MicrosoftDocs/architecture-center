@@ -158,9 +158,9 @@ Delegated access is easier if the data store supports Microsoft Entra authentica
 
 For example, suppose that your multitenant web application and background processes need to access Azure Storage by using your tenants' user identities from Microsoft Entra ID. You might do the following steps:
 
-1. [Create a multitenant Microsoft Entra application registration](/entra/identity-platform/scenario-web-app-sign-user-app-registration) that represents your solution.
+1. [Create a multitenant Microsoft Entra application registration](/entra/identity-platform/quickstart-register-app) that represents your solution.
 
-1. Grant the application [delegated permission to access Azure Storage as the signed-in user](/azure/storage/common/storage-auth-aad-app#grant-your-registered-app-permissions-to-azure-storage).
+1. Grant the application [delegated permission to access Azure Storage as the signed-in user](/rest/api/storageservices/authorize-with-azure-active-directory#use-oauth-access-tokens-for-authentication).
 
 1. Configure your application to authenticate users by using Microsoft Entra ID.
 

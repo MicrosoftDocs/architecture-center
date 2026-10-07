@@ -31,7 +31,7 @@ The following table describes key messaging types and example multitenant soluti
 
 For more information, see [Choose the right Azure messaging service for your data](https://azure.microsoft.com/blog/events-data-points-and-messages-choosing-the-right-azure-messaging-service-for-your-data).
 
-Azure provides several messaging services that can support your messaging requirements. These services include [Azure Event Hubs](/azure/event-hubs/event-hubs-about), [Azure Event Grid](/azure/event-grid/overview), and [Azure Service Bus](/azure/service-bus-messaging/service-bus-messaging-overview). For more information, see [Choose between Azure messaging services](/azure/event-grid/compare-messaging-services).
+Azure provides several messaging services that can support your messaging requirements. These services include [Azure Event Hubs](/azure/event-hubs/event-hubs-about), [Azure Event Grid](/azure/event-grid/overview), and [Azure Service Bus](/azure/service-bus-messaging/service-bus-messaging-overview). For more information, see [Choose between Azure messaging services](/azure/service-bus-messaging/compare-messaging-services).
 
 You can also deploy and manage your own messaging service on virtual machines (VMs), containers, or in services like Azure Kubernetes Service (AKS). This approach requires you to deploy, manage, and maintain your messaging infrastructure.
 
