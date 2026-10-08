@@ -8,7 +8,6 @@ CDNs are typically used to deliver static content such as images, style sheets, 
 
 In Azure, [Azure Front Door](/azure/frontdoor/front-door-overview) is the global CDN solution for delivering high-bandwidth content that's hosted in Azure or any other location. You can configure the Azure Front Door Standard and Premium tiers to cache content at the network edge. You can cache objects that are loaded from Azure Blob Storage, a web application, a virtual machine, or even any publicly accessible web server.
 
-
 This article describes some general best practices and considerations for when you use a CDN. For more information, see the [Caching with Azure Front Door](/azure/frontdoor/front-door-caching) documentation.
 
 ## How and why a CDN is used
@@ -76,6 +75,10 @@ You might need to serve different versions of your content at various times. For
 Deploying new versions of static content when you update an application can be a challenge if the previous resources are cached on the CDN. For more information, see the following section on cache control.
 
 Consider restricting CDN content access by country or region. Azure Front Door uses the WAF to filter requests based on the country or region that a request comes from and restrict the content that it delivers. For more information, see [Geo-filtering on a domain for Azure Front Door](/azure/web-application-firewall/afds/waf-front-door-geo-filtering).
+
+### Preserve links when content moves
+
+Keep public URLs stable when only the storage location changes. Use a [URL rewrite](/azure/frontdoor/front-door-url-rewrite) to map an existing URL to a new origin path without redirecting the client. If the public URL must change, prefer returning a redirect from an existing CDN or reverse proxy rather than invoking the application. Azure Front Door Standard and Premium support [URL redirects](/azure/frontdoor/front-door-url-redirect) through rule sets.
 
 ### Cache control
 

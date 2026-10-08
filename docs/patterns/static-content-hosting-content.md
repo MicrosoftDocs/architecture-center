@@ -24,6 +24,8 @@ Consider the following points when deciding how to implement this pattern:
 
 - When some content is located in a storage account and other content is in a hosted compute instance, it becomes more challenging to deploy and update the application. You might need to deploy the application and its content separately, and version them to manage updates more effectively, especially when the static content includes script files or UI components. But if only static resources need to be updated, you can upload them to the storage account without redeploying the application package.
 
+- Handle URLs when moving files between storage locations. Use routing or URL rewriting to keep existing links working when only the storage layout changes. If a public URL must change, configure a redirect at the CDN, reverse proxy, or another HTTP-serving component that supports the required mappings. For rule management guidance, see [Preserve links when content moves](../best-practices/cdn.yml#preserve-links-when-content-moves).
+
 - Storage services might not support the use of custom domain names. In this case it's necessary to specify the full URL of the resources in links because they'll be in a different domain from the dynamically generated content containing the links.
 
 - The storage containers must be configured for public read access, but it's vital to ensure that they aren't configured for public write access to prevent users being able to upload content.
