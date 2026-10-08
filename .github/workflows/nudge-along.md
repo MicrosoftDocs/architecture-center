@@ -16,9 +16,11 @@ imports:
   - shared/author-mentions.md
 
 permissions:
+  checks: read
   contents: read
   issues: read
   pull-requests: read
+  statuses: read
   copilot-requests: write
 
 model: sonnet

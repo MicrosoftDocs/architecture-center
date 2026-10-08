@@ -15,9 +15,11 @@ imports:
   - shared/safe-comment-body.md
 
 permissions:
+  checks: read
   contents: read
   issues: read
   pull-requests: read
+  statuses: read
   copilot-requests: write
 
 model: gpt-5.6-sol
@@ -74,7 +76,7 @@ Authors who refresh an Azure Architecture Center article must attest to a freshn
 1. List open PRs in this repository updated within the last 6 hours.
   `gh pr list` returns at most `--limit` results (default 30) and sorts by creation, not update, so filter server-side rather than trimming client-side: compute the cutoff with `date -u -d '6 hours ago' +%Y-%m-%dT%H:%M:%SZ`, then run `gh pr list --state open --search "updated:>=<cutoff> sort:updated-desc" --limit 100 --json number,title,author,updatedAt,url,body`. If that command fails, fall back to `gh api --paginate --method GET search/issues` with the same repository, state, and updated-at filters. As a safety net, still drop any returned PR whose update time is older than the cutoff.
 2. Apply the metadata-only skips (see [PRs to skip](#prs-to-skip)). These checks use only the fields from step 1, so they need no diff. The PRs that remain are this run's candidate list.
-3. For each candidate PR, inspect the changed files by using `gh pr diff <number>`, read the current PR body, and read the PR's comments by using `gh pr view <number> --json comments`. Fetch every page of the PR's review threads as described in [Copilot feedback evidence](#copilot-feedback-evidence). Review the changed article content when needed. Confirm the PR is a freshness pass attempt (see [Identifying a freshness PR](#identifying-a-freshness-pr)); if it isn't (for example, it changes no article content under `docs/`), take no action for it.
+3. For each candidate PR, inspect the changed files by using `gh pr diff <number>`, read the current PR body, and read the PR's comments by using `gh pr view <number> --json comments`. Fetch every page of the PR's review threads as described in [Copilot feedback evidence](#copilot-feedback-evidence), and fetch the PR checks as described in [Learn Authoring Assistant feedback evidence](#learn-authoring-assistant-feedback-evidence). Review the changed article content when needed. Confirm the PR is a freshness pass attempt (see [Identifying a freshness PR](#identifying-a-freshness-pr)); if it isn't (for example, it changes no article content under `docs/`), take no action for it.
    If inspecting candidate PRs concurrently, make every per-PR command emit the PR number with its result. Only reconcile or update a PR by using results labeled with that same PR number.
 4. Reconcile the PR body against the [Required attestation block](#required-attestation-block) (see [How to repair the body](#how-to-repair-the-body)).
 5. Apply the idempotency guard (see [How to repair the body](#how-to-repair-the-body)): update the PR only when your rebuilt body differs meaningfully from the current body. If they'd be equivalent, emit no output for that PR.
@@ -109,7 +111,8 @@ This PR is ready for review only after all of these tasks are checked off:
 - [ ] All feedback from learners has been addressed in the article.
 - [ ] This article follows the requirements of its template.
 - [ ] This article has no linked code, the linked code is fully up to date, or a PR is currently open to update the code.
-- [ ] All GitHub Copilot feedback has been addressed.
+- [ ] All GitHub Copilot feedback is addressed.
+- [ ] All Learn Authoring Assistant feedback is addressed.
 - [ ] The `ms.author` and `author` fields are accurate for the next six months.
 - [ ] The `ms.date` value has been set as my attestation that all of the above has been followed.
 - [ ] I submitted the [contribution form](https://aka.ms/contributions) for this freshness pass.
@@ -140,6 +143,7 @@ Use the `update-pull-request` safe output with the target PR's number and the fu
 - Never check the first four checkboxes (customer value, best guidance, learner feedback, template requirements). You're not validating those. Leave them in whatever state the author set.
 - Check the "no linked code" box only when the article changed in this PR has no linked code. Linked code means the article links to or references a code sample, reference implementation, a deploy to azure button, or deployment repository. If the article has linked code, or you're unsure, leave this box unchecked.
 - Apply the rules in [Copilot feedback evidence](#copilot-feedback-evidence) to the Copilot feedback box. Don't use any other signal for that box.
+- Apply the rules in [Learn Authoring Assistant feedback evidence](#learn-authoring-assistant-feedback-evidence) to the Learn Authoring Assistant feedback box. Don't use any other signal for that box.
 - For the remaining boxes (`ms.author`/`author` accuracy, `ms.date` set, contribution form), check a box only when there's clear evidence it's already done or linked. For example, check the `ms.date` box when the diff sets or updates `ms.date`; check the contribution-form box only when there's evidence there was one done.
 - Never uncheck a box that is already checked.
 
@@ -173,6 +177,18 @@ gh api graphql --paginate \
 - Check the Copilot feedback box only when the GraphQL command succeeds, pagination completes, and every Copilot feedback thread is resolved. This includes the valid case where the complete result contains no Copilot feedback threads.
 - If the query fails, pagination is incomplete, the result can't be parsed, or any Copilot feedback thread is unresolved, leave the box unchecked. Treat outdated but unresolved threads as unresolved.
 - Learn Authoring Assistant reports are unrelated to GitHub Copilot review threads. Never use a Learn Authoring Assistant comment, report, status, or absence of suggestions as evidence for the Copilot feedback box.
+
+### Learn Authoring Assistant feedback evidence
+
+Fetch the PR checks independently from review threads and issue comments:
+
+```bash
+gh pr checks <number> --json name,state,bucket,link,workflow
+```
+
+- A Learn Authoring Assistant check is a PR check whose name is exactly `Authoring Assistant`.
+- Check the Learn Authoring Assistant feedback box only when the command succeeds, the result includes the Authoring Assistant check, and its `bucket` value is `pass`.
+- If the command fails, the check is missing, its result can't be parsed, or its `bucket` value is anything other than `pass`, leave the box unchecked.
 
 ### Link line rules
 
