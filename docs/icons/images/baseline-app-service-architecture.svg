@@ -2994,4 +2994,74 @@
 			<rect x="0" y="516.375" width="56.5796" height="19.125" class="st7"/>
 			<text x="11.55" y="528.94" class="st13" v:langID="1033"><v:paragraph v:horizAlign="1"/><v:tabList/>Identity</text>		</g>
 	</g>
+	<g id="optional-health-model" transform="translate(568,396)">
+		<title>Azure Monitor health model (optional, preview)</title>
+		<desc>A separate Azure resource that aggregates existing metrics and logs. It is outside the virtual network and is not in the application request path.</desc>
+		<defs>
+			<linearGradient id="health-model-heart" x1="0" y1="0" x2="1" y2="0" gradientTransform="rotate(90 0.5 0.5)">
+				<stop offset="0.1" stop-color="#54aef0"/>
+				<stop offset="0.44" stop-color="#379ce5"/>
+				<stop offset="0.78" stop-color="#218ddc"/>
+				<stop offset="1" stop-color="#1988d9"/>
+			</linearGradient>
+			<linearGradient id="health-model-relationships" x1="0" y1="0" x2="1" y2="0" gradientTransform="rotate(-90 0.5 0.5)">
+				<stop offset="0" stop-color="#b1b3b3"/>
+				<stop offset="0.215" stop-color="#bcbebd"/>
+				<stop offset="0.685" stop-color="#d1d1cf"/>
+				<stop offset="1" stop-color="#d9d9d6"/>
+			</linearGradient>
+			<linearGradient id="health-model-children" x1="0" y1="0" x2="1" y2="0" gradientTransform="rotate(-90 0.5 0.5)">
+				<stop offset="0" stop-color="#4aa647"/>
+				<stop offset="1" stop-color="#8de971"/>
+			</linearGradient>
+			<linearGradient id="health-model-parent" x1="0" y1="0" x2="1" y2="0" gradientTransform="rotate(90 0.5 0.5)">
+				<stop offset="0" stop-color="#8de971"/>
+				<stop offset="1" stop-color="#4aa647"/>
+			</linearGradient>
+		</defs>
+		<rect x="0" y="0" width="278" height="76" fill="#f8f8f8" stroke="#737373" stroke-width="1" stroke-dasharray="4,3"/>
+		<g id="health-model-glyph" transform="translate(12,-483.5)" stroke="none">
+			<g transform="translate(0,-5.68074)">
+				<path d="M21.94 532.21 C21.94 530.99 23.01 530 24.33 530 L26.07 530 C26.66 529.52 27.22 529.06 27.74 528.6 C27.14
+							 527.94 26.79 527.09 26.79 526.17 C26.79 524.08 28.63 522.38 30.89 522.38 C31.75 522.38 32.55 522.63
+							 33.21 523.05 C36.63 518.77 36.85 516.04 36.88 514.82 C36.99 511.82 36.56 504.01 27.9 503.39 C23.73
+							 503.1 19.88 505.44 18.51 509.08 C17.11 505.41 13.21 503.07 9 503.39 C0.45 504.01 0 511.83 0.11 514.82
+							 C0.11 516.96 0.8 523.79 18.51 535.5 C19.73 534.69 20.87 533.9 21.94 533.14 L21.94 532.21 Z"
+						fill="url(#health-model-heart)"/>
+				<path transform="translate(2.83127,-7.64926)"
+						d="M34.05 521.29 L25.39 521.29 C25.28 521.3 25.18 521.35 25.11 521.43 L22.49 525.61 C22.39 525.76 22.17
+							 525.8 22.01 525.71 C21.97 525.68 21.93 525.65 21.91 525.61 L18.16 519.04 C18 518.73 17.6 518.59
+							 17.27 518.74 C17.13 518.8 17.01 518.91 16.95 519.04 L13.36 528.93 C13.27 529.09 13.07 529.16 12.9
+							 529.08 C12.82 529.05 12.76 529 12.73 528.93 L9.65 522.35 C9.48 522.05 9.08 521.93 8.75 522.09 C8.63
+							 522.15 8.53 522.24 8.46 522.35 L4.27 529.33 C4.21 529.42 4.1 529.48 3.98 529.49 L0 529.49 C0.6 530.33
+							 1.25 531.14 1.95 531.92 L5.59 531.92 C5.71 531.93 5.82 531.87 5.87 531.76 L8.49 527.31 C8.58 527.15
+							 8.79 527.1 8.96 527.18 C9.01 527.21 9.06 527.25 9.09 527.31 L12.69 535.02 C12.82 535.34 13.21 535.5
+							 13.55 535.38 C13.73 535.32 13.87 535.19 13.94 535.02 L17.73 524.63 C17.79 524.47 17.98 524.4 18.15
+							 524.46 C18.23 524.49 18.3 524.55 18.33 524.63 L21.5 530.16 C21.66 530.46 22.06 530.57 22.37 530.41
+							 C22.49 530.35 22.58 530.27 22.64 530.16 L26.67 523.91 C26.73 523.81 26.83 523.76 26.95 523.75 L33.94
+							 523.75 L34.05 521.29 Z" fill="#ffffff"/>
+			</g>
+			<g transform="translate(20.5768,0)">
+				<path transform="translate(2.38974,-2.83617)"
+						d="M14.34 528.1 L8.61 528.1 L8.61 522.76 L7.24 522.76 L7.24 528.1 L1.37 528.1 C0.61 528.1 0 528.67 0 529.37
+							 L0 535.5 L1.37 535.5 L1.37 529.37 L7.24 529.37 L7.24 535.5 L8.61 535.5 L8.61 529.37 L14.34 529.37
+							 L14.34 535.39 L15.7 535.39 L15.7 529.37 C15.7 528.67 15.09 528.1 14.34 528.1 Z"
+						fill="url(#health-model-relationships)"/>
+				<path d="M3.07 529.82 C1.38 529.82 0 531.09 0 532.66 C0 534.23 1.38 535.5 3.07 535.5 C4.77 535.5 6.15 534.23
+							 6.15 532.66 C6.15 531.09 4.77 529.82 3.07 529.82 ZM17.41 529.82 C15.71 529.82 14.34 531.09 14.34
+							 532.66 C14.34 534.23 15.71 535.5 17.41 535.5 C19.11 535.5 20.49 534.23 20.49 532.66 C20.49 531.09
+							 19.11 529.82 17.41 529.82 ZM10.31 529.82 C8.61 529.82 7.24 531.09 7.24 532.66 C7.24 534.23 8.61
+							 535.5 10.31 535.5 C12.01 535.5 13.39 534.23 13.39 532.66 C13.39 531.09 12.01 529.82 10.31 529.82
+							 Z" fill="url(#health-model-children)"/>
+				<ellipse transform="translate(7.23749,-12.1724)" cx="3.07479" cy="532.662" rx="3.07479" ry="2.83827"
+						fill="url(#health-model-parent)"/>
+			</g>
+		</g>
+		<g fill="#000000" font-family="Segoe UI" font-size="10" stroke="none">
+			<text x="64" y="20" font-weight="600">Azure Monitor health model</text>
+			<text x="64" y="33">(optional, preview)</text>
+			<text x="64" y="46">Separate Azure resource</text>
+			<text x="12" y="65">Uses existing metrics and logs; not in request path</text>
+		</g>
+	</g>
 </svg>

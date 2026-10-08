@@ -32,7 +32,7 @@ To learn more about communicating design intent, see [Architecture design diagra
 ## Example architecture diagrams
 
 :::image type="complex" source="./images/baseline-app-service-architecture.svg" lightbox="./images/baseline-app-service-architecture.svg" alt-text="Diagram that shows a baseline App Service architecture with zone redundancy and high availability.":::
-    The diagram shows a virtual network with three subnets. One subnet contains Azure Application Gateway with Azure Web Application Firewall. The second subnet contains private endpoints for Azure PaaS services, while the third subnet contains a virtual interface for Azure App Service network integration. The diagram shows App Gateway communicating to Azure App Service via a private endpoint. App Service shows a zone-redundant configuration. The diagram also shows App Service using virtual network integration and private endpoints to communicate to Azure SQL Database, Azure Key Vault, and Azure Storage.
+    The diagram shows a virtual network with three subnets. One subnet contains Azure Application Gateway with Azure Web Application Firewall. The second subnet contains private endpoints for Azure PaaS services, while the third subnet contains a virtual interface for Azure App Service network integration. The diagram shows App Gateway communicating to Azure App Service via a private endpoint. App Service shows a zone-redundant configuration. The diagram also shows App Service using virtual network integration and private endpoints to communicate to Azure SQL Database, Azure Key Vault, and Azure Storage. A box in the lower right describes an optional Azure Monitor health model that uses existing metrics and logs. It's not in the request path.
 :::image-end:::
 
 [Browse all Azure architectures](../browse/index.yml) to view other examples.
@@ -60,7 +60,7 @@ I agree to the above terms.
 
 ## Use in Microsoft Visio
 
-The icons aren't provided in Visio stencil format. The icons are provided as general purpose SVG files. You can drag and drop these icons into many diagraming and drawing tools, including Visio. There are no plans to provide these icons as Visio stencils.
+The icons aren't provided in Visio stencil format. The icons are provided as general purpose SVG files. You can drag and drop these icons into many diagramming and drawing tools, including Visio. There are no plans to provide these icons as Visio stencils.
 
 ## More icon sets from Microsoft
 
