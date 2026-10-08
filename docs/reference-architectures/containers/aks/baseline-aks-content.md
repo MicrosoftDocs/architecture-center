@@ -66,7 +66,7 @@ You can use an implementation of this architecture on [GitHub: AKS baseline refe
 ## Architecture
 
 :::image type="complex" border="false" source="images/aks-baseline-architecture.svg" alt-text="Architecture diagram that shows a hub-and-spoke network topology." lightbox="images/aks-baseline-architecture.svg":::
-   The diagram shows two connected virtual networks. The hub virtual network contains Azure Firewall, Azure Bastion, and a gateway subnet connected to on-premises. The spoke virtual network contains several subnets, the AKS cluster, and node pools. Virtual network peering connects the hub and spoke virtual networks through a bidirectional link. Arrows point from Key Vault and Container Registry to Private Link endpoints subnet. An arrow points from Azure Bastion subnet (management) to the internal load balancer in the spoke virtual network. An arrow points from the on-premises network to the on-premises gateway. A bidirectional arrow labeled virtual network peering points from the hub virtual network to the remote office spoke. An arrow points from the internet to the Azure Application Gateway subnet. An arrow points from the AKS cluster to the Azure Monitor workspace section that includes metrics and managed Prometheus.
+   The diagram shows two connected virtual networks. The hub virtual network contains Azure Firewall, Azure Bastion, and a gateway subnet connected to on-premises. The spoke virtual network contains several subnets, the AKS cluster, and node pools. Virtual network peering connects the hub and spoke virtual networks through a bidirectional link. Arrows point from Key Vault and Container Registry to Private Link endpoints subnet. An arrow points from Azure Bastion subnet (management) to the internal load balancer in the spoke virtual network. An arrow points from the on-premises network to the on-premises gateway. A bidirectional arrow labeled virtual network peering points from the hub virtual network to the remote office spoke. An arrow points from the internet to the Azure Application Gateway subnet. An arrow points from the AKS cluster to the Azure Monitor workspace section that includes metrics and Managed Prometheus. An optional Azure Monitor health model, marked as preview, appears outside the workspace and virtual networks. A query arrow connects the health model to the workspace.
 :::image-end:::
 
 *Download a [Visio file](https://arch-center.azureedge.net/aks-baseline-architecture.vsdx) of this architecture.*
@@ -757,6 +757,8 @@ When both methods are enabled, ConfigMap settings take precedence over DCRs. Avo
 
 Outages and malfunctions pose significant risks to workload applications, which makes it essential to proactively identify problems related to your infrastructure's health and performance. When you monitor your environment and act on what you learn, you reduce disruptions and improve the reliability of your solution. To anticipate potential failure conditions in your cluster, enable [the recommended Prometheus alert rules for Kubernetes](/azure/azure-monitor/containers/kubernetes-metric-alerts).
 
+Keep these resource-specific alerts as the default production alerting path. An Azure Monitor health model (preview) is an optional addition when you need to aggregate health across cluster components and workload dependencies. It's not required for every baseline AKS deployment. For adoption criteria and signal configuration, see [Health modeling](#health-modeling).
+
 Most workloads hosted in pods emit Prometheus metrics. Azure Monitor can integrate with Prometheus. You can view the application and workload metrics collected from containers, pods, nodes, and the cluster.
 
 Some non-Microsoft solutions integrate with Kubernetes, like Datadog, Grafana, or New Relic. So if your organization already uses these solutions, you can take advantage of them.
@@ -765,15 +767,15 @@ Some non-Microsoft solutions integrate with Kubernetes, like Datadog, Grafana, o
 
 With AKS, Azure manages some of the core Kubernetes services. Azure implements the logs for the AKS control plane components as [resource logs](/azure/azure-monitor/platform/resource-logs). These options can help you troubleshoot cluster problems, and they have a relatively low log density. We recommend that you enable the following options on most clusters:
 
-- `ClusterAutoscaler`: Gain observability into the scaling operations through logging. For more information, see [Retrieve cluster autoscaler logs and status](/azure/aks/cluster-autoscaler#retrieve-cluster-autoscaler-logs-and-status).
+- `cluster-autoscaler`: Gain observability into the scaling operations through logging. For more information, see [Retrieve cluster autoscaler logs and status](/azure/aks/cluster-autoscaler#retrieve-cluster-autoscaler-logs-and-status).
 
-- `KubeControllerManager`: Gain observability into the interaction between Kubernetes and the Azure control plane.
+- `kube-controller-manager`: Gain observability into the interaction between Kubernetes and the Azure control plane.
 
 - `kube-audit-admin`: Gain observability into activities that modify your cluster. There's no need to enable both `kube-audit` and `kube-audit-admin` because `kube-audit` is a superset that also includes nonmodify (read) operations.
 
 - `guard`: Capture Microsoft Entra ID and Azure RBAC audits.
 
-It might be helpful for you to enable other log categories, like `KubeScheduler` or `kube-audit`, during early cluster or workload life cycle development. The added cluster autoscaling, pod placement and scheduling, and similar data can help you troubleshoot cluster or workload operations concerns. But if you keep the extended troubleshooting logs on full time after your troubleshooting needs end, you might be incurring unnecessary costs to ingest and store the data in Azure Monitor.
+It might be helpful for you to enable other log categories, like `kube-scheduler` or `kube-audit`, during early cluster or workload life cycle development. The added cluster autoscaling, pod placement and scheduling, and similar data can help you troubleshoot cluster or workload operations concerns. But if you keep the extended troubleshooting logs on full time after your troubleshooting needs end, you might be incurring unnecessary costs to ingest and store the data in Azure Monitor.
 
 Azure Monitor includes a set of existing log queries to start with, but you can also use them as a foundation to help build your own queries. As your library grows, you can save and reuse log queries by using one or more [query packs](/azure/azure-monitor/logs/query-packs). Your custom library of queries provides greater observability into the health and performance of your AKS clusters. It supports achieving your SLOs.
 
@@ -882,6 +884,31 @@ Monitor your container infrastructure for both active threats and potential secu
 - Defender for Containers also generates [real-time security alerts for suspicious activities](/azure/defender-for-cloud/defender-for-containers-introduction#run-time-protection-for-kubernetes-nodes-and-clusters).
 - [Security concepts for applications and clusters in AKS](/azure/aks/concepts-security) details information about how container security protects the entire end-to-end pipeline from build to the application workloads running in AKS.
 
+### Health modeling
+
+[Azure Monitor health models](/azure/azure-monitor/health-models/overview) (preview) are an optional extension to this baseline, not a requirement for every AKS cluster. Evaluate a model when your team needs a workload-level health view across cluster components and Azure dependencies. Use the existing metrics, logs, and resource-specific alerts without a model when they meet your operational needs.
+
+A health model is a separate Azure resource, not a component deployed inside an Azure Monitor workspace. It [queries monitoring data that you already collect](/azure/azure-monitor/health-models/concepts#signals); creating a model doesn't enable telemetry collection. Configure its [signals](/azure/azure-monitor/health-models/signals) to use the Azure Monitor workspace for PromQL queries, the Log Analytics workspace for KQL queries, and modeled Azure resources for platform metrics.
+
+If you adopt a model, start with the following entities and signals:
+
+- **Cluster control plane.** Define KQL signals over the resource logs enabled in this architecture: `cluster-autoscaler`, `kube-controller-manager`, `kube-audit-admin`, and `guard`. These logs don't provide a scheduler-health signal. If you need a log-based scheduler signal, enable the `kube-scheduler` diagnostic category and account for its ingestion cost. Use [supported AKS resource logs](/azure/aks/monitor-aks-reference#resource-logs) rather than making preview control-plane metrics a required production input.
+
+- **Node pools.** Use PromQL queries over collected node readiness and resource-utilization metrics. Aggregate node signals to reflect the capacity that remains available in each pool.
+
+  To model patch lag, use scheduled automation to [compare node image versions](/azure/aks/upgrade-node-image#check-for-available-node-image-upgrades). Collect `nodeImageVersion` from `az aks nodepool show` and `latestNodeImageVersion` from `az aks nodepool get-upgrades`. Send the versions and collection time to a custom Log Analytics table through the [Logs Ingestion API](/azure/azure-monitor/logs/logs-ingestion-api-overview). Define a KQL signal for lag against your tested target image and a separate signal for stale or missing samples. The `NodeImage` upgrade channel is a configuration setting, not a health signal.
+
+- **Workload pods.** Use PromQL queries for pod readiness and restart counts. For instrumented workloads, add KQL signals over Application Insights request and dependency telemetry in the Log Analytics workspace. Group the gateway proxy, application services, and sidecars according to the workload functions that they support.
+
+- **Dependent Azure services.** Use available platform metrics for Application Gateway, Azure Firewall, Container Registry, Key Vault, and Load Balancer. Use application dependency telemetry to assess request failures along private endpoint paths; the existence of a private endpoint doesn't demonstrate successful connectivity.
+
+Connect entities only to the workloads that depend on them. Set [health propagation rules](/azure/azure-monitor/health-models/concepts#health-propagation-settings) to reflect redundancy and workload impact rather than treating every individual node or dependency failure as a workload outage. Each KQL or PromQL signal query must return a single numeric result for the entity that it evaluates.
+
+Validate the model in preproduction before you use it to support incident triage. During preview, keep resource-specific alerts as your production alerting path and use the model as a supplementary view. Leave health-model alerts disabled during evaluation: [adding a model doesn't disable existing alert rules](/azure/azure-monitor/health-models/alerts#migrate-from-resource-specific-alert-rules), so enabling both can create duplicate notifications. Confirm regional availability and review the [preview terms](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) before you enable the capability.
+
+> [!NOTE]
+> The [AKS baseline reference implementation](https://github.com/mspnp/aks-baseline) doesn't deploy a health model, its role assignments, a patch-lag collector, or health-model deployment checks. If you adopt this extension, use the [health model Bicep tutorial](/azure/azure-monitor/health-models/tutorial-bicep) as a starting point and adapt the entities and signals to your cluster.
+
 ## Cluster and workload operations
 
 For cluster and workload operations (DevOps) considerations, see the [Operational Excellence design principles](/azure/well-architected/operational-excellence/principles) pillar.
@@ -981,6 +1008,16 @@ Deploy *any* change, like architecture components, workload, and cluster configu
 Run tests and validations at each stage before you continue to the next stage. It helps ensure that you can push updates to the production environment in a highly controlled way and minimize disruption from unanticipated deployment problems. The deployment should follow a similar pattern as production, by using the same GitHub Actions pipeline or Flux operators.
 
 Advanced deployment techniques, like [blue-green deployment](https://martinfowler.com/bliki/BlueGreenDeployment.html), A/B testing, and [canary releases](https://martinfowler.com/bliki/CanaryRelease.html), require extra processes and potentially extra tooling. [Flagger](https://github.com/fluxcd/flagger) is a popular open-source solution to help solve for advanced deployment scenarios.
+
+### Health-centric operations
+
+Apply these practices only if you adopt the optional [health model](#health-modeling):
+
+- **Define the model in IaC.** Version the model's entities, dependencies, signal queries, thresholds, managed identity, and authentication settings with the cluster and workload configuration. Include the [required role assignments](/azure/azure-monitor/health-models/create#identity): **Reader** on modeled Azure resources and **Monitoring Reader** on the Log Analytics and Azure Monitor workspaces that the model queries. Assign these roles explicitly when you use a user-assigned managed identity.
+
+- **Use health as supplementary deployment and maintenance evidence.** Compare the model's state before and after a change alongside readiness probes, smoke tests, and resource-specific alerts. Keep the model advisory in production during preview; don't make release completion or rollback depend on it. For preproduction deployment-gate experiments, use a bounded observation period and explicit handling for `Unknown`, timeout, and pre-existing degradation. [Unknown means insufficient data](/azure/azure-monitor/health-models/concepts#health-states), not a successful health check.
+
+- **Support incident response.** Use the model's graph and timeline views alongside production alerts to identify affected entities and dependencies. Confirm the cause in the underlying logs and metrics before you take remedial action.
 
 ## Cost management
 
