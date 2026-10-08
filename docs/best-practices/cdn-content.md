@@ -80,6 +80,8 @@ Consider restricting CDN content access by country or region. Azure Front Door u
 
 Keep public URLs stable when only the storage location changes. Use a [URL rewrite](/azure/frontdoor/front-door-url-rewrite) to map an existing URL to a new origin path without redirecting the client. If the public URL must change, prefer returning a redirect from an existing CDN or reverse proxy rather than invoking the application. Azure Front Door Standard and Premium support [URL redirects](/azure/frontdoor/front-door-url-redirect) through rule sets.
 
+If the hostname changes, keep the old hostname routable for as long as redirects are required. Maintain DNS pointing to the redirect-serving endpoint, retain the old hostname's custom domain and route associations, and maintain a valid TLS certificate for HTTPS. Without these dependencies, clients can't receive the redirect.
+
 ### Cache control
 
 Consider how to manage caching within the system. For example, in Azure Front Door, you can set caching rules in the rules engine and apply custom caching behavior to specific routes. You can also control how caching is performed in a CDN by sending cache-directive headers at the origin.
