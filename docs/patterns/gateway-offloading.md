@@ -55,7 +55,7 @@ Consider the following points when you decide how to implement this pattern:
 
 - **Offloading scope.** Offload features shared by multiple services or routes when centralizing them reduces duplicated implementation and management.
 
-- **Redirect matching.** Match only the intended legacy URLs and preserve normal routing for unmatched requests. Keep redirects that depend on business state or application-specific authorization in the application. For guidance on maintaining mappings, see [Preserve links when content moves](../best-practices/cdn.yml#preserve-links-when-content-moves).
+- **Redirect matching.** Match only the intended legacy URLs and preserve normal routing for unmatched requests. Keep redirects that depend on business state or application-specific authorization in the application. For related guidance, see [Preserve links when content moves](../best-practices/cdn.yml#preserve-links-when-content-moves).
 
 - **Business logic separation.** Never offload business logic to the gateway.
 
