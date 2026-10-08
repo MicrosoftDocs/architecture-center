@@ -76,7 +76,7 @@ Authors who refresh an Azure Architecture Center article must attest to a freshn
 1. List open PRs in this repository updated within the last 6 hours.
   `gh pr list` returns at most `--limit` results (default 30) and sorts by creation, not update, so filter server-side rather than trimming client-side: compute the cutoff with `date -u -d '6 hours ago' +%Y-%m-%dT%H:%M:%SZ`, then run `gh pr list --state open --search "updated:>=<cutoff> sort:updated-desc" --limit 100 --json number,title,author,updatedAt,url,body`. If that command fails, fall back to `gh api --paginate --method GET search/issues` with the same repository, state, and updated-at filters. As a safety net, still drop any returned PR whose update time is older than the cutoff.
 2. Apply the metadata-only skips (see [PRs to skip](#prs-to-skip)). These checks use only the fields from step 1, so they need no diff. The PRs that remain are this run's candidate list.
-3. For each candidate PR, inspect the changed files by using `gh pr diff <number>`, read the current PR body, and read the PR's comments by using `gh pr view <number> --json comments`. Fetch every page of the PR's review threads as described in [Copilot feedback evidence](#copilot-feedback-evidence), and fetch the PR checks as described in [Learn Authoring Assistant feedback evidence](#learn-authoring-assistant-feedback-evidence). Review the changed article content when needed. Confirm the PR is a freshness pass attempt (see [Identifying a freshness PR](#identifying-a-freshness-pr)); if it isn't (for example, it changes no article content under `docs/`), take no action for it.
+3. For each candidate PR, inspect the changed files by using `gh pr diff <number>`, read the current PR body, and read the PR's comments by using `gh pr view <number> --json comments`. Fetch every page of the PR's review threads as described in [Copilot feedback evidence](#copilot-feedback-evidence), and fetch the PR's head commit statuses as described in [Learn Authoring Assistant feedback evidence](#learn-authoring-assistant-feedback-evidence). Review the changed article content when needed. Confirm the PR is a freshness pass attempt (see [Identifying a freshness PR](#identifying-a-freshness-pr)); if it isn't (for example, it changes no article content under `docs/`), take no action for it.
    If inspecting candidate PRs concurrently, make every per-PR command emit the PR number with its result. Only reconcile or update a PR by using results labeled with that same PR number.
 4. Reconcile the PR body against the [Required attestation block](#required-attestation-block) (see [How to repair the body](#how-to-repair-the-body)).
 5. Apply the idempotency guard (see [How to repair the body](#how-to-repair-the-body)): update the PR only when your rebuilt body differs meaningfully from the current body. If they'd be equivalent, emit no output for that PR.
@@ -180,15 +180,20 @@ gh api graphql --paginate \
 
 ### Learn Authoring Assistant feedback evidence
 
-Fetch the PR checks independently from review threads and issue comments:
+Authoring Assistant publishes a commit status, not a check run. Fetch the PR's current head SHA, then fetch every page of the combined commit-status endpoint for that SHA:
 
 ```bash
-gh pr checks <number> --json name,state,bucket,link,workflow
+gh api repos/MicrosoftDocs/architecture-center-pr/pulls/<number> --jq .head.sha
+gh api --paginate 'repos/MicrosoftDocs/architecture-center-pr/commits/<head-sha>/status?per_page=100' \
+  --jq '.statuses[] | select(.context == "Authoring Assistant") | {context, state, updated_at}'
 ```
 
-- A Learn Authoring Assistant check is a PR check whose name is exactly `Authoring Assistant`.
-- Check the Learn Authoring Assistant feedback box only when the command succeeds, the result includes the Authoring Assistant check, and its `bucket` value is `pass`.
-- If the command fails, the check is missing, its result can't be parsed, or its `bucket` value is anything other than `pass`, leave the box unchecked.
+Replace `<head-sha>` with the SHA returned for that same PR. Don't use the workflow's checkout SHA or another PR's SHA.
+
+- Check the Learn Authoring Assistant feedback box only when both commands succeed, pagination completes, and the status whose `context` is exactly `Authoring Assistant` has `state: success`. Evaluate that status alone, not the combined top-level `state`, which can be pending or failing because of unrelated checks.
+- If that status has any other state, leave the box unchecked. Report it as missing only when the complete, successful lookup contains no matching context.
+- If either command fails, pagination is incomplete, or the result can't be parsed, leave the box unchecked and report the lookup failure in the run output. If you mention this item in the PR comment, say that its status couldn't be verified, not that the check is missing or failing.
+- Don't use `gh pr checks` for this lookup: the CLI proxy can reject its GraphQL operation. The REST `/check-runs` endpoint is not a substitute because it omits commit statuses. Don't infer completion from review threads or PR conversation comments.
 
 ### Link line rules
 
