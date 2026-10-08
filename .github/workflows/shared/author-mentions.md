@@ -163,6 +163,7 @@ safe-outputs:
       - Padmalathas
       - PageWriter-MSFT
       - PatAltimore
+      - patty-chow
       - PaulCollinge
       - paullizer
       - pbrooks
