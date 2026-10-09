@@ -196,6 +196,8 @@ Performance Efficiency refers to your workload's ability to scale to meet user d
 
 Design applications so that resources scale automatically to meet load. This design includes compute, storage, and messaging infrastructure.
 
+For compute scaling guidance, including scaling signals, capacity limits, and safe scale-in behavior, see [Autoscaling guidance](../../best-practices/auto-scaling.md).
+
 Apply scalability and performance modeling techniques to fine-tune architecture and design:
 
 - Identify scalability requirements.

@@ -195,7 +195,7 @@ Performance Efficiency refers to your workload's ability to scale to meet user d
 
 - RDRS can run parallel concurrent bulk-load processing simultaneously on a single Azure VM or on multiple Azure VMs, which provides horizontal scalability. Perform fast bulk load operations for large tables by splitting the process into multiple tasks, either by using arbitrary intervals or row filtering. Row filtering can use a key, partition key, date, and other filters.
 
-- The SQL Database serverless compute tier provides an automatic scaling option based on the workload. Other Azure databases can be scaled up and scaled down by using automation to meet the workload demands. For more information, see [Autoscaling best practices in Azure](/azure/architecture/best-practices/auto-scaling).
+- The SQL Database serverless compute tier provides an automatic scaling option based on the workload. Other Azure databases can be scaled up and scaled down by using automation to meet the workload demands.
 
 ## Contributors
 

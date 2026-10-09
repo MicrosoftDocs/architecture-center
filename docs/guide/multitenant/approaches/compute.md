@@ -72,6 +72,8 @@ Azure compute services provide various capabilities that scale workloads. [Many 
 
 - **VMs:** A virtual machine scale set can [automatically increase or decrease the number of VM instances](/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-autoscale-overview) that run your application.
 
+For additional guidance about choosing scaling signals, setting capacity boundaries, and designing safe scale-in behavior, see [Autoscaling guidance](../../../best-practices/auto-scaling.md).
+
 ### Deployment Stamps pattern
 
 For more information about how you can use the [Deployment Stamps pattern](../../../patterns/deployment-stamp.md) to support a multitenant solution, see [Architectural approaches for a multitenant solution](overview.md#deployment-stamps-pattern).

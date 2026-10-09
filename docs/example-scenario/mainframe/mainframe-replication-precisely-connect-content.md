@@ -121,8 +121,6 @@ Performance Efficiency refers to your workload's ability to scale to meet user d
 - SQL Database serverless can scale automatically based on the volume of workloads.
 - Event Hubs can scale based on throughput units and the number of partitions. Determine the partition count based on the expected peak throughput of your CDC workload.
 
-For more information, see [Autoscaling best practices in Azure](../../best-practices/auto-scaling.md).
-
 ## Contributors
 
 *Microsoft maintains this article. The following contributors wrote this article.*

@@ -326,6 +326,7 @@ Background tasks must keep pace with the rate at which work arrives. If tasks fa
 ## Next steps
 
 - [Recommendations for developing background jobs](/azure/well-architected/design-guides/background-jobs)
+- [Design an autoscaling strategy](./auto-scaling.md)
 - [Choose a messaging service](/azure/service-bus-messaging/compare-messaging-services)
 - [Choose an Azure compute service](../guide/technology-choices/compute-decision-tree.md)
 
