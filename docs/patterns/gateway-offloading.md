@@ -43,6 +43,8 @@ Benefits of this pattern include:
 
 - Centralize carbon-aware traffic management. A gateway can adjust caching, rate limiting, and logging behaviors based on real-time carbon intensity signals. Azure API Management provides these capabilities in limited preview, in select regions and classic tiers (Developer, Basic, Standard, and Premium). For availability and configuration details, see [Environmentally sustainable APIs in Azure API Management](/azure/api-management/sustainability).
 
+- Handle static old-to-new URL mappings. The gateway can return a redirect without invoking a backend, keeping legacy URL handling out of each service's request pipeline.
+
 ## Problems and considerations
 
 Consider the following points when you decide how to implement this pattern:
@@ -52,6 +54,8 @@ Consider the following points when you decide how to implement this pattern:
 - **Capacity and scaling.** Ensure the gateway is designed for the capacity and scaling requirements of your application and endpoints. Make sure the gateway doesn't become a bottleneck for the application and is sufficiently scalable. The gateway must be provisioned to handle peak traffic bursts, not just average load. Under-provisioning the gateway to reduce cost directly degrades performance for every service behind it.
 
 - **Offloading scope.** Offload features shared by multiple services or routes when centralizing them reduces duplicated implementation and management.
+
+- **Redirect matching.** Match only the intended legacy URLs and preserve normal routing for unmatched requests. Keep redirects that depend on business state or application-specific authorization in the application. For related guidance, see [Preserve links when content moves](../best-practices/cdn.yml#preserve-links-when-content-moves).
 
 - **Business logic separation.** Never offload business logic to the gateway.
 

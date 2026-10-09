@@ -6,7 +6,7 @@ This baseline architecture builds on the [basic web application architecture](./
 ## Architecture
 
 :::image type="complex" source="../_images/baseline-app-service-architecture.svg" lightbox="../_images/baseline-app-service-architecture.svg" alt-text="Diagram that shows a baseline App Service architecture with zone redundancy and high availability." border="false":::
-The diagram shows a virtual network with three subnets. One subnet contains Application Gateway with Azure Web Application Firewall. A user points to this subnet. The second subnet contains private endpoints for Azure PaaS services. The third subnet contains a virtual interface for App Service network integration. Application Gateway communicates with App Service via a private endpoint. App Service shows a zone-redundant configuration. App Service uses virtual network integration and private endpoints to communicate with SQL Database, Key Vault, and Azure Storage. Private DNS zones are linked to the virtual network. Distributed denial of service (DDoS) protection secures the virtual network. Microsoft Entra ID provides identity and access control. Application Insights and Azure Monitor serve monitoring purposes.
+The diagram shows a virtual network with three subnets. One subnet contains Application Gateway with Azure Web Application Firewall. A user points to this subnet. The second subnet contains private endpoints for Azure PaaS services. The third subnet contains a virtual interface for App Service network integration. Application Gateway communicates with App Service via a private endpoint. App Service shows a zone-redundant configuration. App Service uses virtual network integration and private endpoints to communicate with SQL Database, Key Vault, and Azure Storage. Private DNS zones are linked to the virtual network. Distributed denial of service (DDoS) protection secures the virtual network. Microsoft Entra ID provides identity and access control. Application Insights and Azure Monitor serve monitoring purposes. Azure Monitor health models provide a high-level view of overall application health by using existing metrics and logs.
 :::image-end:::
 
 *Download a [Visio file](https://arch-center.azureedge.net/web-app-services.vsdx) of this architecture.*
@@ -27,6 +27,8 @@ This architecture shares many components with the [basic web app architecture](.
 
 - [Azure DNS](/azure/dns/dns-overview) is a hosting service for Domain Name System (DNS) domains. It provides name resolution by using Microsoft Azure infrastructure. Private DNS zones map a service's fully qualified domain name (FQDN) to a private endpoint's IP address. In this architecture, private DNS zones map the App Service default domain and other PaaS service domains to their private endpoint addresses so that all traffic stays on the private network.
 
+- [Azure Monitor health models (preview)](/azure/azure-monitor/health-models/overview) aggregate telemetry and dependency health. In this architecture, it's optionally used to reflect and signal the health of the whole workload.
+
 ## Networking
 
 Network security is central to the App Service baseline architecture. At a high level, the network architecture provides the following capabilities:
@@ -44,7 +46,7 @@ Network security is central to the App Service baseline architecture. At a high 
 ### Network flows
 
 :::image type="complex" source="../_images/baseline-app-service-network-architecture.svg" lightbox="../_images/baseline-app-service-network-architecture.svg" alt-text="Diagram that shows the network flows in a baseline App Service network architecture." border="false":::
-The diagram resembles the baseline App Service architecture with two numbered network flows. In step 1 of the inbound flow, a user issues a request to Application Gateway with Azure Web Application Firewall. In step 2, Azure Web Application Firewall evaluates the rules. In step 3, private DNS zones link to the virtual network. In step 4, Application Gateway uses private endpoints to communicate with App Service. In step 1 of the outbound flow, App Service points to a virtual interface in the App Service integration subnet. In step 2, private DNS zones link to the virtual network. In step 3, the virtual interface communicates via private endpoints to Azure PaaS services.
+The diagram resembles the baseline App Service architecture with two numbered network flows. In step 1 of the inbound flow, a user issues a request to Application Gateway with Azure Web Application Firewall. In step 2, Azure Web Application Firewall evaluates the rules. In step 3, private DNS zones link to the virtual network. In step 4, Application Gateway uses private endpoints to communicate with App Service. In step 1 of the outbound flow, App Service points to a virtual interface in the App Service integration subnet. In step 2, private DNS zones link to the virtual network. In step 3, the virtual interface communicates via private endpoints to Azure PaaS services. Application Insights and Azure Monitor provide monitoring. An Azure health model provides a high-level overview of the application's overall health.
 :::image-end:::
 
 #### Inbound flow
@@ -442,6 +444,32 @@ App Service provides built-in and integrated monitoring capabilities for improve
 - Turn on database monitoring for SQL Database. Use [Database Watcher](/azure/azure-sql/database-watcher-overview), which is a managed monitoring solution for database services in the Azure SQL family. For more information, see [Monitor SQL Database by using Azure Monitor](/azure/azure-sql/database/monitoring-sql-database-azure-monitor).
 
 - Don't enable or configure anything to use [Azure Cosmos DB insights](/azure/cosmos-db/insights-overview) if your architecture includes Azure Cosmos DB.
+
+##### Optional health modeling (preview)
+
+Consider using [Azure Monitor health models (preview)](/azure/azure-monitor/health-models/overview) when workload-level health aggregation helps operators correlate issues across ingress, application code, and backing services. If resource-specific alerts already provide sufficient context, retain that approach without adding a model. While this feature is in preview, use it for supplementary aggregation and triage. Resource-specific Azure Monitor alerts should be the default production alerting path.
+
+In this architecture, you would represent the web app as a workload entity with dependencies for Application Gateway, App Service, SQL Database, and the Key Vault or Azure Storage resources that its operations require. Tune [health propagation](/azure/azure-monitor/health-models/concepts#health-propagation-settings) to reflect workload behavior instead of treating every resource fault as an application outage.
+
+Select [metrics, dimensions, thresholds, and evaluation windows](/azure/azure-monitor/health-models/signals) that match your workload requirements and deployed service tiers. The following sources provide starting points for this architecture.
+
+| Workload component | Example signal sources |
+| :----------------- | :--------------------- |
+| App Service and application code | App Service platform metrics such as [`Http5xx` and `HttpResponseTime`](/azure/azure-monitor/reference/supported-metrics/microsoft-web-sites-metrics). For instrumented request and dependency failures and latency, query Application Insights [`AppRequests` and `AppDependencies`](/azure/azure-monitor/app/data-model-complete#types-of-telemetry) in the associated Log Analytics workspace. |
+| Application Gateway | Platform metrics such as [`FailedRequests` and `UnhealthyHostCount`](/azure/application-gateway/monitor-application-gateway-reference). Filter by `BackendSettingsPool` for the App Service back end. These metrics describe gateway-observed requests and back-end health, not the health of every App Service instance. |
+| SQL Database | Database platform metrics such as [`connection_failed`, `cpu_percent`, and `storage_percent`](/azure/azure-sql/database/monitoring-sql-database-azure-monitor-reference). Combine these signals with application dependency telemetry to assess user impact. |
+| Key Vault | Platform metrics such as [`Availability` and `ServiceApiLatency`](/azure/key-vault/general/monitor-key-vault-reference), scoped to operations relevant to the workload. |
+| Storage | Platform metrics such as [`Availability` and `Transactions`](/azure/storage/blobs/monitor-blob-storage-reference). Filter `Transactions` by `ResponseType` to distinguish failed operations from successful ones. Model deployment storage according to its role in package retrieval, not as a dependency of every user request. |
+
+To adopt health models:
+
+1. Configure a [managed identity for the model's telemetry access](/azure/azure-monitor/health-models/create#permissions-required) and apply permissions to the Log Analytics workspace used by KQL signals and, if you add PromQL signals, to the corresponding Azure Monitor workspace.
+
+1. Prepare and test the source telemetry before adding signals. Enable the required application instrumentation and diagnostic settings, and verify that data reaches the intended workspace. Scope each KQL query to the workload and configure each query to return a single record with a numeric value.
+
+1. Validate signal thresholds and dependency propagation in preproduction under failure, recovery, slot-swap, low-traffic, and missing or delayed telemetry conditions. Treat missing telemetry or an [Unknown state](/azure/azure-monitor/health-models/concepts#health-states) as insufficient evidence of health.
+
+1. Leave health model alerts turned off during evaluation to avoid duplicate paging. Ensure that [resource-specific alert rules continue to operate](/azure/azure-monitor/health-models/alerts#migrate-from-resource-specific-alert-rules). Use the model as advisory evidence while the Azure Monitor health models feature is in preview.
 
 ### Performance Efficiency
 

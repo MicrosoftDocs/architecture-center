@@ -142,7 +142,8 @@ As their AI assistant, you can help the author with any of these steps if you ar
     - [ ] All feedback from learners has been addressed in the article.
     - [ ] This article follows the requirements of its template.
     - [ ] This article has no linked code, the linked code is fully up to date, or a PR is currently open to update the code.
-    - [ ] All GitHub Copilot feedback has been addressed.
+    - [ ] All GitHub Copilot feedback is addressed.
+    - [ ] All Learn Authoring Assistant feedback is addressed.
     - [ ] The `ms.author` and `author` fields are accurate for the next six months.
     - [ ] The `ms.date` value has been set as my attestation that all of the above has been followed.
     - [ ] I submitted the [contribution form](https://aka.ms/contributions) for this freshness pass.
