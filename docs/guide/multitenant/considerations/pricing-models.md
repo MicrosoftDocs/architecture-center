@@ -183,7 +183,7 @@ The following diagram illustrates these pricing patterns.
 
 ## Non-production environment discounts
 
-In many cases, customers require access to a non-production environment that they can use for testing, training, or for creating their own internal documentation. Non-production environments usually have lower consumption requirements and costs to operate. For example, non-production environments often aren't subject to service-level agreements (SLAs), and [rate limits](#rate-limits) might be set at lower values. You might also consider more aggressive [autoscaling](/azure/well-architected/cost-optimization/optimize-scaling-costs) on Azure services that support non-production workloads.
+In many cases, customers need access to a nonproduction environment for testing, training, or creating internal documentation. Nonproduction environments usually have lower consumption requirements and costs to operate. For example, nonproduction environments often aren't subject to service-level agreements (SLAs), and [rate limits](#rate-limits) might be set at lower values. You might also consider more aggressive [autoscaling](/azure/well-architected/cost-optimization/optimize-scaling-costs) on Azure services that support nonproduction workloads.
 
 Equally, customers often expect non-production environments to be significantly cheaper than their production environments. There are several alternatives that might be appropriate, when you provide non-production environments:
 
