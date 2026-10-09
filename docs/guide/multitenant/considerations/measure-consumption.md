@@ -51,7 +51,7 @@ In solutions that are primarily API-based, it might make sense to use a consumpt
 User-facing solutions that consist of a single-page application (SPA), or a mobile application that uses the APIs, might not be a good fit for the per-request metric. This is because there's little understanding by the end user of the relationship between the use of the application and the consumption of APIs. Your application might be chatty (it makes many API requests) or chunky (it makes too few API requests), and the user wouldn't notice a difference. However, if you only need an approximate idea of each tenant's consumption, it might still be a reasonable choice.
 
 > [!WARNING]
-> Make sure you store request metrics in a reliable data store that's designed for this purpose. For example, although Azure Application Insights can track requests and can even track tenant IDs (by using [properties](/azure/azure-monitor/app/api-custom-events-metrics#properties)), Application Insights isn't designed to store every piece of telemetry. It removes data, as part of its [sampling behavior](/azure/azure-monitor/app/sampling). For billing and metering purposes, choose a data store that gives you a high level of accuracy.
+> Make sure you store request metrics in a reliable data store that's designed for this purpose. For example, although Azure Application Insights can track requests and can even track tenant IDs (by using [custom properties](/azure/azure-monitor/app/opentelemetry-add-modify#add-a-custom-property-to-a-span)), Application Insights isn't designed to store every piece of telemetry. It removes data, as part of its [sampling behavior](/azure/azure-monitor/app/opentelemetry-sampling). For billing and metering purposes, choose a data store that gives you a high level of accuracy.
 
 When you measure request counts, you often make an implicit assumption that requests are approximately equal, which means that they take the same amount of resources to process. Often that's not the case. You could also consider more complex metrics that take the request's complexity into account, like measuring the amount of time that your application spends processing a specific request.
 
@@ -79,7 +79,7 @@ In some solutions, you can charge your customers the COGS for their tenant's res
 
 However, this becomes prohibitively complex in most modern multitenant solutions, because of the challenge of accurately determining the exact COGS to serve a single tenant. This method should only be considered for very simple solutions, solutions that have single-tenant resource deployments, or custom tenant-specific add-on features within a larger solution.
 
-Some Azure services provide features that allow other methods of attribution of costs in a multitenant environment. For example, Azure Kubernetes Service supports [multiple node pools](/azure/aks/use-multiple-node-pools), where each tenant is allocated a node pool with [node pool tags](/azure/aks/use-multiple-node-pools#setting-nodepool-azure-tags), which are used to attribute costs.
+Some Azure services provide features that allow other methods of attribution of costs in a multitenant environment. For example, Azure Kubernetes Service supports [multiple node pools](/azure/aks/create-node-pools), where each tenant is allocated a node pool with [node pool tags](/azure/aks/create-node-pools#set-taints-labels-or-tags-for-a-node-pool), which are used to attribute costs.
 
 ## Contributors
 

@@ -110,7 +110,7 @@ You might choose to offer your solution with different tiers of functionality at
 
 :::image type="content" source="media/pricing-models/feature-service-level.png" alt-text="Diagram showing revenue increasing in steps between three tiers." border="false":::
 
-This model might also offer different service-level agreements for different tiers. For example, your basic tier might offer 99.9% uptime, whereas a premium tier might offer 99.99%. The higher service-level agreement (SLA) could be implemented by using services and features that enable higher [availability targets](/azure/architecture/framework/resiliency/business-metrics#workload-availability-targets).
+This model might also offer different service-level agreements for different tiers. For example, your basic tier might offer 99.9% uptime, whereas a premium tier might offer 99.99%. The higher service-level agreement (SLA) could be implemented by using services and features that enable higher [availability targets](/azure/well-architected/reliability/metrics#set-availability-objectives).
 
 Although this model can be commercially beneficial, it does require mature engineering practices to do well. With careful consideration, this model can be very effective.
 
@@ -183,7 +183,7 @@ The following diagram illustrates these pricing patterns.
 
 ## Non-production environment discounts
 
-In many cases, customers require access to a non-production environment that they can use for testing, training, or for creating their own internal documentation. Non-production environments usually have lower consumption requirements and costs to operate. For example, non-production environments often aren't subject to service-level agreements (SLAs), and [rate limits](#rate-limits) might be set at lower values. You might also consider more aggressive [autoscaling](/azure/architecture/framework/cost/optimize-autoscale) on Azure services that support non-production workloads.
+In many cases, customers require access to a non-production environment that they can use for testing, training, or for creating their own internal documentation. Non-production environments usually have lower consumption requirements and costs to operate. For example, non-production environments often aren't subject to service-level agreements (SLAs), and [rate limits](#rate-limits) might be set at lower values. You might also consider more aggressive [autoscaling](/azure/well-architected/cost-optimization/optimize-scaling-costs) on Azure services that support non-production workloads.
 
 Equally, customers often expect non-production environments to be significantly cheaper than their production environments. There are several alternatives that might be appropriate, when you provide non-production environments:
 
@@ -242,7 +242,7 @@ The following scenarios often include rate limits:
 - Actions that incur a high cost to execute.
 - Report generation.
 
-Implementing rate limiting can increase the solution complexity, but services like Azure API Management can make this simpler by applying [rate limit policies](/azure/api-management/api-management-access-restriction-policies).
+Implementing rate limiting can increase the solution complexity, but services like Azure API Management can make this simpler by applying [rate limit policies](/azure/api-management/api-management-policies#access-restriction-policies).
 
 ## Pricing model lifecycle
 
