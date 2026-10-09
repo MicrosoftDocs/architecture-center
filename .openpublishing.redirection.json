@@ -1,6 +1,11 @@
 {
   "redirections": [
     {
+      "source_path": "docs/best-practices/data-partitioning.yml",
+      "redirect_url": "/azure/well-architected/design-guides/partition-data",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "docs/guide/data/collection-structure-federated-catalog.md",
       "redirect_url": "/purview/unified-catalog-governance-domains",
       "redirect_document_id": false

@@ -1,6 +1,6 @@
 <!-- cSpell:ignore shardlet shardlets MGET MSET -->
 
-This article describes some strategies for partitioning data in various Azure data stores. For general guidance about when to partition data and best practices, see [Data partitioning](./data-partitioning.yml).
+This article describes some strategies for partitioning data in various Azure data stores. For general guidance about when to partition data and best practices, see [Design a data partitioning strategy](/azure/well-architected/design-guides/partition-data).
 
 ## Partitioning Azure SQL Database
 

@@ -23,7 +23,7 @@ There are two main ways that an application can scale:
 Many cloud-based systems, including Microsoft Azure, support automatic horizontal scaling. The rest of this article focuses on horizontal scaling.
 
 > [!NOTE]
-> Autoscaling mostly applies to compute resources. While it's possible to horizontally scale a database or message queue, this process usually involves [data partitioning](./data-partitioning.yml), which is generally not automated.
+> Autoscaling mostly applies to compute resources. While it's possible to horizontally scale a database or message queue, this process usually involves [data partitioning](/azure/well-architected/design-guides/partition-data), which is generally not automated.
 
 ## Autoscaling components
 

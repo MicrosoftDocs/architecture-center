@@ -54,7 +54,7 @@ An effective shard key is immutable, has high cardinality, distributes data and 
 
 If no single attribute meets these criteria, define a composite shard key by combining two or more attributes. If queries need to retrieve data by attributes that aren't part of the shard key, use a pattern such as the [Index Table](./index-table.md) pattern to provide secondary lookups.
 
-For more information about how to choose partition keys across Azure services, see [Data partitioning guidance](../best-practices/data-partitioning.yml) and [Data partitioning strategies](../best-practices/data-partitioning-strategies.yml).
+For more information about how to choose partition keys across Azure services, see [Design a data partitioning strategy](/azure/well-architected/design-guides/partition-data) and [Data partitioning strategies](../best-practices/data-partitioning-strategies.yml).
 
 ## Sharding strategies
 
@@ -158,7 +158,7 @@ Each sharding strategy provides different capabilities and levels of complexity 
 
 Consider the following points as you decide how to implement this pattern:
 
-- Use sharding complementary to other forms of partitioning, such as vertical partitioning and functional partitioning. For example, a single shard can contain vertically partitioned entities, and you can implement a functional partition as multiple shards. For more information, see [Horizontal, vertical, and functional data partitioning](../best-practices/data-partitioning.yml).
+- Use sharding complementary to other forms of partitioning, such as vertical partitioning and functional partitioning. For example, a single shard can contain vertically partitioned entities, and you can implement a functional partition as multiple shards. For more information, see [Horizontal, vertical, and functional data partitioning](/azure/well-architected/design-guides/partition-data).
 
 - Keep shards balanced so that they can all handle a similar input/output (I/O) volume. Data skew accumulates over time when records are inserted and deleted, which leads to hotspots. Plan to rebalance periodically.
 
@@ -215,7 +215,7 @@ Use this pattern when:
 - The transaction throughput or query concurrency exceeds what a single instance can sustain, and read replicas alone don't resolve the bottleneck because write load is also high.
 
   > [!NOTE]
-  > Sharding improves the performance and scalability of a system, and it can also improve availability. A failure in one partition doesn't necessarily prevent an application from accessing data in other partitions. And an operator can perform maintenance or recovery of one partition without making all data unavailable. For more information, see [Data partitioning guidance](../best-practices/data-partitioning.yml).
+  > Sharding improves the performance and scalability of a system, and it can also improve availability. A failure in one partition doesn't necessarily prevent an application from accessing data in other partitions. And an operator can perform maintenance or recovery of one partition without making all data unavailable. For more information, see [Design a data partitioning strategy](/azure/well-architected/design-guides/partition-data).
 
 - Regulatory or compliance requirements mandate that specific data subsets reside in specific geographic jurisdictions, and no single-region deployment can meet all requirements.
 
@@ -384,6 +384,6 @@ Instead of writing custom code for shard management and query routing to SQL Dat
 
 ## Related resources
 
-- [Horizontal, vertical, and functional data partitioning](../best-practices/data-partitioning.yml): This article describes other strategies for partitioning data in the cloud to improve scalability, reduce contention, and optimize performance.
+- [Horizontal, vertical, and functional data partitioning](/azure/well-architected/design-guides/partition-data): This article describes other strategies for partitioning data in the cloud to improve scalability, reduce contention, and optimize performance.
 - [Index Table pattern](./index-table.md): Sometimes you can't support all queries through the design of the shard key alone. An application can use the Index Table pattern to retrieve data from a large data store by specifying a key other than the shard key.
 - [Materialized View pattern](./materialized-view.md): To maintain the performance of some query operations, you can create materialized views that aggregate and summarize data, especially if you distribute that data across shards.

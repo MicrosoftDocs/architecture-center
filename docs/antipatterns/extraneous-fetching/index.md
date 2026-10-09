@@ -233,10 +233,10 @@ Here is the corresponding telemetry for the `AggregateOnDatabaseAsync` method. T
 
 - [Busy Database antipattern][BusyDatabase]
 - [Chatty I/O antipattern][chatty-io]
-- [Data partitioning best practices][data-partitioning]
+- [Design a data partitioning strategy][data-partitioning]
 
 [BusyDatabase]: ../busy-database/index.md
-[data-partitioning]: ../../best-practices/data-partitioning.yml
+[data-partitioning]: /azure/well-architected/design-guides/partition-data
 [new-relic]: https://newrelic.com/products/application-monitoring
 [chatty-io]: ../chatty-io/index.md
 [MonolithicPersistence]: ../monolithic-persistence/index.md

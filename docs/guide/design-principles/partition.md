@@ -45,5 +45,5 @@ For more information, see [Data partitioning][data-partitioning-guidance].
 <!-- links -->
 
 [azure-limits]: /azure/azure-resource-manager/management/azure-subscription-service-limits
-[data-partitioning-guidance]: ../../best-practices/data-partitioning.yml
+[data-partitioning-guidance]: /azure/well-architected/design-guides/partition-data
 [sharding]: ../../patterns/sharding.md

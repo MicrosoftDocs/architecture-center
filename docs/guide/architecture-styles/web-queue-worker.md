@@ -77,7 +77,7 @@ Consider this architecture for the following use cases:
 
 - Use polyglot persistence when appropriate. For more information, see [Understand data models](../../data-guide/technology-choices/understand-data-store-models.md).
 
-- Partition data to improve scalability, reduce contention, and optimize performance. For more information, see [Data partitioning best practices](../../best-practices/data-partitioning.yml).
+- Partition data to improve scalability, reduce contention, and optimize performance. For more information, see [Design a data partitioning strategy](/azure/well-architected/design-guides/partition-data).
 
 ## Web-Queue-Worker on App Service
 
