@@ -267,7 +267,7 @@ public class ProductsCommandHandler :
 
 The following information might be relevant when you implement this pattern:
 
-- [Data partitioning guidance](../best-practices/data-partitioning.yml) describes best practices for how to divide data into partitions that you can manage and access separately to improve scalability, reduce contention, and optimize performance.
+- [Data partitioning guidance](/azure/well-architected/design-guides/partition-data) describes best practices for how to divide data into partitions that you can manage and access separately to improve scalability, reduce contention, and optimize performance.
 
 ## Related resources
 

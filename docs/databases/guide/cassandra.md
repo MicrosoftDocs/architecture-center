@@ -144,7 +144,7 @@ For more information about general Cassandra settings, not specific to Azure, se
 ## Related resources
 
 - [N-tier architecture style](../../guide/architecture-styles/n-tier.md)
-- [Data partitioning guidance](../../best-practices/data-partitioning.yml)
+- [Design a data partitioning strategy](/azure/well-architected/design-guides/partition-data)
 
 [dsv2]: /azure/virtual-machines/sizes/memory-optimized/dv2-dsv2-series-memory
 [dsv5]: /azure/virtual-machines/sizes/general-purpose/dv5-series

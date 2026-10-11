@@ -161,7 +161,7 @@ Use the following recommendations to improve performance efficiency:
 
 - Deploy the mLogica data migration cluster on multiple VMs if you migrate multiple large independent datasets to maximize data loading speed. You can upload multiple datasets in parallel from the mainframe to Blob Storage.
 
-- Consider [SQL Database serverless](/azure/azure-sql/database/serverless-tier-overview) for workload-based autoscaling. You can scale other Azure databases up and down by using automation to meet your workload demands. For more information, see [Autoscaling](../../best-practices/auto-scaling.md).
+- Consider [SQL Database serverless](/azure/azure-sql/database/serverless-tier-overview) for workload-based autoscaling. You can scale other Azure databases up and down by using automation to meet your workload demands.
 
 ## Contributors
 

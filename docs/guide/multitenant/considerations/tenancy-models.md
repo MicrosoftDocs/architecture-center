@@ -75,7 +75,7 @@ One of the biggest considerations in multitenant architecture design is the leve
 
 - Sharing some common resources, but keeping other resources separate for each tenant.
 
-- Keeping data on a separate physical infrastructure. In the cloud, this configuration might require separate Azure resources for each tenant. In extreme scenarios, it can even require you to deploy a separate physical infrastructure by using [dedicated hosts](/azure/virtual-machines/dedicated-hosts).
+- Keeping data on a separate physical infrastructure. In the cloud, this configuration might require separate Azure resources for each tenant. In extreme scenarios, it can even require you to deploy a separate physical infrastructure by using [dedicated hosts](/azure/virtual-machines/dedicated-hosts/overview).
 
 Instead of viewing isolation as a discrete property, consider it a spectrum. You can deploy components of your architecture that are more isolated or less isolated than other components in the same architecture, depending on your requirements. The following diagram demonstrates a continuum of isolation:
 

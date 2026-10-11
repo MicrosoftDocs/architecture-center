@@ -241,4 +241,4 @@ Principal author:
 - [Get started with database architecture design](../database-get-started.md)
 - [Cache-Aside pattern](../../patterns/cache-aside.yml)
 - [Multitenancy and Azure Managed Redis](../../guide/multitenant/service/managed-redis.md)
-- [Data partitioning guidance](../../best-practices/data-partitioning.yml)
+- [Design a data partitioning strategy](/azure/well-architected/design-guides/partition-data)

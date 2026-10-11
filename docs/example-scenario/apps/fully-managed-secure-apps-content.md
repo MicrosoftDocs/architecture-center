@@ -145,7 +145,7 @@ Performance Efficiency refers to your workload's ability to scale to meet user d
 
 - Understand how [scale works][docs-azure-scale-ase] in App Service Environments.
 
-- Review best practices for [cloud apps autoscale][design-best-practice-cloud-apps-autoscale].
+- Review [autoscaling guidance for cloud applications][design-best-practice-cloud-apps-autoscale].
 - Understand the [typical design patterns for scalability](/azure/well-architected/performance-efficiency/design-patterns) when you build a cloud application.  
 - Review the scalability considerations in the appropriate [App Service web application reference architecture][app-service-reference-architecture].
 

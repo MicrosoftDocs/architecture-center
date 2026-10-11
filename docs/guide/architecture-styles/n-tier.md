@@ -97,7 +97,7 @@ Network security groups restrict access to each tier. For example, the database 
 
 - Tiers create boundaries for scalability, reliability, and security. Consider having separate tiers for services with different requirements in those areas.
 
-- Use virtual machine scale sets for [autoscaling][autoscaling].
+- Use [autoscaling with Virtual Machine Scale Sets](/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-autoscale-overview).
 
 - Find places in the architecture where you can use a managed service without significant refactoring. In particular, consider caching, messaging, storage, and databases.
 

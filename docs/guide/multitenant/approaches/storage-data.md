@@ -123,7 +123,7 @@ The [Sharding pattern](../../../patterns/sharding.md) involves deploying multipl
    The diagram consists of three blue boxes and one gray box. The first blue box is labeled Tenant A. The second blue box is labeled Tenant B. The third blue box is labeled Tenant C. Arrows point from the blue tenant boxes to a gray box. The gray box contains a smaller box that's labeled Web server (Shared). The gray box also contains three icons for shards. One icon is labeled Shard map. The second icon is labeled Shard 1, and the third icon is labeled Shard 2. Tenants A and B share shard 1, and tenant C uses shard 2.
 :::image-end:::
 
-Sharding is closely related to *partitioning*, and the terms are often used interchangeably. Consider the [Horizontal, vertical, and functional data partitioning guidance](../../../best-practices/data-partitioning.yml).
+Sharding is closely related to *partitioning*, and the terms are often used interchangeably. Consider the [horizontal, vertical, and functional data partitioning guidance](/azure/well-architected/design-guides/partition-data).
 
 The Sharding pattern can scale to large numbers of tenants. Depending on your workload, you might also be able to achieve a high density of tenants to shards, which can lower costs. You can use the Sharding pattern to address [Azure subscription and service quotas, limits, and constraints](/azure/azure-resource-manager/management/azure-subscription-service-limits).
 

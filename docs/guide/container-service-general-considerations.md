@@ -458,6 +458,8 @@ Regardless of the Azure container solution, you're responsible for your own cont
 
 Scaling is used to adjust resource capacity to meet demands. It adds more capacity to ensure performance and removes unused capacity to save money. When you choose a container solution, you need to consider infrastructure constraints and scaling strategies.
 
+For guidance that applies across Azure compute services, see [Autoscaling guidance](../best-practices/auto-scaling.md).
+
 ### Vertical infrastructure scalability
 
 *Vertical scaling* refers to the ability to increase or decrease existing infrastructure, like compute CPU and memory. Different workloads require different amounts of compute resources. When you choose an Azure container solution, you need to be aware of the hardware SKU offerings that are available for a specific Azure service. These offerings vary and can impose extra constraints.

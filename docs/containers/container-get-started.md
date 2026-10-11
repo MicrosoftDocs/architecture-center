@@ -59,7 +59,7 @@ To help ensure the quality of your container solution on Azure, follow the guida
 
 Follow these best practices to improve the reliability, security, cost effectiveness, performance, and operational quality of your container workloads on Azure:
 
-- [Autoscaling best practices](../best-practices/auto-scaling.md): Learn about dynamic scaling to rightsize your infrastructure.
+- [Autoscaling best practices](../best-practices/auto-scaling.md): Design horizontal scaling strategies, select scaling signals, and plan safe scale-in behavior.
 
 - [Background jobs guidance](../best-practices/background-jobs.md): Implement background processing for long-running tasks.
 

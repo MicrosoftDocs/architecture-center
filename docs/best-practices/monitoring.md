@@ -773,7 +773,7 @@ In many cases, batch processes can generate reports according to a defined sched
 
 ## Related resources
 
-- [Autoscaling guidance](../best-practices/auto-scaling.md) describes how to decrease management overhead by reducing the need to continually monitor system performance and make decisions to add or remove resources.
+- [Autoscaling guidance](../best-practices/auto-scaling.md) explains how to select scaling signals, configure capacity boundaries, and design safe scale-out and scale-in behavior.
 
 - [Health Endpoint Monitoring pattern](../patterns/health-endpoint-monitoring.md) describes how to implement functional checks within an application that external tools can access through exposed endpoints at regular intervals.
 

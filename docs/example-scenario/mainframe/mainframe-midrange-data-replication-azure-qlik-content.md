@@ -159,7 +159,7 @@ Fabric enables operational excellence by unifying governance, observability, and
 
 Performance Efficiency refers to your workload's ability to scale to meet user demands efficiently. For more information, see [Design review checklist for Performance Efficiency](/azure/well-architected/performance-efficiency/checklist).
 
-Fabric, Azure Databricks, Data Lake Storage, and other Azure database services have autoscaling capabilities. For more information, see [Autoscaling](../../best-practices/auto-scaling.md).
+Fabric, Azure Databricks, Data Lake Storage, and other Azure database services have autoscaling capabilities.
 
 ## Contributors
 
