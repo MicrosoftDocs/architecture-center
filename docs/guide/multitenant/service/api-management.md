@@ -128,8 +128,8 @@ If your APIs sit in front of Azure OpenAI models, consider using semantic cachin
 For more information, see the following resources:
 
 - [Enable semantic caching](/azure/api-management/azure-openai-enable-semantic-caching)
-- [Cache responses to Azure OpenAI API requests](/azure/api-management/azure-openai-semantic-cache-store-policy)
-- [Get cached responses of Azure OpenAI API requests](/azure/api-management/azure-openai-semantic-cache-lookup-policy)
+- [Cache responses to large language model API requests](/azure/api-management/llm-semantic-cache-store-policy)
+- [Get cached responses of large language model API requests](/azure/api-management/llm-semantic-cache-lookup-policy)
 
 You should partition the cache per tenant by using the `vary-by` element so prompts and answers are isolated to the tenant that they're intended for. Place the `lookup` policy in inbound processing and the `store` policy in outbound processing.
 
@@ -168,7 +168,7 @@ The following example partitions the semantic cache by tenant claim or header:
 
 #### Token-based limits for large language models
 
-Use token-based limits in the AI gateway to cap usage for each tenant, not only for individual requests. When you use Azure OpenAI back ends, use the [azure-openai-token-limit policy](/azure/api-management/azure-openai-token-limit-policy). For OpenAI-compatible back ends or the Azure AI Model Inference API, use the [llm-token-limit policy](/azure/api-management/llm-token-limit-policy). For more information, see [Token limit policy](/azure/api-management/genai-gateway-capabilities#token-limit-policy).
+Use token-based limits in the AI gateway to cap usage for each tenant, not only for individual requests. When you use Azure OpenAI back ends, use the [azure-openai-token-limit policy](/azure/api-management/llm-token-limit-policy). For OpenAI-compatible back ends or the Azure AI Model Inference API, use the [llm-token-limit policy](/azure/api-management/llm-token-limit-policy). For more information, see [Token rate limiting and quotas](/azure/api-management/genai-gateway-capabilities#token-rate-limiting-and-quotas).
 
 Select a key that's unique to the tenant, such as a subscription ID or tenant ID token claim, to ensure that limits effectively isolate each tenant. Token usage is tracked independently at each gateway, region, or workspace, and counters aren't aggregated across the entire instance.
 
