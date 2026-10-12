@@ -142,7 +142,7 @@ In the database-account-per-tenant model, each tenant's data is stored in its ow
 
    Fleet analytics streams usage and cost data for every database account, database, and container within the fleet to either Fabric or to an Azure Storage account, so you can do long-term analysis of accounts within your fleet. Use this data to track trends like which accounts are most active, how resources scale over time, and the most recent rotation of access keys. You can also use raw telemetry data to write custom queries or build Power BI dashboards to analyze your tenants' usage data.
 
-- **Security features:** The account-per-tenant model provides increased data access security isolation via [Azure role-based access control (RBAC)](/azure/cosmos-db/role-based-access-control). This model is also the only option that provides tenant-level security isolation through [customer-managed keys](/azure/cosmos-db/how-to-setup-customer-managed-keys).
+- **Security features:** The account-per-tenant model provides increased data access security isolation via [Azure role-based access control (RBAC)](/azure/cosmos-db/how-to-connect-role-based-access-control). This model is also the only option that provides tenant-level security isolation through [customer-managed keys](/azure/cosmos-db/how-to-setup-customer-managed-keys).
 
 - **Custom configuration:** You can set the location of the database account according to the tenant's requirements. You can also tune the configuration of Azure Cosmos DB features, such as geo-replication and customer-managed encryption keys, to suit each tenant's requirements.
 

@@ -94,7 +94,7 @@ The following Container Apps features support multitenancy.
 
 Container Apps enables you to use [wildcard Domain Name System (DNS) and to add your own wildcard Transport Layer Security (TLS) certificates](/azure/container-apps/custom-domains-certificates#add-a-custom-domain-and-certificate). When you use tenant-specific subdomains, both wildcard DNS and TLS certificates enable you to easily scale your solution to a large number of tenants without needing to manually reconfigure each new tenant.
 
-In Container Apps, you manage certificates at the environment level. [Ingress](/azure/container-apps/ingress) must also be enabled for the container app before you can bind a custom domain to it.
+In Container Apps, you manage certificates at the environment level. [Ingress](/azure/container-apps/ingress-overview) must also be enabled for the container app before you can bind a custom domain to it.
 
 ### Request authentication and authorization
 
