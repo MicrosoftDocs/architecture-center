@@ -76,6 +76,7 @@ safe-outputs:
       - gmndrg
       - griffinbird
       - gurkamaldeep
+      - guywi-ms
       - gvanteylingen
       - Haishi2016
       - halkazwini
@@ -168,6 +169,7 @@ safe-outputs:
       - paullizer
       - pbrooks
       - petemessina
+      - PhilKang0704
       - piyushdhore-microsoft
       - PlagueHO
       - prabdeb
