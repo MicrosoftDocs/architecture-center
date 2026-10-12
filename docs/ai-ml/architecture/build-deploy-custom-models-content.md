@@ -58,7 +58,7 @@ The following data flow corresponds to the previous diagram:
 
 - [Azure Language](/azure/ai-services/language-service/overview) provides natural language processing features like PII detection, language detection, prebuilt and customer NER, and text analytics for health.
 
-- [Azure Machine Learning](/azure/well-architected/service-guides/azure-machine-learning) is a managed machine learning platform for model development and deployment at scale. In this architecture, it trains custom models (including with open-source frameworks), and deploys the models for inference tasks.
+- [Azure Machine Learning](/azure/well-architected/service-guides/azure-machine-learning) is a managed machine learning platform for model development and deployment at scale. In this architecture, it trains custom models (including with open-source frameworks) and deploys the models for inference tasks.
 
 - [Azure OpenAI](/azure/foundry/foundry-models/concepts/models-sold-directly-by-azure) provides language and multimodal models through REST APIs. In this architecture, you fine-tune and deploy Azure OpenAI models for tasks such as text summarization and question answering.
 
