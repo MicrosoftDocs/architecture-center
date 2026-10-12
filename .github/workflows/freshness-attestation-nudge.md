@@ -95,7 +95,7 @@ Whether a PR changes article content under `docs/` is a content check, not a met
 
 Make this determination after you fetch the diff. Treat a PR as a freshness pass attempt when it changes an existing article under `docs/` (article content or its metadata, such as an `ms.date` change) in the manner of a single-article refresh. A PR that changes no `docs/` article content (for example, tooling-only, workflow-only, or configuration-only changes) isn't a freshness pass.
 
-If you're unsure whether a PR is intended to be a freshness pass, skip it. Don't conflate freshness PRs with casual changes.
+If you're unsure whether a PR is intended to be a freshness pass, skip it. Don't conflate freshness PRs with targeted or casual changes.
 
 ## Required attestation block
 
