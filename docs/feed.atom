@@ -251,7 +251,7 @@
     <entry>
         <title type="html"><![CDATA[Implement advanced monitoring for Foundry Models through a gateway]]></title>
         <id>https://learn.microsoft.com/azure/architecture/ai-ml/guide/azure-openai-gateway-monitoring#62cbd5d82b</id>
-        <link href="https://learn.microsoft.com/azure/architecture/ai-ml/guide/azure-openai-gateway-monitoring"/>
+        <link href="https://learn.microsoft.com/azure/architecture/ai-ml/guide/generative-ai-gateway-monitoring"/>
         <updated>2026-09-17T20:32:34.000Z</updated>
         <summary type="html"><![CDATA[Learn how to implement advanced monitoring scenarios for Foundry Models, like chargeback and auditing, through a gateway.]]></summary>
         <category label="updated" term="updated"/>

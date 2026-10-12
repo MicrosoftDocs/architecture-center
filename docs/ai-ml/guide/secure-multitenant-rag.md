@@ -195,4 +195,4 @@ Principal authors:
 
 - [SaaS and multitenant solution architecture](../../guide/saas-multitenant-solution-architecture/index.md)
 - [Baseline Microsoft Foundry chat reference architecture](../architecture/baseline-microsoft-foundry-chat.yml)
-- [Access Foundry Models and other language models through a gateway](./azure-openai-gateway-guide.md)
+- [Access Foundry Models and other language models through a gateway](./generative-ai-gateway.md)

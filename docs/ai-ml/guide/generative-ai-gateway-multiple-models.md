@@ -393,7 +393,7 @@ Although this consideration isn't specific to multiple back ends, each region's 
 
 Azure doesn't provide a complete turnkey solution or reference architecture for building a gateway that's focused on routing traffic across multiple back ends. However, API Management is preferred because the service provides a PaaS-based solution that uses built-in features such as back-end pools, circuit-breaking policies, and custom policies if needed. To evaluate what's available in that service for your workload's multi-back-end needs, see [AI gateway in API Management](/azure/api-management/genai-gateway-capabilities).
 
-Whether you use API Management or build a custom solution, as mentioned in the [introduction article](./azure-openai-gateway-guide.md#implementation-options), your workload team must build and operate the gateway. The following API Management examples cover some of the previously mentioned use cases. Consider referring to these samples when you build your own proof of concept.
+Whether you use API Management or build a custom solution, as mentioned in the [introduction article](./generative-ai-gateway.md#implementation-options), your workload team must build and operate the gateway. The following API Management examples cover some of the previously mentioned use cases. Consider referring to these samples when you build your own proof of concept.
 
 - [Scaling with API Management](https://github.com/Azure/aoai-apim/) contains sample policy code and instructions for provisioned and standard spillover.
 - The [AI Gateway labs](https://github.com/Azure-Samples/AI-Gateway) contain example API Management policies, Bicep templates, and tools for testing the behavior of the policies.
@@ -410,7 +410,7 @@ By using these built-in capabilities, you can significantly reduce the amount of
 
 ## Next step
 
-Having a gateway implementation for your workload provides benefits beyond the tactical multiple-back-end routing benefit described in this article. To learn about the other challenges a gateway can solve, see [Key challenges](./azure-openai-gateway-guide.md#key-challenges).
+A gateway implementation for your workload provides benefits beyond the tactical multiple-back-end routing benefit described in this article. To learn about the other challenges a gateway can solve, see [Key challenges](./generative-ai-gateway.md#key-challenges).
 
 ## Related resources
 

@@ -138,10 +138,10 @@ The following production-ready architectures demonstrate end-to-end AI solutions
 
 #### Proxy generative AI models
 
-- [Access Foundry Models and other language models through a gateway](/azure/architecture/ai-ml/guide/azure-openai-gateway-guide): Describes the benefits and architecture of placing a gateway in front of generative AI model endpoints.
+- [Access Foundry Models and other language models through a gateway](/azure/architecture/ai-ml/guide/generative-ai-gateway): Describes the benefits and architecture of placing a gateway in front of generative AI model endpoints.
 
-- [Use a gateway in front of multiple model deployments or instances](/azure/architecture/ai-ml/guide/azure-openai-gateway-multi-backend): Extends the gateway pattern to route requests across multiple model back ends.
+- [Use a gateway in front of multiple model deployments or instances](/azure/architecture/ai-ml/guide/generative-ai-gateway-multiple-models): Extends the gateway pattern to route requests across multiple model back ends.
 
-- [Provide custom authentication to Foundry Models through a gateway](/azure/architecture/ai-ml/guide/azure-openai-gateway-custom-authentication): Implements custom authentication flows for model access through a gateway.
+- [Provide custom authentication to Foundry Models through a gateway](/azure/architecture/ai-ml/guide/generative-ai-gateway-custom-authentication): Implements custom authentication flows for model access through a gateway.
 
-- [Implement advanced monitoring for Foundry Models through a gateway](/azure/architecture/ai-ml/guide/azure-openai-gateway-monitoring): Adds monitoring and observability to generative AI model traffic through a gateway.
+- [Implement advanced monitoring for Foundry Models through a gateway](/azure/architecture/ai-ml/guide/generative-ai-gateway-monitoring): Adds monitoring and observability to generative AI model traffic through a gateway.

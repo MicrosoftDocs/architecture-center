@@ -244,6 +244,5 @@ If a single application accesses a single model, the added complexity of introdu
 
 ## Related resources
 
-- A gateway implementation for your workload provides benefits beyond the tactical, multiple back-end routing benefit described in this article. For more information, see [Access language models through a gateway](./azure-openai-gateway-guide.md#key-challenges).
+- A gateway implementation for your workload provides benefits beyond the tactical, multiple back-end routing benefit described in this article. For more information, see [Access language models through a gateway](./generative-ai-gateway.md#key-challenges).
 - [Design a well-architected AI workload](/azure/well-architected/ai/get-started).
-
