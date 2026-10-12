@@ -217,11 +217,9 @@ Many MLOps practitioners use a standardized toolkit to organize activities such 
 
 You can also explore the benefits and trade-offs of introducing new tools into your flow. For example, the [Azure AI Evaluation SDK](/python/api/overview/azure/ai-evaluation-readme) for Python could be a feasible option because it has native support in the Foundry portal.
 
-## MLOps and GenAIOps maturity models
+## Assess operational maturity
 
-You might have used the [MLOps maturity model](mlops-maturity-model.md) to evaluate the maturity of your current MLOps and environment. As you extend your MLOps investments for generative AI workloads, you should use the [GenAIOps maturity model](/azure/machine-learning/prompt-flow/concept-llmops-maturity) to evaluate those operations. You might want to combine the two maturity models, but we recommend that you measure each model independently because MLOps and GenAIOps evolve separately. For example, you might be at level four in the MLOps maturity model but only at level one in the GenAIOps maturity model.
-
-Use the [GenAIOps Maturity Model assessment](/assessments/e14e1e9f-d339-4d7e-b2bb-24f056cf08b6/). This assessment helps you understand how your investments in GenAIOps are progressing.
+Use the [MLOps maturity model](mlops-maturity-model.md) to evaluate your existing MLOps practices. GenAIOps requires other operational capabilities that can mature independently, so define workload-specific maturity levels for the GenAIOps practices described in this article. Include criteria for data and prompt versioning, experimentation and evaluation, deployment automation, monitoring, content safety, and resource management. Establish measurable entry and exit criteria for each level, assess them separately from MLOps, and review them as your workload requirements and supported tooling evolve.
 
 ## Summary
 
