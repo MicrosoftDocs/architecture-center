@@ -26,7 +26,7 @@ The following data flow corresponds to the previous diagram:
 
    - [Azure Language in Foundry Tools](https://ai.azure.com/): For domain-specific entity extraction like custom named-entity recognition (NER), you can [train a custom model](/azure/ai-services/language-service/custom-named-entity-recognition/quickstart?pivots=microsoft-foundry) to extract custom entity categories by using Microsoft Foundry.
 
-   - [Azure Machine Learning studio](https://ml.azure.com/): For labeling data for text classification or entity extraction to use with open-source frameworks like PyTorch or TensorFlow, use [Machine Learning studio](/azure/machine-learning/how-to-train-with-ui), the [Python SDK, Azure CLI, or the REST API](/azure/machine-learning/how-to-train-model). Machine Learning studio provides a [model catalog](/azure/machine-learning/concept-model-catalog) of foundation models. These foundation models have fine-tuning capabilities for various tasks like text classification, question answering, and summarization. To fine-tune foundation models, use the [Machine Learning studio UI](/azure/machine-learning/how-to-use-foundation-models) or [code](https://github.com/Azure/azureml-examples/tree/main/sdk/python/foundation-models/system/finetune).
+   - [Azure Machine Learning studio](https://ml.azure.com/): For labeling data for text classification or entity extraction, you may use third party labelling providers and use the labelled data for training custom models with open-source frameworks like PyTorch or TensorFlow , using [Machine Learning studio](/azure/machine-learning/how-to-train-with-ui), the [Python SDK, Azure CLI, or the REST API](/azure/machine-learning/how-to-train-model). Additionally, Machine Learning studio provides a [model catalog](/azure/machine-learning/concept-model-catalog) of foundation models. These foundation models have fine-tuning capabilities for various tasks like text classification, question answering, and summarization. To fine-tune foundation models, use the [Machine Learning studio UI](/azure/machine-learning/how-to-use-foundation-models) or [code](https://github.com/Azure/azureml-examples/tree/main/sdk/python/foundation-models/system/finetune).
 
    - [Azure OpenAI in Foundry Models](/azure/ai-services/openai/concepts/fine-tuning-considerations): To [fine-tune Azure OpenAI models](/azure/ai-services/openai/how-to/fine-tuning) on your own data or domain for various tasks like text summarization and question answering, use the [Foundry portal](/azure/ai-services/openai/how-to/fine-tuning?branch=main&tabs=azure-openai%2Cpython-new&pivots=programming-language-studio), [Python SDK](/azure/ai-services/openai/how-to/fine-tuning?tabs=azure-openai%2Cpython-new&pivots=programming-language-python), or [REST API](/azure/ai-services/openai/how-to/fine-tuning?tabs=azure-openai%2Cpython-new&pivots=rest-api).
 
@@ -58,11 +58,7 @@ The following data flow corresponds to the previous diagram:
 
 - [Azure Language](/azure/ai-services/language-service/overview) provides natural language processing features like PII detection, language detection, prebuilt and customer NER, and text analytics for health.
 
-- [Azure Machine Learning](/azure/well-architected/service-guides/azure-machine-learning) is a managed machine learning platform for model development and deployment at scale. In this architecture, it labels data, trains custom models (including with open-source frameworks), and deploys the models for inference tasks.
-
-  - Machine Learning studio provides data labeling options for [images](/azure/machine-learning/how-to-create-image-labeling-projects#image-labeling-capabilities) and [text](/azure/machine-learning/how-to-create-text-labeling-projects). It supports model training workflows within this architecture.
-
-  - [Export labeled data](/azure/machine-learning/how-to-use-labeled-dataset#export-data-labels) as [COCO](https://cocodataset.org) or Machine Learning datasets. Use these datasets to train and deploy models in Machine Learning notebooks.
+- [Azure Machine Learning](/azure/well-architected/service-guides/azure-machine-learning) is a managed machine learning platform for model development and deployment at scale. In this architecture, it trains custom models (including with open-source frameworks), and deploys the models for inference tasks.
 
 - [Azure OpenAI](/azure/foundry/foundry-models/concepts/models-sold-directly-by-azure) provides language and multimodal models through REST APIs. In this architecture, you fine-tune and deploy Azure OpenAI models for tasks such as text summarization and question answering.
 
@@ -82,7 +78,7 @@ This architecture includes multiple components that you can substitute with othe
 
 - Choose between Azure Content Understanding services and a custom solution based on your business requirements. For more information, see [Choose the right tool for document processing](/azure/ai-services/content-understanding/choosing-right-ai-tool).
 
-- Use the [Foundry (classic) portal](/azure/foundry-classic/what-is-foundry) to [fine-tune](/azure/foundry-classic/concepts/fine-tuning-overview) models for classification and custom text extraction from documents and to deploy these models.
+- Use the [Foundry portal](/azure/foundry/what-is-foundry) to [fine-tune](/azure/foundry/fine-tuning/overview) models for classification and custom text extraction from documents and to [deploy](https://learn.microsoft.com/en-us/azure/foundry/fine-tuning/deploy-fine-tuned-models) these models.
 
 ## Scenario details
 
