@@ -3,9 +3,10 @@ title: Azure App Service and Azure Functions Considerations for Multitenancy
 description: This article describes the features of Azure App Service and Azure Functions that are useful when you work with multitenant systems.
 author: johndowns
 ms.author: pnp
-ms.date: 08/10/2025
+ms.date: 10/02/2026
 ms.topic: concept-article
 ms.subservice: architecture-guide
+ai-usage: ai-assisted
 ms.custom:
 - arb-saas 
 ---
@@ -22,6 +23,8 @@ App Service and Azure Functions include many features that support multitenancy.
 App Service enables you to use [wildcard Domain Name System (DNS) records](/azure/app-service/app-service-web-tutorial-custom-domain) and to add your own [wildcard Transport Layer Security (TLS) certificates](/azure/app-service/configure-ssl-certificate). When you use [tenant-specific subdomains](../considerations/domain-names.md#subdomains), wildcard DNS and TLS certificates enable you to easily scale your solution to a large number of tenants. This approach avoids the need for manual reconfiguration for each new tenant.
 
 When you use [tenant-specific custom domain names](../considerations/domain-names.md#custom-domain-names), you might have a large number of custom domain names that need to be added to your app. Managing a large number of custom domain names can be challenging, especially when they require individual TLS certificates. App Service provides [managed TLS certificates](/azure/app-service/configure-ssl-certificate), which reduces the work required when you work with custom domains. However, there are [limits to consider](/azure/azure-resource-manager/management/azure-subscription-service-limits), such as how many custom domains can be applied to a single app.
+
+Azure Functions Flex Consumption supports [site-scoped certificates and end-to-end TLS encryption](/azure/azure-functions/flex-consumption-how-to#configure-site-scoped-certificates). When you deploy a Function App for each tenant, use this capability to associate certificates with the tenant's app. Each Function App supports up to three private certificates and three public certificates, so review this limit when you use a per-tenant-app model.
 
 ### Integration with Azure Front Door
 
@@ -113,9 +116,17 @@ The strongest level of isolation is to deploy a dedicated plan for a tenant. Thi
 
 This approach enables you to scale your solution to provide performance isolation for each tenant and to avoid the [noisy neighbor problem](../../../antipatterns/noisy-neighbor/noisy-neighbor.yml). However, it also has a higher cost because the resources aren't shared with multiple tenants. Also, you need to consider the [maximum number of plans](/azure/azure-resource-manager/management/azure-subscription-service-limits#azure-app-service-limits) that can be deployed into a single Azure resource group.
 
+### Managed Instance on Azure App Service
+
+[Managed Instance on Azure App Service](/azure/app-service/overview-managed-instance) is a plan-scoped hosting option for legacy Windows web apps that require operating system customization, dedicated compute, or plan-scoped virtual network integration. In a multitenant solution, consider whether these requirements apply to all tenants, a group of tenants, or an individual tenant when you determine how to map tenants to App Service resources.
+
+Managed Instance supports only Windows web apps, is available only in selected regions, and requires Premium v4 or Premium memory optimized v4 pricing plans. It doesn't support Linux, containers, or WebJobs. Consider these constraints, together with your tenant isolation, resource-sharing, and cost requirements, when you select a hosting model.
+
 ### Azure Functions Flex Consumption plan
 
-Azure Functions includes the [Flex Consumption plan](/azure/azure-functions/flex-consumption-plan), which provides per-function scaling and supports [always ready instances](/azure/azure-functions/flex-consumption-plan#always-ready-instances) to reduce cold starts. Each function scales independently, except for HTTP, durable functions, and blob (Azure Event Grid) triggers. This scaling model can help you isolate tenant workloads when your tenancy model maps tenants to functions or function groups, and it can help you reduce the impact of a noisy tenant on other workloads.
+For new Linux serverless workloads, use the [Flex Consumption plan](/azure/azure-functions/flex-consumption-plan). Support for Azure Functions on the Linux Consumption plan retires on September 30, 2028, and that plan no longer receives feature and language enhancements. [Migrate existing Linux Consumption apps to Flex Consumption](/azure/azure-functions/migration/migrate-plan-consumption-to-flex) before the retirement date.
+
+Flex Consumption provides per-function scaling and supports [always ready instances](/azure/azure-functions/flex-consumption-plan#always-ready-instances) to reduce cold starts. Each function scales independently, except for HTTP, durable functions, and blob (Azure Event Grid) triggers. This scaling model can help you isolate tenant workloads when your tenancy model maps tenants to functions or function groups, and it can help you reduce the impact of a noisy tenant on other workloads.
 
 Flex Consumption also supports [virtual network integration](/azure/azure-functions/flex-consumption-plan#virtual-network-integration) and private endpoints, which helps you apply the same network isolation practices that you use with App Service. These capabilities can simplify your network design and cost model for multitenant solutions that need serverless implementation with predictable isolation.
 
@@ -173,6 +184,7 @@ Other contributors:
 - [Thiago Almeida](https://www.linkedin.com/in/thiagoalmeidaprofile) | Principal Program Manager, Azure Functions
 - [Daniel Scott-Raynsford](https://www.linkedin.com/in/dscottraynsford/) | Senior Partner Solution Architect, Enterprise Partner Solutions
 - [Arsen Vladimirskiy](https://www.linkedin.com/in/arsenv) | Principal Customer Engineer, FastTrack for Azure
+- [Jyoti Singh](https://www.linkedin.com/in/singhjyoti075/) | Sr. Cloud Solution Architect, Customer Success Unit
 
 *To see nonpublic LinkedIn profiles, sign in to LinkedIn.*
 

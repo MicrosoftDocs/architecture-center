@@ -169,11 +169,11 @@ For more information, see [Deploy the Istio-based service mesh feature for AKS](
 
 ### Storage isolation
 
-Azure provides managed PaaS data repositories like [Azure SQL Database](/azure/azure-sql/database/sql-database-paas-overview) and [Azure Cosmos DB](/azure/cosmos-db/introduction), along with other storage services that you can use as [persistent volumes](/azure/aks/concepts-storage#volumes) for your workloads. Tenant applications that run on a shared AKS cluster can [share a database or file store](/azure/architecture/guide/multitenant/approaches/storage-data#shared-multitenant-databases-and-file-stores) or use [dedicated data repositories and storage resources](/azure/architecture/guide/multitenant/approaches/storage-data#multitenant-app-with-dedicated-databases-for-each-tenant). For more information, see [Architectural approaches for storage and data in multitenant solutions](/azure/architecture/guide/multitenant/approaches/storage-data).
+Azure provides managed PaaS data repositories like [Azure SQL Database](/azure/azure-sql/database/sql-database-paas-overview) and [Azure Cosmos DB](/azure/cosmos-db/overview), along with other storage services that you can use as [persistent volumes](/azure/aks/concepts-storage#volumes) for your workloads. Tenant applications that run on a shared AKS cluster can [share a database or file store](/azure/architecture/guide/multitenant/approaches/storage-data#shared-multitenant-databases-and-file-stores) or use [dedicated data repositories and storage resources](/azure/architecture/guide/multitenant/approaches/storage-data#multitenant-app-with-dedicated-databases-for-each-tenant). For more information, see [Architectural approaches for storage and data in multitenant solutions](/azure/architecture/guide/multitenant/approaches/storage-data).
 
 AKS workloads can use persistent volumes to store data. You can create [persistent volumes](/azure/aks/concepts-storage#volumes) as Kubernetes resources backed by Azure Storage. Manually create and assign data volumes to pods directly, or let AKS automatically create them by using [persistent volume claims](/azure/aks/concepts-storage#persistent-volume-claims). AKS includes built-in storage classes to create persistent volumes that [Azure managed disks](/azure/virtual-machines/disks-types), [Azure Files](/azure/storage/files/storage-files-planning), and [Azure NetApp Files](/azure/azure-netapp-files/azure-netapp-files-service-levels) support. For more information, see [Storage options for applications in AKS](/azure/aks/concepts-storage). Avoid using local storage on agent nodes via [emptyDir](https://kubernetes.io/docs/concepts/storage/volumes/#emptydir) and [hostPath](https://kubernetes.io/docs/concepts/storage/volumes/#hostpath) for security and resiliency reasons.
 
-When AKS [built-in storage classes](/azure/aks/azure-csi-driver-volume-provisioning#use-a-persistent-volume-for-storage) don't fit your tenants' needs, create custom [storage classes](https://kubernetes.io/docs/concepts/storage/storage-classes) to address their specific requirements. These requirements include volume size, storage SKU, a service-level agreement (SLA), backup policies, and the pricing tier.
+When AKS [built-in storage classes](/azure/aks/concepts-storage#storage-classes) don't fit your tenants' needs, create custom [storage classes](https://kubernetes.io/docs/concepts/storage/storage-classes) to address their specific requirements. These requirements include volume size, storage SKU, a service-level agreement (SLA), backup policies, and the pricing tier.
 
 For example, create a custom storage class for each tenant and use it to apply tags to persistent volumes in their namespaces for cost chargeback. For more information, see [Use Azure tags in AKS](/azure/aks/use-tags).
 
@@ -354,8 +354,8 @@ When you share an AKS cluster between multiple teams within an organization, imp
 For more information about authentication and authorization with AKS, see the following articles:
 
 - [Access and identity options for AKS](/azure/aks/concepts-identity)
-- [AKS-managed Microsoft Entra integration](/azure/aks/enable-authentication-microsoft-entra-id)
-- [Kubernetes RBAC with Microsoft Entra ID in AKS](/azure/aks/azure-ad-rbac)
+- [AKS-managed Microsoft Entra integration](/azure/aks/entra-id-control-plane-authentication)
+- [Use Kubernetes RBAC with Microsoft Entra ID in AKS](/azure/aks/kubernetes-rbac-entra-id)
 
 ### Workload identity
 
@@ -399,7 +399,7 @@ For more information, see the following articles:
 
 ### Azure Dedicated Host
 
-[Azure Dedicated Host](/azure/virtual-machines/dedicated-hosts) provides physical servers dedicated to a single Azure subscription with hardware isolation at the physical-server level. You can provision dedicated hosts within a region, availability zone, and fault domain, and place VMs directly into them.
+[Azure Dedicated Host](/azure/virtual-machines/dedicated-hosts/overview) provides physical servers dedicated to a single Azure subscription with hardware isolation at the physical-server level. You can provision dedicated hosts within a region, availability zone, and fault domain, and place VMs directly into them.
 
 Dedicated Host with AKS provides the following benefits:  
 
@@ -581,7 +581,7 @@ For example, use Azure Front Door to manage multiple custom domains, one for eac
 The diagram shows Azure Front Door and AKS. Three hosts point to Azure Front door: invoices.fabrikam.com, payments.worldwideimporters.com, and pay.tailwind.com. Another host called contoso.com points from Azure Front Door to AKS.
 :::image-end:::
 
-Configure Azure Front Door to modify the [request origin host header](/azure/frontdoor/front-door-backend-pool#origin-host-header) to match the back-end application's domain name. Azure Front Door propagates the original `Host` header through the `X-Forwarded-Host` header, which the multitenant application code can use to [map the incoming request to the correct tenant](../considerations/map-requests.yml). For more information about how host name changes affect your application, see [Preserve the original HTTP host name](../../../best-practices/host-name-preservation.md).
+Configure Azure Front Door to modify the [request origin host header](/azure/frontdoor/origin#origin-host-header) to match the back-end application's domain name. Azure Front Door propagates the original `Host` header through the `X-Forwarded-Host` header, which the multitenant application code can use to [map the incoming request to the correct tenant](../considerations/map-requests.yml). For more information about how host name changes affect your application, see [Preserve the original HTTP host name](../../../best-practices/host-name-preservation.md).
 
 [Azure Web Application Firewall](/azure/web-application-firewall/afds/afds-overview) on Azure Front Door provides centralized protection for web applications. Use Azure Web Application Firewall to defend AKS-hosted tenant applications that expose a public endpoint on the internet from malicious attacks.
 
@@ -589,9 +589,9 @@ Configure Azure Front Door Premium to privately connect to tenant applications t
 
 ### Outbound connections
 
-When AKS-hosted applications connect to many databases or external services, the cluster risks SNAT port exhaustion. [SNAT ports](/azure/load-balancer/load-balancer-outbound-connections#what-are-snat-ports) generate unique identifiers to maintain distinct traffic flows from applications on the same compute resources. Running multiple tenant applications on a shared AKS cluster can generate many outbound calls, which can cause SNAT port exhaustion. AKS clusters can handle outbound connections in three ways:
+When AKS-hosted applications connect to many databases or external services, the cluster risks SNAT port exhaustion. [SNAT ports](/azure/load-balancer/load-balancer-outbound-connections#azure-load-balancer-snat-ports) generate unique identifiers to maintain distinct traffic flows from applications on the same compute resources. Running multiple tenant applications on a shared AKS cluster can generate many outbound calls, which can cause SNAT port exhaustion. AKS clusters can handle outbound connections in three ways:
 
-- **[Azure Load Balancer](/azure/load-balancer/load-balancer-overview):** AKS provisions a load balancer for egress traffic management by default. But the default configuration might not meet all scenario requirements if public IP addresses are disallowed or if extra hops are required for egress. The public load balancer is created with a default public IP address that [outbound rules](/azure/load-balancer/outbound-rules) use. You can use outbound rules to explicitly define SNAT for a public load balancer. This configuration lets you use the public IP addresses of your load balancer to provide outbound internet connectivity for your back-end instances. To avoid [SNAT port exhaustion](/azure/load-balancer/troubleshoot-outbound-connection), configure the outbound rules of the public load balancer to use more public IP addresses.
+- **[Azure Load Balancer](/azure/load-balancer/load-balancer-overview):** AKS provisions a load balancer for egress traffic management by default. But the default configuration might not meet all scenario requirements if public IP addresses are disallowed or if extra hops are required for egress. The public load balancer is created with a default public IP address that [outbound rules](/azure/load-balancer/outbound-rules) use. You can use outbound rules to explicitly define SNAT for a public load balancer. This configuration lets you use the public IP addresses of your load balancer to provide outbound internet connectivity for your back-end instances. To avoid [SNAT port exhaustion](/troubleshoot/azure/load-balancer/troubleshoot-outbound-connection), configure the outbound rules of the public load balancer to use more public IP addresses.
 
   For more information, see [Use the front-end IP address of a load balancer for outbound via outbound rules](/azure/load-balancer/load-balancer-outbound-connections#outboundrules).
 
@@ -599,7 +599,7 @@ When AKS-hosted applications connect to many databases or external services, the
 
   For more information, see [Azure NAT Gateway considerations for multitenancy](/azure/architecture/guide/multitenant/service/nat-gateway).
 
-- **[UDR](/azure/aks/egress-outboundtype):** Customize an AKS cluster's egress route to support custom network scenarios, like scenarios that disallow public IP addresses and require the cluster to sit behind a network virtual appliance (NVA). When you configure a cluster for [UDR](/azure/aks/egress-outboundtype#outbound-type-of-userdefinedrouting), AKS doesn't automatically configure egress paths. You must configure the egress paths. For example, route egress traffic through an [Azure firewall](/azure/aks/limit-egress-traffic#restrict-egress-traffic-using-azure-firewall).
+- **[UDR](/azure/aks/egress-outboundtype):** Customize an AKS cluster's egress route to support custom network scenarios, like scenarios that disallow public IP addresses and require the cluster to sit behind a network virtual appliance (NVA). When you configure a cluster for [UDR](/azure/aks/egress-outboundtype#outbound-type-of-userdefinedrouting), AKS doesn't automatically configure egress paths. You must configure the egress paths. For example, route egress traffic through an [Azure firewall](/azure/aks/limit-egress-traffic).
 
   Deploy the AKS cluster into an existing virtual network that has a preconfigured subnet and establish explicit egress. Send egress traffic to an appliance, like a firewall, gateway, or proxy. The appliance does network address translation (NAT) by using its assigned public IP address.
 

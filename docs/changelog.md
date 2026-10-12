@@ -2,7 +2,7 @@
 title: What's New in Azure Architecture Center
 description: New and updated articles in Azure Architecture Center
 author: claytonsiemens77
-ms.date: 10/04/2026
+ms.date: 10/11/2026
 ai-usage: ai-generated
 ms.topic: whats-new
 ms.author: pnp
@@ -24,6 +24,8 @@ The following new and updated articles have recently been published in the Azure
 ### New articles
 
 - [Event-driven cache updates with Azure Managed Redis and Azure Cosmos DB](./databases/architecture/event-driven-cache-updates-azure-managed-redis-cosmos-db.yml)
+- [Cache-aside caching using Azure Managed Redis and Azure Database for PostgreSQL](./databases/architecture/cache-aside-azure-managed-redis-postgresql.yml)
+- [Agentic behavior engineering](./ai-ml/guide/agentic-behavior-engineering.md)
 
 ### Updated articles
 
@@ -33,6 +35,21 @@ The following new and updated articles have recently been published in the Azure
 - [Azure Local hyperconverged baseline reference architecture](./hybrid/azure-local-baseline.yml) ([#d3a4addd60](https://github.com/MicrosoftDocs/architecture-center/commit/d3a4addd60))
 - [Azure Local hyperconverged storage switchless architecture](./hybrid/azure-local-switchless.yml) ([#d3a4addd60](https://github.com/MicrosoftDocs/architecture-center/commit/d3a4addd60))
 - [Troubleshoot a hybrid VPN connection](./reference-architectures/hybrid-networking/troubleshoot-vpn.yml) ([#af3bf2fde7](https://github.com/MicrosoftDocs/architecture-center/commit/af3bf2fde7))
+- [Certificate life cycle management on Azure](./example-scenario/certificate-lifecycle/index.yml) ([#f14e31fd3f](https://github.com/MicrosoftDocs/architecture-center/commit/f14e31fd3f))
+- [Azure hybrid options](./guide/technology-choices/hybrid-considerations.yml) ([#d0552492da](https://github.com/MicrosoftDocs/architecture-center/commit/d0552492da))
+- [Build the first layer of defense by using Azure security services](./solution-ideas/articles/azure-security-build-first-layer-defense.yml) ([#8861b8cc46](https://github.com/MicrosoftDocs/architecture-center/commit/8861b8cc46))
+- [Choose an Azure AI technology](./data-guide/technology-choices/ai-services.md) ([#35baff0976](https://github.com/MicrosoftDocs/architecture-center/commit/35baff0976))
+- [Data streaming with AKS](./solution-ideas/articles/data-streaming-scenario.yml) ([#9bd3341a7e](https://github.com/MicrosoftDocs/architecture-center/commit/9bd3341a7e))
+- [Baseline architecture for an Azure Kubernetes Service (AKS) cluster](./reference-architectures/containers/aks/baseline-aks.yml) ([#a5de0c5413](https://github.com/MicrosoftDocs/architecture-center/commit/a5de0c5413))
+- [Compare AWS and Azure database services](./aws-professional/databases.md) ([#694a4c546a](https://github.com/MicrosoftDocs/architecture-center/commit/694a4c546a))
+- [Comparing AWS and Azure regions and zones](./aws-professional/regions-zones.md) ([#694a4c546a](https://github.com/MicrosoftDocs/architecture-center/commit/694a4c546a))
+- [Compare AWS and Azure resource management](./aws-professional/resources.md) ([#694a4c546a](https://github.com/MicrosoftDocs/architecture-center/commit/694a4c546a))
+- [Compare storage services on Azure and AWS](./aws-professional/storage.md) ([#694a4c546a](https://github.com/MicrosoftDocs/architecture-center/commit/694a4c546a))
+- [Baseline highly available zone-redundant web application](./web-apps/app-service/architectures/baseline-zone-redundant.yml) ([#12df84b071](https://github.com/MicrosoftDocs/architecture-center/commit/12df84b071), [#8d537f34b4](https://github.com/MicrosoftDocs/architecture-center/commit/8d537f34b4))
+- [CDN guidance](./best-practices/cdn.yml) ([#d14aa20410](https://github.com/MicrosoftDocs/architecture-center/commit/d14aa20410))
+- [Gateway Offloading pattern](./patterns/gateway-offloading.md) ([#d14aa20410](https://github.com/MicrosoftDocs/architecture-center/commit/d14aa20410))
+- [Static Content Hosting pattern](./patterns/static-content-hosting.yml) ([#d14aa20410](https://github.com/MicrosoftDocs/architecture-center/commit/d14aa20410))
+- [Autoscaling guidance](./best-practices/auto-scaling.md) ([#03e41c0834](https://github.com/MicrosoftDocs/architecture-center/commit/03e41c0834))
 
 ## September 2026
 
