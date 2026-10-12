@@ -1,4 +1,4 @@
-This reference architecture shows a secure hybrid network that extends an on-premises network to Azure. The architecture implements a *perimeter network*, also called a *DMZ*, between the on-premises network and an Azure virtual network. All inbound and outbound traffic passes through Azure Firewall. 
+This reference architecture shows a secure hybrid network that extends an on-premises network to Azure. The architecture implements a *perimeter network*, also called a *DMZ*, between the on-premises network and an Azure virtual network. The architecture routes all traffic that enters or leaves the virtual network through Azure Firewall.
 
 ## Architecture
 
@@ -13,21 +13,21 @@ The architecture consists of the following aspects:
 - **On-premises network**. A private local-area network implemented in an organization.
 - **Azure virtual network**. The virtual network hosts the solution components and other resources running in Azure.
 
-    [Virtual network routes][udr-overview] define the flow of IP traffic within the Azure virtual network. In this architecture, there are two user-defined route tables, which both route traffic through the Azure Firewall instance. One of the route tables is associated with the hub network's gateway subnet, and the other is associated with the subnet in the spoke network.
+  [Virtual network routes][udr-overview] define the flow of IP traffic within the Azure virtual network. In this architecture, there are two user-defined route tables, which both route traffic through the Azure Firewall instance. One of the route tables is associated with the hub network's gateway subnet, and the other is associated with the subnet in the spoke network.
 
-    > [!NOTE]
-    > Depending on the requirements of your VPN connection, you can configure Border Gateway Protocol (BGP) routes to implement the forwarding rules that direct traffic back through the on-premises network.
+  > [!NOTE]
+  > Depending on the requirements of your VPN connection, you can configure Border Gateway Protocol (BGP) routes to implement the forwarding rules that direct traffic back through the on-premises network.
 
 - **Gateway**. The gateway provides connectivity between the routers in the on-premises network and the virtual network. The gateway is placed in its own subnet.
 - **Azure Firewall**. [Azure Firewall](/azure/well-architected/service-guides/azure-firewall) is a managed firewall as a service. The Firewall instance is placed in its own subnet.
 
-- **Network security groups**. Use [security groups][nsg] to restrict network traffic within the virtual network. 
+- **Network security groups**. Use [security groups][nsg] to restrict network traffic within the virtual network.
 
 - **Virtual machine scale sets**. [Virtual Machine Scale Sets](/azure/virtual-machine-scale-sets/overview) provide the compute tier in the spoke virtual networks. Scale sets deploy and manage a group of identical VMs behind the internal load balancer, and they support autoscaling to match demand.
 
 - **Azure Bastion**. [Azure Bastion](/azure/bastion/) provides secure SSH and RDP access to virtual machine scale set instances without exposing them to the internet. Use Bastion to manage the instances in the virtual network.
 
-    Bastion [requires a dedicated subnet named **AzureBastionSubnet**](/azure/bastion/configuration-settings#subnet).
+  Bastion [requires a dedicated subnet named **AzureBastionSubnet**](/azure/bastion/configuration-settings#subnet).
 
 ## Potential use cases
 
@@ -65,15 +65,19 @@ We recommend creating the following resource groups:
 
 ### Networking recommendations
 
-In this architecture, all inbound and outbound traffic between the on-premises network, the internet, and the spoke virtual networks passes through Azure Firewall. Every flow that crosses the perimeter undergoes network address translation at the firewall, so the firewall's IP addresses, not the workload's, are what external systems and on-premises systems observe. Plan for the following behavior:
+In this architecture, traffic between the on-premises network, the internet, and the spoke virtual networks passes through Azure Firewall when it enters or leaves the virtual network. Azure Firewall evaluates every flow that crosses the perimeter. Plan for the following behavior:
+
+- **SNAT replaces the workload's source IP address with a firewall IP address.** By default, Azure Firewall doesn't apply SNAT to network-rule traffic destined for RFC 1918 or RFC 6598 addresses, so on-premises systems can observe workload source IP addresses. For more information, see [Azure Firewall SNAT private IP address ranges](/azure/firewall/snat-private-range).
 
 - **Published workloads are reachable at the firewall's public IP address, not at the workload's IP address.** You publish a backend with a [destination network address translation (DNAT)](/azure/firewall/tutorial-firewall-dnat) rule on the firewall. The destination address is the firewall's public IP address; the translated address is a private IP address within the virtual network.
 
-- **Outbound flows leave the perimeter sourced from one of the firewall's public IP addresses.** Azure Firewall randomly selects which attached public IP to use for each outbound flow, so partner allowlists, on-premises firewall rules, and audit logs need to cover the entire set of IP addresses attached to the firewall. Use a [public IP address prefix](/azure/virtual-network/ip-services/public-ip-address-prefix) to express that set as a contiguous range.
+- **Traffic that egresses directly to the internet uses the firewall's public IP addresses.** Azure Firewall [selects the initial source public IP address at random](/azure/firewall/deploy-multi-public-ip-powershell) and selects another after that address's SNAT ports are exhausted.
+
+  Partner allowlists and audit logs for this traffic need to account for all public IP addresses associated with the firewall. For a contiguous range, create individual Standard public IP resources from a [public IP address prefix](/azure/virtual-network/ip-services/public-ip-address-prefix) and associate them with the firewall. You can't attach the prefix directly.
 
   The number of public IP addresses attached to the firewall also determines how many concurrent outbound connections can be sustained before source network address translation (SNAT) ports are exhausted.
 
-- **Backends don't see the original client's IP address.** Azure Firewall also applies SNAT on packets that match a DNAT rule so return traffic flows back through the same firewall instance. The backend observes the firewall instance's IP address as the source.
+- **Backends reached through DNAT don't see the original client's IP address.** Azure Firewall also applies SNAT on packets that match a DNAT rule so return traffic flows back through the same firewall instance. The backend observes the firewall instance's IP address as the source.
 
   If your application requires the client's IP address, terminate the client connection upstream in a reverse proxy such as Azure Application Gateway or Azure Front Door, forward the client's IP address in the `X-Forwarded-For` HTTP header, and follow [Preserve the original HTTP host name](/azure/architecture/best-practices/host-name-preservation) so the backend continues to observe the client's host name.
 
@@ -109,6 +113,8 @@ This reference architecture implements multiple levels of security.
 #### Routing all on-premises user requests through Azure Firewall
 
 The user-defined route in the gateway subnet blocks all user requests other than those received from on-premises. The route passes allowed requests to the firewall. The requests are passed on to the resources in the spoke virtual networks if they're allowed by the firewall rules. You can add other routes, but make sure they don't inadvertently bypass the firewall or block administrative traffic intended for the management subnet.
+
+If multiple [route-based VPN connections](/azure/vpn-gateway/vpn-gateway-connect-multiple-policybased-rm-ps#about-policy-based-and-route-based-vpn-gateways) share the gateway, don't advertise summary routes that include Azure spoke prefixes unless you intend to route that traffic through the advertising tunnel. VPN Gateway uses its internal routing table and can select another tunnel instead of forwarding traffic into the virtual network. The user-defined route on the gateway subnet applies only after the gateway forwards the traffic into the virtual network.
 
 #### Using NSGs to block/pass traffic to spoke virtual network subnets
 
@@ -178,7 +184,8 @@ Virtual machine scale sets in the spoke networks support autoscaling. Configure 
 For more information about the bandwidth limits of VPN Gateway, see [Gateway SKUs](/azure/vpn-gateway/vpn-gateway-about-vpngateways#gwsku). For higher bandwidths, consider upgrading to an ExpressRoute gateway. ExpressRoute provides up to 10-Gbps bandwidth with lower latency than a VPN connection.
 
 For more information about the scalability of Azure gateways, see the scalability consideration sections in:
-- [Implementing a hybrid network architecture with Azure and on-premises VPN][guidance-vpn-gateway-scalability] 
+
+- [Implementing a hybrid network architecture with Azure and on-premises VPN][guidance-vpn-gateway-scalability]
 - [Implementing a hybrid network architecture with Azure ExpressRoute][guidance-expressroute-scalability]
 
 For more information about managing virtual networks and NSGs at scale, see [Azure Virtual Network Manager (AVNM): Create a secured hub and spoke network](/azure/virtual-network-manager/tutorial-create-secured-hub-and-spoke) to create new (and onboard existing) hub and spoke virtual network topologies for central management of connectivity and NSG rules.
@@ -198,7 +205,6 @@ For more information about managing virtual networks and NSGs at scale, see [Azu
 [azure-forced-tunneling]: /azure/vpn-gateway/vpn-gateway-forced-tunneling-rm
 [azurect]: https://github.com/Azure/NetworkMonitoring/tree/main/AzureCT
 [cloud-services-network-security]: /azure/best-practices-network-security
-[azure-pricing-calculator]: https://azure.microsoft.com/pricing/calculator
 [Firewall-NVA]: https://azure.microsoft.com/blog/azure-firewall-and-network-virtual-appliances
 [getting-started-with-azure-security]: /azure/security/azure-security-getting-started
 [guidance-expressroute-availability]: ../hybrid-networking/expressroute-private-peering-connectivity.md#reliability
