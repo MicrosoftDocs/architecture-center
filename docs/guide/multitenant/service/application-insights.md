@@ -49,7 +49,7 @@ You can use a single instance of Application Insights to track telemetry for ten
    The diagram consists of three sections. The first section contains icons that represent tenants. The second section contains boxes that represent stamps. The third section represents Application Insights. Arrows point from Tenant 1 and Tenant 2 to the application in Stamp A. Arrows point from Tenant 3 and Tenant 4 to the application in Stamp B. An arrow points from Tenant 5 to the application in Stamp C. Arrows point from the stamps to the Application Insights section.
 :::image-end:::
 
-One benefit of this approach is simplified configuration and management of the application. You only need to instrument the application code one time. Drawbacks of this approach include the limits and quotas that are associated with a single Application Insights instance. To determine whether limits might affect your multitenant application, see [Application Insights limits](/azure/azure-monitor/service-limits#application-insights).
+One benefit of this approach is simplified configuration and management of the application. You only need to instrument the application code one time. Drawbacks of this approach include the limits and quotas that are associated with a single Application Insights instance. To determine whether limits might affect your multitenant application, see [Application Insights limits](/azure/azure-monitor/fundamentals/service-limits#application-insights).
 
 When you use a shared Application Insights resource, it might also be more difficult to isolate and filter the data for each tenant, especially if you have many tenants. All tenants share the same Log Analytics workspace and instrumentation keys, so security and privacy might also be a concern.
 
@@ -99,11 +99,11 @@ You can use `TelemetryClient` or telemetry initializers to add custom properties
 
 #### TelemetryClient
 
-[TelemetryClient](/azure/azure-monitor/app/api-custom-events-metrics) is an object that you can use to track any telemetry item. You can access the custom properties of any telemetry item via its `Properties` dictionary. The advantage of using `TelemetryClient` is that you have full control over what custom properties to add, and when to add them. The disadvantage of using `TelemetryClient` is that you need to access and modify each telemetry item that you want to enrich with custom properties.
+[TelemetryClient](/azure/azure-monitor/app/opentelemetry-add-modify#collect-custom-telemetry) is an object that you can use to track any telemetry item. You can access the custom properties of any telemetry item via its `Properties` dictionary. The advantage of using `TelemetryClient` is that you have full control over what custom properties to add, and when to add them. The disadvantage of using `TelemetryClient` is that you need to access and modify each telemetry item that you want to enrich with custom properties.
 
 #### Telemetry initializers
 
-You can use [telemetry initializers](/azure/azure-monitor/app/api-filtering-sampling#addmodify-properties-itelemetryinitializer) to add information to all telemetry items or to modify properties that the standard telemetry modules set.
+You can use [telemetry initializers](/azure/azure-monitor/app/opentelemetry-add-modify#add-a-custom-property-to-a-span) to add information to all telemetry items or to modify properties that the standard telemetry modules set.
 
 When you share an Application Insights instance across multiple tenants, a telemetry initializer often provides a good way to inject the tenant ID into every telemetry item. You can then use the ID to query and filter for reporting. The advantage of using telemetry initializers is that you can apply custom properties to all or some of the telemetry items in one place without needing to write code for each item. The disadvantage of using telemetry initializers is that you have less control over which custom properties to add to each telemetry item, so you might add unnecessary or redundant data.
 
@@ -171,13 +171,13 @@ Other contributors:
 
 ## Next steps
 
-- [Training: Monitor app performance](/training/modules/monitor-app-performance)
+- [Training: Configure monitoring for applications](/training/modules/configure-monitoring-applications/)
 - [What is Application Insights?](/azure/azure-monitor/app/app-insights-overview)
-- [Application Insights limits](/azure/azure-monitor/service-limits#application-insights)
+- [Application Insights limits](/azure/azure-monitor/fundamentals/service-limits#application-insights)
 - [Query across multiple workspaces and apps](/azure/azure-monitor/logs/cross-workspace-query)
 - [Azure Monitor workbooks](/azure/azure-monitor/visualize/workbooks-overview)
 - [Capture Application Insights custom metrics with .NET](/azure/azure-monitor/metrics/metrics-custom-overview)
-- [Application Insights API for custom events and metrics](/azure/azure-monitor/app/api-custom-events-metrics)
+- [Collect custom telemetry with OpenTelemetry for Application Insights](/azure/azure-monitor/app/opentelemetry-add-modify#collect-custom-telemetry)
 - [Application Insights telemetry data model](/azure/azure-monitor/app/data-model-complete)
 - [Azure Monitor pricing](https://azure.microsoft.com/pricing/details/monitor/)
 - [Log data ingestion time in Azure Monitor](/azure/azure-monitor/logs/data-ingestion-time)
