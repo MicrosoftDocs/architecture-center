@@ -182,7 +182,13 @@ Selecting a model isn't a one-time activity. In your proof of concept (POC) or p
 
 To future-proof your architecture, consider the following derisking approaches:
 
-- Use abstraction layers like the Azure AI Inference SDK to avoid vendor lock-in.
+- Isolate model-specific integration code to reduce the impact of switching models. Choose an integration approach based on the deployment's API and required capabilities, not just the model's publisher:
+
+  - For an application-level abstraction, consider an SDK such as [Microsoft.Extensions.AI](/dotnet/ai/microsoft-extensions-ai) for .NET or [LangChain](/azure/foundry/how-to/develop/langchain-models) for Python.
+  - For Azure OpenAI and other Foundry Models that support the OpenAI API, use the [OpenAI SDK](/azure/foundry/openai/api-version-lifecycle).
+  - For provider-specific APIs, use a compatible SDK, such as the [Anthropic SDK](/azure/foundry/foundry-models/how-to/use-foundry-models-claude) for models in Foundry that use the Anthropic Messages API. Keep provider-specific request and response handling behind your application's abstraction.
+
+  Confirm that each model supports the operations and parameters your workload requires.
 
 - Test models in parallel by switching environment variables and comparing outputs.
 
