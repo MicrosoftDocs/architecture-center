@@ -354,5 +354,5 @@ Other contributors:
 
 - [Design a secure multitenant RAG inferencing solution](/azure/architecture/ai-ml/guide/secure-multitenant-rag)
 - [Architectural approaches for AI and machine learning in multitenant solutions](../approaches/ai-machine-learning.md)
-- [Multitenancy and Azure OpenAI](../service/openai.md)
+- [Multitenancy and Microsoft Foundry Models](../service/foundry-models.md)
 - [Use Azure API Management in a multitenant solution](../service/api-management.md)
