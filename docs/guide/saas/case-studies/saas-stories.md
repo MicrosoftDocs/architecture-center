@@ -3,7 +3,7 @@ title: Microsoft SaaS stories
 description: Collection of insightful interviews featuring Microsoft partners who have embarked on their unique software as a service (SaaS) journey.
 author: arsenvlad
 ms.author: arsenv
-ms.date: 11/11/2025
+ms.date: 10/13/2026
 ms.topic: concept-article
 ms.subservice: architecture-guide
 ms.custom: arb-saas
@@ -12,6 +12,9 @@ ms.custom: arb-saas
 # Microsoft SaaS stories video interviews
 
 **Microsoft SaaS stories** is a collection of insightful interviews featuring Microsoft partners who have embarked on their unique software as a service (SaaS) journey. These interviews delve into the experiences of these partners as they develop and publish their SaaS solutions on the Microsoft commercial marketplace, while also highlighting their growth strategies and successes. By showcasing a diverse range of case studies, this series aims to inspire and inform businesses looking to build and scale their own SaaS offerings within the Azure ecosystem.
+
+> [!IMPORTANT]
+> These interviews describe each organization’s experience and technology choices at the time of recording. Product names, service capabilities, marketplace requirements, and implementation approaches might have changed. Treat the interviews as case studies rather than current architecture guidance, and consult current Microsoft documentation before selecting services or implementation frameworks.
 
 ## Episode 1: Basis Theory
 
