@@ -217,9 +217,9 @@ The use of non-Microsoft gateway technology can be considered as part of this ap
 
 The following articles cover specific scenarios where deploying a gateway between an intelligent application and Azure Foundry deployments addresses workload requirements:
 
-- [Use a gateway in front of multiple model deployments or instances](./azure-openai-gateway-multi-backend.md)
-- [Provide custom authentication to Foundry Models through a gateway](./azure-openai-gateway-custom-authentication.yml)
-- [Implement advanced monitoring for Foundry Models through a gateway](./azure-openai-gateway-monitoring.md)
+- [Use a gateway in front of multiple model deployments or instances](./generative-ai-gateway-multiple-models.md)
+- [Provide custom authentication to Foundry Models through a gateway](./generative-ai-gateway-custom-authentication.yml)
+- [Implement advanced monitoring for Foundry Models through a gateway](./generative-ai-gateway-monitoring.md)
 
 ## Related resources
 

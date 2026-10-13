@@ -1,6 +1,26 @@
 {
   "redirections": [
     {
+      "source_path": "docs/ai-ml/guide/azure-openai-gateway-guide.md",
+      "redirect_url": "/azure/architecture/ai-ml/guide/generative-ai-gateway",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "docs/ai-ml/guide/azure-openai-gateway-multi-backend.md",
+      "redirect_url": "/azure/architecture/ai-ml/guide/generative-ai-gateway-multiple-models",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "docs/ai-ml/guide/azure-openai-gateway-custom-authentication.yml",
+      "redirect_url": "/azure/architecture/ai-ml/guide/generative-ai-gateway-custom-authentication",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "docs/ai-ml/guide/azure-openai-gateway-monitoring.md",
+      "redirect_url": "/azure/architecture/ai-ml/guide/generative-ai-gateway-monitoring",
+      "redirect_document_id": true
+    },
+    {
       "source_path": "docs/best-practices/data-partitioning.yml",
       "redirect_url": "/azure/well-architected/design-guides/partition-data",
       "redirect_document_id": false
@@ -7319,8 +7339,8 @@
     },
     {
       "source_path": "docs/ai-ml/openai/architecture/log-monitor-azure-openai.yml",
-      "redirect_url": "/azure/architecture/ai-ml/guide/azure-openai-gateway-monitoring",
-      "redirect_document_id": true
+      "redirect_url": "/azure/architecture/ai-ml/guide/generative-ai-gateway-monitoring",
+      "redirect_document_id": false
     },
     {
       "source_path": "docs/solution-ideas/articles/homomorphic-encryption-seal.yml",
@@ -8135,6 +8155,11 @@
     {
       "source_path": "docs/guide/web/web-start-here.md",
       "redirect_url": "/azure/architecture/web-apps/app-service/architectures/basic-web-app",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/guide/multitenant/service/openai.md",
+      "redirect_url": "/azure/architecture/guide/multitenant/service/foundry-models",
       "redirect_document_id": false
     }
   ]

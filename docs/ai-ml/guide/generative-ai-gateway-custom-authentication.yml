@@ -21,4 +21,4 @@ name: Provide custom authentication to Foundry Models through a gateway
 summary: Learn how to implement alternative authentication mechanisms for client applications that communicate with Foundry Models through a gateway.
 thumbnailUrl: /azure/architecture/browse/thumbs/azure-openai-gateway-identity-scenario-external-identity-provider.png
 content: |
-  [!INCLUDE[](azure-openai-gateway-custom-authentication-content.md)]
+  [!INCLUDE[](generative-ai-gateway-custom-authentication-content.md)]

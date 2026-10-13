@@ -96,7 +96,7 @@ The following new and updated articles have recently been published in the Azure
 - [Compare AWS and Azure messaging services](./aws-professional/messaging.md) ([#3650e75c19](https://github.com/MicrosoftDocs/architecture-center/commit/3650e75c19), [#4d84eeeaba](https://github.com/MicrosoftDocs/architecture-center/commit/4d84eeeaba))
 - [Compare AWS and Azure AI and machine learning services](./aws-professional/data-ai.md) ([#1ebd06d07d](https://github.com/MicrosoftDocs/architecture-center/commit/1ebd06d07d))
 - [Compare AWS and Azure database services](./aws-professional/databases.md) ([#1ebd06d07d](https://github.com/MicrosoftDocs/architecture-center/commit/1ebd06d07d))
-- [Implement advanced monitoring for Foundry Models through a gateway](./ai-ml/guide/azure-openai-gateway-monitoring.md) ([#62cbd5d82b](https://github.com/MicrosoftDocs/architecture-center/commit/62cbd5d82b))
+- [Implement advanced monitoring for Foundry Models through a gateway](./ai-ml/guide/generative-ai-gateway-monitoring.md) ([#62cbd5d82b](https://github.com/MicrosoftDocs/architecture-center/commit/62cbd5d82b))
 - [IPv6 hub-and-spoke network topology](./networking/guide/ipv6-architecture.md) ([#95cdc7a0f8](https://github.com/MicrosoftDocs/architecture-center/commit/95cdc7a0f8))
 - [Multilayered protection for Azure virtual machine access](./solution-ideas/articles/multilayered-protection-azure-vm.yml) ([#db0db0a60e](https://github.com/MicrosoftDocs/architecture-center/commit/db0db0a60e))
 - [Choose an Azure service for vector search](./guide/technology-choices/vector-search.md) ([#0addc6de32](https://github.com/MicrosoftDocs/architecture-center/commit/0addc6de32))

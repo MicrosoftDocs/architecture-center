@@ -3,9 +3,10 @@ title: Use Azure API Management in a Multitenant Solution
 description: Learn about Azure API Management features for multitenant solutions, including tenant isolation models, routing, authentication, caching, and rate limiting.
 author: johndowns
 ms.author: pnp
-ms.date: 08/10/2025
+ms.date: 10/12/2026
 ms.topic: concept-article
 ms.subservice: architecture-guide
+ai-usage: ai-assisted
 ms.custom:
  - arb-saas
 ---
@@ -23,9 +24,9 @@ ms.custom:
 
 API Management is typically deployed as a shared component with a single instance that serves requests for multiple tenants. However, based on your [tenancy model](../considerations/tenancy-models.md), there are many ways that you can deploy API Management. This article assumes that you deploy your solution by using [deployment stamps](../approaches/overview.md#deployment-stamps-pattern).
 
-Typically, the way API Management is used remains consistent across different isolation models. This section focuses on the differences in cost and complexity between the isolation models and how each approach routes requests to your back-end API applications.
+Typically, the way API Management is used remains consistent across different isolation models. This section focuses on the differences in cost and complexity between the isolation models and how each approach routes requests to your backend API applications.
 
-| Consideration | Shared instance with single-tenant back ends | Shared instance with shared multitenant back end | Instance for each tenant |
+| Consideration | Shared instance with single-tenant backends | Shared instance with shared multitenant backend | Instance for each tenant |
 |---|---|---|---|
 | Number of supported tenants | Many | Almost unbounded | One for each instance |
 | Cost | Lower | Lower | Higher |
@@ -37,17 +38,17 @@ Typically, the way API Management is used remains consistent across different is
 
 ### Shared instance isolation models
 
-It's common to share an API Management instance between multiple tenants, which helps reduce cost and deployment and management complexity. The details of how you can share an API Management instance depend on how you assign tenants to back-end API applications.
+It's common to share an API Management instance between multiple tenants, which helps reduce cost and deployment and management complexity. The details of how you can share an API Management instance depend on how you assign tenants to backend API applications.
 
-#### Single-tenant back-end application
+#### Single-tenant backend application
 
-If you deploy distinct back-end applications for each tenant, then you can deploy a single API Management instance and route traffic to the correct tenant back end for each request. This approach requires you to configure API Management with the back-end hostnames for each tenant or to have another way to map an incoming request to the correct tenant's back end.
+If you deploy distinct backend applications for each tenant, then you can deploy a single API Management instance and route traffic to the correct tenant backend for each request. This approach requires you to configure API Management with the backend hostnames for each tenant or to have another way to map an incoming request to the correct tenant's backend.
 
-Because it requires an extra lookup, this approach might not scale to large numbers of tenants that share a single API Management instance. There might also be some performance overhead when you look up the tenant back end. However, the size of this performance overhead depends on how you design this lookup.
+Because it requires an extra lookup, this approach might not scale to large numbers of tenants that share a single API Management instance. There might also be some performance overhead when you look up the tenant backend. However, the size of this performance overhead depends on how you design this lookup.
 
-#### Shared multitenant back-end application
+#### Shared multitenant backend application
 
-In scenarios where your tenants share a common back-end application, the API Management routing process is simplified because you can route all requests to a single back end. If you use wildcard domains or provider-issued domains, you might be able to achieve almost unbounded scale by using this approach. Also, because requests don't need to be mapped to a tenant's back end, there's no performance impact from customized routing decisions.
+In scenarios where your tenants share a common backend application, the API Management routing process is simplified because you can route all requests to a single backend. If you use wildcard domains or provider-issued domains, you can avoid per-tenant gateway routing configuration. Also, because requests don't need to be mapped to a tenant's backend, there's no performance impact from customized routing decisions.
 
 ### Instance for each tenant
 
@@ -80,20 +81,23 @@ Alternatively, you can identify the tenant by using other methods. The following
 
 - **Look up tenant identifiers dynamically.** You can communicate with an external database or service while the request is being processed. By taking this approach, you can create custom tenant mapping logic to map a logical tenant identifier to a specific URL or to obtain more information about a tenant. To apply this approach, use the [send-request](/azure/api-management/send-request-policy) policy.
 
-   This approach is likely to increase the latency of your requests. To mitigate this effect, it's a good idea to use caching to reduce the number of calls to the external API. You can use the [cache-store-value](/azure/api-management/cache-store-value-policy) and [cache-lookup-value](/azure/api-management/cache-lookup-value-policy) policies to implement a caching approach. Be sure to invalidate your cache with each added, removed, or moved tenant that affects back-end lookup.
+   This approach is likely to increase the latency of your requests. To mitigate this effect, it's a good idea to use caching to reduce the number of calls to the external API. You can use the [cache-store-value](/azure/api-management/cache-store-value-policy) and [cache-lookup-value](/azure/api-management/cache-lookup-value-policy) policies to implement a caching approach. Be sure to invalidate your cache with each added, removed, or moved tenant that affects backend lookup.
+
+> [!IMPORTANT]
+> Treat tenant identifiers in URLs, hostnames, query strings, and request headers as untrusted routing hints. Authenticate the caller, and verify that the caller is authorized to access the resolved tenant before you route the request or access tenant data. Prefer a tenant claim from a validated token when possible. If a trusted edge service supplies the tenant identifier in a header, remove or overwrite any client-supplied value at the edge.
 
 ### Named values
 
-API Management supports [named values](/azure/api-management/api-management-howto-properties), which are custom configuration settings that you can use throughout your policies. For example, you might use a named value to store a tenant's back-end URL and then reuse that same value in several places within your policies. If you need to update the URL, you can update it in a single place.
+API Management supports [named values](/azure/api-management/api-management-howto-properties), which are custom configuration settings that you can use throughout your policies. For example, you might use a named value to store a tenant's backend URL and then reuse that same value in several places within your policies. If you need to update the URL, you can update it in a single place.
 
 > [!WARNING]
 > In a multitenant solution, it's important to be careful when you set the names of your named values. If the settings vary between tenants, make sure to include the tenant identifier in the name. For example, you can use a pattern like `tenantId-key:value` after you confirm that `tenantId` is suitable for the request.
 >
 > Include the identifier to reduce the chance of accidentally referring to or being manipulated into referring to another tenant's value when you process a request for another tenant.
 
-### Authenticate incoming requests
+### Authenticate and authorize incoming requests
 
-API requests made to the API Management gateway usually need to be authenticated. API Management provides several methods of authenticating incoming requests to the gateway, including OAuth 2.0 and [client certificates](/azure/api-management/api-management-howto-mutual-certificates-for-clients). Consider the types of credentials that you should support and where they should be validated. For example, consider whether validation should happen in API Management, in your back-end applications, or in both places.
+API requests made to the API Management gateway usually need authentication and authorization. API Management can validate OAuth 2.0 access tokens and [client certificates](/azure/api-management/api-management-howto-mutual-certificates-for-clients). OAuth 2.0 provides authorization. If you need to authenticate users, use an authentication protocol such as OpenID Connect. Consider which credentials you support and whether you validate them in API Management, in your backend applications, or in both places.
 
 For more information, see [Authentication and authorization to APIs in API Management](/azure/api-management/authentication-authorization-overview).
 
@@ -102,9 +106,9 @@ For more information, see [Authentication and authorization to APIs in API Manag
 >
 > A subscription key alone isn't a strong form of authentication. However, it's useful for other scenarios, such as for tracking an individual tenant's API usage.
 
-### Route to tenant-specific back ends
+### Route to tenant-specific backends
 
-When you use API Management as a shared component, you might need to route incoming API requests to different tenant-specific back ends. These back ends might be in different deployment stamps, or they might be different applications within a single stamp. To customize the routing in a policy definition, use the [set-backend-service](/azure/api-management/set-backend-service-policy) policy. You need to specify the new base URL that the request should be redirected to.
+When you use API Management as a shared component, you might need to route incoming API requests to different tenant-specific backends. These backends might be in different deployment stamps, or they might be different applications within a single stamp. To customize the routing in a policy definition, use the [set-backend-service](/azure/api-management/set-backend-service-policy) policy. You need to specify the new base URL that the request should be redirected to.
 
 ### Cache responses or other data
 
@@ -123,7 +127,7 @@ Use the AI gateway features in API Management when your APIs call large language
 
 #### Semantic caching
 
-If your APIs sit in front of Azure OpenAI models, consider using semantic caching in API Management to reduce cost and latency for repeated or near-duplicate prompts.
+If your APIs sit in front of supported large language model APIs, consider using semantic caching in API Management to reduce cost and latency for repeated or near-duplicate prompts.
 
 For more information, see the following resources:
 
@@ -133,49 +137,52 @@ For more information, see the following resources:
 
 You should partition the cache per tenant by using the `vary-by` element so prompts and answers are isolated to the tenant that they're intended for. Place the `lookup` policy in inbound processing and the `store` policy in outbound processing.
 
+> [!IMPORTANT]
+> Semantic caching uses similarity rather than exact matching. A cache hit can return a response that's incorrect, outdated, or unsafe for the current request. Evaluate semantic caching for your workload, tune the similarity threshold, and apply content-safety and validation controls where appropriate.
+
 The following example shows how semantic cache entries are partitioned by subscription ID or key:
 
 ```xml
 <!-- inbound -->
-<azure-openai-semantic-cache-lookup
+<llm-semantic-cache-lookup
    score-threshold="0.05"
    embeddings-backend-id="embeddings-backend"
    embeddings-backend-auth="system-assigned">
    <vary-by>@(context.Subscription.Id)</vary-by>
    <!-- or: <vary-by>@(context.Subscription.Key)</vary-by> -->
-</azure-openai-semantic-cache-lookup>
+</llm-semantic-cache-lookup>
 
 <!-- outbound -->
-<azure-openai-semantic-cache-store duration="60" />
+<llm-semantic-cache-store duration="60" />
 ```
 
 The following example partitions the semantic cache by tenant claim or header:
 
 ```xml
 <!-- inbound; requires validate-jwt if using a claim -->
-<azure-openai-semantic-cache-lookup
+<llm-semantic-cache-lookup
    score-threshold="0.05"
    embeddings-backend-id="embeddings-backend"
    embeddings-backend-auth="system-assigned">
    <vary-by>@(context.Principal?.Claims.GetValueOrDefault("tenantId", ""))</vary-by>
    <!-- Alternative using a custom header: -->
    <!-- <vary-by>@(context.Request.Headers.GetValueOrDefault("TenantID", ""))</vary-by> -->
-</azure-openai-semantic-cache-lookup>
+</llm-semantic-cache-lookup>
 
 <!-- outbound -->
-<azure-openai-semantic-cache-store duration="60" />
+<llm-semantic-cache-store duration="60" />
 ```
 
 #### Token-based limits for large language models
 
-Use token-based limits in the AI gateway to cap usage for each tenant, not only for individual requests. When you use Azure OpenAI back ends, use the [azure-openai-token-limit policy](/azure/api-management/llm-token-limit-policy). For OpenAI-compatible back ends or the Azure AI Model Inference API, use the [llm-token-limit policy](/azure/api-management/llm-token-limit-policy). For more information, see [Token rate limiting and quotas](/azure/api-management/genai-gateway-capabilities#token-rate-limiting-and-quotas).
+Use the [llm-token-limit policy](/azure/api-management/llm-token-limit-policy) in the AI gateway to cap usage for each tenant, not only for individual requests. The policy supports Azure OpenAI and other supported large language model APIs. For more information, see [Token limit policy](/azure/api-management/genai-gateway-capabilities#token-limit-policy).
 
 Select a key that's unique to the tenant, such as a subscription ID or tenant ID token claim, to ensure that limits effectively isolate each tenant. Token usage is tracked independently at each gateway, region, or workspace, and counters aren't aggregated across the entire instance.
 
 The following example limits each tenant to 60,000 tokens per minute by subscription:
 
 ```xml
-<azure-openai-token-limit
+<llm-token-limit
    counter-key="@(context.Subscription.Id)"
    tokens-per-minute="60000"
    estimate-prompt-tokens="false" />
@@ -185,13 +192,13 @@ The following example limits by tenant claim or header:
 
 ```xml
 <!-- Using a tenant claim; requires validate-jwt earlier in the pipeline -->
-<azure-openai-token-limit
+<llm-token-limit
    counter-key="@(context.Principal?.Claims.GetValueOrDefault(&quot;tenantId&quot;, &quot;&quot;))"
    tokens-per-minute="60000"
    estimate-prompt-tokens="false" />
 
 <!-- Or using a custom header populated by your edge/CDN/gateway -->
-<azure-openai-token-limit
+<llm-token-limit
    counter-key="@(context.Request.Headers.GetValueOrDefault(&quot;TenantID&quot;, &quot;&quot;))"
    tokens-per-minute="60000"
    estimate-prompt-tokens="false" />
@@ -202,9 +209,19 @@ The following example limits by tenant claim or header:
 
 ### Custom domains
 
-Use API Management to configure your own [custom domains](/azure/api-management/configure-custom-domain) for the API gateway and developer portal. In some tiers, you can configure wildcard domains or multiple fully qualified domain names (FQDNs).
+Use API Management to configure your own [custom domains](/azure/api-management/configure-custom-domain) for the API gateway and developer portal.
+
+Some tiers support *wildcard hostnames*. If each tenant uses a subdomain, such as `tenant1.api.contoso.com`, consider configuring a wildcard hostname, such as `*.api.contoso.com`. Wildcard hostnames can simplify tenant onboarding and certificate management because you don't need to configure a hostname for every tenant.
+
+If tenants need distinct FQDNs that don't share a common parent domain, use multiple custom hostnames on the gateway. You can then use the request hostname to resolve the tenant and route the request to the appropriate backend. Don't use the hostname as proof that the caller is authorized for that tenant.
+
+> [!IMPORTANT]
+> In the Standard v2 and Premium v2 tiers, a custom hostname for the gateway must be publicly resolvable. You can't restrict the hostname to a private DNS zone.
 
 You can also use API Management together with a service like [Azure Front Door](front-door.md). In this kind of configuration, Azure Front Door frequently handles custom domains and Transport Layer Security (TLS) certificates and communicates with API Management by using a single domain name. If the original URL from the client includes tenant information that you need to send to the API Management instance for later processing, consider using the `X-Forwarded-Host` request header, or use [Azure Front Door rules](front-door.md#rules-engine) to pass the information as an HTTP header. For more information, see [Preserve the original HTTP host name](../../../best-practices/host-name-preservation.md).
+
+> [!IMPORTANT]
+> Trust forwarded headers only when they come from a known proxy. Configure the edge service to remove or overwrite client-supplied forwarded headers, and restrict direct access to the API Management gateway where possible.
 
 ### Rate limits
 
@@ -217,9 +234,9 @@ For more information, see [Token-based limits for large language models](#token-
 > [!IMPORTANT]
 > The counter scope differs by policy and deployment topology:
 >
-> - The `rate-limit` and `rate-limit-by-key` policies maintain separate counters for each gateway replica. In multiregion or workspace gateway deployments, each regional or workspace gateway enforces its own counter.
+> - The `rate-limit` and `rate-limit-by-key` policies maintain separate counters for each gateway where you apply them. In multiregion or workspace gateway deployments, each regional or workspace gateway enforces its own counter.
 >
-> - The `azure-openai-token-limit` and `llm-token-limit` policies also track tokens for each gateway, region, or workspace and don't aggregate across the entire service instance.
+> - The `llm-token-limit` policy also tracks tokens for each gateway, region, or workspace and doesn't aggregate counts across the entire service instance.
 >
 > - The `quota` and `quota-by-key` policies are global at the service level and apply across regions for a specific instance.
 >
@@ -233,16 +250,16 @@ The API Management documentation [provides extensive guidance about monetizing A
 
 An API Management instance supports a specific amount of [capacity](/azure/api-management/api-management-capacity), which represents the resources available to process your requests. When you use complex policies or deploy more APIs to the instance, you consume more capacity. You can manage the capacity of an instance in several ways, such as by purchasing more units. You can also dynamically scale the capacity of your instance.
 
-Some multitenant instances might consume more capacity than single-tenant instances, like if you use many policies for routing requests to different tenant back ends. Consider capacity planning carefully, and plan to scale your instance's capacity if you see your usage increase. You should also test the performance of your solution to understand your capacity needs ahead of time.
+Some multitenant instances might consume more capacity than single-tenant instances, like if you use many policies for routing requests to different tenant backends. Consider capacity planning carefully, and plan to scale your instance's capacity if you see your usage increase. You should also test the performance of your solution to understand your capacity needs ahead of time.
 
 For more information about scaling API Management, see [Upgrade and scale an API Management instance](/azure/api-management/upgrade-and-scale).
 
 ### Multiregion deployments
 
-API Management [supports multiregion deployments](/azure/api-management/api-management-howto-deploy-multi-region), which means that you can deploy a single logical API Management resource across multiple Azure regions without needing to replicate its configuration onto separate resources. This capability is especially helpful when you distribute or replicate your solution globally. You can effectively deploy a fleet of API Management instances across multiple regions, which allows for low-latency request processing, and manage them as a single logical instance.
+API Management [supports multiregion deployments](/azure/api-management/api-management-howto-deploy-multi-region), which means that you can deploy a single logical API Management resource across multiple Azure regions without needing to replicate its configuration onto separate resources. This capability is especially helpful when you distribute or replicate your solution globally. You can deploy regional gateways for low-latency request processing and manage them as a single API Management instance.
 
 > [!IMPORTANT]
-> Multiregion deployment is supported only in the Premium (classic) tier. It's not available in the Consumption, Developer, Basic, Standard, Basic v2, Standard v2, or Premium v2 (preview) tiers. If you're on v2 tiers and need to deploy across multiple regions, use a separate instance for each region, and use external routing (such as Azure Front Door) or consider self-hosted gateways.
+> Multiregion deployment is supported only in some tiers. If your instance uses a different tier, but you need to deploy across multiple regions, use a separate instance for each region and external routing, such as Azure Front Door.
 
 However, if you need fully isolated API Management instances, you might also choose to deploy independent API Management resources into different regions. This approach separates the management plane for each API Management instance.
 

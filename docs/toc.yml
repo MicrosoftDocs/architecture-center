@@ -420,8 +420,8 @@ items:
               - name: Azure AI Search
                 href: /azure/search/search-modeling-multitenant-saas-applications
                 maintainContext: true
-              - name: Azure OpenAI
-                href: guide/multitenant/service/openai.md
+              - name: Foundry Models
+                href: guide/multitenant/service/foundry-models.md
           - name: Multitenancy checklist
             href: guide/multitenant/checklist.md
           - name: Related resources
@@ -583,13 +583,13 @@ items:
           items:
           - name: Use a gateway in front of generative models
             displayName: API, AI gateway, proxy, LLM gateway
-            href: ai-ml/guide/azure-openai-gateway-guide.md
+            href: ai-ml/guide/generative-ai-gateway.md
           - name: A gateway for multiple models
-            href: ai-ml/guide/azure-openai-gateway-multi-backend.md
+            href: ai-ml/guide/generative-ai-gateway-multiple-models.md
           - name: Provide custom authentication to models through a gateway
-            href: ai-ml/guide/azure-openai-gateway-custom-authentication.yml
+            href: ai-ml/guide/generative-ai-gateway-custom-authentication.yml
           - name: Implement advanced model monitoring through a gateway
-            href: ai-ml/guide/azure-openai-gateway-monitoring.md
+            href: ai-ml/guide/generative-ai-gateway-monitoring.md
         - name: Design to support foundation model life cycles
           href: ai-ml/guide/manage-foundation-models-lifecycle.md
   - name: Analytics
