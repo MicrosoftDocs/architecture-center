@@ -95,6 +95,7 @@ safe-outputs:
       - JamesJBarnett
       - janicericketts
       - jasonschuff
+      - jaydestro
       - jerrymsft
       - Jing316
       - JKirsch1
