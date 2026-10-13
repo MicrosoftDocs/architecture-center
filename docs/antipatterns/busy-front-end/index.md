@@ -66,53 +66,67 @@ Use [queue-based load leveling](/azure/architecture/patterns/queue-based-load-le
 
 With this approach, the front end puts resource-intensive tasks onto a message queue. The back end picks up the tasks for asynchronous processing. The queue also acts as a load leveler, buffering requests for the back end. If the queue length becomes too long, you can configure autoscaling to scale out the back end.
 
-Here is a revised version of the previous code. In this version, the `Post` method puts a message on a Service Bus queue.
+Here's a revised version of the previous code. In this version, the `Post` method uses the `Azure.Messaging.ServiceBus` SDK to put a message on a Service Bus queue. The application reuses the client and sender for its lifetime.
 
 ```csharp
 public class WorkInBackgroundController : ApiController
 {
-    private static readonly QueueClient QueueClient;
-    private static readonly string QueueName;
-    private static readonly ServiceBusQueueHandler ServiceBusQueueHandler;
-
-    public WorkInBackgroundController()
-    {
-        string serviceBusNamespace = ...;
-        QueueName = ...;
-        ServiceBusQueueHandler = new ServiceBusQueueHandler(serviceBusNamespace);
-        QueueClient = ServiceBusQueueHandler.GetQueueClientAsync(QueueName).Result;
-    }
+    private const string QueueName = "...";
+    private static readonly ServiceBusClient Client = new ServiceBusClient("...");
+    private static readonly ServiceBusSender Sender = Client.CreateSender(QueueName);
 
     [HttpPost]
     [Route("api/workinbackground")]
-    public async Task<long> Post()
+    public async Task<HttpResponseMessage> Post()
     {
-        return await ServiceBusQueueHandler.AddWorkLoadToQueueAsync(QueueClient, QueueName, 0);
+        var message = new ServiceBusMessage(BinaryData.FromObjectAsJson(new { Workload = 0 }));
+
+        await Sender.SendMessageAsync(message);
+        return Request.CreateResponse(HttpStatusCode.Accepted);
     }
 }
 ```
 
-The back end pulls messages from the Service Bus queue and does the processing.
+The back end uses a `ServiceBusProcessor` to pull messages from the Service Bus queue and do the processing. The application registers `ServiceBusClient` as a singleton and reuses the processor for its lifetime. Call `StartProcessingAsync` after registering the handlers to start processing messages.
 
 ```csharp
-public async Task RunAsync(CancellationToken cancellationToken)
+public class WorkloadProcessor
 {
-    this._queueClient.OnMessageAsync(
-        // This lambda is invoked for each message received.
-        async (receivedMessage) =>
-        {
-            try
-            {
-                // Simulate processing of message
-                Thread.SpinWait(Int32.MaxValue / 1000);
+    private const string QueueName = "...";
+    private readonly ServiceBusProcessor _processor;
 
-                await receivedMessage.CompleteAsync();
-            }
-            catch
+    public WorkloadProcessor(ServiceBusClient client)
+    {
+        _processor = client.CreateProcessor(
+            QueueName,
+            new ServiceBusProcessorOptions
             {
-                receivedMessage.Abandon();
-            }
-        });
+                AutoCompleteMessages = false
+            });
+
+        _processor.ProcessMessageAsync += ProcessMessageAsync;
+        _processor.ProcessErrorAsync += ProcessErrorAsync;
+    }
+
+    ...
+
+    private static async Task ProcessMessageAsync(ProcessMessageEventArgs args)
+    {
+        try
+        {
+            // Simulate processing of message
+            Thread.SpinWait(Int32.MaxValue / 1000);
+
+            await args.CompleteMessageAsync(args.Message);
+        }
+        catch
+        {
+            await args.AbandonMessageAsync(args.Message);
+            throw;
+        }
+    }
+
+    ...
 }
 ```
 

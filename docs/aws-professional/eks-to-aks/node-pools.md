@@ -559,5 +559,5 @@ Other contributors:
 - [Cluster governance](governance.md)
 - [AKS solution journey](../../reference-architectures/containers/aks-start-here.md)
 - [AKS day-2 operations guide](../../operator-guides/aks/day-2-operations-guide.md)
-- [Choose a Kubernetes at the edge compute option](../../operator-guides/aks/choose-kubernetes-edge-compute-option.md)
+- [Choose a Kubernetes at the edge compute option](../../guide/technology-choices/choose-kubernetes-edge-compute-option.md)
 - [GitOps for AKS](../../example-scenario/gitops-aks/gitops-blueprint-aks.yml)

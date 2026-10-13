@@ -1,6 +1,11 @@
 {
   "redirections": [
     {
+      "source_path": "docs/operator-guides/aks/choose-kubernetes-edge-compute-option.md",
+      "redirect_url": "/azure/architecture/guide/technology-choices/choose-kubernetes-edge-compute-option",
+      "redirect_document_id": true
+    },
+    {
       "source_path": "docs/ai-ml/guide/azure-openai-gateway-guide.md",
       "redirect_url": "/azure/architecture/ai-ml/guide/generative-ai-gateway",
       "redirect_document_id": true
