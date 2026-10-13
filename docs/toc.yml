@@ -761,7 +761,7 @@ items:
         href: guide/container-service-general-considerations.md
       - name: Choose a Kubernetes at the edge option
         displayName: choose
-        href: operator-guides/aks/choose-kubernetes-edge-compute-option.md
+        href: guide/technology-choices/choose-kubernetes-edge-compute-option.md
     - name: Guides
       items:
         - name: Microservices architecture style
