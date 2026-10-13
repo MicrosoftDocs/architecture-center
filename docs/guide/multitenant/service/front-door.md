@@ -217,7 +217,7 @@ Proseware deploys Azure Front Door by using the following configuration:
 
 - Proseware needs to reconfigure Azure Front Door each time that a new tenant is onboarded.
 
-- Proseware needs to pay attention to [Azure Front Door quotas and limits](/azure/azure-resource-manager/management/azure-subscription-service-limits#azure-front-door-standard-and-premium-tier-service-limits), especially on the number of routes and custom domains, and the [composite routing limit](/azure/frontdoor/front-door-routing-limits).
+- Proseware needs to pay attention to [Azure Front Door quotas and limits](/azure/azure-resource-manager/management/azure-subscription-service-limits#azure-front-door-standard-and-premium-service-limits), especially on the number of routes and custom domains, and the [composite routing limit](/azure/frontdoor/front-door-routing-limits).
 
 - Proseware needs to buy a wildcard TLS certificate.
 
@@ -329,7 +329,7 @@ Adventure Works and its tenants need to decide who issues TLS certificates:
 
 - Tenants control their DNS records. Changes to DNS records might affect their ability to access the Adventure Works solution.
 
-- Adventure Works needs to pay attention to [Azure Front Door quotas and limits](/azure/azure-resource-manager/management/azure-subscription-service-limits#azure-front-door-standard-and-premium-tier-service-limits), especially on the number of routes and custom domains, and the [composite routing limit](/azure/frontdoor/front-door-routing-limits).
+- Adventure Works needs to pay attention to [Azure Front Door quotas and limits](/azure/azure-resource-manager/management/azure-subscription-service-limits#azure-front-door-standard-and-premium-service-limits), especially on the number of routes and custom domains, and the [composite routing limit](/azure/frontdoor/front-door-routing-limits).
 
 ### Scenario 5: Azure Front Door profile for each stamp
 
@@ -352,7 +352,7 @@ If you have a stamp that serves multiple tenants, you need to consider how you r
 
 - This approach typically incurs a high cost because you deploy more profiles. For more information, see [Understand Azure Front Door billing](/azure/frontdoor/billing).
 
-- There's a limit to the number of Azure Front Door profiles that you can deploy into a single Azure subscription. For more information, see [Azure Front Door quotas and limits](/azure/azure-resource-manager/management/azure-subscription-service-limits#azure-front-door-standard-and-premium-tier-service-limits).
+- There's a limit to the number of Azure Front Door profiles that you can deploy into a single Azure subscription. For more information, see [Azure Front Door quotas and limits](/azure/azure-resource-manager/management/azure-subscription-service-limits#azure-front-door-standard-and-premium-service-limits).
 
 - You need to configure each stamp's Azure Front Door profile separately, and you need to manage DNS configuration, TLS certificates, and TLS configuration for each stamp.
 
@@ -376,7 +376,6 @@ Other contributors:
 
 ## Next steps
 
-- [Training: Introduction to Azure Front Door](/training/modules/intro-to-azure-front-door)
 - [Azure Front Door introduction](https://azure.microsoft.com/products/frontdoor)
 - [What is Azure Front Door?](/azure/frontdoor/front-door-overview)
 

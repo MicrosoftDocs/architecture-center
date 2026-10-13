@@ -12,7 +12,7 @@ ms.custom:
 
 # Multitenancy and Azure Event Hubs
 
-[Azure Event Hubs](/azure/event-hubs/event-hubs-about) is a big data streaming platform and event ingestion service that can receive and process millions of events per second. You can use Event Hubs to transform and store event hub data by using real-time analytics providers and batching or storage adapters. For a comparison of Event Hubs and other Azure messaging services, see [Choose between Azure messaging services](/azure/event-grid/compare-messaging-services).
+[Azure Event Hubs](/azure/event-hubs/event-hubs-about) is a big data streaming platform and event ingestion service that can receive and process millions of events per second. You can use Event Hubs to transform and store event hub data by using real-time analytics providers and batching or storage adapters. For a comparison of Event Hubs and other Azure messaging services, see [Choose between Azure messaging services](/azure/service-bus-messaging/compare-messaging-services).
 
 This article describes Event Hubs features and isolation models to use in multitenant solutions.
 
@@ -107,7 +107,7 @@ For more information, see [Overview of Event Hubs Premium](/azure/event-hubs/eve
 
 Event Hubs integrates with Microsoft Entra ID. To authenticate to Event Hubs resources, clients can use a managed identity with Microsoft Entra ID. Event Hubs defines a set of built-in roles that you can grant to your tenants to access Event Hubs entities. For example, you can use Microsoft Entra authentication to grant a tenant access to an event hub that contains messages for that tenant. This technique isolates one tenant from another.
 
-Kafka applications can use [managed identity OAuth](/azure/event-hubs/authenticate-managed-identity#event-hubs-for-kafka) to access Event Hubs resources.
+Kafka applications can use [managed identity OAuth](/azure/event-hubs/authenticate-managed-identity#event-hubs-for-apache-kafka) to access Event Hubs resources.
 
 For more information, see the following articles:
 
@@ -199,7 +199,7 @@ Other contributors:
 - [Overview of the Event Hubs Premium tier](/azure/event-hubs/event-hubs-premium-overview)
 - [Overview of the Event Hubs Dedicated tier](/azure/event-hubs/event-hubs-dedicated-overview)
 - [Event Hubs documentation](/azure/event-hubs)
-- [Training: Enable reliable messaging for big data applications by using Event Hubs](/training/modules/enable-reliable-messaging-for-big-data-apps-using-event-hubs)
+- [Choose between Azure messaging services](/azure/service-bus-messaging/compare-messaging-services)
 
 ## Related resources
 
