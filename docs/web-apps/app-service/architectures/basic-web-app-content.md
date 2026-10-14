@@ -19,7 +19,7 @@ The following workflow corresponds to the preceding diagram.
 
 1. Easy Auth, which is a feature of App Service, ensures that the user who accesses the site is authenticated by using Microsoft Entra ID.
 
-1. Your application code deployed to App Service handles the request. For example, that code might connect to an Azure SQL Database instance by using a connection string that's configured in App Service as an app setting.
+1. Your application code deployed to App Service handles the request. For example, that code might connect to an Azure SQL Database instance. The App Service application uses its managed identity to establish a passwordless connection to SQL Database.
 
 1. The information about the original request to App Service and the call to SQL Database is logged in Application Insights.
 
@@ -27,11 +27,13 @@ The following workflow corresponds to the preceding diagram.
 
 - [Microsoft Entra ID](/entra/fundamentals/whatis) is a cloud-based identity and access management service that provides authentication and authorization capabilities. In this architecture, it integrates with App Service through Easy Auth to ensure authentication for users who access the web application. It also simplifies the authentication process without requiring significant code changes.
 
-- [App Service](/azure/well-architected/service-guides/app-service-web-apps) is a managed platform for building, deploying, and scaling web applications. In this architecture, it hosts the web application code, handles HTTPS requests on the default `azurewebsites.net` domain, and connects to SQL Database via configured connection strings.
+- [App Service](/azure/well-architected/service-guides/app-service-web-apps) is a managed platform for building, deploying, and scaling web applications. In this architecture, it hosts the web application code, handles HTTPS requests on the default `azurewebsites.net` domain, and connects to SQL Database by using its managed identity.
+
+- [Managed identities for Azure resources](/entra/identity/managed-identities-azure-resources/overview) provide an automatically managed identity in Microsoft Entra ID for your App Service application. In this architecture, the App Service application uses its managed identity to establish a passwordless connection to SQL Database, which avoids storing credentials in the application.
 
 - [Azure Monitor](/azure/azure-monitor/overview) is a monitoring service that collects, analyzes, and acts on telemetry data from cloud and on-premises environments. In this architecture, it captures and stores information about requests to App Service and calls to SQL Database through Application Insights integration.
 
-- [SQL Database](/azure/well-architected/service-guides/azure-sql-database) is a managed relational database service that provides SQL Server capabilities in the cloud. In this architecture, it serves as the data storage layer, which enables the App Service application to connect via connection strings that are defined in app settings.
+- [SQL Database](/azure/well-architected/service-guides/azure-sql-database) is a managed relational database service that provides SQL Server capabilities in the cloud. In this architecture, it serves as the data storage layer that is used by the App Service application.
 
 ## Considerations
 
@@ -77,7 +79,7 @@ This architecture isn't designed for production deployments. The following criti
 
 - This basic architecture doesn't include a deployment of [Azure Web Application Firewall](/azure/web-application-firewall/overview). The web application isn't protected against common exploits and vulnerabilities. To see how Azure Web Application Firewall can be implemented with Azure Application Gateway in an App Services architecture, see the [baseline implementation](/azure/architecture/web-apps/app-service/architectures/baseline-zone-redundant#ingress-to-app-services).
 
-- This basic architecture stores secrets such as the SQL Server connection string in App Settings. App settings are encrypted by default. However, when you move to production, consider storing secrets in Azure Key Vault for increased governance. For stronger security and reduced secret management overhead, consider using managed identity for authentication instead of embedding secrets in connection strings.
+- Your application might require preshared secrets. You can store them in encrypted app settings. However, consider storing secrets in Azure Key Vault and using a Key Vault reference for increased governance.
 
 - Remote debugging and Kudu endpoints can remain enabled during development or the POC phase. When you move to production, you should disable unnecessary control plane, deployment, or remote access.
 
@@ -89,7 +91,7 @@ This architecture isn't designed for production deployments. The following criti
 
 - Use the [integrated authentication mechanism for App Service](/azure/app-service/overview-authentication-authorization). Easy Auth simplifies the process of integrating identity providers into your web app. It handles authentication outside your web app, so you don't have to make significant code changes.
 
-- Use managed identity for workload identities. Managed identity eliminates the need for developers to manage authentication credentials. The basic architecture authenticates to SQL Server by using a password in a connection string. Consider using [managed identity to authenticate to SQL Server](/azure/app-service/tutorial-connect-msi-sql-database).
+- Use managed identity for workload identities. Managed identity eliminates the need for developers to manage authentication credentials. This basic architecture authenticates to SQL Database by using [managed identity](/azure/app-service/tutorial-connect-msi-sql-database), which avoids storing a password in a connection string.
 
 For more information, see [Secure an app in App Service](/azure/app-service-web/web-sites-security).
 

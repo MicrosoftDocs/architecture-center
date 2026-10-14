@@ -6,6 +6,7 @@ author: claytonsiemens77
 ms.date: 06/05/2017
 ms.topic: design-pattern
 ms.subservice: best-practice
+ai-usage: ai-assisted
 ---
 
 <!-- cSpell:ignore uploadedfiles myblob -->
@@ -32,20 +33,20 @@ This antipattern typically occurs because:
 - The application uses a library that only provides synchronous methods for I/O.
 - An external library performs synchronous I/O operations internally. A single synchronous I/O call can block an entire call chain.
 
-The following code uploads a file to Azure blob storage. There are two places where the code blocks waiting for synchronous I/O, the `CreateIfNotExists` method and the `UploadFromStream` method.
+The following code uses the [Azure Blob Storage client library for .NET](/azure/storage/blobs/storage-blob-upload) to upload a file. There are two places where the code blocks waiting for synchronous I/O, the `CreateIfNotExists` method and the `Upload` method.
 
 ```csharp
-var blobClient = storageAccount.CreateCloudBlobClient();
-var container = blobClient.GetContainerReference("uploadedfiles");
+var blobServiceClient = new BlobServiceClient(
+    new Uri($"https://{accountName}.blob.core.windows.net"),
+    new DefaultAzureCredential());
+var containerClient = blobServiceClient.GetBlobContainerClient("uploadedfiles");
 
-container.CreateIfNotExists();
-var blockBlob = container.GetBlockBlobReference("myblob");
+containerClient.CreateIfNotExists();
+var blobClient = containerClient.GetBlobClient("myblob");
 
 // Create or overwrite the "myblob" blob with contents from a local file.
-using (var fileStream = File.OpenRead(HostingEnvironment.MapPath("~/FileToUpload.txt")))
-{
-    blockBlob.UploadFromStream(fileStream);
-}
+using var fileStream = File.OpenRead(localFilePath);
+blobClient.Upload(fileStream, overwrite: true);
 ```
 
 Here's an example of waiting for a response from an external service. The `GetUserProfile` method calls a remote service that returns a `UserProfile`.
@@ -77,21 +78,21 @@ public class SyncController : ApiController
 
 Replace synchronous I/O operations with asynchronous operations. This frees the current thread to continue performing meaningful work rather than blocking, and helps improve the utilization of compute resources. Performing I/O asynchronously is particularly efficient for handling an unexpected surge in requests from client applications.
 
-Many libraries provide both synchronous and asynchronous versions of methods. Whenever possible, use the asynchronous versions. Here is the asynchronous version of the previous example that uploads a file to Azure blob storage.
+Many libraries provide both synchronous and asynchronous versions of methods. Whenever possible, use the asynchronous versions. The following example shows the asynchronous version of the previous example that uploads a file to Azure Blob Storage.
 
 ```csharp
-var blobClient = storageAccount.CreateCloudBlobClient();
-var container = blobClient.GetContainerReference("uploadedfiles");
+var blobServiceClient = new BlobServiceClient(
+    new Uri($"https://{accountName}.blob.core.windows.net"),
+    new DefaultAzureCredential());
+var containerClient = blobServiceClient.GetBlobContainerClient("uploadedfiles");
 
-await container.CreateIfNotExistsAsync();
+await containerClient.CreateIfNotExistsAsync();
 
-var blockBlob = container.GetBlockBlobReference("myblob");
+var blobClient = containerClient.GetBlobClient("myblob");
 
 // Create or overwrite the "myblob" blob with contents from a local file.
-using (var fileStream = File.OpenRead(HostingEnvironment.MapPath("~/FileToUpload.txt")))
-{
-    await blockBlob.UploadFromStreamAsync(fileStream);
-}
+using var fileStream = new FileStream(localFilePath, FileMode.Open, FileAccess.Read, FileShare.Read, bufferSize: 4096, useAsync: true);
+await blobClient.UploadAsync(fileStream, overwrite: true);
 ```
 
 The `await` operator returns control to the calling environment while the asynchronous operation is performed. The code after this statement acts as a continuation that runs when the asynchronous operation has completed.
