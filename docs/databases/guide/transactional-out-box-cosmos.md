@@ -13,6 +13,8 @@ ms.custom: arb-data
 
 Implementing reliable messaging in distributed systems can be challenging. This article describes how to use the Transactional Outbox pattern for reliable messaging and guaranteed delivery of events, which is an important part of supporting [idempotent message processing](/azure/architecture/patterns/idempotent-consumer). This pattern uses Azure Cosmos DB transactional batches, the change feed, and Azure Service Bus.
 
+> [!VIDEO 3510c7f7-90f8-42fd-b30c-0cdf020000b3]
+
 ## Overview
 
 Microservice architectures address scalability, maintainability, and agility challenges in large applications, but this architectural pattern also introduces data-handling challenges. In distributed applications, each service independently maintains its required data in a dedicated service-owned data store. To support this scenario, you typically use a messaging solution, like RabbitMQ, Kafka, or Service Bus. These solutions distribute data, or *events*, from one service to other services through a message bus. Internal or external consumers subscribe to these messages and receive notifications when data changes.
