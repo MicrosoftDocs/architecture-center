@@ -185,7 +185,7 @@ You can use the following options to scale an AKS cluster, which adds extra capa
 
 - The AKS [cluster autoscaler](/azure/aks/cluster-autoscaler#about-the-cluster-autoscaler) watches for pods that can't be scheduled on nodes because of resource constraints, and automatically increases the number of nodes.
 
-- [Virtual Nodes v2](/azure/aks/virtual-nodes-v2) is the latest serverless experience for AKS. It's delivered as a cluster extension and runs Linux pods on Azure Container Instances. Workloads can burst to Container Instances in seconds without waiting for new nodes, and you pay only for the compute that the pods use while they run. Virtual Nodes v2 is in preview and isn't intended for production workloads.
+- [Virtual Nodes v2](/azure/aks/virtual-nodes-v2) is the serverless scale experience for AKS. It's delivered as a cluster extension and runs Linux pods on Azure Container Instances. Workloads can burst to Container Instances without waiting for new nodes. Container Instances compute charges are usage-based. Each virtual node also reserves some resources on your AKS nodes. Account for that reserved AKS capacity when estimating costs. Virtual Nodes v2 is in preview and isn't intended for production workloads.
 
 If you use on-demand scaling or the cluster autoscaler, account for the added VMs. Container Instances charges are based on the following factors:
 
