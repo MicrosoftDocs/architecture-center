@@ -75,7 +75,7 @@ This pattern might not be suitable when:
 - Requests to the back-end system can't be intercepted.
 
 - You can't access the legacy system's source code, and it has no other integration point that you can change, such as its database. To disable migrated features and redirect internal calls, you need to be able to modify the legacy system.
-  
+
 - You migrate a small system and replacing the whole system is simple.
 
 - You need to fully decommission the original solution quickly.
