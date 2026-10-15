@@ -141,6 +141,7 @@ safe-outputs:
       - MaxMelcher
       - mestredelpino
       - mfrankovic
+      - microsoftmrinal
       - MikeBazMSFT
       - miyamam
       - moorthyannadurai

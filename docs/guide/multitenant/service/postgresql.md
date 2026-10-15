@@ -18,7 +18,7 @@ Many multitenant solutions on Azure use the open-source relational database mana
 
 The following options are available for Azure Database for PostgreSQL and are suitable for use with multitenant applications:
 
-- [Azure Database for PostgreSQL](/azure/postgresql) is a good choice for most multitenant deployments that don't require the high scalability that Azure Cosmos DB for PostgreSQL provides.
+- [Azure Database for PostgreSQL](/azure/postgresql/) is a good choice for most multitenant deployments that don't require the high scalability that Azure Cosmos DB for PostgreSQL provides.
 
 - Azure Database for PostgreSQL [elastic clusters](/azure/postgresql/elastic-clusters/concepts-elastic-clusters) provides horizontal scaling within a managed service. It's suitable for multitenant applications that need to scale from a few tenants to high numbers of tenants.
 
@@ -28,7 +28,7 @@ The following options are available for Azure Database for PostgreSQL and are su
   > Azure HorizonDB is in preview and isn't recommended for production workloads.
 
 
-Azure Cosmos DB for PostgreSQL is on a retirement path and isn't recommended for new projects. The service retires on March 31, 2029. Migrate existing workloads to [Azure Database for PostgreSQL elastic clusters](/azure/cosmos-db/postgresql/migrate-postgresql-elastic-cluster) before that date.
+Azure Cosmos DB for PostgreSQL is on a retirement path and isn't recommended for new projects. The service retires on March 31, 2029. Migrate existing workloads to [Azure Database for PostgreSQL elastic clusters](/azure/cosmos-db/postgresql/how-to-migrate-database-postgresql) before that date.
 
 ## Azure Database for PostgreSQL features that support multitenancy
 
