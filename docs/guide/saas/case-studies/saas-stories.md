@@ -3,7 +3,7 @@ title: Microsoft SaaS stories
 description: Collection of insightful interviews featuring Microsoft partners who have embarked on their unique software as a service (SaaS) journey.
 author: arsenvlad
 ms.author: arsenv
-ms.date: 10/13/2026
+ms.date: 10/16/2026
 ms.topic: concept-article
 ms.subservice: architecture-guide
 ms.custom: arb-saas
@@ -114,5 +114,4 @@ In this episode, we speak to Flyte to learn how they built a comprehensive SaaS 
 
 ## Next steps
 
-- [Plan your own journey to SaaS](../plan-journey-saas.md)
 - [Learn about multitenant architectural approaches](../../multitenant/overview.md)
