@@ -73,7 +73,7 @@ In contrast, Application Gateway is an internet-facing service with a dedicated 
 
 #### Private Link connections to origin servers
 
-Azure Front Door Premium provides [Private Link connectivity](/azure/frontdoor/origin-security?#private-link-origins) to your origins, which reduces the public internet-facing surface area of your solution.
+Azure Front Door Premium provides [Private Link connectivity](/azure/frontdoor/origin-security#private-link-enabled-origins) to your origins, which reduces the public internet-facing surface area of your solution.
 
 If you use Private Link to connect to your origins, consider deploying a private endpoint into your virtual network, and configure Application Gateway to use the private endpoint as the backend for your application.
 
