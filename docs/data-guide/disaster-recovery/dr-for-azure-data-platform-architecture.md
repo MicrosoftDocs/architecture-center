@@ -260,16 +260,17 @@ The following sections describe each Azure service and component in the Contoso 
 
 - **ExpressRoute circuit**
 
-    - Component recovery responsibility: Contoso, connectivity partner, and Microsoft
-    - Workload and configuration recovery responsibility: Connectivity partner and Microsoft
-    - Contoso SKU selection: Standard
-    - DR uplift options:
-        - Configure ExpressRoute to use [private peering](/azure/expressroute/designing-for-disaster-recovery-with-expressroute-privatepeering) to provide geo-redundancy.
-        - ExpressRoute has [high availability (HA) designs](/azure/expressroute/designing-for-high-availability-with-expressroute).
-        - Use a [site-to-site VPN connection](/azure/expressroute/use-s2s-vpn-as-backup-for-expressroute-privatepeering) as a backup for ExpressRoute.
-    - Notes:
-        - ExpressRoute provides [built-in redundancy](/azure/expressroute/expressroute-introduction#redundancy). Each circuit consists of two connections to two Microsoft Enterprise edge routers (MSEEs) at an ExpressRoute location from the connectivity provider or client's network edge.
-        - [ExpressRoute Premium](/azure/expressroute/expressroute-faqs#what-is-expressroute-premium) circuits provide access to all Azure regions globally.
+  - Component recovery responsibility: Contoso, connectivity partner, and Microsoft
+  - Workload and configuration recovery responsibility: Connectivity partner and Microsoft
+  - Contoso SKU selection: Standard
+  - DR uplift options:
+    - Deploy geo-redundant ExpressRoute circuits through different peering locations for [disaster recovery with private peering](/azure/expressroute/designing-for-disaster-recovery-with-expressroute-privatepeering).
+    - For workloads that must withstand a carrier-level outage, consider different carriers for redundant circuits. Validate end-to-end physical path diversity with your providers. For more information, see [Physical layer diversity](/azure/expressroute/design-architecture-for-resiliency#physical-layer-diversity).
+    - ExpressRoute has [high availability (HA) designs](/azure/expressroute/designing-for-high-availability-with-expressroute).
+    - Use a [site-to-site VPN connection](/azure/expressroute/use-s2s-vpn-as-backup-for-expressroute-privatepeering) as a backup for ExpressRoute.
+  - Notes:
+    - ExpressRoute provides [built-in redundancy](/azure/expressroute/expressroute-introduction#redundancy). Each circuit consists of two connections to two Microsoft Enterprise edge routers (MSEEs) at an ExpressRoute location from the connectivity provider or client's network edge.
+    - [ExpressRoute Premium](/azure/expressroute/expressroute-faqs#what-is-expressroute-premium) circuits provide access to all Azure regions globally.
 
 - **VPN Gateway**
 
