@@ -175,6 +175,7 @@ This design is applicable to any business of sufficient size and footprint in Az
 ### ExpressRoute
 
 - Customers with massive-scale networks often have previously established connectivity points and require high bandwidth for their circuits. If you migrate from a large-scale MPLS, such as NetBond, and require over 40-Gbps circuit connectivity, you can take advantage of your network infrastructure and establish ExpressRoute Direct. ExpressRoute Direct supports MACsec encryption for high-security workloads.
+- For workloads that must withstand a carrier-level outage, consider different carriers for the geographically dispersed ExpressRoute circuits. Validate end-to-end physical path diversity with your providers. If you use ExpressRoute Direct, multiple logical circuits on the same port pair still share physical connectivity. For more information, see [Physical layer diversity](/azure/expressroute/design-architecture-for-resiliency#physical-layer-diversity).
 - For cost optimization, use local ExpressRoute connections to peer the primary ExpressRoute circuit to the regional hub of choice. The backup ExpressRoute circuit should use standard ExpressRoute connections.
 
 ### Spoke
@@ -201,7 +202,7 @@ These considerations implement the pillars of the Azure Well-Architected Framewo
 
 Reliability helps ensure that your application can meet the commitments that you make to your customers. For more information, see [Design review checklist for Reliability](/azure/well-architected/reliability/checklist).
 
-This workload optimizes high availability with Virtual WAN, redundant ExpressRoute circuits, and scale sets for NVAs. This combination results in the redundancy that's necessary for highly critical workloads.
+This workload optimizes high availability with Virtual WAN, redundant ExpressRoute circuits, and scale sets for NVAs. This combination results in  foundational redundancy that's necessary for critical workloads.
 
 ### Security
 

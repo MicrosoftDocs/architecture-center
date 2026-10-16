@@ -237,6 +237,8 @@ We recommend that you use at least one hub per region and that you connect only 
 
 For higher availability, you can use ExpressRoute and a VPN for failover. For more information, see [Connect an on-premises network to Azure by using ExpressRoute with VPN failover](../../reference-architectures/hybrid-networking/expressroute-vpn-failover.md) and [Design and architect ExpressRoute for resiliency](/azure/expressroute/design-architecture-for-resiliency).
 
+For workloads that must withstand a carrier-level outage, evaluate carrier-diverse ExpressRoute circuits and validate physical path independence. See the provider-diversity guidance in [ExpressRoute reliability considerations](../../reference-architectures/hybrid-networking/expressroute-private-peering-connectivity.md#reliability).
+
 Because of how Azure Firewall implements FQDN application rules, ensure that all resources that egress through the firewall use the same DNS provider as the firewall itself. Otherwise, Azure Firewall might block legitimate traffic because the firewall's IP resolution of the FQDN differs from the traffic originator's IP resolution of the same FQDN. You can include Azure Firewall proxy in the spoke DNS resolution to keep FQDNs in sync with the traffic originator and with Azure Firewall.
 
 ### Security
