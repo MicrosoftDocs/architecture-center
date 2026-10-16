@@ -74,7 +74,7 @@ Both platforms provide solutions to manage hybrid identity scenarios that integr
 | AWS service | Azure service | Description |
 |------------|---------------|-------------|
 | [AWS Directory Service AD Connector](https://docs.aws.amazon.com/directoryservice/latest/admin-guide/directory_ad_connector.html) | [Microsoft Entra Connect](/entra/identity/hybrid/connect/whatis-azure-ad-connect) | Directory synchronization tool for hybrid identity management |
-| [AWS IAM SAML provider](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_providers_create_saml.html) | [Active Directory Federation Services](/entra/identity/hybrid/connect/how-to-connect-fed-whatis) | Identity federation service for SSO |
+| [AWS IAM SAML provider](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_providers_create_saml.html) | [Microsoft Entra cloud authentication](/entra/identity/hybrid/connect/migrate-from-federation-to-cloud-authentication) | Cloud authentication for SSO by using password hash synchronization (recommended) or pass-through authentication |
 | [AWS Managed Microsoft AD](https://docs.aws.amazon.com/directoryservice/latest/admin-guide/directory_microsoft_ad.html) | [Microsoft Entra password hash synchronization](/entra/identity/hybrid/connect/whatis-phs) | Password synchronization between on-premises and cloud instances |
 
 ## Application and API user authentication and authorization
