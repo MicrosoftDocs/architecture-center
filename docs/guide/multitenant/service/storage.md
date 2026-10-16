@@ -43,13 +43,13 @@ Azure Storage also provides [identity-based access control](/azure/storage/blobs
 
 ### Lifecycle management
 
-When you use blob storage in a multitenant solution, your tenants might require different policies for data retention. When you store large volumes of data, you might also want to automatically move tenant-specific data to the [cool or archive storage tiers](/azure/storage/blobs/storage-blob-storage-tiers) to optimize costs.
+When you use blob storage in a multitenant solution, your tenants might require different policies for data retention. When you store large volumes of data, you might also want to automatically move tenant-specific data to the [cool or archive storage tiers](/azure/storage/blobs/access-tiers-overview) to optimize costs.
 
 Use [lifecycle management policies](/azure/storage/blobs/lifecycle-management-overview) to set the blob lifecycle for all tenants or for a subset of tenants. You can apply a lifecycle management policy to blob containers or a subset of blobs within a container. But lifecycle management policies have limits on the number of rules that you can specify. Plan and test your configuration carefully in a multitenant environment. Consider deploying multiple storage accounts if your rule count exceeds the limits.
 
 ### Immutable storage
 
-When you configure [immutable blob storage](/azure/storage/blobs/immutable-storage-overview) on storage containers by using [time-based retention policies](/azure/storage/blobs/immutable-time-based-retention-policy-overview), Storage prevents deletion or modification of the data before a specified time. This enforcement occurs at the storage account layer and applies to all users, including your organization's administrators.
+When you configure [immutable blob storage](/azure/storage/blobs/immutable-storage-overview) on storage containers by using [time-based retention policies](/azure/storage/blobs/immutable-storage-overview#time-based-retention-policies), Storage prevents deletion or modification of the data before a specified time. This enforcement occurs at the storage account layer and applies to all users, including your organization's administrators.
 
 Use immutable storage if tenants must maintain data or records because of legal or compliance requirements. Evaluate how this feature fits your [tenant life cycle](../considerations/tenant-life-cycle.md). For example, if a tenant is offboarded and requests data deletion, you might not be able to fulfill their request. If you use immutable storage for tenant data, consider how to address this problem in your terms of service.
 
