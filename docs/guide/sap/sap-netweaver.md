@@ -76,7 +76,7 @@ The following workflow corresponds to the previous diagram:
 
 - A bastion host or jump box is a secure access solution that provides administrative access to VMs in a virtual network. In this architecture, administrators connect to VMs through a bastion host deployed as part of shared services. If Secure Shell (SSH) and Remote Desktop Protocol (RDP) are your only server administration protocols, use an [Azure Bastion](/azure/bastion/bastion-overview) host. If you use other management tools like SQL Server Management Studio or SAP Frontend, use a traditional, self-deployed jump box.
 
-- [Network security groups (NSGs)](/azure/virtual-network/tutorial-filter-network-traffic-cli) are network security features that filter network traffic to and from Azure resources in a virtual network by using security rules. In this architecture, create NSGs to restrict incoming, outgoing, and intra-subnet traffic.
+- [Network security groups (NSGs)](/azure/virtual-network/tutorial-filter-network-traffic?tabs=cli) are network security features that filter network traffic to and from Azure resources in a virtual network by using security rules. In this architecture, create NSGs to restrict incoming, outgoing, and intra-subnet traffic.
 
   [Application security groups (ASGs)](/azure/virtual-network/application-security-groups) provide fine-grained, workload-based network security policies that are centered on applications. In this architecture, you can use ASGs to group VMs by name and secure applications by filtering traffic from trusted network segments.
 
@@ -197,7 +197,7 @@ A Windows Server failover cluster implements high availability for SAP Central S
 
 - We recommend that you use [Azure Files](/azure/storage/files/storage-files-introduction) as fully managed, cloud-native Server Message Block (SMB) or Network File System (NFS) shares. You can also use [Azure NetApp Files](/azure/azure-netapp-files/azure-netapp-files-introduction), which provides high-performance, enterprise-class NFS and SMB shares.
 
-- To set up clusters by using shared disks on Azure, we recommend that you use [Azure shared disks](/azure/virtual-machines/disks-shared) to set up a [Windows Server failover cluster for SAP Central Services](/azure/virtual-machines/workloads/sap/sap-high-availability-infrastructure-wsfc-shared-disk). For an implementation example, see [Prepare Azure infrastructure for an ASCS cluster by using Azure shared disks](/azure/sap/workloads/sap-high-availability-infrastructure-wsfc-shared-disk).
+- To set up clusters by using shared disks on Azure, we recommend that you use [Azure shared disks](/azure/virtual-machines/disks-shared) to set up a [Windows Server failover cluster for SAP Central Services](/azure/sap/workloads/sap-high-availability-infrastructure-wsfc-shared-disk). For an implementation example, see [Prepare Azure infrastructure for an ASCS cluster by using Azure shared disks](/azure/sap/workloads/sap-high-availability-infrastructure-wsfc-shared-disk).
 
 If you use an internal load balancer, you can activate the [high-availability port](/azure/load-balancer/load-balancer-ha-ports-overview). This port avoids the need to define load-balancing rules for multiple SAP ports. When you set up Azure load balancers, activate Direct Server Return (DSR), which is also called *Floating IP*. DSR provides a way for server responses to bypass the load balancer. This direct connection keeps the load balancer from becoming a bottleneck in the path of data transmission. We recommend that you activate DSR for the ASCS and database clusters.
 
@@ -336,7 +336,7 @@ Operational Excellence covers the operations processes that deploy an applicatio
 
 Azure Center for SAP solutions helps you create and run SAP systems as a unified workload on Azure. Its guided deployment experience creates the necessary compute, storage, and networking components that you need to run your SAP system. You can also use it to automate the installation of SAP software according to Microsoft best practices. You can take advantage of the management capabilities for both new and existing Azure-based SAP systems. For more information, see [Azure Center for SAP solutions](/azure/sap/center-sap-solutions/overview).
 
-If you need more control over maintenance events or hardware isolation for either performance or compliance, consider deploying your VMs on [dedicated hosts](/azure/virtual-machines/dedicated-hosts).
+If you need more control over maintenance events or hardware isolation for either performance or compliance, consider deploying your VMs on [dedicated hosts](/azure/virtual-machines/dedicated-hosts/overview).
 
 #### Monitoring
 
@@ -408,8 +408,8 @@ Other contributor:
 
 For more information and for SAP workload examples that use technologies in this architecture, see the following articles:
 
-- [Virtual Machines planning and implementation for SAP NetWeaver](/azure/virtual-machines/workloads/sap/planning-guide)
-- [Use Azure to host and run SAP workload scenarios](/azure/virtual-machines/workloads/sap/get-started)
+- [Virtual Machines planning and implementation for SAP NetWeaver](/azure/sap/workloads/planning-guide)
+- [Use Azure to host and run SAP workload scenarios](/azure/sap/workloads/get-started)
 
 ## Related resource
 
