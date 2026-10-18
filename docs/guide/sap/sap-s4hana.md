@@ -287,7 +287,7 @@ For HA of Central Services on Azure Linux VMs, use the appropriate HA extension 
 
 NFS over Azure Files supports the highly available file shares for both [SLES](/azure/sap/workloads/high-availability-guide-suse-nfs-azure-files) and [RHEL](/azure/sap/workloads/high-availability-guide-rhel-nfs-azure-files). This solution works well for highly available file shares like `/sapmnt` and `/saptrans` in SAP installations.
 
-Azure NetApp Files supports HA of [ASCS on SLES](/azure/sap/workloads/high-availability-guide-suse-netapp-files). For more information about ASCS on RHEL HA, see [SIOS Protection Suite for Linux](https://us.sios.com/blog/how-to-install-a-sios-protection-suite-for-linux-license-key/).
+Azure NetApp Files supports high availability of [ASCS on SLES](/azure/sap/workloads/high-availability-guide-suse-netapp-files). For more information about ASCS on RHEL high availability, see [SIOS Protection Suite for Linux](https://us.sios.com/blog/how-to-install-a-sios-protection-suite-for-linux-license-key/).
 
 The improved Azure fence agent is available for both [SUSE](/azure/sap/workloads/high-availability-guide-suse-pacemaker?tabs=msi) and [Red Hat](/azure/sap/workloads/high-availability-guide-rhel-pacemaker?tabs=msi) and provides faster service failover than the previous version of the agent.
 
