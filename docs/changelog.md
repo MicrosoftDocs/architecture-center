@@ -37,7 +37,7 @@ The following new and updated articles have recently been published in the Azure
 - [Azure Local hyperconverged storage switchless architecture](./hybrid/azure-local-switchless.yml) ([#d3a4addd60](https://github.com/MicrosoftDocs/architecture-center/commit/d3a4addd60))
 - [Troubleshoot a hybrid VPN connection](./reference-architectures/hybrid-networking/troubleshoot-vpn.yml) ([#af3bf2fde7](https://github.com/MicrosoftDocs/architecture-center/commit/af3bf2fde7))
 - [Certificate life cycle management on Azure](./example-scenario/certificate-lifecycle/index.yml) ([#f14e31fd3f](https://github.com/MicrosoftDocs/architecture-center/commit/f14e31fd3f))
-- [Azure hybrid options](./guide/technology-choices/hybrid-considerations.yml) ([#d0552492da](https://github.com/MicrosoftDocs/architecture-center/commit/d0552492da))
+- [Azure hybrid options](./guide/technology-choices/hybrid-considerations.yml) ([#0dfe9874bb](https://github.com/MicrosoftDocs/architecture-center/commit/0dfe9874bb))
 - [Build the first layer of defense by using Azure security services](./solution-ideas/articles/azure-security-build-first-layer-defense.yml) ([#8861b8cc46](https://github.com/MicrosoftDocs/architecture-center/commit/8861b8cc46))
 - [Choose an Azure AI technology](./data-guide/technology-choices/ai-services.md) ([#35baff0976](https://github.com/MicrosoftDocs/architecture-center/commit/35baff0976))
 - [Data streaming with AKS](./solution-ideas/articles/data-streaming-scenario.yml) ([#9bd3341a7e](https://github.com/MicrosoftDocs/architecture-center/commit/9bd3341a7e))
