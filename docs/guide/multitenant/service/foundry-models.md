@@ -124,7 +124,7 @@ This approach suits business-to-business (B2B) and business-to-consumer (B2C) Sa
 
 In this approach, each tenant provides its own Foundry resource and Azure environment. The tenant provisions and manages the resource directly. The service provider can also deploy the resource after being granted access to the tenant's subscription.
 
-:::image type="complex" source="media/foundry-models/foundry-tenant-provided.svg" alt-text="Diagram that shows a multitenant application connecting to tenant-provided Foundry resources." border="false":::
+:::image type="complex" source="media/foundry-models/foundry-tenant-provided.svg" alt-text="Diagram that shows a multitenant application connecting to tenant-provided Foundry resources." lightbox="media/foundry-models/foundry-tenant-provided.svg" border="false":::
   The diagram shows Customer A, Customer B, and Customer C on the left, all connecting to a Microsoft Entra ID box for the Contoso service provider tenant. The box contains a Contoso subscription and a shared application. Three horizontal arrows point from the application box to three separate Microsoft Entra ID environments, each containing a Microsoft Foundry resource. Each Microsoft Foundry resource contains a project and a model deployment pointing to that project. The top Customer A tenant contains Subscription A and Microsoft Foundry A with Project A and a model deployment for Customer A. The middle Customer B tenant contains Subscription B and Microsoft Foundry B with Project B and a model deployment for Customer B. The bottom Customer C tenant contains Subscription C and Microsoft Foundry C with Project C and a model deployment for Customer C.
 :::image-end:::
 
