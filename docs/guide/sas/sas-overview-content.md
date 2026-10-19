@@ -130,7 +130,7 @@ VMs in the Edsv5-series are the default SAS machines for Viya and Grid. They off
 - A good CPU-to-memory ratio.
 - A high-throughput locally attached disk. I/O speed is important for folders like `SASWORK` and the Cloud Analytics Services (CAS) cache, `CAS_CACHE`, that SAS uses for temporary files.
 
-If the Edsv5-series VMs are unavailable, it's recommended to use the prior generation. The [Edsv4-series VMs](/azure/virtual-machines/sizes/memory-optimized/edv4-series) have been tested and perform well on SAS workloads.
+If the Edsv5-series VMs are unavailable, it's recommended to use the prior generation. The [Edsv4-series VMs](/azure/virtual-machines/sizes/memory-optimized/edsv4-series) have been tested and perform well on SAS workloads.
 
 #### Ebsv5-series
 
@@ -217,7 +217,7 @@ Be aware of latency-sensitive interfaces between SAS and non-SAS applications. C
 
 ### Identity management
 
-SAS platforms can use local user accounts. They can also use a secure LDAP server to validate users. We recommend running a domain controller in Azure. Then use the domain join feature to properly manage security access. If you haven't set up domain controllers, consider deploying [Microsoft Entra Domain Services](../../example-scenario/identity/adds-extend-domain.yml). When you use the domain join feature, ensure machine names don't exceed the 15-character limit.
+SAS platforms can use local user accounts. They can also use a secure LDAP server to validate users. We recommend running a domain controller in Azure. Then use the domain join feature to properly manage security access. If you haven't set up domain controllers, consider deploying [Microsoft Entra Domain Services](/entra/identity/domain-services/overview). When you use the domain join feature, ensure machine names don't exceed the 15-character limit.
 
 > [!NOTE]
 > In some environments, there's a requirement for on-premises connectivity or shared datasets between on-premises and Azure-hosted SAS environments. In these situations, we strongly recommended deploying a domain controller in Azure.
@@ -380,7 +380,7 @@ Other contributors:
 For help getting started, see the following resources:
 
 - [Implement a secure hybrid network](../../reference-architectures/dmz/secure-vnet-dmz.yml?tabs=portal)
-- [Edsv5 series VMs](/azure/virtual-machines/sizes/memory-optimized/edv5-series)
+- [Edsv5 series VMs](/azure/virtual-machines/sizes/memory-optimized/edsv5-series)
 - [Ebsv5 series VMs](/azure/virtual-machines/sizes/memory-optimized/ebdsv5-ebsv5-series)
 - [Lsv3 series VMs](/azure/virtual-machines/sizes/storage-optimized/lsv3-series)
 - [Proximity placement groups](/azure/virtual-machines/co-location)
