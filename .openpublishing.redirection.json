@@ -8166,6 +8166,11 @@
       "source_path": "docs/guide/multitenant/service/openai.md",
       "redirect_url": "/azure/architecture/guide/multitenant/service/foundry-models",
       "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/guide/multitenant/service/storage.md",
+      "redirect_url": "/azure/architecture/guide/multitenant/service/blob-storage",
+      "redirect_document_id": false
     }
   ]
 }
