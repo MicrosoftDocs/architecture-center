@@ -62,71 +62,15 @@ The partitioning scheme can significantly affect the performance of your system.
 
 ## Partitioning Azure Table storage
 
-Azure Table storage is a key-value store that's designed around partitioning. All entities are stored in a partition, and partitions are managed internally by Azure Table storage. Each entity stored in a table must provide a two-part key that includes:
-
-- **The partition key**. This is a string value that determines the partition where Azure Table storage places the entity. All entities with the same partition key are stored in the same partition.
-
-- **The row key**. This is a string value that identifies the entity within the partition. All entities within a partition are sorted lexically, in ascending order, by this key. The partition key/row key combination must be unique for each entity and can't exceed 1 KB in length.
-
-If an entity is added to a table with a previously unused partition key, Azure Table storage creates a new partition for this entity. Other entities with the same partition key are stored in the same partition.
-
-This mechanism effectively implements an automatic scale-out strategy. Each partition is stored on the same server in an Azure datacenter to help ensure that queries that retrieve data from a single partition run quickly.
-
-Microsoft publishes [scalability targets] for Azure Storage. If your system is likely to exceed these limits, consider splitting entities into multiple tables. Use vertical partitioning to divide the fields into the groups that are most likely to be accessed together.
-
-The following diagram shows the logical structure of an example storage account. The storage account contains three tables: Customer Info, Product Info, and Order Info.
-
-:::image type="content" source="./images/data-partitioning/TableStorage.png" alt-text="The tables and partitions in an example storage account" lightbox="./images/data-partitioning/TableStorage.png" border="false":::
-
-Each table has multiple partitions.
-
-- In the Customer Info table, the data is partitioned according to the city where the customer is located. The row key contains the customer ID.
-- In the Product Info table, products are partitioned by product category, and the row key contains the product number.
-- In the Order Info table, the orders are partitioned by order date, and the row key specifies the time the order was received. All data is ordered by the row key in each partition.
-
-Consider the following points when you design your entities for Azure Table storage:
-
-- Select a partition key and row key by how the data is accessed. Choose a partition key/row key combination that supports most of your queries. The most efficient queries retrieve data by specifying the partition key and the row key. Queries that specify a partition key and a range of row keys can be completed by scanning a single partition. This is relatively fast because the data is held in row key order. If queries don't specify which partition to scan, every partition must be scanned.
-
-- If an entity has one natural key, then use it as the partition key and specify an empty string as the row key. If an entity has a composite key consisting of two properties, select the slowest changing property as the partition key and the other as the row key. If an entity has more than two key properties, use a concatenation of properties to provide the partition and row keys.
-
-- If you regularly perform queries that look up data by using fields other than the partition and row keys, consider implementing the [Index Table pattern](../patterns/index-table.md), or consider using a different data store that supports indexing, such as Azure Cosmos DB.
-
-- If you generate partition keys by using a monotonic sequence (such as "0001," "0002," "0003") and each partition only contains a limited amount of data, Azure Table storage can physically group these partitions together on the same server. Azure Storage assumes that the application is most likely to perform queries across a contiguous range of partitions (range queries) and is optimized for this case. However, this approach can lead to hotspots, because all insertions of new entities are likely to be concentrated at one end the contiguous range. It can also reduce scalability. To spread the load more evenly, consider hashing the partition key.
-
-- Azure Table storage supports transactional operations for entities that belong to the same partition. An application can perform multiple insert, update, delete, replace, or merge operations as an atomic unit, as long as the transaction doesn't include more than 100 entities and the payload of the request doesn't exceed 4 MB. Operations that span multiple partitions aren't transactional, and might require you to implement eventual consistency. For more information about table storage and transactions, see [Performing entity group transactions].
-
-- Consider the granularity of the partition key:
-
-  - Using the same partition key for every entity results in a single partition that's held on one server. This prevents the partition from scaling out and focuses the load on a single server. As a result, this approach is only suitable for storing a few entities. However, it does ensure that all entities can participate in entity group transactions.
-
-  - Using a unique partition key for every entity causes the table storage service to create a separate partition for each entity, possibly resulting in a large number of small partitions. This approach is more scalable than using a single partition key, but entity group transactions aren't possible. Also, queries that fetch more than one entity might involve reading from more than one server. However, if the application performs range queries, then using a monotonic sequence for the partition keys might help to optimize these queries.
-
-  - Sharing the partition key across a subset of entities makes it possible to group related entities in the same partition. Operations that involve related entities can be performed by using entity group transactions, and queries that fetch a set of related entities can be satisfied by accessing a single server.
-
-For more information, see [Azure Storage table design guide] and [Scalable partitioning strategy].
+For information about partitioning and Azure Table Storage, see [Multitenancy and Azure Table Storage](../guide/multitenant/service/table-storage.md).
 
 ## Partitioning Azure Blob Storage
 
-Azure Blob Storage makes it possible to hold large binary objects. Use block blobs in scenarios when you need to upload or download large volumes of data quickly. Use page blobs for applications that require random rather than serial access to parts of the data.
-
-Each blob (either block or page) is held in a container in an Azure Storage account. You can use containers to group related blobs that have the same security requirements. This grouping is logical rather than physical. Inside a container, each blob has a unique name.
-
-The partition key for a blob is account name + container name + blob name. The partition key is used to partition data into ranges and these ranges are load-balanced across the system. Blobs can be distributed across many servers in order to scale out access to them, but a single blob is served by a single server.
-
-If your naming scheme uses timestamps or numerical identifiers, it can lead to excessive traffic going to one partition, limiting the system from effectively load balancing. For instance, if you have daily operations that use a blob object with a timestamp such as *yyyy-mm-dd*, all the traffic for that operation goes to a single partition server. Instead, consider prefixing the name with a three-digit hash. For more information, see [Optimize blob partitions](/azure/storage/blobs/storage-performance-blob-partitions#partition-keys-and-efficient-naming-schemes).
-
-The actions of writing a single block or page are atomic, but operations that span blocks, pages, or blobs aren't. If you need to ensure consistency when performing write operations across blocks, pages, and blobs, take out a write lock by using a blob lease.
+For information about partitioning and Azure Blob Storage, see [Multitenancy and Azure Blob Storage](../guide/multitenant/service/blob-storage.md).
 
 ## Partitioning Azure Storage queues
 
-Azure Storage queues enable you to implement asynchronous messaging between processes. An Azure Storage account can contain any number of queues, and each queue can contain any number of messages. The only limitation is the space that's available in the storage account. The maximum size of an individual message is 64 KB. If you require messages bigger than this, then consider using Azure Service Bus queues instead.
-
-Each storage queue has a unique name within the storage account that contains it. Azure partitions queues based on the name. All messages for the same queue are stored in the same partition, which is controlled by a single server. Different queues are managed by different servers to help balance the load. The allocation of queues to servers is transparent to applications and users.
-
-In a large-scale application, don't use the same storage queue for all instances of the application because this approach might cause the server that's hosting the queue to become a hot spot. Instead, use different queues for different functional areas of the application. Azure Storage queues don't support transactions, so directing messages to different queues should have little effect on messaging consistency.
-
-An Azure Storage queue can handle up to 2,000 messages per second. If you need to process messages at a greater rate than this, consider creating multiple queues. For example, in a global application, create separate storage queues in separate storage accounts to handle application instances that are running in each region.
+For information about partitioning and Azure Queue Storage, see [Multitenancy and Azure Queue Storage](../guide/multitenant/service/queue-storage.md).
 
 ## Partitioning Azure Service Bus
 
@@ -293,7 +237,6 @@ For considerations about trade-offs between availability and consistency, see [A
 [Availability and consistency in Event Hubs]: /azure/event-hubs/event-hubs-availability-and-consistency
 [azure-limits]: /azure/azure-subscription-service-limits
 [Azure Managed Redis]: https://azure.microsoft.com/products/managed-redis
-[Azure Storage Table Design Guide]: /azure/storage/storage-table-design-guide
 [cosmos-db-ru]: /azure/cosmos-db/request-units
 [Data Types]: https://redis.io/docs/latest/develop/data-types/
 [cosmos-db-sql-api]: /azure/cosmos-db/sql-api-introduction
@@ -305,4 +248,3 @@ For considerations about trade-offs between availability and consistency, see [A
 [What is Event Hubs?]: /azure/event-hubs/event-hubs-what-is-event-hubs
 [What is AI Search?]: /azure/search/search-what-is-azure-search
 [scalability targets]: /azure/storage/common/scalability-targets-standard-account
-[Scalable partitioning strategy]: /rest/api/storageservices/designing-a-scalable-partitioning-strategy-for-azure-table-storage

@@ -3,7 +3,7 @@ title: Multitenancy and Azure Blob Storage
 description: Explore Azure Blob Storage features and isolation models for multitenant solutions, including tenant-scoped access, encryption, and monitoring.
 author: PlagueHO
 ms.author: dascottr
-ms.date: 07/01/2026
+ms.date: 10/20/2026
 ms.topic: concept-article
 ms.subservice: architecture-guide
 ms.custom: arb-saas
@@ -12,11 +12,21 @@ ai-usage: ai-assisted
 
 # Multitenancy and Azure Blob Storage
 
-Azure Blob Storage stores unstructured data, such as documents, images, and videos. This article describes isolation models and Blob Storage features for multitenant solutions. It provides links to guidance that can help you plan how to isolate tenants' data and manage access, retention, encryption, and usage.
+Azure Blob Storage stores unstructured data, such as documents, images, and videos. This article describes partitioning strategies, isolation models, and Blob Storage features for multitenant solutions. It provides guidance that can help you distribute request load, isolate tenants' data, and manage access, retention, encryption, and usage.
+
+## Partitioning strategies
+
+Blob Storage automatically partitions data by using a partition key that consists of the storage account name, container name, and blob name. Azure load-balances ranges of partition keys across the service. You don't control the physical partition for a blob. Placing each tenant in a separate container or blob-name prefix doesn't provide dedicated throughput or performance isolation.
+
+In a shared storage account, a workload that concentrates requests on a narrow range of blob names can create a hot partition, even when the account has unused capacity. Hot partitions can increase latency and cause HTTP 500 (Operation Timeout) or HTTP 503 (Server Busy) responses.
+
+For clients that upload blocks smaller than 256 KiB, blob naming can affect upload performance. For example, an application that writes all of a day's data to a blob named using the pattern `yyyy-mm-dd` directs every write for that day to the same partition key, which can create a hot partition. For high-request-rate workloads, split the data across multiple blobs and add a short hash prefix, or a seconds or minutes value, near the beginning of each blob name. Avoid sequential or append-only naming patterns. Uploads that use larger blocks aren't affected by partition naming. For more information, see [Optimize blob partitions](/azure/storage/blobs/storage-performance-blob-partitions) and [Scalability and performance targets for Blob Storage](/azure/storage/blobs/scalability-targets).
+
+A high-volume tenant can create a hot partition or consume a disproportionate share of a storage account's capacity. Monitor throttling and tenant request patterns, use exponential-backoff retries, and consider a dedicated storage account for tenants that need independent scale or stronger performance isolation. Partitioning and tenant isolation are separate concerns. For isolation options, see [Isolation models](#isolation-models).
 
 ## Isolation models
 
-When you use Blob Storage in a multitenant system, determine the level of isolation to apply. Blob Storage supports shared containers, containers for each tenant, and storage accounts for each tenant. The following table summarizes the differences between the main tenancy isolation models for Blob Storage.
+Partitioning controls how Blob Storage distributes request load, but it doesn't establish a tenant isolation boundary. When you use Blob Storage in a multitenant system, determine the level of isolation to apply. Blob Storage supports shared containers, containers for each tenant, and storage accounts for each tenant. The following table summarizes the differences between the main tenancy isolation models for Blob Storage.
 
 | Consideration | Shared blob containers | Blob containers for each tenant | Storage accounts for each tenant |
 |---|---|---|---|
@@ -38,7 +48,7 @@ When you work with blob storage, you might use a shared blob container that incl
 | `tenant-a` | `https://contoso.blob.core.windows.net/sharedcontainer/tenant-a/blob1.mp4` |
 | `tenant-b` | `https://contoso.blob.core.windows.net/sharedcontainer/tenant-b/blob2.mp4` |
 
-Blob name prefixes identify each tenant's data, but naming alone doesn't enforce access isolation. Blob Storage provides a capability to [list, or enumerate, blobs that begin with a specified prefix](/rest/api/storageservices/enumerating-blob-resources). Ensure that your application and authorization configuration prevent tenants from accessing other tenants' blobs.
+Blob name prefixes identify each tenant's data, but naming alone doesn't enforce access isolation. Blob Storage provides a capability to [list, or enumerate, blobs that begin with a specified prefix](/rest/api/storageservices/enumerating-blob-resources). Ensure that your application and authorization configuration prevent tenants from accessing other tenants' blobs. Design the blob names within each tenant prefix to avoid concentrating high request volumes on a narrow range of partition keys. For more information, see [Partitioning strategies](#partitioning-strategies).
 
 The [hierarchical namespace](/azure/storage/blobs/data-lake-storage-namespace#deciding-whether-to-enable-a-hierarchical-namespace) feature in Storage provides a stronger directory or folder structure, including directory-specific access control. This feature supports multitenant scenarios where you have shared blob containers but want to grant access to a single tenant's data.
 
@@ -50,11 +60,13 @@ When you use shared containers, consider whether you need to track the data and 
 
 You can create individual blob containers for each tenant within a single storage account. There's no limit to the number of blob containers that you can create within a storage account.
 
+Separate containers provide an access-control and management boundary, but they don't provide performance isolation. All containers in the account share the storage account's capacity and performance targets.
+
 When you create a container for each tenant, you can use Blob Storage access control, including SAS, to manage access for each tenant's data. Use [blob inventory](/azure/storage/blobs/calculate-blob-count-size) to measure the capacity that each container uses.
 
 ### Storage accounts for each tenant
 
-The strongest level of isolation uses a dedicated storage account for each tenant. This model ensures full isolation of storage keys, which you can rotate independently. It also allows you to scale your solution beyond the limits and quotas for each storage account. But you must also consider the maximum number of storage accounts allowed within a single Azure subscription.
+The strongest level of isolation uses a dedicated storage account for each tenant. This model ensures full isolation of storage keys, which you can rotate independently. It also allows you to scale your solution beyond the limits and quotas for each storage account. Consider this model for tenants that have sustained high request volumes or require independent performance targets. But you must also consider the maximum number of storage accounts allowed within a single Azure subscription.
 
 ## Features of Blob Storage that support multitenancy
 
@@ -83,6 +95,12 @@ In a multitenant solution, combine a user delegation SAS with the [Valet Key pat
 ### Identity-based access control
 
 Blob Storage also provides [identity-based access control](/azure/storage/blobs/authorize-access-azure-active-directory) through Microsoft Entra ID. This capability enables [attribute-based access control](/azure/role-based-access-control/conditions-overview), which provides fine-grained access to blob paths or to blobs tagged with a specific tenant ID.
+
+### Concurrency control
+
+Blob Storage doesn't provide transactions across multiple blobs. If multiple application instances can update the same blob, implement a concurrency-control strategy. Use ETags and conditional requests for optimistic concurrency, or acquire a blob lease for pessimistic concurrency.
+
+An active lease enforces exclusive write access to the leased blob for the lease holder. It doesn't prevent uncoordinated reads or make operations across multiple blobs atomic. In a multitenant solution, consider concurrency control when multiple workers can process or update the same tenant's blob. For more information, see [Manage concurrency in Blob Storage](/azure/storage/blobs/concurrency-manage).
 
 ### Lifecycle management
 
@@ -125,6 +143,8 @@ In a multitenant solution, consider whether you need to [measure the consumption
 
 Blob Storage provides [built-in monitoring capabilities](/azure/storage/blobs/monitor-blob-storage). Built-in [capacity metrics](/azure/storage/blobs/monitor-blob-storage-reference) report usage for the storage account, not for individual containers. Plan how to measure usage for each tenant when tenants share an account.
 
+Monitor request latency and HTTP 500 and 503 responses to detect possible hot partitions or workloads that approach scalability targets. Correlate this telemetry with tenant identifiers so that you can identify tenants whose access patterns affect shared capacity.
+
 You can also [log all requests to Storage](/azure/storage/blobs/monitor-blob-storage#analyzing-logs), then aggregate and analyze those logs. This approach provides flexibility when you aggregate and group data for each tenant. But in solutions that create high volumes of requests to Storage, consider whether the benefit that you gain from this approach justifies the cost to capture and process those logs.
 
 [Azure Storage inventory](/azure/storage/blobs/calculate-blob-count-size) provides another approach to measure the total size of a blob container.
@@ -155,3 +175,4 @@ Other contributors:
 - [Multitenancy and Azure Files](files.md)
 - [Multitenancy and Azure Queue Storage](queue-storage.md)
 - [Multitenancy and Azure Table Storage](table-storage.md)
+- [Reliability in Azure Blob Storage](/azure/reliability/reliability-storage-blob)

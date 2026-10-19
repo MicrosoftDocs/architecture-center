@@ -3,7 +3,7 @@ title: Multitenancy and Azure Queue Storage
 description: Explore Azure Queue Storage features and isolation models for multitenant solutions, including tenant-scoped access, encryption, and monitoring.
 author: PlagueHO
 ms.author: dascottr
-ms.date: 07/01/2026
+ms.date: 10/20/2026
 ms.topic: concept-article
 ms.subservice: architecture-guide
 ms.custom: arb-saas
@@ -12,11 +12,21 @@ ai-usage: ai-assisted
 
 # Multitenancy and Azure Queue Storage
 
-Azure Queue Storage stores messages for asynchronous processing. This article describes isolation models and Queue Storage features for multitenant solutions. It provides links to guidance that can help you plan how to isolate tenants' messages and manage access, encryption, and usage.
+Azure Queue Storage stores messages for asynchronous processing. This article describes partitioning strategies, isolation models, and Queue Storage features for multitenant solutions. It provides guidance that can help you distribute message load, isolate tenants' messages, and manage access, encryption, and usage.
+
+## Partitioning strategies
+
+Queue Storage doesn't expose a partition key or subqueue within a queue. The queue is the smallest boundary that you can use to distribute message load, and the storage account is the next boundary. A shared queue doesn't provide tenant-specific throughput or performance isolation.
+
+For messages that are 1 KiB, a single queue has a target throughput of up to 2,000 messages per second, and a storage account has a maximum request rate of 20,000 messages per second. Message size and access patterns affect the throughput that your workload achieves. Queue messages can be up to 64 KiB. For larger messages or advanced broker features, consider using [Azure Service Bus](service-bus.md).
+
+If your workload can exceed the per-queue target, distribute messages across multiple queues. Depending on your routing and operational requirements, you can partition queues by tenant, tenant group or service tier, functional workload, deployment stamp, or region. A high-volume tenant that shares a queue with other tenants can consume a disproportionate share of the queue's throughput and cause throttling for other tenants.
+
+Multiple queues in the same storage account still share the account's capacity and account-level configuration. If the aggregate workload can exceed the storage account target, or if a tenant needs independent scale or regional configuration, distribute queues across multiple storage accounts. Monitor for throttling, use exponential-backoff retries, and test your workload against the documented [Queue Storage scalability targets](/azure/storage/queues/scalability-targets). For tenant access and data isolation options, see [Isolation models](#isolation-models).
 
 ## Isolation models
 
-When you use Queue Storage in a multitenant system, determine the level of isolation to apply. Queue Storage supports shared queues, queues for each tenant, and storage accounts for each tenant. The following table summarizes the differences between the main tenancy isolation models for Queue Storage.
+After you determine how to distribute message load, determine the level of tenant isolation to apply. Queue Storage supports shared queues, queues for each tenant, and storage accounts for each tenant. The following table summarizes the differences between the main tenancy isolation models for Queue Storage.
 
 | Consideration | Shared queues | Queues for each tenant | Storage accounts for each tenant |
 | --- | --- | --- | --- |
@@ -31,7 +41,7 @@ When you use Queue Storage in a multitenant system, determine the level of isola
 
 ### Shared queues
 
-If you share a queue, consider the quotas and limits that apply. In solutions that have a high request volume, consider whether the [target throughput of 2,000 messages per second for a queue](/azure/storage/queues/scalability-targets), assuming a message size of 1 KiB, works for your scenario.
+If you share a queue, all tenants share its throughput target. A busy tenant can cause throttling for other tenants. For strategies to distribute message load, see [Partitioning strategies](#partitioning-strategies).
 
 Queues don't provide partitioning or subqueues, so all tenants' data might become intermingled. Your application must identify the tenant for each message and enforce isolation during processing. Don't grant tenants direct access to a shared queue if they must not access other tenants' messages.
 
@@ -39,13 +49,15 @@ Queues don't provide partitioning or subqueues, so all tenants' data might becom
 
 You can create individual queues for each tenant within a single storage account. There's no limit to the number of queues that you can create within a storage account.
 
+Queues for each tenant provide a routing and access-control boundary, but they don't provide performance isolation. All queues in the account share the storage account's capacity and performance targets.
+
 For this scenario, you can use Queue Storage access control, including SAS, to manage access for each tenant's data.
 
 When you dynamically create queues for each tenant, consider how your application tier consumes the messages from each tenant's queue. For advanced scenarios, consider using [Azure Service Bus](service-bus.md), which supports features such as [sessions](/azure/service-bus-messaging/message-sessions), [message autoforwarding](/azure/service-bus-messaging/service-bus-auto-forwarding), and [topics and subscriptions](/azure/service-bus-messaging/service-bus-queues-topics-subscriptions#topics-and-subscriptions).
 
 ### Storage accounts for each tenant
 
-The strongest level of isolation uses a dedicated storage account for each tenant. This model ensures full isolation of storage account keys, which you can rotate independently. It also allows you to scale your solution beyond the limits and quotas for each storage account. But you must also consider the maximum number of storage accounts allowed within a single Azure subscription.
+The strongest level of isolation uses a dedicated storage account for each tenant. This model ensures full isolation of storage account keys, which you can rotate independently. It also allows you to scale your solution beyond the limits and quotas for each storage account. Consider this model for tenants that have sustained high message volumes or require independent regional configuration or performance targets. But you must also consider the maximum number of storage accounts allowed within a single Azure subscription.
 
 ## Features of Queue Storage that support multitenancy
 
@@ -83,6 +95,8 @@ In a multitenant solution, consider whether you need to [measure the consumption
 
 Queue Storage provides [built-in monitoring capabilities](/azure/storage/queues/monitor-queue-storage). When tenants share a queue, include tenant identifiers in your application telemetry so that you can attribute message processing and usage to the correct tenant.
 
+Monitor request rates and HTTP 500 and 503 responses to detect queues or accounts that approach scalability targets. Correlate this telemetry with tenant identifiers so that you can identify tenants whose usage affects shared capacity.
+
 You can collect request logs, then aggregate and analyze them alongside your application telemetry. In solutions that create high volumes of requests, consider whether the benefit justifies the cost to capture and process those logs.
 
 ## Contributors
@@ -111,3 +125,4 @@ Other contributors:
 - [Multitenancy and Azure Blob Storage](blob-storage.md)
 - [Multitenancy and Azure Files](files.md)
 - [Multitenancy and Azure Table Storage](table-storage.md)
+- [Reliability in Azure Queue Storage](/azure/reliability/reliability-storage-queue)
