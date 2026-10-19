@@ -2,7 +2,7 @@
 title: What's New in Azure Architecture Center
 description: New and updated articles in Azure Architecture Center
 author: claytonsiemens77
-ms.date: 10/11/2026
+ms.date: 10/18/2026
 ai-usage: ai-generated
 ms.topic: whats-new
 ms.author: pnp
@@ -26,6 +26,7 @@ The following new and updated articles have recently been published in the Azure
 - [Event-driven cache updates with Azure Managed Redis and Azure Cosmos DB](./databases/architecture/event-driven-cache-updates-azure-managed-redis-cosmos-db.yml)
 - [Cache-aside caching using Azure Managed Redis and Azure Database for PostgreSQL](./databases/architecture/cache-aside-azure-managed-redis-postgresql.yml)
 - [Agentic behavior engineering](./ai-ml/guide/agentic-behavior-engineering.md)
+- [Multitenancy and Foundry Models](./guide/multitenant/service/foundry-models.md)
 
 ### Updated articles
 
@@ -50,6 +51,28 @@ The following new and updated articles have recently been published in the Azure
 - [Gateway Offloading pattern](./patterns/gateway-offloading.md) ([#d14aa20410](https://github.com/MicrosoftDocs/architecture-center/commit/d14aa20410))
 - [Static Content Hosting pattern](./patterns/static-content-hosting.yml) ([#d14aa20410](https://github.com/MicrosoftDocs/architecture-center/commit/d14aa20410))
 - [Autoscaling guidance](./best-practices/auto-scaling.md) ([#03e41c0834](https://github.com/MicrosoftDocs/architecture-center/commit/03e41c0834))
+- [Prevent IPv4 exhaustion in Azure](./networking/guide/internet-protocol-version-4-exhaustion.md) ([#a19634b428](https://github.com/MicrosoftDocs/architecture-center/commit/a19634b428))
+- [Azure App Service and Azure Functions considerations for multitenancy](./guide/multitenant/service/app-service.md) ([#0bce29bdfe](https://github.com/MicrosoftDocs/architecture-center/commit/0bce29bdfe))
+- [Use Azure API Management in a multitenant solution](./guide/multitenant/service/api-management.md) ([#fbf84244ea](https://github.com/MicrosoftDocs/architecture-center/commit/fbf84244ea))
+- [Build and deploy custom document processing models on Azure](./ai-ml/architecture/build-deploy-custom-models.yml) ([#ef2c98d824](https://github.com/MicrosoftDocs/architecture-center/commit/ef2c98d824))
+- [Generative AI operations for organizations with MLOps investments](./ai-ml/guide/genaiops-for-mlops.md) ([#b0dd204b33](https://github.com/MicrosoftDocs/architecture-center/commit/b0dd204b33))
+- [Choose a Kubernetes at the edge compute option](./guide/technology-choices/choose-kubernetes-edge-compute-option.md) ([#475053c703](https://github.com/MicrosoftDocs/architecture-center/commit/475053c703))
+- [Implement a secure hybrid network](./reference-architectures/dmz/secure-vnet-dmz.yml) ([#913ecec432](https://github.com/MicrosoftDocs/architecture-center/commit/913ecec432))
+- [Azure VPN Gateway site-to-site connectivity for hybrid networks](./reference-architectures/hybrid-networking/hybrid-vpn-connectivity.md) ([#913ecec432](https://github.com/MicrosoftDocs/architecture-center/commit/913ecec432))
+- [Choose the right AI model for your workload](./ai-ml/guide/choose-ai-model.md) ([#1b11d5563c](https://github.com/MicrosoftDocs/architecture-center/commit/1b11d5563c))
+- [Busy Front End antipattern](./antipatterns/busy-front-end/index.md) ([#60e4fa7c56](https://github.com/MicrosoftDocs/architecture-center/commit/60e4fa7c56))
+- [Synchronous I/O antipattern](./antipatterns/synchronous-io/index.md) ([#a5a1441ee2](https://github.com/MicrosoftDocs/architecture-center/commit/a5a1441ee2))
+- [Basic web application](./web-apps/app-service/architectures/basic-web-app.yml) ([#fedddecbf9](https://github.com/MicrosoftDocs/architecture-center/commit/fedddecbf9))
+- [Baseline architecture for an Azure Kubernetes Service (AKS) cluster](./reference-architectures/containers/aks/baseline-aks.yml) ([#fabbe47e91](https://github.com/MicrosoftDocs/architecture-center/commit/fabbe47e91))
+- [Manage Kubernetes nodes and node pools](./aws-professional/eks-to-aks/node-pools.md) ([#558eeae28a](https://github.com/MicrosoftDocs/architecture-center/commit/558eeae28a))
+- [Cost management for Kubernetes](./aws-professional/eks-to-aks/cost-management.md) ([#1184f5ec19](https://github.com/MicrosoftDocs/architecture-center/commit/1184f5ec19))
+- [Compare AWS and Azure identity management solutions](./aws-professional/security-identity.md) ([#06821e960c](https://github.com/MicrosoftDocs/architecture-center/commit/06821e960c))
+- [Disaster recovery architecture for an Azure data platform](./data-guide/disaster-recovery/dr-for-azure-data-platform-architecture.md) ([#b07515eff2](https://github.com/MicrosoftDocs/architecture-center/commit/b07515eff2))
+- [Hub-spoke network topology in Azure](./networking/architecture/hub-spoke.yml) ([#b07515eff2](https://github.com/MicrosoftDocs/architecture-center/commit/b07515eff2))
+- [Hub-spoke network topology using Azure Virtual WAN](./networking/architecture/hub-spoke-virtual-wan-architecture.yml) ([#b07515eff2](https://github.com/MicrosoftDocs/architecture-center/commit/b07515eff2))
+- [Massive-scale VWAN architecture design](./networking/architecture/massive-scale-azure-architecture.yml) ([#b07515eff2](https://github.com/MicrosoftDocs/architecture-center/commit/b07515eff2))
+- [Connect an on-premises network to Azure by using ExpressRoute](./reference-architectures/hybrid-networking/expressroute-private-peering-connectivity.md) ([#b07515eff2](https://github.com/MicrosoftDocs/architecture-center/commit/b07515eff2))
+- [Connect an on-premises network to Azure](./reference-architectures/hybrid-networking/hybrid-connectivity-options.md) ([#b07515eff2](https://github.com/MicrosoftDocs/architecture-center/commit/b07515eff2))
 
 ## September 2026
 

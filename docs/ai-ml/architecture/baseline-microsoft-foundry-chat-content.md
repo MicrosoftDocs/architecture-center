@@ -435,6 +435,34 @@ Each model in your deployment should bind a [content-filter policy](/azure/found
 
 Evaluate the default Microsoft-managed policy against your workload's content-safety requirements. If the default thresholds don't meet those requirements, author a custom content-filter policy and bind it to the deployment. Manage the policy as code alongside the rest of your infrastructure so that content-safety configuration stays version controlled and consistent across environments.
 
+#### Microsoft Purview data security and compliance
+
+Consider Microsoft Purview when your organization needs centralized auditing and sensitive-data visibility for agent interactions. Purview complements the content-safety filters described earlier. Content filters screen for harmful content, while Purview provides audit records and classification of sensitive information in prompts and responses.
+
+Enable the native Purview integration for the selected Azure subscription through Foundry Control Plane. This setting applies to the subscription, not to an individual Foundry resource, project, or agent. It sends interaction data from all Foundry applications and agents in that subscription to your tenant's Purview environment. For setup and prerequisites, see [Enable data security and compliance for Foundry with Microsoft Purview](/azure/foundry/control-plane/how-to-manage-compliance-security#enable-enterprise-grade-data-security-and-compliance-for-foundry-with-microsoft-purview).
+
+For this architecture, account for the following capabilities and constraints:
+
+- Purview records interaction activity in the unified audit log and can classify sensitive information in prompts and responses for visibility in DSPM. Configure a [collection policy with content capture](/purview/collection-policies-solution-overview#content-capture-for-ai-interactions) if you need to retain full prompt and response text. This content-capture setting doesn't collect the contents of uploaded files.
+
+- If you need application-level DLP blocking, evaluate [Purview policy middleware for Agent Framework](/agent-framework/tutorials/plugins/use-purview-with-agent-framework-sdk). It evaluates prompts and responses in application code and requires its own identity and integration configuration.
+
+- Microsoft Purview Insider Risk Management can help security analysts investigate risky agent activity. The [Risky Agents policy template (preview)](/purview/insider-risk-management-policy-templates#risky-agents-preview) supports Foundry agents and detects signals such as risky prompts, sensitive responses, and unusual activity levels. This is a detection and investigation capability, not inline prompt blocking. Coordinate with your security team to confirm licensing and tenant prerequisites.
+
+- For supported integrations with a collection policy, compliance copies of prompts and responses are stored in a [hidden folder in the user's Exchange Online mailbox](/purview/retention-policies-copilot#how-retention-works-with-ai-apps). Staff with eDiscovery Manager permissions can use [eDiscovery](/purview/ai-azure-foundry#ediscovery-and-ai-interactions) to search, place legal holds on, and export these records. These compliance copies are separate from the agent's conversation history in Azure Cosmos DB.
+
+- The process that sends Foundry interaction data to Purview doesn't support network isolation. Purview's [private endpoint support for scanning data stores](/purview/data-governance-private-endpoints-managed-virtual-network) doesn't extend to this interaction data flow. Before enabling the integration, confirm that its connectivity and data-residency characteristics meet your workload's requirements.
+
+> [!IMPORTANT]
+> User-scoped policy enforcement and mailbox-based eDiscovery and retention depend on identifying the end user, not just the calling application. This architecture's App Service uses a managed identity to call the agent without end-user context. This topology provides Purview audit and classification visibility but doesn't enable user-based capabilities. For user-associated compliance records, authenticate users with Microsoft Entra ID, propagate validated user context, and validate the [API and user-context requirements](/purview/ai-azure-foundry#data-classification-and-ai-interactions) for the agent and inference calls. For eDiscovery and retention, also configure content collection associated with the user's Exchange Online mailbox.
+
+The Foundry resource's Azure region doesn't determine where Purview stores compliance data. Review the following locations against your workload's data sovereignty requirements:
+
+- Foundry stores data at rest in its designated Azure geography. Model processing locations also depend on the [model deployment type](/azure/foundry/concepts/architecture#data-residency-and-compliance).
+- Purview compliance data follows the applicable Microsoft 365 service's geography and residency commitments, not the Foundry resource's region. Check the tenant's data locations and [Purview data residency guidance](/microsoft-365/enterprise/m365-dr-service-purview).
+- User-associated compliance copies follow the [Exchange Online mailbox's geography](/microsoft-365/enterprise/m365-dr-service-exo), including any Multi-Geo placement.
+- If you separately use Purview Data Map to scan workload data stores, scan metadata resides in the Purview account's region; source data remains in its original location. See [Data Map metadata storage](/purview/data-gov-classic-security-best-practices#secure-metadata-extraction-and-storage).
+
 #### Networking
 
 In addition to identity-based access, this architecture requires network confidentiality.
@@ -651,9 +679,9 @@ Use the following Cloud Workload Protection plans to cover the related resources
 | Microsoft Defender for Servers | Detects vulnerabilities and monitors file integrity to help prevent highly privileged jump boxes and build agents from becoming threat vectors. |
 | Microsoft Defender for App Service | Monitors logs, host machines, and management interfaces for your chat UI components. |
 | Microsoft Defender for Azure Cosmos DB | Monitors database interactions for signs of potential misuse or unauthorized access to chat data and agent definitions. |
-| Microsoft Defender for AI services | Alerts on jailbreaking attempts or data leakage based on agent requests and responses. If your organization uses Microsoft Purview, this plan also provides integration with [Microsoft Purview Data Security Posture Management for AI (DSPM for AI)](/azure/defender-for-cloud/ai-onboarding#enable-data-security-for-azure-ai-with-microsoft-purview). |
+| Microsoft Defender for AI services | Alerts on jailbreaking attempts or data leakage based on agent requests and responses. |
 
-If your organization uses a security information and event management (SIEM) solution or Microsoft Purview, ensure that any customer data replicated to those data stores, like prompts and responses, resides in a region that meets your workload's data sovereignty requirements.
+If your organization uses a security information and event management (SIEM) solution, ensure that any customer data replicated to that solution, like prompts and responses, resides in a region that meets your workload's data sovereignty requirements. For Purview considerations, see [Microsoft Purview data security and compliance](#microsoft-purview-data-security-and-compliance).
 
 ### Operational Excellence
 
@@ -673,9 +701,13 @@ State management responsibility follows your protocol configuration, not your co
 
 Use [Microsoft Agent Framework](/agent-framework/overview/) as the runtime SDK in your client application for sending messages to agents, managing conversations, and processing responses. Agent Framework supports C# and Python. If your client application requires JavaScript or Java, use the Foundry SDK directly for these runtime interactions.
 
+Connect to the deployed prompt agent by name and pin its version so that an agent update doesn't automatically change application behavior. Agent Framework represents this connection as a `FoundryAgent`, which represents the model, instructions, and hosted tools stored in the Foundry agent definition. Your client sends user messages and manages the conversation through the framework's run, streaming, and session APIs rather than reconstructing the agent definition for each request.
+
+Use Agent Framework's [built-in OpenTelemetry instrumentation](/agent-framework/agents/observability) to capture client side telemetry. Configure tracing exports to go to Azure Monitor to correlate application activity with Foundry's server side traces. Foundry provides [server-side tracing](/azure/foundry/observability/how-to/trace-agent-setup) independently of your client SDK choice.
+
 Use the Foundry SDK for platform management operations regardless of your client SDK choice. Creating and versioning centrally managed agent definitions belong in CI/CD pipelines and IaC processes, not in client application code.
 
-For more information about integrating Agent Framework with Foundry, see [Microsoft Agent Framework Foundry provider](/agent-framework/agents/providers/microsoft-foundry).
+For more information about connecting to managed agents, see [Microsoft Foundry Agent Service integration with Agent Framework](/agent-framework/integrations/by-component/agent-services/foundry).
 
 #### Monitoring
 
