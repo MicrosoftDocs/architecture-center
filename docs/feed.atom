@@ -2,12 +2,196 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id/>
     <title>Azure Architecture Center</title>
-    <updated>2026-10-09T20:51:47.000Z</updated>
+    <updated>2026-10-16T14:28:00.000Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <subtitle>Updated articles for Azure Architecture Center</subtitle>
     <rights>https://learn.microsoft.com/legal/termsofuse</rights>
     <category term="new"/>
     <category term="updated"/>
+    <entry>
+        <title type="html"><![CDATA[Disaster recovery architecture for an Azure data platform]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/data-guide/disaster-recovery/dr-for-azure-data-platform-architecture#b07515eff2</id>
+        <link href="https://learn.microsoft.com/azure/architecture/data-guide/disaster-recovery/dr-for-azure-data-platform-architecture"/>
+        <updated>2026-10-16T14:28:00.000Z</updated>
+        <summary type="html"><![CDATA[Learn how to structure an Azure data platform architecture with disaster recovery capabilities by using enterprise landing zones and analytics components.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Hub-spoke network topology in Azure]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/networking/architecture/hub-spoke#b07515eff2</id>
+        <link href="https://learn.microsoft.com/azure/architecture/networking/architecture/hub-spoke"/>
+        <updated>2026-10-16T14:28:00.000Z</updated>
+        <summary type="html"><![CDATA[Learn about hub-spoke topology in Azure, where the spoke virtual networks connect to the hub virtual network and can connect to each other.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Hub-spoke network topology using Azure Virtual WAN]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/networking/architecture/hub-spoke-virtual-wan-architecture#b07515eff2</id>
+        <link href="https://learn.microsoft.com/azure/architecture/networking/architecture/hub-spoke-virtual-wan-architecture"/>
+        <updated>2026-10-16T14:28:00.000Z</updated>
+        <summary type="html"><![CDATA[Implement a hub-spoke topology that uses Azure Virtual WAN as the Microsoft-managed hub and has spoke virtual networks, branches, and remote users.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Massive-scale VWAN architecture design]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/networking/architecture/massive-scale-azure-architecture#b07515eff2</id>
+        <link href="https://learn.microsoft.com/azure/architecture/networking/architecture/massive-scale-azure-architecture"/>
+        <updated>2026-10-16T14:28:00.000Z</updated>
+        <summary type="html"><![CDATA[Learn about the architecture for a massive-scale Azure Virtual WAN deployment that has multiple hubs per region.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Connect an on-premises network to Azure by using ExpressRoute]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/reference-architectures/hybrid-networking/expressroute-private-peering-connectivity#b07515eff2</id>
+        <link href="https://learn.microsoft.com/azure/architecture/reference-architectures/hybrid-networking/expressroute-private-peering-connectivity"/>
+        <updated>2026-10-16T14:28:00.000Z</updated>
+        <summary type="html"><![CDATA[This architecture shows how to connect an on-premises network to an Azure virtual network by using Azure ExpressRoute.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Connect an on-premises network to Azure]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/reference-architectures/hybrid-networking/hybrid-connectivity-options#b07515eff2</id>
+        <link href="https://learn.microsoft.com/azure/architecture/reference-architectures/hybrid-networking/hybrid-connectivity-options"/>
+        <updated>2026-10-16T14:28:00.000Z</updated>
+        <summary type="html"><![CDATA[Learn about the options for connecting an on-premises network to an Azure virtual network by comparing reference architectures for each option.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Compare AWS and Azure identity management solutions]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/aws-professional/security-identity#06821e960c</id>
+        <link href="https://learn.microsoft.com/azure/architecture/aws-professional/security-identity"/>
+        <updated>2026-10-16T13:28:40.000Z</updated>
+        <summary type="html"><![CDATA[Learn about comparable AWS and Azure identity management solutions so that you can efficiently migrate solutions.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Manage Kubernetes nodes and node pools]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/aws-professional/eks-to-aks/node-pools#558eeae28a</id>
+        <link href="https://learn.microsoft.com/azure/architecture/aws-professional/eks-to-aks/node-pools"/>
+        <updated>2026-10-15T13:29:18.000Z</updated>
+        <summary type="html"><![CDATA[Understand Kubernetes nodes and node pools, how to handle Azure Kubernetes Service (AKS) nodes and node pools, and node pool options for Amazon EKS and AKS.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Cost management for Kubernetes]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/aws-professional/eks-to-aks/cost-management#1184f5ec19</id>
+        <link href="https://learn.microsoft.com/azure/architecture/aws-professional/eks-to-aks/cost-management"/>
+        <updated>2026-10-15T14:13:47.000Z</updated>
+        <summary type="html"><![CDATA[Understand Kubernetes cluster and workload costs, learn how to optimize and govern costs, and compare AKS and Amazon EKS options.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Baseline architecture for an Azure Kubernetes Service (AKS) cluster]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/reference-architectures/containers/aks/baseline-aks#fabbe47e91</id>
+        <link href="https://learn.microsoft.com/azure/architecture/reference-architectures/containers/aks/baseline-aks"/>
+        <updated>2026-10-14T23:48:05.000Z</updated>
+        <summary type="html"><![CDATA[Learn about the reference architecture for the recommended baseline infrastructure that deploys an Azure Kubernetes Service (AKS) cluster.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Synchronous I/O antipattern]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/antipatterns/synchronous-io#a5a1441ee2</id>
+        <link href="https://learn.microsoft.com/azure/architecture/antipatterns/synchronous-io"/>
+        <updated>2026-10-14T15:36:34.000Z</updated>
+        <summary type="html"><![CDATA[Blocking the calling thread while I/O completes can reduce performance and affect vertical scalability.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Basic web application]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/web-apps/app-service/architectures/basic-web-app#fedddecbf9</id>
+        <link href="https://learn.microsoft.com/azure/architecture/web-apps/app-service/architectures/basic-web-app"/>
+        <updated>2026-10-14T15:24:57.000Z</updated>
+        <summary type="html"><![CDATA[Learn about proven practices for deploying web applications that use Azure App Service and Azure SQL Database.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Busy Front End antipattern]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/antipatterns/busy-front-end#60e4fa7c56</id>
+        <link href="https://learn.microsoft.com/azure/architecture/antipatterns/busy-front-end"/>
+        <updated>2026-10-13T16:55:32.000Z</updated>
+        <summary type="html"><![CDATA[Asynchronous work on a large number of background threads can starve other foreground tasks of resources.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Choose a Kubernetes at the edge compute option]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/guide/technology-choices/choose-kubernetes-edge-compute-option#475053c703</id>
+        <link href="https://learn.microsoft.com/azure/architecture/guide/technology-choices/choose-kubernetes-edge-compute-option"/>
+        <updated>2026-10-13T15:35:46.000Z</updated>
+        <summary type="html"><![CDATA[Learn about trade-offs and considerations for various Kubernetes options for extending compute on the edge.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Use Azure API Management in a multitenant solution]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/guide/multitenant/service/api-management#fbf84244ea</id>
+        <link href="https://learn.microsoft.com/azure/architecture/guide/multitenant/service/api-management"/>
+        <updated>2026-10-13T07:30:28.000Z</updated>
+        <summary type="html"><![CDATA[Learn about Azure API Management features for multitenant solutions, including tenant isolation models, routing, authentication, caching, and rate limiting.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Choose the right AI model for your workload]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/ai-ml/guide/choose-ai-model#1b11d5563c</id>
+        <link href="https://learn.microsoft.com/azure/architecture/ai-ml/guide/choose-ai-model"/>
+        <updated>2026-10-12T21:06:59.000Z</updated>
+        <summary type="html"><![CDATA[Learn strategies to help you select the best model for your AI workload, including key criteria and practical considerations for decision-making.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Multitenancy and Foundry Models]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/guide/multitenant/service/foundry-models</id>
+        <link href="https://learn.microsoft.com/azure/architecture/guide/multitenant/service/foundry-models"/>
+        <updated>2026-10-12T20:44:10.000Z</updated>
+        <summary type="html"><![CDATA[Learn how to design multitenant SaaS architectures that use Foundry Models, with guidance on isolation, scale, and operational trade-offs.]]></summary>
+        <category label="new" term="new"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Prevent IPv4 exhaustion in Azure]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/networking/guide/internet-protocol-version-4-exhaustion#a19634b428</id>
+        <link href="https://learn.microsoft.com/azure/architecture/networking/guide/internet-protocol-version-4-exhaustion"/>
+        <updated>2026-10-12T18:49:44.000Z</updated>
+        <summary type="html"><![CDATA[Minimize private address space consumption when you build large networks in Azure. This article presents two methods to reduce unique IPv4 address overlap.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Implement a secure hybrid network]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/reference-architectures/dmz/secure-vnet-dmz#913ecec432</id>
+        <link href="https://learn.microsoft.com/azure/architecture/reference-architectures/dmz/secure-vnet-dmz"/>
+        <updated>2026-10-12T18:33:07.000Z</updated>
+        <summary type="html"><![CDATA[Learn how to deploy a secure hybrid network that extends an on-premises network to Azure by implementing a perimeter network called a DMZ.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Azure VPN Gateway site-to-site connectivity for hybrid networks]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/reference-architectures/hybrid-networking/hybrid-vpn-connectivity#913ecec432</id>
+        <link href="https://learn.microsoft.com/azure/architecture/reference-architectures/hybrid-networking/hybrid-vpn-connectivity"/>
+        <updated>2026-10-12T18:33:07.000Z</updated>
+        <summary type="html"><![CDATA[This architecture shows how to establish encrypted layer-3 connectivity between your on-premises network and Azure virtual networks by using Azure VPN Gateway.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Generative AI operations for organizations with MLOps investments]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/ai-ml/guide/genaiops-for-mlops#b0dd204b33</id>
+        <link href="https://learn.microsoft.com/azure/architecture/ai-ml/guide/genaiops-for-mlops"/>
+        <updated>2026-10-12T13:57:24.000Z</updated>
+        <summary type="html"><![CDATA[Extend existing MLOps investments to include generative AI operations. Learn where you can apply existing investments and where you need to extend those investments.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Build and deploy custom document processing models on Azure]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/ai-ml/architecture/build-deploy-custom-models#ef2c98d824</id>
+        <link href="https://learn.microsoft.com/azure/architecture/ai-ml/architecture/build-deploy-custom-models"/>
+        <updated>2026-10-12T13:19:12.000Z</updated>
+        <summary type="html"><![CDATA[Learn more about Azure options for orchestrating, storing, building, deploying, and using custom document processing models.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Azure App Service and Azure Functions considerations for multitenancy]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/guide/multitenant/service/app-service#0bce29bdfe</id>
+        <link href="https://learn.microsoft.com/azure/architecture/guide/multitenant/service/app-service"/>
+        <updated>2026-10-12T07:04:47.000Z</updated>
+        <summary type="html"><![CDATA[This article describes the features of Azure App Service and Azure Functions that are useful when you work with multitenant systems.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
     <entry>
         <title type="html"><![CDATA[Autoscaling guidance]]></title>
         <id>https://learn.microsoft.com/azure/architecture/best-practices/auto-scaling#03e41c0834</id>
