@@ -703,6 +703,8 @@ Use [Microsoft Agent Framework](/agent-framework/overview/) as the runtime SDK i
 
 Connect to the deployed prompt agent by name and pin its version so that an agent update doesn't automatically change application behavior. Agent Framework represents this connection as a `FoundryAgent`, which represents the model, instructions, and hosted tools stored in the Foundry agent definition. Your client sends user messages and manages the conversation through the framework's run, streaming, and session APIs rather than reconstructing the agent definition for each request.
 
+Use Agent Framework's [built-in OpenTelemetry instrumentation](/agent-framework/agents/observability) to capture client side telemetry. Configure tracing exports to go to Azure Monitor to correlate application activity with Foundry's server side traces. Foundry provides [server-side tracing](/azure/foundry/observability/how-to/trace-agent-setup) independently of your client SDK choice.
+
 Use the Foundry SDK for platform management operations regardless of your client SDK choice. Creating and versioning centrally managed agent definitions belong in CI/CD pipelines and IaC processes, not in client application code.
 
 For more information about connecting to managed agents, see [Microsoft Foundry Agent Service integration with Agent Framework](/agent-framework/integrations/by-component/agent-services/foundry).
