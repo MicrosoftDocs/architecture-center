@@ -701,9 +701,11 @@ State management responsibility follows your protocol configuration, not your co
 
 Use [Microsoft Agent Framework](/agent-framework/overview/) as the runtime SDK in your client application for sending messages to agents, managing conversations, and processing responses. Agent Framework supports C# and Python. If your client application requires JavaScript or Java, use the Foundry SDK directly for these runtime interactions.
 
+Connect to the deployed prompt agent by name and pin its version so that an agent update doesn't automatically change application behavior. Agent Framework represents this connection as a `FoundryAgent`, which represents the model, instructions, and hosted tools stored in the Foundry agent definition. Your client sends user messages and manages the conversation through the framework's run, streaming, and session APIs rather than reconstructing the agent definition for each request.
+
 Use the Foundry SDK for platform management operations regardless of your client SDK choice. Creating and versioning centrally managed agent definitions belong in CI/CD pipelines and IaC processes, not in client application code.
 
-For more information about integrating Agent Framework with Foundry, see [Microsoft Agent Framework Foundry provider](/agent-framework/agents/providers/microsoft-foundry).
+For more information about connecting to managed agents, see [Microsoft Foundry Agent Service integration with Agent Framework](/agent-framework/integrations/by-component/agent-services/foundry).
 
 #### Monitoring
 
