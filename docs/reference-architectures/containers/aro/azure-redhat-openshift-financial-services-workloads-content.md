@@ -124,7 +124,7 @@ Security is paramount in the financial industry. To protect sensitive data and e
 
 - **Encryption of data at rest:** Use default storage policies and configurations to ensure encryption of data at rest.
 
-  - Enable [*etcd* encryption](https://docs.openshift.com/en/documentation/openshift_container_platform/4.10/html/security_and_compliance/encrypting-etcd) behind the control plane, and encrypt storage on each worker node.
+  - Enable [*etcd* encryption](https://docs.redhat.com/en/documentation/openshift_container_platform/4.10/html/security_and_compliance/encrypting-etcd) behind the control plane, and encrypt storage on each worker node.
 
   - Configure the [Key Vault provider for Secrets Store CSI driver (CSI)](https://azure.github.io/secrets-store-csi-driver-provider-azure/) to mount secrets in Key Vault to your pods.
 
