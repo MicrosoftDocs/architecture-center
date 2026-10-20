@@ -95,7 +95,7 @@ Monitoring tools provide comprehensive data analysis and valuable insights into 
 
 Many organizations use mainframe and midrange systems to run demanding and critical workloads. Most applications use shared databases, often across multiple systems. In this environment, modernizing to the cloud means that on-premises data must be provided to cloud-based applications. Therefore, data replication becomes an important modernization tactic.
 
-The [Qlik](https://www.qlik.com/products/technology/qlik-microsoft-azure-migration) Data Integration platform includes Qlik Replicate, which does data replication. It uses change data capture to replicate on-premises data stores in real time to Azure. The change data can come from Db2, IMS, and VSAM change logs. This replication technique eliminates inconvenient batch bulk loads. This solution uses an on-premises instance of Qlik to replicate on-premises data sources to Azure in real time.
+The [Qlik](https://www.qlik.com/us/platform/technology/microsoft-azure-migration) Data Integration platform includes Qlik Replicate, which does data replication. It uses change data capture to replicate on-premises data stores in real time to Azure. The change data can come from Db2, IMS, and VSAM change logs. This replication technique eliminates inconvenient batch bulk loads. This solution uses an on-premises instance of Qlik to replicate on-premises data sources to Azure in real time.
 
 ### Potential use cases
 
