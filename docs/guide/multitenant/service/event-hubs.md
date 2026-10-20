@@ -3,18 +3,37 @@ title: Multitenancy and Azure Event Hubs
 description: Learn about Azure Event Hubs features and isolation models that you can use to implement an event-driven architecture for a multitenant system.
 author: PlagueHO
 ms.author: dascottr
-ms.date: 07/07/2026
+ms.date: 10/20/2026
 ms.topic: concept-article
 ms.subservice: architecture-guide
 ms.custom:
   - arb-saas
+ai-usage: ai-assisted
 ---
 
 # Multitenancy and Azure Event Hubs
 
 [Azure Event Hubs](/azure/event-hubs/event-hubs-about) is a big data streaming platform and event ingestion service that can receive and process millions of events per second. You can use Event Hubs to transform and store event hub data by using real-time analytics providers and batching or storage adapters. For a comparison of Event Hubs and other Azure messaging services, see [Choose between Azure messaging services](/azure/service-bus-messaging/compare-messaging-services).
 
-This article describes Event Hubs features and isolation models to use in multitenant solutions.
+This article describes partitioning strategies, isolation models, and Event Hubs features for multitenant solutions.
+
+## Partitioning strategies
+
+An Event Hubs partition is an ordered sequence of events within an event hub. Partitions enable parallel publishing and processing, but they aren't isolation boundaries. For more information about how Event Hubs uses partitions, see [Event Hubs features and terminology](/azure/event-hubs/event-hubs-features#partitions).
+
+### Plan partition count and capacity
+
+Partition count sets an upper bound on consumer parallelism, but partitions don't independently increase the total capacity of a namespace. Plan the partition count together with the namespace's throughput units, processing units, or capacity units.
+
+You can't change the partition count after creation in the Basic and Standard tiers. In the Premium and Dedicated tiers, you can increase the partition count, but you can't decrease it. Increasing the count changes how partition keys map to partitions, so avoid changing it when relative event ordering matters. Test the planned partition count and namespace capacity against expected peak load. For more information, see [Scaling with Event Hubs](/azure/event-hubs/event-hubs-scalability#partitions).
+
+### Route tenant events
+
+If a publisher doesn't specify a partition key, Event Hubs distributes events across partitions. This approach provides the best load distribution and availability. If a publisher specifies a partition key, Event Hubs stores events with the same key together and delivers them in order of arrival. A high-volume key can create a hot partition.
+
+Use a tenant identifier as a partition key only when you require ordering for that tenant's events. A partition key doesn't reserve a dedicated partition or provide tenant isolation. Sending events directly to a partition, or pinning them by key, reduces availability to the availability of that partition. For more information, see [Availability and consistency in Event Hubs](/azure/event-hubs/event-hubs-availability-and-consistency).
+
+Use [application groups](#application-groups) to govern tenant throughput in shared namespaces. Use dedicated event hubs or namespaces when tenants require data or performance isolation. For more information, see [Isolation models](#isolation-models).
 
 ## Isolation models
 
@@ -39,7 +58,7 @@ The following table summarizes the differences between the main tenancy isolatio
 The following sections describe the models in more detail.
 
 > [!NOTE]
-> Event Hubs for Apache Kafka is a feature that adds a Kafka-compatible protocol layer to Event Hubs so that Apache Kafka applications can use Event Hubs. The applications stream events into event hubs, which function like Kafka topics. For more information, see [Event Hubs for Apache Kafka](/azure/event-hubs/azure-event-hubs-kafka-overview).
+> Event Hubs for Apache Kafka is a feature that adds a Kafka-compatible protocol layer to Event Hubs so that Apache Kafka applications can use Event Hubs. The applications stream events into event hubs, which function like Kafka topics. For more information, see [Event Hubs for Apache Kafka](/azure/event-hubs/azure-event-hubs-apache-kafka-overview).
 
 ### Dedicated namespace
 
@@ -49,13 +68,13 @@ Use the following techniques to fine-tune eventing capabilities to satisfy tenan
 
 - Deploy the namespace to a region that's close to the tenant.
 
-- Deploy the namespace with a pricing tier that's appropriate for the tenant's requirements. For example, a [premium namespace](/azure/event-hubs/event-hubs-premium-overview) allows you to choose the number of [processing units](/azure/event-hubs/event-hubs-scalability#processing-units).
+- Deploy the namespace with a pricing tier that's appropriate for the tenant's requirements. For example, a [Premium namespace](/azure/event-hubs/event-hubs-premium-overview) allows you to choose the number of [processing units](/azure/event-hubs/event-hubs-scalability#processing-units).
 
 - Apply networking restrictions based on tenant needs by using [IP firewall rules](/azure/event-hubs/network-security#ip-firewall), [private endpoints](/azure/event-hubs/network-security#private-endpoints), and [virtual network service endpoints](/azure/event-hubs/network-security#network-service-endpoints).
 
 - Use [tenant-specific encryption keys](/azure/event-hubs/configure-customer-managed-key).
 
-- Configure [Event Hubs geo-replication](/azure/event-hubs/geo-replication) and [Event Hubs geo-disaster recovery](/azure/event-hubs/event-hubs-geo-dr) to meet tenant availability requirements.
+- Configure [Event Hubs Geo-Replication](/azure/event-hubs/geo-replication) and [Event Hubs Geo-Disaster Recovery](/azure/event-hubs/event-hubs-geo-dr) to meet tenant availability requirements.
 
 If you reach the maximum number of Event Hubs namespaces in your Azure subscription, deploy namespaces across different subscriptions by using the [Deployment Stamps pattern](/azure/architecture/patterns/deployment-stamp).
 
@@ -63,11 +82,15 @@ This isolation model becomes more complex to manage as the number of tenants inc
 
 ### Shared namespace and dedicated event hubs
 
+You can use one shared namespace or apply the [Sharding pattern](../../../patterns/sharding.md) to distribute tenants across a small number of namespaces. In a sharded model, assign each tenant to a namespace based on criteria such as region, service tier, performance profile, reliability requirements, or compliance requirements. Maintain a mapping from each tenant identifier to the namespace and event hub that contain its event stream.
+
+Namespace sharding distributes load and helps you stay within namespace quotas without introducing the operational overhead of a dedicated namespace for every tenant. Tenants in each shard still share namespace capacity and namespace-level configuration, so group tenants that have compatible requirements.
+
 If multiple tenants share a namespace, you can still isolate tenants to a dedicated event hub. To control access, use a Microsoft Entra identity or a shared access signature (SAS).
 
 As your system adds more tenants, the number of event hubs increases to accommodate each tenant. This growth can lead to higher operational costs and lower organizational agility. Each namespace has a [limit](/azure/event-hubs/compare-tiers#quotas) on the number of event hubs. So the number of namespaces that your system requires depends on the number of event hubs that your tenants require.
 
-Shared namespaces increase the risk of [noisy neighbor problems](../../../antipatterns/noisy-neighbor/noisy-neighbor.yml). For example, a tenant's event entities might consume a disproportionate amount of namespace resources and hinder other tenants. Event hub namespaces have limits on processing units in the premium tier, capacity units in the dedicated tier, and the number of brokered connections to a namespace. Consider whether a single tenant might consume too many resources.
+Shared namespaces increase the risk of [noisy neighbor problems](../../../antipatterns/noisy-neighbor/noisy-neighbor.yml). For example, a tenant's event entities might consume a disproportionate amount of namespace resources and hinder other tenants. Event Hubs namespaces have limits on processing units in the Premium tier, capacity units in the Dedicated tier, and the number of brokered connections to a namespace. Consider whether a single tenant might consume too many resources.
 
 ### Shared namespace and shared event hubs
 
@@ -76,7 +99,7 @@ All your tenants can share a namespace and event entities. This model decreases 
 But a shared namespace can lead to [noisy neighbor problems](../../../antipatterns/noisy-neighbor/noisy-neighbor.yml) and higher latency for some tenants. You also have to set up your applications to serve multiple tenants. Shared event hubs and Kafka topics don't provide data isolation between tenants, so you have to satisfy data isolation requirements in your application logic.
 
 > [!NOTE]
-> Don't use [Event Hubs partitions](/azure/event-hubs/event-hubs-features#partitions) to isolate your tenants. Partitioning in Event Hubs supports processing events and scalability, but it isn't an isolation model. You can send events directly to partitions, but it downgrades the availability of an event hub to the partition level. For more information, see [Availability and consistency in Event Hubs](/azure/event-hubs/event-hubs-availability-and-consistency).
+> Event Hubs partitions support scalability and parallel processing, but they aren't tenant-isolation boundaries. For more information, see [Partitioning strategies](#partitioning-strategies).
 
 ## Features of Event Hubs that support multitenancy
 
@@ -84,13 +107,21 @@ The following Event Hubs features can be useful in a multitenant solution.
 
 ### Application groups
 
-An application group consists of one or more client applications that interact with the Event Hubs data plane. You apply quota and access management policies to the group, and Event Hubs applies them to all applications in the group. Application groups are available only in the premium and dedicated tiers.
+An application group consists of one or more client applications that interact with the Event Hubs data plane. You apply quota and access management policies to the group, and Event Hubs applies them to all applications in the group. Application groups are available only in the Premium and Dedicated tiers.
 
-In a multitenant solution, you can map an application group to a tenant by using that tenant's security context, such as a Microsoft Entra application ID or a SAS policy. You then attach throttling policies that cap the tenant's ingress and egress throughput. This approach mitigates [noisy neighbor problems](../../../antipatterns/noisy-neighbor/noisy-neighbor.yml) in a shared namespace because one tenant can't consume a disproportionate share of namespace resources.
+In a multitenant solution, you can map an application group to a tenant by using that tenant's security context, such as a Microsoft Entra application ID or a SAS policy. You then attach throttling policies that cap the tenant's ingress and egress throughput. This approach mitigates [noisy neighbor problems](../../../antipatterns/noisy-neighbor/noisy-neighbor.yml) in a shared namespace because it reduces the likelihood that one tenant consumes a disproportionate share of namespace resources.
 
 You can scope each application group to a single Event Hubs namespace or a single event hub.
 
 For more information, see [Resource governance with application groups](/azure/event-hubs/resource-governance-overview).
+
+### Consumer groups
+
+A consumer group provides an independent view of an event hub's event stream. Each consuming application can use its own consumer group to maintain independent offsets and checkpoints. In a multitenant solution, you might choose to assign a consumer group to each tenant's application tier or another consuming workload to isolate its event-processing state. However, there are [limits on the number of consumer groups in each event hub](/azure/event-hubs/event-hubs-quotas).
+
+You can scope an Azure role assignment to a consumer group, but a consumer group doesn't filter the event stream. Every consumer group can read all events in the event hub. If a tenant must not read other tenants' events, use a dedicated event hub or namespace instead of relying on consumer groups alone.
+
+Applications are responsible for storing their checkpoints. When you use Azure Blob Storage as the checkpoint store, use a separate blob container for each consumer group to avoid checkpoint collisions between consuming applications. For more information, see [Event consumers](/azure/event-hubs/event-hubs-features#event-consumers) and [Authorize access to Event Hubs resources by using Microsoft Entra ID](/azure/event-hubs/authorize-access-azure-active-directory#resource-scope).
 
 ### Event Hubs Premium namespaces
 
@@ -122,9 +153,7 @@ For more information, see [Authenticate access to Event Hubs resources by using 
 
 ### Customer-managed keys
 
-If your tenants require their own keys to encrypt and decrypt events, you can configure customer-managed keys in some versions of Event Hubs.
-
-This feature requires that you use either an [Event Hubs Premium tier namespace](/azure/event-hubs/event-hubs-premium-overview) or [Event Hubs Dedicated tier namespace](/azure/event-hubs/event-hubs-dedicated-overview). You can enable encryption only for new or empty namespaces.
+If tenants require control over the keys that protect Event Hubs data at rest, configure customer-managed keys in an [Event Hubs Premium namespace](/azure/event-hubs/event-hubs-premium-overview) or [Event Hubs Dedicated namespace](/azure/event-hubs/event-hubs-dedicated-overview). You can enable customer-managed keys only for new or empty namespaces.
 
 For more information, see [Configure customer-managed keys to encrypt Event Hubs data at rest](/azure/event-hubs/configure-customer-managed-key).
 
@@ -149,11 +178,11 @@ You can use this capability to archive events. For example, if you need to archi
 
 For more information, see [Capture events through Event Hubs in Blob Storage or Data Lake Storage](/azure/event-hubs/event-hubs-capture-overview).
 
-### Geo-replication and geo-disaster recovery
+### Geo-Replication and Geo-Disaster Recovery
 
-[Event Hubs Geo-replication](/azure/event-hubs/geo-replication) continuously replicates the configuration and data of an Event Hubs namespace from a primary namespace to a paired secondary namespace. This feature improves recovery capabilities from disasters, such as regional failures. For example, if you isolate your tenants at the namespace level, you can replicate the configuration of a tenant namespace to a secondary region. This setup provides protection against outages and failures in the primary region. However, it requires that your namespaces use specific tiers.
+[Event Hubs Geo-Replication](/azure/event-hubs/geo-replication) continuously replicates the configuration and data of an Event Hubs namespace from a primary region to a secondary Azure region. This feature improves recovery capabilities from disasters, such as regional failures. For example, if you isolate your tenants at the namespace level, you can replicate the configuration of a tenant namespace to a secondary region. This setup provides protection against outages and failures in the primary region. Geo-Replication requires the Premium or Dedicated tier.
 
-Event Hubs also has a separate feature called [Geo-disaster recovery](/azure/event-hubs/event-hubs-geo-dr), which replicates just the configuration of a namespace. This capability helps to maintain operational continuity. It doesn't replicate the event data or any Microsoft Entra role-based access control assignments that you use for your primary namespace. If you need to, you can configure your own replication by using [Multisite and multiregion federation](/azure/event-hubs/event-hubs-federation-overview).
+Event Hubs also has a separate feature called [Geo-Disaster Recovery](/azure/event-hubs/event-hubs-geo-dr), which replicates just the configuration of a namespace. This capability helps to maintain operational continuity. It doesn't replicate the event data or any Microsoft Entra role-based access control assignments that you use for your primary namespace. If you need to, you can configure your own replication by using [Multisite and multiregion federation](/azure/event-hubs/event-hubs-federation-overview).
 
 ### IP firewall rules
 
@@ -166,9 +195,9 @@ For more information, see the following articles:
 
 ### Auto-inflate for elastic scaling
 
-Standard Event Hubs namespaces support the auto-inflate feature, which automatically increases the number of throughput units during periods of high demand.
+Standard Event Hubs namespaces support the auto-inflate feature, which automatically increases the number of throughput units during periods of high demand. You need to manually reduce the capacity when it's no longer needed.
 
-When you enable auto-inflate on shared namespaces, the platform can temporarily scale capacity up to a defined maximum when one or more tenants experience traffic spikes. This elasticity helps prevent throttling and service errors during sudden load surges, which maintains stability for all tenants.
+When you enable auto-inflate on shared namespaces, the platform can scale capacity up to a defined maximum when one or more tenants experience traffic spikes. This elasticity helps prevent throttling and service errors during sudden load surges, which maintains stability for all tenants.
 
 Auto-inflate is especially useful in multitenant environments because it absorbs noisy neighbor bursts. It allocates extra resources instead of suppressing traffic. But this increase in capacity can also increase costs during the spike. For best results, combine auto-inflate with throttling policies to ensure that no single tenant can consume unbounded resources.
 
@@ -194,11 +223,11 @@ Other contributors:
 ## Next steps
 
 - [Event Hubs: A big data streaming platform and event ingestion service](/azure/event-hubs/event-hubs-about)
-- [Event Hubs for Apache Kafka](/azure/event-hubs/azure-event-hubs-kafka-overview)
+- [Event Hubs for Apache Kafka](/azure/event-hubs/azure-event-hubs-apache-kafka-overview)
 - [Capture events through Event Hubs in Blob Storage or Data Lake Storage](/azure/event-hubs/event-hubs-capture-overview)
 - [Overview of the Event Hubs Premium tier](/azure/event-hubs/event-hubs-premium-overview)
 - [Overview of the Event Hubs Dedicated tier](/azure/event-hubs/event-hubs-dedicated-overview)
-- [Event Hubs documentation](/azure/event-hubs)
+- [Event Hubs documentation](/azure/event-hubs/)
 - [Choose between Azure messaging services](/azure/service-bus-messaging/compare-messaging-services)
 
 ## Related resources

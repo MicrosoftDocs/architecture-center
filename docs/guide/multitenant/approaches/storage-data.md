@@ -220,7 +220,10 @@ Other contributors:
 
 For more information about multitenancy and specific Azure services, see the following resources:
 
-- [Multitenancy and Storage](../service/storage.md)
+- [Multitenancy and Azure Blob Storage](../service/blob-storage.md)
+- [Multitenancy and Azure Files](../service/files.md)
+- [Multitenancy and Azure Queue Storage](../service/queue-storage.md)
+- [Multitenancy and Azure Table Storage](../service/table-storage.md)
 - [Multitenancy and SQL Database](../service/sql-database.md)
 - [Multitenancy and Azure Cosmos DB](../service/cosmos-db.md)
 - [Multitenancy and Azure Database for PostgreSQL](../service/postgresql.md)
