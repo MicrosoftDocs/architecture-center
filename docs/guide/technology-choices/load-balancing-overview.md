@@ -80,7 +80,7 @@ Consider the following factors when you select a load balancing solution:
 
 - **Cost:** Account for the cost of the service itself, as well as the operational cost of managing a solution built on that service. For more information, see [Azure pricing](https://azure.microsoft.com/pricing/).
 
-- **Features and limits:** Identify the capabilities supported by each service and the applicable [service limits](/azure/azure-subscription-service-limits).
+- **Features and limits:** Identify the capabilities supported by each service and the applicable [service limits](/azure/azure-resource-manager/management/azure-subscription-service-limits).
 
 The following flow chart helps you choose a load balancing solution for your application. The flow chart guides you through a set of key decision criteria to reach a recommendation.
 
