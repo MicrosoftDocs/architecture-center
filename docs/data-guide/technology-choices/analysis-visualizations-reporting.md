@@ -7,6 +7,7 @@ ms.date: 07/25/2022
 ms.topic: concept-article
 ms.subservice: architecture-guide
 ms.custom: arb-data
+ai-usage: ai-assisted
 ---
 
 # Choose a data analytics and reporting technology in Azure
@@ -34,11 +35,13 @@ Organizations can use Power BI to produce reports and publish them to the organi
 
 Most varieties of HDInsight clusters, such as Spark or Hadoop, are [preconfigured with Jupyter notebooks](/azure/hdinsight/spark/apache-spark-jupyter-notebook-kernels) for interacting with data and submitting jobs for processing. Depending on the type of HDInsight cluster that you use, one or more kernels are provided to interpret and run your code. For example, Spark clusters on HDInsight provide Spark-related kernels that you can select to run Python or Scala code by using the Spark engine.
 
+For multiuser analytics that requires per-user access control, use [Microsoft Fabric notebooks](/fabric/data-engineering/how-to-use-notebook). Fabric supports Jupyter notebook files and runs interactive notebooks under the current user's identity. Grant notebook permissions separately from data permissions. Use [OneLake security](/fabric/onelake/security/get-started-security) to grant Microsoft Entra users or groups access to specific lakehouse tables and folders. For users who need restricted data access, use the Viewer workspace role or item-level Read permission. Workspace Admins, Members, and Contributors have read and write access to all workspace data and aren't restricted by OneLake security roles.
+
 Jupyter notebooks provide an effective environment for analyzing, visualizing, and processing your data before you build more advanced visualizations by using a BI reporting tool like Power BI.
 
 ### Zeppelin notebooks
 
-[Zeppelin notebooks](https://zeppelin.apache.org/) also provide a browser-based shell that has similar functionality to Jupyter notebooks. Some HDInsight clusters are [preconfigured with Zeppelin notebooks](/azure/hdinsight/spark/apache-spark-zeppelin-notebook). However, if you use an [HDInsight Interactive Query](/azure/hdinsight/interactive-query/apache-interactive-query-get-started) (also called Apache Hive LLAP) cluster, [Zeppelin](/azure/hdinsight/interactive-query/hdinsight-connect-hive-zeppelin) is the only notebook that you can use to run interactive Hive queries. Also, if you use a [domain-joined HDInsight cluster](/azure/hdinsight/domain-joined/hdinsight-security-overview), Zeppelin notebooks are the only type of notebooks that enable you to assign different user logins to control access to notebooks and the underlying Hive tables.
+[Zeppelin notebooks](https://zeppelin.apache.org/) also provide a browser-based shell that has similar functionality to Jupyter notebooks. Some HDInsight clusters are [preconfigured with Zeppelin notebooks](/azure/hdinsight/spark/apache-spark-zeppelin-notebook). However, if you use an [HDInsight Interactive Query](/azure/hdinsight/interactive-query/apache-interactive-query-get-started) (also called Apache Hive LLAP) cluster, [Zeppelin](/azure/hdinsight/interactive-query/hdinsight-connect-hive-zeppelin) is the only notebook that you can use to run interactive Hive queries.
 
 ### Jupyter notebooks in VS Code
 
@@ -79,7 +82,7 @@ The following table summarizes the key differences in capabilities.
 | Pricing | Free for Power BI Desktop (authoring). See [Power BI pricing](https://powerbi.microsoft.com/pricing/) for hosting options. | Free | Free | Free |
 | Multiuser collaboration | [Yes](/power-bi/collaborate-share/service-share-dashboards) | Yes (via sharing or with a multiuser server like [JupyterHub](https://jupyterhub.readthedocs.io/en/stable/)) | Yes | Yes (via sharing) |
 
-[1] When used as part of a managed HDInsight cluster.
+[1] When used as part of a managed HDInsight cluster, or in Microsoft Fabric for Jupyter-compatible notebooks.
 
 [2] With the use of Power BI Desktop.
 
