@@ -33,6 +33,7 @@ Load these files from `github/gh-aw` (they are not available locally).
 - `.github/aw/create-shared-agentic-workflow.md`
 - `.github/aw/debug-agentic-workflow.md`
 - `.github/aw/debug-model-engine-misconfiguration.md`
+- `.github/aw/debug-playbook.md`
 - `.github/aw/debug-security-review.md`
 - `.github/aw/dependabot.md`
 - `.github/aw/deployment-status.md`
@@ -78,6 +79,7 @@ Load these files from `github/gh-aw` (they are not available locally).
 - `.github/aw/skills.md`
 - `.github/aw/subagents.md`
 - `.github/aw/syntax-agentic.md`
+- `.github/aw/syntax-checkout.md`
 - `.github/aw/syntax-core.md`
 - `.github/aw/syntax-engine.md`
 - `.github/aw/syntax-tools-imports.md`
