@@ -66,6 +66,8 @@ safe-outputs:
       - erichb
       - erjosito
       - fabmas
+      - fabragaMS
+      - ferantivero
       - fguerri
       - fimdim
       - francisnazareth

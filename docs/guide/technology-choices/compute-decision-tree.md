@@ -224,7 +224,7 @@ Review and understand the available security controls and visibility for each of
 | Virtual Machines | Set up in VM | [Windows][cost-windows-vm], <br> [Linux][cost-linux-vm] | [Supported](/azure/virtual-machines/sizes/overview#gpu-accelerated) | [N-tier][n-tier], [big compute][big-compute] (HPC) |
 | App Service | Supported | [App Service pricing][cost-app-service] | Not supported | [Web-queue-worker][w-q-w] |
 | Azure Functions | Supported | [Azure Functions pricing][cost-functions] | Not supported | [Microservices][microservices], [event-driven architecture][event-driven] |
-| AKS | [Ingress controller](/azure/aks/ingress) | [AKS pricing][cost-acs] | [Supported](/azure/aks/use-nvidia-gpu) | [Microservices][microservices], [event-driven architecture][event-driven] |
+| AKS | [Ingress controller](/azure/aks/concepts-network-ingress) | [AKS pricing][cost-acs] | [Supported](/azure/aks/use-nvidia-gpu) | [Microservices][microservices], [event-driven architecture][event-driven] |
 | Container Apps | [Ingress controller](/azure/container-apps/ingress-overview) | [Container Apps pricing][cost-container-apps] | [Supported](/azure/container-apps/gpu-serverless-overview) | [Microservices][microservices], [event-driven architecture][event-driven] |
 | Container Instances | Use [sidecar](../../patterns/sidecar.md) container | [Container Instances pricing](https://azure.microsoft.com/pricing/details/container-instances/) | [Not supported](/azure/container-instances/container-instances-gpu) | [Microservices][microservices], task automation, batch jobs |
 | Azure Red Hat OpenShift | Supported | [Azure Red Hat OpenShift pricing][cost-aro] | [Supported](/azure/openshift/howto-gpu-workloads) | [Microservices][microservices], [event-driven architecture][event-driven] |
@@ -253,8 +253,8 @@ Some workloads have specific requirements and don't typically follow the general
 | Mainframe | [Refactor a mainframe application for Azure](/azure/architecture/example-scenario/mainframe/general-mainframe-refactor) |
 | Marketplace offerings | [Browse partner offerings on Azure compute](https://marketplace.microsoft.com/search/products?product=azure) |
 | Quantum computing | [Azure Quantum](/azure/quantum/overview-azure-quantum) |
-| Virtual desktop hosting | [Virtual desktop architecture design](/azure/architecture/guide/virtual-desktop/start-here) |
-| Bare metal or dedicated compute workloads | [Azure Dedicated Hosts](/azure/virtual-machines/dedicated-hosts) <br><br> [Nutanix Cloud Clusters on Azure](/azure/baremetal-infrastructure/workloads/nc2-on-azure/about-nc2-on-azure) |
+| Virtual desktop hosting | [Virtual desktop architecture design](/azure/architecture/virtual-desktop/virtual-desktop-get-started) |
+| Bare metal or dedicated compute workloads | [Azure Dedicated Hosts](/azure/virtual-machines/dedicated-hosts/overview) <br><br> [Nutanix Cloud Clusters on Azure](/azure/nutanix/about-nc2-on-azure) |
 
 ## Contributors
 
