@@ -109,7 +109,7 @@ Within the network, the architecture has three subnets.
 
 #### Subnet to host Azure Firewall
 
-[Azure Firewall](/azure/firewall/overview) is a managed firewall service. The Azure Firewall instance secures outbound network traffic. Without this layer of security, the traffic might communicate with a malicious, non-Microsoft service that could exfiltrate sensitive workload data. Use [Azure Firewall Manager](/azure/firewall-manager/overview) to centrally deploy and configure multiple Azure Firewall instances and manage Azure Firewall policies for this *hub virtual network* architecture type. For the endpoints and ports that the firewall must allow for an AKS cluster to function, see [Outbound network and FQDN rules for AKS clusters](/azure/aks/outbound-rules-control-egress).
+[Azure Firewall](/azure/firewall/overview) is a managed firewall service. The Azure Firewall instance secures outbound network traffic. Without this layer of security, the traffic might communicate with a malicious, non-Microsoft service that could exfiltrate sensitive workload data. Use [Azure Firewall Manager](/azure/firewall-manager/overview) to centrally deploy and configure multiple Azure Firewall instances and manage Azure Firewall policies for this *hub virtual network* architecture type. For the endpoints and ports that the firewall must allow for an AKS cluster and any add-ons you enable, see [Outbound network and FQDN rules for AKS clusters](/azure/aks/outbound-rules-control-egress).
 
 #### Subnet to host a gateway
 
@@ -488,6 +488,8 @@ For either method, review the required [egress network traffic rules](/azure/aks
 
 > [!NOTE]
 > If you use a public load balancer as your public point for ingress traffic and egress traffic through Azure Firewall using UDRs, you might see an [asymmetric routing scenario](/azure/aks/limit-egress-traffic#allow-inbound-traffic-through-azure-firewall). This architecture uses internal load balancers in a dedicated ingress subnet behind Application Gateway. This design choice enhances security and also eliminates asymmetric routing concerns. Or you can route ingress traffic through Firewall before or after Application Gateway, but this approach isn't necessary for most situations, and we don't recommend it. For more information about asymmetric routing, see [Integrate Firewall with an Azure standard load balancer](/azure/firewall/integrate-lb#asymmetric-routing).
+>
+> To help prevent a public load balancer from being created by accident, assign the built-in [Kubernetes clusters should use internal load balancers](/azure/aks/policy-reference) Azure Policy definition in Deny mode. An [internal load balancer](/azure/aks/internal-lb) has no public IP address, but applications in the same virtual network or connected private networks can reach its private IP address, subject to network access controls. The reference implementation assigns this policy in Deny mode.
 
 An exception to the Zero Trust control is when the cluster needs to communicate with other Azure resources. For example, the cluster might need to pull an updated image from the container registry or secrets from Key Vault. In these scenarios, we recommend that you use [Private Link](/azure/private-link/private-link-overview).
 
@@ -558,6 +560,8 @@ For more information, see [Storage options for applications in AKS](/azure/aks/c
 
 An effective way to manage an AKS cluster is to enforce governance through policies. Kubernetes implements policies through OPA Gatekeeper. For AKS, deliver policies through Azure Policy. Each policy applies to all clusters in its scope. OPA Gatekeeper handles policy enforcement in the cluster and logs all policy checks. The policy changes aren't immediately reflected in your cluster, so expect some delays.
 
+For the complete list of built-in initiatives and policies for AKS, see [Azure Policy built-in definitions for AKS](/azure/aks/policy-reference). AKS also offers [deployment safeguards](/azure/aks/deployment-safeguards), which use Azure Policy to enforce a set of Kubernetes best practices.
+
 To manage your AKS clusters, you can use Azure Policy in several ways:
 
 - Prevent or restrict the deployment of AKS clusters in a resource group or subscription. Apply standards for your organization. For example, you can follow a naming convention or specify a tag.
@@ -568,13 +572,13 @@ A common example of where a policy can be useful is around governance and valida
 
 When you set policies, apply them based on the requirements of the workload. Consider these factors:
 
-- Decide whether to set a collection of policies, known as *initiatives*, or to choose individual policies. Azure Policy provides two built-in initiatives: basic and restricted. Each initiative is a collection of built-in policies applicable to an AKS cluster. We recommend that you select an initiative and choose other policies for the cluster and the resources, like Container Registry, Application Gateway, or Key Vault, which interact with the cluster. Choose policies based on the requirements of your organization.
+- Decide whether to set a collection of policies, known as *initiatives*, or to choose individual policies. Azure Policy provides built-in initiatives for AKS, such as the pod security baseline and restricted standards. Each initiative is a collection of built-in policies applicable to an AKS cluster. We recommend that you select an initiative and choose other policies for the cluster and the resources, like Container Registry, Application Gateway, or Key Vault, which interact with the cluster. Choose policies based on the requirements of your organization.
 
 - Decide if you want to *Audit* or *Deny* the action. In Audit mode, the action is allowed but flagged as **Non-Compliant**. Have processes to check noncompliant states at a regular cadence and take necessary action. In Deny mode, the action is blocked because it violates the policy. Be careful when you choose Deny mode, because it can be too restrictive for the workload to function.
 
 - Decide if you have areas in your workload that shouldn't be compliant by design. Azure Policy can specify Kubernetes namespaces that are exempt from policy enforcement. We recommend that you still apply policies in Audit mode so that you're aware of those instances.
 
-- Decide if you have requirements that aren't covered by the built-in policies. You can create a custom Azure Policy definition that applies your custom OPA Gatekeeper policies. Don't apply custom policies directly to the cluster. For more information, see [Create and assign custom policy definitions](/azure/aks/use-azure-policy#create-and-assign-a-custom-policy-definition).
+- Decide if you have requirements that aren't covered by the built-in policies. You can create a custom Azure Policy definition that applies your custom OPA Gatekeeper policies. Don't apply custom policies directly to the cluster. For more information, see [Create and assign custom policy definitions](/azure/aks/use-azure-policy#optional-create-and-assign-a-custom-policy-definition).
 
 - Decide if you have organization-wide requirements. If so, add those policies at the management group level. Your cluster should also assign its own workload-specific policies, even if your organization has generic policies.
 
@@ -582,7 +586,7 @@ When you set policies, apply them based on the requirements of the workload. Con
 
 The reference implementation enables Azure Policy when the AKS cluster is created. The restrictive initiative is assigned in Audit mode to gain visibility into noncompliance.
 
-The implementation also sets extra policies that aren't part of any built-in initiatives. Those policies are set in Deny mode. For example, there's a policy in place to make sure images are only pulled from the deployed Container Registry instance.
+The implementation also assigns individual policies beyond that initiative, and some are set in Deny mode. For example, there's a policy in place to make sure images are only pulled from allowed container registries, including the deployed Container Registry instance.
 
 Consider creating your own custom initiatives. Combine the policies that are applicable for your workload into a single assignment.
 

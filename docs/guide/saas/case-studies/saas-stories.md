@@ -114,4 +114,5 @@ In this episode, we speak to Flyte to learn how they built a comprehensive SaaS 
 
 ## Next steps
 
+- [Plan your own journey to SaaS](/azure/well-architected/saas/)
 - [Learn about multitenant architectural approaches](../../multitenant/overview.md)

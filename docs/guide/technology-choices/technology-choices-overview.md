@@ -31,7 +31,7 @@ You can use multiple methods to build and deploy containerized applications in A
 | :------ | :------ |
 | [Choose an Azure container service](../choose-azure-container-service.md) | Evaluate which Azure container service best suits your specific workload scenarios and requirements. |
 | [Compare Azure Container Apps with other Azure container options](/azure/container-apps/compare-options) | Learn when to use Container Apps and how it compares to other container options, including Azure Container Instances, Azure App Service, Azure Functions, and Azure Kubernetes Service (AKS). |
-| [Choose a Kubernetes at the edge compute option](../../operator-guides/aks/choose-kubernetes-edge-compute-option.md) | Learn about trade-offs and considerations for various Kubernetes options for extending compute at the edge. |
+| [Choose a Kubernetes at the edge compute option](../../guide/technology-choices/choose-kubernetes-edge-compute-option.md) | Learn about trade-offs and considerations for various Kubernetes options for extending compute at the edge. |
 
 ## Choose a hybrid option
 

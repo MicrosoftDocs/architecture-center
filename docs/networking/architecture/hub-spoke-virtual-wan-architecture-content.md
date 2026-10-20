@@ -197,6 +197,8 @@ To create a gateway in a Virtual WAN hub, see [Create a site-to-site connection 
 
 For higher-availability hybrid connectivity, deploy a VPN gateway alongside the ExpressRoute gateway in the same hub and set the Border Gateway Protocol (BGP) path preference to favor ExpressRoute. The VPN connection then carries traffic only when the ExpressRoute circuit fails. For more information, see [Virtual WAN disaster recovery design](/azure/virtual-wan/disaster-recovery-design) and the reliability recommendations in [Architecture best practices for Azure Virtual WAN](/azure/well-architected/service-guides/azure-virtual-wan#reliability).
 
+For workloads that must withstand a carrier-level outage, evaluate carrier-diverse ExpressRoute circuits and validate physical path independence. See the provider-diversity guidance in  [ExpressRoute reliability considerations](../../reference-architectures/hybrid-networking/expressroute-private-peering-connectivity.md#reliability).
+
 This architecture deploys gateways in the hub to provide the branch, remote-user, and on-premises connectivity the diagrams show. Gateways are common additions to Virtual WAN hubs, not a requirement. A hub with no gateway still routes spoke-to-spoke traffic through the hub router.
 
 ### Virtual network peering

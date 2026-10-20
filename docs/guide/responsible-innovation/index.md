@@ -29,10 +29,10 @@ Similar to *security threat modeling*, harms modeling enables product teams to a
 
 [Transparency documents](https://www.microsoft.com/ai/principles-and-approach#transparency-report) describe the capabilities and limitations of Microsoft technologies. Transparency documents support responsible AI because they help you ensure that your solutions are ethically sound and [align with responsible AI practices](/azure/well-architected/ai/responsible-ai).
 
-[Foundry Tools](/azure/ai-services/responsible-use-of-ai-overview) provides information and guidelines about how to responsibly use artificial intelligence capabilities in Foundry Tools in your workload.
+[Foundry Tools](/azure/foundry/responsible-use-of-ai-overview) provides information and guidelines about how to responsibly use artificial intelligence capabilities in Foundry Tools in your workload.
 
 ## Sustainability
 
-The [sustainability workload guidance in the Azure Well-Architected Framework](/azure/architecture/framework/sustainability/) includes recommendations and principles to increase cloud efficiency across Azure workloads. This guidance aligns with the Green Software Foundation for an improved sustainability posture to help create new business value while reducing operational footprint. This guide helps drive innovation responsibly by evaluating the impact that workload design decisions have on the climate. It also provides concrete advice about how to build for a better tomorrow.
+The [sustainability workload guidance in the Azure Well-Architected Framework](/azure/well-architected/sustainability/) includes recommendations and principles to increase cloud efficiency across Azure workloads. This guidance aligns with the Green Software Foundation for an improved sustainability posture to help create new business value while reducing operational footprint. This guide helps drive innovation responsibly by evaluating the impact that workload design decisions have on the climate. It also provides concrete advice about how to build for a better tomorrow.
 
 You can also create a sustainability model for your workload, using the Software Carbon Intensity (SCI) score. This score also you to baseline your workload and then detect changes from that baseline. See, [Measure Azure app sustainability by using the SCI score](../../example-scenario/apps/measure-azure-app-sustainability-sci-score.yml).

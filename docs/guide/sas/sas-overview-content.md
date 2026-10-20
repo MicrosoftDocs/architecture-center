@@ -36,7 +36,7 @@ Before deploying a SAS workload, ensure the following components are in place:
 - A sizing recommendation from a SAS sizing team
 - A SAS license file
 - Access to a resource group for deploying your resources
-- A [virtual central processing unit (vCPU) subscription quota](/azure/virtual-machines/windows/quotas) that takes into account your sizing document and VM choice
+- A [virtual central processing unit (vCPU) subscription quota](/azure/virtual-machines/quotas) that takes into account your sizing document and VM choice
 - Access to a secure Lightweight Directory Access Protocol (LDAP) server
 
 ## Scenario details
@@ -130,11 +130,11 @@ VMs in the Edsv5-series are the default SAS machines for Viya and Grid. They off
 - A good CPU-to-memory ratio.
 - A high-throughput locally attached disk. I/O speed is important for folders like `SASWORK` and the Cloud Analytics Services (CAS) cache, `CAS_CACHE`, that SAS uses for temporary files.
 
-If the Edsv5-series VMs are unavailable, it's recommended to use the prior generation. The [Edsv4-series VMs](/azure/virtual-machines/edv4-edsv4-series) have been tested and perform well on SAS workloads.
+If the Edsv5-series VMs are unavailable, it's recommended to use the prior generation. The [Edsv4-series VMs](/azure/virtual-machines/sizes/memory-optimized/edsv4-series) have been tested and perform well on SAS workloads.
 
 #### Ebsv5-series
 
-In some cases, the locally attached disk doesn't have sufficient storage space for `SASWORK` or `CAS_CACHE`. To get a larger working directory, use the [Ebsv5-series of VMs](/azure/virtual-machines/ebdsv5-ebsv5-series) with premium attached disks. These VMs offer these features:
+In some cases, the locally attached disk doesn't have sufficient storage space for `SASWORK` or `CAS_CACHE`. To get a larger working directory, use the [Ebsv5-series of VMs](/azure/virtual-machines/sizes/memory-optimized/ebdsv5-ebsv5-series) with premium attached disks. These VMs offer these features:
 
 - Same specifications as the Edsv5 and Esv5 VMs
 - High throughput against remote attached disk, up to 4 GB/s, giving you as large a `SASWORK` or `CAS_CACHE` as needed at the I/O needs of SAS.
@@ -156,7 +156,7 @@ M-series VMs offer these features:
 
 #### Ls-series
 
-Certain I/O heavy environments should use [Lsv2-series](/azure/virtual-machines/lsv2-series) or [Lsv3-series](/azure/virtual-machines/lsv3-series) VMs. In particular, implementations that require fast, low latency I/O speed and a large amount of memory benefit from this type of machine. Examples include systems that make heavy use of the `SASWORK` folder or `CAS_CACHE`.
+Certain I/O heavy environments should use [Lsv2-series](/azure/virtual-machines/sizes/storage-optimized/lsv2-series) or [Lsv3-series](/azure/virtual-machines/sizes/storage-optimized/lsv3-series) VMs. In particular, implementations that require fast, low latency I/O speed and a large amount of memory benefit from this type of machine. Examples include systems that make heavy use of the `SASWORK` folder or `CAS_CACHE`.
 
 > [!NOTE]
 > SAS optimizes its services for use with the Intel Math Kernel Library (MKL).
@@ -217,7 +217,7 @@ Be aware of latency-sensitive interfaces between SAS and non-SAS applications. C
 
 ### Identity management
 
-SAS platforms can use local user accounts. They can also use a secure LDAP server to validate users. We recommend running a domain controller in Azure. Then use the domain join feature to properly manage security access. If you haven't set up domain controllers, consider deploying [Microsoft Entra Domain Services](../../reference-architectures/identity/adds-extend-domain.yml). When you use the domain join feature, ensure machine names don't exceed the 15-character limit.
+SAS platforms can use local user accounts. They can also use a secure LDAP server to validate users. We recommend running a domain controller in Azure. Then use the domain join feature to properly manage security access. If you haven't set up domain controllers, consider deploying [Microsoft Entra Domain Services](/entra/identity/domain-services/overview). When you use the domain join feature, ensure machine names don't exceed the 15-character limit.
 
 > [!NOTE]
 > In some environments, there's a requirement for on-premises connectivity or shared datasets between on-premises and Azure-hosted SAS environments. In these situations, we strongly recommended deploying a domain controller in Azure.
@@ -322,7 +322,7 @@ These considerations implement the pillars of the Azure Well-Architected Framewo
 
 ### Security
 
-Security provides assurances against deliberate attacks and the abuse of your valuable data and systems. For more information, see [Overview of the security pillar](/azure/architecture/framework/security/overview).
+Security provides assurances against deliberate attacks and the abuse of your valuable data and systems. For more information, see [Overview of the security pillar](/azure/well-architected/security/).
 
 The output of your SAS workloads can be one of your organization's critical assets. SAS output provides insight into internal efficiencies and can play a critical role in your reporting strategy. It's important to secure access to your SAS architecture. To achieve this goal, use secure authentication and address network vulnerabilities. Use encryption to help protect all data moving in and out of your architecture.
 
@@ -337,7 +337,7 @@ Carefully evaluate the services and technologies that you select for the areas a
 
 SAS currently doesn't fully support [Microsoft Entra ID](/entra/identity/). For authentication into the visualization layer for SAS, you can use Microsoft Entra ID. But for back-end authorization, use a strategy that's similar to on-premises authentication. When managing IaaS resources, you can use Microsoft Entra ID for authentication and authorization to the Azure portal. When you use Microsoft Entra Domain Services, you can't authenticate guest accounts. Guest attempts to sign in will fail.
 
-Use [network security groups](/azure/virtual-network/security-overview) to filter network traffic to and from resources in your [virtual network](/azure/virtual-network/virtual-networks-overview). With these groups, you can define rules that grant or deny access to your SAS services. Examples include:
+Use [network security groups](/azure/virtual-network/network-security-groups-overview) to filter network traffic to and from resources in your [virtual network](/azure/virtual-network/virtual-networks-overview). With these groups, you can define rules that grant or deny access to your SAS services. Examples include:
 
 - Giving access to CAS worker ports from on-premises IP address ranges.
 - Blocking access to SAS services from the internet.
@@ -346,7 +346,7 @@ Use [network security groups](/azure/virtual-network/security-overview) to filte
 
 #### Protect your infrastructure
 
-Control access to the Azure resources that you deploy. Every Azure subscription has a [trust relationship](/entra/fundamentals/how-subscriptions-associated-directory) with a Microsoft Entra tenant. Use [Azure role-based access control (Azure RBAC)](/azure/role-based-access-control/overview) to grant users within your organization the correct permissions to Azure resources. Grant access by assigning Azure roles to users or groups at a certain scope. The scope can be a subscription, a resource group, or a single resource. Make sure to [audit all changes to infrastructure](/azure/azure-resource-manager/resource-group-audit).
+Control access to the Azure resources that you deploy. Every Azure subscription has a [trust relationship](/entra/fundamentals/how-subscriptions-associated-directory) with a Microsoft Entra tenant. Use [Azure role-based access control (Azure RBAC)](/azure/role-based-access-control/overview) to grant users within your organization the correct permissions to Azure resources. Grant access by assigning Azure roles to users or groups at a certain scope. The scope can be a subscription, a resource group, or a single resource. Make sure to [audit all changes to infrastructure](/azure/azure-monitor/fundamentals/activity-log).
 
 Manage remote access to your VMs through [Azure Bastion](https://azure.microsoft.com/services/azure-bastion/#get-started). Don't expose any of these components to the internet:
 
@@ -380,9 +380,9 @@ Other contributors:
 For help getting started, see the following resources:
 
 - [Implement a secure hybrid network](../../reference-architectures/dmz/secure-vnet-dmz.yml?tabs=portal)
-- [Edsv5 series VMs](/azure/virtual-machines/edv5-edsv5-series)
-- [Ebsv5 series VMs](/azure/virtual-machines/ebdsv5-ebsv5-series)
-- [Lsv3 series VMs](/azure/virtual-machines/lsv3-series)
+- [Edsv5 series VMs](/azure/virtual-machines/sizes/memory-optimized/edsv5-series)
+- [Ebsv5 series VMs](/azure/virtual-machines/sizes/memory-optimized/ebdsv5-ebsv5-series)
+- [Lsv3 series VMs](/azure/virtual-machines/sizes/storage-optimized/lsv3-series)
 - [Proximity placement groups](/azure/virtual-machines/co-location)
 - [Azure availability zones](/azure/reliability/availability-zones-overview)
 - [Improve NFS Azure file share performance](/azure/storage/files/nfs-performance)

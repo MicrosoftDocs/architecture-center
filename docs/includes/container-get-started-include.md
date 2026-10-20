@@ -6,7 +6,7 @@ The following articles help you evaluate and select the best container technolog
 
 - [Architectural considerations for choosing an Azure container service](../guide/container-service-general-considerations.md): Detailed considerations for container service selection.
 
-- [Choose a Kubernetes at the edge compute option](../operator-guides/aks/choose-kubernetes-edge-compute-option.md): Compare options for running Kubernetes at the edge.
+- [Choose a Kubernetes at the edge compute option](../guide/technology-choices/choose-kubernetes-edge-compute-option.md): Compare options for running Kubernetes at the edge.
 
 ### Container guides
 

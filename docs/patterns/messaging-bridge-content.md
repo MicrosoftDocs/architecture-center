@@ -43,6 +43,8 @@ Consider the following points when implementing the Messaging Bridge pattern:
 
 - Regular message-processing components use the [Retry pattern](./retry.yml) to handle transient failures. The retry counter limit enables components to detect *poison* messages and remove them from the queue to unblock processing. The bridge might require a different retry policy to prevent falsely identifying messages as poison if an infrastructure failure occurs. You might use the [Circuit Breaker](./circuit-breaker.md) pattern to pause forwarding.
 
+- Account for in-flight messages when you migrate endpoints incrementally. Messages that are already waiting in a queue on the old infrastructure, including messages in an error queue that are waiting to be retried, must still reach the endpoint after it moves. Keep the bridge in place until those messages are delivered, not only until the last endpoint moves. For a step-by-step example, see [migrating to a different transport by using the NServiceBus Messaging Bridge](https://docs.particular.net/nservicebus/bridge/scenarios#migrate-to-a-different-transport).
+
 ## When to use this pattern
 
 Use the Messaging Bridge pattern when you need to:

@@ -231,9 +231,9 @@ Virtual Machines node pools have the following limitations:
 
 ### Virtual nodes
 
-You can use virtual nodes to quickly scale out application workloads in an AKS cluster. Virtual nodes provide quick pod provisioning, and you only pay per second for runtime. You don't need to wait for the cluster autoscaler to deploy new worker nodes to run more pod replicas. Only Linux pods and nodes support virtual nodes. The virtual nodes add-on for AKS is based on the open-source [Virtual Kubelet](https://virtual-kubelet.io/) project.
+Use [Virtual Nodes v2 (preview)](/azure/aks/virtual-nodes-v2) to quickly scale out Linux application workloads in an AKS cluster. Virtual Nodes v2 runs pods on serverless compute in [Azure Container Instances](/azure/container-instances), so workloads can burst without waiting for new VM-based nodes to be provisioned. You pay only for the compute that the pods use while they run.
 
-Virtual node functionality depends on [Azure Container Instances](/azure/container-instances). For more information, see [Create and configure an AKS cluster to use virtual nodes](/azure/aks/virtual-nodes).
+Virtual Nodes v2 is delivered as an AKS cluster extension. Because it's a preview feature, don't use it for production workloads.
 
 ### Taints, labels, and tags
 
@@ -559,5 +559,5 @@ Other contributors:
 - [Cluster governance](governance.md)
 - [AKS solution journey](../../reference-architectures/containers/aks-start-here.md)
 - [AKS day-2 operations guide](../../operator-guides/aks/day-2-operations-guide.md)
-- [Choose a Kubernetes at the edge compute option](../../operator-guides/aks/choose-kubernetes-edge-compute-option.md)
+- [Choose a Kubernetes at the edge compute option](../../guide/technology-choices/choose-kubernetes-edge-compute-option.md)
 - [GitOps for AKS](../../example-scenario/gitops-aks/gitops-blueprint-aks.yml)

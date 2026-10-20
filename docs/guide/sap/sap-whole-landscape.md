@@ -122,7 +122,7 @@ This network design provides better incident response capabilities and fine-grai
 
 *Increased complexity, latency, and cost:* The architecture increases management complexity, cost, and latency. Internet-bound communication from the SAP production virtual network is peered twice, once to the hub virtual network and again to the SAP perimeter virtual network out to the internet. The firewall in the hub virtual network has the biggest effect on latency. We recommend that you measure the latency to see if your use case can support it.
 
-For more information, see [perimeter network best practices](/azure/cloud-adoption-framework/ready/azure-best-practices/perimeter-networks).
+For more information, see [perimeter network best practices](/azure/security/fundamentals/network-best-practices#deploy-perimeter-networks-for-security-zones).
 
 ##### Azure NetApp Files subnet
 
@@ -132,7 +132,7 @@ If you're using Azure NetApp Files, you should have a delegated subnet to provid
 
 Using subnets to group SAP resources that have the same security rule requirements makes it easier to manage security.
 
-**NSGs:** Subnets allow you to implement network security groups at the subnet level. Grouping resources in the same subnet that require different security rules requires NSGs at the subnet level and network-interface level. In this two-level configuration, security rules easily conflict and can cause unexpected communication problems that are difficult to troubleshoot. NSG rules also affect traffic [within the subnet](/azure/virtual-network/network-security-group-how-it-works#intra-subnet-traffic). For more information, see [NSGs](/azure/virtual-network/tutorial-filter-network-traffic-cli).
+**NSGs:** Subnets allow you to implement network security groups at the subnet level. Grouping resources in the same subnet that require different security rules requires NSGs at the subnet level and network-interface level. In this two-level configuration, security rules easily conflict and can cause unexpected communication problems that are difficult to troubleshoot. NSG rules also affect traffic [within the subnet](/azure/virtual-network/network-security-group-how-it-works#intra-subnet-traffic). For more information, see [NSGs](/azure/virtual-network/tutorial-filter-network-traffic).
 
 **Application security groups (ASGs):** We recommend that you use ASGs to group VM network interfaces and reference the ASGs in the NSG rules. This configuration enables easier rule creation and management for SAP deployments. Each network interface can belong to multiple ASGs with different NSG rules. For more information, see [ASGs](/azure/virtual-network/application-security-groups).
 

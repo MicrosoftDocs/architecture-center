@@ -95,6 +95,7 @@ safe-outputs:
       - JamesJBarnett
       - janicericketts
       - jasonschuff
+      - jaydestro
       - jerrymsft
       - Jing316
       - JKirsch1
@@ -140,6 +141,7 @@ safe-outputs:
       - MaxMelcher
       - mestredelpino
       - mfrankovic
+      - microsoftmrinal
       - MikeBazMSFT
       - miyamam
       - moorthyannadurai
