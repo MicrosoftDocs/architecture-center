@@ -1,0 +1,26 @@
+### YamlMime:Architecture
+metadata:
+  title: Azure NetApp Files Object REST API for Data and AI Integration
+  description: Learn how to use the Azure NetApp Files Object REST API to connect enterprise file data to Microsoft Fabric and to Azure AI and analytics services.
+  author: soderholmd
+  ms.author: dsoderholm
+  ms.reviewer: dsoderholm
+  ms.date: 10/19/2026
+  ms.topic: solution-idea
+  ms.subservice: solution-idea
+  ai-usage: ai-assisted
+azureCategories:
+  - ai-machine-learning
+  - analytics
+  - storage
+products:
+  - azure-netapp-files
+  - fabric
+  - azure-cognitive-search
+  - microsoft-foundry
+  - azure-machine-learning
+name: Azure NetApp Files Object REST API for data and AI integration
+summary: Learn how to use the Azure NetApp Files Object REST API to connect enterprise file data to Microsoft Fabric and to Azure AI and analytics services.
+thumbnailUrl: /azure/architecture/browse/thumbs/analytics-netapp-object-api.png
+content: |
+  [!INCLUDE[](analytics-netapp-object-api-content.md)]

@@ -625,6 +625,8 @@ items:
         href: data-guide/technology-choices/fabric-analytical-data-stores.md
     - name: Solution ideas
       items:
+      - name: Azure NetApp Files Object REST API for data and AI integration
+        href: solution-ideas/articles/analytics-netapp-object-api.yml
       - name: Ingestion, ETL, and stream processing
         href: solution-ideas/articles/ingest-etl-stream-with-adb.yml
       - name: Modern analytics with Azure Databricks
