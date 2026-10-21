@@ -29,7 +29,7 @@ You should then define a set of **measurable threshold values** to quantify the 
 > [!TIP]
 > Examples of threshold values include the expected number of user sign-ins, requests per second for a given API, and operations per second for a background process.
 
-You should use threshold values to develop a **[health model for your application](/azure/well-architected/design-guides/health-modeling)**, both for testing and for operating the application in production.
+Use threshold values to develop a **[health model for your application](/azure/well-architected/design-guides/health-modeling)**, both for testing and for operating the application in production.
 
 :::image type="content" source="./images/deployment-testing-key-system-flows.png" alt-text="Visualization of key system flows using green and red connected circles." lightbox="./images/deployment-testing-key-system-flows.png" border="false":::
 
@@ -85,7 +85,7 @@ The capability is available through the Azure portal, and via the load testing A
 
 We highly recommend **integrating these tests directly into your CI/CD pipelines** and running them during the early stages of feature development.
 
-In summary, failure is inevitable in any complex distributed system and the solution must therefore be architected (and tested) to handle failures. The [Well-Architected Framework mission-critical workload guidance](/azure/well-architected/mission-critical/mission-critical-deployment-testing) and reference implementations can help you design and operate highly reliable applications to derive maximum value from the Microsoft cloud.
+In summary, failure is inevitable in any complex distributed system. You must design and test the solution to handle failures. The [Well-Architected Framework mission-critical workload guidance](/azure/well-architected/mission-critical/mission-critical-deployment-testing) and reference implementations can help you design and operate highly reliable applications to derive maximum value from the Microsoft cloud.
 
 ## Next step
 
