@@ -104,7 +104,7 @@ In Google Cloud, a region has two or more availability zones. An availability zo
 
 The following table summarizes each option.
 
-| | **Availability zone** | **Paired region** |
+| **Aspect** | **Availability zone** | **Paired region** |
 | --- | --- | --- |
 | **Scope of failure** | Datacenter | Region |
 | **Request routing** | Cross-zone Azure Load Balancer | Azure Traffic Manager |

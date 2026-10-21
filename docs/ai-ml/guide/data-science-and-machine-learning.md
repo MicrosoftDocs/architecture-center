@@ -464,7 +464,7 @@ A typical pattern trains an exportable model in the cloud by using Azure Machine
 
 ## Combine platforms
 
-Production solutions can combine more than one platform. The flowchart earlier in this article helps you pick a *primary* starting platform. Use the following table to plan compound architectures and identify the supporting Microsoft components that each scenario typically requires.
+Production solutions can combine more than one platform. The decision tree in [Narrow your platform choice](#narrow-your-platform-choice) helps you pick a *primary* starting platform. Use the following table to plan compound architectures and identify the supporting Microsoft components that each scenario typically requires.
 
 | Combined scenario | Primary platform | Supporting Microsoft components | Pattern |
 |---|---|---|---|

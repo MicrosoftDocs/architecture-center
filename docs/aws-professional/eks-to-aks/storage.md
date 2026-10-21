@@ -30,7 +30,7 @@ Use ephemeral volumes when your applications require temporary storage but don't
 - A caching service moves infrequently used data to temporary storage.
 - Read-only input data, like configuration data, is stored in files.
 
-Kubernetes supports different types of ephemeral volumes, such as [emptyDir](https://kubernetes.io/docs/concepts/storage/volumes/#emptydir), [ConfigMap](https://kubernetes.io/docs/concepts/storage/volumes/#configmap), [downwardAPI](https://kubernetes.io/docs/concepts/storage/volumes/#downwardapi), [secret](https://kubernetes.io/docs/concepts/storage/volumes/#secret), [CSI ephemeral volumes](https://kubernetes.io/docs/concepts/storage/ephemeral-volumes/#csi-ephemeral-volumes), and [generic ephemeral volumes](https://kubernetes.io/docs/concepts/storage/ephemeral-volumes/#generic-ephemeral-volumes). 
+Kubernetes supports different types of ephemeral volumes, such as [emptyDir](https://kubernetes.io/docs/concepts/storage/volumes/#emptydir), [ConfigMap](https://kubernetes.io/docs/concepts/storage/volumes/#configmap), [downwardAPI](https://kubernetes.io/docs/concepts/storage/volumes/#downwardapi), [secret](https://kubernetes.io/docs/concepts/storage/volumes/#secret), [CSI ephemeral volumes](https://kubernetes.io/docs/concepts/storage/ephemeral-volumes/#csi-ephemeral-volumes), and [generic ephemeral volumes](https://kubernetes.io/docs/concepts/storage/ephemeral-volumes/#generic-ephemeral-volumes).
 
 #### Amazon EBS
 
@@ -225,7 +225,7 @@ The left side has two sections: single node or pod access and multiple concurren
 
 After an available storage resource is assigned to the pod that requests storage, the persistent volume is *bound* to a persistent volume claim. Each persistent volume is associated with one persistent volume claim to ensure dedicated storage.
 
-The following example YAML manifest shows a persistent volume claim that uses the `managed-premium` storage class and requests an Azure disk that's `5Gi` in size:
+The following example YAML manifest shows a persistent volume claim that uses the `managed-premium-retain` storage class and requests an Azure disk that's `5Gi` in size:
 
 ```yaml
 apiVersion: v1
@@ -285,7 +285,6 @@ By default, Azure automatically replicates the operating system disk for a virtu
 In contrast, ephemeral OS disks are stored only on the host machine, like a temporary disk. This configuration provides lower read and write latency and faster node scaling and cluster upgrades.
 
 If you don't request [Azure managed disks](/azure/virtual-machines/managed-disks-overview) for the OS, AKS defaults to ephemeral OS disks if possible for a given node pool configuration.
-
 
 - If you select the [Standard_E2bds_v5](/azure/virtual-machines/ebdsv5-ebsv5-series#ebdsv5-series) VM size with the default OS disk size of 100 GiB, the VM supports ephemeral OS disks but only has 75 GB of temporary storage. This configuration defaults to managed OS disks if you don't specify it. If you request an ephemeral OS disk, you receive a validation error.
 
@@ -452,8 +451,8 @@ AKS Automatic manages the storage lifecycle for you. AKS Standard gives you more
 
 ### High-level comparison between AKS Automatic and AKS Standard
 
-| Category | AKS Automatic  | AKS Standard  |
-| --------| ------------ | ------------------------- |
+| Category | AKS Automatic | AKS Standard |
+| -------- | ------------- | ------------ |
 | Default storage setup              | Preconfigured                                | You configure manually    |
 | CSI drivers                        | Automatically managed                        | You enable/manage         |
 | StorageClasses                     | Created automatically                        | Often manually customized |

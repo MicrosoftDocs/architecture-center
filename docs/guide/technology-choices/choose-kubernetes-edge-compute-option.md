@@ -32,7 +32,7 @@ This article helps you identify which option best fits your scenario and the env
 
 ## Kubernetes choices at a glance
 
-|                                 | **Operational cost** | **Ease of configuration** | **Flexibility** | **Mixed node** | **Summary** |
+| **Kubernetes option**           | **Operational cost** | **Ease of configuration** | **Flexibility** | **Mixed node** | **Summary** |
 |---------------------------------|----------------------|---------------------------|-----------------|---------------|-------------|
 | **Azure Kubernetes Service (AKS) on bare metal** (preview) | Low to medium | Easy to medium            | Medium          | No (single-node only in the preview) | Azure-managed Kubernetes directly on supported Azure Linux or Ubuntu hosts, without a hypervisor. |
 | **Self-managed bare-metal Kubernetes** | High\*        | Difficult\*               | High\*          | Yes            | A ground-up Kubernetes deployment on any infrastructure, with optional Azure Arc integration for added capabilities. |

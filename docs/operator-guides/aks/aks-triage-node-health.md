@@ -268,10 +268,10 @@ DNS resolution is a crucial aspect of your AKS cluster. If DNS resolution isn't 
     az aks show --name <aks-name> --resource-group <resource-group-name> --query fqdn --output tsv
     ```
 
-1. Run the following command to attempt to resolve the AKS API server. For more information, see [Troubleshoot DNS resolution failures from inside the pod but not from the worker node](/troubleshoot/azure/azure-kubernetes/connectivity/dns/troubleshoot-dns-failure-from-pod-but-not-from-worker-node).
+1. Run the following command using your cluster's API server FQDN to attempt to resolve the AKS API server. For more information, see [Troubleshoot DNS resolution failures from inside the pod but not from the worker node](/troubleshoot/azure/azure-kubernetes/connectivity/dns/troubleshoot-dns-failure-from-pod-but-not-from-worker-node).
 
     ```console
-    nslookup myaks-47983508.hcp.westeurope.azmk8s.io
+    nslookup <your-cluster-api-server>
     ```
 
 1. Check the upstream DNS server from the pod to determine whether the DNS resolution is working correctly. For example, for Azure DNS, run the `nslookup` command:

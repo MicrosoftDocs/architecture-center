@@ -25,6 +25,7 @@ The UA Cloud Library resolves that problem by:
 - Enabling offline engineering and pre-configuration at global scale.
 
 The library stores the following:
+
 - Standardized information models (for example, Companion Specifications)
 - Vendor-specific or machine-specific models
 - Partial AddressSpaces (useful subsets rather than full server instances)
@@ -33,7 +34,8 @@ Each entry is uniquely identified by the combination of NamespaceURI, Version, a
 
 ## Architecture and access
 
-The UA Cloud Library architecture and access methods are defined in the OPC UA specification series OPC 30400:  
+The OPC 30400 specification series defines the UA Cloud Library architecture and access methods:
+
 - Part 1: Architecture and use cases  
 - Part 2: API definition
 
@@ -68,6 +70,7 @@ Next, run the following Azure Data Explorer query from the Azure portal. In the 
 
 - Replace `<INFORMATION_MODEL_IDENTIFIER_FROM_THE_UA_CLOUD_LIBRARY>` with the unique ID of the information model you want to import from the UA Cloud Library. You can find this ID in the URL of the information model's page in the UA Cloud Library. For example, the ID of the station nodeset that this guide uses is `1627266626`.
 - Replace `<HASHED_CLOUD_LIBRARY_CREDENTIALS>` with a basic authorization header hash of your UA Cloud Library credentials. Use the following command block to generate the hash:
+
    ```powershell
    $username = "myUser"
    $password = "myPassword"
@@ -189,6 +192,7 @@ Because the Fabric eventhouse KQL engine supports the [`http_request` plugin](/k
 1. Go to [UA Cloud Library](https://uacloudlibrary.opcfoundation.org/Identity/Account/Register) and create a free account.
 1. Review the available [information models](https://uacloudlibrary.opcfoundation.org/Explorer). Note the unique ID of the model that you want to import. You can find this ID in the URL of the model's page. For example, the `Station` nodeset used by this reference solution has the ID `1627266626`.
 1. Create a basic authorization header from your UA Cloud Library credentials. Generate the Base64 hash by using the bash command `echo -n 'username:password' | base64`, or use the following command block:
+
    ```powershell
    $username = "myUser"
    $password = "myPassword"
@@ -416,7 +420,7 @@ else:
 
 Instead of (or in addition to) adding the imported model's variables to the separate `opcua_information_model` table, you can add the variables directly to the standard `opcua_metadata` and `opcua_telemetry` Delta tables. Each variable is written with a placeholder telemetry value of `[Future]`, so users can see all the variables that can be retrieved from that OPC UA server's information model, alongside the ones that are actually being published live.
 
-Append the following code to the notebook. (It reuses the `rows`, `title`, and `nodeset` parsing from the previous example.)
+Append the following code to the same notebook after the preceding Azure Databricks import example. It reuses `rows`, `title`, and `model_namespace_uri`, the earlier `Row` import, and the notebook's `spark` session.
 
 ```python
 from pyspark.sql import functions as F

@@ -146,7 +146,7 @@ The following concepts can help you understand the relationship between checkpoi
 
 - **Replays can occur:** Each time a function is invoked with the Event Hubs trigger binding, it uses the most recent checkpoint to determine where to resume processing. The offset for every consumer is saved at the partition level for each consumer group. Replays happen when a checkpoint doesn't occur during the last invocation of the function and the function is invoked again. For more information about duplicates and deduplication techniques, see [Idempotency](resilient-design.md#idempotency).
 
-Understanding checkpointing becomes critical when you consider best practices for error handling and retries, a topic that's discussed later in this article.
+Understanding checkpointing becomes critical when you consider best practices for [error handling and retries](resilient-design.md#error-handling-and-retries).
 
 ### Telemetry sampling
 

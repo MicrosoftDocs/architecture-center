@@ -79,7 +79,7 @@ Use a language model to calculate utilization. You can pass the response and the
 
 The following table provides guidance for how to evaluate completeness and utilization.
 
-| | High utilization | Low utilization |
+| Completeness | High utilization | Low utilization |
 | --- | --- | --- |
 | **High completeness** | No action needed. | The returned data addresses the question but also returns irrelevant chunks. Consider reducing the top-k parameter value to yield more probable or deterministic results. |
 | **Low completeness** | The language model uses the chunks that you provide, but they don't fully address the question. Consider taking the following steps:<br/><ul><li>Review your chunking strategy to increase the context within the chunks.</li><li>Increase the number of chunks by increasing the top-k parameter value.</li><li>Evaluate whether you have chunks that weren't returned that can increase the completeness. If so, investigate why they weren't returned.</li><li>Follow the guidance in the [completeness section](#understand-completeness).</li></ul> | The returned data doesn't completely answer the question, and the chunks you provide aren't utilized completely. Consider taking the following steps:<br /><ul><li>Review your chunking strategy to increase the context within the chunks. If you use fixed-size chunking, consider increasing the chunk sizes.</li><li>Fine-tune your prompts to improve responses.</li></ul> |
@@ -291,7 +291,3 @@ The framework loads, chunks, and enriches text and images from MHTML files. It t
 
 > [!div class="nextstepaction"]
 > [RAG with Vision Application Framework GitHub repository](https://github.com/Azure-Samples/rag-as-a-service-with-vision)
-
-## Related resource
-
-- [Develop an evaluation flow](/azure/ai-foundry/how-to/flow-develop-evaluation)

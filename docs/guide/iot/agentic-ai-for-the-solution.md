@@ -44,7 +44,7 @@ The agent never touches the database directly. It sees only the curated, read-on
 ## Plant Copilot tools
 
 | Tool | Purpose |
-|------|---------|
+| ---- | ------- |
 | `get_server_info` | Check health and capabilities. |
 | `list_namespaces` | List OPC UA namespaces in the data. |
 | `list_object_types` | List the information model (types). |
@@ -116,7 +116,16 @@ After the agent is published and approved, users can select it in Microsoft 365 
 
 If you're using the [Microsoft Fabric](how-to-connect-fabric-to-solution.md) alternative of the reference solution, you can create the same grounded plant Copilot experience entirely in Fabric, without the MCP server, Copilot Studio, or the associated connector governance. A [Fabric data agent](/fabric/data-science/concept-data-agent) answers natural-language questions against Fabric data sources by generating KQL queries directly against them. Because the reference solution already mirrors the OPC UA tables, functions, and views into the Fabric eventhouse, the plant data is available for the agent to query.
 
-> **Which approach to use.** The Plant Copilot **MCP server** is the cross-host option. It provides one read-only tool surface that's reusable across many agent runtimes (Microsoft 365 Copilot, Claude, and others). A **Fabric data agent** is an in-Fabric alternative that queries KQL directly rather than using the curated i3X read-only tools. It requires Fabric capacity, the applicable tenant settings, and access to the data source. A Fabric data agent doesn't call the Plant Copilot MCP server. A published Fabric data agent can instead be exposed as an MCP server for other hosts, but this capability is in preview. Fabric data agents require a paid capacity of F2 or higher. Depending on the capacity's region, cross-geo AI processing and storage settings might also be required. When a data agent is consumed through a non-Fabric service, responses might be processed or stored outside the Fabric compliance boundary or geographic region according to that service's policies.
+Consider which approach to use.
+
+- **Plant Copilot MCP server.** This is the cross-host option. It provides one read-only tool surface that's reusable across many agent runtimes (Microsoft 365 Copilot, Claude, and others).
+- **Fabric data agent.** This is an in-Fabric alternative that queries KQL directly rather than using the curated i3X read-only tools. A Fabric data agent doesn't call the Plant Copilot MCP server.
+
+  It requires a paid Fabric capacity of F2 or higher, the applicable tenant settings, and access to the data source. Depending on the capacity's region, cross-geo AI processing and storage settings might also be required.
+
+  A published Fabric data agent can instead be exposed as an MCP server for other hosts, but this capability is in preview.
+
+  When a data agent is consumed through a non-Fabric service, responses might be processed or stored outside the Fabric compliance boundary or geographic region according to that service's policies.
 
 To create a Fabric data agent:
 

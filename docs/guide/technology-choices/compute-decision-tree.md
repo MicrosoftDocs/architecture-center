@@ -79,7 +79,7 @@ A trade-off exists between control and ease of management. IaaS provides the mos
 | Virtual Machines | Agnostic | Agnostic | 1 <a href="#note1"><sup>1</sup></a> | Stateless or stateful | Agnostic |
 | App Service | Applications, containers | Multiple apps for each instance by using an App Service plan | 1 | Stateless | Built-in |
 | Azure Functions | Functions, containers | Serverless <a href="#note2"><sup>2</sup></a> | Serverless <a href="#note2"><sup>2</sup></a> | Stateless or stateful <a href="#note3"><sup>3</sup></a> | Not applicable |
-| AKS | Containers | Multiple containers for each node | 6 <a href="#note4"><sup>4</sup></a> | Stateless or stateful | Agnostic |
+| AKS | Containers | Multiple containers for each node | Production: 6 <a href="#note4"><sup>4</sup></a> | Stateless or stateful | Agnostic |
 | Container Apps | Containers | Serverless | Serverless | Stateless or stateful | Agnostic |
 | Container Instances | Containers | No dedicated instances | No dedicated nodes | Stateless | Agnostic |
 | Azure Red Hat OpenShift | Containers | Multiple containers for each node | 6 <a href="#note5"><sup>5</sup></a> | Stateless or stateful | Agnostic |
@@ -94,7 +94,7 @@ A trade-off exists between control and ease of management. IaaS provides the mos
 
 <sup>3</sup> <span id="note3">When you use [durable functions][durable-functions].</span>
 
-<sup>4</sup> <span id="note4">Recommended for production environments. Three in the system node pool and three for each user node pool.</span>
+<sup>4</sup> <span id="note4">Three in the system node pool and three for each user node pool.</span>
 
 <sup>5</sup> <span id="note5">Three primary nodes and three worker nodes.</span>
 
