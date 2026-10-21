@@ -45,7 +45,7 @@ By using Azure NetApp Files volume placement and replication capabilities across
 
 **Product visualization and desktop mockup:** Azure NetApp Files can provide high-speed access to large graphics files and simulations, enabling faster visualization and mockup times. For simulation process and data management, Azure NetApp Files can provide fast and reliable storage for simulation data, so engineers can quickly run simulations and analyze results.
 
-**AI-assisted engineering document search:** Organizations can use Azure NetApp Files to support AI-assisted search across Teamcenter-managed CAD files, specifications, bills of materials, and engineering documents. Your AI services access PLM and PDM data where it already resides by using the Azure NetApp Files object REST API, which avoids creating separate data copies for search or retrieval workflows. This approach can help engineering teams find relevant product information faster while continuing to use existing access controls and storage architecture.
+**AI-assisted engineering document search:** Organizations can use Azure NetApp Files to support AI-assisted search across Teamcenter-managed CAD files, specifications, bills of materials, and engineering documents. Your AI services access PLM and PDM data where it already resides by using the [Azure NetApp Files object REST API](../../solution-ideas/articles/analytics-netapp-object-api.yml), which avoids creating separate data copies for search or retrieval workflows. This approach can help engineering teams find relevant product information faster while continuing to use existing access controls and storage architecture.
 
 ## Considerations
 
