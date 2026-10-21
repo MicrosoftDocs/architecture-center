@@ -43,17 +43,17 @@ The following data flow corresponds to the previous diagram:
 
 This example uses the following components:
 
-- **[Load Testing](/azure/load-testing/overview-what-is-azure-load-testing)**: Use Load Testing to run Apache JMeter scripts and custom plugins to simulate user and device behaviors. Load Testing provides a web-based interface to manage and run load tests and a set of APIs to automate the process. Load Testing is a fully managed service, which means that you don't need to manage servers or infrastructure. In this architecture, Load Testing uploads the JMeter scripts and custom plugins, and it's the compute where those scripts run.
+- **[Load Testing](/azure/app-testing/load-testing/overview-what-is-azure-load-testing)**: Use Load Testing to run Apache JMeter scripts and custom plugins to simulate user and device behaviors. Load Testing provides a web-based interface to manage and run load tests and a set of APIs to automate the process. Load Testing is a fully managed service, which means that you don't need to manage servers or infrastructure. In this architecture, Load Testing uploads the JMeter scripts and custom plugins, and it's the compute where those scripts run.
 
 - **[Event Hubs](/azure/well-architected/service-guides/azure-event-hubs)**: Event Hubs is a cloud-based event processing service that you can use to collect, process, and analyze events and streaming data from various sources in real time. Event Hubs supports multiple protocols, including Advanced Message Queuing Protocol (AMQP), HTTPS, Kafka protocol, Message Queuing Telemetry Transport (MQTT), and AMQP over WebSocket. This architecture is event based, so Load Testing populates events to load test the workload.
 
-- **[IoT Hub](/azure/well-architected/service-guides/azure-iot-hub)**: IoT Hub is a cloud-hosted managed service that serves as a central message hub for communication between an IoT application and its attached devices. You can connect millions of devices and their back-end solutions reliably and securely. Almost any device can be connected to an IoT hub. You can adapt this architecture to use IoT Hub by changing the Event Hubs client to the IoT Hub client.
+- **[IoT Hub](/azure/iot-hub/)**: IoT Hub is a cloud-hosted managed service that serves as a central message hub for communication between an IoT application and its attached devices. You can connect millions of devices and their back-end solutions reliably and securely. Almost any device can be connected to an IoT hub. You can adapt this architecture to use IoT Hub by changing the Event Hubs client to the IoT Hub client.
 
 - **[Azure Functions](/azure/well-architected/service-guides/azure-functions)**: Functions is a serverless compute service that you can use to run code without needing to manage servers or infrastructure. It supports multiple programming languages, including C#, F#, Java, JavaScript, PowerShell, Python, and TypeScript. This architecture uses Functions as the primary compute tier. Event data in Event Hubs triggers and scales out function apps.
 
 - **[JMeter GUI](https://jmeter.apache.org/download_jmeter.cgi)**: JMeter GUI is an open-source load testing tool that's primarily used to test the performance of web applications. However, you can also use it to test other types of applications, such as SOAP and REST web services, FTP servers, and databases.
 
-- **[Azure Monitor](/azure/azure-monitor/overview)**: Azure Monitor provides monitoring and alerting capabilities for Azure resources. Use it to monitor the performance and health of your applications and the underlying infrastructure. In this architecture, Azure Monitor monitors the health of Azure infrastructure components during the load test.
+- **[Azure Monitor](/azure/azure-monitor/fundamentals/overview)**: Azure Monitor provides monitoring and alerting capabilities for Azure resources. Use it to monitor the performance and health of your applications and the underlying infrastructure. In this architecture, Azure Monitor monitors the health of Azure infrastructure components during the load test.
 
 ## Scenario details
 

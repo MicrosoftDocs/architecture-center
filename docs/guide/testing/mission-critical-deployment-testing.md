@@ -22,14 +22,14 @@ Continuous validation depends on each workload and on architectural characterist
 
 Continuous testing is a complex process that requires proper preparation. What is tested and the expected outcomes must be clear.
 
-In [PE:06 - Recommendations for performance testing](/azure/well-architected/performance-efficiency/performance-test) and [RE:08 - Recommendations for designing a reliability testing strategy](/azure/well-architected/reliability/testing-strategy), the Azure Well-Architected Framework recommends that you start by **identifying key scenarios, dependencies, expected usage, availability, performance, and scalability targets**.
+In [PE:06 - Recommendations for performance testing](/azure/well-architected/performance-efficiency/performance-test) and [RE:08 - Recommendations for designing a reliability testing strategy](/azure/well-architected/reliability/reliability-test), the Azure Well-Architected Framework recommends that you start by **identifying key scenarios, dependencies, expected usage, availability, performance, and scalability targets**.
 
 You should then define a set of **measurable threshold values** to quantify the expected performance of the key scenarios.
 
 > [!TIP]
 > Examples of threshold values include the expected number of user sign-ins, requests per second for a given API, and operations per second for a background process.
 
-You should use threshold values to develop a **[health model for your application](/azure/architecture/framework/mission-critical/mission-critical-health-modeling)**, both for testing and for operating the application in production.
+Use threshold values to develop a **[health model for your application](/azure/well-architected/design-guides/health-modeling)**, both for testing and for operating the application in production.
 
 :::image type="content" source="./images/deployment-testing-key-system-flows.png" alt-text="Visualization of key system flows using green and red connected circles." lightbox="./images/deployment-testing-key-system-flows.png" border="false":::
 
@@ -47,16 +47,16 @@ The second part of continuous validation is the **injection of failures** (chaos
 
 Microsoft Azure provides these managed services to implement load testing and chaos engineering:
 
-- **[Azure Load Testing](/azure/load-testing/)** produces synthetic user load on applications and services.
+- **[Azure Load Testing](/azure/app-testing/load-testing/overview-what-is-azure-load-testing)** produces synthetic user load on applications and services.
 - **[Azure Chaos Studio](/azure/chaos-studio/)** provides the ability to perform chaos experimentation, by systematically injecting failures into application components and infrastructure.
 
 You can deploy and configure both Chaos Studio and Load Testing via the Azure portal, but, in the context of continuous validation, it's more important that you have APIs to deploy, configure, and run tests in a **programmatic and automated way**. Using these two tools together enables you to observe how the system reacts to problems and its ability to self-heal in response to infrastructure or application failures.
 
-The following video shows a [combined implementation of Chaos and Load Testing](/azure/architecture/framework/mission-critical/mission-critical-deployment-testing#demo-continuous-validation-with-azure-load-test-and-azure-chaos-studio) integrated in Azure DevOps:
+The following video shows a [combined implementation of Chaos and Load Testing](/azure/well-architected/mission-critical/mission-critical-deployment-testing#continuous-validation-and-testing) integrated in Azure DevOps:
 
 > [!VIDEO 393a9ab4-6816-4bbf-9c25-94a34a5413e0]
 
-If you're developing a mission-critical workload, take advantage of the detailed guidance provided as part of the [Azure Well-Architected Framework](/azure/architecture/framework/mission-critical).
+If you're developing a mission-critical workload, take advantage of the detailed guidance provided as part of the [Azure Well-Architected Framework](/azure/well-architected/mission-critical/).
 
 One option is to execute the load test directly from within the end-to-end (e2e) pipeline that is used to spin up individual (branch specific) development environments:
 
@@ -85,16 +85,16 @@ The capability is available through the Azure portal, and via the load testing A
 
 We highly recommend **integrating these tests directly into your CI/CD pipelines** and running them during the early stages of feature development.
 
-In summary, failure is inevitable in any complex distributed system and the solution must therefore be architected (and tested) to handle failures. The [Well-Architected Framework mission-critical workload guidance](/azure/architecture/framework/mission-critical/mission-critical-deployment-testing) and reference implementations can help you design and operate highly reliable applications to derive maximum value from the Microsoft cloud.
+In summary, failure is inevitable in any complex distributed system. You must design and test the solution to handle failures. The [Well-Architected Framework mission-critical workload guidance](/azure/well-architected/mission-critical/mission-critical-deployment-testing) and reference implementations can help you design and operate highly reliable applications to derive maximum value from the Microsoft cloud.
 
 ## Next step
 
 Review the deployment and testing design area for mission-critical workloads.
 
 > [!div class="nextstepaction"]
-> [Design area: Deployment and testing](/azure/architecture/framework/mission-critical/mission-critical-deployment-testing)
+> [Design area: Deployment and testing](/azure/well-architected/mission-critical/mission-critical-deployment-testing)
 
 ## Related resources
 
-- [Azure Load Testing documentation](/azure/load-testing/)
+- [Azure Load Testing documentation](/azure/app-testing/load-testing/overview-what-is-azure-load-testing)
 - [Azure Chaos Studio documentation](/azure/chaos-studio/)
