@@ -36,7 +36,7 @@ The following workflow corresponds to the previous diagram:
 
     - Data sorting
 
-    - Data filtering 
+    - Data filtering
 
 1. On-premises databases, like Db2 zOS, Db2 for i, and Db2 LUW, store the application data.
 
@@ -100,11 +100,11 @@ This section describes other tools that you can use during data modernization, d
 
 - [SQL Server on Azure Virtual Machines](/azure/azure-sql/virtual-machines/windows/sql-server-on-azure-vm-iaas-what-is-overview) rehosts code-compatible SQL Server workloads in the cloud. SQL Server on Azure Virtual Machines combines the performance, security, and analytics of SQL Server with the flexibility and hybrid connectivity of Azure. To migrate existing apps or build new apps, use SQL Server on Azure Virtual Machines.
 
-- [Azure Database for PostgreSQL](/azure/well-architected/service-guides/postgresql) is a fully managed relational database service based on the community edition of the open-source [PostgreSQL](https://www.postgresql.org) database engine. Azure Database for PostgreSQL provides scalable application innovation features. 
+- [Azure Database for PostgreSQL](/azure/well-architected/service-guides/postgresql) is a fully managed relational database service based on the community edition of the open-source [PostgreSQL](https://www.postgresql.org) database engine. Azure Database for PostgreSQL provides scalable application innovation features.
 
 - [Azure Cosmos DB](/azure/well-architected/service-guides/cosmos-db) is a globally distributed, [multiple-model](/azure/cosmos-db/modeling-data) database. Use Azure Cosmos DB to ensure that your solutions can elastically and independently scale throughput and storage across multiple geographic regions.
 
-- [Data Lake Storage](/azure/storage/blobs/data-lake-storage-introduction) is a storage repository that holds large amounts of native and raw data. Data lake stores are optimized for scaling to terabytes and petabytes of data. The data typically comes from multiple heterogeneous sources and can be structured, semistructured, or unstructured. [Data Lake Storage Gen2](/azure/databricks/connect/storage/azure-storage) combines Data Lake Storage Gen1 capabilities with Blob Storage. Data Lake Storage Gen2 provides file system semantics, file-level security, and scale. It also provides the tiered storage, high availability, and disaster recovery capabilities of Blob Storage.
+- [Data Lake Storage](/azure/storage/blobs/data-lake-storage-introduction) is a storage repository that holds large amounts of native and raw data. Data lake stores are optimized for scaling to terabytes and petabytes of data. The data typically comes from multiple heterogeneous sources and can be structured, semistructured, or unstructured. [Data Lake Storage Gen2](/azure/databricks/connect/storage/azure-storage) is built on Azure Blob Storage and provides file system semantics, file-level security, and scalability for big data analytics. It also supports tiered storage, high availability, and disaster recovery capabilities.
 
 - [Azure Database for MySQL](/azure/well-architected/service-guides/azure-database-for-mysql) is a fully managed relational database service based on the [community edition of the open-source MySQL database engine](https://www.mysql.com/products/community/).
 

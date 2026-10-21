@@ -71,7 +71,7 @@ Other features that make Azure Storage a good choice are:
 
 [Data Lake Storage Gen2](/azure/storage/blobs/data-lake-storage-introduction) is a single, centralized repository where you can store all your data, both structured and unstructured. A data lake enables your organization to quickly and more easily store, access, and analyze a wide range of data in a single location. With a data lake, you don't need to conform your data to fit an existing structure. Instead, you can store your data in its raw or native format, usually as files or as binary large objects (blobs).
 
-Data Lake Storage Gen2 converges the capabilities of Azure Data Lake Storage Gen1 with Azure Blob Storage. For example, Data Lake Storage Gen2 provides file system semantics, file-level security, and scale. Because these capabilities are built on Blob storage, you also get low-cost, tiered storage, with high availability/disaster recovery capabilities.
+Data Lake Storage Gen2 is built on Azure Blob Storage and provides file system semantics, file-level security, and scalability for big data analytics. It also supports tiered storage, high availability, and disaster recovery capabilities.
 
 Data Lake Storage Gen2 makes Azure Storage the foundation for building enterprise data lakes on Azure. Designed from the start to service multiple petabytes of information while sustaining hundreds of gigabits of throughput, Data Lake Storage Gen2 allows you to easily manage massive amounts of data.
 
@@ -121,32 +121,32 @@ The following tables summarize the key differences in capabilities.
 
 ### OneLake in Fabric capabilities
 
-|Capability|OneLake in Fabric|
+| Capability | OneLake in Fabric |
 | --- | --- |
-| Unified data lake|Provides a single, unified data lake for the entire organization, which eliminates data silos.|
-| Multicloud support|Supports integration and compatibility with various cloud platforms.|
-| Data governance| Includes features like data lineage, data protection, certification, and catalog integration.|
-| Centralized data hub| Acts as a centralized hub for data discovery and management.|
-| Analytical engine support| Compatible with multiple analytical engines. This compatibility enables diverse tools and technologies to operate on the same data.|
-| Security and compliance| Ensures that sensitive data remains secure and access is restricted to authorized users only.|
-| Ease of use| Provides a user-friendly design that's automatically available with every Fabric tenant and requires no setup.|
-| Scalability| Capable of handling large volumes of data from various sources.|
+| Unified data lake | Provides a single, unified data lake for the entire organization, which eliminates data silos. |
+| Multicloud support | Supports integration and compatibility with various cloud platforms. |
+| Data governance | Includes features like data lineage, data protection, certification, and catalog integration. |
+| Centralized data hub | Acts as a centralized hub for data discovery and management. |
+| Analytical engine support | Compatible with multiple analytical engines. This compatibility enables diverse tools and technologies to operate on the same data. |
+| Security and compliance | Ensures that sensitive data remains secure and access is restricted to authorized users only. |
+| Ease of use | Provides a user-friendly design that's automatically available with every Fabric tenant and requires no setup. |
+| Scalability | Capable of handling large volumes of data from various sources. |
 
 ### File storage capabilities
 
 | Capability | Data Lake Storage Gen2 | Azure Blob Storage containers |
 | --- | --- | --- |
-| Purpose | Optimized storage for big data analytics workloads |General purpose object store for a wide range of storage scenarios |
+| Purpose | Optimized storage for big data analytics workloads | General purpose object store for a wide range of storage scenarios |
 | Use cases | Batch, streaming analytics, and machine learning data such as log files, IoT data, click streams, large datasets | Any type of text or binary data, such as application back end, backup data, media storage for streaming, and general purpose data |
 | Structure | Hierarchical file system | Object store with flat namespace |
 | Authentication | Based on [Microsoft Entra identities](/entra/identity-platform/authentication-vs-authorization) | Based on shared secrets [Account Access Keys](/azure/storage/common/storage-account-keys-manage) and [Shared Access Signature Keys](/azure/storage/common/storage-sas-overview), and [Azure RBAC](/azure/storage/blobs/security-recommendations) |
 | Authentication protocol | Open Authorization (OAuth) 2.0. Calls must contain a valid JWT (JSON web token) issued by Microsoft Entra ID | Hash-based Message Authentication Code (HMAC). Calls must contain a Base64-encoded SHA-256 hash over a part of the HTTP request. |
 | Authorization | Portable Operating System Interface (POSIX) access control lists (ACLs). ACLs based on Microsoft Entra identities can be set file and folder level. | For account-level authorization use [Account Access Keys](/azure/storage/common/storage-account-keys-manage). For account, container, or blob authorization use [Shared Access Signature Keys](/azure/storage/common/storage-sas-overview). |
-| Auditing | Available.  |Available |
+| Auditing | Available | Available |
 | Encryption at rest | Transparent, server side | Transparent, server side; Client-side encryption |
 | Developer SDKs | .NET, Java, Python, Node.js | .NET, Java, Python, Node.js, C++, Ruby |
 | Analytics workload performance | Optimized performance for parallel analytics workloads, High Throughput and IOPS | Not optimized for analytics workloads |
-| Size limits | No limits on account sizes, file sizes or number of files | Specific limits documented [here](/azure/azure-resource-manager/management/azure-subscription-service-limits#azure-storage-limits) |
+| Size limits | No limits on account sizes, file sizes or number of files | Specific limits [are documented](/azure/azure-resource-manager/management/azure-subscription-service-limits#azure-storage-limits) |
 | Geo-redundancy | Locally redundant (locally redundant storage (LRS)), globally redundant (geo-redundant storage (GRS)), read-access globally redundant (read-access geo-redundant storage (RA-GRS)), zone-redundant (zone-redundant storage (ZRS)). | Locally redundant (LRS), globally redundant (GRS), read-access globally redundant (RA-GRS), zone-redundant (ZRS). See [Azure Storage redundancy](/azure/storage/common/storage-redundancy) for more information |
 
 ### NoSQL database capabilities
@@ -163,15 +163,15 @@ The following tables summarize the key differences in capabilities.
 
 ### Analytical database capabilities
 
-|Capability|Azure Data Explorer|
+| Capability | Azure Data Explorer |
 | --- | --- |
-| Primary database model|Relational (column store), telemetry, and time series store|
-| SQL language support|Yes|
-| Pricing model| Elastically scalable cluster instances|
-| Authentication| Based on Microsoft Entra identities|
-| Encryption at rest| Supported, customer-managed keys|
-| Analytics workload performance| Optimized performance for parallel analytics workloads|
-| Size limits| Linearly scalable|
+| Primary database model | Relational (column store), telemetry, and time series store |
+| SQL language support | Yes |
+| Pricing model | Elastically scalable cluster instances |
+| Authentication | Based on Microsoft Entra identities |
+| Encryption at rest | Supported, customer-managed keys |
+| Analytics workload performance | Optimized performance for parallel analytics workloads |
+| Size limits | Linearly scalable |
 
 ## Contributors
 
@@ -179,7 +179,7 @@ The following tables summarize the key differences in capabilities.
 
 Principal author:
 
-- [Zoiner Tejada](https://www.linkedin.com/in/zoinertejada) | CEO and Architect
+- [Zoiner Tejada](https://www.linkedin.com/in/zoinertejada/) | CEO and Architect
 
 ## Next steps
 
