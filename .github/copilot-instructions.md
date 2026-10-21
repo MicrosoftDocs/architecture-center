@@ -102,6 +102,7 @@ If you're asked to create data that goes into the Markdown files in this repo. U
 - Be descriptive, not emotional.
 - Avoid the passive voice. Use "you" as the subject where necessary.
 - Avoid generalizations, marketing terms, or weasel words. Words you should generally avoid: seamless, seamlessly, fast, quick, quickly, easy, effortless, effortlessly, simple, simply, world-class, cutting-edge, cheap. You don't know the constraints of the reader or their situation, so you shouldn't make general statements like these. Instead present the facts/metrics/limits in a way that will help an architect make an informed decision.
+- Prefer named section or article links when references like "earlier" or "the linked article" could be ambiguous.
 
 ### Folder and file structure
 
