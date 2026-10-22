@@ -99,7 +99,7 @@ Databases is a broad category and covers a range of solutions. The following res
 
 Most organizations need a hybrid approach to databases because they have workloads that run both on-premises and in the cloud. Organizations typically [extend on-premises database solutions to the cloud](/azure/architecture/databases/guide/hybrid-on-premises-and-cloud). To connect environments, organizations must [choose a hybrid network architecture](/azure/architecture/reference-architectures/hybrid-networking/hybrid-connectivity-options).
 
-- [Azure Arc-enabled PostgreSQL](/azure/azure-arc/data/what-is-azure-arc-enabled-postgresql): Run Azure-managed PostgreSQL on your infrastructure.
+- [SQL Managed Instance enabled by Azure Arc](/azure/azure-arc/data/managed-instance-overview): Run SQL Managed Instance on Kubernetes on your infrastructure.
 - [Azure hybrid and multicloud patterns](/azure/architecture/hybrid/hybrid-start-here): Connect on-premises databases to cloud services.
 
 Review the following key hybrid database scenarios:
