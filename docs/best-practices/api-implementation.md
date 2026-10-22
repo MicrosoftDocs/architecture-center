@@ -1,67 +1,95 @@
 ---
-title: Web API Implementation
+title: RESTful Web API Implementation Best Practices
 description: Learn about best practices for implementing a web API and publishing it to make it available to client applications.
 ms.author: pnp
 author: claytonsiemens77
-ms.date: 07/25/2022
+ms.date: 10/20/2026
 ms.topic: best-practice
 ms.subservice: best-practice
+ai-usage: ai-assisted
 ---
 
-<!-- cSpell:ignore CNAME WADL hashedOrderEtag nonMatchEtags matchEtags -->
+# Best practices for RESTful web API implementation
 
-# Web API implementation
+This article describes best practices for implementing, deploying, and operating a RESTful web API. It focuses on request handling, performance, reliability, publishing, and monitoring. For guidance on resource modeling and API design, see [Web API design](./api-design.md).
 
-A carefully designed RESTful web API defines the resources, relationships, and navigation schemes that are accessible to client applications. When you implement and deploy a web API, you should consider the physical requirements of the environment hosting the web API and the way in which the web API is constructed rather than the logical structure of the data. This guidance focuses on best practices for implementing a web API and publishing it to make it available to client applications. For detailed information about web API design, see [Web API design](./api-design.md).
+The architectural guidance applies across implementation languages and frameworks. The C# examples illustrate ASP.NET Core controllers.
 
 ## Processing requests
 
 Consider the following points when you implement the code to handle requests.
 
-### GET, PUT, DELETE, HEAD, and PATCH actions should be idempotent
+### Preserve HTTP method semantics, and implement idempotency
 
-The code that implements these requests should not impose any side-effects. The same request repeated over the same resource should result in the same state. For example, sending multiple DELETE requests to the same URI should have the same effect, although the HTTP status code in the response messages might be different. The first DELETE request might return status code 204 (No Content), while a subsequent DELETE request might return status code 404 (Not Found).
+Use GET to return resource data and HEAD to return response headers without a body. Don't use either method to create, update, or delete resources.
+
+GET, HEAD, PUT, and DELETE must be idempotent, so repeating an identical request has the same intended effect as performing it once. For example, DELETE changes resource state, but repeating it doesn't delete additional resources. The first DELETE request might return 204 (No Content), while a subsequent request returns 404 (Not Found).
+
+POST and PATCH aren't inherently idempotent. A PATCH operation that sets a property to a value can be idempotent, but one that increments a counter isn't. Document which state-changing operations clients can safely retry. If you support retries for operations that aren't naturally idempotent, implement and document how the service prevents duplicate effects. For method semantics, see [HTTP request methods](./api-design.md#http-request-methods).
 
 > [!NOTE]
-> For implementation guidance, see [Idempotent Consumer pattern](../patterns/idempotent-consumer.md#idempotent-processing-beyond-messaging). In practice, first identify whether an operation is naturally idempotent, and if not, apply artificial idempotency by tracking processed message IDs and handling duplicates proactively or reactively.
+> For implementation guidance, see [Idempotent Consumer pattern](../patterns/idempotent-consumer.md#idempotent-processing-beyond-messaging). In practice, first identify whether an operation is naturally idempotent. If it isn't, apply artificial idempotency by tracking processed message IDs and handling duplicates proactively or reactively.
 
-### POST actions that create new resources should not have unrelated side-effects
+### Validate request data, and control field access
 
-If a POST request is intended to create a new resource, the effects of the request should be limited to the new resource (and possibly any directly related resources if there's some sort of linkage involved). For example, in an e-commerce system, a POST request that creates a new order for a customer might also amend inventory levels and generate billing information, but it should not modify information not directly related to the order or have any other side-effects on the overall state of the system.
+Define request and response models that expose only the fields in the API contract. Map these models to the stored data instead of binding request bodies directly to database entities or returning every stored property. Prevent callers from changing protected properties by submitting additional fields, and omit properties they aren't authorized to read. Data transfer objects (DTOs) are one way to enforce this boundary. For more information, see [Prevent over-posting in ASP.NET Core](/aspnet/core/tutorials/first-web-api#prevent-over-posting).
+
+Validate required fields, types, ranges, and business rules before saving changes. If you support field selection, validate requested fields against an allowlist and the caller's permissions before projecting the response. Apply documented limits to filtering and sorting as well. For the corresponding contract choices, see [Implement pagination and filtering](./api-design.md#implement-data-pagination-and-filtering).
+
+### Limit side effects of POST actions that create resources
+
+When a POST request creates a resource, limit its effects to that resource and directly related resources. For example, creating an order might also update inventory and generate billing information. It shouldn't modify unrelated information.
 
 ### Avoid implementing chatty POST, PUT, and DELETE operations
 
-Avoid designing your API based on *chatty* operations. Every request comes with protocol, network, and compute overhead. For example, executing 100 smaller requests instead of one larger batch request incurs added overhead in the client, on the network, and at the resource server. Whenever possible, provide HTTP verb support for resource collections instead of just individual resources.
+Avoid designing your API based on *chatty* operations. Every request comes with protocol, network, and compute overhead. For example, running 100 smaller requests instead of one larger batch request incurs added overhead in the client, on the network, and at the resource server. For workloads that need bulk operations, consider bounded batch requests instead of many individual requests.
 
 - A GET request to a collection can retrieve multiple resources at the same time.
 - A POST request can contain the details for multiple new resources and add them all to the same collection.
 - A PUT request can replace the entire set of resources in a collection.
 - A DELETE request can remove an entire collection.
 
-The Open Data Protocol (OData) support included in ASP.NET Web API 2 provides the ability to batch requests. A client application can package up several web API requests and send them to the server in a single HTTP request and receive a single HTTP response that contains the replies to each request. For more information, see [Enable Batch in Web API OData Service](/odata/webapi/batch).
+Define maximum batch sizes, payload sizes, execution times, and concurrency. Specify whether a batch is atomic or can partially succeed, and return an outcome for each operation. Authorize and validate every operation in the batch.
+
+If you use OData, you can use ASP.NET Core OData to implement batch requests. For more information, see [ASP.NET Core OData overview](/odata/webapi-8/overview).
 
 ### Follow the HTTP specification when sending a response
 
-A web API must return messages that contain the correct HTTP status code to enable the client to determine how to handle the result, the appropriate HTTP headers so that the client understands the nature of the result, and a suitably formatted body to enable the client to parse the result.
+Return the appropriate HTTP status code, headers, and body format so that clients can interpret and handle the response.
 
-For example, a POST operation should return status code 201 (Created) and the response message should include the URI of the newly created resource in the Location header of the response message.
+For example, a POST operation that creates a resource synchronously should return 201 (Created) and identify the resource in the `Location` response header. An operation that accepts work for later processing can return 202 (Accepted), but that response doesn't indicate that the work succeeded. Don't include a response body with 204 (No Content) or 304 (Not Modified). For more information, see [HTTP request methods](./api-design.md#http-request-methods).
 
 ### Support content negotiation
 
-The body of a response message can contain data in various formats. For example, an HTTP GET request could return data in JSON or XML format. When the client submits a request, it can include an Accept header that specifies the data formats that it can handle. These formats are specified as media types. For example, a client that issues a GET request that retrieves an image can specify an Accept header that lists the media types that the client can handle, such as `image/jpeg, image/gif, image/png`. When the web API returns the result, it should format the data by using one of these media types and specify the format in the Content-Type header of the response.
+A response body can contain data in different formats, such as JSON or XML. Clients can use the `Accept` request header to specify supported media types. For example, a client that requests an image might specify `image/jpeg, image/gif, image/png`. Return a supported representation and identify its media type in the `Content-Type` response header.
 
-If the client doesn't specify an Accept header, then use a sensible default format for the response body. As an example, the ASP.NET Web API framework defaults to JSON for text-based data.
+If the client doesn't specify an `Accept` header, use a documented default format. ASP.NET Core controllers use JSON formatters by default. Define what happens when the API can't produce a requested representation. For example, configure the API to return 406 (Not Acceptable) rather than silently returning an unsupported format. For more information, see [Format response data in ASP.NET Core Web API](/aspnet/core/web-api/advanced/formatting).
+
+For requests with a body, check the request's `Content-Type` and accept only the formats that the operation supports. Return 415 (Unsupported Media Type) for an unsupported format. This check is separate from response negotiation via `Accept`. In ASP.NET Core, configure input formatters and use `[Consumes]` when you need to restrict an operation's request formats. For more informaion, see [Create web APIs with ASP.NET Core](/aspnet/core/web-api/).
+
+### Implement the selected API versioning strategy
+
+Apply the [versioning strategy you chose during design](./api-design.md#implement-versioning) consistently in the application and gateway. Route requests to the handler and response schema for the selected version. Define the behavior for omitted, malformed, and unsupported version identifiers rather than silently changing which contract an existing caller receives.
+
+Preserve the request and response contracts of supported versions. When you introduce a breaking change, provide a new version and keep supported earlier versions available. Handle requests from older callers that omit newly added optional fields. For more information, see [API versioning and compatibility](../microservices/design/api-design.md#api-versioning).
+
+Keep generated resource links and cached representations consistent with the selected version. For header-based versioning, ensure that caches distinguish requests for different versions instead of relying only on the URI.
+
+### Resolve and authorize tenant context
+
+For a [multitenant API](./api-design.md#multitenant-web-apis), determine the tenant for each request and verify that the authenticated caller can access that tenant. Treat tenant identifiers in paths, hostnames, and headers as routing inputs only. For more information, see [Map requests to tenants in a multitenant solution](../guide/multitenant/considerations/map-requests.yml).
+
+Use the authorized tenant context consistently when querying or updating data and when handing work to background processors. If application or gateway caches store tenant-specific data, include the tenant identifier in the cache key. For gateway-specific guidance, see [API Management features that support multitenancy](../guide/multitenant/service/api-management.md#api-management-features-that-support-multitenancy).
 
 ### Provide links to support HATEOAS-style navigation and discovery of resources
 
-The HATEOAS approach enables a client to navigate and discover resources from an initial starting point. This is achieved by using links containing URIs; when a client issues an HTTP GET request to obtain a resource, the response should contain URIs that enable a client application to quickly locate any directly related resources. For example, in a web API that supports an e-commerce solution, a customer might place many orders. When a client application retrieves the details for a customer, the response should include links that enable the client application to send HTTP GET requests that can retrieve these orders. Additionally, HATEOAS-style links should describe the other operations (such as POST, PUT, and DELETE) that each linked resource supports together with the corresponding URI to perform each request. This approach is described in more detail in [API design](./api-design.md).
+Hypertext as the Engine of Application State (HATEOAS) uses links to help clients discover and navigate resources. For example, a response that contains customer details can include links to that customer's orders. Describe the operations that each linked resource supports, such as GET, POST, PUT, and DELETE, and provide the corresponding URIs. For more information, see [API design](./api-design.md#implement-hateoas).
 
-Currently there are no standards that govern the implementation of HATEOAS, but the following example illustrates one possible approach. In this example, an HTTP GET request that finds the details for a customer returns a response that includes HATEOAS links that reference the orders for that customer:
+The following example uses an application-defined link representation. Document its conventions rather than assuming that clients can interpret custom link fields. A GET request for a customer returns links to that customer's orders:
 
 ```http
-GET https://adventure-works.com/customers/2 HTTP/1.1
-Accept: text/json
-...
+GET https://api.contoso.com/customers/2 HTTP/1.1
+Accept: application/json
 ```
 
 ```http
@@ -70,750 +98,564 @@ HTTP/1.1 200 OK
 Content-Type: application/json; charset=utf-8
 ...
 Content-Length: ...
-{"CustomerID":2,"CustomerName":"Bert","Links":[
-    {"rel":"self",
-    "href":"https://adventure-works.com/customers/2",
-    "action":"GET",
-    "types":["text/xml","application/json"]},
-    {"rel":"self",
-    "href":"https://adventure-works.com/customers/2",
-    "action":"PUT",
-    "types":["application/x-www-form-urlencoded"]},
-    {"rel":"self",
-    "href":"https://adventure-works.com/customers/2",
-    "action":"DELETE",
-    "types":[]},
-    {"rel":"orders",
-    "href":"https://adventure-works.com/customers/2/orders",
-    "action":"GET",
-    "types":["text/xml","application/json"]},
-    {"rel":"orders",
-    "href":"https://adventure-works.com/customers/2/orders",
-    "action":"POST",
-    "types":["application/x-www-form-urlencoded"]}
+{"customerId": 2,"customerName": "Bert","links": [
+    {"rel": "self",
+     "href": "https://api.contoso.com/customers/2",
+     "action": "GET",
+     "types": ["text/xml","application/json"]},
+    {"rel": "self",
+     "href": "https://api.contoso.com/customers/2",
+     "action": "PUT",
+     "types": ["application/x-www-form-urlencoded"]},
+    {"rel": "self",
+     "href": "https://api.contoso.com/customers/2",
+     "action": "DELETE",
+     "types": []},
+    {"rel": "orders",
+     "href": "https://api.contoso.com/customers/2/orders",
+     "action": "GET",
+     "types": ["text/xml","application/json"]},
+    {"rel": "orders",
+     "href": "https://api.contoso.com/customers/2/orders",
+     "action": "POST",
+     "types": ["application/x-www-form-urlencoded"]}
 ]}
 ```
 
-In this example, the customer data is represented by the `Customer` class shown in the following code snippet. The HATEOAS links are held in the `Links` collection property:
+The following `Customer` record represents the customer data. Its `Links` property contains the HATEOAS links.
 
 ```csharp
-public class Customer
-{
-    public int CustomerID { get; set; }
-    public string CustomerName { get; set; }
-    public List<Link> Links { get; set; }
-    ...
-}
+public sealed record Customer(
+    int CustomerId,
+    string CustomerName,
+    IReadOnlyList<Link> Links);
 
-public class Link
-{
-    public string Rel { get; set; }
-    public string Href { get; set; }
-    public string Action { get; set; }
-    public string [] Types { get; set; }
-}
+public sealed record Link(
+    string Rel,
+    string Href,
+    string Action,
+    IReadOnlyList<string> Types);
 ```
 
-The HTTP GET operation retrieves the customer data from storage and constructs a `Customer` object, and then populates the `Links` collection. The result is formatted as a JSON response message. Each link includes the following fields:
+The GET operation retrieves the customer data from storage, constructs a `Customer` record with its links, and returns a JSON response. Each link includes the following fields:
 
-- The relationship (`Rel`) between the object being returned and the object described by the link. In this case `self` indicates that the link is a reference back to the object itself (similar to a `this` pointer in many object-oriented languages), and `orders` is the name of a collection containing the related order information.
-- The hyperlink (`Href`) for the object being described by the link in the form of a URI.
-- The type of HTTP request (`Action`) that can be sent to this URI.
+- The relationship (`Rel`) between the returned resource and the linked resource. In this example, `self` refers to the customer, and `orders` refers to the customer's order collection.
+- The hyperlink (`Href`) for the object being described by the link, in the form of a URI.
+- The type of HTTP request (`Action`) that can be sent to the URI.
 - The format of any data (`Types`) that should be provided in the HTTP request or that can be returned in the response, depending on the type of the request.
 
 The HATEOAS links shown in the example HTTP response indicate that a client application can perform the following operations:
 
-- An HTTP GET request to the URI `https://adventure-works.com/customers/2` to fetch the details of the customer (again). The data can be returned as XML or JSON.
-- An HTTP PUT request to the URI `https://adventure-works.com/customers/2` to modify the details of the customer. The new data must be provided in the request message in x-www-form-urlencoded format.
-- An HTTP DELETE request to the URI `https://adventure-works.com/customers/2` to delete the customer. The request doesn't expect any additional information or return data in the response message body.
-- An HTTP GET request to the URI `https://adventure-works.com/customers/2/orders` to find all the orders for the customer. The data can be returned as XML or JSON.
-- An HTTP POST request to the URI `https://adventure-works.com/customers/2/orders` to create a new order for this customer. The data must be provided in the request message in x-www-form-urlencoded format.
+- An HTTP GET request to `https://api.contoso.com/customers/2` to retrieve the customer details as XML or JSON.
+- An HTTP PUT request to `https://api.contoso.com/customers/2` to modify the customer details. The request body uses this format: `application/x-www-form-urlencoded`.
+- An HTTP DELETE request to `https://api.contoso.com/customers/2` to delete the customer record. This operation requires no request body and returns no response body.
+- An HTTP GET request to `https://api.contoso.com/customers/2/orders` to retrieve the customer's orders as XML or JSON.
+- An HTTP POST request to `https://api.contoso.com/customers/2/orders` to create an order for the customer. The request body uses this format: `application/x-www-form-urlencoded`.
 
 ## Handling exceptions
 
-Consider the following points if an operation throws an uncaught exception.
+If an operation throws an exception that isn't handled, consider the following guidance.
 
 ### Capture exceptions and return a meaningful response to clients
 
-The code that implements an HTTP operation should provide comprehensive exception handling rather than letting uncaught exceptions propagate to the framework. If an exception makes it impossible to complete the operation successfully, the exception can be passed back in the response message, but it should include a meaningful description of the error that caused the exception. The exception should also include the appropriate HTTP status code instead of returning status code 500 for every situation. For example, if a user request causes a database update that violates a constraint (such as attempting to delete a customer that has outstanding orders), you should return status code 409 (Conflict) and a message body indicating the reason for the conflict. If some other condition renders the request unachievable, you can return status code 400 (Bad Request). You can find a full list of HTTP status codes on the [Status code definitions](https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html) page on the W3C website.
+Handle exceptions consistently, and return a meaningful error response that's safe to share with clients. Don't return exception objects, stack traces, or internal implementation details in production responses. Return an HTTP status code that reflects the failure instead of returning status code 500 for every situation. For example, if a user request causes a database update that violates a constraint (such as attempting to delete a customer that has outstanding orders), return 409 (Conflict) and a safe explanation. Return 400 (Bad Request) for malformed input or request validation failures, not for unexpected server failures. For HTTP status definitions, see [Status Codes](https://www.rfc-editor.org/rfc/rfc9110.html#name-status-codes). For implementation guidance, see [Handle errors in ASP.NET Core](/aspnet/core/fundamentals/error-handling).
 
-The code example traps different conditions and returns an appropriate response.
+The following controller maps expected domain outcomes to HTTP responses. Its repository operation checks authorization and outstanding orders as part of the deletion operation. Unexpected failures propagate to centralized exception handling rather than being silently caught in each action.
 
 ```csharp
-[HttpDelete]
-[Route("customers/{id:int}")]
-public IHttpActionResult DeleteCustomer(int id)
+using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
+
+[ApiController]
+[Authorize]
+[Route("customers")]
+public sealed class CustomersController(ICustomerRepository repository) : ControllerBase
 {
-    try
+    [HttpDelete("{id:int}")]
+    public async Task<IActionResult> DeleteCustomer(int id, CancellationToken cancellationToken)
     {
-        // Find the customer to be deleted in the repository
-        var customerToDelete = repository.GetCustomer(id);
+        var outcome = await repository.DeleteAuthorizedAsync(id, User, cancellationToken);
 
-        // If there is no such customer, return an error response
-        // with status code 404 (Not Found)
-        if (customerToDelete == null)
+        return outcome switch
         {
-            return NotFound();
-        }
+            DeleteOutcome.Deleted => NoContent(),
+            DeleteOutcome.NotFound => NotFound(),
+            DeleteOutcome.HasOutstandingOrders => Conflict(new ProblemDetails
+            {
+                Status = StatusCodes.Status409Conflict,
+                Title = "The customer has outstanding orders."
+            }),
+            _ => throw new InvalidOperationException("Unknown deletion outcome.")
+        };
+    }
+}
 
-        // Remove the customer from the repository
-        // The DeleteCustomer method returns true if the customer
-        // was successfully deleted
-        if (repository.DeleteCustomer(id))
-        {
-            // Return a response message with status code 204 (No Content)
-            // To indicate that the operation was successful
-            return StatusCode(HttpStatusCode.NoContent);
-        }
-        else
-        {
-            // Otherwise return a 400 (Bad Request) error response
-            return BadRequest(Strings.CustomerNotDeleted);
-        }
-    }
-    catch
-    {
-        // If an uncaught exception occurs, return an error response
-        // with status code 500 (Internal Server Error)
-        return InternalServerError();
-    }
+public enum DeleteOutcome
+{
+    Deleted,
+    NotFound,
+    HasOutstandingOrders
 }
 ```
 
-> [!TIP]
-> Don't include information that could be useful to an attacker attempting to penetrate your API.
+> [!IMPORTANT]
+> Don't include information that could be useful to an attacker attempting to gain unauthorized access to your API.
 
-Many web servers trap error conditions themselves before they reach the web API. For example, if you configure authentication for a web site and the user fails to provide the correct authentication information, the web server should respond with status code 401 (Unauthorized). Once a client has been authenticated, your code can perform its own checks to verify that the client should be able access the requested resource. If this authorization fails, you should return status code 403 (Forbidden).
+The hosting layer can reject requests before they reach the API. For example, authentication failures can result in 401 (Unauthorized) responses. After authentication, verify that the caller is authorized to access the requested resource. Return 403 (Forbidden) when authorization fails.
 
 ### Handle exceptions consistently and log information about errors
 
-To handle exceptions in a consistent manner, consider implementing a global error handling strategy across the entire web API. You should also incorporate error logging which captures the full details of each exception; this error log can contain detailed information as long as it's not made accessible over the web to clients.
+To handle exceptions consistently, consider implementing a global error-handling strategy across the entire web API. Log diagnostic information on the server, but exclude secrets, access tokens, and sensitive personal data. Redact sensitive values before writing log entries, and limit log access to authorized users. For more information, see [Architecture strategies for monitoring and threat detection](/azure/well-architected/security/monitor-threats).
+
+In ASP.NET Core, use exception-handling middleware and Problem Details responses for a consistent error contract. Configure production responses to omit diagnostic details, and include a correlation identifier that support teams can use to locate the corresponding logs. For more information, see [Handle errors in ASP.NET Core](/aspnet/core/fundamentals/error-handling).
 
 ### Distinguish between client-side errors and server-side errors
 
-The HTTP protocol distinguishes between errors that occur due to the client application (the HTTP 4xx status codes), and errors that are caused by a mishap on the server (the HTTP 5xx status codes). Make sure that you respect this convention in any error response messages.
+Use HTTP 4*xx* status codes for client errors and HTTP 5*xx* status codes for server errors. Preserve this distinction in error responses.
 
 ## Optimizing client-side data access
 
-In a distributed environment such as that involving a web server and client applications, one of the primary sources of concern is the network. This can act as a considerable bottleneck, especially if a client application is frequently sending requests or receiving data. Therefore you should aim to minimize the amount of traffic that flows across the network. Consider the following points when you implement the code to retrieve and maintain data:
+Frequent requests and large responses can make the network a bottleneck. Reduce unnecessary transfers when you implement resource retrieval and updates.
 
 ### Support client-side caching
 
-The HTTP 1.1 protocol supports caching in clients and intermediate servers through which a request is routed by the use of the Cache-Control header. When a client application sends an HTTP GET request to the web API, the response can include a Cache-Control header that indicates whether the data in the body of the response can be safely cached by the client or an intermediate server through which the request has been routed, and for how long before it should expire and be considered out-of-date.
+Use the `Cache-Control` response header to specify whether clients and intermediate servers can store a response and how long it remains fresh.
 
 The following example shows an HTTP GET request and the corresponding response that includes a Cache-Control header:
 
 ```http
-GET https://adventure-works.com/orders/2 HTTP/1.1
+GET https://api.contoso.com/orders/2 HTTP/1.1
 ```
 
 ```http
 HTTP/1.1 200 OK
 ...
 Cache-Control: max-age=600, private
-Content-Type: text/json; charset=utf-8
-Content-Length: ...
-{"orderID":2,"productID":4,"quantity":2,"orderValue":10.00}
+Content-Type: application/json
+Content-Length: 59
+
+{"orderId":2,"productId":4,"quantity":2,"orderValue":10.00}
 ```
 
-In this example, the Cache-Control header specifies that the data returned should be expired after 600 seconds, and is only suitable for a single client and must not be stored in a shared cache used by other clients (it's *private*). The Cache-Control header could specify *public* rather than *private* in which case the data can be stored in a shared cache, or it could specify *no-store* in which case the data must **not** be cached by the client. The following code example shows how to construct a Cache-Control header in a response message:
+In this example, the response remains fresh for 600 seconds. The `private` directive permits storage in a private cache, such as a browser cache, but prohibits storage in a shared cache. Use `public` only for responses that are safe to share across callers. Use `no-store` for sensitive responses that must not be stored.
+
+In an ASP.NET Core controller, set cache headers before returning the response:
 
 ```csharp
-public class OrdersController : ApiController
+Response.GetTypedHeaders().CacheControl = new Microsoft.Net.Http.Headers.CacheControlHeaderValue
 {
-    ...
-    [Route("api/orders/{id:int:min(0)}")]
-    [HttpGet]
-    public IHttpActionResult FindOrderByID(int id)
-    {
-        // Find the matching order
-        Order order = ...;
-        ...
-        // Create a Cache-Control header for the response
-        var cacheControlHeader = new CacheControlHeaderValue();
-        cacheControlHeader.Private = true;
-        cacheControlHeader.MaxAge = new TimeSpan(0, 10, 0);
-        ...
-
-        // Return a response message containing the order and the cache control header
-        OkResultWithCaching<Order> response = new OkResultWithCaching<Order>(order, this)
-        {
-            CacheControlHeader = cacheControlHeader
-        };
-        return response;
-    }
-    ...
-}
-```
-
-This code uses a custom `IHttpActionResult` class named `OkResultWithCaching`. This class enables the controller to set the cache header contents:
-
-```csharp
-public class OkResultWithCaching<T> : OkNegotiatedContentResult<T>
-{
-    public OkResultWithCaching(T content, ApiController controller)
-        : base(content, controller) { }
-
-    public OkResultWithCaching(T content, IContentNegotiator contentNegotiator, HttpRequestMessage request, IEnumerable<MediaTypeFormatter> formatters)
-        : base(content, contentNegotiator, request, formatters) { }
-
-    public CacheControlHeaderValue CacheControlHeader { get; set; }
-    public EntityTagHeaderValue ETag { get; set; }
-
-    public override async Task<HttpResponseMessage> ExecuteAsync(CancellationToken cancellationToken)
-    {
-        HttpResponseMessage response;
-        try
-        {
-            response = await base.ExecuteAsync(cancellationToken);
-            response.Headers.CacheControl = this.CacheControlHeader;
-            response.Headers.ETag = ETag;
-        }
-        catch (OperationCanceledException)
-        {
-            response = new HttpResponseMessage(HttpStatusCode.Conflict) {ReasonPhrase = "Operation was cancelled"};
-        }
-        return response;
-    }
-}
+    Private = true,
+    MaxAge = TimeSpan.FromMinutes(10)
+};
 ```
 
 > [!NOTE]
-> The HTTP protocol also defines the *no-cache* directive for the Cache-Control header. Rather confusingly, this directive doesn't mean "do not cache" but rather "revalidate the cached information with the server before returning it"; the data can still be cached, but it's checked each time it's used to ensure that it's still current.
+> The `no-cache` directive permits storage but requires revalidation before reuse. Use `no-store` to prohibit storage.
 
-Cache management is the responsibility of the client application or intermediate server, but if properly implemented it can save bandwidth and improve performance by removing the need to fetch data that has already been recently retrieved.
+The API controls the cache policy and validators in its responses. Clients and intermediate servers use that information to manage their caches. Set these headers consistently so that callers can reuse responses without unnecessary data transfers.
 
-The *max-age* value in the Cache-Control header is only a guide and not a guarantee that the corresponding data won't change during the specified time. The web API should set the max-age to a suitable value depending on the expected volatility of the data. When this period expires, the client should discard the object from the cache.
-
-> [!NOTE]
-> Most modern web browsers support client-side caching by adding the appropriate cache-control headers to requests and examining the headers of the results, as described. But some older browsers don't cache the values returned from a URL that include a query string. This isn't usually an issue for custom client applications that implement their own cache management strategy based on the protocol discussed here.
->
-> Some older proxies exhibit the same behavior and might not cache requests based on URLs with query strings. This could be an issue for custom client applications that connect to a web server through such a proxy.
+To determine `max-age`, consider how much staleness the workload can tolerate. A resource can change while a cached response is still fresh. When freshness expires, a cache can revalidate the response instead of discarding it and downloading the entire representation again. Don't use a long freshness lifetime for data that requires immediate visibility of changes.
 
 ### Provide ETags to optimize query processing
 
-When a client application retrieves an object, the response message can also include an *entity tag (ETag)*. An ETag is an opaque string that indicates the version of a resource; each time a resource changes the ETag is also modified. This ETag should be cached as part of the data by the client application. The following code example shows how to add an ETag as part of the response to an HTTP GET request. This code uses the `GetHashCode` method of an object to generate a numeric value that identifies the object (you can override this method if necessary and generate your own hash using an algorithm such as MD5):
+An *entity tag (ETag)* is an opaque validator for a selected resource representation. Clients can retain it with a cached response and send it in `If-None-Match` to check whether the representation changed. A matching GET or HEAD request returns 304 (Not Modified) without a response body.
+
+Generate a validator that remains consistent across application instances and changes when the representation changes.
+
+The following controller hashes the exact JSON bytes it returns and reuses the application's configured JSON options. `FileContentResult` applies ASP.NET Core conditional-response handling without custom result wrappers. The repository returns only an order that the caller is authorized to read. Configure authentication and authorization in the host application.
 
 ```csharp
-public class OrdersController : ApiController
+using System.Security.Cryptography;
+using System.Text.Json;
+using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Options;
+using Microsoft.Net.Http.Headers;
+
+[ApiController]
+[Authorize]
+[Route("orders")]
+public sealed class OrdersController(IOrderRepository repository,IOptions<JsonOptions> jsonOptions) : ControllerBase
 {
-    ...
-    public IHttpActionResult FindOrderByID(int id)
+    [HttpGet("{id:int}")]
+    [HttpHead("{id:int}")]
+    public async Task<IActionResult> GetOrder(int id, CancellationToken cancellationToken)
     {
-        // Find the matching order
-        Order order = ...;
-        ...
-
-        var hashedOrder = order.GetHashCode();
-        string hashedOrderEtag = $"\"{hashedOrder}\"";
-        var eTag = new EntityTagHeaderValue(hashedOrderEtag);
-
-        // Return a response message containing the order and the cache control header
-        OkResultWithCaching<Order> response = new OkResultWithCaching<Order>(order, this)
+        var order = await repository.FindAuthorizedAsync(id, User, cancellationToken);
+        if (order is null)
         {
-            ...,
-            ETag = eTag
+            return NotFound();
+        }
+
+        var payload = JsonSerializer.SerializeToUtf8Bytes(order, jsonOptions.Value.JsonSerializerOptions);
+        var etag = new EntityTagHeaderValue($"\"{Convert.ToHexString(SHA256.HashData(payload))}\"");
+
+        Response.GetTypedHeaders().CacheControl = new CacheControlHeaderValue
+        {
+            Private = true,
+            MaxAge = TimeSpan.FromMinutes(10)
         };
-        return response;
+
+        return new FileContentResult(payload, "application/json")
+        {
+            EntityTag = etag
+        };
     }
-    ...
 }
 ```
 
-The response message posted by the web API looks like this:
+This example buffers the representation and reads the order even for a conditional request. Use it only for bounded, nonsensitive responses. For large resources, consider using a stored version token that changes whenever the selected representation changes, so that you can validate a request without generating the full payload. If content negotiation, compression, or gateway transformations change the representation, ensure that validators and cache variation remain correct for that representation.
+
+A response includes the ETag and cache policy. The following examples show the first 16 hexadecimal characters (64 bits) of the displayed JSON body's SHA-256 hash, followed by `...` for brevity. Actual headers contain the full hash without the ellipsis.
 
 ```http
 HTTP/1.1 200 OK
 ...
 Cache-Control: max-age=600, private
-Content-Type: text/json; charset=utf-8
-ETag: "2147483648"
-Content-Length: ...
-{"orderID":2,"productID":4,"quantity":2,"orderValue":10.00}
+Content-Type: application/json
+ETag: "3097D1FD51082205..."
+Content-Length: 59
+
+{"orderId":2,"productId":4,"quantity":2,"orderValue":10.00}
 ```
 
 > [!TIP]
-> For security reasons, don't allow sensitive data or data returned over an authenticated (HTTPS) connection to be cached.
+> Use `Cache-Control: no-store` for responses that contain sensitive data. For other user-specific responses that can be cached, use `private` to prevent storage in shared caches. For implementation considerations, see [Response caching middleware in ASP.NET Core](/aspnet/core/performance/caching/middleware).
 
-A client application can issue a subsequent GET request to retrieve the same resource at any time, and if the resource has changed (it has a different ETag) the cached version should be discarded and the new version added to the cache. If a resource is large and requires a significant amount of bandwidth to transmit back to the client, repeated requests to fetch the same data can become inefficient. To combat this, the HTTP protocol defines the following process for optimizing GET requests that you should support in a web API:
+Support conditional GET requests so that callers can revalidate cached responses without downloading an unchanged representation. Implement the following request and response behavior:
 
-- The client constructs a GET request containing the ETag for the currently cached version of the resource referenced in an If-None-Match HTTP header:
+1. Accept conditional GET requests that supply an ETag in the `If-None-Match` header, such as:
 
     ```http
-    GET https://adventure-works.com/orders/2 HTTP/1.1
-    If-None-Match: "2147483648"
+    GET https://api.contoso.com/orders/2 HTTP/1.1
+    If-None-Match: "3097D1FD51082205..."
     ```
 
-- The GET operation in the web API obtains the current ETag for the requested data (order 2 in the above example), and compares it to the value in the If-None-Match header.
+1. Compare the current ETag for the requested resource (order 2 in this example) with the `If-None-Match` condition.
 
-- If the current ETag for the requested data matches the ETag provided by the request, the resource has not changed and the web API should return an HTTP response with an empty message body and a status code of 304 (Not Modified).
+   - If the condition matches, return 304 (Not Modified) without a response body.
 
-- If the current ETag for the requested data doesn't match the ETag provided by the request, then the data has changed and the web API should return an HTTP response with the new data in the message body and a status code of 200 (OK).
+   - If the condition doesn't match, return 200 (OK) with the current representation.
 
-- If the requested data no longer exists then the web API should return an HTTP response with the status code of 404 (Not Found).
-
-- The client uses the status code to maintain the cache. If the data has not changed (status code 304) then the object can remain cached and the client application should continue to use this version of the object. If the data has changed (status code 200) then the cached object should be discarded and the new one inserted. If the data is no longer available (status code 404) then the object should be removed from the cache.
+   - If the requested resource no longer exists, return 404 (Not Found).
 
 > [!NOTE]
-> If the response header contains the Cache-Control header no-store then the object should always be removed from the cache regardless of the HTTP status code.
+> An ETag doesn't make a response safe to cache. Apply cache directives consistently, including on conditional and error responses, and use `no-store` for sensitive data.
 
-The following code shows the `FindOrderByID` method extended to support the If-None-Match header. Notice that if the If-None-Match header is omitted, the specified order is always retrieved:
-
-```csharp
-public class OrdersController : ApiController
-{
-    [Route("api/orders/{id:int:min(0)}")]
-    [HttpGet]
-    public IHttpActionResult FindOrderByID(int id)
-    {
-        try
-        {
-            // Find the matching order
-            Order order = ...;
-
-            // If there is no such order then return NotFound
-            if (order == null)
-            {
-                return NotFound();
-            }
-
-            // Generate the ETag for the order
-            var hashedOrder = order.GetHashCode();
-            string hashedOrderEtag = $"\"{hashedOrder}\"";
-
-            // Create the Cache-Control and ETag headers for the response
-            IHttpActionResult response;
-            var cacheControlHeader = new CacheControlHeaderValue();
-            cacheControlHeader.Public = true;
-            cacheControlHeader.MaxAge = new TimeSpan(0, 10, 0);
-            var eTag = new EntityTagHeaderValue(hashedOrderEtag);
-
-            // Retrieve the If-None-Match header from the request (if it exists)
-            var nonMatchEtags = Request.Headers.IfNoneMatch;
-
-            // If there is an ETag in the If-None-Match header and
-            // this ETag matches that of the order just retrieved,
-            // then create a Not Modified response message
-            if (nonMatchEtags.Count > 0 &&
-                String.CompareOrdinal(nonMatchEtags.First().Tag, hashedOrderEtag) == 0)
-            {
-                response = new EmptyResultWithCaching()
-                {
-                    StatusCode = HttpStatusCode.NotModified,
-                    CacheControlHeader = cacheControlHeader,
-                    ETag = eTag
-                };
-            }
-            // Otherwise create a response message that contains the order details
-            else
-            {
-                response = new OkResultWithCaching<Order>(order, this)
-                {
-                    CacheControlHeader = cacheControlHeader,
-                    ETag = eTag
-                };
-            }
-
-            return response;
-        }
-        catch
-        {
-            return InternalServerError();
-        }
-    }
-...
-}
-```
-
-This example incorporates an additional custom `IHttpActionResult` class named `EmptyResultWithCaching`. This class serves as a wrapper around an `HttpResponseMessage` object that doesn't contain a response body:
-
-```csharp
-public class EmptyResultWithCaching : IHttpActionResult
-{
-    public CacheControlHeaderValue CacheControlHeader { get; set; }
-    public EntityTagHeaderValue ETag { get; set; }
-    public HttpStatusCode StatusCode { get; set; }
-    public Uri Location { get; set; }
-
-    public async Task<HttpResponseMessage> ExecuteAsync(CancellationToken cancellationToken)
-    {
-        HttpResponseMessage response = new HttpResponseMessage(StatusCode);
-        response.Headers.CacheControl = this.CacheControlHeader;
-        response.Headers.ETag = this.ETag;
-        response.Headers.Location = this.Location;
-        return response;
-    }
-}
-```
+Use framework support for conditional requests where possible. If you implement comparisons yourself, handle all supplied entity tags, wildcard conditions, and weak versus strong comparison rules rather than comparing only the first tag. Include the appropriate ETag and cache headers on 304 (Not Modified) responses, and perform authorization before returning resource metadata.
 
 > [!TIP]
-> In this example, the ETag for the data is generated by hashing the data retrieved from the underlying data source. If the ETag can be computed in some other way, then the process can be optimized further and the data only needs to be fetched from the data source if it has changed. This approach is especially useful if the data is large or accessing the data source can result in significant latency (for example, if the data source is a remote database).
+> A stored validator can let you check whether a representation changed without retrieving the full resource. This approach can reduce data transfer and processing when the resource is large or expensive to retrieve.
 
-### Use ETags to Support Optimistic Concurrency
+### Use ETags to support optimistic concurrency
 
-To enable updates over previously cached data, the HTTP protocol supports an optimistic concurrency strategy. If, after fetching and caching a resource, the client application subsequently sends a PUT or DELETE request to change or remove the resource, it should include an If-Match header that references the ETag. The web API can then use this information to determine whether the resource has already been changed by another user since it was retrieved and send an appropriate response back to the client application as follows:
+To prevent lost updates, evaluate `If-Match` preconditions on state-changing requests against the resource's current ETag. This lets the API reject a change based on a representation that another operation has already modified. Implement the following behavior:
 
-- The client constructs a PUT request containing the new details for the resource and the ETag for the currently cached version of the resource referenced in an If-Match HTTP header. The following example shows a PUT request that updates an order:
+1. Accept update requests that identify the expected version in the `If-Match` header. The following PUT request updates order 2. It uses the ETag from the earlier GET response, abbreviated in the same way. The tag identifies the existing representation, not the new request body:
 
     ```http
-    PUT https://adventure-works.com/orders/1 HTTP/1.1
-    If-Match: "2282343857"
+    PUT https://api.contoso.com/orders/2 HTTP/1.1
+    If-Match: "3097D1FD51082205..."
     Content-Type: application/x-www-form-urlencoded
-    Content-Length: ...
-    productID=3&quantity=5&orderValue=250
+    Content-Length: 37
+
+    productId=3&quantity=5&orderValue=250
     ```
 
-- The PUT operation in the web API obtains the current ETag for the requested data (order 1 in the above example), and compares it to the value in the If-Match header.
+1. Compare the current ETag for the requested resource (order 2 in this example) with the `If-Match` condition.
 
-- If the current ETag for the requested data matches the ETag provided by the request, the resource has not changed and the web API should perform the update, returning a message with HTTP status code 204 (No Content) if it's successful. The response can include Cache-Control and ETag headers for the updated version of the resource. The response should always include the Location header that references the URI of the newly updated resource.
+   - If the precondition matches, perform the update atomically and return the documented success response, such as 204 (No Content). A `Location` header isn't required merely because an existing resource was updated. Only return an ETag on a successful PUT response when it satisfies HTTP's validator requirements for the stored representation.
 
-- If the current ETag for the requested data doesn't match the ETag provided by the request, then the data has been changed by another user since it was fetched and the web API should return an HTTP response with an empty message body and a status code of 412 (Precondition Failed).
+   - If the condition doesn't match, return 412 (Precondition Failed). This example returns no response body.
 
-- If the resource to be updated no longer exists then the web API should return an HTTP response with the status code of 404 (Not Found).
+   - If the resource to update no longer exists, return 404 (Not Found).
 
-- The client uses the status code and response headers to maintain the cache. If the data has been updated (status code 204) then the object can remain cached (as long as the Cache-Control header doesn't specify no-store) but the ETag should be updated. If the data was changed by another user (status code 412) or not found (status code 404) then the cached object should be discarded.
+1. Document the success and conflict responses so that callers can determine whether an update succeeded or whether they need to retrieve the current representation before submitting another change.
 
-The next code example shows an implementation of the PUT operation for the Orders controller:
+For operations that must prevent lost updates, require an `If-Match` precondition and return 428 (Precondition Required) when it's missing. Use strong comparison for `If-Match`.
 
-```csharp
-public class OrdersController : ApiController
-{
-    [HttpPut]
-    [Route("api/orders/{id:int}")]
-    public IHttpActionResult UpdateExistingOrder(int id, DTOOrder order)
-    {
-        try
-        {
-            var baseUri = Constants.GetUriFromConfig();
-            var orderToUpdate = this.ordersRepository.GetOrder(id);
-            if (orderToUpdate == null)
-            {
-                return NotFound();
-            }
+Checking a version in application memory and then saving unconditionally creates a race condition. Enforce the version comparison and the write atomically in the data store. For example, use a database concurrency token so that the update succeeds only if the stored version still matches the version used to evaluate the request.
 
-            var hashedOrder = orderToUpdate.GetHashCode();
-            string hashedOrderEtag = $"\"{hashedOrder}\"";
-
-            // Retrieve the If-Match header from the request (if it exists)
-            var matchEtags = Request.Headers.IfMatch;
-
-            // If there is an ETag in the If-Match header and
-            // this ETag matches that of the order just retrieved,
-            // or if there is no ETag, then update the Order
-            if (((matchEtags.Count > 0 &&
-                String.CompareOrdinal(matchEtags.First().Tag, hashedOrderEtag) == 0)) ||
-                matchEtags.Count == 0)
-            {
-                // Modify the order
-                orderToUpdate.OrderValue = order.OrderValue;
-                orderToUpdate.ProductID = order.ProductID;
-                orderToUpdate.Quantity = order.Quantity;
-
-                // Save the order back to the data store
-                // ...
-
-                // Create the No Content response with Cache-Control, ETag, and Location headers
-                var cacheControlHeader = new CacheControlHeaderValue();
-                cacheControlHeader.Private = true;
-                cacheControlHeader.MaxAge = new TimeSpan(0, 10, 0);
-
-                hashedOrder = order.GetHashCode();
-                hashedOrderEtag = $"\"{hashedOrder}\"";
-                var eTag = new EntityTagHeaderValue(hashedOrderEtag);
-
-                var location = new Uri($"{baseUri}/{Constants.ORDERS}/{id}");
-                var response = new EmptyResultWithCaching()
-                {
-                    StatusCode = HttpStatusCode.NoContent,
-                    CacheControlHeader = cacheControlHeader,
-                    ETag = eTag,
-                    Location = location
-                };
-
-                return response;
-            }
-
-            // Otherwise return a Precondition Failed response
-            return StatusCode(HttpStatusCode.PreconditionFailed);
-        }
-        catch
-        {
-            return InternalServerError();
-        }
-    }
-    ...
-}
-```
-
-> [!TIP]
-> Use of the If-Match header is entirely optional, and if it's omitted the web API always attempts to update the specified order, possibly blindly overwriting an update made by another user. To avoid problems due to lost updates, always provide an If-Match header.
+In Entity Framework (EF) Core, configure a concurrency token and handle `DbUpdateConcurrencyException` rather than overwriting a concurrent change. In the API's data-access code, don't automatically replace the expected version and retry a conflicting database update unless the operation's semantics permit it. For more information, see [Handling concurrency conflicts](/ef/core/saving/concurrency).
 
 ## Handling large requests and responses
 
-Occasionally, a client application needs to issue requests that send or receive data that might be several megabytes (or bigger) in size. Waiting while this amount of data is transmitted could cause the client application to become unresponsive. Consider the following points when you need to handle requests that include significant amounts of data:
+Large request and response bodies consume API memory, bandwidth, and connection capacity. Implement streaming and resource limits so that large transfers don't exhaust the service. Consider the following points when handling significant amounts of data:
 
 ### Optimize requests and responses that involve large objects
 
-Some resources might be large objects or include large fields, such as graphics images or other types of binary data. A web API should support streaming to enable optimized uploading and downloading of these resources.
+For large objects, such as images or other binary data, support streaming uploads and downloads.
 
-The HTTP protocol provides the chunked transfer encoding mechanism to stream large data objects back to a client. When the client sends an HTTP GET request for a large object, the web API can send the reply back in piecemeal *chunks* over an HTTP connection. The length of the data in the reply might not be known initially (it might be generated), so the server hosting the web API should send a response message with each chunk that specifies the `Transfer-Encoding: Chunked` header rather than a Content-Length header. The client application can receive each chunk in turn to build up the complete response. The data transfer completes when the server sends back a final chunk with zero size.
+Use asynchronous streaming APIs and let the server select transfer framing for the negotiated HTTP version. Don't manually add `Transfer-Encoding: chunked` to each piece of a response. Streaming isn't limited to HTTP/1.1 chunked encoding. Avoid buffering an entire unbounded request or response in application memory.
 
-A single request could conceivably result in a massive object that consumes considerable resources. If during the streaming process the web API determines that the amount of data in a request has exceeded some acceptable bounds, it can cancel the operation and return a response message with status code 413 (Request Entity Too Large).
+Set request-body limits, upload limits, timeouts, and cancellation policies at the application and hosting layers. Reject an oversized request with 413 (Content Too Large) before starting the response.
 
-You can minimize the size of large objects transmitted over the network by using HTTP compression. This approach helps to reduce the amount of network traffic and the associated network latency, but at the cost of requiring additional processing at the client and the server hosting the web API. For example, a client application that expects to receive compressed data can include an `Accept-Encoding: gzip` request header (other data compression algorithms can also be specified). If the server supports compression it should respond with the content held in gzip format in the message body and the `Content-Encoding: gzip` response header.
+HTTP compression can reduce transfer size, at the cost of additional processing on the server and client. For example, a client can send `Accept-Encoding: gzip`. If the server returns gzip-compressed content, identify the encoding by using `Content-Encoding: gzip`.
 
-You can combine encoded compression with streaming; compress the data first before streaming it, and specify the gzip content encoding and chunked transfer encoding in the message headers. Some web servers, like Internet Information Server, can be configured to automatically compress HTTP responses regardless of whether the web API compresses the data.
+Configure compression through the hosting platform or middleware and measure its CPU and bandwidth tradeoffs at both the client and server sides.
 
-### Implement partial responses for clients that don't support asynchronous operations
+- Avoid recompressing formats that are already compressed.
+- Before enabling compression for dynamically generated HTTPS responses, assess compression risks, such as [BREACH](https://wikipedia.org/wiki/BREACH), and apply appropriate mitigations. Even if you disable HTTPS compression in your middleware, your hosting server might be configured to apply compression.
+- Ensure that cache variation and ETags remain correct when content encoding changes.
 
-As an alternative to asynchronous streaming, a client application can explicitly request data for large objects in chunks, known as partial responses. The client application sends an HTTP HEAD request to obtain information about the object. If the web API supports partial responses it should respond to the HEAD request with a response message that contains an `Accept-Ranges` header and a `Content-Length` header that indicates the total size of the object, but the body of the message should be empty. The client application can use this information to construct a series of GET requests that specify a range of bytes to receive. The web API should return a response message with HTTP status 206 (Partial Content), a Content-Length header that specifies the actual amount of data included in the body of the response message, and a Content-Range header that indicates which part (such as bytes `4000` to `8000`) of the object this data represents.
+For compression implementation guidance and security considerations, see [Response compression in ASP.NET Core](/aspnet/core/performance/response-compression).
 
-HTTP HEAD requests and partial responses are described in more detail in [API design](./api-design.md).
+<a id="implement-partial-responses-for-clients-that-dont-support-asynchronous-operations"></a>
 
-### Avoid sending unnecessary 100-Continue status messages in client applications
+### Support partial downloads of large resources
 
-A client application that is about to send a large amount of data to a server might determine first whether the server is actually willing to accept the request. Before the client application sends the data, it can submit an HTTP request that has an empty message body and an `Expect: 100-Continue` header, which is a `Content-Length` header that indicates the size of the data. If the server is willing to handle the request, it should respond with a message that specifies the HTTP status 100 (Continue). The client application can then proceed and send the complete request, including the data in the message body.
+If the API supports partial downloads of large resources, advertise that capability with `Accept-Ranges`. Handle HEAD requests by returning the resource's metadata, including its total `Content-Length`, without a response body. For GET requests that specify a supported byte range, return 206 (Partial Content), a `Content-Length` for the returned portion, and a `Content-Range` that identifies that portion of the resource. This response contract lets callers retrieve portions of a resource without requiring the API to return the entire object.
 
-If you host a service by using Internet Information Services (IIS), the HTTP.sys driver automatically detects and handles Expect: 100-Continue headers before passing requests to your web application. This means that you are unlikely to see these headers in your application code, and you can assume that IIS has already filtered any messages that it deems to be unfit or too large.
+HTTP HEAD requests and partial responses are described in more detail in [API design](./api-design.md#support-partial-responses).
 
-If you build client applications by using the .NET Framework, then all POST and PUT messages will first send messages with Expect: 100-Continue headers by default. As with the server-side, the process is handled transparently by the .NET Framework. But this process results in each POST and PUT request causing two round-trips to the server, even for small requests. If your application isn't sending requests with large amounts of data, you can disable this feature by using the `ServicePointManager` class to create `ServicePoint` objects in the client application. A `ServicePoint` object handles the connections that the client makes to a server based on the scheme and host fragments of URIs that identify resources on the server. You can then set the `Expect100Continue` property of the `ServicePoint` object to false. All subsequent POST and PUT requests made by the client through a URI that matches the scheme and host fragments of the `ServicePoint` object are sent without Expect: 100-Continue headers. The following code shows how to configure a `ServicePoint` object that configures all requests sent to URIs with a scheme of `http` and a host of `www.contoso.com`.
+### Handle 100-Continue for large uploads
 
-```csharp
-Uri uri = new Uri("https://www.contoso.com/");
-ServicePoint sp = ServicePointManager.FindServicePoint(uri);
-sp.Expect100Continue = false;
-```
+For a large HTTP/1.1 upload, a client can send request headers with `Expect: 100-continue` and wait before transmitting the body. The server can send an interim 100 (Continue) response or reject the request without receiving the full body. This exchange is part of one request, not a preliminary empty request followed by a second complete request.
 
-You can also set the static `Expect100Continue` property of the `ServicePointManager` class to specify the default value of this property for all subsequently created [ServicePoint](/dotnet/api/system.net.servicepoint) objects.
+Configure and test how the hosting stack and gateway handle requests with and without `Expect: 100-continue`. Verify the API's behavior when it accepts or rejects an upload, and measure the effects on server resource use and request latency.
 
 ### Support pagination for requests that might return large numbers of objects
 
-If a collection contains a large number of resources, issuing a GET request to the corresponding URI could result in significant processing on the server hosting the web API affecting performance, and generate a significant amount of network traffic resulting in increased latency.
+Retrieving an entire large collection can increase server processing, network traffic, and latency.
 
-To handle these cases, the web API should support query strings that enable the client application to refine requests or fetch data in more manageable, discrete blocks (or pages). The following code shows the `GetAllOrders` method in the `Orders` controller. This method retrieves the details of orders. If this method was unconstrained, it could conceivably return a large amount of data. The `limit` and `offset` parameters are intended to reduce the volume of data to a smaller subset, in this case only the first 10 orders by default:
+Validate pagination inputs on the server and enforce a maximum page size. The following controller illustrates request validation. It defaults to 10 results and rejects limits outside 1 through 100 or offsets outside 0 through 10,000. These bounds are illustrative. Choose limits based on the workload and load tests. When you use `[ApiController]`, validation failures produce a 400 response. For more information, see [Create web APIs with ASP.NET Core](/aspnet/core/web-api/).
 
 ```csharp
-public class OrdersController : ApiController
+using System.ComponentModel.DataAnnotations;
+using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
+
+[ApiController]
+[Authorize]
+[Route("orders")]
+public sealed class OrderCollectionsController(IOrderRepository repository) : ControllerBase
 {
-    ...
-    [Route("api/orders")]
     [HttpGet]
-    public IEnumerable<Order> GetAllOrders(int limit=10, int offset=0)
+    public async Task<ActionResult<IReadOnlyList<Order>>> GetOrders(
+        [FromQuery, Range(1, 100)] int limit = 10,
+        [FromQuery, Range(0, 10000)] int offset = 0,
+        CancellationToken cancellationToken = default)
     {
-        // Find the number of orders specified by the limit parameter
-        // starting with the order specified by the offset parameter
-        var orders = ...
-        return orders;
+        var orders = await repository.ListAuthorizedAsync(limit, offset, User, cancellationToken);
+        return Ok(orders);
     }
-    ...
 }
 ```
 
-A client application can issue a request to retrieve 30 orders starting at offset 50 by using the URI `https://www.adventure-works.com/api/orders?limit=30&offset=50`.
+A client can request 30 orders starting at offset 50 by using `https://api.contoso.com/orders?limit=30&offset=50`.
+
+Beyond the request validation shown in the preceding example, include a next-page link or continuation token in the response contract. For example, return the orders with a `nextLink` property set to `https://api.contoso.com/orders?limit=30&offset=80` when another page is available. Preserve filters, sort order, and API version in the link. Omit `nextLink` or set it to `null` on the last page. For an example of a next-link contract, see [Microsoft Graph paging](/graph/paging).
+
+Apply filtering and pagination in the data store, not after loading the entire collection. Use a deterministic sort order. For large or frequently changing collections, evaluate cursor-based pagination to avoid expensive offsets and unstable page boundaries.
 
 > [!TIP]
-> Avoid enabling client applications to specify query strings that result in a URI that is more than 2000 characters long. Many web clients and servers can't handle URIs that are this long.
+> Enforce documented bounds on query complexity, filter expressions, and request size. Test the limits of every gateway, proxy, and server in the request path.
 
 ## Maintaining responsiveness, scalability, and availability
 
-The same web API might be used by many client applications running anywhere in the world. It is important to ensure that the web API is implemented to maintain responsiveness under a heavy load, to be scalable to support a highly varying workload, and to guarantee availability for clients that perform business-critical operations. Consider the following points when determining how to meet these requirements:
+Define latency, throughput, and availability objectives for the API's critical operations. Design and test for expected traffic, bursts, and dependency failures. Scale-out and stateless handling support those objectives. Consider the following implementation requirements.
 
 ### Provide asynchronous support for long-running requests
 
-A request that might take a long time to process should be performed without blocking the client that submitted the request. The web API can perform some initial checking to validate the request, initiate a separate task to perform the work, and then return a response message with HTTP code 202 (Accepted). The task could run asynchronously as part of the web API processing, or it could be offloaded to a background task. For the full HTTP semantics and implementation guidance, see the [Asynchronous Request-Reply pattern](../patterns/asynchronous-request-reply.md).
+For work that outlasts a normal HTTP request, validate and authorize the request, durably record the work, and return 202 (Accepted). Don't rely on an untracked in-process task to finish after a response: application restarts, scale-in, and deployment can interrupt it. Use a durable queue and worker or a durable workflow when the work must continue running despite those events. For the full HTTP semantics and implementation guidance, see [Asynchronous Request-Reply pattern](../patterns/asynchronous-request-reply.md).
 
-The web API should also provide a mechanism to return the results of the processing to the client application. You can achieve this by providing a polling mechanism for client applications to periodically query whether the processing has finished and obtain the result, or enabling the web API to send a notification when the operation has completed.
+Provide a way for callers to retrieve the operation's status and result. The API can also notify callers when processing completes.
 
-You can implement a simple polling mechanism by providing a *polling* URI that acts as a virtual resource using the following approach:
+You can provide a status resource that clients poll:
 
-1. The client application sends the initial request to the web API.
-2. The web API stores information about the request in a table held in [Azure Table Storage](/azure/storage/tables/) or [Azure Managed Redis](/azure/redis/overview) and generates a unique key for this entry, possibly in the form of a globally unique identifier (GUID). Alternatively, a message containing information about the request and the unique key could be sent via [Azure Service Bus](/azure/service-bus-messaging/) as well.
-3. The web API initiates the processing as a [separate task](/dotnet/csharp/programming-guide/concepts/async/task-asynchronous-programming-model) or with a library like [Hangfire](https://www.hangfire.io). The web API records the state of the task in the table as *Running*.
-   - If you use Azure Service Bus, the message processing is done separately from the API, possibly by using [Azure Functions](/azure/azure-functions/) or [AKS](/azure/aks/).
-4. The web API returns a response message with HTTP status code 202 (Accepted), and a URI containing the unique key generated - something like */polling/{guid}*.
-5. When the task has completed, the web API stores the results in the table, and it sets the state of the task to *Complete*. If the task fails, the web API could also store information about the failure and set the status to *Failed*.
-   - Consider applying [retry techniques](/azure/architecture/patterns/retry) to resolve possibly transient failures.
-6. While the task is running, the client can continue performing its own processing. It can periodically send a request to the URI it received earlier.
-7. The web API at the URI queries the state of the corresponding task in the table and returns a response message with HTTP status code 200 (OK) containing this state (*Running*, *Complete*, or *Failed*). If the task has completed or failed, the response message can also include the results of the processing or any information available about the reason for the failure.
-   - If the long-running process has more intermediate states, it's better to use a library that supports the saga pattern, like [NServiceBus](https://docs.particular.net/nservicebus/sagas) or [MassTransit](https://masstransit.massient.com/concepts/saga-state-machines).
+1. The client submits the request. Validate its input and permissions before accepting work.
+1. Persist an operation identifier and status in durable storage, such as [Azure Table Storage](/azure/storage/tables/), and enqueue work for a separate processor, for example, by using [Azure Service Bus](/azure/service-bus-messaging/). Coordinate persistence and enqueueing so that a failure between these two actions doesn't result in the loss of accepted work.
+1. Return 202 with a `Location` header that identifies the status endpoint and a `Retry-After` header that controls polling frequency. Accept the request only after the work is durably recorded.
+1. A worker processes the operation and updates its durable state. Make processing idempotent because a worker can receive the same work more than once. Apply bounded [retries](../patterns/retry.yml) to transient failures.
+1. The client polls the status endpoint. Enforce resource-level authorization on both the status and result endpoints. An unguessable identifier isn't authorization.
+1. Return a documented status representation while work is in progress. On completion, provide the result or a 303 (See Other) redirect to a result resource. Report failures through a consistent, safe error contract.
+1. Define retention and cleanup for operation records and results. Document operation expiration, duplicate submissions, and any supported cancellation behavior.
 
-Options for implementing notifications include:
-
-- Using a notification hub to push asynchronous responses to client applications. For more information, see [Send notifications to specific users by using Azure Notification Hubs](/azure/notification-hubs/notification-hubs-aspnet-backend-windows-dotnet-wns-notification).
-- Using the Comet model to retain a persistent network connection between the client and the server hosting the web API, and using this connection to push messages from the server back to the client. The MSDN magazine article [Building a Simple Comet Application in the Microsoft .NET Framework](/archive/msdn-magazine/2013/february/asp-net-building-a-simple-comet-application-in-the-microsoft-net-framework) describes an example solution.
-- Using SignalR to push data in real time from the web server to the client over a persistent network connection. SignalR is available for ASP.NET web applications as a NuGet package. You can find more information on the [ASP.NET SignalR](https://www.asp.net/signalr) website.
+For connected clients, consider using ASP.NET Core SignalR for completion notifications. Keep the durable status resource available so that clients can recover after a disconnect or missed notification. For more information, see [Overview of ASP.NET Core SignalR](/aspnet/core/signalr/introduction).
 
 ### Ensure that each request is stateless
 
-Each request should be considered atomic. There should be no dependencies between one request made by a client application and any subsequent requests submitted by the same client. This approach supports scalability. Instances of the web service can be deployed across multiple servers. Client requests can be directed at any of these instances and the results should always be the same. It also improves availability for a similar reason; if a web server fails requests can be routed to another instance (by using Azure Traffic Manager) while the server is restarted with no ill effects on client applications.
+Don't require a later request to reach the same application instance as an earlier request. Keep workflow and resource state in appropriate shared stores, not solely in process memory. Requests can depend on durable resource state without creating server-instance affinity. Stateless request handling supports scale-out.
+
+### Understand your downstream dependencies
+
+Set a timeout for each downstream call. Keep the total time for calls, retries, and delays within the API request's deadline, and propagate request cancellation to downstream operations.
+
+Retry only transient failures and operations that are safe to repeat. Use bounded retries with backoff and jitter. Limit aggregate retries per dependency as well as attempts per request. For more information, see [Transient fault handling](./transient-faults.md).
+
+Use a [circuit breaker](../patterns/circuit-breaker.md) when repeated dependency failures could exhaust API capacity.
 
 ### Track clients and implement throttling to reduce the chances of DoS attacks
 
-If a specific client makes a large number of requests within a given period of time, it might monopolize the service and affect the performance of other clients. To mitigate this issue, a web API can monitor calls from client applications either by tracking the IP address of all incoming requests or by logging each authenticated access. You can use this information to limit resource access. If a client exceeds a defined limit, the web API can return a response message with status 503 (Service Unavailable) and include a Retry-After header that specifies when the client can send the next request without it being declined. This strategy can help to reduce the chances of a Denial Of Service (DoS) attack from a set of clients stalling the system. For more information, see the [Throttling pattern](../patterns/throttling.md).
+Apply request-rate, concurrency, payload, and execution-time limits. Partition limits by authenticated caller or tenant where possible. Return 429 (Too Many Requests) when a caller exceeds a configured rate and 503 (Service Unavailable) for temporary service unavailability. Include `Retry-After` where appropriate. If the API retries calls to downstream dependencies, bound those retries so that they don't amplify overload.
+
+Gateway and application limits serve different purposes. Gateway limits can protect shared capacity. Application limits can reflect operation cost and downstream capacity. Neither replaces network-layer DDoS protection or a web application firewall. For more information, see [Throttling pattern](../patterns/throttling.md).
 
 ### Manage persistent HTTP connections carefully
 
-The HTTP protocol supports persistent HTTP connections where they are available. The HTTP 1.0 specification added the Connection:Keep-Alive header that enables a client application to indicate to the server that it can use the same connection to send subsequent requests rather than opening new ones. The connection closes automatically if the client doesn't reuse the connection within a period defined by the host. This behavior is the default in HTTP 1.1 as used by Azure services, so there's no need to include Keep-Alive headers in messages.
+For inbound connections, configure server and gateway keep-alive timeouts, request timeouts, and concurrent connection limits for the workload and network path. Don't routinely force connections to close after each response. For information about ASP.NET Core server settings, see [Configure options for the Kestrel web server](/aspnet/core/fundamentals/servers/kestrel/options).
 
-Keeping a connection open can help to improve responsiveness by reducing latency and network congestion, but it can be detrimental to scalability by keeping unnecessary connections open for longer than required, limiting the ability of other concurrent clients to connect. It can also affect battery life if the client application is running on a mobile device; if the application only makes occasional requests to the server, maintaining an open connection can cause the battery to drain more quickly. To ensure that a connection isn't made persistent with HTTP 1.1, the client can include a `Connection: close` header with messages to override the default behavior. Similarly, if a server handles a large number of clients, it can include a `Connection: close` header in response messages to close the connection and save server resources.
-
-> [!NOTE]
-> Persistent HTTP connections are an optional feature that you can use to reduce network overhead by avoiding the repeated establishment of a communication channel. But the web API and the client application shouldn't depend on the availability of a persistent HTTP connection. Don't use persistent HTTP connections to implement Comet-style notification systems. Use sockets instead, or WebSockets if available, at the Transmission Control Protocol layer. Keep-Alive headers have limited usefulness when a client application communicates with a server via a proxy. Only the connection between the client and the proxy remains persistent.
+If the API itself calls downstream HTTP services, reuse those outbound connections. In a .NET API implementation, use long-lived `HttpClient` instances with an appropriate `PooledConnectionLifetime`, or use clients created by `IHttpClientFactory`. Dispose outbound response messages and streams when they're no longer needed. These settings apply to the API's downstream calls, not to incoming client connections. For details and cookie-handling caveats, see [Guidelines for using HttpClient](/dotnet/fundamentals/networking/http/httpclient-guidelines).
 
 ## Publishing and managing a web API
 
-To make a web API available for client applications, the web API must be deployed to a host environment. This environment is typically a web server, although it might be some other type of host process. You should consider the following points when publishing a web API:
+Deploy the API to a hosting environment that meets its operational requirements. Consider the following strategies:
 
-- All requests must be authenticated and authorized, and the appropriate level of access control must be enforced.
-- A commercial web API might be subject to various quality guarantees concerning response times. It's important to ensure that host environment is scalable if the load can vary significantly over time.
-- It might be necessary to meter requests for monetization purposes.
-- It might be necessary to regulate the flow of traffic to the web API, and implement throttling for specific clients that have exhausted their quotas.
-- Regulatory requirements might mandate logging and auditing of all requests and responses.
-- To ensure availability, it might be necessary to monitor the health of the server hosting the web API and restart it if necessary.
+- Use HTTPS. Authenticate requests to protected endpoints and enforce authorization for each resource and operation.
+- Scale the hosting environment to meet response-time commitments as demand changes.
+- Meter requests if the API's billing model requires it.
+- Regulate traffic and enforce client quotas where required.
+- Record the audit events that compliance and incident response require, but don't log credentials, tokens, or sensitive request and response bodies.
+- Monitor host health and define recovery actions, such as restarting an unhealthy host.
 
-It's useful to be able to decouple these issues from the technical issues concerning the implementation of the web API. For this reason, consider creating a [façade](https://wikipedia.org/wiki/Facade_pattern), running as a separate process and that routes requests to the web API. The façade can provide the management operations and forward validated requests to the web API. Using a façade can also bring many functional advantages, including:
+Consider using a separate [façade](https://wikipedia.org/wiki/Facade_pattern) that handles shared management concerns and forwards validated requests to the API. A façade can provide the following capabilities:
 
 - Acting as an integration point for multiple web APIs.
 - Transforming messages and translating communications protocols for clients built by using varying technologies.
 - Caching requests and responses to reduce load on the server hosting the web API.
 
+Keep API contracts and gateway configuration under version control, validate changes in deployment pipelines, and define rollback procedures. Align hosting, identity, networking, and governance with the organization's landing zone approach. For more information, see [What is an Azure landing zone?](/azure/cloud-adoption-framework/ready/landing-zone/).
+
 ## Testing a web API
 
-A web API should be tested as thoroughly as any other piece of software. You should consider creating unit tests to validate the functionality.
+Use unit tests to validate the API's logic and integration tests to verify its HTTP behavior.
 
-The nature of a web API brings its own additional requirements to verify that it operates correctly. You should pay particular attention to the following aspects:
+Include the following checks:
 
-- Test all routes to verify that they invoke the correct operations. Be especially aware of HTTP status code 405 (Method Not Allowed) being returned unexpectedly as this can indicate a mismatch between a route and the HTTP methods (GET, POST, PUT, DELETE) that can be dispatched to that route.
+- Test all routes to verify that they invoke the correct operations. Be especially aware of HTTP status code 405 (Method Not Allowed) being returned unexpectedly. This status code can indicate a mismatch between a route and the HTTP methods (GET, POST, PUT, DELETE) that can be dispatched to that route.
 
-    Send HTTP requests to routes that don't support them, such as submitting a POST request to a specific resource (POST requests should only be sent to resource collections). In these cases, the only valid response *should* be status code 405 (Not Allowed).
+    Send requests that use methods that aren't supported by each route, and verify the documented 405 (Method Not Allowed) response and `Allow` header.
 
 - Verify that all routes are protected properly and are subject to the appropriate authentication and authorization checks.
 
   > [!NOTE]
-  > Some aspects of security such as user authentication are most likely to be the responsibility of the host environment rather than the web API, but it's still necessary to include security tests as part of the deployment process.
-  >
-  >
+  > Some aspects of security, such as user authentication, are likely to be the responsibility of the host environment rather than the web API, but you still need to include security tests as part of the deployment process.
 
 - Test the exception handling performed by each operation and verify that an appropriate and meaningful HTTP response is passed back to the client application.
 
-- Verify that request and response messages are well-formed. For example, if an HTTP POST request contains the data for a new resource in x-www-form-urlencoded format, confirm that the corresponding operation correctly parses the data, creates the resources, and returns a response containing the details of the new resource, including the correct Location header.
+- Verify that request and response messages are well-formed. For example, for a POST request that creates a resource, verify deserialization, parsing, resource creation, and the response's `Location` header.
+
+- Test supported and unsupported request media types separately from response content negotiation. Verify 415 (Unsupported Media Type) responses for unsupported request formats and the documented validation errors for malformed bodies.
+
+- Exercise every supported API version, including its routing, request validation, and response schema. Test omitted, malformed, and unsupported version identifiers, and verify that cached responses don't cross version boundaries.
 
 - Verify all links and URIs in response messages. For example, an HTTP POST message should return the URI of the newly created resource. All HATEOAS links should be valid.
 
 - Ensure that each operation returns the correct status codes for different combinations of input. For example:
 
-  - If a query is successful, it should return status code 200 (OK)
+  - If a query is successful, it should return status code 200 (OK).
   - If a resource isn't found, the operation should return HTTP status code 404 (Not Found).
   - If the client sends a request that successfully deletes a resource, the status code should be 204 (No Content).
   - If the client sends a request that creates a new resource, the status code should be 201 (Created).
 
-Watch out for unexpected response status codes in the 5xx range. These messages are usually reported by the host server to indicate that it was unable to fulfill a valid request.
+  Investigate unexpected 5*xx* responses from the application or hosting layer.
 
 - Test the different request header combinations that a client application can specify and ensure that the web API returns the expected information in response messages.
 
-- Test query strings. If an operation can take optional parameters (such as pagination requests), test the different combinations and order of parameters.
+- Test query strings. If an operation can take optional parameters (such as pagination requests), test the different combinations and the order of parameters.
 
-- Verify that asynchronous operations complete successfully. If the web API supports streaming for requests that return large binary objects (such as video or audio), ensure that client requests aren't blocked while the data is streamed. If the web API implements polling for long-running data modification operations, verify that the operations report their status correctly as they proceed.
+- Verify that asynchronous operations complete successfully. For streaming responses, verify that the API doesn't buffer the entire payload and that it handles client disconnections and cancellation correctly. If the API provides status resources for long-running operations, verify that they report operation progress and results correctly.
 
-You should also create and run performance tests to check that the web API operates satisfactorily under duress. You can build a web performance and load test project by using Visual Studio Ultimate.
+Test the failure and boundary cases that affect correctness:
 
-## Using Azure API Management
+- Validate minimum, maximum, negative, malformed, and excessive pagination and batch inputs.
+- Follow pagination links through the last page. Verify that links preserve query options and that the documented completion signal is returned.
+- Verify that additional input fields can't change protected properties and that field selection can't expose unauthorized data.
+- Test matching, nonmatching, weak, multiple, and wildcard ETags, and verify that 304 responses contain no body.
+- Exercise concurrent updates and confirm that the data store rejects stale writes atomically.
+- Verify that callers can't read another caller's resources, status records, or cached responses.
+- For multitenant APIs, test forged or mismatched tenant identifiers. When caching is enabled, test for requests for the same resource URI from different tenants.
+- Simulate timeouts, client cancellation, dependency failures, worker restarts, and duplicate delivery of background work.
+- Verify downstream timeout and retry budgets, cancellation, and circuit-breaker recovery.
+- Verify 429 (Too Many Requests) and 503 (Service Unavailable)responses, retry behavior, and the cost of rejecting overloaded requests.
 
-On Azure, consider using [Azure API Management](/azure/api-management/) to publish and manage a web API. Using this facility, you can generate a service that acts as a façade for one or more web APIs. The service is itself a scalable web service that you can create and configure by using the Azure portal. You can use this service to publish and manage a web API as follows:
+Run load tests against production-like infrastructure and realistic operation mixes. Define pass and fail criteria for throughput, latency percentiles, error rates, and resource saturation. Use [Azure Load Testing](/azure/app-testing/load-testing/overview-what-is-azure-load-testing) and integrate regression checks into the deployment pipeline.
 
-1. Deploy the web API to a hosting platform such as Azure App Service, Azure Container Apps, Azure Kubernetes Service (AKS), or Azure Virtual Machines.
+## Using API Management
 
-1. Connect the API management service to the web API. Requests sent to the URL of the management API are mapped to URIs in the web API. The same API management service can route requests to more than one web API. This enables you to aggregate multiple web APIs into a single management service. Similarly, the same web API can be referenced from more than one API management service if you need to restrict or partition the functionality available to different applications.
+Consider using [Azure API Management](/azure/api-management/) when you need a managed gateway with policy enforcement. It adds cost, another network hop, and a dependency in the request path. Choose a service tier and topology based on capacity, networking, availability, and regional requirements; features differ by tier. The Developer tier isn't intended for production workloads. Follow the [Well-Architected service guidance for API Management](/azure/well-architected/service-guides/azure-api-management).
 
-     > [!NOTE]
-     > The URIs, in the HATEOAS links that are generated as part of the response for HTTP GET requests, should reference the URL of the API management service and not the web server that's hosting the web API.
+You can publish and manage a web API by completing these steps:
 
-1. For each web API, specify the HTTP operations that the web API exposes together with any optional parameters that an operation can take as input. You can also configure whether the API management service should cache the response received from the web API to optimize repeated requests for the same data. Record the details of the HTTP responses that each operation can generate. This information is used to generate documentation for developers, so it's important that it's accurate and complete.
+1. Deploy the web API to a hosting platform like Azure App Service, Azure Container Apps, Azure Kubernetes Service (AKS), or Azure Virtual Machines.
 
-    You can either define operations manually using the wizards provided by the Azure portal, or you can import them from a file containing the definitions in WADL or Swagger format.
+1. Configure API Management to route requests from its gateway URL to the backend API. One API Management instance can route requests to multiple APIs. Multiple instances can also expose the same backend API when applications need different access boundaries.
 
-1. Configure the security settings for communications between the API management service and the web server hosting the web API. The API management service currently supports Basic authentication and mutual authentication using certificates, and Open Authorization (OAuth) 2.0 user authorization.
+   > [!NOTE]
+   > HATEOAS links in responses should reference the API Management gateway URL, not the backend server URL.
 
-1. Create a product. A product is the unit of publication; you add the web APIs that you previously connected to the management service to the product. When the product is published, the web APIs become available to developers.
+1. Import a version-controlled OpenAPI definition and validate that the imported operations, parameters, security requirements, and response schemas match the implementation. Check supported OpenAPI versions and import limitations. For more information, see [Import an OpenAPI specification](/azure/api-management/import-api-from-oas).
 
-    > [!NOTE]
-    > Before you publish a product, you can define user-groups that can access the product and add users to these groups. This gives you control over the developers and applications that can use the web API. If a web API requires approval, developers must send a request to the product administrator before they can access it. The administrator can grant or deny access to the developer. Existing developers can also be blocked if circumstances change.
+1. Configure authentication and authorization for both client-to-gateway and gateway-to-backend communications. Validate OAuth 2.0 access tokens and enforce the permissions required for client requests. For backends that support Microsoft Entra ID authentication, prefer an API Management managed identity with only the permissions it needs. Certificate authentication is another option. Avoid Basic authentication when more secure options are available. For more information, see [Authentication and authorization to APIs in Azure API Management](/azure/api-management/authentication-authorization-overview).
 
-1. Configure policies for each web API. Policies govern aspects such as whether cross-domain calls should be allowed, how to authenticate clients, whether to convert between XML and JSON data formats transparently, whether to restrict calls from a given IP range, usage quotas, and whether to limit the call rate. Policies can be applied globally across the entire product, for a single web API in a product, or for individual operations in a web API.
+   > [!NOTE]
+   > If you require API Management subscription keys, don't use them as a substitute for authentication and resource-level authorization.
+
+1. Configure policies for authentication, cross-origin access, message transformations, IP filtering, rate limits, and quotas as needed. Configure response caching only for data that's safe to cache. Apply policies at the appropriate scope and verify their effective behavior for each operation.
 
 For more information, see the [API Management documentation](/azure/api-management/).
 
-> [!TIP]
-> Azure provides the Azure Traffic Manager which enables you to implement failover and load-balancing, and reduce latency across multiple instances of a web site hosted in different geographic locations. You can use Azure Traffic Manager in conjunction with the API Management Service; the API Management Service can route requests to instances of a web site through Azure Traffic Manager. For more information, see [Traffic Manager routing methods](/azure/traffic-manager/traffic-manager-routing-methods).
->
-> In this structure, if you use custom DNS names for your web sites, you should configure the appropriate CNAME record for each web site to point to the DNS name of the Azure Traffic Manager web site.
+> [!IMPORTANT]
+> A gateway doesn't make the backend private or replace resource-level authorization. Design backend access controls, failure handling, capacity, and observability for the workload as a whole, including the gateway. Evaluate zone and regional redundancy against the selected tier's capabilities. Include gateway charges, telemetry ingestion and retention, and data transfer in the cost model.
 
 ## Supporting client-side developers
 
-Developers constructing client applications typically require information on how to access the web API, and documentation concerning the parameters, data types, return types, and return codes that describe the different requests and responses between the web service and the client application.
+Provide API consumers with documentation for authentication, operations, parameters, data types, and response codes.
 
 ### Document the REST operations for a web API
 
-The Azure API Management Service includes a developer portal that describes the REST operations exposed by a web API. When a product has been published it appears on this portal. Developers can use this portal to sign up for access; the administrator can then approve or deny the request. If the developer is approved, they're assigned a subscription key that they use to authenticate calls from the client applications that they develop. This key must be provided with each web API call.
+Publish an OpenAPI definition that describes the API's operations, parameters, request and response schemas, and security requirements. Keep it under version control with the implementation, and verify that it matches the API's actual behavior.
 
-This portal also provides:
+Supplement the API reference with guidance that consumers need to use the API correctly:
 
-- Documentation for the product, listing the operations that it exposes, the parameters required, and the different responses that can be returned. This information is generated from the details provided in step 3 in the list in the Publishing a web API by using the Microsoft Azure API Management Service section.
-- Code snippets that show how to invoke operations from several languages, including JavaScript, C#, Java, Ruby, Python, and PHP.
-- A developers' console that enables a developer to send an HTTP request to test each operation in the product and view the results.
-- A page where the developer can report any issues or problems found.
+- Authentication requirements and permissions for each operation.
+- Representative requests, successful responses, and error responses.
+- Input validation rules, payload limits, pagination, and rate limits.
+- Timeout behavior, retry safety, and any idempotency requirements.
+- Status and result retrieval for long-running operations.
+- Versioning and compatibility expectations.
 
-The Azure portal enables you to customize the developer portal to change the styling and layout to match the branding of your organization.
+Keep the documentation and examples up to date when the API contract changes.
 
 ### Implement a client SDK
 
-Building a client application that invokes REST requests to access a web API requires writing a significant amount of code to construct each request and format it appropriately, send the request to the server hosting the web service, and parse the response to work out whether the request succeeded or failed and extract any data returned. To insulate the client application from these concerns, you can provide an SDK that wraps the REST interface and abstracts these low-level details inside a more functional set of methods. A client application uses these methods, which transparently convert calls into REST requests and then convert the responses back into method return values. This is a common technique that is implemented by many services, including the Azure SDK.
+Consider supplying an SDK for API consumers. The SDK can expose typed methods that construct requests, parse responses, and surface the API's documented errors.
 
-Creating a client-side SDK is a considerable undertaking as it has to be implemented consistently and tested carefully. However, much of this process can be made mechanical, and many vendors supply tools that can automate many of these tasks.
+Consider generating typed clients from the API's OpenAPI definition, but validate the generated behavior against the service. Document authentication, timeouts, cancellation, pagination, error responses, and which operations are safe to retry. Keep the client and API compatibility policy aligned. Generated code doesn't remove the need for integration tests.
 
 ## Monitoring a web API
 
-Depending on how you have published and deployed your web API you can monitor the web API directly, or you can gather usage and health information by analyzing the traffic that passes through the API Management service.
+Monitor the API, its dependencies, and any gateway together. Define service-level objectives and alerts based on customer impact rather than relying only on host health.
 
 ### Monitoring a web API directly
 
-Use the [Azure Monitor OpenTelemetry Distro](/azure/azure-monitor/app/opentelemetry-enable) to collect availability, performance, and usage data from your web API and send it to Application Insights. The Distro tracks and records information about requests and responses when the web API is deployed to the cloud. When you deploy the web API to an Azure web site, all traffic is examined and the following statistics are gathered:
+Use OpenTelemetry instrumentation to collect traces, metrics, and logs, and export the signals to Application Insights or another supported backend. For .NET, Node.js, and Python instrumentation, follow the Microsoft OpenTelemetry Distro guidance. Java uses the Azure Monitor OpenTelemetry Distro. Follow the language-specific [OpenTelemetry enablement guidance](/azure/azure-monitor/app/opentelemetry-enable).
 
-- Server response time.
-- Number of server requests and the details of each request.
-- The top slowest requests in terms of average response time.
-- The details of any failed requests.
-- The number of sessions initiated by different browsers and user agents.
-- The most frequently viewed pages (primarily useful for web applications rather than web APIs).
-- The different user roles accessing the web API.
+Monitor signals that describe API behavior:
 
-You can view this data in real time in the Azure portal. You can also create web tests that monitor the health of the web API. A web test sends a periodic request to a specified URI in the web API and captures the response. You can specify the definition of a successful response (such as HTTP status code 200), and if the request doesn't return this response you can arrange for an alert to be sent to an administrator. If necessary, the administrator can restart the server hosting the web API if it has failed.
+- Request volume, failure rate, and latency percentiles by operation
+- Dependency latency, failures, and timeouts
+- Rate-limit rejections, concurrent work, and resource saturation
+- Background-operation queue age, completion time, failures, and retries
+- Cache effectiveness, when caching is part of the design
 
-For more information, see [Enable Azure Monitor OpenTelemetry for .NET, Node.js, Python, and Java applications](/azure/azure-monitor/app/opentelemetry-enable).
+The telemetry a monitoring tool collects automatically varies depending on the language, libraries, and configuration. Add instrumentation for domain operations and background work. Don't assume that browser sessions, user roles, or all request details are automatically available. Propagate trace context across the gateway, application, and workers. Configure sampling and retention to balance diagnostic needs, data sensitivity, and telemetry cost.
 
-### Monitoring a web API through the API Management Service
+Use Application Insights [Standard availability tests](/azure/azure-monitor/app/availability) for recurring external checks where appropriate. Check a meaningful health or operation endpoint without exposing sensitive data, define actionable alerts, and maintain a response runbook.
 
-If you have published your web API by using the API Management service, the API Management page on the Azure portal contains a dashboard that enables you to view the overall performance of the service. The Analytics page enables you to drill down into the details of how the product is being used. This page contains the following tabs:
+### Monitoring a web API by using API Management
 
-- **Usage**. This tab provides information about the number of API calls made and the bandwidth used to handle these calls over time. You can filter usage details by product, API, and operation.
-- **Health**. This tab enables you to view the outcome of API requests (the HTTP status codes returned), the effectiveness of the caching policy, the API response time, and the service response time. Again, you can filter health data by product, API, and operation.
-- **Activity**. This tab provides a text summary of the numbers of successful calls, failed calls, blocked calls, average response time, and response times for each product, web API, and operation. This page also lists the number of calls made by each developer.
-- **At a glance**. This tab displays a summary of the performance data, including the developers responsible for making the most API calls, and the products, web APIs, and operations that received these calls.
+Use the Azure Monitor metrics, logs, analytics, and diagnostics supported by API Management to distinguish gateway failures from backend failures. Correlate gateway and application telemetry, and monitor policy failures, capacity, request latency, and throttling. Available signals depend on the tier and gateway configuration.
 
-You can use this information to determine whether a particular web API or operation is causing a bottleneck, and if necessary scale the host environment and add more servers. You can also ascertain whether one or more applications are using a disproportionate volume of resources and apply the appropriate policies to set quotas and limit call rates.
-
-> [!NOTE]
-> You can change the details for a published product, and the changes are applied immediately. For example, you can add or remove an operation from a web API without requiring that you republish the product that contains the web API.
+Follow the observability and capacity recommendations in the [Well-Architected service guidance for API Management](/azure/well-architected/service-guides/azure-api-management).
 
 ## Next steps
 
-- [ASP.NET Web API OData](https://www.asp.net/web-api/overview/odata-support-in-aspnet-web-api) contains examples and further information on implementing an OData web API by using ASP.NET.
-- [Introducing batch support in Web API and Web API OData](https://blogs.msdn.microsoft.com/webdev/2013/11/01/introducing-batch-support-in-web-api-and-web-api-odata) describes how to implement batch operations in a web API by using OData.
+- [ASP.NET Core OData overview](/odata/webapi-8/overview) describes how to build REST API services that conform to the OData protocol by using ASP.NET Core.
+- [ASP.NET Core best practices](/aspnet/core/fundamentals/best-practices) covers asynchronous I/O, resource use, and response handling.
 - [Idempotent Consumer pattern](../patterns/idempotent-consumer.md#idempotent-processing-beyond-messaging) provides implementation guidance for tracking processed message IDs and handling duplicate delivery.
-- [Status code definitions](https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html) on the W3C website contains a full list of HTTP status codes and their descriptions.
-- [Run background tasks with WebJobs](/azure/app-service/webjobs-create) provides information and examples on using WebJobs to perform background operations.
-- [Azure Notification Hubs notify users](/azure/notification-hubs/notification-hubs-aspnet-backend-windows-dotnet-wns-notification) shows how to use an Azure Notification Hub to push asynchronous responses to client applications.
-- [API Management](https://azure.microsoft.com/services/api-management) describes how to publish a product that provides controlled and secure access to a web API.
-- [Azure API Management REST API reference](/rest/api/apimanagement/) describes how to use the API Management REST API to build custom management applications.
-- [Traffic Manager routing methods](/azure/traffic-manager/traffic-manager-routing-methods) summarizes how Azure Traffic Manager can be used to load-balance requests across multiple instances of a website hosting a web API.
-- [Enable Azure Monitor OpenTelemetry](/azure/azure-monitor/app/opentelemetry-enable) provides detailed information on configuring the Azure Monitor OpenTelemetry Distro to send telemetry to Application Insights.
+- [HTTP Semantics](https://www.rfc-editor.org/rfc/rfc9110.html#name-status-codes) defines HTTP status codes.
+- [Asynchronous Request-Reply pattern](../patterns/asynchronous-request-reply.md) describes durable background work and status resources.
+- [Architecture best practices for Azure API Management](/azure/well-architected/service-guides/azure-api-management) covers reliability, security, cost, operations, and performance.
+- [Azure Load Testing](/azure/app-testing/load-testing/overview-what-is-azure-load-testing) describes load generation and automated performance checks.
+- [Enable OpenTelemetry](/azure/azure-monitor/app/opentelemetry-enable) provides language-specific instrumentation and export guidance.

@@ -122,7 +122,7 @@ List<Product> products = query.ToList();
 
 - In some cases, you can improve performance by partitioning data horizontally. If different operations access different attributes of the data, horizontal partitioning might reduce contention. Often, most operations are run against a small subset of the data, so spreading this load might improve performance. See [Data partitioning][data-partitioning].
 
-- For operations that have to support unbounded queries, implement pagination and only fetch a limited number of entities at a time. For example, if a customer is browsing a product catalog, you can show one page of results at a time.
+- For operations that have to support unbounded queries, implement pagination and only fetch a limited number of entities at a time. For example, if a customer is browsing a product catalog, you can show one page of results at a time. For HTTP API guidance, see [Pagination with server-side limits](../../best-practices/api-implementation.md#support-pagination-for-requests-that-might-return-large-numbers-of-objects).
 
 - When possible, take advantage of features built into the data store. For example, SQL databases typically provide aggregate functions.
 

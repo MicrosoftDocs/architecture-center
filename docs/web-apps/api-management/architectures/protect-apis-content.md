@@ -147,7 +147,7 @@ Consider the following performance optimizations for API Management:
 
 ## Next steps
 
-To design APIs, follow good [web API design](../../../best-practices/api-design.md) guidelines. To implement APIs, use good [web API implementation](../../../best-practices/api-implementation.md) practices.
+Use [web API design guidance](../../../best-practices/api-design.md) to define resource contracts. For request validation, error handling, caching, and concurrency in the backend API, see [RESTful web API implementation best practices](../../../best-practices/api-implementation.md).
 
 ## Related resources
 

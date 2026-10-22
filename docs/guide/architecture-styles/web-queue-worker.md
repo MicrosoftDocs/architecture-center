@@ -67,7 +67,7 @@ Consider this architecture for the following use cases:
 
 ## Best practices
 
-- Expose a well-designed API to the client. For more information, see [API design best practices](../../best-practices/api-design.md).
+- Expose a well-designed API to the client. See [API design best practices](../../best-practices/api-design.md) for the contract and [Asynchronous API implementation](../../best-practices/api-implementation.md#provide-asynchronous-support-for-long-running-requests) for accepting work and exposing status and results.
 
 - Scale automatically to handle changes in load. For more information, see [Autoscaling best practices](../../best-practices/auto-scaling.md).
 

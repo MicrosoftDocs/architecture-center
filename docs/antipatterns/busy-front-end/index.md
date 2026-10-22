@@ -66,6 +66,8 @@ Use [queue-based load leveling](/azure/architecture/patterns/queue-based-load-le
 
 With this approach, the front end puts resource-intensive tasks onto a message queue. The back end picks up the tasks for asynchronous processing. The queue also acts as a load leveler, buffering requests for the back end. If the queue length becomes too long, you can configure autoscaling to scale out the back end.
 
+For HTTP acceptance responses and status endpoints, see [Implement long-running API operations](../../best-practices/api-implementation.md#provide-asynchronous-support-for-long-running-requests).
+
 Here's a revised version of the previous code. In this version, the `Post` method uses the `Azure.Messaging.ServiceBus` SDK to put a message on a Service Bus queue. The application reuses the client and sender for its lifetime.
 
 ```csharp

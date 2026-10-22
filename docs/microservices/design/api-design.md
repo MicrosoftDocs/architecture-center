@@ -52,10 +52,10 @@ If you choose REST over HTTP, do performance and load testing early in the devel
 
 ## RESTful API design
 
-The following resources can help you design RESTful APIs:
+The following resources cover RESTful API design and implementation:
 
 - [API design](../../best-practices/api-design.md)
-- [API implementation](../../best-practices/api-implementation.md)
+- [RESTful web API implementation best practices](../../best-practices/api-implementation.md)
 - [Microsoft REST API guidelines](https://github.com/Microsoft/api-guidelines)
 
 Consider the following factors:
@@ -173,7 +173,7 @@ Multiple versions add cost in terms of developer time, testing, and operational 
 
 When a service implementation changes, tag the change with a version. The version provides important information to help troubleshoot errors. This approach supports root cause analysis because you know which version of the service is called. Consider using [semantic versioning](https://semver.org/) for service versions. Semantic versioning uses a *MAJOR.MINOR.PATCH* format. But clients should only select an API by the major version number, or by the minor version if there are significant but nonbreaking changes between minor versions. For example, clients might choose between version 1 and version 2 of an API, but they shouldn't choose version 2.1.3. If you allow that level of granularity, you risk having to support too many versions.
 
-For more information, see [Implement versioning for a RESTful web API](../../best-practices/api-design.md#implement-versioning).
+For versioning strategy choices, see [Implement versioning for a RESTful web API](../../best-practices/api-design.md#implement-versioning). For version routing, caching, and compatibility checks, see [Implement the selected API versioning strategy](../../best-practices/api-implementation.md#implement-the-selected-api-versioning-strategy).
 
 ## Idempotent operations
 
@@ -229,15 +229,15 @@ public async Task<IActionResult> Put([FromBody]Delivery delivery, string id)
 Most requests create a new entity, so the method expects the creation to succeed and calls `CreateAsync` on the repository object. Then the method handles duplicate-resource exceptions by updating the resource instead.
 
 ## Next step
-	
+
 Learn about using an API gateway at the boundary between client applications and microservices.
-	
+
 > [!div class="nextstepaction"]
 > [API gateways](./gateway.yml)
 
 ## Related resources
 
 - [RESTful web API design](../../best-practices/api-design.md)
-- [API implementation](../../best-practices/api-implementation.md)
+- [RESTful web API implementation best practices](../../best-practices/api-implementation.md)
 - [Design a microservices architecture](index.md)
 - [Use domain analysis to model microservices](../model/domain-analysis.md)
