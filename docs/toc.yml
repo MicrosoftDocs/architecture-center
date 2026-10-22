@@ -179,7 +179,7 @@ items:
       href: patterns/sidecar.md
     - name: Static Content Hosting
       displayName: Blob storage website, CDN hosting, static website, static assets
-      href: patterns/static-content-hosting.yml
+      href: patterns/static-content-hosting.md
     - name: Strangler Fig
       displayName: migration, incremental modernization, facade
       href: patterns/strangler-fig.md

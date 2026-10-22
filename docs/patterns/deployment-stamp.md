@@ -104,7 +104,7 @@ This pattern might not be suitable when:
 
 - You only need to scale some components and not others. For example, consider whether you can scale your solution by [sharding the data store](sharding.md) instead of deploying a new copy of all the solution components.
 
-- Your solution consists solely of static content, such as a front-end JavaScript application. Deliver this content by a [Content Delivery Network](/azure/architecture/best-practices/cdn).
+- Your solution consists solely of static content, such as a front-end JavaScript application. Consider the [Static Content Hosting pattern](static-content-hosting.md), optionally with a [content delivery network](../best-practices/cdn.yml), instead of deploying full application stamps.
 
 ## Workload design
 

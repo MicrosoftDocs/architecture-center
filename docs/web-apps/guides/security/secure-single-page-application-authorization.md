@@ -57,7 +57,7 @@ Because the back end handles token acquisition, no other code or library, like [
 
 - [API Management](/azure/api-management/api-management-key-concepts) is a hybrid multicloud management platform for APIs across all environments. API Management creates consistent, modern API gateways for existing back-end services. This architecture uses API Management to implement a Backends for Frontends pattern that acquires access tokens from Microsoft Entra ID and proxies API calls.
 
-- [Static website hosting in Azure Storage](/azure/storage/blobs/storage-blob-static-website) uses Azure Blob Storage. It's ideal for providing static website hosting support in cases where you don't require a web server to render content. This architecture uses static website hosting to host the single-page application. The single-page application is a JavaScript application that runs in the browser and calls the API Management gateway to access the back-end API.
+- [Static website hosting in Azure Storage](/azure/storage/blobs/storage-blob-static-website) uses Azure Blob Storage. It's ideal for providing static website hosting support in cases where you don't require a web server to render content. This architecture uses the [Static Content Hosting pattern](../../../patterns/static-content-hosting.md) to host the single-page application. The single-page application is a JavaScript application that runs in the browser and calls the API Management gateway to access the back-end API.
 
 ## Scenario details
 

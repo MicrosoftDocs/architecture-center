@@ -73,7 +73,7 @@ Consider this architecture for the following use cases:
 
 - Cache semistatic data. For more information, see [Caching best practices](../../best-practices/caching.md).
 
-- Use a content delivery network to host static content. For more information, see [Content delivery network best practices](../../best-practices/cdn.yml).
+- Use a content delivery network to serve static content. For more information, see [Content delivery network best practices](../../best-practices/cdn.yml). For storage-backed origins, see the [Static Content Hosting pattern](../../patterns/static-content-hosting.md).
 
 - Use polyglot persistence when appropriate. For more information, see [Understand data models](../../data-guide/technology-choices/understand-data-store-models.md).
 

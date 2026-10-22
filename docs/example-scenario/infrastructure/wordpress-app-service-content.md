@@ -27,7 +27,7 @@ The following data flow corresponds to the previous diagram:
 
 - Azure Database for MySQL supports high availability via a standby server.
 
-- All static content is hosted in Azure Blob Storage.
+- All static content is hosted in Azure Blob Storage, following the [Static Content Hosting pattern](../../patterns/static-content-hosting.md).
 
 ### Components
 
