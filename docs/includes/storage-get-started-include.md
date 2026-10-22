@@ -26,8 +26,6 @@ The following production-ready architectures demonstrate end-to-end storage solu
 
 #### Azure NetApp Files solutions
 
-- [Azure NetApp Files Object REST API for data and AI integration](../solution-ideas/articles/analytics-netapp-object-api.yml). Explore a solution idea for using existing NFS or SMB data for S3-compatible analytics without a separate source-data copy.
-
 - [Enterprise file shares with disaster recovery](../example-scenario/file-storage/enterprise-file-shares-disaster-recovery.yml). Deploy enterprise file share infrastructure with built-in DR by using Azure NetApp Files.
 
 - [Moodle deployment with Azure NetApp Files](../example-scenario/file-storage/moodle-azure-netapp-files.yml). Deploy Moodle with Azure NetApp Files for scalable, high-performance file storage.
