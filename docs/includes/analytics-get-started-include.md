@@ -18,6 +18,8 @@ The following articles help you evaluate and select the best analytics technolog
 
 The following analytics solution ideas demonstrate implementation patterns and possibilities to explore:
 
+- [Azure NetApp Files Object REST API for data and AI integration](../solution-ideas/articles/analytics-netapp-object-api.yml): Explore a solution idea for using existing NFS or SMB data for S3-compatible analytics without a separate source-data copy.
+
 - [Ingestion, ETL, and stream processing pipelines with Azure Databricks and Delta Lake](../solution-ideas/articles/ingest-etl-stream-with-adb.yml): Create ETL pipelines for batch and streaming data to simplify data lake ingestion.
 
 - [Create a modern analytics architecture by using Azure Databricks](../solution-ideas/articles/azure-databricks-modern-analytics-architecture.yml): Collect, process, analyze, and visualize data by using a modern data architecture.
