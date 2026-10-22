@@ -85,7 +85,7 @@ These considerations implement the pillars of the Azure Well-Architected Framewo
 
 Reliability ensures your application can meet the commitments you make to your customers. For more information, see [Design review checklist for Reliability](/azure/well-architected/reliability/checklist).
 
-- Define your targets for [recovery point objective (RPO)](/azure/cloud-adoption-framework/manage/protect) and [recovery time objective (RTO)](/azure/cloud-adoption-framework/manage/protect).
+- Define your targets for recovery point objective (RPO) and recovery time objective (RTO).
 - Configure [point-in-time restore](/azure/azure-sql/managed-instance/point-in-time-restore) so that you can restore your databases to a previous point in time.
 - Determine how many replicas, between one and three, to deploy in the Business Critical service tier.
 - Determine the number of secondary replicas to deploy in the Business Critical service tier. When you deploy an instance in a Business Critical service tier with two or more replicas, you can configure the secondary replicas as readable. For information on changing the number, see [Configure readable secondaries](/azure/azure-arc/data/configure-managed-instance#configure-readable-secondaries).
