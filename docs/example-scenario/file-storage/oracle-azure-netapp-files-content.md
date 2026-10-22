@@ -42,7 +42,7 @@ Deploy multiple data volumes for consolidating multiple smaller Oracle instances
 
 Create an Azure NetApp Files capacity pool of the desired capacity and service level. Check the [Quickstart for setting up Azure NetApp Files](/azure/azure-netapp-files/azure-netapp-files-quickstart-set-up-account-create-volumes).
 
-If you're migrating existing Oracle databases from on-premises to Azure, you can utilize AWR reports to obtain current throughput statistics which you need for sizing the Azure NetApp Files capacity pool and volumes. Recommendations for pool and volumes sizing can be obtained by processing [AWR reports through the Atroposs service](https://app.atroposs.com/#/awr-module). For more information about how to use the service, contact your Oracle on Azure specialist.
+If you're migrating existing Oracle databases from on-premises to Azure, use AWR reports to determine your workload's throughput requirements. For Oracle storage sizing requirements, see [Requirements and considerations for Azure NetApp Files application volume group for Oracle](/azure/azure-netapp-files/application-volume-group-oracle-considerations). Contact your Oracle on Azure specialist to validate capacity pool and volume sizing.
 
 Available throughput for the volumes in a capacity pool is defined by the size and [service level (Standard, Premium, or Ultra)](/azure/azure-netapp-files/azure-netapp-files-service-levels) of the selected capacity pool. Auto QoS capacity pools assign throughput to volumes directly related to the volume size. You can also assign throughput to volumes independently of their size, for which you can configure your capacity pool to use [manual QoS](/azure/azure-netapp-files/manage-manual-qos-capacity-pool).
 

@@ -146,7 +146,13 @@ To enable IPv6 on the ExpressRoute circuit, you need to:
 
 These configurations extend IPv6 connectivity to your Azure services via an ExpressRoute circuit, so you can route dual-stack capabilities simultaneously. To modify ExpressRoute, see [Add IPv6 support for private peering](/azure/expressroute/expressroute-howto-add-ipv6), which provides instructions for using the Azure portal, PowerShell, and the Azure CLI.
 
-Add IPv6 address space to the virtual network and the gateway subnet before you create the ExpressRoute virtual network gateway. IPv6 private peering supports newly created ExpressRoute virtual network gateways of any SKU that use a Standard, static public IP address. Existing gateways support IPv6 only if they're zone-redundant. IPv6 private peering isn't supported with Virtual WAN, and a dual-stack gateway can't connect to a circuit that has only IPv4 enabled on private peering. You must also configure IPv6 on your on-premises customer premises equipment.
+Check the following gateway and network requirements:
+
+- Add IPv6 address space to the virtual network and the gateway subnet before you create the ExpressRoute virtual network gateway.
+- IPv6 private peering supports newly created ExpressRoute virtual network gateways of any SKU that use a Standard, static public IP address.
+- Existing gateways support IPv6 only if they're zone-redundant.
+- IPv6 private peering isn't supported with Virtual WAN, and a dual-stack gateway can't connect to a circuit that has only IPv4 enabled on private peering.
+- You must also configure IPv6 on your on-premises customer premises equipment.
 
 ## Transition spoke virtual networks to IPv6
 

@@ -128,7 +128,7 @@ You can't automate private endpoint connection approvals. However, you can use t
 
 ### Step 3 (consumer): DNS setup
 
-You can take the steps in this section immediately after you create the private endpoint resource in step 1. However, we recommend that you wait until the provider approves the connection.
+You can take the steps in this section immediately after you create the private endpoint resource in [Step 1 (consumer): Create a private endpoint](#step-1-consumer-create-a-private-endpoint). However, wait until the provider approves the connection.
 
 The consumer needs to set up and configure the private DNS zone to make sure its clients can find the NIC of the private endpoint. As with the provider, the DNS strategy in the tenant determines the required steps.
 

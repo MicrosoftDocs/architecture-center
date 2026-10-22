@@ -124,7 +124,7 @@ Configuration delivered through Azure Front Door is publicly accessible without 
 >
 > Don't treat the Front Door route as an authorization boundary between tenants.
 
-See the linked article for setup, the managed-identity role, cache tuning, replica origins, and provider support.
+See [Azure Front Door integration for App Configuration](/azure/azure-app-configuration/concept-hyperscale-client-configuration) for setup, the managed-identity role, cache tuning, replica origins, and provider support.
 
 ## Contributors
 

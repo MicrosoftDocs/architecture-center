@@ -47,7 +47,7 @@ Two differences matter most when you move a design from AWS to Azure:
 
 The following table summarizes each redundancy option.
 
-| &nbsp; | Virtual Machine Scale Sets | Availability zone | Multi-region |
+| Characteristic | Virtual Machine Scale Sets | Availability zone | Multi-region |
 | --- | --- | --- | --- |
 | Scope of failure | Rack | Datacenter or zone | Region |
 | Request routing | Load balancer | Zone-redundant load balancer | Azure Front Door or Azure Traffic Manager |

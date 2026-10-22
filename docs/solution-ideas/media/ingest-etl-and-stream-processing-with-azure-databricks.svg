@@ -722,7 +722,7 @@
 			<rect x="0" y="524.25" width="78.5893" height="15.75" class="st19"/>
 			<text x="9.4" y="535.43" class="st13" v:langID="1033"><v:paragraph v:horizAlign="1"/><v:tabList/>Auto Loader</text>		</g>
 		<g id="group1199-162" transform="translate(320.554,-156.994)" v:mID="1199" v:groupContext="group">
-			<title>Data Lake Store Gen1.1039</title>
+			<title>Data Lake Storage Gen2.1039</title>
 			<desc>Azure Data Lake Storage</desc>
 			<g id="shape1200-163" v:mID="1200" v:groupContext="shape">
 				<title>Sheet.1200</title>

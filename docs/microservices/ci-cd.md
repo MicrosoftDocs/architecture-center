@@ -87,7 +87,7 @@ Before you create a CI/CD workflow, you must know how the code base is structure
 
 Teams widely use both approaches in production. Your choice depends on team topology, tooling maturity, and how much code is shared across services.
 
-| &nbsp; | Monorepo | Multiple repos |
+| Aspect | Monorepo | Multiple repos |
 | --- | --- | --- |
 | **Advantages** | - Code sharing<br><br>- Easier to standardize code and tooling<br><br>- Easier to refactor code<br><br>- Discoverability (a single view of the code) | - Clear ownership per team<br><br>- Potentially fewer merge conflicts<br><br>- Helps enforce microservice decoupling |
 | **Challenges** | - Changes to shared code can affect multiple microservices<br><br>- Greater potential for merge conflicts<br><br>- Tooling must scale to a large code base<br><br>- Access control<br><br>- More complex deployment process | - Harder to share code<br><br>- Harder to enforce coding standards<br><br>- Dependency management<br><br>- Diffuse code base, poor discoverability<br><br>- Lack of shared infrastructure |

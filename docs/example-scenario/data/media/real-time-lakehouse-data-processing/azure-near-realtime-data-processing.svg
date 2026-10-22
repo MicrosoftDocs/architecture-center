@@ -674,7 +674,7 @@
 			<v:userDefs>
 				<v:ud v:nameU="visNavOrder" v:prompt="" v:val="VT0(17000):26"/>
 			</v:userDefs>
-			<title>Data Lake Store Gen1</title>
+			<title>Data Lake Storage Gen2</title>
 			<g id="shape353-129" v:mID="353" v:groupContext="shape">
 				<title>Sheet.353</title>
 				<v:userDefs>
@@ -729,7 +729,7 @@
 			<v:userDefs>
 				<v:ud v:nameU="visNavOrder" v:prompt="" v:val="VT0(18000):26"/>
 			</v:userDefs>
-			<title>Data Lake Store Gen1.359</title>
+			<title>Data Lake Storage Gen2.359</title>
 			<g id="shape360-142" v:mID="360" v:groupContext="shape">
 				<title>Sheet.360</title>
 				<v:userDefs>
