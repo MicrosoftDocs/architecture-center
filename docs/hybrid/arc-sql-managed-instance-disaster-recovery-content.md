@@ -71,11 +71,11 @@ Design and plan your Log Analytics workspace deployment. Deploy it in the contai
 
 - Create a process for initiating both manual and forced failovers.
 
-- Monitor the health of your Azure Arc-enabled Kubernetes clusters by using [Azure Monitor Container insights](/azure/azure-monitor/containers/container-insights-overview).
+- Monitor the health of your Azure Arc-enabled Kubernetes clusters by using [Azure Monitor Container insights](/azure/azure-monitor/containers/kubernetes-monitoring-overview).
 
 - Define the DNS record for the shared name of the distributed availability group in your DNS servers to avoid needing to manually create DNS records during failovers.
 
-For more best practices and guidance, see [Business continuity and disaster recovery for Azure Arc-enabled SQL Managed Instance](/azure/cloud-adoption-framework/scenarios/hybrid/arc-enabled-data-service-sql-managed-instance/eslz-arc-data-service-sql-managed-instance-business-continuity-disaster-recovery).
+For more best practices and guidance, see [Business continuity overview for SQL Managed Instance enabled by Azure Arc](/azure/azure-arc/data/managed-instance-business-continuity-overview).
 
 ## Considerations
 
@@ -85,7 +85,7 @@ These considerations implement the pillars of the Azure Well-Architected Framewo
 
 Reliability ensures your application can meet the commitments you make to your customers. For more information, see [Design review checklist for Reliability](/azure/well-architected/reliability/checklist).
 
-- Define your targets for [recovery point objective (RPO)](/azure/cloud-adoption-framework/manage/considerations/protect#recovery-point-objectives-rpo) and [recovery time objective (RTO)](/azure/cloud-adoption-framework/manage/considerations/protect#recovery-time-objectives-rto).
+- Define your targets for [recovery point objective (RPO)](/azure/cloud-adoption-framework/manage/protect) and [recovery time objective (RTO)](/azure/cloud-adoption-framework/manage/protect).
 - Configure [point-in-time restore](/azure/azure-sql/managed-instance/point-in-time-restore) so that you can restore your databases to a previous point in time.
 - Determine how many replicas, between one and three, to deploy in the Business Critical service tier.
 - Determine the number of secondary replicas to deploy in the Business Critical service tier. When you deploy an instance in a Business Critical service tier with two or more replicas, you can configure the secondary replicas as readable. For information on changing the number, see [Configure readable secondaries](/azure/azure-arc/data/configure-managed-instance#configure-readable-secondaries).
@@ -93,7 +93,7 @@ Reliability ensures your application can meet the commitments you make to your c
 - Ensure that the instances of Azure Arc-enabled SQL Managed Instance in the geo-primary and geo-secondary sites are identical in compute and capacity and that they're deployed to the same service tier.
 - Decide where to store the mirroring certificates when you create the disaster recovery configuration. Both clusters that host the instance must be able to access the location.
 - Decide which Kubernetes service type to use: `LoadBalancer` or `NodePort`. If you use `LoadBalancer`, applications can reconnect to the same primary endpoint, and Kubernetes will redirect the connection to the new primary. If you use `NodePort`, applications must reconnect to the new IP address.
-- Review the [business continuity and disaster recovery](/azure/cloud-adoption-framework/scenarios/hybrid/arc-enabled-data-service-sql-managed-instance/eslz-arc-data-service-sql-managed-instance-business-continuity-disaster-recovery) guidance to determine whether your requirements are met.
+- Review the [business continuity and disaster recovery](/azure/azure-arc/data/managed-instance-business-continuity-overview) guidance to determine whether your requirements are met.
 
 ### Security
 
@@ -112,7 +112,7 @@ Security provides assurances against deliberate attacks and the abuse of your va
 
 Cost Optimization is about looking at ways to reduce unnecessary expenses and improve operational efficiencies. For more information, see [Design review checklist for Cost Optimization](/azure/well-architected/cost-optimization/checklist).
 
-- Define your business requirements to determine the most appropriate service tier. Also consider the extra infrastructure that you need to support [business continuity and disaster recovery](/azure/cloud-adoption-framework/scenarios/hybrid/arc-enabled-data-service-sql-managed-instance/eslz-arc-data-service-sql-managed-instance-business-continuity-disaster-recovery).
+- Define your business requirements to determine the most appropriate service tier. Also consider the extra infrastructure that you need to support [business continuity and disaster recovery](/azure/azure-arc/data/managed-instance-business-continuity-overview).
 - Be aware that the way in which usage and billing information is sent to Azure varies depending on whether you use the directly connected mode or the indirectly connected mode. If you use the indirectly connected mode, consider how the usage and billing information is regularly sent to Azure.
 - Based on how long you expect to use Azure Arc-enabled SQL Managed Instance, consider whether pay-as-you-go, a one-year reserved instance, or a three-year reserved instance is most cost effective.
 - Keep in mind that Azure Hybrid Benefits offers savings on both service tiers of Azure Arc-enabled SQL Managed Instance.
@@ -131,7 +131,7 @@ Operational Excellence covers the operations processes that deploy an applicatio
 
 Performance Efficiency is the ability of your workload to scale to meet the demands placed on it by users in an efficient manner. For more information, see [Design review checklist for Performance Efficiency](/azure/well-architected/performance-efficiency/checklist).
 
-- Use Azure Monitor to collect metrics and logs from your Azure Arc-enabled SQL managed instances for detailed analysis and correlation. Review the [deployment options](/azure/azure-arc/servers/concept-log-analytics-extension-deployment).
+- Use Azure Monitor to collect metrics and logs from your Azure Arc-enabled SQL managed instances for detailed analysis and correlation. Review the [deployment options](/azure/azure-arc/servers/azure-monitor-agent-deployment).
 - You can also use open-source tools like [Grafana and Kibana](/azure/azure-arc/data/monitor-grafana-kibana) to monitor your instances.
 
 ## Deploy this scenario

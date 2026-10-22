@@ -30,7 +30,7 @@ The following workflow corresponds to the previous diagram:
 
 - [Azure Policy](/azure/governance/policy/overview) is a service that enables real-time cloud compliance at scale with consistent resource governance. In this architecture, Azure Policy provides centralized policy management and enforcement across all Arc-enabled Kubernetes clusters. It helps ensure consistent governance, security, and compliance policies whether clusters are running in Azure, on-premises, or in other clouds.
 
-- [Azure Monitor](/azure/azure-monitor/overview) is a comprehensive monitoring solution that provides end-to-end observability for applications, infrastructure, and networks. In this architecture, Azure Monitor delivers unified monitoring and observability across all Kubernetes clusters in the hybrid environment. It collects metrics, logs, and performance data from both Azure-hosted and Azure Arc-enabled clusters for centralized analysis and alerting.
+- [Azure Monitor](/azure/azure-monitor/fundamentals/overview) is a comprehensive monitoring solution that provides end-to-end observability for applications, infrastructure, and networks. In this architecture, Azure Monitor delivers unified monitoring and observability across all Kubernetes clusters in the hybrid environment. It collects metrics, logs, and performance data from both Azure-hosted and Azure Arc-enabled clusters for centralized analysis and alerting.
 
 ## Scenario details
 
@@ -130,7 +130,7 @@ In Machine Learning, you can choose an AKS (or Azure Arc-enabled Kubernetes) clu
 
 ### Monitor Kubernetes workloads with managed Prometheus and Grafana
 
-Azure Monitor provides a managed service for both Prometheus and Grafana deployments, so that you can take advantage of these popular Kubernetes monitoring tools. This managed service allows you to use these tools without the need to manage and update the deployments yourself. To analyze Prometheus' metrics, use the [metrics explorer with PromQL](/azure/azure-monitor/essentials/metrics-explorer). 
+Azure Monitor provides a managed service for both Prometheus and Grafana deployments, so that you can take advantage of these popular Kubernetes monitoring tools. This managed service allows you to use these tools without the need to manage and update the deployments yourself. To analyze Prometheus' metrics, use the [metrics explorer with PromQL](/azure/azure-monitor/metrics/metrics-explorer). 
 
 ### Topology, network, and routing
 
@@ -220,7 +220,7 @@ Related architectures:
 [Azure Arc-enabled Kubernetes]: /azure/azure-arc/kubernetes
 [Azure Arc network requirements]: /azure/azure-arc/network-requirements-consolidated
 [Azure Monitor]: /azure/azure-monitor
-[Azure Monitor features for Kubernetes monitoring]: /azure/azure-monitor/insights/container-insights-overview
+[Azure Monitor features for Kubernetes monitoring]: /azure/azure-monitor/containers/kubernetes-monitoring-overview
 [Azure Policy]: /azure/governance/policy
 [Azure Policy built-in definitions for Azure Arc-enabled Kubernetes]: /azure/azure-arc/kubernetes/policy-reference
 [Connect an existing Kubernetes cluster to Azure Arc]: /azure/azure-arc/kubernetes/quickstart-connect-cluster
