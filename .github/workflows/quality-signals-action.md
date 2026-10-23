@@ -169,7 +169,7 @@ After requesting publication, follow [Completion](#completion). On incomplete pr
 
 ## Retain run artifacts
 
-Before finishing, if this run produced a work-item or decision JSON file, copy those existing files from `/tmp/gh-aw/agent/` into `/tmp/gh-aw/safeoutputs/upload-artifacts/quality-signals-action/`, preserving their filenames. Call `upload_artifact` once with `name: "quality-signals-action"` and `path: "quality-signals-action"`.
+Retain this run's existing work-item and decision JSON files with one `upload_artifact` call using only `path: "quality-signals-action"`.
 
 Include the work item for an empty sweep and any available partial artifacts for an incomplete run. If no artifact exists, don't request an upload or fabricate files. Report an upload failure through `report_incomplete`.
 

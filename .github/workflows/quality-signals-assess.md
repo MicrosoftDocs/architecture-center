@@ -119,7 +119,7 @@ Don't change memory until the investigation and challenge have completed and you
 
 ## Completion
 
-Before finishing, if this run produced any of its processing files, copy those existing files from `/tmp/gh-aw/agent/` into `/tmp/gh-aw/safeoutputs/upload-artifacts/quality-signals-assessment/`, preserving their filenames. Call `upload_artifact` once with `name: "quality-signals-assessment"` and `path: "quality-signals-assessment"`. The parent investigator owns this upload; the challenger only writes its file(s).
+Retain this run's existing JSON artifacts, including the work item for an empty run, with one `upload_artifact` call using only `path: "quality-signals-assessment"`. The parent investigator owns the upload; the challenger only writes its files.
 
 If no artifact exists, don't request an upload or fabricate files.
 
