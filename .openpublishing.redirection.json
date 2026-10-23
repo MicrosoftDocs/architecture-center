@@ -5829,7 +5829,7 @@
     },
     {
       "source_path": "docs/hybrid/hybrid-containers.yml",
-      "redirect_url": "/azure/cloud-adoption-framework/scenarios/hybrid/arc-enabled-kubernetes/eslz-arc-kubernetes-cicd-gitops-disciplines",
+      "redirect_url": "/azure/architecture/hybrid/arc-hybrid-kubernetes",
       "redirect_document_id": false
     },
     {
@@ -7509,7 +7509,7 @@
     },
     {
       "source_path": "docs/hybrid/azure-arc-hybrid-config.yml",
-      "redirect_url": "/azure/cloud-adoption-framework/scenarios/hybrid/arc-enabled-servers/eslz-security-governance-and-compliance",
+      "redirect_url": "/azure/azure-arc/servers/cloud-native/governance-policy",
       "redirect_document_id": false
     },
     {
@@ -7784,7 +7784,7 @@
     },
     {
       "source_path": "docs/databases/guide/hybrid-on-premises-and-cloud.md",
-      "redirect_url": "/azure/cloud-adoption-framework/scenarios/hybrid/",
+      "redirect_url": "/azure/architecture/hybrid/hybrid-start-here",
       "redirect_document_id": false
     },
     {
