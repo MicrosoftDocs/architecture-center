@@ -448,15 +448,15 @@ Performance Efficiency refers to your workload's ability to scale to meet user d
 
 ### Terraform
 
-You can use Azure Verified Modules for Terraform to automate deployment of Azure Local instances and workload resources:
+You can use Terraform to automate deployment of Azure Local instances and workload resources:
 
 - Deploy an Azure Local instance with the [cluster module](https://registry.terraform.io/modules/Azure/avm-res-azurestackhci-cluster/azurerm/latest).
 - Create workload logical networks with the [logical network module](https://registry.terraform.io/modules/Azure/avm-res-azurestackhci-logicalnetwork/azurerm/latest).
 - Deploy Azure Local VMs with the [virtual machine instance module](https://registry.terraform.io/modules/Azure/avm-res-azurestackhci-virtualmachineinstance/azurerm/latest).
 
-These modules don't replace the hardware, identity, and network preparation in the deployment steps. Review each module's requirements and examples, pin the module and provider versions that you validate, and configure networking and security to match this architecture. The cluster module requires AD DS inputs. For deployments that use local identity with Key Vault, follow the [supported ARM template workflow](/azure/azure-local/deploy/deployment-local-identity-with-key-vault-template) rather than assuming that the cluster module supports that identity model.
+Review each module's requirements and examples, pin the module and provider versions that you validate, and configure networking and security to match this architecture. The cluster module requires AD DS inputs. For deployments that use local identity with Key Vault, follow the [supported ARM template workflow](/azure/azure-local/deploy/deployment-local-identity-with-key-vault-template).
 
-In the cluster module, explicitly set `credential_guard_enforced` and `storage_rdma_enabled` to `true` for this baseline's security settings and dedicated storage adapters. Both inputs default to `false`. Set `storage_rdma_protocol` to match the validated hardware and network configuration. When you use Trusted launch for supported workload VMs, set the virtual machine instance module's `security_type` to `TrustedLaunch`, `enable_tpm` to `true`, and `secure_boot_enabled` to `true`. Don't enable Trusted launch for VMs that use Azure Site Recovery. For the protection and recovery constraints, see [Security](#security).
+In the cluster module, explicitly set `credential_guard_enforced` and `storage_rdma_enabled` to `true` for this baseline's security settings and dedicated storage adapters. Set `storage_rdma_protocol` to match the validated hardware and network configuration. When you use Trusted launch for supported workload VMs, set the virtual machine instance module's `security_type` to `TrustedLaunch`, `enable_tpm` to `true`, and `secure_boot_enabled` to `true`. Don't enable Trusted launch for VMs that use Azure Site Recovery. For the protection and recovery constraints, see [Security](#security).
 
 ## Next steps
 
