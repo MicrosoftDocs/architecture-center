@@ -10,7 +10,7 @@ This architecture shows how to include Azure file shares in your hybrid environm
 
 The architecture consists of the following components:
 
-- [Microsoft Entra ID](/entra/fundamentals/whatis) is an enterprise identity service that provides features to protect against cybersecurity threats. In this architecture, it serves as the cloud-based directory that stores synchronized objects from on-premises AD DS and authenticates users that access Azure file shares.
+- [Microsoft Entra ID](/entra/fundamentals/what-is-entra) is an enterprise identity service that provides features to protect against cybersecurity threats. In this architecture, it serves as the cloud-based directory that stores synchronized objects from on-premises AD DS and authenticates users that access Azure file shares.
 - [AD DS](/windows-server/identity/ad-ds/get-started/virtual-dc/active-directory-domain-services-overview) is an on-premises identity and directory service. In this architecture, it authenticates domain-joined clients and integrates with Azure Files to enforce access controls by using Windows access control lists (ACLs). The AD DS directory synchronizes with Microsoft Entra ID to authenticate on-premises users.
 - [Microsoft Entra Connect Sync](/entra/identity/hybrid/connect/how-to-connect-sync-whatis) is a synchronization service that runs on an on-premises server. In this architecture, it ensures identity consistency by syncing AD DS objects to Microsoft Entra ID.
 - [Azure VPN Gateway](/azure/vpn-gateway/vpn-gateway-about-vpngateways) is a networking service that sends encrypted traffic between Azure and on-premises networks over the public internet. In this architecture, this optional component provides secure connectivity for accessing Azure file shares when Server Message Block (SMB) port 445 is blocked by internet service providers (ISPs) or firewalls.
@@ -122,8 +122,8 @@ Cost Optimization is about looking at ways to reduce unnecessary expenses and im
 
 Learn more about the component technologies:
 
-- [How to create an Azure file share](/azure/storage/files/storage-how-to-create-file-share) for instructions on getting started with an SMB share.
-- [How to create an NFS share](/azure/storage/files/storage-files-how-to-create-nfs-shares) for instructions on getting started with an NFS mount share.
+- [How to create an Azure file share](/azure/storage/files/create-classic-file-share) for instructions on getting started with an SMB share.
+- [How to create an NFS share](/azure/storage/files/create-file-share) for instructions on getting started with an NFS mount share.
 
 ## Related resources
 
