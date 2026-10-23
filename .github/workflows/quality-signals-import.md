@@ -16,7 +16,7 @@ tracker-id: quality-signals-import
 if: github.repository == 'MicrosoftDocs/architecture-center-pr' && github.ref == format('refs/heads/{0}', github.event.repository.default_branch)
 
 concurrency:
-  group: quality-signals-import
+  group: quality-signals-memory
   cancel-in-progress: false
   job-discriminator: ${{ github.run_id }}
 
