@@ -284,6 +284,8 @@ Manage Azure Local solution updates separately from workload guest operating sys
 
 Use [Update Manager for Azure Local](/azure/azure-local/update/azure-update-manager-23h2) to assess update readiness, apply solution updates, and review update history. Use the current [Azure Local release information](/azure/azure-local/release-information-23h2) rather than assuming a fixed release cadence.
 
+Apply Azure Local solution updates within six months to remain supported. Azure Arc resource bridge also [requires solution updates within one year](/azure/azure-local/release-information-23h2#key-considerations) to keep its internal certificates valid. Delaying updates beyond this period can allow these certificates to expire. For more information, see the [certificate-expiration warning under Operational Excellence](#resource-bridge-certificate-expiration).
+
 The solution update can include the operating system, agents, services, and a hardware-provider solution extension package. Maintain the firmware and driver versions in the validated hardware support matrix. Confirm the hardware provider's delivery and support process before procurement, and test the complete update on representative hardware before production rollout.
 
 Before you select a target release, review its known issues, supported update path, and the hardware provider's Solution Builder Extension (SBE) release information. Inventory every AKS workload cluster and confirm that its Kubernetes version is supported by the target Azure Local release. If a version isn't supported, upgrade the workload cluster through each required Kubernetes minor version before you update the platform.
@@ -389,6 +391,11 @@ Operational Excellence covers the operations processes that deploy an applicatio
 - Enable Insights for Azure Local and alert on hardware health, storage capacity and repair state, cluster health, update compliance, Azure Arc / resource bridge status, and required outbound connectivity. Monitor the selected identity services, DNS, time, switches, power, and other external dependencies through their owning systems.
 
 - Treat Azure Arc resource bridge as a critical management dependency. Don't manually delete its appliance VM or Azure resource. Unsupported deletion can leave stale service-side associations and disrupt workload deployment, solution updates, and Azure-based management. Monitor resource bridge health, and contact Microsoft Support before recovery or deletion. For more information, see [Azure Arc resource bridge maintenance](/azure/azure-arc/resource-bridge/maintenance#delete-arc-resource-bridge).
+
+<a id="resource-bridge-certificate-expiration"></a>
+
+> [!WARNING]
+> Prolonged delays in applying Azure Local solution updates can allow internal Azure Arc resource bridge certificates to expire. Expired certificates can prevent Azure-based workload management and solution update operations. Keep the instance within its supported six-month update window, and contact Microsoft Support for recovery assistance if certificates expire. Don't independently upgrade or redeploy the resource bridge. Azure Local manages its upgrade through solution updates. For more information, see [internal certificate requirements](/azure/azure-arc/resource-bridge/system-requirements#internal-certificates) and [resource bridge upgrade guidance for Azure Local](/azure/azure-arc/resource-bridge/upgrade#azure-local).
 
 - Keep an inventory of platform and workload ownership, support contracts, firmware baselines, network configurations, certificates, service accounts, recovery credentials, and replacement-part lead times. Exercise machine replacement, switch maintenance, secret rotation, backup restoration, and site recovery procedures.
 
