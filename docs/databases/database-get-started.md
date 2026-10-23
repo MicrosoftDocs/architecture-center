@@ -105,6 +105,7 @@ Most organizations need a hybrid approach to databases because they have workloa
 Review the following key hybrid database scenarios:
 
 - [Azure Arc hybrid management for SQL Server](../hybrid/azure-arc-sql-server.yml): Use Azure Arc to manage SQL Server across environments.
+- [SQL Managed Instance enabled by Azure Arc](/azure/azure-arc/data/managed-instance-overview): Run SQL Managed Instance on Kubernetes on your infrastructure.
 - [Get started with Azure hybrid and adaptive cloud architecture](../hybrid/hybrid-start-here.md): Connect on-premises environments to Azure.
 
 ### Mainframe data modernization
