@@ -6,6 +6,7 @@ ms.author: arsenv
 ms.date: 05/21/2024
 ms.topic: concept-article
 ms.subservice: best-practice
+ai-usage: ai-assisted
 ms.custom:
   - arb-data
 ---
@@ -27,13 +28,13 @@ If you're looking for a more automated service for running Apache Cassandra on A
 
 ## Azure VM sizes and disk types
 
-Cassandra workloads on Azure commonly use either [Standard_DS14_v2][dsv2], [Standard_DS13_v2][dsv2], [Standard_D16s_v5][dsv5], or [Standard_E16s_v5][esv5] virtual machines. Cassandra workloads benefit from having more memory in the VM, so consider [memory optimized](/azure/virtual-machines/sizes/overview#memory-optimized) virtual machine sizes, such as Standard_DS14_v2 or Standard_E16s_v5, or [local-storage optimized](/azure/virtual-machines/sizes/overview#storage-optimized) sizes such as Standard_L16s_v3.
+For Cassandra workloads on Azure, evaluate current VM sizes such as [Standard_D16s_v6][dsv6] or [Standard_E16s_v6][esv6]. Cassandra workloads benefit from having more memory in the VM, so consider [memory optimized](/azure/virtual-machines/sizes/overview#memory-optimized) virtual machine sizes, such as Standard_E16s_v6, or [local-storage optimized](/azure/virtual-machines/sizes/overview#storage-optimized) sizes such as Standard_L16s_v3.
 
 For durability, data and commit logs are commonly stored on a stripe set of two to four 1-TB [Premium SSDs](/azure/virtual-machines/disks-types#premium-ssds) (P30).
 
-Cassandra nodes shouldn't be too data-dense. We recommend having at most 1 to 2 TB of data per VM and enough free space for compaction. To achieve the highest possible combined throughput and IOPS using Premium SSDs, we recommend creating a stripe set from a few 1-TB disks, instead of using a single 2-TB or 4-TB disk. For example, on a DS14_v2 VM, four 1-TB disks have a maximum IOPS of 4 &times; 5000 = 20 K, versus 7.5 K for a single 4-TB disk.
+Cassandra nodes shouldn't be too data-dense. We recommend having at most 1 to 2 TB of data per VM and enough free space for compaction. To increase combined throughput and IOPS using Premium SSDs, we recommend creating a stripe set from a few 1-TiB disks, instead of using a single 2-TiB or 4-TiB disk. For example, on a [Standard_E16s_v6][esv6] VM, four P30 disks provide a combined 20,000 IOPS at [baseline provisioned performance](/azure/virtual-machines/disks-types#premium-ssd-size), versus 7,500 IOPS for a single P50 disk. Keep the stripe set within the VM's uncached limits of 25,600 Premium SSD IOPS and 848 MBps.
 
-Evaluate [Azure Ultra Disks](/azure/virtual-machines/disks-enable-ultra-ssd) for Cassandra workloads that need smaller disk capacity. They can provide higher IOPS/throughput and lower latency on VM sizes like [Standard_E16s_v5][esv5] and [Standard_D16s_v5][dsv5].
+Evaluate [Azure Ultra Disks](/azure/virtual-machines/disks-enable-ultra-ssd) for Cassandra workloads that need smaller disk capacity. They can provide higher IOPS/throughput and lower latency on VM sizes like [Standard_E16s_v6][esv6] and [Standard_D16s_v6][dsv6].
 
 For Cassandra workloads that don't need durable storage—that is, where data can be easily reconstructed from another storage medium—consider using [Standard_L16s_v3](/azure/virtual-machines/sizes/storage-optimized/lsv3-series) or [Standard_L16s_v2](/azure/virtual-machines/sizes/storage-optimized/lsv2-series) VMs. These VMs sizes have large and fast local *temporary* NVM Express (NVMe) disks.
 
@@ -47,13 +48,13 @@ Accelerated Networking requires a supported Linux distribution with the latest d
 
 ## Azure VM data disk caching
 
-Cassandra read workloads perform best when random-access disk latency is low. We recommend using Azure managed disks with [ReadOnly](/azure/virtual-machines/premium-storage-performance#disk-caching) caching enabled. ReadOnly caching provides lower average latency, because the data is read from the cache on the host instead of going to the backend storage.
+Cassandra read workloads perform best when random-access disk latency is low. For Premium SSD data disks smaller than 4 TiB on VM sizes that support host caching, evaluate [ReadOnly](/azure/virtual-machines/premium-storage-performance#disk-caching-settings) caching. Cache hits reduce read latency because the data is read from the cache on the host instead of going to the backend storage.
 
-Read-heavy, random-read workloads like Cassandra benefit from the lower read latency even though cached mode has lower throughput limits than uncached mode. (For example, [DS14_v2](/azure/virtual-machines/sizes/memory-optimized/dv2-dsv2-series-memory) virtual machines have a maximum cached throughput of 512 MBps versus uncached of 768 MBps.)
+Read-heavy, random-read workloads like Cassandra can benefit from lower read latency. Check the selected VM size's cached and uncached IOPS and throughput limits.
 
-ReadOnly caching is particularly helpful for Cassandra time-series and other workloads where the working dataset fits in the host cache and data isn't constantly overwritten. For example, [DS14_v2](/azure/virtual-machines/sizes/memory-optimized/dv2-dsv2-series-memory) provides a cache size of 512 GB, which could store up to 50% of the data from a Cassandra node with 1-2 TB data density.
+ReadOnly caching is particularly helpful for Cassandra time-series and other workloads where the working dataset fits in the host cache and data isn't constantly overwritten. Check the available host-cache capacity for the selected VM size.
 
-There's no significant performance penalty from cache-misses when ReadOnly caching is enabled, so cached mode is recommended for all but the most write-heavy workloads.
+Test your workload with and without ReadOnly caching before enabling it in production. [Ultra Disks](/azure/virtual-machines/disks-types#ultra-disks) and [Premium SSD v2](/azure/virtual-machines/disks-types#premium-ssd-v2) don't support host caching. For these disk types, use the VM's uncached storage limits.
 
 ## Linux read-ahead
 
@@ -146,6 +147,5 @@ For more information about general Cassandra settings, not specific to Azure, se
 - [N-tier architecture style](../../guide/architecture-styles/n-tier.md)
 - [Design a data partitioning strategy](/azure/well-architected/design-guides/partition-data)
 
-[dsv2]: /azure/virtual-machines/sizes/memory-optimized/dv2-dsv2-series-memory
-[dsv5]: /azure/virtual-machines/sizes/general-purpose/dv5-series
-[esv5]: /azure/virtual-machines/sizes/memory-optimized/ev5-series
+[dsv6]: /azure/virtual-machines/sizes/general-purpose/dsv6-series
+[esv6]: /azure/virtual-machines/sizes/memory-optimized/esv6-series
