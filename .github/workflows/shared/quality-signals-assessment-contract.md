@@ -54,7 +54,7 @@ The initial investigation has no reviewer responses. The final assessment has on
 
 Manage the schema, file layout, and processing conventions within `findings/`, co-managing the data and `guide.md` with the importer and other workflows. You can adapt the documented representation or add files while preserving existing record compatibility. The assessment artifact format doesn't prescribe the shared store's schema.
 
-Associate the final assessment and its written recommendation with the selected finding for all three completed outcomes, including the assessment time in UTC and Actions run URL. Keep your recommendation distinct from the original imported proposal. Change the selected finding's assessment status from `unassessed` to `assessed`, using the status field documented in the guide. Persist that transition together with the result and remediation-status value for every completed outcome. An actual execution failure leaves the finding `unassessed`; an `assessed` finding is no longer eligible for assessment. Keep remediation status independently updateable by future workflows without replacing the assessment.
+Store the complete final assessment and its written recommendation on the selected finding record for all three completed outcomes, including the rationale, checks, evidence, review resolutions, source revision, assessment time in UTC, and Actions run URL. Don't store a second copy in a separate assessment artifact file in repo-memory. Keep your recommendation distinct from the original imported proposal. Change the selected finding's assessment status from `unassessed` to `assessed`, using the status field documented in the guide. Persist that transition together with the result and remediation-status value for every completed outcome. An actual execution failure leaves the finding `unassessed`; an `assessed` finding is no longer eligible for assessment. Keep remediation status independently updateable by future workflows without replacing the assessment.
 
 When you introduce or change storage or process conventions, update `guide.md` in the same run to document:
 
@@ -65,6 +65,8 @@ When you introduce or change storage or process conventions, update `guide.md` i
 
 Preserve the guide's import instructions and unrelated documentation. Describe the storage you actually wrote, not a proposed schema.
 
+If `guide.md` directs workflows to retain working files in repo-memory, that convention is obsolete. On your next completed assessment's memory update, replace that instruction with the record-only persistence policy and the run-scoped `upload_artifact` retention process.
+
 Repo-memory's separate persistence job commits and pushes the prepared changes after the agent finishes. Do not directly commit or push from the agent.
 
 ## Write boundaries
@@ -73,6 +75,6 @@ Only the parent investigator can update memory, after resolving the independent 
 
 Except for the selected finding's assessment-status transition, preserve original imported fields and values, unrelated findings, and existing downstream remediation progress and references. Don't move, rename, or delete finding files, and leave `inputs/` unchanged.
 
-Write investigation artifacts under `/tmp/gh-aw/agent/`. Persist changes only within `findings/**` and `guide.md` in the configured `quality-signals` repo-memory store.
+Write the work item, investigation, challenge, and final assessment artifact under `/tmp/gh-aw/agent/`. Copies for `upload_artifact` belong only in its staging directory, outside repo-memory. Persist only the selected finding record's completed result and processing state, plus relevant `guide.md` updates, in the configured `quality-signals` repo-memory store. Never persist scratch files or per-finding artifact directories under `findings/**` or elsewhere in repo-memory.
 
 Recording remediation status only signals future work. Don't carry out the recommendation, edit articles, or open issues or pull requests.
