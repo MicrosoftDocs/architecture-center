@@ -4,7 +4,7 @@ metadata:
   description: Learn how to design a connected, highly available Azure Local deployment that uses hyperconverged storage and storage-switched networking.
   author: neilbird
   ms.author: nebird
-  ms.date: 09/30/2026
+  ms.date: 10/23/2026
   ms.topic: reference-architecture
   ms.subservice: reference-architecture
   ai-usage: ai-assisted
