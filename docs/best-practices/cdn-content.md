@@ -32,7 +32,7 @@ Typical uses for a CDN include:
 
 There are several challenges to take into account when planning to use a CDN.
 
-- **Deployment**. Decide the origin from which the CDN fetches the content, and whether you need to deploy the content in more than one storage system. Consider the process for deploying static content and resources. For example, you might need to implement a separate step to load content into Azure Blob Storage.
+- **Deployment**. Decide the origin from which the CDN fetches the content, and whether you need to deploy the content in more than one storage system. Consider the process for deploying static content and resources. For example, you might need to implement a separate step to load content into Azure Blob Storage. For storage-backed origins, see the [Static Content Hosting pattern](../patterns/static-content-hosting.md).
 
 - **Versioning and cache-control**. Consider how you update static content and deploy new versions. Understand how the CDN performs caching and time-to-live (TTL). For Azure Front Door, see [Caching with Azure Front Door](/azure/frontdoor/front-door-caching).
 

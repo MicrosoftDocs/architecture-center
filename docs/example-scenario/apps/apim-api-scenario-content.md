@@ -65,10 +65,9 @@ In the future, the project team can gradually move functionality to the new APIs
 - The organization might decide to host its APIs on-premises. One reason for this change might be that the organization can't move downstream database dependencies that are in scope for this project to the cloud. In this scenario, the organization can take advantage of API Management locally by using a [self-hosted gateway](/azure/api-management/self-hosted-gateway-overview).
 
   The self-hosted gateway is a containerized deployment of the API Management gateway that connects to Azure on an outbound socket. To use self-hosted gateways, you must meet the following prerequisites:
-     
-     - You must deploy self-hosted gateways by using a parent resource in Azure, which adds extra cost. 
-     
-     - You must use the Premium tier of API Management.
+
+  - You must deploy self-hosted gateways by using a parent resource in Azure, which adds extra cost.
+  - You must use the Premium tier of API Management.
 
 ## Scenario details
 
@@ -78,7 +77,7 @@ Goals for the project include addressing technical debt, ongoing maintenance imp
 
 - The development team modernizes the app's back end, which consists of relational databases hosted on VMs.
 
-- The in-house development team writes new business functionality and exposes it over new HTTP APIs.
+- The in-house development team writes new business functionality and exposes it over new HTTP APIs. For RESTful endpoints, see [Web API implementation best practices](../../best-practices/api-implementation.md).
 
 - A contract development team builds a new browser-based UI, which Azure hosts.
 

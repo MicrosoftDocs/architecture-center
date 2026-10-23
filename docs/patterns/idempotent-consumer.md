@@ -140,6 +140,8 @@ The same core technique applies in each case.
 
 The mechanisms in this article, such as stable keys, atomic markers, and uniqueness constraints, transfer to these contexts even when no message broker is involved.
 
+For HTTP endpoints, see [HTTP method semantics and idempotency](../best-practices/api-implementation.md#preserve-http-method-semantics-and-implement-idempotency) for guidance on method-specific behavior and documenting safe retries.
+
 ## Workload design
 
 Evaluate how to use the Idempotent Consumer pattern in a workload's design to address the goals and principles covered in the [Azure Well-Architected Framework pillars](/azure/well-architected/pillars). The following table provides guidance about how this pattern supports the goals of each pillar.
@@ -187,4 +189,3 @@ To make this idempotent consumer also resilient against duplicate send retries, 
 - The [Retry pattern](./retry.yml) enables applications to handle transient faults by retrying operations, which makes idempotent processing necessary because retries can cause duplicate delivery.
 
 - [Resilient Azure Event Hubs and Azure Functions design](../serverless/event-hubs-functions/resilient-design.md) applies this pattern to functions that Event Hubs triggers, including deduplication techniques for event streams.
-

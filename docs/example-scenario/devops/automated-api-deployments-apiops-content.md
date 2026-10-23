@@ -147,6 +147,8 @@ APIOps makes deployments repeatable and creates a commit history for post-change
 
 For multiple environments, promote the same reviewed artifact commit through development, staging, and production. Use environment overrides only for values that must differ between environments, and review those files with the same care as the artifacts. Workspace child overrides aren't applied at publish time, so don't use them for environment promotion. Test rollback procedures before an incident occurs. A Git revert still requires validation and a controlled publish to restore API Management.
 
+For API-level validation to complement artifact checks, see [Test a web API](../../best-practices/api-implementation.md#testing-a-web-api).
+
 The CLI provides `init`, `extract`, and `publish` commands and can scaffold GitHub Actions or Azure DevOps pipelines. Review command details in the [APIOps CLI documentation](https://github.com/Azure/apiops-cli/tree/main/docs).
 
 #### Migrate safely from the legacy APIOps Toolkit

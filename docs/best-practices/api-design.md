@@ -340,7 +340,7 @@ Consider the following best practices:
 
 - **Field selection for client-defined projections** enable clients to specify only the fields that they need by using a `fields` parameter like `fields=id,name`. For example, you can use a query string parameter that accepts a comma-delimited list of fields, such as */orders?fields=ProductID,Quantity*.
 
-Your API must validate the requested fields to ensure that the client is allowed to access them and won't expose fields that aren't normally available through the API.
+Your API must validate the requested fields to ensure that the client is allowed to access them and doesn't expose fields that aren't normally available through the API. For implementation guidance, see [Validate request data and control field access](./api-implementation.md#validate-request-data-and-control-field-access).
 
 ## Support partial responses
 
@@ -452,6 +452,8 @@ The set of links that are returned can change depending on the state of the reso
 A web API doesn't remain static. As business requirements change, new collections of resources are added. As new resources are added, the relationships between resources might change, and the structure of the data in resources might be amended. Updating a web API to handle new or different requirements is a straightforward process, but you must consider the effects that such changes have on client applications that consume the web API. The developer who designs and implements a web API has full control over that API, but they don't have the same degree of control over client applications built by partner organizations. It's important to continue to support existing client applications while allowing new client applications to use new features and resources.
 
 A web API that implements versioning can indicate the features and resources that it exposes, and a client application can submit requests that are directed to a specific version of a feature or resource. The following sections describe several different approaches, each of which has its own benefits and trade-offs.
+
+For implementation guidance, see [Implement the selected API versioning strategy](./api-implementation.md#implement-the-selected-api-versioning-strategy).
 
 ### No versioning
 
@@ -584,6 +586,8 @@ A well-architected API should clearly define how tenants are identified in reque
 
 Multitenancy affects endpoint structure, request handling, authentication, and authorization. This approach also influences how API gateways, load balancers, and back-end services route and process requests. The following strategies are common ways to achieve multitenancy in a web API.
 
+For request handling and isolation guidance, see [Resolve and authorize tenant context](./api-implementation.md#resolve-and-authorize-tenant-context).
+
 ### Use subdomain or domain-based isolation (DNS-level tenancy)
 
 This approach routes requests by using [tenant-specific domains](/azure/architecture/guide/multitenant/considerations/domain-names). Wildcard domains use subdomains for flexibility and simplicity. Custom domains, which allow tenants to use their own domains, provide greater control and can be tailored to meet specific needs. Both methods rely on proper DNS configuration, including `A` and `CNAME` records, to direct traffic to the appropriate infrastructure. Wildcard domains simplify configuration, but custom domains provide a more branded experience.
@@ -673,6 +677,7 @@ You might want to adopt OpenAPI for your RESTful web APIs. Consider the followin
 
 ## Next steps
 
+- Apply the [best practices for RESTful web API implementation](./api-implementation.md).
 - See detailed [recommendations for designing REST APIs on Azure](https://github.com/microsoft/api-guidelines/blob/vNext/azure/Guidelines.md).
 - See a [checklist](https://mathieu.fenniak.net/the-api-checklist) of items to consider when you design and implement a web API.
 - Build [software as a service and multitenant solution architectures](/azure/architecture/guide/saas-multitenant-solution-architecture/) on Azure.

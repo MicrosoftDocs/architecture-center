@@ -111,7 +111,7 @@ Notice that the `GetAsync` method now calls the `CacheService` class, rather tha
 
 - Applications that cache dynamic data should be designed to support eventual consistency.
 
-- For web APIs, you can support client-side caching by including a `Cache-Control` header in request and response messages, and using ETags to identify versions of objects. For more information, see [API implementation][api-implementation].
+- For web APIs, use `Cache-Control` response headers and ETags to support client-side caching and revalidation. For more information, see [HTTP caching and conditional requests][api-implementation].
 
 - You don't have to cache entire entities. If most of an entity is static, but only a small piece changes frequently, cache the static elements and retrieve the dynamic elements from the data source. This approach can help to reduce the volume of I/O that's performed against the data source.
 
@@ -203,7 +203,7 @@ The volume of successful tests still reaches a plateau, but at a higher user loa
 
 ## Related resources
 
-- [API implementation best practices][api-implementation]
+- [Web API caching and conditional requests][api-implementation]
 - [Cache-Aside pattern][cache-aside-pattern]
 - [Caching best practices][caching-guidance]
 - [Circuit Breaker pattern][circuit-breaker]

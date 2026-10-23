@@ -135,6 +135,8 @@ This limitation means that a client that uses a poorly configured cache can cont
 
 If you build a web application that serves data over an HTTP connection, you can implicitly force a web client, such as a browser or web proxy, to fetch the most recent information. You can trigger this refresh by changing the URI whenever you update the resource. Web clients typically use the URI of a resource as the key in the client-side cache, so if the URI changes, the web client ignores any previously cached versions of a resource and fetches the new version instead.
 
+For HTTP APIs, see [Response cache policies and ETag-based revalidation](./api-implementation.md#optimizing-client-side-data-access) for guidance on freshness, private responses, and conditional requests.
+
 ## Manage concurrency in a cache
 
 Often, you design caches to be shared by multiple instances of an application. Each application instance can read and modify data in the cache, so the same concurrency issues that arise with any shared data store also apply to a cache. In a situation where an application needs to modify data held in the cache, you might need to ensure that updates made by one instance of the application don't overwrite the changes made by another instance.

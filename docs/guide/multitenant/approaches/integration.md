@@ -129,6 +129,8 @@ Real-time integrations often involve exposing APIs for your tenants or other par
 
 A good practice is to use an API gateway, such as [Azure API Management](/azure/api-management/api-management-key-concepts), to handle these concerns and many others. API gateways give you a single place to implement policies that your APIs follow. They also simplify the implementation of your back-end API systems. For more information, see [Use API Management in a multitenant solution](../service/api-management.md).
 
+For request validation, versioning, and error handling in RESTful endpoints, see [Web API implementation best practices](../../../best-practices/api-implementation.md).
+
 ### Valet Key pattern
 
 Occasionally, a tenant might need direct access to a data source, such as Azure Storage. Consider following the [Valet Key pattern](../../../patterns/valet-key.yml) to share data securely and to restrict access to the data store.

@@ -49,7 +49,7 @@ The following new and updated articles have recently been published in the Azure
 - [Baseline highly available zone-redundant web application](./web-apps/app-service/architectures/baseline-zone-redundant.yml) ([#12df84b071](https://github.com/MicrosoftDocs/architecture-center/commit/12df84b071), [#8d537f34b4](https://github.com/MicrosoftDocs/architecture-center/commit/8d537f34b4))
 - [CDN guidance](./best-practices/cdn.yml) ([#d14aa20410](https://github.com/MicrosoftDocs/architecture-center/commit/d14aa20410))
 - [Gateway Offloading pattern](./patterns/gateway-offloading.md) ([#d14aa20410](https://github.com/MicrosoftDocs/architecture-center/commit/d14aa20410))
-- [Static Content Hosting pattern](./patterns/static-content-hosting.yml) ([#d14aa20410](https://github.com/MicrosoftDocs/architecture-center/commit/d14aa20410))
+- [Static Content Hosting pattern](./patterns/static-content-hosting.md) ([#d14aa20410](https://github.com/MicrosoftDocs/architecture-center/commit/d14aa20410))
 - [Autoscaling guidance](./best-practices/auto-scaling.md) ([#03e41c0834](https://github.com/MicrosoftDocs/architecture-center/commit/03e41c0834))
 - [Prevent IPv4 exhaustion in Azure](./networking/guide/internet-protocol-version-4-exhaustion.md) ([#a19634b428](https://github.com/MicrosoftDocs/architecture-center/commit/a19634b428))
 - [Azure App Service and Azure Functions considerations for multitenancy](./guide/multitenant/service/app-service.md) ([#0bce29bdfe](https://github.com/MicrosoftDocs/architecture-center/commit/0bce29bdfe))

@@ -211,7 +211,7 @@ await SaveCustomerListToFileAsync(customers);
 
 - The first two examples make *fewer* I/O calls, but each one retrieves *more* information. You must consider the tradeoff between these two factors. The right answer will depend on the actual usage patterns. For example, in the web API example, it might turn out that clients often need just the user name. In that case, it might make sense to expose it as a separate API call. For more information, see the [Extraneous Fetching][extraneous-fetching] antipattern.
 
-- When reading data, do not make your I/O requests too large. An application should only retrieve the information that it is likely to use.
+- When reading data, don't make your I/O requests too large. An application should only retrieve the information that it is likely to use. For HTTP APIs, see [Bounded batch operations](../../best-practices/api-implementation.md#avoid-implementing-chatty-post-put-and-delete-operations).
 
 - Sometimes it helps to partition the information for an object into two chunks, *frequently accessed data* that accounts for most requests, and *less frequently accessed data* that is used rarely. Often the most frequently accessed data is a relatively small portion of the total data for an object, so returning just that portion can save significant I/O overhead.
 

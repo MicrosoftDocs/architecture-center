@@ -56,7 +56,7 @@ Similarly, when you work with managed services, understand how they consume IP a
 
 Consider whether your tenants need to access your services through the internet or through private IP addresses.
 
-To secure your service for internet-based (public) access, use firewall rules, IP address allowlisting and denylisting, shared secrets and keys, and identity-based controls.
+To secure your service for internet-based (public) access, use firewall rules, IP address allow lists and deny lists, shared secrets and keys, and identity-based controls.
 
 To enable tenants to connect to your service by using private IP addresses, consider using [Azure Private Link service](#private-link-service) or [cross-tenant virtual network peering](/azure/virtual-network/create-peering-different-subscriptions). For some limited scenarios, you might also consider using Azure ExpressRoute or Azure VPN Gateway to enable private access to your solution. Typically, this approach only makes sense when you have few tenants and when you deploy dedicated virtual networks for each tenant.
 
@@ -147,7 +147,7 @@ If you plan to deploy a gateway for your solution, a good practice is to first b
 
 ### Static Content Hosting pattern
 
-The [Static Content Hosting pattern](../../../patterns/static-content-hosting.yml) serves web content from a cloud-native storage service and uses a content delivery network to cache the content.
+The [Static Content Hosting pattern](../../../patterns/static-content-hosting.md) serves static web content directly from cloud storage, optionally through a content delivery network.
 
 You can use [Azure Front Door](/azure/frontdoor/front-door-caching) or another content delivery network for your solution's static components such as single-page JavaScript applications and for static content such as image files and documents.
 

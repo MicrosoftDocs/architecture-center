@@ -160,6 +160,7 @@ To prevent users from one tenant degrading responsiveness and availability for u
 
 ## Related resources
 
+- [HTTP API throttling and resource limits](../best-practices/api-implementation.md#track-clients-and-implement-throttling-to-reduce-the-chances-of-dos-attacks)
 - [Measure the consumption of each tenant](../guide/multitenant/considerations/measure-consumption.md)
 - [Autoscaling in Azure](../best-practices/auto-scaling.md)
 - [Queue-Based Load Leveling pattern](./queue-based-load-leveling.md)
