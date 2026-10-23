@@ -16,7 +16,7 @@ Consider the following scenario details:
 
 - The database is 20 TB and runs on Oracle Enterprise Linux (x86). The database version is Oracle Database 19c, Enterprise Edition.
 - The database is Real Application Clusters (RAC)-enabled, which includes two nodes. For disaster recovery, you replicate the database via Oracle Data Guard to another datacenter that's geographically distant from the primary database location.
-- You [conducted an assessment](/azure/cloud-adoption-framework/scenarios/oracle-on-azure/oracle-capacity-planning#overall-performance-considerations) of your on-premises Oracle Database and application services and deployed a VM in Azure that has the required compute size and storage configuration.
+- You assessed your on-premises Oracle Database and application services and deployed a VM in Azure with the required compute and storage configuration. Size for memory, IOPS, throughput, and storage capacity, not just database size. Check both VM-level and disk-level limits. For more information, see [Performance best practices for Oracle on Azure VMs](/azure/virtual-machines/workloads/oracle/oracle-performance-best-practice).
 - You place the VM in the database subnet that's in the Oracle virtual network, which peers to the hub virtual network. The IP address range of the database subnet is 10.42.1.0/24.
 - In the hub virtual network, the traffic has to traverse, a network virtual appliance (NVA), such as Azure Firewall or a non-Microsoft network virtual appliance. The NVA functions as a routing device, which helps ensure that connectivity between the VM and the on-premises Oracle Database implementation is fully routable. You configure the NVA to inspect all traffic that goes to and from on-premises. The IP address of the hub NVA is 10.0.0.5.
 - You configure hybrid connectivity in the hub virtual network via an Azure ExpressRoute connection to your on-premises network.
@@ -64,7 +64,7 @@ Do the following steps to verify connectivity.
 
 - Configure backup for the database on the Azure VM. For more information, see [Backup strategies for Oracle Database on an Azure Linux VM](/azure/virtual-machines/workloads/oracle/oracle-database-backup-strategies).
 
-- Azure VMs don't support Oracle RAC, so consider using Oracle Data Guard for high availability and disaster recovery. For more information, see [Business continuity and disaster recovery for Oracle on Azure VMs](/azure/cloud-adoption-framework/scenarios/oracle-on-azure/oracle-disaster-recovery-iaas).
+- Azure VMs don't support Oracle RAC. Use Oracle Data Guard to maintain a standby database for this Enterprise Edition workload. Place the standby in another availability zone for zone-level protection or another region for regional disaster recovery. Choose the replication mode based on your recovery point objective (RPO) and network latency, and test failover and application reconnection against your recovery time objective (RTO). For more information, see [Oracle database reference architectures](/azure/virtual-machines/workloads/oracle/oracle-reference-architecture) and [Disaster recovery planning](/azure/well-architected/reliability/disaster-recovery).
 - Run the on-premises database as a secondary Data Guard replica for a period of time to ensure that the migration is successful.
 - After you no longer need the on-premises database, decommission the database and the server. Review changes that you made to ports and the firewall to allow communication between the on-premises environment and the Azure VM. Convert any changes that you no longer need.
 
@@ -85,10 +85,10 @@ Do the preceding configuration changes to migrate your database from an on-premi
 
 Review the following articles to ensure that your implementation follows recommended practices:
 
-- [Network topology and connectivity for Oracle on an Azure VM](/azure/cloud-adoption-framework/scenarios/oracle-on-azure/oracle-network-topology-iaas)
-- [Security guidelines for Oracle workloads on an Azure VM](/azure/cloud-adoption-framework/scenarios/oracle-on-azure/oracle-security-overview-iaas)
-- [Manage and monitor Oracle workloads on an Azure VM](/azure/cloud-adoption-framework/scenarios/oracle-on-azure/oracle-manage-monitor-iaas)
-- [Business continuity and disaster recovery for Oracle on an Azure VM](/azure/cloud-adoption-framework/scenarios/oracle-on-azure/oracle-disaster-recovery-iaas)
+- [Implement a secure hybrid network](../../reference-architectures/dmz/secure-vnet-dmz.yml): Review routing through Azure Firewall, network segmentation, and administrative access controls.
+- [Security best practices for IaaS workloads in Azure](/azure/security/fundamentals/iaas): Apply VM and operating system security controls, including restricted management access and updates.
+- [Monitor Azure Virtual Machines](/azure/virtual-machines/monitor-vm): Configure monitoring and alerts for the VM and guest operating system. Complement infrastructure monitoring with Oracle database monitoring as described in the [Oracle reference architecture](/azure/virtual-machines/workloads/oracle/oracle-reference-architecture).
+- [Oracle database reference architectures](/azure/virtual-machines/workloads/oracle/oracle-reference-architecture): Review Data Guard deployment options for high availability and disaster recovery.
 - [Oracle Data Guard broker concepts](https://docs.oracle.com/en/database/oracle/oracle-database/12.2/dgbkr/oracle-data-guard-broker-concepts.html)
 - [Oracle active Data Guard far sync zero data loss](https://www.oracle.com/docs/tech/database/disaster-recovery.pdf)
 - [Implement Oracle Data Guard on an Azure Linux VM](/azure/virtual-machines/workloads/oracle/configure-oracle-dataguard)
