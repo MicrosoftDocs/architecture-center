@@ -60,11 +60,11 @@ The following resources provide foundational knowledge for virtual desktop imple
 
 Organizations that start their cloud adoption can use the [Cloud Adoption Framework for Azure](/azure/cloud-adoption-framework/) to access proven guidance that accelerates cloud adoption.
 
-Key Cloud Adoption Framework resources for virtual desktop:
+Use the following resources to validate your deployment requirements and prepare the Azure environment:
 
-- [Azure Virtual Desktop planning](/azure/cloud-adoption-framework/scenarios/azure-virtual-desktop/plan): Plan your [Azure Virtual Desktop](https://azure.microsoft.com/products/virtual-desktop/) migration or deployment.
+- [Prerequisites for Azure Virtual Desktop](/azure/virtual-desktop/prerequisites): Validate licensing, identity, supported operating systems, and network connectivity before you deploy.
 
-- [Azure Virtual Desktop Azure landing zone review](/azure/cloud-adoption-framework/scenarios/azure-virtual-desktop/ready): Review your Azure landing zone readiness for Azure Virtual Desktop.
+- [Azure landing zone design areas](/azure/cloud-adoption-framework/ready/landing-zone/design-areas): Review identity, resource organization, networking, security, and governance decisions that support your virtual desktop deployment.
 
 To help ensure the quality of your virtual desktop solution on Azure, follow the [Azure Well-Architected Framework](/azure/well-architected/). The Well-Architected Framework provides prescriptive guidance for organizations that seek architectural excellence and describes how to design, provision, and monitor cost-optimized Azure solutions.
 

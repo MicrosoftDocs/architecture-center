@@ -6299,7 +6299,7 @@
     },
     {
       "source_path": "docs/example-scenario/infrastructure/linux-vdi-citrix.yml",
-      "redirect_url": "/azure/cloud-adoption-framework/scenarios/azure-virtual-desktop/landing-zone-citrix/citrix-enterprise-scale-landing-zone",
+      "redirect_url": "/azure/virtual-machines/linux/linux-remote-desktop-options",
       "redirect_document_id": false
     },
     {

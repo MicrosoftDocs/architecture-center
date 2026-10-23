@@ -17,7 +17,7 @@ The guidance builds on two related resources:
 
 - The [Azure Virtual Desktop landing zone design guide](/azure/architecture/landing-zones/azure-virtual-desktop/design-guide), which establishes foundational infrastructure for Azure Virtual Desktop, including subscriptions, networking, identity, and governance.
 
-- [BC considerations for Azure Virtual Desktop workloads](/azure/well-architected/azure-virtual-desktop/business-continuity), which provides design principles and component-level recommendations based on the Azure Well-Architected Framework.
+- [Architecture strategies for disaster recovery](/azure/well-architected/reliability/disaster-recovery), which provides Azure Well-Architected Framework guidance for recovery targets, recovery infrastructure, backups, and DR testing.
 
 This article focuses on implementation details, including architecture diagrams, registry-level configuration, step-by-step failover procedures, and DR testing approaches.
 
@@ -71,13 +71,13 @@ This article describes cost implications, but the main focus is to provide an ef
 
 For more information about BCDR, see the following articles:
 
-- [BC considerations for Azure Virtual Desktop workloads](/azure/well-architected/azure-virtual-desktop/business-continuity)
-- [BCDR considerations for Azure Virtual Desktop](/azure/cloud-adoption-framework/scenarios/azure-virtual-desktop/eslz-business-continuity-and-disaster-recovery)
+- [Architecture strategies for disaster recovery](/azure/well-architected/reliability/disaster-recovery)
+- [Azure Virtual Desktop service architecture and resilience](/azure/virtual-desktop/service-architecture-resilience)
 - [Azure Virtual Desktop DR](/azure/virtual-desktop/disaster-recovery-concepts)
 
 ## Prerequisites
 
-Before you implement multiregion BCDR, deploy the foundational landing zone infrastructure in both the primary and secondary Azure regions. For network topology, identity, and subscription structure guidance, see [Azure Virtual Desktop landing zone design guide](/azure/architecture/landing-zones/azure-virtual-desktop/design-guide) and [Network topology and connectivity for Azure Virtual Desktop](/azure/cloud-adoption-framework/scenarios/azure-virtual-desktop/eslz-network-topology-and-connectivity).
+Before you implement multiregion BCDR, deploy the foundational landing zone infrastructure in both the primary and secondary Azure regions. For network topology, identity, and subscription structure guidance, see [Azure Virtual Desktop landing zone design guide](/azure/architecture/landing-zones/azure-virtual-desktop/design-guide). Validate both regions against the [Azure Virtual Desktop network requirements](/azure/virtual-desktop/prerequisites#network).
 
 For BCDR, follow these networking prerequisites:
 
@@ -89,7 +89,7 @@ For BCDR, follow these networking prerequisites:
 
 ## Azure Virtual Desktop control plane BCDR
 
-The Azure Virtual Desktop control plane includes the web, broker, gateway, resource directory, and diagnostics services. Microsoft manages the control plane and supports regional failover. When a region experiences an outage, control plane components fail over automatically and continue to function. You don't need to set up control plane redundancy. For more information about shared responsibilities and the control plane architecture, see [Azure Virtual Desktop service architecture and resilience](/azure/virtual-desktop/service-architecture-resilience) and [BC considerations for Azure Virtual Desktop workloads](/azure/well-architected/azure-virtual-desktop/business-continuity).
+The Azure Virtual Desktop control plane includes the web, broker, gateway, resource directory, and diagnostics services. Microsoft manages the control plane and supports regional failover. When a region experiences an outage, control plane components fail over automatically and continue to function. You don't need to set up control plane redundancy. For more information about shared responsibilities and the control plane architecture, see [Azure Virtual Desktop service architecture and resilience](/azure/virtual-desktop/service-architecture-resilience).
 
 :::image type="content" border="false" source="images/azure-virtual-desktop-logical-architecture.png" alt-text="Diagram that shows the logical architecture of Azure Virtual Desktop." lightbox="images/azure-virtual-desktop-logical-architecture.png":::
 
@@ -305,7 +305,7 @@ The golden image that you use for host pool deployment in the secondary DR regio
 
 Compute Gallery is a regional resource. Create at least one secondary gallery in the secondary region. In your primary region, create a gallery, a VM image definition, and a VM image version. Then create the same objects in the secondary region. When you create the VM image version in the secondary region, you can copy the image version from the primary region by specifying the source gallery, VM image definition, and VM image version. Azure copies the image and creates a local VM image version. You can run this operation by using [the Azure portal](/azure/virtual-machines/image-version) or [the Azure CLI command](/cli/azure/sig/image-version#az-sig-image-version-create).
 
-For golden image design principles, including ZRS and replica planning, see [Golden image consistency across regions](/azure/well-architected/azure-virtual-desktop/business-continuity#golden-image-consistency-across-regions).
+For information about image version replication, storage redundancy, and replica-count planning, see [Store and share resources in Azure Compute Gallery](/azure/virtual-machines/azure-compute-gallery).
 
 #### Autoscaling and cost optimization
 
@@ -608,7 +608,7 @@ Other contributors:
 ## Next steps
 
 - [Azure Virtual Desktop DR plan](/azure/virtual-desktop/disaster-recovery-concepts)
-- [BCDR for Azure Virtual Desktop](/azure/cloud-adoption-framework/scenarios/azure-virtual-desktop/eslz-business-continuity-and-disaster-recovery)
+- [Azure Virtual Desktop service architecture and resilience](/azure/virtual-desktop/service-architecture-resilience)
 - [Cloud cache overview](/fslogix/concepts-fslogix-cloud-cache)
 - [FSLogix configuration examples](/fslogix/concepts-configuration-examples)
 - [Design reliable Azure applications](/azure/well-architected/reliability/checklist)
