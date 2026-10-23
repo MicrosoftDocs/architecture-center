@@ -144,7 +144,7 @@ The following architecture solutions demonstrate security patterns and implement
 
 ### Hybrid and multicloud
 
-Most organizations need a hybrid approach to security because their workloads, identities, and data span on-premises datacenters, Azure, and other cloud platforms. Security policies, threat detection, and compliance controls must extend across all these environments to avoid gaps that attackers can exploit. Organizations typically [extend on-premises security solutions to the cloud](/azure/cloud-adoption-framework/scenarios/hybrid/enterprise-scale-landing-zone) and use [Azure Arc](/azure/azure-arc/overview) to project non-Azure resources into the Azure control plane for centralized governance. To connect environments, organizations must [choose a hybrid network architecture](/azure/architecture/reference-architectures/hybrid-networking/).
+When your workloads, identities, and data span on-premises datacenters, Azure, and other cloud platforms, extend your security policies, threat detection, and compliance controls across those environments. Use [Azure Arc](/azure/azure-arc/overview) to project supported non-Azure resources into Azure Resource Manager for centralized governance. Azure Arc enables integration with services such as Azure Policy and Microsoft Defender for Cloud, but you still need to configure the controls for each resource type and secure the underlying infrastructure. For servers, review the [shared security responsibilities and agent controls](/azure/azure-arc/servers/security-overview). To connect environments, [choose a hybrid network architecture](/azure/architecture/reference-architectures/hybrid-networking/).
 
 Review the following key hybrid and multicloud security scenarios:
 
@@ -156,7 +156,7 @@ Review the following key hybrid and multicloud security scenarios:
 
 - [Design a hybrid DNS solution by using Azure](/azure/architecture/hybrid/hybrid-dns-infra): A reference architecture that implements a hybrid Domain Name System (DNS) solution that resolves names for workloads hosted on-premises and in Azure. This architecture uses Azure DNS Private Resolver and Azure Firewall.
 
-- [Implement hybrid and multicloud adoption by using Azure Arc and Azure landing zones](/azure/cloud-adoption-framework/scenarios/hybrid/enterprise-scale-landing-zone): Guidance to onboard on-premises servers, Kubernetes clusters, and multicloud services into the Azure control plane by using Azure Arc. This architecture uses Microsoft Defender for Cloud to enable centralized policy enforcement, monitoring, and threat protection.
+- [Secure Azure Arc-enabled servers](/azure/azure-arc/servers/security-overview): Product guidance for restricting Azure management access, controlling which extensions can run, and keeping agents updated. It explains which security responsibilities remain with you, including protection of the server and its compute, storage, and network infrastructure.
 
 - [Integrate Azure and Microsoft Defender XDR security services](/azure/architecture/solution-ideas/articles/microsoft-365-defender-security-integrate-azure): A solution idea that integrates Microsoft Sentinel, Microsoft Defender for Cloud, and Microsoft Defender XDR to unify security monitoring and threat response across on-premises and cloud environments.
 

@@ -10,6 +10,7 @@ metadata:
   ms.category:
     - hybrid
   ms.custom: arb-hybrid
+  ai-usage: ai-assisted
 name: Deploy an Azure Arc-enabled SQL managed instance for disaster recovery
 azureCategories:
   - hybrid

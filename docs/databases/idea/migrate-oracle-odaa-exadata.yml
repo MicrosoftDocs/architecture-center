@@ -11,6 +11,7 @@ metadata:
     - databases
     - migration
   ms.custom: arb-data
+  ai-usage: ai-assisted
   ms.collection:
     - migration
     - onprem-to-azure

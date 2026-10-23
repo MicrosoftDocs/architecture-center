@@ -25,6 +25,8 @@ Consider the following scenario details:
 
 To use ZDM for migration, you need to ensure that the source and target databases can communicate with each other.
 
+Before you configure routing, review [Network planning for Oracle Database@Azure](/azure/oracle/oracle-db/oracle-database-network-plan). Confirm which network features your deployment supports. For example, network security groups on the delegated subnet require advanced networking. For traffic routed through an NVA to the database, the route prefix must be at least as specific as the delegated subnet. Validate routing in both directions so that traffic follows the intended inspection path.
+
 1. Create an Azure route table, and associate it with the ODAA subnet.
 1. Point the Azure route table to the IP address of the hub NVA to route to on-premises.
 1. Configure the hub NVA to route traffic between on-premises and the ODAA subnet.
@@ -32,10 +34,11 @@ To use ZDM for migration, you need to ensure that the source and target database
 ### Configure the route table
 
 Use the following configuration to create an Azure route table, and associate it with the ODAA subnet:
-  - Address prefix: 192.168.0.0/16
-  - Next hop type: Virtual appliance
-  - Next hop IP address: 10.0.0.5
-  - Name: \<Route table name\>
+
+- Address prefix: 192.168.0.0/16
+- Next hop type: Virtual appliance
+- Next hop IP address: 10.0.0.5
+- Name: \<Route table name\>
 
 The following diagram shows the updated network configuration.
 
@@ -69,6 +72,10 @@ The following diagram shows the updated configuration, including the ZDM migrati
 - [Configure automated backups](https://docs.public.oneportal.content.oci.oraclecloud.com/iaas/exadatacloud/exacs/manage-databases.html#GUID-21EF9E4B-E5D3-4A52-8B1C-609FBADD2A7D) for the ODAA database.
 
 - [Configure automated Data Guard](https://docs.public.oneportal.content.oci.oraclecloud.com/iaas/exadatacloud/exacs/using-data-guard-with-exacc.html#ECSCM-GUID-603988C3-604A-4305-B20A-EA0FF79C0835). This guidance assumes that you already created a separate instance in another availability zone or region.
+- Define your recovery point objective (RPO) and recovery time objective (RTO). Choose the standby location based on whether you need protection against a zone or regional outage, and verify service availability and capacity at that location. Test database recovery and application reconnection together. For more information, see [Disaster recovery planning](/azure/well-architected/reliability/disaster-recovery).
+- Configure access for your operations team in both Azure and OCI. Review the [service-specific groups, roles, and OCI policies](/azure/oracle/oracle-db/oracle-database-groups-roles), and grant only the access required for each responsibility.
+- If you use Azure Key Vault for Transparent Data Encryption (TDE) master keys, meet the networking and identity prerequisites and plan key rotation and recovery. For more information, see [Integrate Oracle Exadata Database@Azure with Azure Key Vault](/azure/oracle/oracle-db/manage-oracle-transparent-data-encryption-azure-key-vault).
+- Configure [diagnostic settings for Exadata logs](/azure/oracle/oracle-db/oracle-exadata-database-dedicated-infrastructure-logs) and alerts for database and infrastructure operations. Include backup and Data Guard events in your monitoring plan.
 - Run the on-premises database as a secondary Data Guard replica for a period of time to ensure that the migration is successful.
 
 ## Conclusion
@@ -89,10 +96,10 @@ Do the preceding configuration changes to migrate your database from on-premises
 
 Review the following articles to ensure that your implementation follows recommended practices:
 
-- [Network topology and connectivity for OD@A](/azure/cloud-adoption-framework/scenarios/oracle-on-azure/oracle-network-topology-odaa)
-- [Identity and access management for OD@A](/azure/cloud-adoption-framework/scenarios/oracle-on-azure/oracle-iam-odaa)
-- [Security guidelines for OD@A](/azure/cloud-adoption-framework/scenarios/oracle-on-azure/oracle-security-overview-odaa)
-- [Manage and monitor OD@A](/azure/cloud-adoption-framework/scenarios/oracle-on-azure/oracle-manage-monitor-oracle-database-azure)
-- [Business continuity and disaster recovery considerations for OD@A](/azure/cloud-adoption-framework/scenarios/oracle-on-azure/oracle-disaster-recovery-oracle-database-azure)
+- [Network planning for Oracle Database@Azure](/azure/oracle/oracle-db/oracle-database-network-plan): Check supported topologies, delegated subnet constraints, and NVA routing requirements.
+- [Groups and roles in Oracle Database@Azure](/azure/oracle/oracle-db/oracle-database-groups-roles): Configure Azure access and the required OCI groups and policies.
+- [Integrate Oracle Exadata Database@Azure with Azure Key Vault](/azure/oracle/oracle-db/manage-oracle-transparent-data-encryption-azure-key-vault): Review the prerequisites and operational responsibilities for managing TDE master keys in Azure.
+- [Exadata logs in Azure Monitor](/azure/oracle/oracle-db/oracle-exadata-database-dedicated-infrastructure-logs) and [supported VM cluster metrics](/azure/azure-monitor/reference/supported-metrics/oracle-database-cloudvmclusters-metrics): Plan log collection, performance monitoring, and alerts.
+- [Oracle Database@Azure FAQ](/azure/oracle/oracle-db/faq-oracle-database-azure): Review backup and Data Guard capabilities and cross-zone and cross-region network options.
 - [Introduction to ZDM](https://docs.oracle.com/en/database/oracle/zero-downtime-migration/21.4/zdmug/introduction-to-zero-downtime-migration.html#GUID-A4EC1775-307C-47A6-89FB-E4C3F1FBC4F5)
 - [ZDM physical online migration whitepaper](https://www.oracle.com/a/otn/docs/database/zdm-physical-migration-to-oracle-at-azure.pdf)

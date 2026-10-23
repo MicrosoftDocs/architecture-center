@@ -65,7 +65,7 @@ A hub-spoke topology is the recommended network design for an SAP landscape. In 
 
 For more information, see:
 
-- [Network topology and connectivity for an SAP migration](/azure/cloud-adoption-framework/scenarios/sap/eslz-network-topology-and-connectivity)
+- [Network planning for SAP deployments on Azure](/azure/sap/workloads/planning-guide#azure-networking)
 - [Hub-spoke network topology in Azure](/azure/architecture/networking/architecture/hub-spoke)
 - [Azure Virtual WAN](/azure/virtual-wan/virtual-wan-about)
 - [S2S VPN as a backup for ExpressRoute private peering](/azure/expressroute/use-s2s-vpn-as-backup-for-expressroute-privatepeering)
@@ -245,7 +245,6 @@ Other author:
 
 ## Next steps
 
-- [The strategic impact of SAP in the cloud](/azure/cloud-adoption-framework/scenarios/sap/strategy)
 - [SAP on Azure documentation](/azure/sap/workloads/get-started)
 - [Azure planning and implementation guide for SAP workloads](/azure/sap/workloads/planning-guide)
 - [SAP workloads on Azure: planning and deployment checklist](/azure/sap/workloads/deployment-checklist)
