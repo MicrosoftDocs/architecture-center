@@ -11,6 +11,9 @@ Use this architecture when Azure provides the management plane and each machine 
 | --- | --- | --- |
 | &#9642; [Architecture](#architecture) <br>&#9642; [Workflow](#workflow) <br>&#9642; [Components](#components) <br>&#9642; [Potential use cases](#potential-use-cases) <br>&#9642; [Alternatives](#alternatives) <br>&#9642; [Deploy this scenario](#deploy-this-scenario) | &#9642; [Instance design choices](#instance-design-choices)<br> &#9642; [Physical disk drives](#physical-disk-drives) <br> &#9642; [Network design](#network-design) <br> &#9642; [Monitoring](#monitoring) <br> &#9642; [Update management](#update-management) | &#9642; [Reliability](#reliability) <br>&#9642; [Security](#security) <br>&#9642; [Cost&nbsp;Optimization](#cost-optimization) <br>&#9642; [Operational&nbsp;Excellence](#operational-excellence) <br>&#9642; [Performance&nbsp;Efficiency](#performance-efficiency) |
 
+> [!TIP]
+> :::image type="icon" source="../_images/github.svg"::: This [two-machine, storage-switched ARM deployment example](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.azurestackhci/create-cluster-2-node-switched-custom-storageip) demonstrates how to deploy Azure Local by using an Azure Resource Manager template (ARM template) and parameter file. The [Bicep example](https://github.com/Azure/azure-quickstart-templates/blob/master/quickstarts/microsoft.azurestackhci/create-cluster-with-prereqs/) demonstrates an AD DS-based deployment with separate management, compute, and storage intents. Adapt its network configuration to match this architecture's converged management and compute design. For Terraform deployment options, see [Terraform](#terraform).
+
 ## Architecture
 
 :::image type="complex" source="images/azure-local-baseline.svg" alt-text="Diagram that shows a multi-machine Azure Local instance reference architecture with dual ToR switches for external north-south connectivity." lightbox="images/azure-local-baseline.svg" border="false":::
@@ -429,7 +432,20 @@ Performance Efficiency refers to your workload's ability to scale to meet user d
 
    For local identity, first [deploy through the Azure portal](/azure/azure-local/deploy/deployment-local-identity-with-key-vault), and then use the supported [ARM template workflow](/azure/azure-local/deploy/deployment-local-identity-with-key-vault-template) for deployments at scale.
 
+  > [!TIP]
+  > :::image type="icon" source="../_images/github.svg"::: The [two-node, storage-switched ARM deployment example](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.azurestackhci/create-cluster-2-node-switched-custom-storageip) demonstrates how to deploy Azure Local by using an ARM template and parameter file. The [Bicep example](https://github.com/Azure/azure-quickstart-templates/blob/master/quickstarts/microsoft.azurestackhci/create-cluster-with-prereqs/) demonstrates an AD DS-based deployment with separate management, compute, and storage intents. Adapt its network configuration to match this architecture's converged management and compute design.
+
 1. **Establish operations before workloads.** Enable monitoring and alerts, assign least-privilege roles, configure platform and guest update processes, document support escalation, and test machine maintenance and recovery. Then deploy workload resources through the Azure Local custom location and validate workload redundancy and recovery procedures.
+
+### Terraform
+
+You can use Azure Verified Modules for Terraform to automate deployment of Azure Local instances and workload resources:
+
+- Deploy an Azure Local instance with the [cluster module](https://registry.terraform.io/modules/Azure/avm-res-azurestackhci-cluster/azurerm/latest).
+- Create workload logical networks with the [logical network module](https://registry.terraform.io/modules/Azure/avm-res-azurestackhci-logicalnetwork/azurerm/latest).
+- Deploy Azure Local VMs with the [virtual machine instance module](https://registry.terraform.io/modules/Azure/avm-res-azurestackhci-virtualmachineinstance/azurerm/latest).
+
+These modules don't replace the hardware, identity, and network preparation in the deployment steps. Review each module's requirements and examples, pin the module and provider versions that you validate, and configure networking and security to match this architecture. The cluster module requires AD DS inputs. For deployments that use local identity with Key Vault, follow the [supported ARM template workflow](/azure/azure-local/deploy/deployment-local-identity-with-key-vault-template) rather than assuming that the cluster module supports that identity model.
 
 ## Next steps
 
