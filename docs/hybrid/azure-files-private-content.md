@@ -162,7 +162,7 @@ Data loss poses a serious risk for businesses of all sizes. Azure file share bac
 - Alerting and reporting
 - Protection against accidental deletion of file shares
 
-Azure File Sync provides built-in redundancy by syncing files between on-premises servers and Azure Files. If an on-premises server fails, you can provision a new server, install the Azure File Sync agent, and connect it to the same sync group to restore access. When supported for your chosen storage account type and redundancy tier, configure the Azure Files storage account with geo-redundant storage (GRS) or geo-zone-redundant storage (GZRS) to protect against regional outages. For details about supported redundancy options, see [Planning for an Azure file share deployment](/azure/storage/files/storage-files-planning#redundancy-options).
+Azure File Sync provides built-in redundancy by syncing files between on-premises servers and Azure Files. If an on-premises server fails, you can provision a new server, install the Azure File Sync agent, and connect it to the same sync group to restore access. When supported for your chosen storage account type and redundancy tier, configure the Azure Files storage account with geo-redundant storage (GRS) or geo-zone-redundant storage (GZRS) to protect against regional outages. For details about supported redundancy options, see [Planning for an Azure file share deployment](/azure/storage/files/storage-files-planning#redundancy).
 
 ### Security
 
@@ -203,7 +203,7 @@ To estimate the cost of this solution, use the [Azure pricing calculator](https:
 
 Operational Excellence covers the operations processes that deploy an application and keep it running in production. For more information, see [Design review checklist for Operational Excellence](/azure/well-architected/operational-excellence/checklist).
 
-- Use [Azure Monitor](/azure/azure-monitor/overview) to monitor Azure File Sync health, sync activity, and cloud tiering metrics. Turn on diagnostic settings on the storage account to collect storage metrics and logs.
+- Use [Azure Monitor](/azure/azure-monitor/fundamentals/overview) to monitor Azure File Sync health, sync activity, and cloud tiering metrics. Turn on diagnostic settings on the storage account to collect storage metrics and logs.
 
 - Review sync health and cloud tiering status regularly to detect problems early. Azure File Sync provides built-in monitoring through the Storage Sync Service in the Azure portal.
 
@@ -228,17 +228,17 @@ Principal author:
 ## Next steps
 
 - [Plan for an Azure Files deployment](/azure/storage/files/storage-files-planning)
-- [Deploy Azure Files](/azure/storage/files/storage-files-deployment-guide)
+- [Deploy Azure Files](/azure/storage/files/create-classic-file-share)
 - [Azure Files networking considerations](/azure/storage/files/storage-files-networking-overview)
 - [Set up Azure Files network endpoints](/azure/storage/files/storage-files-networking-endpoints)
 - [Monitor Azure Files](/azure/storage/files/storage-files-monitoring)
 - [Plan for file access auditing](/windows-server/identity/solution-guides/plan-for-file-access-auditing)
-- [Back up Azure file shares](/azure/backup/backup-afs)
+- [Back up Azure file shares](/azure/backup/backup-azure-files)
 - [On-premises Active Directory Domain Services (AD DS) authentication over SMB for Azure file shares](/azure/storage/files/storage-files-identity-ad-ds-overview)
 - [Deploy Azure File Sync](/azure/storage/file-sync/file-sync-deployment-guide)
 - [Set up Azure File Sync network endpoints](/azure/storage/file-sync/file-sync-networking-endpoints)
 - [Cloud tiering overview](/azure/storage/file-sync/file-sync-cloud-tiering-overview)
-- [Create a site-to-site connection in the Azure portal](/azure/vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal)
+- [Create a site-to-site connection in the Azure portal](/azure/vpn-gateway/tutorial-site-to-site-portal)
 - [ExpressRoute circuits and peering](/azure/expressroute/expressroute-circuit-peerings)
 - [Create and modify peering for an ExpressRoute circuit](/azure/expressroute/expressroute-howto-routing-portal-resource-manager)
 - [Azure file share backup overview](/azure/backup/azure-file-share-backup-overview)
