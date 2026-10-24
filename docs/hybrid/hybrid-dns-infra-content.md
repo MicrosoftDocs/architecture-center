@@ -73,7 +73,7 @@ On-premises systems might need name resolution for workloads that you deploy in 
 
     - [Virtual network peering](/azure/virtual-network/virtual-network-peering-overview) is a connection between two virtual networks that lets resources communicate privately. In this architecture, peerings connect spoke virtual networks to the hub and grant them connectivity to the rest of the environment. Set up virtual network peering to use the virtual network gateway (VPN or ExpressRoute) in the hub so that the gateway propagates the workload and shared services virtual network IP address prefixes to on-premises.
 
-  - [DNS Private Resolver](/azure/dns/dns-private-resolver-overview) is a Microsoft-managed service that provides DNS resolution in Azure, including conditional forwarding of DNS requests to other DNS servers. In this architecture, it handles DNS resolution between Azure and on-premises environments without requiring you to manage the underlying OS. [DNS Private Resolver is already highly available](/azure/dns/private-resolver-reliability), so you only need to deploy one instance for each region.
+  - [DNS Private Resolver](/azure/dns/dns-private-resolver-overview) is a Microsoft-managed service that provides DNS resolution in Azure, including conditional forwarding of DNS requests to other DNS servers. In this architecture, it handles DNS resolution between Azure and on-premises environments without requiring you to manage the underlying OS. [DNS Private Resolver is already highly available](/azure/reliability/reliability-dns-private-resolver), so you only need to deploy one instance for each region.
 
     - [DNS forwarding rulesets](/azure/dns/private-resolver-endpoints-rulesets#dns-forwarding-rulesets) are collections of rules that specify which name domains forward to which external DNS servers. In this architecture, the rulesets include all on‑premises domains and the IP addresses of the on‑premises DNS servers as forwarding targets. You link forwarding rulesets to virtual networks to provide external DNS resolution. The previous diagram shows the [centralized DNS architecture](/azure/dns/private-resolver-architecture) for external name resolution with DNS Private Resolver. This architecture requires you to link the forwarding ruleset to the virtual network where the private resolver is deployed, which is the shared services virtual network in this architecture.
 
@@ -263,5 +263,5 @@ Operational Excellence covers the operations processes that deploy an applicatio
 
 ## Related resources
 
-- [Connect an on-premises network to Azure](../reference-architectures/hybrid-networking/index.yml)
+- [Connect an on-premises network to Azure](../reference-architectures/hybrid-networking/hybrid-connectivity-options.md)
 - [Deploy AD DS in an Azure virtual network](../example-scenario/identity/adds-extend-domain.yml)
