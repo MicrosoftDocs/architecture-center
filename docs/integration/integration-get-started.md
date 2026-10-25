@@ -76,7 +76,7 @@ Follow these best practices to improve the reliability, security, cost effective
 
 - [Multiple-region deployments for disaster recovery (DR) in Azure Logic Apps](/azure/logic-apps/multi-region-disaster-recovery): Set up deployments in multiple regions for Azure Logic Apps to protect data and maintain business continuity (BC).
 
-- [Secure access and data in Azure Logic Apps](/azure/logic-apps/logic-apps-securing-a-logic-app): Review security guidance for access, data, run history, and environments in Azure Logic Apps.
+- [Secure access and data in Azure Logic Apps](/azure/logic-apps/set-up-security-permissions): Review security guidance for access, data, run history, and environments in Azure Logic Apps.
 
 ## Stay current with integration
 
