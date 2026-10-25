@@ -22,6 +22,7 @@ safe-outputs:
       - ansingha
       - arntdg
       - arsenvlad
+      - aschauhan22
       - asergaz
       - ashish-khandelwal-ms
       - ashish-khandelwal-ms-zz
@@ -35,6 +36,7 @@ safe-outputs:
       - BryanLa
       - callard1
       - Cameron-MSFT-SAP
+      - cartacioS
       - ckittel
       - claytonsiemens77
       - cloud-architect-dev
@@ -60,6 +62,7 @@ safe-outputs:
       - doherty100
       - dominicbetts
       - Dongbumlee
+      - doodlemania2
       - DTInTheCloud
       - duongthaiha
       - Emma-yxf
@@ -107,6 +110,7 @@ safe-outputs:
       - jocontr
       - johndowns
       - JohnPoetzinger
+      - jondobrzeniecki
       - josearper
       - jtracey93
       - ju-shim
@@ -119,6 +123,7 @@ safe-outputs:
       - karlrissland
       - katriendg
       - kfollis
+      - khilscher
       - khushal08
       - kiote
       - koudaiii
@@ -163,6 +168,7 @@ safe-outputs:
       - NITHIDOSS
       - njogendran
       - ofimbres
+      - orspod
       - oscarsk91
       - ovaismehboob
       - Padmalathas
@@ -171,6 +177,7 @@ safe-outputs:
       - patty-chow
       - PaulCollinge
       - paullizer
+      - paweenatongbai
       - pbrooks
       - petemessina
       - PhilKang0704
@@ -178,6 +185,7 @@ safe-outputs:
       - PlagueHO
       - prabdeb
       - prabhkaur1977
+      - PramodValavala-MSFT
       - pranabpaul-tech
       - PRASADA1207
       - pratimav0420
@@ -198,6 +206,7 @@ safe-outputs:
       - rudneir2
       - samchang-msft
       - samcogan
+      - samlamberson
       - sandippk
       - sasagir
       - schaffererin
@@ -227,9 +236,12 @@ safe-outputs:
       - swgriffith
       - swread
       - sydbruck
+      - t2kx
+      - Taojunshen
       - tedmanlee
       - ThePedestrian
       - timleyden
+      - tmmarshall
       - tomvcassidy
       - troyhite
       - ttorble
@@ -238,6 +250,8 @@ safe-outputs:
       - v-albemi
       - v-ccolin
       - v-dirichards
+      - v-hearya
+      - v-rajagt-zz
       - v-regandowner
       - v-shils
       - v-stsavell
