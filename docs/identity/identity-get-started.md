@@ -52,7 +52,7 @@ Organizations at the beginning of the cloud adoption process can use the [Cloud 
 
 - [Identity and access management design area](/azure/cloud-adoption-framework/ready/landing-zone/design-area/identity-access): Evaluate options for your identity and access foundation, including authentication, authorization, separation of duties, and hybrid identity synchronization with Microsoft Entra ID.
 
-- [Azure billing offers and Microsoft Entra tenants](/azure/cloud-adoption-framework/ready/landing-zone/design-area/azure-billing-ad-tenant): Understand how billing offers associate with Microsoft Entra tenants and how subscriptions relate to tenant structures.
+- [Azure billing offers and Microsoft Entra tenants](/azure/cloud-adoption-framework/ready/landing-zone/design-area/azure-billing-microsoft-entra-tenant): Understand how billing offers associate with Microsoft Entra tenants and how subscriptions relate to tenant structures.
 
 - [Resource organization](/azure/cloud-adoption-framework/ready/landing-zone/design-area/resource-org): Establish consistent patterns for naming, tagging, subscription design, and management group hierarchy to organize identity and other resources deployed to the cloud.
 
