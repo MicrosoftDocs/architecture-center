@@ -348,7 +348,7 @@ For a consolidated list of recent feature updates, see [What's new in Azure Virt
 - [Azure Local monitoring overview](/azure/azure-local/concepts/monitoring-overview)
 - [Protect VM workloads by using Site Recovery on Azure Local](/azure/azure-local/manage/azure-site-recovery)
 - [Azure Arc overview](/azure/azure-arc/overview)
-- [Upload, download, and manage data by using Azure Storage Explorer](/training/modules/upload-download-and-manage-data-with-azure-storage-explorer)
+- [Get started with Storage Explorer](/azure/storage/storage-explorer/vs-azure-tools-storage-manage-with-storage-explorer)
 
 ## Related resources
 

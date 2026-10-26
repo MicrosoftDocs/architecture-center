@@ -36,7 +36,7 @@ The architecture consists of the following components:
 
 - [Azure Event Hubs](/azure/well-architected/service-guides/azure-event-hubs) is a real-time data ingestion service for streaming events. In this architecture, it connects Azure Monitor to external SIEM tools by streaming logs and metrics for advanced analytics and long-term retention.
 
-- [Azure Monitor](/azure/azure-monitor/overview) is a unified platform for collecting and analyzing telemetry across environments. In this architecture, it serves as the central monitoring solution for performance, availability, and diagnostics across Azure, on-premises, and third-party cloud resources.
+- [Azure Monitor](/azure/azure-monitor/fundamentals/overview) is a unified platform for collecting and analyzing telemetry across environments. In this architecture, it serves as the central monitoring solution for performance, availability, and diagnostics across Azure, on-premises, and third-party cloud resources.
 
 - [Azure Policy](/azure/governance/policy/overview) is a governance tool for enforcing rules and automating resource configuration. In this architecture, it ensures consistent deployment of monitoring agents and enforces compliance across hybrid systems.
 
@@ -193,7 +193,7 @@ The following are considerations for scaling your environment.
 Learn more about the component technologies:
 
 - [Azure Event Hubs: A big data streaming platform and event ingestion service](/azure/event-hubs/event-hubs-about)
-- [Azure Monitor overview](/azure/azure-monitor/overview)
+- [Azure Monitor overview](/azure/azure-monitor/fundamentals/overview)
 - [Overview of Log Analytics in Azure Monitor](/azure/azure-monitor/logs/log-analytics-overview)
 - [What are virtual machine scale sets?](/azure/virtual-machine-scale-sets/overview)
 - [Overview of autoscale in Microsoft Azure](/azure/azure-monitor/autoscale/autoscale-overview)
