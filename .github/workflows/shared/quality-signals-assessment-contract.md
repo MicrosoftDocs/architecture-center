@@ -11,6 +11,7 @@ Produce a best-effort automated judgment about the selected finding. These requi
 - Support the judgment with inspected evidence. Follow the repository's Microsoft Learn grounding rules and use the configured MCP tools when consulting Learn guidance. Sub-agents can use mounted MCP CLI commands through Bash when native tools aren't exposed.
 - Don't defer the judgment to an owner.
 - Assess only the selected finding; related evidence can inform that judgment but don't turn the run into a full article audit.
+- For an explicitly requested re-evaluation, judge the original allegation and proposed remedy against current evidence. This applies to both the investigator and challenger.
 - We only make changes that improve the reader's experience and/or outcomes, or at worst are neutral to that. If a finding would produce a worse outcome for the consumer's task or experience, decline to make it.
 
 ## Three completed outcomes
@@ -55,14 +56,16 @@ Manage the schema, file layout, and processing conventions within `findings/`, c
 
 Store the complete final assessment and its written recommendation on the selected finding record for all three completed outcomes, including the rationale, checks, evidence, review resolutions, source revision, assessment time in UTC, and Actions run URL. Don't store a second copy in a separate assessment artifact file in repo-memory. Keep your recommendation distinct from the original imported proposal.
 
-Use one lifecycle status field, documented in the guide: `unassessed`, `assessed`, or `handed-off`. Persist `unassessed` to `assessed` together with every completed assessment. An incomplete investigation leaves the record unchanged. Only `unassessed` findings are eligible for selection; don't create a separate remediation-status field.
+Use one lifecycle status field, documented in the guide: `unassessed`, `assessed`, or `handed-off`. Set it to `assessed` together with every completed assessment, including an explicit re-evaluation of an `assessed` or `handed-off` record. An incomplete investigation leaves the record and its original status unchanged. Only `unassessed` findings are eligible for automatic random selection; an explicit `finding_id` selects the matching record regardless of status. Don't create a separate remediation-status field.
+
+Before storing a completed explicit re-evaluation, preserve any prior assessment and handoff metadata as history on the selected record. Follow the guide's documented representation or document the added convention in the same update. Preserve original imported fields and all prior downstream references. The new assessment and any new handoff describe this run; don't present a historical handoff as its result. Don't change history or status before the investigation and challenge complete.
 
 For `present-change-recommended`, the parent can advance `assessed` to `handed-off` after the creation tool call succeeds. Store the chosen route, rationale, UTC handoff time, Actions run URL, and the creation call's matching temporary reference, such as `#aw_handoff`, without changing the historical assessment. Repo-memory resolves that reference after safe outputs run; don't invent an issue or PR number. `handed-off` means publication was queued, not that the change was merged, accepted, or resolved. If downstream publication fails, a maintainer must reconcile the record and reference. No-change outcomes and failed or ambiguous creation calls remain `assessed`; the outcome distinguishes whether a handoff is needed.
 
 When you introduce or change storage or process conventions, update `guide.md` in the same run to document:
 
 - File locations, field names, values, and how assessments and processing metadata relate to their original findings.
-- The `unassessed` to `assessed` to `handed-off` lifecycle, handoff fields, temporary-reference resolution, selection eligibility, and preservation of downstream progress.
+- The `unassessed` to `assessed` to `handed-off` lifecycle, handoff fields, temporary-reference resolution, random selection eligibility, explicit re-evaluation regardless of status, and preservation of assessment history and downstream progress.
 - Commands to retrieve a finding and its assessment, find unassessed records, distinguish assessed findings that recommend a change from no-change outcomes, and find handed-off records.
 - How future workflows can update lifecycle status and handoff details without replacing the assessment or imported data.
 
