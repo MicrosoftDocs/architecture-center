@@ -141,7 +141,7 @@ The implementation uses resource naming automation based on the following recomm
 - [Cloud Adoption Framework best practices for naming conventions](/azure/cloud-adoption-framework/ready/azure-best-practices/resource-naming)
 
 - The [recommended abbreviations for Azure resource types](/azure/cloud-adoption-framework/ready/azure-best-practices/resource-abbreviations)
-- The [minimum suggested tags](/azure/cloud-adoption-framework/ready/azure-best-practices/resource-tagging)
+- Use [consistent tags](/azure/cloud-adoption-framework/ready/azure-best-practices/resource-tagging)
 
 Before you proceed with the deployment scenarios, familiarize yourself with the implementation's Azure resource [naming, tagging, and organization](https://github.com/Azure/avdaccelerator/blob/main/workload/docs/resource-naming.md).
 
