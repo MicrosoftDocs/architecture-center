@@ -78,6 +78,7 @@ safe-outputs:
     allowed-files:
       - "docs/**/*.md"
       - "docs/**/*.yml"
+      - "docs/**/*.svg"
     max-patch-files: 8
   create-issue:
     title-prefix: "[Content Quality] "
@@ -164,7 +165,7 @@ After the creation tool acknowledges the publication request, change the selecte
 
 ## Completion
 
-Create `/tmp/gh-aw/safeoutputs/upload-artifacts/quality-signals-assessment/` and copy this run's existing work-item, investigation, challenge, final assessment, and handoff-decision JSON files there from `/tmp/gh-aw/agent/`. Include empty-run work items and incomplete-run artifacts. Call `upload_artifact` once with `{"path": "quality-signals-assessment"}`. If no artifacts exist, skip the upload. Only the parent investigator uploads.
+Create the staging directory with `mkdir -p "$RUNNER_TEMP/gh-aw/safeoutputs/upload-artifacts/quality-signals-assessment/"` in Bash and copy this run's existing work-item, investigation, challenge, final assessment, and handoff-decision JSON files there from `/tmp/gh-aw/agent/`. Include empty-run work items and incomplete-run artifacts. Call `upload_artifact` once with `{"path": "quality-signals-assessment"}`. If no artifacts exist, skip the upload. Only the parent investigator uploads.
 
 Append a concise Markdown summary to `/tmp/gh-aw/agent-step-summary.md` and reuse it in your final response. Include the finding ID, assessment outcome, disposition and rationale, lifecycle status, handoff reference, and memory/artifact locations, as applicable. Describe publication as queued, not resolved. Explain empty or incomplete runs. Write the summary even when other outputs are emitted.
 
