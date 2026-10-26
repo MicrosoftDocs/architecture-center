@@ -68,7 +68,7 @@ The letters "A" through "I" in the diagram indicate design areas for the Virtual
 >
 > Review the Virtual Desktop design areas to ensure alignment with Virtual Desktop best practices.
 >
-> [Virtual Desktop Azure landing zone design areas](/azure/cloud-adoption-framework/scenarios/azure-virtual-desktop/enterprise-scale-landing-zone#design-guidelines): These areas define the foundational elements required to set up the Virtual Desktop deployment in an enterprise-scale environment. They focus on preparing resources like network configurations, identity management, security, and governance. This landing zone helps create a scalable and secure environment for Virtual Desktop workloads.
+> [Virtual Desktop Azure landing zone design areas](/azure/cloud-adoption-framework/scenarios/azure-virtual-desktop/enterprise-scale-landing-zone): These areas define the foundational elements required to set up the Virtual Desktop deployment in an enterprise-scale environment. They focus on preparing resources like network configurations, identity management, security, and governance. This landing zone helps create a scalable and secure environment for Virtual Desktop workloads.
 >
 > [Virtual Desktop design areas](/azure/well-architected/azure-virtual-desktop/overview#what-are-the-key-design-areas): These areas represent the architectural principles and best practices for designing and operating Virtual Desktop workloads. They cover aspects such as application delivery, infrastructure design, security, and cost optimization. Each area aligns with Azure best practices to ensure an optimal and cost-effective Virtual Desktop implementation.
 
@@ -95,7 +95,7 @@ The Virtual Desktop landing zone implementation provides your organization with 
 > [!IMPORTANT]
 > The implementation deploys resources into the Virtual Desktop workload landing zone and platform landing zone subscriptions.
 >
-> You must deploy a [Cloud Adoption Framework platform landing zone](/azure/cloud-adoption-framework/ready/enterprise-scale/implementation#reference-implementation) first. This deployment provides the shared foundation subscriptions and services that resources in this implementation require.
+> You must deploy a [Cloud Adoption Framework platform landing zone](/azure/cloud-adoption-framework/ready/landing-zone/implementation-options) first. This deployment provides the shared foundation subscriptions and services that resources in this implementation require.
 >
 > Review the Virtual Desktop [prerequisites](https://github.com/Azure/avdaccelerator/blob/main/workload/docs/getting-started-baseline.md#prerequisites) before you start the [deployment](https://github.com/Azure/avdaccelerator?tab=readme-ov-file#azure-virtual-desktop---lza-baseline).
 
@@ -141,7 +141,7 @@ The implementation uses resource naming automation based on the following recomm
 - [Cloud Adoption Framework best practices for naming conventions](/azure/cloud-adoption-framework/ready/azure-best-practices/resource-naming)
 
 - The [recommended abbreviations for Azure resource types](/azure/cloud-adoption-framework/ready/azure-best-practices/resource-abbreviations)
-- The [minimum suggested tags](/azure/cloud-adoption-framework/ready/azure-best-practices/resource-tagging#minimum-suggested-tags)
+- The [minimum suggested tags](/azure/cloud-adoption-framework/ready/azure-best-practices/resource-tagging)
 
 Before you proceed with the deployment scenarios, familiarize yourself with the implementation's Azure resource [naming, tagging, and organization](https://github.com/Azure/avdaccelerator/blob/main/workload/docs/resource-naming.md).
 
