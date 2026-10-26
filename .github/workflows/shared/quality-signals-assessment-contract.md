@@ -71,10 +71,10 @@ Repo-memory's separate persistence job commits and pushes the prepared changes a
 
 ## Write boundaries
 
-Only the parent investigator can update memory, after resolving the independent challenge. Limit changes to the selected finding's assessment, statuses, related storage, and guide documentation; the challenger is read-only.
+Only the parent investigator can update memory, after resolving the independent challenge. Limit assessment-stage changes to the selected finding's assessment, statuses, related storage, and guide documentation; the challenger is read-only.
 
 Except for the selected finding's assessment-status transition, preserve original imported fields and values, unrelated findings, and existing downstream remediation progress and references. Don't move, rename, or delete finding files, and leave `inputs/` unchanged.
 
 Write the work item, investigation, challenge, and final assessment artifact under `/tmp/gh-aw/agent/`. Copies for `upload_artifact` belong only in its staging directory, outside repo-memory. Persist only the selected finding record's completed result and processing state, plus relevant `guide.md` updates, in the configured `quality-signals` repo-memory store. Never persist scratch files or per-finding artifact directories under `findings/**` or elsewhere in repo-memory.
 
-Recording remediation status only signals future work. Don't carry out the recommendation, edit articles, or open issues or pull requests.
+During assessment, don't carry out the recommendation, edit articles, or open issues or pull requests. After finalizing the assessment, the parent follows the workflow's handoff instructions; the challenger remains read-only.
