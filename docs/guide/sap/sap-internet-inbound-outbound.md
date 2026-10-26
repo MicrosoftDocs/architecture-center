@@ -121,7 +121,7 @@ By using dedicated subnets for SAP databases and applications, you can set NSGs 
 
 ### SAProuter
 
-You can use SAProuter to enable groups like SAP support or your partners to access your SAP system. SAProuter runs on one VM in Azure. Route permissions for using SAProuter are stored in a flat file called *saprouttab*. The *saprouttab* entries allow connection from any TCP/IP port to a network destination behind SAProuter, typically your SAP system VMs. Remote access by SAP support relies on SAProuter. The main architecture uses the design described earlier, with a SAProuter VM running within the designated SAP perimeter virtual network. Through virtual network peering, SAProuter then communicates with your SAP servers that run in their own spoke virtual network and subnets.
+You can use SAProuter to enable groups like SAP support or your partners to access your SAP system. SAProuter runs on one VM in Azure. Route permissions for using SAProuter are stored in a flat file called *saprouttab*. The *saprouttab* entries allow connection from any TCP/IP port to a network destination behind SAProuter, typically your SAP system VMs. Remote access by SAP support relies on SAProuter. In the main architecture, SAProuter runs on a VM in the SAP perimeter virtual network. Through virtual network peering, SAProuter then communicates with your SAP servers that run in their own spoke virtual network and subnets.
 
 SAProuter is a tunnel to SAP or to your partners. This architecture describes the use of SAProuter with Secure Network Communications (SNC) to establish an encrypted application tunnel (network layer 7) to SAP or partners. This architecture doesn't cover the use of an IPSec-based tunnel.
 
