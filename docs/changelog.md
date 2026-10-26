@@ -2,7 +2,7 @@
 title: What's New in Azure Architecture Center
 description: New and updated articles in Azure Architecture Center
 author: claytonsiemens77
-ms.date: 10/18/2026
+ms.date: 10/25/2026
 ai-usage: ai-generated
 ms.topic: whats-new
 ms.author: pnp
@@ -23,6 +23,11 @@ The following new and updated articles have recently been published in the Azure
 
 ### New articles
 
+- [Azure NetApp Files Object REST API for data and AI integration](./solution-ideas/articles/analytics-netapp-object-api.yml)
+- [Multitenancy and Azure Blob Storage](./guide/multitenant/service/blob-storage.md)
+- [Multitenancy and Azure Files](./guide/multitenant/service/files.md)
+- [Multitenancy and Azure Queue Storage](./guide/multitenant/service/queue-storage.md)
+- [Multitenancy and Azure Table Storage](./guide/multitenant/service/table-storage.md)
 - [Event-driven cache updates with Azure Managed Redis and Azure Cosmos DB](./databases/architecture/event-driven-cache-updates-azure-managed-redis-cosmos-db.yml)
 - [Cache-aside caching using Azure Managed Redis and Azure Database for PostgreSQL](./databases/architecture/cache-aside-azure-managed-redis-postgresql.yml)
 - [Agentic behavior engineering](./ai-ml/guide/agentic-behavior-engineering.md)
@@ -30,6 +35,18 @@ The following new and updated articles have recently been published in the Azure
 
 ### Updated articles
 
+- [Migrate an Oracle database to OD@A Exadata Database Service](./databases/idea/migrate-oracle-odaa-exadata.yml) ([#5b0f18580f](https://github.com/MicrosoftDocs/architecture-center/commit/5b0f18580f))
+- [Azure Local hyperconverged baseline reference architecture](./hybrid/azure-local-baseline.yml) ([#9380c58efb](https://github.com/MicrosoftDocs/architecture-center/commit/9380c58efb))
+- [Run Apache Cassandra on Azure VMs](./databases/guide/cassandra.md) ([#78b1d24e59](https://github.com/MicrosoftDocs/architecture-center/commit/78b1d24e59))
+- [Multitenancy and Azure SQL Database](./guide/multitenant/service/sql-database.md) ([#3f198475af](https://github.com/MicrosoftDocs/architecture-center/commit/3f198475af))
+- [RESTful web API implementation best practices](./best-practices/api-implementation.md) ([#dcf2965953](https://github.com/MicrosoftDocs/architecture-center/commit/dcf2965953))
+- [Multitenancy and Azure Cosmos DB](./guide/multitenant/service/cosmos-db.md) ([#e6ec21bb57](https://github.com/MicrosoftDocs/architecture-center/commit/e6ec21bb57))
+- [Agentic AI for the OPC UA reference solution](./guide/iot/agentic-ai-for-the-solution.md) ([#5a82edfa64](https://github.com/MicrosoftDocs/architecture-center/commit/5a82edfa64))
+- [IPv6 hub-spoke network topology](./networking/guide/ipv6-architecture.md) ([#5a82edfa64](https://github.com/MicrosoftDocs/architecture-center/commit/5a82edfa64))
+- [Azure Managed Redis considerations for multitenancy](./guide/multitenant/service/managed-redis.md) ([#7d86fffe08](https://github.com/MicrosoftDocs/architecture-center/commit/7d86fffe08))
+- [Multitenancy and Azure Event Hubs](./guide/multitenant/service/event-hubs.md) ([#6fefefc0aa](https://github.com/MicrosoftDocs/architecture-center/commit/6fefefc0aa))
+- [Azure Service Bus considerations for multitenancy](./guide/multitenant/service/service-bus.md) ([#6fefefc0aa](https://github.com/MicrosoftDocs/architecture-center/commit/6fefefc0aa))
+- [Baseline Microsoft Foundry chat reference architecture](./ai-ml/architecture/baseline-microsoft-foundry-chat.yml) ([#eed9febb32](https://github.com/MicrosoftDocs/architecture-center/commit/eed9febb32))
 - [Replicate mainframe data by using Precisely Connect](./example-scenario/mainframe/mainframe-replication-precisely-connect.yml) ([#503d4a2df3](https://github.com/MicrosoftDocs/architecture-center/commit/503d4a2df3))
 - [Multitenancy and Application Insights](./guide/multitenant/service/application-insights.md) ([#ddb9e4d73a](https://github.com/MicrosoftDocs/architecture-center/commit/ddb9e4d73a))
 - [Use Azure Key Vault in a multitenant solution](./guide/multitenant/service/key-vault.md) ([#440868fea8](https://github.com/MicrosoftDocs/architecture-center/commit/440868fea8))

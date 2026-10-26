@@ -2,12 +2,172 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id/>
     <title>Azure Architecture Center</title>
-    <updated>2026-10-16T14:28:00.000Z</updated>
+    <updated>2026-10-23T14:15:38.000Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <subtitle>Updated articles for Azure Architecture Center</subtitle>
     <rights>https://learn.microsoft.com/legal/termsofuse</rights>
     <category term="new"/>
     <category term="updated"/>
+    <entry>
+        <title type="html"><![CDATA[Migrate an Oracle database to OD@A Exadata Database Service]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/databases/idea/migrate-oracle-odaa-exadata#5b0f18580f</id>
+        <link href="https://learn.microsoft.com/azure/architecture/databases/idea/migrate-oracle-odaa-exadata"/>
+        <updated>2026-10-23T14:15:38.000Z</updated>
+        <summary type="html"><![CDATA[Learn how to use Oracle ZDM and Azure networking to migrate an Oracle database to Oracle Database@Azure Exadata Database Service.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Azure Local hyperconverged baseline reference architecture]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/hybrid/azure-local-baseline#9380c58efb</id>
+        <link href="https://learn.microsoft.com/azure/architecture/hybrid/azure-local-baseline"/>
+        <updated>2026-10-23T14:04:06.000Z</updated>
+        <summary type="html"><![CDATA[Learn how to design a connected, highly available Azure Local deployment that uses hyperconverged storage and storage-switched networking.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Run Apache Cassandra on Azure VMs]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/databases/guide/cassandra#78b1d24e59</id>
+        <link href="https://learn.microsoft.com/azure/architecture/databases/guide/cassandra"/>
+        <updated>2026-10-23T13:36:57.000Z</updated>
+        <summary type="html"><![CDATA[Examine performance considerations for running Apache Cassandra on Azure Virtual Machines. Use these recommendations as a baseline to test against your workload.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Multitenancy and Azure SQL Database]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/guide/multitenant/service/sql-database#3f198475af</id>
+        <link href="https://learn.microsoft.com/azure/architecture/guide/multitenant/service/sql-database"/>
+        <updated>2026-10-23T02:57:18.000Z</updated>
+        <summary type="html"><![CDATA[This article describes partitioning and tenancy strategies and Azure SQL Database features for multitenant solutions.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[RESTful web API implementation best practices]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/best-practices/api-implementation#dcf2965953</id>
+        <link href="https://learn.microsoft.com/azure/architecture/best-practices/api-implementation"/>
+        <updated>2026-10-22T21:54:27.000Z</updated>
+        <summary type="html"><![CDATA[Learn about best practices for implementing a web API and publishing it to make it available to client applications.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Multitenancy and Azure Cosmos DB]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/guide/multitenant/service/cosmos-db#e6ec21bb57</id>
+        <link href="https://learn.microsoft.com/azure/architecture/guide/multitenant/service/cosmos-db"/>
+        <updated>2026-10-22T02:59:23.000Z</updated>
+        <summary type="html"><![CDATA[Learn about Azure Cosmos DB features that you can use for multitenant systems. See more resources that explain how to use Azure Cosmos DB in a multitenant solution.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Agentic AI for the OPC UA reference solution]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/guide/iot/agentic-ai-for-the-solution#5a82edfa64</id>
+        <link href="https://learn.microsoft.com/azure/architecture/guide/iot/agentic-ai-for-the-solution"/>
+        <updated>2026-10-21T22:12:31.000Z</updated>
+        <summary type="html"><![CDATA[Learn how to use agentic AI to augment a solution that uses OPC Unified Architecture (OPC UA) to connect shop-floor telemetry to Azure analytics services.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[IPv6 hub-spoke network topology]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/networking/guide/ipv6-architecture#5a82edfa64</id>
+        <link href="https://learn.microsoft.com/azure/architecture/networking/guide/ipv6-architecture"/>
+        <updated>2026-10-21T22:12:31.000Z</updated>
+        <summary type="html"><![CDATA[Learn how to transition a hub-and-spoke network topology in Azure so it supports IPv6, which creates a dual-stack network.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Azure Managed Redis considerations for multitenancy]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/guide/multitenant/service/managed-redis#7d86fffe08</id>
+        <link href="https://learn.microsoft.com/azure/architecture/guide/multitenant/service/managed-redis"/>
+        <updated>2026-10-21T21:44:50.000Z</updated>
+        <summary type="html"><![CDATA[Learn about Azure Managed Redis features, like Microsoft Entra ID authentication, active geo-replication, and Redis modules, that you can use to improve the performance of multitenant systems.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Azure NetApp Files Object REST API for data and AI integration]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/solution-ideas/articles/analytics-netapp-object-api</id>
+        <link href="https://learn.microsoft.com/azure/architecture/solution-ideas/articles/analytics-netapp-object-api"/>
+        <updated>2026-10-21T15:29:13.000Z</updated>
+        <summary type="html"><![CDATA[Learn how to use the Azure NetApp Files Object REST API to connect enterprise file data to Microsoft Fabric and to Azure AI and analytics services.]]></summary>
+        <category label="new" term="new"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Multitenancy and Azure Event Hubs]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/guide/multitenant/service/event-hubs#6fefefc0aa</id>
+        <link href="https://learn.microsoft.com/azure/architecture/guide/multitenant/service/event-hubs"/>
+        <updated>2026-10-20T03:23:57.000Z</updated>
+        <summary type="html"><![CDATA[Learn about Azure Event Hubs features and isolation models that you can use to implement an event-driven architecture for a multitenant system.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Azure Service Bus considerations for multitenancy]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/guide/multitenant/service/service-bus#6fefefc0aa</id>
+        <link href="https://learn.microsoft.com/azure/architecture/guide/multitenant/service/service-bus"/>
+        <updated>2026-10-20T03:23:57.000Z</updated>
+        <summary type="html"><![CDATA[Explore Azure Service Bus isolation models, authentication, and features for multitenant architectures. Learn best practices for tenant data separation.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Multitenancy and Azure Blob Storage]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/guide/multitenant/service/blob-storage#dd57e2f329</id>
+        <link href="https://learn.microsoft.com/azure/architecture/guide/multitenant/service/blob-storage"/>
+        <updated>2026-10-19T23:25:46.000Z</updated>
+        <summary type="html"><![CDATA[Explore Azure Blob Storage features and isolation models for multitenant solutions, including tenant-scoped access, encryption, and monitoring.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Multitenancy and Azure Queue Storage]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/guide/multitenant/service/queue-storage#dd57e2f329</id>
+        <link href="https://learn.microsoft.com/azure/architecture/guide/multitenant/service/queue-storage"/>
+        <updated>2026-10-19T23:25:46.000Z</updated>
+        <summary type="html"><![CDATA[Explore Azure Queue Storage features and isolation models for multitenant solutions, including tenant-scoped access, encryption, and monitoring.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Multitenancy and Azure Table Storage]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/guide/multitenant/service/table-storage#dd57e2f329</id>
+        <link href="https://learn.microsoft.com/azure/architecture/guide/multitenant/service/table-storage"/>
+        <updated>2026-10-19T23:25:46.000Z</updated>
+        <summary type="html"><![CDATA[Explore Azure Table Storage features and isolation models for multitenant solutions, including tenant partition keys, access control, encryption, and monitoring.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Multitenancy and Azure Blob Storage]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/guide/multitenant/service/blob-storage#2ca4bf23aa</id>
+        <link href="https://learn.microsoft.com/azure/architecture/guide/multitenant/service/blob-storage"/>
+        <updated>2026-10-19T21:19:52.000Z</updated>
+        <summary type="html"><![CDATA[Explore Azure Blob Storage features and isolation models for multitenant solutions, including tenant-scoped access, encryption, and monitoring.]]></summary>
+        <category label="new" term="new"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Multitenancy and Azure Files]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/guide/multitenant/service/files</id>
+        <link href="https://learn.microsoft.com/azure/architecture/guide/multitenant/service/files"/>
+        <updated>2026-10-19T21:19:52.000Z</updated>
+        <summary type="html"><![CDATA[Explore Azure Files features and isolation models for multitenant solutions, including tenant-specific file shares, access control, encryption, and monitoring.]]></summary>
+        <category label="new" term="new"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Multitenancy and Azure Queue Storage]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/guide/multitenant/service/queue-storage#2ca4bf23aa</id>
+        <link href="https://learn.microsoft.com/azure/architecture/guide/multitenant/service/queue-storage"/>
+        <updated>2026-10-19T21:19:52.000Z</updated>
+        <summary type="html"><![CDATA[Explore Azure Queue Storage features and isolation models for multitenant solutions, including tenant-scoped access, encryption, and monitoring.]]></summary>
+        <category label="new" term="new"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Multitenancy and Azure Table Storage]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/guide/multitenant/service/table-storage#2ca4bf23aa</id>
+        <link href="https://learn.microsoft.com/azure/architecture/guide/multitenant/service/table-storage"/>
+        <updated>2026-10-19T21:19:52.000Z</updated>
+        <summary type="html"><![CDATA[Explore Azure Table Storage features and isolation models for multitenant solutions, including tenant partition keys, access control, encryption, and monitoring.]]></summary>
+        <category label="new" term="new"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Baseline Microsoft Foundry chat reference architecture]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/ai-ml/architecture/baseline-microsoft-foundry-chat#eed9febb32</id>
+        <link href="https://learn.microsoft.com/azure/architecture/ai-ml/architecture/baseline-microsoft-foundry-chat"/>
+        <updated>2026-10-19T16:17:07.000Z</updated>
+        <summary type="html"><![CDATA[Learn how to build network-secured, highly available, and zone-redundant enterprise chat applications by using Microsoft Foundry tools and Azure App Service.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
     <entry>
         <title type="html"><![CDATA[Disaster recovery architecture for an Azure data platform]]></title>
         <id>https://learn.microsoft.com/azure/architecture/data-guide/disaster-recovery/dr-for-azure-data-platform-architecture#b07515eff2</id>
