@@ -164,6 +164,8 @@ Create `/tmp/gh-aw/safeoutputs/upload-artifacts/quality-signals-assessment/` and
 
 If no artifact exists, don't request an upload or fabricate files.
 
+Append a concise Markdown report to `/tmp/gh-aw/agent-step-summary.md` so it appears on the workflow run's Summary page. Include the finding ID, assessment outcome, chosen disposition and rationale, remediation status, updated memory record location, and artifact location, as applicable. For an empty or incomplete run, explain that result instead. Write this summary even when the run also creates an issue or PR or uploads artifacts.
+
 In your final response, summarize the finding ID, assessment outcome, chosen route and rationale, remediation status, updated memory record location, and assessment artifact path, as applicable.
 
 Call `noop` only on a successful run that emitted no other safe output. A `create_pull_request`, `create_issue`, or `upload_artifact` call already provides a safe output, including an upload for an empty run or a finding that needs no change; don't append `noop` as a summary. For incomplete execution, call `report_incomplete` with the blocker instead of `noop`, even if other outputs were already emitted.
