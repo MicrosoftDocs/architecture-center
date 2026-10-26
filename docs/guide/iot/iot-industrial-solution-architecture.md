@@ -364,7 +364,8 @@ Follow these steps to protect the API with Microsoft Entra ID and call it with a
    curl -H "Authorization: Bearer $ACCESS_TOKEN" https://<host>/v1/objects
    ```
 
-**Troubleshooting.** If you get a 401 error, decode the token at [jwt.ms](https://jwt.ms) and verify that:
+**Troubleshooting.** If you get a 401 error, safely decode the token and verify that:
+
 - `aud` exactly matches `I3X_OAUTH2_AUDIENCE`.
 - `iss` matches the v2.0 issuer `https://login.microsoftonline.com/<tenant-id>/v2.0`. If your token is a v1 token (`iss` = `https://sts.windows.net/<tenant-id>/`), either request a v2 token or set `I3X_OAUTH2_ISSUER` to match the token's issuer.
 - For app-only tokens, verify that the `roles` claim contains the app role (for example, `I3X.Read`). If `roles` is missing, check whether you assigned and granted admin consent for the application permission.
