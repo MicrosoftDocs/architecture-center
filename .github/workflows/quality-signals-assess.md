@@ -68,6 +68,9 @@ safe-outputs:
     allowed-paths:
       - "quality-signals-assessment/quality-signals-*.json"
   create-pull-request:
+    github-app:
+      client-id: ${{ vars.QUALITY_SIGNALS_CLIENT_ID }}
+      private-key: ${{ secrets.QUALITY_SIGNALS_APP_PRIVATE_KEY }}
     title-prefix: "[Content Quality] "
     draft: false
     max: 1
