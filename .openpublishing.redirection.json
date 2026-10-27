@@ -8171,6 +8171,11 @@
       "source_path": "docs/guide/multitenant/service/storage.md",
       "redirect_url": "/azure/architecture/guide/multitenant/service/blob-storage",
       "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/best-practices/data-partitioning-strategies.yml",
+      "redirect_url": "/azure/architecture/guide/multitenant/service/overview",
+      "redirect_document_id": false
     }
   ]
 }

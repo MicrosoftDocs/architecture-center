@@ -232,8 +232,6 @@ items:
     - name: Content Delivery Network
       displayName: CDN, edge, static content
       href: best-practices/cdn.yml
-    - name: Data partitioning strategies (by service)
-      href: best-practices/data-partitioning-strategies.yml
     - name: Host name preservation
       displayName: host header, reverse proxy hostname, HTTP header
       href: best-practices/host-name-preservation.md

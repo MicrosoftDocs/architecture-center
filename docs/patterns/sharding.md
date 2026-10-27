@@ -54,7 +54,7 @@ An effective shard key is immutable, has high cardinality, distributes data and 
 
 If no single attribute meets these criteria, define a composite shard key by combining two or more attributes. If queries need to retrieve data by attributes that aren't part of the shard key, use a pattern such as the [Index Table](./index-table.md) pattern to provide secondary lookups.
 
-For more information about how to choose partition keys across Azure services, see [Design a data partitioning strategy](/azure/well-architected/design-guides/partition-data) and [Data partitioning strategies](../best-practices/data-partitioning-strategies.yml).
+For more information about how to choose partition keys across Azure services, see [Design a data partitioning strategy](/azure/well-architected/design-guides/partition-data).
 
 ## Sharding strategies
 
@@ -184,7 +184,7 @@ Consider the following points as you decide how to implement this pattern:
 
 - Reconsider your shard key or whether sharding fits your needs if your workload requires strong transactional integrity across shard boundaries. Cross-shard transactions present challenges. Distributed coordination protocols, such as two-phase commit, add latency, introduce failure modes, and reduce throughput. Most sharded systems avoid distributed transactions and adopt eventual consistency instead. In this model, each shard updates independently, and the application handles temporary inconsistencies.
 
-- Make sure the resources available to each shard storage node can handle the scalability requirements in terms of data size and throughput. For more information, see [Data partitioning strategies](../best-practices/data-partitioning-strategies.yml).
+- Make sure the resources available to each shard storage node can handle the scalability requirements in terms of data size and throughput.
 
 - Consider replicating reference data to all shards. If a query against a shard also references static or slow-moving data, add this data to the shard. The application can then fetch all data for the query without making a round trip to a separate data store.
 
