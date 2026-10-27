@@ -168,8 +168,6 @@ The index table applies partial denormalization: each entry duplicates commonly 
 
 - [Table Storage query design guidance](/azure/storage/tables/table-storage-design-for-query) describes secondary-index patterns that use `PartitionKey` and `RowKey`, including approaches for storing index entries in the same partition or in separate partitions.
 
-- [Data partitioning strategies](../best-practices/data-partitioning-strategies.yml) explains how to select partition and row keys based on query patterns, data distribution, transaction requirements, and scalability goals.
-
 - [Architecture strategies for optimizing data performance](/azure/well-architected/performance-efficiency/optimize-data-performance) provides guidance for evaluating query patterns, indexes, partitions, and monitoring requirements.
 
 - [Consistency levels in Azure Cosmos DB](/azure/cosmos-db/consistency-levels) describes the consistency models that are relevant when you maintain index tables in Azure Cosmos DB.

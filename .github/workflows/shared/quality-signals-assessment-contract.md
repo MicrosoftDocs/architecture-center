@@ -11,17 +11,18 @@ Produce a best-effort automated judgment about the selected finding. These requi
 - Support the judgment with inspected evidence. Follow the repository's Microsoft Learn grounding rules and use the configured MCP tools when consulting Learn guidance. Sub-agents can use mounted MCP CLI commands through Bash when native tools aren't exposed.
 - Don't defer the judgment to an owner.
 - Assess only the selected finding; related evidence can inform that judgment but don't turn the run into a full article audit.
+- For an explicitly requested re-evaluation, judge the original allegation and proposed remedy against current evidence. This applies to both the investigator and challenger.
 - We only make changes that improve the reader's experience and/or outcomes, or at worst are neutral to that. If a finding would produce a worse outcome for the consumer's task or experience, decline to make it.
 
 ## Three completed outcomes
 
 Choose exactly one outcome. An unfamiliar source category isn't an error.
 
-| Outcome | Meaning | Remediation status |
-| :------ | :------ | :----------------- |
-| `not-present` | The reported problem isn't present in current content. No action is warranted. | `none-needed` |
-| `present-no-change` | The reported condition exists, but leaving it unchanged is preferable for the stated reasons. | `none-needed` |
-| `present-change-recommended` | The condition exists and a specific preferred change is warranted for the stated reasons. | `pending` |
+| Outcome | Meaning |
+| :------ | :------ |
+| `not-present` | The reported problem isn't present in current content. No action is warranted. |
+| `present-no-change` | The reported condition exists, but leaving it unchanged is preferable for the stated reasons. |
+| `present-change-recommended` | The condition exists and a specific preferred change is warranted for the stated reasons. |
 
 ## Assessment result
 
@@ -41,12 +42,11 @@ Use this JSON format for both the initial investigation and final assessment. Th
     }
   ],
   "recommendation": "A specific preferred next step.",
-  "remediation": "pending",
   "review_resolutions": []
 }
 ```
 
-Set `remediation` according to the outcome table. Always provide a written `recommendation` for a completed assessment. For `not-present`, recommend no further action and explain why the reported problem isn't present. For `present-no-change`, recommend leaving the content as-is and explain why. For `present-change-recommended`, describe your preferred change and why it is appropriate.
+Always provide a written `recommendation` for a completed assessment. For `not-present`, recommend no further action and explain why the reported problem isn't present. For `present-no-change`, recommend leaving the content as-is and explain why. For `present-change-recommended`, describe your preferred change and why it is appropriate.
 
 The initial investigation has no reviewer responses. The final assessment has one substantive `review_resolutions` entry per challenge objection, in the same order. Explain how each objection was resolved, including evidence-backed disagreement where appropriate.
 
@@ -54,16 +54,22 @@ The initial investigation has no reviewer responses. The final assessment has on
 
 Manage the schema, file layout, and processing conventions within `findings/`, co-managing the data and `guide.md` with the importer and other workflows. You can adapt the documented representation or add files while preserving existing record compatibility. The assessment artifact format doesn't prescribe the shared store's schema.
 
-Store the complete final assessment and its written recommendation on the selected finding record for all three completed outcomes, including the rationale, checks, evidence, review resolutions, source revision, assessment time in UTC, and Actions run URL. Don't store a second copy in a separate assessment artifact file in repo-memory. Keep your recommendation distinct from the original imported proposal. Change the selected finding's assessment status from `unassessed` to `assessed`, using the status field documented in the guide. Persist that transition together with the result and remediation-status value for every completed outcome. An actual execution failure leaves the finding `unassessed`; an `assessed` finding is no longer eligible for assessment. Keep remediation status independently updateable by future workflows without replacing the assessment.
+Store the complete final assessment and its written recommendation on the selected finding record for all three completed outcomes, including the rationale, checks, evidence, review resolutions, source revision, assessment time in UTC, and Actions run URL. Don't store a second copy in a separate assessment artifact file in repo-memory. Keep your recommendation distinct from the original imported proposal.
+
+Use one lifecycle status field, documented in the guide: `unassessed`, `assessed`, or `handed-off`. Set it to `assessed` together with every completed assessment, including an explicit re-evaluation of an `assessed` or `handed-off` record. An incomplete investigation leaves the record and its original status unchanged. Only `unassessed` findings are eligible for automatic random selection; an explicit `finding_id` selects the matching record regardless of status. Don't create a separate remediation-status field.
+
+Before storing a completed explicit re-evaluation, preserve any prior assessment and handoff metadata as history on the selected record. Follow the guide's documented representation or document the added convention in the same update. Preserve original imported fields and all prior downstream references. The new assessment and any new handoff describe this run; don't present a historical handoff as its result. Don't change history or status before the investigation and challenge complete.
+
+For `present-change-recommended`, the parent can advance `assessed` to `handed-off` after the creation tool call succeeds. Store the chosen route, rationale, UTC handoff time, Actions run URL, and the creation call's matching temporary reference, such as `#aw_handoff`, without changing the historical assessment. Repo-memory resolves that reference after safe outputs run; don't invent an issue or PR number. `handed-off` means publication was queued, not that the change was merged, accepted, or resolved. If downstream publication fails, a maintainer must reconcile the record and reference. No-change outcomes and failed or ambiguous creation calls remain `assessed`; the outcome distinguishes whether a handoff is needed.
 
 When you introduce or change storage or process conventions, update `guide.md` in the same run to document:
 
 - File locations, field names, values, and how assessments and processing metadata relate to their original findings.
-- The `unassessed` to `assessed` transition and remediation-status meanings, including the outcome table's mappings, eligibility for assessment, and preservation of downstream progress.
-- Commands to retrieve a finding and its assessment, find unassessed records, and find assessed records with remediation pending.
-- How future workflows can update remediation without replacing the assessment or imported data.
+- The `unassessed` to `assessed` to `handed-off` lifecycle, handoff fields, temporary-reference resolution, random selection eligibility, explicit re-evaluation regardless of status, and preservation of assessment history and downstream progress.
+- Commands to retrieve a finding and its assessment, find unassessed records, distinguish assessed findings that recommend a change from no-change outcomes, and find handed-off records.
+- How future workflows can update lifecycle status and handoff details without replacing the assessment or imported data.
 
-Preserve the guide's import instructions and unrelated documentation. Describe the storage you actually wrote, not a proposed schema.
+Replace obsolete separate-status processing instructions with this lifecycle. Preserve legacy fields on unrelated records, historical assessments, the guide's import instructions, and unrelated documentation. Describe the storage you actually wrote, not a proposed schema.
 
 If `guide.md` directs workflows to retain working files in repo-memory, that convention is obsolete. On your next completed assessment's memory update, replace that instruction with the record-only persistence policy and the run-scoped `upload_artifact` retention process.
 
@@ -71,10 +77,10 @@ Repo-memory's separate persistence job commits and pushes the prepared changes a
 
 ## Write boundaries
 
-Only the parent investigator can update memory, after resolving the independent challenge. Limit changes to the selected finding's assessment, statuses, related storage, and guide documentation; the challenger is read-only.
+Only the parent investigator can update memory, after resolving the independent challenge. Limit assessment-stage changes to the selected finding's assessment, lifecycle status, related storage, and guide documentation; the challenger is read-only.
 
-Except for the selected finding's assessment-status transition, preserve original imported fields and values, unrelated findings, and existing downstream remediation progress and references. Don't move, rename, or delete finding files, and leave `inputs/` unchanged.
+Except for the selected finding's lifecycle-status transitions, preserve original imported fields and values, unrelated findings, and existing downstream progress and references. Don't move, rename, or delete finding files, and leave `inputs/` unchanged.
 
 Write the work item, investigation, challenge, and final assessment artifact under `/tmp/gh-aw/agent/`. Copies for `upload_artifact` belong only in its staging directory, outside repo-memory. Persist only the selected finding record's completed result and processing state, plus relevant `guide.md` updates, in the configured `quality-signals` repo-memory store. Never persist scratch files or per-finding artifact directories under `findings/**` or elsewhere in repo-memory.
 
-Recording remediation status only signals future work. Don't carry out the recommendation, edit articles, or open issues or pull requests.
+During assessment, don't carry out the recommendation, edit articles, or open issues or pull requests. After finalizing the assessment, the parent follows the workflow's handoff instructions; the challenger remains read-only.
