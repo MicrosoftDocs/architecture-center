@@ -124,7 +124,11 @@ Configuration delivered through Azure Front Door is publicly accessible without 
 >
 > Don't treat the Front Door route as an authorization boundary between tenants.
 
-See [Azure Front Door integration for App Configuration](/azure/azure-app-configuration/concept-hyperscale-client-configuration) for setup, the managed-identity role, cache tuning, replica origins, and provider support.
+For setup and configuration details, see the following articles:
+
+- [Hyperscale configuration delivery for client applications](/azure/azure-app-configuration/concept-hyperscale-client-configuration) describes recommendations for the managed-identity role, replica origins, and cache duration.
+- [Connect Azure App Configuration to Azure Front Door](/azure/azure-app-configuration/how-to-connect-azure-front-door) describes how to set up the Front Door endpoint, including the identity type, origin hosts, and cache duration.
+- [Load configuration from Azure Front Door in client applications](/azure/azure-app-configuration/how-to-load-azure-front-door-configuration-provider) describes how to configure the client provider.
 
 ## Contributors
 

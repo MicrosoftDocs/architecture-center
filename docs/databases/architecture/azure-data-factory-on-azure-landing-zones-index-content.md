@@ -36,7 +36,7 @@ Refer to the baseline architecture that deploys Data Factory instances for data 
 
 ## Enterprise adoption and hardening
 
-To comply with common enterprise security and governance nonfunctional requirements (NFRs) for production workloads, you should add enterprise hardening patterns to the baseline architecture. For example, an NFR might require the solution to use federated resources that central teams manage. To avoid service disruptions, it's crucial to communicate your requirements effectively with those teams.
+To comply with common enterprise security and governance nonfunctional requirements (NFRs) for production workloads, you should add enterprise hardening patterns to the [baseline architecture](azure-data-factory-on-azure-landing-zones-baseline.yml). For example, an NFR might require the solution to use federated resources that central teams manage. To avoid service disruptions, it's crucial to communicate your requirements effectively with those teams.
 
 Refer to this architecture that deploys an enterprise-hardened implementation. This implementation extends the [hub-and-spoke topology](/azure/architecture/networking/architecture/hub-spoke-virtual-wan-architecture) according to [Azure landing zone](/azure/cloud-adoption-framework/ready/landing-zone/) principles.
 
@@ -45,7 +45,7 @@ Refer to this architecture that deploys an enterprise-hardened implementation. T
 
 ## Mission-critical uplift
 
-The last step in this path is to expand the infrastructure and processes of an individual solution infrastructure to support a mission-critical service-level agreement. [Mission-critical](/azure/well-architected/mission-critical/mission-critical-overview) refers to solutions that cause business-critical or safety-critical problems when they underperform or are unavailable.
+After the baseline implementation and the enterprise adoption and hardening, the last step is to expand the infrastructure and processes of an individual solution infrastructure to support a mission-critical service-level agreement. [Mission-critical](/azure/well-architected/mission-critical/mission-critical-overview) refers to solutions that cause business-critical or safety-critical problems when they underperform or are unavailable.
 
 The solution must ensure high availability, quick responsiveness to operational problems, consistent performance, and robust security. Mission-critical architectures must balance performance and resiliency requirements and targets with cost optimization.
 

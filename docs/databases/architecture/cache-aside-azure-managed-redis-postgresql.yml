@@ -2,8 +2,8 @@
 metadata:
   title: Cache-Aside Caching Using Azure Managed Redis and Azure Database for PostgreSQL
   description: Design a cache-aside workload for an Azure web application that uses Azure Managed Redis to reduce repeated reads from Azure Database for PostgreSQL.
-  author: redis-phil
-  ms.author: b-philipl
+  author: shpathak-msft
+  ms.author: shpathak
   ms.date: 08/07/2026
   ms.topic: example-scenario
   ms.subservice: example-scenario

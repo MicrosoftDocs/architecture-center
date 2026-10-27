@@ -61,6 +61,8 @@ As their AI assistant, you can help the author with any of these steps if you ar
 
    First, extract every link from the article, along with context of where the link is used. Then hand off to the **link-checker** agent, passing the full list of URLs with context. That agent fetches each URL and returns only a status table (success, redirect, irrelevant-content, or error) — no page content comes back into this conversation. With the table, update any links that have redirects. Get the user to fix any that are broken, or link to irrelevant content, but give an option. For site-relative links, prepend "https://learn.microsoft.com/en-us".
 
+   Beyond URL status, verify that destinations deliver what the surrounding text promises. Follow the [Microsoft Learn grounding skill](../skills/microsoft-learn-grounding/SKILL.md) when interpreting product guidance.
+
    **Required attestation**: The author will need to check that the URLs and content are semantically correct. Give them a list of clickable URLs for them to validate, with a context of where they appear. Only proceed to the next step when the author has checked the links. You can confirm this by asking a question like: "Are the links still valid?"
 
 4. **Content quality update** - Update the content to include the best guidance possible.
@@ -95,6 +97,8 @@ As their AI assistant, you can help the author with any of these steps if you ar
 
    The repo must still conform to the Microsoft Learn [repository linking requirements](https://learn.microsoft.com/en-us/help/platform/repo-linking-requirements). An article that links to code can only be marked fresh if the linked code is also fresh.
 
+   Compare the article's deployment promise with the README and deployment entry points. Disclose important partial or proof-of-concept coverage and preexisting infrastructure requirements.
+
    If the code repo is out of compliance, then the author needs to either remove all references and notions of the implementation repo in the article or will need to update the code repo.
 
    **Required attestation**: Skip this step if there are no github.com code implementation links, otherwise only proceed once they have attested to assuring that all code follows these requirements.
@@ -111,9 +115,13 @@ As their AI assistant, you can help the author with any of these steps if you ar
 
    We want to avoid titles that are overreaching or don't capture what this article is really focused on. Suggest to the person you are working with how they could improve the article's title to better fit the scope of the article.
 
+   Check descriptions and section headings too.
+
 10. **Editorial quality pass** - Edit for quality.
 
     Make editorial changes in the article that improve the content's clarity. You should switch to being a professional editor for Microsoft Learn for this step. Edit the whole article for clarity and conciseness. The author doesn't need to be involved in this step, you can take care of the editing. Make minimal changes to ensure quality and clarity. Avoid large subjective changes.
+
+    Restructure prose, lists, and tables when it improves the reader's comparison or action.
 
     **Required attestation**: Only proceed once the author has attested to assuring that the article is clear and of high editorial quality.
 

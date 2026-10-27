@@ -1,4 +1,4 @@
-This architecture describes how to deploy Esri ArcGIS Pro in Azure Virtual Desktop to support the hyperscale of Azure. The architecture also includes back-end components like ArcGIS Enterprise to build a complete system on Azure.
+This article shows how ArcGIS Pro runs on Azure Virtual Desktop alongside ArcGIS Enterprise back-end components on Azure.
 
 *ArcGIS® is a trademark of its company. No endorsement is implied by the use of this mark.*
 
@@ -222,7 +222,7 @@ Principal authors:
 
 ## Next steps
 
-- You can use the [ArcGIS Pro for Mission Landing Zone](https://github.com/Azure/missionlz/tree/main/src/add-ons/arcgis-pro) to deploy ArcGIS Pro on Azure Virtual Desktop. The implementation in the repository includes Secure Cloud Computing Architecture (SCCA)-compliant infrastructure, GPU-enabled VMs, Azure NetApp Files, and FSLogix preconfigured for rapid proof-of-concept deployments.
+- You can use the [ArcGIS Pro for Mission Landing Zone](https://github.com/Azure/missionlz/tree/main/src/add-ons/arcgis-pro) add-on to deploy ArcGIS Pro on Azure Virtual Desktop. The add-on uses Mission Landing Zone infrastructure. The available deployment scenario covers ArcGIS Pro on Azure Virtual Desktop, not the complete ArcGIS Enterprise architecture shown here. The implementation includes Secure Cloud Computing Architecture (SCCA)-compliant infrastructure, GPU-enabled VMs, Azure NetApp Files, and FSLogix preconfigured for proof-of-concept deployments.
 
 - You can use [ArcGIS Enterprise Builder](https://doc.esri.com/en/arcgis-enterprise/latest/deploy/arcgis-enterprise-builder.html?pivots=os-windows) to set up a base ArcGIS Enterprise deployment on a single machine or multiple machines.
 

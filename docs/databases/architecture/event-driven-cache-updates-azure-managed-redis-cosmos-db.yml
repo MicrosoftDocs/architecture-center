@@ -2,8 +2,8 @@
 metadata:
   title: Event-Driven Cache Updates with Azure Managed Redis and Azure Cosmos DB
   description: Find out how to update Azure Managed Redis asynchronously from committed changes in Azure Cosmos DB by using Azure Functions and the change feed.
-  author: redis-phil
-  ms.author: b-philipl
+  author: shpathak-msft
+  ms.author: shpathak
   ms.date: 09/03/2026
   ms.topic: example-scenario
   ms.subservice: example-scenario

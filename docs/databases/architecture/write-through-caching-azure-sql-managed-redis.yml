@@ -2,8 +2,8 @@
 metadata:
   title: Write-Through Caching with Azure Managed Redis and Azure SQL Database
   description: Learn how to design a write-through caching workload that uses Azure App Service, Azure Functions, Azure SQL Database, and Azure Managed Redis.
-  author: redis-phil
-  ms.author: b-philipl
+  author: shpathak-msft
+  ms.author: shpathak
   ms.date: 06/30/2026
   ms.topic: example-scenario
   ms.subservice: example-scenario
