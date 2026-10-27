@@ -14,7 +14,7 @@ While grounding on a fetched Microsoft Learn page, scan for signals that the fea
 
 ## What to do when you detect a deprecation concern
 
-1. Evaluate if the concern is applicable to your scenario.
+1. Evaluate if the concern is applicable to your scenario. For example, confirm that the article refers to the actual product, feature, SKU, or operational process covered by the notice.
 
 2. If so, stop using the page as grounding for that recommendation.
 

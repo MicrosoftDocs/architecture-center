@@ -102,7 +102,16 @@ If you're asked to create data that goes into the Markdown files in this repo. U
 - Be descriptive, not emotional.
 - Avoid the passive voice. Use "you" as the subject where necessary.
 - Avoid generalizations, marketing terms, or weasel words. Words you should generally avoid: seamless, seamlessly, fast, quick, quickly, easy, effortless, effortlessly, simple, simply, world-class, cutting-edge, cheap. You don't know the constraints of the reader or their situation, so you shouldn't make general statements like these. Instead present the facts/metrics/limits in a way that will help an architect make an informed decision.
-- Prefer named section or article links when references like "earlier" or "following" could be ambiguous.
+- Prefer named section or article links when references like "earlier" or "following" could be ambiguous. Name the specific design, definition, or procedure the reader needs.
+
+### Customer clarity
+
+Help readers make architectural decisions and complete the tasks the article actually promises.
+
+- Match titles, descriptions, and headings to the content's actual purpose and scope. Don't imply that a conceptual architecture supplies deployment instructions. When multiple variants are discussed, identify which variant an example or diagram represents.
+- When the article genuinely asks the reader to perform a task, establish the necessary starting state and provide an observable success condition. Don't add prerequisites or verification sections to conceptual content.
+- Introduce commands and code with their purpose and execution context. Identify reader-supplied values and dependencies on earlier examples. State whether a snippet is illustrative or intended to run.
+- Use comparison tables for equivalent attributes or before-and-after states.
 
 ### Folder and file structure
 
