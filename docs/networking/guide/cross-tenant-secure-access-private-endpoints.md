@@ -6,6 +6,7 @@ ms.author: rdesutter
 ms.date: 03/30/2026
 ms.topic: concept-article
 ms.subservice: architecture-guide
+ai-usage: ai-assisted
 ---
 
 # Cross-tenant secure access to apps by using private endpoints
@@ -40,7 +41,7 @@ The following data flow corresponds to the previous diagram:
 
 1. The web app handles the request and responds to the VM.
 
-1. If the user or service doesn't have access to the private DNS zone, the Azure public DNS service resolves the DNS query to `webapp.privatelink.azurewebsites.net` by returning a public IP address. HTTPS requests to that public IP address receive a *403 Forbidden* response.
+1. If the user or service doesn't have access to the private DNS zone, the Azure public DNS service resolves `webapp.privatelink.azurewebsites.net` to a public IP address. If public network access is disabled, HTTPS requests to that public IP address receive a *403 Forbidden* response.
 
 ### Components
 
@@ -83,9 +84,9 @@ In the provider tenant, use a private endpoint to secure the web app and restric
 
 1. Evaluate whether the service that you use requires extra access controls to block public access.
 
-All Azure services implement their own public access behavior. If you don't complete extra configurations, some Azure services remain publicly available even after you associate them with a private endpoint. Web apps and function apps become unavailable publicly when they're associated with a private endpoint and the [public access setting](/azure/app-service/overview-access-restrictions#app-access) is turned off.
+All Azure services implement their own public access behavior. If you don't complete extra configurations, some Azure services remain publicly available even after you associate them with a private endpoint. For this architecture, turn off the [public access setting](/azure/app-service/overview-access-restrictions#app-access) for the web app or function app to block public access.
 
-During the creation of the private endpoint, the Azure DNS public zone, `azurewebsites.net`, is automatically updated with the CNAME record that points to the private DNS zone. Users can try to reach the web app from sources that can't resolve the private DNS zone to retrieve the actual A record and its internal IP address. Those users get a public resolvable IP address, but the response is *403 Forbidden*.
+Creating a private endpoint automatically adds a [CNAME record](/azure/app-service/overview-private-endpoint#dns) in public DNS from `webapp.azurewebsites.net` to `webapp.privatelink.azurewebsites.net`. Clients that resolve this name through a private DNS zone with an A record for the private endpoint receive its private IP address. Clients that resolve the name through public DNS instead receive a public IP address. With public access disabled, HTTPS requests to that public address receive a *403 Forbidden* response.
 
 The provider can configure a [custom domain name](/azure/app-service/app-service-web-tutorial-custom-domain) for the web app via a CNAME record that references the entry in the public zone `azurewebsites.net`. The CNAME record created for this custom domain shouldn't point to the `privatelink.azurewebsites.net` entry.
 
