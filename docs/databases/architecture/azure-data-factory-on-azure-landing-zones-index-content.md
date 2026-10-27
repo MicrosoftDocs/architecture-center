@@ -45,7 +45,7 @@ Refer to this architecture that deploys an enterprise-hardened implementation. T
 
 ## Mission-critical uplift
 
-The last step in this path is to expand the infrastructure and processes of an individual solution infrastructure to support a mission-critical service-level agreement. [Mission-critical](/azure/well-architected/mission-critical/mission-critical-overview) refers to solutions that cause business-critical or safety-critical problems when they underperform or are unavailable.
+After the baseline implementation and the enterprise adoption and hardening, the last step is to expand the infrastructure and processes of an individual solution infrastructure to support a mission-critical service-level agreement. [Mission-critical](/azure/well-architected/mission-critical/mission-critical-overview) refers to solutions that cause business-critical or safety-critical problems when they underperform or are unavailable.
 
 The solution must ensure high availability, quick responsiveness to operational problems, consistent performance, and robust security. Mission-critical architectures must balance performance and resiliency requirements and targets with cost optimization.
 
