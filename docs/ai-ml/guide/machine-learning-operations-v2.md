@@ -367,7 +367,7 @@ In this architectural pattern, you can couple these groups with a [Machine Learn
 
 ### Identity Azure RBAC
 
-Consider how you can use the following built-in Azure RBAC roles to apply access control to production and preproduction environments. For the [architecture](#architecture) in this article, the production environments include staging, testing, and production environments. The preproduction environments include development environments. The following built-in roles are based on the personas described earlier in this article.
+Consider how you can use the following built-in Azure RBAC roles to apply access control to production and preproduction environments. For the [architecture](#architecture) in this article, the production environments include staging, testing, and production environments. The preproduction environments include development environments. The role assignments in the following tables map the [example personas](#example-personas) to the listed roles.
 
 #### Standard roles
 
