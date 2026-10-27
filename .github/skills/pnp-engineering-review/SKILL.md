@@ -126,6 +126,7 @@ Look for divergences that would matter to a reader who deploys the code expectin
 - **Components or resources** the article describes that the implementation doesn't deploy, or resources the code deploys that the article never mentions.
 - **Topology, SKUs or tiers, region or zone counts, or key settings** that differ between the article and the code.
 - **Instructions or prerequisites** in the article that no longer match the repo (renamed scripts, moved paths, changed parameters).
+- **Deployment scope** that overstates what the implementation provides. Inspect the README and deployment entry points for partial or proof-of-concept coverage and preexisting infrastructure requirements.
 
 Call out significant differences and why they matter to the article. Ignore trivial or cosmetic drift.
 
