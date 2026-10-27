@@ -171,6 +171,8 @@ For a **PR**, make only the selected correction. Follow the repository's article
 
 Call `create_pull_request` targeting the default branch. Include `<!-- quality-signal-finding: <full finding ID> -->` in the body.
 
+Use `.github/pull_request_template.md`, preserving its headings, links section, and checklist, and fill them accurately. In **Summary and intent of this proposed change**, write in plain, conversational language: what problem was reported, what you changed, and why that correction addresses it. Don't make it an assessment report or a list of implementation details.
+
 For an **issue**, use a meaningful title; the safe output adds its prefix. Write a useful body containing the same finding marker, affected article links, the current problem and reader consequence, inspected evidence, your recommendation and this assessment run's URL, why a PR isn't appropriate, and the specific decision or work needed. Separate established facts from alternatives and unresolved questions. Call `create_issue` once.
 
 Never call both creation tools in a run. Use safe outputs for publication; don't create items, push branches, or commit memory through `gh`, APIs, or other agent tools. If preparing a PR fails, report the actual blocker rather than filing a topic issue as a success-shaped fallback.
