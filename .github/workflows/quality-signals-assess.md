@@ -151,7 +151,7 @@ Use only the chosen safe-output creation tool, once, with a `temporary_id` such 
 
 For a **PR**, make only the selected correction. Follow repository article-pair, metadata, AI-disclosure, style, and grounding rules; don't update `ms.date` or perform a freshness pass. Run applicable checks and inspect the entire patch for unrelated changes or memory files. Call `create_pull_request` safe-output tool targeting the default branch as a ready-for-review PR.
 
-Use `.github/pull_request_template.md`, preserving its headings, links section, and checklist. In **Summary and intent of this proposed change**, conversationally explain the reported problem, correction, and why it helps, not an assessment report or implementation inventory.
+Use `.github/pull_request_template.md`, preserving its headings, links section, and checklist. In **Summary and intent of this proposed change**, conversationally explain the reported problem, correction, and why it helps. Don't include validation or testing commentary anywhere in the PR body: commands, check results, or explanations of checks, builds, or tests that weren't run.
 
 For an **issue**, call `create_issue` safe-output tool with a meaningful title (the safe output adds its prefix). Include affected article links, problem and reader consequence, evidence, recommendation, this run's URL, why a PR isn't appropriate, and the decision or work needed. Distinguish facts from alternatives and open questions.
 
