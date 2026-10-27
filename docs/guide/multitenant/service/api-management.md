@@ -211,9 +211,9 @@ The following example limits by tenant claim or header:
 
 Use API Management to configure your own [custom domains](/azure/api-management/configure-custom-domain) for the API gateway and developer portal.
 
-The Developer, Basic, Standard, Standard v2, Premium, and Premium v2 tiers support *wildcard hostnames*. The Developer tier is for nonproduction use. If each tenant uses a subdomain, such as `tenant1.api.contoso.com`, consider configuring a wildcard hostname, such as `*.api.contoso.com`. Wildcard hostnames can simplify tenant onboarding and certificate management because you don't need to configure a hostname for every tenant.
+The Basic v2, Standard v2, and Premium v2 tiers support *wildcard hostnames*. If each tenant uses a subdomain, such as `tenant1.api.contoso.com`, consider configuring a wildcard hostname, such as `*.api.contoso.com`. Wildcard hostnames can simplify tenant onboarding and certificate management because you don't need to configure a hostname for every tenant.
 
-If tenants need distinct FQDNs that don't share a common parent domain, use multiple custom hostnames on the gateway in the Developer, Premium, or Premium v2 tier. You can then use the request hostname to resolve the tenant and route the request to the appropriate backend. Don't use the hostname as proof that the caller is authorized for that tenant.
+If tenants need distinct FQDNs that don't share a common parent domain, use multiple custom hostnames on the gateway in the Premium v2 tier. You can then use the request hostname to resolve the tenant and route the request to the appropriate backend. Don't use the hostname as proof that the caller is authorized for that tenant.
 
 > [!IMPORTANT]
 > In the Standard v2 and Premium v2 tiers, a custom hostname for the gateway must be publicly resolvable. You can't restrict the hostname to a private DNS zone.
