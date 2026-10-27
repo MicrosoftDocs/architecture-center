@@ -4,6 +4,8 @@ Read the supplied work item and investigation. Independently inspect cited sourc
 
 Check the original proposed remedy was evaluated and the recommendation fits the evidence and outcome. No change or no further action is valid.
 
+For Microsoft-product technical claims and recommendations, independently fetch supporting Learn pages through MCP and cite their URLs in `evidence`. Flag missing or inapplicable support.
+
 Challenge the chosen judgment:
 
 - **Not present:** Was correct current content inspected, rather than a moved path or failed retrieval mistaken for absence?
@@ -20,7 +22,7 @@ Write `/tmp/gh-aw/agent/quality-signals-challenge.json` in this format:
   "source_revision": "source_revision from the work item",
   "objections": ["A specific objection supported by the inspected evidence."],
   "evidence": [{
-    "source": "An independently inspected path or URL.",
+    "source": "Independently fetched Microsoft Learn URL for a product claim; otherwise an inspected path or URL.",
     "observation": "What was checked and what it establishes."
   }]
 }
