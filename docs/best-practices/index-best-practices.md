@@ -40,7 +40,7 @@ Each practice in this table maps to one or more [Well-Architected Framework pill
 
 ## Design principles
 
-Before you address specific technical concerns, establish a strong architectural foundation. The [design principles for Azure applications](../guide/design-principles/index.md) provide high-level strategies that apply across workloads, such as designing for self-healing, scaling out, and minimizing coordination. These principles shape decisions that the best practices listed in the previous table help you implement.
+Before you address specific technical concerns, establish a strong architectural foundation. The [design principles for Azure applications](../guide/design-principles/index.md) provide high-level strategies that apply across workloads, such as designing for self-healing, scaling out, and minimizing coordination. These principles shape decisions that the practices in the Catalog of practices help you implement.
 
 ## Cloud design patterns
 
