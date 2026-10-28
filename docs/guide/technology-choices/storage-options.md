@@ -161,25 +161,18 @@ Azure Elastic SAN supports encryption at rest but doesn't support encryption in 
 
 ## Regional availability
 
-Use Azure to deliver scaled services that reach your customers and partners wherever they are. Check the regional availability of a service to help you make the right decision for your workload and customer needs. To check availability, see [Managed disks available by region](https://azure.microsoft.com/global-infrastructure/services/?products=managed-disks).
+Use Azure to deliver scaled services that reach your customers and partners wherever they are. Check the regional availability of a service to help you make the right decision for your workload and customer needs.
 
 Managed disks are available in all Azure regions that have Azure Premium SSD and Standard SSD offerings. Azure Ultra Disk Storage is offered in several availability zones. Verify the regional availability when you plan mission-critical, top-tier workloads that require Ultra Disk Storage.
 
 Hot and cool Blob Storage, Data Lake Storage Gen2, and Azure Files are available in all Azure regions. Archival blob storage, premium file shares, and premium block Blob Storage are limited to certain regions.
 
-To check blob availability, open [Products available by region](https://azure.microsoft.com/en-us/explore/global-infrastructure/products-by-region/table), enter **Storage** in **Search Products**, and select a geography. In your region's column, check the **Archive Storage** or **Premium Block Blobs** row under **Storage**.
-
-Also check the requirements for your configuration:
-
-- **Premium file shares (SSD):** See [Azure Files SSD region support](/azure/storage/files/redundancy-premium-file-shares). Use the list that matches your resource provider and redundancy option (LRS or ZRS).
-- **Archive blobs:** Use a standard general-purpose v2 account with [LRS, GRS, or RA-GRS](/azure/storage/blobs/access-tiers-overview#archive-access-tier). ZRS, GZRS, and RA-GZRS don't support archive.
-- **Premium block blobs:** Select **Premium** performance, **Block blobs**, and LRS or ZRS redundancy. Before deployment, [validate the selected region and account settings](/azure/storage/common/storage-account-create?tabs=azure-portal#review--create-tab) in the Azure portal.
-
-Regional availability doesn't guarantee compatibility with enabled account features. For both blob options, review [Blob Storage feature support](/azure/storage/blobs/storage-feature-support-in-storage-accounts).
 
 ZRS availability for Elastic SAN is limited to a subset of those regions, and maximum scale targets (IOPS, throughput, and base storage capacity) [vary by region](/azure/storage/elastic-san/elastic-san-scale-targets).
 
-To learn more about Azure global infrastructure, see [Azure geographies](https://azure.microsoft.com/global-infrastructure/geographies/).
+If using Azure Files, see [Azure Files SSD region support](/azure/storage/files/redundancy-premium-file-shares).
+
+To learn more about Azure global infrastructure, see [Azure geographies](https://azure.microsoft.com/global-infrastructure/geographies/) and consult [Products available by region](https://azure.microsoft.com/explore/global-infrastructure/products-by-region/table).
 
 ## Data residency and compliance requirements
 
