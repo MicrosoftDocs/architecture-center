@@ -109,7 +109,7 @@ This diagram contains a hub and two landing zone spokes in separate landing zone
 
 The virtual network's system route table already includes a system route for destinations in the non-routable `10.57.0.0/16` range. You don't need to define UDRs for traffic within that range.
 
-**Routable subnets**, including the subnet that hosts the NAT-capable NVA, must use a custom route table that forwards traffic outside the landing zone, typically to NVAs in the hub virtual network. These NVAs route traffic among spokes. These hub NVAs don't perform NAT operations. In the previous diagram, the custom route table for each routable subnet must contain the following UDRs.
+**Routable subnets**, including the subnet that hosts the NAT-capable NVA, must use a custom route table that forwards traffic outside the landing zone, typically to NVAs in the hub virtual network. These NVAs route traffic among spokes. These hub NVAs don't perform NAT operations. In the Method 1 example topology, the custom route table for each routable subnet must contain the following UDRs.
 
 | Destination  | Next hop type | Next hop IP address |
 | ------------ | ----------------------- | ---------------------------------- |
