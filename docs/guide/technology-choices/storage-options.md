@@ -161,7 +161,7 @@ Azure Elastic SAN supports encryption at rest but doesn't support encryption in 
 
 ## Regional availability
 
-You can use Azure to deliver scaled services to reach your customers and partners wherever they are. Checking the regional availability of a service beforehand can help you make the right decision for your workload and customer needs. To check availability, see [Managed disks available by region](https://azure.microsoft.com/global-infrastructure/services/?products=managed-disks).
+Use Azure to deliver scaled services that reach your customers and partners wherever they are. Check the regional availability of a service to help you make the right decision for your workload and customer needs. To check availability, see [Managed disks available by region](https://azure.microsoft.com/global-infrastructure/services/?products=managed-disks).
 
 Managed disks are available in all Azure regions that have Azure Premium SSD and Standard SSD offerings. Azure Ultra Disk Storage is offered in several availability zones. Verify the regional availability when you plan mission-critical, top-tier workloads that require Ultra Disk Storage.
 
