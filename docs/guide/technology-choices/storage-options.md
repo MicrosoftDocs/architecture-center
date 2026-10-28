@@ -167,7 +167,6 @@ Managed disks are available in all Azure regions that have Azure Premium SSD and
 
 Hot and cool Blob Storage, Data Lake Storage Gen2, and Azure Files are available in all Azure regions. Archival blob storage, premium file shares, and premium block Blob Storage are limited to certain regions.
 
-
 ZRS availability for Elastic SAN is limited to a subset of those regions, and maximum scale targets (IOPS, throughput, and base storage capacity) [vary by region](/azure/storage/elastic-san/elastic-san-scale-targets).
 
 If using Azure Files, see [Azure Files SSD region support](/azure/storage/files/redundancy-premium-file-shares).
