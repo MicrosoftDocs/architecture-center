@@ -71,7 +71,14 @@ Service principals remain available as a legacy alternative, created with `az ad
 
 ### Workload identity
 
-For pod-level access to Azure resources, AKS uses Microsoft Entra Workload ID, which, like Amazon EKS's IRSA, is built on OIDC federation. The cluster's OIDC issuer must be enabled so the cluster can publish a discovery document that Microsoft Entra ID uses to validate cluster-issued tokens. Once it's enabled, the OIDC issuer can't be disabled, and enabling it on an existing cluster causes a brief control-plane interruption. A federated identity credential then links a Microsoft Entra managed identity (or registered application) to a specific Kubernetes namespace and service account subject. The service account is annotated with the managed identity's client ID, and the pod is labeled `azure.workload.identity/use: "true"`, which triggers a mutating webhook to inject the projected service account token. At runtime, the application must use a supported version of an Azure Identity client library or the Microsoft Authentication Library (MSAL) to exchange that token for a Microsoft Entra access token, capped at a 24-hour lifetime, without handling a connection string, access key, or password. For more information, see [Microsoft Entra Workload ID overview](/azure/aks/workload-identity-overview) and [Use the OIDC issuer](/azure/aks/use-oidc-issuer).
+Like Amazon EKS's IRSA, Microsoft Entra Workload ID uses OIDC federation to give AKS pods access to Azure resources without stored credentials. In the direct-federation model, these parts work together:
+
+- **Cluster configuration:** The OIDC issuer publishes a discovery document that Microsoft Entra ID uses to validate cluster-issued tokens. AKS Automatic preconfigures the issuer and Workload ID. On AKS Standard, enable Workload ID and the OIDC issuer if they aren't already enabled. You can't disable the issuer after enabling it, and enabling it on an existing cluster briefly interrupts the control plane.
+- **Federated identity credential:** Link a managed identity or registered application to a specific Kubernetes namespace and service account subject.
+- **Service account and pod:** Annotate the service account with the identity's client ID. Label the pod `azure.workload.identity/use: "true"` so the mutating webhook injects a projected service account token.
+- **Token exchange:** Use a supported Azure Identity client library or the Microsoft Authentication Library (MSAL) to exchange the projected token for a Microsoft Entra access token. The access token expires after 24 hours; the application doesn't need a connection string, access key, or password.
+
+For more information, see [Microsoft Entra Workload ID overview](/azure/aks/workload-identity-overview) and [Use the OIDC issuer](/azure/aks/use-oidc-issuer).
 
 Use a separate managed identity for each workload when doing so is practical. Scope each identity's Azure role assignments to only the resources and actions that the workload requires.
 
