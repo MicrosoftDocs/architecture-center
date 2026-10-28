@@ -175,7 +175,11 @@ Controlling egress traffic is more than just making sure that the expected traff
 >
 > Encourage the platform team to use IP groups in Azure Firewall. This practice ensures that your workload's egress traffic needs are accurately represented with tight scoping only to the source subnets. For instance, a rule that allows workload VMs to reach `api.example.org` doesn't necessarily imply that supporting resources within the same virtual network can access the same endpoint. This level of granular control can enhance the security posture of your network.
 
-Communicate any unique egress traffic requirements to the platform team. The firewall applies source network address translation (SNAT) to egress flows, replacing the workload's source IP with one of its public IP addresses, and the number of attached IPs caps the SNAT port budget. If your workload establishes numerous concurrent outbound connections, inform the platform team so they can mitigate SNAT port exhaustion by attaching an Azure NAT Gateway or adding more public IPs on the regional firewall. Also share the firewall's public IP set with downstream partners so allowlists cover the full range of possible source IPs.
+Communicate your workload's egress requirements to the platform team:
+
+- **Outbound source IPs:** Without a NAT gateway, Azure Firewall applies source network address translation (SNAT) to internet-bound traffic, replacing the workload's source IP with one of the firewall's public IPs. If the platform team associates a NAT gateway with the firewall subnet, outbound traffic instead uses the gateway's public IPs.
+- **SNAT capacity:** Without a NAT gateway, each additional firewall public IP increases its SNAT port capacity. Tell the platform team if your workload opens many concurrent outbound connections so they can assess SNAT port exhaustion and increase capacity by adding firewall public IPs or [integrating a NAT gateway](/azure/firewall/integrate-with-nat-gateway).
+- **Downstream allowlists:** Share the complete set of outbound public IPs for the chosen configuration with downstream partners so their allowlists cover every possible source IP.
 
 Your organization might have requirements that discourage the use of architecture patterns, which use workload-owned public IPs for egress. In that case, you can use Azure Policy to deny public IPs on VM network interface cards (NICs) and any other public IPs, other than your well-known ingress points.
 
