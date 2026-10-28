@@ -297,7 +297,7 @@ A recently supported and simpler Pacemaker configuration on SLES 15 and later is
 
 To further manage costs of a large SAP landscape, Linux clusters support [ASCS multi-SID installation](/azure/sap/workloads/high-availability-guide-suse-multi-sid) on Azure. Sharing an availability cluster among multiple SAP systems simplifies the SAP landscape and reduces operation costs.
 
-Consider these load balancer settings for the SAP clusters, and plan outbound access separately:
+Consider these load balancer settings for the SAP clusters:
 
 - **HA ports.** On an internal Standard Load Balancer, an [HA ports rule](/azure/load-balancer/load-balancer-ha-ports-overview) can replace separate load-balancing rules for many SAP ports.
 - **Floating IP and DSR.** Azure Load Balancer uses a direct server return (DSR) flow topology whether [Floating IP](/azure/load-balancer/load-balancer-floating-ip) is enabled or not. Responses return directly to clients. Enable Floating IP for the applicable ASCS and HANA database cluster load-balancing rules so traffic maps to the load balancer's frontend IP address.
