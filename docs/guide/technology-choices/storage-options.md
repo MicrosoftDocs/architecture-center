@@ -161,7 +161,7 @@ Azure Elastic SAN supports encryption at rest but doesn't support encryption in 
 
 ## Regional availability
 
-You can use Azure to deliver scaled services to reach your customers and partners wherever they are. Checking the regional availability of a service beforehand can help you make the right decision for your workload and customer needs. To check availability, see [Managed disks available by region](https://azure.microsoft.com/global-infrastructure/services/?products=managed-disks) and [Azure Storage available by region](https://azure.microsoft.com/global-infrastructure/services/?products=storage).
+Use Azure to deliver scaled services that reach your customers and partners wherever they are. Check the regional availability of a service to help you make the right decision for your workload and customer needs.
 
 Managed disks are available in all Azure regions that have Azure Premium SSD and Standard SSD offerings. Azure Ultra Disk Storage is offered in several availability zones. Verify the regional availability when you plan mission-critical, top-tier workloads that require Ultra Disk Storage.
 
@@ -169,7 +169,9 @@ Hot and cool Blob Storage, Data Lake Storage Gen2, and Azure Files are available
 
 ZRS availability for Elastic SAN is limited to a subset of those regions, and maximum scale targets (IOPS, throughput, and base storage capacity) [vary by region](/azure/storage/elastic-san/elastic-san-scale-targets).
 
-To learn more about Azure global infrastructure, see [Azure geographies](https://azure.microsoft.com/global-infrastructure/geographies/). Consult [Products available by region](https://azure.microsoft.com/global-infrastructure/services/?products=storage) for storage options available in each Azure region.
+If using Azure Files, see [Azure Files SSD region support](/azure/storage/files/redundancy-premium-file-shares).
+
+To learn more about Azure global infrastructure, see [Azure geographies](https://azure.microsoft.com/global-infrastructure/geographies/) and consult [Products available by region](https://azure.microsoft.com/explore/global-infrastructure/products-by-region/table).
 
 ## Data residency and compliance requirements
 
