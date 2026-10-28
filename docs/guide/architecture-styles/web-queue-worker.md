@@ -93,7 +93,7 @@ On the left, a client connects to a web app and to a content delivery network. T
 
 - An [App Service](/azure/app-service/overview) web app serves as the front end, and an [Azure Functions](/azure/azure-functions/functions-overview) app serves as the worker. Both components run on an App Service plan.
 
-- The message queue uses either [Azure Service Bus](/azure/service-bus-messaging/service-bus-messaging-overview) or [Azure Storage queues](/azure/storage/queues/storage-queues-introduction). The previous diagram shows a Storage queue.
+- The message queue uses either [Azure Service Bus](/azure/service-bus-messaging/service-bus-messaging-overview) or [Azure Storage queues](/azure/storage/queues/storage-queues-introduction).
 
 - [Azure Managed Redis](/azure/redis/overview) stores session state and other data that requires low-latency access.
 
