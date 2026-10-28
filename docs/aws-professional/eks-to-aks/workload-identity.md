@@ -76,7 +76,7 @@ Like Amazon EKS's IRSA, Microsoft Entra Workload ID uses OIDC federation to give
 - **Cluster configuration:** The OIDC issuer publishes a discovery document that Microsoft Entra ID uses to validate cluster-issued tokens. AKS Automatic preconfigures the issuer and Workload ID. On AKS Standard, you must enable Workload ID and the OIDC issuer. You can't disable the issuer after enabling it and enabling it on an existing cluster briefly interrupts the control plane.
 - **Federated identity credential:** Link a managed identity or registered application to a specific Kubernetes namespace and service account subject.
 - **Service account and pod:** Annotate the service account with the identity's client ID. Label the pod `azure.workload.identity/use: "true"` so the mutating webhook injects a projected service account token.
-- **Token exchange:** Use a supported Azure Identity client library or the Microsoft Authentication Library (MSAL) to exchange the projected token for a Microsoft Entra access token. The access token expires after 24 hours; the application doesn't need a connection string, access key, or password.
+- **Token exchange:** Use a supported Azure Identity client library or the Microsoft Authentication Library (MSAL) in your application to exchange the projected token for a Microsoft Entra access token. The access token expires after 24 hours.
 
 For more information, see [Microsoft Entra Workload ID overview](/azure/aks/workload-identity-overview) and [Use the OIDC issuer](/azure/aks/use-oidc-issuer).
 
