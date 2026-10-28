@@ -157,7 +157,10 @@ Some organizations use standard storage for their application servers. SAP doesn
 
 Application servers don't host business data. So you can use smaller P4 and P6 premium disks to help minimize costs. Premium disks provide the [single-instance VM service-level agreement (SLA)](https://www.microsoft.com/licensing/docs/view/Service-Level-Agreements-SLA-for-Online-Services) if you have a central SAP stack installation.
 
-For high-availability scenarios, you can use [Azure file shares](/azure/storage/files/storage-files-introduction) and [Azure shared disks](/azure/virtual-machines/disks-shared). [Premium SSDs and Azure Ultra Disk Storage](/azure/virtual-machines/managed-disks-overview) are available for Azure shared disks, and Premium SSD is available for Azure file shares.
+For highly available SAP Central Services on Windows, choose one of these cluster storage options:
+
+- **Clustered file share:** Use [Azure Files SSD (premium) SMB shares](/azure/sap/workloads/high-availability-guide-windows-azure-files-smb) for shared SAP files. For clusters spanning availability zones, use zone-redundant storage (ZRS) if available in your region.
+- **Clustered shared disk:** Use [Premium SSD managed disks configured as Azure shared disks](/azure/sap/workloads/sap-high-availability-guide-wsfc-shared-disk). Use `Premium_ZRS` for clusters spanning availability zones and `Premium_LRS` for availability-set clusters. Ultra Disks aren't supported as shared disks for SAP Central Services.
 
 [Cloud Witness](/windows-server/failover-clustering/deploy-quorum-witness) also uses storage to maintain quorum via a device in a remote Azure region, separate from the primary region where the cluster resides.
 
