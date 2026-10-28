@@ -960,7 +960,7 @@ items:
         items:
         - name: Deploy MongoDB Atlas on Azure
           href: databases/architecture/mongodb-atlas-baseline.md
-        - name: Set up real-time sync of MongoDB Atlas data changes to Microsoft Fabric
+        - name: Sync MongoDB Atlas data changes to Microsoft Fabric
           href: example-scenario/analytics/sync-mongodb-atlas-fabric-analytics.yml
       - name: Mainframe
         items:
