@@ -29,8 +29,6 @@ This article describes a solution for managing changes that service administrato
 
 ### Alternatives
 
-- You can use DSC in [Azure Automation](/azure/automation/automation-dsc-overview) to store DSC configurations in a central location. Azure Automation can also provide reports on the compliance of tenant configurations with a specified desired state.
-
 - This architecture uses Key Vault to store certificates that are used for authentication to the Microsoft 365 tenant. Key Vault provides scalability by centrally managing certificates and by providing support for workloads that use multiple certificates, such as some Exchange and SharePoint workloads. As an alternative to Key Vault, for a limited-scope pipeline, you can use pipeline variables that are marked as secret. Pipeline variables can reduce resource complexity, but in Azure Pipelines, the recommended approach is to manage secret variables in Key Vault. If you use pipeline variables, restrict variable-group access, rotate secrets, and don't write secrets to logs or command-line arguments.
 
 - By using an Azure virtual machine (VM) for Windows and DSC, you can apply and monitor a configuration to Microsoft 365 tenants that use [Microsoft365DSC](https://microsoft365dsc.com). The Azure Windows VM can use Microsoft365DSC to detect configuration drift. You can use [Azure action groups](/azure/azure-monitor/alerts/action-groups) to send email to Microsoft 365 admins whenever drift is detected. An Azure action group can also run a webhook to trigger an [Azure runbook](/azure/automation/automation-webhooks). The runbook can generate a [report](https://microsoft365dsc.com/user-guide/get-started/comparing-configurations/) of configuration drift within Microsoft 365 tenants.

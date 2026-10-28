@@ -216,6 +216,7 @@ safe-outputs:
       - seesharprun
       - sesmyrnov
       - ShannonLeavitt
+      - shpathak-msft
       - shsagir
       - shubhamsangal-msft
       - simonesavi
