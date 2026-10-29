@@ -17,7 +17,7 @@ ms.custom:
 
 Admission controllers rarely cause problems, but it's crucial to ensure their proper functionality. This article discusses how admission controllers can affect other components when they don't function properly. It also describes commands that you can use to validate admission controller performance.
 
-## Admission controller
+## How admission controllers affect cluster operations
 
 An [admission controller](https://kubernetes.io/docs/reference/access-authn-authz/admission-controllers) is code that intercepts requests to the Kubernetes API server after authentication and authorization, but before an object is persisted.
 
