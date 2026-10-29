@@ -15,7 +15,7 @@ This article outlines options for how to connect to the API server of your Azure
 
 Planning API server access is a day-zero activity, and how you access the server depends on your deployment scenario.
 
-## AKS API server access
+## Secure access to the AKS API server
 
 To manage an AKS cluster, you interact with its API server. It's essential to limit API server access to only the necessary users. You can provide granular access by integrating the AKS cluster with Microsoft Entra ID. Administrators can manage access by using Azure role-based access control (Azure RBAC). They can also place users and identities in Microsoft Entra groups and assign appropriate roles and permissions. Microsoft Entra authentication is enabled in AKS clusters via OpenID Connect. For more information, see the following resources:
 
