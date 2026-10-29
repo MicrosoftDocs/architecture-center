@@ -1,4 +1,4 @@
-This article describes how to integrate MongoDB Atlas with Microsoft Fabric by using the open mirroring feature in Fabric. We recommend this architecture for high‑fidelity, low‑latency ingestion of operational data into OneLake.
+This article describes an example architecture for integrating MongoDB Atlas with Microsoft Fabric by using open mirroring in Fabric. Use this architecture for high‑fidelity, low‑latency ingestion of operational data into OneLake.
 
 ## Architecture
 

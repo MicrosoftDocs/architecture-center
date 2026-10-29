@@ -109,7 +109,7 @@ This diagram contains a hub and two landing zone spokes in separate landing zone
 
 The virtual network's system route table already includes a system route for destinations in the non-routable `10.57.0.0/16` range. You don't need to define UDRs for traffic within that range.
 
-**Routable subnets**, including the subnet that hosts the NAT-capable NVA, must use a custom route table that forwards traffic outside the landing zone, typically to NVAs in the hub virtual network. These NVAs route traffic among spokes. These hub NVAs don't perform NAT operations. In the previous diagram, the custom route table for each routable subnet must contain the following UDRs.
+**Routable subnets**, including the subnet that hosts the NAT-capable NVA, must use a custom route table that forwards traffic outside the landing zone, typically to NVAs in the hub virtual network. These NVAs route traffic among spokes. These hub NVAs don't perform NAT operations. In the Method 1 example topology, the custom route table for each routable subnet must contain the following UDRs.
 
 | Destination  | Next hop type | Next hop IP address |
 | ------------ | ----------------------- | ---------------------------------- |
@@ -135,7 +135,7 @@ When you use Azure Firewall, consider the following factors:
 
 - Deploy Azure Firewall in its own reserved subnet named **AzureFirewallSubnet**, which must use a routable address space.
 
-- Some Azure Firewall SKUs or configurations might require a second reserved subnet for firewall management. The management subnet doesn't require a routable address space.
+- Some [Azure Firewall SKUs or configurations](/azure/firewall/management-nic) might require a second reserved subnet named **AzureFirewallManagementSubnet** for firewall management traffic. The management subnet doesn't require a routable address space.
 
 - Choose the lowest Azure Firewall SKU that meets your security and throughput requirements. Basic supports up to 250 Mbps but doesn't include DNS proxy, custom DNS, network-level FQDN filtering, or threat-intelligence deny mode. Use Standard or Premium when you need these features or more throughput. For accurate sizing, test each applicable SKU with the traffic patterns in your environment.
 

@@ -587,7 +587,9 @@ For Office containers, if the content is only cached data that you can rebuild f
 
 ### Storage and region considerations
 
-Unless you have other requirements, backing up primary region storage addresses typical backup needs. In most cases, you don't need to back up the DR environment. For an Azure Files share, use [Backup](/azure/backup/azure-file-share-backup-overview). For the vault [resiliency type](/azure/storage/common/storage-redundancy), use ZRS if you don't require off-site or region backup storage. If you need those backups, use GRS.
+Unless you have other requirements, backing up primary-region storage addresses typical backup needs. In most cases, you don't need to back up the DR environment. For Azure Files shares, use [Azure Backup](/azure/backup/azure-file-share-backup-overview).
+
+For vaulted Azure Files backups, set the Recovery Services vault [storage redundancy](/azure/backup/backup-create-recovery-services-vault#set-storage-redundancy) to ZRS if you need zone resilience but not an off-site copy. Use GRS if backup copies must be replicated to the Storage account's recovery Azure region, which might differ from this deployment's DR region.
 
 Azure NetApp Files provides its own built-in [backup solution](/azure/azure-netapp-files/backup-introduction). Check the region [feature availability](/azure/azure-netapp-files/backup-requirements-considerations), along with requirements and limitations. Back up the separate storage accounts that store MSIX packages if you can't easily rebuild the application package repositories.
 

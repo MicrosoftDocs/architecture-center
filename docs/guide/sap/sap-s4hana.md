@@ -297,7 +297,11 @@ A recently supported and simpler Pacemaker configuration on SLES 15 and later is
 
 To further manage costs of a large SAP landscape, Linux clusters support [ASCS multi-SID installation](/azure/sap/workloads/high-availability-guide-suse-multi-sid) on Azure. Sharing an availability cluster among multiple SAP systems simplifies the SAP landscape and reduces operation costs.
 
-On the load balancer, you can turn on the [HA port](/azure/load-balancer/load-balancer-ha-ports-overview) and avoid the need to configure load balancing rules for many SAP ports. In general, if you turn on the direct server return (DSR) feature when you set up a load balancer, server responses to client inquiries can bypass the load balancer. This feature is also known as floating IP. The load balancer can be on-premises or on Azure. This direct connection keeps the load balancer from becoming the bottleneck in the path of data transmission. For the ASCS and HANA database clusters, we recommend that you enable DSR. If VMs in the back-end pool require public outbound connectivity, further [configuration](/azure/load-balancer/outbound-rules) is required.
+Consider these load balancer settings for the SAP clusters:
+
+- **HA ports.** On an internal Standard Load Balancer, an [HA ports rule](/azure/load-balancer/load-balancer-ha-ports-overview) can replace separate load-balancing rules for many SAP ports.
+- **Floating IP and DSR.** Azure Load Balancer uses a direct server return (DSR) flow topology whether [Floating IP](/azure/load-balancer/load-balancer-floating-ip) is enabled or not. Responses return directly to clients. Enable Floating IP for the applicable ASCS and HANA database cluster load-balancing rules so traffic maps to the load balancer's frontend IP address.
+- **Public outbound access.** If VMs in the backend pool need connectivity to public endpoints, configure an explicit outbound method. See [Outbound connectivity for SAP VMs](/azure/sap/workloads/high-availability-guide-standard-load-balancer-outbound-connections) for options.
 
 For traffic from SAP GUI clients that connect to an SAP server via DIAG protocol or RFC, the Central Services message server balances the load by using SAP application server [logon groups](https://wiki.scn.sap.com/wiki/display/SI/ABAP+Logon+Group+based+Load+Balancing). No extra load balancer is needed.
 

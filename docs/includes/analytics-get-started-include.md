@@ -40,7 +40,7 @@ The following production-ready architectures demonstrate end-to-end analytics so
 
 - [Use Azure Synapse Analytics for near real-time lakehouse data processing](../example-scenario/data/real-time-lakehouse-data-processing.yml): Use Azure Synapse Analytics and Azure Data Lake Storage for near real-time data lakehouse processing.
 
-- [Set up real-time sync of MongoDB Atlas data changes to Microsoft Fabric](../example-scenario/analytics/sync-mongodb-atlas-fabric-analytics.yml): Synchronize MongoDB Atlas data to Microsoft Fabric in real time.
+- [Sync MongoDB Atlas data changes to Microsoft Fabric](../example-scenario/analytics/sync-mongodb-atlas-fabric-analytics.yml): Synchronize MongoDB Atlas data to Microsoft Fabric in real time.
 
 - [Stream processing with Azure Databricks](../reference-architectures/data/stream-processing-databricks.yml): Create an end-to-end stream processing pipeline by using Azure Databricks.
 
