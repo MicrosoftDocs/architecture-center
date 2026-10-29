@@ -2,8 +2,8 @@
 metadata:
   title: Map threats to your IT environment
   description: Diagram the IT environment of your organization and develop a threat map to plan and build your defensive layer of security. This article is the second in a part of a series.
-  author: rudneir2
-  ms.author: ruoliveira
+  author: ricmmartins
+  ms.author: ricardomac
   ms.date: 9/18/2024
   ms.topic: solution-idea
   ms.subservice: solution-idea
@@ -18,4 +18,4 @@ name: Map threats to your IT environment
 summary: Diagram the IT environment of your organization and develop a threat map to plan and build your defensive layer of security. This article is part of a series.
 thumbnailUrl: /azure/architecture/browse/thumbs/map-threats-it-environment-thumbnail.png
 content: |
-  [!include[](map-threats-it-environment-content.md)]
+  [!INCLUDE[](map-threats-it-environment-content.md)]
