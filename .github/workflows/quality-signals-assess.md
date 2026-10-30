@@ -27,12 +27,10 @@ concurrency:
   cancel-in-progress: false
   job-discriminator: ${{ github.run_id }}
 
+model: gpt-6.1-sol
 engine:
   id: copilot
   copilot-sdk: true
-  model-routing:
-    goal: cost
-    mode: robust
 
 timeout-minutes: 30
 
@@ -128,7 +126,7 @@ For an empty random selection, write `finding: null`, eligible count zero, and a
 1. Resolve the current article, following moved paths through `.openpublishing.redirection.json`. Distinguish redirects to different articles and read YAML articles' included content.
 2. Independently investigate the allegation and any proposed remedy under the shared contract.
 3. Write `quality-signals-investigation.json` in the assessment format with empty `review_resolutions`.
-4. Invoke `quality-signals-challenger` in a fresh context with the work-item and investigation paths, not your conversation history. Require independent source inspection and `quality-signals-challenge.json`.
+4. Invoke `quality-signals-challenger` once in a fresh context with the work-item and investigation paths, not your conversation history. Require independent source inspection and `quality-signals-challenge.json`.
 5. Resolve every objection and write `quality-signals-assessment.json`, responding to objections in order. You own the judgment; consensus isn't required.
 6. Persist the completed assessment and recommendation as `assessed` under the contract, then [choose the handoff](#choose-the-handoff).
 

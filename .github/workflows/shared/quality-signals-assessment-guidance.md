@@ -10,6 +10,15 @@ Choose checks from the allegation and evidence, not just its source category. Th
 - For architectural changes, evaluate scenario trade-offs against the [Well-Architected Framework](https://learn.microsoft.com/azure/well-architected/what-is-well-architected-framework) and service guidance; don't presume one pillar or a newer service dominates.
 - Don't allow a recommendation to deviate from the content type's template.
 
+## Keep checks proportional
+
+Seek enough evidence for the selected decision, not an exhaustive audit.
+
+- For an editorial or structural finding, check meaning, context, qualifications, and reader benefit.
+- Fetch Learn evidence when a Microsoft-product technical claim is necessary to the judgment or proposed correction.
+- Inspect an image only if its content could materially change the selected judgment.
+- Stop investigating alternative rewrites once evidence supports a specific, bounded recommendation.
+
 ## If the finding concerns a link
 
 - Locate the current link and its purpose; don't investigate unrelated destinations.

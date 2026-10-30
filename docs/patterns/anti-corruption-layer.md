@@ -84,7 +84,7 @@ If this pattern introduces trade-offs within a pillar, consider them against the
 
 ## Example
 
-This pattern is conceptual and originates from the domain-driven design software development approach. Azure services like Azure API Management or Azure Functions might assist with protocol handling and translation, but the core purpose of an anti-corruption layer is to protect the domain model, not to prescribe any specific product choice.
+This pattern is conceptual and originates from the domain-driven design software development approach. Azure services like Azure API Management or Azure Functions might assist with protocol handling and translation. The core purpose of an anti-corruption layer is to protect the domain model.
 
 In the following example, API Management handles the external exposure and protocol concerns. Azure Functions implements the anti-corruption layer through domain mapping between the new system and the legacy system. Azure Monitor and Application Insights provide the observability that you need to track the success and latency of the translation between the two subsystems.
 

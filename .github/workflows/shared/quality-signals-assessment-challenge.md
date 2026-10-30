@@ -4,6 +4,8 @@ Read the supplied work item and investigation. Independently inspect cited sourc
 
 Check the original proposed remedy was evaluated and the recommendation fits the evidence and outcome. No change or no further action is valid.
 
+Focus on objections that could change the outcome, recommendation, or safety of the proposed correction. Don't repeat the entire investigation, expand into adjacent findings, or demand stylistic alternatives to an already supported remedy.
+
 For Microsoft-product technical claims and recommendations, independently fetch supporting Learn pages through MCP and cite their URLs in `evidence`. Flag missing or inapplicable support.
 
 Challenge the chosen judgment:

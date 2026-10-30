@@ -198,6 +198,7 @@ safe-outputs:
       - rdesutter
       - redhatpeter
       - redis-phil
+      - ricmmartins
       - rkayongo
       - rmats808
       - roarrioj
@@ -255,6 +256,7 @@ safe-outputs:
       - v-rajagt-zz
       - v-regandowner
       - v-shils
+      - v-simonazzif
       - v-stsavell
       - v-thepet
       - veerashayyagari
