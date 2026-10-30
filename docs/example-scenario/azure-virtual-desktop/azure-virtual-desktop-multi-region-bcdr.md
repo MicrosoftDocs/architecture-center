@@ -169,7 +169,7 @@ This section describes how an active-passive Azure Virtual Desktop deployment op
 
 Like the active-active model, you deploy a second host pool in the secondary region for each host pool in the primary region.
 
-You deploy fewer active compute resources in the secondary region than in the primary region, depending on your budget. You can use automatic scaling to provide more compute capacity. Scaling requires extra time, and Azure doesn't guarantee capacity.
+You deploy fewer active compute resources in the secondary region than in the primary region, depending on your budget. Use automatic scaling to provide more compute capacity. Scaling requires extra time, and Azure doesn't guarantee capacity unless you reserve it with [on-demand capacity reservations](/azure/virtual-machines/capacity-reservation-overview).
 
 This configuration provides higher RTO than the active-active approach, but it costs less.
 
