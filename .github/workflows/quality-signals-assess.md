@@ -32,7 +32,7 @@ engine:
   copilot-sdk: true
   model-routing:
     goal: cost
-    mode: robust
+    mode: balanced
 
 timeout-minutes: 30
 
