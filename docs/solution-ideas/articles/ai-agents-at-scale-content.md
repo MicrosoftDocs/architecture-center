@@ -342,7 +342,7 @@ Observability gives you the foundation to understand emergent AI behavior in the
 
 #### Why observability matters in AI systems
 
-Observability shows you what your application does, not only whether the underlying infrastructure runs. Distinguish between system observability (infrastructure metrics like CPU, memory, and network) and application observability (orchestration logic, agent behavior, prompt flows, and model inference).
+Observability helps you understand application behavior and infrastructure health. Distinguish between system observability (infrastructure metrics like CPU, memory, and network) and application observability (orchestration logic, agent behavior, prompt flows, and model inference).
 
 In multiagent environments, application observability helps you:
 
@@ -463,4 +463,3 @@ Principal authors:
 - [Azure OpenAI chat baseline architecture in an Azure landing zone](../../ai-ml/architecture/baseline-microsoft-foundry-landing-zone.yml)
 - [AI agent orchestration patterns](../../ai-ml/guide/ai-agent-design-patterns.md)
 - [Build a multiple-agent workflow automation solution by using Agent Framework](../../ai-ml/idea/multiple-agent-workflow-automation.yml)
-
