@@ -151,7 +151,7 @@ Virtual network peering or connected groups are nontransitive relationships betw
 
 #### Spoke connections through Azure Firewall or an NVA
 
-The number of virtual network peerings per virtual network is limited. If you have many spokes that need to connect with each other, you might not have enough peering connections. Connected groups also have limitations. For more information, see [Networking limits](/azure/azure-subscription-service-limits#networking-limits) and [Connected groups limits](/azure/virtual-network-manager/faq#what-are-the-service-limitations-of-azure-virtual-network-manager).
+The number of virtual network peerings per virtual network is limited. If you have many spokes that need to connect with each other, you might not have enough peering connections. Connected groups also have limitations. For more information, see [Networking limits](/azure/azure-resource-manager/management/azure-subscription-service-limits#azure-networking-limits) and [Connected groups limits](/azure/virtual-network-manager/faq#what-are-the-service-limitations-of-azure-virtual-network-manager).
 
 In this scenario, consider using user-defined routes (UDRs) to force spoke traffic to be sent to Azure Firewall or another NVA that acts as a router at the hub. This change allows the spokes to connect to each other. To support this configuration, implement Azure Firewall with forced tunnel configuration turned on. For more information, see [Azure Firewall forced tunneling](/azure/firewall/forced-tunneling).
 
@@ -177,7 +177,7 @@ To configure spokes to communicate with remote networks through a hub gateway, y
 - Configure the peering connection in each spoke to **Use the remote virtual network's gateway**.
 - Configure all peering connections to **Allow** forwarded traffic.
 
-For more information, see [Create a virtual network peering](/azure/virtual-network/virtual-network-manage-peering#create-a-peering).
+For more information, see [Create a virtual network peering](/azure/virtual-network/virtual-network-manage-peering#create-a-virtual-network-peering).
 
 To use connected network groups:
 
@@ -185,7 +185,7 @@ To use connected network groups:
 1. Create a hub-spoke connectivity configuration.
 1. For the **Spoke network groups**, select **Hub as gateway**.
 
-For more information, see [Create a hub-spoke topology by using Virtual Network Manager](/azure/virtual-network-manager/how-to-create-hub-and-spoke).
+For more information, see [Create network topologies with Azure Virtual Network Manager](/azure/virtual-network-manager/how-to-create-network-manager-topologies).
 
 ### Spoke network communications
 
@@ -325,7 +325,7 @@ To simplify the process of creating and maintaining route configurations, you ca
 
 To centralize the management of IP addresses, you can use [IP address management (IPAM) in Virtual Network Manager](/azure/virtual-network-manager/concept-ip-address-management). IPAM prevents IP address space conflicts across on-premises and cloud virtual networks.
 
-To get started with Virtual Network Manager, see [Create a hub-spoke topology by using Virtual Network Manager](/azure/virtual-network-manager/how-to-create-hub-and-spoke).
+To get started with Virtual Network Manager, see [Create network topologies with Azure Virtual Network Manager](/azure/virtual-network-manager/how-to-create-network-manager-topologies).
 
 ### Performance Efficiency
 

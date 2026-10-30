@@ -205,7 +205,7 @@ This architecture deploys gateways in the hub to provide the branch, remote-user
 
 Virtual network peering creates a nontransitive relationship between two virtual networks. Virtual WAN allows spokes to connect with each other without requiring direct peering.
 
-When you need to connect multiple spokes, you can quickly reach the limit for virtual network peerings for each virtual network. For more information, see [Networking limits](/azure/azure-resource-manager/management/azure-subscription-service-limits#networking-limits). Virtual WAN removes this limitation by providing built-in connectivity between spokes. For more information, see [Global transit network architecture and Virtual WAN](/azure/virtual-wan/virtual-wan-global-transit-network-architecture).
+When you need to connect multiple spokes, you can quickly reach the limit for virtual network peerings for each virtual network. For more information, see [Networking limits](/azure/azure-resource-manager/management/azure-subscription-service-limits#azure-networking-limits). Virtual WAN removes this limitation by providing built-in connectivity between spokes. For more information, see [Global transit network architecture and Virtual WAN](/azure/virtual-wan/virtual-wan-global-transit-network-architecture).
 
 #### Virtual network peering for a hub connection
 
@@ -239,7 +239,7 @@ You can attach route maps to connections such as VPN sites, ExpressRoute circuit
 
 ### Hub extensions
 
-To support network-wide shared tools like Domain Name System (DNS) resources, custom NVAs, and Azure Bastion, use the [virtual hub extension pattern](../../guide/networking/private-link-virtual-wan-dns-virtual-hub-extension-pattern.yml) to implement each service. Use this model to build and operate single-function extensions for business-critical shared services that you can't deploy directly in a virtual hub.
+To support network-wide shared tools like Domain Name System (DNS) resources, custom NVAs, and Azure Bastion, use the [virtual hub extension pattern](../guide/private-link-virtual-wan-dns-virtual-hub-extension-pattern.yml) to implement each service. Use this model to build and operate single-function extensions for business-critical shared services that you can't deploy directly in a virtual hub.
 
 #### Spoke connectivity and shared services
 
@@ -301,7 +301,7 @@ You should monitor Virtual WAN by using Azure Monitor. Key hub-level metrics inc
 
 Performance Efficiency refers to your workload's ability to scale to meet user demands efficiently. For more information, see [Design review checklist for Performance Efficiency](/azure/well-architected/performance-efficiency/checklist).
 
-Virtual WAN helps reduce latency among spokes and across regions. Gateway throughput varies by gateway type and deployment scope. For workloads that exceed single-gateway or single-hub limits, deploy additional hubs or gateways per region to scale aggregate capacity. For current limits, see [Virtual WAN limits](/azure/azure-resource-manager/management/azure-subscription-service-limits#virtual-wan-limits).
+Virtual WAN helps reduce latency among spokes and across regions. Gateway throughput varies by gateway type and deployment scope. For workloads that exceed single-gateway or single-hub limits, deploy additional hubs or gateways per region to scale aggregate capacity. For current limits, see [Virtual WAN limits](/azure/azure-resource-manager/management/azure-subscription-service-limits#azure-virtual-wan-limits).
 
 Virtual WAN provides full-mesh connectivity among spokes while allowing traffic restriction based on specific requirements. This architecture enables large-scale site-to-site performance. You can also create a global transit network architecture by enabling any-to-any connectivity between globally distributed sets of cloud workloads.
 
