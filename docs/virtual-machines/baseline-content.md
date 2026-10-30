@@ -280,6 +280,8 @@ Application Gateway and the internal load balancer use health probes to detect t
 
 In this architecture, log data is collected from several networking components that participate in the flow. These components include Application Gateway, load balancers, and Azure Bastion. They also include networking security components such as virtual networks, NSGs, public IP addresses, and Private Link.
 
+If you add [virtual network flow logs](/azure/network-watcher/vnet-flow-logs-overview) to this architecture, use [capture filters](/azure/network-watcher/vnet-flow-logs-filtering) to select IP ranges, ports, protocols, and directions required for monitoring. For targeted connectivity troubleshooting, filter on the affected front-end and back-end subnet ranges and application ports.
+
 ##### Managed disks
 
 Disk metrics depend on your workload, requiring a mix of key metrics. Monitoring should combine these perspectives to isolate OS or application throughput issues.
@@ -550,6 +552,8 @@ Use the [preconfigured estimate in the Azure pricing calculator](https://azure.c
 Select VM images that are optimized for the workload instead of using general-purpose images. In this architecture, relatively small VM images are chosen for both Windows and Linux, which are 30 GB each. With smaller images, VM SKUs with disks are also smaller, leading to lower costs, reduced resource consumption, and faster deployment and boot times. A benefit is enhanced security because of the reduced surface area.
 
 Implementing log rotation with size limits is another cost-saving strategy. It allows you to use small data disks, which can result in lower costs. This architecture uses 4-GB disks.
+
+If you enable virtual network flow logs, include collection, optional Traffic Analytics processing, and storage charges in the [cost estimate](/azure/network-watcher/vnet-flow-logs-overview#pricing).
 
 The use of Ephemeral OS disks can also lead to cost savings and improved performance. These disks are designed to use VM resources that you already pay for because they're installed on the cache disk provisioned with the VM. It eliminates storage costs associated with traditional persistent disks. Because these disks are temporary, there are no costs associated with long-term data storage.
 

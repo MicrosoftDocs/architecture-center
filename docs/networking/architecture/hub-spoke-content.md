@@ -267,6 +267,8 @@ Cost Optimization focuses on ways to reduce unnecessary expenses and improve ope
 
 To get an estimate of the cost for the hub networking components in this architecture, use this [preconfigured estimate in the Azure pricing calculator](https://azure.com/e/c7a42bc3b03f48ada7c9854d3028dc46). Adjust the values to match your expected traffic volumes and additional spokes.
 
+When you collect [virtual network flow logs](/azure/network-watcher/vnet-flow-logs-overview), tune [capture filters](/azure/network-watcher/vnet-flow-logs-filtering) by source and destination IP ranges, ports, protocols, and direction to match your monitoring requirements. Preserve traffic needed for security investigations and capacity planning.
+
 Consider the following cost-related factors when you deploy and manage hub-spoke networks. For more information, see [Virtual network pricing](https://azure.microsoft.com/pricing/details/virtual-network).
 
 #### Azure Firewall costs
