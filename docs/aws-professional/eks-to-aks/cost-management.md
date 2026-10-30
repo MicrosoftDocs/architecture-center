@@ -157,7 +157,7 @@ If you run workloads that use CSI persistent volumes on your AKS cluster, consid
 
 Several Azure networking tools can provide access to your applications that run in AKS:
 
-- [Azure Load Balancer](https://azure.microsoft.com/pricing/details/load-balancer): By default, Load Balancer uses the Standard SKU. Load Balancer charges are based on:
+- [Azure Load Balancer](https://azure.microsoft.com/pricing/details/load-balancer): AKS supports only the Standard SKU of Load Balancer. The Basic SKU was retired on September 30, 2025, and AKS no longer supports it. For more information, see [Use a public standard load balancer in AKS](/azure/aks/load-balancer-standard). Load Balancer charges are based on:
 
   - The number of configured load-balancing and outbound rules. The total number of rules doesn't include inbound network address translation (NAT) rules.
 
