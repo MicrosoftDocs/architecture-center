@@ -84,9 +84,9 @@ Use short token lifetimes and plan how to revoke access if a token is compromise
 
 ### Identity-based access control
 
-When your application communicates through the SMB protocol, Azure Files [supports identity-based authorization](/azure/storage/files/storage-files-active-directory-overview) at both the share level and the directory or file level. You can use on-premises Active Directory Domain Services, Microsoft Entra Domain Services, or [Microsoft Entra Kerberos for hybrid and cloud-only identities](/azure/storage/files/storage-files-identity-auth-hybrid-identities-enable). By using Microsoft Entra Kerberos, cloud-only identities can access a share without a domain controller, which removes the on-premises dependency when you authorize each tenant's users.
+When your application communicates through the SMB protocol, Azure Files [supports identity-based authorization](/azure/storage/files/storage-files-active-directory-overview) at both the share level and the directory or file level.
 
-Applications and virtual machines can also use [managed identities to access SMB shares](/azure/storage/files/files-managed-identities) without storage account keys. Each storage account supports only one identity source, so if your tenants require different identity sources, isolate those tenants in separate storage accounts.
+You can use on-premises Active Directory Domain Services, Microsoft Entra Domain Services, or [Microsoft Entra Kerberos for hybrid and cloud-only identities](/azure/storage/files/storage-files-identity-auth-hybrid-identities-enable). By using Microsoft Entra Kerberos, cloud-only identities can access a share without a domain controller, which removes the on-premises dependency when you authorize each tenant's users. Each storage account supports only one of these identity sources, and it applies to all file shares in the account. If your tenants require different identity sources, isolate those tenants in separate storage accounts.
 
 ### Encryption
 
