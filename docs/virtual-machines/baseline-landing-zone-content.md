@@ -169,7 +169,7 @@ Workload communication to the private endpoint for Key Vault access remains the 
 
 The workload team must identify, document, and communicate all necessary outbound traffic flows for the infrastructure and workload operations. The platform team allows the required traffic, and all uncommunicated egress traffic is likely denied.
 
-Controlling egress traffic is more than just making sure that the expected traffic be allowed. It's also about making sure *only* expected traffic be allowed. Uncommunicated egress traffic is likely denied by default, but it's in the workload's best security interest to ensure that traffic is properly routed.
+Control egress traffic so that *only* expected traffic is allowed. Uncommunicated egress traffic is likely denied by default, but it's in the workload's best security interest to ensure that traffic is properly routed.
 
 > [!TIP]
 >

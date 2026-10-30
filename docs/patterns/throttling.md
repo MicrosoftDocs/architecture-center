@@ -86,7 +86,7 @@ Consider the following points as you decide how to implement this pattern:
 
 - Make throttling decisions quickly. The system must detect rising load, react, and return to normal after load eases. This process requires continuous performance instrumentation.
 
-- Shed load proactively, not at the edge of collapse. A throttle that only rejects after a component saturates causes latency to spike before callers see any back-pressure.
+- Shed load proactively. A throttle that only rejects after a component saturates causes latency to spike before callers see any back-pressure.
 
   As utilization approaches the hard limit, start rejecting a growing fraction of requests. Early rejection signals callers to back off and prevents the latency collapse that abrupt limits often trigger. Use p99 latency against your SLO as the primary trigger. Average utilization can look healthy while p99 has already breached.
 

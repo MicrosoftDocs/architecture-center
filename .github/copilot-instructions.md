@@ -104,6 +104,14 @@ If you're asked to create data that goes into the Markdown files in this repo. U
 - Avoid generalizations, marketing terms, or weasel words. Words you should generally avoid: seamless, seamlessly, fast, quick, quickly, easy, effortless, effortlessly, simple, simply, world-class, cutting-edge, cheap. You don't know the constraints of the reader or their situation, so you shouldn't make general statements like these. Instead present the facts/metrics/limits in a way that will help an architect make an informed decision.
 - Prefer named section or article links when references like "earlier" or "following" could be ambiguous. Name the specific design, definition, or procedure the reader needs.
 
+### Contrasts and counterexamples
+
+Apply these rules to both human interaction and generated content, including Microsoft Learn articles.
+
+- State guidance directly. Avoid formulaic contrastive framing such as "It's X, not Y" and "Treat X as Y, not Z" when the rejected alternative is a straw man.
+- Use contrasts and counterexamples selectively. Include them only when the alternative is plausible in context and the comparison helps the reader understand a meaningful choice, misconception, or consequence.
+- Don't invent an opposing view to make a statement sound insightful or corrective.
+
 ### Customer clarity
 
 Help readers make architectural decisions and complete the tasks the article actually promises.

@@ -163,7 +163,7 @@ After you've defined an MVP and done the engineering to lift, shift, and adapt, 
 
 We learned a lot by operating Dynamics 365 in the cloud for a large and growing number of customers.
 
-**Monitor**: As a service provider, customers expect you to detect service health issues before they do, and they expect you to immediately work on resolutions. A health issue isn't just when the service is down. A customer's view of a service being unhealthy includes the service performing slowly or behaving incorrectly. It's essential that you develop adequate monitoring tools&mdash;this development is part of your service, not an optional accessory.
+**Monitor**: As a service provider, customers expect you to detect service health issues before they do, and they expect you to immediately work on resolutions. A health issue isn't just when the service is down. A customer's view of a service being unhealthy includes the service performing slowly or behaving incorrectly. It's essential that you develop adequate monitoring tools as part of your service.
 
 **Communicate**: In the on-premises world, the customer can see their IT team working on a problem. In the cloud, they can’t. It's essential to communicate when you detect a service health issue, to keep communicating on the progress to resolution, and to confirm the *all clear* when the issue is resolved. The nature of the communications varies with the severity of the issue. Your communications pipeline is also a core part of your SaaS service, and you need to ensure that communications can succeed even when core parts of your SaaS service’s infrastructure are compromised.
 
