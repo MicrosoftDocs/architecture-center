@@ -27,12 +27,10 @@ concurrency:
   cancel-in-progress: false
   job-discriminator: ${{ github.run_id }}
 
+model: gpt-6.1-sol
 engine:
   id: copilot
   copilot-sdk: true
-  model-routing:
-    goal: cost
-    mode: balanced
 
 timeout-minutes: 30
 
