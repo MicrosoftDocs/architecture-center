@@ -11,6 +11,15 @@ Apply this contract to every finding, regardless of source category.
 - For explicit re-evaluation, both investigator and challenger judge against current evidence. Prior status, assessments, and handoffs aren't reasons to skip, reuse a verdict, or presume a correction is needed.
 - Recommend only changes that improve or preserve the reader's experience and outcome, never worsen them.
 
+## Bound the investigation
+
+Spend effort in proportion to the selected finding, not the article's overall complexity. Here are some recommendations (not hard limits) to help timebox your efforts:
+
+- Target keeping your invesigation at **180 seconds** or less for editorial or structural findings and **420 seconds** for findings that require technical or destination verification.
+- Before another search, fetch, or repeated inspection, identify the unresolved question and how its answer could change the outcome or recommendation. Skip the step if it cannot. Stop as soon as sufficient evidence supports a judgment.
+- Spend about **120 seconds** or less resolving material objections from the challenger against its evidence.
+- If a time target is reached try to wrap up your work expidiciously.
+
 ## Three completed outcomes
 
 Choose exactly one outcome:
