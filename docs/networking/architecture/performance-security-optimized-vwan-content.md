@@ -95,7 +95,7 @@ Configure routes for the Virtual WAN hub as follows:
 - [Static routes](/azure/virtual-wan/about-virtual-hub-routing#static). Static routes provide a mechanism for steering traffic through a next hop IP.
 - [Hub route tables](/azure/virtual-wan/about-virtual-hub-routing#hub-route). You can create a virtual hub route and apply the route to the virtual hub route table.
 - [Virtual network peering](/azure/virtual-network/virtual-network-peering-overview). By using virtual network peering, you can seamlessly connect two or more [virtual networks](/azure/well-architected/service-guides/virtual-network) in Azure.
-- [User-defined routes](/azure/virtual-network/virtual-networks-udr-overview#user-defined). User-defined routes are static routes that override the default Azure system routes or add more routes to a subnet's route table. They're used here to force traffic to the NVAs when necessary.
+- [User-defined routes](/azure/virtual-network/virtual-networks-udr-overview#user-defined-routes). User-defined routes are static routes that override the default Azure system routes or add more routes to a subnet's route table. They're used here to force traffic to the NVAs when necessary.
 - Network virtual appliances. Network virtual appliances are marketplace-offered network appliances. In this case, the company deployed Palo Alto's NVA, but any NVA firewall would work here.
 
 ### Alternatives
@@ -118,7 +118,7 @@ Reliability helps ensure that your application can meet the commitments that you
 
 Virtual WAN is a highly available networking service. You can set up more connectivity or paths from the branch to get multiple pathways to the Virtual WAN service. But you don't need anything additional within the VWAN service.
 
-You should set up NVAs in a highly available architecture similar to the one described here: [Deploy highly available NVAs](../guide/nva-ha.yml).
+You should set up NVAs in a highly available architecture similar to the one described here: [Deploy highly available NVAs](../guide/network-virtual-appliance-high-availability.md).
 
 ### Security
 
@@ -167,4 +167,4 @@ Principal author:
 ## Related resources
 
 - [Hub-spoke network topology with Azure Virtual WAN](/azure/architecture/networking/architecture/hub-spoke-virtual-wan-architecture)
-- [Choose between virtual network peering and VPN gateways](/azure/architecture/reference-architectures/hybrid-networking/vnet-peering)
+- [Choose between virtual network peering and VPN gateways](/azure/architecture/reference-architectures/hybrid-networking/virtual-network-peering)

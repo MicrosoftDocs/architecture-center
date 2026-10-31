@@ -45,9 +45,9 @@ The following data flow corresponds to the previous diagram:
 
   - [Log Analytics](/azure/well-architected/service-guides/azure-log-analytics) is a centralized repository for collecting and analyzing log data. In this architecture, it stores firewall and identity logs, which enables custom queries and forwarding to Event Hubs for CISA CLAW ingestion.
 
-  - [Azure Monitor](/azure/azure-monitor/overview) is a monitoring solution for collecting, analyzing, and acting on telemetry. In this architecture, Azure Monitor gathers performance and diagnostic data from network and identity components.
+  - [Azure Monitor](/azure/azure-monitor/fundamentals/overview) is a monitoring solution for collecting, analyzing, and acting on telemetry. In this architecture, Azure Monitor gathers performance and diagnostic data from network and identity components.
 
-  - [Microsoft Entra ID](/entra/fundamentals/whatis) is an identity and access service that provides identity features, single sign-on, and multifactor authentication across Azure workloads. In this architecture, it secures access to Azure resources and generates identity logs for compliance monitoring.
+  - [Microsoft Entra ID](/entra/fundamentals/what-is-entra) is an identity and access service that provides identity features, single sign-on, and multifactor authentication across Azure workloads. In this architecture, it secures access to Azure resources and generates identity logs for compliance monitoring.
 
   - [Event Hubs Standard](/azure/well-architected/service-guides/azure-event-hubs) is a big data streaming platform and event ingestion service. In this architecture, it receives logs from Log Analytics and streams them to CISA TALON for centralized analysis.
 
