@@ -322,7 +322,7 @@ If your organization's requirements don't align with Fabric-based deployment mod
 
 These considerations implement the pillars of the Well-Architected Framework, which is a set of guiding tenets that you can use to improve the quality of a workload. For more information, see the [Well-Architected Framework](/azure/well-architected/).
 
-The per-pattern tables earlier in this article use design areas that are specific to Fabric deployment decisions, like governance, security, administration, DevOps, usability, performance, and billing. The following subsections provide complementary guidance organized by Well-Architected Framework pillar. Use the per-pattern tables to compare patterns. Use these subsections for cross-cutting architectural guidance that applies regardless of which pattern you choose.
+The **Design area considerations** tables in the pattern sections use design areas that are specific to Fabric deployment decisions, like governance, security, administration, DevOps, usability, performance, and billing. The following subsections provide complementary guidance organized by Well-Architected Framework pillar. Use the per-pattern tables to compare patterns. Use these subsections for cross-cutting architectural guidance that applies regardless of which pattern you choose.
 
 ### Reliability
 
