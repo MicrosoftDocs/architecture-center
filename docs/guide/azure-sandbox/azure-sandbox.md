@@ -149,7 +149,7 @@ For example, the following scenarios use capabilities and configurations that th
 
 Operational Excellence covers the operations processes that deploy an application and keep it running in production. For more information, see [Design review checklist for Operational Excellence](/azure/well-architected/operational-excellence/checklist).
 
-Instrument sandbox resources for observability so that you can monitor and troubleshoot the environment from a single location by using the optional `vwan` module or another private path. Configure diagnostic settings on resources to route logs and metrics to a Log Analytics workspace. To balance observability against ingestion cost, enable only the log categories that you need and omit high-volume or premium-only categories unless a scenario requires them.
+Instrument sandbox resources for observability so that you can monitor and troubleshoot the environment from a single location by using the optional `vwan` module or another private path. Configure diagnostic settings on resources to route logs and metrics to a Log Analytics workspace. To balance observability against ingestion cost, enable only the log categories that you need and omit high-volume categories unless a scenario requires them.
 
 The Azure Sandbox reference implementation preconfigures several diagnostic settings, for example:
 
