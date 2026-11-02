@@ -108,7 +108,9 @@ If you use the FES hub deployment, the FES is an add-on component to the classic
 - **ASCS layer.** Use a clustered ASCS layer with HA NFS for shared storage.
 - **Application servers.** Use at least two application servers.
 - **Web Dispatcher.** Load balance traffic via a pair of Web Dispatcher instances that can be either clustered or parallel.
-  For internet-facing Fiori apps, we recommend an [FES hub deployment](https://help.sap.com/docs/SAP_FIORI_OVERVIEW/4694bb95aacb4cdfa1327c6d8735eaad/4d0feecb64fe49ccbe45c3361e71b7c4.html#general-information-about-embedded-deployment-and-hub-deployment) in the perimeter network.
+
+For internet-facing Fiori apps, we recommend an [FES hub deployment](https://help.sap.com/docs/SAP_FIORI_OVERVIEW/4694bb95aacb4cdfa1327c6d8735eaad/4d0feecb64fe49ccbe45c3361e71b7c4.html#general-information-about-embedded-deployment-and-hub-deployment) in the perimeter network.
+
 - **Web application protection.** Use Azure Web Application Firewall on [Application Gateway](/azure/application-gateway) as a critical component to deflect threats.
 - **Authentication.** Use [Microsoft Entra ID with Security Assertion Markup Language (SAML)](/entra/identity/saas-apps/sap-netweaver-tutorial) for user authentication and [single sign-on (SSO) for SAP Fiori](/entra/identity/saas-apps/sap-fiori-tutorial).
 
