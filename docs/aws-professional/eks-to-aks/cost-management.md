@@ -250,7 +250,9 @@ The following recommendations help optimize your AKS cluster costs:
 
 - Use Container Instances for bursting.
 
-- Your AKS workloads might not need to continuously run. For example, some workloads in development cluster node pools don't continuously run. To optimize costs during idle periods, consider stopping the cluster or individual user-mode node pools. Cluster stop/start requires a Virtual Machine Scale Set-backed cluster. Individual node pool stop/start supports user-mode pools, including spot pools, but not system-mode pools. Neither operation supports clusters that use node auto-provisioning (NAP). For additional prerequisites, limitations, and procedures, see [Stop and start an AKS cluster](/azure/aks/start-stop-cluster) and [Stop and start node pools in AKS](/azure/aks/start-stop-nodepools).
+- Your AKS workloads might not need to continuously run. For example, some workloads in development cluster node pools don't continuously run. To optimize costs during idle periods, consider stopping the cluster or individual user-mode node pools.
+
+  Individual node pool stop/start supports user-mode pools, including spot pools, but not system-mode pools. Neither operation supports clusters that use node auto-provisioning (NAP). For additional prerequisites, limitations, and procedures, see [Stop and start an AKS cluster](/azure/aks/start-stop-cluster) and [Stop and start node pools in AKS](/azure/aks/start-stop-nodepools).
 
 - Azure Policy integrates with AKS through built-in policies to apply centralized, consistent, at-scale enforcements and safeguards. Enable the Azure Policy add-on for your cluster to apply default CPU requests and limits and [memory resource limits](https://kubernetes.io/docs/tasks/administer-cluster/manage-resources/memory-default-namespace). This feature helps ensure that the cluster containers have defined CPU and memory resource limits.
 
