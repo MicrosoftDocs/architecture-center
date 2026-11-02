@@ -2,7 +2,7 @@
 title: What's New in Azure Architecture Center
 description: New and updated articles in Azure Architecture Center
 author: claytonsiemens77
-ms.date: 10/25/2026
+ms.date: 11/01/2026
 ai-usage: ai-generated
 ms.topic: whats-new
 ms.author: pnp
@@ -35,6 +35,11 @@ The following new and updated articles have recently been published in the Azure
 
 ### Updated articles
 
+- [Azure Virtual Machines baseline architecture in an Azure landing zone](./virtual-machines/baseline-landing-zone.yml) ([#7293a6e6f4](https://github.com/MicrosoftDocs/architecture-center/commit/7293a6e6f4))
+- [Run SAP NetWeaver in Windows on Azure](./guide/sap/sap-netweaver.md) ([#65d4a29aec](https://github.com/MicrosoftDocs/architecture-center/commit/65d4a29aec))
+- [Workload identity and access in EKS and AKS](./aws-professional/eks-to-aks/workload-identity.md) ([#c7585148e2](https://github.com/MicrosoftDocs/architecture-center/commit/c7585148e2))
+- [SAP S/4HANA in Linux on Azure](./guide/sap/sap-s4hana.md) ([#4b76d217ad](https://github.com/MicrosoftDocs/architecture-center/commit/4b76d217ad))
+- [Cross-tenant secure access to apps by using private endpoints](./networking/guide/cross-tenant-secure-access-private-endpoints.md) ([#65e7ee3a6c](https://github.com/MicrosoftDocs/architecture-center/commit/65e7ee3a6c))
 - [Migrate an Oracle database to OD@A Exadata Database Service](./databases/idea/migrate-oracle-odaa-exadata.yml) ([#5b0f18580f](https://github.com/MicrosoftDocs/architecture-center/commit/5b0f18580f))
 - [Azure Local hyperconverged baseline reference architecture](./hybrid/azure-local-baseline.yml) ([#9380c58efb](https://github.com/MicrosoftDocs/architecture-center/commit/9380c58efb))
 - [Run Apache Cassandra on Azure VMs](./databases/guide/cassandra.md) ([#78b1d24e59](https://github.com/MicrosoftDocs/architecture-center/commit/78b1d24e59))

@@ -2,12 +2,52 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id/>
     <title>Azure Architecture Center</title>
-    <updated>2026-10-23T14:15:38.000Z</updated>
+    <updated>2026-10-28T20:15:14.000Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <subtitle>Updated articles for Azure Architecture Center</subtitle>
     <rights>https://learn.microsoft.com/legal/termsofuse</rights>
     <category term="new"/>
     <category term="updated"/>
+    <entry>
+        <title type="html"><![CDATA[Azure Virtual Machines baseline architecture in an Azure landing zone]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/virtual-machines/baseline-landing-zone#7293a6e6f4</id>
+        <link href="https://learn.microsoft.com/azure/architecture/virtual-machines/baseline-landing-zone"/>
+        <updated>2026-10-28T20:15:14.000Z</updated>
+        <summary type="html"><![CDATA[Learn how to build on the baseline architecture to address changes and expectations when you deploy it in an Azure landing zone.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Run SAP NetWeaver in Windows on Azure]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/guide/sap/sap-netweaver#65d4a29aec</id>
+        <link href="https://learn.microsoft.com/azure/architecture/guide/sap/sap-netweaver"/>
+        <updated>2026-10-28T17:42:13.000Z</updated>
+        <summary type="html"><![CDATA[Learn proven practices for running SAP NetWeaver in a Windows environment on Azure to achieve high availability and disaster recovery.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Workload identity and access in EKS and AKS]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/aws-professional/eks-to-aks/workload-identity#c7585148e2</id>
+        <link href="https://learn.microsoft.com/azure/architecture/aws-professional/eks-to-aks/workload-identity"/>
+        <updated>2026-10-28T17:41:26.000Z</updated>
+        <summary type="html"><![CDATA[Understand how Kubernetes clusters, nodes, and pods handle identity and access, and compare options in Amazon EKS and Azure Kubernetes Service (AKS).]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[SAP S/4HANA in Linux on Azure]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/guide/sap/sap-s4hana#4b76d217ad</id>
+        <link href="https://learn.microsoft.com/azure/architecture/guide/sap/sap-s4hana"/>
+        <updated>2026-10-28T17:34:30.000Z</updated>
+        <summary type="html"><![CDATA[Learn more about proven practices for running SAP S/4HANA effectively in a Linux environment on Azure with high availability.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Cross-tenant secure access to apps by using private endpoints]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/networking/guide/cross-tenant-secure-access-private-endpoints#65e7ee3a6c</id>
+        <link href="https://learn.microsoft.com/azure/architecture/networking/guide/cross-tenant-secure-access-private-endpoints"/>
+        <updated>2026-10-27T14:12:09.000Z</updated>
+        <summary type="html"><![CDATA[Restrict inbound traffic to a web app or function app. Use private endpoints in Azure to give consumer tenants secure access to provider tenant apps.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
     <entry>
         <title type="html"><![CDATA[Migrate an Oracle database to OD@A Exadata Database Service]]></title>
         <id>https://learn.microsoft.com/azure/architecture/databases/idea/migrate-oracle-odaa-exadata#5b0f18580f</id>
