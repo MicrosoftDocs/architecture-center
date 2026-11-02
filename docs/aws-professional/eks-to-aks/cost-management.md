@@ -250,7 +250,7 @@ The following recommendations help optimize your AKS cluster costs:
 
 - Use Container Instances for bursting.
 
-- Your AKS workloads might not need to continuously run. For example, some workloads in development cluster node pools don't continuously run. To optimize costs during idle periods, consider stopping the cluster or individual user-mode node pools.
+- Your AKS workloads might not need to run continuously. For example, some workloads in development cluster node pools don't run continuously. To optimize costs during idle periods, consider stopping the cluster or individual user-mode node pools.
 
   Individual node pool stop/start supports user-mode pools, including spot pools, but not system-mode pools. Neither operation supports clusters that use node auto-provisioning (NAP). For additional prerequisites, limitations, and procedures, see [Stop and start an AKS cluster](/azure/aks/start-stop-cluster) and [Stop and start node pools in AKS](/azure/aks/start-stop-nodepools).
 
