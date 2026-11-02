@@ -49,7 +49,7 @@ When you choose the best option to deploy an NVA into an Azure virtual network, 
 - **Traffic symmetry:** Whether a particular design forces the NVA to perform Source Network Address Translation (SNAT) on the packets to avoid asymmetric routing, or if the design enforces traffic symmetry by other means
 
 >[!NOTE]
-> This article focuses on [hub-and-spoke designs](/azure/cloud-adoption-framework/ready/azure-best-practices/hub-spoke-network-topology). It doesn't cover [Azure Virtual WAN](/azure/virtual-wan/virtual-wan-about) because it has more prescriptive guidelines for NVA deployment, depending on whether a Virtual WAN hub supports a specific NVA. For more information, see [NVAs in a Virtual WAN hub](/azure/virtual-wan/about-nva-hub).
+> This article focuses on [hub-and-spoke designs](/azure/architecture/networking/architecture/hub-spoke). It doesn't cover [Azure Virtual WAN](/azure/virtual-wan/virtual-wan-about) because it has more prescriptive guidelines for NVA deployment, depending on whether a Virtual WAN hub supports a specific NVA. For more information, see [NVAs in a Virtual WAN hub](/azure/virtual-wan/about-nva-hub).
 
 The following sections describe common architectures that you can use to integrate NVAs into a hub-and-spoke network.
 
