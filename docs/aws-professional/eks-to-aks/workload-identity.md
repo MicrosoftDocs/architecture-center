@@ -43,7 +43,16 @@ Amazon EKS offers two mechanisms for giving individual pods scoped access to AWS
 
 IRSA was the original mechanism. It requires the cluster to run an IAM OIDC identity provider tied to the cluster's own (OpenID Connect) OIDC endpoint. An IAM role's trust policy is written to accept only tokens issued to a specific Kubernetes namespace and service account, and the Kubernetes service account is annotated with the role's Amazon Resource Name (ARN). When a pod using that service account calls an AWS API, the AWS SDK exchanges the pod's projected service account token for temporary AWS credentials through AWS Security Token Service (STS).
 
-Amazon EKS Pod Identity is a newer, simpler mechanism that removes the OIDC dependency. Instead of a per-cluster OIDC trust relationship, a Pod Identity association maps an IAM role to a Kubernetes service account through the EKS API directly. The role's trust policy needs only a single, cluster-independent principal, `pods.eks.amazonaws.com`. Credentials are issued by the EKS Auth service and cached per node rather than requested independently by every pod's SDK call, which AWS positions as a more scalable and portable pattern: the same IAM role can be reused across multiple clusters without rebuilding a federated trust relationship for each one. Pod Identity supports Linux EC2 nodes and EKS Hybrid Nodes. It isn't available for Fargate, Windows nodes, non-EKS self-managed Kubernetes clusters, AWS Outposts, or EKS Anywhere. For more information, see [EKS Pod Identity](https://docs.aws.amazon.com/eks/latest/userguide/pod-identities.html).
+Amazon EKS Pod Identity removes the OIDC dependency. It has the following characteristics:
+
+- **Trust model:** Instead of a per-cluster OIDC trust relationship, a Pod Identity association maps an IAM role to a Kubernetes service account through the EKS API directly.
+- **Trust principal:** The role's trust policy needs only a single, cluster-independent principal, `pods.eks.amazonaws.com`.
+- **Credential issuance and caching:** The EKS Auth service issues credentials, which are cached per node rather than requested independently by every pod's SDK call.
+- **Role reuse:** AWS positions this approach as a scalable and portable pattern: the same IAM role can be reused across multiple clusters without rebuilding a federated trust relationship for each one.
+- **Supported platforms:** Pod Identity supports Linux EC2 nodes and EKS Hybrid Nodes.
+- **Unsupported platforms:** Pod Identity isn't available for Fargate, Windows nodes, non-EKS self-managed Kubernetes clusters, AWS Outposts, or EKS Anywhere.
+
+For more information, see [EKS Pod Identity](https://docs.aws.amazon.com/eks/latest/userguide/pod-identities.html).
 
 Both mechanisms provide short-lived credentials per workload without storing static AWS access keys in pods. The IAM role determines the workload's permissions.
 
