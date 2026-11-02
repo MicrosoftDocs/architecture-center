@@ -136,7 +136,7 @@ Both platforms provide identity services to secure application access and API au
 
 | AWS service | Microsoft or Azure service | Description |
 |-------------|------------------|-------------|
-| [AWS Amplify CLI](https://docs.amplify.aws/cli/) | [Microsoft identity platform PowerShell CLI](https://github.com/AzureAD/MSIdentityTools) | Command-line tools for identity configuration |
+| [AWS Amplify CLI](https://docs.amplify.aws/cli/) | [Microsoft Graph PowerShell](/graph/tutorial-applications-basics) | Command-line tools for identity configuration |
 | [AWS Cognito console](https://console.aws.amazon.com/cognito/home) | [Microsoft Entra admin center](https://entra.microsoft.com/) | Management interfaces for identity services |
 | [Cognito hosted UI](https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-pools-app-integration.html) | [Microsoft identity platform MSAL UI](/entra/identity-platform/msal-authentication-flows) | Pre-built UIs for authentication |
 | [AWS AppSync with Cognito](https://docs.aws.amazon.com/appsync/latest/devguide/security-authorization-use-cases.html) | [Microsoft Graph API with MSAL](/graph/sdks/sdks-overview) | Data access patterns with authentication |
