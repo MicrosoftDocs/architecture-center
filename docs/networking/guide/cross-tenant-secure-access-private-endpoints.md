@@ -182,7 +182,7 @@ VMs aren't included in this pricing overview because they're not an absolute req
 
 - The subscription that contains the Private Link resource must be registered with the Microsoft network resource provider. The subscription that contains the private endpoint must also be registered with the Microsoft network resource provider. For more information, see [Azure resource providers and types](/azure/azure-resource-manager/management/resource-providers-and-types).
 
-- If you have connectivity problems, see [Troubleshoot Azure private endpoint connectivity problems](/troubleshoot/azure/troubleshoot/azure/private-link/troubleshoot-private-endpoint-connectivity-problems-problems). In particular, verify the DNS configuration.
+- If you have connectivity problems, see [Troubleshoot Azure private endpoint connectivity problems](/troubleshoot/azure/troubleshoot/azure/private-link/troubleshoot-private-endpoint-connectivity-problems). In particular, verify the DNS configuration.
 
 ## Deploy this scenario
 
