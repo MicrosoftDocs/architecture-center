@@ -140,7 +140,7 @@ Operational Excellence covers the operations processes that deploy an applicatio
 
 Dapr adds a portability layer between your services and their backing infrastructure. This layer provides value when you expect the backing services to change or when you want to swap a component, such as a state store or message broker, through configuration rather than code. Dapr also adds a dependency and a level of indirection. When you have a fairly stable set of Azure-native endpoints that you don't expect to replace, calling the native Azure SDKs directly is a reasonable alternative that removes the Dapr abstraction. Weigh the flexibility of Dapr components against the operational simplicity of direct SDK calls.
 
-You can use Azure Monitor and Application Insights to monitor Container Apps. For distributed applications, use an OpenTelemetry-based pipeline to send traces, logs, and metrics to Azure Monitor and Application Insights. You can also view container logs by navigating in the portal to the **Logs** pane in each container app and then running the following Kusto query. This example shows logs for the Makeline service app.
+You can use Azure Monitor and Application Insights to monitor Container Apps. For distributed applications, use an OpenTelemetry-based pipeline to send traces, logs, and metrics to Azure Monitor and Application Insights. For an existing Container Apps environment that uses the [Log Analytics logging destination](/azure/container-apps/log-options) and has collected console logs, open the **Logs** pane in a container app in the Azure portal and run the following Kusto query. This example shows logs for the Makeline service app.
 
 ```kusto
 ContainerAppConsoleLogs_CL |
