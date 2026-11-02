@@ -28,7 +28,7 @@ You can use an implementation of this architecture on [GitHub: AKS baseline refe
 
       #### Cluster compute
       [Compute for the base cluster](#configure-compute-for-the-base-cluster)\
-      [Container image reference](#container-image-reference)\
+      [Container image management](#container-image-management)\
       [Policy management](#policy-management)
     :::column-end:::
     :::column:::
@@ -215,20 +215,30 @@ The baseline architecture doesn't include every preview feature or add-on, but o
 
 You might want to evaluate some other preview features or AKS add-ons in preproduction clusters. These features can improve your security, manageability, or other requirements. You must install and maintain any non-Microsoft add-ons, which includes tracking available versions and installing updates after you upgrade a cluster's Kubernetes version.
 
-## Container image reference
+<a id='container-image-reference'></a>
 
-The cluster might contain the workload and several other images, like self-managed gateway infrastructure or a utility container that syncs TLS certificates from Key Vault. Some of those images might reside in public registries, but it's a good practice to keep them scanned, audited, and stored in a dedicated private registry like Azure Container Registry. Consider the following points when you pull the images into your cluster:
+## Container image management
 
-- Authenticate the cluster to pull the image.
+The cluster runs containers for your workload and supporting components, such as self-managed gateway infrastructure and utilities that sync TLS certificates from Key Vault. Store the images that you manage in a dedicated private registry, such as Azure Container Registry.
 
-- If you use a public image, import the image into a container registry that aligns with your service-level objective (SLO). Otherwise, the image might be subject to unexpected availability problems. If the image is unavailable when you need it, operational problems can occur. Consider the following benefits of using a private container registry, like Azure Container Registry, instead of a public registry:
+If you use images from a public registry, import them into your private registry so that deployment and scaling don't depend on the source registry's availability. Choose a registry configuration that aligns with your service-level objective (SLO).
 
-  - You can block unauthorized access to your images.
-  - You don't have public-facing dependencies.
-  - You can access image pull logs to monitor activities and triage connectivity problems.
-  - You can take advantage of integrated container scanning and image compliance.
+Use the following controls to manage these images:
 
-- Pull images from authorized registries. You can enforce this restriction through Azure Policy. In the reference implementation, the cluster pulls images only from the dedicated Azure Container Registry instance that deploys with the cluster.
+- Authenticate the cluster when it pulls images, and restrict registry access to authorized identities.
+- Collect image pull logs to monitor registry activity and troubleshoot connectivity problems.
+- Enable vulnerability scanning through an integration such as [Microsoft Defender for Cloud](/azure/defender-for-cloud/defender-for-containers-va-acr). Use the findings in your image compliance checks.
+- Pull images only from authorized registries, and enforce this restriction through Azure Policy.
+
+The reference implementation's image-source policy permits its deployed Container Registry instance, `mcr.microsoft.com`, and `docker.io/library`, with selected system namespaces excluded. Review the allowlist and exclusions for your production requirements, and account for [AKS platform dependencies](/azure/aks/outbound-rules-control-egress).
+
+### Dedicated data endpoints
+
+This architecture uses a Premium Container Registry instance with a [private endpoint](/azure/container-registry/container-registry-private-endpoints) in the cluster's virtual network. Creating the private endpoint automatically enables [dedicated data endpoints](/azure/container-registry/container-registry-dedicated-data-endpoints).
+
+Without dedicated data endpoints, image-layer downloads redirect to `*.blob.core.windows.net` URLs. Dedicated data endpoints replace those URLs with registry-specific, regional names, such as `<registry>.<region>.data.azurecr.io`, for the registry's home region and any geo-replicas.
+
+The private endpoint has separate private IP addresses for the login server and each data endpoint. With private DNS configured for `privatelink.azurecr.io`, clients resolve both the login server and data endpoint names to these private IP addresses. Image pulls from this registry therefore use Private Link over the Microsoft backbone and bypass this architecture's firewall-inspected egress path.
 
 ## Configure compute for the base cluster
 
