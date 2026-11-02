@@ -338,7 +338,7 @@ You can deploy an Azure Front Door profile for each stamp. If you have 10 stamps
 > [!TIP]
 > Azure Front Door is a global resource. Even if you deploy regionally scoped stamps, each Azure Front Door profile is globally distributed. You should consider whether you really need to deploy multiple Azure Front Door profiles and evaluate the specific advantages that it provides.
 
-If you have a stamp that serves multiple tenants, you need to consider how you route traffic to each tenant. Review [Scenario 1](#scenario-1-provider-managed-wildcard-domain-single-stamp), [Scenario 2](#scenario-2-provider-managed-wildcard-domain-multiple-stamps), [Scenario 3](#scenario-3-provider-managed-stamp-based-wildcard-subdomains), and [Scenario 4](#scenario-4-vanity-domains) for domain and routing approaches. Consider combining approaches to suit your requirements.
+If you have a stamp that serves multiple tenants, you need to consider how you route traffic to each tenant. Review the domain and routing approaches described in the four [example scenarios](#example-scenarios). Consider combining approaches to suit your requirements.
 
 #### Benefits
 
