@@ -501,7 +501,7 @@ If recovery is needed, admins must promote the secondary instance after they rem
 
 #### Domain Services considerations
 
-You can use Domain Services in some scenarios as an alternative to AD DS. Domain Services provides a high-availability [SLA](https://www.microsoft.com/licensing/docs/view/Service-Level-Agreements-SLA-for-Online-Services).
+You can join Azure Virtual Desktop session hosts to Microsoft Entra Domain Services and use user accounts synchronized from Microsoft Entra ID. For supported combinations of session host join type and user identity, see [Supported identity scenarios](/azure/virtual-desktop/prerequisites#supported-identity-scenarios). Domain Services provides a high-availability [SLA](https://www.microsoft.com/licensing/docs/view/Service-Level-Agreements-SLA-for-Online-Services).
 
 If geo-disaster recovery is in scope for your scenario, deploy another replica in the secondary Azure region through a [replica set](/entra/identity/domain-services/tutorial-create-replica-set). You can also use this feature to increase high availability in the primary region.
 
