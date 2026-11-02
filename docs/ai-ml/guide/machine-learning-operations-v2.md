@@ -265,7 +265,7 @@ The Machine Learning natural language processing architecture is based on the cl
 
 ## Other considerations
 
-The preceding MLOps v2 architectural pattern has several critical components, including Azure RBAC that aligns with business stakeholders, efficient package management, and robust monitoring mechanisms. These components collectively contribute to the successful implementation and management of machine learning workflows.
+The [MLOps v2 architectural pattern](#architecture) described in this article has several critical components, including Azure RBAC that aligns with business stakeholders, efficient package management, and robust monitoring mechanisms. These components collectively contribute to the successful implementation and management of machine learning workflows.
 
 ### Persona-based Azure RBAC
 
