@@ -7,6 +7,7 @@ ms.date: 01/06/2026
 ms.topic: concept-article
 ms.subservice: architecture-guide
 ms.custom: arb-web
+ai-usage: ai-assisted
 ---
 
 # Web-Queue-Worker architecture style
@@ -73,7 +74,7 @@ Consider this architecture for the following use cases:
 
 - Cache semistatic data. For more information, see [Caching best practices](../../best-practices/caching.md).
 
-- Use a content delivery network to serve static content. For more information, see [Content delivery network best practices](../../best-practices/cdn.yml). For storage-backed origins, see the [Static Content Hosting pattern](../../patterns/static-content-hosting.md).
+- Use a content delivery network to serve static content. For Azure Front Door Standard or Premium, enable caching on the route that serves public static assets. Keep caching disabled for authenticated API endpoints and protected static content. For more information, see [Caching with Azure Front Door](/azure/frontdoor/front-door-caching). For storage-backed origins, see the [Static Content Hosting pattern](../../patterns/static-content-hosting.md).
 
 - Use polyglot persistence when appropriate. For more information, see [Understand data models](../../data-guide/technology-choices/understand-data-store-models.md).
 
@@ -84,7 +85,7 @@ Consider this architecture for the following use cases:
 This section describes a recommended Web-Queue-Worker architecture that uses App Service.
 
 :::image type="complex" border="false" source="./images/web-queue-worker-physical.svg" alt-text="Diagram that shows the Web-Queue-Worker architecture." lightbox="./images/web-queue-worker-physical.svg":::
-On the left, a client connects to a web app and to a content delivery network. The web app connects to a queue, which connects to an Azure Functions app. The Functions app connects to Azure SQL Database and Azure Cosmos DB. Azure SQL Database and Azure Cosmos DB connect to Azure Managed Redis and back to the Functions app. Azure Blob Storage connects to the content delivery network.
+On the left, a client connects to a web app and to Azure Front Door Standard or Premium. The web app connects to a queue, which connects to an Azure Functions app. The Functions app connects to Azure SQL Database and Azure Cosmos DB. Azure SQL Database and Azure Cosmos DB connect to Azure Managed Redis and back to the Functions app. Azure Blob Storage connects to Front Door.
 :::image-end:::
 
 *Download a [Visio file](https://arch-center.azureedge.net/web-queue-worker.vsdx) of this architecture.*
@@ -97,7 +98,7 @@ On the left, a client connects to a web app and to a content delivery network. T
 
 - [Azure Managed Redis](/azure/redis/overview) stores session state and other data that requires low-latency access.
 
-- [Azure Content Delivery Network](/azure/cdn/cdn-overview) caches static content like images, CSS, and HTML.
+- With caching enabled, [Azure Front Door Standard or Premium](/azure/frontdoor/front-door-caching) caches static content like images, CSS, and HTML from [Azure Blob Storage](/azure/storage/blobs/storage-blobs-introduction).
 
 - For storage, choose the technologies that best fit your application's needs. This approach, known as *polyglot persistence*, combines multiple storage technologies in one system to meet different requirements. The previous diagram demonstrates this approach by using [Azure SQL Database](/azure/azure-sql/azure-sql-iaas-vs-paas-what-is-overview) and [Azure Cosmos DB](/azure/cosmos-db/overview).
 

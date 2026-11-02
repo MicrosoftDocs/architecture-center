@@ -167,7 +167,7 @@ Your application platform likely needs to interface with networks both as a serv
 | Service | Autoscaling | Load balancer | Scale limit |
 | :------ | :---------- | :------------ | :---------- |
 | Virtual Machines | Virtual machine scale sets | Azure Load Balancer | - Platform image: 1,000 nodes for each scale set <br><br> - Custom image: 600 nodes for each scale set |
-| App Service | Built-in service | Integrated | 30 instances (Premium Tier), 200 with App Service Environment, 100 with Isolated App Service Environment |
+| App Service | Built-in service | Integrated | [Plan limits](/azure/azure-resource-manager/management/azure-subscription-service-limits#azure-app-service-limits): 30 instances per Premium v2, v3, or v4 plan; 100 per Isolated v2 plan (more allowed upon request). <br><br> [App Service Environment v3](/azure/app-service/environment/overview#dedicated-environment): 200 instances total across all plans in one environment. Dedicated-host deployments are limited by available cores. |
 | Azure Functions | Built-in service | Integrated | 200 instances (Consumption), 1,000 instances (Flex Consumption) |
 | AKS | Pod autoscaling<a href="#note1d"><sup>1</sup></a>, cluster autoscaling<a href="#note2d"><sup>2</sup></a> | Load Balancer or Azure Application Gateway | 5,000 nodes when you use [Standard or Premium tier][aks-pricing-tiers] |
 | Container Apps | Scaling rules<a href="#note3d"><sup>3</sup></a> | Integrated | 1,000 replicas for each revision, 15 environments in each region |

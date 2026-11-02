@@ -208,7 +208,7 @@ The approach you use to configure cross-region backups depends on whether your r
 
 ### Region-outage experience
 
-If the primary region is unavailable, you're responsible for detecting the region outage. For more information, see [Monitoring](#monitor-multiple-region-web-apps).
+If the primary region is unavailable, you're responsible for detecting the region outage. For more information, see [Monitor multiple-region web apps](#monitor-multiple-region-web-apps).
 
 To prepare the secondary region to receive traffic, deploy the required App Service resources and dependent resources by using the backups from the secondary region's Azure Storage account.
 

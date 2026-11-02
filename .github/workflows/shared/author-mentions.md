@@ -5,12 +5,14 @@ safe-outputs:
     allow-context: true
     max: 7
     allowed:
+      - a11smiles
       - achocron
       - adamboeglin
       - ajananth
       - akanso
       - akhan-msft
       - Albertyang0
+      - alexbuckgit
       - aloshalaa1992-MSFT
       - amattas
       - amethygeo
@@ -32,6 +34,7 @@ safe-outputs:
       - bhbandam
       - bibhu250
       - Borg-GitHub
+      - BrianBlanchard
       - brsteph
       - BryanLa
       - callard1
@@ -239,6 +242,7 @@ safe-outputs:
       - swread
       - sydbruck
       - t2kx
+      - Tailcloud
       - Taojunshen
       - tedmanlee
       - ThePedestrian
@@ -249,6 +253,7 @@ safe-outputs:
       - ttorble
       - tvuylsteke
       - ulisesadan
+      - v-aangie
       - v-albemi
       - v-ccolin
       - v-dirichards

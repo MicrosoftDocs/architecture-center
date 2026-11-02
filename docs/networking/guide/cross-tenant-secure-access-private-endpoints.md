@@ -182,7 +182,7 @@ VMs aren't included in this pricing overview because they're not an absolute req
 
 - The subscription that contains the Private Link resource must be registered with the Microsoft network resource provider. The subscription that contains the private endpoint must also be registered with the Microsoft network resource provider. For more information, see [Azure resource providers and types](/azure/azure-resource-manager/management/resource-providers-and-types).
 
-- If you have connectivity problems, see [Troubleshoot Azure private endpoint connectivity problems](/azure/private-link/troubleshoot-private-endpoint-connectivity). In particular, verify the DNS configuration.
+- If you have connectivity problems, see [Troubleshoot Azure private endpoint connectivity problems](/troubleshoot/azure/private-link/troubleshoot-private-endpoint-connectivity-problems). In particular, verify the DNS configuration.
 
 ## Deploy this scenario
 
@@ -223,7 +223,7 @@ Other contributor:
 
 ## Related resources
 
-- [Azure Well-Architected Framework - Security](/azure/architecture/framework/security)
+- [Azure Well-Architected Framework - Security](/azure/well-architected/security/)
 - [Baseline highly available zone-redundant web application](/azure/architecture/web-apps/app-service/architectures/baseline-zone-redundant)
 - [Improved-security access to multitenant web apps from an on-premises network](../../web-apps/guides/networking/access-multitenant-web-app-from-on-premises.yml)
 - [Multitenancy and Private Link](/azure/architecture/guide/multitenant/service/private-link)

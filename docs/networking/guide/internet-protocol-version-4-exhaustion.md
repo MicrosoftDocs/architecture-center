@@ -139,7 +139,7 @@ When you use Azure Firewall, consider the following factors:
 
 - Choose the lowest Azure Firewall SKU that meets your security and throughput requirements. Basic supports up to 250 Mbps but doesn't include DNS proxy, custom DNS, network-level FQDN filtering, or threat-intelligence deny mode. Use Standard or Premium when you need these features or more throughput. For accurate sizing, test each applicable SKU with the traffic patterns in your environment.
 
-- Configure Azure Firewall with the **Perform SNAT** option set to **Always**. SNAT port capacity is finite, and concurrent connections to the same destination IP address, destination port, and protocol consume separate SNAT ports. Include expected concurrent connections in your capacity planning. To configure Azure Firewall to implement SNAT on all received connections, follow the [SNAT configuration steps](/azure/firewall/snat-private-range#configure-snat-private-ip-address-ranges---azure-portal).
+- Configure Azure Firewall with the **Perform SNAT** option set to **Always**. SNAT port capacity is finite, and concurrent connections to the same destination IP address, destination port, and protocol consume separate SNAT ports. Include expected concurrent connections in your capacity planning. To configure Azure Firewall to implement SNAT on all received connections, follow the [SNAT configuration steps](/azure/firewall/snat-private-range#configure-snat-private-ip-address-ranges).
 
 - Associate all non-routable subnets with a custom route table that forwards all traffic destined outside the landing zone to the firewall's private IP address.
 
@@ -274,7 +274,7 @@ Principal authors:
 - [Private Link](/azure/private-link/private-link-overview)
 - [Azure Load Balancer](/azure/load-balancer/load-balancer-overview)
 - [Virtual network peering](/azure/virtual-network/virtual-network-peering-overview)
-- [Hub-and-spoke network topology](/azure/cloud-adoption-framework/ready/azure-best-practices/hub-spoke-network-topology)
+- [Hub-and-spoke network topology](/azure/architecture/networking/architecture/hub-spoke)
 
 ## Related resources
 

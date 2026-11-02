@@ -71,7 +71,9 @@ This article focuses on a subset of Azure container services that provide a matu
 > [!NOTE]
 > Some sections differentiate AKS Standard from AKS Automatic. If no differences are mentioned in a section, you can assume that it has the same features as the other deployment models.
 
-## Architectural considerations
+<a id="architectural-considerations"></a>
+
+## Hard-to-reverse architectural decisions
 
 This section covers architectural decisions that are difficult to reverse or correct without significant downtime or redeployment. It's especially important to carefully evaluate fundamental components like networking and security before you finalize them.
 

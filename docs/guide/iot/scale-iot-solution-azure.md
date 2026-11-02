@@ -207,7 +207,7 @@ The diagram has two scale stamps that each include a DPS pool and an IoT Hub poo
 1. The device requests provisioning from DPS by using the assigned ID scope. DPS returns IoT hub assignment details to the device.
 1. The device persists the ID scope and IoT hub connection information to persistent storage, ideally in a secured storage location because the ID scope is part of the authentication against the DPS instance. The device uses this IoT hub connection information for further requests into the system.
 
-This article doesn't cover other variations. For example, you can configure this approach by moving the DPS call to the provisioning API, as shown earlier in the zero-touch provisioning with a provisioning API. The goal is to make sure that each tier is scalable, configurable, and readily deployable.
+This article doesn't cover other variations. For example, you can configure this approach by moving the DPS call to the provisioning API, as described in [Approach 2: Zero-touch provisioning with a provisioning API](#approach-2-zero-touch-provisioning-with-a-provisioning-api). The goal is to make sure that each tier is scalable, configurable, and readily deployable.
 
 ### General DPS provisioning guidance
 

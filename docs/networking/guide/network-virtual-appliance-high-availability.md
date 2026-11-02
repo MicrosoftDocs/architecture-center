@@ -49,7 +49,7 @@ When you choose the best option to deploy an NVA into an Azure virtual network, 
 - **Traffic symmetry:** Whether a particular design forces the NVA to perform Source Network Address Translation (SNAT) on the packets to avoid asymmetric routing, or if the design enforces traffic symmetry by other means
 
 >[!NOTE]
-> This article focuses on [hub-and-spoke designs](/azure/cloud-adoption-framework/ready/azure-best-practices/hub-spoke-network-topology). It doesn't cover [Azure Virtual WAN](/azure/virtual-wan/virtual-wan-about) because it has more prescriptive guidelines for NVA deployment, depending on whether a Virtual WAN hub supports a specific NVA. For more information, see [NVAs in a Virtual WAN hub](/azure/virtual-wan/about-nva-hub).
+> This article focuses on [hub-and-spoke designs](/azure/architecture/networking/architecture/hub-spoke). It doesn't cover [Azure Virtual WAN](/azure/virtual-wan/virtual-wan-about) because it has more prescriptive guidelines for NVA deployment, depending on whether a Virtual WAN hub supports a specific NVA. For more information, see [NVAs in a Virtual WAN hub](/azure/virtual-wan/about-nva-hub).
 
 The following sections describe common architectures that you can use to integrate NVAs into a hub-and-spoke network.
 
@@ -104,9 +104,9 @@ The following diagram shows how to use the same load balancer design to inspect 
   Diagram that shows a hub and two spokes. The hub contains a gateway subnet and NVA subnet. The gateway subnet contains a VPN or ExpressRoute gateway. The NVA subnet contains an internal load balancer and NVAs. Each spoke contains an app server. Spoke2 contains a spoke route table for IP address ranges 0.0.0.0/0 to 10.0.0.36, with gateway propagation turned off. Inbound traffic flows from on-premises to the NVAs through the VPN or ExpressRoute gateway and then the internal load balancer. This traffic then flows to the app server in Spoke2. Return traffic flows from this app server to the NVAs through the internal load balancer. This traffic then flows to on-premises through the VPN or ExpressRoute gateway.
 :::image-end:::
 
-In the previous diagrams, Spoke1 doesn't know about Spoke2's range. Therefore, the `0.0.0.0/0` UDR sends traffic that's intended for Spoke2 to the NVA's internal load balancer.
+In this load balancer design, Spoke1 has no more-specific route that matches Spoke2's address range. The `0.0.0.0/0` UDR therefore sends traffic destined for Spoke2 to the internal load balancer in front of the NVAs.
 
-For traffic between on-premises networks and Azure or between Azure virtual machines, traffic symmetry is guaranteed in single network interface card (NIC) NVAs by the internal load balancer. When both directions of a traffic flow traverse the same load balancer, the load balancer selects the same NVA instance for both directions. If a dual-NIC NVA design has an internal load balancer for each direction of communication, SNAT is required to ensure traffic symmetry. The previous North-South diagram provides an example of this design.
+For traffic between on-premises networks and Azure or between Azure virtual machines, traffic symmetry is guaranteed in single network interface card (NIC) NVAs by the internal load balancer. When both directions of a traffic flow traverse the same load balancer, the load balancer selects the same NVA instance for both directions. If a dual-NIC NVA design has an internal load balancer for each direction of communication, SNAT is required to ensure traffic symmetry. The inbound internet traffic with Load Balancer integration diagram illustrates this traffic-symmetry concern.
 
 In this design, dual-NIC NVAs must determine where to send replies to the load balancer's health checks. Load Balancer always uses the same IP address as the source for the health checks, which is `168.63.129.16`. The NVA must send these health check responses back through the same interface on which they're received. This process typically requires multiple routing tables in an OS because destination-based routing sends the replies through the same NIC.
 

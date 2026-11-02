@@ -136,7 +136,7 @@ For steps for configuring SAProuter with Azure Firewall, see [SAProuter configur
 
 #### SAProuter security considerations
 
-Because SAProuter doesn't operate in the same application subnet as your SAP systems, sign-in mechanisms for the OS might be different. Depending on your policies, you can use a separate sign-on domain or entirely host-only user credentials for SAProuter. If there's a security breach, cascading access to the internal SAP systems isn't possible because of the different credential base. Network separation in such a case, as described earlier, can decouple further access from a compromised SAProuter into your application subnets. You can accomplish this isolation by disconnecting the SAP perimeter virtual network peering.
+Because SAProuter doesn't operate in the same application subnet as your SAP systems, sign-in mechanisms for the OS might be different. Depending on your policies, you can use a separate sign-on domain or entirely host-only user credentials for SAProuter. If there's a security breach, cascading access to the internal SAP systems isn't possible because of the different credential base. Network separation in such a case, as described in [Network design](#network-design), can decouple further access from a compromised SAProuter into your application subnets. You can accomplish this isolation by disconnecting the SAP perimeter virtual network peering.
 
 #### SAProuter high availability considerations
 
