@@ -224,43 +224,20 @@
 			</v:userDefs>
 			<title>Sheet.25</title>
 			<g id="group26-44" transform="translate(16.6896,-34.6536)" v:mID="26" v:groupContext="group">
-				<title>com.lucidchart.FreehandBlock</title>
-				<g id="shape27-45" v:mID="27" v:groupContext="shape">
-					<title>Sheet.27</title>
-					<rect x="0" y="306.454" width="58.9968" height="35.5464" class="st2"/>
-					<rect x="0" y="306.454" width="58.9968" height="35.5464" class="st3"/>
-				</g>
-				<g id="shape28-48" v:mID="28" v:groupContext="shape">
-					<title>Sheet.28</title>
-					<path d="M21.56 322.96 C22.42 323.01 23.27 322.29 23.31 321.3 L23.31 320.85 C23.27 319.86 22.42 319.1 21.56 319.14
-								 L7.2 319.14 C6.26 319.1 5.44 319.86 5.44 320.85 L5.44 321.3 C5.44 322.29 6.26 323.01 7.2 322.96
-								 L21.56 322.96 Z" class="st13"/>
-				</g>
-				<g id="shape29-50" v:mID="29" v:groupContext="shape">
-					<title>Sheet.29</title>
-					<path d="M16.11 331.11 C17.06 331.16 17.82 330.39 17.86 329.4 L17.86 328.95 C17.82 328 17.06 327.2 16.11 327.24
-								 L1.76 327.28 C0.81 327.2 0.04 328 0 328.95 L0 329.4 C0.04 330.39 0.81 331.16 1.76 331.11 L16.11
-								 331.11 Z" class="st14"/>
-				</g>
-				<g id="shape30-52" v:mID="30" v:groupContext="shape">
-					<title>Sheet.30</title>
-					<path d="M21.56 339.21 C22.42 339.26 23.27 338.54 23.31 337.5 L23.31 337.1 C23.27 336.1 22.42 335.34 21.56 335.38
-								 L7.2 335.38 C6.26 335.34 5.44 336.1 5.44 337.1 L5.44 337.5 C5.44 338.54 6.26 339.26 7.2 339.21 L21.56
-								 339.21 Z" class="st15"/>
-				</g>
-				<g id="shape31-54" v:mID="31" v:groupContext="shape">
-					<title>Sheet.31</title>
-					<path d="M59 330.84 C58.9 325.37 55.21 320.96 50.04 320.07 a0.225 0.225 0 0 1 -0.186786 -0.212418 C49.54 312.25
-								 43.46 306.32 36.14 306.45 a0.225 0.225 0 0 1 -0.005894 2.93969E-05 C30.19 306.41 25.23 310.04 23.17
-								 315.86 a0.225 0.225 0 0 1 -0.179616 0.147551 C16.76 316.92 12.2 322.34 12.1 328.85 a0.225 0.225
-								 -180 0 0 8.11938E-05 0.0102852 C12.33 336.29 18.23 342.09 25.34 342 L48.51 342 a0.225 0.225 -180
-								 0 0 0.00710357 -0.000112163 C54.32 341.82 58.95 336.92 59 330.84 a0.225 0.225 -180 0 0 -2.89234E-05
-								 -0.00562623 Z" class="st16"/>
+				<title>Azure Front Door</title>
+				<g transform="translate(9.5,304) scale(0.711111) translate(0,-317.64)">
+					<path transform="translate(0,-10.967)" d="M56.25 359.68 A12.5 14.1866 -180 0 0 45.28 346.09 A15.9375 18.088 -180 0 0 28.87 328.61 A16.3437 18.549
+								 -180 0 0 13.25 340.7 A15.0937 17.1304 -180 0 0 0 357.16 A15.3125 17.3786 -180 0 0 15.84 373.86 L42.87
+								 373.86 A2.4375 2.76639 -180 0 0 43.56 373.86 A12.7812 14.5058 -180 0 0 56.25 359.68 Z" class="st16"/>
+					<rect transform="translate(20.7187,-11.0301)" x="0" y="349.063" width="15.8125" height="24.8266" class="st33"/>
+					<path transform="translate(27.5312,0)" d="M11.87 336.44 L0.97 329.34 a0.78125 0.886664 -180 0 0 -0.96875 0.531999 L0 373 a0.78125 0.886664 -180 0
+								 0 0.75 0.886664 L1 373.89 L11.91 366.58 a0.78125 0.886664 -180 0 0 0.53125 -0.815731 L12.44 337.39 a0.8125
+								 0.922131 -180 0 0 -0.5625 -0.957598 Z" class="st28"/>
 				</g>
 			</g>
 			<g id="group32-58" v:mID="32" v:groupContext="group">
 				<title>com.lucidchart.FreehandBlock.32</title>
-				<desc>Azure Content Delivery Network</desc>
+				<desc>Azure Front Door Standard or Premium</desc>
 				<g id="shape33-59" v:mID="33" v:groupContext="shape">
 					<title>Sheet.33</title>
 					<rect x="0" y="313.2" width="103.5" height="28.8" class="st2"/>
@@ -273,8 +250,8 @@
 				<g id="shape32-64" v:mID="32" v:groupContext="groupContent">
 					<v:textBlock v:margins="rect(0,0,0,0)"/>
 					<v:textRect cx="51.966" cy="327.78" width="95.86" height="21.1536"/>
-					<text x="17.07" y="324.48" class="st8" v:langID="1033"><v:paragraph v:horizAlign="1"/><v:tabList/>Azure Content <tspan
-								x="10.28" dy="1.2em" class="st9">Delivery Network</tspan></text>				</g>
+					<text x="51.75" y="324.48" text-anchor="middle" class="st8" v:langID="1033"><v:paragraph v:horizAlign="1"/><v:tabList/>Azure Front Door<tspan
+								x="51.75" dy="1.2em" class="st9">Standard or Premium</tspan></text>				</g>
 			</g>
 		</g>
 		<g id="group35-67" transform="translate(313.726,-252.72)" v:mID="35" v:groupContext="group">
