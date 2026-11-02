@@ -23,7 +23,7 @@ This guide doesn't cover virtual network integration, service endpoints, and oth
 
 ## Azure hub-and-spoke topologies
 
-You can use a hub-and-spoke network topology in Azure to efficiently manage communication services and meet security requirements at scale. For more information, see [Hub-and-spoke network topology](/azure/cloud-adoption-framework/ready/azure-best-practices/hub-spoke-network-topology).
+You can use a hub-and-spoke network topology in Azure to efficiently manage communication services and meet security requirements at scale. For more information, see [Hub-and-spoke network topology](/azure/architecture/networking/architecture/hub-spoke).
 
 A hub-and-spoke architecture provides the following benefits:
 
