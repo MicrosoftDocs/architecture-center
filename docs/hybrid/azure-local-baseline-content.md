@@ -144,7 +144,7 @@ Understand workload performance and reliability requirements. For resiliency, un
 
 - **Memory.** Consider the memory configuration of each machine and the amount of physical memory required by the workloads.
 
-- **Machine count.** Use 2 to 16 physical machines for this architecture. You can [add machines to an existing instance](/azure/azure-local/manage/add-server), but permanently removing a machine (node) from an existing instance to reduce its machine count isn't supported. Account for this restriction when you plan capacity and growth. Don't use a single-machine deployment for workloads that require availability during platform updates or host maintenance.
+- **Machine count.** Use 2 to 16 physical machines for this architecture. You can [add machines to an existing instance](/azure/azure-local/manage/add-server#about-add-nodes), but permanently removing a machine (node) from an existing instance to reduce its machine count isn't supported. Account for this restriction when you plan capacity and growth. Don't use a single-machine deployment for workloads that require availability during platform updates or host maintenance.
 
 - **Storage.** Consider resiliency, capacity, and performance requirements.
 
