@@ -551,7 +551,7 @@ Consider the following general guidance when you implement your search solution:
 
 ## Extend retrieval by using Foundry IQ and Work IQ
 
-The search approaches in this article focus on data that you index and manage directly. Microsoft also provides managed intelligence layers that extend retrieval to broader organizational data. Some features in these services are currently in preview.
+The search approaches in this article focus on data that you index and manage directly. Microsoft also provides managed intelligence layers that extend retrieval to broader organizational data. Foundry IQ feature availability depends on the Azure AI Search REST API version. The Foundry IQ example in this section uses a preview API. For the breakdown of generally available and preview capabilities, see [Migrate agentic retrieval code to the latest version](/azure/search/agentic-retrieval-how-to-migrate).
 
 ### Foundry IQ
 
@@ -598,7 +598,7 @@ agent = project_client.agents.create_version(
 
 ### Work IQ
 
-[Work IQ](/microsoft-365/copilot/extensibility/work-iq) exposes Microsoft 365 Copilot data, such as emails, meetings, documents, and Teams messages, through a CLI and a Model Context Protocol (MCP) server. Use it when your RAG solution needs grounding data from collaboration sources that aren't in a search index.
+[Work IQ](/microsoft-365/copilot/extensibility/work-iq) exposes Microsoft 365 Copilot data, such as emails, meetings, documents, and Teams messages, through a CLI and a Model Context Protocol (MCP) server. Supported Work IQ CLI builds and their local MCP server mode are generally available. For build support requirements, see [Work IQ CLI supportability](/microsoft-365/copilot/extensibility/work-iq/cli#supportability). Use it when your RAG solution needs grounding data from collaboration sources that aren't in a search index.
 
 ```bash
 # Retrieve meeting context to ground an agent response
