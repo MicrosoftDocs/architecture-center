@@ -90,7 +90,9 @@ This scenario uses the [AdventureWorks sample database][adventureworksdw-sample-
 
 ### Metadata-driven ingestion framework
 
-The [metadata-driven ingestion framework](/fabric/data-factory/tutorial-incremental-copy-data-warehouse-lakehouse) within Fabric Data Factory pipelines incrementally loads all tables that are contained in the relational database. The article refers to a data warehouse as a source, but it can be replaced with an Azure SQL database as a source.
+The metadata-driven ingestion framework within Fabric Data Factory pipelines incrementally loads all tables that are contained in the relational database. The following list summarizes the high-level incremental loading pattern in [Incrementally load data from Data Warehouse to Lakehouse](/fabric/data-factory/tutorial-incremental-copy-data-warehouse-lakehouse), which provides prerequisites and step-by-step configuration for a single source table and writes each run to a new lakehouse file.
+
+This architecture instead uses Fabric Data Factory pipelines to copy data from an Azure SQL database to a Fabric data warehouse. The pipelines use per-table iteration and watermark tracking to identify changed rows. Configure the copy activity's destination write behavior to control how those rows are applied to each destination table. For destination options, including upsert with key columns when existing rows need to be updated, see [Configure a warehouse in a copy activity](/fabric/data-factory/connector-data-warehouse-copy-activity#destination).
 
 1. Select a watermark column. Choose one column in your source table that helps track new or changed records. This column typically contains values that increase when rows are added or updated (like a timestamp or ID). Use the highest value in this column as your *watermark* to know where you left off.
 
