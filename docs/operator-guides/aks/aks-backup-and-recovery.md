@@ -29,9 +29,9 @@ As organizations increasingly adopt cloud-native deployments and Kubernetes, the
 - Adhere to data protection requirements to maintain regulatory or organizational compliance.
 - Roll back to a previous deployment quickly if you detect a problem with a recent deployment or change.
 
-Backups help you restore your workload if a problem occurs, but they don't provide [high availability (HA)](/azure/well-architected/reliability/highly-available-multi-region-design). If you need intra-region HA and cross-region DR functionality while using AKS, consider one of the following options:
+Backups help you restore your workload if a problem occurs, but they don't provide [high availability (HA)](/azure/well-architected/reliability/redundancy). If you need intra-region HA and cross-region DR functionality while using AKS, consider one of the following options:
 
-- [Availability zones](/azure/aks/availability-zones): AKS supports the use of availability zones, which are physically separate datacenters within an Azure region. You can ensure higher resiliency and fault tolerance within a region by deploying AKS clusters across multiple availability zones. This deployment keeps your applications operational even if one zone experiences an outage.
+- [Availability zones](/azure/aks/reliability-availability-zones-configure): AKS supports the use of availability zones, which are physically separate datacenters within an Azure region. You can ensure higher resiliency and fault tolerance within a region by deploying AKS clusters across multiple availability zones. This deployment keeps your applications operational even if one zone experiences an outage.
 
 - [Redundancy options for persistent volumes (PVs)](/azure/aks/concepts-storage#storage-classes): AKS provides various redundancy options for PVs. The [Azure Disk Container Storage Interface driver for Kubernetes](https://github.com/kubernetes-sigs/azuredisk-csi-driver) supports built-in storage classes and custom storage classes that use locally redundant storage (LRS) or zone-redundant storage (ZRS) for better intra-region resiliency. For more information, see [Driver parameters](https://github.com/kubernetes-sigs/azuredisk-csi-driver/blob/master/docs/driver-parameters.md).
 
@@ -150,7 +150,7 @@ To ensure that your backup and recovery solution meets your organization's requi
 
 - **PVs:** Verify whether you use PVs and ensure that the AKS Backup solution supports your PV types.
 
-- **Backup scope:** Define what you need to back up, such as specific namespaces, types of resources, or specific data within the cluster. For more information, see [Configure a backup job](/azure/backup/azure-kubernetes-service-cluster-backup#configure-backups).
+- **Backup scope:** Define what you need to back up, such as specific namespaces, types of resources, or specific data within the cluster. For more information, see [Configure a backup job](/azure/backup/azure-kubernetes-service-cluster-backup#configure-backup).
 
 - **Backup frequency and retention:** Determine the frequency at which you need to perform backups and the duration for which you need to retain them. You can configure this setting by using backup policies.
 
@@ -221,9 +221,9 @@ Other contributors:
 - [Configure AKS Backup](/azure/backup/azure-kubernetes-service-cluster-backup)
 - [Create a backup vault](/azure/backup/create-manage-backup-vault#create-a-backup-vault)
 - [Create a backup policy](/azure/backup/azure-kubernetes-service-cluster-backup#create-a-backup-policy)
-- [Configure backups](/azure/backup/azure-kubernetes-service-cluster-backup#configure-backups)
+- [Configure backups](/azure/backup/azure-kubernetes-service-cluster-backup#configure-backup)
 - [Restore an AKS cluster](/azure/backup/azure-kubernetes-service-cluster-restore)
-- [Business continuity and DR best practices for AKS](/azure/aks/operator-best-practices-multi-region)
+- [Multi-region deployment models for AKS](/azure/aks/reliability-multi-region-deployment-models)
 - [Reliability patterns - Cloud design patterns](/azure/well-architected/reliability/design-patterns)
 
 ### Non-Microsoft AKS backup and recovery options
