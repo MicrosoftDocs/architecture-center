@@ -123,7 +123,7 @@ Consider which approach to use.
 
   It requires a paid Fabric capacity of F2 or higher, the applicable tenant settings, and access to the data source. Depending on the capacity's region, cross-geo AI processing and storage settings might also be required.
 
-  A published Fabric data agent can instead be exposed as an MCP server for other hosts, but this capability is in preview.
+  A published Fabric data agent can instead be exposed as an MCP server for other hosts, but this capability is in preview. For prerequisites and supported client authentication, see [Data agent as Model Context Protocol server](/fabric/data-science/data-agent-mcp-server).
 
   When a data agent is consumed through a non-Fabric service, responses might be processed or stored outside the Fabric compliance boundary or geographic region according to that service's policies.
 
