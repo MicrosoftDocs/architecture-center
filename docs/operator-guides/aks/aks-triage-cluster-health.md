@@ -72,7 +72,7 @@ For more information, see [Advisor overview](/azure/advisor/advisor-overview).
 
 ### Log Analytics
 
-[Log Analytics](/azure/azure-monitor/logs/log-analytics-overview) provides insights into the cluster's health. To access the [Log Analytics workspace](/azure/aks/monitor-aks#resource-logs), go to your AKS cluster and select **Logs** in the navigation pane.
+[Log Analytics](/azure/azure-monitor/logs/log-analytics-overview) provides insights into the cluster's health. To access the [Log Analytics workspace](/azure/aks/monitor-aks), go to your AKS cluster and select **Logs** in the navigation pane.
 
 You can choose predefined queries to analyze cluster health.
 
