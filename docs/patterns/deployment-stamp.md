@@ -142,6 +142,10 @@ Carefully consider the topology of the Azure subscriptions and resource groups f
 
 - Resource groups generally contain components that share the same life cycle. If you plan to deploy updates to all stamps at the same time, you can use a single resource group that contains all components for all stamps. Use resource naming conventions and tags to identify the components that belong to each stamp. Alternatively, if you plan to deploy updates to each stamp independently, you can deploy each stamp into its own resource group.
 
+When you deploy stamps with Bicep or ARM templates, consider using a [deployment stack](/azure/azure-resource-manager/bicep/deployment-stacks) for each independently managed stamp. Manage shared services separately so that retiring a stamp doesn't remove resources that other stamps need.
+
+Before retiring a stamp, move its tenants and preserve required data. Review [deployment stack what-if results](/azure/azure-resource-manager/bicep/deployment-stacks-what-if) before updating a stack, especially when removing resource definitions.
+
 ### Capacity planning
 
 Use load and performance testing to determine the approximate load that a given stamp can accommodate. Load metrics might be based on the number of customers or tenants that a single stamp can accommodate, or on metrics that the services in the stamp emit. Instrument each stamp so that you can measure when it approaches its capacity, and make sure that you can deploy new stamps quickly to respond to demand.
