@@ -132,7 +132,7 @@ A canary release is more complex to manage than either a blue-green or rolling u
 
 ### Progressive delivery and GitOps
 
-For teams that operate many microservices on Kubernetes, a GitOps pull-based model complements the [rolling update](#rolling-updates), [blue-green deployment](#blue-green-deployment), and [canary release](#canary-release) strategies. The desired cluster state lives in Git, and an in-cluster operator reconciles the cluster to that state. CI builds, tests, scans, signs, and pushes the image. CD reconciles the cluster to the manifest. This separation gives you audit trails and easier disaster recovery (DR). It also removes the need for the CI runner to hold direct cluster credentials.
+For teams that operate many microservices on Kubernetes, a GitOps pull-based model complements the pushed-based ([rolling update](#rolling-updates), [blue-green deployment](#blue-green-deployment), and [canary release](#canary-release)) strategies. The desired cluster state lives in Git, and an in-cluster operator reconciles the cluster to that state. CI builds, tests, scans, signs, and pushes the image. CD reconciles the cluster to the manifest. This separation gives you audit trails and easier disaster recovery (DR). It also removes the need for the CI runner to hold direct cluster credentials.
 
 ## Next steps
 
