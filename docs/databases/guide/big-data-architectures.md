@@ -173,7 +173,7 @@ Common types of processing include:
 
 - Machine learning for predictive maintenance, anomaly detection, and intelligent decision-making.
 
-In the previous diagram, the gray boxes are components of an IoT system that aren't directly related to event streaming. They're included in the diagram for completeness.
+The application back end, command and control, provisioning API, and device registry aren't directly related to event streaming. The IoT architecture diagram includes these components for completeness.
 
 - The **device registry** is a database of the provisioned devices, including the device IDs and usually device metadata, such as location.
 

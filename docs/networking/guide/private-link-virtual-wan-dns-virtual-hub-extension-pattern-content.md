@@ -1,4 +1,4 @@
-In a [traditional hub-spoke topology with bring-your-own-networking](/azure/architecture/reference-architectures/hybrid-networking/hub-spoke), you can completely manipulate the hub virtual network. You can deploy common services into the hub and make them available to workload spokes. These shared services often include things like DNS resources, custom NVAs, and Azure Bastion. When you use Azure Virtual WAN, however, you have restricted access and limitations on what you can install on the virtual hubs.
+In a [traditional hub-spoke topology with bring-your-own-networking](/azure/architecture/networking/architecture/hub-spoke), you can completely manipulate the hub virtual network. You can deploy common services into the hub and make them available to workload spokes. These shared services often include things like DNS resources, custom NVAs, and Azure Bastion. When you use Azure Virtual WAN, however, you have restricted access and limitations on what you can install on the virtual hubs.
 
 For example, to implement [Private Link and DNS integration in a traditional hub-spoke network architecture](/azure/cloud-adoption-framework/ready/azure-best-practices/private-link-and-dns-integration-at-scale#private-link-and-dns-integration-in-hub-and-spoke-network-architectures), you would create and link private DNS zones to the hub network. Your [plan for virtual machine remote access](/azure/cloud-adoption-framework/ready/azure-best-practices/plan-for-virtual-machine-remote-access#design-recommendations) might include Azure Bastion as a shared service in the regional hub. You might also deploy custom compute resources, such as Active Directory VMs in the hub. None of these approaches are possible with Virtual WAN.
 
@@ -77,7 +77,7 @@ To design your scale units, test and document how each component in your extensi
 - [Private Link and DNS integration at scale](/azure/cloud-adoption-framework/ready/azure-best-practices/private-link-and-dns-integration-at-scale)
 - [Azure Private Link in a hub-and-spoke network](/azure/architecture/networking/guide/private-link-hub-spoke-network)
 - [DNS for on-premises and Azure resources](/azure/cloud-adoption-framework/ready/azure-best-practices/dns-for-on-premises-and-azure-resources)
-- [Use Azure Private Link to connect networks to Azure Monitor](/azure/azure-monitor/logs/private-link-security)
+- [Use Azure Private Link to connect networks to Azure Monitor](/azure/azure-monitor/fundamentals/private-link-security)
 - [Azure DNS Private Resolver](/azure/architecture/networking/architecture/azure-dns-private-resolver)
 - [Improved-security access to multitenant web apps from an on-premises network](/azure/architecture/web-apps/guides/networking/access-multitenant-web-app-from-on-premises)
 - [Baseline highly available zone-redundant web application](/azure/architecture/web-apps/app-service/architectures/baseline-zone-redundant)
