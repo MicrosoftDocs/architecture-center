@@ -550,7 +550,7 @@ The guidance in [Protect cached data](#protect-cached-data) describes access con
 
 When you store .NET objects in Redis as string values, you need to serialize them. When you choose a serialization format, consider trade-offs between performance, interoperability, versioning, and payload size. There's no single fastest serializer for all scenarios. Benchmarks are highly dependent on context and might not reflect your actual workload.
 
-If you [enable RedisJSON when you create your instance](/azure/redis/redis-modules#adding-modules-to-your-cache), you can store objects as native JSON documents and query individual fields without deserializing the entire value:
+If you enable [RedisJSON](/azure/redis/redis-modules#redisjson) when you [create your instance](/azure/redis/redis-modules#adding-modules-to-your-cache), you can store objects as native JSON documents and query individual fields without deserializing the entire value:
 
 ```csharp
 public static class RedisJsonExtensions
