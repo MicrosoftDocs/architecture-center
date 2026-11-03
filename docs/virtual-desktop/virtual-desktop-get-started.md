@@ -16,11 +16,11 @@ Migrating user desktops to the cloud helps improve employee productivity so that
 
 - [Azure Virtual Desktop](https://azure.microsoft.com/products/virtual-desktop/): A desktop and application virtualization service that runs on Azure. It provides multisession Windows desktops and published applications, with simplified management and scaling.
 
-- [Windows 365](https://www.microsoft.com/windows-365): A cloud-based service that automatically creates Cloud PCs for your users. Windows 365 assigns each Cloud PC to an individual user as their dedicated Windows device. Windows 365 is evolving to include developer-focused capabilities that Microsoft Dev Box previously offered. It provides a single platform for cloud desktops across information workers and developers. For more information, see [Dev Box capabilities unified into Windows 365](/azure/dev-box/dev-box-windows-365-announcement).
+- [Windows 365](https://www.microsoft.com/windows-365): A cloud-based service that automatically creates Cloud PCs for your users. Windows 365 assigns each Cloud PC to an individual user as their dedicated Windows device. You can use Cloud PCs for everyday productivity tasks and as persistent development workstations.
 
-- [Omnissa Horizon Cloud on Microsoft Azure](https://www.omnissa.com/products/horizon-cloud/): An Omnissa service that simplifies the delivery of virtual desktops and applications on Azure by extending Azure Virtual Desktop.
+- [Omnissa Horizon Cloud on Microsoft Azure](https://www.omnissa.com/microsoft/): An Omnissa service that simplifies the delivery of virtual desktops and applications on Azure by extending Azure Virtual Desktop.
 
-- [Citrix DaaS](https://docs.citrix.com/en-us/citrix-daas/overview.html): A desktop and app virtualization service that you can use to provision Windows desktops and apps on Azure with Citrix and Azure Virtual Desktop.
+- [Citrix DaaS](https://docs.citrix.com/us/en/citrix-daas-azure/citrix-daas-azure.html): A desktop and app virtualization service that you can use to provision Windows desktops and apps on Azure with Citrix and Azure Virtual Desktop.
 
 ## Architecture
 
