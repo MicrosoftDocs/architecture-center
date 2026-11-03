@@ -140,6 +140,7 @@ safe-outputs:
       - lferdinand
       - lima8azure
       - lponnam75
+      - makazano
       - malrose07
       - manasatramalinga
       - manishmsfte
@@ -249,6 +250,7 @@ safe-outputs:
       - timleyden
       - tmmarshall
       - tomvcassidy
+      - torreymicrosoft
       - troyhite
       - ttorble
       - tvuylsteke
