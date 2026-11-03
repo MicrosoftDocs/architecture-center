@@ -2,8 +2,8 @@
 metadata:
   title: Automate Video Analysis by Using Azure Machine Learning and Azure Vision in Foundry Tools
   description: Learn how to implement an architecture that automates video analysis by using Azure Machine Learning and Azure Vision in Foundry Tools.
-  author: oscarsk91
-  ms.author: oscarsh
+  author: makazano
+  ms.author: makazano
   ms.date: 10/01/2025
   ms.topic: example-scenario
   ms.collection: ce-skilling-ai-copilot

@@ -149,7 +149,7 @@ Operational Excellence covers the operations processes that deploy an applicatio
 
 Azure Private Link is integrated with [Azure Monitor](/azure/azure-monitor/overview), which allows you to see if data is flowing.
 
-You can also use the connection troubleshoot service in Azure [Network Watcher](/azure/private-link/troubleshoot-private-endpoint-connectivity) to trace the connectivity from a VM in a virtual network to the FQDN of the Private Endpoint resource.
+You can also use the connection troubleshoot service in Azure [Network Watcher](/troubleshoot/azure/private-link/troubleshoot-private-endpoint-connectivity-problems) to trace the connectivity from a VM in a virtual network to the FQDN of the Private Endpoint resource.
 
 ### Performance Efficiency
 
