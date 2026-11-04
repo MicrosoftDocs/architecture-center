@@ -242,7 +242,7 @@ The following recommendations are useful for determining if there's an issue wit
 
   ![Performance counters for monitoring VPN network traffic](../_images/guidance-hybrid-network-vpn/RRAS-perf-counters.png)
 
-  Compare the measured traffic with the [aggregate throughput benchmark for your VPN gateway SKU and generation](/azure/vpn-gateway/about-gateway-skus#gateway-skus-by-tunnel,-connection,-and-throughput). These benchmarks aren't guaranteed, and a single connection can have much lower throughput. The following graph shows an example of measured traffic:
+  Compare the measured traffic with the [aggregate throughput benchmark for your VPN gateway SKU and generation](/azure/vpn-gateway/about-gateway-skus#benchmark). The following graph shows an example of measured traffic:
 
   ![Example VPN network performance graph](../_images/guidance-hybrid-network-vpn/RRAS-perf-graph.png)
 
