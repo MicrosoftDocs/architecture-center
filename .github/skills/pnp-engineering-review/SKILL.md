@@ -58,7 +58,7 @@ Cite the retirement or replacement notice, and name the current successor the ar
 
 Judge whether the article leads the architect to a durable, low-regret design. Check alignment with the Well-Architected Framework and Cloud Adoption Framework. Look specifically for:
 
-- **Undisclosed shortcomings.** Manual steps presented as if automatic, constraints not stated, lock-in from a recommended option. Flag them even when every individual sentence is technically true.
+- **Undisclosed shortcomings and misleading omissions.** Manual steps presented as if automatic, constraints not stated, lock-in from a recommended option. Ask yourself *Could every statement be true and the reader still reasonably reach the wrong conclusion because something important is missing?* For each finding, identify the missing context and the plausible wrong conclusion that could affect a design decision. Don't request exhaustive exclusions. Recommend brief scope notes, such as identifying a list as non-exhaustive, when they resolve a plausible misunderstanding.
 - **Internal contradictions.**
 - **Missing core guidance.** What would the architect reading this expect to find that isn't here?
 - **Non-"regular-way" approaches.** An unusual or niche path chosen where a mainstream, supported approach exists.
