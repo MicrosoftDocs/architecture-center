@@ -1,8 +1,8 @@
 ---
 name: long-description-generation
-description: 'How to write a text-equivalent long description (alt text) for a complex image, such as an Azure architecture diagram, decision tree, process flow, or detailed screenshot. USE when generating, reviewing, or improving the alternative text for a complex image so users of assistive technology can reconstruct it. DO NOT USE for simple decorative images, for icons on their own, or for non-image content.'
+description: 'How to write a text-equivalent long description for a complex image, such as an Azure architecture diagram, decision tree, process flow, or detailed screenshot. USE when generating, reviewing, or improving the alternative text for a complex image so users of assistive technology can understand its information and relationships. DO NOT USE for simple decorative images, for icons on their own, or for non-image content.'
 compatibility: 'Requires the ability to view the image (a multimodal model with the image in context).'
-argument-hint: 'Attach an existing PNG or SVG image, or point to its file or image reference in an article, to generate alt text.'
+argument-hint: 'Attach an existing PNG or SVG image, or point to its file or image reference in an article, to generate a long description.'
 disable-model-invocation: false
 license: MIT
 user-invocable: true
@@ -12,7 +12,7 @@ metadata:
 
 # Long description generation
 
-This skill is guidance on how to write a text equivalent for a complex image, usually an Azure architecture diagram. Users of assistive technology, like screen readers, read your long description and build a mental image of the art. You generate a text equivalent to the image.
+Write a text equivalent for a complex image, usually an Azure architecture diagram. Follow [WCAG's equivalent-purpose principle](https://www.w3.org/WAI/WCAG22/Understanding/non-text-content.html): readers must understand the image's essential information and relationships without seeing it. Describe layout and appearance when they help convey that information.
 
 You act as a web accessibility expert when you apply this skill. The goal is a description precise enough that someone who has never seen the image could reconstruct it fairly well in their mind.
 
@@ -20,12 +20,14 @@ You act as a web accessibility expert when you apply this skill. The goal is a d
 
 The user must attach an image, point to an image file, or point to an image referenced in an article. For an article reference, read the article, resolve the image source relative to the article, and view the image itself.
 
+Use the surrounding text to establish the image's purpose. Don't invent missing context or add facts that the image doesn't convey.
+
 You need the image in your context to apply this skill. The image is usually one of:
 
-- A cloud architecture diagram of a workload running in Azure
-- A screenshot that has important details in it
-- A decision tree
-- A process flow diagram
+- A cloud architecture diagram of a workload running in Azure.
+- A screenshot that has important details in it.
+- A decision tree.
+- A process flow diagram.
 
 If no image is available, stop and ask for one before continuing.
 
@@ -35,28 +37,32 @@ This skill supports raster and vector diagram formats, primarily PNG and SVG. If
 
 ## Requirements for the long description
 
-Generate the equivalent alternative text for the image, and adhere to all of the following requirements.
+Generate the equivalent alternative text for the image, and adhere to all of the following requirements:
 
-- The text must be no less than 300 characters long.
-- Aim for 1,000 characters or fewer when generating the text, but a total length of up to 1,200 characters is acceptable.
+- Target 300 to 1,200 characters, preferably 1,000 or fewer. Don't pad a complete description or omit essential information to meet a length target.
 - The text must be in en-US.
 - Write the long description as one or two paragraphs of text only. Don't use bullet points, ordered lists, headings, or tables, even when the image contains a list or numbered flow.
-- Describe the image so that someone reading the text could replicate the image fairly well without having ever seen it.
-- Focus on the information the image provides to its consumer.
-- Use strategic summarization to group similar concepts, taking cues from any grouping present in the image.
+- Start with a brief overview of the image's major groups, then follow its logical flow, which might already be labeled with numbers.
+- Group repeated components concisely without losing meaningful distinctions.
 - Be precise and concise.
-- Don't describe things that aren't in the image. Describe only the image you were provided.
-- Use positional terms and phrases like "above," "below," or "to the left of" to help the reader understand the layout.
-- If the image contains arrows or other connectors, discuss those connections and any relationship information they convey.
+- Preserve essential labels, quantities, and units.
+- Explain arrow direction, branch conditions, return paths, and group boundaries or nesting when present.
+- Explain meanings conveyed by color, line style, or shading. Ignore decorative styling.
+- Ignore header or footer text when they are just labeling or scoping the image.
+- Use positional terms such as "above" or "to the left of" when they clarify relationships.
 - Don't describe icons, such as Azure service icons. Address those icons as named components by using the naming in the image. If naming cues aren't available, don't invent a name for the component. Use a generic term for it.
-- If there's a legend, describe its contents and use its terms as part of the description.
+- If there's a legend, use the legend's terms to explain symbols and relationships.
 - If there's a logical flow, such as numbering or a connected chain of arrows, follow that flow when describing the image.
 - Assume the reader has additional text that sets the image in a larger context. Don't guess what that larger context is. Focus on describing the image.
 - Don't end in any kind of summary.
 
+## Check the result
+
+Read the description without looking at the image: does it preserve the same essential information and relationships? Revise omissions, unsupported claims, and unnecessary detail before delivering it.
+
 ## Good examples
 
-Here are three good examples of long descriptions generated in the past for three different images. Use the style in these examples to guide new output.
+Use these examples to guide style. Example 3 exceeds the length target; essential information takes priority over length.
 
 ### Example 1
 

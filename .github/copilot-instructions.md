@@ -11,7 +11,7 @@ Below are instructions that apply to all Microsoft Learn documentation authored 
 All Markdown content created or substantially modified with AI assistance must include an `ai-usage` front matter entry:
 - `ai-usage: ai-generated` – AI produced the initial draft with minimal human authorship
 - `ai-usage: ai-assisted` – Human-directed, reviewed, and edited with AI support
-- Omit only for purely human-authored legacy content
+- Omit only for markdown that is not related to articles, such as AI skill or workflow files.
 
 If missing, **add it**. However, do not add or update the ai-usage tag if the changes proposed are confined solely to:
 - Links (link text and/or URLs)
