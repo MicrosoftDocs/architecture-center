@@ -266,6 +266,15 @@ Most AKS clusters use Linux as the operating system for their node pools. The re
 
 You can choose another Linux distribution like Ubuntu if you prefer or if Azure Linux doesn't meet your requirements. If you choose a different operating system, ensure that the OS disk is sized appropriately for that image. Some distributions require more space than Azure Linux, so you might need to increase the disk size to avoid problems with deployment or runtime.
 
+> [!NOTE]
+> This baseline architecture targets general-purpose workloads where requirements like SSH access, FIPS compliance, and Pod Sandboxing are not determined in advance. Azure Linux is the default recommendation because it supports all of these capabilities.
+>
+> For node pools that require kernel-enforced immutability, use [Azure Container Linux (ACL)](/azure/azure-linux/azure-container-linux-overview). Its `/usr` directory is read-only and protected by dm-verity, and SELinux runs in enforcing mode by default. This design helps prevent unauthorized changes to the OS image and reduces configuration drift.
+>
+> ACL requires Trusted Launch VMs with Secure Boot and vTPM enabled. It doesn't support Pod Sandboxing, Artifact Streaming, Confidential VMs, or Microsoft Entra ID-based SSH. The only supported OS upgrade channels are `NodeImage` and `None`. The `Unmanaged` and `SecurityPatch` channels are incompatible because the `/usr` folder is immutable.
+>
+> Teams that cannot fully evaluate immutability requirements should start with Azure Linux and migrate to ACL later. AKS supports adding ACL node pools to an existing cluster, performing in-place OS SKU migration, or deploying a separate cluster with ACL alongside an existing one, so selecting a general-purpose operating system for the initial deployment does not preclude adopting immutable infrastructure in the future.
+
 If your workload is composed of mixed technologies, you can use different operating systems in different node pools. If you don't need different operating systems, we recommend that you use a single operating system for all workload node pools to reduce operational complexity.
 
 ## Integrate Microsoft Entra ID for the cluster

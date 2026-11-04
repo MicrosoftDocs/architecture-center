@@ -94,11 +94,11 @@ Route Server automates route exchange between SD-WAN NVAs and the Azure software
 
 Configure Route Server with the following requirements:
 
-- [Deploy Route Server in a dedicated subnet in the hub virtual network](/azure/route-server/quickstart-configure-route-server-portal). Set Route Server capacity based on the number of VMs in the hub-and-spoke network.
+- [Deploy Route Server in a dedicated subnet in the hub virtual network](/azure/route-server/quickstart-create-route-server-portal). Set Route Server capacity based on the number of VMs in the hub-and-spoke network.
 
 - To enable dynamic route exchange for all spoke virtual networks, configure virtual network peering to allow the spoke virtual networks to use the hub virtual network's gateway and Route Server. For more information, see the [Route Server FAQ](/azure/route-server/route-server-faq).
 
-- Route Server and the SD-WAN NVAs attach to different subnets, so configure BGP sessions between Route Server and the SD-WAN NVAs to use eBGP multihop support. Any number of hops between two and the maximum supported by the SD-WAN NVA is supported. For more information about how to configure BGP adjacencies for Route Server, see [Create and configure Route Server by using the Azure portal](/azure/route-server/quickstart-configure-route-server-portal).
+- Route Server and the SD-WAN NVAs attach to different subnets, so configure BGP sessions between Route Server and the SD-WAN NVAs to use eBGP multihop support. Any number of hops between two and the maximum supported by the SD-WAN NVA is supported. For more information about how to configure BGP adjacencies for Route Server, see [Create and configure Route Server by using the Azure portal](/azure/route-server/quickstart-create-route-server-portal).
 
 - Configure two `/32` static routes on the SD-WAN NVA for the BGP endpoints that Route Server exposes. This configuration ensures that the NVA's route table always contains routes for its multihop (not directly connected) BGP peers.
 
