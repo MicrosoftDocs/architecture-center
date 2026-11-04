@@ -1,6 +1,6 @@
 ---
 name: long-description-generation
-description: 'How to write a text-equivalent long description for a complex image, such as an Azure architecture diagram, decision tree, process flow, or detailed screenshot. USE when generating, reviewing, or improving the alternative text for a complex image so users of assistive technology can understand its information and relationships. DO NOT USE for simple decorative images, for icons on their own, or for non-image content.'
+description: 'How to write a text-equivalent long description (alt-text) for a complex image, such as an Azure architecture diagram, decision tree, process flow, or detailed screenshot. USE when generating, reviewing, or improving the alternative text for a complex image so users of assistive technology can understand its information and relationships. DO NOT USE for simple decorative images, for icons on their own, or for non-image content.'
 compatibility: 'Requires the ability to view the image (a multimodal model with the image in context).'
 argument-hint: 'Attach an existing PNG or SVG image, or point to its file or image reference in an article, to generate a long description.'
 disable-model-invocation: false
