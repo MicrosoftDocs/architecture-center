@@ -137,7 +137,7 @@ You can further modernize the workload by integrating with [Distributed Applicat
 
 ### Migrate to user authentication and authorization
 
-The ingestion service currently handles client authentication and authorization. A better approach is use the [built-in authentication and authorization feature](/azure/container-apps/authentication), often referred to as *Easy Auth*, to authenticate clients Configure it to require authentication and reject requests with missing or invalid credentials. Keep application-specific authorization checks, such as role-specific access, in the ingestion service and evaluate them by using the authenticated client's claims.
+The ingestion service currently handles client authentication and authorization. A better approach is to use the [built-in authentication and authorization feature](/azure/container-apps/authentication), often referred to as *Easy Auth*, to authenticate clients. Configure it to require authentication and reject requests with missing or invalid credentials. Keep application-specific authorization checks, such as role-specific access, in the ingestion service and evaluate them by using the authenticated client's claims.
 
 ## Considerations
 
