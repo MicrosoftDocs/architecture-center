@@ -42,7 +42,7 @@ For any of those, use whatever direct tool or self-guided process fits. The `mic
 
 ## You decide what the data means
 
-Neither the MCP server nor this skill tells you how to decide:
+The MCP server retrieves content. You remain responsible for deciding:
 
 - Whether any Learn content is applicable to the task you're working on.
 - What you should claim, recommend, or write based on it.
@@ -71,15 +71,27 @@ Also discard self-referential results per [self-reference-rule.md](./references/
 
 Call `microsoft_docs_fetch` on every URL you intend to cite, quote, paraphrase, or draw a recommendation from. The search excerpt is too short, contains no metadata, and is too narrow to ground on; assume it will omit the very caveat, prerequisite, or retirement notice that would change your recommendation.
 
-### 4. Fan out when there might be more to the story
+### 4. Check for context
+
+Before using a statement as evidence, inspect the context available in the fetched page:
+
+- Check the **Applies to** list when present. Also check product variants, versions, tiers, regions, availability status, and prerequisites where the page specifies them. Not every page has an applicability list.
+
+  A product's absence from an **Applies to** list means that page doesn't establish support for that product. It doesn't prove that the product lacks the feature, but it might.
+
+- Read section headings, table headers, footnotes, and nearby qualifications. A section-specific restriction can narrow a page-wide statement.
+
+### 5. Fan out when there might be more to the story
 
 A fetched page might just be a starting point, not the whole picture. If the page you have feels like an overview or summary of your topic, consider fanning out. You might want to explore a few of linked pages you believe will directly improve your grounding data and fetch them too.
 
-### 5. Watch for deprecation signals on the pages you fetched
+When an answer would depend on omission, unclear applicability, or conflicting documentation, fetch a relevant product-specific support matrix, limitations page, or feature reference before concluding. Compare sources for the same product, version, and operation; apparent conflicts might describe different contexts.
+
+### 6. Watch for deprecation signals on the pages you fetched
 
 While you're reading the fetched pages for your topic, also scan them for signs the feature is being retired or superseded. See [detect-deprecations.md](./references/detect-deprecations.md) for the signals and what to do about them. Grounding on a page about a retiring feature and recommending that feature anyway is not appropriate.
 
-### 6. Treat the page itself as the grounding, not your summary of it
+### 7. Treat the page itself as the grounding, not your summary of it
 
 When you go to write or recommend, ground on what the fetched page actually says, not your memory of it from earlier in the turn. If the raw, non-compacted fetch result is still in your context, reuse it. If only your summary remains, fetch again.
 
