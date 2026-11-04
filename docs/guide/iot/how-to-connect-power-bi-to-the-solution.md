@@ -59,7 +59,7 @@ To create the Power BI dashboard, complete the following steps:
 1. Save your new report.
 
 >[!Tip]
->To add other Azure Data Explorer data to this report, use **Get data** > **Azure** > **Azure Data Explorer (Kusto)** with a query for the data you need, and then load the results. Create visuals with fields from those results.
+>You can extend the report with other Azure Data Explorer data by querying relevant datasets and visualizing the results.
 
 [![Screenshot that shows a Power BI view.](./media/power-bi.png)](./media/power-bi.png#lightbox)
 
