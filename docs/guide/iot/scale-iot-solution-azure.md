@@ -263,7 +263,7 @@ Scalable device design requires following best practices and device-side conside
 
 ## Deploy devices
 
-Device deployment is a key part of the device life cycle, but it's outside the scope of this article because it depends on the use case. The previously referenced discussion points about transfer of ownership might apply to the deployment and patterns that involve a provisioning application, such as a mobile application. But you must select the deployment approach based on the IoT device type in use.
+Device deployment is a key part of the device life cycle, but it's outside the scope of this article because it depends on the use case. The transfer-of-ownership guidance in [Approach 2: Zero-touch provisioning with a provisioning API](#approach-2-zero-touch-provisioning-with-a-provisioning-api) and [Approach 3: Zero-touch provisioning with transfer of ownership](#approach-3-zero-touch-provisioning-with-transfer-of-ownership) might apply to deployment, along with patterns that involve a provisioning application, such as a mobile application. But you must select the deployment approach based on the IoT device type in use.
 
 ## Monitor devices
 
