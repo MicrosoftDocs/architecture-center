@@ -20,6 +20,7 @@ safe-outputs:
       - anaharris-ms
       - ananyagc5
       - andrwca
+      - anishg93
       - AnnaMHuff
       - ansingha
       - arntdg
@@ -120,6 +121,7 @@ safe-outputs:
       - juanlldc
       - juanosorioms
       - juliays
+      - junwenwu
       - justinha
       - jyravi
       - karenf-Learn
@@ -147,6 +149,7 @@ safe-outputs:
       - marconetto
       - MarkPryceMaherMSFT
       - martinekuan
+      - masfary-msft
       - matthall88
       - Matticusau
       - MaxMelcher
