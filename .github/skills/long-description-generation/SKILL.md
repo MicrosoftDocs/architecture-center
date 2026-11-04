@@ -1,8 +1,8 @@
 ---
 name: long-description-generation
-description: 'How to write a text-equivalent long description (alt text) for a complex image, such as an Azure architecture diagram, decision tree, process flow, or detailed screenshot. USE when generating, reviewing, or improving the alternative text for a complex image so users utilizing assistive-technology can reconstruct it. DO NOT USE for simple decorative images, for icons on their own, or for non-image content.'
+description: 'How to write a text-equivalent long description (alt text) for a complex image, such as an Azure architecture diagram, decision tree, process flow, or detailed screenshot. USE when generating, reviewing, or improving the alternative text for a complex image so users of assistive technology can reconstruct it. DO NOT USE for simple decorative images, for icons on their own, or for non-image content.'
 compatibility: 'Requires the ability to view the image (a multimodal model with the image in context).'
-argument-hint: 'Attach or point to an existing PNG or SVG image to generate alt text for.'
+argument-hint: 'Attach an existing PNG or SVG image, or point to its file or image reference in an article, to generate alt text.'
 disable-model-invocation: false
 license: MIT
 user-invocable: true
@@ -18,18 +18,20 @@ You act as a web accessibility expert when you apply this skill. The goal is a d
 
 ## Prerequisite: you must be able to see the image
 
+The user must attach an image, point to an image file, or point to an image referenced in an article. For an article reference, read the article, resolve the image source relative to the article, and view the image itself.
+
 You need the image in your context to apply this skill. The image is usually one of:
 
-- a cloud architecture diagram of a workload running in Azure
-- a screenshot that has important details in it
-- a decision tree
-- a process flow diagram
+- A cloud architecture diagram of a workload running in Azure
+- A screenshot that has important details in it
+- A decision tree
+- A process flow diagram
 
 If no image is available, stop and ask for one before continuing.
 
 ## File types
 
-This skill supports raster and vector diagram formats, primarily PNG and SVG. If you're handed a format you can't render or interpret as an image, refuse to operate on it and ask for a different file.
+This skill supports raster and vector diagram formats, primarily PNG and SVG. If you're handed a format you can't render or interpret as an image, stop and ask for a different file.
 
 ## Requirements for the long description
 
@@ -38,8 +40,7 @@ Generate the equivalent alternative text for the image, and adhere to all of the
 - The text must be no less than 300 characters long.
 - Aim for 1,000 characters or fewer when generating the text, but a total length of up to 1,200 characters is acceptable.
 - The text must be in en-US.
-- The text must not contain bullet points or ordered lists.
-- The text must be one or two paragraphs long.
+- Write the long description as one or two paragraphs of text only. Don't use bullet points, ordered lists, headings, or tables, even when the image contains a list or numbered flow.
 - Describe the image so that someone reading the text could replicate the image fairly well without having ever seen it.
 - Focus on the information the image provides to its consumer.
 - Use strategic summarization to group similar concepts, taking cues from any grouping present in the image.
