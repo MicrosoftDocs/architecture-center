@@ -1,6 +1,6 @@
 ---
 name: long-description-generation
-description: 'How to write a text-equivalent long description (alt-text) for a complex image, such as an Azure architecture diagram, decision tree, process flow, or detailed screenshot. USE when generating, reviewing, or improving the alternative text for a complex image so users of assistive technology can understand its information and relationships. DO NOT USE for simple decorative images, for icons on their own, or for non-image content.'
+description: 'How to write a text-equivalent long description (alt text) for a complex image, such as an Azure architecture diagram, decision tree, process flow, or detailed screenshot. USE when generating, reviewing, or improving the alternative text for a complex image so users of assistive technology can understand its information and relationships. DO NOT USE for simple decorative images, for icons on their own, or for non-image content.'
 compatibility: 'Requires the ability to view the image (a multimodal model with the image in context).'
 argument-hint: 'Attach an existing PNG or SVG image, or point to its file or image reference in an article, to generate a long description.'
 disable-model-invocation: false
@@ -12,15 +12,15 @@ metadata:
 
 # Long description generation
 
-Write a text equivalent for a complex image, usually an Azure architecture diagram. Follow [WCAG's equivalent-purpose principle](https://www.w3.org/WAI/WCAG22/Understanding/non-text-content.html): readers must understand the image's essential information and relationships without seeing it. Describe layout and appearance when they help convey that information.
+Write a text equivalent for a complex image, usually an Azure architecture diagram. You act as a web accessibility expert when you apply this skill.
 
-You act as a web accessibility expert when you apply this skill. The goal is a description precise enough that someone who has never seen the image could reconstruct it fairly well in their mind.
+You follow [WCAG's equivalent-purpose principle](https://www.w3.org/WAI/WCAG22/Understanding/non-text-content.html): readers must understand the image's essential information and relationships without seeing it. Describe layout and appearance when they help convey that information. The goal is a description precise enough that someone who has never seen the image could reconstruct it fairly well in their mind.
 
 ## Prerequisite: you must be able to see the image
 
 The user must attach an image, point to an image file, or point to an image referenced in an article. For an article reference, read the article, resolve the image source relative to the article, and view the image itself.
 
-Use the surrounding text to establish the image's purpose. Don't invent missing context or add facts that the image doesn't convey.
+When the article hosting the image is available, use the surrounding text to establish the image's purpose. Don't invent missing context or add facts that the image doesn't convey.
 
 You need the image in your context to apply this skill. The image is usually one of:
 
@@ -39,7 +39,7 @@ This skill supports raster and vector diagram formats, primarily PNG and SVG. If
 
 Generate the equivalent alternative text for the image, and adhere to all of the following requirements:
 
-- Target 300 to 1,200 characters, preferably 1,000 or fewer. Don't pad a complete description or omit essential information to meet a length target.
+- Target 300 to 1,200 characters, preferably around 1,000. Don't pad a complete description or omit essential information to meet a length target.
 - The text must be in en-US.
 - Write the long description as one or two paragraphs of text only. Don't use bullet points, ordered lists, headings, or tables, even when the image contains a list or numbered flow.
 - Start with a brief overview of the image's major groups, then follow its logical flow, which might already be labeled with numbers.
@@ -47,7 +47,7 @@ Generate the equivalent alternative text for the image, and adhere to all of the
 - Be precise and concise.
 - Preserve essential labels, quantities, and units.
 - Explain arrow direction, branch conditions, return paths, and group boundaries or nesting when present.
-- Explain meanings conveyed by color, line style, or shading. Ignore decorative styling.
+- Explain meaning conveyed by color, line style, or shading. Ignore decorative styling.
 - Ignore header or footer text when they are just labeling or scoping the image.
 - Use positional terms such as "above" or "to the left of" when they clarify relationships.
 - Don't describe icons, such as Azure service icons. Address those icons as named components by using the naming in the image. If naming cues aren't available, don't invent a name for the component. Use a generic term for it.
