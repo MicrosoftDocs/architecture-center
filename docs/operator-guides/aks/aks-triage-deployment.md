@@ -47,10 +47,10 @@ Ensure that the status is *bound* for all the persistent volume claims and persi
 
 ### Container insights
 
-[Container insights](/azure/azure-monitor/containers/kubernetes-monitoring-overview) is a feature of [Monitor](/azure/azure-monitor/fundamentals/overview) that provides monitoring capabilities for container workloads that are deployed to AKS or managed by [Azure Arc-enabled Kubernetes](/azure/azure-arc/kubernetes/overview). This feature gathers performance and health information, like memory and processor metrics from controllers, nodes, and containers. It also captures container logs for analysis.
+[Container insights](/azure/azure-monitor/containers/kubernetes-monitoring-overview) is a feature of [Monitor](/azure/azure-monitor/fundamentals/overview) that provides monitoring capabilities for container workloads that you deploy to AKS or manage by using [Azure Arc-enabled Kubernetes](/azure/azure-arc/kubernetes/overview). This feature gathers performance and health information, like memory and processor metrics from controllers, nodes, and containers. It also captures container logs for analysis.
 
 > [!IMPORTANT]
-> While Container Insights can be used for metric gathering, we suggest utilizing the [Azure Monitor managed service for Prometheus](/azure/azure-monitor/metrics/prometheus-metrics-overview) to improve metric collection and use Container Insights solely for log collection.
+> While you can use Container Insights for metric gathering, consider using the [Azure Monitor managed service for Prometheus](/azure/azure-monitor/metrics/prometheus-metrics-overview) to improve metric collection and use Container Insights solely for log collection.
 
 You can use Container Insights to analyze collected data and understand the performance and behavior of components within your cluster. Here are some ways you can use Container Insights:
 
@@ -174,7 +174,7 @@ To ensure the health and performance of your deployments, jobs, pods, and contai
 
 ### Monitor managed service for Prometheus and Azure Managed Grafana
 
-You can use prebuilt dashboards to visualize and analyze Prometheus metrics. To do so, you must set up your AKS cluster to collect Prometheus metrics in [Monitor managed service for Prometheus](/azure/azure-monitor/metrics/prometheus-metrics-overview), and connect your [Monitor workspace](/azure/azure-monitor/metrics/azure-monitor-workspace-manage#link-a-grafana-workspace) to an [Azure Managed Grafana](/azure/managed-grafana/overview) workspace.
+Use prebuilt dashboards to visualize and analyze Prometheus metrics. Set up your AKS cluster to collect Prometheus metrics in [Monitor managed service for Prometheus](/azure/azure-monitor/metrics/prometheus-metrics-overview), and connect your [Monitor workspace](/azure/azure-monitor/metrics/azure-monitor-workspace-manage#link-a-grafana-workspace) to an [Azure Managed Grafana](/azure/managed-grafana/overview) workspace.
 
 Install the [prebuilt dashboards](https://github.com/Azure/prometheus-collector/tree/main/mixins) to get a comprehensive view of your Kubernetes cluster's performance and health. For detailed installation instructions, see [Prometheus monitoring mixin for Kubernetes](https://github.com/Azure/prometheus-collector/tree/main/mixins/kubernetes#how-to-use). The dashboards are provisioned in the specified Azure Managed Grafana instance in the *Managed Prometheus* folder. Some dashboards include:
 
