@@ -25,7 +25,7 @@ If the cluster checks that you performed in the previous step are clear, check t
 
 Various factors can contribute to unhealthy nodes in an AKS cluster. One common reason is the breakdown of communication between the control plane and the nodes. This miscommunication is often caused by misconfigurations in routing and firewall rules.
 
-When you configure your AKS cluster for [user-defined routing](/azure/aks/egress-outboundtype#outbound-type-user-defined-routes), you must configure egress paths through a network virtual appliance (NVA) or a firewall, such as an [Azure firewall](/azure/aks/limit-egress-traffic). To address a misconfiguration problem, configure the firewall to allow the necessary ports and fully qualified domain names (FQDNs) in accordance with the [AKS egress traffic guidance](/azure/aks/limit-egress-traffic).
+When you configure your AKS cluster for [user-defined routing](/azure/aks/egress-outboundtype#outbound-type-of-userdefinedrouting), you must configure egress paths through a network virtual appliance (NVA) or a firewall, such as an [Azure firewall](/azure/aks/limit-egress-traffic). To address a misconfiguration problem, configure the firewall to allow the necessary ports and fully qualified domain names (FQDNs) in accordance with the [AKS egress traffic guidance](/azure/aks/limit-egress-traffic).
 
 Another reason for unhealthy nodes might be inadequate compute, memory, or storage resources that create kubelet pressures. In such cases, scaling up the resources can effectively resolve the problem.
 
@@ -63,7 +63,7 @@ To see events for a specific node, run:
 kubectl describe node <node-name>
 ```
 
-You can also view events in the Azure portal under **Kubernetes resources** > **Events**. Kubernetes retains events for one hour by default. To retain events for longer, enable [Container insights](/azure/azure-monitor/containers/kubernetes-monitoring-enable). Events are then queryable from the `KubeEvents` table in the linked Log Analytics workspace, and you can build alerts on them by using [Azure Monitor log alerts](/azure/azure-monitor/alerts/alerts-types#log-search-alerts).
+You can also view events in the Azure portal under **Kubernetes resources** > **Events**. Kubernetes retains events for one hour by default. To retain events for longer, enable [Container insights](/azure/azure-monitor/containers/kubernetes-monitoring-enable). Events are then queryable from the `KubeEvents` table in the linked Log Analytics workspace, and you can build alerts on them by using [Azure Monitor log alerts](/azure/azure-monitor/alerts/alerts-types#log-alerts).
 
 ### Azure Monitor containers health view
 
@@ -282,7 +282,7 @@ DNS resolution is a crucial aspect of your AKS cluster. If DNS resolution isn't 
 
 1. If the previous steps don't provide insights, connect to one of the worker nodes and attempt DNS resolution from the node. This step helps to identify whether the problem is related to AKS or the networking configuration.
 
-1. If DNS resolution is successful from the node but not from the pod, the problem might be related to Kubernetes DNS. For steps to debug DNS resolution from the pod, see [Troubleshoot DNS resolution failures](/troubleshoot/azure/azure-kubernetes/troubleshoot-dns-failure-from-pod-but-not-from-worker-node).
+1. If DNS resolution is successful from the node but not from the pod, the problem might be related to Kubernetes DNS. For steps to debug DNS resolution from the pod, see [Troubleshoot DNS resolution failures](/troubleshoot/azure/azure-kubernetes/connectivity/dns/troubleshoot-dns-failure-from-pod-but-not-from-worker-node).
 
    If DNS resolution fails from the node, review the networking setup to ensure that the appropriate routing paths and ports are open to facilitate DNS resolution.
 
@@ -370,7 +370,7 @@ To resolve `DiskPressure`:
 1. Identify what's consuming the disk. Use `kubectl` debug to connect to the node, then run `df -h` and `du -sh /var/lib/* /var/log/*`. Common contributors include container logs under `/var/log/containers`, container images held by the container runtime, and emptyDir volumes.
 
 1. If a workload is the cause, fix the application to bound its disk usage rather than increasing capacity. For example, cap log volume, ship logs off-node by using a sidecar, or move large working sets to a persistent volume.
-1. If the legitimate working set exceeds the OS disk capacity, increase the OS disk size on the node pool. You can't change the OS disk size of an existing node pool in place. Create a new node pool with a larger `--node-osdisk-size`, or with a larger VM SKU when you use [ephemeral OS disks](/azure/aks/concepts-storage#ephemeral-os-disk), then migrate workloads by completing the [Resize node pools in AKS](/azure/aks/resize-node-pool) procedure before you delete the original pool.
+1. If the legitimate working set exceeds the OS disk capacity, increase the OS disk size on the node pool. You can't change the OS disk size of an existing node pool in place. Create a new node pool with a larger `--node-osdisk-size`, or with a larger VM SKU when you use [ephemeral OS disks](/azure/aks/concepts-storage#ephemeral-os-disks), then migrate workloads by completing the [Resize node pools in AKS](/azure/aks/resize-node-pool) procedure before you delete the original pool.
 
 ## Step 7: Check disk I/O operations per second (IOPS) for throttling
 
@@ -434,7 +434,7 @@ Other contributor:
 
 ## Next steps
 
-- [Virtual machine disk limits](/azure/azure-resource-manager/management/azure-subscription-service-limits#virtual-machine-disk-limits)
+- [Virtual machine disk limits](/azure/azure-resource-manager/management/azure-subscription-service-limits#azure-virtual-machine-disk-limits)
 - [Virtual machines and disk performance](/azure/virtual-machines/disks-performance)
 
 ## Related resource
