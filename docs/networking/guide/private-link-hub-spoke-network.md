@@ -137,7 +137,7 @@ The `/32` route gets propagated to the following areas:
 - Any virtual network peering that you configure
 - Any VPN or ExpressRoute connection to an on-premises system
 
-To restrict access from your hub or on-premises system to a private endpoint, use a network security group in the subnet where you deploy the private endpoint. Configure appropriate inbound rules.
+To restrict access from your hub or on-premises system to a private endpoint, use a network security group in the subnet where you deploy the private endpoint. First, [enable network security group policies for private endpoints](/azure/private-link/disable-private-endpoint-network-policy#enable-network-policy) on that subnet. Then configure appropriate inbound rules.
 
 ### Name resolution
 
