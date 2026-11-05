@@ -241,7 +241,7 @@ It's important to gather queries that the documents don't address and the querie
 
 Like with text, you should gather a diverse set of questions that involve using multimedia content to generate highly relevant answers. If you have images with graphs, tables, or screenshots, make sure that you have questions that cover all of the use cases. If you have videos with demonstrations, presentations, or visual information, include questions that require understanding the visual content. For audio content with spoken information, interviews, or presentations, ensure you have questions that test the system's ability to extract and reason about the spoken content.
 
-If you determine in the [Analyze content](#analyze-content) section that the text before or after the multimedia is required to answer some questions, make sure that you have those questions in your test queries. Also consider questions that require combining information from multiple media types, such as questions that require understanding both written documents and related instructional videos.
+If you determine in the [Analyze content](#analyze-content) step that the text before or after the multimedia is required to answer some questions, make sure that you have those questions in your test queries. Also consider questions that require combining information from multiple media types, such as questions that require understanding both written documents and related instructional videos.
 
 ### Gather test queries guidance
 
