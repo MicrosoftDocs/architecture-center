@@ -109,9 +109,9 @@ The following table compares data lakes and data warehouses.
 
 - **Discoverability:** Without proper cataloging, lakes can devolve into *data swamps* where valuable information is present but inaccessible or misunderstood.
 
-### Data layout and retention decisions
+### Data layout and retention trade-offs
 
-Optimize each layer for its expected access and retention needs:
+Data lakes can retain raw source data alongside cleansed and curated copies, which creates layout and retention choices as data grows. Many small files can add query and per-file operation overhead, while multiple copies increase storage capacity needs. Choosing whether to compact, archive, or delete data means balancing access performance and lifecycle costs with audit, recovery, and compliance requirements. These trade-offs also occur in other storage systems, but a data lake's scale, varied formats, and layered datasets can make them more pronounced.
 
 - **Preserve required originals:** Keep source files immutable when audit, replay, or recovery requirements depend on the originals. Write optimized copies separately. See [raw-layer guidance](/azure/databricks/lakehouse/medallion#ingest-raw-data-to-the-bronze-layer).
 
