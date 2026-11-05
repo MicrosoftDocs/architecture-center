@@ -241,7 +241,7 @@ Compared to scaling out DPS, scaling out IoT Hub is relatively straightforward. 
 
 Scalable device design requires following best practices and device-side considerations. Some of these practices come from anti-patterns that appear in the field. This section describes key concepts for a successfully scaled deployment.
 
-**Estimate workloads across different parts of the device life cycle and scenarios within the life cycle.** Device registration workloads can vary greatly between development phases, such as pilot, development, production, decommissioning, and end of life. In some cases, they can also vary based on external factors such as the previously mentioned blackout scenario. Design for the worst-case workload to help ensure success at scale.
+**Estimate workloads across different parts of the device life cycle and scenarios within the life cycle.** Device registration workloads can vary greatly between development phases, such as pilot, development, production, decommissioning, and end of life. In some cases, they can also vary based on external factors such as a blackout that causes many devices to go offline and then reconnect at the same time. Design for the worst-case workload to help ensure success at scale.
 
 **Support reprovisioning on demand.** Provide this feature through a device command and an administrative user request. For more information, see [Reprovision devices](/azure/iot-dps/concepts-deploy-at-scale#reconnect-vs-reprovision-a-device). This option facilitates transfer-of-ownership scenarios and factory-default scenarios.
 
