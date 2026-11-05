@@ -117,6 +117,7 @@ Apply these rules to both human interaction and generated content, including Mic
 Help readers make architectural decisions and complete the tasks the article actually promises.
 
 - Match titles, descriptions, and headings to the content's actual purpose and scope. Don't imply that a conceptual architecture supplies deployment instructions. When multiple variants are discussed, identify which variant an example or diagram represents.
+- Avoid misleading omissions: state what a design doesn't support when readers could reasonably assume it does. Address only plausible misunderstandings. Use brief scope notes, such as identifying a list as non-exhaustive, when they clarify what the guidance covers.
 - When the article genuinely asks the reader to perform a task, establish the necessary starting state and provide an observable success condition. Don't add prerequisites or verification sections to conceptual content.
 - Introduce commands and code with their purpose and execution context. Identify reader-supplied values and dependencies on earlier examples. State whether a snippet is illustrative or intended to run.
 - Use comparison tables for equivalent attributes or before-and-after states.

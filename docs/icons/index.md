@@ -41,6 +41,7 @@ To learn more about communicating design intent, see [Architecture design diagra
 
 | Month | Change description |
 | :---- | :----------------- |
+| November 2026 | Added eight new icons, including Azure Confidential Clean Rooms, Azure Container Apps Sandboxes, Azure Device Registry, and Azure HorizonDB. |
 | July 2026 | Added over 10 new icons, including Azure DocumentDB, Azure Resiliency, AI Gateway, and Azure DDoS custom policies. Additionally, this batch includes 10 new or updated Microsoft Foundry icons, including Foundry Models, Foundry Projects, and Foundry Agent Service. |
 | November 2025 | Added 13 new icons, including Azure Kubernetes Service (AKS) Network Policy, Azure Local, Azure Linux, and Azure PubSub. |
 | August 2025 | Added 10 new icons, including Azure Service Groups, Microsoft Planetary Computer Pro, and Prometheus along with a few icons used in Azure portal hub experiences. |
@@ -56,7 +57,7 @@ I agree to the above terms.
 </div>
 
 > [!div class="button"]
-> [Download SVG icons](https://arch-center.azureedge.net/icons/Azure_Public_Service_Icons_V24.zip)
+> [Download SVG icons](https://arch-center.azureedge.net/icons/Azure_Public_Service_Icons_V25.zip)
 
 ## Use in Microsoft Visio
 
