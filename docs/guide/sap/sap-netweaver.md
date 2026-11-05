@@ -157,7 +157,6 @@ Use SSD storage for the VMs in this production architecture:
 
 - **Premium SSD (recommended):** Use [Azure Premium SSD storage](/azure/sap/workloads/planning-guide-storage#azure-premium-storage) for production VM disks.
 - **Standard SSD (restricted use):** Don't use Standard SSD for production VM disks. [SAP storage guidance](/azure/sap/workloads/planning-guide-storage#azure-standard-ssd-storage) limits its OS and data disk use to selected nonproduction systems. SAP doesn't support Standard SSD for the SAP Global Transport Directory.
-- **Standard HDD (excluded):** Don't use HDD storage in this architecture.
 
 For SAP support requirements, see [SAP note 1928533](https://service.sap.com/sap/support/notes/1928533) and [SAP note 2015553](https://launchpad.support.sap.com/#/notes/2015553). To access SAP notes, you need an SAP Service Marketplace account.
 
