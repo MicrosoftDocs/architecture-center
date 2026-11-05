@@ -399,7 +399,15 @@ Operational Excellence covers the operations processes that deploy an applicatio
   
   - In pattern 3, you can use dedicated capacities per environment for full isolation, or you can balance cost and isolation by using a shared capacity for dev/test with a separate production capacity.
 
-- **Plan preproduction environments as a workspace-level design decision.** Pattern 1 provides no preproduction separation because dev/test occurs in the production workspace. Pattern 2 supports separate development, testing, and production workspaces on one shared capacity, which suits functional validation but not production-like performance or resilience testing. Pattern 3 supports production-like preproduction validation through environment-aligned workspaces with capacity-level isolation. Pattern 4 involves separate tenants rather than workspace-level decisions. Each tenant can independently choose its own environment topology and doesn't need to match other tenants.
+- **Plan preproduction environments as a workspace-level design decision.**
+
+  - Pattern 1 provides no preproduction separation because dev/test occurs in the production workspace.
+
+  - Pattern 2 supports separate development, testing, and production workspaces on one shared capacity, which suits functional validation but not production-like performance or resilience testing.
+
+  - Pattern 3 supports production-like preproduction validation through environment-aligned workspaces with capacity-level isolation.
+
+  - Pattern 4 involves separate tenants rather than workspace-level decisions. Each tenant can independently choose its own environment topology and doesn't need to match other tenants.
 
 - **Connect workspaces to [Git repositories](/fabric/cicd/git-integration/intro-to-git-integration) for source control.** In patterns 2 and 3, separate workspaces per team or workload align with standard branching strategies. In pattern 1, all teams share a single repository, which can create merge contention.
 

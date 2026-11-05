@@ -95,7 +95,7 @@ There's no commonly accepted definition for the terms *small data* and *big data
 || Peak query concurrency<sup>7</sup> | High | High | High | High |
 || Peak query throughput<sup>8</sup> | Very high | High | High | Very high |
 | Granular access controls ||||||
-|| Object-level security  | Yes | Yes | Yes | Yes<sup>9</sup> |
+|| Object-level security  | Yes | Yes | Yes | Partial<sup>9</sup> |
 || Column-level security | Yes | Yes | Yes<sup>10</sup> | No |
 || Row-level security | Yes | Yes | Yes<sup>10</sup> | Yes |
 | OneLake integration ||||||
