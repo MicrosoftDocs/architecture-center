@@ -69,6 +69,20 @@ Common layers include:
 
 This layered design, known as the *medallion architecture*, improves data quality, governance, and performance.
 
+## Data layout and retention decisions
+
+Optimize each layer for its expected access and retention needs:
+
+- **Preserve required originals:** Keep source files immutable when audit, replay, or recovery requirements depend on the originals. Write optimized copies separately. See [raw-layer guidance](/azure/databricks/lakehouse/medallion#ingest-raw-data-to-the-bronze-layer).
+
+- **Compact for future reads:** [Combine small files](/azure/storage/blobs/data-lake-storage-best-practices#file-size) when future query performance or reduced per-file operations justify the rewrite. Compaction doesn't guarantee lower storage capacity. Before rewriting a full dataset, test representative data with the intended file format and compression settings. Compare total input and output bytes, not just file counts.
+
+- **Archive without rewriting:** Consider direct archival when required data is rarely read and compaction offers little access benefit. In [Azure Blob Storage's archive tier](/azure/storage/blobs/access-tiers-overview#archive-access-tier), data is offline and requires rehydration before reads. Choose an online tier when recovery or query requirements can't accommodate rehydration latency.
+
+- **Delete unneeded data:** Apply a [retention policy](/azure/well-architected/cost-optimization/optimize-data-costs#optimize-data-lifecycle-management) to remove derived or duplicate datasets when no future access, recovery, or compliance requirement remains.
+
+Compare rewrite compute and read/write transaction costs against expected query and per-file savings. Include capacity for originals, derived copies, and temporary rewrite output, plus storage-tier, retrieval, rehydration, and early-deletion charges over the retention period. See [archive cost estimation](/azure/storage/blobs/archive-cost-estimation).
+
 ## When to use a data lake
 
 We recommend that you use a data lake for exploratory analytics, advanced data science, and machine learning workloads. Data lakes retain data in raw form and support schema-on-read, so teams can experiment with diverse data types and uncover insights that traditional warehouses might not capture.
