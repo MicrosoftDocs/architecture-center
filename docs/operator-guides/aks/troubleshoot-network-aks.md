@@ -245,7 +245,7 @@ There are four main reasons why the access might be blocked:
 - Your private firewall. If you route the AKS traffic through a private firewall, ensure there are outbound rules as described in [Required outbound network rules and FQDNs for AKS clusters](/azure/aks/outbound-rules-control-egress#required-outbound-network-rules-and-fqdns-for-aks-clusters).  
 - Your private DNS. If you're hosting a private cluster and you're unable to reach the API server, your DNS forwarders might not be configured properly. To ensure proper communication, complete the steps in [Hub and spoke with custom DNS](/azure/aks/private-clusters#hub-and-spoke-with-custom-dns-for-private-aks-clusters).  
 
-You can also check kube-apiserver logs by using Container insights. For information on querying kube-apiserver logs, and many other queries, see [How to query logs from Container insights](/azure/azure-monitor/containers/container-insights-log-query).
+To check kube-apiserver logs, configure a diagnostic setting to collect the `kube-apiserver` category in a Log Analytics workspace. For collection instructions and query examples, see [AKS control plane resource logs](/azure/aks/monitor-aks#aks-control-plane-resource-logs).
 
 Finally, you can check the kube-apiserver status and its logs on the cluster itself:
 
