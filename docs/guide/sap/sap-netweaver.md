@@ -153,7 +153,12 @@ For traffic from SAP GUI clients that connect to an SAP server via Dynamic Infor
 
 ### Storage
 
-Some organizations use standard storage for their application servers. SAP doesn't support Standard managed disks. For more information, see [SAP note 1928533](https://service.sap.com/sap/support/notes/1928533). To access SAP notes, you need an SAP Service Marketplace account. We recommend that you use [Azure Premium SSD storage](/azure/virtual-machines/managed-disks-overview) in all cases. A recent update to [SAP note 2015553](https://launchpad.support.sap.com/#/notes/2015553) lists specific use cases that exclude Azure Standard HDD storage and Azure Standard SSD storage.
+Use SSD storage for the VMs in this production architecture:
+
+- **Premium SSD (recommended):** Use [Azure Premium SSD storage](/azure/sap/workloads/planning-guide-storage#azure-premium-storage) for production VM disks.
+- **Standard SSD (restricted use):** Don't use Standard SSD for production VM disks. [SAP storage guidance](/azure/sap/workloads/planning-guide-storage#azure-standard-ssd-storage) limits its OS and data disk use to selected nonproduction systems. SAP doesn't support Standard SSD for the SAP Global Transport Directory.
+
+For SAP support requirements, see [SAP note 1928533](https://service.sap.com/sap/support/notes/1928533) and [SAP note 2015553](https://launchpad.support.sap.com/#/notes/2015553). To access SAP notes, you need an SAP Service Marketplace account.
 
 Application servers don't host business data. So you can use smaller P4 and P6 premium disks to help minimize costs. Premium disks provide the [single-instance VM service-level agreement (SLA)](https://www.microsoft.com/licensing/docs/view/Service-Level-Agreements-SLA-for-Online-Services) if you have a central SAP stack installation.
 
