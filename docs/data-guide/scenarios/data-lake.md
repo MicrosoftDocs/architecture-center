@@ -93,20 +93,6 @@ The following table compares data lakes and data warehouses.
 | Cost | Lower storage cost because of low-cost storage for raw data. Compute costs are incurred when data is processed or queried. | Higher cost because of dedicated compute and performance optimizations for analytical workloads |
 | Use case fit | Best for big data, machine learning, and exploratory analytics. In medallion architectures, teams use the gold layer for reporting. | Ideal for BI, reporting, and structured data analysis |
 
-## Data layout and retention decisions
-
-Optimize each layer for its expected access and retention needs:
-
-- **Preserve required originals:** Keep source files immutable when audit, replay, or recovery requirements depend on the originals. Write optimized copies separately. See [raw-layer guidance](/azure/databricks/lakehouse/medallion#ingest-raw-data-to-the-bronze-layer).
-
-- **Compact for future reads:** [Combine small files](/azure/storage/blobs/data-lake-storage-best-practices#file-size) when future query performance or reduced per-file operations justify the rewrite. Compaction doesn't guarantee lower storage capacity. Before rewriting a full dataset, test representative data with the intended file format and compression settings. Compare total input and output bytes, not just file counts.
-
-- **Archive without rewriting:** Consider direct archival when required data is rarely read and compaction offers little access benefit. In [Azure Blob Storage's archive tier](/azure/storage/blobs/access-tiers-overview#archive-access-tier), data is offline and requires rehydration before reads. Choose an online tier when recovery or query requirements can't accommodate rehydration latency.
-
-- **Delete unneeded data:** Apply a [retention policy](/azure/well-architected/cost-optimization/optimize-data-costs#optimize-data-lifecycle-management) to remove derived or duplicate datasets when no future access, recovery, or compliance requirement remains.
-
-Compare rewrite compute and read/write transaction costs against expected query and per-file savings. Include capacity for originals, derived copies, and temporary rewrite output, plus storage-tier, retrieval, rehydration, and early-deletion charges over the retention period. See [archive cost estimation](/azure/storage/blobs/archive-cost-estimation).
-
 ## Challenges of data lakes
 
 - **Scalability and complexity:** The management of petabytes of raw, unstructured, and semistructured data requires robust infrastructure, distributed processing, and careful cost management.
@@ -122,6 +108,20 @@ Compare rewrite compute and read/write transaction costs against expected query 
 - **Security and access control:** Ensuring appropriate permissions and auditing across diverse datasets to prevent misuse of sensitive data requires planning.
 
 - **Discoverability:** Without proper cataloging, lakes can devolve into *data swamps* where valuable information is present but inaccessible or misunderstood.
+
+### Data layout and retention decisions
+
+Optimize each layer for its expected access and retention needs:
+
+- **Preserve required originals:** Keep source files immutable when audit, replay, or recovery requirements depend on the originals. Write optimized copies separately. See [raw-layer guidance](/azure/databricks/lakehouse/medallion#ingest-raw-data-to-the-bronze-layer).
+
+- **Compact for future reads:** [Combine small files](/azure/storage/blobs/data-lake-storage-best-practices#file-size) when future query performance or reduced per-file operations justify the rewrite. Compaction doesn't guarantee lower storage capacity. Before rewriting a full dataset, test representative data with the intended file format and compression settings. Compare total input and output bytes, not just file counts.
+
+- **Archive without rewriting:** Consider direct archival when required data is rarely read and compaction offers little access benefit. In [Azure Blob Storage's archive tier](/azure/storage/blobs/access-tiers-overview#archive-access-tier), data is offline and requires rehydration before reads. Choose an online tier when recovery or query requirements can't accommodate rehydration latency.
+
+- **Delete unneeded data:** Apply a [retention policy](/azure/well-architected/cost-optimization/optimize-data-costs#optimize-data-lifecycle-management) to remove derived or duplicate datasets when no future access, recovery, or compliance requirement remains.
+
+Compare rewrite compute and read/write transaction costs against expected query and per-file savings. Include capacity for originals, derived copies, and temporary rewrite output, plus storage-tier, retrieval, rehydration, and early-deletion charges over the retention period. See [archive cost estimation](/azure/storage/blobs/archive-cost-estimation).
 
 ## Technology choices
 
