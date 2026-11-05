@@ -33,7 +33,7 @@ failed because the connected party did not properly respond after a period, or e
 connection failed because connected host has failed to respond. 
 ```
 
-**Cause 1** 
+**Cause 1**
 
 It's possible that IP ranges authorized by the API server are enabled on the cluster's API server, but the client's IP address isn't included in those IP ranges. To determine whether IP ranges are enabled, use the following `az aks show` command in Azure CLI. If the IP ranges are enabled, the command will produce a list of IP ranges. 
 
@@ -270,8 +270,8 @@ Principal author:
 
 Other contributors:
 
-- [Ayobami Ayodeji](https://www.linkedin.com/in/ayobamiayodeji) | Senior Program Manager
-- [Bahram Rushenas](https://www.linkedin.com/in/bahram-rushenas-306b9b3) | Architect
+- [Ayobami Ayodeji](https://www.linkedin.com/in/ayobamiayodeji/) | Senior Program Manager
+- [Bahram Rushenas](https://www.linkedin.com/in/bahram-rushenas-306b9b3/) | Architect
 
 ## Next steps
 
@@ -279,13 +279,13 @@ Other contributors:
 - [Troubleshoot Applications](https://kubernetes.io/docs/tasks/debug/debug-application/)
 - [Debug Services](https://kubernetes.io/docs/tasks/debug/debug-application/debug-service/)
 - [Kubernetes Cluster Networking](https://kubernetes.io/docs/concepts/cluster-administration/networking)
-- [Choose the best networking plugin for AKS](/training/modules/choose-network-plugin-aks)
+- [Compare AKS networking options](/azure/aks/concepts-network-cni-overview)
 
 ## Related resources
 
 - [AKS architecture design](../../reference-architectures/containers/aks-start-here.md)
-- [Lift and shift to containers with AKS](/azure/cloud-adoption-framework/migrate/)
-- [Baseline architecture for an AKS cluster](/azure/architecture/reference-architectures/containers/aks/baseline-aks)
+- [Migrate legacy applications to AKS](/azure/aks/aks-legacy-migration)
+- [Baseline architecture for an AKS cluster](../../reference-architectures/containers/aks/baseline-aks.yml)
 - [AKS baseline for multiregion clusters](../../reference-architectures/containers/aks-multi-region/aks-multi-cluster.yml)
 - [AKS day-2 operations guide](../../operator-guides/aks/day-2-operations-guide.md)
   - [Triage practices](../../operator-guides/aks/aks-triage-practices.md)
