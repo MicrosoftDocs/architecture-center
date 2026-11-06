@@ -64,7 +64,7 @@ Follow these best practices to improve the security, reliability, performance, a
 
 - [Security practices for Azure IoT device manufacturers](/azure/iot-dps/concepts-device-oem-security-practices): Select device authentication options and implement secure manufacturing processes for IoT devices used with Azure IoT Hub Device Provisioning Service.
 
-- [Device implementation and best practices for Azure IoT Central](/azure/iot-central/core/concepts-device-implementation): Implement devices that connect to Azure IoT Central. Topics include provisioning, failover handling, and high-availability patterns.
+- [Azure IoT Central is evolving](/azure/iot-central/core/iot-central-evolution#the-modern-azure-iot-platform): Follow the recommended path of Azure IoT Hub with DPS and Microsoft Fabric, with Azure Device Registry where applicable. Use Microsoft Fabric Real-Time Intelligence and Power BI for dashboards and analytics.
 
 - [Scale your Azure IoT Hub solutions](scale-iot-solution-azure.md): Plan and implement scaling strategies for high-scale Azure IoT Hub deployments.
 
