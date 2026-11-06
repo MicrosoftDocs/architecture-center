@@ -387,7 +387,10 @@ Consistency between model deployments and instances is important in both active-
 
 ### Gateway redundancy
 
-Although this consideration isn't specific to multiple back ends, each region's gateway implementation should always be built with redundancy and be highly available within the scale unit. Choose regions that have availability zones and make sure that your gateway is spread across them. Deploy multiple instances of the gateway so that single point of failure is limited to a complete regional outage and not the fault of a single compute instance in your gateway. For API Management, deploy two or more units across two or more zones. For custom code implementations, deploy at least three instances with best effort distribution across availability zones.
+Although this consideration isn't specific to multiple back ends, each region's gateway implementation should always be built with redundancy and be highly available within the scale unit. Choose regions that have availability zones and make sure that your gateway is spread across them. Deploy multiple instances of the gateway so that single point of failure is limited to a complete regional outage and not the fault of a single compute instance in your gateway.
+
+- **API Management:** Deploy two or more units across two or more zones.
+- **Custom code implementations:** Deploy at least three instances with best effort distribution across availability zones.
 
 ## Gateway implementations
 
