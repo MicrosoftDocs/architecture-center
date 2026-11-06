@@ -109,6 +109,18 @@ The following table compares data lakes and data warehouses.
 
 - **Discoverability:** Without proper cataloging, lakes can devolve into *data swamps* where valuable information is present but inaccessible or misunderstood.
 
+### Data layout and retention trade-offs
+
+Data lakes can retain raw source data alongside cleansed and curated copies, which creates layout and retention choices as data grows. Many small files can add query and per-file operation overhead, while multiple copies increase storage capacity needs. Choosing whether to compact, archive, or delete data means balancing access performance and lifecycle costs with audit, recovery, and compliance requirements. These trade-offs also occur in other storage systems, but a data lake's scale, varied formats, and layered datasets can make them more pronounced.
+
+- **Preserve required originals:** Keep source files immutable when audit, replay, or recovery requirements depend on the originals. Write optimized copies separately. See [raw-layer guidance](/azure/databricks/lakehouse/medallion#ingest-raw-data-to-the-bronze-layer).
+
+- **Compact for future reads:** [Combine small files](/azure/storage/blobs/data-lake-storage-best-practices#file-size) when future query performance or reduced per-file operations justify the rewrite. Before rewriting a full dataset, test representative data with the intended file format and compression settings.
+
+- **Archive without rewriting:** Consider direct archival when required data is rarely read and compaction offers little access benefit. In [Azure Blob Storage's archive tier](/azure/storage/blobs/access-tiers-overview#archive-access-tier), data is offline and requires rehydration before reads. Choose an online tier when recovery or query requirements can't accommodate rehydration latency. See [archive cost estimation](/azure/storage/blobs/archive-cost-estimation).
+
+- **Delete unneeded data:** Apply a [retention policy](/azure/well-architected/cost-optimization/optimize-data-costs#optimize-data-lifecycle-management) to remove derived or duplicate datasets when no future access, recovery, or compliance requirement remains.
+
 ## Technology choices
 
 When you build a comprehensive data lake solution on Azure, consider the following technologies:

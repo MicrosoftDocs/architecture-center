@@ -13,7 +13,7 @@ ms.custom:
 
 # Troubleshoot network problems in AKS clusters
 
-Network problems can occur in new installations of Kubernetes or when you increase the Kubernetes load. Other problems that relate back to networking problems might also occur. Always check the [AKS troubleshooting](/azure/aks/troubleshooting) guide to see whether your problem is described there. This article describes additional details and considerations from a network troubleshooting perspective and specific problems that might arise.  
+Network problems can occur in new installations of Kubernetes or when you increase the Kubernetes load. Other problems that relate back to networking problems might also occur. Always check the [AKS troubleshooting](/troubleshoot/azure/azure-kubernetes/welcome-azure-kubernetes) guide to see whether your problem is described there. This article describes additional details and considerations from a network troubleshooting perspective and specific problems that might arise.  
 
 ## Client can't reach the API server
 
@@ -33,7 +33,7 @@ failed because the connected party did not properly respond after a period, or e
 connection failed because connected host has failed to respond. 
 ```
 
-**Cause 1** 
+**Cause 1**
 
 It's possible that IP ranges authorized by the API server are enabled on the cluster's API server, but the client's IP address isn't included in those IP ranges. To determine whether IP ranges are enabled, use the following `az aks show` command in Azure CLI. If the IP ranges are enabled, the command will produce a list of IP ranges. 
 
@@ -47,9 +47,9 @@ az aks show --resource-group <cluster-resource-group> \
 
 Ensure that your client's IP address is within the ranges authorized by the cluster's API server:
 
-1. Find your local IP address. For information on how to find it on Windows and Linux, see [How to find my IP](/azure/aks/api-server-authorized-ip-ranges#how-to-find-my-ip-to-include-in---api-server-authorized-ip-ranges).
+1. Find your local IP address. For information on how to find it on Windows and Linux, see [How to find my IP](/azure/aks/api-server-authorized-ip-ranges).
 
-1. Update the range that's authorized by the API server by using the `az aks update` command in Azure CLI. Authorize your client's IP address. For instructions, see [Update a cluster's API server authorized IP ranges](/azure/aks/api-server-authorized-ip-ranges#update-a-clusters-api-server-authorized-ip-ranges).  
+1. Update the range that's authorized by the API server by using the `az aks update` command in Azure CLI. Authorize your client's IP address. For instructions, see [Update a cluster's API server authorized IP ranges](/azure/aks/api-server-authorized-ip-ranges#update-the-api-server-authorized-ip-ranges-on-an-existing-cluster).  
 
 **Cause 2**
 
@@ -57,7 +57,7 @@ If your AKS cluster is a private cluster, the API server endpoint doesn't have a
 
 **Solution 2**
 
-For information on how to resolve this problem, see [options for connecting to a private cluster](/azure/aks/private-clusters#options-for-connecting-to-the-private-cluster).
+For information on how to resolve this problem, see [options for connecting to a private cluster](/azure/aks/private-clusters).
 
 ## Pod fails to allocate the IP address
 
@@ -241,11 +241,11 @@ If both tests return responses like the preceding ones, and the IP and port retu
 There are four main reasons why the access might be blocked:
 
 - Your network policies. They might be preventing access to the API management plane. For information on testing Network Policies, see [Network Policies overview](/azure/virtual-network/kubernetes-network-policies).
-- Your API's allowed IP addresses. For information about resolving this problem, see [Update a cluster's API server authorized IP ranges](/azure/aks/api-server-authorized-ip-ranges#update-a-clusters-api-server-authorized-ip-ranges).
-- Your private firewall. If you route the AKS traffic through a private firewall, make sure there are outbound rules as described in [Required outbound network rules and FQDNs for AKS clusters](/azure/aks/limit-egress-traffic#required-outbound-network-rules-and-fqdns-for-aks-clusters).  
-- Your private DNS. If you're hosting a private cluster and you're unable to reach the API server, your DNS forwarders might not be configured properly. To ensure proper communication, complete the steps in [Hub and spoke with custom DNS](/azure/aks/private-clusters#hub-and-spoke-with-custom-dns).  
+- Your API's allowed IP addresses. For information about resolving this problem, see [Update a cluster's API server authorized IP ranges](/azure/aks/api-server-authorized-ip-ranges#update-the-api-server-authorized-ip-ranges-on-an-existing-cluster).
+- Your private firewall. If you route the AKS traffic through a private firewall, ensure there are outbound rules as described in [Required outbound network rules and FQDNs for AKS clusters](/azure/aks/outbound-rules-control-egress#required-outbound-network-rules-and-fqdns-for-aks-clusters).  
+- Your private DNS. If you're hosting a private cluster and you're unable to reach the API server, your DNS forwarders might not be configured properly. To ensure proper communication, complete the steps in [Hub and spoke with custom DNS](/azure/aks/private-clusters#hub-and-spoke-with-custom-dns-for-private-aks-clusters).  
 
-You can also check kube-apiserver logs by using Container insights. For information on querying kube-apiserver logs, and many other queries, see [How to query logs from Container insights](/azure/azure-monitor/containers/container-insights-log-query#resource-logs).
+To check kube-apiserver logs, configure a diagnostic setting to collect the `kube-apiserver` category in a Log Analytics workspace. For collection instructions and query examples, see [AKS control plane resource logs](/azure/aks/monitor-aks#aks-control-plane-resource-logs).
 
 Finally, you can check the kube-apiserver status and its logs on the cluster itself:
 
@@ -258,7 +258,7 @@ PODNAME=$(kubectl -n kube-system get pod -l component=kube-apiserver -o jsonpath
 kubectl -n kube-system logs $PODNAME --tail 100
 ```
 
-If a `403 - Forbidden` error returns, kube-apiserver is probably configured with role-based access control (RBAC) and your container's `ServiceAccount` probably isn't authorized to access resources. In this case, you should create appropriate `RoleBinding` and `ClusterRoleBinding` objects. For information about roles and role bindings, see [Access and identity](/azure/aks/concepts-identity#roles-and-clusterroles). For examples of how to configure RBAC on your cluster, see [Using RBAC Authorization](https://kubernetes.io/docs/reference/access-authn-authz/rbac).
+If a `403 - Forbidden` error returns, kube-apiserver is probably configured with role-based access control (RBAC) and your container's `ServiceAccount` probably isn't authorized to access resources. In this case, you should create appropriate `RoleBinding` and `ClusterRoleBinding` objects. For information about roles and role bindings, see [Access and identity](/azure/aks/concepts-identity#b-kubernetes-control-plane-authorization). For examples of how to configure RBAC on your cluster, see [Using RBAC Authorization](https://kubernetes.io/docs/reference/access-authn-authz/rbac).
 
 ## Contributors
 
@@ -270,8 +270,8 @@ Principal author:
 
 Other contributors:
 
-- [Ayobami Ayodeji](https://www.linkedin.com/in/ayobamiayodeji) | Senior Program Manager
-- [Bahram Rushenas](https://www.linkedin.com/in/bahram-rushenas-306b9b3) | Architect
+- [Ayobami Ayodeji](https://www.linkedin.com/in/ayobamiayodeji/) | Senior Program Manager
+- [Bahram Rushenas](https://www.linkedin.com/in/bahram-rushenas-306b9b3/) | Architect
 
 ## Next steps
 
@@ -279,13 +279,13 @@ Other contributors:
 - [Troubleshoot Applications](https://kubernetes.io/docs/tasks/debug/debug-application/)
 - [Debug Services](https://kubernetes.io/docs/tasks/debug/debug-application/debug-service/)
 - [Kubernetes Cluster Networking](https://kubernetes.io/docs/concepts/cluster-administration/networking)
-- [Choose the best networking plugin for AKS](/training/modules/choose-network-plugin-aks)
+- [Compare AKS networking options](/azure/aks/concepts-network-cni-overview)
 
 ## Related resources
 
 - [AKS architecture design](../../reference-architectures/containers/aks-start-here.md)
-- [Lift and shift to containers with AKS](/azure/cloud-adoption-framework/migrate/)
-- [Baseline architecture for an AKS cluster](/azure/architecture/reference-architectures/containers/aks/baseline-aks)
+- [Migrate legacy applications to AKS](/azure/aks/aks-legacy-migration)
+- [Baseline architecture for an AKS cluster](../../reference-architectures/containers/aks/baseline-aks.yml)
 - [AKS baseline for multiregion clusters](../../reference-architectures/containers/aks-multi-region/aks-multi-cluster.yml)
 - [AKS day-2 operations guide](../../operator-guides/aks/day-2-operations-guide.md)
   - [Triage practices](../../operator-guides/aks/aks-triage-practices.md)

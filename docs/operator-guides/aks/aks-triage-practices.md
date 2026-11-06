@@ -29,7 +29,7 @@ Common problems that are addressed in this series include:
 - An admission control pipeline that blocks several requests to the API server.
 - A cluster that doesn't have permissions to pull from the appropriate container registry.
 
-This series isn't intended to resolve specific problems. For information about troubleshooting specific problems, see [AKS troubleshooting](/azure/aks/troubleshooting).
+This series isn't intended to resolve specific problems. For information about troubleshooting specific problems, see [AKS troubleshooting](/troubleshoot/azure/azure-kubernetes/welcome-azure-kubernetes).
 
 ## The triage practices series
 

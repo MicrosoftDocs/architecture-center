@@ -1,4 +1,4 @@
-This example workload shows an Azure Virtual WAN deployment with multiple hubs per region. To improve availability and scalability, each hub peers to geographically dispersed, redundant Azure ExpressRoute circuits. This architecture is for exceptionally large and critical workloads. It supports business units and applications that reside on spoke virtual networks. The spoke virtual networks often have security requirements for internet-to-spoke or spoke-to-spoke connectivity.
+This architecture shows an Azure Virtual WAN deployment with multiple hubs per region. To improve availability and scalability, each hub peers to geographically dispersed, redundant Azure ExpressRoute circuits. This architecture is for exceptionally large and critical workloads whose scale requirements of the firewall layer exceed the in hub capacity constraints and whose in region requirements exceed the single hub per region model. It supports business units and applications that reside on spoke virtual networks. The spoke virtual networks often have security requirements for internet-to-spoke or spoke-to-spoke connectivity.
 
 ## Architecture
 
@@ -23,17 +23,20 @@ The following workflow corresponds to the previous diagram:
 - [ExpressRoute](/azure/well-architected/service-guides/azure-expressroute) is a service that provides a private connection between on-premises environments and Azure resources. In this architecture, ExpressRoute enables high-throughput, low-latency connectivity across multiple regions by using redundant circuits to support critical workloads.
 
 - [Virtual WAN](/azure/virtual-wan/virtual-wan-about) is a networking service that provides optimized and automated branch-to-branch connectivity through Azure. In this architecture, Virtual WAN serves as the transit backbone and routes traffic between spokes, hubs, and on-premises environments via ExpressRoute.
+
   - Custom route tables are user-defined routing configurations within Virtual WAN hubs. In this architecture, they optimize traffic flow by allowing network-to-network traffic to bypass firewalls while maintaining inspection for traffic between networks and on-premises systems.
-  
+
   - Labels are logical tags that simplify route propagation in Virtual WAN. In this architecture, they eliminate the need to manually propagate individual network routes to all route tables, which simplifies routing configuration and infrastructure-as-code (IaC) deployments.
 
-- NVAs are virtual machines that control routing to manage the flow of network traffic. In this architecture, NVAs are deployed in security virtual networks attached to each hub to inspect traffic between spokes and between Azure and on-premises environments. Large organizations that have established investment in firewall technology and management often require NVAs.
+- NVAs are virtual machines that control routing to manage the flow of network traffic. In this architecture, NVAs are deployed in security virtual networks attached to each hub to inspect traffic between spokes and between Azure and on-premises environments.
 
 ### Alternatives
 
-An alternative is a hub-and-spoke virtual network model with Azure route servers. You can have better performance than the 50-Gbps limit per hub. This alternative has better performance limits but more complexity. For more information, see [Hub-spoke network topology in Azure](/azure/architecture/networking/architecture/hub-spoke).
+- An alternative is a hub-and-spoke virtual network model with Azure route servers. Consider this option when you need control over hub routing and NVA sizing. Size the gateways and NVAs for the required throughput, and account for the responsibility of managing the hub infrastructure and routing. For more information, see [Hub-spoke network topology in Azure](/azure/architecture/networking/architecture/hub-spoke).
 
-As another alternative, ExpressRoute Direct splits off ExpressRoute circuits into local and standard circuits. This service can optimize cost if the necessary bandwidth is sufficient to justify using ExpressRoute Direct.
+- A simpler but slightly less scalable solution exists where in hub firewalls and [routing intent](/azure/virtual-wan/how-to-routing-policies) are used and allows for *spoke* > *hub* > *hub* > *spoke* traffic inspection. In addition spokes may be directly connected [using Azure Virtual Network Manager](/azure/virtual-wan/virtual-network-manager-integration) to establish connection outside of this transit network and its firewalls entirely. This alleviated hub pressure and can result in a successful deployment of this single hub per region architecture which is widely published.
+
+- As another alternative, ExpressRoute Direct splits off ExpressRoute circuits into local and standard circuits. This service can optimize cost if the necessary bandwidth is sufficient to justify using ExpressRoute Direct.
 
 ## Scenario details
 
@@ -158,7 +161,7 @@ The following tables show the defined routing options for Region2 Hub2.
 | Hub3SecuritySpokes | SpokeVNet5Connection, SpokeVNet6Connection, SecurityVNet3Connection |
 | Hub4SecuritySpokes | SpokeVNet7Connection, SpokeVNet8Connection, SecurityVNet4Connection |
 
-This network architecture integrates seamlessly with the Cloud Adoption Framework for Virtual WAN. The Virtual WAN service, ExpressRoute connections, firewalls, and, in this case, security virtual networks  are in the connectivity subscription. The workloads, network security groups, and spoke virtual networks are in the workload or application owner’s separate landing zone subscriptions.
+This network architecture integrates with the Cloud Adoption Framework for Virtual WAN. The Virtual WAN service, ExpressRoute connections, firewalls, and, in this case, security virtual networks reside in a connectivity subscription. The workloads, network security groups, and spoke virtual networks reside in a workload or application owner’s separate landing zone subscriptions.
 
 For more information, see [Virtual WAN network topology](/azure/cloud-adoption-framework/ready/azure-best-practices/virtual-wan-network-topology).
 
@@ -174,7 +177,7 @@ This design is applicable to any business of sufficient size and footprint in Az
 
 ### ExpressRoute
 
-- Customers with massive-scale networks often have previously established connectivity points and require high bandwidth for their circuits. If you migrate from a large-scale MPLS, such as NetBond, and require over 40-Gbps circuit connectivity, you can take advantage of your network infrastructure and establish ExpressRoute Direct. ExpressRoute Direct supports MACsec encryption for high-security workloads.
+- Customers with massive-scale networks often have previously established connectivity points and require high bandwidth for their circuits. If you migrate from a large-scale MPLS, such as NetBond, and require 10Gbps or more on the circuit itself, you can take advantage of your network infrastructure and establish ExpressRoute Direct. ExpressRoute Direct supports MACsec encryption for high-security workloads.
 - For workloads that must withstand a carrier-level outage, consider different carriers for the geographically dispersed ExpressRoute circuits. Validate end-to-end physical path diversity with your providers. If you use ExpressRoute Direct, multiple logical circuits on the same port pair still share physical connectivity. For more information, see [Physical layer diversity](/azure/expressroute/design-architecture-for-resiliency#physical-layer-diversity).
 - For cost optimization, use local ExpressRoute connections to peer the primary ExpressRoute circuit to the regional hub of choice. The backup ExpressRoute circuit should use standard ExpressRoute connections.
 
@@ -253,15 +256,15 @@ The following steps establish the Virtual WAN service, hubs, spoke virtual netwo
 
 Principal authors:
 
-- [Ethan Haslett](https://www.linkedin.com/in/ethan-haslett-1502841) | Senior Cloud Solution Architect
-- [John Poetzinger](https://www.linkedin.com/in/john-poetzinger-467b9922) | Senior Cloud Solution Architect
+- [Ethan Haslett](https://www.linkedin.com/in/ethan-haslett-1502841/) | Senior Cloud Solution Architect
+- [John Poetzinger](https://www.linkedin.com/in/john-poetzinger-467b9922/) | Senior Cloud Solution Architect
 
 Other contributors:
 
-- [Jimmy Avila](https://www.linkedin.com/in/jimmyavila) | Senior Cloud Solution Architect
-- [Andrew Delosky](https://www.linkedin.com/in/andrewdelosky) | Principal Cloud Solution Architect
-- [Robert Lightner](https://www.linkedin.com/in/robert-lightner) | Senior Cloud Solution Architect
-- [Rodrigo Santos](https://www.linkedin.com/in/reisrodrigo) | Principal Cloud Solution Architect
+- [Jimmy Avila](https://www.linkedin.com/in/jimmyavila/) | Senior Cloud Solution Architect
+- [Andrew Delosky](https://www.linkedin.com/in/andrewdelosky/) | Principal Cloud Solution Architect
+- [Robert Lightner](https://www.linkedin.com/in/robert-lightner/) | Senior Cloud Solution Architect
+- [Rodrigo Santos](https://www.linkedin.com/in/reisrodrigo/) | Principal Cloud Solution Architect
 
 *To see non-public LinkedIn profiles, sign in to LinkedIn.*
 
