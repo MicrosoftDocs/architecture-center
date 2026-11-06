@@ -201,7 +201,7 @@ From a routing perspective, there's no difference between the following configur
 
 - Directly peered virtual networks (described in this section for hub-and-spoke networks based on Virtual WAN)
 
-As a result, in Virtual WAN-based networks, you can distribute application components across routable and non-routable subnets by using the same considerations described in earlier sections, and you can manage outbound dependencies with NAT-capable NVAs in routable subnets.
+As a result, in Virtual WAN-based networks, you can distribute application components across routable and non-routable subnets by using the same considerations described in [How to deploy applications to landing zones](#how-to-deploy-applications-to-landing-zones), and you can manage outbound dependencies with NAT-capable NVAs in routable subnets.
 
 ## Method 2: Private Link services
 
