@@ -1,4 +1,4 @@
-// Collects mentionable logins from recent pull requests and writes them to repo memory.
+// Collects mentionable logins from open and recently merged PRs and writes them to repo memory.
 // Invoked from the "Update authors from PRs" workflow via actions/github-script.
 const fs = require('fs');
 const path = require('path');
@@ -53,13 +53,14 @@ async function main({ github, context, core }) {
     for (const pr of prs) { scanned++; if (consider(pr)) changed++; }
   }
 
-  // Closed PRs updated within the lookback window (sorted newest-first; stop when older).
+  // Merged PRs updated within the lookback window (sorted newest-first; stop when older).
   outer:
   for await (const { data: prs } of github.paginate.iterator(github.rest.pulls.list, {
     owner, repo, state: 'closed', sort: 'updated', direction: 'desc', per_page: 100,
   })) {
     for (const pr of prs) {
       if (new Date(pr.updated_at).getTime() < cutoff) break outer;
+      if (!pr.merged_at || new Date(pr.merged_at).getTime() < cutoff) continue;
       scanned++; if (consider(pr)) changed++;
     }
   }
