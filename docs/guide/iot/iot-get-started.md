@@ -64,8 +64,6 @@ Follow these best practices to improve the security, reliability, performance, a
 
 - [Security practices for Azure IoT device manufacturers](/azure/iot-dps/concepts-device-oem-security-practices): Select device authentication options and implement secure manufacturing processes for IoT devices used with Azure IoT Hub Device Provisioning Service.
 
-- [Device implementation and best practices for Azure IoT Central](/azure/iot-central/core/concepts-device-implementation): Implement devices that connect to Azure IoT Central. Topics include provisioning, failover handling, and high-availability patterns.
-
 - [Scale your Azure IoT Hub solutions](scale-iot-solution-azure.md): Plan and implement scaling strategies for high-scale Azure IoT Hub deployments.
 
 - [Move Azure IoT Hub solutions to production](../../example-scenario/iot/iot-move-to-production.md): Follow best practices for transitioning Azure IoT Hub solutions from development to production.
