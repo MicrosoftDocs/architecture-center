@@ -38,7 +38,7 @@ An autoscaling strategy typically involves the following components:
 
 Azure provides built-in autoscaling mechanisms that address common scenarios. If a particular service or technology doesn't have built-in autoscaling functionality or if you have specific autoscaling requirements beyond its capabilities, consider a custom implementation. A custom implementation collects operational and system metrics, analyzes the metrics, and scales resources accordingly.
 
-## Configure autoscaling for an Azure solution
+## Autoscaling options for an Azure solution
 
 Azure compute services provide different autoscaling mechanisms.
 
