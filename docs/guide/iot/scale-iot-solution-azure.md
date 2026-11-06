@@ -133,7 +133,7 @@ When you scale IoT solutions, evaluate each service and how they interrelate. Sc
 
 Because of DPS service limits, you often need to expand to multiple DPS instances. Approach device provisioning across multiple DPS instances through either zero-touch or low-touch provisioning.
 
-The following approaches apply the previously described *stamp* concept for resiliency and scaling out. This concept includes deploying Azure App Service in multiple regions and using a tool such as [Traffic Manager](/azure/traffic-manager/traffic-manager-overview) or [Azure Front Door](/azure/frontdoor/). For simplicity, the following diagrams don't show these components.
+The following approaches apply the deployment stamp concept described in [Understand shared resiliency concepts](#understand-shared-resiliency-concepts) for resiliency and scaling out. This concept includes deploying Azure App Service in multiple regions and using a tool such as [Traffic Manager](/azure/traffic-manager/traffic-manager-overview) or [Azure Front Door](/azure/frontdoor/). For simplicity, the following diagrams don't show these components.
 
 #### Approach 1: Zero-touch provisioning with multiple DPS instances
 

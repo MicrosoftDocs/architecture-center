@@ -93,7 +93,7 @@ You might want to enable your customers to bring their own domain names. Some cu
 
 ### Name resolution
 
-Ultimately, each domain name must resolve to an IP address. As shown earlier, the name resolution process depends on whether you deploy a single instance or multiple instances of your solution.
+Ultimately, each domain name must resolve to an IP address. As illustrated in [Subdomains based on multiple-part stem domains](#subdomains-based-on-multiple-part-stem-domains), the name resolution process depends on whether you deploy a single instance or multiple instances of your solution.
 
 To revisit the example, one of Contoso's customers, Fabrikam, requests to use `invoices.fabrikam.com` as their custom domain name to access Contoso's service. Contoso has multiple deployments of their multitenant platform, so they decide to use subdomains and CNAME records to achieve their routing requirements. Contoso and Fabrikam configure the following DNS records.
 
