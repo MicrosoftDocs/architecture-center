@@ -52,7 +52,7 @@ Stamps run independently, so they implicitly *shard* your data. A single stamp c
 
 Deploying identical copies of the same components is complex, so good DevOps practices are critical. Describe your infrastructure as code so that the deployment of each stamp is predictable and repeatable.
 
-Deployment stamps relate to but differ from [geodes](geodes.yml). In a deployment stamp architecture, each independent instance of your system serves a subset of your customers and users. In a geode architecture, every instance can serve requests from any user, but this approach is typically more complex to design and build. You can also combine the two patterns within one solution. The [traffic routing approach](#traffic-routing) described later in this article is an example of such a hybrid scenario.
+Deployment stamps relate to but differ from [geodes](geodes.md). In a deployment stamp architecture, each independent instance of your system serves a subset of your customers and users. In a geode architecture, every instance can serve requests from any user, but this approach is typically more complex to design and build. You can also combine the two patterns within one solution. The [traffic routing approach](#traffic-routing) described later in this article is an example of such a hybrid scenario.
 
 ## Problems and considerations
 
@@ -100,7 +100,7 @@ This pattern might not be suitable when:
 
 - You can scale your system out or up within a single instance, such as by increasing the size of the application layer or by increasing the reserved capacity for databases and the storage tier.
 
-- You need to replicate data across all deployed instances. Consider the [Geode pattern](geodes.yml) for this scenario.
+- You need to replicate data across all deployed instances. Consider the [Geode pattern](geodes.md) for this scenario.
 
 - You only need to scale some components and not others. For example, consider whether you can scale your solution by [sharding the data store](sharding.md) instead of deploying a new copy of all the solution components.
 
@@ -164,7 +164,7 @@ Clients are responsible for connecting to the correct stamp.
 
 If your solution requires a single ingress point for all traffic, you can use a traffic routing service to resolve the stamp for a given request, customer, or tenant. The traffic routing service either directs the client to the relevant URL for the stamp (for example, by returning an HTTP 302 response status code), or it acts as a reverse proxy and forwards the traffic to the relevant stamp without the client being aware.
 
-A centralized traffic routing service can be a complex component to design, especially when a solution runs across multiple regions. Consider deploying the traffic routing service into multiple regions, potentially including every region that hosts stamps, and sync the data store that maps tenants to stamps. The traffic routing component might itself be an instance of the [Geode pattern](geodes.yml).
+A centralized traffic routing service can be a complex component to design, especially when a solution runs across multiple regions. Consider deploying the traffic routing service into multiple regions, potentially including every region that hosts stamps, and syncing the data store that maps tenants to stamps. The traffic routing component might itself be an instance of the [Geode pattern](geodes.md).
 
 For example, you can deploy [API Management](/azure/api-management/api-management-key-concepts) to act as the traffic routing service. API Management determines the appropriate stamp for a request by looking up data in an [Azure Cosmos DB](/azure/cosmos-db/overview) collection that stores the mapping between tenants and stamps. API Management then [dynamically sets the back-end URL](/azure/api-management/set-backend-service-policy) to the relevant stamp's API service.
 

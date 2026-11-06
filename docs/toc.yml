@@ -127,7 +127,7 @@ items:
       href: patterns/gateway-routing.yml
     - name: Geode
       displayName: Geo-distribution, multi-region deployment, global data replication
-      href: patterns/geodes.yml
+      href: patterns/geodes.md
     - name: Health Endpoint Monitoring
       displayName: Health check, liveness probe, readiness probe
       href: patterns/health-endpoint-monitoring.md

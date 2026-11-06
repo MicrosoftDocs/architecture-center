@@ -136,6 +136,8 @@ Use the `update-pull-request` safe output with the target PR's number and the fu
 
   - Both plain `AB#12345` and the rendered form `[AB#12345](https://dev.azure.com/.../_workitems/edit/12345)` are already-correct, final states for the same work item. Never rewrite one into the other. The Azure Boards app renders the plain form into the link form on its own, so converting the link form back to plain text only causes it to be re-rendered, which produces a pointless edit and comment on every run.
 
+    Also, `AB\#NNNNN` and `AB#NNNNN` is acceptable to stay in place when there is no clear work item identified yet.
+
   - If your rebuilt body would be functionally equivalent to the current one, emit no output for that PR and post no comment. Because you re-evaluate every in-window PR each run, this guard is what prevents repeat edits and duplicate comments.
 
 ### Checkbox rules
@@ -197,7 +199,7 @@ Replace `<head-sha>` with the SHA returned for that same PR. Don't use the workf
 
 ### Link line rules
 
-- `Azure DevOps work item link:` — if the line already identifies a real work item, leave it exactly as it is. Both the plain `AB#12345` reference and its rendered link form `[AB#12345](https://dev.azure.com/.../_workitems/edit/12345)` are valid, finished states. Only when the author pasted some other Azure DevOps work item URL (one that isn't already an `AB#12345` reference or its rendered link) do you convert it to the `AB#12345` style. Otherwise leave the `AB#NNNNN` placeholder.
+- `Azure DevOps work item link:` — if the line already identifies a real work item, leave it exactly as it is. Both the plain `AB#12345` reference and its rendered link form `[AB#12345](https://dev.azure.com/.../_workitems/edit/12345)` are valid, finished states. Only when the author pasted some other Azure DevOps work item URL (one that isn't already an `AB#12345` reference or its rendered link) do you convert it to the `AB#12345` style. Otherwise leave the `AB#NNNNN` (or `AB\#NNNNN`) placeholder.
 - `Updated Visio diagram link:` — if the author already provided a SharePoint link, keep it. Otherwise, if the PR didn't change the article in a way that affects the diagram (no image file updates, no changes to text that appears on the diagram, and no diagram branding updates needed), set this line to exactly `Updated Visio diagram link: None needed` with no further explanation. If a diagram update might be warranted and no link is present, leave the `INSERT-HERE` placeholder. Sometimes contributors leave a link to the Visio in a comment in the PR instead of the PR body. If you find that link, copy that link up to the line in the PR body accordingly.
 
 ## How to comment
