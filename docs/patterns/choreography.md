@@ -74,7 +74,7 @@ Consider the following points when deciding how to implement this pattern:
 
 - **Idempotency and event ordering.** At-least-once delivery and retries can produce duplicate messages, and concurrent consumers can process messages out of order. Design consumers to be [idempotent](./idempotent-consumer.md) by tracking stable message identifiers. When ordered processing is required, use broker features such as Service Bus sessions or include sequence or version data that lets consumers reject stale events and detect gaps.
 
-- **Atomic state and event publication.** A service that updates its data store and publishes an event in separate operations can commit one operation while the other fails. Use the [Transactional Outbox pattern](/azure/architecture/databases/guide/transactional-outbox-cosmos) or an equivalent atomic mechanism to persist the state change and event together before a separate process publishes the event.
+- **Atomic state and event publication.** A service that updates its data store and publishes an event in separate operations can commit one operation while the other fails. Use the [Transactional Outbox pattern](/azure/architecture/databases/guide/transactional-out-box-cosmos) or an equivalent atomic mechanism to persist the state change and event together before a separate process publishes the event.
 
 - **Emergent behavior and event storms.** Decentralized event topologies can create emergent behavior at scale. When many services react to each other's events, the system can unintentionally produce feedback loops or event storms. A minor event might trigger a cascade of downstream reactions. To prevent circular event chains, use guardrails like event filtering, consumer concurrency limits, throttling, and explicit rules.
 
