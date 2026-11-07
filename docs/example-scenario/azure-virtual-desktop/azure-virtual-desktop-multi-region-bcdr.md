@@ -522,7 +522,15 @@ You can use Site Recovery in several different scenarios. For Azure Virtual Desk
 
 #### Site Recovery operational considerations
 
-Admins must trigger Site Recovery failover manually by using the Azure portal, API, or [PowerShell](/azure/site-recovery/azure-to-azure-powershell). You can script and automate the entire Site Recovery configuration and operations by using PowerShell. The Site Recovery [SLA](https://www.microsoft.com/licensing/docs/view/Service-Level-Agreements-SLA-for-Online-Services) declares an RTO, and Site Recovery usually fails over VMs within minutes. You can use Site Recovery and Backup together. For more information, see [Support for Site Recovery with Backup](/azure/site-recovery/site-recovery-backup-interoperability). You must set up Site Recovery at the VM level because there's no direct integration in Azure Virtual Desktop. You must also initiate failover and failback at the individual VM level.
+Consider the following operational topics:
+
+- **Initiation and automation:** Admins must trigger Site Recovery failover manually by using the Azure portal, API, or [PowerShell](/azure/site-recovery/azure-to-azure-powershell). You can script and automate the entire Site Recovery configuration and operations by using PowerShell.
+
+- **Recovery timing:** The Site Recovery [SLA](https://www.microsoft.com/licensing/docs/view/Service-Level-Agreements-SLA-for-Online-Services) declares an RTO, and Site Recovery usually fails over VMs within minutes.
+
+- **Backup interoperability:** You can use Site Recovery and Backup together. For more information, see [Support for Site Recovery with Backup](/azure/site-recovery/site-recovery-backup-interoperability).
+
+- **Configuration and recovery scope:** You must set up Site Recovery at the VM level because there's no direct integration in Azure Virtual Desktop. You must also initiate failover and failback at the individual VM level.
 
 > [!WARNING]
 > Don't use the Site Recovery test failover feature for Azure Virtual Desktop session host VMs. A test failover creates a duplicate VM that registers with the Azure Virtual Desktop control plane and conflicts with the original session host. Instead, validate your DR readiness by starting secondary session hosts on a regular schedule, confirm that each VM registers with the control plane, and run the documented failover and failback procedures with a test user group.
