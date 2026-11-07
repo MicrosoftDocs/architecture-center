@@ -156,7 +156,7 @@ items:
       href: patterns/publisher-subscriber.md
     - name: Quarantine
       displayName: Deployment validation, input verification, security gate
-      href: patterns/quarantine.yml
+      href: patterns/quarantine.md
     - name: Queue-Based Load Leveling
       displayName: Backpressure, buffering, load smoothing
       href: patterns/queue-based-load-leveling.md
@@ -166,7 +166,7 @@ items:
       href: patterns/retry.yml
     - name: Saga
       displayName: Distributed transactions, eventual consistency
-      href: patterns/saga.yml
+      href: patterns/saga.md
     - name: Scheduler Agent Supervisor
       href: patterns/scheduler-agent-supervisor.md
     - name: Sequential Convoy

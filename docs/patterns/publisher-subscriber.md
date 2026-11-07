@@ -136,7 +136,7 @@ This pattern might not be suitable when:
 
 - Consumers must process messages in a specific, guaranteed order. Pub/sub systems generally don't guarantee ordering across subscribers, and maintaining order adds significant constraints to the broker and consumer design.
 
-- The operation requires a single atomic transaction across the publisher and its consumers. Pub/sub messaging is inherently asynchronous and eventually consistent. If you need transactional guarantees, consider a direct database transaction or the [Saga pattern](saga.yml) for coordinating distributed transactions.
+- The operation requires a single atomic transaction across the publisher and its consumers. Pub/sub messaging is inherently asynchronous and eventually consistent. If you need transactional guarantees, consider a direct database transaction or the [Saga pattern](saga.md) for coordinating distributed transactions.
 
 ## Workload design
 

@@ -44,7 +44,7 @@ Consider these important points:
 
 - You might need to apply business-specific rules. For example, canceling a flight reservation might not entitle the customer to a complete refund.
 
-This approach is similar to the [Saga distributed transactions pattern](./saga.yml).
+This approach is similar to the [Saga distributed transactions pattern](./saga.md).
 
 Compensating transactions are eventually consistent operations and can fail. The system should record progress so that it can resume the compensating transaction from the point of failure. A step might run multiple times when retried, so design each step as an [idempotent command](./idempotent-consumer.md).
 
@@ -144,6 +144,6 @@ Use managed identities and Microsoft Entra ID-based authorization between compon
 
 - [Retry pattern](./retry.yml): Use this pattern to handle transient failures and minimize the need for compensating transactions.
 
-- [Saga distributed transactions pattern](./saga.yml): Use this pattern to manage data consistency across microservices in distributed transactions. Saga uses compensating transactions for failure recovery.
+- [Saga distributed transactions pattern](./saga.md): Use this pattern to manage data consistency across microservices in distributed transactions. Saga uses compensating transactions for failure recovery.
 
 - [Pipes and Filters pattern](./pipes-and-filters.yml): Use this pattern with the Compensating Transaction pattern as an alternative to distributed transactions when you decompose complex tasks into reusable steps.
