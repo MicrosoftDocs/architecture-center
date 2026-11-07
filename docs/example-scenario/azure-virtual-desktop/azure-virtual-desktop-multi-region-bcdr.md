@@ -530,7 +530,7 @@ Consider the following operational topics:
 
 - **Backup interoperability:** You can use Site Recovery and Backup together. For more information, see [Support for Site Recovery with Backup](/azure/site-recovery/site-recovery-backup-interoperability).
 
-- **Configuration and recovery scope:** You must set up Site Recovery at the VM level because there's no direct integration in Azure Virtual Desktop. You must also initiate failover and failback at the individual VM level.
+- **Configuration and recovery scope:** Configure Site Recovery protection at the VM level because there's no direct integration in Azure Virtual Desktop. Use [recovery plans](/azure/site-recovery/site-recovery-create-recovery-plans) to orchestrate failover and failback for multiple VMs together.
 
 > [!WARNING]
 > Don't use the Site Recovery test failover feature for Azure Virtual Desktop session host VMs. A test failover creates a duplicate VM that registers with the Azure Virtual Desktop control plane and conflicts with the original session host. Instead, validate your DR readiness by starting secondary session hosts on a regular schedule, confirm that each VM registers with the control plane, and run the documented failover and failback procedures with a test user group.
