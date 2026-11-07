@@ -1,3 +1,15 @@
+---
+title: Saga Design Pattern
+description: Learn how to use the Saga design pattern to help ensure data consistency on distributed transactions in microservices architectures.
+author: claytonsiemens77
+ms.author: pnp
+ms.date: 02/25/2025
+ms.topic: design-pattern
+ms.subservice: cloud-fundamentals
+---
+
+# Saga distributed transactions pattern
+
 Maintain data consistency in distributed systems by coordinating a sequence of local transactions across multiple services. Each service performs its operation and triggers the next step through events or messages. If a step fails, a series of compensating transactions undoes the changes that the completed steps made.
 
 ## Context and problem

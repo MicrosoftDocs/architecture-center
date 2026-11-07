@@ -278,7 +278,7 @@ Consider the following factors:
 
 - The number of distributed transactions in the system
 
-- How you handle distributed transactions, including the use of the [Saga pattern](../../patterns/saga.yml) with orchestration or choreography
+- How you handle distributed transactions, including the use of the [Saga pattern](../../patterns/saga.md) with orchestration or choreography
 
 - Whether you use [event sourcing](../../patterns/event-sourcing.md) to maintain transaction history and state
 

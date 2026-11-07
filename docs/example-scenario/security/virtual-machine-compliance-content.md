@@ -345,7 +345,7 @@ Principal author:
 [Design resilient applications for Azure]: /azure/well-architected/reliability/principles
 [DevSecOps on AKS]: ../../guide/devsecops/devsecops-on-aks.md
 [DevTest and DevOps for IaaS solutions]: ../../solution-ideas/articles/dev-test-iaas.yml
-[Geode pattern]: ../../patterns/geodes.yml
+[Geode pattern]: ../../patterns/geodes.md
 [Find a Marketplace image version]: /azure/virtual-machines/windows/cli-ps-findimage#view-purchase-plan-properties
 [Only allow certain image publishers from Marketplace]: https://github.com/Azure/azure-policy/tree/master/samples/Compute/allowed-image-publishers
 [Overview of the reliability pillar]: /azure/well-architected/reliability/

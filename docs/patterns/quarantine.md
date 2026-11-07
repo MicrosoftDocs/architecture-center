@@ -1,3 +1,14 @@
+---
+title: Quarantine Pattern
+description: Learn about the quarantine pattern, which stops software from getting deployed to production until marked as trusted by an intermediary process.
+ms.author: pnp
+author: claytonsiemens77
+ms.date: 01/15/2025
+ms.topic: design-pattern
+ms.subservice: cloud-fundamentals
+---
+
+# Quarantine pattern
 
 Consume third-party software artifacts in your supply chain only when it's verified and marked as safe-for-use, by well-defined processes. This pattern is an operational sidecar to the development process. The consumer of this pattern invokes this process to verify and block the use of software that could potentially introduce security vulnerabilities.
 

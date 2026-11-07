@@ -131,7 +131,7 @@ If you need to use the server-side copy APIs directly from your code, consider u
 
 [Object replication](/azure/storage/blobs/object-replication-overview) automatically and asynchronously replicates block blobs between a source and destination storage account. Object replication doesn't support accounts with hierarchical namespace enabled or source blobs encrypted with customer-provided keys. Destination containers reject writes while replication rules are active, so object replication alone doesn't provide active-active writes.
  
-In a multitenant solution, you can use this feature when active-passive replication is sufficient. Example scenarios might be to distribute copies of tenant data between deployment stamps, or to distribute read-only assets when implementing the [Geode pattern](../../../patterns/geodes.yml).
+In a multitenant solution, you can use this feature when active-passive replication is sufficient. Example scenarios might be to distribute copies of tenant data between deployment stamps, or to distribute read-only assets when implementing the [Geode pattern](../../../patterns/geodes.md).
 
 ### Encryption
 

@@ -43,7 +43,7 @@ The design patterns in this article address these challenges directly. Each patt
 
   For more information, see [API gateways for microservices](gateway.yml).
 
-- [**Saga**](../../patterns/saga.yml) manages data consistency across microservices that have independent data stores. A saga is a sequence of local transactions in which each service performs its operation and triggers the next step. If a step fails, the saga runs compensating transactions to undo the preceding changes. This pattern replaces distributed transactions, which are often impractical in a microservices architecture.
+- [**Saga**](../../patterns/saga.md) manages data consistency across microservices that have independent data stores. A saga is a sequence of local transactions in which each service performs its operation and triggers the next step. If a step fails, the saga runs compensating transactions to undo the preceding changes. This pattern replaces distributed transactions, which are often impractical in a microservices architecture.
 
 - [**Sidecar**](../../patterns/sidecar.md) deploys helper components of an application as a separate container or process to provide isolation and encapsulation. Use this pattern to attach common functionality, such as logging, monitoring, and networking configuration, to a service without embedding it in the service's code.
 

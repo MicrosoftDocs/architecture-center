@@ -148,7 +148,7 @@ The following table lists common patterns for multitenant IoT solutions. Each pa
 
 - The **tenancy model** that the pattern references, as described in [Multitenancy models](../considerations/tenancy-models.md)
 
-- The **deployment pattern**, which refers to a basic deployment with minimal deployment considerations, a [geode pattern](../../../patterns/geodes.yml), or a [deployment stamps pattern](../../../patterns/deployment-stamp.md)
+- The **deployment pattern**, which refers to a basic deployment with minimal deployment considerations, a [geode pattern](../../../patterns/geodes.md), or a [deployment stamps pattern](../../../patterns/deployment-stamp.md)
 
 | Pattern | Deployment target | Tenancy model | Deployment pattern |
 |---|---|---|---|
