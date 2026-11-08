@@ -440,15 +440,11 @@ The following tables summarize the key differences in the capabilities of each p
 | Capability | Pattern 1: Monolithic | Pattern 2: Multiple workspaces, single capacity | Pattern 3: Multiple workspaces, separate capacities | Pattern 4: Multiple tenants |
 | :--- | :--- | :--- | :--- | :--- |
 | Governance complexity | Low | Medium | High | High |
-| Per-department usage tracking | No | Limited <sup>1</sup> | Yes | Yes |
-| Domain-based delegation | No | Yes | Yes | N/A <sup>2</sup> |
-| Granular administrator delegation | No | Limited <sup>1</sup> | Yes | Yes |
+| Per-department usage tracking | No | Limited. Workspaces provide some isolation, but all workspaces share a single capacity, which limits the granularity of usage tracking and administration. | Yes | Yes |
+| Domain-based delegation | No | Yes | Yes | N/A. Pattern 4 uses separate tenants rather than domains. Each tenant has its own administration model. |
+| Granular administrator delegation | No | Limited. Workspaces provide some isolation, but all workspaces share a single capacity, which limits the granularity of usage tracking and administration. | Yes | Yes |
 | Data residency compliance | Single region only | Single region only | Multiregion | Multiregion |
-| Regulatory data isolation | No | Limited <sup>1</sup> | Yes | Yes |
-
-<sup>1</sup> Workspaces provide some isolation, but all workspaces share a single capacity, which limits the granularity of usage tracking and administration.
-
-<sup>2</sup> Pattern 4 uses separate tenants rather than domains. Each tenant has its own administration model.
+| Regulatory data isolation | No | Limited. Workspaces provide some isolation, but all workspaces share a single capacity, which limits the granularity of usage tracking and administration. | Yes | Yes |
 
 ### Security
 
@@ -463,14 +459,10 @@ The following tables summarize the key differences in the capabilities of each p
 
 | Capability | Pattern 1: Monolithic | Pattern 2: Multiple workspaces, single capacity | Pattern 3: Multiple workspaces, separate capacities | Pattern 4: Multiple tenants |
 | :--- | :--- | :--- | :--- | :--- |
-| Deployment pipelines | No <sup>3</sup> | Yes | Yes | Yes |
-| Git integration | Limited <sup>4</sup> | Yes | Yes | Yes |
+| Deployment pipelines | No. Deployment pipelines require separate workspaces, which aren't available in a monolithic single-workspace pattern. | Yes | Yes | Yes |
+| Git integration | Limited. Git integration is available but all teams share a single repository, which can create merge contention. | Yes | Yes | Yes |
 | Independent releases per team | No | Yes | Yes | Yes |
 | DTAP environment isolation | No | Yes | Yes (across capacities) | Yes (across tenants) |
-
-<sup>3</sup> Deployment pipelines require separate workspaces, which aren't available in a monolithic single-workspace pattern.
-
-<sup>4</sup> Git integration is available but all teams share a single repository, which can create merge contention.
 
 ### Performance and scale
 
@@ -480,20 +472,16 @@ The following tables summarize the key differences in the capabilities of each p
 | Multiple-geographic deployment | No | No | Yes | Yes |
 | Scale beyond single SKU limits | No | No | Yes | Yes |
 | Performance SLO guarantees | No | No | Yes | Yes |
-| Throttling risk from shared capacity | High | High | Low <sup>5</sup> | Low |
-
-<sup>5</sup> Throttling risk is low if workloads are on dedicated capacities, but throttling can still occur within a single capacity if demand exceeds available CUs.
+| Throttling risk from shared capacity | High | High | Low. Throttling risk is low if workloads are on dedicated capacities, but throttling can still occur within a single capacity if demand exceeds available CUs. | Low |
 
 ### Billing and cost management
 
 | Capability | Pattern 1: Monolithic | Pattern 2: Multiple workspaces, single capacity | Pattern 3: Multiple workspaces, separate capacities | Pattern 4: Multiple tenants |
 | :--- | :--- | :--- | :--- | :--- |
-| Centralized billing | Yes | Yes | No <sup>6</sup> | No |
+| Centralized billing | Yes | Yes | No. Each capacity generates its own billing meter, so billing is distributed across capacities rather than centralized. | No |
 | Per-team chargeback | No | No | Yes | Yes |
 | Independent capacity pausing | N/A (single capacity) | N/A (single capacity) | Yes | Yes |
 | Cost delegation to teams | No | No | Yes | Yes |
-
-<sup>6</sup> Each capacity generates its own billing meter, so billing is distributed across capacities rather than centralized.
 
 ## Contributors
 
