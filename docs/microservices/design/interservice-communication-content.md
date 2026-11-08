@@ -78,7 +78,7 @@ With these considerations in mind, the development team made the following desig
 
 ![Diagram of drone communication](../images/drone-communication.png)
 
-Notice that delivery status events are derived from drone location events. For example, when a drone reaches a delivery location and drops off a package, the Delivery service translates this into a DeliveryCompleted event. This is an example of thinking in terms of domain models. As described earlier, Drone Management belongs in a separate bounded context. The drone events convey the physical location of a drone. The delivery events, on the other hand, represent changes in the status of a delivery, which is a different business entity.
+Notice that delivery status events are derived from drone location events. For example, when a drone reaches a delivery location and drops off a package, the Delivery service translates this into a DeliveryCompleted event. This is an example of thinking in terms of domain models. Drone management and shipping use separate bounded contexts, as described in [Define bounded contexts](../model/domain-analysis.md#define-bounded-contexts). The drone events convey the physical location of a drone. The delivery events, on the other hand, represent changes in the status of a delivery, which is a different business entity.
 
 ## Using a service mesh
 
