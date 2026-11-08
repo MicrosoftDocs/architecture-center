@@ -236,7 +236,7 @@ In real-world applications, your use cases can span multiple scenarios from this
 
 *Download a [Visio file](https://arch-center.azureedge.net/azure-openai-authentication.vsdx) of this architecture.*
 
-To build a gateway that supports your specific requirements, combine the recommendations from these scenarios for a comprehensive approach.
+To build a gateway that supports your specific requirements, combine recommendations from the applicable scenarios. For the example shown, see [Authenticate client applications via an external identity provider](#authenticate-client-applications-via-an-external-identity-provider) and [Authenticate client applications that access multiple Azure OpenAI instances](#authenticate-client-applications-that-access-multiple-azure-openai-instances).
 
 ### Enforce gateway policies
 
