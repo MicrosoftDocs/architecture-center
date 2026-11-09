@@ -5,14 +5,11 @@ safe-outputs:
     allow-context: true
     max: 7
     allowed:
-      - a11smiles
+      - abossard
       - achocron
-      - adamboeglin
-      - ajananth
       - akanso
       - akhan-msft
       - Albertyang0
-      - alexbuckgit
       - aloshalaa1992-MSFT
       - amattas
       - amethygeo
@@ -20,56 +17,47 @@ safe-outputs:
       - anaharris-ms
       - ananyagc5
       - andrwca
-      - anishg93
       - AnnaMHuff
       - ansingha
       - arntdg
       - arsenvlad
-      - aschauhan22
-      - asergaz
       - ashish-khandelwal-ms
       - ashish-khandelwal-ms-zz
-      - bandersmsft
       - barnstee
       - BenMartinBaur
       - bhbandam
       - bibhu250
       - Borg-GitHub
-      - BrianBlanchard
+      - bostdiek
+      - BrijeshKachalia
       - brsteph
       - BryanLa
       - callard1
       - Cameron-MSFT-SAP
-      - cartacioS
+      - chiranjib-swain
       - ckittel
       - claytonsiemens77
       - cloud-architect-dev
       - cmastr
       - Court72
       - craigshoemaker
-      - crzywabbit
       - cynthiatreger
-      - DanielCrawford
       - daphnemamsft
-      - david-stanford
-      - davidsmatlak
       - davihern
       - dbarkol
       - dburkhardtmsft
       - dcasati
       - deepbhattacharyya
+      - DeeplyDiligent
       - delynchoong
       - denrea
       - desmay
-      - DixitArora-MSFT
       - DocGailZhou
       - doherty100
       - dominicbetts
-      - Dongbumlee
-      - doodlemania2
       - DTInTheCloud
+      - duongau
       - duongthaiha
-      - Emma-yxf
       - erichb
       - erjosito
       - fabmas
@@ -85,10 +73,8 @@ safe-outputs:
       - gmndrg
       - griffinbird
       - gurkamaldeep
-      - guywi-ms
       - gvanteylingen
       - Haishi2016
-      - halkazwini
       - harsha3187
       - Hectoruu
       - heoelri
@@ -102,42 +88,31 @@ safe-outputs:
       - james-gould
       - james-tn
       - JamesJBarnett
-      - janicericketts
-      - jasonschuff
       - jaydestro
+      - jcorioland
       - jerrymsft
-      - Jing316
+      - jing316
       - JKirsch1
       - jl-ms
       - JLansdaal
-      - jmart1428
       - jocontr
       - johndowns
       - JohnPoetzinger
-      - jondobrzeniecki
       - josearper
       - jtracey93
-      - ju-shim
       - juanlldc
       - juanosorioms
-      - juliays
-      - junwenwu
       - justinha
       - jyravi
       - karenf-Learn
       - karlrissland
       - katriendg
-      - kfollis
-      - khilscher
       - khushal08
       - kiote
       - koudaiii
       - kpoluru2606
       - kriation
-      - landonpierce
-      - lanicolas
       - lapate
-      - laraaleite
       - lavansree06
       - lferdinand
       - lima8azure
@@ -146,12 +121,8 @@ safe-outputs:
       - malrose07
       - manasatramalinga
       - manishmsfte
-      - marconetto
-      - MarkPryceMaherMSFT
-      - martinekuan
       - masfary-msft
       - matthall88
-      - Matticusau
       - MaxMelcher
       - mestredelpino
       - mfrankovic
@@ -172,34 +143,24 @@ safe-outputs:
       - neilbird
       - netapp-manishc
       - nimccoll
-      - NITHIDOSS
+      - nithidoss
       - njogendran
-      - ofimbres
-      - orspod
       - oscarsk91
       - ovaismehboob
-      - Padmalathas
-      - PageWriter-MSFT
       - PatAltimore
       - patty-chow
       - PaulCollinge
       - paullizer
-      - paweenatongbai
-      - pbrooks
       - petemessina
-      - PhilKang0704
       - piyushdhore-microsoft
       - PlagueHO
       - prabdeb
       - prabhkaur1977
-      - PramodValavala-MSFT
       - pranabpaul-tech
       - PRASADA1207
       - pratimav0420
       - PratimDasgupta
       - rajasekharreddy-duddugunta
-      - raman-wk
-      - ramapyarasani
       - ranieuwe
       - raykao
       - rdesutter
@@ -207,25 +168,22 @@ safe-outputs:
       - redis-phil
       - ricmmartins
       - rkayongo
-      - rmats808
       - roarrioj
       - rod2k24
       - rodanthi-alexiou
       - rudneir2
       - samchang-msft
       - samcogan
-      - samlamberson
       - sandippk
-      - sasagir
       - schaffererin
       - Schtechel
+      - SCuffy
       - sdesai345
       - sebassem
       - seesharprun
       - sesmyrnov
       - ShannonLeavitt
       - shpathak-msft
-      - shsagir
       - shubhamsangal-msft
       - simonesavi
       - simonthurman
@@ -240,30 +198,20 @@ safe-outputs:
       - Stacyrch140
       - stephen-sumner
       - SuhasRao
-      - supreetkaur16
       - SwapnaKotagiri
       - swgriffith
       - swread
       - sydbruck
-      - t2kx
       - Tailcloud
-      - Taojunshen
       - tedmanlee
       - ThePedestrian
-      - timleyden
-      - tmmarshall
-      - tomvcassidy
       - torreymicrosoft
       - troyhite
       - ttorble
-      - tvuylsteke
       - ulisesadan
-      - v-aangie
       - v-albemi
       - v-ccolin
       - v-dirichards
-      - v-hearya
-      - v-rajagt-zz
       - v-regandowner
       - v-shils
       - v-simonazzif
@@ -276,7 +224,6 @@ safe-outputs:
       - vimorra
       - vjirovsky
       - Vyshnavi-MSFT
-      - waelkdouh
       - WernerRall147
       - wsilveiranz
       - wueda
@@ -284,6 +231,7 @@ safe-outputs:
       - yeeshian
       - yemrea
       - YenChiHo
+      - yus04
 ---
 
 <!--
