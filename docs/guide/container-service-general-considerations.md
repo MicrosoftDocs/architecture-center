@@ -364,7 +364,7 @@ Container Apps and Web App for Containers provide built-in source IP address res
 | Resource consumption | - | Consumes cluster resources | - |
 
 > [!NOTE]
-> If an ingress controller is exposed through a `LoadBalancer` Service, configure the restriction on that Service through the controller's supported configuration mechanism. The restriction applies to traffic through that Service, rather than individual application routes. For other ingress paths, use access controls appropriate to the chosen implementation.
+> If you expose an ingress controller through a `LoadBalancer` Service, configure the restriction on that Service through the controller's supported configuration mechanism. The restriction applies to traffic through that Service, rather than individual application routes. For other ingress paths, use access controls appropriate to the chosen implementation.
 
 ## Application-level security
 
