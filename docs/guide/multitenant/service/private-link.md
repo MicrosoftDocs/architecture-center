@@ -124,7 +124,9 @@ Private Link has several features that are helpful in a multitenant environment.
 
 When a tenant configures access to your service by using Private Link, they need to be able to identify your service so that Azure can establish the connection.
 
-Private Link service, and certain other Private Link-compatible Azure services, enable you to [configure an alias](/azure/private-link/private-link-service-overview#alias) that you provide to your tenants. By using an alias, you avoid disclosing your Azure subscription IDs and resource group names.
+When you create an Azure Private Link service, Azure [generates an alias](/azure/private-link/private-link-service-overview#alias) that you can provide to your tenants. By using this alias, you avoid disclosing your Azure subscription IDs and resource group names.
+
+For other Azure services that support Private Link, check the service's documentation for supported ways to identify the target resource. For example, [Application Gateway's Private Link configuration doesn't expose an alias](/azure/application-gateway/private-link#limitations), so tenants must reference it by its resource URI.
 
 ### Service visibility
 
