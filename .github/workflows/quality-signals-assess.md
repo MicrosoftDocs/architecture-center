@@ -115,11 +115,11 @@ Trim the dispatch input `${{ inputs.finding_id }}`. Treat it as an opaque ID, ne
 - **Nonempty input:** use `selection_mode: explicit`. Match exactly one full ID regardless of lifecycle status; set the eligible count to one. Never substitute another finding.
 - **Empty input:** use `selection_mode: random`. Choose randomly among `unassessed` findings.
 
+For an empty random selection, append "No unassessed quality signals remain; nothing to process." to `/tmp/gh-aw/agent-step-summary.md` and reuse it in the final response. Call `noop` with that message and stop without proceeding to [Completion](#completion). Don't create or upload work-item or judgment artifacts, investigate, or modify articles or memory.
+
 Write `quality-signals-work-item.json` with `selection_mode`, `requested_finding_id` (empty for random selection), eligible count, the complete original record as `finding`, and its guide-defined `location`. Include the memory branch name and `source_revision` from `git rev-parse HEAD`; report a mismatch with `GITHUB_SHA` as an execution error. Use repo-memory for the store, not a separate article checkout.
 
-For a missing or ambiguous explicit ID, write `finding: null`, eligible count zero, the requested ID, and the lookup error. Call `report_incomplete`; never fall back to random selection or claim the unassessed queue is empty.
-
-For an empty random selection, write `finding: null`, eligible count zero, and an explanation. In either case, proceed to [Completion](#completion) without investigating or creating judgment artifacts.
+For a missing or ambiguous explicit ID, write `finding: null`, eligible count zero, the requested ID, and the lookup error. Call `report_incomplete`; never fall back to random selection or claim the unassessed queue is empty. Proceed to [Completion](#completion) without investigating or creating judgment artifacts.
 
 ## Investigate, challenge, and finalize
 
