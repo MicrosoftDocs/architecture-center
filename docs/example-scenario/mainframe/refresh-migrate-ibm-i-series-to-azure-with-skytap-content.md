@@ -1,4 +1,4 @@
-This example architecture shows how to use the native IBM i backup and recovery services with Microsoft Azure components to quickly migrate IBM i workloads to Skytap on Azure. This native IBM Power9 infrastructure is hosted in an Azure datacenter, minimizing the latency between traditional workloads and those running natively on Azure. You get the reliability and reach of Azure, the flexibility to deploy and scale IBM i logical partitions (LPARs) on demand, plus full backup and recovery services through Azure Storage.
+This example architecture shows how organizations can migrate IBM i workloads to Skytap on Azure by using native IBM i backup and recovery capabilities together with Azure services. Skytap on Azure provides IBM Power infrastructure within Azure, enabling organizations to move IBM i workloads to the cloud without refactoring or rewriting their applications. The architecture combines IBM i logical partitions (LPARs), private connectivity, and Azure Storage to support migration, backup, and recovery scenarios.
 
 ## Architecture
 
@@ -8,31 +8,31 @@ This example architecture shows how to use the native IBM i backup and recovery 
 
 ### Workflow
 
-The numbers in the diagram correspond to the following data flow.
+The numbers in the diagram correspond to the following workflow:
 
-1.  A user on-premises uses a web browser to connect to Azure through a private Azure ExpressRoute connection. This web-based app provides a modern interface for the services that run on the IBM i instances running in Skytap on Azure.
+1.  Users access an application hosted in Azure that provides an interface to services running on IBM i systems in Skytap on Azure. Azure ExpressRoute can provide private connectivity between the on-premises environment and Azure.
+   
+1.  Before migration, use native IBM i backup capabilities, such as GoSave or Backup, Recovery, and Media Services (BRMS), to create a backup of the source IBM i system. An FTP proxy and Azure Data Box Gateway are deployed on-premises near the existing IBM i infrastructure to support the transfer of the backup data.
+   
+1.  Data Box Gateway transfers the IBM i backup data to an Azure Blob Storage account. Azure Private Link provides private access to the storage account without exposing the storage traffic to the public internet.
 
-1.  An FTP proxy and Azure Data Box Gateway are deployed on-premises next to the datacenter's existing IBM i infrastructure. Before migration, either GoSave or Backup, Recovery, and Media Services (BRMS) are used to back up the IBM i systems.
+1.  An FTP proxy and Data Box Gateway are deployed in the Skytap on Azure environment on the same network as the target IBM i systems.
 
-1.  Data Box Gateway sends the data from the IBM i system through an Azure Private Link endpoint to an Azure Blob Storage account.
-
-1.  An FTP proxy and Data Box Gateway are deployed in the Skytap on Azure environment in the same network as the IBM i systems.
-
-1.  The IBM i systems are restored on Skytap on Azure using option 21 (restore system and user data), option 23 (restore user data), or BRMS if used for the original backup.
-
+1.  Restore the IBM i workload to the target LPAR in Skytap on Azure by using the appropriate IBM i restore method. Depending on the backup strategy, this process can use option 21 to restore system and user data, option 23 to restore user data, or BRMS-based recovery.
+   
 ### Components
 
-- [Azure Virtual Machines](/azure/well-architected/service-guides/virtual-machines) is an infrastructure as a service (IaaS) that provides on-demand, scalable computing power. A virtual machine (VM) gives you the flexibility of virtualization without having to buy and maintain the physical hardware that runs it. In this architecture, Virtual Machines hosts the modern web application that provides a user interface for accessing IBM i resources that run in Skytap on Azure.
+- [Azure Virtual Machines](/azure/well-architected/service-guides/virtual-machines) provides scalable compute resources in Azure. In this architecture, an Azure VM hosts the web application that provides users with access to services associated with the IBM i workloads running in Skytap on Azure.
 
-- [Azure Virtual Network](/azure/well-architected/service-guides/virtual-network) is the fundamental building block for your private network in Azure. As a software-defined network, a virtual network provides an isolated environment for VMs and other Azure resources to communicate with each other, the internet, and on-premises networks. In this architecture, Virtual Network provides secure network isolation and connectivity between the web application, the Skytap on Azure environment, and on-premises systems.
+- [Azure Virtual Network](/azure/well-architected/service-guides/virtual-network) provides private network connectivity for Azure resources in this architecture. It enables the Azure-hosted application and related Azure services to communicate securely with resources associated with the Skytap on Azure environment.
 
   For more information about how Skytap on [Azure connectivity](https://www.skytap.com/blog/skytap-on-azure-networking-considerations/) works, see [Skytap well-architected framework](https://skytap.github.io/well-architected-framework/).
 
-- [ExpressRoute](/azure/well-architected/service-guides/azure-expressroute) is a connectivity service that extends your on-premises networks to Microsoft cloud services, including Azure and Microsoft 365, over a private connection that a connectivity provider facilitates. In this architecture, ExpressRoute provides secure, high-bandwidth connectivity between on-premises users and the Azure-hosted web application.
+- [ExpressRoute](/azure/well-architected/service-guides/azure-expressroute) provides private connectivity between an organization's on-premises network and Microsoft cloud services. In this architecture, ExpressRoute can provide private connectivity between the on-premises environment, Azure resources, and workloads associated with the Skytap on Azure solution.
 
   For more information about how ExpressRoute works with Skytap, see [Skytap getting started with Azure networking guide](https://www.skytap.com/blog/skytap-on-azure-networking-considerations/).
 
-- [Data Box Gateway](/azure/databox-gateway/data-box-gateway-overview) is a virtual device that you install on-premises. You write data to it by using the Network File System (NFS) and Server Message Block (SMB) protocols, and Data Box Gateway sends the data to Azure. In this architecture, Data Box Gateway facilitates the migration of IBM i backup files from on-premises systems to Blob Storage and enables data restoration to LPARs in Skytap on Azure.
+- [Data Box Gateway](/azure/databox-gateway/data-box-gateway-overview) provides a virtual data-transfer capability for moving data between an on-premises environment and Azure Storage. In this architecture, it facilitates the transfer of IBM i backup data to Azure Storage for subsequent restoration to IBM i LPARs running in Skytap on Azure.
 
 - [Blob Storage](/azure/well-architected/service-guides/azure-blob-storage) is an object storage solution designed for storing unstructured data, such as text and binary data. In this architecture, Blob Storage serves as the destination for IBM i backup files transferred from Data Box Gateway during the migration process.
 
