@@ -35,14 +35,16 @@ function workbookRows(filename) {
     const rows = XLSX.utils.sheet_to_json(sheet, { header: 1, defval: null, raw: true });
     const headerRow = rows.findIndex(values => values.some(value => value !== null && value !== ""));
     if (headerRow === -1) continue;
-    const headers = rows[headerRow];
+    const columns = rows[headerRow].map((name, column) => ({ name, column }))
+      .filter(({ column }) => rows.some(values => values[column] !== null && values[column] !== ""));
+    const headers = columns.map(({ name }) => name);
     requireValue(headers.every(name => typeof name === "string" && name.trim()),
       `Empty or invalid column header in ${source}, worksheet ${worksheet}.`);
     requireValue(new Set(headers).size === headers.length,
       `Duplicate column headers in ${source}, worksheet ${worksheet}.`);
     const firstRow = XLSX.utils.decode_range(sheet["!ref"]).s.r;
     for (let row = headerRow + 1; row < rows.length; row++) {
-      const data = Object.fromEntries(headers.map((name, column) => [name, rows[row][column]]));
+      const data = Object.fromEntries(columns.map(({ name, column }) => [name, rows[row][column]]));
       if (isExcludedRow(data)) continue;
       const identity = [
         source, worksheet,
