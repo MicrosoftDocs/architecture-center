@@ -121,6 +121,7 @@ safe-outputs:
       - malrose07
       - manasatramalinga
       - manishmsfte
+      - mariehalloran
       - masfary-msft
       - matthall88
       - MaxMelcher
