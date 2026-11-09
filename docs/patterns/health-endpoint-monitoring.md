@@ -51,7 +51,7 @@ Monitoring tools evaluate status codes, response content, and response times. Th
 
 Use the results to drive alerts and controlled remediation, such as removing an unhealthy instance from traffic routing. Configure timeouts and failure thresholds so that transient failures don't trigger unnecessary actions.
 
-This pattern is one part of a broader workload health monitoring strategy. Combine probe results with metrics, logs, traces, platform health data, and SLO thresholds in a [workload health model](/azure/well-architected/design-guides/health-modeling). Alert on meaningful changes to the health of critical flows instead of individual probe failures. [Azure Monitor health models (preview)](/azure/azure-monitor/health-models/overview) provide one way to implement this approach on Azure.
+This pattern is one part of a broader workload health monitoring strategy. Combine probe results with metrics, logs, traces, platform health data, and SLO thresholds in a [workload health model](/azure/well-architected/design-guides/health-modeling). Alert on meaningful changes to the health of critical flows instead of individual probe failures. [Azure Monitor health models](/azure/azure-monitor/health-models/overview) provide one way to implement this approach on Azure.
 
 For health signals to support failover, your workload must have redundant application capacity across the failure boundary, such as availability zones or regions. Size each failover target to absorb rerouted traffic.
 

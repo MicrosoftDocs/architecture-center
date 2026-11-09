@@ -2995,7 +2995,7 @@
 			<text x="11.55" y="528.94" class="st13" v:langID="1033"><v:paragraph v:horizAlign="1"/><v:tabList/>Identity</text>		</g>
 	</g>
 	<g id="optional-health-model" transform="translate(568,396)">
-		<title>Azure Monitor health model (optional, preview)</title>
+		<title>Azure Monitor health model (optional)</title>
 		<desc>A separate Azure resource that aggregates existing metrics and logs. It is outside the virtual network and is not in the application request path.</desc>
 		<defs>
 			<linearGradient id="health-model-heart" x1="0" y1="0" x2="1" y2="0" gradientTransform="rotate(90 0.5 0.5)">
@@ -3059,7 +3059,7 @@
 		</g>
 		<g fill="#000000" font-family="Segoe UI" font-size="10" stroke="none">
 			<text x="64" y="20" font-weight="600">Azure Monitor health model</text>
-			<text x="64" y="33">(optional, preview)</text>
+			<text x="64" y="33">(optional)</text>
 			<text x="64" y="46">Separate Azure resource</text>
 			<text x="12" y="65">Uses existing metrics and logs; not in request path</text>
 		</g>
