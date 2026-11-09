@@ -364,7 +364,7 @@ Container Apps and Web App for Containers provide built-in source IP address res
 | Resource consumption | - | Consumes cluster resources | - |
 
 > [!NOTE]
-> If you expose an ingress controller through a `LoadBalancer` Service, configure the restriction on that Service through the controller's supported configuration mechanism. The restriction applies to traffic through that Service, rather than individual application routes. For other ingress paths, use access controls appropriate to the chosen implementation.
+> AKS supports ingress IP address restrictions, but you use Kubernetes-native features to implement this capability rather than Azure-native controls.
 
 ## Application-level security
 
