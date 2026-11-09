@@ -363,94 +363,7 @@
 				<g id="shape2012-52">
 					<text x="-21.87" y="543.65" class="st14">Application Gateway + <tspan x="-25.42" dy="1.2em" class="st15">Web Application Firewall</tspan></text>				</g>
 			</g>
-			<g id="group2032-55">
-				<title>Application Gateways.1</title>
-				<g id="group2033-56">
-					<title>Sheet.2033</title>
-					<g id="shape2034-57">
-						<title>Sheet.2034</title>
-						<path d="M0.29 521.32 L10.73 510.88 C11.03 510.59 11.5 510.59 11.79 510.88 L22.23 521.32 C22.53 521.61 22.53
-									 522.09 22.23 522.38 L11.79 532.82 C11.5 533.11 11.03 533.11 10.73 532.82 L0.29 522.38 C0 522.09
-									 0 521.61 0.29 521.32 Z" class="st16"></path>
-					</g>
-					<g id="group2035-61" transform="translate(4.68819,-3.22379)">
-						<title>Sheet.2035</title>
-						<g id="shape2036-62" transform="translate(5.53233,-6.05119)">
-							<title>Sheet.2036</title>
-							<path d="M3.55 533.11 L7.29 533.11 C7.36 533.1 7.42 533.04 7.42 532.97 L7.42 529.24 C7.42 529.17 7.37
-										 529.1 7.3 529.09 C7.25 529.09 7.21 529.11 7.18 529.15 L6.15 530.17 L6.15 530.24 C6.1 530.29
-										 6.02 530.29 5.97 530.24 L1.4 525.74 C1.35 525.69 1.26 525.69 1.21 525.74 L0.05 526.9 C0
-										 526.95 0 527.04 0.05 527.09 L4.54 531.58 C4.59 531.64 4.59 531.73 4.54 531.78 L4.48 531.85
-										 L3.45 532.87 C3.4 532.94 3.41 533.02 3.47 533.07 C3.49 533.1 3.52 533.11 3.55 533.11 Z" class="st17"></path>
-						</g>
-						<g id="shape2037-64" transform="translate(-6.39488E-14,-6.05119)">
-							<title>Sheet.2037</title>
-							<path d="M3.85 533.11 L0.11 533.11 C0.04 533.09 0 533.03 0 532.97 L0 529.24 C0 529.17 0.06 529.11 0.14
-										 529.11 C0.17 529.11 0.2 529.12 0.23 529.15 L1.27 530.17 L1.27 530.24 C1.32 530.29 1.4 530.29
-										 1.45 530.24 L5.99 525.74 C6.05 525.69 6.13 525.69 6.18 525.74 L7.34 526.9 C7.39 526.95 7.39
-										 527.04 7.34 527.09 L2.85 531.58 C2.79 531.64 2.79 531.73 2.85 531.78 L2.85 531.85 L3.87
-										 532.87 C3.93 532.93 3.94 533.02 3.89 533.08 C3.88 533.09 3.86 533.1 3.85 533.11 Z" class="st17"></path>
-						</g>
-						<g id="shape2038-66" transform="translate(3.67681,0)">
-							<title>Sheet.2038</title>
-							<path d="M0.04 530.43 L2.67 533.06 C2.72 533.11 2.81 533.11 2.86 533.06 L5.49 530.43 C5.54 530.38 5.54
-										 530.29 5.49 530.24 C5.47 530.22 5.43 530.21 5.4 530.21 L3.86 530.21 C3.79 530.2 3.73 530.15
-										 3.73 530.07 L3.73 523.76 C3.73 523.68 3.68 523.62 3.61 523.61 C3.6 523.61 3.6 523.61 3.59
-										 523.61 L1.96 523.61 C1.88 523.61 1.82 523.68 1.82 523.76 L1.82 530.08 C1.82 530.15 1.76
-										 530.21 1.69 530.21 L0.13 530.21 C0.06 530.21 0 530.27 0 530.34 C0 530.37 0.02 530.41 0.04
-										 530.43 Z" class="st17"></path>
-						</g>
-					</g>
-					<g id="shape2039-68" transform="translate(7.36942,-11.7165)">
-						<title>Sheet.2039</title>
-						<path d="M6.08 531.96 C4.48 533.11 2.25 532.75 1.1 531.15 C0 529.63 0.27 527.52 1.71 526.32 C3.33 525.2 5.55
-									 525.6 6.67 527.22 C7.72 528.73 7.45 530.8 6.04 531.99 L6.08 531.96 Z" class="st18"></path>
-						<path d="M6.08 531.96 C4.48 533.11 2.25 532.75 1.1 531.15 C0 529.63 0.27 527.52 1.71 526.32 C3.33 525.2 5.55
-									 525.6 6.67 527.22 C7.72 528.73 7.45 530.8 6.04 531.99" class="st19"></path>
-					</g>
-					<g id="shape2040-71" transform="translate(8.1938,-14.6611)">
-						<title>Sheet.2040</title>
-						<ellipse cx="1.14571" cy="531.967" rx="1.14571" ry="1.14571" class="st20"></ellipse>
-					</g>
-					<g id="shape2041-75" transform="translate(8.1938,-13.1151)">
-						<title>Sheet.2041</title>
-						<path d="M0.01 532.33 L0.26 532.73 L0.45 532.99 C0.55 532.49 0.7 532.01 0.9 531.54 C0.67 531.5 0.46 531.4
-									 0.3 531.24 C0.18 531.59 0.09 531.96 0.01 532.33 ZM0.76 529.34 C0.61 528.95 0.5 528.54 0.45 528.12
-									 C0.28 528.3 0.13 528.5 0 528.72 C0.05 529.06 0.14 529.38 0.26 529.7 C0.4 529.54 0.57 529.42
-									 0.76 529.34 ZM1.99 531.2 C1.82 531.38 1.6 531.5 1.36 531.54 C1.55 531.73 1.75 531.91 1.96 532.08
-									 C2.23 532.28 2.52 532.45 2.82 532.59 L2.82 532.5 C2.82 532.3 2.92 532.1 3.08 531.97 C2.68 531.77
-									 2.31 531.51 1.99 531.2 ZM5.44 532.59 C5.05 532.59 4.67 532.55 4.29 532.46 C4.29 532.65 4.22
-									 532.84 4.08 532.98 C4.55 533.08 5.03 533.11 5.5 533.08 C5.69 532.91 5.85 532.73 5.99 532.53
-									 L5.44 532.59 Z" class="st21"></path>
-					</g>
-					<g id="shape2042-77" transform="translate(11.012,-12.99)">
-						<title>Sheet.2042</title>
-						<ellipse cx="0.737468" cy="532.375" rx="0.737468" ry="0.737468" class="st9"></ellipse>
-					</g>
-					<g id="shape2043-79" transform="translate(12.6463,-14.7665)">
-						<title>Sheet.2043</title>
-						<ellipse cx="0.790145" cy="532.322" rx="0.790145" ry="0.790145" class="st10"></ellipse>
-					</g>
-					<g id="shape2044-81" transform="translate(9.76092,-14.4254)">
-						<title>Sheet.2044</title>
-						<path d="M1.79 530.24 C2.56 529.87 3.41 529.68 4.27 529.69 C4.09 529.46 3.88 529.26 3.65 529.1 C2.97 529.14
-									 2.31 529.29 1.69 529.56 C1.55 529.56 1.44 529.7 1.3 529.77 C0.99 529.39 0.71 528.98 0.47 528.54
-									 L0.03 528.72 C0.26 529.19 0.55 529.63 0.88 530.03 C0.56 530.24 0.27 530.48 0 530.76 C0.23 530.84
-									 0.43 531.01 0.57 531.22 C0.81 530.98 1.08 530.76 1.37 530.59 C1.84 531.07 2.36 531.51 2.91 531.9
-									 C2.94 531.74 3.04 531.59 3.17 531.48 C2.68 531.11 2.22 530.69 1.79 530.24 ZM4.87 532.44 L4.64
-									 532.44 L4.5 532.36 C4.46 532.52 4.37 532.66 4.24 532.76 L4.4 532.85 L4.54 532.93 L4.91 533.11
-									 C4.96 532.96 5 532.81 5.03 532.65 L4.87 532.44 Z" class="st21"></path>
-					</g>
-					<g id="shape2045-83" transform="translate(8.1938,-14.6611)">
-						<title>Sheet.2045</title>
-						<ellipse cx="1.14571" cy="531.967" rx="1.14571" ry="1.14571" class="st10"></ellipse>
-					</g>
-					<g id="shape2046-85" transform="translate(11.012,-12.99)">
-						<title>Sheet.2046</title>
-						<ellipse cx="0.737468" cy="532.375" rx="0.737468" ry="0.737468" class="st10"></ellipse>
-					</g>
-				</g>
-			</g>
+			<g id="group2032-55" fill="#000000" stroke="none" fill-rule="nonzero" transform="matrix(1.3166924820975598,0,0,1.3166924820975598,-0.5744367689683969,509.99977578327287)"><defs><linearGradient id="official-fcb644230699-0-f6d5399b-a5cb-4c09-96cc-9e3bb1af2386" x1="9" y1="19.25" x2="9" y2="-0.46" gradientTransform="translate(9 -3.73) rotate(45)" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="#5e9624"></stop><stop offset="0.55" stop-color="#6dad2a"></stop><stop offset="1" stop-color="#76bc2d"></stop></linearGradient><linearGradient id="official-fcb644230699-0-a43242a2-4d95-4f6d-8870-2702ceb6aebc" x1="7.54" y1="6.44" x2="7.53" y2="5.18" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="#ccc"></stop><stop offset="0.12" stop-color="#d7d7d7"></stop><stop offset="0.42" stop-color="#ebebeb"></stop><stop offset="0.72" stop-color="#f8f8f8"></stop><stop offset="1" stop-color="#fcfcfc"></stop></linearGradient><linearGradient id="official-fcb644230699-0-eedce6dd-706a-43c4-ac66-66b73578221d" x1="9.36" y1="7.69" x2="9.36" y2="6.57" href="#official-fcb644230699-0-a43242a2-4d95-4f6d-8870-2702ceb6aebc"></linearGradient></defs><rect x="2.82" y="2.82" width="12.35" height="12.35" rx="0.57" transform="translate(-3.73 9) rotate(-45)" fill="url(#official-fcb644230699-0-f6d5399b-a5cb-4c09-96cc-9e3bb1af2386)"></rect><g><path d="M10.89,10.51h2.84a.11.11,0,0,0,.1-.11V7.57a.1.1,0,0,0-.18-.07l-.78.78,0,.05a.1.1,0,0,1-.14,0L9.26,4.91a.1.1,0,0,0-.14,0l-.88.88a.11.11,0,0,0,0,.15l3.41,3.41a.11.11,0,0,1,0,.15l-.05.05-.78.78A.11.11,0,0,0,10.89,10.51Z" fill="#fff"></path><path d="M6.92,10.51H4.08A.11.11,0,0,1,4,10.4V7.57a.1.1,0,0,1,.17-.07l.79.78,0,.05a.1.1,0,0,0,.14,0L8.55,4.91a.1.1,0,0,1,.14,0l.88.88a.11.11,0,0,1,0,.15L6.16,9.35a.11.11,0,0,0,0,.15l0,.05.78.78A.11.11,0,0,1,6.92,10.51Z" fill="#fff"></path><path d="M6.82,13.07l2,2a.1.1,0,0,0,.14,0l2-2a.1.1,0,0,0-.07-.17H9.72a.11.11,0,0,1-.1-.1V8a.1.1,0,0,0-.1-.11H8.28A.11.11,0,0,0,8.17,8V12.8a.1.1,0,0,1-.1.1H6.89A.1.1,0,0,0,6.82,13.07Z" fill="#fff"></path></g><path id="official-fcb644230699-0-ac0a9c0c-2e8c-4843-b02b-2fadf76b27d0" d="M10.65,7.78A2.71,2.71,0,0,1,7.33,3.5l0,0a2.71,2.71,0,0,1,3.29,4.3" fill="#0078d4"></path><circle cx="7.53" cy="5.55" r="0.87" fill="url(#official-fcb644230699-0-a43242a2-4d95-4f6d-8870-2702ceb6aebc)"></circle><g><path d="M6.67,7l.19.3L7,7.5a5.94,5.94,0,0,1,.34-1.1.85.85,0,0,1-.45-.23A6.71,6.71,0,0,0,6.67,7Z" fill="#f2f2f2" opacity="0.55"></path><path d="M7.24,4.73A4,4,0,0,1,7,3.8a2.48,2.48,0,0,0-.34.46A3.51,3.51,0,0,0,6.86,5,1,1,0,0,1,7.24,4.73Z" fill="#f2f2f2" opacity="0.55"></path><path d="M8.17,6.14a.87.87,0,0,1-.48.26,4.62,4.62,0,0,0,.46.41,4.14,4.14,0,0,0,.65.39V7.13A.53.53,0,0,1,9,6.73,3.6,3.6,0,0,1,8.17,6.14Z" fill="#f2f2f2" opacity="0.55"></path><path d="M10.79,7.2a4.14,4.14,0,0,1-.87-.1v0a.55.55,0,0,1-.16.39,3.84,3.84,0,0,0,1.08.08,2.93,2.93,0,0,0,.37-.42Z" fill="#f2f2f2" opacity="0.55"></path></g><circle cx="9.36" cy="7.13" r="0.56" fill="url(#official-fcb644230699-0-eedce6dd-706a-43c4-ac66-66b73578221d)"></circle><circle cx="10.64" cy="5.74" r="0.6" fill="#f2f2f2"></circle><g><path d="M9.21,4.42A4.29,4.29,0,0,1,11.09,4a2.24,2.24,0,0,0-.47-.45,4.5,4.5,0,0,0-1.49.35c-.1,0-.19.11-.29.16h0a5.85,5.85,0,0,1-.63-.93l-.34.13a5.35,5.35,0,0,0,.65,1,3.92,3.92,0,0,0-.67.55.87.87,0,0,1,.43.35,3.29,3.29,0,0,1,.61-.48,9.16,9.16,0,0,0,1.17,1,.57.57,0,0,1,.2-.32A8.44,8.44,0,0,1,9.21,4.42Z" fill="#f2f2f2" opacity="0.55"></path><path d="M11.55,6.09h0l-.1,0h0l-.08,0h0l-.1-.06a.61.61,0,0,1-.2.3l.12.07h0l.11.06h0l.28.14h0a3.58,3.58,0,0,0,.09-.35Z" fill="#f2f2f2" opacity="0.55"></path></g><circle cx="7.53" cy="5.55" r="0.87" fill="#f2f2f2"></circle><circle cx="9.36" cy="7.13" r="0.56" fill="#f2f2f2"></circle><title>Application Gateways.1</title></g>
 		</g>
 		<g id="shape1692-87" transform="translate(28.2434,-471.362)">
 			<title>Sheet.1692</title>
@@ -578,43 +491,7 @@
 				<desc>Hub virtual network Region n</desc>
 				<rect x="0" y="489.912" width="172.8" height="43.2" class="st41"></rect>
 				<text x="47.13" y="507.91" class="st39">Hub virtual network <tspan x="55.7" dy="1.2em" class="st15">       </tspan>Region <tspan class="st42">n</tspan></text>			</g>
-			<g id="group3002-140" transform="translate(51.3731,-160.744)">
-				<title>Virtual Networks.3002</title>
-				<g id="shape3003-141" transform="translate(20.1462,-9.01908)">
-					<title>Sheet.3003</title>
-					<ellipse cx="2.01732" cy="530.645" rx="2.01732" ry="2.46706" class="st43"></ellipse>
-				</g>
-				<g id="shape3004-145" transform="translate(13.7116,-8.99781)">
-					<title>Sheet.3004</title>
-					<ellipse cx="2.01732" cy="530.645" rx="2.01732" ry="2.46706" class="st44"></ellipse>
-				</g>
-				<g id="shape3005-149" transform="translate(7.27709,-8.99781)">
-					<title>Sheet.3005</title>
-					<ellipse cx="2.01732" cy="530.645" rx="2.01732" ry="2.46706" class="st44"></ellipse>
-				</g>
-				<g id="shape3006-152" transform="translate(0.014782,-1.13687E-13)">
-					<title>Sheet.3006</title>
-					<path d="M10.74 531.51 L9.59 532.93 a0.521721 0.638032 0 0 1 -0.737365 0 L0.31 522.51 A1.04344 1.27606 0 0 1
-								 0.3 520.7 L1.46 519.29 L10.74 530.61 a0.521721 0.638032 0 0 1 3.55271E-15 0.903878 L10.74 531.51
-								 Z" class="st45"></path>
-				</g>
-				<g id="shape3007-154" transform="translate(0,-9.21687)">
-					<title>Sheet.3007</title>
-					<path d="M9.43 519.61 L10.59 521.02 a0.521721 0.638032 0 0 1 -2.13163E-14 0.901752 L1.47 533.11 L0.31 531.7 A1.04344
-								 1.27606 0 0 1 0.31 529.9 L8.69 519.61 a0.521721 0.638032 0 0 1 0.737365 0 L9.43 519.61 Z" class="st46"></path>
-				</g>
-				<g id="shape3008-156" transform="translate(20.4058,-0.019141)">
-					<title>Sheet.3008</title>
-					<path d="M9.44 519.28 L10.59 520.7 A1.04344 1.27606 0 0 1 10.59 522.5 L2.04 532.93 a0.521721 0.638032 0 0 1 -0.737365
-								 0 L0.15 531.51 a0.521721 0.638032 0 0 1 -5.32907E-15 -0.901752 L9.44 519.28 Z" class="st45"></path>
-				</g>
-				<g id="shape3009-158" transform="translate(20.5597,-9.22963)">
-					<title>Sheet.3009</title>
-					<path d="M10.43 531.7 L9.28 533.11 L0.15 521.92 a0.521721 0.638032 0 0 1 -4.16334E-15 -0.903878 L1.33 519.59
-								 a0.521721 0.638032 0 0 1 0.737365 0 L10.45 529.88 A1.04344 1.27606 0 0 1 10.45 531.69 L10.43 531.7
-								 Z" class="st46"></path>
-				</g>
-			</g>
+			<g id="group3002-140" fill="#000000" stroke="none" fill-rule="nonzero" transform="matrix(1.7389315474097131,0,0,1.7389315474097131,51.38681284561849,345.2521848295011)"><defs><linearGradient id="official-fcb644230699-1-f020fb7e-2243-4501-8153-5d69bd3c34f7" x1="9.88" y1="8.59" x2="11.52" y2="10.23" gradientTransform="translate(2.03 -0.4) rotate(-0.08)" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="#86d633"></stop><stop offset="1" stop-color="#5e9624"></stop></linearGradient><linearGradient id="official-fcb644230699-1-b3c2bc94-8c7c-48a2-9719-6ee899a43a97" x1="6.18" y1="8.59" x2="7.81" y2="10.23" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="#86d633"></stop><stop offset="1" stop-color="#5e9624"></stop></linearGradient><linearGradient id="official-fcb644230699-1-e900c35d-0958-4d4f-b28f-302eeaaf52f5" x1="2.48" y1="8.59" x2="4.11" y2="10.23" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="#86d633"></stop><stop offset="1" stop-color="#5e9624"></stop></linearGradient></defs><title>Icon-networking-61</title><circle cx="12.74" cy="8.99" r="1.16" fill="url(#official-fcb644230699-1-f020fb7e-2243-4501-8153-5d69bd3c34f7)"></circle><circle cx="9.04" cy="9" r="1.16" fill="url(#official-fcb644230699-1-b3c2bc94-8c7c-48a2-9719-6ee899a43a97)"></circle><circle cx="5.34" cy="9" r="1.16" fill="url(#official-fcb644230699-1-e900c35d-0958-4d4f-b28f-302eeaaf52f5)"></circle><path d="M2.61,7.28h.94a.3.3,0,0,1,.3.3v6.94a.6.6,0,0,1-.6.6H2.31a0,0,0,0,1,0,0V7.58a.3.3,0,0,1,.3-.3Z" transform="translate(13.18 16.93) rotate(134.92)" fill="#50e6ff"></path><path d="M2.56,2.91H3.5a.3.3,0,0,1,.3.3v7.43a0,0,0,0,1,0,0H2.86a.6.6,0,0,1-.6-.6V3.21a.3.3,0,0,1,.3-.3Z" transform="translate(5.66 -0.16) rotate(44.92)" fill="#1490df"></path><path d="M14.15,7.28h.94a.6.6,0,0,1,.6.6v6.94a.3.3,0,0,1-.3.3h-.94a.3.3,0,0,1-.3-.3V7.28a0,0,0,0,1,0,0Z" transform="translate(12.32 -7.28) rotate(45.08)" fill="#50e6ff"></path><path d="M14.81,2.91h.94a0,0,0,0,1,0,0v7.43a.3.3,0,0,1-.3.3H14.5a.3.3,0,0,1-.3-.3V3.51a.6.6,0,0,1,.6-.6Z" transform="translate(30.36 0.99) rotate(135.08)" fill="#1490df"></path><title>Virtual Networks.3002</title></g>
 			<g id="shape3011-160" transform="translate(586.736,382.05) rotate(90)">
 				<title>Sheet.3011</title>
 				<path d="M0 533.11 L83.81 533.11" class="st47"></path>
@@ -1104,39 +981,7 @@
 			<g id="shape4240-372">
 				<text x="-4.27" y="541.51" class="st14">Build agents</text>			</g>
 		</g>
-		<g id="group4372-374" transform="translate(287.833,-416.8)">
-			<title>Network Security Group.4372</title>
-			<g id="group4373-375">
-				<title>Icon-networking-67</title>
-				<g id="shape4374-376">
-					<title>Sheet.4374</title>
-					<path d="M10.69 526.28 C10.69 529.73 6.44 532.5 5.52 533.06 a0.333984 0.327475 0 0 1 -0.348505 0 C4.25 532.5
-								 0 529.73 0 526.28 L0 522.14 a0.333984 0.327475 0 0 1 0.326724 -0.327475 C3.63 521.72 2.87 520.3
-								 5.34 520.3 C7.82 520.3 7.06 521.72 10.36 521.81 a0.333984 0.327475 0 0 1 0.326724 0.327475 L10.69
-								 526.28 Z" class="st79"></path>
-				</g>
-				<g id="shape4375-378" transform="translate(0.442892,-0.531813)">
-					<title>Sheet.4375</title>
-					<path d="M9.8 526.85 C9.8 530.01 5.91 532.54 5.06 533.07 a0.312203 0.306118 0 0 1 -0.319463 0 C3.89 532.56 0
-								 530.01 0 526.85 L0 523.05 a0.304942 0.298999 0 0 1 0.297682 -0.298999 C3.33 522.67 2.63 521.37 4.9
-								 521.37 C7.17 521.37 6.48 522.67 9.5 522.75 a0.304942 0.298999 0 0 1 0.297682 0.298999 L9.8 526.85
-								 Z" class="st80"></path>
-				</g>
-				<g id="shape4376-380" transform="translate(0.464674,-0.532198)">
-					<title>Sheet.4376</title>
-					<path d="M4.88 527.24 L4.88 521.37 C7.15 521.37 6.45 522.67 9.48 522.75 a0.312203 0.306118 0 0 1 0.297682 0.306118
-								 L9.78 526.85 A3.5504 3.4812 0 0 1 9.78 527.24 L4.88 527.24 ZM4.88 527.24 L0 527.24 C0.29 530.22
-								 3.91 532.58 4.72 533.07 a0.283161 0.277642 -180 0 0 0.13069 0.0427142 L4.88 533.11 L4.88 527.24
-								 Z" class="st81"></path>
-				</g>
-				<g id="shape4377-383" transform="translate(0.459258,-0.532198)">
-					<title>Sheet.4377</title>
-					<path d="M0.28 522.75 C3.31 522.67 2.61 521.37 4.88 521.37 L4.88 527.24 L0.01 527.24 A3.5504 3.4812 0 0 1 0.01
-								 526.85 L0.01 523.05 a0.312203 0.306118 0 0 1 0.2759 -0.306118 ZM9.76 527.24 L4.88 527.24 L4.88 533.11
-								 a0.283161 0.277642 -180 0 0 0.13069 -0.0427142 C5.86 532.58 9.47 530.22 9.76 527.24 Z" class="st82"></path>
-				</g>
-			</g>
-		</g>
+		<g id="group4372-374" fill="#000000" stroke="none" fill-rule="nonzero" transform="matrix(0.7116582595999474,0,0,0.7116582595999474,286.7730846119673,103.5)"><defs><linearGradient id="official-fcb644230699-2-fe5ce43f-2823-4617-bb54-57df9e778372" x1="9.01" y1="0.75" x2="9.01" y2="17.25" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="#5ea0ef"></stop><stop offset="0.18" stop-color="#559cec"></stop><stop offset="0.47" stop-color="#3c91e5"></stop><stop offset="0.84" stop-color="#1380da"></stop><stop offset="1" stop-color="#0078d4"></stop></linearGradient></defs><title>Icon-networking-67</title><path d="M16.36,8.4c0,4.84-5.85,8.74-7.12,9.53a.46.46,0,0,1-.48,0c-1.27-.79-7.12-4.69-7.12-9.53V2.58a.46.46,0,0,1,.45-.46C6.64,2,5.59,0,9,0s2.36,2,6.91,2.12a.46.46,0,0,1,.45.46Z" fill="#0078d4"></path><path d="M15.75,8.45c0,4.44-5.36,8-6.53,8.74a.43.43,0,0,1-.44,0c-1.17-.72-6.53-4.3-6.53-8.74V3.11a.42.42,0,0,1,.41-.42C6.83,2.58,5.87.75,9,.75s2.17,1.83,6.34,1.94a.42.42,0,0,1,.41.42Z" fill="#6bb9f2"></path><path d="M9,9V.75c3.13,0,2.17,1.83,6.34,1.94a.43.43,0,0,1,.41.43V8.46a4.89,4.89,0,0,1,0,.54ZM9,9H2.28c.4,4.18,5.38,7.5,6.5,8.19a.39.39,0,0,0,.18.06H9Z" fill="url(#official-fcb644230699-2-fe5ce43f-2823-4617-bb54-57df9e778372)"></path><path d="M2.66,2.69C6.83,2.58,5.87.75,9,.75V9H2.28a4.89,4.89,0,0,1,0-.54V3.12A.43.43,0,0,1,2.66,2.69Z" fill="#50e6ff"></path><path d="M15.72,9H9v8.25H9a.39.39,0,0,0,.18-.06C10.34,16.5,15.32,13.18,15.72,9Z" fill="#50e6ff"></path><title>Network Security Group.4372</title></g>
 		<g id="group4394-385" transform="translate(132.333,-338.55)">
 			<title>Network Security Group.4394</title>
 			<g id="group4395-386">
