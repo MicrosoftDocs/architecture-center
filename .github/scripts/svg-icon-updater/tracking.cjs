@@ -95,9 +95,11 @@ function verify({ workspace = process.env.GITHUB_WORKSPACE, data = DATA } = {}) 
   const root = path.resolve(workspace);
   const work = readJson(path.join(data, 'artifacts/work-item.json'));
   assert.equal(work.schema_version, 1);
+  assert.match(work.source_revision, /^[0-9a-f]{40}$/);
+  assert.match(work.reference_revision, /^[0-9a-f]{40}$/);
   const reference = path.join(root, '_svg-icon-reference');
-  execFileSync('git', ['diff', '--exit-code', 'HEAD'], { cwd: reference, stdio: 'pipe' });
-  const changed = execFileSync('git', ['diff', '--name-only', '-z', 'HEAD'], { cwd: root, encoding: 'utf8' })
+  execFileSync('git', ['diff', '--exit-code', work.reference_revision, '--'], { cwd: reference, stdio: 'pipe' });
+  const changed = execFileSync('git', ['diff', '--name-only', '-z', work.source_revision, '--'], { cwd: root, encoding: 'utf8' })
     .split('\0').filter(Boolean);
   if (!work.selected) {
     assert.deepEqual(changed, [], 'An empty selection must not change the checkout');
