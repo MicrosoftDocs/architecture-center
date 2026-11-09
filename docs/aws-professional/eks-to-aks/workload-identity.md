@@ -105,7 +105,7 @@ Human users and automation authenticate to the AKS control plane by using Micros
 
 AKS supports Kubernetes RBAC and Azure RBAC for Kubernetes authorization, and you can use both models on the same cluster. Choose each model based on your authorization needs:
 
-- **Azure RBAC for Kubernetes authorization:** Use Azure RBAC as the default for centrally governed human access and authorization across multiple clusters. Assign built-in or custom Azure roles at the cluster, resource group, subscription, or management group scope.
+- **Azure RBAC for Kubernetes authorization:** Use Azure RBAC as the default for centrally governed human access and authorization across multiple clusters. Assign built-in or custom Azure roles at the cluster, resource group, or subscription scope. Built-in roles can also be assigned at management group scope. Custom roles with `DataActions` [can't be assigned at management group scope](/azure/role-based-access-control/custom-roles#custom-role-limits).
 - **Kubernetes RBAC:** Use Kubernetes RBAC for service accounts, GitOps-managed permissions, and fine-grained access within a cluster or namespace. Define permissions with `Role` and `ClusterRole` objects, and grant them with `RoleBinding` and `ClusterRoleBinding` objects managed per cluster.
 
 You can optionally add Azure attribute-based access control (Azure ABAC) conditions to Azure role assignments to restrict access to specific Custom Resource Definition (CRD) groups and kinds. These AKS CRD conditions are available in preview only. Don't use this preview feature for production workloads.
