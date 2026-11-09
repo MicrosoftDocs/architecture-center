@@ -356,7 +356,7 @@ In all scenarios, you can regulate networking communication within the wider vir
 
 #### Built-in IP address restrictions for ingress
 
-Container Apps and Web App for Containers provide built-in source IP address restrictions for ingress traffic for individual applications. AKS can achieve the same functionality but requires Kubernetes-native functionality through the [Kubernetes service api-resource](https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.31/#service-v1-core) where you can set values for *loadBalancerSourceRanges*.
+Container Apps and Web App for Containers provide built-in source IP address restrictions for ingress traffic for individual applications. In AKS, you can restrict source IP ranges for Kubernetes `Service` resources of type `LoadBalancer` by setting `loadBalancerSourceRanges`. For configuration details and limitations, see [Restrict inbound traffic to specific IP ranges in AKS](/azure/aks/configure-load-balancer-standard#restrict-inbound-traffic-to-specific-ip-ranges).
 
 | Network access control and resource impact | Container Apps | AKS | Web App for Containers |
 |---|---|---|---|
@@ -364,7 +364,7 @@ Container Apps and Web App for Containers provide built-in source IP address res
 | Resource consumption | - | Consumes cluster resources | - |
 
 > [!NOTE]
-> AKS supports ingress IP address restrictions, but you use Kubernetes-native features to implement this capability rather than Azure-native controls, unlike other Azure services.
+> AKS supports ingress IP address restrictions, but you use Kubernetes-native features to implement this capability rather than Azure-native controls.
 
 ## Application-level security
 

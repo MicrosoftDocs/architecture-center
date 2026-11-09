@@ -2,7 +2,7 @@
 title: What's New in Azure Architecture Center
 description: New and updated articles in Azure Architecture Center
 author: claytonsiemens77
-ms.date: 11/01/2026
+ms.date: 11/08/2026
 ai-usage: ai-generated
 ms.topic: whats-new
 ms.author: pnp
@@ -18,6 +18,22 @@ The Azure Architecture Center (AAC) helps you design, build, and operate solutio
 > [!VIDEO 9f9fdf91-3dcd-455f-b64e-8ec0802dd5db]
 
 The following new and updated articles have recently been published in the Azure Architecture Center.
+
+## November 2026
+
+### Updated articles
+
+- [Use Azure IoT Hub to privately upload files to an Azure Storage account](./example-scenario/iot/iot-private-file-upload.yml) ([#a0907817dc](https://github.com/MicrosoftDocs/architecture-center/commit/a0907817dc))
+- [Deploy microservices with Azure Container Apps and Dapr](./example-scenario/serverless/microservices-with-container-apps-dapr.yml) ([#999d240364](https://github.com/MicrosoftDocs/architecture-center/commit/999d240364))
+- [Patch and upgrade Azure Kubernetes Service worker nodes and Kubernetes versions](./operator-guides/aks/aks-upgrade-practices.md) ([#5e22094cc4](https://github.com/MicrosoftDocs/architecture-center/commit/5e22094cc4))
+- [Run SAP NetWeaver in Windows on Azure](./guide/sap/sap-netweaver.md) ([#7373539625](https://github.com/MicrosoftDocs/architecture-center/commit/7373539625))
+- [What is a data lake?](./data-guide/scenarios/data-lake.md) ([#95738fd895](https://github.com/MicrosoftDocs/architecture-center/commit/95738fd895))
+- [Massive-scale VWAN architecture design](./networking/architecture/massive-scale-azure-architecture.yml) ([#6cb6eadcbc](https://github.com/MicrosoftDocs/architecture-center/commit/6cb6eadcbc))
+- [Choose a Microsoft Fabric deployment pattern](./data-guide/technology-choices/fabric-deployment-patterns.md) ([#9a485e890e](https://github.com/MicrosoftDocs/architecture-center/commit/9a485e890e))
+- [Baseline architecture for an Azure Kubernetes Service (AKS) cluster](./reference-architectures/containers/aks/baseline-aks.yml) ([#794cedb5eb](https://github.com/MicrosoftDocs/architecture-center/commit/794cedb5eb), [#0c29db71f4](https://github.com/MicrosoftDocs/architecture-center/commit/0c29db71f4))
+- [Azure Local hyperconverged baseline reference architecture](./hybrid/azure-local-baseline.yml) ([#09f067d676](https://github.com/MicrosoftDocs/architecture-center/commit/09f067d676))
+- [Workload identity and access in EKS and AKS](./aws-professional/eks-to-aks/workload-identity.md) ([#f30a6675b6](https://github.com/MicrosoftDocs/architecture-center/commit/f30a6675b6))
+- [SAP S/4HANA in Linux on Azure](./guide/sap/sap-s4hana.md) ([#989749885a](https://github.com/MicrosoftDocs/architecture-center/commit/989749885a))
 
 ## October 2026
 
@@ -226,51 +242,6 @@ The following new and updated articles have recently been published in the Azure
 - [Move archive data from mainframe systems to Azure](./example-scenario/mainframe/move-archive-data-mainframes.yml) ([#afe54b6798](https://github.com/MicrosoftDocs/architecture-center/commit/afe54b6798))
 - [Modern data warehouse medallion architecture in Microsoft Fabric](./databases/architecture/dataops-mdw.yml) ([#0f4f8554cf](https://github.com/MicrosoftDocs/architecture-center/commit/0f4f8554cf))
 - [Choose an Azure AI image and video processing and generation technology](./data-guide/ai-services/image-video-processing.md) ([#179369cce0](https://github.com/MicrosoftDocs/architecture-center/commit/179369cce0))
-
-## July 2026
-
-### New articles
-
-- [Agentic AI for the reference solution](./guide/iot/agentic-ai-for-the-solution.md)
-- [Connect Azure Data Explorer to the reference solution](./guide/iot/how-to-connect-azure-data-explorer-to-solution.md)
-- [Connect Microsoft Dynamics 365 Field Service to the reference solution](./guide/iot/how-to-connect-dynamics-field-service-to-the-solution.md)
-- [Connect Azure Managed Grafana to the reference solution](./guide/iot/how-to-connect-grafana-to-solution.md)
-- [Connect Power BI to the reference solution](./guide/iot/how-to-connect-power-bi-to-the-solution.md)
-- [Import OPC UA Information Models from the UA Cloud Library](./guide/iot/import-opc-ua-information-models-from-ua-cloud-library.md)
-- [Scalable Windows Virtual Machine Patch Management](./virtual-machines/patch-management.md)
-- [Design a Ransomware-Resilient Backup Architecture by Using Azure Backup](./security/ransomware-resilient-backup-architecture/index.md)
-
-### Updated articles
-
-- [Connect Azure Databricks to the reference solution](./guide/iot/how-to-connect-databricks-to-solution.md) ([#2b8d7058e9](https://github.com/MicrosoftDocs/architecture-center/commit/2b8d7058e9))
-- [Connect Microsoft Fabric to the reference solution](./guide/iot/how-to-connect-fabric-to-solution.md) ([#2b8d7058e9](https://github.com/MicrosoftDocs/architecture-center/commit/2b8d7058e9))
-- [Siemens Teamcenter Baseline Architecture on Azure](./example-scenario/manufacturing/teamcenter-baseline.yml) ([#dc89526a03](https://github.com/MicrosoftDocs/architecture-center/commit/dc89526a03))
-- [Choreography Pattern](./patterns/choreography.md) ([#ec74a8d712](https://github.com/MicrosoftDocs/architecture-center/commit/ec74a8d712))
-- [Baseline Microsoft Foundry Chat Reference Architecture](./ai-ml/architecture/baseline-microsoft-foundry-chat.yml) ([#667e8fe868](https://github.com/MicrosoftDocs/architecture-center/commit/667e8fe868))
-- [DevSecOps for infrastructure as code (IaC)](./solution-ideas/articles/devsecops-infrastructure-as-code.yml) ([#3f78e1fdc7](https://github.com/MicrosoftDocs/architecture-center/commit/3f78e1fdc7))
-- [SAP deployment on Azure by using an Oracle database](./example-scenario/apps/sap-production.yml) ([#8c020be27f](https://github.com/MicrosoftDocs/architecture-center/commit/8c020be27f))
-- [Choose an Analytical Data Store in Microsoft Fabric](./data-guide/technology-choices/fabric-analytical-data-stores.md) ([#ae8b8ce412](https://github.com/MicrosoftDocs/architecture-center/commit/ae8b8ce412))
-- [AKS Triage—Node and Pod Health](./operator-guides/aks/aks-triage-node-health.md) ([#52bd2b3bd4](https://github.com/MicrosoftDocs/architecture-center/commit/52bd2b3bd4))
-- [Implement a Zero Trust Network for Web Applications by Using Azure Firewall and Azure Application Gateway](./example-scenario/gateway/application-gateway-before-azure-firewall.md) ([#5ab4e55062](https://github.com/MicrosoftDocs/architecture-center/commit/5ab4e55062))
-- [Baseline Highly Available Zone-Redundant App Services Web Application](./web-apps/app-service/architectures/baseline-zone-redundant.yml) ([#44f1a85aab](https://github.com/MicrosoftDocs/architecture-center/commit/44f1a85aab))
-- [Baseline Architecture for an AKS Cluster](./reference-architectures/containers/aks/baseline-aks.yml) ([#1eeebb67af](https://github.com/MicrosoftDocs/architecture-center/commit/1eeebb67af))
-- [Generate Documents from Your Data](./ai-ml/idea/generate-documents-from-your-data.yml) ([#b09bbee823](https://github.com/MicrosoftDocs/architecture-center/commit/b09bbee823))
-- [Enhance Network Access Security to Kubernetes](./aws-professional/eks-to-aks/private-clusters.md) ([#755315aaeb](https://github.com/MicrosoftDocs/architecture-center/commit/755315aaeb))
-- [Multiple-region Architectures for Azure App Service Disaster Recovery](./web-apps/guides/multi-region-app-service/multi-region-app-service.md) ([#0ab9711527](https://github.com/MicrosoftDocs/architecture-center/commit/0ab9711527))
-- [Use Azure Kubernetes Service to Host GPU-Based Workloads](./reference-architectures/containers/aks-gpu/gpu-aks.md) ([#a4102f390a](https://github.com/MicrosoftDocs/architecture-center/commit/a4102f390a))
-- [Secure Azure Functions with Event Hubs](./serverless/event-hubs-functions/security.md) ([#454f94aa8f](https://github.com/MicrosoftDocs/architecture-center/commit/454f94aa8f))
-- [Performance and Scale Guidance for Event Hubs with Azure Functions](./serverless/event-hubs-functions/performance-scale.md) ([#ad7919e079](https://github.com/MicrosoftDocs/architecture-center/commit/ad7919e079))
-- [Image Classification on Azure](./ai-ml/idea/intelligent-apps-image-processing.yml) ([#58306041b8](https://github.com/MicrosoftDocs/architecture-center/commit/58306041b8))
-- [Resilient Design Guidance for Event Hubs and Functions](./serverless/event-hubs-functions/resilient-design.md) ([#ad613d7e5b](https://github.com/MicrosoftDocs/architecture-center/commit/ad613d7e5b))
-- [Use a Message Broker and Events to Integrate Enterprise Systems](./example-scenario/integration/queues-events.yml) ([#d598d341fe](https://github.com/MicrosoftDocs/architecture-center/commit/d598d341fe))
-- [Build the Second Layer of Defense by Using Microsoft Defender XDR](./solution-ideas/articles/microsoft-defender-xdr-build-second-layer-defense.yml) ([#1ecd89d0e5](https://github.com/MicrosoftDocs/architecture-center/commit/1ecd89d0e5))
-- [Multitenancy and Azure Event Hubs](./guide/multitenant/service/event-hubs.md) ([#21ad4a1cbc](https://github.com/MicrosoftDocs/architecture-center/commit/21ad4a1cbc))
-- [Multitenancy and Azure Storage](./guide/multitenant/service/storage.md) ([#c819e80719](https://github.com/MicrosoftDocs/architecture-center/commit/c819e80719))
-- [Guidance for Using Azure Database for PostgreSQL in a Multitenant Solution](./guide/multitenant/service/postgresql.md) ([#bdf00d4fc9](https://github.com/MicrosoftDocs/architecture-center/commit/bdf00d4fc9))
-- [Implement a secure hybrid network](./reference-architectures/dmz/secure-vnet-dmz.yml) ([#3ce9fb5abe](https://github.com/MicrosoftDocs/architecture-center/commit/3ce9fb5abe))
-- [Baseline Microsoft Foundry chat reference architecture](./ai-ml/architecture/baseline-microsoft-foundry-chat.yml) ([#435ceb39f7](https://github.com/MicrosoftDocs/architecture-center/commit/435ceb39f7))
-- [Enhance network access security to Kubernetes](./aws-professional/eks-to-aks/private-clusters.md) ([#2e5c6766fe](https://github.com/MicrosoftDocs/architecture-center/commit/2e5c6766fe))
-- [Baseline architecture for an Azure Kubernetes Service (AKS) cluster](./reference-architectures/containers/aks/baseline-aks.yml) ([#8b1720ce2e](https://github.com/MicrosoftDocs/architecture-center/commit/8b1720ce2e))
 
 ## Azure updates
 

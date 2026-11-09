@@ -1,4 +1,4 @@
-This article describes how to expose and protect a workload that runs in Azure Kubernetes Service (AKS) by using Azure Front Door, Azure Web Application Firewall, and an Azure Private Link service in a more secure manner. This architecture uses a Gateway API ingress implementation to expose a web application. The Gateway API ingress implementation is configured to use a private IP address as a front-end IP configuration of the AKS internal load balancer. The deployment provides end-to-end Transport Layer Security (TLS) encryption.
+This article describes how to securely expose a workload that runs in Azure Kubernetes Service (AKS) by using Azure Front Door, Azure Web Application Firewall, Azure Private Link, and a Gateway API ingress implementation. The architecture provides private connectivity between Azure Front Door and the AKS workload. Azure Front Door terminates the client TLS connection at the edge and establishes a separate TLS connection to the AKS origin. The Gateway API implementation uses a private IP address on the AKS internal load balancer.
 
 ## Architecture
 
@@ -101,7 +101,7 @@ The following steps describe the message flow for a request that an external cli
 
   - The [Text (TXT)](/azure/templates/microsoft.network/dnszones/txt) record contains the validation token for the custom domain. You can use a TXT record within a DNS zone to store arbitrary text information that's associated with a domain.
 
-- A [Private Link service](/azure/private-link/private-link-service-overview) is configured to reference the *kubernetes-internal* internal load balancer of the AKS cluster. When you enable Private Link to your origin in Azure Front Door Premium, Azure Front Door creates a private endpoint from an Azure Front Door-managed regional private network. You receive an Azure Front Door private endpoint request at the origin for your approval. For more information, see [Secure your origin with Private Link in Azure Front Door Premium](/azure/frontdoor/private-link).
+- A [Private Link service](/azure/private-link/private-link-service-overview) is configured to reference the *kubernetes-internal* internal load balancer of the AKS cluster. When you enable Private Link for the origin, Azure Front Door Premium creates a managed private endpoint request. For more information, see [Secure your origin with Private Link in Azure Front Door Premium](/azure/frontdoor/private-link).
 
 - [Azure Virtual Network](/azure/well-architected/service-guides/virtual-network) is used to create a single virtual network with six subnets:
 
@@ -109,8 +109,8 @@ The following steps describe the message flow for a request that an external cli
 
   - *UserSubnet* is used for the agent nodes of the user node pool.
   
-  - *PodSubnet* is used to dynamically allocate private IP addresses to pods when the AKS cluster is configured to use [Azure content networking interface](/azure/aks/configure-azure-cni) with [dynamic IP address allocation](/azure/aks/configure-azure-cni-dynamic-ip-allocation).
-  
+  - *PodSubnet* is used to dynamically allocate private IP addresses to pods when the AKS cluster is configured to use [Azure Container Networking Interface](/azure/aks/configure-azure-cni) with [dynamic IP address allocation](/azure/aks/configure-azure-cni-dynamic-ip-allocation).
+
   - *ApiServerSubnet* uses [API server virtual network integration](/azure/aks/api-server-vnet-integration) to project the API server endpoint directly into this delegated subnet where the AKS cluster is deployed.
 
   - *AzureBastionSubnet* is used for the [Azure Bastion host](/azure/bastion/bastion-overview).
@@ -177,7 +177,7 @@ To automatically create a managed Private Link service to the AKS cluster load b
 
 This scenario uses [Azure Front Door Premium](/azure/frontdoor/front-door-overview), [end-to-end TLS encryption](/azure/frontdoor/end-to-end-tls), [Azure Web Application Firewall](/azure/web-application-firewall/afds/afds-overview), and a [Private Link service](/azure/private-link/private-link-service-overview) to securely expose and protect a workload that runs in [AKS](/azure/aks/what-is-aks).
 
-This architecture uses the Azure Front Door TLS and Secure Sockets Layer (SSL) offload capability to terminate the TLS connection and decrypt the incoming traffic at the Front Door. The traffic is reencrypted before it's forwarded to the origin, which is a web application that's hosted in an AKS cluster. HTTPS is configured as the forwarding protocol on Azure Front Door when Azure Front Door connects to the AKS-hosted workload that's configured as an origin. This practice enforces end-to-end TLS encryption for the entire request process, from the client to the origin. For more information, see [Secure your origin with Private Link in Azure Front Door Premium](/azure/frontdoor/private-link).
+This architecture uses Azure Front Door TLS offload to terminate the client TLS connection and decrypt incoming traffic at Azure Front Door. Azure Front Door then establishes a new TLS connection to the origin and reencrypts the traffic before forwarding the request to the AKS-hosted application. Configure HTTPS as the forwarding protocol between Azure Front Door and the AKS origin to provide TLS encryption from the client to Azure Front Door and from Azure Front Door to the origin. For more information, see [Secure your origin with Private Link in Azure Front Door Premium](/azure/frontdoor/private-link).
 
 The Gateway API ingress layer exposes the AKS-hosted web application. Configure the managed application routing Gateway API implementation or your bring-your-own Gateway API implementation to use a private IP address as a front-end IP configuration of the `kubernetes-internal` internal load balancer. The Gateway API implementation uses HTTPS as the transport protocol to expose the web application. For more information, see [Application routing with Gateway API](/azure/aks/app-routing-gateway-api) and [Use an internal load balancer with AKS](/azure/aks/internal-lb).
 
@@ -225,7 +225,7 @@ These recommendations are essential for single-tenant AKS solutions and aren't s
 
 - Store your container images in [Container Registry](/azure/container-registry/container-registry-intro). Geo-replicate the registry to each region where you deploy your AKS solution.
 
-- If possible, don't store service state in a container. Instead, store service state in an Azure platform as a service (PaaS) storage solution that supports multiregion replication. This approach improves resiliency and simplifies disaster recovery because you can preserve each service's critical data across regions.
+- If possible, don't store service state in a container. Instead, store service state in an Azure Platform as a Service (PaaS) storage solution that supports multiregion replication. This approach improves resiliency and simplifies disaster recovery because you can preserve each service's critical data across regions.
 
 - If you use Storage, prepare and test processes to migrate your storage from the primary region to the backup region.
 
@@ -234,6 +234,8 @@ These recommendations are essential for single-tenant AKS solutions and aren't s
 Security provides assurances against deliberate attacks and the misuse of your valuable data and systems. For more information, see [Design review checklist for Security](/azure/well-architected/security/checklist).
 
 - Use a WAF to protect AKS-hosted web applications and services that expose a public HTTPS endpoint. You need to provide protection from common threats like SQL injection, cross-site scripting, and other web exploits. Follow OWASP rules and your own custom rules. [Azure Web Application Firewall](/azure/web-application-firewall/overview) provides improved centralized protection of your web applications from common exploits and vulnerabilities. You can deploy an Azure WAF by using [Azure Application Gateway](/azure/web-application-firewall/ag/ag-overview), [Azure Front Door](/azure/web-application-firewall/afds/afds-overview), or [Azure Content Delivery Network](/azure/web-application-firewall/cdn/cdn-overview).
+
+- Configure the AKS origin so that application traffic can't bypass Azure Front Door. In this architecture, the internal load balancer and Private Link service provide a private path to the origin. You can also use network security groups to restrict unintended inbound access to the virtual network. Keeping the origin private helps ensure that requests pass through Azure Front Door and its Web Application Firewall protections. For more information, see [Secure traffic to Azure Front Door origins](/azure/frontdoor/origin-security).
 
 - Use [Azure DDoS Protection](/azure/ddos-protection/ddos-protection-overview) and application design best practices to defend against workload distributed denial-of-service (DDoS) attacks. Azure protects its infrastructure and services against DDoS attacks. This protection helps ensure the availability of regions, availability zones, and services. You should also protect your workload's public endpoints from DDoS attacks at Layer 4 and Layer 7. You can enable [Azure DDOS Protection](/azure/ddos-protection/manage-ddos-protection) on perimeter virtual networks.
 
@@ -309,8 +311,9 @@ Operational Excellence covers the operations processes that deploy an applicatio
 
 *Microsoft maintains this article. The following contributors wrote this article.*
 
-Principal author:
+Principal authors:
 
+- [Osama Masfary](https://www.linkedin.com/in/osamamasfary) | Senior Solution Engineer
 - [Paolo Salvatori](https://www.linkedin.com/in/paolo-salvatori) | Principal Service Engineer
 
 *To see nonpublic LinkedIn profiles, sign in to LinkedIn.*

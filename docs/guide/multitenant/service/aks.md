@@ -317,7 +317,9 @@ This approach has the following risks:
 
 - Management and monitoring of multiple AKS clusters requires centralized monitoring and a consistent strategy.
 
-## Configure autoscaling
+<a name='configure-autoscaling'></a>
+
+## Autoscaling considerations
 
 To meet the traffic demand that tenant applications generate, turn on the [cluster autoscaler](/azure/aks/cluster-autoscaler) to scale the agent nodes of AKS. Autoscaling helps systems remain responsive in the following circumstances:
 
