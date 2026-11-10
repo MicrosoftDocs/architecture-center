@@ -18,7 +18,15 @@ Azure Queue Storage stores messages for asynchronous processing. This article de
 
 Queue Storage doesn't expose a partition key or subqueue within a queue. The queue is the smallest boundary that you can use to distribute message load, and the storage account is the next boundary. A shared queue doesn't provide tenant-specific throughput or performance isolation.
 
-For messages that are 1 KiB, a single queue has a target throughput of up to 2,000 messages per second, and a storage account has a maximum request rate of 20,000 messages per second. Message size and access patterns affect the throughput that your workload achieves. Queue messages can be up to 64 KiB. For larger messages or advanced broker features, consider using [Azure Service Bus](service-bus.md).
+Consider the following Queue Storage targets and limits when you plan message load:
+
+| Parameter | Value |
+| --- | --- |
+| Target throughput for a single queue (1-KiB messages) | Up to 2,000 messages per second |
+| Maximum request rate per storage account (1-KiB messages) | 20,000 messages per second |
+| Maximum queue message size | 64 KiB |
+
+Message size and access patterns affect the throughput that your workload achieves. For larger messages or advanced broker features, consider using [Azure Service Bus](service-bus.md).
 
 If your workload can exceed the per-queue target, distribute messages across multiple queues. Depending on your routing and operational requirements, you can partition queues by tenant, tenant group or service tier, functional workload, deployment stamp, or region. A high-volume tenant that shares a queue with other tenants can consume a disproportionate share of the queue's throughput and cause throttling for other tenants.
 
