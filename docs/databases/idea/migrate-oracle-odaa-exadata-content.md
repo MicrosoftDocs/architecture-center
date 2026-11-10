@@ -80,7 +80,7 @@ The following diagram shows the updated configuration, including the ZDM migrati
 
 ## Conclusion
 
-Do the preceding configuration changes to migrate your database from on-premises to Oracle Exadata Database@Azure by using Oracle ZDM. The configuration changes help ensure that the source and target databases can communicate with each other and that you perform the migration with minimal downtime.
+Follow the guidance in [Establish network connectivity](#establish-network-connectivity), [Do migration activities](#do-migration-activities), and [Do post-migration activities](#do-post-migration-activities) to migrate your database from on-premises to Oracle Exadata Database@Azure by using Oracle ZDM. The configuration changes help ensure that the source and target databases can communicate with each other and that you perform the migration with minimal downtime.
 
 ## Contributors
 
