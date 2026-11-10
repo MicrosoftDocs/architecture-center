@@ -27,7 +27,7 @@ Internal sharding distributes data and request load, but it doesn't provide tena
 Azure Managed Redis provides three cluster policies. The policy affects client connectivity, request routing, throughput, module compatibility, and multikey operations:
 
 - **OSS:** Uses the Redis Cluster API and generally provides the highest throughput. It requires a cluster-aware client that connects directly to shards and handles cluster topology and redirections. The service distributes keys across hash slots.
-- **Enterprise:** Provides a single proxy endpoint, so clients don't need to support the Redis Cluster API. The proxy routes requests to shards but can become a throughput bottleneck. Enterprise is the only cluster policy that supports the RediSearch module.
+- **Enterprise:** Provides a single proxy endpoint, so clients don't need to support the Redis Cluster API. The proxy routes requests to shards but can become a throughput bottleneck. The RediSearch module supports the Enterprise and Non-clustered policies, but not the OSS policy.
 - **Non-clustered:** Stores data without sharding and is available only for instances of 25 GB or less. Consider this policy for migration from a nonsharded Redis deployment or when the workload extensively uses operations that can't span hash slots. Non-clustered instances generally provide less throughput than clustered instances.
 
 Choose the cluster policy when you create the instance. You can't change an OSS or Enterprise policy after creation without recreating the instance, but you can change a non-clustered instance to a clustered configuration. For more information, see [Azure Managed Redis cluster policies](/azure/redis/architecture#cluster-policies).
@@ -172,7 +172,7 @@ Select and enable the required modules when you create the Azure Managed Redis i
 - **RedisTimeSeries** provides optimized time-series storage that can be useful for per-tenant telemetry or monitoring data. RedisTimeSeries isn't available on the Flash Optimized tier.
 
 > [!NOTE]
-> Some modules require your instance to have specific configuration.
+> Before you create the instance, check [module tier availability](/azure/redis/redis-modules#scope-of-redis-modules), [active geo-replication compatibility](/azure/redis/redis-modules#using-modules-with-active-geo-replication), and [RediSearch cluster-policy requirements](/azure/redis/redis-modules#redisearch).
 
 ## Contributors
 
