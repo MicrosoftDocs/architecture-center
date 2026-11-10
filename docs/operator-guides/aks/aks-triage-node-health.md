@@ -330,7 +330,7 @@ NPD reports two categories of signals:
 
 - **Events.** Discrete, time-bound occurrences like `OOMKilling`, `TaskHung`, `DNSProblem`, `KernelOops`, `EgressBlocked`, and scheduled-event notifications (`FreezeScheduled`, `RebootScheduled`, `RedeployScheduled`, `TerminateScheduled`, and `PreemptScheduled`).
 
-View node conditions by using `kubectl describe node <node-name>`. View NPD-emitted events by using `kubectl get events --field-selector source=node-problem-detector`. These events also flow through the Kubernetes events pipeline described in step 1, so any retention or alerting that you configure there applies to NPD output.
+View node conditions by using `kubectl describe node <node-name>`. View NPD-emitted events by using `kubectl get events --field-selector source=node-problem-detector`. These events also flow through the Kubernetes events pipeline described in [Kubernetes events](#kubernetes-events), so any retention or alerting that you configure there applies to NPD output.
 
 ### Prometheus metrics from NPD
 
