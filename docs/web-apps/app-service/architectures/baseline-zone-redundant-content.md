@@ -27,7 +27,7 @@ This architecture shares many components with the [basic web app architecture](.
 
 - [Azure DNS](/azure/dns/dns-overview) is a hosting service for Domain Name System (DNS) domains. It provides name resolution by using Microsoft Azure infrastructure. Private DNS zones map a service's fully qualified domain name (FQDN) to a private endpoint's IP address. In this architecture, private DNS zones map the App Service default domain and other PaaS service domains to their private endpoint addresses so that all traffic stays on the private network.
 
-- [Azure Monitor health models (preview)](/azure/azure-monitor/health-models/overview) aggregate telemetry and dependency health. In this architecture, it's optionally used to reflect and signal the health of the whole workload.
+- [Azure Monitor health models](/azure/azure-monitor/health-models/overview) aggregate telemetry and dependency health. In this architecture, it's optionally used to reflect and signal the health of the whole workload.
 
 ## Networking
 
@@ -445,9 +445,9 @@ App Service provides built-in and integrated monitoring capabilities for improve
 
 - Don't enable or configure anything to use [Azure Cosmos DB insights](/azure/cosmos-db/insights-overview) if your architecture includes Azure Cosmos DB.
 
-##### Optional health modeling (preview)
+##### Optional health modeling
 
-Consider using [Azure Monitor health models (preview)](/azure/azure-monitor/health-models/overview) when workload-level health aggregation helps operators correlate issues across ingress, application code, and backing services. If resource-specific alerts already provide sufficient context, retain that approach without adding a model. While this feature is in preview, use it for supplementary aggregation and triage. Resource-specific Azure Monitor alerts should be the default production alerting path.
+Consider using [Azure Monitor health models](/azure/azure-monitor/health-models/overview) when workload-level health aggregation helps operators correlate issues across ingress, application code, and backing services. If resource-specific alerts already provide sufficient context, retain that approach without adding a model. During evaluation, use it for supplementary aggregation and triage. Resource-specific Azure Monitor alerts should be the default production alerting path.
 
 In this architecture, you would represent the web app as a workload entity with dependencies for Application Gateway, App Service, SQL Database, and the Key Vault or Azure Storage resources that its operations require. Tune [health propagation](/azure/azure-monitor/health-models/concepts#health-propagation-settings) to reflect workload behavior instead of treating every resource fault as an application outage.
 
@@ -469,7 +469,7 @@ To adopt health models:
 
 1. Validate signal thresholds and dependency propagation in preproduction under failure, recovery, slot-swap, low-traffic, and missing or delayed telemetry conditions. Treat missing telemetry or an [Unknown state](/azure/azure-monitor/health-models/concepts#health-states) as insufficient evidence of health.
 
-1. Leave health model alerts turned off during evaluation to avoid duplicate paging. Ensure that [resource-specific alert rules continue to operate](/azure/azure-monitor/health-models/alerts#migrate-from-resource-specific-alert-rules). Use the model as advisory evidence while the Azure Monitor health models feature is in preview.
+1. Leave health model alerts turned off during evaluation to avoid duplicate paging. Ensure that [resource-specific alert rules continue to operate](/azure/azure-monitor/health-models/alerts#migrate-from-resource-specific-alert-rules). Use the model as advisory evidence during evaluation.
 
 ### Performance Efficiency
 
