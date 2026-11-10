@@ -6,6 +6,12 @@ private: true
 
 on:
   workflow_dispatch:
+    inputs:
+      path:
+        description: "Optional repo-relative SVG path (docs/.../file.svg). Leave blank for rotation."
+        type: string
+        required: false
+        default: ""
   schedule:
     - cron: every 4h
 
@@ -14,6 +20,7 @@ if: github.repository == 'MicrosoftDocs/architecture-center-pr' && github.ref ==
 concurrency:
   group: svg-icon-updater
   cancel-in-progress: false
+  job-discriminator: ${{ github.run_id }}
 
 permissions:
   contents: read
@@ -76,7 +83,7 @@ steps:
         const catalog = loadIconCatalog("_svg-icon-reference/memory/svg-icon-catalog");
         console.log(`Loaded ${catalog.records.length} official SVG icons.`);
       '
-  - name: Select the next SVG in the repeating alphabetical rotation
+  - name: Select the requested SVG or next rotation entry
     uses: actions/github-script@3a2844b7e9c422d3c10d287c895573f7108da1b3 # v9.0.0
     with:
       script: |
