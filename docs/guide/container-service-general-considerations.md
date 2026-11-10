@@ -121,7 +121,7 @@ AKS requirements depend on your chosen network plug-in. Some network plug-ins fo
 
 The types of traffic flow required for a solution can affect the network design.
 
-The following sections describe various networking constraints. These constraints influence whether you need to deploy extra subnets, depending on your requirements for the following configurations:
+The [Subnet planning](#subnet-planning) and [Ingress IP address availability](#ingress-ip-address-availability) sections describe networking constraints. These constraints influence whether you need to deploy extra subnets, depending on your requirements for the following configurations:
 
 - Multiple colocated workloads
 
