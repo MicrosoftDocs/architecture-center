@@ -303,7 +303,7 @@ The improved Azure fence agent is available for both [SUSE](/azure/sap/workloads
 
 Another fencing option is to use [Azure shared disks](/azure/virtual-machines/disks-shared) for the fencing device. On SLES 15 SP1 or SLES for SAP 15 SP1 and later, you can set up a Pacemaker cluster by using [Azure shared disks](/azure/virtual-machines/disks-shared#sample-linux-shared-disk-workloads). This option is simple and doesn't require an open network port like the Azure fence agent.
 
-A recently supported and simpler Pacemaker configuration on SLES 15 and later is [HA SAP NetWeaver with simple mount and NFS on SLES for SAP Applications VMs](/azure/sap/workloads/high-availability-guide-suse-nfs-simple-mount). In this configuration, the SAP file shares are taken out of the cluster management, which makes it simpler to operate. Use this HA configuration for all new deployments.
+A recently supported and simpler Pacemaker configuration on SLES 15 and later is [HA SAP NetWeaver with simple mount and NFS on SLES for SAP Applications VMs](/azure/sap/workloads/high-availability-guide-suse-nfs-simple-mount). In this configuration, the SAP file shares are taken out of the cluster management, which makes it simpler to operate. Use this HA configuration for all new SAP Central Services HA deployments on SLES for SAP Applications 15 and later.
 
 To further manage costs of a large SAP landscape, Linux clusters support [ASCS multi-SID installation](/azure/sap/workloads/high-availability-guide-suse-multi-sid) on Azure. Sharing an availability cluster among multiple SAP systems simplifies the SAP landscape and reduces operation costs.
 

@@ -32,7 +32,10 @@ For Cassandra workloads on Azure, evaluate current VM sizes such as [Standard_D1
 
 For durability, data and commit logs are commonly stored on a stripe set of two to four 1-TB [Premium SSDs](/azure/virtual-machines/disks-types#premium-ssds) (P30).
 
-Cassandra nodes shouldn't be too data-dense. We recommend having at most 1 to 2 TB of data per VM and enough free space for compaction. To increase combined throughput and IOPS using Premium SSDs, we recommend creating a stripe set from a few 1-TiB disks, instead of using a single 2-TiB or 4-TiB disk. For example, on a [Standard_E16s_v6][esv6] VM, four P30 disks provide a combined 20,000 IOPS at [baseline provisioned performance](/azure/virtual-machines/disks-types#premium-ssd-size), versus 7,500 IOPS for a single P50 disk. Keep the stripe set within the VM's uncached limits of 25,600 Premium SSD IOPS and 848 MBps.
+- **Data density:** Keep at most 1 to 2 TB of data per VM and enough free space for compaction.
+- **Disk layout:** To increase combined throughput and IOPS using Premium SSDs, create a stripe set from a few 1-TiB disks, instead of using a single 2-TiB or 4-TiB disk.
+- **Baseline IOPS example:** On a [Standard_E16s_v6][esv6] VM, four P30 disks provide a combined 20,000 IOPS at [baseline provisioned performance](/azure/virtual-machines/disks-types#premium-ssd-size), versus 7,500 IOPS for a single P50 disk.
+- **VM limits:** Keep the stripe set within the Standard_E16s_v6 VM's uncached limits of 25,600 Premium SSD IOPS and 848 MBps.
 
 Evaluate [Azure Ultra Disks](/azure/virtual-machines/disks-enable-ultra-ssd) for Cassandra workloads that need smaller disk capacity. They can provide higher IOPS/throughput and lower latency on VM sizes like [Standard_E16s_v6][esv6] and [Standard_D16s_v6][dsv6].
 

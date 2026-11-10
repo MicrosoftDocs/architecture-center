@@ -41,22 +41,32 @@ async function prepare({ context, core, workspace = process.env.GITHUB_WORKSPACE
   const revision = execFileSync('git', ['rev-parse', 'HEAD'], { cwd: reference, encoding: 'utf8' }).trim();
   const stateFile = path.join(memory, 'state.json');
   const state = loadState(stateFile);
+  const requestedPath = context.eventName === 'workflow_dispatch' ? context.payload?.inputs?.path ?? '' : '';
+  assert.equal(typeof requestedPath, 'string', 'Requested SVG path must be a string');
   const tracked = execFileSync('git', ['ls-files', '-z', '--', 'docs'], { cwd: root, encoding: 'utf8' })
     .split('\0').filter(isSvg);
   for (const file of tracked) {
     const absolute = path.join(root, file);
     assert.ok(fs.lstatSync(absolute).isFile(), `SVG input must be a regular file: ${file}`);
   }
-  const selection = choose(tracked, state.last_processed_path);
+  if (requestedPath) {
+    assert.ok(isSvg(requestedPath) && tracked.includes(requestedPath),
+      'Requested path must be a tracked, eligible docs SVG path, for example docs/ai-ml/architecture/_images/example.svg');
+  }
+  const selection = requestedPath
+    ? { selected: requestedPath, eligible_count: tracked.length, wrapped: false }
+    : choose(tracked, state.last_processed_path);
   const selected = selection.selected
     ? { path: selection.selected, sha256: hash(fs.readFileSync(path.join(root, selection.selected))) }
     : null;
-  fs.mkdirSync(memory, { recursive: true });
   fs.mkdirSync(path.join(data, 'artifacts'), { recursive: true });
   const cursorBefore = state.last_processed_path;
-  if (selected) state.last_processed_path = selected.path;
-  // Cursor advancement is attempt rotation, never semantic verification.
-  writeJson(stateFile, state);
+  if (!requestedPath) {
+    fs.mkdirSync(memory, { recursive: true });
+    if (selected) state.last_processed_path = selected.path;
+    // Cursor advancement is attempt rotation, never semantic verification.
+    writeJson(stateFile, state);
+  }
   const work = {
     schema_version: 1,
     source_revision: execFileSync('git', ['rev-parse', 'HEAD'], { cwd: root, encoding: 'utf8' }).trim(),
@@ -69,6 +79,7 @@ async function prepare({ context, core, workspace = process.env.GITHUB_WORKSPACE
     font: path.join(data, 'fonts/DejaVuSans.ttf'),
     input: selection.selected ? path.join(data, 'artifacts/input.svg') : null,
     selected,
+    selection_mode: requestedPath ? 'explicit-path' : 'rotation',
     cursor_before: cursorBefore,
     cursor_after: state.last_processed_path,
     wrapped: selection.wrapped,
@@ -82,6 +93,7 @@ async function prepare({ context, core, workspace = process.env.GITHUB_WORKSPACE
   await core.summary.addHeading('SVG icon updater selection', 3).addTable([
     [{ data: 'Metric', header: true }, { data: 'Value', header: true }],
     ['Selected SVG', work.selected?.path || '(none)'],
+    ['Selection mode', requestedPath ? 'Explicit path (cursor unchanged)' : 'Alphabetical rotation'],
     ['Eligible SVGs', String(work.eligible_count)],
     ['Cursor before', cursorBefore || '(start)'],
     ['Cursor after', state.last_processed_path || '(none)'],

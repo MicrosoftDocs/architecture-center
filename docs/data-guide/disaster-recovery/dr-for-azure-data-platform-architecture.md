@@ -28,7 +28,7 @@ Diagram that shows an Azure landing zone architecture that uses a hub-and-spoke 
 
 ### Azure foundations workflow
 
-The following workflow corresponds to the previous diagram:
+The following workflow corresponds to the Azure landing zone architecture diagram:
 
 1. **Enterprise enrollment:** The top-level enterprise enrollment in Azure that reflects Contoso's commercial agreement with Microsoft. This enrollment defines the organizational account structure, available Azure subscriptions, and billing foundation for the digital estate.
 
