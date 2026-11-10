@@ -432,7 +432,7 @@ For workloads that run on an AKS cluster, integrate them by using [Application G
 
 Azure Firewall plays an important role in AKS cluster security. It provides the required functionality to filter egress traffic from the AKS cluster based on FQDN, not only the IP address. For more information, see [Limit network traffic by using Azure Firewall in AKS][aks-egress].
 
-When you combine Application Gateway and Azure Firewall to protect an AKS cluster, it's best to use the parallel design option. Application Gateway with Azure Web Application Firewall processes inbound connection requests to web applications in the cluster. Azure Firewall permits only explicitly allowed outbound connections. For more information about the parallel design option, see [Baseline architecture for an AKS cluster][aks-secure-baseline].
+When you combine Application Gateway and Azure Firewall to protect an AKS cluster, use the parallel design option if you don't require Azure Firewall to inspect traffic between Application Gateway and the AKS back end. Application Gateway with Azure Web Application Firewall processes inbound connection requests to web applications in the cluster. Azure Firewall permits only explicitly allowed outbound connections. If you require firewall inspection between Application Gateway and the AKS back end, review the [Application Gateway in front of Azure Firewall design](#application-gateway-in-front-of-azure-firewall-design). For more information about the parallel design option, see [Baseline architecture for an AKS cluster][aks-secure-baseline].
 
 ### Azure Front Door
 
