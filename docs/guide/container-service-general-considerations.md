@@ -440,7 +440,7 @@ To successfully run a workload in production, you need to implement operational 
 
 ### Updates and patches
 
-It's important that an application's underlying OS is updated and regularly patched. However, every update poses a failure risk. This section and the next section describe the key considerations for the three container services regarding the shared responsibility between the customer and the platform.
+It's important that an application's underlying OS is updated and regularly patched. However, every update poses a failure risk. This section and the [Container image updates](#container-image-updates) section describe the key considerations for the three container services regarding the shared responsibility between the customer and the platform.
 
 As a managed Kubernetes service, AKS provides the updated images for the node OS and control plane components. But workload teams are responsible for applying updates to their clusters. You can manually trigger updates or use the [cluster automatic-upgrade channels](/azure/aks/auto-upgrade-cluster) feature to ensure that your clusters are up-to-date. For more information about the AKS day-2 operations guide, see [Patch and upgrade AKS clusters](/azure/architecture/operator-guides/aks/aks-upgrade-practices).
 
