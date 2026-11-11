@@ -101,10 +101,10 @@ safe-outputs:
       - "svg-icon-updater/**/*.svg"
       - "svg-icon-updater/*.png"
       - "svg-icon-updater/**/*.png"
-  github-app:
-    client-id: ${{ vars.LIGHTBOX_JANITOR_CLIENT_ID }}
-    private-key: ${{ secrets.LIGHTBOX_JANITOR_APP_PRIVATE_KEY }}
   create-pull-request:
+    github-app:
+      client-id: ${{ vars.LIGHTBOX_JANITOR_CLIENT_ID }}
+      private-key: ${{ secrets.LIGHTBOX_JANITOR_APP_PRIVATE_KEY }}
     title-prefix: "[Icon Update] "
     draft: false
     protected-files: blocked
