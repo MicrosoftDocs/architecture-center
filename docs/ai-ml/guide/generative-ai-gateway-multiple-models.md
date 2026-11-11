@@ -333,7 +333,7 @@ For data residency compliance, make sure that each geopolitical boundary has its
 
 ### Reasons to avoid a gateway for multiple instances in multiple regions
 
-Don't implement a unified gateway across geopolitical regions when data residency and compliance is required. Doing so would violate the data residency requirements. Use individually addressable gateways per region, and follow the guidance in one of the previous sections.
+Don't implement a unified gateway across geopolitical regions when data residency and compliance is required. Doing so would violate the data residency requirements. Use individually addressable gateways per region, and follow the guidance for the applicable single-region topology: [Multiple model deployments in a single instance](#multiple-model-deployments-in-a-single-instance), [Multiple instances in a single region and a single subscription](#multiple-instances-in-a-single-region-and-a-single-subscription), or [Multiple instances in a single region across multiple subscriptions](#multiple-instances-in-a-single-region-across-multiple-subscriptions).
 
 Don't implement a unified gateway solely to increase quota. Use [Global Standard](/azure/ai-foundry/foundry-models/concepts/deployment-types#global-standard) deployments that use Azure's global infrastructure to dynamically route requests to datacenters that have the best capacity for each request.
 
