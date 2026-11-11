@@ -259,7 +259,7 @@ For more information about scaling API Management, see [Upgrade and scale an API
 API Management [supports multiregion deployments](/azure/api-management/api-management-howto-deploy-multi-region), which means that you can deploy a single logical API Management resource across multiple Azure regions without needing to replicate its configuration onto separate resources. This capability is especially helpful when you distribute or replicate your solution globally. You can deploy regional gateways for low-latency request processing and manage them as a single API Management instance.
 
 > [!IMPORTANT]
-> Multiregion deployment is supported only in some tiers. If your instance uses a different tier, but you need to deploy across multiple regions, use a separate instance for each region and external routing, such as Azure Front Door.
+> Multiregion deployment is supported only in the Premium (classic) tier, not in Premium v2 or other tiers. If your instance uses a different tier, but you need to deploy across multiple regions, use a separate instance for each region and external routing, such as Azure Front Door.
 
 However, if you need fully isolated API Management instances, you might also choose to deploy independent API Management resources into different regions. This approach separates the management plane for each API Management instance.
 
