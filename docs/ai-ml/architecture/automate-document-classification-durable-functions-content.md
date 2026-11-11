@@ -192,7 +192,7 @@ The following articles provide an introduction to relevant technologies:
 For product documentation, see the following resources:
 
 - [Azure documentation for all products](/azure?product=all)
-- [Durable functions documentation](/azure/azure-functions/durable)
+- [Durable functions documentation](/azure/durable-task/durable-functions/durable-functions-overview)
 - [Foundry documentation](/azure/foundry)
 - [Document Intelligence documentation](/azure/ai-services/document-intelligence)
 - [AI Search documentation](/azure/search)

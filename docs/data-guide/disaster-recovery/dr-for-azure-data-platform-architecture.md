@@ -65,7 +65,7 @@ The diagram shows a detailed architecture of a solution built on Fabric. On the 
 
 ### Data flow
 
-The following data flow corresponds to the previous diagram:
+The following data flow corresponds to the Contoso data platform diagram:
 
 1. **Data sources:** The sources and types of data that the platform can ingest.
 
