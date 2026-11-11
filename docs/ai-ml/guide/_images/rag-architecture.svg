@@ -21,7 +21,7 @@
 		.st5 {fill:#000000;stroke:#000000;stroke-linecap:butt;stroke-width:0.75}
 		.st6 {fill:none;stroke:none;stroke-linecap:butt;stroke-width:0.75}
 		.st7 {fill:#ffffff;font-family:Segoe UI;font-size:0.833336em;font-weight:bold}
-		.st8 {fill:#000000;font-family:Arial;font-size:0.833336em}
+		.st8 {fill:#000000;font-family:Segoe UI;font-size:0.833336em}
 		.st9 {fill:#000000;font-family:Segoe UI;font-size:0.833336em;font-weight:bold}
 		.st10 {font-size:1em}
 		.st11 {fill:none;stroke:none;stroke-width:0.25}
