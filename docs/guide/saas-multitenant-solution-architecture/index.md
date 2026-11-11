@@ -1,17 +1,20 @@
 ---
 title: SaaS and Multitenant Solution Architecture
 description: This guide provides an overview of the architectural content for software as a service (SaaS), startups, and multitenancy and guidance about how to architect multitenant solutions on Azure.
-author: PlagueHO 
-ms.author: dascottr 
-ms.date: 12/16/2025
+author: PlagueHO
+ms.author: dascottr
+ms.date: 11/11/2026
+ms.update-cycle: 1095-days
 ms.topic: concept-article
 ms.subservice: architecture-guide
+ai-usage: ai-assisted
 ms.custom:
   - arb-saas
 ---
+
 # SaaS and multitenant solution architecture
 
-An organization can use software as a service (SaaS) to efficiently deliver software to its customers. Typically, a SaaS vendor operates and manages the software for their customers. Many independent software vendors (ISVs) are moving away from providing software that customers must install and manage by themselves to using a SaaS model because it improves customer experience and reduces overhead. This article is an introduction to a series of articles that provide guidance and resources for organizations, including startups, that build SaaS solutions. It also provides extensive guidance about how to architect multitenant solutions on Azure.
+An organization can use software as a service (SaaS) to efficiently deliver software to its customers. Typically, a SaaS vendor operates and manages the software for their customers. Many independent software vendors (ISVs) are moving away from providing software that customers must install and manage by themselves to using a SaaS model because it improves customer experience and reduces overhead. This article is an introduction to a series of articles that provide guidance and resources for organizations, including startups, that build SaaS solutions. The linked series provides extensive guidance about how to architect multitenant solutions on Azure.
 
 ## Key concepts
 
@@ -21,7 +24,7 @@ The key concepts in this article are *SaaS*, *startups*, and *multitenancy*. The
 
 **Startups are businesses in an early stage of their life cycle.** Many software startups build SaaS solutions, but some might provide software in other ways. Startups often have specific concerns, including rapid innovation, finding a product and market fit, and anticipating scale and growth.
 
-**Multitenancy is a way of architecting a solution to share components between multiple tenants, which usually correspond to customers.** You usually use multitenant architectures in SaaS solutions. However, it is also possible to use multitenant architectures outside of SaaS, such as in organizations that build a platform for multiple business units to share. Multitenancy doesn't imply that every component in a solution is shared. Instead, it implies that at least *some* components are shared across multiple tenants.
+**Multitenancy is a way of architecting a solution to share components between multiple tenants, which usually correspond to customers.** You usually use multitenant architectures in SaaS solutions. However, it is also possible to use multitenant architectures outside of SaaS, such as in organizations that build a platform for multiple business units to share. Multitenancy doesn't imply that every component in a solution is shared. Instead, it implies that at least *some* components are shared across multiple tenants. When you share components, you still need to [isolate tenants](../multitenant/considerations/tenancy-models.md#tenant-isolation) to prevent unauthorized access to another tenant's data and resources.
 
 How you [define a tenant](../multitenant/considerations/tenancy-models.md#define-a-tenant) and choose a [tenancy model](../multitenant/considerations/tenancy-models.md#common-tenancy-models) depends on whether your business model is B2C SaaS or B2B SaaS or you're a large organization.
 
@@ -34,7 +37,7 @@ How you [define a tenant](../multitenant/considerations/tenancy-models.md#define
 
 Although multitenancy is typically associated with SaaS solutions, it is also possible to use multitenant architectures in non-SaaS scenarios. The underlying multitenant architecture might be similar, but the business model affects how you define a tenant and your design choices.
 
-In the following diagram, you can see a multitenant architecture that's designed to serve a SaaS business model for both consumers (B2C) and business customers (B2B). Taking a technical lens, B2C tenants are represented by a group of users, like a family, with a set of users in each group. In contrast, B2B tenants represent other businesses and their employees are users.
+In the following diagram, you can see an example multitenant architecture that's designed to serve a SaaS business model for both consumers (B2C) and business customers (B2B). In this example, B2C tenants represent user groups, such as families, with one or more users in each group. B2B tenants represent businesses, with their employees as users.
 
 :::image type="complex" border="false" source="./images/saas-business-model.svg" alt-text="Diagram that shows a multitenant application architecture that serves a SaaS business model." lightbox="./images/saas-business-model.svg":::
    The diagram shows a business model section and a technical architecture section. The business model section includes a SaaS section that has B2C and B2B SaaS types. Arrows point from these types to the tenants in the multitenant application section. The technical architecture section includes tenants, user groups, and employees.
@@ -50,6 +53,6 @@ The key difference between the two diagrams is the business model, which affects
 
 ## Related resources
 
-- [Understand how startups architect their solutions](../startups/startup-architecture.md)
-- [Learn about multitenant architectural approaches](../multitenant/overview.md)
-- [Software as a service (SaaS) Workload Documentation - Azure Well-Architected Framework](/azure/well-architected/saas/)
+- [Understand how startups architect their solutions](../startups/startup-architecture.md). Use this guidance to choose architectural approaches that match your startup's stage of growth.
+- [Learn about multitenant architectural approaches](../multitenant/overview.md). Use this guidance to design and implement multitenant solutions on Azure.
+- [Use the Azure Well-Architected Framework guidance for SaaS workloads](/azure/well-architected/saas/) to design and operate a SaaS workload across technical and operational design areas.
