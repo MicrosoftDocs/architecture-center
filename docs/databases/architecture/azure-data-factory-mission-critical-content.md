@@ -42,7 +42,15 @@ There are several key requirements to deliver a mission-critical advanced analyt
 
   - Service [health modeling](/azure/well-architected/design-guides/health-modeling) to measure and manage the overall health of a workload.
 
-- Audit trails can be initially stored within a Log Analytics workspace for real-time analysis and operational support. After 30 days, or 90 days if using Microsoft Sentinel, audit trails can be automatically transferred to Azure Data Explorer for long-term retention. This approach allows for interactive queries of up to two years within the Log Analytics workspace and the ability to keep older, infrequently used data at a reduced cost for up to 12 years. Use Azure Data Explorer for data storage to enable running cross-platform queries and visualize data across both Azure Data Explorer and Microsoft Sentinel. This approach provides a cost-effective solution for meeting long-term storage requirements while maintaining support optionality. If there's no requirement to hold excessive data, you should consider deleting it.
+- Configure data retention based on the purpose and compliance requirements of each data set. The architecture requires machine learning model audit trails to be retained for ten years. Model outputs and performance metrics that support auditing and retraining are archived through the bronze-layer storage workflow described in this architecture.
+
+    For operational and security logs collected in Azure Monitor Log Analytics, configure retention according to the workload's monitoring, investigation, and compliance requirements:
+
+    - **Analytics retention:** Tables that use the Analytics plan support up to two years of Analytics retention for interactive queries.
+    - **Long-term retention:** Log Analytics supports up to twelve years of total retention. Data remains in the same workspace table after the Analytics retention period and can be retrieved through search jobs.
+    - **Data export:** If logs must also be retained in a separate storage system, configure an appropriate export mechanism. Log Analytics data export rules can continuously export incoming data to Azure Storage or Azure Event Hubs. Retention settings don't automatically transfer older records to another service.
+
+    Configure retention and deletion policies according to the applicable regulatory requirements and the sensitivity of the data. For more information, see [Manage data retention in a Log Analytics workspace](/azure/azure-monitor/logs/data-retention-configure) and [Log Analytics data export rules in Azure Monitor](/azure/azure-monitor/logs/logs-data-export).
 
 ## Architecture
 
