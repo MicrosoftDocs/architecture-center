@@ -44,7 +44,12 @@ Azure provides several ways to manage your resources:
 
 - [Deployment stacks](/azure/azure-resource-manager/bicep/deployment-stacks). A deployment stack is an Azure resource that manages a group of resources as a single unit, across resource group, subscription, and management group scopes. It's the closest Azure equivalent to an AWS CloudFormation stack.
 
-   A resource group is central to the creation, deployment, or modification of most Azure resources. But a resource group is an organizational container, not a deployment unit. If you want the lifecycle behavior of a CloudFormation stack, where the platform tracks which resources a template manages, use a deployment stack. When you remove a resource from the template, the deployment stack's `actionOnUnmanage` setting determines what happens next: the stack either detaches the resource and leaves it in place or deletes it. Set that value deliberately. CloudFormation deletes a removed resource unless you set a `DeletionPolicy` of `Retain`, so a stack configured to detach produces the opposite outcome from the one an AWS architect expects. Deployment stacks also support deny settings, which block changes to managed resources in a way that resembles the behavior of CloudFormation stack policies.
+  Compare these resource-management behaviors:
+
+  - **Resource groups.** A resource group is central to the creation, deployment, or modification of most Azure resources. But a resource group is an organizational container, not a deployment unit.
+  - **Lifecycle tracking.** If you want the lifecycle behavior of a CloudFormation stack, where the platform tracks which resources a template manages, use a deployment stack.
+  - **Resource removal.** When you remove a resource from the template, the deployment stack's `actionOnUnmanage` setting determines what happens next: the stack either detaches the resource and leaves it in place or deletes it. Set that value deliberately. CloudFormation deletes a removed resource unless you set a `DeletionPolicy` of `Retain`, so a stack configured to detach produces the opposite outcome from the one an AWS architect expects.
+  - **Change protection.** Deployment stacks also support deny settings, which block changes to managed resources in a way that resembles the behavior of CloudFormation stack policies.
 
 ## Tagging
 
