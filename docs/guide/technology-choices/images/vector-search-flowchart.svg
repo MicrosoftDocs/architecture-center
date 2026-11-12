@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <svg xmlns="http://www.w3.org/2000/svg" width="1750" height="940" viewBox="0 0 1750 940"
-     font-family="Segoe UI, Arial, sans-serif">
+     font-family="Segoe UI, sans-serif">
   <title>Choose an Azure service for vector search</title>
   <desc>Decision tree for choosing among Azure Managed Redis, Azure Database for PostgreSQL (with Elastic Clusters), Azure SQL Database, Azure Cosmos DB for NoSQL, Azure DocumentDB, and Azure AI Search.</desc>
   <defs>

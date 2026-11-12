@@ -24,12 +24,12 @@
     .group    { fill: #ffffff; stroke: #a7b6cc; stroke-width: 1.5; }
     .card     { fill: #ffffff; stroke: #cdd8e6; stroke-width: 1.5; }
     .bar      { fill: #0f6cbd; }
-    .barTxt   { font: 700 18px "Segoe UI", Arial, sans-serif; fill: #ffffff; }
-    .barSub   { font: 400 13px "Segoe UI", Arial, sans-serif; fill: #d7e8fa; }
-    .groupLbl { font: 600 13px "Segoe UI", Arial, sans-serif; fill: #3a4a63; }
-    .vmTxt    { font: 600 13px "Segoe UI", Arial, sans-serif; fill: #0a4b8c; }
-    .lbTxt    { font: 600 13px "Segoe UI", Arial, sans-serif; fill: #0a4b8c; }
-    .note     { font: 400 13px "Segoe UI", Arial, sans-serif; fill: #3a4a63; }
+    .barTxt   { font: 700 18px "Segoe UI", sans-serif; fill: #ffffff; }
+    .barSub   { font: 400 13px "Segoe UI", sans-serif; fill: #d7e8fa; }
+    .groupLbl { font: 600 13px "Segoe UI", sans-serif; fill: #3a4a63; }
+    .vmTxt    { font: 600 13px "Segoe UI", sans-serif; fill: #0a4b8c; }
+    .lbTxt    { font: 600 13px "Segoe UI", sans-serif; fill: #0a4b8c; }
+    .note     { font: 400 13px "Segoe UI", sans-serif; fill: #3a4a63; }
     .flow     { stroke: #5a6b85; stroke-width: 2; fill: none; }
     .repl     { stroke: #0f6cbd; stroke-width: 2.5; stroke-dasharray: 8 5; fill: none; }
   </style>

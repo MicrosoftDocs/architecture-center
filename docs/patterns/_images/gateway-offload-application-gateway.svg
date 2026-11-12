@@ -1,4 +1,4 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="860px" height="460px" viewBox="0 0 860 460" font-family="Segoe UI, Arial, sans-serif" role="img" aria-label="Application Gateway WAF_v2 with HTTPS backend settings and certificate validation">
+<svg xmlns="http://www.w3.org/2000/svg" width="860px" height="460px" viewBox="0 0 860 460" font-family="Segoe UI, sans-serif" role="img" aria-label="Application Gateway WAF_v2 with HTTPS backend settings and certificate validation">
   <rect width="860" height="460" fill="#fff"/>
   <defs>
     <marker id="arrow" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto" markerUnits="strokeWidth">

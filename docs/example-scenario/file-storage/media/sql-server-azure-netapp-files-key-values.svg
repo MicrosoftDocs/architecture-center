@@ -1479,7 +1479,7 @@
        transform="matrix(1.47125 0 0 1.47078 920.701 361)"
        font-size="8"
        font-weight="400"
-       font-family="Arial,Arial_MSFontService,sans-serif"
+       font-family="Segoe UI,Segoe UI_MSFontService,sans-serif"
        fill="#FFFFFF">log</text>
     <path
        id="path1414"
@@ -1498,7 +1498,7 @@
        transform="matrix(1.47125 0 0 1.47078 917.023 324)"
        font-size="8"
        font-weight="400"
-       font-family="Arial,Arial_MSFontService,sans-serif"
+       font-family="Segoe UI,Segoe UI_MSFontService,sans-serif"
        fill="#FFFFFF">data</text>
     <path
        id="path1420"
@@ -1517,7 +1517,7 @@
        transform="matrix(1.47125 0 0 1.47078 907.443 284)"
        font-size="8"
        font-weight="400"
-       font-family="Arial,Arial_MSFontService,sans-serif"
+       font-family="Segoe UI,Segoe UI_MSFontService,sans-serif"
        fill="#FFFFFF">binaries</text>
     <path
        id="path1426"
@@ -1654,7 +1654,7 @@
          transform="matrix(1.47125 0 0 1.47078 624.975 492)"
          font-size="12"
          font-weight="400"
-         font-family="Arial,Arial_MSFontService,sans-serif"
+         font-family="Segoe UI,Segoe UI_MSFontService,sans-serif"
          fill="#1A1A1A">Performance</text>
     </g>
     <g
@@ -1665,7 +1665,7 @@
          transform="matrix(1.47125,0,0,1.47078,624.975,512)"
          font-size="12px"
          font-weight="400"
-         font-family="Arial, Arial_MSFontService, sans-serif"
+         font-family="Segoe UI, Segoe UI_MSFontService, sans-serif"
          fill="#1a1a1a">requirement</text>
     </g>
     <text
@@ -1673,7 +1673,7 @@
        transform="matrix(1.47125 0 0 1.47078 854.895 502)"
        font-size="10"
        font-weight="400"
-       font-family="Arial,Arial_MSFontService,sans-serif"
+       font-family="Segoe UI,Segoe UI_MSFontService,sans-serif"
        fill="#171717">Low<tspan
    id="tspan1468"
    y="0"
@@ -1722,7 +1722,7 @@
        transform="matrix(1.47125 0 0 1.47078 1071.17 361)"
        font-size="8"
        font-weight="400"
-       font-family="Arial,Arial_MSFontService,sans-serif"
+       font-family="Segoe UI,Segoe UI_MSFontService,sans-serif"
        fill="#FFFFFF">log</text>
     <path
        id="path1492"
@@ -1741,7 +1741,7 @@
        transform="matrix(1.47125 0 0 1.47078 1067.49 324)"
        font-size="8"
        font-weight="400"
-       font-family="Arial,Arial_MSFontService,sans-serif"
+       font-family="Segoe UI,Segoe UI_MSFontService,sans-serif"
        fill="#FFFFFF">data</text>
     <path
        id="path1498"
@@ -1760,7 +1760,7 @@
        transform="matrix(1.47125 0 0 1.47078 1057.91 284)"
        font-size="8"
        font-weight="400"
-       font-family="Arial,Arial_MSFontService,sans-serif"
+       font-family="Segoe UI,Segoe UI_MSFontService,sans-serif"
        fill="#FFFFFF">binaries</text>
     <g
        id="g1514"
