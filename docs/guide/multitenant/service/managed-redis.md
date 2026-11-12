@@ -103,15 +103,17 @@ Consider the following points when evaluating whether to deploy a shared instanc
 
 - **Tenant identifiers and key prefixes:** When you onboard a tenant to a shared instance, establish a unique and collision-resistant convention for key prefixes, like a tenant identifier. A prefix helps you identify, meter, and manage the tenant's keys, but it doesn't enforce authorization.
 
-- **Data lifecycle and durability:** Azure Managed Redis is designed for ephemeral data by default. Don't use it as the authoritative system of record. Keep authoritative data and data that can't be reconstructed in durable storage when data loss is unacceptable.
+- **Data durability:** Azure Managed Redis is designed for ephemeral data by default. Don't use it as the authoritative system of record. Keep authoritative data and data that can't be reconstructed in durable storage when data loss is unacceptable.
 
-    [Persistence](/azure/redis/how-to-persistence) requires high availability and can't be used with active geo-replication. It supports automatic recovery to the same instance, but it isn't a retained backup or point-in-time recovery feature.
+- **Persistence:** [Persistence](/azure/redis/how-to-persistence) requires high availability and can't be used with active geo-replication. It supports automatic recovery to the same instance, but it isn't a retained backup or point-in-time recovery feature.
 
-    Automate [exports](/azure/redis/how-to-import-export-data) when you need retained backups or recovery into another instance. To migrate a tenant to a dedicated instance, use an application-controlled process that copies only that tenant's data. Exports are instance-wide snapshots, so don't directly import a shared instance's export into a tenant's dedicated instance.
+- **Backups:** Automate [exports](/azure/redis/how-to-import-export-data) when you need retained backups or recovery into another instance.
 
-    Set workload-appropriate time-to-live (TTL) values and an eviction policy. In a shared instance, all tenants share memory capacity and the eviction policy, so memory pressure from one tenant can affect cached data for other tenants. Design applications to tolerate evictions and reconstruct cached data.
+- **Tenant migration:** To migrate a tenant to a dedicated instance, use an application-controlled process that copies only that tenant's data. Exports are instance-wide snapshots, so don't directly import a shared instance's export into a tenant's dedicated instance.
 
-    When you offboard a tenant, use the [SCAN](https://redis.io/docs/latest/commands/scan/) command with a tenant-specific pattern to identify and delete the tenant's keys.
+- **Expiration and eviction:** Set workload-appropriate time-to-live (TTL) values and an eviction policy. In a shared instance, all tenants share memory capacity and the eviction policy, so memory pressure from one tenant can affect cached data for other tenants. Design applications to tolerate evictions and reconstruct cached data.
+
+- **Tenant offboarding:** When you offboard a tenant, use the [SCAN](https://redis.io/docs/latest/commands/scan/) command with a tenant-specific pattern to identify and delete the tenant's keys.
 
 - **Avoid noisy neighbor problems:** When your tenants share an instance, those tenants share the same underlying compute resources. This approach is vulnerable to the [noisy neighbor problem](../../../antipatterns/noisy-neighbor/noisy-neighbor.yml), where the activity of one tenant can negatively affect another tenant's use of the system. Follow Azure Managed Redis best practices to use the instance's resources efficiently and mitigate noisy neighbor effects:
 

@@ -169,7 +169,12 @@ Some shared components require reconfiguration when tenants are added or removed
 
 Shared components might have complex scaling rules that your control plane needs to follow. For example, if you use a [bin-packing](../approaches/resource-organization.md#bin-packing) approach to deploy your tenants' databases, the control plane must assign each new database to an Azure SQL elastic pool.
 
-You might determine that you need to increase the resources allocated to your pool for every tenth database that you add. When you add or remove a tenant, your control plane needs to re-evaluate the pool's configuration and decide whether to change the pool's resources. When you reach the maximum number of databases that you can assign to a single elastic pool, you need to create a new pool and use that pool for new tenant databases. Your control plane must manage each of these shared components, including scaling and reconfiguring them when changes occur.
+In this example, the control plane needs to respond to the following changes:
+
+- **Tenant added or removed:** Re-evaluate the pool's configuration and decide whether to change the pool's resources. For example, your workload might require you to increase the resources allocated to your pool for every tenth database that you add.
+- **Pool limit reached:** When you reach the maximum number of databases that you can assign to a single elastic pool, create a new pool and use that pool for new tenant databases.
+
+Your control plane must manage each of these shared components, including scaling and reconfiguring them when changes occur.
 
 When your control plane manages shared components, it's important to be aware of race conditions, which can occur when multiple operations happen in parallel. For example, if you onboard a new tenant at the same time that you offboard a different tenant, you need to ensure that your ultimate end state is consistent and meets your scaling requirements.
 

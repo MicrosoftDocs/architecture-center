@@ -41,7 +41,11 @@ You can deploy a shared App Configuration store for your whole solution, or one 
 
 If you need to store a large amount of data per tenant, or scale to a large number of tenants, you might be at risk of exceeding [the resource limits for a single store](/azure/azure-resource-manager/management/azure-subscription-service-limits#azure-app-configuration). In this scenario, consider whether you can share your tenants across a set of shared stores to minimize the deployment and management costs.
 
-If you follow this approach, ensure you understand the [resource quotas and limits](/azure/azure-resource-manager/management/azure-subscription-service-limits#azure-app-configuration) that apply. In particular, consider the storage, request quota, and throughput limits for the service tier that you use. For Standard stores, [geo-replication](/azure/azure-app-configuration/howto-geo-replication) can increase request-quota capacity because each replica has a separate request quota, and supported provider libraries can load-balance requests across replicas. Premium stores have no request quota limit. Use multiple stores when storage limits or tenant partitioning require them.
+If you follow this approach, ensure you understand the [resource quotas and limits](/azure/azure-resource-manager/management/azure-subscription-service-limits#azure-app-configuration) that apply. Consider the storage, request quota, and throughput limits for the service tier that you use:
+
+- **Standard request quotas:** [Geo-replication](/azure/azure-app-configuration/howto-geo-replication) can increase request-quota capacity because each replica has a separate request quota, and supported provider libraries can load-balance requests across replicas.
+- **Premium request quotas:** Premium stores have no request quota limit.
+- **Storage and tenant partitioning:** Use multiple stores when storage limits or tenant partitioning require them.
 
 Geo-replication doesn't prevent [noisy-neighbor issues](../../../antipatterns/noisy-neighbor/noisy-neighbor.yml). Apply tenant-aware rate limits or quotas in your application, and monitor request usage by tenant.
 

@@ -61,7 +61,13 @@ For more information about integration with tenants' systems and external system
 
 ### Your access to tenants' data
 
-Consider whether your tenants' requirements restrict the personnel who can work with their data or resources. For example, suppose you build a software as a service (SaaS) solution that many different customers use. A government agency might require that only citizens of their country or region are allowed to access the infrastructure and data for their solution. You might meet this requirement by using separate Azure resource groups or subscriptions for sensitive customer workloads, and by organizing tenant-specific subscriptions under management groups for inherited policy and access control. Review all inherited Azure role-based access control (Azure RBAC) assignments from parent management groups and subscriptions to ensure that nonapproved administrators don't retain access to sensitive workloads. If the shared identity or resource hierarchy can't satisfy the personnel restriction, consider using a separate Microsoft Entra tenant, a separate management-group hierarchy with dedicated subscriptions, or a dedicated environment for those tenants.
+Consider whether your tenants' requirements restrict the personnel who can work with their data or resources. For example, suppose you build a software as a service (SaaS) solution that many different customers use. A government agency might require that only citizens of their country or region are allowed to access the infrastructure and data for their solution.
+
+Evaluate the following controls against the tenant's personnel restrictions:
+
+- **Resource organization:** Consider separate Azure resource groups or subscriptions for sensitive customer workloads, and organize tenant-specific subscriptions under management groups for inherited policy and access control.
+- **Inherited access:** Review all inherited Azure role-based access control (Azure RBAC) assignments from parent management groups and subscriptions to ensure that nonapproved administrators don't retain access to sensitive workloads.
+- **Additional isolation:** If the shared identity or resource hierarchy can't satisfy the personnel restriction, consider using a separate Microsoft Entra tenant, a separate management-group hierarchy with dedicated subscriptions, or a dedicated environment for those tenants.
 
 ### Aggregation of data from multiple tenants
 

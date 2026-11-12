@@ -85,7 +85,7 @@ For more information, see the following articles:
 
 Postgres uses a process-based model for connections. This model makes it inefficient to maintain large numbers of idle connections. Some multitenant architectures require many active connections, which negatively affect the performance of the Postgres server.
 
-Connection pooling via PgBouncer is installed by default in Azure Database for PostgreSQL.
+Azure Database for PostgreSQL flexible server provides built-in PgBouncer connection pooling on the General Purpose and Memory Optimized compute tiers. Before you use the PgBouncer endpoint, verify that the [`pgbouncer.enabled` server parameter](/azure/postgresql/parameters/parameters-pgbouncer#pgbouncerenabled) is set to `true`.
 
 For more information, see the following articles:
 
