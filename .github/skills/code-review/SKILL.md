@@ -46,6 +46,14 @@ In editorial-only review mode, this section takes precedence over the normal Cop
 - Don't ask the copy editor to expand the scope of the pull request.
 - Prefer an inline suggestion when you can provide the exact replacement. Don't manufacture a comment when the changed text has no actionable copyediting issue.
 
+## Multitenant architecture guidance
+
+After applying the operational sync and editorial-only rules, check whether any changed files are under `docs/guide/multitenant/`.
+
+For affected articles in that collection, read and apply [Multitenant architecture review principles](references/multitenant.md) alongside the checks below. This includes changes to article bodies, paired YAML metadata, shared includes, and images; review those supporting files in the context of the affected articles. In a mixed pull request, apply this lens only to the affected multitenant articles. Review other content normally.
+
+These principles supplement the existing review and tailor its expectations to this collection's purpose and guidance layers. They don't enable technical review for editorial-only pull requests or override the operational sync exclusion or repeat-run limits.
+
 ## Scope: the whole article
 
 Evaluate the article as it stands in this pull request, not just the changed lines. Read the full content body and the paired `.yml` metadata, if one exists, before you comment on anything.
