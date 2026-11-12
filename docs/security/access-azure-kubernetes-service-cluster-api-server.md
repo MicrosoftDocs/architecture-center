@@ -147,7 +147,7 @@ You can use native client tunneling to connect directly to AKS private clusters 
    az aks bastion --name <AKSClusterName> --resource-group <AKSClusterResourceGroup> --admin --bastion <BastionResourceId>
    ```
 
-1. Update your kubeconfig file to point to the Azure Bastion tunnel:
+1. Extract the local port for the Azure Bastion tunnel from the running process, then update the `server` entry in your kubeconfig file to use `https://localhost:<port>`:
 
    ```bash
    export BASTION_PORT=$(ps aux | sed -n 's/.*--port \([0-9]*\).*/\1/p' | head -1)
