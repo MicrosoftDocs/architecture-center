@@ -152,7 +152,7 @@ For Web App for Containers, there are no constraints on the number of apps that 
 
 ### Ingress IP address availability
 
-The following table incorporates the previous subnet planning section to define the number of IP addresses that can be exposed. It applies to an arbitrary number of applications hosted within a single deployment of an Azure container service.
+The following table summarizes the number of ingress IP addresses available for each service. It applies to an arbitrary number of applications hosted within a single deployment of an Azure container service. For related network constraints, see [Subnet planning](#subnet-planning).
 
 | Capability | Container Apps | AKS | Web App for Containers |
 |---|---|---|---|
