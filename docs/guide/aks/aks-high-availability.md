@@ -110,7 +110,7 @@ Kubernetes provides the following mechanisms to implement these phases:
 
   The mechanism by which external traffic reaches your AKS cluster is outside the scope of Kubernetes. You can handle external traffic by using services such as [Azure Application Gateway](https://azure.microsoft.com/products/application-gateway/#overview).
 
-- **Leader election.** Some components are best deployed as singletons. The scheduler is such a component, because two active schedulers can conflict with each other. Using a singleton exposes the application to cold standby problems. To enable warm standby of a pod, you can use leader election, where only one pod, the leader, handles requests.
+- **Leader election.** Some application components, such as task schedulers, need one active coordinator. To keep standby replicas available for takeover, use the [Leader Election pattern](../../patterns/leader-election.md). Account for failover delays and prevent stale leaders from continuing to coordinate work.
 
 - **Restart policy.** Configuration: `spec.restartPolicy`. The restart policy applies to all containers in the pod. There should be valid justification for setting this attribute to `Never`. Some containers contact a license server each time they start, and you might want to avoid the added costs of excessive restarts.
 

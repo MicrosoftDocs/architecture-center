@@ -93,7 +93,7 @@ Azure Cosmos DB features:
 
 Data is stored in the rows of a table, and data within a row is grouped by column family. HBase is schemaless in the sense that you don't need to define the columns and the type of data stored in them before you use them. The open-source code scales linearly to handle petabytes of data on thousands of nodes. It can rely on data redundancy, batch processing, and other features that are provided by distributed applications in the Hadoop ecosystem.
 
-The [HDInsight implementation](/azure/hdinsight/hbase/apache-hbase-overview) uses the scale-out architecture of HBase to provide automatic sharding of tables, strong consistency for reads and writes, and automatic failover. Performance is enhanced by in-memory caching for reads and high-throughput streaming for writes. In most cases, you want to [create the HBase cluster inside a virtual network](/azure/hdinsight/hbase/apache-hbase-provision-vnet) so other HDInsight clusters and applications can directly access the tables.
+The [HDInsight implementation](/azure/hdinsight/hbase/apache-hbase-overview) uses the scale-out architecture of HBase to provide automatic sharding of tables, strong consistency for reads and writes, and automatic failover. Performance is enhanced by in-memory caching for reads and high-throughput streaming for writes. To let other HDInsight clusters and applications directly access the tables, [create the HBase cluster inside a virtual network](/azure/hdinsight/hbase/apache-hbase-provision-vnet).
 
 ## Azure Data Explorer
 

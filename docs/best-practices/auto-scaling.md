@@ -127,6 +127,8 @@ Autoscaling isn't an instant solution. Adding resources to a system or running m
 
 - Account for the instance lifecycle. Initialize new instances before routing traffic to them. During scale-in, stop assigning new work to departing instances and drain connections or checkpoint in-flight work.
 
+  For workloads with an elected coordinator, plan for its termination during scale-in. See the [Leader Election pattern](../patterns/leader-election.md#issues-and-considerations).
+
 - Identify the bottleneck before adding compute capacity. A database, message broker, or downstream API might limit throughput even when more compute instances are available. Define which components must scale together and check their capacity limits. For more information, see [Capacity planning](/azure/well-architected/performance-efficiency/capacity-planning).
 
 - Test scaling in a production-like environment before relying on it. Include gradual load increases, sudden bursts, sustained demand, and scale-in. Measure response time, throughput, errors, queue backlog, and the delay until new capacity can serve requests. Check whether additional instances overload dependencies. For more information, see [Test scaling](/azure/well-architected/performance-efficiency/scale-partition#test-scaling).
