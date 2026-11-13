@@ -160,7 +160,7 @@ Operational Excellence covers the operations processes that deploy an applicatio
 
 - You need to build or extend your APIOps approach to cover the APIs exposed in the gateway.
 
-- Some gateway functionality overlaps with capabilities already built into Azure AI Services or the Foundry data zone load distribution.
+- Evaluate existing platform capabilities before adding gateway policies. For example, [Global Standard](/azure/foundry/foundry-models/concepts/deployment-types#global-standard) deployments already route requests to available datacenters, and [Data Zone Standard](/azure/foundry/foundry-models/concepts/deployment-types#data-zone-standard) deployments route requests within the specified data zone. This routing doesn't replace failover between Foundry resources, as described in [Reliability challenges](#reliability-challenges).
 
 ### Performance Efficiency
 
