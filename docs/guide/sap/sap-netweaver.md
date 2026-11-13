@@ -37,7 +37,7 @@ This architecture deploys a production system that has specific virtual machine 
 
 ### Workflow
 
-The following workflow corresponds to the previous diagram:
+The following workflow corresponds to the SAP NetWeaver on Windows architecture shown in the [Architecture](#architecture) diagram:
 
 1. **SAP database layer:** The database is at the core of each SAP installation and stores application data and programs. In this case, the database is replicated to provide high availability.
 
