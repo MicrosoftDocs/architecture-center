@@ -127,7 +127,7 @@ Global Reach has no network access control lists (ACLs) or other attributes that
 
 [ExpressRoute FastPath](/azure/expressroute/about-fastpath) improves the data path performance between your on-premises network and your virtual network. Virtual network peering over FastPath is supported. When you activate FastPath, it sends network traffic directly to VMs in the virtual network and bypasses the gateway.
 
-All new ExpressRoute connections to Azure use FastPath as the default configuration. For existing ExpressRoute circuits, contact Azure support to activate FastPath.
+FastPath supports both ExpressRoute Direct and ExpressRoute provider circuits. Provider circuits support IPv4 only. To use FastPath with the virtual network gateway in this architecture, ensure that your gateway meets the [FastPath prerequisites](/azure/expressroute/about-fastpath#prerequisites), and [enable FastPath on your new or existing connection](/azure/expressroute/expressroute-howto-linkvnet-portal-resource-manager#configure-expressroute-fastpath).
 
 | Scenario                         | FastPath and virtual network peering |
 | : ------------------------------ | :--------------------------------- |
