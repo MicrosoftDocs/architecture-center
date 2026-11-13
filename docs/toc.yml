@@ -139,7 +139,7 @@ items:
       href: patterns/index-table.md
     - name: Leader Election
       displayName: Distributed coordination
-      href: patterns/leader-election.yml
+      href: patterns/leader-election.md
     - name: Materialized View
       displayName: Precomputed query results, read optimization, denormalized view
       href: patterns/materialized-view.md

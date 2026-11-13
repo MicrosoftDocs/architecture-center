@@ -52,7 +52,7 @@ A self-healing workload design is fundamental in the [Azure Well-Architected Fra
 
 **Block bad actors.** Throttling doesn't imply malicious intent. It means that the client exceeded their service quota. But if a client consistently exceeds their quota or otherwise behaves badly, you might block them. Define an out-of-band process for users to request unblocking.
 
-**Use leader election.** When you need to coordinate a task, use the [Leader Election pattern](../../patterns/leader-election.yml) to select a coordinator. This approach ensures that the coordinator isn't a single point of failure. If the coordinator fails, the system selects a new one. Rather than implementing a custom leader election algorithm, consider a prebuilt solution such as [Apache ZooKeeper](https://zookeeper.apache.org/).
+**Use leader election.** When you need to coordinate a task, use the [Leader Election pattern](../../patterns/leader-election.md) to select a coordinator and elect a replacement if it fails. Rather than implementing a custom leader election algorithm, consider a prebuilt solution such as [Apache ZooKeeper](https://zookeeper.apache.org/).
 
 **Test by using fault injection.** The success path often receives thorough testing, but the failure path doesn't. A system can run in production for a long time before a failure path is triggered. Use fault injection to test the system's resiliency by triggering or simulating failures.
 

@@ -44,7 +44,7 @@ Azure SQL Database and SQL Server support optimistic concurrency through [snapsh
 
 **Consider MapReduce or other parallel, distributed algorithms.** Depending on the data and type of work to be performed, you might be able to split the work into independent tasks that can be performed by multiple nodes working in parallel. See [Big compute architecture style][big-compute].
 
-**Use leader election for coordination.** In cases where you need to coordinate operations, make sure the coordinator does not become a single point of failure in the application. Using the [Leader Election pattern][leader-election], one instance is the leader at any time, and acts as the coordinator. If the leader fails, a new instance is elected to be the leader.
+**Use leader election for coordination.** When operations require a coordinator, use the [Leader Election pattern](../../patterns/leader-election.md) to select a coordinator and elect a replacement if it fails. Account for failover delays, and prevent a former leader from continuing to modify shared resources.
 
 ## Handle coordination between occasionally connected clients
 
@@ -64,7 +64,6 @@ Eventual consistency alone isn't sufficient when disconnected clients consume a 
 [cosmos-db-faq]: /azure/cosmos-db/faq
 [domain-event]: https://martinfowler.com/eaaDev/DomainEvent.html
 [event-sourcing]: ../../patterns/event-sourcing.md
-[leader-election]: ../../patterns/leader-election.yml
 [sas-pattern]: ../../patterns/scheduler-agent-supervisor.md
 [sql-snapshot-isolation]: /sql/t-sql/statements/set-transaction-isolation-level-transact-sql
 [storage-concurrency]: https://azure.microsoft.com/blog/managing-concurrency-in-microsoft-azure-storage-2

@@ -257,13 +257,15 @@ Ensure that the background task can restart automatically and has sufficient cap
 
 Background tasks can be complex and require multiple individual tasks to produce a result or fulfill all requirements. In these scenarios, teams often divide the task into smaller, discrete steps or subtasks that multiple consumers can run. Multistep jobs often increase efficiency and flexibility because multiple jobs can reuse individual steps. You can also add, remove, or reorder the steps.
 
-It can be challenging to coordinate tasks, but three common patterns can guide your implementation:
+It can be challenging to coordinate tasks, but four common patterns can guide your implementation:
 
 - **Divide a task into multiple reusable steps.** A background job processes information through several stages like validate, transform, and store. You can divide this flow into discrete filters connected by queues. Each step runs independently and can scale or be used in different jobs. For more information, see the [Pipes and Filters pattern](../patterns/pipes-and-filters.yml).
 
 - **Manage how the steps run for a task.** A background job composed of several steps that call remote services or access remote resources needs orchestration logic to sequence the steps, handle timeouts, and track progress. For more information, see [Scheduler Agent Supervisor pattern](../patterns/scheduler-agent-supervisor.md).
 
 - **Manage recovery for task steps that fail.** A background job that spans multiple steps (which together define an eventually consistent operation) might need to undo completed work if a later step fails. For more information, see the [Compensating Transaction pattern](../patterns/compensating-transaction.md).
+
+- **Select an active coordinator.** Use the [Leader Election pattern](../patterns/leader-election.md#when-to-use-this-pattern) if one instance must coordinate other workers and standby candidates must be able to take over.
 
 ## Reliability considerations
 
@@ -337,5 +339,4 @@ Background tasks must keep pace with the rate at which work arrives. If tasks fa
 - [Pipes and Filters pattern](../patterns/pipes-and-filters.yml)
 - [Scheduler Agent Supervisor pattern](../patterns/scheduler-agent-supervisor.md)
 - [Compensating Transaction pattern](../patterns/compensating-transaction.md)
-- [Leader Election pattern](../patterns/leader-election.yml)
 - [Competing Consumers pattern](../patterns/competing-consumers.md)
