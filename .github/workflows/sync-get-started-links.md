@@ -18,7 +18,6 @@ engine:
   id: copilot
   copilot-sdk: true
 max-tool-denials: 3
-strict: true
 
 
 tracker-id: sync-get-started-links
