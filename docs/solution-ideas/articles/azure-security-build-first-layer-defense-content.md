@@ -78,7 +78,7 @@ The numbers in the ATT&CK matrix correspond to technique numbers assigned by [MI
 
 - [Azure Bastion](/azure/bastion/bastion-overview) provides jump server functionality. You can use this service to access your VMs through remote desktop protocol (RDP) or SSH without exposing them to the internet.
 
-- [Microsoft Defender Antivirus in Windows](/microsoft-365/security/defender-endpoint/microsoft-defender-antivirus-windows) provides anti-malware services. It's part of Windows 10, Windows 11, Windows Server 2016, and Windows Server 2019.
+- [Microsoft Defender Antivirus in Windows](/defender-endpoint/microsoft-defender-antivirus-windows) provides antimalware protection for Windows clients and Windows Server.
 
 - [Encryption at host](/azure/virtual-machines/disk-encryption#encryption-at-host---end-to-end-encryption-for-your-vm-data) is an optional enhancement to Azure managed disks that provides end-to-end encryption for VM data, including temporary disks and disk caches, for supported VM sizes. Azure managed disks are encrypted at rest by default with server-side encryption (SSE).
 

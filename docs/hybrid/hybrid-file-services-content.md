@@ -59,16 +59,15 @@ You can download the agent from the [Azure File Sync Agent Download][Azure File 
 
 #### Operating system requirements
 
-Azure File Sync is supported by the Windows Server versions that are listed in the following table.
+Use one of the following Windows Server versions supported by Azure File Sync.
 
-|Version|Supported SKUs|Supported deployment options|
+|Version|Supported editions|Supported deployment options|
 |---------|----------------|------------------------------|
-|Windows Server 2025|Azure, Datacenter, Standard, and IoT|Full and Core|
+|Windows Server 2025|Azure, Datacenter, Essentials, Standard, and IoT|Full and Core|
 |Windows Server 2022|Azure, Datacenter, Essentials, Standard, and IoT|Full and Core|
-|Windows Server 2019|Datacenter, Standard, and IoT|Full and Core|
-|Windows Server 2016|Datacenter, Standard, and Storage Server|Full and Core|
+|Windows Server 2019|Datacenter, Essentials, Standard, and IoT|Full and Core|
 
-For more information, see [Windows file server considerations][Windows file server considerations].
+For the complete support matrix, see [Azure File Sync operating system requirements][Windows file server considerations].
 
 ### Configuring sync groups and cloud endpoints
 
@@ -201,11 +200,8 @@ Related architectures:
 - [Use Azure file shares in a hybrid environment](azure-file-share.yml)
 
 [Visio diagram]: https://arch-center.azureedge.net/hybrid-file-services.vsdx
-[Storage Account]: /azure/storage/common/storage-account-overview
-[Azure Files]: /azure/storage/files/storage-files-planning
-[Microsoft Entra ID]: /entra/fundamentals/whatis
 [Azure File Sync proxy and firewall settings]: /azure/storage/files/storage-sync-files-firewall-and-proxy
-[Windows file server considerations]: /azure/storage/files/storage-sync-files-planning#windows-file-server-considerations
+[Windows file server considerations]: /azure/storage/file-sync/file-sync-planning#operating-system-requirements
 [Azure File Sync Agent Download]: https://go.microsoft.com/fwlink/?linkid=858257
 [Azure File Sync region availability]: /azure/storage/files/storage-sync-files-planning#azure-file-sync-region-availability
 [Azure File Sync networking considerations]: /azure/storage/files/storage-sync-files-networking-overview

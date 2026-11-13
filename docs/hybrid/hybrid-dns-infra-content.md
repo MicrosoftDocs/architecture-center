@@ -171,7 +171,7 @@ This approach might seem intuitive, but it introduces a high level of complexity
 
   - BIND servers that use a version earlier than 9.4, CoreDNS, and Windows DNS servers query the upstream DNS servers in order. They use a DNS server configured in a conditional forwarding rule only if all earlier servers in the list are unreachable. As a result, DNS resolution for these servers is predictable under normal circumstances because they return the records that are configured in the private DNS zone closest to the on-premises DNS server.
 
-    - Windows Server 2012 introduced Dynamic Forwarder Reordering, where the server reorders forwarders based on measured response times. You can turn off this behavior by using PowerShell (`Set-DnsServerForwarder -EnableReordering $False`) to enforce strict sequential use of the listed order.
+    - Windows DNS servers use [dynamic forwarder reordering](/windows-server/networking/dns/forwarding#server-level-forwarder-selection-and-ordering) to reorder server-level forwarders based on measured response times. You can turn off this behavior by using PowerShell (`Set-DnsServerForwarder -EnableReordering $False`) to enforce strict sequential use of the listed order.
 
     - CoreDNS uses a round-robin distribution by default. You can configure it to use a deterministic order by setting the policy in the forward plugin to `sequential`.
 

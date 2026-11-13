@@ -14,7 +14,7 @@ The article shows how to implement multifactor authentication for Outlook deskto
 
 *Download a [Visio file](https://arch-center.azureedge.net/secure-hybrid-messaging-client.vsdx) of all diagrams in this article.*
 
-In this scenario, users need to use the version of Outlook client that supports modern authentication. For more information, see [How modern authentication works for Office 2013, Office 2016, and Office 2019 client apps](/microsoft-365/enterprise/modern-auth-for-office-2013-and-2016?view=o365-worldwide). This architecture covers both Outlook for Windows and Outlook for Mac.
+In this scenario, users need to use the version of Outlook client that supports modern authentication. For more information, see [How modern authentication works for Office 2016 and Office 2019 client apps](/microsoft-365/enterprise/modern-auth-for-office-2013-and-2016?view=o365-worldwide). This architecture covers both Outlook for Windows and Outlook for Mac.
 
 ### Workflow (Exchange Online)
 
@@ -72,7 +72,7 @@ This scenario is the same as the previous one, except that it uses a different t
 >
 > We recommend this scenario only if you're unable to use the previous one.
 
-In this scenario, users need to use the version of Outlook client that supports modern authentication. For more information, see [How modern authentication works for Office 2013, Office 2016, and Office 2019 client apps](/microsoft-365/enterprise/modern-auth-for-office-2013-and-2016?view=o365-worldwide). This architecture covers both Outlook for Windows and Outlook for Mac.
+In this scenario, users need to use the version of Outlook client that supports modern authentication. For more information, see [How modern authentication works for Office 2016 and Office 2019 client apps](/microsoft-365/enterprise/modern-auth-for-office-2013-and-2016?view=o365-worldwide). This architecture covers both Outlook for Windows and Outlook for Mac.
 
 ### Workflow (Exchange Online, AD FS)
 
