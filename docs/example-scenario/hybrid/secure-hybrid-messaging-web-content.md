@@ -49,7 +49,7 @@ In this architecture, we divide the solution into two areas, describing security
 
 To implement this scenario for an on-premises user, you need to configure Exchange and AD FS to set up AD FS to pre-authenticate web access requests. For more information, see [Use AD FS claims-based authentication with Outlook on the web](/exchange/clients/outlook-on-the-web/ad-fs-claims-based-auth?view=exchserver-2019). 
 
-You also need to enable integration of AD FS and Microsoft Entra multifactor authentication. For more information, see [Configure Azure MFA as authentication provider with AD FS](/windows-server/identity/ad-fs/operations/configure-ad-fs-and-azure-mfa). (This integration requires AD FS 2016 or 2019.) Finally, you need to synchronize users to Microsoft Entra ID and assign them licenses for Microsoft Entra multifactor authentication.
+You also need to enable integration of AD FS and Microsoft Entra multifactor authentication. For more information, see [Configure Azure MFA as authentication provider with AD FS](/windows-server/identity/ad-fs/operations/configure-ad-fs-and-azure-mfa). Finally, you need to synchronize users to Microsoft Entra ID and assign them licenses for Microsoft Entra multifactor authentication.
 
 ### Components
 

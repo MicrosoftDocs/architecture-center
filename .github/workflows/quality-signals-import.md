@@ -10,7 +10,6 @@ on:
 permissions:
   contents: read
   copilot-requests: write
-strict: true
 tracker-id: quality-signals-import
 
 if: github.repository == 'MicrosoftDocs/architecture-center-pr' && github.ref == format('refs/heads/{0}', github.event.repository.default_branch)
