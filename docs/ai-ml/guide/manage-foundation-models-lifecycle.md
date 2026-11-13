@@ -100,7 +100,7 @@ For each of these areas, consider downtime caused by updates and how you handle 
 
    For example, when you move from a generalized model to a domain-specific model, such as a model focused on finance or medicine, you might no longer need to pass domain-specific grounding data to the model. Another example is when a new model can handle a larger context window. In this scenario, you might want to retrieve other relevant chunks or tune the size of your chunks. For more information, see [Design and develop a retrieval-augmented generation (RAG) solution](/azure/architecture/ai-ml/guide/rag/rag-solution-design-and-evaluation-guide).
 
-1. **Hardware:** For models that run in MaaP, a model change might require new hardware. Only specific compute SKUs are enabled for models from the catalog. Also, hardware can be deprecated, which requires you to run the model on new hardware.
+1. **Hardware:** A model change might require different compute for deployments where you select or configure it. Hardware availability, quota, or end-of-life can also require a transition to new compute.
 
 ## Design for change
 
@@ -195,7 +195,7 @@ The [External Configuration Store](/azure/architecture/patterns/external-configu
 
 ### Compute choice
 
-For MaaP hosting, models are often limited to a subset of host-provided compute resources. All compute is subject to quotas, availability constraints, and end-of-life announcements. Use the routing patterns to support transition to new hardware when your current hardware is no longer supported or there are constraints that prevent extra scale-out.
+For deployments where you select or configure compute, the target model version and hosting experience determine which options are supported. Before upgrading, verify compatibility in the target version's model card and deployment documentation. For example, in Microsoft Foundry managed compute (preview), [deployment templates](/azure/foundry/concepts/managed-compute-overview#deployment-template) specify the accelerator family and count for each model instance. Quotas, regional availability, and hardware end-of-life can constrain scale or require a transition to different compute. Use the routing patterns to support the transition when your current hardware is no longer supported or available.
 
 An example of an end-of-life announcement is the [NC A100 v4 series of compute announcement](/azure/virtual-machines/sizes/retirement/nc-series-retirement). If you host models on this hardware, you have to transition to another supported SKU that isn't end-of-life and has more availability. This transition might also concurrently require a model change if the new SKU doesn't support your current model.
 
