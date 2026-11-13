@@ -17,7 +17,13 @@ permissions:
   pull-requests: read
   copilot-requests: write
 
-strict: true
+engine:
+  id: copilot
+  copilot-sdk: true
+  model-routing:
+    goal: cost
+    mode: auto
+
 tracker-id: lightbox-janitor
 
 network:

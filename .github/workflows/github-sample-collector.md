@@ -20,8 +20,6 @@ engine:
   id: copilot
   copilot-sdk: true
 max-tool-denials: 3
-strict: true
-
 
 tracker-id: github-sample-collector
 

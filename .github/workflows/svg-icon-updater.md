@@ -29,7 +29,9 @@ permissions:
 engine:
   id: copilot
   copilot-sdk: true
-strict: true
+  model-routing:
+    goal: cost
+    mode: auto
 tracker-id: svg-icon-updater
 max-tool-denials: 3
 timeout-minutes: 30
