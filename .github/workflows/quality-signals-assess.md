@@ -151,7 +151,14 @@ For a **PR**, make only the selected correction. Follow repository article-pair,
 
 Use `.github/pull_request_template.md`, preserving its headings, links section, and checklist. In **Summary and intent of this proposed change**, conversationally explain the reported problem, correction, and why it helps. Don't include validation or testing commentary anywhere in the PR body: commands, check results, or explanations of checks, builds, or tests that weren't run.
 
-For an **issue**, call `create_issue` safe-output tool with a meaningful title (the safe output adds its prefix). Include affected article links, problem and reader consequence, evidence, recommendation, this run's URL, why a PR isn't appropriate, and the decision or work needed. Distinguish facts from alternatives and open questions.
+For an **issue**, call `create_issue` safe-output tool with a specific, plain-language title (the safe output adds its prefix). Write conversationally for the person who will update the article. Present the findings and evidence directly, using short sentences and at least these sections:
+
+- **What I found:** Link to the affected article and section. Quote the relevant wording or describe the specific omission. Explain the problem in everyday language.
+- **Why it matters:** Explain how the problem could affect a reader's task or architectural decision. Link to supporting sources and explain what each link describes.
+- **Why I need your judgment:** Explain why the evidence and existing guidance weren't enough to reach a decision. Identify the specific choice that depends on the article author's intent, audience, or architectural trade-offs. Describe the defensible options and their consequences.
+- **Suggested next step:** Give your preferred correction and explain why it helps customers be more successful. State the specific question the article author needs to answer or the broader work needed before a PR.
+
+Use concrete descriptions instead of assessment jargon. Before publishing, check that the issue text makes sense without knowing this workflow or its internal terminology. Always link to this run.
 
 Never call both creation tools or publish through `gh`, APIs, or other agent tools. Advance to `handed-off` under the contract only after unambiguous acknowledgement. If preparation, creation, or acknowledgement fails, retain `assessed`, don't retry or substitute a topic issue, and call `report_incomplete`.
 
