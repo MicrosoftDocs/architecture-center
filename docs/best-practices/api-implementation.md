@@ -65,7 +65,7 @@ A response body can contain data in different formats, such as JSON or XML. Clie
 
 If the client doesn't specify an `Accept` header, use a documented default format. ASP.NET Core controllers use JSON formatters by default. Define what happens when the API can't produce a requested representation. For example, configure the API to return 406 (Not Acceptable) rather than silently returning an unsupported format. For more information, see [Format response data in ASP.NET Core Web API](/aspnet/core/web-api/advanced/formatting).
 
-For requests with a body, check the request's `Content-Type` and accept only the formats that the operation supports. Return 415 (Unsupported Media Type) for an unsupported format. This check is separate from response negotiation via `Accept`. In ASP.NET Core, configure input formatters and use `[Consumes]` when you need to restrict an operation's request formats. For more informaion, see [Create web APIs with ASP.NET Core](/aspnet/core/web-api/).
+For requests with a body, check the request's `Content-Type` and accept only the formats that the operation supports. Return 415 (Unsupported Media Type) for an unsupported format. This check is separate from response negotiation via `Accept`. In ASP.NET Core, configure input formatters and use `[Consumes]` when you need to restrict an operation's request formats. For more information, see [Create web APIs with ASP.NET Core](/aspnet/core/web-api/).
 
 ### Implement the selected API versioning strategy
 
